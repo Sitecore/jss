@@ -11,6 +11,8 @@ describe('<Text />', () => {
     // that is marked as required.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
     const rendered = mount(Text);
     expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
@@ -22,6 +24,8 @@ describe('<Text />', () => {
     // that is marked as an Object.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
     const rendered = mount(Text, { props });
     expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();

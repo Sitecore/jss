@@ -10,6 +10,8 @@ describe('<Date />', () => {
     // that is marked as required.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
     const rendered = mount(DateField);
     expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();

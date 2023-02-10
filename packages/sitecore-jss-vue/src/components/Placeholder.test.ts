@@ -115,6 +115,8 @@ describe('<Placeholder />', () => {
         const phData: any = dataSet.data.sitecore.route.placeholders.main;
         const component = phData.find((c: any) => c.componentName);
         const phKey = 'page-content';
+        const warnSpy = jest.spyOn(console, 'warn');
+        warnSpy.mockImplementation(() => {});
 
         const renderedComponent = mount(Placeholder, {
           props: {
@@ -307,6 +309,8 @@ describe('<Placeholder />', () => {
         });
       },
     };
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
 
     const renderedComponent = mount(testComponent);
     expect(renderedComponent.html()).toMatchSnapshot();
