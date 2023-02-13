@@ -247,4 +247,4 @@ placeholders:
               <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
                 - componentName: Styleguide-EditFrame
                   fields:
-                    heading: Edit frame example
+                    heading: Edit Frame

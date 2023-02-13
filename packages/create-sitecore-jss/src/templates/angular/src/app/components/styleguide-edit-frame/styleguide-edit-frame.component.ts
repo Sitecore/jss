@@ -1,14 +1,21 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ComponentRendering, EditFrameDataSource, FieldEditButton, LayoutServiceContextData, RouteData, WebEditButton } from '@sitecore-jss/sitecore-jss-angular';
+import {
+  ComponentRendering,
+  EditFrameDataSource,
+  FieldEditButton,
+  LayoutServiceContextData,
+  RouteData,
+  WebEditButton
+} from '@sitecore-jss/sitecore-jss-angular';
 import { JssContextService } from '../../jss-context.service';
 
 interface EditFrameProps {
-  dataSource: EditFrameDataSource,
-  buttons: (FieldEditButton | WebEditButton | '|')[],
-  title: string,
-  tooltip: string,
-  cssClass: string,
-  parameters: object,
+  dataSource: EditFrameDataSource;
+  buttons: (FieldEditButton | WebEditButton | '|')[];
+  title: string;
+  tooltip: string;
+  cssClass: string;
+  parameters: object;
 }
 
 @Component({
@@ -22,6 +29,21 @@ export class StyleguideEditFrameComponent implements OnInit {
   };
 
   editFrameProps: EditFrameProps;
+
+  editFrameButtons = [
+    {
+      header: 'WebEditButton',
+      icon: '/~/icon/Office/16x16/document_selection.png',
+      click: 'javascript:alert("An edit frame button was just clicked!")',
+      tooltip: 'Doesnt do much, just a web edit button example',
+    }, // use javascript:, webedit: or chrome: commands for webedit buttons
+    {
+      header: 'FieldEditButton',
+      icon: '/~/icon/Office/16x16/pencil.png',
+      fields: ['heading'],
+      tooltip: 'Allows you to open field editor for specified fields',
+    }, // or use field edit buttons to open Field Editor
+  ];
 
   constructor(private jssContext: JssContextService) { }
 
@@ -49,19 +71,4 @@ export class StyleguideEditFrameComponent implements OnInit {
       sitecore: this.context,
     };
   };
-  
-  editFrameButtons = [
-    {
-      header: 'WebEditButton',
-      icon: '/~/icon/Office/16x16/document_selection.png',
-      click: 'javascript:alert("An edit frame button was just clicked!")',
-      tooltip: 'Doesnt do much, just a web edit button example',
-    }, // use javascript:, webedit: or chrome: commands for webedit buttons
-    {
-      header: 'FieldEditButton',
-      icon: '/~/icon/Office/16x16/pencil.png',
-      fields: ['heading'],
-      tooltip: 'Allows you to open field editor for specified fields',
-    }, // or use field edit buttons to open Field Editor
-  ];
 }

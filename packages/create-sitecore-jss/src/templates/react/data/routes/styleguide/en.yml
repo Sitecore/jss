@@ -251,5 +251,5 @@ placeholders:
           React-jss-styleguide-section:
           - componentName: Styleguide-EditFrame
             fields:
-              heading: Edit Frame Component
+              heading: Edit Frame
 

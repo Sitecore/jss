@@ -5,8 +5,10 @@ const StyleguideEditFrame = (props) => (
   <div>
     <h4>{props.fields.heading}</h4>
     <EditFrame {...getEditFrameProps(props.rendering.dataSource)}>
-      Who framed Roger Rabbit? Can't say. 
-      But JSS now allows to edit frame any piece of content on a page in editing mode.
+      Who framed Roger Rabbit? Can't say. <br />
+      But JSS now allows to edit frame any piece of content on a page in editing mode. <br />
+      You can add web edit or field edit buttons, modify edit frame's style through CSS class and
+      put the frame wherever you need it.
       {props.children}
     </EditFrame>
   </div>
