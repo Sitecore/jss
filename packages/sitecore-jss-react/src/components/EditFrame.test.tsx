@@ -73,7 +73,7 @@ describe('<EditFrame />', () => {
       .childAt(0)
       .html();
     expect(rendered).to.be.equal(
-      '<div class="scLooseFrameZone"><span class="scChromeData">{"displayName":"Edit","commands":[]}</span><span>Test</span></div>'
+      '<div class="scLooseFrameZone"><span class="scChromeData">{}</span><span>Test</span></div>'
     );
   });
 
@@ -88,7 +88,7 @@ describe('<EditFrame />', () => {
       .childAt(0)
       .html();
     expect(rendered).to.be.equal(
-      '<div class="scLooseFrameZone"><span class="scChromeData">{"displayName":"Test Title","expandedDisplayName":"Test Tooltip","commands":[]}</span><span>Test</span></div>'
+      '<div class="scLooseFrameZone"><span class="scChromeData">{"displayName":"Test Title","expandedDisplayName":"Test Tooltip"}</span><span>Test</span></div>'
     );
   });
 
@@ -103,7 +103,7 @@ describe('<EditFrame />', () => {
       .childAt(0)
       .html();
     expect(rendered).to.be.equal(
-      '<div class="scLooseFrameZone TestClass"><span class="scChromeData">{"displayName":"Edit","commands":[]}</span><span>Test</span></div>'
+      '<div class="scLooseFrameZone TestClass"><span class="scChromeData">{}</span><span>Test</span></div>'
     );
   });
 
@@ -123,7 +123,7 @@ describe('<EditFrame />', () => {
       .childAt(0)
       .html();
     expect(rendered).to.be.equal(
-      '<div class="scLooseFrameZone" sc_item="sitecore://master/testItemId?lang=en"><span class="scChromeData">{"displayName":"Edit","contextItemUri":"sitecore://master/testItemId?lang=en","commands":[]}</span><span>Test</span></div>'
+      '<div class="scLooseFrameZone" sc_item="sitecore://master/testItemId?lang=en"><span class="scChromeData">{"contextItemUri":"sitecore://master/testItemId?lang=en"}</span><span>Test</span></div>'
     );
   });
 
@@ -148,7 +148,13 @@ describe('<EditFrame />', () => {
       .childAt(0)
       .html();
     expect(rendered).to.be.equal(
-      '<div class="scLooseFrameZone" sc_item="sitecore://master/testItemId?lang=en"><span class="scChromeData">{"displayName":"Edit","contextItemUri":"sitecore://master/testItemId?lang=en","commands":[{"isDivider":false,"click":"javascript:Sitecore.PageModes.PageEditor.postRequest(\'webedit:new(id=testItemId)\',null,false)","header":"Insert New","icon":"/~/icon/Office/16x16/insert_from_template.png","tooltip":"Insert a new item","type":null},{"click":"chrome:dummy","header":"Separator","icon":"","isDivider":false,"tooltip":null,"type":"separator"},{"isDivider":false,"click":"javascript:Sitecore.PageModes.PageEditor.postRequest(\'webedit:fieldeditor(command={70C4EED5-D4CD-4D7D-9763-80C42504F5E7}, fields=Title|Text, id=testItemId)\',null,false)","header":"Edit Item","icon":"/~/icon/people/16x16/cubes_blue.png","tooltip":"Edit the item fields.","type":null}]}</span><span>Test</span></div>'
+      `<div class="scLooseFrameZone" sc_item="sitecore://master/testItemId?lang=en">
+          <span class="scChromeData">
+            {"contextItemUri":"sitecore://master/testItemId?lang=en","commands":[{"isDivider":false,"click":"javascript:Sitecore.PageModes.PageEditor.postRequest(\'webedit:new(id=testItemId)\',null,false)","header":"Insert New","icon":"/~/icon/Office/16x16/insert_from_template.png","tooltip":"Insert a new item","type":null},{"click":"chrome:dummy","header":"Separator","icon":"","isDivider":true,"tooltip":null,"type":"separator"},{"isDivider":false,"click":"javascript:Sitecore.PageModes.PageEditor.postRequest(\'webedit:fieldeditor(command={70C4EED5-D4CD-4D7D-9763-80C42504F5E7}, fields=Title|Text, id=testItemId)\',null,false)","header":"Edit Item","icon":"/~/icon/people/16x16/cubes_blue.png","tooltip":"Edit the item fields.","type":null}]}
+          </span>
+          <span>Test</span>
+        </div>
+      `.replace(/(\r\n|\n|\r|[\s]{2,})/gm, "")
     );
   });
 });

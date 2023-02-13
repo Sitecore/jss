@@ -67,12 +67,6 @@ export const EditFrame: React.FC<PropsWithChildren<EditFrameProps>> = ({
   );
 };
 
-EditFrame.defaultProps = {
-  dataSource: undefined,
-  buttons: [],
-  title: 'Edit',
-};
-
 export interface EditFrameProps {
   dataSource?: EditFrameDataSource;
   buttons?: (FieldEditButton | WebEditButton | '|')[];
@@ -81,38 +75,3 @@ export interface EditFrameProps {
   cssClass?: string;
   parameters?: Record<string, string | number | boolean | undefined | null>;
 }
-
-// EditFrame.propTypes = {
-//   dataSource: PropTypes.oneOf([
-//     undefined,
-//     PropTypes.shape({
-//       itemId: PropTypes.string.isRequired,
-//       databaseName: PropTypes.string,
-//       language: PropTypes.string,
-//     }),
-//   ]),
-//   buttons: PropTypes.arrayOf(
-//     PropTypes.oneOf([
-//       PropTypes.shape({
-//         header: PropTypes.string,
-//         icon: PropTypes.string,
-//         fields: PropTypes.arrayOf(PropTypes.string).isRequired,
-//         tooltip: PropTypes.string,
-//       }),
-//       PropTypes.shape({
-//         header: PropTypes.string.isRequired,
-//         icon: PropTypes.string.isRequired,
-//         click: PropTypes.string.isRequired,
-//         tooltip: PropTypes.string,
-//         parameters: PropTypes.string.isRequired,
-//         type: PropTypes.string,
-//       }),
-//       '|',
-//     ])
-//   ),
-//   title: PropTypes.string,
-//   tooltip: PropTypes.string,
-//   cssClass: PropTypes.string,
-// };
-
-EditFrame.displayName = 'Edit Frame';

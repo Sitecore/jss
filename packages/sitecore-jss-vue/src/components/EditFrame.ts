@@ -5,6 +5,7 @@ import {
   EditButtonTypes,
   mapButtonToCommand,
 } from '@sitecore-jss/sitecore-jss/utils';
+import { RouteData } from '@sitecore-jss/sitecore-jss/layout';
 
 export const EditFrame = defineComponent({
   props: {
@@ -20,12 +21,23 @@ export const EditFrame = defineComponent({
       type: Object as PropType<Record<string, string | number | boolean | undefined | null>>,
       default: undefined,
     },
+    context: {
+      type: Object,
+      default: undefined
+    },
+    routeData: {
+      type: Object as () => RouteData,
+    },
   },
   render() {
     const instance = getCurrentInstance();
-    const sitecoreContext = instance.appContext.config.globalProperties.$jss.sitecoreContext();
+    const children = this.$slots.default;
+    // similar to placeholder implementation, try reading context locally first before retrieving it from global
+    const sitecoreContext = this.$props.context || instance.appContext.config.globalProperties.$jss?.sitecoreContext();
     if (!sitecoreContext.pageEditing) {
-      return null;
+      if (children)
+        return children();
+      return '';
     }
 
     const chromeData: Record<string, unknown> = {
@@ -41,7 +53,7 @@ export const EditFrame = defineComponent({
 
     // item uri for edit frame target
     if (this.$props.dataSource) {
-      const route = instance.appContext.config.globalProperties.$jss.routeData();
+      const route = this.$props.routeData || instance.appContext.config.globalProperties.$jss?.routeData();
       const databaseName = this.$props.dataSource.databaseName || route?.databaseName;
       const language = this.$props.dataSource.language || sitecoreContext.language;
       frameProps.sc_item = `sitecore://${databaseName}/${this.$props.dataSource.itemId}?lang=${language}`;
@@ -53,8 +65,7 @@ export const EditFrame = defineComponent({
         return mapButtonToCommand(value, this.$props.dataSource?.itemId, this.$props.parameters);
       }
     );
-
-    const children = this.$slots.default;
+    
     if (children) {
       const childElements = h('div', null, children());
       const chromeSpan = h('span', {

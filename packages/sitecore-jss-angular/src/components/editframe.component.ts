@@ -9,8 +9,18 @@ import { LayoutServiceContextData, RouteData } from '@sitecore-jss/sitecore-jss/
 
 @Component({
   selector: 'sc-edit-frame,[sc-edit-frame]',
-  template:
-    '<div *ngIf="isEditing; else elseBlock" {{...frameProps}}><span class="scChromeData">{{chromeData}}</span><ng-content></ng-content></div><ng-template #elseBlock><ng-content></ng-content></ng-template>',
+  template: `
+  <ng-template #childContent>
+    <ng-content></ng-content>
+  </ng-template>
+  <div *ngIf="isEditing; else elseBlock" [class]="frameProps.class" [attr.sc_item]="frameProps.sc_item" >
+    <span class="scChromeData">{{chromeData}}</span>
+    <ng-container *ngTemplateOutlet="childContent"></ng-container>
+  </div>
+  <ng-template #elseBlock>
+    <ng-container *ngTemplateOutlet="childContent"></ng-container>
+  </ng-template>
+  `,
 })
 export class EditFrameComponent implements OnChanges {
   @Input() dataSource: EditFrameDataSource;
@@ -26,7 +36,7 @@ export class EditFrameComponent implements OnChanges {
   @Input() parameters: Record<string, string | number | boolean | undefined | null>;
 
   @Input() sitecore: LayoutServiceContextData & {
-    route: RouteData | null;
+    route: RouteData<unknown> | null;
   };
 
   isEditing = false;

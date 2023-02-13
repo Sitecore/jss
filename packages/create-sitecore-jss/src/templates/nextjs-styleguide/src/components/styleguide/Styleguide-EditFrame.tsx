@@ -10,14 +10,14 @@ type StyleguideEditFrameProps = ComponentProps & {
 };
 
 const StyleguideEditFrame = (props: StyleguideEditFrameProps): JSX.Element => (
-  <div>
-    <p>Styleguide-EditFrame Component</p>
+  <StyleguideSpecimen {...props} e2eId="styleguide-editframe">
+    <h4>{props.fields.heading}</h4>
     <EditFrame {...getEditFrameProps(props.rendering.dataSource)}>
       Who framed Roger Rabbit? Who knows. But JSS can now edit frame any content on your page in
       editing mode.
       {props.children}
     </EditFrame>
-  </div>
+  </StyleguideSpecimen>
 );
 
 const getEditFrameProps = (dataSource?: string) => {
@@ -40,13 +40,13 @@ const getEditFrameProps = (dataSource?: string) => {
 const editFrameButtons = [
   {
     header: 'WebEditButton',
-    icon: './icon.png',
-    click: 'alert("you clicked an edit fram button")',
+    icon: '/~/icon/Office/16x16/document_selection.png',
+    click: 'javascript:alert("An edit frame button was just clicked!")',
     tooltip: 'Doesnt do much, just a web edit button example',
   },
   {
     header: 'FieldEditButton',
-    icon: './icon.png',
+    icon: '/~/icon/Office/16x16/pencil.png',
     fields: ['heading'],
     tooltip: 'Allows you to open field editor for specified fields',
   },
