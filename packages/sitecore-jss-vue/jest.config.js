@@ -3,6 +3,8 @@ module.exports = {
   testEnvironmentOptions: {
     customExportConditions: ['node', 'node-addons'],
   },
+  verbose: true,
+  setupFilesAfterEnv: ['<rootDir>/setup-jest.js'],
   testMatch: ['**/*.test.ts'],
   moduleFileExtensions: [
     'js',
