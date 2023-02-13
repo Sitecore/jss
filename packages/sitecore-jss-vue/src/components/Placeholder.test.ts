@@ -264,6 +264,8 @@ describe('<Placeholder />', () => {
   });
 
   it('should render null for unknown placeholder', () => {
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
     const route = { placeholders: { main: [{ componentName: 'Home' }] } };
     const phKey = 'unknown-test';
 
