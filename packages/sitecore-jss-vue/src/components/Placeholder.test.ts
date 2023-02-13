@@ -305,8 +305,6 @@ describe('<Placeholder />', () => {
         });
       },
     };
-    const warnSpy = jest.spyOn(console, 'warn');
-    warnSpy.mockImplementation(() => {});
 
     const renderedComponent = mount(testComponent);
     expect(renderedComponent.html()).toMatchSnapshot();
