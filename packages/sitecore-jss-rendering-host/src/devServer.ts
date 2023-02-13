@@ -1,4 +1,4 @@
-import { deleteSync } from 'del';
+import { sync as delSync } from 'del';
 import { Application } from 'express';
 import { PathParams } from 'express-serve-static-core';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -239,7 +239,7 @@ export function startDevServer({
   if (clean) {
     const cleanPaths = [`${path.join(buildArtifactsPath, '**')}`, `!${buildArtifactsPath}`];
     console.log('cleaning paths', cleanPaths);
-    const cleanedPaths = deleteSync(cleanPaths);
+    const cleanedPaths = delSync(cleanPaths);
     console.log('cleaned paths', cleanedPaths);
   }
 

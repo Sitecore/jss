@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-rendering-host",
-  "version": "21.1.0-canary.99",
+  "version": "21.1.0-canary.100",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -27,7 +27,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "del": "^7.0.0",
+    "del": "^6.1.1",
     "import-fresh": "^3.3.0",
     "ngrok": "^4.3.3",
     "opn": "^6.0.0",
