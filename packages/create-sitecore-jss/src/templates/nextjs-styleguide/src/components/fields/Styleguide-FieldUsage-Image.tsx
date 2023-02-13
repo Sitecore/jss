@@ -1,4 +1,9 @@
-import { NextImage, ImageField, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  NextImage,
+  ImageField,
+  withDatasourceCheck,
+  getFieldValue,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
@@ -51,12 +56,18 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
       IMPORTANT: The generated sizes should match your Sitecore server-side allowlist. See /sitecore/config/*.config (search for 'allowedMediaParams')
     */}
     <p>Srcset responsive image</p>
-    <div style={{ position: 'relative', height: 160, width: 300 }}>
+    <div
+      style={{
+        position: 'relative',
+        height: +getFieldValue(props.fields, 'sample2').height || 160,
+        width: +getFieldValue(props.fields, 'sample2').width || 300,
+      }}
+    >
       <NextImage
         field={props.fields.sample2}
         sizes="(min-width: 960px) 300px, 100px"
-        fill
-        priority
+        fill={true}
+        priority={true}
       />
     </div>
   </StyleguideSpecimen>

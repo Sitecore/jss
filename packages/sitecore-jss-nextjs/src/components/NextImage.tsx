@@ -82,6 +82,12 @@ export const NextImage: React.FC<NextImageProps> = ({
     src: mediaApi.replaceMediaUrlPrefix(attrs.src, mediaUrlPrefix as RegExp),
   };
 
+  // Exclude `width`, `height` in case image is responsive, `fill` is used
+  if (imageProps.fill) {
+    delete imageProps.width;
+    delete imageProps.height;
+  }
+
   const loader = (otherProps.loader ? otherProps.loader : sitecoreLoader) as ImageLoader;
 
   if (attrs) {
