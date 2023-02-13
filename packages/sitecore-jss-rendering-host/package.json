@@ -27,7 +27,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "del": "^7.0.0",
+    "del": "^6.1.1",
     "import-fresh": "^3.3.0",
     "ngrok": "^4.3.3",
     "opn": "^6.0.0",

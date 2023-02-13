@@ -6138,7 +6138,7 @@ __metadata:
     "@types/webpack-dev-middleware": 2.0.5
     "@types/webpack-dev-server": 3.1.7
     chai: ^4.3.0
-    del: ^7.0.0
+    del: ^6.1.1
     del-cli: ^5.0.0
     eslint: ^8.33.0
     import-fresh: ^3.3.0
@@ -12368,7 +12368,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"del@npm:^6.0.0":
+"del@npm:^6.0.0, del@npm:^6.1.1":
   version: 6.1.1
   resolution: "del@npm:6.1.1"
   dependencies:
