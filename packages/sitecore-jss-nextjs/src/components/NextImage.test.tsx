@@ -129,7 +129,9 @@ describe('<NextImage />', () => {
       const field = {
         value: { src: '/assets/img/test0.png', alt: 'my image', width: 200, height: 400 },
       };
-      const rendered = mount(<NextImage loader={mockLoader} {...props} field={field} fill />).find('img');
+      const rendered = mount(<NextImage loader={mockLoader} {...props} field={field} fill />).find(
+        'img'
+      );
 
       expect(rendered).to.have.length(1);
       expect(rendered.prop('src')).to.equal(`${HOSTNAME}${props.field.value.src}?w=${props.width}`);
