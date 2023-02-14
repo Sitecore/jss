@@ -8,7 +8,8 @@ import {
 } from './graphql-sitemap-service';
 import sitemapDefaultQueryResult from '../test-data/sitemapDefaultQueryResult.json';
 import sitemapPersonalizeQueryResult from '../test-data/sitemapPersonalizeQueryResult.json';
-import sitemapServiceResult from '../test-data/sitemapServiceResult';
+import sitemapServiceMultisiteResult from '../test-data/sitemapServiceMultisiteResult';
+import sitemapServiceSinglesiteResult from '../test-data/sitemapServiceSinglesiteResult';
 import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss/graphql';
 
 class TestService extends GraphQLSitemapService {
@@ -88,7 +89,7 @@ describe('GraphQLSitemapService', () => {
 
       const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
       const sitemap = await service.fetchSSGSitemap(['ua']);
-      expect(sitemap).to.deep.equal(sitemapServiceResult);
+      expect(sitemap).to.deep.equal(sitemapServiceMultisiteResult);
 
       return expect(nock.isDone()).to.be.true;
     });
@@ -164,14 +165,113 @@ describe('GraphQLSitemapService', () => {
       return expect(sitemap).to.deep.equal([
         {
           params: {
-            path: ['y1', 'y2'],
+            path: ['_site_site-name', 'y1', 'y2'],
           },
           locale: 'en',
         },
       ]);
     });
 
-    it('should return personalized paths when personalize data is requested and returned', async () => {
+    describe('Fetch sitemap in SSG mode', () => {
+      it('should work when 1 language is requested', async () => {
+        mockPathsRequest();
+  
+        const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
+        const sitemap = await service.fetchSSGSitemap(['ua']);
+        expect(sitemap).to.deep.equal(sitemapServiceMultisiteResult);
+  
+        return expect(nock.isDone()).to.be.true;
+      });
+
+      it('should work for single site when 1 language is requested', async () => {
+        mockPathsRequest();
+  
+        const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
+        const sitemap = await service.fetchSSGSitemap(['ua'], sites[0]);
+        expect(sitemap).to.deep.equal(sitemapServiceSinglesiteResult);
+  
+        return expect(nock.isDone()).to.be.true;
+      });
+  
+      it('should work when includePaths and excludePaths are provided', async () => {
+        const includedPaths = ['/y1/'];
+        const excludedPaths = ['/y1/y2/y3/y4'];
+  
+        nock(endpoint)
+          .post('/', (body) => {
+            return body.variables.includedPaths && body.variables.excludedPaths;
+          })
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 1,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/y1/y2/',
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+          });
+  
+        nock(endpoint)
+          .post('/')
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 4,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/',
+                      },
+                      {
+                        path: '/x1',
+                      },
+                      {
+                        path: '/y1/y2/y3/y4',
+                      },
+                      {
+                        path: '/y1/y2',
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+          });
+  
+        const service = new GraphQLSitemapService({
+          endpoint,
+          apiKey,
+          sites,
+          includedPaths,
+          excludedPaths,
+        });
+        const sitemap = await service.fetchSSGSitemap(['en']);
+  
+        return expect(sitemap).to.deep.equal([
+          {
+            params: {
+              path: ['_site_site-name', 'y1', 'y2'],
+            },
+            locale: 'en',
+          },
+        ]);
+      });
+
+    it('should return personalized paths when personalize data is requested and returned for single site', async () => {
       const lang = 'ua';
 
       nock(endpoint)
@@ -184,7 +284,7 @@ describe('GraphQLSitemapService', () => {
         sites,
         includePersonalizedRoutes: true,
       });
-      const sitemap = await service.fetchSSGSitemap([lang]);
+      const sitemap = await service.fetchSSGSitemap([lang], 'site-name');
 
       expect(sitemap).to.deep.equal([
         {
@@ -533,49 +633,49 @@ describe('GraphQLSitemapService', () => {
       expect(sitemap).to.deep.equal([
         {
           params: {
-            path: [''],
+            path: ['_site_site-name'],
           },
           locale: 'ua',
         },
         {
           params: {
-            path: ['x1'],
+            path: ['_site_site-name', 'x1'],
           },
           locale: 'ua',
         },
         {
           params: {
-            path: ['y1', 'y2', 'y3', 'y4'],
+            path: ['_site_site-name', 'y1', 'y2', 'y3', 'y4'],
           },
           locale: 'ua',
         },
         {
           params: {
-            path: ['y1', 'y2'],
+            path: ['_site_site-name', 'y1', 'y2'],
           },
           locale: 'ua',
         },
         {
           params: {
-            path: [''],
+            path: ['_site_site-name'],
           },
           locale: 'da-DK',
         },
         {
           params: {
-            path: ['x1-da-DK'],
+            path: ['_site_site-name', 'x1-da-DK'],
           },
           locale: 'da-DK',
         },
         {
           params: {
-            path: ['y1', 'y2', 'y3', 'y4-da-DK'],
+            path: ['_site_site-name', 'y1', 'y2', 'y3', 'y4-da-DK'],
           },
           locale: 'da-DK',
         },
         {
           params: {
-            path: ['y1', 'y2-da-DK'],
+            path: ['_site_site-name', 'y1', 'y2-da-DK'],
           },
           locale: 'da-DK',
         },
@@ -622,13 +722,13 @@ describe('GraphQLSitemapService', () => {
       expect(sitemap).to.deep.equal([
         {
           params: {
-            path: [''],
+            path: ['_site_site-name'],
           },
           locale: 'en',
         },
         {
           params: {
-            path: ['x1'],
+            path: ['_site_site-name', 'x1'],
           },
           locale: 'en',
         },
@@ -688,7 +788,7 @@ describe('GraphQLSitemapService', () => {
       });
       const sitemap = await service.fetchSSGSitemap(['ua']);
 
-      expect(sitemap).to.deep.equal(sitemapServiceResult);
+      expect(sitemap).to.deep.equal(sitemapServiceMultisiteResult);
       return expect(nock.isDone()).to.be.true;
     });
 
@@ -709,7 +809,7 @@ describe('GraphQLSitemapService', () => {
       });
       const sitemap = await service.fetchSSGSitemap(['ua']);
 
-      expect(sitemap).to.deep.equal(sitemapServiceResult);
+      expect(sitemap).to.deep.equal(sitemapServiceMultisiteResult);
       return expect(nock.isDone()).to.be.true;
     });
 
@@ -735,8 +835,32 @@ describe('GraphQLSitemapService', () => {
       return expect(nock.isDone()).to.be.true;
     });
   });
+});
 
-  const expectedExportSitemap = [
+  const expectedMultisiteExportSitemap = [
+    {
+      params: {
+        path: ['_site_site-name'],
+      },
+    },
+    {
+      params: {
+        path: ['_site_site-name', 'x1'],
+      },
+    },
+    {
+      params: {
+        path: ['_site_site-name', 'y1', 'y2', 'y3', 'y4'],
+      },
+    },
+    {
+      params: {
+        path: ['_site_site-name', 'y1', 'y2'],
+      },
+    },
+  ];
+
+  const expectedSinglesiteExportSitemap = [
     {
       params: {
         path: [''],
@@ -760,11 +884,18 @@ describe('GraphQLSitemapService', () => {
   ];
 
   describe('Fetch sitemap in export mode', () => {
-    it('should fetch sitemap', async () => {
+    it('should fetch multisite sitemap', async () => {
       mockPathsRequest();
       const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
       const sitemap = await service.fetchExportSitemap('ua');
-      expect(sitemap).to.deep.equal(expectedExportSitemap);
+      expect(sitemap).to.deep.equal(expectedMultisiteExportSitemap);
+      return expect(nock.isDone()).to.be.true;
+    });
+    it('should fetch singlesite sitemap', async () => {
+      mockPathsRequest();
+      const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
+      const sitemap = await service.fetchExportSitemap('ua',sites[0]);
+      expect(sitemap).to.deep.equal(expectedSinglesiteExportSitemap);
       return expect(nock.isDone()).to.be.true;
     });
     it('should work if endpoint returns 0 pages', async () => {

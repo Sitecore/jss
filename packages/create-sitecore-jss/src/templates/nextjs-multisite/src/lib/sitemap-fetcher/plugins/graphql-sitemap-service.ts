@@ -24,13 +24,10 @@ class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
     if (process.env.EXPORT_MODE) {
       // Disconnected Export mode
       if (process.env.JSS_MODE !== constants.JSS_MODE.DISCONNECTED) {
-        return this._graphqlSitemapService.fetchExportSitemap(
-          config.defaultLanguage,
-          config.jssAppName
-        );
+        return this._graphqlSitemapService.fetchExportSitemap(config.defaultLanguage);
       }
     }
-    return this._graphqlSitemapService.fetchSSGSitemap(context?.locales || [], config.jssAppName);
+    return this._graphqlSitemapService.fetchSSGSitemap(context?.locales || []);
   }
 }
 

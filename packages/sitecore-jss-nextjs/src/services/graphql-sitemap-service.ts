@@ -140,7 +140,7 @@ export interface GraphQLSitemapServiceConfig
   /**
    * Names of the configured sites
    */
-  sites: string[];
+  sites?: string[];
 
   /**
    * A flag for whether to include personalized routes in service output - only works on XM Cloud
@@ -161,6 +161,7 @@ export type StaticPath = {
 
 /**
  * Service that fetches the list of site pages using Sitecore's GraphQL API.
+ * Used to handle multiple sites by default but can retrieve paths for an individual site
  * This list is used for SSG and Export functionality.
  * @mixes SearchQueryService<PageListQueryResult>
  */
@@ -187,24 +188,26 @@ export class GraphQLSitemapService {
    * The `locale` parameter will be used in the item query, but since i18n is not supported,
    * the output paths will not include a `language` property.
    * @param {string} locale which application supports
+   * @param {string | undefined} siteName used when only paths for a single site are needed, without site prefix
    * @returns an array of @see StaticPath objects
    */
-  async fetchExportSitemap(locale: string): Promise<StaticPath[]> {
+  async fetchExportSitemap(locale: string, siteName?: string): Promise<StaticPath[]> {
     const formatPath = (path: string[]) => ({
       params: {
         path,
       },
     });
 
-    return this.fetchSitemap([locale], formatPath);
+    return this.fetchSitemap([locale], formatPath, siteName);
   }
 
   /**
    * Fetch sitemap which could be used for generation of static pages using SSG mode
    * @param {string[]} locales locales which application supports
+   * @param {string | undefined} siteName used when only paths for a single site are needed, without site prefix
    * @returns an array of @see StaticPath objects
    */
-  async fetchSSGSitemap(locales: string[]): Promise<StaticPath[]> {
+  async fetchSSGSitemap(locales: string[], siteName?: string): Promise<StaticPath[]> {
     const formatPath = (path: string[], locale: string) => ({
       params: {
         path,
@@ -212,7 +215,7 @@ export class GraphQLSitemapService {
       locale,
     });
 
-    return this.fetchSitemap(locales, formatPath);
+    return this.fetchSitemap(locales, formatPath, siteName);
   }
 
   /**
@@ -220,50 +223,68 @@ export class GraphQLSitemapService {
    * version in the specified language(s).
    * @param {string[]} languages Fetch pages that have versions in this language(s).
    * @param {Function} formatStaticPath Function for transforming the raw search results into (@see StaticPath) types.
+   * @param {string | undefined} singleSite used when only paths for a single site are needed, without site prefix
    * @returns list of pages
    * @throws {RangeError} if the list of languages is empty.
    * @throws {RangeError} if the any of the languages is an empty string.
    */
   protected async fetchSitemap(
     languages: string[],
-    formatStaticPath: (path: string[], language: string) => StaticPath
+    formatStaticPath: (path: string[], language: string) => StaticPath,
+    singleSite?: string
   ): Promise<StaticPath[]> {
     const paths = new Array<StaticPath>();
     if (!languages.length) {
       throw new RangeError(languageError);
     }
 
-    // Get all sites
-    const sites = this.options.sites;
-    if (!sites || !sites.length) {
-      throw new RangeError(sitesError);
-    }
-
-    // Fetch paths for each site
-    for (let i = 0; i < sites.length; i++) {
-      const siteName = sites[i];
-      const multiSiteName = sites.length > 1 ? siteName : undefined;
-
-      // Fetch paths using all locales
-      await Promise.all(
-        languages.map(async (language) => {
-          if (language === '') {
-            throw new RangeError(languageEmptyError);
-          }
-          debug.sitemap('fetching sitemap data for %s %s', language, siteName);
-          const results = await this.fetchLanguageSitePaths(language, siteName);
-          const transformedPaths = await this.transformLanguageSitePaths(
-            results,
-            formatStaticPath,
-            language,
-            multiSiteName
-          );
-          paths.push(...transformedPaths);
-        })
+    if (singleSite) {
+      paths.push(
+        ...(await this.getTranformedPaths(singleSite, languages, formatStaticPath, false))
       );
+    } else {
+      // Get all sites
+      const sites = this.options.sites;
+      if (!sites || !sites.length) {
+        throw new RangeError(sitesError);
+      }
+
+      // Fetch paths for each site
+      for (let i = 0; i < sites.length; i++) {
+        const siteName = sites[i];
+
+        // Fetch paths using all locales
+        paths.push(...(await this.getTranformedPaths(siteName, languages, formatStaticPath, true)));
+      }
     }
 
     return ([] as StaticPath[]).concat(...paths);
+  }
+
+  protected async getTranformedPaths(
+    siteName: string,
+    languages: string[],
+    formatStaticPath: (path: string[], language: string) => StaticPath,
+    multisite?: boolean
+  ) {
+    const paths = new Array<StaticPath>();
+    await Promise.all(
+      languages.map(async (language) => {
+        if (language === '') {
+          throw new RangeError(languageEmptyError);
+        }
+        debug.sitemap('fetching sitemap data for %s %s', language, siteName);
+        const results = await this.fetchLanguageSitePaths(language, siteName);
+        const transformedPaths = await this.transformLanguageSitePaths(
+          results,
+          formatStaticPath,
+          language,
+          multisite ? siteName : undefined
+        );
+        paths.push(...transformedPaths);
+      })
+    );
+    return paths;
   }
 
   protected async transformLanguageSitePaths(
