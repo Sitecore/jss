@@ -19,6 +19,8 @@ Our versioning strategy is as follows:
   * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
   * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
 
+* `[sitecore-jss-nextjs]` GraphqlSitemapService's constructor accepts a sites array by default, instead of siteName. fetchExportSitemap and fetchSSGSitemap methods will now return paths with site prefix applies by default. Provide a siteName parameter into the methods to get paths for a single site without prefix.
+
 * `[sitecore-jss-angular][templates/angular]` jss-angular package and sample has been updated to version 14. This means several changes:
   * JSS Angular sample is now using Ivy
   * IE11 no longer supported by JSS Angular
