@@ -96,7 +96,7 @@ const normalContext = {
       });
 
 
-    it('should render nothing when not in pageEditing mode', () => {
+    it('should render wrapped element when not in pageEditing mode', () => {
       editFrameComp.sitecore = normalContext;
       fixture.detectChanges();
 
@@ -112,7 +112,6 @@ const normalContext = {
       const frameSpan = de.query(By.css('div.scLooseFrameZone > span.scChromeData')).nativeElement;
       expect(frameDiv).toBeDefined();
       expect(frameSpan).toBeDefined();
-      console.log(frameSpan);
       expect(frameSpan.textContent).toBe(
         '{}'
       );
