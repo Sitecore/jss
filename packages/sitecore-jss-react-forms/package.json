@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react-forms",
-  "version": "21.1.0-canary.105",
+  "version": "21.1.0-canary.106",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -55,7 +55,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-forms": "^21.1.0-canary.105",
+    "@sitecore-jss/sitecore-jss-forms": "^21.1.0-canary.106",
     "prop-types": "^15.8.1"
   },
   "description": "",
