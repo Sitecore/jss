@@ -1,6 +1,7 @@
 import { Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { EditFrame } from '@sitecore-jss/sitecore-jss-nextjs';
+import StyleguideSpecimen from './Styleguide-Specimen';
 
 type StyleguideEditFrameProps = ComponentProps & {
   fields: {
@@ -11,10 +12,10 @@ type StyleguideEditFrameProps = ComponentProps & {
 
 const StyleguideEditFrame = (props: StyleguideEditFrameProps): JSX.Element => (
   <StyleguideSpecimen {...props} e2eId="styleguide-editframe">
-    <h4>{props.fields.heading}</h4>
     <EditFrame {...getEditFrameProps(props.rendering.dataSource)}>
-      Who framed Roger Rabbit? Who knows. But JSS can now edit frame any content on your page in
-      editing mode.
+      Who framed Roger Rabbit? Hard to say. <br />
+      But JSS now allows to edit frame any piece of content on a page in editing mode. <br />
+      You can add web edit or field edit buttons, modify edit frame's style through CSS class and put the frame wherever you need it.
       {props.children}
     </EditFrame>
   </StyleguideSpecimen>

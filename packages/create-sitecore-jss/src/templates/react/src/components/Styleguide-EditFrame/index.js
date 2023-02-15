@@ -1,17 +1,17 @@
 import React from 'react';
-import { Text, EditFrame } from '@sitecore-jss/sitecore-jss-react';
+import { EditFrame } from '@sitecore-jss/sitecore-jss-react';
+import StyleguideSpecimen from '../Styleguide-Specimen';
 
 const StyleguideEditFrame = (props) => (
-  <div>
-    <h4>{props.fields.heading}</h4>
+  <StyleguideSpecimen {...props} e2eId="styleguide-editframe">
     <EditFrame {...getEditFrameProps(props.rendering.dataSource)}>
-      Who framed Roger Rabbit? Can't say. <br />
+      Who framed Roger Rabbit? Hard to say. <br />
       But JSS now allows to edit frame any piece of content on a page in editing mode. <br />
       You can add web edit or field edit buttons, modify edit frame's style through CSS class and
       put the frame wherever you need it.
       {props.children}
     </EditFrame>
-  </div>
+  </StyleguideSpecimen>
 );
 
 const getEditFrameProps = (dataSource) => {

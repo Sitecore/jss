@@ -1,13 +1,16 @@
 <template>
-  <div>
-    <h4>Styleguide-EditFrame Component</h4>
-    <sc-text :field="fields.heading" />
-    <sc-edit-frame v-bind="editFrameProps"> 123 </sc-edit-frame>
-  </div>
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-edit-frame">
+    <sc-edit-frame v-bind="editFrameProps">
+      Who framed Roger Rabbit? Hard to say. <br />
+      But JSS now allows to edit frame any piece of content on a page in editing mode. <br />
+      You can add web edit or field edit buttons, modify edit frame's style through CSS class and put the frame wherever you need it.
+    </sc-edit-frame>
+  </styleguide-specimen>
 </template>
 
 <script>
 import { Text, EditFrame } from '@sitecore-jss/sitecore-jss-vue';
+import StyleguideSpecimen from './Styleguide-Specimen';
 
 export default {
   name: 'Styleguide-EditFrame',
@@ -44,6 +47,7 @@ export default {
     };
   },
   components: {
+    StyleguideSpecimen,
     ScText: Text,
     ScEditFrame: EditFrame,
   },
