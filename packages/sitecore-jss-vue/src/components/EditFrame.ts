@@ -27,7 +27,7 @@ export const EditFrame = defineComponent({
     },
     routeData: {
       type: Object as () => RouteData,
-      default: undefined
+      default: undefined,
     },
   },
   render() {
