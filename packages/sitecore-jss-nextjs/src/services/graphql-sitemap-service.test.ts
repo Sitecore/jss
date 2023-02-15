@@ -175,28 +175,28 @@ describe('GraphQLSitemapService', () => {
     describe('Fetch sitemap in SSG mode', () => {
       it('should work when 1 language is requested', async () => {
         mockPathsRequest();
-  
+
         const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
         const sitemap = await service.fetchSSGSitemap(['ua']);
         expect(sitemap).to.deep.equal(sitemapServiceMultisiteResult);
-  
+
         return expect(nock.isDone()).to.be.true;
       });
 
       it('should work for single site when 1 language is requested', async () => {
         mockPathsRequest();
-  
+
         const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
         const sitemap = await service.fetchSSGSitemap(['ua'], sites[0]);
         expect(sitemap).to.deep.equal(sitemapServiceSinglesiteResult);
-  
+
         return expect(nock.isDone()).to.be.true;
       });
-  
+
       it('should work when includePaths and excludePaths are provided', async () => {
         const includedPaths = ['/y1/'];
         const excludedPaths = ['/y1/y2/y3/y4'];
-  
+
         nock(endpoint)
           .post('/', (body) => {
             return body.variables.includedPaths && body.variables.excludedPaths;
@@ -220,7 +220,7 @@ describe('GraphQLSitemapService', () => {
               },
             },
           });
-  
+
         nock(endpoint)
           .post('/')
           .reply(200, {
@@ -251,7 +251,7 @@ describe('GraphQLSitemapService', () => {
               },
             },
           });
-  
+
         const service = new GraphQLSitemapService({
           endpoint,
           apiKey,
@@ -260,7 +260,7 @@ describe('GraphQLSitemapService', () => {
           excludedPaths,
         });
         const sitemap = await service.fetchSSGSitemap(['en']);
-  
+
         return expect(sitemap).to.deep.equal([
           {
             params: {
@@ -271,571 +271,571 @@ describe('GraphQLSitemapService', () => {
         ]);
       });
 
-    it('should return personalized paths when personalize data is requested and returned for single site', async () => {
-      const lang = 'ua';
+      it('should return personalized paths when personalize data is requested and returned for single site', async () => {
+        const lang = 'ua';
 
-      nock(endpoint)
-        .post('/', /PersonalizeSitemapQuery/gi)
-        .reply(200, sitemapPersonalizeQueryResult);
+        nock(endpoint)
+          .post('/', /PersonalizeSitemapQuery/gi)
+          .reply(200, sitemapPersonalizeQueryResult);
 
-      const service = new GraphQLSitemapService({
-        endpoint,
-        apiKey,
-        sites,
-        includePersonalizedRoutes: true,
+        const service = new GraphQLSitemapService({
+          endpoint,
+          apiKey,
+          sites,
+          includePersonalizedRoutes: true,
+        });
+        const sitemap = await service.fetchSSGSitemap([lang], 'site-name');
+
+        expect(sitemap).to.deep.equal([
+          {
+            params: {
+              path: [''],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_variantId_green'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['y1', 'y2', 'y3', 'y4'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_variantId_green', 'y1', 'y2', 'y3', 'y4'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_variantId_red', 'y1', 'y2', 'y3', 'y4'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_variantId_purple', 'y1', 'y2', 'y3', 'y4'],
+            },
+            locale: lang,
+          },
+        ]);
+        return expect(nock.isDone()).to.be.true;
       });
-      const sitemap = await service.fetchSSGSitemap([lang], 'site-name');
 
-      expect(sitemap).to.deep.equal([
-        {
-          params: {
-            path: [''],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_variantId_green'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['y1', 'y2', 'y3', 'y4'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_variantId_green', 'y1', 'y2', 'y3', 'y4'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_variantId_red', 'y1', 'y2', 'y3', 'y4'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_variantId_purple', 'y1', 'y2', 'y3', 'y4'],
-          },
-          locale: lang,
-        },
-      ]);
-      return expect(nock.isDone()).to.be.true;
-    });
+      it('should return aggregated paths for multiple sites when no personalized site', async () => {
+        const multipleSites = ['site1', 'site2'];
+        const lang = 'ua';
 
-    it('should return aggregated paths for multiple sites when no personalized site', async () => {
-      const multipleSites = ['site1', 'site2'];
-      const lang = 'ua';
-
-      nock(endpoint)
-        .persist()
-        .post('/', (body) => {
-          return body.variables.siteName === multipleSites[0];
-        })
-        .reply(200, {
-          data: {
-            site: {
-              siteInfo: {
-                routes: {
-                  total: 4,
-                  pageInfo: {
-                    hasNext: false,
+        nock(endpoint)
+          .persist()
+          .post('/', (body) => {
+            return body.variables.siteName === multipleSites[0];
+          })
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 4,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/',
+                      },
+                      {
+                        path: '/x1',
+                      },
+                      {
+                        path: '/y1/y2/y3/y4',
+                      },
+                      {
+                        path: '/y1/y2',
+                      },
+                    ],
                   },
-                  results: [
-                    {
-                      path: '/',
-                    },
-                    {
-                      path: '/x1',
-                    },
-                    {
-                      path: '/y1/y2/y3/y4',
-                    },
-                    {
-                      path: '/y1/y2',
-                    },
-                  ],
                 },
               },
             },
-          },
-        });
+          });
 
-      nock(endpoint)
-        .persist()
-        .post('/', (body) => {
-          return body.variables.siteName === multipleSites[1];
-        })
-        .reply(200, {
-          data: {
-            site: {
-              siteInfo: {
-                routes: {
-                  total: 2,
-                  pageInfo: {
-                    hasNext: false,
+        nock(endpoint)
+          .persist()
+          .post('/', (body) => {
+            return body.variables.siteName === multipleSites[1];
+          })
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 2,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/y1',
+                      },
+                      {
+                        path: '/x1/x2',
+                      },
+                    ],
                   },
-                  results: [
-                    {
-                      path: '/y1',
-                    },
-                    {
-                      path: '/x1/x2',
-                    },
-                  ],
                 },
               },
             },
-          },
+          });
+
+        const service = new GraphQLSitemapService({
+          endpoint,
+          apiKey,
+          sites: multipleSites,
         });
+        const sitemap = await service.fetchSSGSitemap([lang]);
 
-      const service = new GraphQLSitemapService({
-        endpoint,
-        apiKey,
-        sites: multipleSites,
+        expect(sitemap).to.deep.equal([
+          {
+            params: {
+              path: ['_site_site1'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_site_site1', 'x1'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_site_site1', 'y1', 'y2', 'y3', 'y4'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_site_site1', 'y1', 'y2'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_site_site2', 'y1'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_site_site2', 'x1', 'x2'],
+            },
+            locale: lang,
+          },
+        ]);
+        return expect(nock.isDone()).to.be.true;
       });
-      const sitemap = await service.fetchSSGSitemap([lang]);
 
-      expect(sitemap).to.deep.equal([
-        {
-          params: {
-            path: ['_site_site1'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_site_site1', 'x1'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_site_site1', 'y1', 'y2', 'y3', 'y4'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_site_site1', 'y1', 'y2'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_site_site2', 'y1'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_site_site2', 'x1', 'x2'],
-          },
-          locale: lang,
-        },
-      ]);
-      return expect(nock.isDone()).to.be.true;
-    });
+      it('should return aggregated paths for multiple sites and personalized sites', async () => {
+        const multipleSites = ['site1', 'site2'];
+        const lang = 'ua';
 
-    it('should return aggregated paths for multiple sites and personalized sites', async () => {
-      const multipleSites = ['site1', 'site2'];
-      const lang = 'ua';
+        nock(endpoint)
+          .post('/', /PersonalizeSitemapQuery/gi)
+          .reply(200, sitemapPersonalizeQueryResult);
 
-      nock(endpoint)
-        .post('/', /PersonalizeSitemapQuery/gi)
-        .reply(200, sitemapPersonalizeQueryResult);
-
-      nock(endpoint)
-        .persist()
-        .post('/', (body) => {
-          return body.variables.siteName === multipleSites[1];
-        })
-        .reply(200, {
-          data: {
-            site: {
-              siteInfo: {
-                routes: {
-                  total: 4,
-                  pageInfo: {
-                    hasNext: false,
+        nock(endpoint)
+          .persist()
+          .post('/', (body) => {
+            return body.variables.siteName === multipleSites[1];
+          })
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 4,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/',
+                      },
+                      {
+                        path: '/x1',
+                      },
+                      {
+                        path: '/y1/y2/y3/y4',
+                      },
+                      {
+                        path: '/y1/y2',
+                      },
+                    ],
                   },
-                  results: [
-                    {
-                      path: '/',
-                    },
-                    {
-                      path: '/x1',
-                    },
-                    {
-                      path: '/y1/y2/y3/y4',
-                    },
-                    {
-                      path: '/y1/y2',
-                    },
-                  ],
                 },
               },
             },
-          },
+          });
+
+        const service = new GraphQLSitemapService({
+          endpoint,
+          apiKey,
+          sites: multipleSites,
+          includePersonalizedRoutes: true,
         });
+        const sitemap = await service.fetchSSGSitemap([lang]);
+        console.log(sitemap.map((item) => item.params.path));
 
-      const service = new GraphQLSitemapService({
-        endpoint,
-        apiKey,
-        sites: multipleSites,
-        includePersonalizedRoutes: true,
+        expect(sitemap).to.deep.equal([
+          {
+            params: {
+              path: ['_site_site1'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_variantId_green', '_site_site1'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_site_site1', 'y1', 'y2', 'y3', 'y4'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_variantId_green', '_site_site1', 'y1', 'y2', 'y3', 'y4'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_variantId_red', '_site_site1', 'y1', 'y2', 'y3', 'y4'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_variantId_purple', '_site_site1', 'y1', 'y2', 'y3', 'y4'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_site_site2'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_site_site2', 'x1'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_site_site2', 'y1', 'y2', 'y3', 'y4'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_site_site2', 'y1', 'y2'],
+            },
+            locale: lang,
+          },
+        ]);
+        return expect(nock.isDone()).to.be.true;
       });
-      const sitemap = await service.fetchSSGSitemap([lang]);
-      console.log(sitemap.map((item) => item.params.path));
 
-      expect(sitemap).to.deep.equal([
-        {
-          params: {
-            path: ['_site_site1'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_variantId_green', '_site_site1'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_site_site1', 'y1', 'y2', 'y3', 'y4'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_variantId_green', '_site_site1', 'y1', 'y2', 'y3', 'y4'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_variantId_red', '_site_site1', 'y1', 'y2', 'y3', 'y4'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_variantId_purple', '_site_site1', 'y1', 'y2', 'y3', 'y4'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_site_site2'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_site_site2', 'x1'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_site_site2', 'y1', 'y2', 'y3', 'y4'],
-          },
-          locale: lang,
-        },
-        {
-          params: {
-            path: ['_site_site2', 'y1', 'y2'],
-          },
-          locale: lang,
-        },
-      ]);
-      return expect(nock.isDone()).to.be.true;
-    });
+      it('should work when multiple languages are requested', async () => {
+        const lang1 = 'ua';
+        const lang2 = 'da-DK';
 
-    it('should work when multiple languages are requested', async () => {
-      const lang1 = 'ua';
-      const lang2 = 'da-DK';
-
-      nock(endpoint)
-        .post('/', (body) => {
-          return body.variables.language === lang1;
-        })
-        .reply(200, {
-          data: {
-            site: {
-              siteInfo: {
-                routes: {
-                  total: 4,
-                  pageInfo: {
-                    hasNext: false,
+        nock(endpoint)
+          .post('/', (body) => {
+            return body.variables.language === lang1;
+          })
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 4,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/',
+                      },
+                      {
+                        path: '/x1',
+                      },
+                      {
+                        path: '/y1/y2/y3/y4',
+                      },
+                      {
+                        path: '/y1/y2',
+                      },
+                    ],
                   },
-                  results: [
-                    {
-                      path: '/',
-                    },
-                    {
-                      path: '/x1',
-                    },
-                    {
-                      path: '/y1/y2/y3/y4',
-                    },
-                    {
-                      path: '/y1/y2',
-                    },
-                  ],
                 },
               },
             },
-          },
-        });
+          });
 
-      nock(endpoint)
-        .post('/', (body) => {
-          return body.variables.language === lang2;
-        })
-        .reply(200, {
-          data: {
-            site: {
-              siteInfo: {
-                routes: {
-                  total: 4,
-                  pageInfo: {
-                    hasNext: false,
+        nock(endpoint)
+          .post('/', (body) => {
+            return body.variables.language === lang2;
+          })
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 4,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/',
+                      },
+                      {
+                        path: '/x1-da-DK',
+                      },
+                      {
+                        path: '/y1/y2/y3/y4-da-DK',
+                      },
+                      {
+                        path: '/y1/y2-da-DK',
+                      },
+                    ],
                   },
-                  results: [
-                    {
-                      path: '/',
-                    },
-                    {
-                      path: '/x1-da-DK',
-                    },
-                    {
-                      path: '/y1/y2/y3/y4-da-DK',
-                    },
-                    {
-                      path: '/y1/y2-da-DK',
-                    },
-                  ],
                 },
               },
             },
-          },
-        });
+          });
 
-      const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
-      const sitemap = await service.fetchSSGSitemap([lang1, lang2]);
+        const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
+        const sitemap = await service.fetchSSGSitemap([lang1, lang2]);
 
-      expect(sitemap).to.deep.equal([
-        {
-          params: {
-            path: ['_site_site-name'],
+        expect(sitemap).to.deep.equal([
+          {
+            params: {
+              path: ['_site_site-name'],
+            },
+            locale: 'ua',
           },
-          locale: 'ua',
-        },
-        {
-          params: {
-            path: ['_site_site-name', 'x1'],
+          {
+            params: {
+              path: ['_site_site-name', 'x1'],
+            },
+            locale: 'ua',
           },
-          locale: 'ua',
-        },
-        {
-          params: {
-            path: ['_site_site-name', 'y1', 'y2', 'y3', 'y4'],
+          {
+            params: {
+              path: ['_site_site-name', 'y1', 'y2', 'y3', 'y4'],
+            },
+            locale: 'ua',
           },
-          locale: 'ua',
-        },
-        {
-          params: {
-            path: ['_site_site-name', 'y1', 'y2'],
+          {
+            params: {
+              path: ['_site_site-name', 'y1', 'y2'],
+            },
+            locale: 'ua',
           },
-          locale: 'ua',
-        },
-        {
-          params: {
-            path: ['_site_site-name'],
+          {
+            params: {
+              path: ['_site_site-name'],
+            },
+            locale: 'da-DK',
           },
-          locale: 'da-DK',
-        },
-        {
-          params: {
-            path: ['_site_site-name', 'x1-da-DK'],
+          {
+            params: {
+              path: ['_site_site-name', 'x1-da-DK'],
+            },
+            locale: 'da-DK',
           },
-          locale: 'da-DK',
-        },
-        {
-          params: {
-            path: ['_site_site-name', 'y1', 'y2', 'y3', 'y4-da-DK'],
+          {
+            params: {
+              path: ['_site_site-name', 'y1', 'y2', 'y3', 'y4-da-DK'],
+            },
+            locale: 'da-DK',
           },
-          locale: 'da-DK',
-        },
-        {
-          params: {
-            path: ['_site_site-name', 'y1', 'y2-da-DK'],
+          {
+            params: {
+              path: ['_site_site-name', 'y1', 'y2-da-DK'],
+            },
+            locale: 'da-DK',
           },
-          locale: 'da-DK',
-        },
-      ]);
+        ]);
 
-      return expect(nock.isDone()).to.be.true;
-    });
+        return expect(nock.isDone()).to.be.true;
+      });
 
-    it('should work when null results are present', async () => {
-      const lang = 'en';
+      it('should work when null results are present', async () => {
+        const lang = 'en';
 
-      nock(endpoint)
-        .post('/', (body) => {
-          return body.variables.language === lang;
-        })
-        .reply(200, {
-          data: {
-            site: {
-              siteInfo: {
-                routes: {
-                  total: 4,
-                  pageInfo: {
-                    hasNext: false,
+        nock(endpoint)
+          .post('/', (body) => {
+            return body.variables.language === lang;
+          })
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 4,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/',
+                      },
+                      {
+                        path: '/x1',
+                      },
+                      null,
+                      null,
+                    ],
                   },
-                  results: [
-                    {
-                      path: '/',
-                    },
-                    {
-                      path: '/x1',
-                    },
-                    null,
-                    null,
-                  ],
                 },
               },
             },
-          },
-        });
+          });
 
-      const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
-      const sitemap = await service.fetchSSGSitemap([lang]);
+        const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
+        const sitemap = await service.fetchSSGSitemap([lang]);
 
-      expect(sitemap).to.deep.equal([
-        {
-          params: {
-            path: ['_site_site-name'],
-          },
-          locale: 'en',
-        },
-        {
-          params: {
-            path: ['_site_site-name', 'x1'],
-          },
-          locale: 'en',
-        },
-      ]);
-
-      return expect(nock.isDone()).to.be.true;
-    });
-
-    it('should throw error if valid language is not provided', async () => {
-      const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
-      await service.fetchSSGSitemap([]).catch((error: RangeError) => {
-        expect(error.message).to.equal(languageError);
-      });
-    });
-
-    it('should throw error if query returns nothing for a provided site name', async () => {
-      const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
-      nock(endpoint)
-        .post('/', (body) => {
-          return body.variables.siteName === sites[0];
-        })
-        .reply(200, {
-          data: {
-            site: {
-              siteInfo: null,
+        expect(sitemap).to.deep.equal([
+          {
+            params: {
+              path: ['_site_site-name'],
             },
+            locale: 'en',
           },
+          {
+            params: {
+              path: ['_site_site-name', 'x1'],
+            },
+            locale: 'en',
+          },
+        ]);
+
+        return expect(nock.isDone()).to.be.true;
+      });
+
+      it('should throw error if valid language is not provided', async () => {
+        const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
+        await service.fetchSSGSitemap([]).catch((error: RangeError) => {
+          expect(error.message).to.equal(languageError);
         });
-      await service.fetchSSGSitemap(['en']).catch((error: RangeError) => {
-        expect(error.message).to.equal(getSiteEmptyError(sites[0]));
-      });
-    });
-
-    it('should throw error if empty language is provided', async () => {
-      mockPathsRequest();
-
-      const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
-      await service.fetchExportSitemap('').catch((error: RangeError) => {
-        expect(error.message).to.equal('The language must be a non-empty string');
       });
 
-      return expect(nock.isDone()).to.be.false;
-    });
-
-    it('should use a custom pageSize, if provided', async () => {
-      const customPageSize = 20;
-
-      nock(endpoint)
-        .post('/', (body) => body.variables.pageSize === customPageSize)
-        .reply(200, sitemapDefaultQueryResult);
-
-      const service = new GraphQLSitemapService({
-        endpoint,
-        apiKey,
-        sites,
-        pageSize: customPageSize,
+      it('should throw error if query returns nothing for a provided site name', async () => {
+        const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
+        nock(endpoint)
+          .post('/', (body) => {
+            return body.variables.siteName === sites[0];
+          })
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: null,
+              },
+            },
+          });
+        await service.fetchSSGSitemap(['en']).catch((error: RangeError) => {
+          expect(error.message).to.equal(getSiteEmptyError(sites[0]));
+        });
       });
-      const sitemap = await service.fetchSSGSitemap(['ua']);
 
-      expect(sitemap).to.deep.equal(sitemapServiceMultisiteResult);
-      return expect(nock.isDone()).to.be.true;
-    });
+      it('should throw error if empty language is provided', async () => {
+        mockPathsRequest();
 
-    it('should use default value if pageSize is not specified', async () => {
-      nock(endpoint)
-        .post(
-          '/',
-          (body) =>
-            body.query.indexOf('$pageSize: Int = 10') > 0 && body.variables.pageSize === undefined
-        )
-        .reply(200, sitemapDefaultQueryResult);
+        const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
+        await service.fetchExportSitemap('').catch((error: RangeError) => {
+          expect(error.message).to.equal('The language must be a non-empty string');
+        });
 
-      const service = new GraphQLSitemapService({
-        endpoint,
-        apiKey,
-        sites,
-        pageSize: undefined,
+        return expect(nock.isDone()).to.be.false;
       });
-      const sitemap = await service.fetchSSGSitemap(['ua']);
 
-      expect(sitemap).to.deep.equal(sitemapServiceMultisiteResult);
-      return expect(nock.isDone()).to.be.true;
-    });
+      it('should use a custom pageSize, if provided', async () => {
+        const customPageSize = 20;
 
-    it('should work if sitemap has 0 pages', async () => {
-      mockPathsRequest([]);
+        nock(endpoint)
+          .post('/', (body) => body.variables.pageSize === customPageSize)
+          .reply(200, sitemapDefaultQueryResult);
 
-      const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
-      const sitemap = await service.fetchSSGSitemap(['ua']);
-      expect(sitemap).to.deep.equal([]);
-      return expect(nock.isDone()).to.be.true;
-    });
+        const service = new GraphQLSitemapService({
+          endpoint,
+          apiKey,
+          sites,
+          pageSize: customPageSize,
+        });
+        const sitemap = await service.fetchSSGSitemap(['ua']);
 
-    it('should throw error if SitemapQuery fails', async () => {
-      nock(endpoint)
-        .post('/', /DefaultSitemapQuery/gi)
-        .reply(500, 'Error 😥');
-
-      const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
-      await service.fetchSSGSitemap(['ua']).catch((error: RangeError) => {
-        expect(error.message).to.contain('SitemapQuery');
-        expect(error.message).to.contain('Error 😥');
+        expect(sitemap).to.deep.equal(sitemapServiceMultisiteResult);
+        return expect(nock.isDone()).to.be.true;
       });
-      return expect(nock.isDone()).to.be.true;
+
+      it('should use default value if pageSize is not specified', async () => {
+        nock(endpoint)
+          .post(
+            '/',
+            (body) =>
+              body.query.indexOf('$pageSize: Int = 10') > 0 && body.variables.pageSize === undefined
+          )
+          .reply(200, sitemapDefaultQueryResult);
+
+        const service = new GraphQLSitemapService({
+          endpoint,
+          apiKey,
+          sites,
+          pageSize: undefined,
+        });
+        const sitemap = await service.fetchSSGSitemap(['ua']);
+
+        expect(sitemap).to.deep.equal(sitemapServiceMultisiteResult);
+        return expect(nock.isDone()).to.be.true;
+      });
+
+      it('should work if sitemap has 0 pages', async () => {
+        mockPathsRequest([]);
+
+        const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
+        const sitemap = await service.fetchSSGSitemap(['ua']);
+        expect(sitemap).to.deep.equal([]);
+        return expect(nock.isDone()).to.be.true;
+      });
+
+      it('should throw error if SitemapQuery fails', async () => {
+        nock(endpoint)
+          .post('/', /DefaultSitemapQuery/gi)
+          .reply(500, 'Error 😥');
+
+        const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
+        await service.fetchSSGSitemap(['ua']).catch((error: RangeError) => {
+          expect(error.message).to.contain('SitemapQuery');
+          expect(error.message).to.contain('Error 😥');
+        });
+        return expect(nock.isDone()).to.be.true;
+      });
     });
   });
-});
 
   const expectedMultisiteExportSitemap = [
     {
@@ -894,7 +894,7 @@ describe('GraphQLSitemapService', () => {
     it('should fetch singlesite sitemap', async () => {
       mockPathsRequest();
       const service = new GraphQLSitemapService({ endpoint, apiKey, sites });
-      const sitemap = await service.fetchExportSitemap('ua',sites[0]);
+      const sitemap = await service.fetchExportSitemap('ua', sites[0]);
       expect(sitemap).to.deep.equal(expectedSinglesiteExportSitemap);
       return expect(nock.isDone()).to.be.true;
     });
