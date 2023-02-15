@@ -15,7 +15,7 @@ const StyleguideEditFrame = (props: StyleguideEditFrameProps): JSX.Element => (
     <EditFrame {...getEditFrameProps(props.rendering.dataSource)}>
       Who framed Roger Rabbit? Hard to say. <br />
       But JSS now allows to edit frame any piece of content on a page in editing mode. <br />
-      You can add web edit or field edit buttons, modify edit frame's style through CSS class and put the frame wherever you need it.
+      You can add web edit or field edit buttons, modify edit frames style through CSS class and put the frame wherever you need it.
       {props.children}
     </EditFrame>
   </StyleguideSpecimen>
