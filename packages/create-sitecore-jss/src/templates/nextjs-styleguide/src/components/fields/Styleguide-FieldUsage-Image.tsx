@@ -1,9 +1,4 @@
-import {
-  NextImage,
-  ImageField,
-  withDatasourceCheck,
-  getFieldValue,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { NextImage, ImageField, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
@@ -59,8 +54,8 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
     <div
       style={{
         position: 'relative',
-        height: +getFieldValue(props.fields, 'sample2').height || 160,
-        width: +getFieldValue(props.fields, 'sample2').width || 300,
+        height: 160,
+        width: 300,
       }}
     >
       <NextImage
