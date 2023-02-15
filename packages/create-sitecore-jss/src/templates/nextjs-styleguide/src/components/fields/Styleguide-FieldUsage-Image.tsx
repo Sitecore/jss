@@ -51,12 +51,18 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
       IMPORTANT: The generated sizes should match your Sitecore server-side allowlist. See /sitecore/config/*.config (search for 'allowedMediaParams')
     */}
     <p>Srcset responsive image</p>
-    <div style={{ position: 'relative', height: 160, width: 300 }}>
+    <div
+      style={{
+        position: 'relative',
+        height: 160,
+        width: 300,
+      }}
+    >
       <NextImage
         field={props.fields.sample2}
         sizes="(min-width: 960px) 300px, 100px"
-        fill
-        priority
+        fill={true}
+        priority={true}
       />
     </div>
   </StyleguideSpecimen>

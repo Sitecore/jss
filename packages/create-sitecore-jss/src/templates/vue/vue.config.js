@@ -22,11 +22,12 @@ if (process.env.BUILD_TARGET_ENV === 'server') {
   if (process.env.NODE_ENV === 'production') {
     vueConfig.chainWebpack = (config) => {
       config.plugin('html').init((Plugin, args) => {
-        args[0].minify = {
-          ...args[0].minify,
-          removeAttributeQuotes: false,
+        const newArgs = {
+          ...args[0],
+          minify: args[0].minify || {},
         };
-        return new Plugin(args);
+        newArgs.minify.removeAttributeQuotes = false;
+        return new Plugin(newArgs);
       });
     };
   }

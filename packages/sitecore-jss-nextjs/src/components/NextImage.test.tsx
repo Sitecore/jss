@@ -124,6 +124,25 @@ describe('<NextImage />', () => {
     it('should render image with className prop', () => {
       expect(rendered.prop('className')).to.eql(props.className);
     });
+
+    it('should render image without width/height when "fill" prop is provided', () => {
+      const field = {
+        value: { src: '/assets/img/test0.png', alt: 'my image', width: 200, height: 400 },
+      };
+      const rendered = mount(<NextImage loader={mockLoader} {...props} field={field} fill />).find(
+        'img'
+      );
+
+      expect(rendered).to.have.length(1);
+      expect(rendered.prop('src')).to.equal(`${HOSTNAME}${props.field.value.src}?w=${props.width}`);
+      expect(rendered.prop('sizes')).to.equal('(min-width: 960px) 300px, 100px');
+      expect(rendered.prop('height')).to.equal(undefined);
+      expect(rendered.prop('width')).to.equal(undefined);
+      expect(mockLoader.called).to.be.true;
+      expect(mockLoader).to.have.been.calledWith(
+        match({ src: props.field.value.src, width: props.width })
+      );
+    });
   });
 
   describe('with "value" property value', () => {
