@@ -23,20 +23,23 @@ export const EditFrame = defineComponent({
     },
     context: {
       type: Object,
-      default: undefined
+      default: undefined,
     },
     routeData: {
       type: Object as () => RouteData,
+      default: undefined
     },
   },
   render() {
     const instance = getCurrentInstance();
     const children = this.$slots.default;
     // similar to placeholder implementation, try reading context locally first before retrieving it from global
-    const sitecoreContext = this.$props.context || instance.appContext.config.globalProperties.$jss?.sitecoreContext();
+    const sitecoreContext =
+      this.$props.context || instance.appContext.config.globalProperties.$jss?.sitecoreContext();
     if (!sitecoreContext.pageEditing) {
-      if (children)
+      if (children) {
         return children();
+      }
       return '';
     }
 
@@ -53,7 +56,8 @@ export const EditFrame = defineComponent({
 
     // item uri for edit frame target
     if (this.$props.dataSource) {
-      const route = this.$props.routeData || instance.appContext.config.globalProperties.$jss?.routeData();
+      const route =
+        this.$props.routeData || instance.appContext.config.globalProperties.$jss?.routeData();
       const databaseName = this.$props.dataSource.databaseName || route?.databaseName;
       const language = this.$props.dataSource.language || sitecoreContext.language;
       frameProps.sc_item = `sitecore://${databaseName}/${this.$props.dataSource.itemId}?lang=${language}`;
@@ -65,7 +69,7 @@ export const EditFrame = defineComponent({
         return mapButtonToCommand(value, this.$props.dataSource?.itemId, this.$props.parameters);
       }
     );
-    
+
     if (children) {
       const childElements = h('div', null, children());
       const chromeSpan = h('span', {

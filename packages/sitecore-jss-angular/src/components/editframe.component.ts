@@ -10,16 +10,20 @@ import { LayoutServiceContextData, RouteData } from '@sitecore-jss/sitecore-jss/
 @Component({
   selector: 'sc-edit-frame,[sc-edit-frame]',
   template: `
-  <ng-template #childContent>
-    <ng-content></ng-content>
-  </ng-template>
-  <div *ngIf="isEditing; else elseBlock" [class]="frameProps.class" [attr.sc_item]="frameProps.sc_item" >
-    <span class="scChromeData">{{chromeData}}</span>
-    <ng-container *ngTemplateOutlet="childContent"></ng-container>
-  </div>
-  <ng-template #elseBlock>
-    <ng-container *ngTemplateOutlet="childContent"></ng-container>
-  </ng-template>
+    <ng-template #childContent>
+      <ng-content></ng-content>
+    </ng-template>
+    <div
+      *ngIf="isEditing; else elseBlock"
+      [class]="frameProps.class"
+      [attr.sc_item]="frameProps.sc_item"
+    >
+      <span class="scChromeData">{{ chromeData }}</span>
+      <ng-container *ngTemplateOutlet="childContent"></ng-container>
+    </div>
+    <ng-template #elseBlock>
+      <ng-container *ngTemplateOutlet="childContent"></ng-container>
+    </ng-template>
   `,
 })
 export class EditFrameComponent implements OnChanges {

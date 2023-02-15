@@ -154,7 +154,7 @@ describe('<EditFrame />', () => {
           </span>
           <span>Test</span>
         </div>
-      `.replace(/(\r\n|\n|\r|[\s]{2,})/gm, "")
+      `.replace(/(\r\n|\n|\r|[\s]{2,})/gm, '')
     );
   });
 });
