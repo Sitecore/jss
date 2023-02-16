@@ -1,11 +1,10 @@
 import { GraphQLClient, GraphQLRequestClient, PageInfo } from '@sitecore-jss/sitecore-jss/graphql';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { getPersonalizedRewrite } from '@sitecore-jss/sitecore-jss/personalize';
-import { getSiteRewrite } from '@sitecore-jss/sitecore-jss/site';
 
 /** @private */
 export const languageError = 'The list of languages cannot be empty';
-export const sitesError = 'The list of sites cannot be empty';
+export const siteError = 'The service needs a site name';
 
 /**
  * @param {string} siteName to inject into error text
@@ -138,9 +137,10 @@ export interface GraphQLSitemapServiceConfig
   apiKey: string;
 
   /**
-   * Names of the configured sites
+   * Name of the site to retrieve site paths for
+   * Make it optional
    */
-  sites?: string[];
+  siteName?: string;
 
   /**
    * A flag for whether to include personalized routes in service output - only works on XM Cloud
@@ -161,7 +161,7 @@ export type StaticPath = {
 
 /**
  * Service that fetches the list of site pages using Sitecore's GraphQL API.
- * Used to handle multiple sites by default but can retrieve paths for an individual site
+ * Used to handle a single site
  * This list is used for SSG and Export functionality.
  * @mixes SearchQueryService<PageListQueryResult>
  */
@@ -188,26 +188,24 @@ export class GraphQLSitemapService {
    * The `locale` parameter will be used in the item query, but since i18n is not supported,
    * the output paths will not include a `language` property.
    * @param {string} locale which application supports
-   * @param {string | undefined} siteName used when only paths for a single site are needed, without site prefix
    * @returns an array of @see StaticPath objects
    */
-  async fetchExportSitemap(locale: string, siteName?: string): Promise<StaticPath[]> {
+  async fetchExportSitemap(locale: string): Promise<StaticPath[]> {
     const formatPath = (path: string[]) => ({
       params: {
         path,
       },
     });
 
-    return this.fetchSitemap([locale], formatPath, siteName);
+    return this.fetchSitemap([locale], formatPath);
   }
 
   /**
    * Fetch sitemap which could be used for generation of static pages using SSG mode
    * @param {string[]} locales locales which application supports
-   * @param {string | undefined} siteName used when only paths for a single site are needed, without site prefix
    * @returns an array of @see StaticPath objects
    */
-  async fetchSSGSitemap(locales: string[], siteName?: string): Promise<StaticPath[]> {
+  async fetchSSGSitemap(locales: string[]): Promise<StaticPath[]> {
     const formatPath = (path: string[], locale: string) => ({
       params: {
         path,
@@ -215,7 +213,7 @@ export class GraphQLSitemapService {
       locale,
     });
 
-    return this.fetchSitemap(locales, formatPath, siteName);
+    return this.fetchSitemap(locales, formatPath);
   }
 
   /**
@@ -223,40 +221,26 @@ export class GraphQLSitemapService {
    * version in the specified language(s).
    * @param {string[]} languages Fetch pages that have versions in this language(s).
    * @param {Function} formatStaticPath Function for transforming the raw search results into (@see StaticPath) types.
-   * @param {string | undefined} singleSite used when only paths for a single site are needed, without site prefix
    * @returns list of pages
    * @throws {RangeError} if the list of languages is empty.
    * @throws {RangeError} if the any of the languages is an empty string.
    */
   protected async fetchSitemap(
     languages: string[],
-    formatStaticPath: (path: string[], language: string) => StaticPath,
-    singleSite?: string
+    formatStaticPath: (path: string[], language: string) => StaticPath
   ): Promise<StaticPath[]> {
     const paths = new Array<StaticPath>();
     if (!languages.length) {
       throw new RangeError(languageError);
     }
 
-    if (singleSite) {
-      paths.push(
-        ...(await this.getTranformedPaths(singleSite, languages, formatStaticPath, false))
-      );
-    } else {
-      // Get all sites
-      const sites = this.options.sites;
-      if (!sites || !sites.length) {
-        throw new RangeError(sitesError);
-      }
+    const siteName = this.options.siteName;
 
-      // Fetch paths for each site
-      for (let i = 0; i < sites.length; i++) {
-        const siteName = sites[i];
-
-        // Fetch paths using all locales
-        paths.push(...(await this.getTranformedPaths(siteName, languages, formatStaticPath, true)));
-      }
+    if (!siteName) {
+      throw new RangeError(siteError);
     }
+
+    paths.push(...(await this.getTranformedPaths(siteName, languages, formatStaticPath)));
 
     return ([] as StaticPath[]).concat(...paths);
   }
@@ -264,8 +248,7 @@ export class GraphQLSitemapService {
   protected async getTranformedPaths(
     siteName: string,
     languages: string[],
-    formatStaticPath: (path: string[], language: string) => StaticPath,
-    multisite?: boolean
+    formatStaticPath: (path: string[], language: string) => StaticPath
   ) {
     const paths = new Array<StaticPath>();
     await Promise.all(
@@ -278,8 +261,7 @@ export class GraphQLSitemapService {
         const transformedPaths = await this.transformLanguageSitePaths(
           results,
           formatStaticPath,
-          language,
-          multisite ? siteName : undefined
+          language
         );
         paths.push(...transformedPaths);
       })
@@ -290,8 +272,7 @@ export class GraphQLSitemapService {
   protected async transformLanguageSitePaths(
     sitePaths: RouteListQueryResult[],
     formatStaticPath: (path: string[], language: string) => StaticPath,
-    language: string,
-    multiSiteName?: string
+    language: string
   ): Promise<StaticPath[]> {
     const formatPath = (path: string) =>
       formatStaticPath(path.replace(/^\/|\/$/g, '').split('/'), language);
@@ -301,29 +282,15 @@ export class GraphQLSitemapService {
     sitePaths.forEach((item) => {
       if (!item) return;
 
-      if (!multiSiteName) {
-        aggregatedPaths.push(formatPath(item.path));
-      } else {
-        aggregatedPaths.push(formatPath(getSiteRewrite(item.path, { siteName: multiSiteName })));
-      }
+      aggregatedPaths.push(formatPath(item.path));
 
       // check for type safety's sake - personalize may be empty depending on query type
       if (item.route?.personalization?.variantIds.length) {
-        multiSiteName
-          ? aggregatedPaths.push(
-              ...(item.route?.personalization?.variantIds.map((varId) =>
-                formatPath(
-                  getPersonalizedRewrite(getSiteRewrite(item.path, { siteName: multiSiteName }), {
-                    variantId: varId,
-                  })
-                )
-              ) || {})
-            )
-          : aggregatedPaths.push(
-              ...(item.route?.personalization?.variantIds.map((varId) =>
-                formatPath(getPersonalizedRewrite(item.path, { variantId: varId }))
-              ) || {})
-            );
+        aggregatedPaths.push(
+          ...(item.route?.personalization?.variantIds.map((varId) =>
+            formatPath(getPersonalizedRewrite(item.path, { variantId: varId }))
+          ) || {})
+        );
       }
     });
 

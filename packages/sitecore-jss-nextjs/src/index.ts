@@ -81,6 +81,11 @@ export {
 } from './services/graphql-sitemap-service';
 
 export {
+  MultisiteGraphQLSitemapService,
+  MultisiteGraphQLSitemapServiceConfig,
+} from './services/mutisite-graphql-sitemap-service';
+
+export {
   GraphQLSitemapXmlService,
   GraphQLSitemapXmlServiceConfig,
   GraphQLErrorPagesService,
