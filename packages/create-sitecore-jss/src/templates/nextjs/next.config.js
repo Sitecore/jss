@@ -53,7 +53,12 @@ const nextConfig = {
       {
         source: '/healthz',
         destination: '/api/healthz',
-      }
+      },
+      // rewrite for default not-found page 
+      {
+        source: '/sitecore/service/:path*',
+        destination: `${jssConfig.sitecoreApiHost}/sitecore/service/:path*`,
+      }, 
     ];
   },
 };
