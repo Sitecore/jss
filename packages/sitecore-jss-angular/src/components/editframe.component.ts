@@ -53,11 +53,6 @@ export class EditFrameComponent implements OnChanges {
       return;
     }
 
-    const chromeData: Record<string, unknown> = {
-      displayName: this.title,
-      expandedDisplayName: this.tooltip,
-    };
-
     this.frameProps.class = 'scLooseFrameZone';
     if (this.cssClass) {
       this.frameProps.class = `${this.frameProps.class} ${this.cssClass}`;
@@ -69,6 +64,18 @@ export class EditFrameComponent implements OnChanges {
       const databaseName = this.dataSource.databaseName || route?.databaseName;
       const language = this.dataSource.language || this.sitecore.context.language;
       this.frameProps.sc_item = `sitecore://${databaseName}/${this.dataSource.itemId}?lang=${language}`;
+    }
+
+    this.chromeData = this.buildChromeData();
+  }
+
+  buildChromeData() {
+    const chromeData: Record<string, unknown> = {
+      displayName: this.title,
+      expandedDisplayName: this.tooltip,
+    };
+
+    if (this.dataSource) {
       chromeData.contextItemUri = this.frameProps.sc_item;
     }
 
@@ -78,6 +85,6 @@ export class EditFrameComponent implements OnChanges {
       }
     );
 
-    this.chromeData = JSON.stringify(chromeData);
+    return JSON.stringify(chromeData);
   }
 }

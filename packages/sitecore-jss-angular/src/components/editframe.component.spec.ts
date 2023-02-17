@@ -92,7 +92,6 @@ describe('<EditFrame />', () => {
 
     de = fixture.debugElement.query(By.css('sc-edit-frame'));
     editFrameComp = fixture.componentInstance;
-    editFrameComp.sitecore = normalContext;
   });
 
   it('should render wrapped element when not in pageEditing mode', () => {
@@ -134,7 +133,7 @@ describe('<EditFrame />', () => {
     );
   });
 
-  it('should render the added class', () => {
+  it('should render the added class in editing mode', () => {
     editFrameComp.sitecore = editingContext;
     editFrameComp.cssClass = 'topClass';
     fixture.detectChanges();
@@ -144,7 +143,7 @@ describe('<EditFrame />', () => {
     expect(frameDiv).toBe(classDiv);
   });
 
-  it('should render the datasource', () => {
+  it('should render the datasource in editing mode', () => {
     const mockDatasource = {
       itemId: 'testItemId',
       databaseName: 'master',
@@ -163,7 +162,7 @@ describe('<EditFrame />', () => {
     );
   });
 
-  it('should render the buttons', () => {
+  it('should render the buttons in editing mode', () => {
     const mockDatasource = {
       itemId: 'testItemId',
       databaseName: 'master',

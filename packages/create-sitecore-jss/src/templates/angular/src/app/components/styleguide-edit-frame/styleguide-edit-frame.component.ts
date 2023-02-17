@@ -18,6 +18,12 @@ interface EditFrameProps {
   parameters: object;
 }
 
+/**
+ * A sample component to describe Edit Frame usage with JSS.
+ * Edit Frame would simply output child content in normal mode.
+ * In editing mode it will output markup for Edit Frame that will wrap the child content.
+ * Edit buttons, custom CSS and datasource can be applied.
+ */
 @Component({
   selector: 'app-styleguide-edit-frame',
   templateUrl: './styleguide-edit-frame.component.html',
@@ -54,7 +60,7 @@ export class StyleguideEditFrameComponent implements OnInit {
     this.editFrameProps = this.getEditFrameProps(this.rendering.dataSource);
   }
 
-  getEditFrameProps(dataSource: string) {
+  getEditFrameProps(dataSource?: string) {
     return {
       dataSource: dataSource
         ? {

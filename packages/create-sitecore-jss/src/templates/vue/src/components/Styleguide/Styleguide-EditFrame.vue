@@ -1,3 +1,9 @@
+<!--
+ * A sample component to describe Edit Frame usage with JSS.
+ * Edit Frame would simply output child content in normal mode.
+ * In editing mode it will output markup for Edit Frame that will wrap the child content.
+ * Edit buttons, custom CSS and datasource can be applied.
+-->
 <template>
   <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-edit-frame">
     <sc-edit-frame v-bind="editFrameProps">

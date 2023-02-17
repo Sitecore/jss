@@ -2,6 +2,12 @@ import React from 'react';
 import { EditFrame } from '@sitecore-jss/sitecore-jss-react';
 import StyleguideSpecimen from '../Styleguide-Specimen';
 
+/**
+ * A sample component to describe Edit Frame usage with JSS.
+ * Edit Frame would simply output child content in normal mode.
+ * In editing mode it will output markup for Edit Frame that will wrap the child content.
+ * Edit buttons, custom CSS and datasource can be applied.
+ */
 const StyleguideEditFrame = (props) => (
   <StyleguideSpecimen {...props} e2eId="styleguide-editframe">
     <EditFrame {...getEditFrameProps(props.rendering.dataSource)}>

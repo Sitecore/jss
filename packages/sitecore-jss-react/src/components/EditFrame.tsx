@@ -1,11 +1,8 @@
-// import PropTypes from 'prop-types';
 import React, { PropsWithChildren } from 'react';
 import { useSitecoreContext } from '../enhancers/withSitecoreContext';
 import {
   EditFrameDataSource,
   ChromeCommand,
-  FieldEditButton,
-  WebEditButton,
   EditButtonTypes,
   mapButtonToCommand,
 } from '@sitecore-jss/sitecore-jss/utils';
@@ -66,12 +63,3 @@ export const EditFrame: React.FC<PropsWithChildren<EditFrameProps>> = ({
     </div>
   );
 };
-
-export interface EditFrameProps {
-  dataSource?: EditFrameDataSource;
-  buttons?: (FieldEditButton | WebEditButton | '|')[];
-  title?: string;
-  tooltip?: string;
-  cssClass?: string;
-  parameters?: Record<string, string | number | boolean | undefined | null>;
-}

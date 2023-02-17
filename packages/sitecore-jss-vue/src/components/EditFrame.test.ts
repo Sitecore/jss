@@ -23,6 +23,12 @@ const EditFrameWithText = defineComponent({
   },
 });
 
+const mockDatasource = {
+  itemId: 'testItemId',
+  databaseName: 'master',
+  language: 'en',
+};
+
 describe('<EditFrame />', () => {
   it('should render nothing when not in pageEditing mode', () => {
     const rendered = mount(EditFrame, {
@@ -52,74 +58,65 @@ describe('<EditFrame />', () => {
     });
     expect(rendered.find('div.scLooseFrameZone').text()).toContain('Test text');
   });
-});
 
-it('should render the title and tooltip', () => {
-  const rendered = mount(EditFrame, {
-    props: {
-      context: editingContext,
-      title: 'Test Title',
-      tooltip: 'Test Tooltip',
-    },
+  it('should render the title and tooltip', () => {
+    const rendered = mount(EditFrame, {
+      props: {
+        context: editingContext,
+        title: 'Test Title',
+        tooltip: 'Test Tooltip',
+      },
+    });
+    const editSpan = rendered.find('.scLooseFrameZone > span.scChromeData');
+    expect(editSpan.text()).toBe(
+      '{"displayName":"Test Title","expandedDisplayName":"Test Tooltip"}'
+    );
   });
-  const editSpan = rendered.find('.scLooseFrameZone > span.scChromeData');
-  expect(editSpan.text()).toBe('{"displayName":"Test Title","expandedDisplayName":"Test Tooltip"}');
-});
 
-it('should render the added class', () => {
-  const rendered = mount(EditFrame, {
-    props: {
-      context: editingContext,
-      cssClass: 'topClass',
-    },
+  it('should render the added class', () => {
+    const rendered = mount(EditFrame, {
+      props: {
+        context: editingContext,
+        cssClass: 'topClass',
+      },
+    });
+    const editDiv = rendered.find('div.scLooseFrameZone');
+    expect(editDiv.element.classList.contains('topClass')).toBe(true);
   });
-  const editDiv = rendered.find('div.scLooseFrameZone');
-  expect(editDiv.element.classList.contains('topClass')).toBe(true);
-});
 
-it('should render the datasource', () => {
-  const mockDatasource = {
-    itemId: 'testItemId',
-    databaseName: 'master',
-    language: 'en',
-  };
-  const rendered = mount(EditFrame, {
-    props: {
-      context: editingContext,
-      dataSource: mockDatasource,
-    },
+  it('should render the datasource', () => {
+    const rendered = mount(EditFrame, {
+      props: {
+        context: editingContext,
+        dataSource: mockDatasource,
+      },
+    });
+    const editDiv = rendered.find('div.scLooseFrameZone');
+    const editSpan = rendered.find('.scLooseFrameZone > span.scChromeData');
+    expect(editDiv.attributes('sc_item')).toBe('sitecore://master/testItemId?lang=en');
+    expect(
+      editSpan.text().includes('"contextItemUri":"sitecore://master/testItemId?lang=en"')
+    ).toBe(true);
   });
-  const editDiv = rendered.find('div.scLooseFrameZone');
-  const editSpan = rendered.find('.scLooseFrameZone > span.scChromeData');
-  expect(editDiv.attributes('sc_item')).toBe('sitecore://master/testItemId?lang=en');
-  expect(editSpan.text().includes('"contextItemUri":"sitecore://master/testItemId?lang=en"')).toBe(
-    true
-  );
-});
 
-it('should render the buttons', () => {
-  const mockDatasource = {
-    itemId: 'testItemId',
-    databaseName: 'master',
-    language: 'en',
-  };
-  const mockButtons: EditButtonTypes[] = [
-    DefaultEditFrameButton.insert,
-    '|',
-    DefaultEditFrameButton.edit,
-  ];
-  const rendered = mount(EditFrame, {
-    props: {
-      context: editingContext,
-      dataSource: mockDatasource,
-      buttons: mockButtons,
-    },
-  });
-  const editSpan = rendered.find('.scLooseFrameZone > span.scChromeData');
+  it('should render the buttons', () => {
+    const mockButtons: EditButtonTypes[] = [
+      DefaultEditFrameButton.insert,
+      '|',
+      DefaultEditFrameButton.edit,
+    ];
+    const rendered = mount(EditFrame, {
+      props: {
+        context: editingContext,
+        dataSource: mockDatasource,
+        buttons: mockButtons,
+      },
+    });
+    const editSpan = rendered.find('.scLooseFrameZone > span.scChromeData');
 
-  expect(
-    editSpan.text().includes(
-      `
+    expect(
+      editSpan.text().includes(
+        `
     "commands":
       [{"isDivider":false,
       "click":"javascript:Sitecore.PageModes.PageEditor.postRequest(\'webedit:new(id=testItemId)\',null,false)",
@@ -140,6 +137,7 @@ it('should render the buttons', () => {
       "tooltip":"Edit the item fields.",
       "type":null}
     ]`.replace(/(\r\n|\n|\r|[\s]{2,})/gm, '')
-    )
-  ).toBe(true);
+      )
+    ).toBe(true);
+  });
 });
