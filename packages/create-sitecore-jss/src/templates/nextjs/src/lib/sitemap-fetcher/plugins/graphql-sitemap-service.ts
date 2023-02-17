@@ -19,15 +19,12 @@ class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
   }
 
   async exec(context?: GetStaticPathsContext): Promise<StaticPath[]> {
-    if (process.env.EXPORT_MODE) {
-      if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
-        return [];
-      }
-      return process.env.EXPORT_MODE
-        ? this._graphqlSitemapService.fetchExportSitemap(config.defaultLanguage)
-        : this._graphqlSitemapService.fetchSSGSitemap(context?.locales || []);
+    if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
+      return [];
     }
-    return this._graphqlSitemapService.fetchSSGSitemap(context?.locales || []);
+    return process.env.EXPORT_MODE
+      ? this._graphqlSitemapService.fetchExportSitemap(config.defaultLanguage)
+      : this._graphqlSitemapService.fetchSSGSitemap(context?.locales || []);
   }
 }
 

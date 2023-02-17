@@ -1,18 +1,18 @@
 import { getSiteRewrite } from '@sitecore-jss/sitecore-jss/site';
 import {
-  GraphQLSitemapService,
-  GraphQLSitemapServiceConfig,
+  BaseGraphQLSitemapService,
+  BaseGraphQLSitemapServiceConfig,
   languageError,
   RouteListQueryResult,
   StaticPath,
-} from './graphql-sitemap-service';
+} from './base-graphql-sitemap-service';
 
 export const sitesError = 'The list of sites cannot be empty';
 
 /**
  * Configuration options for @see GraphQLSitemapService instances
  */
-export interface MultisiteGraphQLSitemapServiceConfig extends GraphQLSitemapServiceConfig {
+export interface MultisiteGraphQLSitemapServiceConfig extends BaseGraphQLSitemapServiceConfig {
   /**
    * Names of the configured sites
    */
@@ -25,7 +25,7 @@ export interface MultisiteGraphQLSitemapServiceConfig extends GraphQLSitemapServ
  * This list is used for SSG and Export functionality.
  * @mixes SearchQueryService<PageListQueryResult>
  */
-export class MultisiteGraphQLSitemapService extends GraphQLSitemapService {
+export class MultisiteGraphQLSitemapService extends BaseGraphQLSitemapService {
   /**
    * Creates an instance of graphQL sitemap service with the provided options
    * @param {GraphQLSitemapServiceConfig} options instance
