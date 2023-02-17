@@ -42,7 +42,6 @@ describe('<FEaaSComponent />', () => {
     expect(wrapper.html()).to.contain(
       '<feaas-component library="library123" cdn="host123" component="component123" version="version123" revision="revision123" data=""></feaas-component>'
     );
-    console.log(wrapper.html())
     expect(wrapper.html()).to.contain(
       '<link rel="preload" as="style" href="host123/styles/library123/published.css"/>'
     );
