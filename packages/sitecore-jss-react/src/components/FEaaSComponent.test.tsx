@@ -47,7 +47,7 @@ describe('<FEaaSComponent />', () => {
       '<link rel="preload" as="style" href="host123/styles/library123/published.css"/>'
     );
     expect(wrapper.html()).to.contain(
-      '<link rel="preload" as="fetch" href="host123/components/library123/component123/version123/revision123.css"/>'
+      '<link rel="preload" as="fetch" href="host123/components/library123/component123/version123/revision123.html"/>'
     );
     expect(wrapper.html()).to.contain(
       '<link rel="preload" as="script" href="https://feaasstatic.blob.core.windows.net/packages/clientside/latest/browser/index.esm.js"/>'
