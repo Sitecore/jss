@@ -28,6 +28,8 @@ export const NextImage: React.FC<NextImageProps> = ({
   imageParams,
   field,
   mediaUrlPrefix,
+  fill,
+  priority,
   ...otherProps
 }) => {
   // next handles src and we use a custom loader,
@@ -68,6 +70,8 @@ export const NextImage: React.FC<NextImageProps> = ({
   const attrs = {
     ...img,
     ...otherProps,
+    fill,
+    priority,
     src: mediaApi.updateImageUrl(
       img.src as string,
       imageParams as { [paramName: string]: string | number },
