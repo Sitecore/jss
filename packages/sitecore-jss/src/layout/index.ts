@@ -18,7 +18,7 @@ export {
   EDITING_COMPONENT_ID,
 } from './models';
 
-export { getFieldValue, getChildPlaceholder } from './utils';
+export { getFieldValue, getChildPlaceholder, reduceLayout } from './utils';
 
 export { LayoutService } from './layout-service';
 

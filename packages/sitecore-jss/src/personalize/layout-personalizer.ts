@@ -1,32 +1,15 @@
 import {
-  LayoutServiceData,
   ComponentRendering,
   HtmlElementRendering,
+  LayoutServiceData,
   PlaceholdersData,
+  RouteData,
 } from './../layout/models';
 
 export type ComponentRenderingWithExperiences = ComponentRendering & {
   experiences: { [name: string]: ComponentRenderingWithExperiences };
 };
 
-/**
- * Apply personalization to layout data. This will recursively go through all placeholders/components, check experiences nodes and replace default with object from specific experience.
- * @param {LayoutServiceData} layout Layout data
- * @param {string} variantId variant id
- */
-export function personalizeLayout(layout: LayoutServiceData, variantId: string): void {
-  // Add variantId to Sitecore context so that it is accessible here
-  layout.sitecore.context.variantId = variantId;
-  const placeholders = layout.sitecore.route?.placeholders;
-  if (Object.keys(placeholders ?? {}).length === 0) {
-    return;
-  }
-  if (placeholders) {
-    Object.keys(placeholders).forEach((placeholder) => {
-      placeholders[placeholder] = personalizePlaceholder(placeholders[placeholder], variantId);
-    });
-  }
-}
 
 /**
 
