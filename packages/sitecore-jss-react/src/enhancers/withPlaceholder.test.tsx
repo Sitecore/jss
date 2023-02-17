@@ -5,7 +5,9 @@
 import React, { ReactElement } from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { altData, convertedDevData as nonEeDevData } from '../test-data/non-ee-data';
+import { convertedDevData as nonEeDevData } from '../test-data/non-ee-data';
+import { convertedDevDataWithoutParams as nonEeDevDataWithoutParams } from '../test-data/non-ee-data';
+import { convertedDataWithoutParams as eeDataWithoutParams } from '../test-data/ee-data';
 import { convertedData as eeData } from '../test-data/ee-data';
 import { withPlaceholder } from '../enhancers/withPlaceholder';
 import { SitecoreContext } from '../components/SitecoreContext';
@@ -89,6 +91,11 @@ const componentFactory: ComponentFactory = (componentName: string) => {
 const testData = [
   { label: 'Dev data', data: nonEeDevData },
   { label: 'LayoutService data - EE on', data: eeData },
+];
+
+const testDataWithoutParams = [
+  { label: 'Dev data without params', data: nonEeDevDataWithoutParams },
+  { label: 'LayoutService data - EE on without params', data: eeDataWithoutParams },
 ];
 
 describe('withPlaceholder HOC', () => {
@@ -190,6 +197,31 @@ describe('withPlaceholder HOC', () => {
         );
         expect(renderedComponent.find('.home-mock-with-prop').length).to.equal(0);
         expect(renderedComponent.find('.home-mock').length).to.not.equal(0);
+      });
+    });
+  });
+
+  testDataWithoutParams.forEach((dataSet) => {
+    describe(`with ${dataSet.label}`, () => {
+      it('should render a placeholder with given key when params are not passed', () => {
+        const component = (dataSet.data.sitecore.route.placeholders.main as (
+          | ComponentRendering
+          | RouteData
+        )[]).find((c) => (c as ComponentRendering).componentName);
+        const phKey = 'page-content';
+        const props: PlaceholderProps = {
+          name: phKey,
+          rendering: component,
+          params: { test: 'test' },
+          componentFactory: componentFactory,
+        };
+        const Element = withPlaceholder(phKey)(Home);
+        const renderedComponent = mount(
+          <SitecoreContext componentFactory={componentFactory}>
+            <Element {...props} />
+          </SitecoreContext>
+        );
+        expect(renderedComponent.find('.download-callout-mock').length).to.equal(1);
       });
     });
   });
