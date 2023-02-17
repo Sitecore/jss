@@ -5787,21 +5787,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-feaas/clientside@npm:^0.1.19":
-  version: 0.1.19
-  resolution: "@sitecore-feaas/clientside@npm:0.1.19"
-  dependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
+"@sitecore-feaas/clientside@npm:^0.1.24":
+  version: 0.1.24
+  resolution: "@sitecore-feaas/clientside@npm:0.1.24"
   peerDependencies:
-    react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  dependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-  checksum: 622a53207b37181a34c97a0797103243581652e4f50c79ddd59ad522e14b9ca0ab562e49e559d8e5a09b9287bc2ff1a097f319153d215c4630ba4009df98ea85
+  checksum: 05d89fde92f65b800f14c6c1cd6d89e37e8cd854bfa049dd07decbc8f9ea5f088b485d56d172c6e82120ed06f982e29008f2b1939061cf98c5cf1861d7a67b88
   languageName: node
   linkType: hard
 
@@ -6132,8 +6123,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
-    "@sitecore-feaas/clientside": ^0.1.19
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.89
+    "@sitecore-feaas/clientside": ^0.1.24
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.106
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
     "@types/deep-equal": ^1.0.1
@@ -6265,6 +6256,22 @@ __metadata:
     url-parse: ^1.5.9
   languageName: unknown
   linkType: soft
+
+"@sitecore-jss/sitecore-jss@npm:^21.1.0-canary.106":
+  version: 21.1.0-canary.106
+  resolution: "@sitecore-jss/sitecore-jss@npm:21.1.0-canary.106"
+  dependencies:
+    axios: ^0.21.1
+    chalk: ^4.1.0
+    debug: ^4.3.1
+    graphql: ^16.5.0
+    graphql-request: ^4.2.0
+    lodash.unescape: ^4.0.1
+    memory-cache: ^0.2.0
+    url-parse: ^1.5.9
+  checksum: 81041bf32c1466b7204b600a38cdeb68f6f212a3687da679aa53196bf99297e53f4d0afd59e1fa24740cc17873094f9cd4a36c18fe3067663e261fea254a90c8
+  languageName: node
+  linkType: hard
 
 "@swc/helpers@npm:0.4.11":
   version: 0.4.11
@@ -24887,7 +24894,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:>=16.8.0, react-dom@npm:^18.2.0":
+"react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -25059,7 +25066,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:>=16.8.0, react@npm:^18.2.0":
+"react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:

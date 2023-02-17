@@ -37,7 +37,7 @@ describe('<FEaaSComponent />', () => {
     const wrapper = shallow(<FEaaSComponent params={requiredParams} />);
     expect(wrapper).to.have.length(1);
     expect(wrapper.html()).to.contain(
-      '<feaas-stylesheet library="library123" cdn="host123"><link rel="stylesheet" href="host123/styles/library123/published.css"/></feaas-stylesheet>'
+      '<feaas-stylesheet library="library123" cdn="host123"></feaas-stylesheet>'
     );
     expect(wrapper.html()).to.contain(
       '<feaas-component library="library123" cdn="host123" component="component123" version="version123" revision="revision123" data=""></feaas-component>'
