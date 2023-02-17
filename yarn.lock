@@ -6124,7 +6124,7 @@ __metadata:
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
     "@sitecore-feaas/clientside": ^0.1.24
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.106
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.91
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
     "@types/deep-equal": ^1.0.1
@@ -6257,7 +6257,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss@npm:^21.1.0-canary.106":
+"@sitecore-jss/sitecore-jss@npm:^21.1.0-canary.91":
   version: 21.1.0-canary.106
   resolution: "@sitecore-jss/sitecore-jss@npm:21.1.0-canary.106"
   dependencies:
