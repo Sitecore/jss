@@ -29,7 +29,7 @@ describe('RedirectsMiddleware', () => {
       },
       cookies: {
         get(key: string) {
-          return req.cookies[key];
+          return { value: req.cookies[key] };
         },
         ...props.cookies,
       },
@@ -68,7 +68,12 @@ describe('RedirectsMiddleware', () => {
     } = {}
   ) => {
     const getSite: any =
-      props.getSite || sinon.stub().returns({ name: siteName, language: '', hostName: hostname });
+      props.getSite ||
+      sinon.stub().returns({
+        name: siteName,
+        language: '',
+        hostName: hostname,
+      });
 
     const middleware = new RedirectsMiddleware({
       getSite,
@@ -94,6 +99,9 @@ describe('RedirectsMiddleware', () => {
 
     return { middleware, fetchRedirects, getSite };
   };
+
+  // Stub for NextResponse generation, see https://github.com/vercel/next.js/issues/42374
+  (Headers.prototype as any).getAll = () => [];
 
   afterEach(() => {
     sinon.restore();
@@ -126,7 +134,9 @@ describe('RedirectsMiddleware', () => {
       it('should apply both default and custom rules when custom excludeRoute function provided', async () => {
         const excludeRoute = (pathname: string) => pathname === '/crazypath/luna';
 
-        const { middleware } = createMiddleware({ excludeRoute });
+        const { middleware } = createMiddleware({
+          excludeRoute,
+        });
 
         await test('/src/image.png', middleware);
         await test('/api/layout/render', middleware);
@@ -182,7 +192,11 @@ describe('RedirectsMiddleware', () => {
           setCookies,
         });
         const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
-          return ({ url, status, cookies: { set: setCookies } } as unknown) as NextResponse;
+          return ({
+            url,
+            status,
+            cookies: { set: setCookies },
+          } as unknown) as NextResponse;
         });
         const req = createRequest({
           nextUrl: {
@@ -388,7 +402,10 @@ describe('RedirectsMiddleware', () => {
           setCookies,
         });
         const nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url) => {
-          return ({ url, cookies: { set: setCookies } } as unknown) as NextResponse;
+          return ({
+            url,
+            cookies: { set: setCookies },
+          } as unknown) as NextResponse;
         });
         const req = createRequest({
           nextUrl: {
@@ -475,7 +492,7 @@ describe('RedirectsMiddleware', () => {
         expect(getSite).to.not.be.called;
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
-        expect(finalRes.cookies.get('sc_site')).to.equal(site);
+        expect(finalRes.cookies.get('sc_site')?.value).to.equal(site);
       });
 
       it('should preserve site name from response data when provided, if handler is disabled', async () => {
@@ -506,7 +523,7 @@ describe('RedirectsMiddleware', () => {
         expect(getSite).to.not.be.called;
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.false;
-        expect(finalRes.cookies.get('sc_site')).to.equal(site);
+        expect(finalRes.cookies.get('sc_site')?.value).to.equal(site);
       });
 
       it('default fallback hostname is used', async () => {
@@ -517,7 +534,11 @@ describe('RedirectsMiddleware', () => {
           setCookies,
         });
         const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
-          return ({ url, status, cookies: { set: setCookies } } as unknown) as NextResponse;
+          return ({
+            url,
+            status,
+            cookies: { set: setCookies },
+          } as unknown) as NextResponse;
         });
 
         const req = createRequest({
@@ -559,7 +580,11 @@ describe('RedirectsMiddleware', () => {
           setCookies,
         });
         const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
-          return ({ url, status, cookies: { set: setCookies } } as unknown) as NextResponse;
+          return ({
+            url,
+            status,
+            cookies: { set: setCookies },
+          } as unknown) as NextResponse;
         });
 
         const req = createRequest({

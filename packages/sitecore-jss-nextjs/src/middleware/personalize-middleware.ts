@@ -112,7 +112,7 @@ export class PersonalizeMiddleware {
   }
 
   protected getBrowserId(req: NextRequest): string | undefined {
-    return req.cookies.get(this.browserIdCookieName) || undefined;
+    return req.cookies.get(this.browserIdCookieName)?.value || undefined;
   }
 
   protected setBrowserId(res: NextResponse, browserId: string) {
@@ -146,7 +146,9 @@ export class PersonalizeMiddleware {
   }
 
   protected isPreview(req: NextRequest) {
-    return req.cookies.get('__prerender_bypass') || req.cookies.get('__next_preview_data');
+    return (
+      req.cookies.get('__prerender_bypass')?.value || req.cookies.get('__next_preview_data')?.value
+    );
   }
 
   /**
@@ -166,7 +168,7 @@ export class PersonalizeMiddleware {
     const hostname = hostHeader || this.defaultHostname;
     const pathname = req.nextUrl.pathname;
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
-    const siteName = res?.cookies.get('sc_site') || this.config.getSite(hostname).name;
+    const siteName = res?.cookies.get('sc_site')?.value || this.config.getSite(hostname).name;
 
     let browserId = this.getBrowserId(req);
     debug.personalize('personalize middleware start: %o', {

@@ -102,7 +102,7 @@ export class MultisiteMiddleware {
       req.nextUrl.searchParams.get('sc_site') ||
       (this.config.useCookieResolution &&
         this.config.useCookieResolution(req) &&
-        req.cookies.get('sc_site')) ||
+        req.cookies.get('sc_site')?.value) ||
       this.config.getSite(hostname).name;
 
     // Rewrite to site specific path

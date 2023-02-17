@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import chalk from 'chalk';
 import { ConfigPlugin, JssConfig } from '..';
 import { GraphQLSiteInfoService, SiteInfo } from '@sitecore-jss/sitecore-jss-nextjs';

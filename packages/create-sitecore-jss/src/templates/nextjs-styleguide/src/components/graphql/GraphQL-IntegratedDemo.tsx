@@ -115,7 +115,7 @@ const GraphQLIntegratedDemo = (props: GraphQlIntegratedDemoProps): JSX.Element =
             {contextItem.children.results.map((child: Item) => (
               <li key={child.id}>
                 <NextLink href={child.url.path}>
-                  <a>{child.pageTitle.value}</a>
+                  {child.pageTitle.value}
                 </NextLink>
                 &nbsp; (editable title too! <Text field={child.pageTitle.jsonValue} />)
               </li>

@@ -32,7 +32,7 @@ export function runPackageManagerCommand(
 }
 
 /**
- * @param args
+ * @param {string[]} args to transform
  */
 export function transformPackageArgs(args: string[]) {
   return ['run', ...args.slice(0, 1), '--', ...args.slice(1)];
