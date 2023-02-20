@@ -126,6 +126,7 @@ export {
   Text,
   TextField,
   DateField,
+  EditFrame,
   FEaaSComponent,
   FEaaSComponentProps,
   File,

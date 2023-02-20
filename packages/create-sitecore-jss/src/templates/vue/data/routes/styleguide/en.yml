@@ -245,3 +245,11 @@ placeholders:
                   fields:
                     heading: Translation Patterns
                     sample: This text can be translated in en.yml
+          - componentName: Styleguide-Section
+            fields:
+              heading: Editing
+            placeholders:
+              Vue-jss-styleguide-section:
+                - componentName: Styleguide-EditFrame
+                  fields:
+                    heading: Edit Frame

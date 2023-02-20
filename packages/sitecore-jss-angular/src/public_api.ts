@@ -9,6 +9,7 @@ export { RenderEachDirective } from './components/render-each.directive';
 export { RenderEmptyDirective } from './components/render-empty.directive';
 export { RenderComponentComponent } from './components/render-component.component';
 export { DateDirective } from './components/date.directive';
+export { EditFrameComponent } from './components/editframe.component';
 export {
   ComponentNameAndType,
   DYNAMIC_COMPONENT,
@@ -59,6 +60,11 @@ export {
   isEditorActive,
   resetEditorChromes,
   handleEditorAnchors,
+  DefaultEditFrameButton,
+  DefaultEditFrameButtons,
+  EditFrameDataSource,
+  FieldEditButton,
+  WebEditButton,
 } from '@sitecore-jss/sitecore-jss/utils';
 export {
   trackingApi,
