@@ -84,12 +84,12 @@ export function getChildPlaceholder(
  * Walks through layout rendering tree and invokes Reduce-compatible callback on every Rendering.
  * Initial value determines return type
  *
- * @param {LayoutServiceData | RouteData<any> | ComponentRendering | HtmlElementRendering | null } object Layout, route data or rendering
+ * @param {LayoutServiceData | RouteData | ComponentRendering | HtmlElementRendering | null } object Layout, route data or rendering
  * @param {Function} callback Reduce-style callback, accepting previous value and a rendering
  * @param {any} initialValue Initial value that will be passed to callbacks, e.g. array
  */
 export function reduceLayout<T>(
-  object: LayoutServiceData | RouteData<any> | ComponentRendering | HtmlElementRendering | null,
+  object: LayoutServiceData | RouteData | ComponentRendering | HtmlElementRendering | null,
   callback: (
     previousValue: T,
     component: ComponentRendering | HtmlElementRendering | RouteData
