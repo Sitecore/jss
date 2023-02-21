@@ -1,6 +1,6 @@
 <!--- Provide a general summary of your changes in the Title above -->
 
-[ ] This PR follows the [Contribution Guide](https://github.com/Sitecore/jss/blob/dev/CONTRIBUTING.md)
+- [ ] This PR follows the [Contribution Guide](https://github.com/Sitecore/jss/blob/dev/CONTRIBUTING.md)
 
 ## Description / Motivation
 <!--- Describe your changes in detail -->
