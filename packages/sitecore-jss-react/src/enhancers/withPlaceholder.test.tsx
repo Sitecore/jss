@@ -212,7 +212,6 @@ describe('withPlaceholder HOC', () => {
         const props: PlaceholderProps = {
           name: phKey,
           rendering: component,
-          params: { test: 'test' },
           componentFactory: componentFactory,
         };
         const Element = withPlaceholder(phKey)(Home);
