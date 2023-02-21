@@ -9,6 +9,7 @@ import * as plugins from 'temp/site-resolver-plugins';
   By default, the app is single-site (one JSS app per Sitecore site).
   However, multi-site is available with the `nextjs-multisite` add-on.
 */
+
 export interface SiteResolverPlugin {
   /**
    * A function which will be called during sites collection
