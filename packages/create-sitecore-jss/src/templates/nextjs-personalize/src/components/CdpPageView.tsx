@@ -23,7 +23,7 @@ const CdpPageView = (): JSX.Element => {
    * Creates a page view event using the Sitecore Engage SDK.
    */
   const createPageView = async (page: string, language: string, pageVariantId: string) => {
-    const pointOfSale = posResolver.resolve(language, site?.name || '') as string;
+    const pointOfSale = posResolver.resolve(language, site?.name || '');
     const engage = await init({
       clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
       targetURL: process.env.NEXT_PUBLIC_CDP_TARGET_URL || '',
