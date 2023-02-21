@@ -30,6 +30,7 @@ export type PersonalizeMiddlewareConfig = {
   /**
    * function used to resolve correct point of sale for current locale during a request
    * @param {string} locale locale at the time of request
+   * @param {string} siteName site name
    */
   getPointOfSale: (locale: string, siteName: string) => string;
   /**
