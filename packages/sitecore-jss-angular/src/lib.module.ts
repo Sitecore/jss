@@ -19,6 +19,7 @@ import { MissingComponentComponent } from './components/missing-component.compon
 import { HiddenRenderingComponent } from './components/hidden-rendering.component';
 import { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
 import { PlaceholderComponent } from './components/placeholder.component';
+import { EditFrameComponent } from './components/editframe.component';
 import {
   ComponentNameAndModule,
   ComponentNameAndType,
@@ -58,6 +59,7 @@ import { JssComponentFactoryService } from './jss-component-factory.service';
     TextDirective,
     MissingComponentComponent,
     HiddenRenderingComponent,
+    EditFrameComponent,
   ],
   exports: [
     FileDirective,
@@ -74,6 +76,7 @@ import { JssComponentFactoryService } from './jss-component-factory.service';
     PlaceholderLoadingDirective,
     RichTextDirective,
     TextDirective,
+    EditFrameComponent,
   ],
   entryComponents: [RawComponent, MissingComponentComponent],
 })

@@ -251,3 +251,12 @@ placeholders:
                 - componentName: StyleguideAngularLazyLoading
                   fields:
                     heading: Lazy Loading
+          - componentName: StyleguideSection
+            fields:
+              heading: Editing
+            placeholders:
+              <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
+                - componentName: StyleguideEditFrame
+                  fields:
+                    heading: Edit Frame
+
