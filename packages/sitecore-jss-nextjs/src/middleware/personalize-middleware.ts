@@ -31,7 +31,7 @@ export type PersonalizeMiddlewareConfig = {
    * function used to resolve correct point of sale for current locale during a request
    * @param {string} locale locale at the time of request
    */
-  getPointOfSale: (locale: string) => string;
+  getPointOfSale: (locale: string, siteName: string) => string;
   /**
    * function, determines if middleware should be turned off, based on cookie, header, or other considerations
    *  @param {NextRequest} [req] optional: request object from middleware handler
@@ -231,7 +231,7 @@ export class PersonalizeMiddleware {
     // Execute targeted experience in CDP
     const { ua } = userAgent(req);
     const params = this.getExperienceParams(req);
-    const pointOfSale = this.config.getPointOfSale(language);
+    const pointOfSale = this.config.getPointOfSale(language, siteName);
     const variantId = await this.cdpService.executeExperience(
       personalizeInfo.contentId,
       browserId,

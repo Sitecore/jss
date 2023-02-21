@@ -19,6 +19,11 @@ describe('GraphQLSiteInfoService', () => {
             language: {
               value: 'en',
             },
+            pointOfSale: {
+              value: {
+                en: 'en-pos',
+              },
+            },
           },
           {
             name: {
@@ -62,11 +67,15 @@ describe('GraphQLSiteInfoService', () => {
         name: 'site 51',
         hostName: 'restricted.gov',
         language: 'en',
+        pointOfSale: {
+          en: 'en-pos',
+        },
       },
       {
         name: 'public',
         hostName: 'pr.showercurtains.org',
         language: '',
+        pointOfSale: undefined,
       },
     ]);
   });
@@ -105,11 +114,15 @@ describe('GraphQLSiteInfoService', () => {
         name: 'site 51',
         hostName: 'restricted.gov',
         language: 'en',
+        pointOfSale: {
+          en: 'en-pos',
+        },
       },
       {
         name: 'public',
         hostName: 'pr.showercurtains.org',
         language: '',
+        pointOfSale: undefined,
       },
     ]);
     nock.cleanAll();

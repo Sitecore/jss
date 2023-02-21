@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { PersonalizeMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
 import { MiddlewarePlugin } from '..';
 import config from 'temp/config';
-import { PosResolver } from 'lib/pos-resolver';
+import { posResolver } from 'lib/pos-resolver';
 import { siteResolver } from 'lib/site-resolver';
 
 /**
@@ -51,7 +51,7 @@ class PersonalizePlugin implements MiddlewarePlugin {
       excludeRoute: () => false,
       // This function resolves point of sale for cdp calls.
       // Point of sale may differ by locale and middleware will use request language to get the correct value every time it's invoked
-      getPointOfSale: PosResolver.resolve,
+      getPointOfSale: posResolver.resolve,
       // This function resolves site based on hostname
       getSite: siteResolver.getByHost,
     });

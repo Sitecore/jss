@@ -17,3 +17,4 @@ export {
   PersonalizedRewriteData,
   CdpHelper,
 } from './utils';
+export { PosResolver } from './pos-resolver';

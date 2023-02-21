@@ -60,6 +60,7 @@ export {
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
   CdpHelper,
+  PosResolver,
 } from '@sitecore-jss/sitecore-jss/personalize';
 export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 

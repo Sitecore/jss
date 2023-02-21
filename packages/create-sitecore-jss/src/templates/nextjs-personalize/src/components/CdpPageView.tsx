@@ -6,7 +6,7 @@ import {
 import { useEffect } from 'react';
 import config from 'temp/config';
 import { init } from '@sitecore/engage';
-import { PosResolver } from 'lib/pos-resolver';
+import { posResolver } from 'lib/pos-resolver';
 
 /**
  * This is the CDP page view component.
@@ -16,14 +16,14 @@ import { PosResolver } from 'lib/pos-resolver';
  */
 const CdpPageView = (): JSX.Element => {
   const {
-    sitecoreContext: { pageState, route, variantId },
+    sitecoreContext: { pageState, route, variantId, site },
   } = useSitecoreContext();
 
   /**
    * Creates a page view event using the Sitecore Engage SDK.
    */
   const createPageView = async (page: string, language: string, pageVariantId: string) => {
-    const pointOfSale = PosResolver.resolve(language);
+    const pointOfSale = posResolver.resolve(language, site?.name || '') as string;
     const engage = await init({
       clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
       targetURL: process.env.NEXT_PUBLIC_CDP_TARGET_URL || '',
