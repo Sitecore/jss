@@ -37,10 +37,19 @@ describe('<FEaaSComponent />', () => {
     const wrapper = shallow(<FEaaSComponent params={requiredParams} />);
     expect(wrapper).to.have.length(1);
     expect(wrapper.html()).to.contain(
-      '<feaas-stylesheet library="library123" cdn="host123"><link rel="stylesheet" href="host123/styles/library123/published.css"/></feaas-stylesheet>'
+      '<feaas-stylesheet library="library123" cdn="host123"></feaas-stylesheet>'
     );
     expect(wrapper.html()).to.contain(
       '<feaas-component library="library123" cdn="host123" component="component123" version="version123" revision="revision123" data=""></feaas-component>'
+    );
+    expect(wrapper.html()).to.contain(
+      '<link rel="preload" as="style" href="host123/styles/library123/published.css"/>'
+    );
+    expect(wrapper.html()).to.contain(
+      '<link rel="preload" as="fetch" href="host123/components/library123/component123/version123/revision123.html"/>'
+    );
+    expect(wrapper.html()).to.contain(
+      '<link rel="preload" as="script" href="https://feaasstatic.blob.core.windows.net/packages/clientside/latest/browser/index.esm.js"/>'
     );
   });
 
