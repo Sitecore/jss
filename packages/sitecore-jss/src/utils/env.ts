@@ -1,5 +1,5 @@
 /**
- * Parses raw env variable value into a Record (locale-bound in some cases)
+ * Parses raw env variable value into a Record
  * @param {string} mvEnv input
  * @returns non-empty Record
  * @throws error when input JSON can't be parsed
