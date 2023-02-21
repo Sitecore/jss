@@ -4,7 +4,7 @@ type PosResolverConfig = {
   getSite: (siteName: string) => SiteInfo;
 };
 
-// This class is used to get point of sale identifier(s). Resolving from env variable, but it can be expanded or change in future if needed.
+// This class is used to get point of sale identifier(s).
 export class PosResolver {
   constructor(private config: PosResolverConfig) {}
 

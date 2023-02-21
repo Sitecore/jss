@@ -14,6 +14,7 @@ import config from 'temp/config';
 // Grab our configured sites
 const sites = JSON.parse(config.sites) as SiteInfo[];
 
+// Resolving from env variable, but it can be expanded or change in future if needed.
 const pointOfSale = parseEnvValue(process.env.NEXT_PUBLIC_CDP_POINTOFSALE);
 
 // Then add fallback site with default values
