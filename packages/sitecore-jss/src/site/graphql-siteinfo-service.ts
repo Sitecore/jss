@@ -126,7 +126,7 @@ export class GraphQLSiteInfoService {
     const result = response?.search?.results?.reduce<SiteInfo[]>((result, current) => {
       result.push({
         pointOfSale: current.pointOfSale?.value
-          ? Object.fromEntries(new URLSearchParams(current.pointOfSale?.value))
+          ? Object.fromEntries(new URLSearchParams(current.pointOfSale.value))
           : undefined,
         name: current.name.value,
         hostName: current.hostName.value,
