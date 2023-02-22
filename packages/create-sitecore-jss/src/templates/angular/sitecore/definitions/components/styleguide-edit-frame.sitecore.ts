@@ -10,6 +10,9 @@ export default function StyleguideEditFrame(manifest: Manifest) {
     icon: SitecoreIcon.DocumentTag,
     fields: [
       { name: 'heading', type: CommonFieldTypes.SingleLineText },
+      { name: 'description', type: CommonFieldTypes.RichText},
+      { name: 'red', type: CommonFieldTypes.Checkbox},
+      { name: 'sampleList', type: CommonFieldTypes.ContentList}
     ],
   });
 }
