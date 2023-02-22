@@ -11,8 +11,8 @@ export default function StyleguideEditFrame(manifest: Manifest) {
     fields: [
       { name: 'heading', type: CommonFieldTypes.SingleLineText },
       { name: 'description', type: CommonFieldTypes.RichText},
-      { name: 'red', type: CommonFieldTypes.Checkbox},
-      { name: 'sampleList', type: CommonFieldTypes.ContentList}
+      { name: 'applyRedToText', type: CommonFieldTypes.Checkbox},
+      { name: 'sampleList', type: CommonFieldTypes.ContentList},
     ],
   });
 }

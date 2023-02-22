@@ -10,6 +10,11 @@ export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-EditFrame',
     icon: SitecoreIcon.DocumentTag,
-    fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
+    fields: [      
+      { name: 'heading', type: CommonFieldTypes.SingleLineText },
+      { name: 'description', type: CommonFieldTypes.RichText},
+      { name: 'applyRedToText', type: CommonFieldTypes.Checkbox},
+      { name: 'sampleList', type: CommonFieldTypes.ContentList},
+    ],
   });
 }
