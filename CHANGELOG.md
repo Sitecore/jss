@@ -5,7 +5,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ## 21.0.8
 
-### 🎉 New Features & Improvements
+### 🐛 Bug Fixes
 
 `[React]` `[Nextjs]` `[FEaaSComponent]` Avoid FEAAS Stylesheets parsing multiple times ([#1320](https://github.com/Sitecore/jss/pull/1320))
 
