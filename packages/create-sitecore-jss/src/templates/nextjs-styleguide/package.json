@@ -4,7 +4,7 @@
     "nprogress": "~0.2.0"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "^21.0.7",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^21.0.8",
     "@types/nprogress": "^0.2.0"
   },
   "scripts": {
