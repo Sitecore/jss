@@ -14,7 +14,7 @@ export {
   isEditorActive,
   resetEditorChromes,
   resolveUrl,
-  parseEnvValue,
+  tryParseEnvValue,
 } from '@sitecore-jss/sitecore-jss/utils';
 export {
   LayoutService,
@@ -65,7 +65,6 @@ export {
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
   CdpHelper,
-  PosResolver,
 } from '@sitecore-jss/sitecore-jss/personalize';
 export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
@@ -97,6 +96,7 @@ export {
   ErrorPages,
   SiteInfo,
   SiteResolver,
+  SiteResolverType,
   GraphQLSiteInfoService,
   GraphQLSiteInfoServiceConfig,
   getSiteRewrite,

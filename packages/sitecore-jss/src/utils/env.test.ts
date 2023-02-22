@@ -1,12 +1,12 @@
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
-import { parseEnvValue, parseMultiValueAsRecord } from './env';
+import { tryParseEnvValue, parseMultiValueAsRecord } from './env';
 
 use(spies);
 
 describe('env', () => {
   describe('parseMultiValueAsRecord', () => {
-    it('should parse Record env variable', () => {
+    it('should parse env variable', () => {
       expect(parseMultiValueAsRecord('{ "TEST": true }')).to.deep.equal({ TEST: true });
     });
 
@@ -29,24 +29,24 @@ describe('env', () => {
     });
   });
 
-  describe('parseEnvValue', () => {
-    it('should return empty string when value is not provided', () => {
-      expect(parseEnvValue()).to.equal('');
+  describe('tryParseEnvValue', () => {
+    it('should return default value when value is not provided', () => {
+      expect(tryParseEnvValue(undefined, {})).to.deep.equal({});
     });
 
     it('should return string value', () => {
-      expect(parseEnvValue('test')).to.equal('test');
+      expect(tryParseEnvValue('test', 'foo')).to.deep.equal('test');
     });
 
-    it('should parse record value', () => {
-      expect(parseEnvValue('{ "TEST": true }')).to.deep.equal({ TEST: true });
+    it('should parse value', () => {
+      expect(tryParseEnvValue('{ "TEST": true }', {})).to.deep.equal({ TEST: true });
     });
 
-    it('should throw error when cant parse env variable', () => {
+    it('should throw error when cant parse provided value', () => {
       const logSpy = spy.on(console, 'log');
 
       try {
-        parseEnvValue('{ TEST: true }');
+        tryParseEnvValue('{ TEST: true }', {});
       } catch (err) {
         expect(err.message).to.equal('Unexpected token T in JSON at position 2');
         expect(logSpy)

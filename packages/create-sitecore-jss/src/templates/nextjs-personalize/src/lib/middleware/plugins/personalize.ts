@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { PersonalizeMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
 import { MiddlewarePlugin } from '..';
 import config from 'temp/config';
-import { posResolver } from 'lib/pos-resolver';
 import { siteResolver } from 'lib/site-resolver';
 
 /**
@@ -49,11 +48,8 @@ class PersonalizePlugin implements MiddlewarePlugin {
       // Certain paths are ignored by default (e.g. files and Next.js API routes), but you may wish to exclude more.
       // This is an important performance consideration since Next.js Edge middleware runs on every request.
       excludeRoute: () => false,
-      // This function resolves point of sale for cdp calls.
-      // Point of sale may differ by locale and middleware will use request language to get the correct value every time it's invoked
-      getPointOfSale: posResolver.resolve,
-      // This function resolves site based on hostname
-      getSite: siteResolver.getByHost,
+      // Site resolver implementation
+      siteResolver,
     });
   }
 

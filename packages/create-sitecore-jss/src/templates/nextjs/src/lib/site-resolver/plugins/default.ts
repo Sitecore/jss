@@ -4,7 +4,7 @@ import { SiteResolverPlugin } from '..';
 
 class DefaultPlugin implements SiteResolverPlugin {
   exec(sites: SiteInfo[]): SiteInfo[] {
-    // Add our single site
+    // Add default/configured site
     sites.unshift({
       name: config.jssAppName,
       language: config.defaultLanguage,

@@ -4,9 +4,9 @@
  * @returns non-empty Record
  * @throws error when input JSON can't be parsed
  */
-export const parseMultiValueAsRecord = (mvEnv: string): Record<string, string> => {
+export const parseMultiValueAsRecord = <T>(mvEnv: string): T => {
   try {
-    return JSON.parse(mvEnv) as Record<string, string>;
+    return JSON.parse(mvEnv) as T;
   } catch (error) {
     console.log('Parsing of multivalue env variable failed');
     console.log(`Attempted to parse ${mvEnv}`);
@@ -15,16 +15,17 @@ export const parseMultiValueAsRecord = (mvEnv: string): Record<string, string> =
 };
 
 /**
- * Entry method to parse multi or single value env variables
+ * Method to parse env variables
  * @param {string} envValue - can be undefined when providing values via process.env
- * @returns Record or string depending on input format
+ * @param {T} defaultValue - default value
+ * @returns {T | string} parsed value, returns envValue if it's not an object
  */
-export const parseEnvValue = (envValue?: string): Record<string, string> | string => {
+export const tryParseEnvValue = <T>(envValue: string | undefined, defaultValue: T): T | string => {
   if (!envValue) {
-    return '';
+    return defaultValue;
   }
 
   if (envValue.startsWith('{') && envValue.endsWith('}')) {
-    return parseMultiValueAsRecord(envValue);
+    return parseMultiValueAsRecord<T>(envValue);
   } else return envValue;
 };

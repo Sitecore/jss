@@ -7,7 +7,7 @@ import {
   ExperienceParams,
   getPersonalizedRewrite,
 } from '@sitecore-jss/sitecore-jss/personalize';
-import { SiteInfo } from '@sitecore-jss/sitecore-jss/site';
+import { SiteResolverType } from '@sitecore-jss/sitecore-jss/site';
 import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 
 export type PersonalizeMiddlewareConfig = {
@@ -28,12 +28,6 @@ export type PersonalizeMiddlewareConfig = {
    */
   cdpConfig: Omit<CdpServiceConfig, 'dataFetcherResolver'>;
   /**
-   * function used to resolve correct point of sale for current locale during a request
-   * @param {string} locale locale at the time of request
-   * @param {string} siteName site name
-   */
-  getPointOfSale: (locale: string, siteName: string) => string;
-  /**
    * function, determines if middleware should be turned off, based on cookie, header, or other considerations
    *  @param {NextRequest} [req] optional: request object from middleware handler
    *  @param {NextResponse} [res] optional: response object from middleware handler
@@ -41,9 +35,9 @@ export type PersonalizeMiddlewareConfig = {
    */
   disabled?: (req?: NextRequest, res?: NextResponse) => boolean;
   /**
-   * function used to resolve site for given hostname
+   * Site resolution implementation by name/hostname
    */
-  getSite: (hostname: string) => SiteInfo;
+  siteResolver: SiteResolverType;
   /**
    * fallback hostname in case `host` header is not present
    * @default localhost
@@ -169,7 +163,15 @@ export class PersonalizeMiddleware {
     const hostname = hostHeader || this.defaultHostname;
     const pathname = req.nextUrl.pathname;
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
-    const siteName = res?.cookies.get('sc_site')?.value || this.config.getSite(hostname).name;
+    let siteName = res?.cookies.get('sc_site')?.value;
+    let site;
+
+    if (!siteName) {
+      site = this.config.siteResolver.getByHost(hostname);
+      siteName = site.name;
+    } else {
+      site = this.config.siteResolver.getByName(siteName);
+    }
 
     let browserId = this.getBrowserId(req);
     debug.personalize('personalize middleware start: %o', {
@@ -232,7 +234,9 @@ export class PersonalizeMiddleware {
     // Execute targeted experience in CDP
     const { ua } = userAgent(req);
     const params = this.getExperienceParams(req);
-    const pointOfSale = this.config.getPointOfSale(language, siteName);
+    const pointOfSale = site.pointOfSale
+      ? site.pointOfSale[language] || site.pointOfSale[site.language]
+      : '';
     const variantId = await this.cdpService.executeExperience(
       personalizeInfo.contentId,
       browserId,
