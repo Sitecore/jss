@@ -31,6 +31,12 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-angular]` Due to the Angular version upgrade and the change in _sitecore-jss-angular_ package output format  _sitecore-jss_ exports are not available in angular app scripts (src/scripts) via '@sitecore-jss/sitecore-jss-angular'. Please use '@sitecore-jss/sitecore-jss-angular/cjs' import instead. Check bootstrap.ts scripts as for a usage example.
 
+## 21.0.8
+
+### 🐛 Bug Fixes
+
+`[React]` `[Nextjs]` `[FEaaSComponent]` Avoid FEAAS Stylesheets parsing multiple times ([#1320](https://github.com/Sitecore/jss/pull/1320))
+
 ## 21.0.7
 
 ### 🎉 New Features & Improvements
