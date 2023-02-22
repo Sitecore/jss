@@ -21,7 +21,6 @@ export function getSiteEmptyError(siteName: string) {
 export interface GraphQLSitemapServiceConfig extends BaseGraphQLSitemapServiceConfig {
   /**
    * Name of the site to retrieve site paths for
-   * Make it optional
    */
   siteName: string;
 }

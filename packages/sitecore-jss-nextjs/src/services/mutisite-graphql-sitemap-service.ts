@@ -28,7 +28,7 @@ export interface MultisiteGraphQLSitemapServiceConfig extends BaseGraphQLSitemap
 export class MultisiteGraphQLSitemapService extends BaseGraphQLSitemapService {
   /**
    * Creates an instance of graphQL sitemap service with the provided options
-   * @param {GraphQLSitemapServiceConfig} options instance
+   * @param {MultisiteGraphQLSitemapServiceConfig} options instance
    */
   constructor(public options: MultisiteGraphQLSitemapServiceConfig) {
     super(options);
