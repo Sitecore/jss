@@ -1,14 +1,17 @@
-import { Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import { withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { EditFrame } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from './Styleguide-Specimen';
+import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
-type StyleguideEditFrameProps = ComponentProps & {
-  fields: {
-    heading: Field<string>;
+type StyleguideEditFrameProps = ComponentProps &
+  StyleguideSpecimenFields & {
+    fields: {
+      applyRedToText: Field<boolean>,
+      sampleList: Item[],
+    }
+    children: React.ReactNode;
   };
-  children: React.ReactNode;
-};
 
 /**
  * A sample component to describe Edit Frame usage with JSS.
@@ -17,7 +20,7 @@ type StyleguideEditFrameProps = ComponentProps & {
  * Edit buttons, custom CSS and datasource can be applied.
  */
 const StyleguideEditFrame = (props: StyleguideEditFrameProps): JSX.Element => {
-  const applyRed = props.rendering.fields.applyRedToText?.value;
+  const applyRed = props.fields.applyRedToText.value;
   return (
     <StyleguideSpecimen {...props} e2eId="styleguide-editframe">
       <EditFrame {...getEditFrameProps(props.rendering.dataSource)}>
@@ -28,7 +31,7 @@ const StyleguideEditFrame = (props: StyleguideEditFrameProps): JSX.Element => {
         <p style={{color: applyRed? 'red': 'blue'}}>This text will change color. Use the field edit button to change its appearance</p>
         This list can be changed via field editor:
         <ul>
-          {props.rendering.fields.sampleList.map((item, idx) => (
+          {props.fields.sampleList.map((item, idx) => (
             <li key={idx}>{item.name}</li>
           ))}
         </ul>
