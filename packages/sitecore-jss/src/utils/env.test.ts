@@ -16,7 +16,7 @@ describe('env', () => {
 
     it('should return default value when value is not a JSON', () => {
       expect(tryParseEnvValue('test', { env: 'test' })).to.deep.equal({ env: 'test' });
-    })
+    });
 
     it('should throw error when cant parse provided value', () => {
       const logSpy = spy.on(console, 'log');
