@@ -7,7 +7,7 @@ import {
   ExperienceParams,
   getPersonalizedRewrite,
 } from '@sitecore-jss/sitecore-jss/personalize';
-import { SiteResolverType } from '@sitecore-jss/sitecore-jss/site';
+import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 
 export type PersonalizeMiddlewareConfig = {
@@ -37,7 +37,7 @@ export type PersonalizeMiddlewareConfig = {
   /**
    * Site resolution implementation by name/hostname
    */
-  siteResolver: SiteResolverType;
+  siteResolver: SiteResolver;
   /**
    * fallback hostname in case `host` header is not present
    * @default localhost

@@ -5,7 +5,7 @@ import { SiteResolverPlugin } from '..';
 // Resolving from env variable, but it can be expanded or change in future if needed.
 const pointOfSale = tryParseEnvValue<Record<string, string>>(
   process.env.NEXT_PUBLIC_CDP_POINTOFSALE,
-  {}
+  { [config.defaultLanguage]: process.env.NEXT_PUBLIC_CDP_POINTOFSALE || '' }
 );
 
 class DefaultPlugin implements SiteResolverPlugin {
@@ -15,8 +15,7 @@ class DefaultPlugin implements SiteResolverPlugin {
       name: config.jssAppName,
       language: config.defaultLanguage,
       hostName: '*',
-      pointOfSale:
-        typeof pointOfSale === 'object' ? pointOfSale : { [config.defaultLanguage]: pointOfSale },
+      pointOfSale,
     });
 
     return sites;

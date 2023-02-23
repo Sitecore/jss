@@ -3,25 +3,10 @@ import { SiteInfo } from './graphql-siteinfo-service';
 // Delimiters for multi-value hostnames
 const DELIMITERS = /\||,|;/g;
 
-export type SiteResolverType = {
-  /**
-   * Resolve site by host name
-   * @param {string} hostName the host name
-   * @returns {SiteInfo} the resolved site
-   */
-  getByHost(hostName: string): SiteInfo;
-  /**
-   * Resolve site by site name
-   * @param {string} siteName the site name
-   * @returns {SiteInfo} the resolved site
-   */
-  getByName(siteName: string): SiteInfo;
-};
-
 /**
  * Resolves site based on the provided host or site name
  */
-export class SiteResolver implements SiteResolverType {
+export class SiteResolver {
   /**
    * @param {SiteInfo[]} sites Array of sites to be used in resolution
    */

@@ -96,7 +96,6 @@ export {
   ErrorPages,
   SiteInfo,
   SiteResolver,
-  SiteResolverType,
   GraphQLSiteInfoService,
   GraphQLSiteInfoServiceConfig,
   getSiteRewrite,
