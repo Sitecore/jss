@@ -11,22 +11,22 @@ import StyleguideSpecimen from '../Styleguide-Specimen';
 const StyleguideEditFrame = (props) => {
   const applyRed = props.rendering.fields.applyRedToText?.value;
   return (
-  <StyleguideSpecimen {...props} e2eId="styleguide-editframe">
-    <EditFrame {...getEditFrameProps(props.rendering.dataSource)}>
-      This is the content that will be wrapped by edit frame in Experience Editor.<br/>
-      Try out the custom webedit buttons for a variety of tasks like executing javascript, or webedit commands. <br/>
-      Or use field edit buttons to author fields that are not usually editable in Experience Editor.<br/>
-      <br/>
-      <p style={{color: applyRed? 'red': 'blue'}}>This text will change color. Use the field edit button to change its appearance</p>
-      This list can be changed via field editor:
-      <ul>
-        {props.rendering.fields.sampleList.map((item, idx) => (
-          <li key={idx}>{item.name}</li>
-        ))}
-      </ul>
-      {props.children}
-    </EditFrame>
-  </StyleguideSpecimen>
+    <StyleguideSpecimen {...props} e2eId="styleguide-editframe">
+      <EditFrame {...getEditFrameProps(props.rendering.dataSource)}>
+        This is the content that will be wrapped by edit frame in Experience Editor.<br/>
+        Try out the custom webedit buttons for a variety of tasks like executing javascript, or webedit commands. <br/>
+        Or use field edit buttons to author fields that are not usually editable in Experience Editor.<br/>
+        <br/>
+        <p style={{color: applyRed? 'red': 'blue'}}>This text will change color. Use the field edit button to change its appearance</p>
+        This list can be changed via field editor:
+        <ul>
+          {props.rendering.fields.sampleList.map((item, idx) => (
+            <li key={idx}>{item.name}</li>
+          ))}
+        </ul>
+        {props.children}
+      </EditFrame>
+    </StyleguideSpecimen>
   );
 };
 
