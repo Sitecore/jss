@@ -37,9 +37,9 @@ export const EditFrame: React.FC<PropsWithChildren<EditFrameProps>> = ({
   };
 
   const frameProps: Record<string, unknown> = {};
-  frameProps.class = 'scLooseFrameZone';
+  frameProps.className = 'scLooseFrameZone';
   if (cssClass) {
-    frameProps.class = `${frameProps.class} ${cssClass}`;
+    frameProps.className = `${frameProps.className} ${cssClass}`;
   }
 
   // item uri for edit frame target
