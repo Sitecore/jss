@@ -6,9 +6,15 @@
     [cssClass]="editFrameProps.cssClass"
     [parameters]="editFrameProps.parameters"
     [sitecore]="context">
-    Who framed Roger Rabbit? Hard to say. <br />
-    But JSS now allows to edit frame any piece of content on a page in editing mode. <br />
-    You can add web edit or field edit buttons, modify edit frame style through CSS class and put the frame wherever you need it.
+    This is the content that will be wrapped by edit frame in Experience Editor.<br/>
+    Try out the custom webedit buttons for a variety of tasks like executing javascript, or webedit commands. <br/>
+    Or use field edit buttons to author fields that are not usually editable in Experience Editor.<br/>
+    <br/>
+    <p [ngStyle]="{'color': (applyRed ? 'red': 'blue')}">This text will change color. Use the field edit button to change its appearance</p>
+    This list can be changed via field editor:
+    <ul>
+      <li *ngFor="let contentItem of rendering.fields.sampleList">{{contentItem.name}}</li>
+    </ul>
     <ng-content></ng-content>
   </sc-edit-frame>
 </app-styleguide-specimen>

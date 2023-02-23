@@ -3,6 +3,7 @@ import {
   ComponentRendering,
   EditFrameDataSource,
   FieldEditButton,
+  getFieldValue,
   LayoutServiceContextData,
   RouteData,
   WebEditButton
@@ -36,17 +37,19 @@ export class StyleguideEditFrameComponent implements OnInit {
 
   editFrameProps: EditFrameProps;
 
+  applyRed: boolean;
+  
   editFrameButtons = [
     {
       header: 'WebEditButton',
       icon: '/~/icon/Office/16x16/document_selection.png',
-      click: 'javascript:alert("An edit frame button was just clicked!")',
+      click: 'javascript:alert("An edit frame button was just clicked! You can also use chrome: and webedit: commands with it!")',
       tooltip: 'Doesnt do much, just a web edit button example',
     }, // use javascript:, webedit: or chrome: commands for webedit buttons
     {
       header: 'FieldEditButton',
       icon: '/~/icon/Office/16x16/pencil.png',
-      fields: ['heading'],
+      fields: ['applyRedToText', 'sampleList'],
       tooltip: 'Allows you to open field editor for specified fields',
     }, // or use field edit buttons to open Field Editor
   ];
@@ -57,6 +60,7 @@ export class StyleguideEditFrameComponent implements OnInit {
     this.jssContext.state.subscribe((state) => {
       this.context = state.sitecore;
     });
+    this.applyRed = getFieldValue<number>(this.rendering, 'applyRedToText') ? true: false;
     this.editFrameProps = this.getEditFrameProps(this.rendering.dataSource);
   }
 
@@ -70,7 +74,7 @@ export class StyleguideEditFrameComponent implements OnInit {
           }
         : undefined, // datasource will set the item to be edited by edit frame
       buttons: this.editFrameButtons, // add custom editing functionality or edit field sets with buttons
-      title: 'JSS edit frame',
+      title: 'jssEditFrame',
       tooltip: 'Perform editing anywhere while not tied to a rendering, placeholder or field',
       cssClass: 'jss-edit-frame', // customize edit frame appearance through CSS
       parameters: {}, // set additional parameters when needed

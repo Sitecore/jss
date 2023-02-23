@@ -7,9 +7,13 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function StyleguideEditFrame(manifest: Manifest) {
   manifest.addComponent({
     name: 'StyleguideEditFrame',
+    templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideEditFrame',
     icon: SitecoreIcon.DocumentTag,
     fields: [
       { name: 'heading', type: CommonFieldTypes.SingleLineText },
+      { name: 'description', type: CommonFieldTypes.RichText},
+      { name: 'applyRedToText', type: CommonFieldTypes.Checkbox},
+      { name: 'sampleList', type: CommonFieldTypes.ContentList},
     ],
   });
 }
