@@ -9,6 +9,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-EditFrame',
+    templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-EditFrame',
     icon: SitecoreIcon.DocumentTag,
     fields: [      
       { name: 'heading', type: CommonFieldTypes.SingleLineText },
