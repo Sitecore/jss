@@ -7,7 +7,7 @@ import sinon, { spy } from 'sinon';
 import nextjs, { NextRequest, NextResponse } from 'next/server';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { ExperienceParams } from '@sitecore-jss/sitecore-jss/personalize';
-import { SiteResolverType } from '@sitecore-jss/sitecore-jss/site';
+import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { PersonalizeMiddleware } from './personalize-middleware';
 
 use(sinonChai);
@@ -130,7 +130,7 @@ describe('PersonalizeMiddleware', () => {
     props: {
       [key: string]: unknown;
       language?: string;
-      siteResolver?: SiteResolverType;
+      siteResolver?: SiteResolver;
       cdpConfig?: any;
       edgeConfig?: any;
       variantId?: string;
@@ -156,24 +156,27 @@ describe('PersonalizeMiddleware', () => {
       ...(props?.edgeConfig || {}),
     };
 
-    const siteResolver: SiteResolverType = props.siteResolver || {
-      getByName: sinon.stub().returns({
+    class MockSiteResolver extends SiteResolver {
+      getByName = sinon.stub().returns({
         name: siteName,
         language: props.language || '',
         hostName: hostname,
         pointOfSale: {
           [props.language || defaultLang]: pointOfSale,
         },
-      }),
-      getByHost: sinon.stub().returns({
+      });
+
+      getByHost = sinon.stub().returns({
         name: siteName,
         language: props.language || '',
         hostName: hostname,
         pointOfSale: {
           [props.language || defaultLang]: pointOfSale,
         },
-      }),
-    };
+      });
+    }
+
+    const siteResolver: SiteResolver = props.siteResolver || new MockSiteResolver([]);
 
     const middleware = new PersonalizeMiddleware({
       siteResolver,
