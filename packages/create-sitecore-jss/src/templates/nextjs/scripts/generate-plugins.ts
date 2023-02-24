@@ -61,6 +61,11 @@ const pluginDefinitions = [
     rootPath: 'src/lib/extract-path/plugins',
     moduleType: ModuleType.ESM,
   },
+  {
+    listPath: 'src/temp/site-resolver-plugins.ts',
+    rootPath: 'src/lib/site-resolver/plugins',
+    moduleType: ModuleType.ESM,
+  },
 ];
 
 run(pluginDefinitions);

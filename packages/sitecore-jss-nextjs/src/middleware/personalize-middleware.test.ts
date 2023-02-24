@@ -7,7 +7,7 @@ import sinon, { spy } from 'sinon';
 import nextjs, { NextRequest, NextResponse } from 'next/server';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { ExperienceParams } from '@sitecore-jss/sitecore-jss/personalize';
-
+import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { PersonalizeMiddleware } from './personalize-middleware';
 
 use(sinonChai);
@@ -129,6 +129,8 @@ describe('PersonalizeMiddleware', () => {
   const createMiddleware = (
     props: {
       [key: string]: unknown;
+      language?: string;
+      siteResolver?: SiteResolver;
       cdpConfig?: any;
       edgeConfig?: any;
       variantId?: string;
@@ -154,22 +156,33 @@ describe('PersonalizeMiddleware', () => {
       ...(props?.edgeConfig || {}),
     };
 
-    const getSite: any =
-      props.getSite ||
-      sinon.stub().returns({
+    class MockSiteResolver extends SiteResolver {
+      getByName = sinon.stub().returns({
         name: siteName,
-        language: '',
+        language: props.language || '',
         hostName: hostname,
+        pointOfSale: {
+          [props.language || defaultLang]: pointOfSale,
+        },
       });
 
+      getByHost = sinon.stub().returns({
+        name: siteName,
+        language: props.language || '',
+        hostName: hostname,
+        pointOfSale: {
+          [props.language || defaultLang]: pointOfSale,
+        },
+      });
+    }
+
+    const siteResolver: SiteResolver = props.siteResolver || new MockSiteResolver([]);
+
     const middleware = new PersonalizeMiddleware({
-      getSite,
+      siteResolver,
       ...props,
       cdpConfig,
       edgeConfig,
-      getPointOfSale: () => {
-        return pointOfSale;
-      },
     });
 
     const executeExperience = (middleware['cdpService']['executeExperience'] =
@@ -196,7 +209,7 @@ describe('PersonalizeMiddleware', () => {
       executeExperience,
       generateBrowserId,
       getPersonalizeInfo,
-      getSite,
+      siteResolver,
     };
   };
 
@@ -554,7 +567,7 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
+      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -582,7 +595,7 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getSite).to.be.calledWith(hostname);
+      expect(siteResolver.getByHost).to.be.calledWith(hostname);
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -610,7 +623,7 @@ describe('PersonalizeMiddleware', () => {
         generateBrowserId,
         getPersonalizeInfo,
         executeExperience,
-        getSite,
+        siteResolver,
       } = createMiddleware({
         browserId,
         variantId: 'variant-2',
@@ -642,7 +655,7 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getSite).to.be.calledWith(hostname);
+      expect(siteResolver.getByHost).to.be.calledWith(hostname);
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -668,7 +681,8 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
+      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
+        language,
         variantId: 'variant-2',
         personalizeInfo: {
           variantIds,
@@ -700,7 +714,7 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getSite).to.be.calledWith(hostname);
+      expect(siteResolver.getByHost).to.be.calledWith(hostname);
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -724,7 +738,7 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
+      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -752,7 +766,7 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getSite).to.be.calledWith(hostname);
+      expect(siteResolver.getByHost).to.be.calledWith(hostname);
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -771,7 +785,7 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
+      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -799,7 +813,7 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getSite).to.be.calledWith(hostname);
+      expect(siteResolver.getByHost).to.be.calledWith(hostname);
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -820,7 +834,7 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
+      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -857,7 +871,7 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getSite).to.be.calledWith(hostname);
+      expect(siteResolver.getByHost).to.be.calledWith(hostname);
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -880,7 +894,7 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
+      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -908,7 +922,8 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getSite).not.called.to.equal(true);
+      expect(siteResolver.getByHost).not.called.to.equal(true);
+      expect(siteResolver.getByName).calledOnceWith('foo');
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -930,7 +945,7 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
+      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -958,7 +973,7 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getSite).to.be.calledWith(hostname);
+      expect(siteResolver.getByHost).to.be.calledWith(hostname);
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -980,7 +995,7 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
+      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -1010,7 +1025,7 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getSite).to.be.calledWith('localhost');
+      expect(siteResolver.getByHost).to.be.calledWith('localhost');
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -1032,7 +1047,7 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
+      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
         variantId: 'variant-2',
         defaultHostname: 'foobar',
       });
@@ -1063,7 +1078,7 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getSite).to.be.calledWith('foobar');
+      expect(siteResolver.getByHost).to.be.calledWith('foobar');
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 

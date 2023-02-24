@@ -1,12 +1,13 @@
 import {
   CdpHelper,
   LayoutServicePageState,
+  SiteInfo,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { useEffect } from 'react';
 import config from 'temp/config';
 import { init } from '@sitecore/engage';
-import { PosResolver } from 'lib/pos-resolver';
+import { siteResolver } from 'lib/site-resolver';
 
 /**
  * This is the CDP page view component.
@@ -16,14 +17,24 @@ import { PosResolver } from 'lib/pos-resolver';
  */
 const CdpPageView = (): JSX.Element => {
   const {
-    sitecoreContext: { pageState, route, variantId },
+    sitecoreContext: { pageState, route, variantId, site },
   } = useSitecoreContext();
+
+  const siteName = site?.name || config.jssAppName;
+  const siteInfo = siteResolver.getByName(siteName);
 
   /**
    * Creates a page view event using the Sitecore Engage SDK.
    */
-  const createPageView = async (page: string, language: string, pageVariantId: string) => {
-    const pointOfSale = PosResolver.resolve(language);
+  const createPageView = async (
+    page: string,
+    language: string,
+    site: SiteInfo,
+    pageVariantId: string
+  ) => {
+    const pointOfSale = site.pointOfSale
+      ? site.pointOfSale[language] || site.pointOfSale[site.language]
+      : '';
     const engage = await init({
       clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
       targetURL: process.env.NEXT_PUBLIC_CDP_TARGET_URL || '',
@@ -35,7 +46,7 @@ const CdpPageView = (): JSX.Element => {
     engage.pageView({
       channel: 'WEB',
       currency: 'USD',
-      pointOfSale: pointOfSale,
+      pointOfSale,
       page,
       pageVariantId,
       language,
@@ -63,8 +74,8 @@ const CdpPageView = (): JSX.Element => {
     }
     const language = route.itemLanguage || config.defaultLanguage;
     const pageVariantId = CdpHelper.getPageVariantId(route.itemId, language, variantId as string);
-    createPageView(route.name, language, pageVariantId);
-  }, [pageState, route, variantId]);
+    createPageView(route.name, language, siteInfo, pageVariantId);
+  }, [pageState, route, variantId, siteInfo]);
 
   return <></>;
 };
