@@ -59,7 +59,7 @@ export default {
         parameters: {}, // set additional parameters when needed
       },
       textStyle: this.rendering.fields.applyRedToText ? {color: 'red'}: {color: 'blue'},
-    }; =
+    };
   },
   components: {
     StyleguideSpecimen,
