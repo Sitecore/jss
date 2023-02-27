@@ -1,4 +1,4 @@
-import { withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, Item, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { EditFrame } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from './Styleguide-Specimen';
