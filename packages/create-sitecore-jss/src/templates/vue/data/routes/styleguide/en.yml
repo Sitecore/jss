@@ -249,7 +249,7 @@ placeholders:
             fields:
               heading: Editing
             placeholders:
-              Vue-jss-styleguide-section:
+              <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
                 - componentName: Styleguide-EditFrame
                   fields:
                     heading: Edit Frame
