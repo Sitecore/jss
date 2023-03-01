@@ -1,4 +1,11 @@
-import { ComponentRendering, ComponentFields, Field, HtmlElementRendering } from './models';
+import {
+  ComponentRendering,
+  ComponentFields,
+  Field,
+  HtmlElementRendering,
+  LayoutServiceData,
+  RouteData,
+} from './models';
 
 /**
  * Safely extracts a field value from a rendering or fields object.
@@ -71,4 +78,42 @@ export function getChildPlaceholder(
   }
 
   return rendering.placeholders[placeholderName];
+}
+
+/**
+ * Walks through layout rendering tree and invokes Reduce-compatible callback on every Rendering.
+ * Initial value determines return type
+ *
+ * @param {LayoutServiceData | RouteData | ComponentRendering | HtmlElementRendering | null } object Layout, route data or rendering
+ * @param {Function} callback Reduce-style callback, accepting previous value and a rendering
+ * @param {any} initialValue Initial value that will be passed to callbacks, e.g. array
+ */
+export function reduceLayout<T>(
+  object: LayoutServiceData | RouteData | ComponentRendering | HtmlElementRendering | null,
+  callback: (
+    previousValue: T,
+    component: ComponentRendering | HtmlElementRendering | RouteData
+  ) => T,
+  initialValue: T
+): T {
+  if (object === null) return initialValue;
+
+  // When layout: Check placheolders
+  if ('sitecore' in object) {
+    return reduceLayout(object.sitecore.route, callback, initialValue);
+  }
+
+  // When rendering / HTML Rendering / RouteData, invoke callback
+  initialValue = callback(initialValue, object);
+
+  // When route / component: check its placeholders
+  if ('placeholders' in object) {
+    initialValue = Object.values(object.placeholders || {})
+      .flat()
+      .reduce((previousValue, rendering) => {
+        return reduceLayout(rendering, callback, previousValue);
+      }, initialValue);
+  }
+
+  return initialValue;
 }
