@@ -7,7 +7,7 @@ class FEeaSThemesPlugin implements Plugin {
 
   async exec(props: SitecorePageProps) {
     // Collect FEAAS themes
-    props.headLinks = getFEAASLibraryStylesheetURLs(props.layoutData);
+    props.headLinks.push(...getFEAASLibraryStylesheetURLs(props.layoutData));
 
     return props;
   }
