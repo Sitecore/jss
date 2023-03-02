@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 
-import { AxiosResponse, AxiosRequestConfig } from 'axios';
+import { AxiosResponse, InternalAxiosRequestConfig, AxiosHeaders } from 'axios';
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
@@ -11,6 +11,10 @@ import nock from 'nock';
 use(spies);
 
 describe('AxiosDataFetcher', () => {
+  const defaultConfig: InternalAxiosRequestConfig = {
+    headers: new AxiosHeaders(),
+  };
+  
   let debugNamespaces: string;
 
   before(() => {
@@ -86,7 +90,8 @@ describe('AxiosDataFetcher', () => {
         .get('/home')
         .reply(204, (_, requestBody) => requestBody);
 
-      const config: AxiosDataFetcherConfig = {
+      const config: InternalAxiosRequestConfig<any> = {
+        ...defaultConfig,
         timeout: 200,
         auth: {
           username: 'xxx',
@@ -115,6 +120,7 @@ describe('AxiosDataFetcher', () => {
         .reply(200, (_, requestBody) => requestBody);
 
       const config: AxiosDataFetcherConfig = {
+        ...defaultConfig,
         withCredentials: false,
       };
 
@@ -128,6 +134,9 @@ describe('AxiosDataFetcher', () => {
     });
 
     it('should fetch using req and res and invoke callbacks', () => {
+      type ResponseData = {
+        data: Object;
+      };
       nock('http://jssnextweb')
         .get('/home')
         .reply(200, (_, requestBody) => ({
@@ -135,7 +144,7 @@ describe('AxiosDataFetcher', () => {
           data: { sitecore: { context: {}, route: { name: 'xxx' } } },
         }));
 
-      const onReqSpy = spy((config: AxiosRequestConfig) => {
+      const onReqSpy = spy((config: InternalAxiosRequestConfig) => {
         return config;
       });
 
@@ -159,7 +168,7 @@ describe('AxiosDataFetcher', () => {
         expect(res.status).to.equal(200);
 
         expect(res.config.url).to.equal('http://jssnextweb/home');
-        expect(res.data.data).to.deep.equal({
+        expect((res.data as ResponseData)?.data).to.deep.equal({
           sitecore: {
             context: {},
             route: { name: 'xxx' },

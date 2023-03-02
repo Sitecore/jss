@@ -1,13 +1,13 @@
-import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse, AxiosError } from 'axios';
+import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse, AxiosError, InternalAxiosRequestConfig } from 'axios';
 import debuggers, { Debugger } from './debug';
 
 type AxiosDataFetcherOptions = {
   /**
    * Callback which executed before request is sent. You can modify axios config.
    * {@link https://github.com/axios/axios#interceptors}
-   * @param {AxiosRequestConfig} config axios config
+   * @param {InternalAxiosRequestConfig} config axios config
    */
-  onReq?: (config: AxiosRequestConfig) => AxiosRequestConfig | Promise<AxiosRequestConfig>;
+  onReq?: (config: InternalAxiosRequestConfig) => InternalAxiosRequestConfig | Promise<InternalAxiosRequestConfig>;
   /**
    * Callback which invoked when request error happened.
    * {@link https://github.com/axios/axios#interceptors}
@@ -75,7 +75,7 @@ export class AxiosDataFetcher {
     // and our response debug logging second (since we want that performed after any onRes).
     if (debug.enabled) {
       this.instance.interceptors.request.use(
-        (config: AxiosRequestConfig) => {
+        (config: InternalAxiosRequestConfig) => {
           debug('request: %o', config);
           return config;
         },
@@ -125,20 +125,20 @@ export class AxiosDataFetcher {
   /**
    * Perform a GET request
    * @param {string} url The URL to request; may include query string
-   * @param {AxiosRequestConfig} [config] Axios config
+   * @param {InternalAxiosRequestConfig} [config] Axios config
    * @returns {Promise<AxiosResponse<T>>} response
    */
-  get<T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  get<T>(url: string, config?: InternalAxiosRequestConfig): Promise<AxiosResponse<T>> {
     return this.instance.get(url, config);
   }
 
   /**
    * Perform a HEAD request
    * @param {string} url The URL to request; may include query string
-   * @param {AxiosRequestConfig} [config] Axios config
+   * @param {InternalAxiosRequestConfig} [config] Axios config
    * @returns {Promise<AxiosResponse>} response
    */
-  head(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+  head(url: string, config?: InternalAxiosRequestConfig): Promise<AxiosResponse> {
     return this.instance.head(url, config);
   }
 
@@ -146,10 +146,10 @@ export class AxiosDataFetcher {
    * Perform a POST request
    * @param {string} url The URL to request; may include query string
    * @param {unknown} [data] Data to POST with the request.
-   * @param {AxiosRequestConfig} [config] Axios config
+   * @param {InternalAxiosRequestConfig} [config] Axios config
    * @returns {Promise<AxiosResponse>} response
    */
-  post(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+  post(url: string, data?: unknown, config?: InternalAxiosRequestConfig): Promise<AxiosResponse> {
     return this.instance.post(url, data, config);
   }
 
@@ -157,10 +157,10 @@ export class AxiosDataFetcher {
    * Perform a PUT request
    * @param {string} url The URL to request; may include query string
    * @param {unknown} [data] Data to PUT with the request.
-   * @param {AxiosRequestConfig} [config] Axios config
+   * @param {InternalAxiosRequestConfig} [config] Axios config
    * @returns {Promise<AxiosResponse>} response
    */
-  put(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+  put(url: string, data?: unknown, config?: InternalAxiosRequestConfig): Promise<AxiosResponse> {
     return this.instance.put(url, data, config);
   }
 

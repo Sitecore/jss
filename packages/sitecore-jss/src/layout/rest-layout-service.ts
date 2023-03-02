@@ -1,4 +1,4 @@
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import { IncomingMessage, ServerResponse } from 'http';
 import { LayoutServiceBase } from './layout-service';
 import { PlaceholderData, LayoutServiceData } from './models';
@@ -213,14 +213,14 @@ export class RestLayoutService extends LayoutServiceBase {
    * @returns {AxiosRequestConfig} axios request config
    */
   protected setupReqHeaders(req: IncomingMessage) {
-    return (reqConfig: AxiosRequestConfig) => {
+    return (reqConfig: InternalAxiosRequestConfig) => {
       debug.layout('performing request header passing');
       reqConfig.headers.common = {
         ...reqConfig.headers.common,
         ...(req.headers.cookie && { cookie: req.headers.cookie }),
         ...(req.headers.referer && { referer: req.headers.referer }),
         ...(req.headers['user-agent'] && { 'user-agent': req.headers['user-agent'] }),
-        ...(req.connection.remoteAddress && { 'X-Forwarded-For': req.connection.remoteAddress }),
+        ...(req.socket.remoteAddress && { 'X-Forwarded-For': req.socket.remoteAddress }),
       };
       return reqConfig;
     };
