@@ -5,10 +5,11 @@ import { ConfigPlugin, JssConfig } from '..';
 
 /**
  * This plugin will override the "sitecoreApiHost" config prop
- * for disconnected mode (using disconnected server).
+ * for disconnected mode, ensuring all Sitecore requests are run
+ * through proxy rewrites (see \src\lib\next-config\plugins\disconnected.js).
  */
 class DisconnectedPlugin implements ConfigPlugin {
-  order = 3;
+  order = 2;
 
   async exec(config: JssConfig) {
     const disconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
