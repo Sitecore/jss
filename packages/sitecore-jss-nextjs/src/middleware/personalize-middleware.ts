@@ -164,14 +164,6 @@ export class PersonalizeMiddleware {
     const pathname = req.nextUrl.pathname;
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
     let siteName = res?.cookies.get('sc_site')?.value;
-    let site;
-
-    if (!siteName) {
-      site = this.config.siteResolver.getByHost(hostname);
-      siteName = site.name;
-    } else {
-      site = this.config.siteResolver.getByName(siteName);
-    }
 
     let browserId = this.getBrowserId(req);
     debug.personalize('personalize middleware start: %o', {
@@ -202,6 +194,15 @@ export class PersonalizeMiddleware {
         response.redirected ? 'redirected' : this.isPreview(req) ? 'preview' : 'route excluded'
       );
       return response;
+    }
+
+    let site;
+
+    if (!siteName) {
+      site = this.config.siteResolver.getByHost(hostname);
+      siteName = site.name;
+    } else {
+      site = this.config.siteResolver.getByName(siteName);
     }
 
     // Get personalization info from Experience Edge
