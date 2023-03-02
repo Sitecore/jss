@@ -21,10 +21,10 @@ export const FEAAS_CDN = Object.freeze({
 });
 
 /**
- * Walks through rendering tree and returns list of ids of all FEAAS Component Libraries that are used
+ * Walks through rendering tree and returns list of urls of all FEAAS Component Library Stylesheets that are used
  * @param {LayoutServiceData} layoutData Layout service data
  * @param {string} [hostname] CDN hostname, default is production hostname @see FEAAS_CDN urls
- * @returns {Set<string>} library ids
+ * @returns {string[]} library stylesheet urls
  */
 export function getFEAASLibraryStylesheetURLs(layoutData: LayoutServiceData, hostname?: string) {
   const ids = new Set<string>();
