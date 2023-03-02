@@ -17,4 +17,5 @@ export type SitecorePageProps = {
   notFound: boolean;
   layoutData: LayoutServiceData;
   redirect?: Redirect;
+  headLinks: string[];
 };

@@ -139,6 +139,8 @@ export {
   EditFrame,
   FEaaSComponent,
   FEaaSComponentProps,
+  getFEAASLibraryStylesheetURLs,
+  FEAAS_CDN,
   File,
   FileField,
   RichTextField,
