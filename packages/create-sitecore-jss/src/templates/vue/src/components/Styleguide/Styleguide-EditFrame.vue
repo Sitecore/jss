@@ -15,7 +15,7 @@
       This list can be changed via field editor:
       <ul>
         <li v-for="(item, index) in $props.fields.sampleList" v-bind:key="index">
-          {{ item.name }}
+          {{ item.fields.title?.value }}
         </li>
       </ul>
     </sc-edit-frame>
@@ -58,7 +58,7 @@ export default {
         cssClass: 'jss-edit-frame', // customize edit frame appearance through CSS
         parameters: {}, // set additional parameters when needed
       },
-      textStyle: this.rendering.fields.applyRedToText ? {color: 'red'}: {color: 'blue'},
+      textStyle: this.fields.applyRedToText?.value ? {color: 'red'}: {color: 'blue'},
     };
   },
   components: {

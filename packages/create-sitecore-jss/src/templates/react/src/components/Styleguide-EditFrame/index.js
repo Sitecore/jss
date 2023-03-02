@@ -11,7 +11,7 @@ import StyleguideSpecimen from '../Styleguide-Specimen';
 const StyleguideEditFrame = (props) => {
   const applyRed = props.rendering.fields.applyRedToText?.value;
   return (
-    <StyleguideSpecimen {...props} e2eId="styleguide-editframe">
+    <StyleguideSpecimen {...props} e2eId="styleguide-edit-frame">
       <EditFrame {...getEditFrameProps(props.rendering.dataSource)}>
         This is the content that will be wrapped by edit frame in Experience Editor.<br/>
         Try out the custom webedit buttons for a variety of tasks like executing javascript, or webedit commands. <br/>
@@ -21,7 +21,7 @@ const StyleguideEditFrame = (props) => {
         This list can be changed via field editor:
         <ul>
           {props.rendering.fields.sampleList.map((item, idx) => (
-            <li key={idx}>{item.name}</li>
+            <li key={idx}>{item.fields.title?.value}</li>
           ))}
         </ul>
         {props.children}

@@ -13,7 +13,7 @@
     <p [ngStyle]="{'color': (applyRed ? 'red': 'blue')}">This text will change color. Use the field edit button to change its appearance</p>
     This list can be changed via field editor:
     <ul>
-      <li *ngFor="let contentItem of rendering.fields.sampleList">{{contentItem.name}}</li>
+      <li *ngFor="let contentItem of rendering.fields.sampleList">{{contentItem.fields.title?.value}}</li>
     </ul>
     <ng-content></ng-content>
   </sc-edit-frame>
