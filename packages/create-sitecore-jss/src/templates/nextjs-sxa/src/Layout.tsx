@@ -37,7 +37,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
       <Head>
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
-        {headLinks.map((url) => (
+        {headLinks?.map((url) => (
           <link rel="stylesheet" key={url} href={url} />
         ))}
       </Head>
