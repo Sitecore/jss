@@ -1,6 +1,6 @@
 import { IncomingMessage, ServerResponse, Agent } from 'http';
 import { Agent as HttpsAgent } from 'https';
-import { Config as HttpProxyConfig } from 'http-proxy-middleware';
+import { Options } from 'http-proxy-middleware';
 import { AppRenderer } from './AppRenderer';
 import { RenderResponse } from './RenderResponse';
 import { RouteUrlParser } from './RouteUrlParser';
@@ -50,7 +50,7 @@ export interface ProxyConfig {
    */
   pathRewriteExcludePredicate?: (originalUrl: string) => boolean;
   /** Configure `http-proxy-middleware` */
-  proxyOptions?: HttpProxyConfig;
+  proxyOptions?: Options;
   /** Enables or disables proxy diagnostics in console.log (disable for production or get bad performance) */
   debug?: boolean;
   /** Callback when an exception is thrown during SSR; decides what to send back to client (500 errors) */

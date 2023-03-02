@@ -5980,14 +5980,14 @@ __metadata:
   resolution: "@sitecore-jss/sitecore-jss-proxy@workspace:packages/sitecore-jss-proxy"
   dependencies:
     "@types/chai": ^4.3.4
-    "@types/http-proxy-middleware": ^0.19.3
+    "@types/express": ^4.17.17
     "@types/mocha": ^10.0.1
-    "@types/node": ^18.11.18
+    "@types/node": ^18.14.2
     "@types/set-cookie-parser": ^2.4.2
     chai: ^4.3.7
     del-cli: ^5.0.0
     eslint: ^8.33.0
-    http-proxy-middleware: ^0.20.0
+    http-proxy-middleware: ^2.0.6
     http-status-codes: ^2.2.0
     mocha: ^10.2.0
     nyc: ^15.1.0
@@ -6614,6 +6614,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/express@npm:^4.17.17":
+  version: 4.17.17
+  resolution: "@types/express@npm:4.17.17"
+  dependencies:
+    "@types/body-parser": "*"
+    "@types/express-serve-static-core": ^4.17.33
+    "@types/qs": "*"
+    "@types/serve-static": "*"
+  checksum: 0196dacc275ac3ce89d7364885cb08e7fb61f53ca101f65886dbf1daf9b7eb05c0943e2e4bbd01b0cc5e50f37e0eea7e4cbe97d0304094411ac73e1b7998f4da
+  languageName: node
+  linkType: hard
+
 "@types/fs-extra@npm:^11.0.1":
   version: 11.0.1
   resolution: "@types/fs-extra@npm:11.0.1"
@@ -6678,7 +6690,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/http-proxy-middleware@npm:*, @types/http-proxy-middleware@npm:^0.19.3":
+"@types/http-proxy-middleware@npm:*":
   version: 0.19.3
   resolution: "@types/http-proxy-middleware@npm:0.19.3"
   dependencies:
@@ -6982,6 +6994,13 @@ __metadata:
   version: 18.11.18
   resolution: "@types/node@npm:18.11.18"
   checksum: 03f17f9480f8d775c8a72da5ea7e9383db5f6d85aa5fefde90dd953a1449bd5e4ffde376f139da4f3744b4c83942166d2a7603969a6f8ea826edfb16e6e3b49d
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.14.2":
+  version: 18.14.4
+  resolution: "@types/node@npm:18.14.4"
+  checksum: 3f2f625777747b9f87e793eea5a8bbf1ac2c828846bda5811d07a457d55cfe6762239779759de61e7b7e917632b9ceee3f7ffd2a024117e7ec364dc1b4eb8d55
   languageName: node
   linkType: hard
 
@@ -16185,19 +16204,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-proxy-middleware@npm:^0.20.0":
-  version: 0.20.0
-  resolution: "http-proxy-middleware@npm:0.20.0"
-  dependencies:
-    http-proxy: ^1.17.0
-    is-glob: ^4.0.1
-    lodash: ^4.17.14
-    micromatch: ^4.0.2
-  checksum: 2dae37844e1b4d97b31376b4edbe57addf36932e508f40696d7c236bb169f61cb0f473b92e47594a6a6149f39dec3d2044360d6c4f8d6eff56df4d8ef8a765ea
-  languageName: node
-  linkType: hard
-
-"http-proxy-middleware@npm:^2.0.3":
+"http-proxy-middleware@npm:^2.0.3, http-proxy-middleware@npm:^2.0.6":
   version: 2.0.6
   resolution: "http-proxy-middleware@npm:2.0.6"
   dependencies:
