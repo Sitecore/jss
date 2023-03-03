@@ -5,8 +5,8 @@ import { ConfigPlugin, JssConfig } from '..';
  * If neither env, nor other places had a proper value, this will ensure a fallback is set
  */
 class FallbackPlugin implements ConfigPlugin {
-  // should always comes last
-  order = 99;
+  // should always come last
+  order = 100;
 
   async exec(config: JssConfig) {
     return Object.assign({}, config, {
