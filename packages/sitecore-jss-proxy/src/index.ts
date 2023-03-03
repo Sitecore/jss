@@ -353,7 +353,7 @@ function handleProxyResponse(
 
 /**
  * @param {string} reqPath
- * @param {IncomingMessage} req
+ * @param {Request} req
  * @param {ProxyConfig} config
  * @param {RouteUrlParser} parseRouteUrl
  */
@@ -500,8 +500,8 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug = false)
 
 /**
  * @param {ClientRequest} proxyReq
- * @param {IncomingMessage} req
- * @param {ServerResponse} res
+ * @param {Request} req
+ * @param {Response} res
  * @param {ServerOptions} options
  * @param {ProxyConfig} config
  * @param {Function} customOnProxyReq
@@ -519,7 +519,7 @@ function handleProxyRequest(
   // if a HEAD request, we still need to issue a GET so we can return accurate headers
   if (
     (proxyReq as ExtendedClientRequest).method === 'HEAD' &&
-    !isUrlIgnored((req as ProxyIncomingMessage).originalUrl, config, true)
+    !isUrlIgnored((req as Request).originalUrl, config, true)
   ) {
     if (config.debug) {
       console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
