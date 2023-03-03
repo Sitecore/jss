@@ -4,6 +4,7 @@
     "reset": "lerna clean --yes && yarn dlx rimraf node_modules && yarn install && yarn build",
     "build": "lerna run build",
     "lint-packages": "lerna run lint",
+    "lint-samples": "lerna run lint --scope sample-* -- --fix",
     "scaffold-samples": "node ./scripts/scaffold-samples.js",
     "coverage-packages": "lerna run coverage",
     "test-packages": "lerna run test",
