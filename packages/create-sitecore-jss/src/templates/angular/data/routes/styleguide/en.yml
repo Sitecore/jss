@@ -265,7 +265,7 @@ placeholders:
                       </p>
                     applyRedToText: 0
                     sampleList:
-                      # see /data/content/Styleguide/ContentListField for definitions of these IDs
-                      - id: styleguide-content-list-field-shared-1
-                      - id: styleguide-content-list-field-shared-2
+                      # see /data/content/Styleguide/EditFrameDemo for definitions of these IDs
+                      - id: styleguide-edit-frame-list-item-1
+                      - id: styleguide-edit-frame-list-item-2
 
