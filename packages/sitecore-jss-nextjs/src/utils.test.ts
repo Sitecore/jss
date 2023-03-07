@@ -99,6 +99,21 @@ describe('utils', () => {
       expect(result).to.equal('depos.com');
     });
 
+    it('should return pos for site language when provided language is empty', () => {
+      const site: SiteInfo = {
+        name: 'apos',
+        hostName: 'www.apos.com',
+        pointOfSale: {
+          'de-DE': 'depos.com',
+          'es-ES': 'espos.com',
+        },
+        language: 'de-DE',
+      };
+
+      const result = resolvePointOfSale(site, '');
+      expect(result).to.equal('depos.com');
+    });
+
     it('should use fallback value when other values missing', () => {
       const site: SiteInfo = {
         name: 'apos',

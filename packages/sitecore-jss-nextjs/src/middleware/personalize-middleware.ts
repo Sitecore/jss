@@ -7,7 +7,7 @@ import {
   ExperienceParams,
   getPersonalizedRewrite,
 } from '@sitecore-jss/sitecore-jss/personalize';
-import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
+import { SiteInfo, SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { resolvePointOfSale } from '../utils';
 
@@ -44,6 +44,13 @@ export type PersonalizeMiddlewareConfig = {
    * @default localhost
    */
   defaultHostname?: string;
+  /**
+   * function to resolve point of sale endpoint for a site
+   * @param {Siteinfo} site to get info from
+   * @param {string} language to get info for
+   * @returns point of sale value for site/language combination
+   */
+  resolvePointOfSale?: (site?: SiteInfo, language?: string) => string;
 };
 
 /**
@@ -236,7 +243,9 @@ export class PersonalizeMiddleware {
     // Execute targeted experience in CDP
     const { ua } = userAgent(req);
     const params = this.getExperienceParams(req);
-    const pointOfSale = resolvePointOfSale(site, language);
+    const pointOfSale = this.config.resolvePointOfSale
+      ? this.config.resolvePointOfSale(site, language)
+      : resolvePointOfSale(site, language);
     const variantId = await this.cdpService.executeExperience(
       personalizeInfo.contentId,
       browserId,

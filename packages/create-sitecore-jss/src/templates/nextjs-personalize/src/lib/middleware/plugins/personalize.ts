@@ -50,6 +50,8 @@ class PersonalizePlugin implements MiddlewarePlugin {
       excludeRoute: () => false,
       // Site resolver implementation
       siteResolver,
+      // you can also pass a custom point of sale resolver into middleware
+      // resolvePointOfSale: (site, language) => { ... }
     });
   }
 
