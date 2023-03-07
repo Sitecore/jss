@@ -36,7 +36,7 @@
     "start:connected": "npm-run-all --serial bootstrap start:vue start:watch-components",
     "build": "npm-run-all --serial bootstrap build:client build:server",
     "scaffold": "node scripts/scaffold-component.js",
-    "start:vue": "vue-cli-service serve --open",
+    "start:vue": "vue-cli-service serve --open --host localhost",
     "start:proxy": "node scripts/disconnected-mode-proxy.js",
     "start:watch-components": "node scripts/generate-component-factory.js --watch",
     "build:client": "cross-env-shell BUILD_TARGET_ENV=client PUBLIC_URL=$npm_package_config_sitecoreDistPath \"vue-cli-service build\"",
