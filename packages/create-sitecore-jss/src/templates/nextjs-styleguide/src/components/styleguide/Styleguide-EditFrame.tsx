@@ -7,9 +7,9 @@ import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 type StyleguideEditFrameProps = ComponentProps &
   StyleguideSpecimenFields & {
     fields: {
-      applyRedToText: Field<boolean>,
-      sampleList: Item[],
-    }
+      applyRedToText: Field<boolean>;
+      sampleList: Item[];
+    };
     children: React.ReactNode;
   };
 
