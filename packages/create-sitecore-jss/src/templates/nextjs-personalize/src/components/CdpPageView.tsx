@@ -20,9 +20,6 @@ const CdpPageView = (): JSX.Element => {
     sitecoreContext: { pageState, route, variantId, site },
   } = useSitecoreContext();
 
-  const siteName = site?.name || config.jssAppName;
-  const siteInfo = siteResolver.getByName(siteName);
-
   /**
    * Creates a page view event using the Sitecore Engage SDK.
    */
@@ -72,10 +69,12 @@ const CdpPageView = (): JSX.Element => {
     if (disabled()) {
       return;
     }
+
+    const siteInfo = siteResolver.getByName(site?.name || config.jssAppName);
     const language = route.itemLanguage || config.defaultLanguage;
     const pageVariantId = CdpHelper.getPageVariantId(route.itemId, language, variantId as string);
     createPageView(route.name, language, siteInfo, pageVariantId);
-  }, [pageState, route, variantId, siteInfo]);
+  }, [pageState, route, variantId, site]);
 
   return <></>;
 };

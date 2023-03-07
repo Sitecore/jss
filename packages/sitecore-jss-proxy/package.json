@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-proxy",
-  "version": "21.1.0-canary.119",
+  "version": "21.1.0-canary.126",
   "description": "Proxy middleware for express.js server.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -28,15 +28,15 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "http-proxy-middleware": "^0.20.0",
+    "http-proxy-middleware": "^2.0.6",
     "http-status-codes": "^2.2.0",
     "set-cookie-parser": "^2.5.1"
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",
-    "@types/http-proxy-middleware": "^0.19.3",
+    "@types/express": "^4.17.17",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.18",
+    "@types/node": "^18.14.2",
     "@types/set-cookie-parser": "^2.4.2",
     "chai": "^4.3.7",
     "del-cli": "^5.0.0",

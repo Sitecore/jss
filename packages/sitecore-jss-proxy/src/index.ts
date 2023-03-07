@@ -1,5 +1,7 @@
 import { IncomingMessage, ServerResponse, ClientRequest, IncomingHttpHeaders } from 'http';
-import proxy from 'http-proxy-middleware';
+import { Request, Response } from 'express';
+import { ServerOptions } from 'http-proxy';
+import { createProxyMiddleware, Options } from 'http-proxy-middleware';
 import HttpStatus from 'http-status-codes';
 import setCookieParser, { Cookie } from 'set-cookie-parser';
 import zlib from 'zlib'; // node.js standard lib
@@ -312,15 +314,15 @@ async function renderAppToResponse(
 
 /**
  * @param {IncomingMessage} proxyResponse
- * @param {IncomingMessage} request
- * @param {ServerResponse} serverResponse
+ * @param {Request} request
+ * @param {Response} serverResponse
  * @param {AppRenderer} renderer
  * @param {ProxyConfig} config
  */
 function handleProxyResponse(
   proxyResponse: IncomingMessage,
-  request: IncomingMessage,
-  serverResponse: ServerResponse,
+  request: Request,
+  serverResponse: Response,
   renderer: AppRenderer,
   config: ProxyConfig
 ) {
@@ -351,13 +353,13 @@ function handleProxyResponse(
 
 /**
  * @param {string} reqPath
- * @param {IncomingMessage} req
+ * @param {Request} req
  * @param {ProxyConfig} config
  * @param {RouteUrlParser} parseRouteUrl
  */
 export function rewriteRequestPath(
   reqPath: string,
-  req: IncomingMessage,
+  req: Request,
   config: ProxyConfig,
   parseRouteUrl?: RouteUrlParser
 ) {
@@ -498,24 +500,26 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug = false)
 
 /**
  * @param {ClientRequest} proxyReq
- * @param {IncomingMessage} req
- * @param {ServerResponse} res
+ * @param {Request} req
+ * @param {Response} res
+ * @param {ServerOptions} options
  * @param {ProxyConfig} config
  * @param {Function} customOnProxyReq
  */
 function handleProxyRequest(
   proxyReq: ClientRequest,
-  req: IncomingMessage,
-  res: ServerResponse,
+  req: Request,
+  res: Response,
+  options: ServerOptions,
   config: ProxyConfig,
   customOnProxyReq:
-    | ((proxyReq: ClientRequest, req: IncomingMessage, res: ServerResponse) => void)
+    | ((proxyReq: ClientRequest, req: Request, res: Response, options: ServerOptions) => void)
     | undefined
 ) {
   // if a HEAD request, we still need to issue a GET so we can return accurate headers
   if (
     (proxyReq as ExtendedClientRequest).method === 'HEAD' &&
-    !isUrlIgnored((req as ProxyIncomingMessage).originalUrl, config, true)
+    !isUrlIgnored((req as Request).originalUrl, config, true)
   ) {
     if (config.debug) {
       console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
@@ -524,7 +528,7 @@ function handleProxyRequest(
   }
   // invoke custom onProxyReq
   if (customOnProxyReq) {
-    customOnProxyReq(proxyReq, req, res);
+    customOnProxyReq(proxyReq, req, res, options);
   }
 }
 
@@ -537,7 +541,7 @@ function createOptions(
   renderer: AppRenderer,
   config: ProxyConfig,
   parseRouteUrl: RouteUrlParser
-): proxy.Config {
+): Options {
   if (!config.maxResponseSizeBytes) {
     config.maxResponseSizeBytes = 10 * 1024 * 1024;
   }
@@ -561,8 +565,8 @@ function createOptions(
     ws: config.ws || false,
     pathRewrite: (reqPath, req) => rewriteRequestPath(reqPath, req, config, parseRouteUrl),
     logLevel: config.debug ? 'debug' : 'info',
-    onProxyReq: (proxyReq, req, res) =>
-      handleProxyRequest(proxyReq, req, res, config, customOnProxyReq),
+    onProxyReq: (proxyReq, req, res, options) =>
+      handleProxyRequest(proxyReq, req, res, options, config, customOnProxyReq),
     onProxyRes: (proxyRes, req, res) => handleProxyResponse(proxyRes, req, res, renderer, config),
   };
 }
@@ -578,7 +582,7 @@ export default function scProxy(
   parseRouteUrl: RouteUrlParser
 ) {
   const options = createOptions(renderer, config, parseRouteUrl);
-  return proxy(options);
+  return createProxyMiddleware(options);
 }
 
 export { ProxyConfig, ServerBundle };
