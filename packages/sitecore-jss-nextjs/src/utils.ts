@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
+import { SiteInfo } from './middleware';
 
 /**
  * Get the publicUrl.
@@ -74,4 +75,10 @@ export const getJssEditingSecret = (): string => {
     throw new Error('The JSS_EDITING_SECRET environment variable is missing or invalid.');
   }
   return secret;
+};
+
+export const resolvePointOfSale = (site: SiteInfo, language: string): string => {
+  return site.pointOfSale
+    ? site.pointOfSale[language] || site.pointOfSale[site.language] || site.pointOfSale['*']
+    : '';
 };

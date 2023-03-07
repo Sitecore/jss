@@ -3,6 +3,7 @@ import {
   LayoutServicePageState,
   SiteInfo,
   useSitecoreContext,
+  resolvePointOfSale,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { useEffect } from 'react';
 import config from 'temp/config';
@@ -29,9 +30,7 @@ const CdpPageView = (): JSX.Element => {
     site: SiteInfo,
     pageVariantId: string
   ) => {
-    const pointOfSale = site.pointOfSale
-      ? site.pointOfSale[language] || site.pointOfSale[site.language]
-      : '';
+    const pointOfSale = resolvePointOfSale(site, language);
     const engage = await init({
       clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
       targetURL: process.env.NEXT_PUBLIC_CDP_TARGET_URL || '',

@@ -9,6 +9,7 @@ import {
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { resolvePointOfSale } from '../utils';
 
 export type PersonalizeMiddlewareConfig = {
   /**
@@ -235,9 +236,7 @@ export class PersonalizeMiddleware {
     // Execute targeted experience in CDP
     const { ua } = userAgent(req);
     const params = this.getExperienceParams(req);
-    const pointOfSale = site.pointOfSale
-      ? site.pointOfSale[language] || site.pointOfSale[site.language]
-      : '';
+    const pointOfSale = resolvePointOfSale(site, language);
     const variantId = await this.cdpService.executeExperience(
       personalizeInfo.contentId,
       browserId,

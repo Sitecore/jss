@@ -117,7 +117,7 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
-export { handleEditorFastRefresh, getPublicUrl } from './utils';
+export { handleEditorFastRefresh, getPublicUrl, resolvePointOfSale } from './utils';
 
 export { Link, LinkProps } from './components/Link';
 export { RichText, RichTextProps } from './components/RichText';
