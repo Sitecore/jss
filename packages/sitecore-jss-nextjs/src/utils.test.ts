@@ -75,7 +75,7 @@ describe('utils', () => {
         name: 'apos',
         hostName: 'www.apos.com',
         pointOfSale: {
-          'en': myPoint,
+          en: myPoint,
         },
         language: 'de-DE',
       };
