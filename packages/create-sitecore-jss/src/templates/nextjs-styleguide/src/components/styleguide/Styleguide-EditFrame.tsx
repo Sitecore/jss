@@ -32,7 +32,7 @@ const StyleguideEditFrame = (props: StyleguideEditFrameProps): JSX.Element => {
         This list can be changed via field editor:
         <ul>
           {props.fields.sampleList.map((item, idx) => (
-            <li key={idx}>{item.fields.title?.value}</li>
+            <li key={idx}>{(item.fields.title as Field<string>)?.value}</li>
           ))}
         </ul>
         {props.children}
