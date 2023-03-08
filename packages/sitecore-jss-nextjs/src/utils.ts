@@ -76,9 +76,3 @@ export const getJssEditingSecret = (): string => {
   }
   return secret;
 };
-
-export const resolvePointOfSale = (site: SiteInfo, language: string): string => {
-  return site.pointOfSale
-    ? site.pointOfSale[language] || site.pointOfSale[site.language] || site.pointOfSale['*']
-    : '';
-};
