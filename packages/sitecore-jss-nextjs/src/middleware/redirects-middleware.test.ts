@@ -3,15 +3,20 @@
 import chai, { use } from 'chai';
 import chaiString from 'chai-string';
 import sinonChai from 'sinon-chai';
-import sinon from 'sinon';
+import sinon, { spy } from 'sinon';
 import { NextRequest, NextResponse } from 'next/server';
-import { RedirectsMiddleware } from './redirects-middleware';
+import { debug } from '@sitecore-jss/sitecore-jss';
 import { REDIRECT_TYPE_SERVER_TRANSFER } from '@sitecore-jss/sitecore-jss/site';
+import { RedirectsMiddleware } from './redirects-middleware';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
 
 describe('RedirectsMiddleware', () => {
+  const debugSpy = spy(debug, 'redirects');
+  const validateDebugLog = (message, ...params) =>
+    expect(debugSpy.args.find((log) => log[0] === message)).to.deep.equal([message, ...params]);
+
   const referrer = 'http://localhost:3000';
   const hostname = 'foo.net';
   const siteName = 'nextjs-app';
@@ -103,11 +108,47 @@ describe('RedirectsMiddleware', () => {
   // Stub for NextResponse generation, see https://github.com/vercel/next.js/issues/42374
   (Headers.prototype as any).getAll = () => [];
 
-  afterEach(() => {
-    sinon.restore();
+  beforeEach(() => {
+    debugSpy.resetHistory();
   });
 
   describe('redirects middleware - getHandler', () => {
+    describe('preview', () => {
+      it('prerender bypass cookie is present', async () => {
+        const { middleware } = createMiddleware();
+        const res = NextResponse.next();
+
+        const req = createRequest({
+          cookies: {
+            __prerender_bypass: true,
+          },
+        });
+
+        const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('skipped (%s)', 'preview');
+
+        expect(finalRes).to.deep.equal(res);
+      });
+
+      it('preview data cookie is present', async () => {
+        const { middleware } = createMiddleware();
+        const res = NextResponse.next();
+
+        const req = createRequest({
+          cookies: {
+            __next_preview_data: true,
+          },
+        });
+
+        const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('skipped (%s)', 'preview');
+
+        expect(finalRes).to.deep.equal(res);
+      });
+    });
+
     describe('exclude route', () => {
       const res = NextResponse.next();
 
@@ -119,6 +160,8 @@ describe('RedirectsMiddleware', () => {
         });
 
         const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('skipped (%s)', 'route excluded');
 
         expect(finalRes).to.deep.equal(res);
       };
@@ -161,6 +204,8 @@ describe('RedirectsMiddleware', () => {
       const { middleware } = createMiddleware(props);
       const finalRes = await middleware.getHandler()(req);
 
+      validateDebugLog('skipped (redirects middleware is disabled)');
+
       expect(finalRes).to.deep.equal(res);
 
       nextStub.restore();
@@ -174,6 +219,8 @@ describe('RedirectsMiddleware', () => {
       const req = createRequest();
       const { middleware, fetchRedirects, getSite } = createMiddleware();
       const finalRes = await middleware.getHandler()(req);
+
+      validateDebugLog('skipped (redirect does not exist)');
 
       expect(getSite).to.be.calledWith(hostname);
       // eslint-disable-next-line no-unused-expressions
@@ -519,6 +566,9 @@ describe('RedirectsMiddleware', () => {
         });
 
         const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('skipped (redirects middleware is disabled)');
+
         // eslint-disable-next-line no-unused-expressions
         expect(getSite).to.not.be.called;
         // eslint-disable-next-line no-unused-expressions
@@ -563,6 +613,8 @@ describe('RedirectsMiddleware', () => {
         });
 
         const finalRes = await middleware.getHandler()(req);
+
+        validateDebugLog('host header is missing, default localhost is used');
 
         expect(getSite).to.be.calledWith('localhost');
         expect(fetchRedirects).to.be.calledWith(siteName);
@@ -610,6 +662,8 @@ describe('RedirectsMiddleware', () => {
         });
 
         const finalRes = await middleware.getHandler()(req);
+
+        validateDebugLog('host header is missing, default foobar is used');
 
         expect(getSite).to.be.calledWith('foobar');
         expect(fetchRedirects).to.be.calledWith(siteName);

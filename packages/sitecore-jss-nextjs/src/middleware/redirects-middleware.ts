@@ -9,55 +9,45 @@ import {
   REDIRECT_TYPE_SERVER_TRANSFER,
   SiteInfo,
 } from '@sitecore-jss/sitecore-jss/site';
+import { debug } from '@sitecore-jss/sitecore-jss';
+import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
 
 /**
  * extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
  */
-export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fetch'> & {
-  locales: string[];
-  /**
-   * Function used to determine if route should be excluded from RedirectsMiddleware.
-   * By default, files (pathname.includes('.')), Next.js API routes (pathname.startsWith('/api/')), and Sitecore API routes (pathname.startsWith('/sitecore/')) are ignored.
-   * This is an important performance consideration since Next.js Edge middleware runs on every request.
-   * @param {string} pathname The pathname
-   * @returns {boolean} Whether to exclude the route from RedirectsMiddleware
-   */
-  excludeRoute?: (pathname: string) => boolean;
-  /**
-   * function, determines if middleware should be turned off, based on cookie, header, or other considerations
-   *  @param {NextRequest} [req] optional: request object from middleware handler
-   *  @param {NextResponse} [res] optional: response object from middleware handler
-   * @returns {boolean} false by default
-   */
-  disabled?: (req?: NextRequest, res?: NextResponse) => boolean;
-  /**
-   * function used to resolve site for given hostname
-   */
-  getSite: (hostname: string) => SiteInfo;
-  /**
-   * fallback hostname in case `host` header is not present
-   * @default localhost
-   */
-  defaultHostname?: string;
-};
+export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fetch'> &
+  MiddlewareBaseConfig & {
+    locales: string[];
+    /**
+     * function, determines if middleware should be turned off, based on cookie, header, or other considerations
+     *  @param {NextRequest} [req] optional: request object from middleware handler
+     *  @param {NextResponse} [res] optional: response object from middleware handler
+     * @returns {boolean} false by default
+     */
+    disabled?: (req?: NextRequest, res?: NextResponse) => boolean;
+    /**
+     * function used to resolve site for given hostname
+     */
+    getSite: (hostname: string) => SiteInfo;
+  };
 /**
  * Middleware / handler fetches all redirects from Sitecore instance by grapqhl service
  * compares with current url and redirects to target url
  */
-export class RedirectsMiddleware {
+export class RedirectsMiddleware extends MiddlewareBase {
   private redirectsService: GraphQLRedirectsService;
   private locales: string[];
-  private defaultHostname: string;
 
   /**
    * @param {RedirectsMiddlewareConfig} [config] redirects middleware config
    */
   constructor(protected config: RedirectsMiddlewareConfig) {
+    super({ defaultHostname: config.defaultHostname, excludeRoute: config.excludeRoute });
+
     // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
     // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
     this.redirectsService = new GraphQLRedirectsService({ ...config, fetch: fetch });
     this.locales = config.locales;
-    this.defaultHostname = config.defaultHostname || 'localhost';
   }
 
   /**
@@ -68,39 +58,33 @@ export class RedirectsMiddleware {
     return this.handler;
   }
 
-  protected excludeRoute(pathname: string) {
-    if (
-      pathname.includes('.') || // Ignore files
-      pathname.startsWith('/api/') || // Ignore Next.js API calls
-      pathname.startsWith('/sitecore/') || // Ignore Sitecore API calls
-      pathname.startsWith('/_next') // Ignore next service calls
-    ) {
-      return true;
-    }
-    return false;
-  }
-
-  protected getHostname(req: NextRequest) {
-    const hostHeader = req.headers.get('host')?.split(':')[0];
-    return hostHeader || this.defaultHostname;
-  }
-
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
-    const hostname = this.getHostname(req);
-    const siteName = res?.cookies.get('sc_site')?.value || this.config.getSite(hostname).name;
+    const hostHeader = this.getHostHeader(req);
+    const hostname = hostHeader || this.defaultHostname;
+    const siteName =
+      res?.cookies.get(this.SITE_SYMBOL)?.value || this.config.getSite(hostname).name;
 
     const createResponse = async () => {
-      if (
-        (this.config.disabled && this.config.disabled(req, NextResponse.next())) ||
-        this.excludeRoute(req.nextUrl.pathname) ||
-        (this.config.excludeRoute && this.config.excludeRoute(req.nextUrl.pathname))
-      ) {
+      if (!hostHeader) {
+        debug.redirects(`host header is missing, default ${hostname} is used`);
+      }
+
+      if (this.config.disabled && this.config.disabled(req, NextResponse.next())) {
+        debug.redirects('skipped (redirects middleware is disabled)');
+        return res || NextResponse.next();
+      }
+
+      if (this.isPreview(req) || this.excludeRoute(req.nextUrl.pathname)) {
+        debug.redirects('skipped (%s)', this.isPreview(req) ? 'preview' : 'route excluded');
+
         return res || NextResponse.next();
       }
       // Find the redirect from result of RedirectService
       const existsRedirect = await this.getExistsRedirect(req, siteName);
 
       if (!existsRedirect) {
+        debug.redirects('skipped (redirect does not exist)');
+
         return res || NextResponse.next();
       }
 
@@ -138,7 +122,7 @@ export class RedirectsMiddleware {
     const response = await createResponse();
 
     // Share site name with the following executed middlewares
-    response.cookies.set('sc_site', siteName);
+    response.cookies.set(this.SITE_SYMBOL, siteName);
 
     return response;
   };
