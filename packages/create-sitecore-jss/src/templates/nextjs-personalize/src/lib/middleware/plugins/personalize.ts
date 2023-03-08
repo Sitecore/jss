@@ -50,8 +50,9 @@ class PersonalizePlugin implements MiddlewarePlugin {
       excludeRoute: () => false,
       // Site resolver implementation
       siteResolver,
-      // you can also pass a custom point of sale resolver into middleware
-      // resolvePointOfSale: (site, language) => { ... }
+      // Personalize middleware will use PosResolver.resolve(site, language) (same as CdpPageView) by default to get point of sale.
+      // You can also pass a custom point of sale resolver into middleware to override it like so: 
+      // getPointOfSale: (site, language) => { ... }
     });
   }
 
