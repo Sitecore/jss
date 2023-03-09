@@ -86,7 +86,8 @@ export abstract class MiddlewareBase {
   }
 
   /**
-   * Get site information
+   * Get site information.
+   * Can not be used in **Preview** mode, since site will not be resolved
    * @param {NextRequest} req request
    * @param {NextResponse} [res] response
    * @returns {SiteInfo} site information

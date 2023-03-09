@@ -138,7 +138,7 @@ describe('MultisiteMiddleware', () => {
           hostname: 'foo.net',
         });
 
-        validateDebugLog('skipped (route excluded)');
+        validateDebugLog('skipped (%s)', 'route excluded');
 
         expect(finalRes).to.deep.equal(res);
 
@@ -166,6 +166,42 @@ describe('MultisiteMiddleware', () => {
         await test('/sitecore/render', middleware);
         await test('/_next/webpack', middleware);
         await test('/crazypath/luna', middleware);
+      });
+    });
+
+    describe('preview', () => {
+      it('prerender bypass cookie is present', async () => {
+        const { middleware } = createMiddleware();
+        const res = NextResponse.next();
+
+        const req = createRequest({
+          cookieValues: {
+            __prerender_bypass: true,
+          },
+        });
+
+        const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('skipped (%s)', 'preview');
+
+        expect(finalRes).to.deep.equal(res);
+      });
+
+      it('preview data cookie is present', async () => {
+        const { middleware } = createMiddleware();
+        const res = NextResponse.next();
+
+        const req = createRequest({
+          cookieValues: {
+            __next_preview_data: true,
+          },
+        });
+
+        const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('skipped (%s)', 'preview');
+
+        expect(finalRes).to.deep.equal(res);
       });
     });
   });

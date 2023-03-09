@@ -53,8 +53,9 @@ export class MultisiteMiddleware extends MiddlewareBase {
     // Response will be provided if other middleware is run before us
     let response = res || NextResponse.next();
 
-    if (this.excludeRoute(pathname)) {
-      debug.multisite('skipped (route excluded)');
+    if (this.isPreview(req) || this.excludeRoute(pathname)) {
+      debug.multisite('skipped (%s)', this.isPreview(req) ? 'preview' : 'route excluded');
+
       return response;
     }
 

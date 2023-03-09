@@ -17,6 +17,10 @@ import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
  */
 export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fetch'> &
   MiddlewareBaseConfig & {
+    /**
+     * These are all the locales you support in your application.
+     * These should match those in your next.config.js (i18n.locales).
+     */
     locales: string[];
   };
 /**
