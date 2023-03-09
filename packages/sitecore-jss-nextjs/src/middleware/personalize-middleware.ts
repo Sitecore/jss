@@ -6,9 +6,11 @@ import {
   CdpServiceConfig,
   ExperienceParams,
   getPersonalizedRewrite,
+  PosResolver,
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
+import { SiteInfo } from '@sitecore-jss/sitecore-jss/site';
 
 export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
   /**
@@ -19,6 +21,13 @@ export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
    * Configuration for your Sitecore CDP endpoint
    */
   cdpConfig: Omit<CdpServiceConfig, 'dataFetcherResolver'>;
+  /**
+   * function to resolve point of sale for a site
+   * @param {Siteinfo} site to get info from
+   * @param {string} language to get info for
+   * @returns point of sale value for site/language combination
+   */
+  getPointOfSale?: (site: SiteInfo, language: string) => string;
 };
 
 /**
@@ -169,9 +178,9 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     // Execute targeted experience in CDP
     const { ua } = userAgent(req);
     const params = this.getExperienceParams(req);
-    const pointOfSale = site.pointOfSale
-      ? site.pointOfSale[language] || site.pointOfSale[site.language]
-      : '';
+    const pointOfSale = this.config.getPointOfSale
+      ? this.config.getPointOfSale(site, language)
+      : PosResolver.resolve(site, language);
     const variantId = await this.cdpService.executeExperience(
       personalizeInfo.contentId,
       browserId,
