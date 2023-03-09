@@ -1,13 +1,9 @@
 import { NextResponse, NextRequest } from 'next/server';
-import { getSiteRewrite, SiteInfo } from '@sitecore-jss/sitecore-jss/site';
+import { getSiteRewrite } from '@sitecore-jss/sitecore-jss/site';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
 
-export type MultisiteMiddlewareConfig = MiddlewareBaseConfig & {
-  /**
-   * Function used to resolve site for given hostname
-   */
-  getSite: (hostname: string) => SiteInfo;
+export type MultisiteMiddlewareConfig = Omit<MiddlewareBaseConfig, 'disabled'> & {
   /**
    * Function used to determine if site should be resolved from sc_site cookie when present
    */
@@ -22,7 +18,7 @@ export class MultisiteMiddleware extends MiddlewareBase {
    * @param {MultisiteMiddlewareConfig} [config] Multisite middleware config
    */
   constructor(protected config: MultisiteMiddlewareConfig) {
-    super({ defaultHostname: config.defaultHostname, excludeRoute: config.excludeRoute });
+    super(config);
   }
 
   /**
@@ -68,7 +64,7 @@ export class MultisiteMiddleware extends MiddlewareBase {
       (this.config.useCookieResolution &&
         this.config.useCookieResolution(req) &&
         req.cookies.get(this.SITE_SYMBOL)?.value) ||
-      this.config.getSite(hostname).name;
+      this.config.siteResolver.getByHost(hostname).name;
 
     // Rewrite to site specific path
     const rewritePath = getSiteRewrite(pathname, {

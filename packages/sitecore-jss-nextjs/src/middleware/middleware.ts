@@ -1,6 +1,13 @@
-import { NextRequest } from 'next/server';
+import { SiteInfo, SiteResolver } from '@sitecore-jss/sitecore-jss/site';
+import { NextRequest, NextResponse } from 'next/server';
 
 export type MiddlewareBaseConfig = {
+  /**
+   * function, determines if middleware should be turned off, based on cookie, header, or other considerations
+   * @param {NextRequest} [req] request object from middleware handler
+   * @param {NextResponse} [res] response object from middleware handler
+   */
+  disabled?: (req?: NextRequest, res?: NextResponse) => boolean;
   /**
    * Function used to determine if route should be excluded.
    * By default, files (pathname.includes('.')), Next.js API routes (pathname.startsWith('/api/')), and Sitecore API routes (pathname.startsWith('/sitecore/')) are ignored.
@@ -14,14 +21,18 @@ export type MiddlewareBaseConfig = {
    * @default localhost
    */
   defaultHostname?: string;
+  /**
+   * Site resolution implementation by name/hostname
+   */
+  siteResolver: SiteResolver;
 };
 
 export abstract class MiddlewareBase {
   protected SITE_SYMBOL = 'sc_site';
   protected defaultHostname: string;
 
-  constructor(protected config?: MiddlewareBaseConfig) {
-    this.defaultHostname = config?.defaultHostname || 'localhost';
+  constructor(protected config: MiddlewareBaseConfig) {
+    this.defaultHostname = config.defaultHostname || 'localhost';
   }
 
   /**
@@ -72,5 +83,21 @@ export abstract class MiddlewareBase {
    */
   protected getHostHeader(req: NextRequest) {
     return req.headers.get('host')?.split(':')[0];
+  }
+
+  /**
+   * Get site information
+   * @param {NextRequest} req request
+   * @param {NextResponse} [res] response
+   * @returns {SiteInfo} site information
+   */
+  protected getSite(req: NextRequest, res?: NextResponse): SiteInfo {
+    const siteNameCookie = res?.cookies.get(this.SITE_SYMBOL)?.value;
+
+    if (siteNameCookie) return this.config.siteResolver.getByName(siteNameCookie);
+
+    const hostname = this.getHostHeader(req) || this.defaultHostname;
+
+    return this.config.siteResolver.getByHost(hostname);
   }
 }

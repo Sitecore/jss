@@ -7,7 +7,6 @@ import {
   ExperienceParams,
   getPersonalizedRewrite,
 } from '@sitecore-jss/sitecore-jss/personalize';
-import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
 
@@ -20,17 +19,6 @@ export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
    * Configuration for your Sitecore CDP endpoint
    */
   cdpConfig: Omit<CdpServiceConfig, 'dataFetcherResolver'>;
-  /**
-   * function, determines if middleware should be turned off, based on cookie, header, or other considerations
-   *  @param {NextRequest} [req] optional: request object from middleware handler
-   *  @param {NextResponse} [res] optional: response object from middleware handler
-   * @returns {boolean} false by default
-   */
-  disabled?: (req?: NextRequest, res?: NextResponse) => boolean;
-  /**
-   * Site resolution implementation by name/hostname
-   */
-  siteResolver: SiteResolver;
 };
 
 /**
@@ -44,7 +32,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
    * @param {PersonalizeMiddlewareConfig} [config] Personalize middleware config
    */
   constructor(protected config: PersonalizeMiddlewareConfig) {
-    super({ defaultHostname: config.defaultHostname, excludeRoute: config.excludeRoute });
+    super(config);
 
     // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
     // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
@@ -116,21 +104,14 @@ export class PersonalizeMiddleware extends MiddlewareBase {
   }
 
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
-    const hostHeader = this.getHostHeader(req);
-    const hostname = hostHeader || this.defaultHostname;
     const pathname = req.nextUrl.pathname;
     const language = this.getLanguage(req);
-    let siteName = res?.cookies.get(this.SITE_SYMBOL)?.value;
 
     let browserId = this.getBrowserId(req);
     debug.personalize('personalize middleware start: %o', {
       pathname,
       language,
     });
-
-    if (!hostHeader) {
-      debug.personalize(`host header is missing, default ${hostname} is used`);
-    }
 
     // Response will be provided if other middleware is run before us (e.g. redirects)
     let response = res || NextResponse.next();
@@ -152,20 +133,17 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       return response;
     }
 
-    let site;
-
-    if (!siteName) {
-      site = this.config.siteResolver.getByHost(hostname);
-      siteName = site.name;
-    } else {
-      site = this.config.siteResolver.getByName(siteName);
+    if (!this.getHostHeader(req)) {
+      debug.personalize(`host header is missing, default ${this.defaultHostname} is used`);
     }
+
+    const site = this.getSite(req, res);
 
     // Get personalization info from Experience Edge
     const personalizeInfo = await this.personalizeService.getPersonalizeInfo(
       pathname,
       language,
-      siteName
+      site.name
     );
 
     if (!personalizeInfo) {
@@ -231,7 +209,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     // Set browserId cookie on the response
     this.setBrowserId(response, browserId);
     // Share site name with the following executed middlewares
-    response.cookies.set(this.SITE_SYMBOL, siteName);
+    response.cookies.set(this.SITE_SYMBOL, site.name);
 
     debug.personalize('personalize middleware end: %o', {
       rewritePath,

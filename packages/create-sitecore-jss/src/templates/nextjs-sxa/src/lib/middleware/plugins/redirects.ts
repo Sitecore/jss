@@ -22,8 +22,8 @@ class RedirectsPlugin implements MiddlewarePlugin {
       // This function determines if the middleware should be turned off.
       // By default it is disabled while in development mode.
       disabled: () => process.env.NODE_ENV === 'development',
-      // This function resolves site based on hostname
-      getSite: siteResolver.getByHost,
+      // Site resolver implementation
+      siteResolver,
     });
   }
 
