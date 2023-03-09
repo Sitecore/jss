@@ -1,25 +1,9 @@
 import { NextResponse, NextRequest } from 'next/server';
-import { getSiteRewrite, SiteInfo } from '@sitecore-jss/sitecore-jss/site';
+import { getSiteRewrite } from '@sitecore-jss/sitecore-jss/site';
 import { debug } from '@sitecore-jss/sitecore-jss';
+import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
 
-export type MultisiteMiddlewareConfig = {
-  /**
-   * Function used to determine if route should be excluded during execution.
-   * By default, files (pathname.includes('.')), Next.js API routes (pathname.startsWith('/api/')), and Sitecore API routes (pathname.startsWith('/sitecore/')) are ignored.
-   * This is an important performance consideration since Next.js Edge middleware runs on every request.
-   * @param {string} pathname The pathname
-   * @returns {boolean} Whether to exclude the route
-   */
-  excludeRoute?: (pathname: string) => boolean;
-  /**
-   * Function used to resolve site for given hostname
-   */
-  getSite: (hostname: string) => SiteInfo;
-  /**
-   * Fallback hostname in case `host` header is not present
-   * @default localhost
-   */
-  defaultHostname?: string;
+export type MultisiteMiddlewareConfig = Omit<MiddlewareBaseConfig, 'disabled'> & {
   /**
    * Function used to determine if site should be resolved from sc_site cookie when present
    */
@@ -29,14 +13,12 @@ export type MultisiteMiddlewareConfig = {
 /**
  * Middleware / handler for multisite support
  */
-export class MultisiteMiddleware {
-  private defaultHostname: string;
-
+export class MultisiteMiddleware extends MiddlewareBase {
   /**
    * @param {MultisiteMiddlewareConfig} [config] Multisite middleware config
    */
   constructor(protected config: MultisiteMiddlewareConfig) {
-    this.defaultHostname = config.defaultHostname || 'localhost';
+    super(config);
   }
 
   /**
@@ -55,27 +37,9 @@ export class MultisiteMiddleware {
     };
   }
 
-  protected excludeRoute(pathname: string) {
-    if (
-      pathname.includes('.') || // Ignore files
-      pathname.startsWith('/api/') || // Ignore Next.js API calls
-      pathname.startsWith('/sitecore/') || // Ignore Sitecore API calls
-      pathname.startsWith('/_next') // Ignore next service calls
-    ) {
-      return true;
-    }
-    return false;
-  }
-
-  protected extractDebugHeaders(incomingHeaders: Headers) {
-    const headers = {} as { [key: string]: string };
-    incomingHeaders.forEach((value, key) => (headers[key] = value));
-    return headers;
-  }
-
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
-    const hostHeader = req.headers.get('host')?.split(':')[0];
+    const hostHeader = this.getHostHeader(req);
     const hostname = hostHeader || this.defaultHostname;
     debug.multisite('multisite middleware start: %o', {
       pathname,
@@ -89,21 +53,19 @@ export class MultisiteMiddleware {
     // Response will be provided if other middleware is run before us
     let response = res || NextResponse.next();
 
-    if (
-      this.excludeRoute(pathname) ||
-      (this.config.excludeRoute && this.config.excludeRoute(pathname))
-    ) {
-      debug.multisite('skipped (route excluded)');
+    if (this.isPreview(req) || this.excludeRoute(pathname)) {
+      debug.multisite('skipped (%s)', this.isPreview(req) ? 'preview' : 'route excluded');
+
       return response;
     }
 
     // Site name can be forced by query string parameter or cookie
     const siteName =
-      req.nextUrl.searchParams.get('sc_site') ||
+      req.nextUrl.searchParams.get(this.SITE_SYMBOL) ||
       (this.config.useCookieResolution &&
         this.config.useCookieResolution(req) &&
-        req.cookies.get('sc_site')?.value) ||
-      this.config.getSite(hostname).name;
+        req.cookies.get(this.SITE_SYMBOL)?.value) ||
+      this.config.siteResolver.getByHost(hostname).name;
 
     // Rewrite to site specific path
     const rewritePath = getSiteRewrite(pathname, {
@@ -118,7 +80,7 @@ export class MultisiteMiddleware {
     response = NextResponse.rewrite(rewriteUrl);
 
     // Share site name with the following executed middlewares
-    response.cookies.set('sc_site', siteName);
+    response.cookies.set(this.SITE_SYMBOL, siteName);
     // Share rewrite path with following executed middlewares
     response.headers.set('x-sc-rewrite', rewritePath);
 

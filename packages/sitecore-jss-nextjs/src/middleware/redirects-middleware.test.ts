@@ -1,17 +1,23 @@
-﻿/* eslint-disable @typescript-eslint/no-empty-function */
+﻿/* eslint-disable no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable dot-notation */
 import chai, { use } from 'chai';
 import chaiString from 'chai-string';
 import sinonChai from 'sinon-chai';
-import sinon from 'sinon';
+import sinon, { spy } from 'sinon';
 import { NextRequest, NextResponse } from 'next/server';
+import { debug } from '@sitecore-jss/sitecore-jss';
+import { REDIRECT_TYPE_SERVER_TRANSFER, SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { RedirectsMiddleware } from './redirects-middleware';
-import { REDIRECT_TYPE_SERVER_TRANSFER } from '@sitecore-jss/sitecore-jss/site';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
 
 describe('RedirectsMiddleware', () => {
+  const debugSpy = spy(debug, 'redirects');
+  const validateDebugLog = (message, ...params) =>
+    expect(debugSpy.args.find((log) => log[0] === message)).to.deep.equal([message, ...params]);
+
   const referrer = 'http://localhost:3000';
   const hostname = 'foo.net';
   const siteName = 'nextjs-app';
@@ -65,18 +71,27 @@ describe('RedirectsMiddleware', () => {
       locale?: string;
       fetchRedirectsStub?: sinon.SinonStub;
       defaultHostname?: string;
+      siteResolver?: SiteResolver;
     } = {}
   ) => {
-    const getSite: any =
-      props.getSite ||
-      sinon.stub().returns({
+    class MockSiteResolver extends SiteResolver {
+      getByName = sinon.stub().callsFake((siteName: string) => ({
         name: siteName,
-        language: '',
+        language: props.language || '',
         hostName: hostname,
-      });
+      }));
+
+      getByHost = sinon.stub().callsFake((hostName: string) => ({
+        name: siteName,
+        language: props.language || '',
+        hostName,
+      }));
+    }
+
+    const siteResolver = props.siteResolver || new MockSiteResolver([]);
 
     const middleware = new RedirectsMiddleware({
-      getSite,
+      siteResolver,
       ...props,
       apiKey: 'edge-api-key',
       endpoint: 'http://edge-endpoint/api/graph/edge',
@@ -97,17 +112,53 @@ describe('RedirectsMiddleware', () => {
         )
       ));
 
-    return { middleware, fetchRedirects, getSite };
+    return { middleware, fetchRedirects, siteResolver };
   };
 
   // Stub for NextResponse generation, see https://github.com/vercel/next.js/issues/42374
   (Headers.prototype as any).getAll = () => [];
 
-  afterEach(() => {
-    sinon.restore();
+  beforeEach(() => {
+    debugSpy.resetHistory();
   });
 
   describe('redirects middleware - getHandler', () => {
+    describe('preview', () => {
+      it('prerender bypass cookie is present', async () => {
+        const { middleware } = createMiddleware();
+        const res = NextResponse.next();
+
+        const req = createRequest({
+          cookies: {
+            __prerender_bypass: true,
+          },
+        });
+
+        const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('skipped (%s)', 'preview');
+
+        expect(finalRes).to.deep.equal(res);
+      });
+
+      it('preview data cookie is present', async () => {
+        const { middleware } = createMiddleware();
+        const res = NextResponse.next();
+
+        const req = createRequest({
+          cookies: {
+            __next_preview_data: true,
+          },
+        });
+
+        const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('skipped (%s)', 'preview');
+
+        expect(finalRes).to.deep.equal(res);
+      });
+    });
+
     describe('exclude route', () => {
       const res = NextResponse.next();
 
@@ -119,6 +170,8 @@ describe('RedirectsMiddleware', () => {
         });
 
         const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('skipped (%s)', 'route excluded');
 
         expect(finalRes).to.deep.equal(res);
       };
@@ -161,6 +214,8 @@ describe('RedirectsMiddleware', () => {
       const { middleware } = createMiddleware(props);
       const finalRes = await middleware.getHandler()(req);
 
+      validateDebugLog('skipped (redirects middleware is disabled)');
+
       expect(finalRes).to.deep.equal(res);
 
       nextStub.restore();
@@ -172,10 +227,12 @@ describe('RedirectsMiddleware', () => {
       });
       const nextStub = sinon.stub(NextResponse, 'next').returns((res as unknown) as NextResponse);
       const req = createRequest();
-      const { middleware, fetchRedirects, getSite } = createMiddleware();
+      const { middleware, fetchRedirects, siteResolver } = createMiddleware();
       const finalRes = await middleware.getHandler()(req);
 
-      expect(getSite).to.be.calledWith(hostname);
+      validateDebugLog('skipped (redirect does not exist)');
+
+      expect(siteResolver.getByHost).to.be.calledWith(hostname);
       // eslint-disable-next-line no-unused-expressions
       expect(fetchRedirects.called).to.be.true;
       expect(finalRes).to.deep.equal(res);
@@ -208,7 +265,7 @@ describe('RedirectsMiddleware', () => {
           },
         });
 
-        const { middleware, fetchRedirects, getSite } = createMiddleware({
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
           redirectType: 'REDIRECT_301',
@@ -218,7 +275,7 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req);
 
-        expect(getSite).to.be.calledWith(hostname);
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
@@ -251,7 +308,7 @@ describe('RedirectsMiddleware', () => {
           },
         });
 
-        const { middleware, fetchRedirects, getSite } = createMiddleware({
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/ua/found',
           redirectType: REDIRECT_TYPE_SERVER_TRANSFER,
@@ -261,7 +318,7 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req);
 
-        expect(getSite).to.be.calledWith(hostname);
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
@@ -295,7 +352,7 @@ describe('RedirectsMiddleware', () => {
           },
         });
 
-        const { middleware, fetchRedirects, getSite } = createMiddleware({
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: '/found',
           redirectType: REDIRECT_TYPE_SERVER_TRANSFER,
@@ -304,7 +361,7 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req);
 
-        expect(getSite).to.be.calledWith(hostname);
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
@@ -338,7 +395,7 @@ describe('RedirectsMiddleware', () => {
           },
         });
 
-        const { middleware, fetchRedirects, getSite } = createMiddleware({
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
           redirectType: 'REDIRECT_302',
@@ -348,7 +405,7 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req);
 
-        expect(getSite).to.be.calledWith(hostname);
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
@@ -377,7 +434,7 @@ describe('RedirectsMiddleware', () => {
           },
         });
 
-        const { middleware, fetchRedirects, getSite } = createMiddleware({
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
           redirectType: 'default',
@@ -387,7 +444,7 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req);
 
-        expect(getSite).to.be.calledWith(hostname);
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
@@ -417,7 +474,7 @@ describe('RedirectsMiddleware', () => {
           },
         });
 
-        const { middleware, fetchRedirects, getSite } = createMiddleware({
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
           redirectType: REDIRECT_TYPE_SERVER_TRANSFER,
@@ -427,7 +484,7 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req);
 
-        expect(getSite).to.be.calledWith(hostname);
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
@@ -449,7 +506,7 @@ describe('RedirectsMiddleware', () => {
           },
         });
 
-        const { middleware, fetchRedirects, getSite } = createMiddleware({
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
           redirectType: 'REDIRECT_301',
@@ -459,7 +516,8 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req, res);
 
-        expect(getSite).not.called.to.equal(true);
+        expect(siteResolver.getByHost).not.called.to.equal(true);
+        expect(siteResolver.getByName).to.be.calledWith(siteName);
         expect(fetchRedirects).to.be.calledWith(siteName);
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -479,7 +537,7 @@ describe('RedirectsMiddleware', () => {
           },
         });
 
-        const { middleware, fetchRedirects, getSite } = createMiddleware({
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
           redirectType: 'default',
@@ -488,9 +546,8 @@ describe('RedirectsMiddleware', () => {
         });
 
         const finalRes = await middleware.getHandler()(req, res);
-        // eslint-disable-next-line no-unused-expressions
-        expect(getSite).to.not.be.called;
-        // eslint-disable-next-line no-unused-expressions
+        expect(siteResolver.getByHost).to.not.be.called;
+        expect(siteResolver.getByName).to.be.calledWith(site);
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes.cookies.get('sc_site')?.value).to.equal(site);
       });
@@ -509,7 +566,7 @@ describe('RedirectsMiddleware', () => {
           },
         });
 
-        const { middleware, fetchRedirects, getSite } = createMiddleware({
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
           redirectType: 'default',
@@ -519,9 +576,11 @@ describe('RedirectsMiddleware', () => {
         });
 
         const finalRes = await middleware.getHandler()(req, res);
-        // eslint-disable-next-line no-unused-expressions
-        expect(getSite).to.not.be.called;
-        // eslint-disable-next-line no-unused-expressions
+
+        validateDebugLog('skipped (redirects middleware is disabled)');
+
+        expect(siteResolver.getByHost).to.not.be.called;
+        expect(siteResolver.getByName).to.not.be.called;
         expect(fetchRedirects.called).to.be.false;
         expect(finalRes.cookies.get('sc_site')?.value).to.equal(site);
       });
@@ -554,7 +613,7 @@ describe('RedirectsMiddleware', () => {
           },
         });
 
-        const { middleware, fetchRedirects, getSite } = createMiddleware({
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
           redirectType: 'REDIRECT_301',
@@ -564,7 +623,9 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req);
 
-        expect(getSite).to.be.calledWith('localhost');
+        validateDebugLog('host header is missing, default localhost is used');
+
+        expect(siteResolver.getByHost).to.be.calledWith('localhost');
         expect(fetchRedirects).to.be.calledWith(siteName);
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -600,7 +661,7 @@ describe('RedirectsMiddleware', () => {
           },
         });
 
-        const { middleware, fetchRedirects, getSite } = createMiddleware({
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
           redirectType: 'REDIRECT_301',
@@ -611,7 +672,9 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req);
 
-        expect(getSite).to.be.calledWith('foobar');
+        validateDebugLog('host header is missing, default foobar is used');
+
+        expect(siteResolver.getByHost).to.be.calledWith('foobar');
         expect(fetchRedirects).to.be.calledWith(siteName);
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);

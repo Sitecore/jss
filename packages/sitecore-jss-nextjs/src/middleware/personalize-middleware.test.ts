@@ -157,23 +157,23 @@ describe('PersonalizeMiddleware', () => {
     };
 
     class MockSiteResolver extends SiteResolver {
-      getByName = sinon.stub().returns({
+      getByName = sinon.stub().callsFake((siteName: string) => ({
         name: siteName,
         language: props.language || '',
         hostName: hostname,
         pointOfSale: {
           [props.language || defaultLang]: pointOfSale,
         },
-      });
+      }));
 
-      getByHost = sinon.stub().returns({
+      getByHost = sinon.stub().callsFake((hostName: string) => ({
         name: siteName,
         language: props.language || '',
-        hostName: hostname,
+        hostName,
         pointOfSale: {
           [props.language || defaultLang]: pointOfSale,
         },
-      });
+      }));
     }
 
     const siteResolver: SiteResolver = props.siteResolver || new MockSiteResolver([]);

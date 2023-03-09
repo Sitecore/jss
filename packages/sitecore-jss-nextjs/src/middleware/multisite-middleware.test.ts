@@ -8,7 +8,7 @@ import nextjs, { NextRequest, NextResponse } from 'next/server';
 import { debug } from '@sitecore-jss/sitecore-jss';
 
 import { MultisiteMiddleware } from './multisite-middleware';
-import { SiteInfo } from '@sitecore-jss/sitecore-jss/site';
+import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
@@ -88,17 +88,29 @@ describe('MultisiteMiddleware', () => {
     return res;
   };
 
-  const createMiddleware = (props = {}) => {
+  const createMiddleware = (props: { [key: string]: any; siteResolver?: SiteResolver } = {}) => {
+    class MockSiteResolver extends SiteResolver {
+      getByName = sinon.stub().returns({
+        name: siteName,
+        language: props.language || '',
+        hostName: props.hostName,
+      });
+
+      getByHost = sinon.stub().returns({
+        name: siteName,
+        language: props.language || '',
+        hostName: props.hostName,
+      });
+    }
+
+    const siteResolver = props.siteResolver || new MockSiteResolver([]);
+
     const middleware = new MultisiteMiddleware({
-      getSite(hostName) {
-        return { name: siteName, hostName } as SiteInfo;
-      },
+      siteResolver,
       ...props,
     });
 
-    const getSite = spy(middleware['config'], 'getSite');
-
-    return { middleware, getSite };
+    return { middleware, siteResolver };
   };
 
   // Stub for NextResponse generation, see https://github.com/vercel/next.js/issues/42374
@@ -126,7 +138,7 @@ describe('MultisiteMiddleware', () => {
           hostname: 'foo.net',
         });
 
-        validateDebugLog('skipped (route excluded)');
+        validateDebugLog('skipped (%s)', 'route excluded');
 
         expect(finalRes).to.deep.equal(res);
 
@@ -156,6 +168,42 @@ describe('MultisiteMiddleware', () => {
         await test('/crazypath/luna', middleware);
       });
     });
+
+    describe('preview', () => {
+      it('prerender bypass cookie is present', async () => {
+        const { middleware } = createMiddleware();
+        const res = NextResponse.next();
+
+        const req = createRequest({
+          cookieValues: {
+            __prerender_bypass: true,
+          },
+        });
+
+        const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('skipped (%s)', 'preview');
+
+        expect(finalRes).to.deep.equal(res);
+      });
+
+      it('preview data cookie is present', async () => {
+        const { middleware } = createMiddleware();
+        const res = NextResponse.next();
+
+        const req = createRequest({
+          cookieValues: {
+            __next_preview_data: true,
+          },
+        });
+
+        const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('skipped (%s)', 'preview');
+
+        expect(finalRes).to.deep.equal(res);
+      });
+    });
   });
 
   describe('request passed', () => {
@@ -174,7 +222,7 @@ describe('MultisiteMiddleware', () => {
 
       nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getSite } = createMiddleware({
+      const { middleware, siteResolver } = createMiddleware({
         defaultHostname: 'bar.net',
       });
 
@@ -199,7 +247,7 @@ describe('MultisiteMiddleware', () => {
         },
       });
 
-      expect(getSite).to.be.calledWith('bar.net');
+      expect(siteResolver.getByHost).to.be.calledWith('bar.net');
 
       expect(finalRes).to.deep.equal(res);
 
@@ -218,7 +266,7 @@ describe('MultisiteMiddleware', () => {
 
       nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getSite } = createMiddleware();
+      const { middleware, siteResolver } = createMiddleware();
 
       const finalRes = await middleware.getHandler()(req, res);
 
@@ -241,7 +289,7 @@ describe('MultisiteMiddleware', () => {
         },
       });
 
-      expect(getSite).to.be.calledWith('localhost');
+      expect(siteResolver.getByHost).to.be.calledWith('localhost');
 
       expect(finalRes).to.deep.equal(res);
 
@@ -258,7 +306,7 @@ describe('MultisiteMiddleware', () => {
 
       nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getSite } = createMiddleware();
+      const { middleware, siteResolver } = createMiddleware();
 
       const finalRes = await middleware.getHandler()(req, res);
 
@@ -279,7 +327,7 @@ describe('MultisiteMiddleware', () => {
         },
       });
 
-      expect(getSite).to.be.calledWith('foo.net');
+      expect(siteResolver.getByHost).to.be.calledWith('foo.net');
 
       expect(finalRes).to.deep.equal(res);
 
@@ -296,7 +344,7 @@ describe('MultisiteMiddleware', () => {
 
       nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getSite } = createMiddleware({});
+      const { middleware, siteResolver } = createMiddleware({});
 
       const finalRes = await middleware.getHandler()(req);
 
@@ -317,7 +365,7 @@ describe('MultisiteMiddleware', () => {
         },
       });
 
-      expect(getSite).to.be.calledWith('foo.net');
+      expect(siteResolver.getByHost).to.be.calledWith('foo.net');
 
       expect(finalRes).to.deep.equal(res);
 
@@ -336,7 +384,7 @@ describe('MultisiteMiddleware', () => {
 
       nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getSite } = createMiddleware({
+      const { middleware, siteResolver } = createMiddleware({
         useCookieResolution: () => true,
       });
 
@@ -359,7 +407,8 @@ describe('MultisiteMiddleware', () => {
         },
       });
 
-      expect(getSite.notCalled).equal(true);
+      expect(siteResolver.getByHost).not.called.equal(true);
+      expect(siteResolver.getByName).not.called.equal(true);
 
       expect(finalRes).to.deep.equal(res);
 
@@ -378,7 +427,7 @@ describe('MultisiteMiddleware', () => {
 
       nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getSite } = createMiddleware({
+      const { middleware, siteResolver } = createMiddleware({
         useCookieResolution: () => true,
       });
 
@@ -401,7 +450,8 @@ describe('MultisiteMiddleware', () => {
         },
       });
 
-      expect(getSite.notCalled).equal(true);
+      expect(siteResolver.getByHost).not.called.equal(true);
+      expect(siteResolver.getByName).not.called.equal(true);
 
       expect(finalRes).to.deep.equal(res);
 
@@ -420,7 +470,7 @@ describe('MultisiteMiddleware', () => {
 
       nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getSite } = createMiddleware();
+      const { middleware, siteResolver } = createMiddleware();
 
       const finalRes = await middleware.getHandler()(req, res);
 
@@ -441,7 +491,7 @@ describe('MultisiteMiddleware', () => {
         },
       });
 
-      expect(getSite).to.be.calledWith('foo.net');
+      expect(siteResolver.getByHost).to.be.calledWith('foo.net');
 
       expect(finalRes).to.deep.equal(res);
 
@@ -473,10 +523,18 @@ describe('MultisiteMiddleware', () => {
     it('should handle error', async () => {
       const error = new Error('Custom error');
 
-      const { middleware } = createMiddleware({
-        getSite() {
+      class SampleSiteResolver extends SiteResolver {
+        constructor(sites) {
+          super(sites);
+        }
+
+        getByHost = () => {
           throw error;
-        },
+        };
+      }
+
+      const { middleware } = createMiddleware({
+        siteResolver: new SampleSiteResolver([]),
       });
 
       const finalRes = await middleware.getHandler()(req, res);

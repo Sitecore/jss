@@ -6,20 +6,13 @@ import {
   CdpServiceConfig,
   ExperienceParams,
   getPersonalizedRewrite,
+  PosResolver,
 } from '@sitecore-jss/sitecore-jss/personalize';
-import { SiteInfo, SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
-import { PosResolver } from '@sitecore-jss/sitecore-jss/personalize';
+import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
+import { SiteInfo } from '@sitecore-jss/sitecore-jss/site';
 
-export type PersonalizeMiddlewareConfig = {
-  /**
-   * Function used to determine if route should be excluded from personalization.
-   * By default, files (pathname.includes('.')), Next.js API routes (pathname.startsWith('/api/')), and Sitecore API routes (pathname.startsWith('/sitecore/')) are ignored.
-   * This is an important performance consideration since Next.js Edge middleware runs on every request.
-   * @param {string} pathname The pathname
-   * @returns {boolean} Whether to exclude the route from personalization
-   */
-  excludeRoute?: (pathname: string) => boolean;
+export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
   /**
    * Configuration for your Sitecore Experience Edge endpoint
    */
@@ -28,22 +21,6 @@ export type PersonalizeMiddlewareConfig = {
    * Configuration for your Sitecore CDP endpoint
    */
   cdpConfig: Omit<CdpServiceConfig, 'dataFetcherResolver'>;
-  /**
-   * function, determines if middleware should be turned off, based on cookie, header, or other considerations
-   *  @param {NextRequest} [req] optional: request object from middleware handler
-   *  @param {NextResponse} [res] optional: response object from middleware handler
-   * @returns {boolean} false by default
-   */
-  disabled?: (req?: NextRequest, res?: NextResponse) => boolean;
-  /**
-   * Site resolution implementation by name/hostname
-   */
-  siteResolver: SiteResolver;
-  /**
-   * fallback hostname in case `host` header is not present
-   * @default localhost
-   */
-  defaultHostname?: string;
   /**
    * function to resolve point of sale for a site
    * @param {Siteinfo} site to get info from
@@ -56,15 +33,16 @@ export type PersonalizeMiddlewareConfig = {
 /**
  * Middleware / handler to support Sitecore Personalize
  */
-export class PersonalizeMiddleware {
+export class PersonalizeMiddleware extends MiddlewareBase {
   private personalizeService: GraphQLPersonalizeService;
   private cdpService: CdpService;
-  private defaultHostname: string;
 
   /**
    * @param {PersonalizeMiddlewareConfig} [config] Personalize middleware config
    */
   constructor(protected config: PersonalizeMiddlewareConfig) {
+    super(config);
+
     // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
     // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
     this.personalizeService = new GraphQLPersonalizeService({
@@ -89,8 +67,6 @@ export class PersonalizeMiddleware {
         return (url: string, data?: unknown) => fetcher.fetch<T>(url, data);
       },
     });
-
-    this.defaultHostname = config.defaultHostname || 'localhost';
   }
 
   /**
@@ -136,52 +112,15 @@ export class PersonalizeMiddleware {
     };
   }
 
-  protected excludeRoute(pathname: string) {
-    if (
-      pathname.includes('.') || // Ignore files
-      pathname.startsWith('/api/') || // Ignore Next.js API calls
-      pathname.startsWith('/sitecore/') || // Ignore Sitecore API calls
-      pathname.startsWith('/_next') // Ignore next service calls
-    ) {
-      return true;
-    }
-    return false;
-  }
-
-  protected isPreview(req: NextRequest) {
-    return (
-      req.cookies.get('__prerender_bypass')?.value || req.cookies.get('__next_preview_data')?.value
-    );
-  }
-
-  /**
-   * Safely extract all headers for debug logging
-   * Necessary to avoid middleware issue https://github.com/vercel/next.js/issues/39765
-   * @param {Headers} incomingHeaders Incoming headers
-   * @returns Object with headers as key/value pairs
-   */
-  protected extractDebugHeaders(incomingHeaders: Headers) {
-    const headers = {} as { [key: string]: string };
-    incomingHeaders.forEach((value, key) => (headers[key] = value));
-    return headers;
-  }
-
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
-    const hostHeader = req.headers.get('host')?.split(':')[0];
-    const hostname = hostHeader || this.defaultHostname;
     const pathname = req.nextUrl.pathname;
-    const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
-    let siteName = res?.cookies.get('sc_site')?.value;
+    const language = this.getLanguage(req);
 
     let browserId = this.getBrowserId(req);
     debug.personalize('personalize middleware start: %o', {
       pathname,
       language,
     });
-
-    if (!hostHeader) {
-      debug.personalize(`host header is missing, default ${hostname} is used`);
-    }
 
     // Response will be provided if other middleware is run before us (e.g. redirects)
     let response = res || NextResponse.next();
@@ -194,8 +133,7 @@ export class PersonalizeMiddleware {
     if (
       response.redirected || // Don't attempt to personalize a redirect
       this.isPreview(req) || // No need to personalize for preview (layout data is already prepared for preview)
-      this.excludeRoute(pathname) ||
-      (this.config.excludeRoute && this.config.excludeRoute(pathname))
+      this.excludeRoute(pathname)
     ) {
       debug.personalize(
         'skipped (%s)',
@@ -204,20 +142,17 @@ export class PersonalizeMiddleware {
       return response;
     }
 
-    let site;
-
-    if (!siteName) {
-      site = this.config.siteResolver.getByHost(hostname);
-      siteName = site.name;
-    } else {
-      site = this.config.siteResolver.getByName(siteName);
+    if (!this.getHostHeader(req)) {
+      debug.personalize(`host header is missing, default ${this.defaultHostname} is used`);
     }
+
+    const site = this.getSite(req, res);
 
     // Get personalization info from Experience Edge
     const personalizeInfo = await this.personalizeService.getPersonalizeInfo(
       pathname,
       language,
-      siteName
+      site.name
     );
 
     if (!personalizeInfo) {
@@ -283,7 +218,7 @@ export class PersonalizeMiddleware {
     // Set browserId cookie on the response
     this.setBrowserId(response, browserId);
     // Share site name with the following executed middlewares
-    response.cookies.set('sc_site', siteName);
+    response.cookies.set(this.SITE_SYMBOL, site.name);
 
     debug.personalize('personalize middleware end: %o', {
       rewritePath,
