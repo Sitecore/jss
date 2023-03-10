@@ -85,24 +85,22 @@ Our versioning strategy is as follows:
 ### 🛠 Breaking Changes
 
 * `[sitecore-jss-nextjs]` All editing-related types have moved to a dedicated `editing` submodule. Imports must be updated to use this submodule. e.g.
-
   * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
   * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
 
-* [sitecore-jss-nextjs] [templates/nextjs-personalize] getPointOfSale function passed into personalize middleware now accepts two parameters: site and language. Personalize middleware will use a built-in resolver if no function is passed.
+* `[sitecore-jss-nextjs] [templates/nextjs-personalize]` getPointOfSale function passed into personalize middleware now accepts two parameters: site and language. Personalize middleware will use a built-in resolver if no function is passed.
 
 * `[sitecore-jss-angular][templates/angular]` jss-angular package and sample has been updated to version 14. ([#1285](https://github.com/Sitecore/jss/pull/1285)) ([#1300](https://github.com/Sitecore/jss/pull/1300))
-
   * JSS Angular sample is now using Ivy
   * IE11 no longer supported by JSS Angular
   * _sitecore-jss-angular_ package does not output UMD package anymore - only ESM. We created a '@sitecore-jss/sitecore-jss-angular/cjs' sub-module to have CJS imports still available i.e. in angular sample app's scripts. Right now the submodule re-exports '@sitecore-jss/sitecore-jss' modules.
   * _componentFactory_ is no longer present in ComponentFactoryResult interface, due to _createComponent_ changes and deprecations introduced in Angular 13.
   * More details on changes in Angular can be found in the below links:
-    https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
-    https://angular.io/guide/deprecations
-    https://update.angular.io/?l=3&v=11.0-14.0
+  https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
+  https://angular.io/guide/deprecations
+  https://update.angular.io/?l=3&v=11.0-14.0
 
-* `[sitecore-jss-angular]` Due to the Angular version upgrade and the change in _sitecore-jss-angular_ package output format _sitecore-jss_ exports are not available in angular app scripts (src/scripts) via '@sitecore-jss/sitecore-jss-angular'. Please use '@sitecore-jss/sitecore-jss-angular/cjs' import instead. Check bootstrap.ts scripts as for a usage example.
+* `[sitecore-jss-angular]` Due to the Angular version upgrade and the change in _sitecore-jss-angular_ package output format  _sitecore-jss_ exports are not available in angular app scripts (src/scripts) via '@sitecore-jss/sitecore-jss-angular'. Please use '@sitecore-jss/sitecore-jss-angular/cjs' import instead. Check bootstrap.ts scripts as for a usage example.
 
 * `[templates/nextjs]` `[sitecore-jss]` `[sitecore-jss-nextjs]` Personalize POS configuration for multiple sites ([#1350](https://github.com/Sitecore/jss/pull/1350))
   * Added env utilities
