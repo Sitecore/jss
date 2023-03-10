@@ -11,27 +11,102 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
-### New Features & Improvements
+## 21.1.0
+
+### 🎉 New Features & Improvements
+
+* `[templates/nextjs]` `[sitecore-jss]` `[sitecore-jss-nextjs]` Support for multi-locale point of sale values ([#1164](https://github.com/Sitecore/jss/pull/1164))
+* `[template/nextjs-sxa]` Added possibility to change image ([#1168](https://github.com/Sitecore/jss/pull/1168))
+* `[template/nextjs-sxa]` Add configurable identifier to splitters ([#1181](https://github.com/Sitecore/jss/pull/1181))
+* `[templates/nextjs]` Bump @sitecore/engage to latest version ([#1198](https://github.com/Sitecore/jss/pull/1198)) ([#1317](https://github.com/Sitecore/jss/pull/1317))
+* `[templates/nextjs]` Add healthz check ([#1207](https://github.com/Sitecore/jss/pull/1207))
+* `[sitecore-jss]` `[sitecore-jss-nextjs]` Performance improvements for personalize service and middleware ([#1218](https://github.com/Sitecore/jss/pull/1218))
+* `[sitecore-jss]` `[sitecore-jss-nextjs]` Update models: Add url and id property to item type ([#1219](https://github.com/Sitecore/jss/pull/1219))
+* `[sitecore-jss-nextjs]` Add async to editing data cache ([#1223](https://github.com/Sitecore/jss/pull/1223))
+* `[templates/nextjs]` `[sitecore-jss]` `[sitecore-jss-nextjs]` Performance improvement for site redirects service ([#1225](https://github.com/Sitecore/jss/pull/1225))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade nextjs version to 12.3.1 ([#1238](https://github.com/Sitecore/jss/pull/1238))
+* `[sitecore-jss-angular]` Add canActivate resolve functionality ([#1246](https://github.com/Sitecore/jss/pull/1246))
+* `[templates/react]` `[templates/nextjs]` `[templates/vue]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` `[sitecore-jss-vue]`  Upgrade 3rd party dependencies ([#1250](https://github.com/Sitecore/jss/pull/1250)) ([#1301](https://github.com/Sitecore/jss/pull/1301)) ([#1305](https://github.com/Sitecore/jss/pull/1305)) ([#1321](https://github.com/Sitecore/jss/pull/1321)) ([#1352](https://github.com/Sitecore/jss/pull/1352)) ([#1362](https://github.com/Sitecore/jss/pull/1362))
+* `[create-sitecore-jss]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` `[sitecore-jss-cli]` `[sitecore-jss]` `[sitecore-jss-dev-tools]` Increase unit test coverage ([#1258](https://github.com/Sitecore/jss/pull/1258)) ([#1259](https://github.com/Sitecore/jss/pull/1259)) ([#1260](https://github.com/Sitecore/jss/pull/1260)) ([#1262](https://github.com/Sitecore/jss/pull/1262)) ([#1263](https://github.com/Sitecore/jss/pull/1263)) ([#1265](https://github.com/Sitecore/jss/pull/1265)) ([#1256](https://github.com/Sitecore/jss/pull/1256))
+* `[templates/nextjs]``[sitecore-jss-nextjs]` Multi-site implementation ([#1248](https://github.com/Sitecore/jss/pull/1248)) ([#1288](https://github.com/Sitecore/jss/pull/1288)) ([#1264](https://github.com/Sitecore/jss/pull/1264)) ([#1271](https://github.com/Sitecore/jss/pull/1271)) ([#1275](https://github.com/Sitecore/jss/pull/1275)) ([#1277](https://github.com/Sitecore/jss/pull/1277)) ([#1279](https://github.com/Sitecore/jss/pull/1279)) ([#1281](https://github.com/Sitecore/jss/pull/1281)) ([#1283](https://github.com/Sitecore/jss/pull/1283)) ([#1284](https://github.com/Sitecore/jss/pull/1284)) ([#1286](https://github.com/Sitecore/jss/pull/1286)) ([#1306](https://github.com/Sitecore/jss/pull/1306))
+* `[templates/angular]` Upgrade bootstrap in sample app ([#1308](https://github.com/Sitecore/jss/pull/1308))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]`Next 13 upgrade ([#1324](https://github.com/Sitecore/jss/pull/1324))
+* `[templates/angular]` `[templates/react]` `[templates/vue]` `[templates/nextjs-styleguide]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` `[sitecore-jss-angular]` `[sitecore-jss-vue]`  Edit frame component implementation ([#1342](https://github.com/Sitecore/jss/pull/1342))
+
+### 🧹 Chores
+
+* `[template/nextjs-sxa]` Extra xm cloud warning for sxa initializer ([#1170](https://github.com/Sitecore/jss/pull/1170))
+* `[template/nextjs-sxa]` Tweaked Layout.tsx description ([#1172](https://github.com/Sitecore/jss/pull/1172))
+* `[sitecore-jss]` Error message related to timeout is not intuitive ([#1197](https://github.com/Sitecore/jss/pull/1197))
+* `[templates/nextjs]` Additional middleware default exclusions ([#1230](https://github.com/Sitecore/jss/pull/1230))
+* Update CHANGELOG with updated version strategy ([#1330](https://github.com/Sitecore/jss/pull/1330))
+* PR template refresh ([#1351](https://github.com/Sitecore/jss/pull/1351))
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss]` `[sitecore-jss-nextjs]` Consolidating env and point of sale resolving logic into personalize sample ([#1171](https://github.com/Sitecore/jss/pull/1171))
+* `[sitecore-jss-nextjs]` Fix middleware activating for favicon.ico and other paths ([#1176](https://github.com/Sitecore/jss/pull/1176))
+* `[sitecore-jss-nextjs]` Ensure headers from middleare are passed into NativeFetcher ([#1177](https://github.com/Sitecore/jss/pull/1177))
+* `[sitecore-jss]` Replace abortController.signal with promises timeout in native and graphql fetchers ([#1191](https://github.com/Sitecore/jss/pull/1191))
+* `[sitecore-jss]` rootItemId not resolvable for different language versions ([#1196](https://github.com/Sitecore/jss/pull/1196))
+* `[sitecore-jss]` Nested personalized components not rendered ([#1201](https://github.com/Sitecore/jss/pull/1201))
+* `[sitecore-jss-forms]` File upload validation error ([#1213](https://github.com/Sitecore/jss/pull/1213))
+* `[sitecore-jss-react]` Export DateFieldProps ([#1216](https://github.com/Sitecore/jss/pull/1216))
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Link component does not add anchor to the internal links ([#1226](https://github.com/Sitecore/jss/pull/1226))
+* `[templates/nextjs]` Fix import in graphql-sitemap-service ([#1289](https://github.com/Sitecore/jss/pull/1289))
+* `[sitecore-jss]` `[templates/nextjs]` Cumulative multi-site bug fixes ([#1290](https://github.com/Sitecore/jss/pull/1290)) ([#1294](https://github.com/Sitecore/jss/pull/1294)) ([#1296](https://github.com/Sitecore/jss/pull/1296)) ([#1302](https://github.com/Sitecore/jss/pull/1302)) ([#1339](https://github.com/Sitecore/jss/pull/1339)) ([#1360](https://github.com/Sitecore/jss/pull/1360)) ([#1365](https://github.com/Sitecore/jss/pull/1365))
+* `[template/nextjs]` `[sitecore-jss-nextjs]` Ensure cookie is only used in subsequent middleware plugins, after the initial resolution, except for special cases ([#1299](https://github.com/Sitecore/jss/pull/1299))
+* `[sitecore-jss-angular]` Address webpack warning about dynamic components ([#1300](https://github.com/Sitecore/jss/pull/1300))
+* `[sitecore-jss-angular]` Move away from rxjs use for lazyloading in favor of more direct approach ([#1307](https://github.com/Sitecore/jss/pull/1307))
+* `[sitecore-jss-proxy]` Disable websocket processing by default in proxy ([#1311](https://github.com/Sitecore/jss/pull/1311))
+* `[create-sitecore-jss]` Incompatibility message when installing sxa and styleguide ([#1315](https://github.com/Sitecore/jss/pull/1315))
+* `[template/nextjs]` Fix use of environment variables for JSS config generation (without JSS CLI) ([#1322](https://github.com/Sitecore/jss/pull/1322))
+* `[template/vue]` Vue Upgrade bug fixes ([#1327](https://github.com/Sitecore/jss/pull/1327)) ([#1313](https://github.com/Sitecore/jss/pull/1313)) ([#1329](https://github.com/Sitecore/jss/pull/1329)) ([#1335](https://github.com/Sitecore/jss/pull/1335)) ([#1338](https://github.com/Sitecore/jss/pull/1338))
+* `[template/angular]` The data "This page does not exist" is displayed during loading the page of angular app in EE ([#1331](https://github.com/Sitecore/jss/pull/1331))
+* `[sitecore-jss-dev-tools]` After upgrade deploy throws 'Cannot calculate proper length in synchronous way.' ([#1332](https://github.com/Sitecore/jss/pull/1332))
+* `[template/nextjs]` Sample in Docker env references linked packages using lowercase path ([#1334](https://github.com/Sitecore/jss/pull/1334))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Exclude width/height when fill prop is provided ([#1336](https://github.com/Sitecore/jss/pull/1336))
+* `[sitecore-jss-rendering-host]` Fix react rendering host ESM error ([#1337](https://github.com/Sitecore/jss/pull/1337))
+* `[template/nextjs]` Nextjs Upgrade bug fixes ([#1340](https://github.com/Sitecore/jss/pull/1340)) ([#1341](https://github.com/Sitecore/jss/pull/1341)) ([#1346](https://github.com/Sitecore/jss/pull/1345))
+* `[template/nextjs]` Add rewrite for Sitecore's default 404 prefix ([#1345](https://github.com/Sitecore/jss/pull/1345))
+* `[sitecore-jss-react]` Fix rendering issue in components using withPlaceholder ([#1349](https://github.com/Sitecore/jss/pull/1349))
+* `[template/react]` `[template/vue]` Ensure app prefix is used by edit frame placeholder in styleguide ([#1358](https://github.com/Sitecore/jss/pull/1358))
+* `[template/nextjs]` `[template/nextjs-styleguide]` Ensure disconnected JSS config plugin is run before computed plugin ([#1361](https://github.com/Sitecore/jss/pull/1361))
+* `[sitecore-jss-react-forms]` The language of the form is changed after clicking the submit button ([#1261](https://github.com/Sitecore/jss/pull/1261)) ([#1292](https://github.com/Sitecore/jss/pull/1292)) ([#1319](https://github.com/Sitecore/jss/pull/1319))
+* `[template/nextjs-sxa]` Cumulative SXA bug fixes ([#1165](https://github.com/Sitecore/jss/pull/1165)) ([#1184](https://github.com/Sitecore/jss/pull/1184)) ([#1245](https://github.com/Sitecore/jss/pull/1245)) ([#1245](https://github.com/Sitecore/jss/pull/1245)) ([#1268](https://github.com/Sitecore/jss/pull/1268)) ([#1269](https://github.com/Sitecore/jss/pull/1269)) ([#1272](https://github.com/Sitecore/jss/pull/1272)) ([#1278](https://github.com/Sitecore/jss/pull/1278)) ([#1333](https://github.com/Sitecore/jss/pull/1333)) ([#1185](https://github.com/Sitecore/jss/pull/1185)) ([#1187](https://github.com/Sitecore/jss/pull/1187)) ([#1189](https://github.com/Sitecore/jss/pull/1189)) ([#1203](https://github.com/Sitecore/jss/pull/1203)) ([#1200](https://github.com/Sitecore/jss/pull/1200))
+* EditFrame bug fixes  ([#1363](https://github.com/Sitecore/jss/pull/1363)) ([#1369](https://github.com/Sitecore/jss/pull/1369))
+* Enable Azure pipelines to lint samples for PRs ([#1364](https://github.com/Sitecore/jss/pull/1364))
+* `[create-sitecore-jss]` `[sitecore-jss]` `[sitecore-jss-nextjs]` Add support for fallback point of sale ([#1367](https://github.com/Sitecore/jss/pull/1367))
+* `[template/vue]` Fix local dev server launch error ([#1368](https://github.com/Sitecore/jss/pull/1368))
+* `[sitecore-jss-nextjs]` Implemented MiddlewareBase abstraction. Skip Redirects middleware during editing ([#1370](https://github.com/Sitecore/jss/pull/1370))
+* `[sitecore-jss-nextjs]` Redirects middleware should debug log start/end ([#1372](https://github.com/Sitecore/jss/pull/1372))
+
 
 ### 🛠 Breaking Changes
 
 * `[sitecore-jss-nextjs]` All editing-related types have moved to a dedicated `editing` submodule. Imports must be updated to use this submodule. e.g.
+
   * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
   * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
 
-* `[sitecore-jss-nextjs] [templates/nextjs-personalize]` getPointOfSale function passed into personalize middleware now accepts two parameters: site and language. Personalize middleware will use a built-in resolver if no function is passed. 
-
 * `[sitecore-jss-angular][templates/angular]` jss-angular package and sample has been updated to version 14. This means several changes:
+
   * JSS Angular sample is now using Ivy
   * IE11 no longer supported by JSS Angular
   * _sitecore-jss-angular_ package does not output UMD package anymore - only ESM. We created a '@sitecore-jss/sitecore-jss-angular/cjs' sub-module to have CJS imports still available i.e. in angular sample app's scripts. Right now the submodule re-exports '@sitecore-jss/sitecore-jss' modules.
   * _componentFactory_ is no longer present in ComponentFactoryResult interface, due to _createComponent_ changes and deprecations introduced in Angular 13.
   * More details on changes in Angular can be found in the below links:
-  https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
-  https://angular.io/guide/deprecations
-  https://update.angular.io/?l=3&v=11.0-14.0 
+    https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
+    https://angular.io/guide/deprecations
+    https://update.angular.io/?l=3&v=11.0-14.0
 
-* `[sitecore-jss-angular]` Due to the Angular version upgrade and the change in _sitecore-jss-angular_ package output format  _sitecore-jss_ exports are not available in angular app scripts (src/scripts) via '@sitecore-jss/sitecore-jss-angular'. Please use '@sitecore-jss/sitecore-jss-angular/cjs' import instead. Check bootstrap.ts scripts as for a usage example.
+* `[sitecore-jss-angular]` Due to the Angular version upgrade and the change in _sitecore-jss-angular_ package output format _sitecore-jss_ exports are not available in angular app scripts (src/scripts) via '@sitecore-jss/sitecore-jss-angular'. Please use '@sitecore-jss/sitecore-jss-angular/cjs' import instead. Check bootstrap.ts scripts as for a usage example.
+
+* `[templates/nextjs]` `[sitecore-jss]` `[sitecore-jss-nextjs]` Personalize POS configuration for multiple sites ([#1350](https://github.com/Sitecore/jss/pull/1350))
+  * Added env utilities
+  * Moved PosResolver to the base package
+  * PosResolver is removed, SiteResolver used instead
+  * Added plugins approach for SiteResolver
 
 ## 21.0.8
 
