@@ -89,7 +89,7 @@ Our versioning strategy is as follows:
   * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
   * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
 
-* `[sitecore-jss-angular][templates/angular]` jss-angular package and sample has been updated to version 14. This means several changes:
+* `[sitecore-jss-angular][templates/angular]` jss-angular package and sample has been updated to version 14. ([#1285](https://github.com/Sitecore/jss/pull/1285))
 
   * JSS Angular sample is now using Ivy
   * IE11 no longer supported by JSS Angular
