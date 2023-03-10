@@ -55,6 +55,12 @@ export class RedirectsMiddleware extends MiddlewareBase {
     let site: SiteInfo | undefined;
 
     const createResponse = async () => {
+      const pathname = req.nextUrl.pathname;
+
+      debug.redirects('redirects middleware start: %o', {
+        pathname,
+      });
+
       if (!this.getHostHeader(req)) {
         debug.redirects(`host header is missing, default ${this.defaultHostname} is used`);
       }
@@ -64,7 +70,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
         return res || NextResponse.next();
       }
 
-      if (this.isPreview(req) || this.excludeRoute(req.nextUrl.pathname)) {
+      if (this.isPreview(req) || this.excludeRoute(pathname)) {
         debug.redirects('skipped (%s)', this.isPreview(req) ? 'preview' : 'route excluded');
 
         return res || NextResponse.next();
@@ -98,6 +104,11 @@ export class RedirectsMiddleware extends MiddlewareBase {
       }
 
       const redirectUrl = decodeURIComponent(url.href);
+
+      debug.redirects('redirects middleware end: %o', {
+        redirectUrl,
+        siteName: site.name,
+      });
 
       /** return Response redirect with http code of redirect type **/
       switch (existsRedirect.redirectType) {
