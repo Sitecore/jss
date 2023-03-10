@@ -115,11 +115,14 @@ export class PersonalizeMiddleware extends MiddlewareBase {
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
     const language = this.getLanguage(req);
+    const hostname = this.getHostHeader(req) || this.defaultHostname;
 
     let browserId = this.getBrowserId(req);
     debug.personalize('personalize middleware start: %o', {
       pathname,
       language,
+      hostname,
+      browserId,
     });
 
     // Response will be provided if other middleware is run before us (e.g. redirects)
@@ -140,10 +143,6 @@ export class PersonalizeMiddleware extends MiddlewareBase {
         response.redirected ? 'redirected' : this.isPreview(req) ? 'preview' : 'route excluded'
       );
       return response;
-    }
-
-    if (!this.getHostHeader(req)) {
-      debug.personalize(`host header is missing, default ${this.defaultHostname} is used`);
     }
 
     const site = this.getSite(req, res);

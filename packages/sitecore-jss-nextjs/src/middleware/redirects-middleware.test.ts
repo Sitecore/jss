@@ -53,12 +53,30 @@ describe('RedirectsMiddleware', () => {
   };
 
   const createResponse = ({ setCookies, ...rest }: any = {}) => {
-    return {
+    const res = {
       cookies: {
         set: setCookies || (() => {}),
       },
+      headers: {},
       ...rest,
     };
+
+    Object.defineProperties(res.headers, {
+      set: {
+        value: (key, value) => {
+          res.headers[key] = value;
+        },
+        enumerable: false,
+      },
+      forEach: {
+        value: (cb) => {
+          Object.keys(res.headers).forEach((key) => cb(res.headers[key], key, res.headers));
+        },
+        enumerable: false,
+      },
+    });
+
+    return res;
   };
 
   const createMiddleware = (
@@ -137,10 +155,21 @@ describe('RedirectsMiddleware', () => {
         const finalRes = await middleware.getHandler()(req, res);
 
         validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
           pathname: '/styleguide',
         });
 
         validateDebugLog('skipped (%s)', 'preview');
+
+        validateDebugLog('redirects middleware end: %o', {
+          headers: {
+            'x-middleware-next': '1',
+          },
+          redirected: false,
+          status: 200,
+          url: '',
+        });
 
         expect(finalRes).to.deep.equal(res);
       });
@@ -158,10 +187,21 @@ describe('RedirectsMiddleware', () => {
         const finalRes = await middleware.getHandler()(req, res);
 
         validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
           pathname: '/styleguide',
         });
 
         validateDebugLog('skipped (%s)', 'preview');
+
+        validateDebugLog('redirects middleware end: %o', {
+          headers: {
+            'x-middleware-next': '1',
+          },
+          redirected: false,
+          status: 200,
+          url: '',
+        });
 
         expect(finalRes).to.deep.equal(res);
       });
@@ -180,10 +220,21 @@ describe('RedirectsMiddleware', () => {
         const finalRes = await middleware.getHandler()(req, res);
 
         validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
           pathname,
         });
 
         validateDebugLog('skipped (%s)', 'route excluded');
+
+        validateDebugLog('redirects middleware end: %o', {
+          headers: {
+            'x-middleware-next': '1',
+          },
+          redirected: false,
+          status: 200,
+          url: '',
+        });
 
         debugSpy.resetHistory();
 
@@ -229,10 +280,19 @@ describe('RedirectsMiddleware', () => {
       const finalRes = await middleware.getHandler()(req);
 
       validateDebugLog('redirects middleware start: %o', {
+        hostname: 'foo.net',
+        language: 'en',
         pathname: '/styleguide',
       });
 
       validateDebugLog('skipped (redirects middleware is disabled)');
+
+      validateDebugLog('redirects middleware end: %o', {
+        headers: {},
+        redirected: undefined,
+        status: undefined,
+        url: 'http://localhost:3000',
+      });
 
       expect(finalRes).to.deep.equal(res);
 
@@ -249,10 +309,19 @@ describe('RedirectsMiddleware', () => {
       const finalRes = await middleware.getHandler()(req);
 
       validateDebugLog('redirects middleware start: %o', {
+        hostname: 'foo.net',
+        language: 'en',
         pathname: '/styleguide',
       });
 
       validateDebugLog('skipped (redirect does not exist)');
+
+      validateDebugLog('redirects middleware end: %o', {
+        headers: {},
+        redirected: undefined,
+        status: undefined,
+        url: 'http://localhost:3000/found',
+      });
 
       expect(siteResolver.getByHost).to.be.calledWith(hostname);
       // eslint-disable-next-line no-unused-expressions
@@ -275,6 +344,7 @@ describe('RedirectsMiddleware', () => {
             url,
             status,
             cookies: { set: setCookies },
+            headers: res.headers,
           } as unknown) as NextResponse;
         });
         const req = createRequest({
@@ -298,12 +368,16 @@ describe('RedirectsMiddleware', () => {
         const finalRes = await middleware.getHandler()(req);
 
         validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
           pathname: '/not-found',
         });
 
         validateDebugLog('redirects middleware end: %o', {
-          redirectUrl: 'http://localhost:3000/found',
-          siteName,
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url: 'http://localhost:3000/found',
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
@@ -327,6 +401,7 @@ describe('RedirectsMiddleware', () => {
             url,
             status: 301,
             cookies: { set: setCookies },
+            headers: res.headers,
           } as unknown) as NextResponse;
         });
         const req = createRequest({
@@ -351,11 +426,15 @@ describe('RedirectsMiddleware', () => {
 
         validateDebugLog('redirects middleware start: %o', {
           pathname: '/not-found',
+          hostname: 'foo.net',
+          language: 'en',
         });
 
         validateDebugLog('redirects middleware end: %o', {
-          redirectUrl: 'http://localhost:3000/ua/found',
-          siteName,
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url: 'http://localhost:3000/ua/found',
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
@@ -379,6 +458,7 @@ describe('RedirectsMiddleware', () => {
             url,
             status: 301,
             cookies: { set: setCookies },
+            headers: res.headers,
           } as unknown) as NextResponse;
         });
         const req = createRequest({
@@ -402,12 +482,16 @@ describe('RedirectsMiddleware', () => {
         const finalRes = await middleware.getHandler()(req);
 
         validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
           pathname: '/not-found',
         });
 
         validateDebugLog('redirects middleware end: %o', {
-          redirectUrl: 'http://localhost:3000/found?abc=def',
-          siteName,
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url: 'http://localhost:3000/found?abc=def',
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
@@ -431,6 +515,7 @@ describe('RedirectsMiddleware', () => {
             url,
             status,
             cookies: { set: setCookies },
+            headers: res.headers,
           } as unknown) as NextResponse;
         });
 
@@ -455,12 +540,16 @@ describe('RedirectsMiddleware', () => {
         const finalRes = await middleware.getHandler()(req);
 
         validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
           pathname: '/not-found',
         });
 
         validateDebugLog('redirects middleware end: %o', {
-          redirectUrl: 'http://localhost:3000/found',
-          siteName,
+          headers: {},
+          redirected: undefined,
+          status: 302,
+          url: 'http://localhost:3000/found',
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
@@ -503,12 +592,16 @@ describe('RedirectsMiddleware', () => {
         const finalRes = await middleware.getHandler()(req);
 
         validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
           pathname: '/not-found',
         });
 
         validateDebugLog('redirects middleware end: %o', {
-          redirectUrl: 'http://localhost:3000/found',
-          siteName,
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url: 'http://localhost:3000/found',
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
@@ -529,6 +622,7 @@ describe('RedirectsMiddleware', () => {
           return ({
             url,
             cookies: { set: setCookies },
+            headers: res.headers,
           } as unknown) as NextResponse;
         });
         const req = createRequest({
@@ -552,12 +646,16 @@ describe('RedirectsMiddleware', () => {
         const finalRes = await middleware.getHandler()(req);
 
         validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
           pathname: '/not-found',
         });
 
         validateDebugLog('redirects middleware end: %o', {
-          redirectUrl: 'http://localhost:3000/found',
-          siteName,
+          headers: {},
+          redirected: undefined,
+          status: undefined,
+          url: 'http://localhost:3000/found',
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
@@ -593,12 +691,19 @@ describe('RedirectsMiddleware', () => {
         const finalRes = await middleware.getHandler()(req, res);
 
         validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
           pathname: '/not-found',
         });
 
         validateDebugLog('redirects middleware end: %o', {
-          redirectUrl: 'http://localhost:3000/found',
-          siteName,
+          headers: {
+            location: 'http://localhost:3000/found',
+            'set-cookie': 'sc_site=foo; Path=/',
+          },
+          redirected: false,
+          status: 301,
+          url: '',
         });
 
         expect(siteResolver.getByHost).not.called.to.equal(true);
@@ -633,12 +738,19 @@ describe('RedirectsMiddleware', () => {
         const finalRes = await middleware.getHandler()(req, res);
 
         validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
           pathname: '/not-found',
         });
 
         validateDebugLog('redirects middleware end: %o', {
-          redirectUrl: 'http://localhost:3000/found',
-          siteName: site,
+          headers: {
+            'set-cookie': 'sc_site=learn2grow; Path=/',
+            'x-middleware-next': '1',
+          },
+          redirected: false,
+          status: 200,
+          url: '',
         });
 
         expect(siteResolver.getByHost).to.not.be.called;
@@ -673,10 +785,22 @@ describe('RedirectsMiddleware', () => {
         const finalRes = await middleware.getHandler()(req, res);
 
         validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
           pathname: '/not-found',
         });
 
         validateDebugLog('skipped (redirects middleware is disabled)');
+
+        validateDebugLog('redirects middleware end: %o', {
+          headers: {
+            'set-cookie': 'sc_site=learn2grow; Path=/',
+            'x-middleware-next': '1',
+          },
+          redirected: false,
+          status: 200,
+          url: '',
+        });
 
         expect(siteResolver.getByHost).to.not.be.called;
         expect(siteResolver.getByName).to.not.be.called;
@@ -696,6 +820,7 @@ describe('RedirectsMiddleware', () => {
             url,
             status,
             cookies: { set: setCookies },
+            headers: res.headers,
           } as unknown) as NextResponse;
         });
 
@@ -723,14 +848,16 @@ describe('RedirectsMiddleware', () => {
         const finalRes = await middleware.getHandler()(req);
 
         validateDebugLog('redirects middleware start: %o', {
+          hostname: 'localhost',
+          language: 'en',
           pathname: '/not-found',
         });
 
-        validateDebugLog('host header is missing, default localhost is used');
-
         validateDebugLog('redirects middleware end: %o', {
-          redirectUrl: 'http://localhost:3000/found',
-          siteName,
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url: 'http://localhost:3000/found',
         });
 
         expect(siteResolver.getByHost).to.be.calledWith('localhost');
@@ -753,6 +880,7 @@ describe('RedirectsMiddleware', () => {
             url,
             status,
             cookies: { set: setCookies },
+            headers: res.headers,
           } as unknown) as NextResponse;
         });
 
@@ -782,13 +910,15 @@ describe('RedirectsMiddleware', () => {
 
         validateDebugLog('redirects middleware start: %o', {
           pathname: '/not-found',
+          hostname: 'foobar',
+          language: 'en',
         });
 
-        validateDebugLog('host header is missing, default foobar is used');
-
         validateDebugLog('redirects middleware end: %o', {
-          redirectUrl: 'http://localhost:3000/found',
-          siteName,
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url: 'http://localhost:3000/found',
         });
 
         expect(siteResolver.getByHost).to.be.calledWith('foobar');

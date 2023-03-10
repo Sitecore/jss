@@ -135,6 +135,7 @@ describe('MultisiteMiddleware', () => {
 
         validateDebugLog('multisite middleware start: %o', {
           pathname,
+          language: 'en',
           hostname: 'foo.net',
         });
 
@@ -230,10 +231,9 @@ describe('MultisiteMiddleware', () => {
 
       validateDebugLog('multisite middleware start: %o', {
         pathname: '/styleguide',
+        language: 'en',
         hostname: 'bar.net',
       });
-
-      validateDebugLog('host header is missing, default bar.net is used');
 
       validateDebugLog('multisite middleware end: %o', {
         rewritePath: '/_site_foo/styleguide',
@@ -272,10 +272,9 @@ describe('MultisiteMiddleware', () => {
 
       validateDebugLog('multisite middleware start: %o', {
         pathname: '/styleguide',
+        language: 'en',
         hostname: 'localhost',
       });
-
-      validateDebugLog('host header is missing, default localhost is used');
 
       validateDebugLog('multisite middleware end: %o', {
         rewritePath: '/_site_foo/styleguide',
@@ -312,6 +311,7 @@ describe('MultisiteMiddleware', () => {
 
       validateDebugLog('multisite middleware start: %o', {
         pathname: '/styleguide',
+        language: 'en',
         hostname: 'foo.net',
       });
 
@@ -350,6 +350,7 @@ describe('MultisiteMiddleware', () => {
 
       validateDebugLog('multisite middleware start: %o', {
         pathname: '/styleguide',
+        language: 'en',
         hostname: 'foo.net',
       });
 
@@ -392,6 +393,7 @@ describe('MultisiteMiddleware', () => {
 
       validateDebugLog('multisite middleware start: %o', {
         pathname: '/styleguide',
+        language: 'en',
         hostname: 'foo.net',
       });
 
@@ -435,6 +437,7 @@ describe('MultisiteMiddleware', () => {
 
       validateDebugLog('multisite middleware start: %o', {
         pathname: '/styleguide',
+        language: 'en',
         hostname: 'foo.net',
       });
 
@@ -476,6 +479,7 @@ describe('MultisiteMiddleware', () => {
 
       validateDebugLog('multisite middleware start: %o', {
         pathname: '/styleguide',
+        language: 'en',
         hostname: 'foo.net',
       });
 

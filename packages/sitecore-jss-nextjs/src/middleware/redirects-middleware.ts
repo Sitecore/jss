@@ -52,19 +52,18 @@ export class RedirectsMiddleware extends MiddlewareBase {
   }
 
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
+    const pathname = req.nextUrl.pathname;
+    const language = this.getLanguage(req);
+    const hostname = this.getHostHeader(req) || this.defaultHostname;
     let site: SiteInfo | undefined;
 
+    debug.redirects('redirects middleware start: %o', {
+      pathname,
+      language,
+      hostname,
+    });
+
     const createResponse = async () => {
-      const pathname = req.nextUrl.pathname;
-
-      debug.redirects('redirects middleware start: %o', {
-        pathname,
-      });
-
-      if (!this.getHostHeader(req)) {
-        debug.redirects(`host header is missing, default ${this.defaultHostname} is used`);
-      }
-
       if (this.config.disabled && this.config.disabled(req, NextResponse.next())) {
         debug.redirects('skipped (redirects middleware is disabled)');
         return res || NextResponse.next();
@@ -105,11 +104,6 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
       const redirectUrl = decodeURIComponent(url.href);
 
-      debug.redirects('redirects middleware end: %o', {
-        redirectUrl,
-        siteName: site.name,
-      });
-
       /** return Response redirect with http code of redirect type **/
       switch (existsRedirect.redirectType) {
         case REDIRECT_TYPE_301:
@@ -128,6 +122,13 @@ export class RedirectsMiddleware extends MiddlewareBase {
     // Share site name with the following executed middlewares
     // Don't need to set when middleware is disabled
     site && response.cookies.set(this.SITE_SYMBOL, site.name);
+
+    debug.redirects('redirects middleware end: %o', {
+      redirected: response.redirected,
+      status: response.status,
+      url: response.url,
+      headers: this.extractDebugHeaders(response.headers),
+    });
 
     return response;
   };

@@ -242,6 +242,8 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
@@ -267,6 +269,8 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
@@ -297,6 +301,8 @@ describe('PersonalizeMiddleware', () => {
         const finalRes = await middleware.getHandler()(req, res);
 
         validateDebugLog('personalize middleware start: %o', {
+          browserId: 'browser-id',
+          hostname: 'foo.net',
           pathname: '/styleguide',
           language: 'en',
         });
@@ -327,6 +333,8 @@ describe('PersonalizeMiddleware', () => {
         const finalRes = await middleware.getHandler()(req, res);
 
         validateDebugLog('personalize middleware start: %o', {
+          browserId: 'browser-id',
+          hostname: 'foo.net',
           pathname: '/styleguide',
           language: 'en',
         });
@@ -358,6 +366,8 @@ describe('PersonalizeMiddleware', () => {
         const finalRes = await middleware.getHandler()(req, res);
 
         validateDebugLog('personalize middleware start: %o', {
+          browserId: 'browser-id',
+          hostname: 'foo.net',
           pathname,
           language: 'en',
         });
@@ -410,6 +420,8 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
@@ -442,6 +454,8 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
@@ -473,6 +487,8 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: undefined,
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
@@ -504,6 +520,8 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
@@ -536,6 +554,8 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
@@ -576,6 +596,8 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
@@ -634,6 +656,8 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: undefined,
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
@@ -695,6 +719,8 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: language,
       });
@@ -747,6 +773,8 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
@@ -799,6 +827,8 @@ describe('PersonalizeMiddleware', () => {
         .to.be.true;
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
@@ -843,6 +873,8 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
@@ -903,6 +935,8 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
@@ -954,6 +988,8 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
@@ -1004,11 +1040,11 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'localhost',
         pathname: '/styleguide',
         language: 'en',
       });
-
-      validateDebugLog('host header is missing, default localhost is used');
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
 
@@ -1057,11 +1093,11 @@ describe('PersonalizeMiddleware', () => {
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
+        browserId: 'browser-id',
+        hostname: 'foobar',
         pathname: '/styleguide',
         language: 'en',
       });
-
-      validateDebugLog('host header is missing, default foobar is used');
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
 

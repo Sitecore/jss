@@ -39,16 +39,14 @@ export class MultisiteMiddleware extends MiddlewareBase {
 
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
-    const hostHeader = this.getHostHeader(req);
-    const hostname = hostHeader || this.defaultHostname;
+    const language = this.getLanguage(req);
+    const hostname = this.getHostHeader(req) || this.defaultHostname;
+
     debug.multisite('multisite middleware start: %o', {
       pathname,
+      language,
       hostname,
     });
-
-    if (!hostHeader) {
-      debug.multisite(`host header is missing, default ${hostname} is used`);
-    }
 
     // Response will be provided if other middleware is run before us
     let response = res || NextResponse.next();
