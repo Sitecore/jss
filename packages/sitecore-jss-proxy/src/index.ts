@@ -384,9 +384,10 @@ export function rewriteRequestPath(
   let finalReqPath = decodedReqPath;
   const qsIndex = finalReqPath.indexOf('?');
   let qs = '';
-  if (qsIndex > -1) {
+  if (qsIndex > -1 || Object.keys(req.query).length) {
     qs = buildQueryString((req as ProxyIncomingMessage).query);
-    finalReqPath = finalReqPath.slice(0, qsIndex);
+    // Splice qs part when url contains that
+    if (qsIndex > -1) finalReqPath = finalReqPath.slice(0, qsIndex);
   }
 
   if (config.qsParams) {

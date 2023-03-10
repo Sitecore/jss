@@ -63,6 +63,7 @@ describe('rewriteRequestPath', () => {
         headers: {
           'accept-encoding': 'gzip or whatever',
         },
+        query: {},
       } as unknown) as Request;
 
       const actual = rewriteRequestPath(url, mockRequest, config);
@@ -75,19 +76,37 @@ describe('rewriteRequestPath', () => {
         headers: {
           'accept-encoding': 'gzip or whatever',
         },
+        query: {},
       } as unknown) as Request;
 
       const actual = rewriteRequestPath(url, mockRequest, config);
       expect(actual).to.equal(expected);
     });
+
+    it('should return route prefixed with layout service route and with request query appended', () => {
+      const url = '/about';
+      const expected = '/sitecore/layoutsvc/render/jss?item=%2Fabout&sc_apikey={GUID}&foo=bar';
+
+      const req = ({
+        query: { foo: 'bar' },
+        headers: {
+          'accept-encoding': 'gzip or whatever',
+        },
+      } as unknown) as Request;
+
+      const actual = rewriteRequestPath(url, req, config);
+
+      expect(actual).to.equal(expected);
+    });
+
     describe('when url contains a querystring', () => {
       it('should return route prefixed with layout service route and with querystring appended', () => {
         const url = '/about?sc_camp=123456%2078';
         const expected =
-          '/sitecore/layoutsvc/render/jss?item=%2Fabout&sc_apikey={GUID}&sc_camp=123456%2078';
+          '/sitecore/layoutsvc/render/jss?item=%2Fabout&sc_apikey={GUID}&sc_camp=123456%2078&foo=bar';
 
         const req = ({
-          query: { sc_camp: '123456 78' },
+          query: { sc_camp: '123456 78', foo: 'bar' },
           headers: {
             'accept-encoding': 'gzip or whatever',
           },
@@ -164,6 +183,7 @@ describe('rewriteRequestPath', () => {
           headers: {
             'accept-encoding': 'gzip or whatever',
           },
+          query: {},
         } as unknown) as Request;
 
         const actual = rewriteRequestPath(url, req, qsParamsConfig);
