@@ -136,6 +136,10 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req, res);
 
+        validateDebugLog('redirects middleware start: %o', {
+          pathname: '/styleguide',
+        });
+
         validateDebugLog('skipped (%s)', 'preview');
 
         expect(finalRes).to.deep.equal(res);
@@ -152,6 +156,10 @@ describe('RedirectsMiddleware', () => {
         });
 
         const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('redirects middleware start: %o', {
+          pathname: '/styleguide',
+        });
 
         validateDebugLog('skipped (%s)', 'preview');
 
@@ -171,7 +179,13 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req, res);
 
+        validateDebugLog('redirects middleware start: %o', {
+          pathname,
+        });
+
         validateDebugLog('skipped (%s)', 'route excluded');
+
+        debugSpy.resetHistory();
 
         expect(finalRes).to.deep.equal(res);
       };
@@ -214,6 +228,10 @@ describe('RedirectsMiddleware', () => {
       const { middleware } = createMiddleware(props);
       const finalRes = await middleware.getHandler()(req);
 
+      validateDebugLog('redirects middleware start: %o', {
+        pathname: '/styleguide',
+      });
+
       validateDebugLog('skipped (redirects middleware is disabled)');
 
       expect(finalRes).to.deep.equal(res);
@@ -229,6 +247,10 @@ describe('RedirectsMiddleware', () => {
       const req = createRequest();
       const { middleware, fetchRedirects, siteResolver } = createMiddleware();
       const finalRes = await middleware.getHandler()(req);
+
+      validateDebugLog('redirects middleware start: %o', {
+        pathname: '/styleguide',
+      });
 
       validateDebugLog('skipped (redirect does not exist)');
 
@@ -275,6 +297,15 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req);
 
+        validateDebugLog('redirects middleware start: %o', {
+          pathname: '/not-found',
+        });
+
+        validateDebugLog('redirects middleware end: %o', {
+          redirectUrl: 'http://localhost:3000/found',
+          siteName,
+        });
+
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
@@ -318,6 +349,15 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req);
 
+        validateDebugLog('redirects middleware start: %o', {
+          pathname: '/not-found',
+        });
+
+        validateDebugLog('redirects middleware end: %o', {
+          redirectUrl: 'http://localhost:3000/ua/found',
+          siteName,
+        });
+
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
@@ -360,6 +400,15 @@ describe('RedirectsMiddleware', () => {
         });
 
         const finalRes = await middleware.getHandler()(req);
+
+        validateDebugLog('redirects middleware start: %o', {
+          pathname: '/not-found',
+        });
+
+        validateDebugLog('redirects middleware end: %o', {
+          redirectUrl: 'http://localhost:3000/found?abc=def',
+          siteName,
+        });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
@@ -405,6 +454,15 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req);
 
+        validateDebugLog('redirects middleware start: %o', {
+          pathname: '/not-found',
+        });
+
+        validateDebugLog('redirects middleware end: %o', {
+          redirectUrl: 'http://localhost:3000/found',
+          siteName,
+        });
+
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
@@ -443,6 +501,15 @@ describe('RedirectsMiddleware', () => {
         });
 
         const finalRes = await middleware.getHandler()(req);
+
+        validateDebugLog('redirects middleware start: %o', {
+          pathname: '/not-found',
+        });
+
+        validateDebugLog('redirects middleware end: %o', {
+          redirectUrl: 'http://localhost:3000/found',
+          siteName,
+        });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
@@ -484,6 +551,15 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req);
 
+        validateDebugLog('redirects middleware start: %o', {
+          pathname: '/not-found',
+        });
+
+        validateDebugLog('redirects middleware end: %o', {
+          redirectUrl: 'http://localhost:3000/found',
+          siteName,
+        });
+
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
@@ -516,6 +592,15 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req, res);
 
+        validateDebugLog('redirects middleware start: %o', {
+          pathname: '/not-found',
+        });
+
+        validateDebugLog('redirects middleware end: %o', {
+          redirectUrl: 'http://localhost:3000/found',
+          siteName,
+        });
+
         expect(siteResolver.getByHost).not.called.to.equal(true);
         expect(siteResolver.getByName).to.be.calledWith(siteName);
         expect(fetchRedirects).to.be.calledWith(siteName);
@@ -546,6 +631,16 @@ describe('RedirectsMiddleware', () => {
         });
 
         const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('redirects middleware start: %o', {
+          pathname: '/not-found',
+        });
+
+        validateDebugLog('redirects middleware end: %o', {
+          redirectUrl: 'http://localhost:3000/found',
+          siteName: site,
+        });
+
         expect(siteResolver.getByHost).to.not.be.called;
         expect(siteResolver.getByName).to.be.calledWith(site);
         expect(fetchRedirects.called).to.be.true;
@@ -576,6 +671,10 @@ describe('RedirectsMiddleware', () => {
         });
 
         const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('redirects middleware start: %o', {
+          pathname: '/not-found',
+        });
 
         validateDebugLog('skipped (redirects middleware is disabled)');
 
@@ -623,7 +722,16 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req);
 
+        validateDebugLog('redirects middleware start: %o', {
+          pathname: '/not-found',
+        });
+
         validateDebugLog('host header is missing, default localhost is used');
+
+        validateDebugLog('redirects middleware end: %o', {
+          redirectUrl: 'http://localhost:3000/found',
+          siteName,
+        });
 
         expect(siteResolver.getByHost).to.be.calledWith('localhost');
         expect(fetchRedirects).to.be.calledWith(siteName);
@@ -672,7 +780,16 @@ describe('RedirectsMiddleware', () => {
 
         const finalRes = await middleware.getHandler()(req);
 
+        validateDebugLog('redirects middleware start: %o', {
+          pathname: '/not-found',
+        });
+
         validateDebugLog('host header is missing, default foobar is used');
+
+        validateDebugLog('redirects middleware end: %o', {
+          redirectUrl: 'http://localhost:3000/found',
+          siteName,
+        });
 
         expect(siteResolver.getByHost).to.be.calledWith('foobar');
         expect(fetchRedirects).to.be.calledWith(siteName);
