@@ -89,7 +89,9 @@ Our versioning strategy is as follows:
   * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
   * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
 
-* `[sitecore-jss-angular][templates/angular]` jss-angular package and sample has been updated to version 14. ([#1285](https://github.com/Sitecore/jss/pull/1285))
+* [sitecore-jss-nextjs] [templates/nextjs-personalize] getPointOfSale function passed into personalize middleware now accepts two parameters: site and language. Personalize middleware will use a built-in resolver if no function is passed.
+
+* `[sitecore-jss-angular][templates/angular]` jss-angular package and sample has been updated to version 14. ([#1285](https://github.com/Sitecore/jss/pull/1285)) ([#1300](https://github.com/Sitecore/jss/pull/1300))
 
   * JSS Angular sample is now using Ivy
   * IE11 no longer supported by JSS Angular
