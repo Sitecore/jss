@@ -4,7 +4,6 @@ import { mount } from 'enzyme';
 
 import { Link, LinkField } from './Link';
 import { generalLinkField as eeLinkData } from '../test-data/ee-data';
-import { it } from 'node:test';
 
 describe('<Link />', () => {
   it('should render nothing with missing field', () => {
