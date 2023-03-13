@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 
 import { Link, LinkField } from './Link';
 import { generalLinkField as eeLinkData } from '../test-data/ee-data';
+import { it } from 'node:test';
 
 describe('<Link />', () => {
   it('should render nothing with missing field', () => {
@@ -49,6 +50,18 @@ describe('<Link />', () => {
     const rendered = mount(<Link field={field} />).find('a');
     expect(rendered.html()).to.contain(field.href);
     expect(rendered.html()).to.contain(field.text);
+  });
+
+  it('should not add extra hash when linktype is anchor', () => {
+    const field = {
+      linktype: 'anchor',
+      href: '#anchor',
+      text: 'anchor link',
+      anchor: 'anchor',
+    };
+    const rendered = mount(<Link field={field} />).find('a');
+    expect(rendered.html()).to.contain(`href="${field.href}"`);
+    expect(rendered.text()).to.equal(field.text);
   });
 
   it('should render ee HTML', () => {
