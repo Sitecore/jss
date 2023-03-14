@@ -41,6 +41,9 @@ variables:
     branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
 
 steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '16.x'
   - script: |
       npm ci
     displayName: 'npm ci'
