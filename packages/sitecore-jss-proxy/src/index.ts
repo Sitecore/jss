@@ -384,9 +384,16 @@ export function rewriteRequestPath(
   let finalReqPath = decodedReqPath;
   const qsIndex = finalReqPath.indexOf('?');
   let qs = '';
-  if (qsIndex > -1) {
+  if (qsIndex > -1 || Object.keys(req.query).length) {
     qs = buildQueryString((req as ProxyIncomingMessage).query);
-    finalReqPath = finalReqPath.slice(0, qsIndex);
+    // Splice qs part when url contains that
+    if (qsIndex > -1) finalReqPath = finalReqPath.slice(0, qsIndex);
+  }
+
+  // if the request URL contains a path/route that should not be re-written, then just pass it along as-is
+  if (isUrlIgnored(`${finalReqPath}?${qs}`, config)) {
+    // we do not return the decoded URL because we're using it verbatim - should be encoded.
+    return reqPath;
   }
 
   if (config.qsParams) {
