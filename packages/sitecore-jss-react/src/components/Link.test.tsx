@@ -51,6 +51,18 @@ describe('<Link />', () => {
     expect(rendered.html()).to.contain(field.text);
   });
 
+  it('should not add extra hash when linktype is anchor', () => {
+    const field = {
+      linktype: 'anchor',
+      href: '#anchor',
+      text: 'anchor link',
+      anchor: 'anchor',
+    };
+    const rendered = mount(<Link field={field} />).find('a');
+    expect(rendered.html()).to.contain(`href="${field.href}"`);
+    expect(rendered.text()).to.equal(field.text);
+  });
+
   it('should render ee HTML', () => {
     const field = {
       editableFirstPart: eeLinkData,
