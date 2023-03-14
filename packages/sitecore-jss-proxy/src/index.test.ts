@@ -49,7 +49,6 @@ describe('rewriteRequestPath', () => {
         headers: {
           'accept-encoding': 'gzip or whatever',
         },
-        query: {},
       } as unknown) as Request;
 
       const actual = rewriteRequestPath(url, mockRequest, config);

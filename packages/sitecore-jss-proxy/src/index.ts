@@ -369,6 +369,12 @@ export function rewriteRequestPath(
   // 2. We don't want to force people to URL-encode ignored routes, etc (just use spaces instead of %20, etc)
   const decodedReqPath = decodeURIComponent(reqPath);
 
+  // if the request URL contains a path/route that should not be re-written, then just pass it along as-is
+  if (isUrlIgnored(reqPath, config)) {
+    // we do not return the decoded URL because we're using it verbatim - should be encoded.
+    return reqPath;
+  }
+
   // if the request URL doesn't contain the layout service controller path, assume we need to rewrite the request URL so that it does
   // if this seems redundant, it is. the config.pathRewriteExcludeRoutes should contain the layout service path, but can't always assume that it will...
   if (decodedReqPath.indexOf(config.layoutServiceRoute) !== -1) {
