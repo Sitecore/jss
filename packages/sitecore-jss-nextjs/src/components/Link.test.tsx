@@ -189,6 +189,22 @@ describe('<Link />', () => {
     expect(c.find(ReactLink).length).to.equal(0);
   });
 
+  it('should not add extra hash when linktype is anchor', () => {
+    const field = {
+      linktype: 'anchor',
+      href: '#anchor',
+      text: 'anchor link',
+      anchor: 'anchor',
+    };
+    const rendered = mount(
+      <Page>
+        <Link field={field} />
+      </Page>
+    ).find('a');
+    expect(rendered.html()).to.contain(`href="${field.href}"`);
+    expect(rendered.text()).to.equal(field.text);
+  });
+
   it('should render NextLink using internalLinkMatcher', () => {
     const field = {
       value: {
