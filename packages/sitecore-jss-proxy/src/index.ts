@@ -390,12 +390,6 @@ export function rewriteRequestPath(
     if (qsIndex > -1) finalReqPath = finalReqPath.slice(0, qsIndex);
   }
 
-  // if the request URL contains a path/route that should not be re-written, then just pass it along as-is
-  if (isUrlIgnored(`${finalReqPath}?${qs}`, config)) {
-    // we do not return the decoded URL because we're using it verbatim - should be encoded.
-    return reqPath;
-  }
-
   if (config.qsParams) {
     if (qs) {
       qs += '&';
