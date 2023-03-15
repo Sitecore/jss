@@ -29,7 +29,23 @@ describe('resolvePointOfSale', () => {
     expect(result).to.equal(myPoint);
   });
 
-  it('should return pos for site language as first backup', () => {
+  it('should use fallback wildcard value as first backup', () => {
+    const site: SiteInfo = {
+      name: 'apos',
+      hostName: 'www.apos.com',
+      pointOfSale: {
+        'de-DE': 'depos.com',
+        'es-ES': 'espos.com',
+        '*': 'fallpos.com',
+      },
+      language: 'de-DE',
+    };
+
+    const result = PosResolver.resolve(site, 'en');
+    expect(result).to.equal('fallpos.com');
+  });
+
+  it('should return pos for site language as second backup', () => {
     const site: SiteInfo = {
       name: 'apos',
       hostName: 'www.apos.com',
@@ -57,21 +73,5 @@ describe('resolvePointOfSale', () => {
 
     const result = PosResolver.resolve(site, '');
     expect(result).to.equal('depos.com');
-  });
-
-  it('should use fallback value when other values missing', () => {
-    const site: SiteInfo = {
-      name: 'apos',
-      hostName: 'www.apos.com',
-      pointOfSale: {
-        'de-DE': 'depos.com',
-        'es-ES': 'espos.com',
-        '*': 'fallpos.com',
-      },
-      language: 'en-CA',
-    };
-
-    const result = PosResolver.resolve(site, 'en');
-    expect(result).to.equal('fallpos.com');
   });
 });
