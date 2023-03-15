@@ -122,7 +122,7 @@ export function getVNodesForRenderingData(
         component = getComponentForRendering(rendering, componentFactory);
       }
 
-      if (!component) {
+      if (rendering.componentName && !component) {
         console.error(
           `Placeholder ${placeholderName} contains unknown component ${rendering.componentName}. Ensure that a Vue component exists for it, and that it is mapped in your component factory.`
         );

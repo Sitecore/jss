@@ -244,6 +244,33 @@ describe('<Placeholder />', () => {
       warnSpy.mockReset();
     });
 
+    it('should render nothing when component name is empty', () => {
+      const route = {
+        placeholders: {
+          main: [
+            { componentName: 'Home' },
+            { componentName: 'SfcHome' },
+            { componentName: null },
+          ],
+        },
+      };
+      
+      const testComponent = {
+        render() {
+          return h(Placeholder, {
+            name: 'main',
+            rendering: route as any,
+            componentFactory,
+          });
+        },
+      };
+
+      const renderedComponent = mount(testComponent);
+      expect(renderedComponent.html()).toMatchSnapshot();
+
+      warnSpy.mockReset();
+    });
+
     it('should render specific missing component for unknown components', () => {
       const missingComponent = defineComponent({
         inheritAttrs: false,

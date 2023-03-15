@@ -515,6 +515,46 @@ it('should render MissingComponent for unknown rendering', () => {
   expect(renderedComponent.find('.missing-component').length).to.equal(1);
 });
 
+it('should render nothing for rendering without a name', () => {
+
+  const componentFactory: ComponentFactory = (componentName: string) => {
+    const components = new Map<string, React.FC<{ [key: string]: unknown }>>();
+
+    const Home: React.FC<{ rendering?: RouteData }> = ({ rendering }) => (
+      <div className="home-mock">
+      </div>
+    );
+
+    components.set('Home', Home);
+    return components.get(componentName) || null;
+  };
+
+  const route: any = {
+    placeholders: {
+      main: [
+        {
+          componentName: 'Home',
+        },
+        {
+          componentName: null,
+        },
+      ],
+    },
+  };
+  const phKey = 'main';
+
+  const renderedComponent = mount(
+    <div className='empty-test'>
+      <Placeholder
+        name={phKey}
+        rendering={route}
+        componentFactory={componentFactory}
+      />
+    </div>
+  );
+  expect(renderedComponent.children().length).to.equal(1);
+});
+
 it('should render HiddenRendering when rendering is hidden', () => {
   const route: any = {
     placeholders: {
