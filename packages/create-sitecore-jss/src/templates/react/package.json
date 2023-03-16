@@ -88,7 +88,7 @@
     "react-app-rewired": "^2.2.1",
     "speed-measure-webpack-plugin": "^1.5.0",
     "stats-webpack-plugin": "^0.7.0",
-    "webpack": "~5.75.0",
+    "webpack": "~5.76.2",
     "webpack-cli": "~5.0.0"
   },
   "scripts": {
