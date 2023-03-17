@@ -8,16 +8,17 @@ import {
   getPublicUrl,
   LayoutServiceData,
   Field,
+  HTMLHeadLink,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import Scripts from 'src/Scripts';
-import { SitecorePageProps } from 'lib/page-props';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
 const publicUrl = getPublicUrl();
 
-interface LayoutProps extends Pick<SitecorePageProps, 'headLinks'> {
+interface LayoutProps {
   layoutData: LayoutServiceData;
+  headLinks: HTMLHeadLink[];
 }
 
 interface RouteFields {
@@ -37,8 +38,8 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
       <Head>
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
-        {headLinks.map((url) => (
-          <link rel="stylesheet" key={url} href={url} />
+        {headLinks.map((headLink) => (
+          <link rel={headLink.rel} key={headLink.href} href={headLink.href} />
         ))}
       </Head>
 

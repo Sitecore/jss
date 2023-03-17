@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { FEAAS_CDN, getFEAASLibraryStylesheetURLs, getStylesheetUrl } from './themes';
+import { FEAAS_SERVER_URL, getFEAASLibraryStylesheetURLs, getStylesheetUrl } from './themes';
 
 describe('utils', () => {
   describe('getFEAASLibraryStylesheetURLs', () => {
@@ -34,7 +34,7 @@ describe('utils', () => {
               },
             },
           })
-        ).to.deep.equal([getStylesheetUrl('foo')]);
+        ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'style' }]);
       });
 
       it('should return urls using LibraryId field', () => {
@@ -53,10 +53,10 @@ describe('utils', () => {
               },
             },
           })
-        ).to.deep.equal([getStylesheetUrl('bar')]);
+        ).to.deep.equal([{ href: getStylesheetUrl('bar'), rel: 'style' }]);
       });
 
-      it('should return urls using custom hostname', () => {
+      it('should return urls using custom server url', () => {
         expect(
           getFEAASLibraryStylesheetURLs(
             {
@@ -75,7 +75,7 @@ describe('utils', () => {
             },
             'https://foo.net'
           )
-        ).to.deep.equal([getStylesheetUrl('bar', 'https://foo.net')]);
+        ).to.deep.equal([{ href: getStylesheetUrl('bar', 'https://foo.net'), rel: 'style' }]);
       });
 
       it('should return empty urls array when required fields are not provided', () => {
@@ -210,9 +210,10 @@ describe('utils', () => {
             },
           })
         ).to.deep.equal(
-          ['foo', 'x11', 'x12', 'x21', 'y1', 'y2', 'z1', 'z11', 'z21'].map((id) =>
-            getStylesheetUrl(id)
-          )
+          ['foo', 'x11', 'x12', 'x21', 'y1', 'y2', 'z1', 'z11', 'z21'].map((id) => ({
+            href: getStylesheetUrl(id),
+            rel: 'style',
+          }))
         );
       });
     });
@@ -239,10 +240,10 @@ describe('utils', () => {
               },
             },
           })
-        ).to.deep.equal([getStylesheetUrl('bar')]);
+        ).to.deep.equal([{ href: getStylesheetUrl('bar'), rel: 'style' }]);
       });
 
-      it('should return urls using custom hostname', () => {
+      it('should return urls using custom server url', () => {
         expect(
           getFEAASLibraryStylesheetURLs(
             {
@@ -266,7 +267,7 @@ describe('utils', () => {
             },
             'https://foo.net'
           )
-        ).to.deep.equal([getStylesheetUrl('bar', 'https://foo.net')]);
+        ).to.deep.equal([{ rel: 'style', href: getStylesheetUrl('bar', 'https://foo.net') }]);
       });
 
       it('should not return id when class does not match pattern', () => {
@@ -346,17 +347,19 @@ describe('utils', () => {
               },
             },
           })
-        ).to.deep.equal(['x1', 'y1', 'z1', 'z2'].map((id) => getStylesheetUrl(id)));
+        ).to.deep.equal(
+          ['x1', 'y1', 'z1', 'z2'].map((id) => ({ rel: 'style', href: getStylesheetUrl(id) }))
+        );
       });
     });
   });
 
   describe('getStylesheetUrl', () => {
-    it('should return stylesheet url using default hostname', () => {
-      expect(getStylesheetUrl('foo')).to.equal(`${FEAAS_CDN.PRODUCTION}/styles/foo/published.css`);
+    it('should return stylesheet url using default server url', () => {
+      expect(getStylesheetUrl('foo')).to.equal(`${FEAAS_SERVER_URL}/styles/foo/published.css`);
     });
 
-    it('should return stylesheet url using custom hostname', () => {
+    it('should return stylesheet url using custom server url', () => {
       expect(getStylesheetUrl('foo', 'https://bar.net')).to.equal(
         'https://bar.net/styles/foo/published.css'
       );

@@ -1,1 +1,1 @@
-export { FEAAS_CDN, getFEAASLibraryStylesheetURLs } from './themes';
+export { getFEAASLibraryStylesheetURLs } from './themes';

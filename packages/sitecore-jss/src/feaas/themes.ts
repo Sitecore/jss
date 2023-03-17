@@ -5,6 +5,7 @@ import {
   RouteData,
   getFieldValue,
 } from '../layout';
+import { HTMLHeadLink } from '../models';
 
 /**
  * Pattern for library ids
@@ -12,32 +13,29 @@ import {
  */
 const FEAAS_LIBRARY_ID_REGEX = /-library--([^\s]+)/;
 
-/**
- * FEAAS CDN hostnames
- */
-export const FEAAS_CDN = Object.freeze({
-  PRODUCTION: 'https://feaas.blob.core.windows.net',
-  STAGING: 'https://feaasstaging.blob.core.windows.net',
-});
+export const FEAAS_SERVER_URL = 'https://feaas.blob.core.windows.net';
 
 /**
  * Walks through rendering tree and returns list of urls of all FEAAS Component Library Stylesheets that are used
  * @param {LayoutServiceData} layoutData Layout service data
- * @param {string} [hostname] CDN hostname, default is production hostname @see FEAAS_CDN urls
+ * @param {string} [serverUrl] server URL, default is @see {FEAAS_SERVER_URL} url
  * @returns {string[]} library stylesheet urls
  */
-export function getFEAASLibraryStylesheetURLs(layoutData: LayoutServiceData, hostname?: string) {
+export function getFEAASLibraryStylesheetURLs(
+  layoutData: LayoutServiceData,
+  serverUrl?: string
+): HTMLHeadLink[] {
   const ids = new Set<string>();
 
   if (!layoutData.sitecore.route) return [];
 
   traverseComponent(layoutData.sitecore.route, ids);
 
-  return [...ids].map((id) => getStylesheetUrl(id, hostname));
+  return [...ids].map((id) => ({ href: getStylesheetUrl(id, serverUrl), rel: 'style' }));
 }
 
-export const getStylesheetUrl = (id: string, hostname?: string) =>
-  `${hostname || FEAAS_CDN.PRODUCTION}/styles/${id}/published.css`;
+export const getStylesheetUrl = (id: string, serverUrl?: string) =>
+  `${serverUrl || FEAAS_SERVER_URL}/styles/${id}/published.css`;
 
 /**
  * Traverse placeholder and components to add library ids

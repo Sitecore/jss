@@ -4,6 +4,7 @@ import {
   ComponentPropsCollection,
   LayoutServiceData,
   SiteInfo,
+  HTMLHeadLink,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
@@ -17,5 +18,5 @@ export type SitecorePageProps = {
   notFound: boolean;
   layoutData: LayoutServiceData;
   redirect?: Redirect;
-  headLinks: string[];
+  headLinks: HTMLHeadLink[];
 };
