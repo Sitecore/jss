@@ -1,4 +1,6 @@
 /**
  * Html <link> tag data model
  */
-export type HTMLHeadLink = Pick<HTMLLinkElement, 'rel' | 'href'>;
+export type HTMLLink = {
+  [key: string]: unknown;
+} & Pick<HTMLLinkElement, 'rel' | 'href'>;

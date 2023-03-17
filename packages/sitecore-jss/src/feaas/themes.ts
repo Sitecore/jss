@@ -5,7 +5,7 @@ import {
   RouteData,
   getFieldValue,
 } from '../layout';
-import { HTMLHeadLink } from '../models';
+import { HTMLLink } from '../models';
 
 /**
  * Pattern for library ids
@@ -19,12 +19,12 @@ export const FEAAS_SERVER_URL = 'https://feaas.blob.core.windows.net';
  * Walks through rendering tree and returns list of links of all FEAAS Component Library Stylesheets that are used
  * @param {LayoutServiceData} layoutData Layout service data
  * @param {string} [serverUrl] server URL, default is @see {FEAAS_SERVER_URL} url
- * @returns {HTMLHeadLink[]} library stylesheet links
+ * @returns {HTMLLink[]} library stylesheet links
  */
 export function getFEAASLibraryStylesheetLinks(
   layoutData: LayoutServiceData,
   serverUrl?: string
-): HTMLHeadLink[] {
+): HTMLLink[] {
   const ids = new Set<string>();
 
   if (!layoutData.sitecore.route) return [];

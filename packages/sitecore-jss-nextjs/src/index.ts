@@ -8,7 +8,7 @@ export {
   AxiosDataFetcherConfig,
   NativeDataFetcher,
   NativeDataFetcherConfig,
-  HTMLHeadLink,
+  HTMLLink,
   enableDebug,
 } from '@sitecore-jss/sitecore-jss';
 export {

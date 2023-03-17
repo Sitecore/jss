@@ -5,7 +5,7 @@ import {
   getPublicUrl,
   LayoutServiceData,
   Field,
-  HTMLHeadLink,
+  HTMLLink,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import Navigation from 'src/Navigation';
 import Scripts from 'src/Scripts';
@@ -16,7 +16,7 @@ const publicUrl = getPublicUrl();
 
 interface LayoutProps {
   layoutData: LayoutServiceData;
-  headLinks: HTMLHeadLink[];
+  headLinks: HTMLLink[];
 }
 
 interface RouteFields {

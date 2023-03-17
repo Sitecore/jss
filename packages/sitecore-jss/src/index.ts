@@ -12,5 +12,5 @@ export {
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
 export { AxiosResponse } from 'axios';
 export { NativeDataFetcher, NativeDataFetcherConfig } from './native-fetcher';
-export { HTMLHeadLink } from './models';
+export { HTMLLink } from './models';
 export { constants };
