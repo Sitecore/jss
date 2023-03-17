@@ -1,1 +1,1 @@
-export { getFEAASLibraryStylesheetURLs } from './themes';
+export { getFEAASLibraryStylesheetLinks } from './themes';

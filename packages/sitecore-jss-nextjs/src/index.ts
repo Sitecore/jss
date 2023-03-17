@@ -140,7 +140,7 @@ export {
   EditFrame,
   FEaaSComponent,
   FEaaSComponentProps,
-  getFEAASLibraryStylesheetURLs,
+  getFEAASLibraryStylesheetLinks,
   File,
   FileField,
   RichTextField,

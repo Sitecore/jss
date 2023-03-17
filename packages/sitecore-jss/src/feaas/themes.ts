@@ -16,12 +16,12 @@ const FEAAS_LIBRARY_ID_REGEX = /-library--([^\s]+)/;
 export const FEAAS_SERVER_URL = 'https://feaas.blob.core.windows.net';
 
 /**
- * Walks through rendering tree and returns list of urls of all FEAAS Component Library Stylesheets that are used
+ * Walks through rendering tree and returns list of links of all FEAAS Component Library Stylesheets that are used
  * @param {LayoutServiceData} layoutData Layout service data
  * @param {string} [serverUrl] server URL, default is @see {FEAAS_SERVER_URL} url
- * @returns {string[]} library stylesheet urls
+ * @returns {HTMLHeadLink[]} library stylesheet links
  */
-export function getFEAASLibraryStylesheetURLs(
+export function getFEAASLibraryStylesheetLinks(
   layoutData: LayoutServiceData,
   serverUrl?: string
 ): HTMLHeadLink[] {

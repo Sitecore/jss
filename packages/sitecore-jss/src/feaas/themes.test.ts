@@ -1,11 +1,11 @@
 import { expect } from 'chai';
-import { FEAAS_SERVER_URL, getFEAASLibraryStylesheetURLs, getStylesheetUrl } from './themes';
+import { FEAAS_SERVER_URL, getFEAASLibraryStylesheetLinks, getStylesheetUrl } from './themes';
 
 describe('utils', () => {
-  describe('getFEAASLibraryStylesheetURLs', () => {
+  describe('getFEAASLibraryStylesheetLinks', () => {
     it('should return empty array route data is not provided', () => {
       expect(
-        getFEAASLibraryStylesheetURLs({
+        getFEAASLibraryStylesheetLinks({
           sitecore: {
             context: {},
             route: null,
@@ -15,9 +15,9 @@ describe('utils', () => {
     });
 
     describe('normal mode', () => {
-      it('should return urls using CSSStyles field', () => {
+      it('should return links using CSSStyles field', () => {
         expect(
-          getFEAASLibraryStylesheetURLs({
+          getFEAASLibraryStylesheetLinks({
             sitecore: {
               context: {},
               route: {
@@ -37,9 +37,9 @@ describe('utils', () => {
         ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'style' }]);
       });
 
-      it('should return urls using LibraryId field', () => {
+      it('should return links using LibraryId field', () => {
         expect(
-          getFEAASLibraryStylesheetURLs({
+          getFEAASLibraryStylesheetLinks({
             sitecore: {
               context: {},
               route: {
@@ -56,9 +56,9 @@ describe('utils', () => {
         ).to.deep.equal([{ href: getStylesheetUrl('bar'), rel: 'style' }]);
       });
 
-      it('should return urls using custom server url', () => {
+      it('should return links using custom server url', () => {
         expect(
-          getFEAASLibraryStylesheetURLs(
+          getFEAASLibraryStylesheetLinks(
             {
               sitecore: {
                 context: {},
@@ -78,9 +78,9 @@ describe('utils', () => {
         ).to.deep.equal([{ href: getStylesheetUrl('bar', 'https://foo.net'), rel: 'style' }]);
       });
 
-      it('should return empty urls array when required fields are not provided', () => {
+      it('should return empty links array when required fields are not provided', () => {
         expect(
-          getFEAASLibraryStylesheetURLs({
+          getFEAASLibraryStylesheetLinks({
             sitecore: {
               context: {},
               route: {
@@ -93,9 +93,9 @@ describe('utils', () => {
         ).to.deep.equal([]);
       });
 
-      it('should traverse nested nodes and return only unique urls', () => {
+      it('should traverse nested nodes and return only unique links', () => {
         expect(
-          getFEAASLibraryStylesheetURLs({
+          getFEAASLibraryStylesheetLinks({
             sitecore: {
               context: {},
               route: {
@@ -219,9 +219,9 @@ describe('utils', () => {
     });
 
     describe('editing mode', () => {
-      it('should return urls using class attribute', () => {
+      it('should return links using class attribute', () => {
         expect(
-          getFEAASLibraryStylesheetURLs({
+          getFEAASLibraryStylesheetLinks({
             sitecore: {
               context: {},
               route: {
@@ -243,9 +243,9 @@ describe('utils', () => {
         ).to.deep.equal([{ href: getStylesheetUrl('bar'), rel: 'style' }]);
       });
 
-      it('should return urls using custom server url', () => {
+      it('should return links using custom server url', () => {
         expect(
-          getFEAASLibraryStylesheetURLs(
+          getFEAASLibraryStylesheetLinks(
             {
               sitecore: {
                 context: {},
@@ -272,7 +272,7 @@ describe('utils', () => {
 
       it('should not return id when class does not match pattern', () => {
         expect(
-          getFEAASLibraryStylesheetURLs({
+          getFEAASLibraryStylesheetLinks({
             sitecore: {
               context: {},
               route: {
@@ -294,9 +294,9 @@ describe('utils', () => {
         ).to.deep.equal([]);
       });
 
-      it('should return only unique urls', () => {
+      it('should return only unique links', () => {
         expect(
-          getFEAASLibraryStylesheetURLs({
+          getFEAASLibraryStylesheetLinks({
             sitecore: {
               context: {},
               route: {
