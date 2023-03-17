@@ -31,7 +31,7 @@
     "import-fresh": "^3.3.0",
     "ngrok": "^4.3.3",
     "opn": "^6.0.0",
-    "webpack": "5.75.0",
+    "webpack": "5.76.2",
     "webpack-dev-server": "3.11.0"
   },
   "devDependencies": {
