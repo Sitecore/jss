@@ -5,6 +5,7 @@ import {
   getPublicUrl,
   LayoutServiceData,
   Field,
+  HTMLLink,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import Navigation from 'src/Navigation';
 import Scripts from 'src/Scripts';
@@ -15,6 +16,7 @@ const publicUrl = getPublicUrl();
 
 interface LayoutProps {
   layoutData: LayoutServiceData;
+  headLinks: HTMLLink[];
 }
 
 interface RouteFields {
@@ -22,7 +24,7 @@ interface RouteFields {
   pageTitle: Field;
 }
 
-const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
+const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
 
   const fields = route?.fields as RouteFields;
@@ -33,6 +35,9 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       <Head>
         <title>{fields.pageTitle.value.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
+        {headLinks.map(headLink => (
+          <link rel={headLink.rel} key={headLink.href} href={headLink.href} />
+        ))}
       </Head>
 
       <Navigation />

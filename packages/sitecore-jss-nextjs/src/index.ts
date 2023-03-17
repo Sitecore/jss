@@ -8,6 +8,7 @@ export {
   AxiosDataFetcherConfig,
   NativeDataFetcher,
   NativeDataFetcherConfig,
+  HTMLLink,
   enableDebug,
 } from '@sitecore-jss/sitecore-jss';
 export {
@@ -140,6 +141,7 @@ export {
   EditFrame,
   FEaaSComponent,
   FEaaSComponentProps,
+  getFEAASLibraryStylesheetLinks,
   File,
   FileField,
   RichTextField,

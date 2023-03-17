@@ -21,6 +21,7 @@ class PreviewModePlugin implements Plugin {
     props.locale = data.language;
     props.layoutData = data.layoutData;
     props.dictionary = data.dictionary;
+    props.headLinks = [];
 
     return props;
   }
