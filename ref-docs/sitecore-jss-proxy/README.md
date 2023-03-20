@@ -6,7 +6,9 @@
 
 ### Interfaces
 
+- [ProxyConfig](interfaces/ProxyConfig.md)
 - [ProxyIncomingMessage](interfaces/ProxyIncomingMessage.md)
+- [ServerBundle](interfaces/ServerBundle.md)
 
 ### Functions
 
@@ -18,23 +20,23 @@
 
 ### default
 
-▸ **default**(`renderer`, `config`, `parseRouteUrl`): `NextHandleFunction`
+▸ **default**(`renderer`, `config`, `parseRouteUrl`): `RequestHandler`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `renderer` | `AppRenderer` |
-| `config` | `ProxyConfig` |
+| `config` | [`ProxyConfig`](interfaces/ProxyConfig.md) |
 | `parseRouteUrl` | `RouteUrlParser` |
 
 #### Returns
 
-`NextHandleFunction`
+`RequestHandler`
 
 #### Defined in
 
-[src/index.ts:568](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-proxy/src/index.ts#L568)
+[src/index.ts:579](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-proxy/src/index.ts#L579)
 
 ___
 
@@ -54,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:32](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-proxy/src/index.ts#L32)
+[src/index.ts:34](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-proxy/src/index.ts#L34)
 
 ___
 
@@ -67,8 +69,8 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `reqPath` | `string` |
-| `req` | `IncomingMessage` |
-| `config` | `ProxyConfig` |
+| `req` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
+| `config` | [`ProxyConfig`](interfaces/ProxyConfig.md) |
 | `parseRouteUrl?` | `RouteUrlParser` |
 
 #### Returns
@@ -77,4 +79,4 @@ ___
 
 #### Defined in
 
-[src/index.ts:351](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-proxy/src/index.ts#L351)
+[src/index.ts:360](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-proxy/src/index.ts#L360)

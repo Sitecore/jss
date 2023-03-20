@@ -47,7 +47,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-[layout/rest-layout-service.ts:63](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/rest-layout-service.ts#L63)
+[src/layout/rest-layout-service.ts:65](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L65)
 
 ## Methods
 
@@ -57,14 +57,16 @@ LayoutServiceBase.constructor
 
 Fetch layout data for an item.
 
+**`throws`** {Error} the item with the specified path is not found
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `itemPath` | `string` |
-| `language?` | `string` |
-| `req?` | `IncomingMessage` |
-| `res?` | `ServerResponse` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `itemPath` | `string` | item path to fetch layout data for. |
+| `language?` | `string` | - |
+| `req?` | `IncomingMessage` | - |
+| `res?` | `ServerResponse` | - |
 
 #### Returns
 
@@ -78,7 +80,7 @@ LayoutServiceBase.fetchLayoutData
 
 #### Defined in
 
-[layout/rest-layout-service.ts:75](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/rest-layout-service.ts#L75)
+[src/layout/rest-layout-service.ts:78](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L78)
 
 ___
 
@@ -92,13 +94,13 @@ a specific route item. Allows you to retrieve rendered data for individual place
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `placeholderName` | `string` |
-| `itemPath` | `string` |
-| `language?` | `string` |
-| `req?` | `IncomingMessage` |
-| `res?` | `ServerResponse` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `placeholderName` | `string` | the name of the placeholder to fetch layout data for. |
+| `itemPath` | `string` | the path to the item to fetch layout data for. |
+| `language?` | `string` | - |
+| `req?` | `IncomingMessage` | - |
+| `res?` | `ServerResponse` | - |
 
 #### Returns
 
@@ -108,13 +110,13 @@ placeholder data
 
 #### Defined in
 
-[layout/rest-layout-service.ts:130](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/rest-layout-service.ts#L130)
+[src/layout/rest-layout-service.ts:133](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L133)
 
 ___
 
 ### getDefaultFetcher
 
-▸ `Protected` **getDefaultFetcher**<`T`\>(`req?`, `res?`): (`url`: `string`, `data?`: `unknown`) => `Promise`<`AxiosResponse`<`T`\>\>
+▸ `Protected` **getDefaultFetcher**<`T`\>(`req?`, `res?`): (`url`: `string`, `data?`: `unknown`) => `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
 
 Provides default @see AxiosDataFetcher data fetcher
 
@@ -137,7 +139,7 @@ Provides default @see AxiosDataFetcher data fetcher
 
 default fetcher
 
-▸ (`url`, `data?`): `Promise`<`AxiosResponse`<`T`\>\>
+▸ (`url`, `data?`): `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
 
 ##### Parameters
 
@@ -148,11 +150,11 @@ default fetcher
 
 ##### Returns
 
-`Promise`<`AxiosResponse`<`T`\>\>
+`Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
 
 #### Defined in
 
-[layout/rest-layout-service.ts:190](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/rest-layout-service.ts#L190)
+[src/layout/rest-layout-service.ts:193](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L193)
 
 ___
 
@@ -176,7 +178,7 @@ fetch options
 
 #### Defined in
 
-[layout/rest-layout-service.ts:164](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/rest-layout-service.ts#L164)
+[src/layout/rest-layout-service.ts:167](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L167)
 
 ___
 
@@ -200,7 +202,7 @@ the layout service url
 
 #### Defined in
 
-[layout/rest-layout-service.ts:178](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/rest-layout-service.ts#L178)
+[src/layout/rest-layout-service.ts:181](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L181)
 
 ___
 
@@ -212,9 +214,9 @@ Setup request headers
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `req` | `IncomingMessage` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `req` | `IncomingMessage` | Request instance |
 
 #### Returns
 
@@ -236,21 +238,21 @@ axios request config
 
 #### Defined in
 
-[layout/rest-layout-service.ts:212](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/rest-layout-service.ts#L212)
+[src/layout/rest-layout-service.ts:215](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L215)
 
 ___
 
 ### setupResHeaders
 
-▸ `Protected` **setupResHeaders**(`res`): (`serverRes`: `AxiosResponse`<`any`\>) => `AxiosResponse`<`any`\>
+▸ `Protected` **setupResHeaders**(`res`): (`serverRes`: [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>) => [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>
 
 Setup response headers based on response from layout service
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `res` | `ServerResponse` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `res` | `ServerResponse` | Response instance |
 
 #### Returns
 
@@ -258,18 +260,18 @@ Setup response headers based on response from layout service
 
 response
 
-▸ (`serverRes`): `AxiosResponse`<`any`\>
+▸ (`serverRes`): [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `serverRes` | `AxiosResponse`<`any`\> |
+| `serverRes` | [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\> |
 
 ##### Returns
 
-`AxiosResponse`<`any`\>
+[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>
 
 #### Defined in
 
-[layout/rest-layout-service.ts:231](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/rest-layout-service.ts#L231)
+[src/layout/rest-layout-service.ts:234](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L234)

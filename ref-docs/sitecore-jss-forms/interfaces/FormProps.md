@@ -14,6 +14,7 @@
 - [form](FormProps.md#form)
 - [formFetcher](FormProps.md#formfetcher)
 - [labelComponent](FormProps.md#labelcomponent)
+- [language](FormProps.md#language)
 - [sitecoreApiHost](FormProps.md#sitecoreapihost)
 - [sitecoreApiKey](FormProps.md#sitecoreapikey)
 - [trackerFetcher](FormProps.md#trackerfetcher)
@@ -30,7 +31,7 @@
 
 #### Defined in
 
-[src/components/form.tsx:26](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L26)
+[src/components/form.tsx:27](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/form.tsx#L27)
 
 ___
 
@@ -40,7 +41,7 @@ ___
 
 #### Defined in
 
-[src/components/form.tsx:31](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L31)
+[src/components/form.tsx:32](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/form.tsx#L32)
 
 ___
 
@@ -50,7 +51,7 @@ ___
 
 #### Defined in
 
-[src/components/form.tsx:27](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L27)
+[src/components/form.tsx:28](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/form.tsx#L28)
 
 ___
 
@@ -62,7 +63,7 @@ Optionally override the field validation errors display component for any field 
 
 #### Defined in
 
-[src/components/form.tsx:38](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L38)
+[src/components/form.tsx:39](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/form.tsx#L39)
 
 ___
 
@@ -72,7 +73,7 @@ ___
 
 #### Defined in
 
-[src/components/form.tsx:32](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L32)
+[src/components/form.tsx:33](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/form.tsx#L33)
 
 ___
 
@@ -82,7 +83,7 @@ ___
 
 #### Defined in
 
-[src/components/form.tsx:25](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L25)
+[src/components/form.tsx:25](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/form.tsx#L25)
 
 ___
 
@@ -94,7 +95,7 @@ Fetch function used when submitting the form (defaults to using `fetch`)
 
 #### Defined in
 
-[src/components/form.tsx:41](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L41)
+[src/components/form.tsx:42](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/form.tsx#L42)
 
 ___
 
@@ -106,7 +107,17 @@ Optionally override the label component for any field components that render a l
 
 #### Defined in
 
-[src/components/form.tsx:35](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L35)
+[src/components/form.tsx:36](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/form.tsx#L36)
+
+___
+
+### language
+
+• `Optional` **language**: `string`
+
+#### Defined in
+
+[src/components/form.tsx:26](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/form.tsx#L26)
 
 ___
 
@@ -116,7 +127,7 @@ ___
 
 #### Defined in
 
-[src/components/form.tsx:28](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L28)
+[src/components/form.tsx:29](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/form.tsx#L29)
 
 ___
 
@@ -126,7 +137,7 @@ ___
 
 #### Defined in
 
-[src/components/form.tsx:29](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L29)
+[src/components/form.tsx:30](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/form.tsx#L30)
 
 ___
 
@@ -138,7 +149,7 @@ Fetch function used when posting form field tracking data (defaults to using `fe
 
 #### Defined in
 
-[src/components/form.tsx:44](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L44)
+[src/components/form.tsx:45](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/form.tsx#L45)
 
 ## Methods
 
@@ -158,4 +169,4 @@ Fetch function used when posting form field tracking data (defaults to using `fe
 
 #### Defined in
 
-[src/components/form.tsx:30](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L30)
+[src/components/form.tsx:31](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/form.tsx#L31)

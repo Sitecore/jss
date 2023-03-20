@@ -4,6 +4,10 @@
 
 [layout](../modules/layout.md).GraphQLLayoutService
 
+Service that fetch layout data using Sitecore's GraphQL API.
+
+**`mixes`** GraphQLRequestClient
+
 ## Hierarchy
 
 - `LayoutServiceBase`
@@ -37,9 +41,9 @@ Fetch layout data using the Sitecore GraphQL endpoint.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `serviceConfig` | [`GraphQLLayoutServiceConfig`](../modules/layout.md#graphqllayoutserviceconfig) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `serviceConfig` | [`GraphQLLayoutServiceConfig`](../modules/layout.md#graphqllayoutserviceconfig) | configuration |
 
 #### Overrides
 
@@ -47,7 +51,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-[layout/graphql-layout-service.ts:40](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L40)
+[src/layout/graphql-layout-service.ts:45](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L45)
 
 ## Properties
 
@@ -57,7 +61,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-[layout/graphql-layout-service.ts:34](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L34)
+[src/layout/graphql-layout-service.ts:39](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L39)
 
 ___
 
@@ -75,10 +79,10 @@ Fetch layout data for an item.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `itemPath` | `string` |
-| `language?` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `itemPath` | `string` | item path to fetch layout data for. |
+| `language?` | `string` | - |
 
 #### Returns
 
@@ -92,7 +96,7 @@ LayoutServiceBase.fetchLayoutData
 
 #### Defined in
 
-[layout/graphql-layout-service.ts:51](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L51)
+[src/layout/graphql-layout-service.ts:56](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L56)
 
 ___
 
@@ -112,7 +116,7 @@ implementation
 
 #### Defined in
 
-[layout/graphql-layout-service.ts:78](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L78)
+[src/layout/graphql-layout-service.ts:83](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L83)
 
 ___
 
@@ -133,6 +137,8 @@ Returns GraphQL Layout query
 
 `string`
 
+GraphQL query
+
 #### Defined in
 
-[layout/graphql-layout-service.ts:90](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L90)
+[src/layout/graphql-layout-service.ts:96](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L96)

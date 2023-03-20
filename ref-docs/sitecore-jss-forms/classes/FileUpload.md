@@ -63,7 +63,7 @@ Component<ValueFieldProps<FileInputViewModel\>\>.constructor
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:481
+node_modules/@types/react/index.d.ts:473
 
 • **new FileUpload**(`props`, `context`)
 
@@ -84,7 +84,7 @@ Component<ValueFieldProps<FileInputViewModel\>\>.constructor
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:486
+node_modules/@types/react/index.d.ts:478
 
 ## Properties
 
@@ -98,13 +98,13 @@ node_modules/@types/react/index.d.ts:486
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
+[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
 
 ___
 
 ### context
 
-• **context**: `any`
+• **context**: `unknown`
 
 If using the new style context, re-declare this in your class to be the
 `React.ContextType` of your `static contextType`.
@@ -126,7 +126,7 @@ Component.context
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:479
+node_modules/@types/react/index.d.ts:471
 
 ___
 
@@ -136,13 +136,13 @@ ___
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
+[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
 
 ___
 
 ### props
 
-• `Readonly` **props**: `Readonly`<[`ValueFieldProps`](../README.md#valuefieldprops)<`FileInputViewModel`\>\> & `Readonly`<`Object`\>
+• `Readonly` **props**: `Readonly`<[`ValueFieldProps`](../README.md#valuefieldprops)<`FileInputViewModel`\>\>
 
 #### Inherited from
 
@@ -150,7 +150,7 @@ Component.props
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:504
+node_modules/@types/react/index.d.ts:491
 
 ___
 
@@ -171,7 +171,7 @@ Component.refs
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:510
+node_modules/@types/react/index.d.ts:497
 
 ___
 
@@ -185,7 +185,7 @@ Component.state
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:505
+node_modules/@types/react/index.d.ts:492
 
 ___
 
@@ -218,7 +218,7 @@ Component.contextType
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:461
+node_modules/@types/react/index.d.ts:454
 
 ## Methods
 
@@ -250,7 +250,7 @@ Component.UNSAFE\_componentWillMount
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:717
+node_modules/@types/react/index.d.ts:688
 
 ___
 
@@ -292,7 +292,7 @@ Component.UNSAFE\_componentWillReceiveProps
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:749
+node_modules/@types/react/index.d.ts:720
 
 ___
 
@@ -333,7 +333,7 @@ Component.UNSAFE\_componentWillUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:777
+node_modules/@types/react/index.d.ts:748
 
 ___
 
@@ -361,7 +361,7 @@ Component.componentDidCatch
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:646
+node_modules/@types/react/index.d.ts:617
 
 ___
 
@@ -381,7 +381,7 @@ Component.componentDidMount
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:625
+node_modules/@types/react/index.d.ts:596
 
 ___
 
@@ -405,7 +405,7 @@ Component.componentDidUpdate
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
+[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
 
 ___
 
@@ -435,7 +435,7 @@ Component.componentWillMount
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:703
+node_modules/@types/react/index.d.ts:674
 
 ___
 
@@ -475,7 +475,7 @@ Component.componentWillReceiveProps
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:732
+node_modules/@types/react/index.d.ts:703
 
 ___
 
@@ -496,7 +496,7 @@ Component.componentWillUnmount
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:641
+node_modules/@types/react/index.d.ts:612
 
 ___
 
@@ -535,7 +535,7 @@ Component.componentWillUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:762
+node_modules/@types/react/index.d.ts:733
 
 ___
 
@@ -559,7 +559,7 @@ Component.forceUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:496
+node_modules/@types/react/index.d.ts:488
 
 ___
 
@@ -579,7 +579,7 @@ ___
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
+[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
 
 ___
 
@@ -599,7 +599,7 @@ ___
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
+[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
 
 ___
 
@@ -631,7 +631,7 @@ Component.getSnapshotBeforeUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:682
+node_modules/@types/react/index.d.ts:653
 
 ___
 
@@ -653,7 +653,7 @@ ___
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
+[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
 
 ___
 
@@ -671,7 +671,7 @@ Component.render
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
+[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
 
 ___
 
@@ -702,7 +702,7 @@ Component.setState
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:491
+node_modules/@types/react/index.d.ts:483
 
 ___
 
@@ -737,4 +737,4 @@ Component.shouldComponentUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:636
+node_modules/@types/react/index.d.ts:607

@@ -9,15 +9,156 @@
 - [ExperienceEditor](../classes/utils.ExperienceEditor.md)
 - [HorizonEditor](../classes/utils.HorizonEditor.md)
 
+### Type aliases
+
+- [ChromeCommand](utils.md#chromecommand)
+- [EditButtonTypes](utils.md#editbuttontypes)
+- [EditFrameDataSource](utils.md#editframedatasource)
+- [FieldEditButton](utils.md#fieldeditbutton)
+- [WebEditButton](utils.md#webeditbutton)
+
+### Variables
+
+- [DefaultEditFrameButton](utils.md#defaulteditframebutton)
+- [DefaultEditFrameButtonIds](utils.md#defaulteditframebuttonids)
+- [DefaultEditFrameButtons](utils.md#defaulteditframebuttons)
+
 ### Functions
 
 - [handleEditorAnchors](utils.md#handleeditoranchors)
+- [isAbsoluteUrl](utils.md#isabsoluteurl)
 - [isEditorActive](utils.md#iseditoractive)
-- [isExperienceEditorActive](utils.md#isexperienceeditoractive)
 - [isServer](utils.md#isserver)
+- [isTimeoutError](utils.md#istimeouterror)
+- [mapButtonToCommand](utils.md#mapbuttontocommand)
 - [resetEditorChromes](utils.md#reseteditorchromes)
-- [resetExperienceEditorChromes](utils.md#resetexperienceeditorchromes)
 - [resolveUrl](utils.md#resolveurl)
+- [tryParseEnvValue](utils.md#tryparseenvvalue)
+
+## Type aliases
+
+### ChromeCommand
+
+Ƭ **ChromeCommand**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `click` | `string` |
+| `header` | `string` |
+| `icon` | `string` |
+| `isDivider` | `boolean` |
+| `tooltip` | `string` \| ``null`` |
+| `type` | `string` \| ``null`` |
+
+#### Defined in
+
+[src/utils/edit-frame.ts:2](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/edit-frame.ts#L2)
+
+___
+
+### EditButtonTypes
+
+Ƭ **EditButtonTypes**: [`WebEditButton`](utils.md#webeditbutton) \| [`FieldEditButton`](utils.md#fieldeditbutton) \| ``"|"``
+
+#### Defined in
+
+[src/utils/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/edit-frame.ts#L73)
+
+___
+
+### EditFrameDataSource
+
+Ƭ **EditFrameDataSource**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `databaseName?` | `string` |
+| `itemId` | `string` |
+| `language?` | `string` |
+
+#### Defined in
+
+[src/utils/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/edit-frame.ts#L49)
+
+___
+
+### FieldEditButton
+
+Ƭ **FieldEditButton**: `BaseEditButton` & { `fields`: `string`[]  }
+
+#### Defined in
+
+[src/utils/edit-frame.ts:62](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/edit-frame.ts#L62)
+
+___
+
+### WebEditButton
+
+Ƭ **WebEditButton**: `BaseEditButton` & { `click`: `string` ; `parameters?`: `Record`<`string`, `string` \| `number` \| `boolean` \| `undefined` \| ``null``\> ; `type?`: `string`  }
+
+#### Defined in
+
+[src/utils/edit-frame.ts:66](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/edit-frame.ts#L66)
+
+## Variables
+
+### DefaultEditFrameButton
+
+• **DefaultEditFrameButton**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `edit` | `Object` |
+| `edit.fields` | `string`[] |
+| `edit.header` | `string` |
+| `edit.icon` | `string` |
+| `edit.tooltip` | `string` |
+| `editRelatedItem` | `Object` |
+| `editRelatedItem.click` | `string` |
+| `editRelatedItem.header` | `string` |
+| `editRelatedItem.icon` | `string` |
+| `editRelatedItem.tooltip` | `string` |
+| `insert` | `Object` |
+| `insert.click` | `string` |
+| `insert.header` | `string` |
+| `insert.icon` | `string` |
+| `insert.tooltip` | `string` |
+
+#### Defined in
+
+[src/utils/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/edit-frame.ts#L15)
+
+___
+
+### DefaultEditFrameButtonIds
+
+• **DefaultEditFrameButtonIds**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `edit` | `string` |
+
+#### Defined in
+
+[src/utils/edit-frame.ts:11](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/edit-frame.ts#L11)
+
+___
+
+### DefaultEditFrameButtons
+
+• **DefaultEditFrameButtons**: ({ `click`: `string` = 'webedit:new'; `header`: `string` = 'Insert New'; `icon`: `string` = '/~/icon/Office/16x16/insert\_from\_template.png'; `tooltip`: `string` = 'Insert a new item' } \| { `fields`: `string`[] ; `header`: `string` = 'Edit Item'; `icon`: `string` = '/~/icon/people/16x16/cubes\_blue.png'; `tooltip`: `string` = 'Edit the item fields.' })[]
+
+#### Defined in
+
+[src/utils/edit-frame.ts:36](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/edit-frame.ts#L36)
 
 ## Functions
 
@@ -40,7 +181,27 @@ and replaces the # value with javascript:void(0); which prevents the anchor tag 
 
 #### Defined in
 
-[utils/editing.ts:91](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/editing.ts#L91)
+[src/utils/editing.ts:102](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/editing.ts#L102)
+
+___
+
+### isAbsoluteUrl
+
+▸ `Const` **isAbsoluteUrl**(`url`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/utils/utils.ts:52](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/utils.ts#L52)
 
 ___
 
@@ -48,7 +209,8 @@ ___
 
 ▸ `Const` **isEditorActive**(): `boolean`
 
-Determines whether the current execution context is within a Sitecore editor
+Determines whether the current execution context is within a Sitecore editor.
+Sitecore Editor environment can be identified only in the browser
 
 #### Returns
 
@@ -58,27 +220,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-[utils/editing.ts:67](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/editing.ts#L67)
-
-___
-
-### isExperienceEditorActive
-
-▸ `Const` **isExperienceEditorActive**(): `boolean`
-
-Determines whether the current execution context is within the Sitecore Experience Editor
-
-**`deprecated`** Will be removed in a future release. Please use isEditorActive instead.
-
-#### Returns
-
-`boolean`
-
-true if executing within the Sitecore Experience Editor
-
-#### Defined in
-
-[utils/editing.ts:126](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/editing.ts#L126)
+[src/utils/editing.ts:78](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/editing.ts#L78)
 
 ___
 
@@ -96,7 +238,55 @@ true if executing server-side
 
 #### Defined in
 
-[utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/is-server.ts#L5)
+[src/utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/is-server.ts#L5)
+
+___
+
+### isTimeoutError
+
+▸ `Const` **isTimeoutError**(`error`): `boolean`
+
+Indicates whether the error is a timeout error
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `error` | `unknown` | error |
+
+#### Returns
+
+`boolean`
+
+is timeout error
+
+#### Defined in
+
+[src/utils/utils.ts:69](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/utils.ts#L69)
+
+___
+
+### mapButtonToCommand
+
+▸ **mapButtonToCommand**(`button`, `itemId?`, `frameParameters?`): [`ChromeCommand`](utils.md#chromecommand)
+
+Map the edit button types to chrome data
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `button` | [`EditButtonTypes`](utils.md#editbuttontypes) | the edit button to build a ChromeCommand for |
+| `itemId?` | `string` | the ID of the item the EditFrame is associated with |
+| `frameParameters?` | `Record`<`string`, `undefined` \| ``null`` \| `string` \| `number` \| `boolean`\> | additional parameters passed to the EditFrame |
+
+#### Returns
+
+[`ChromeCommand`](utils.md#chromecommand)
+
+#### Defined in
+
+[src/utils/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/edit-frame.ts#L81)
 
 ___
 
@@ -112,25 +302,7 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-[utils/editing.ts:74](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/editing.ts#L74)
-
-___
-
-### resetExperienceEditorChromes
-
-▸ `Const` **resetExperienceEditorChromes**(): `void`
-
-Resets Sitecore Experience Editor "chromes"
-
-**`deprecated`** Will be removed in a future release. Please use resetEditorChromes instead.
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[utils/editing.ts:132](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/editing.ts#L132)
+[src/utils/editing.ts:85](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/editing.ts#L85)
 
 ___
 
@@ -158,4 +330,35 @@ a URL string
 
 #### Defined in
 
-[utils/resolve-url.ts:24](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/resolve-url.ts#L24)
+[src/utils/utils.ts:27](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/utils.ts#L27)
+
+___
+
+### tryParseEnvValue
+
+▸ `Const` **tryParseEnvValue**<`T`\>(`envValue`, `defaultValue`): `T`
+
+Method to parse JSON-formatted environment variables
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `envValue` | `undefined` \| `string` | can be undefined when providing values via process.env |
+| `defaultValue` | `T` | default value |
+
+#### Returns
+
+`T`
+
+parsed value
+
+#### Defined in
+
+[src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/utils/env.ts#L7)
