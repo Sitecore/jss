@@ -7,8 +7,7 @@
     "lint": "eslint ./src/**/*.ts",
     "test": "ng test",
     "test:watch": "ng test --no-single-run --browsers Chrome",
-    "coverage": "ng test --code-coverage",
-    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-angular src/public_api.ts --githubPages false"
+    "coverage": "ng test --code-coverage"
   },
   "engines": {
     "node": ">=12",
