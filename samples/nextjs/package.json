@@ -37,7 +37,7 @@
     "bootstrap": "^5.2.3",
     "graphql": "~15.8.0",
     "graphql-tag": "^2.12.6",
-    "next": "^13.1.6",
+    "next": "^13.2.4",
     "next-localization": "^0.12.0",
     "nprogress": "~0.2.0",
     "react": "^18.2.0",
