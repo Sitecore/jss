@@ -247,14 +247,10 @@ describe('<Placeholder />', () => {
     it('should render nothing when component name is empty', () => {
       const route = {
         placeholders: {
-          main: [
-            { componentName: 'Home' },
-            { componentName: 'SfcHome' },
-            { componentName: null },
-          ],
+          main: [{ componentName: 'Home' }, { componentName: 'SfcHome' }, { componentName: null }],
         },
       };
-      
+
       const testComponent = {
         render() {
           return h(Placeholder, {

@@ -238,7 +238,7 @@ describe('<sc-placeholder />', () => {
             componentName: 'Home',
           },
           {
-            componentName: null
+            componentName: null,
           },
         ],
       },
