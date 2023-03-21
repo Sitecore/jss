@@ -1,0 +1,11 @@
+# Line endings for this repository
+# See: https://help.github.com/en/articles/configuring-git-to-handle-line-endings
+# This should line up with the expectations from .eslintrc
+
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=crlf
+
+# Declare files that will always have CRLF line endings on checkout.
+*.ts text eol=crlf
+*.tsx text eol=crlf
+*.js text eol=crlf
