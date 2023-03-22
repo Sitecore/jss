@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { ComponentType } from 'react';
 import PropTypes, { Requireable } from 'prop-types';
 import { MissingComponent } from './MissingComponent';
