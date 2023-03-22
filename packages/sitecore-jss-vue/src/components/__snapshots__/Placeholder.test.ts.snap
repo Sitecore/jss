@@ -15,6 +15,13 @@ exports[`<Placeholder /> missing component should render default missing compone
 </div>
 `;
 
+exports[`<Placeholder /> missing component should render nothing when component name is empty 1`] = `
+<div class="home-mock">
+</div>
+<div class="home-mock-sfc">
+</div>
+`;
+
 exports[`<Placeholder /> missing component should render specific missing component for unknown components 1`] = `
 <div class="home-mock">
 </div>

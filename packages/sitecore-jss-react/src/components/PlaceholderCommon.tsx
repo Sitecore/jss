@@ -211,6 +211,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
         if (componentRendering.componentName === HIDDEN_RENDERING_NAME) {
           component = hiddenRenderingComponent ?? HiddenRendering;
+        } else if (!componentRendering.componentName) {
+          component = () => <></>;
         } else {
           component = this.getComponentForRendering(componentRendering);
         }

@@ -229,6 +229,35 @@ describe('<sc-placeholder />', () => {
     });
   }));
 
+  it('should skip rendering components with no name', async(() => {
+    const phKey = 'main';
+    const route = {
+      placeholders: {
+        main: [
+          {
+            componentName: 'Home',
+          },
+          {
+            componentName: null,
+          },
+        ],
+      },
+    };
+
+    comp.name = phKey;
+    comp.rendering = (route as unknown) as ComponentRendering;
+    fixture.detectChanges();
+
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(1);
+
+      const homeDiv = de.query(By.directive(TestHomeComponent));
+      expect(homeDiv).not.toBeNull();
+    });
+  }));
+
   it('should render null for unknown placeholder', async(() => {
     const phKey = 'unknown';
     const route = {
