@@ -13,6 +13,7 @@ export default async function Page({ params }: PageProps) {
     locale: params.lang,
     req: { cookies: cookies(), headers: headers() },
   };
+
   const pageProps = await sitecorePagePropsFactory.create(context);
 
   if (pageProps.notFound) {
@@ -27,8 +28,7 @@ export default async function Page({ params }: PageProps) {
 }
 
 // <Head /> tag implementation
-export async function generateMetadata({ params, ...rest }: PageProps) {
-  console.log(params, rest);
+export async function generateMetadata({ params }: PageProps) {
   return {
     title: params.path ? params.path[0] : 'Home',
   };
