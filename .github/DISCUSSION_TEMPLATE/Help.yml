@@ -1,0 +1,17 @@
+title: "[Issue Title] "
+labels: ["Help"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A detailed description of the issue
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Additional information
+      description: Please add any other context, environment information or screenshots
+    validations:
+      required: false
