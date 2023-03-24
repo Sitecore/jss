@@ -93,7 +93,7 @@ export const Link = defineComponent({
     }
 
     const linkText =
-      showLinkTextWithChildrenPresent || !children || children.length === 0
+      showLinkTextWithChildrenPresent || !children || children().length === 0
         ? link.text || link.href
         : null;
 
