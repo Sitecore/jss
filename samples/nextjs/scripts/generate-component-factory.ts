@@ -28,7 +28,7 @@ import { getItems, watchItems } from './utils';
 */
 
 const componentFactoryPath = path.resolve('src/temp/componentFactory.ts');
-const componentRootPath = 'src/components';
+const componentRootPath = 'src/app/_components';
 
 const isWatch = process.argv.some((arg) => arg === '--watch');
 

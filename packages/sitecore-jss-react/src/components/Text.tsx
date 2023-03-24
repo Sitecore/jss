@@ -29,8 +29,8 @@ export interface TextProps {
 export const Text: FunctionComponent<TextProps> = ({
   field,
   tag,
-  editable,
-  encode,
+  editable = true,
+  encode = true,
   ...otherProps
 }) => {
   if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
@@ -105,11 +105,6 @@ Text.propTypes = {
   tag: PropTypes.string,
   editable: PropTypes.bool,
   encode: PropTypes.bool,
-};
-
-Text.defaultProps = {
-  editable: true,
-  encode: true,
 };
 
 Text.displayName = 'Text';

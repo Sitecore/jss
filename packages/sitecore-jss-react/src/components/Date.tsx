@@ -24,7 +24,7 @@ export interface DateFieldProps {
 export const DateField: React.FC<DateFieldProps> = ({
   field,
   tag,
-  editable,
+  editable = true,
   render,
   ...otherProps
 }) => {
@@ -66,10 +66,6 @@ DateField.propTypes = {
   tag: PropTypes.string,
   editable: PropTypes.bool,
   render: PropTypes.func,
-};
-
-DateField.defaultProps = {
-  editable: true,
 };
 
 DateField.displayName = 'Date';

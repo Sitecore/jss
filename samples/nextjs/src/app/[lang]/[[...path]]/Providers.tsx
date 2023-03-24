@@ -4,6 +4,7 @@ import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import { I18nProvider } from 'next-localization';
 import { componentFactory, editingComponentFactory } from 'temp/componentFactory';
+import Layout from 'components/Layout';
 
 export const Providers = (props: SitecorePageProps) => {
   const isEditing = props.layoutData.sitecore.context.pageEditing;
@@ -14,7 +15,7 @@ export const Providers = (props: SitecorePageProps) => {
         componentFactory={isEditing ? editingComponentFactory : componentFactory}
         layoutData={props.layoutData}
       >
-        <div>Nested child</div>
+        <Layout layoutData={props.layoutData} headLinks={props.headLinks} />
       </SitecoreContext>
     </I18nProvider>
   );

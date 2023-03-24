@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import {
   RichText as ReactRichText,
   RichTextPropTypes,
@@ -21,6 +21,7 @@ const prefetched: { [cacheKey: string]: boolean } = {};
 
 export const RichText = (props: RichTextProps): JSX.Element => {
   const { internalLinksSelector = 'a[href^="/"]', ...rest } = props;
+
   const hasText = props.field && props.field.value;
   const isEditing = props.editable && props.field && props.field.editable;
 
@@ -41,7 +42,7 @@ export const RichText = (props: RichTextProps): JSX.Element => {
 
     const pathname = (ev.target as HTMLAnchorElement).href;
 
-    router.push(pathname, pathname, { locale: false });
+    router.push(pathname);
   };
 
   const initializeLinks = () => {
@@ -55,7 +56,7 @@ export const RichText = (props: RichTextProps): JSX.Element => {
     internalLinks.forEach((link) => {
       if (link.target !== '_blank') {
         if (!prefetched[link.pathname]) {
-          router.prefetch(link.pathname, undefined, { locale: false });
+          router.prefetch(link.pathname);
           prefetched[link.pathname] = true;
         }
         link.addEventListener('click', routeHandler, false);
@@ -63,17 +64,19 @@ export const RichText = (props: RichTextProps): JSX.Element => {
     });
   };
 
-  return <ReactRichText ref={richTextRef} {...rest} />;
+  return (
+    <ReactRichText
+      ref={richTextRef}
+      {...rest}
+      tag={props.tag ?? 'div'}
+      editable={props.editable ?? true}
+    />
+  );
 };
 
 RichText.propTypes = {
   internalLinksSelector: PropTypes.string,
   ...RichTextPropTypes,
-};
-
-RichText.defaultProps = {
-  tag: 'div',
-  editable: true,
 };
 
 RichText.displayName = 'NextRichText';
