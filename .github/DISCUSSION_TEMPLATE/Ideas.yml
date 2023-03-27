@@ -23,7 +23,7 @@ body:
     validations:
       required: false
   - type: textarea
-    id: solution
+    id: additional-information
     attributes:
       label: Additional information
       description: Add any other context or screenshots about the feature request here.
