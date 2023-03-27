@@ -9,7 +9,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: solution
+    id: additional-information
     attributes:
       label: Additional information
       description: Please add any other context, environment information or screenshots
