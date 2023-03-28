@@ -1,4 +1,4 @@
-'client only';
+'use client';
 
 import React, { use, useEffect } from 'react';
 import {
@@ -7,9 +7,11 @@ import {
   constants,
   GraphQLRequestClient,
   resetEditorChromes,
+  withDatasourceCheck,
+  useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import NextLink from 'next/link';
-import { ConnectedDemoQueryDocument } from './GraphQL-ConnectedDemo.graphql';
+import { ConnectedDemoQueryDocument } from './GraphQL-ConnectedDemo.dynamic.graphql';
 import {
   NextjsAppAppRoute as AppRoute,
   Item,
@@ -28,6 +30,14 @@ type GraphQLConnectedDemoData = {
 type GraphQLConnectedDemoProps = ComponentProps & GraphQLConnectedDemoData;
 
 const GraphQLConnectedDemo = (props: GraphQLConnectedDemoProps) => {
+  const {
+    sitecoreContext: { route, language },
+  } = useSitecoreContext();
+
+  useEffect(() => {
+    resetEditorChromes();
+  }, []);
+
   let graphQLResult: GraphQLConnectedDemoData | undefined;
 
   if (process.env.JSS_MODE !== constants.JSS_MODE.DISCONNECTED) {
@@ -41,18 +51,12 @@ const GraphQLConnectedDemo = (props: GraphQLConnectedDemoProps) => {
         ConnectedDemoQueryDocument as any,
         {
           datasource: props.rendering.dataSource,
-          // contextItem: props.layoutData?.sitecore?.route?.itemId,
-          contextItem: '0c6f4aaf-dd7e-5faf-b9b0-61070d496055',
-          // language: layoutData?.sitecore?.context?.language,
-          language: 'en',
+          contextItem: route?.itemId,
+          language,
         }
       )
     );
   }
-
-  useEffect(() => {
-    resetEditorChromes();
-  }, []);
 
   return (
     <div data-e2e-id="graphql-connected">
@@ -119,60 +123,4 @@ const GraphQLConnectedDemo = (props: GraphQLConnectedDemoProps) => {
   );
 };
 
-// /**
-//  * Will be called during SSG
-//  * @param {ComponentRendering} rendering
-//  * @param {LayoutServiceData} layoutData
-//  * @param {GetStaticPropsContext} context
-//  */
-// export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
-//   if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
-//     return null;
-//   }
-
-//   const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
-//     apiKey: config.sitecoreApiKey,
-//   });
-
-//   const result = await graphQLClient.request<GraphQLConnectedDemoData>(
-//     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-//     ConnectedDemoQueryDocument as any,
-//     {
-//       datasource: rendering.dataSource,
-//       contextItem: layoutData?.sitecore?.route?.itemId,
-//       language: layoutData?.sitecore?.context?.language,
-//     }
-//   );
-
-//   return result;
-// };
-
-// /**
-//  * Will be called during SSR
-//  * @param {ComponentRendering} rendering
-//  * @param {LayoutServiceData} layoutData
-//  * @param {GetServerSidePropsContext} context
-//  */
-// export const getServerSideProps: GetServerSideComponentProps = async (rendering, layoutData) => {
-//   if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
-//     return null;
-//   }
-
-//   const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
-//     apiKey: config.sitecoreApiKey,
-//   });
-
-//   const result = await graphQLClient.request<GraphQLConnectedDemoData>(
-//     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-//     ConnectedDemoQueryDocument as any,
-//     {
-//       datasource: rendering.dataSource,
-//       contextItem: layoutData?.sitecore?.route?.itemId,
-//       language: layoutData?.sitecore?.context?.language,
-//     }
-//   );
-
-//   return result;
-// };
-
-export default GraphQLConnectedDemo;
+export default withDatasourceCheck()<ComponentProps>(GraphQLConnectedDemo);
