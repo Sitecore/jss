@@ -123,7 +123,6 @@ export { handleEditorFastRefresh, getPublicUrl } from './utils';
 
 export { Link, LinkProps } from './components/Link';
 export { RichText, RichTextProps } from './components/RichText';
-export { Placeholder } from './components/Placeholder';
 export { EditingComponentPlaceholder } from './components/EditingComponentPlaceholder';
 export { NextImage } from './components/NextImage';
 
@@ -146,6 +145,7 @@ export {
   FileField,
   RichTextField,
   VisitorIdentification,
+  Placeholder,
   PlaceholderComponentProps,
   SitecoreContext,
   SitecoreContextState,

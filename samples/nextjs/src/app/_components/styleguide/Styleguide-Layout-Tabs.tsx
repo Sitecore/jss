@@ -1,3 +1,5 @@
+'use client';
+
 import React, { ReactElement } from 'react';
 import { withPlaceholder, withSitecoreContext, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from './Styleguide-Specimen';

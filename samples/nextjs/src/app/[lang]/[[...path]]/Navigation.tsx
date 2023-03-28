@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { useI18n } from 'next-localization';
 import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs';

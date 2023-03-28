@@ -1,8 +1,10 @@
+import 'server-only';
+
 import { cookies, headers } from 'next/headers';
-import { redirect } from 'next/navigation';
-import { notFound } from 'next/navigation';
+import { redirect, notFound } from 'next/navigation';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { Providers } from './Providers';
+import Layout from './jss-layout';
 
 type PageProps = { params: { path?: string[]; lang: string } };
 
@@ -24,7 +26,11 @@ export default async function Page({ params }: PageProps) {
     redirect(pageProps.redirect.destination);
   }
 
-  return <Providers {...pageProps} />;
+  return (
+    <Providers {...pageProps}>
+      <Layout layoutData={pageProps.layoutData} headLinks={pageProps.headLinks} />
+    </Providers>
+  );
 }
 
 // <Head /> tag implementation

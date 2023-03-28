@@ -4,7 +4,7 @@ import {
   EDITING_COMPONENT_PLACEHOLDER,
   RouteData,
 } from '@sitecore-jss/sitecore-jss/layout';
-import { Placeholder } from './Placeholder';
+import { Placeholder } from '@sitecore-jss/sitecore-jss-react';
 
 export const EditingComponentPlaceholder = ({
   rendering,

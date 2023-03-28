@@ -44,11 +44,9 @@
     "noUnusedParameters": true,
     "incremental": true,
     "forceConsistentCasingInFileNames": false,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "plugins": [{
+      "name": "next"
+    }]
   },
   "include": [
     "next-env.d.ts",

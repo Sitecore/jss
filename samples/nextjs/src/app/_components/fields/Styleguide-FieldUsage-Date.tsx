@@ -1,3 +1,5 @@
+'use client';
+
 import { DateField, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';
@@ -42,10 +44,10 @@ const StyleguideFieldUsageDate = (props: StyleguideFieldUsageDateProps): JSX.Ele
         <li>
           Localized DateTime string (local timezone):&nbsp;
           {/* React components can also be returned from the render props for wrapping */}
-          <DateField
+          {/* <DateField
             field={props.fields.dateTime}
             render={(date) => <em>{date && date.toLocaleString()}</em>}
-          />
+          /> */}
         </li>
       </ul>
     </StyleguideSpecimen>

@@ -1,3 +1,5 @@
+'use client';
+
 import { NextImage, ImageField, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';

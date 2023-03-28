@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { Text, Field, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from './Styleguide-Specimen';
@@ -26,9 +28,7 @@ const StyleguideRouteFields = (props: StyleguideRouteFieldsProps): JSX.Element =
         {value.sitecoreContext.route && <Text field={fields.pageTitle} />}
       </p>
       <p>
-        <Link href="/styleguide/custom-route-type">
-          Sample of using a custom route type
-        </Link>
+        <Link href="/styleguide/custom-route-type">Sample of using a custom route type</Link>
       </p>
     </StyleguideSpecimen>
   );

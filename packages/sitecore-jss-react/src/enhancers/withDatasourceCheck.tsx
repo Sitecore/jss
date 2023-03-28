@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { useSitecoreContext } from './withSitecoreContext';

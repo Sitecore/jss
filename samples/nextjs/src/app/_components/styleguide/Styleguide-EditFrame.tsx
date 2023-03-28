@@ -1,3 +1,5 @@
+'use client';
+
 import { Field, Item, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { EditFrame } from '@sitecore-jss/sitecore-jss-nextjs';

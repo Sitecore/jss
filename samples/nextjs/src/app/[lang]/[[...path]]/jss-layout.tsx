@@ -1,6 +1,11 @@
 import React from 'react';
-import { Placeholder, LayoutServiceData, HTMLLink } from '@sitecore-jss/sitecore-jss-nextjs';
+import { LayoutServiceData, HTMLLink } from '@sitecore-jss/sitecore-jss-nextjs';
 import Navigation from './Navigation';
+import Placeholder from 'components/Placeholder';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'nprogress/nprogress.css';
+import 'assets/app.css';
 
 interface LayoutProps {
   layoutData: LayoutServiceData;
@@ -8,7 +13,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
-  const { route } = layoutData.sitecore;
+  const { route } = layoutData?.sitecore;
 
   return (
     <>
