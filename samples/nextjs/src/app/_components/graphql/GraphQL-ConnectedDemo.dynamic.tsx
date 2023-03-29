@@ -1,6 +1,5 @@
-'use client';
-
-import React, { use, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import useSWR from 'swr';
 import {
   Text,
   Link,
@@ -44,9 +43,9 @@ const GraphQLConnectedDemo = (props: GraphQLConnectedDemoProps) => {
     const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
       apiKey: config.sitecoreApiKey,
     });
-
-    graphQLResult = use(
-      graphQLClient.request<GraphQLConnectedDemoData>(
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { data } = useSWR<GraphQLConnectedDemoData>(config.graphQLEndpoint, () => {
+      return graphQLClient.request<GraphQLConnectedDemoData>(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ConnectedDemoQueryDocument as any,
         {
@@ -54,8 +53,10 @@ const GraphQLConnectedDemo = (props: GraphQLConnectedDemoProps) => {
           contextItem: route?.itemId,
           language,
         }
-      )
-    );
+      );
+    });
+
+    graphQLResult = data;
   }
 
   return (
