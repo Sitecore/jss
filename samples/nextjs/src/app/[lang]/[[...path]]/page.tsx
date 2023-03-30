@@ -47,12 +47,15 @@ export const dynamic = 'force-dynamic';
 /* ============ SSG START =============== */
 // // https://beta.nextjs.org/docs/api-reference/segment-config#generatestaticparams
 // export async function generateStaticParams() {
-//   return [{ lang: 'en', path: 'styleguide' }, { lang: 'en' }];
+//   return [
+//     { lang: 'en', path: ['styleguide'] },
+//     { lang: 'da-DK', path: ['styleguide'] },
+//   ];
 // }
 
 // // Dynamic segments not included in generateStaticParams are generated on demand.
 // // https://beta.nextjs.org/docs/api-reference/segment-config#dynamicparams
-// export const dynamicParams = true;
+// export const dynamicParams = false;
 
 // // https://beta.nextjs.org/docs/api-reference/segment-config#revalidate
 // export const revalidate = 5;
