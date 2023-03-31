@@ -7,7 +7,6 @@ import openBrowser from 'opn';
 import path from 'path';
 import webpack from 'webpack';
 import { MultiCompiler } from 'webpack';
-import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackDevServer from 'webpack-dev-server';
 import {
   ssrMiddleware as defaultSSRMiddleware,
@@ -55,7 +54,7 @@ export interface DevServerOptions {
     beforeSSRMiddlewareRegistered?: (app: Application, server: WebpackDevServer) => void;
     beforeDevServerCreated?: (
       compiler: webpack.MultiCompiler,
-      devServerOptions: WebpackDevServer.Configuration & WebpackDevMiddleware.Options
+      devServerOptions: WebpackDevServer.Configuration,
     ) => void;
     beforeDevServerStarted?: (devServer: WebpackDevServer) => void;
     afterDevServerStarted?: (devServer: WebpackDevServer) => void;
@@ -172,6 +171,8 @@ export function startDevServer({
     serverSideRender: true,
     writeToDisk: true,
     logLevel: 'debug',
+    stats: 'none' as 'none',
+    publicPath: '/',
   };
 
   // Options for the webpack-dev-server instance
@@ -179,21 +180,24 @@ export function startDevServer({
   // This isn't "documented" behavior/feature, but WebpackDevServer will pass this options object to
   // the underlying webpack-dev-middleware. Naturally, TypeScript doesn't like that, so declare the options
   // object as `any` to make TS happy.
-  const serverOptions: WebpackDevServer.Configuration & WebpackDevMiddleware.Options = {
-    publicPath: '/',
+  const serverOptions: WebpackDevServer.Configuration = {
     ...configs.devServerConfig,
-    inline: true,
-    contentBase: configs.ssrWebpackConfig.output.path, // buildArtifactsPath,
     hot: true,
-    quiet: false,
-    stats: 'none',
-    clientLogLevel: 'info',
+    client: {
+      logging: 'info',
+    },
+    static: {
+      directory: configs.ssrWebpackConfig.output.path, // buildArtifactsPath,
+    },
+    devMiddleware: webpackDevMiddlewareOptions,
     // watchContentBase: true,
     ...webpackDevMiddlewareOptions,
   };
 
   if (tunnelUrl) {
-    serverOptions.public = tunnelUrl;
+    serverOptions.client = {
+      webSocketURL: tunnelUrl
+    };
   }
 
   let resolvedServerBundleFilename: string;
@@ -212,8 +216,8 @@ export function startDevServer({
 
   // Devs may have assigned a value to `serverOptions.after` via `configs.devServerConfig`, so
   // preserve the existing value so we can invoke it later.
-  const originalAfter = serverOptions.after;
-  serverOptions.after = (app: Application, server: WebpackDevServer) => {
+  const originalAfter = serverOptions.onAfterSetupMiddleware;
+  serverOptions.onAfterSetupMiddleware = (devServer: WebpackDevServer) => {
     const middleware = ssrMiddleware
       ? ssrMiddleware({
           appInvocationInfoResolver,
@@ -224,14 +228,14 @@ export function startDevServer({
 
     // Give devs a chance to add custom middleware before the SSR middleware is registered,
     // but after all WDS middleware.
-    invokeHook(hooks.beforeSSRMiddlewareRegistered, app, server);
+    invokeHook(hooks.beforeSSRMiddlewareRegistered, devServer.app, devServer);
 
     // WDS _should_ handle requests for static assets and socket connections.
     // Otherwise, by default we assume all POST requests should be handled by the SSR middleware.
-    app.post(ssrMiddlewarePath || '*', middleware);
+    devServer.app?.post(ssrMiddlewarePath || '*', middleware);
 
     if (originalAfter) {
-      originalAfter(app, server);
+      originalAfter(devServer);
     }
   };
 
@@ -245,12 +249,12 @@ export function startDevServer({
 
   // Give devs a chance to modify serverOptions and/or the compiler before creating the WDS instance.
   invokeHook(hooks.beforeDevServerCreated, compiler, serverOptions);
-
+  
   // WDS types don't expose the `use` method from the underlying Express interface.
   // So declare as `any` to make the compiler happy.
   const server: WebpackDevServer = new WebpackDevServer(
+    serverOptions as any,
     (compiler as unknown) as MultiCompiler,
-    serverOptions
   );
 
   // Give devs a chance to add more middleware or whatever prior to starting the server.
