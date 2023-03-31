@@ -29,10 +29,8 @@ export interface GraphQLSitemapServiceConfig extends BaseGraphQLSitemapServiceCo
  * Object model of a site page item.
  */
 export type StaticPath = {
-  params: {
-    path: string[];
-  };
-  locale?: string;
+  path: string[];
+  lang: string;
 };
 
 /**

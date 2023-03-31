@@ -15,11 +15,7 @@ export class DisconnectedSitemapService {
    * Since i18n is not supported, the output paths will not include a `locale` property.
    */
   fetchExportSitemap(): StaticPath[] {
-    const sitemap: {
-      params: {
-        path: string[];
-      };
-    }[] = [];
+    const sitemap: StaticPath[] = [];
 
     // Path is empty when we start from the root route
     const processRoutes = (routes: ItemDefinition[], path?: string[]) => {
@@ -29,9 +25,8 @@ export class DisconnectedSitemapService {
 
         if (renderings && renderings.length) {
           sitemap.push({
-            params: {
-              path: routePath,
-            },
+            path: routePath,
+            lang: 'en',
           });
         }
 

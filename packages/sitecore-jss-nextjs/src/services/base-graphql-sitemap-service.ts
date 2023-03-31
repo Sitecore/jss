@@ -147,10 +147,8 @@ export interface BaseGraphQLSitemapServiceConfig
  * Object model of a site page item.
  */
 export type StaticPath = {
-  params: {
-    path: string[];
-  };
-  locale?: string;
+  path: string[];
+  lang: string;
 };
 
 /**
@@ -193,9 +191,8 @@ export abstract class BaseGraphQLSitemapService {
    */
   async fetchExportSitemap(locale: string): Promise<StaticPath[]> {
     const formatPath = (path: string[]) => ({
-      params: {
-        path,
-      },
+      path,
+      lang: locale,
     });
 
     return this.fetchSitemap([locale], formatPath);
@@ -208,10 +205,8 @@ export abstract class BaseGraphQLSitemapService {
    */
   async fetchSSGSitemap(locales: string[]): Promise<StaticPath[]> {
     const formatPath = (path: string[], locale: string) => ({
-      params: {
-        path,
-      },
-      locale,
+      path,
+      lang: locale,
     });
 
     return this.fetchSitemap(locales, formatPath);
