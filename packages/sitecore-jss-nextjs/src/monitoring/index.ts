@@ -1,1 +1,1 @@
-export { HealthcheckMiddleware } from './healthcheck-middleware';
+export { HealthcheckHandler } from './healthcheck-handler';
