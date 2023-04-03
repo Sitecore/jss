@@ -194,10 +194,14 @@ export class RestLayoutService extends LayoutServiceBase {
     const config = {
       debugger: debug.layout,
     } as AxiosDataFetcherConfig;
-    if (req && res) {
+    if (req) {
       config.onReq = this.setupReqHeaders(req);
+    }
+
+    if (res) {
       config.onRes = this.setupResHeaders(res);
     }
+
     const axiosFetcher = new AxiosDataFetcher(config);
 
     const fetcher = (url: string, data?: unknown) => {
@@ -220,7 +224,7 @@ export class RestLayoutService extends LayoutServiceBase {
         ...(req.headers.cookie && { cookie: req.headers.cookie }),
         ...(req.headers.referer && { referer: req.headers.referer }),
         ...(req.headers['user-agent'] && { 'user-agent': req.headers['user-agent'] }),
-        ...(req.connection.remoteAddress && { 'X-Forwarded-For': req.connection.remoteAddress }),
+        ...(req.connection?.remoteAddress && { 'X-Forwarded-For': req.connection.remoteAddress }),
       };
       return reqConfig;
     };
