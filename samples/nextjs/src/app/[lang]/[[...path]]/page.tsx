@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 /* ============ SSR START =============== */
-// export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic';
 /* ============ SSR END =============== */
 
 /* ============ SSG START =============== */

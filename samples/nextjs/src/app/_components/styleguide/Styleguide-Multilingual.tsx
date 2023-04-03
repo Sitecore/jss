@@ -1,6 +1,8 @@
+'use client';
+
 import { Text, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import Link from 'next/link';
-import { useI18n } from 'next-localization';
+import { useTranslations, useLocale } from 'next-intl';
 import StyleguideSpecimen from './Styleguide-Specimen';
 import { ComponentWithContextProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
@@ -17,7 +19,8 @@ type StyleguideMultilingualProps = ComponentWithContextProps &
  * multiple languages.
  */
 const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element => {
-  const { t, locale } = useI18n();
+  const t = useTranslations();
+  const locale = useLocale();
 
   return (
     <StyleguideSpecimen {...props} e2eId="styleguide-multilingual">
@@ -31,16 +34,12 @@ const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element
 
       <p>
         {/* In case if href already includes locale: https://nextjs.org/docs/advanced-features/i18n-routing#transition-between-locales */}
-        <Link href="/en/styleguide" locale={false}>
-          Show in English
-        </Link>
+        <Link href="/en/styleguide">Show in English</Link>
         <br />
-        <Link href="/styleguide" locale="da-DK">
-          Show in da-DK
-        </Link>
+        <Link href="/da-DK/styleguide">Show in da-DK</Link>
       </p>
 
-      <p>The current language is: {locale()}</p>
+      <p>The current language is: {locale}</p>
     </StyleguideSpecimen>
   );
 };

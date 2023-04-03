@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useI18n } from 'next-localization';
+import { useLocale, useTranslations } from 'next-intl';
 import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
@@ -9,12 +9,13 @@ import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs';
 const publicUrl = getPublicUrl();
 
 const Navigation = (): JSX.Element => {
-  const { t } = useI18n();
+  const t = useTranslations();
+  const locale = useLocale();
 
   return (
     <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom">
       <h5 className="my-0 me-md-auto fw-normal">
-        <Link href="/" className="text-dark">
+        <Link href={`/${locale}`} className="text-dark">
           <img src={`${publicUrl}/sc_logo.svg`} alt="Sitecore" />
         </Link>
       </h5>
@@ -27,10 +28,10 @@ const Navigation = (): JSX.Element => {
         >
           {t('Documentation')}
         </a>
-        <Link className="p-2 text-dark" href="/styleguide">
+        <Link className="p-2 text-dark" href={`${locale}/styleguide`}>
           {t('Styleguide')}
         </Link>
-        <Link className="p-2 text-dark" href="/graphql">
+        <Link className="p-2 text-dark" href={`${locale}/graphql`}>
           {t('GraphQL')}
         </Link>
       </nav>
