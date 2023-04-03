@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Redirect } from 'next';
 import {
   DictionaryPhrases,
@@ -11,6 +12,7 @@ import {
  * Sitecore page props
  */
 export type SitecorePageProps = {
+  children?: any;
   site: SiteInfo;
   locale: string;
   dictionary: DictionaryPhrases;
