@@ -64,13 +64,13 @@ export const dynamic = 'force-dynamic';
 //   return paths;
 // };
 
-// // Dynamic segments not included in generateStaticParams are generated on demand.
-// // https://beta.nextjs.org/docs/api-reference/segment-config#dynamicparams
-// export const dynamicParams = false;
+// Dynamic segments not included in generateStaticParams are generated on demand.
+// https://beta.nextjs.org/docs/api-reference/segment-config#dynamicparams
+// export const dynamicParams = true;
 
-// // https://beta.nextjs.org/docs/api-reference/segment-config#revalidate
+// https://beta.nextjs.org/docs/api-reference/segment-config#revalidate
 // export const revalidate = 5;
 
-// // https://beta.nextjs.org/docs/api-reference/segment-config#dynamic
+// https://beta.nextjs.org/docs/api-reference/segment-config#dynamic
 // export const dynamic = 'error';
 /* ============ SSG END =============== */
