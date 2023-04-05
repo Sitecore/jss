@@ -170,7 +170,6 @@ export function startDevServer({
   const webpackDevMiddlewareOptions = {
     serverSideRender: true,
     writeToDisk: true,
-    logLevel: 'debug',
     stats: 'none' as 'none',
     publicPath: '/',
   };
@@ -191,7 +190,6 @@ export function startDevServer({
     },
     devMiddleware: webpackDevMiddlewareOptions,
     // watchContentBase: true,
-    ...webpackDevMiddlewareOptions,
   };
 
   if (tunnelUrl) {
@@ -249,6 +247,8 @@ export function startDevServer({
 
   // Give devs a chance to modify serverOptions and/or the compiler before creating the WDS instance.
   invokeHook(hooks.beforeDevServerCreated, compiler, serverOptions);
+
+  console.log(serverOptions);
   
   // WDS types don't expose the `use` method from the underlying Express interface.
   // So declare as `any` to make the compiler happy.
