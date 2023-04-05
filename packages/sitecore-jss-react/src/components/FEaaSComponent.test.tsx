@@ -1,12 +1,16 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+import * as FEAAS from '@sitecore-feaas/clientside/react';
+import sinon from 'sinon';
 import {
   composeComponentEndpoint,
   FEaaSComponent,
   FEaaSComponentParams,
   FEaaSComponentProps,
+  fetchFEaaSComponentProps,
 } from './FEaaSComponent';
+import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
 
 describe('<FEaaSComponent />', () => {
   const requiredParams: FEaaSComponentParams = {
@@ -86,6 +90,81 @@ describe('<FEaaSComponent />', () => {
         template: '',
         lastModified: '',
       };
+      const wrapper = shallow(<FEaaSComponent {...props} />);
+      expect(wrapper).to.have.length(1);
+      expect(wrapper.html()).to.contain(
+        `data="${props.params?.ComponentDataOverride!.replace(/"/g, '&quot;')}"`
+      );
+    });
+
+    it('should send datasource fields', () => {
+      const fields: ComponentFields = {
+        sampleText: {
+          value: 'Welcome to Sitecore JSS',
+        },
+        sampleImage: {
+          value: {
+            src: '/-/media/sc_logo.png',
+            alt: 'Sitecore Logo',
+          },
+        },
+        sampleNumber: {
+          value: 1.21,
+        },
+        sampleLink: {
+          value: {
+            href: '/',
+            id: '{54C8E9B5-0B2C-5363-8FA6-D32A3A302F51}',
+            linktype: 'internal',
+          },
+        },
+      };
+      const props: FEaaSComponentProps = {
+        params: {
+          ...requiredParams,
+        },
+        template: '',
+        lastModified: '',
+        fields,
+      };
+      const expectedData = {
+        _: {
+          sampleText: 'Welcome to Sitecore JSS',
+          sampleImage: {
+            src: '/-/media/sc_logo.png',
+            alt: 'Sitecore Logo',
+          },
+          sampleNumber: 1.21,
+          sampleLink: {
+            href: '/',
+            id: '{54C8E9B5-0B2C-5363-8FA6-D32A3A302F51}',
+            linktype: 'internal',
+          },
+        },
+      };
+      const wrapper = shallow(<FEaaSComponent {...props} />);
+      expect(wrapper).to.have.length(1);
+      expect(wrapper.html()).to.contain(
+        `data="${JSON.stringify(expectedData).replace(/"/g, '&quot;')}"`
+      );
+    });
+
+    it('should prefer override data over datasource fields', () => {
+      const fields: ComponentFields = {
+        sampleText: {
+          value: 'Welcome to Sitecore JSS',
+        },
+      };
+      const props: FEaaSComponentProps = {
+        params: {
+          ...requiredParams,
+          ComponentDataOverride: '{ "foo": "bar", "baz": 1 }',
+        },
+        template: '',
+        lastModified: '',
+        fields,
+      };
+
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
       expect(wrapper.html()).to.contain(

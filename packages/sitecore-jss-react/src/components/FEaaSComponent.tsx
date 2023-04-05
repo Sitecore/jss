@@ -1,5 +1,6 @@
 import React from 'react';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
+import { ComponentFields, getFieldValue } from '@sitecore-jss/sitecore-jss/layout';
 
 export const FEAAS_COMPONENT_RENDERING_NAME = 'FEaaSComponent';
 
@@ -16,12 +17,20 @@ export type FEaaSComponentParams = {
   RenderingIdentifier?: string;
 };
 
+/**
+ * Props for FEaaS Component
+ * @param {string} template HTML template for presentation rendered inside the component
+ * @param {string} lastModified the date component data was last modified
+ * @param {string} src component endpoint URL
+ * @param {FEaaSComponentParams} params parameters from Sitecore's FEAAS component
+ * @param {ComponentFields} fields field data from component's datasource 
+ */
 export type FEaaSComponentProps = {
   template: string;
   lastModified: string;
   src?: string;
   params?: FEaaSComponentParams;
-  data?: unknown;
+  fields?: ComponentFields;
 };
 
 /**
@@ -41,15 +50,26 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
     // Missing FEaaS component required props
     return null;
   }
+
+  let data: string = null;
+  if (props.params?.ComponentDataOverride) {
+    // Use override data if provided
+    data = props.params.ComponentDataOverride;
+  } else if (props.fields) {
+    // Otherwise use datasource data (provided in fields)
+    // FEaaS expects wrapping "_" as catch-all datasource template id
+    data = JSON.stringify({ _: getDataFromFields(props.fields) });
+  }
+
   // FEaaS control would still be hydrated by client
   // we pass all the props as a workaround to avoid hydration error, until we convert all JSS components to server side
   // this also allows component to fall back to full client-side rendering when template or src is empty
   return (
     <FEAAS.Component
+      data={data}
       template={props.template}
       last-modified={props.lastModified}
       src={props.src}
-      data={props.params?.ComponentDataOverride || props.data}
       cdn={props.params?.ComponentHostName}
       library={props.params?.LibraryId}
       component={props.params?.ComponentId}
@@ -59,12 +79,12 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
 };
 
 /**
- * Fetches component details based on rendering params.
- * Component endpoint will either be
+ * Fetches server component props required for server rendering, based on rendering params.
+ * Component endpoint will either be retrieved from params or from endpointOverride
  * @param {FEaaSComponentParams} params component params
- * @param {string} endpointOverride optional override for component endpoint
+ * @param {string} [endpointOverride] optional override for component endpoint
  */
-export async function fetchFEaaSComponentProps(
+export async function fetchFEaaSComponentServerProps(
   params: FEaaSComponentParams,
   endpointOverride?: string
 ): Promise<FEaaSComponentProps> {
@@ -77,6 +97,20 @@ export async function fetchFEaaSComponentProps(
   };
 }
 
+const getDataFromFields = (fields: ComponentFields): { [key: string]: unknown } => {
+  let data: { [key: string]: unknown } = {};
+  data = Object.entries(fields).reduce((acc, [key]) => {
+    acc[key] = getFieldValue(fields, key);
+    return acc;
+  }, data);
+  return data;
+};
+
+/**
+ * Build component endpoint URL from component's params
+ * @param params rendering parameters for FEAAS component
+ * @returns component endpoint URL
+ */
 export const composeComponentEndpoint = (params: FEaaSComponentParams) => {
   const hostname = params.ComponentHostName.startsWith('https://')
     ? params.ComponentHostName

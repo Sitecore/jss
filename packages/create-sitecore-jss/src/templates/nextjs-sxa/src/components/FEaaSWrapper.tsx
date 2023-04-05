@@ -4,12 +4,12 @@ import {
   FEaaSComponent,
   FEaaSComponentProps,
   FEaaSComponentParams,
-  fetchFEaaSComponentProps,
+  fetchFEaaSComponentServerProps,
   constants,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import React from 'react';
 
-const FEaaSWrapper = (props: FEaaSComponentProps): JSX.Element => {
+export const Default = (props: FEaaSComponentProps): JSX.Element => {
   const styles = `component feaas ${props.params?.styles}`.trimEnd();
   const id = props.params?.RenderingIdentifier;
   return (
@@ -26,14 +26,13 @@ const FEaaSWrapper = (props: FEaaSComponentProps): JSX.Element => {
  * @param {ComponentRendering} rendering
  * Can be extended with the below
  * @param {LayoutServiceData} layoutData
- * @param {GetStaticPropsContext} context
  */
 export const getStaticProps: GetStaticComponentProps = async (rendering) => {
   if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
     return null;
   }
   const params: FEaaSComponentParams = rendering.params || {};
-  const result = await fetchFEaaSComponentProps(params);
+  const result = await fetchFEaaSComponentServerProps(params);
   return result;
 };
 
@@ -42,15 +41,12 @@ export const getStaticProps: GetStaticComponentProps = async (rendering) => {
  * @param {ComponentRendering} rendering
  * Can be extended with the below
  * @param {LayoutServiceData} layoutData
- * @param {GetServerSidePropsContext} context
  */
 export const getServerSideProps: GetServerSideComponentProps = async (rendering) => {
   if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
     return null;
   }
   const params: FEaaSComponentParams = rendering.params || {};
-  const result = await fetchFEaaSComponentProps(params);
+  const result = await fetchFEaaSComponentServerProps(params);
   return result;
 };
-
-export default FEaaSWrapper;

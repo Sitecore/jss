@@ -61,7 +61,7 @@ export {
   FEaaSComponent,
   FEaaSComponentProps,
   FEaaSComponentParams,
-  fetchFEaaSComponentProps,
+  fetchFEaaSComponentServerProps,
 } from './components/FEaaSComponent';
 export { Link, LinkField, LinkFieldValue, LinkProps, LinkPropTypes } from './components/Link';
 export { File, FileField } from './components/File';
