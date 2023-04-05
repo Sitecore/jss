@@ -1,14 +1,11 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import * as FEAAS from '@sitecore-feaas/clientside/react';
-import sinon from 'sinon';
 import {
   composeComponentEndpoint,
   FEaaSComponent,
   FEaaSComponentParams,
   FEaaSComponentProps,
-  fetchFEaaSComponentProps,
 } from './FEaaSComponent';
 import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
 
@@ -31,15 +28,13 @@ describe('<FEaaSComponent />', () => {
   const endpoint = composeComponentEndpoint(requiredParams);
 
   it('should not render with props and params missing', () => {
-    const wrapper = shallow(<FEaaSComponent template="" lastModified="" />);
+    const wrapper = shallow(<FEaaSComponent />);
     expect(wrapper).to.have.length(1);
     expect(wrapper.html()).to.equal(null);
   });
 
   it('should not render with props missing and only one param present', () => {
     const props = {
-      template: '',
-      lastModified: '',
       params: {
         ComponentHostName: 'host123',
       },
@@ -50,10 +45,10 @@ describe('<FEaaSComponent />', () => {
   });
 
   it('should render empty when only src is provided', () => {
-    const wrapper = shallow(<FEaaSComponent src={endpoint} template="" lastModified="" />);
+    const wrapper = shallow(<FEaaSComponent src={endpoint} />);
     expect(wrapper).to.have.length(1);
     expect(wrapper.html()).to.equal(
-      '<feaas-component last-modified="" src="https://host123/components/library123/component123/version123/staged"></feaas-component>'
+      '<feaas-component src="https://host123/components/library123/component123/version123/staged"></feaas-component>'
     );
   });
 
@@ -76,7 +71,7 @@ describe('<FEaaSComponent />', () => {
     const wrapper = shallow(<FEaaSComponent {...props} />);
     expect(wrapper).to.have.length(1);
     expect(wrapper.html()).to.equal(
-      '<feaas-component last-modified="" cdn="host123" library="library123" component="component123" revision="staged"></feaas-component>'
+      '<feaas-component last-modified="" cdn="host123" library="library123" version="version123" component="component123" revision="staged"></feaas-component>'
     );
   });
 
@@ -87,8 +82,6 @@ describe('<FEaaSComponent />', () => {
           ...requiredParams,
           ComponentDataOverride: '{ "foo": "bar", "baz": 1 }',
         },
-        template: '',
-        lastModified: '',
       };
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
@@ -123,8 +116,6 @@ describe('<FEaaSComponent />', () => {
         params: {
           ...requiredParams,
         },
-        template: '',
-        lastModified: '',
         fields,
       };
       const expectedData = {
@@ -160,8 +151,6 @@ describe('<FEaaSComponent />', () => {
           ...requiredParams,
           ComponentDataOverride: '{ "foo": "bar", "baz": 1 }',
         },
-        template: '',
-        lastModified: '',
         fields,
       };
 

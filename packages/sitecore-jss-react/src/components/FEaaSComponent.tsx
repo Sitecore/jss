@@ -18,6 +18,23 @@ export type FEaaSComponentParams = {
 };
 
 /**
+ * FEaaS props for server rendering.
+ */
+type FEaaSComponentServerProps = {
+  template?: string;
+  lastModified?: string;
+}
+
+/**
+ * FEaaS props for client side component. Should be used as fallback when server props are not provided.
+ */
+type FEaaSComponentClientProps = {
+  src?: string;
+  params?: FEaaSComponentParams;
+  fields?: ComponentFields;
+};
+
+/**
  * Props for FEaaS Component
  * @param {string} template HTML template for presentation rendered inside the component
  * @param {string} lastModified the date component data was last modified
@@ -25,13 +42,7 @@ export type FEaaSComponentParams = {
  * @param {FEaaSComponentParams} params parameters from Sitecore's FEAAS component
  * @param {ComponentFields} fields field data from component's datasource 
  */
-export type FEaaSComponentProps = {
-  template: string;
-  lastModified: string;
-  src?: string;
-  params?: FEaaSComponentParams;
-  fields?: ComponentFields;
-};
+export type FEaaSComponentProps = FEaaSComponentServerProps & FEaaSComponentClientProps;
 
 /**
  * @param {FEaaSComponentProps} props component props
@@ -67,11 +78,12 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
   return (
     <FEAAS.Component
       data={data}
-      template={props.template}
+      template={props.template || ''}
       last-modified={props.lastModified}
       src={props.src}
       cdn={props.params?.ComponentHostName}
       library={props.params?.LibraryId}
+      version={props.params?.ComponentVersion}
       component={props.params?.ComponentId}
       revision={props.params?.ComponentRevision}
     />
