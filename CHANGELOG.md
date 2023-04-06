@@ -11,6 +11,11 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🧹 Chores
+* `[templates/nextjs]` `[templates/nextjs-styleguide-tracking]` Move remaining Styleguide-Tracking artifacts from the base template ([#1422](https://github.com/Sitecore/jss/pull/1422))
+
+## 21.1.0
+
 ### 🎉 New Features & Improvements
 
 * `[create-sitecore-jss]` `[sitecore-jss-nextjs]` `[templates/nextjs]` `[templates/nextjs-multisite]` New `nextjs-multisite` initializer add-on. Allows a single JSS Next.js app to serve multiple Sitecore sites. ([#1248](https://github.com/Sitecore/jss/pull/1248)) ([#1288](https://github.com/Sitecore/jss/pull/1288)) ([#1264](https://github.com/Sitecore/jss/pull/1264)) ([#1271](https://github.com/Sitecore/jss/pull/1271)) ([#1275](https://github.com/Sitecore/jss/pull/1275)) ([#1277](https://github.com/Sitecore/jss/pull/1277)) ([#1279](https://github.com/Sitecore/jss/pull/1279)) ([#1281](https://github.com/Sitecore/jss/pull/1281)) ([#1283](https://github.com/Sitecore/jss/pull/1283)) ([#1284](https://github.com/Sitecore/jss/pull/1284)) ([#1286](https://github.com/Sitecore/jss/pull/1286)) ([#1306](https://github.com/Sitecore/jss/pull/1306)) ([#1290](https://github.com/Sitecore/jss/pull/1290)) ([#1294](https://github.com/Sitecore/jss/pull/1294)) ([#1302](https://github.com/Sitecore/jss/pull/1302)) ([#1339](https://github.com/Sitecore/jss/pull/1339)) ([#1360](https://github.com/Sitecore/jss/pull/1360)) ([#1365](https://github.com/Sitecore/jss/pull/1365)) ([#1303](https://github.com/Sitecore/jss/pull/1303)) ([#1304](https://github.com/Sitecore/jss/pull/1304)) ([#1299](https://github.com/Sitecore/jss/pull/1299)) ([#1322](https://github.com/Sitecore/jss/pull/1322)) ([#1361](https://github.com/Sitecore/jss/pull/1361)) ([#1296](https://github.com/Sitecore/jss/pull/1296))
