@@ -31,8 +31,7 @@
     "import-fresh": "^3.3.0",
     "ngrok": "^4.3.3",
     "opn": "^6.0.0",
-    "webpack": "5.76.2",
-    "webpack-dev-server": "3.11.0"
+    "webpack": "5.76.2"
   },
   "devDependencies": {
     "@types/chai": "^4.2.3",
@@ -45,6 +44,7 @@
     "@types/webpack-dev-middleware": "2.0.5",
     "@types/webpack-dev-server": "3.1.7",
     "chai": "^4.3.0",
+    "compression": "^1.7.2",
     "del-cli": "^5.0.0",
     "eslint": "^8.33.0",
     "mocha": "^10.2.0",
