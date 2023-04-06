@@ -10,6 +10,8 @@ Our versioning strategy is as follows:
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
 ## Unreleased
+* `[templates/nextjs-sxa]` Add scaffold components action `jss scaffold {nameOfComponent}` ([#1420](https://github.com/Sitecore/jss/pull/1420))
+
 
 ## 21.1.0
 
@@ -28,7 +30,7 @@ Our versioning strategy is as follows:
 * `[templates/react]` `[templates/nextjs]` `[templates/vue]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` `[sitecore-jss-vue]` Upgrade 3rd party dependencies ([#1250](https://github.com/Sitecore/jss/pull/1250)) ([#1301](https://github.com/Sitecore/jss/pull/1301)) ([#1305](https://github.com/Sitecore/jss/pull/1305)) ([#1321](https://github.com/Sitecore/jss/pull/1321)) ([#1352](https://github.com/Sitecore/jss/pull/1352)) ([#1362](https://github.com/Sitecore/jss/pull/1362)) ([#1327](https://github.com/Sitecore/jss/pull/1327)) ([#1313](https://github.com/Sitecore/jss/pull/1313)) ([#1329](https://github.com/Sitecore/jss/pull/1329)) ([#1338](https://github.com/Sitecore/jss/pull/1338))
 * `[templates/angular]` Upgrade bootstrap in sample app ([#1308](https://github.com/Sitecore/jss/pull/1308))
 * `[templates/angular]` `[templates/react]` `[templates/vue]` `[templates/nextjs-styleguide]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` `[sitecore-jss-angular]` `[sitecore-jss-vue]` Edit frame component implementation ([#1342](https://github.com/Sitecore/jss/pull/1342))
-* `[sitecore-jss-react]` Export DateFieldProps ([#1216](https://github.com/Sitecore/jss/pull/1216))
+* `[sitecore-jss-react]` Export DateF`ieldProps ([#1216](https://github.com/Sitecore/jss/pull/1216))
 
 ### 🧹 Chores
 
