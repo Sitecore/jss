@@ -21,27 +21,34 @@ export type FEaaSComponentParams = {
  * FEaaS props for server rendering.
  */
 type FEaaSComponentServerProps = {
+  /**
+   * HTML template for presentation rendered inside the component
+   */
   template?: string;
+  /**
+   * the date component data was last modified
+   */
   lastModified?: string;
-}
+};
 
 /**
  * FEaaS props for client side component. Should be used as fallback when server props are not provided.
  */
 type FEaaSComponentClientProps = {
+  /**
+   * component endpoint URL
+   */
   src?: string;
+  /**
+   * parameters from Sitecore's FEAAS component
+   */
   params?: FEaaSComponentParams;
+  /**
+   * field data from component's datasource
+   */
   fields?: ComponentFields;
 };
 
-/**
- * Props for FEaaS Component
- * @param {string} template HTML template for presentation rendered inside the component
- * @param {string} lastModified the date component data was last modified
- * @param {string} src component endpoint URL
- * @param {FEaaSComponentParams} params parameters from Sitecore's FEAAS component
- * @param {ComponentFields} fields field data from component's datasource 
- */
 export type FEaaSComponentProps = FEaaSComponentServerProps & FEaaSComponentClientProps;
 
 /**
@@ -120,7 +127,7 @@ const getDataFromFields = (fields: ComponentFields): { [key: string]: unknown } 
 
 /**
  * Build component endpoint URL from component's params
- * @param params rendering parameters for FEAAS component
+ * @param {FEaaSComponentParams} params rendering parameters for FEAAS component
  * @returns component endpoint URL
  */
 export const composeComponentEndpoint = (params: FEaaSComponentParams) => {

@@ -24,8 +24,8 @@ export const Default = (props: FEaaSComponentProps): JSX.Element => {
 /**
  * Will be called during SSG
  * @param {ComponentRendering} rendering
- * Can be extended with the below
  * @param {LayoutServiceData} layoutData
+ * @param {GetStaticPropsContext} context
  */
 export const getStaticProps: GetStaticComponentProps = async (rendering) => {
   if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
@@ -39,8 +39,8 @@ export const getStaticProps: GetStaticComponentProps = async (rendering) => {
 /**
  * Will be called during SSR
  * @param {ComponentRendering} rendering
- * Can be extended with the below
  * @param {LayoutServiceData} layoutData
+ * @param {GetStaticPropsContext} context
  */
 export const getServerSideProps: GetServerSideComponentProps = async (rendering) => {
   if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
