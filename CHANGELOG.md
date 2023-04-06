@@ -10,8 +10,10 @@ Our versioning strategy is as follows:
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
 ## Unreleased
-* `[templates/nextjs-sxa]` Add scaffold components action `jss scaffold {nameOfComponent}` ([#1420](https://github.com/Sitecore/jss/pull/1420))
 
+### 🎉 New Features & Improvements
+
+* `[templates/nextjs-sxa]` Add custom template for _jss scaffold_ ([#1420](https://github.com/Sitecore/jss/pull/1420))
 
 ## 21.1.0
 
