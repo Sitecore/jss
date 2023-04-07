@@ -1,7 +1,7 @@
 import React, { createRef, ReactNode } from 'react';
 import { NextRouter } from 'next/router';
 import NextLink from 'next/link';
-import { Link as ReactLink } from '@sitecore-jss/sitecore-jss-react';
+import { Link as ReactLink, LinkField } from '@sitecore-jss/sitecore-jss-react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
@@ -313,5 +313,51 @@ describe('<Link />', () => {
 
     const link = c.find('a');
     expect(ref.current.id).to.equal(link.props().id);
+  });
+
+  it('should render ReactLink if editable', () => {
+    const field = {
+      value: {
+        href: '/lorem',
+        text: 'ipsum',
+      },
+      editable: '<a href="/lorem">Lorem</a>',
+    };
+    const rendered = mount(
+      <Page>
+        <Link field={field} />
+      </Page>
+    );
+    expect(rendered.find(NextLink).length).to.equal(0);
+    expect(rendered.find(ReactLink).length).to.equal(1);
+  });
+
+  it('should render NextLink with editing explicitly disabled', () => {
+    const field = {
+      value: {
+        href: '/lorem',
+        text: 'ipsum',
+      },
+      editable: '<a href="/lorem">Lorem</a>',
+    };
+    const rendered = mount(
+      <Page>
+        <Link field={field} editable={false} />
+      </Page>
+    );
+    expect(rendered.find(NextLink).length).to.equal(1);
+    expect(rendered.find(ReactLink).length).to.equal(0);
+  });
+
+  it('should render nothing with missing field', () => {
+    const field = (null as unknown) as LinkField;
+    const rendered = mount(<Link field={field} />).children();
+    expect(rendered).to.have.length(0);
+  });
+
+  it('should render nothing with missing editable and value', () => {
+    const field = {};
+    const rendered = mount(<Link field={field} />).children();
+    expect(rendered).to.have.length(0);
   });
 });
