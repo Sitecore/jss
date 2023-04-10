@@ -13,7 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Changes
 
-* `[sitecore-jss-rendering-host]` devServer is retired. renderingHostServer is the only way to use rendering-host with react from now on.
+* `[sitecore-jss-rendering-host]` devServer is retired. renderingHostServer is the only way to use rendering-host with react from now on. ([#1426](https://github.com/Sitecore/jss/pull/1426))
 
 ### 🎉 New Features & Improvements
 
