@@ -12,7 +12,7 @@ Our versioning strategy is as follows:
 ## Unreleased
 
 ### 🎉 New Features & Improvements
-* `[create-sitecore-jss]` Disable page view tracking event in development ([#1414](https://github.com/Sitecore/jss/pull/1414))
+* `[templates/nextjs-personalize]` Disable page view tracking event in development ([#1414](https://github.com/Sitecore/jss/pull/1414))
 
 ### 🎉 New Features & Improvements
 
