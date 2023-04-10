@@ -21,9 +21,10 @@ export class DictionaryServiceFactory {
           apiKey: config.sitecoreApiKey,
           siteName,
           /*
-            The Dictionary Service needs a root item ID in order to fetch dictionary phrases for the current
-            app. If your Sitecore instance only has 1 JSS App, you can specify the root item ID here;
-            otherwise, the service will attempt to figure out the root item for the current JSS App using GraphQL and app name.
+            The Dictionary Service needs a root item ID in order to fetch dictionary phrases for the current app. 
+            When not provided, the service will attempt to figure out the root item for the current JSS App using GraphQL and app name.
+            For SXA site(s) and multisite setup there's no need to specify it - it will be autoresolved.
+            Otherwise, if your Sitecore instance only has 1 JSS App (i.e. in a Sitecore XP setup), you can specify the root item ID here.
             rootItemId: '{GUID}'
           */
         })

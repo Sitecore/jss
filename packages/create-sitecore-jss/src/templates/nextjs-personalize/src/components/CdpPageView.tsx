@@ -3,7 +3,7 @@ import {
   LayoutServicePageState,
   SiteInfo,
   useSitecoreContext,
-  PosResolver
+  PosResolver,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { useEffect } from 'react';
 import config from 'temp/config';
@@ -56,7 +56,7 @@ const CdpPageView = (): JSX.Element => {
    * By default it is always enabled.
    */
   const disabled = () => {
-    return false;
+    return process.env.NODE_ENV === 'development';
   };
 
   useEffect(() => {

@@ -18,7 +18,7 @@ export type LinkProps = ReactLinkProps & {
 };
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
-  (props: LinkProps, ref): JSX.Element => {
+  (props: LinkProps, ref): JSX.Element | null => {
     const {
       field,
       editable,
@@ -27,6 +27,13 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       showLinkTextWithChildrenPresent,
       ...htmlLinkProps
     } = props;
+
+    if (
+      !field ||
+      (!(field as LinkFieldValue).editable && !field.value && !(field as LinkFieldValue).href)
+    ) {
+      return null;
+    }
 
     const value = ((field as LinkFieldValue).href
       ? field
