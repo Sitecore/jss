@@ -15,10 +15,6 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-rendering-host]` devServer is retired. renderingHostServer is the only way to use rendering-host with react from now on.
 
-### 🎉 New Features & Improvements
-
-* `[templates/nextjs-sxa]` Add custom template for _jss scaffold_ ([#1420](https://github.com/Sitecore/jss/pull/1420))
-
 ## 21.1.0
 
 ### 🎉 New Features & Improvements
