@@ -6,13 +6,28 @@ import { initRunner } from './init-runner';
 import minimist, { ParsedArgs } from 'minimist';
 import { getAllTemplates, getBaseTemplates } from './common';
 
+export enum PreCommitHook {
+  YES = 'yes',
+  NO = 'no',
+}
+
+const DEFAULT_PRECOMMITHOOK = PreCommitHook.YES;
+
 export const parseArgs = (): ParsedArgs => {
   // parse any command line arguments passed into `init sitecore-jss`
   // to pass to the generator prompts and skip them.
   // useful for CI and testing purposes
   const options = {
     boolean: ['appPrefix', 'force', 'noInstall', 'yes', 'silent'],
-    string: ['appName', 'destination', 'templates', 'hostName', 'fetchWith', 'language'],
+    string: [
+      'appName',
+      'destination',
+      'templates',
+      'hostName',
+      'fetchWith',
+      'language',
+      'preCommitHook',
+    ],
   };
   const args: ParsedArgs = minimist(process.argv.slice(2), options);
 
@@ -96,6 +111,23 @@ export const main = async (args: ParsedArgs) => {
     }
   } else {
     args.force = true;
+  }
+
+  let preCommitHook = args.preCommitHook;
+  if (!preCommitHook) {
+    if (args.yes) {
+      preCommitHook = DEFAULT_PRECOMMITHOOK;
+    } else {
+      const answer = await inquirer.prompt({
+        type: 'list',
+        name: 'preCommitHook',
+        message: 'Would you like to use the pre-commit hook for linting check?',
+        choices: Object.values(PreCommitHook),
+        default: DEFAULT_PRECOMMITHOOK,
+      });
+
+      args.preCommitHook = answer.preCommitHook;
+    }
   }
 
   try {

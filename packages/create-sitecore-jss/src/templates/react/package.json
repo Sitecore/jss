@@ -79,6 +79,7 @@
     "graphql.macro": "~1.4.2",
     "html-loader": "~4.2.0",
     "http-proxy-middleware": "~2.0.6",
+    "husky": "^8.0.3",
     "move-cli": "^2.0.0",
     "ncp": "^2.0.0",
     "ngrok": "^4.3.3",
@@ -111,7 +112,9 @@
     "test": "react-scripts test --env=jsdom",
     "lint": "eslint ./src/**/*.js ./sitecore/definitions/**/*.js ./scripts/**/*.js ./server/**/*.js ./data/**/*.yml",
     "eject": "react-scripts eject",
-    "eject:script": "ncp ./scripts ./scripts-copy && node ./scripts-copy/eject.js && ncp ./scripts-copy ./scripts && del-cli ./scripts-copy"
+    "eject:script": "ncp ./scripts ./scripts-copy && node ./scripts-copy/eject.js && ncp ./scripts-copy ./scripts && del-cli ./scripts-copy",
+    "prepare": "husky install",
+    "pre-commit": "yarn lint --fix"
   },
   "browserslist": [
     ">0.2%",

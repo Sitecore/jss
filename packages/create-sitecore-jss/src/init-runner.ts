@@ -1,3 +1,4 @@
+const { exec } = require('child_process');
 import chalk from 'chalk';
 import path, { sep } from 'path';
 import { installPackages, lintFix, nextSteps, BaseArgs, saveConfiguration } from './common';
@@ -36,11 +37,22 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
 
   saveConfiguration(args.templates, path.resolve(`${args.destination}${sep}package.json`));
 
+  // if you opt in to use the pre-commit hook for linting check,
+  // then in order to install the husky - git hooks we need to initialize the git repository.
+  if (args.preCommitHook === 'yes') {
+    exec(`cd ${args.destination} && git init`, (err: Error) => {
+      if (err) {
+        console.log('Error initializing repository:', err);
+      }
+    });
+  }
+
   // final steps (install, lint, etc)
   if (!args.noInstall) {
     installPackages(args.destination, args.silent);
     lintFix(args.destination, args.silent);
   }
+
   if (!args.silent) {
     nextSteps(appName || '', nextStepsArr);
   }
