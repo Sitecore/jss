@@ -142,7 +142,7 @@ export {
   FEaaSComponent,
   FEaaSComponentProps,
   FEaaSComponentParams,
-  fetchFEaaSComponentProps,
+  fetchFEaaSComponentServerProps,
   getFEAASLibraryStylesheetLinks,
   File,
   FileField,

@@ -5904,17 +5904,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-feaas/clientside@npm:^0.1.44":
-  version: 0.1.44
-  resolution: "@sitecore-feaas/clientside@npm:0.1.44"
-  dependencies:
-    linkedom: ^0.14.22
+"@sitecore-feaas/clientside@npm:^0.1.45":
+  version: 0.1.46
+  resolution: "@sitecore-feaas/clientside@npm:0.1.46"
   peerDependencies:
     react-dom: ">=16.8.0"
-  dependenciesMeta:
-    linkedom:
-      optional: true
-  checksum: ca47080d0f972d5ff9555b45ebf16201de3f74f10ecd1159578ade50b2672f6433fc93a8a32d10198a5e0ee65dd0febecb97a327d1db5c9b5adc406cfb7ebdc4
+  checksum: 8734993c5ad089684daff4c5836a2e7cb7ee8e7658dfd8dde5efb32be6a27a14c60fe7a63445a65833c71c55ab6b2f706adc317ed2b7831115e0c652982209fc
   languageName: node
   linkType: hard
 
@@ -6243,7 +6238,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
-    "@sitecore-feaas/clientside": ^0.1.44
+    "@sitecore-feaas/clientside": ^0.1.45
     "@sitecore-jss/sitecore-jss": ^22.0.0-canary.9
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
@@ -16230,13 +16225,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-escaper@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "html-escaper@npm:3.0.3"
-  checksum: a2678be42c15d2ef6e629775dac0925a729f4615c6593db8358b9262c7565c4627134987c00f548eb4eb76cbc3b3392f78475cd02b022f8ae7aeb9a88280831b
-  languageName: node
-  linkType: hard
-
 "html-react-parser@npm:^3.0.4":
   version: 3.0.4
   resolution: "html-react-parser@npm:3.0.4"
@@ -19644,19 +19632,6 @@ __metadata:
   version: 2.0.3
   resolution: "lines-and-columns@npm:2.0.3"
   checksum: 5955363dfd7d3d7c476d002eb47944dbe0310d57959e2112dce004c0dc76cecfd479cf8c098fd479ff344acdf04ee0e82b455462a26492231ac152f6c48d17a1
-  languageName: node
-  linkType: hard
-
-"linkedom@npm:^0.14.22":
-  version: 0.14.25
-  resolution: "linkedom@npm:0.14.25"
-  dependencies:
-    css-select: ^5.1.0
-    cssom: ^0.5.0
-    html-escaper: ^3.0.3
-    htmlparser2: ^8.0.1
-    uhyphen: ^0.2.0
-  checksum: ab0caf795257f1bdaa8306af0a2c2664176e98e6c74171e8dd7c0718626357316dac53c9bbed37b929eb8cfda9b364f0aa1f75f92afce138a420bced003afdfa
   languageName: node
   linkType: hard
 
@@ -27698,13 +27673,6 @@ __metadata:
   bin:
     uglifyjs: bin/uglifyjs
   checksum: eef57b4fec031f687bef46182c33de5eff6bc40fec8d46152f3b92bb044602dd524a04e33ca5f7391f82db969b92ef6aded860f8a4ee5f4bf796d7420b030236
-  languageName: node
-  linkType: hard
-
-"uhyphen@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "uhyphen@npm:0.2.0"
-  checksum: b946e2c17989f50412d7cc07521a199a1edc52e0320813c06ef5eee21570cd46bbfeb98e82288f21150144a3ef9d4e99395533ab1c918030e5224f3e247cbe57
   languageName: node
   linkType: hard
 

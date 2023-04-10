@@ -25,8 +25,6 @@ describe('<FEaaSComponent />', () => {
     });
   });
 
-  const endpoint = composeComponentEndpoint(requiredParams);
-
   it('should not render with props and params missing', () => {
     const wrapper = shallow(<FEaaSComponent />);
     expect(wrapper).to.have.length(1);
@@ -44,14 +42,6 @@ describe('<FEaaSComponent />', () => {
     expect(wrapper.html()).to.equal(null);
   });
 
-  it('should render empty when only src is provided', () => {
-    const wrapper = shallow(<FEaaSComponent src={endpoint} />);
-    expect(wrapper).to.have.length(1);
-    expect(wrapper.html()).to.equal(
-      '<feaas-component src="https://host123/components/library123/component123/version123/staged"></feaas-component>'
-    );
-  });
-
   it('should render with template and last-modified when provided', () => {
     const template = '<div>test output</div>';
     const lastModified = 'March 1 2020';
@@ -64,14 +54,12 @@ describe('<FEaaSComponent />', () => {
 
   it('should render when only params are provided', () => {
     const props = {
-      template: '',
-      lastModified: '',
       params: requiredParams,
     };
     const wrapper = shallow(<FEaaSComponent {...props} />);
     expect(wrapper).to.have.length(1);
     expect(wrapper.html()).to.equal(
-      '<feaas-component last-modified="" cdn="host123" library="library123" version="version123" component="component123" revision="staged"></feaas-component>'
+      '<feaas-component cdn="host123" library="library123" version="version123" component="component123" revision="staged"></feaas-component>'
     );
   });
 

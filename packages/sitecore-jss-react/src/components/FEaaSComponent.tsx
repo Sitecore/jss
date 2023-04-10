@@ -4,6 +4,9 @@ import { ComponentFields, getFieldValue } from '@sitecore-jss/sitecore-jss/layou
 
 export const FEAAS_COMPONENT_RENDERING_NAME = 'FEaaSComponent';
 
+/**
+ * Params from a Sitecore FEaaS rendering
+ */
 export type FEaaSComponentParams = {
   LibraryId?: string;
   ComponentId?: string;
@@ -33,12 +36,9 @@ type FEaaSComponentServerProps = {
 
 /**
  * FEaaS props for client side component. Should be used as fallback when server props are not provided.
+ * Would also be passed on server to avoid hydration issues
  */
 type FEaaSComponentClientProps = {
-  /**
-   * component endpoint URL
-   */
-  src?: string;
   /**
    * parameters from Sitecore's FEAAS component
    */
@@ -57,7 +57,6 @@ export type FEaaSComponentProps = FEaaSComponentServerProps & FEaaSComponentClie
 export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
   if (
     (!props.lastModified || !props.template) &&
-    !props.src &&
     (!props.params ||
       !props.params.LibraryId ||
       !props.params.ComponentId ||
@@ -87,7 +86,6 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
       data={data}
       template={props.template || ''}
       last-modified={props.lastModified}
-      src={props.src}
       cdn={props.params?.ComponentHostName}
       library={props.params?.LibraryId}
       version={props.params?.ComponentVersion}
@@ -110,7 +108,6 @@ export async function fetchFEaaSComponentServerProps(
   const src = endpointOverride || composeComponentEndpoint(params);
   const { template, lastModified } = await FEAAS.fetchComponent(src);
   return {
-    src,
     template,
     lastModified,
   };
