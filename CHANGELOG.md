@@ -15,18 +15,6 @@ Our versioning strategy is as follows:
 
 `[sitecore-jss-react]` `[sitecore-jss-nextjs]` FEaaS component is now server rendered. Prop type used FEaaSWrapper has been modified alongside with FEaaSWrapper implementation. Make sure you use the updated type and the updated wrapper. ([#1413](https://github.com/Sitecore/jss/pull/1413))
 
-### 🎉 New Features & Improvements
-
-* `[templates/nextjs-sxa]` Add custom template for _jss scaffold_ ([#1420](https://github.com/Sitecore/jss/pull/1420))
-
-### 🧹 Chores
-
-* `[templates/nextjs]` `[templates/nextjs-styleguide-tracking]` Move remaining Styleguide-Tracking artifacts from the base template ([#1422](https://github.com/Sitecore/jss/pull/1422))
-
-### 🐛 Bug Fixes
-
-* `[sitecore-jss-nextjs]` Fix for Link component which throws error if field is undefined ([#1425](https://github.com/Sitecore/jss/pull/1425))
-
 ## 21.1.0
 
 ### 🎉 New Features & Improvements
