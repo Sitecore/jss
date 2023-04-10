@@ -32,6 +32,8 @@ describe('bin', () => {
         '--noInstall',
         '--yes',
         '--silent',
+        '--preCommitHook',
+        'yes',
         '--appName',
         'test',
         '--destination',
@@ -54,6 +56,7 @@ describe('bin', () => {
       expect(args.noInstall).to.equal(true);
       expect(args.yes).to.equal(true);
       expect(args.silent).to.equal(true);
+      expect(args.preCommitHook).to.equal('yes');
       expect(args.appName).to.equal('test');
       expect(args.destination).to.equal('.\\test\\path');
       expect(args.templates).to.equal('foo,bar');
@@ -63,7 +66,16 @@ describe('bin', () => {
     });
 
     it('should accept positional parameters', () => {
-      process.argv = ['node', 'index.ts', 'foo,bar', '--appPrefix', '--appName', 'test'];
+      process.argv = [
+        'node',
+        'index.ts',
+        'foo,bar',
+        '--appPrefix',
+        '--appName',
+        'test',
+        '--preCommitHook',
+        'yes',
+      ];
 
       const args = parseArgs();
 
@@ -137,6 +149,7 @@ describe('bin', () => {
       const args = mockArgs({
         templates: 'foo,bar',
         destination: 'test\\path',
+        preCommitHook: 'yes',
       });
       const expectedTemplates = ['foo', 'bar'];
       await main(args);
@@ -144,6 +157,7 @@ describe('bin', () => {
       expect(inquirerPromptStub).to.not.have.been.called;
       expect(initRunnerStub).to.have.been.calledOnceWith(expectedTemplates, {
         ...args,
+        preCommitHook: args.preCommitHook,
         destination: args.destination,
         templates: expectedTemplates,
       });
@@ -157,6 +171,7 @@ describe('bin', () => {
 
       const args = mockArgs({
         destination: 'test\\path',
+        preCommitHook: 'yes',
         _: ['foo,bar'],
       });
       const expectedTemplates = ['foo', 'bar'];
@@ -165,6 +180,7 @@ describe('bin', () => {
       expect(inquirerPromptStub).to.not.have.been.called;
       expect(initRunnerStub).to.have.been.calledOnceWith(expectedTemplates, {
         ...args,
+        preCommitHook: args.preCommitHook,
         destination: args.destination,
         templates: expectedTemplates,
       });
@@ -180,6 +196,7 @@ describe('bin', () => {
       const args = mockArgs({
         templates: `foo,bar,${invalidTemplate}`,
         destination: 'test\\path',
+        preCommitHook: 'yes',
       });
       const expectedTemplates = ['foo', 'bar'];
       await main(args);
@@ -189,6 +206,7 @@ describe('bin', () => {
       );
       expect(initRunnerStub).to.have.been.calledOnceWith(expectedTemplates, {
         ...args,
+        preCommitHook: args.preCommitHook,
         destination: args.destination,
         templates: expectedTemplates,
       });
@@ -214,14 +232,51 @@ describe('bin', () => {
 
       const args = mockArgs({
         destination: 'test\\path',
+        preCommitHook: 'yes',
       });
       const expectedTemplates = ['foo'];
       await main(args);
 
       expect(initRunnerStub).to.have.been.calledOnceWith(expectedTemplates, {
         ...args,
+        preCommitHook: args.preCommitHook,
         destination: args.destination,
         templates: expectedTemplates,
+      });
+    });
+
+    it('should prompt for preCommitHook', async () => {
+      const choices = ['yes', 'no'];
+      getAllTemplatesStub.returns(['foo', 'bar']);
+      getBaseTemplatesStub.returns(['foo']);
+      fsExistsSyncStub.returns(false);
+      fsReaddirSyncStub.returns([]);
+
+      inquirerPromptStub
+        .withArgs({
+          type: 'list',
+          name: 'preCommitHook',
+          message: 'Would you like to use the pre-commit hook for linting check?',
+          choices: choices,
+          default: 'yes',
+        })
+        .returns({
+          preCommitHook: 'yes',
+        });
+
+      const args = mockArgs({
+        destination: 'test\\path',
+        templates: 'foo',
+      });
+      const expectedTemplate = ['foo'];
+      const expectedChoice = 'yes';
+      await main(args);
+
+      expect(initRunnerStub).to.have.been.calledOnceWith(expectedTemplate, {
+        ...args,
+        preCommitHook: expectedChoice,
+        destination: args.destination,
+        templates: expectedTemplate,
       });
     });
 
@@ -238,6 +293,7 @@ describe('bin', () => {
 
       const args = mockArgs({
         templates: 'foo',
+        preCommitHook: 'yes',
       });
       const expectedTemplates = ['foo'];
       await main(args);
@@ -245,6 +301,7 @@ describe('bin', () => {
       expect(inquirerPromptStub).to.have.been.calledOnce;
       expect(initRunnerStub).to.have.been.calledOnceWith(expectedTemplates, {
         ...args,
+        preCommitHook: args.preCommitHook,
         destination: mockDestination,
         templates: expectedTemplates,
       });
@@ -265,6 +322,7 @@ describe('bin', () => {
         const args = mockArgs({
           templates: 'foo',
           appName: 'testApp',
+          preCommitHook: 'yes',
         });
         const expectedTemplates = ['foo'];
         const expectedDestinationDefault = `${process.cwd()}${sep + args.appName}`;
@@ -295,6 +353,7 @@ describe('bin', () => {
 
         const args = mockArgs({
           templates: 'foo,bar',
+          preCommitHook: 'yes',
         });
         const expectedTemplates = ['foo', 'bar'];
         const expectedDestinationDefault = `${process.cwd()}${sep + expectedTemplates[0]}`;
@@ -309,6 +368,7 @@ describe('bin', () => {
           ...args,
           destination: mockDestination,
           templates: expectedTemplates,
+          preCommitHook: args.preCommitHook,
         });
       });
 
@@ -351,6 +411,7 @@ describe('bin', () => {
         const args = mockArgs({
           templates: 'foo,bar',
           destination: 'test\\path',
+          preCommitHook: 'yes',
         });
         const expectedTemplates = ['foo', 'bar'];
         await main(args);
@@ -364,6 +425,7 @@ describe('bin', () => {
           ...args,
           destination: args.destination,
           templates: expectedTemplates,
+          preCommitHook: args.preCommitHook,
         });
       });
 
@@ -404,6 +466,7 @@ describe('bin', () => {
           templates: 'foo,bar',
           destination: 'test\\path',
           force: true,
+          preCommitHook: 'yes',
         });
         const expectedTemplates = ['foo', 'bar'];
         await main(args);
@@ -413,6 +476,7 @@ describe('bin', () => {
           ...args,
           destination: args.destination,
           templates: expectedTemplates,
+          preCommitHook: args.preCommitHook,
         });
       });
     });
@@ -428,6 +492,7 @@ describe('bin', () => {
       const args = mockArgs({
         templates: 'foo,bar',
         destination: 'test\\path',
+        preCommitHook: 'yes',
       });
       await main(args);
 
