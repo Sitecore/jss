@@ -141,6 +141,8 @@ export {
   EditFrame,
   FEaaSComponent,
   FEaaSComponentProps,
+  FEaaSComponentParams,
+  fetchFEaaSComponentServerProps,
   getFEAASLibraryStylesheetLinks,
   File,
   FileField,

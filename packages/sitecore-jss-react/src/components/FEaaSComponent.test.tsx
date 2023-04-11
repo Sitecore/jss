@@ -1,88 +1,80 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+import {
+  composeComponentEndpoint,
+  FEaaSComponent,
+  FEaaSComponentParams,
+  FEaaSComponentProps,
+} from './FEaaSComponent';
 import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
-import { FEaaSComponent, FEaaSComponentParams } from './FEaaSComponent';
 
 describe('<FEaaSComponent />', () => {
   const requiredParams: FEaaSComponentParams = {
     LibraryId: 'library123',
     ComponentId: 'component123',
     ComponentVersion: 'version123',
-    ComponentRevision: 'revision123',
+    ComponentRevision: 'staged',
     ComponentHostName: 'host123',
   };
 
-  it('should not render if missing params', () => {
-    const rendered = shallow(<FEaaSComponent />).find('feaas-component');
-    expect(rendered).to.have.length(0);
+  describe('composeComponentEndpoint', () => {
+    it('should return endpoint with https when hostname from params is missing it', () => {
+      const endpoint = composeComponentEndpoint(requiredParams);
+      expect(endpoint.startsWith('https://')).to.equal(true);
+    });
   });
 
-  it('should not render if missing required params', () => {
-    const params: FEaaSComponentParams = {
-      LibraryId: '',
-      ComponentId: '',
-      ComponentVersion: '',
-      ComponentRevision: '',
-      ComponentHostName: '',
-      ComponentInstanceId: 'instance',
-      ComponentHTMLOverride: 'html',
-      ComponentDataOverride: '{}',
-    };
-    const rendered = shallow(<FEaaSComponent params={params} />).find('feaas-component');
-    expect(rendered).to.have.length(0);
-  });
-
-  it('should render', () => {
-    const wrapper = shallow(<FEaaSComponent params={requiredParams} />);
+  it('should not render with props and params missing', () => {
+    const wrapper = shallow(<FEaaSComponent />);
     expect(wrapper).to.have.length(1);
-    expect(wrapper.html()).to.contain(
-      '<feaas-stylesheet library="library123" cdn="host123"></feaas-stylesheet>'
-    );
-    expect(wrapper.html()).to.contain(
-      '<feaas-component library="library123" cdn="host123" component="component123" version="version123" revision="revision123" data=""></feaas-component>'
-    );
-    expect(wrapper.html()).to.contain(
-      '<link rel="preload" as="style" href="host123/styles/library123/published.css"/>'
-    );
-    expect(wrapper.html()).to.contain(
-      '<link rel="preload" as="fetch" href="host123/components/library123/component123/version123/revision123.html"/>'
-    );
-    expect(wrapper.html()).to.contain(
-      '<link rel="preload" as="script" href="https://feaasstatic.blob.core.windows.net/packages/clientside/latest/browser/index.esm.js"/>'
+    expect(wrapper.html()).to.equal(null);
+  });
+
+  it('should not render with props missing and only one param present', () => {
+    const props = {
+      params: {
+        ComponentHostName: 'host123',
+      },
+    };
+    const wrapper = shallow(<FEaaSComponent {...props} />);
+    expect(wrapper).to.have.length(1);
+    expect(wrapper.html()).to.equal(null);
+  });
+
+  it('should render with template and last-modified when provided', () => {
+    const template = '<div>test output</div>';
+    const lastModified = 'March 1 2020';
+    const wrapper = shallow(<FEaaSComponent template={template} lastModified={lastModified} />);
+    expect(wrapper).to.have.length(1);
+    expect(wrapper.html()).to.equal(
+      `<feaas-component last-modified="${lastModified}">${template}</feaas-component>`
     );
   });
 
-  it('should render optional instance', () => {
-    const params: FEaaSComponentParams = {
-      ...requiredParams,
-      ComponentInstanceId: 'instance123',
+  it('should render when only params are provided', () => {
+    const props = {
+      params: requiredParams,
     };
-    const wrapper = shallow(<FEaaSComponent params={params} />);
+    const wrapper = shallow(<FEaaSComponent {...props} />);
     expect(wrapper).to.have.length(1);
-    expect(wrapper.html()).to.contain('instance="instance123"');
-  });
-
-  it('should render optional html', () => {
-    const params: FEaaSComponentParams = {
-      ...requiredParams,
-      ComponentHTMLOverride: '<div>foo</div>',
-    };
-    const wrapper = shallow(<FEaaSComponent params={params} />);
-    expect(wrapper).to.have.length(1);
-    expect(wrapper.html()).to.contain(params.ComponentHTMLOverride);
+    expect(wrapper.html()).to.equal(
+      '<feaas-component cdn="host123" library="library123" version="version123" component="component123" revision="staged"></feaas-component>'
+    );
   });
 
   describe('data', () => {
     it('should send override data', () => {
-      const params: FEaaSComponentParams = {
-        ...requiredParams,
-        ComponentDataOverride: '{ "foo": "bar", "baz": 1 }',
+      const props: FEaaSComponentProps = {
+        params: {
+          ...requiredParams,
+          ComponentDataOverride: '{ "foo": "bar", "baz": 1 }',
+        },
       };
-      const wrapper = shallow(<FEaaSComponent params={params} />);
+      const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
       expect(wrapper.html()).to.contain(
-        `data="${params.ComponentDataOverride!.replace(/"/g, '&quot;')}"`
+        `data="${props.params?.ComponentDataOverride!.replace(/"/g, '&quot;')}"`
       );
     });
 
@@ -108,6 +100,12 @@ describe('<FEaaSComponent />', () => {
           },
         },
       };
+      const props: FEaaSComponentProps = {
+        params: {
+          ...requiredParams,
+        },
+        fields,
+      };
       const expectedData = {
         _: {
           sampleText: 'Welcome to Sitecore JSS',
@@ -123,7 +121,7 @@ describe('<FEaaSComponent />', () => {
           },
         },
       };
-      const wrapper = shallow(<FEaaSComponent params={requiredParams} fields={fields} />);
+      const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
       expect(wrapper.html()).to.contain(
         `data="${JSON.stringify(expectedData).replace(/"/g, '&quot;')}"`
@@ -131,19 +129,23 @@ describe('<FEaaSComponent />', () => {
     });
 
     it('should prefer override data over datasource fields', () => {
-      const params: FEaaSComponentParams = {
-        ...requiredParams,
-        ComponentDataOverride: '{ "foo": "bar", "baz": 1 }',
-      };
       const fields: ComponentFields = {
         sampleText: {
           value: 'Welcome to Sitecore JSS',
         },
       };
-      const wrapper = shallow(<FEaaSComponent params={params} fields={fields} />);
+      const props: FEaaSComponentProps = {
+        params: {
+          ...requiredParams,
+          ComponentDataOverride: '{ "foo": "bar", "baz": 1 }',
+        },
+        fields,
+      };
+
+      const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
       expect(wrapper.html()).to.contain(
-        `data="${params.ComponentDataOverride!.replace(/"/g, '&quot;')}"`
+        `data="${props.params?.ComponentDataOverride!.replace(/"/g, '&quot;')}"`
       );
     });
   });
