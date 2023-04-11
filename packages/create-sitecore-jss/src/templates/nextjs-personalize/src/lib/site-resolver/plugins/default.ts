@@ -1,4 +1,5 @@
-import { SiteInfo, tryParseEnvValue } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
+import { SiteInfo } from '@sitecore-jss/sitecore-jss-nextjs/site';
+import { tryParseEnvValue } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 import config from 'temp/config';
 import { SiteResolverPlugin } from '..';
 
