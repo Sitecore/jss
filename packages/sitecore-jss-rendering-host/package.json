@@ -46,7 +46,6 @@
     "@types/webpack-dev-middleware": "2.0.5",
     "@types/webpack-dev-server": "3.1.7",
     "chai": "^4.3.0",
-    "compression": "^1.7.2",
     "del-cli": "^5.0.0",
     "eslint": "^8.33.0",
     "mocha": "^10.2.0",

@@ -6292,7 +6292,7 @@ __metadata:
     "@types/webpack-dev-middleware": 2.0.5
     "@types/webpack-dev-server": 3.1.7
     chai: ^4.3.0
-    compression: ^1.7.2
+    compression: ^1.7.4
     del: ^6.1.1
     del-cli: ^5.0.0
     eslint: ^8.33.0
@@ -11335,7 +11335,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compression@npm:^1.7.1, compression@npm:^1.7.2, compression@npm:^1.7.4":
+"compression@npm:^1.7.1, compression@npm:^1.7.4":
   version: 1.7.4
   resolution: "compression@npm:1.7.4"
   dependencies:
