@@ -44,11 +44,6 @@ const nextConfig = {
         source: '/-/:path*',
         destination: `${jssConfig.sitecoreApiHost}/-/:path*`,
       },
-      // visitor identification
-      {
-        source: '/layouts/system/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/layouts/system/:path*`,
-      },
       // healthz check
       {
         source: '/healthz',
