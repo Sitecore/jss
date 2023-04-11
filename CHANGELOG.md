@@ -13,9 +13,6 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 * `[templates/nextjs-personalize]` Disable page view tracking event in development ([#1414](https://github.com/Sitecore/jss/pull/1414))
-
-### 🎉 New Features & Improvements
-
 * `[templates/nextjs-sxa]` Add custom template for _jss scaffold_ ([#1420](https://github.com/Sitecore/jss/pull/1420))
 
 ### 🧹 Chores
@@ -25,6 +22,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-nextjs]` Fix for Link component which throws error if field is undefined ([#1425](https://github.com/Sitecore/jss/pull/1425))
+* `[templates/react]` Fix compilation error ([#1428](https://github.com/Sitecore/jss/pull/1428))
 
 ## 21.1.0
 
