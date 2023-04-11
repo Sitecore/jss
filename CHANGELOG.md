@@ -14,16 +14,14 @@ Our versioning strategy is as follows:
 ### 🛠 Breaking Changes
 
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` FEaaS component is now server rendered. Prop type used FEaaSWrapper has been modified alongside with FEaaSWrapper implementation. Make sure you use the updated type and the updated wrapper. ([#1413](https://github.com/Sitecore/jss/pull/1413))
+* `[sitecore-jss-rendering-host]` `startDevServer` is retired. `startRenderingHostServer` is the only way to start the rendering host from now on. ([#1426](https://github.com/Sitecore/jss/pull/1426))
 * `[sitecore-jss-nextjs]` Some imports have been moved to avoid accidentally importing nextjs server logic inside client componenents:
   * SiteInfo and SiteResolver imports have been moved from '@sitecore-jss/sitecore-jss-nextjs/middleware' module to '@sitecore-jss/sitecore-jss-nextjs/site'
   * tryParseEnvValue import has been moved from '@sitecore-jss/sitecore-jss-nextjs/middleware' module to '@sitecore-jss/sitecore-jss-nextjs/utils'
- 
 
 ### 🎉 New Features & Improvements
+
 * `[templates/nextjs-personalize]` Disable page view tracking event in development ([#1414](https://github.com/Sitecore/jss/pull/1414))
-
-### 🎉 New Features & Improvements
-
 * `[templates/nextjs-sxa]` Add custom template for _jss scaffold_ ([#1420](https://github.com/Sitecore/jss/pull/1420))
 
 ### 🧹 Chores
