@@ -27,7 +27,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "@sitecore-feaas/clientside": "^0.1.45",
+    "@sitecore-feaas/clientside": "^0.1.48",
     "@types/chai": "^4.3.4",
     "@types/chai-string": "^1.4.2",
     "@types/deep-equal": "^1.0.1",
