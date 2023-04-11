@@ -40,8 +40,7 @@ export type WebServerMiddleware = (
 
 export type SSRMiddleware = (options: SSRMiddlewareOptions) => WebServerMiddleware;
 
-// don't assume this middleware will always be used by WebpackDevServer
-// it may also be used by a "standalone" JSS rendering host / express server.
+// may be used by a "standalone" JSS rendering host / express server.
 export const ssrMiddleware: SSRMiddleware = ({
   appInvocationInfoResolver,
 }: SSRMiddlewareOptions) => {
