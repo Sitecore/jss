@@ -1,11 +1,11 @@
+import { execSync, exec } from 'child_process';
+import { promisify } from 'util';
+import fs from 'fs';
+import path from 'path';
 import chalk from 'chalk';
 import chokidar from 'chokidar';
-import path from 'path';
+
 import { initRunner } from '../src/init-runner';
-const { execSync, exec } = require('child_process');
-const { promisify } = require('util');
-// const rimraf = promisify(require('rimraf'));
-const fs = require('fs');
 
 chokidar
   .watch(path.join(process.cwd(), '.\\src\\templates'), { ignoreInitial: true })
