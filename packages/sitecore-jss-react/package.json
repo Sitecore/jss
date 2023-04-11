@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react",
-  "version": "22.0.0-canary.15",
+  "version": "22.0.0-canary.17",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -27,7 +27,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "@sitecore-feaas/clientside": "^0.1.24",
+    "@sitecore-feaas/clientside": "^0.1.48",
     "@types/chai": "^4.3.4",
     "@types/chai-string": "^1.4.2",
     "@types/deep-equal": "^1.0.1",
@@ -62,7 +62,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^22.0.0-canary.15",
+    "@sitecore-jss/sitecore-jss": "^22.0.0-canary.17",
     "deep-equal": "^2.1.0",
     "html-react-parser": "^3.0.4",
     "prop-types": "^15.8.1",
