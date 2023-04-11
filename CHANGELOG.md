@@ -18,6 +18,9 @@ Our versioning strategy is as follows:
 ## 21.1.0
 
 ### 🎉 New Features & Improvements
+* `[templates/nextjs-personalize]` Disable page view tracking event in development ([#1414](https://github.com/Sitecore/jss/pull/1414))
+
+### 🎉 New Features & Improvements
 
 * `[templates/nextjs-sxa]` Add custom template for _jss scaffold_ ([#1420](https://github.com/Sitecore/jss/pull/1420))
 
