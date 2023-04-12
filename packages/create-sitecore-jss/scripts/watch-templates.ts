@@ -46,7 +46,7 @@ function restoreLockfile() {
 /**
  * Removes and then regenerates the yarn.lock file in order to resolve conflicting dependencies for react template.
  */
-async function regenerateYarnLock() {
+async function regenerateLockFile() {
   const yarnLockPath = path.join(__dirname, '..', '..', '..', 'yarn.lock');
   const rootPath = path.join(__dirname, '..', '..', '..');
 
