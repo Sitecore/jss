@@ -22,7 +22,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-nextjs]` Fix for Link component which throws error if field is undefined ([#1425](https://github.com/Sitecore/jss/pull/1425))
-* `[templates/react]` Fix compilation error ([#1428](https://github.com/Sitecore/jss/pull/1428))
+* `[templates/react]` Fix compilation error when developing react template in monorepo ([#1428](https://github.com/Sitecore/jss/pull/1428))
 
 ## 21.1.0
 
