@@ -27,6 +27,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* `[sitecore-jss-react]` Hydration error when render Link in Edit mode ([#1432](https://github.com/Sitecore/jss/pull/1432))
 * `[sitecore-jss-nextjs]` Fix for Link component which throws error if field is undefined ([#1425](https://github.com/Sitecore/jss/pull/1425))
 
 ## 21.1.0
