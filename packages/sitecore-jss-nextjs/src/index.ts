@@ -11,12 +11,27 @@ export {
   HTMLLink,
   enableDebug,
 } from '@sitecore-jss/sitecore-jss';
-export {
-  isEditorActive,
-  resetEditorChromes,
-  resolveUrl,
-  tryParseEnvValue,
+// we will remove the root exports for these later
+// we cannot mark exports as deprected directly, so we're using this hack instead
+import {
+  isEditorActive as isEditorActiveDep,
+  resetEditorChromes as resetEditorChromesDep,
+  resolveUrl as resolveUrlDep,
+  tryParseEnvValue as tryParseEnvValueDep,
 } from '@sitecore-jss/sitecore-jss/utils';
+/** @deprecated use import from '@sitecore-jss/sitecore-jss-nextjs/utils' instead */
+const {
+  isEditorActiveDep: isEditorActive,
+  resetEditorChromesDep: resetEditorChromes,
+  resolveUrlDep: resolveUrl,
+  tryParseEnvValueDep: tryParseEnvValue,
+} = {
+  isEditorActiveDep,
+  resetEditorChromesDep,
+  resolveUrlDep,
+  tryParseEnvValueDep,
+};
+export { isEditorActive, resetEditorChromes, resolveUrl, tryParseEnvValue };
 export {
   LayoutService,
   LayoutServiceData,

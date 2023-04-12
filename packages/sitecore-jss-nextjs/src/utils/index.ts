@@ -1,2 +1,2 @@
-export { getPublicUrl, handleEditorFastRefresh, getJssEditingSecret } from './utils';
+export { getPublicUrl, handleEditorFastRefresh } from './utils';
 export { tryParseEnvValue } from '@sitecore-jss/sitecore-jss/utils';
