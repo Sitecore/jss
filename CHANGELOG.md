@@ -18,6 +18,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Some imports have been moved to avoid accidentally importing nextjs server logic inside client componenents([#1430](https://github.com/Sitecore/jss/pull/1430/)):
   * SiteInfo and SiteResolver imports have been moved from '@sitecore-jss/sitecore-jss-nextjs/middleware' module to '@sitecore-jss/sitecore-jss-nextjs/site'
   * tryParseEnvValue import has been moved from '@sitecore-jss/sitecore-jss-nextjs/middleware' module to '@sitecore-jss/sitecore-jss-nextjs/utils'
+  * exports for isEditorActive, resetEditorChromes, resolveUrl, tryParseEnvValue, handleEditorFastRefresh, getPublicUrl from '@sitecore-jss/sitecore-jss-nextjs' are depreceated. '@sitecore-jss/sitecore-jss-nextjs/utils' module should be used for them instead. 
 
 ### 🎉 New Features & Improvements
 

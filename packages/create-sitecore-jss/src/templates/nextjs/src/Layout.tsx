@@ -2,11 +2,11 @@ import React from 'react';
 import Head from 'next/head';
 import {
   Placeholder,
-  getPublicUrl,
   LayoutServiceData,
   Field,
   HTMLLink,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 import Navigation from 'src/Navigation';
 import Scripts from 'src/Scripts';
 

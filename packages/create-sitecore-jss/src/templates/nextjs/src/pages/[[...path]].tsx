@@ -10,12 +10,12 @@ import {
   RenderingType,
   SitecoreContext,
   ComponentPropsContext,
-  handleEditorFastRefresh,
   EditingComponentPlaceholder,
   <% if (prerender === 'SSG') { -%>
   StaticPath,
   <% } -%>
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import { handleEditorFastRefresh } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 // different componentFactory method will be used based on whether page is being edited
