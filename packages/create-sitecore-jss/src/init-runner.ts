@@ -36,21 +36,20 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
   await runner(initializers);
 
   saveConfiguration(args.templates, path.resolve(`${args.destination}${sep}package.json`));
-
-  // if you opt in to use the pre-commit hook for linting check,
-  // then in order to install the husky - git hooks we need to initialize the git repository.
-  if (args.preCommitHook === 'yes') {
-    exec(`cd ${args.destination} && git init`, (err: Error) => {
-      if (err) {
-        console.log('Error initializing repository:', err);
-      }
-    });
-  }
-
   // final steps (install, lint, etc)
   if (!args.noInstall) {
     installPackages(args.destination, args.silent);
     lintFix(args.destination, args.silent);
+  }
+
+  // if you opt in to use the pre-commit hook for linting check,
+  // we need to initialize a git repository and install the hook locally.
+  if (args.preCommitHook === 'yes') {
+    exec(`cd ${args.destination} && git init && npm run install-pre-commit-hook`, (err: Error) => {
+      if (err) {
+        console.log('Error:', err);
+      }
+    });
   }
 
   if (!args.silent) {

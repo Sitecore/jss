@@ -63,7 +63,6 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-yaml": "^0.5.0",
     "graphql-let": "^0.18.6",
-    "husky": "^8.0.3",
     "npm-run-all": "~4.1.5",
     "prettier": "^2.8.3",
     "ts-node": "^10.9.1",
@@ -84,7 +83,7 @@
     "start:connected": "npm-run-all --serial bootstrap --parallel next:dev start:watch-components",
     "start:production": "npm-run-all --serial bootstrap next:build next:start",
     "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch",
-    "prepare": "husky install",
+    "install-pre-commit-hook": "node ./scripts/install-pre-commit-hook.js",
     "pre-commit": "yarn lint --fix"
   }
 }

@@ -35,7 +35,7 @@
     "postbuild:server": "move-cli ./dist/server/main.js ./dist/server.bundle.js && del-cli ./dist/server",
     "bootstrap": "ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts",
     "graphql:update": "ts-node --project src/tsconfig.webpack-server.json ./scripts/update-graphql-fragment-data.ts",
-    "prepare": "husky install",
+    "install-pre-commit-hook": "node ./scripts/install-pre-commit-hook.js",
     "pre-commit": "yarn lint --fix"
   },
   "private": true,
@@ -114,7 +114,6 @@
     "eslint-plugin-prefer-arrow": "1.2.3",
     "express": "~4.17.1",
     "fs-extra": "~9.1.0",
-    "husky": "^8.0.3",
     "isomorphic-fetch": "^3.0.0",
     "jasmine-core": "~3.7.1",
     "jasmine-spec-reporter": "~6.0.0",
