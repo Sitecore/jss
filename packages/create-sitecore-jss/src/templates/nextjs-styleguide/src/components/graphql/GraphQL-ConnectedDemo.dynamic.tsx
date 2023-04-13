@@ -7,8 +7,10 @@ import {
   constants,
   GraphQLRequestClient,
   withDatasourceCheck,
-  resetEditorChromes,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  resetEditorChromes
+} from '@sitecore-jss/sitecore-jss-nextjs/utils';
 import NextLink from 'next/link';
 import { ConnectedDemoQueryDocument } from './GraphQL-ConnectedDemo.dynamic.graphql';
 import {

@@ -11,12 +11,38 @@ export {
   HTMLLink,
   enableDebug,
 } from '@sitecore-jss/sitecore-jss';
-export {
-  isEditorActive,
-  resetEditorChromes,
-  resolveUrl,
-  tryParseEnvValue,
+
+// we will remove the root exports for these later
+// we cannot mark exports as deprected directly, so we're using this hack instead
+import {
+  isEditorActive as isEditorActiveDep,
+  resetEditorChromes as resetEditorChromesDep,
+  resolveUrl as resolveUrlDep,
+  tryParseEnvValue as tryParseEnvValueDep,
 } from '@sitecore-jss/sitecore-jss/utils';
+import {
+  handleEditorFastRefresh as handleEditorFastRefreshDep,
+  getPublicUrl as getPublicUrlDep,
+} from './utils';
+/** @deprecated use import from '@sitecore-jss/sitecore-jss-nextjs/utils' instead */
+const {
+  isEditorActiveDep: isEditorActive,
+  resetEditorChromesDep: resetEditorChromes,
+  resolveUrlDep: resolveUrl,
+  tryParseEnvValueDep: tryParseEnvValue,
+  handleEditorFastRefreshDep: handleEditorFastRefresh,
+  getPublicUrlDep: getPublicUrl,
+} = {
+  isEditorActiveDep,
+  resetEditorChromesDep,
+  resolveUrlDep,
+  tryParseEnvValueDep,
+  handleEditorFastRefreshDep,
+  getPublicUrlDep,
+};
+export { handleEditorFastRefresh, getPublicUrl };
+export { isEditorActive, resetEditorChromes, resolveUrl, tryParseEnvValue };
+
 export {
   LayoutService,
   LayoutServiceData,
@@ -118,8 +144,6 @@ export {
   ComponentPropsContext,
   useComponentProps,
 } from './components/ComponentPropsContext';
-
-export { handleEditorFastRefresh, getPublicUrl } from './utils';
 
 export { Link, LinkProps } from './components/Link';
 export { RichText, RichTextProps } from './components/RichText';

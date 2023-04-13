@@ -9,7 +9,7 @@ import {
   editingDataService,
   QUERY_PARAM_EDITING_SECRET,
 } from './editing-data-service';
-import { getJssEditingSecret } from '../utils';
+import { getJssEditingSecret } from '../utils/utils';
 
 export interface EditingRenderMiddlewareConfig {
   /**

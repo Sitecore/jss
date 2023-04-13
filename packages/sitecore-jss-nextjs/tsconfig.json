@@ -17,6 +17,8 @@
     "middleware.d.ts",
     "editing.d.ts",
     "monitoring.d.ts",
+    "site.d.ts",
+    "utils.d.ts",
     "src/tests/*",
     "src/test-data/*",
     "**/*.test.ts",
