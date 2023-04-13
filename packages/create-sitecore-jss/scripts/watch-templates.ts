@@ -54,7 +54,7 @@ async function regenerateLockFile() {
 
   try {
     // Remove yarn.lock
-    await fs.unlink(yarnLockPath, (err: Error) => {
+    fs.unlink(yarnLockPath, (err) => {
       if (err) {
         console.error(err);
         return;
@@ -82,7 +82,7 @@ const initializeApps = async (noInstall: boolean) => {
       restoreLockfile();
     }
     if (initializers.includes('react')) {
-      await regenerateYarnLock();
+      await regenerateLockFile();
     }
   } catch (error) {
     console.log(chalk.red('An error occurred: ', error));
