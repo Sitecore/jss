@@ -148,9 +148,14 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
     return redirects.length
       ? redirects.find((redirect: RedirectInfo) => {
+          const pattern = `/^/${redirect.pattern
+            .toLowerCase()
+            .replace(/^\/|\/$/g, '')
+            .replace(/^\^|\$$/g, '')}$/`;
+
           return (
-            (regexParser(redirect.pattern.toLowerCase()).test(req.nextUrl.pathname.toLowerCase()) ||
-              regexParser(redirect.pattern.toLowerCase()).test(
+            (regexParser(pattern).test(req.nextUrl.pathname.toLowerCase()) ||
+              regexParser(pattern).test(
                 `/${req.nextUrl.locale}${req.nextUrl.pathname}`.toLowerCase()
               )) &&
             (redirect.locale
