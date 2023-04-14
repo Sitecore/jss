@@ -24,6 +24,7 @@ Our versioning strategy is as follows:
 
 * `[templates/nextjs-personalize]` Disable page view tracking event in development ([#1414](https://github.com/Sitecore/jss/pull/1414))
 * `[templates/nextjs-sxa]` Add custom template for _jss scaffold_ ([#1420](https://github.com/Sitecore/jss/pull/1420))
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` FEaaS component will render 'staged' variant for editing and preview and 'published' variant for live site by default, unless variant is overriden via rendering parameters. ([#1433](https://github.com/Sitecore/jss/pull/1433))
 
 ### 🧹 Chores
 
