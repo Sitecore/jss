@@ -20,8 +20,17 @@ describe('<FEaaSComponent />', () => {
 
   describe('composeComponentEndpoint', () => {
     it('should return endpoint with https when hostname from params is missing it', () => {
-      const endpoint = composeComponentEndpoint(requiredParams);
+      const endpoint = composeComponentEndpoint(requiredParams, 'staged');
       expect(endpoint.startsWith('https://')).to.equal(true);
+    });
+
+    it('should use fallback when variant is not passed via params', () => {
+      const params = {
+        ...requiredParams,
+        ComponentRevision: undefined,
+      };
+      const endpoint = composeComponentEndpoint(params, 'published');
+      expect(endpoint.endsWith('/published')).to.equal(true);
     });
   });
 
