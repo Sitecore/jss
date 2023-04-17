@@ -31,6 +31,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* `[sitecore-jss-react]` Hydration error when render Link in Edit mode ([#1432](https://github.com/Sitecore/jss/pull/1432))
 * `[sitecore-jss-nextjs]` Fix for Link component which throws error if field is undefined ([#1425](https://github.com/Sitecore/jss/pull/1425))
 * `[templates/react]` Fix compilation error when developing react template in monorepo ([#1428](https://github.com/Sitecore/jss/pull/1428))
 * `[sitecore-jss-nextjs]` Fix regex for middleware redirects ([#1431](https://github.com/Sitecore/jss/pull/1431))

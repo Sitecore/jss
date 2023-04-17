@@ -1,6 +1,5 @@
 import React, { ReactElement, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import parse from 'html-react-parser';
 
 export interface LinkFieldValue {
   [attributeName: string]: unknown;
@@ -68,17 +67,18 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
       const htmlProps = {
         className: 'sc-link-wrapper',
+        dangerouslySetInnerHTML: {
+          __html: markup,
+        },
         ...otherProps,
         key: 'editable',
       };
 
-      const components = parse(markup, {
-        htmlparser2: {
-          lowerCaseTags: false,
-        },
-      });
+      // Exclude children, since 'dangerouslySetInnerHTML' and 'children' can't be set together
+      // and children will be added as a sibling
+      delete htmlProps.children;
 
-      resultTags.push(<span {...htmlProps}>{components}</span>);
+      resultTags.push(<span {...htmlProps} />);
 
       // don't render normal link tag when editing, if no children exist
       // this preserves normal-ish behavior if not using a link body (no hacks required)
