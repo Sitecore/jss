@@ -7,11 +7,12 @@ import { ConfigPlugin, JssConfig } from '..';
  */
 class ComputedPlugin implements ConfigPlugin {
   // should come after other plugins (but before fallback)
-  order = 10;
+  order = 3;
 
   async exec(config: JssConfig) {
     return Object.assign({}, config, {
-      graphQLEndpoint: config.graphQLEndpoint || `${config.sitecoreApiHost}${config.graphQLEndpointPath}`,
+      graphQLEndpoint:
+        config.graphQLEndpoint || `${config.sitecoreApiHost}${config.graphQLEndpointPath}`,
     });
   }
 }
