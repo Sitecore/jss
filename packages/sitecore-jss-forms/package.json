@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-forms",
-  "version": "22.0.0-canary.21",
+  "version": "22.0.0-canary.24",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -44,11 +44,7 @@
     "typescript": "~4.9.5"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@sitecore-jss/sitecore-jss": "^22.0.0-canary.23"
-=======
-    "@sitecore-jss/sitecore-jss": "^22.0.0-canary.21"
->>>>>>> parent of f24f534e5 (version v22.0.0-canary.22 [skip ci])
+    "@sitecore-jss/sitecore-jss": "^22.0.0-canary.24"
   },
   "description": "",
   "types": "types/index.d.ts",
