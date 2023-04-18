@@ -7,7 +7,7 @@ import { ConfigPlugin, JssConfig } from '..';
  */
 class ComputedPlugin implements ConfigPlugin {
   // should come after other plugins (but before fallback)
-  order = 3;
+  order = 10;
 
   async exec(config: JssConfig) {
     return Object.assign({}, config, {
