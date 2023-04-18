@@ -27,12 +27,12 @@ export const Default = (props: FEaaSComponentProps): JSX.Element => {
  * @param {LayoutServiceData} layoutData
  * @param {GetStaticPropsContext} context
  */
-export const getStaticProps: GetStaticComponentProps = async (rendering) => {
+export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
   if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
     return null;
   }
   const params: FEaaSComponentParams = rendering.params || {};
-  const result = await fetchFEaaSComponentServerProps(params);
+  const result = await fetchFEaaSComponentServerProps(params, layoutData.sitecore.context.pageState);
   return result;
 };
 
@@ -42,11 +42,11 @@ export const getStaticProps: GetStaticComponentProps = async (rendering) => {
  * @param {LayoutServiceData} layoutData
  * @param {GetStaticPropsContext} context
  */
-export const getServerSideProps: GetServerSideComponentProps = async (rendering) => {
+export const getServerSideProps: GetServerSideComponentProps = async (rendering, layoutData) => {
   if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
     return null;
   }
   const params: FEaaSComponentParams = rendering.params || {};
-  const result = await fetchFEaaSComponentServerProps(params);
+  const result = await fetchFEaaSComponentServerProps(params, layoutData.sitecore.context.pageState);
   return result;
 };
