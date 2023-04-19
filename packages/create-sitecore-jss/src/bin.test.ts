@@ -9,8 +9,6 @@ import { ParsedArgs } from 'minimist';
 import { parseArgs, main } from './bin';
 import * as helpers from './common/utils/helpers';
 import * as initRunner from './init-runner';
-const chai = require('chai');
-chai.use(require('sinon-chai'));
 
 describe('bin', () => {
   describe('parseArgs', () => {

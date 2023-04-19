@@ -7,7 +7,7 @@ const installHooks = () => {
 # pre-push hook runs our linter before we push our changes
 #
 echo "Running lint check..."
-yarn prepush`;
+npm run prepush`;
 
   // \x1b[32m%s\x1b[0m - set color to green, insert the string, reset color after string is logged to console
   console.log('\x1b[32m%s\x1b[0m', 'Writing to local .git folder...');
