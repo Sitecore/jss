@@ -32,7 +32,7 @@ describe('bin', () => {
         '--noInstall',
         '--yes',
         '--silent',
-        '--prePush',
+        '--prePushHook',
         '--appName',
         'test',
         '--destination',
@@ -55,7 +55,7 @@ describe('bin', () => {
       expect(args.noInstall).to.equal(true);
       expect(args.yes).to.equal(true);
       expect(args.silent).to.equal(true);
-      expect(args.prePush).to.equal(true);
+      expect(args.prePushHook).to.equal(true);
       expect(args.appName).to.equal('test');
       expect(args.destination).to.equal('.\\test\\path');
       expect(args.templates).to.equal('foo,bar');
@@ -136,7 +136,7 @@ describe('bin', () => {
       fsExistsSyncStub.returns(false);
       fsReaddirSyncStub.returns([]);
       inquirerPromptStub.returns({
-        prePush: true,
+        prePushHook: true,
       });
 
       const args = mockArgs({
@@ -160,12 +160,12 @@ describe('bin', () => {
       fsExistsSyncStub.returns(false);
       fsReaddirSyncStub.returns([]);
       inquirerPromptStub.returns({
-        prePush: true,
+        prePushHook: true,
       });
 
       const args = mockArgs({
         destination: 'test\\path',
-        prePush: true,
+        prePushHook: true,
         _: ['foo,bar'],
       });
       const expectedTemplates = ['foo', 'bar'];
@@ -185,7 +185,7 @@ describe('bin', () => {
       fsExistsSyncStub.returns(false);
       fsReaddirSyncStub.returns([]);
       inquirerPromptStub.returns({
-        prePush: true,
+        prePushHook: true,
       });
 
       const invalidTemplate = 'baz';
@@ -212,7 +212,7 @@ describe('bin', () => {
       fsExistsSyncStub.returns(false);
       fsReaddirSyncStub.returns([]);
       inquirerPromptStub.returns({
-        prePush: true,
+        prePushHook: true,
       });
 
       inquirerPromptStub
@@ -246,7 +246,7 @@ describe('bin', () => {
       fsExistsSyncStub.returns(false);
       fsReaddirSyncStub.returns([]);
       inquirerPromptStub.returns({
-        prePush: true,
+        prePushHook: true,
       });
 
       const mockDestination = 'my\\path';
