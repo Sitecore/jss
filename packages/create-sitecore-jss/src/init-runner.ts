@@ -42,12 +42,12 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
     lintFix(args.destination, args.silent);
   }
 
-  // if you opt in to use the pre-commit hook for linting check,
+  // if you opt in to use the pre-push hook for linting check,
   // we need to initialize a git repository and install the hook locally.
-  if (args.preCommitHook === 'yes') {
-    exec(`cd ${args.destination} && git init && npm run install-pre-commit-hook`, (err: Error) => {
+  if (args.prePush) {
+    exec(`cd ${args.destination} && git init && npm run install-pre-push-hook`, (err: Error) => {
       if (err) {
-        console.log('Error:', err);
+        console.log(chalk.yellow(`Warning: Pre-push hook may not be working due to error ${err}`));
       }
     });
   }

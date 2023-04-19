@@ -44,8 +44,8 @@
     "bootstrap": "node scripts/bootstrap.js",
     "graphql:update": "cross-env-shell VUE_CLI_BABEL_TRANSPILE_MODULES=true VUE_CLI_BABEL_TARGET_NODE=true \"node -r @babel/register ./scripts/update-graphql-fragment-data.js\"",
     "lint": "vue-cli-service lint ./src/**/*.vue ./src/**/*.js ./sitecore/definitions/**/*.js ./scripts/**/*.js ./server/**/*.js ./data/**/*.yml",
-    "install-pre-commit-hook": "node ./scripts/install-pre-commit-hook.js",
-    "pre-commit": "yarn lint --fix"
+    "install-pre-push-hook": "node ./scripts/install-pre-push-hook.js",
+    "prepush": "yarn lint --fix"
   },
   "dependencies": {
     "@apollo/client": "^3.7.4",

@@ -1,5 +1,4 @@
 import { ClientAppAnswer } from '../prompts/base';
-import { PreCommitHook } from '../../bin';
 
 type Arg = string | number | boolean;
 
@@ -31,9 +30,9 @@ export type BaseArgs = {
    */
   yes?: boolean;
   /**
-   * Pre-commit hook for linting check
+   * Pre-push hook for linting check
    */
-  preCommitHook?: PreCommitHook;
+  prePush?: boolean;
 };
 
 /**
