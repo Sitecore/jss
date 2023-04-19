@@ -98,9 +98,7 @@ export const main = async (args: ParsedArgs) => {
     args.force = true;
   }
 
-  if (args.yes) {
-    args.prePushHook = true;
-  } else {
+  if (!args.yes) {
     const answer = await inquirer.prompt({
       type: 'confirm',
       name: 'prePushHook',
@@ -109,6 +107,7 @@ export const main = async (args: ParsedArgs) => {
 
     args.prePushHook = answer.prePushHook;
   }
+
   try {
     await initRunner(templates.slice(), { ...args, destination, templates });
   } catch (error) {
