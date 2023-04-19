@@ -32,7 +32,7 @@ export type BaseArgs = {
   /**
    * Pre-push hook for linting check
    */
-  prePush?: boolean;
+  prePushHook?: boolean;
 };
 
 /**

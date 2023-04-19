@@ -35,8 +35,7 @@
     "postbuild:server": "move-cli ./dist/server/main.js ./dist/server.bundle.js && del-cli ./dist/server",
     "bootstrap": "ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts",
     "graphql:update": "ts-node --project src/tsconfig.webpack-server.json ./scripts/update-graphql-fragment-data.ts",
-    "install-pre-push-hook": "node ./scripts/install-pre-push-hook.js",
-    "prepush": "yarn lint --fix"
+    "install-pre-push-hook": "node ./scripts/install-pre-push-hook.js"
   },
   "private": true,
   "author": {
