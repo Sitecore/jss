@@ -8,7 +8,7 @@ import { GraphQLSiteInfoService, SiteInfo } from '@sitecore-jss/sitecore-jss-nex
  * You could easily modify this to fetch from another source such as a static JSON file instead.
  */
 class MultisitePlugin implements ConfigPlugin {
-  order = 3;
+  order = 11;
 
   async exec(config: JssConfig) {
     let sites: SiteInfo[] = [];
