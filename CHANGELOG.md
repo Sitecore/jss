@@ -37,6 +37,7 @@ Our versioning strategy is as follows:
 * `[templates/react]` Fix compilation error when developing react template in monorepo ([#1428](https://github.com/Sitecore/jss/pull/1428))
 * `[sitecore-jss-nextjs]` Fix regex for middleware redirects ([#1431](https://github.com/Sitecore/jss/pull/1431))
 * `[sitecore-jss-angular]` Fix memory leak in image and link components ([#1435](https://github.com/Sitecore/jss/pull/1435))
+* `[templates/nextjs-multisite]` Fix skipped site info fetch ([#1434](https://github.com/Sitecore/jss/pull/1434))
 
 ## 21.1.0
 
