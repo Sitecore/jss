@@ -131,6 +131,7 @@ export class ImageDirective implements OnChanges {
     const view = this.templateRef.createEmbeddedView(null);
     const element: Element = view.rootNodes[0];
     if (!element) {
+      view.destroy();
       return {};
     }
     const attrs: { [key: string]: any } = {};
@@ -140,6 +141,7 @@ export class ImageDirective implements OnChanges {
         attrs[attr.name] = attr.value;
       }
     }
+    view.destroy();
     return attrs;
   }
 
