@@ -11,7 +11,7 @@ export const parseArgs = (): ParsedArgs => {
   // to pass to the generator prompts and skip them.
   // useful for CI and testing purposes
   const options = {
-    boolean: ['appPrefix', 'force', 'noInstall', 'yes', 'silent'],
+    boolean: ['appPrefix', 'force', 'noInstall', 'yes', 'silent', 'prePushHook'],
     string: ['appName', 'destination', 'templates', 'hostName', 'fetchWith', 'language'],
   };
   const args: ParsedArgs = minimist(process.argv.slice(2), options);
@@ -96,6 +96,16 @@ export const main = async (args: ParsedArgs) => {
     }
   } else {
     args.force = true;
+  }
+
+  if (!args.yes) {
+    const answer = await inquirer.prompt({
+      type: 'confirm',
+      name: 'prePushHook',
+      message: 'Would you like to use the pre-push hook for linting check?',
+    });
+
+    args.prePushHook = answer.prePushHook;
   }
 
   try {
