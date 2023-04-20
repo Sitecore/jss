@@ -3,7 +3,6 @@
     "GraphQL.vscode-graphql",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "ms-vscode.PowerShell",
     "mikestead.dotenv",
   ]
 }
