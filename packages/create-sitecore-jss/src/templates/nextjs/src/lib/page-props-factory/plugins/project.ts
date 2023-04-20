@@ -7,14 +7,13 @@ class ProjectPlugin implements Plugin {
   order = 1;
 
   async exec(props: SitecorePageProps) {
-    if (
-      process.env.NODE_ENV === 'development' &&
-      props.site.project &&
-      !fs.existsSync(`${process.cwd()}/src/projects/${props.site.project}`)
-    ) {
+    const isProjectImplemented =
+      props.site.project && fs.existsSync(`${process.cwd()}/src/projects/${props.site.project}`);
+
+    if (process.env.NODE_ENV === 'development' && !isProjectImplemented) {
       console.log(
         chalk.yellow(
-          `Project ${props.site.project} is not added to the app. Shared layout, components are used instead`
+          `Project ${props.site.project} is not implemented. Shared layout, components are used instead`
         )
       );
     }
