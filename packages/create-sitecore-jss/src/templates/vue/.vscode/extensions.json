@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "GraphQL.vscode-graphql",
+    "ms-azuretools.vscode-docker",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "rvest.vs-code-prettier-eslint",
+    "eamodio.gitlens",
+    "ms-vscode.PowerShell",
+    "mikestead.dotenv",
+    "davidanson.vscode-markdownlint",
+    "wix.vscode-import-cost",
+    "redhat.vscode-yaml",
+    "vscode-icons-team.vscode-icons"
+  ]
+}
