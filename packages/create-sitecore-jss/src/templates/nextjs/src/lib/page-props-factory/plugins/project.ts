@@ -11,7 +11,7 @@ class ProjectPlugin implements Plugin {
     const isProjectImplemented =
       props.site.project && fs.existsSync(`${process.cwd()}/src/projects/${props.site.project}`);
 
-    if (process.env.NODE_ENV === 'development' && isProjectImplemented) {
+    if (process.env.NODE_ENV === 'development' && !isProjectImplemented) {
       console.log(
         chalk.yellow(
           `Project ${props.site.project} is not implemented. Shared layout, components are used instead`
