@@ -14,7 +14,7 @@ class ProjectPlugin implements Plugin {
     ) {
       console.log(
         chalk.yellow(
-          `Project ${props.site.project} is not added to the app. Shared layout, components under src/components are used instead`
+          `Project ${props.site.project} is not added to the app. Shared layout, components are used instead`
         )
       );
     }
