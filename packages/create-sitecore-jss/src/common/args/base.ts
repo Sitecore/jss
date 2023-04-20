@@ -29,6 +29,10 @@ export type BaseArgs = {
    * Default values will be used
    */
   yes?: boolean;
+  /**
+   * Pre-push hook for linting check
+   */
+  prePushHook?: boolean;
 };
 
 /**
