@@ -1,11 +1,9 @@
 {
   "recommendations": [
     "GraphQL.vscode-graphql",
-    "ms-azuretools.vscode-docker",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "ms-vscode.PowerShell",
     "mikestead.dotenv",
-    "redhat.vscode-yaml",
   ]
 }
