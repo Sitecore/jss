@@ -1,3 +1,4 @@
+const { exec } = require('child_process');
 import chalk from 'chalk';
 import path, { sep } from 'path';
 import { installPackages, lintFix, nextSteps, BaseArgs, saveConfiguration } from './common';
@@ -35,12 +36,22 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
   await runner(initializers);
 
   saveConfiguration(args.templates, path.resolve(`${args.destination}${sep}package.json`));
-
   // final steps (install, lint, etc)
   if (!args.noInstall) {
     installPackages(args.destination, args.silent);
     lintFix(args.destination, args.silent);
   }
+
+  // if you opt in to use the pre-push hook for linting check,
+  // we need to initialize a git repository and install the hook locally.
+  if (args.prePushHook) {
+    exec(`cd ${args.destination} && git init && npm run install-pre-push-hook`, (err: Error) => {
+      if (err) {
+        console.log(chalk.yellow(`Warning: Pre-push hook may not be working due to error ${err}`));
+      }
+    });
+  }
+
   if (!args.silent) {
     nextSteps(appName || '', nextStepsArr);
   }

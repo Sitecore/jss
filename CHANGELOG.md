@@ -25,9 +25,11 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-personalize]` Disable page view tracking event in development ([#1414](https://github.com/Sitecore/jss/pull/1414))
 * `[templates/nextjs-sxa]` Add custom template for _jss scaffold_ ([#1420](https://github.com/Sitecore/jss/pull/1420))
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` FEaaS component will render 'staged' variant for editing and preview and 'published' variant for live site by default, unless variant is overriden via rendering parameters. ([#1433](https://github.com/Sitecore/jss/pull/1433))
+* `[templates/nextjs]` `[templates/angular]` `[templates/react]` `[templates/vue]` Pre-push hook for lint check ([#1427](https://github.com/Sitecore/jss/pull/1427))
 
 ### 🧹 Chores
 
+* Configure the recommended VSCode extensions for the starters ([#1437](https://github.com/Sitecore/jss/pull/1437))
 * `[templates/nextjs]` `[templates/nextjs-styleguide-tracking]` Move remaining Styleguide-Tracking artifacts from the base template ([#1422](https://github.com/Sitecore/jss/pull/1422))
 
 ### 🐛 Bug Fixes
