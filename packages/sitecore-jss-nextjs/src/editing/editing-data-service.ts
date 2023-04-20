@@ -1,7 +1,7 @@
 import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from './editing-data';
 import { EditingDataCache, editingDataDiskCache } from './editing-data-cache';
-import { getJssEditingSecret } from '../utils';
+import { getJssEditingSecret } from '../utils/utils';
 import { PreviewData } from 'next';
 
 export const QUERY_PARAM_EDITING_SECRET = 'secret';

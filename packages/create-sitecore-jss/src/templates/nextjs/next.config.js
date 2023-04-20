@@ -1,5 +1,5 @@
 const jssConfig = require('./src/temp/config');
-const { getPublicUrl } = require('@sitecore-jss/sitecore-jss-nextjs');
+const { getPublicUrl } = require('@sitecore-jss/sitecore-jss-nextjs/utils');
 const plugins = require('./src/temp/next-config-plugins') || {};
 
 const publicUrl = getPublicUrl();
@@ -43,11 +43,6 @@ const nextConfig = {
       {
         source: '/-/:path*',
         destination: `${jssConfig.sitecoreApiHost}/-/:path*`,
-      },
-      // visitor identification
-      {
-        source: '/layouts/system/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/layouts/system/:path*`,
       },
       // healthz check
       {

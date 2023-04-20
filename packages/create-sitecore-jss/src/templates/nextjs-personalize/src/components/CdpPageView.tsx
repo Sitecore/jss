@@ -52,8 +52,7 @@ const CdpPageView = (): JSX.Element => {
   /**
    * Determines if the page view events should be turned off.
    * IMPORTANT: You should implement based on your cookie consent management solution of choice.
-   * You may also wish to disable in development mode (process.env.NODE_ENV === 'development').
-   * By default it is always enabled.
+   * By default it is disabled in development mode
    */
   const disabled = () => {
     return process.env.NODE_ENV === 'development';

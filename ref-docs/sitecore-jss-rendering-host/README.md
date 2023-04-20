@@ -8,7 +8,6 @@
 
 - [getDefaultAppInvocationInfoResolver](README.md#getdefaultappinvocationinforesolver)
 - [ssrMiddleware](README.md#ssrmiddleware)
-- [startDevServer](README.md#startdevserver)
 - [startRenderHostTunnel](README.md#startrenderhosttunnel)
 - [startRenderingHostServer](README.md#startrenderinghostserver)
 
@@ -63,26 +62,6 @@ ___
 #### Defined in
 
 [ssrMiddleware.ts:45](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-rendering-host/src/ssrMiddleware.ts#L45)
-
-___
-
-### startDevServer
-
-▸ **startDevServer**(`config`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `config` | `DevServerOptions` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[devServer.ts:77](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-rendering-host/src/devServer.ts#L77)
 
 ___
 
