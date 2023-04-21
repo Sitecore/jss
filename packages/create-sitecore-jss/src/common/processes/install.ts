@@ -66,12 +66,18 @@ export const lintFix = (projectFolder: string, silent?: boolean) => {
  * @param {string} destination path to the app folder
  * @param {boolean} [silent] suppress logs
  */
-export const installPrePushHook = (destination: string, silent?: boolean) => {
+export const installPrePushHook = async (destination: string, silent?: boolean) => {
   silent || console.log(chalk.cyan('Installing pre-push hook...'));
 
-  exec(`cd ${destination} && git init && npm run install-pre-push-hook`, (err) => {
-    if (err) {
-      console.log(chalk.yellow(`Warning: Pre-push hook may not be working due to error ${err}`));
-    }
+  await new Promise<void>((resolve, reject) => {
+    exec(`cd ${destination} && git init && npm run install-pre-push-hook`, (err) => {
+      if (err) {
+        console.log(chalk.yellow(`Warning: Pre-push hook may not be working due to error ${err}`));
+        reject(err);
+      } else {
+        console.log(chalk.cyan('Pre-push hook installed successfully!'));
+        resolve();
+      }
+    });
   });
 };

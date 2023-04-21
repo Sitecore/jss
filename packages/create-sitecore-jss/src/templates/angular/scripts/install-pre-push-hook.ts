@@ -1,4 +1,4 @@
-﻿import fs from 'fs';
+﻿import * as fs from 'fs';
 
 const installHooks = () => {
   // data to be written to the file

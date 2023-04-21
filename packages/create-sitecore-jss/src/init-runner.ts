@@ -50,7 +50,7 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
 
   // install pre-push hook if user opts-in
   if (args.prePushHook) {
-    installPrePushHook(args.destination, args.silent);
+    await installPrePushHook(args.destination, args.silent);
   }
 
   if (!args.silent) {
