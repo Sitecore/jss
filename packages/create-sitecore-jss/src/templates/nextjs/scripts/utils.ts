@@ -4,9 +4,9 @@ import chokidar from 'chokidar';
 /**
  * Run watch mode, watching on @var rootPath
  */
-export function watchItems(rootPath: string, cb: () => void): void {
+export function watchItems(paths: string[], cb: () => void): void {
   chokidar
-    .watch(rootPath, { ignoreInitial: true, awaitWriteFinish: true })
+    .watch(paths, { ignoreInitial: true, awaitWriteFinish: true })
     .on('add', cb)
     .on('unlink', cb);
 }
@@ -31,7 +31,7 @@ export function getItems<Item>(settings: {
 
   if (!fs.existsSync(path)) return [];
 
-  fs.readdirSync(path, { withFileTypes: true }).forEach((item) => {
+  fs.readdirSync(path, { withFileTypes: true }).forEach(item => {
     if (item.isDirectory()) {
       folders.push(item);
     }
