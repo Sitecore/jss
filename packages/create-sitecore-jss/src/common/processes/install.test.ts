@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import childProcess from 'child_process';
 import chalk from 'chalk';
 import { expect } from 'chai';
