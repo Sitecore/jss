@@ -26,6 +26,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Add custom template for _jss scaffold_ ([#1420](https://github.com/Sitecore/jss/pull/1420))
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` FEaaS component will render 'staged' variant for editing and preview and 'published' variant for live site by default, unless variant is overriden via rendering parameters. ([#1433](https://github.com/Sitecore/jss/pull/1433))
 * `[templates/nextjs]` `[templates/angular]` `[templates/react]` `[templates/vue]` Pre-push hook for lint check ([#1427](https://github.com/Sitecore/jss/pull/1427))
+([#1442](https://github.com/Sitecore/jss/pull/1442))
 
 ### 🧹 Chores
 
@@ -34,12 +35,19 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* `[templates/nextjs]` Healthz shows page not found for multisite setup ([#1443](https://github.com/Sitecore/jss/pull/1443))
 * `[sitecore-jss-react]` Hydration error when render Link in Edit mode ([#1432](https://github.com/Sitecore/jss/pull/1432))
 * `[sitecore-jss-nextjs]` Fix for Link component which throws error if field is undefined ([#1425](https://github.com/Sitecore/jss/pull/1425))
 * `[templates/react]` Fix compilation error when developing react template in monorepo ([#1428](https://github.com/Sitecore/jss/pull/1428))
 * `[sitecore-jss-nextjs]` Fix regex for middleware redirects ([#1431](https://github.com/Sitecore/jss/pull/1431))
 * `[sitecore-jss-angular]` Fix memory leak in image and link components ([#1435](https://github.com/Sitecore/jss/pull/1435))
 * `[templates/nextjs-multisite]` Fix skipped site info fetch ([#1434](https://github.com/Sitecore/jss/pull/1434))
+
+## 21.1.1
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` [SXA] fixed middleware redirects ([#1431](https://github.com/Sitecore/jss/pull/1431))
 
 ## 21.1.0
 

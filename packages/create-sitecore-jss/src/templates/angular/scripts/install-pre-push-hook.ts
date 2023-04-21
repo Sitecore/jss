@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+﻿import fs from 'fs';
 
 const installHooks = () => {
   // data to be written to the file
@@ -17,11 +17,12 @@ npm run lint`;
   console.log('\x1b[32m%s\x1b[0m', 'Writing to local .git folder...');
 
   // Write the hook to the local .git folder. Using writeFile in order to catch any errors
-  fs.writeFile('./.git/hooks/pre-push', data, 'utf8', (err) => {
+  fs.writeFile('./.git/hooks/pre-push', data, 'utf8', (err: Error) => {
     if (err) {
       console.log('\x1b[31m%o\x1b[0m', err);
+    } else {
+      console.log('\x1b[32m%s\x1b[0m', 'Success!');
     }
-    console.log('\x1b[32m%s\x1b[0m', 'Success!');
   });
 };
 
