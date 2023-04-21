@@ -1,8 +1,14 @@
 import chalk from 'chalk';
 import path, { sep } from 'path';
-import { installPackages, lintFix, nextSteps, BaseArgs, saveConfiguration } from './common';
+import {
+  installPackages,
+  lintFix,
+  nextSteps,
+  BaseArgs,
+  saveConfiguration,
+  installPrePushHook,
+} from './common';
 import { InitializerFactory } from './InitializerFactory';
-import { installPrePushHook } from './common/processes/install';
 
 export const initRunner = async (initializers: string[], args: BaseArgs) => {
   let nextStepsArr: string[] = [];

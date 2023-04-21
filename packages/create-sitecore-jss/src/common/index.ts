@@ -24,4 +24,4 @@ export { Initializer } from './Initializer';
 
 export { transform } from './processes/transform';
 export { nextSteps } from './processes/next';
-export { installPackages, lintFix } from './processes/install';
+export { installPackages, lintFix, installPrePushHook } from './processes/install';
