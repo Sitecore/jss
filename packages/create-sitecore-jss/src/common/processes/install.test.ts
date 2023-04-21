@@ -1,8 +1,8 @@
-/* eslint-disable no-unused-expressions */
+import childProcess from 'child_process';
 import chalk from 'chalk';
 import { expect } from 'chai';
 import sinon, { SinonStub } from 'sinon';
-import { installPackages, lintFix } from './install';
+import { installPackages, lintFix, installPrePushHook } from './install';
 import * as cmd from '../utils/cmd';
 import * as helpers from '../utils/helpers';
 
@@ -11,6 +11,7 @@ describe('install', () => {
   let isDevEnvironment: SinonStub;
   let openPackageJson: SinonStub;
   let log: SinonStub;
+  const execStub = sinon.stub(childProcess, 'exec');
 
   beforeEach(() => {
     run = sinon.stub(cmd, 'run');
@@ -145,6 +146,43 @@ describe('install', () => {
           encoding: 'utf8',
         },
         silent
+      );
+    });
+  });
+
+  describe('installPrePushHook', () => {
+    it('should run exec function', () => {
+      const destination = './some/path';
+
+      installPrePushHook(destination);
+
+      expect(log).to.have.been.calledOnceWith(chalk.cyan('Installing pre-push hook...'));
+      expect(execStub).to.have.been.calledWith(
+        `cd ${destination} && git init && npm run install-pre-push-hook`
+      );
+    });
+
+    it('should respect silent', () => {
+      const destination = './some/path';
+      const silent = true;
+
+      installPrePushHook(destination, silent);
+
+      expect(log).to.not.have.been.called;
+      expect(execStub).to.have.been.calledWith(
+        `cd ${destination} && git init && npm run install-pre-push-hook`
+      );
+    });
+
+    it('should log a warning message if there is an error', () => {
+      const destination = './some/path';
+      const error = new Error('some error');
+      execStub.yields(error);
+
+      installPrePushHook(destination);
+
+      expect(log).to.have.been.calledWith(
+        chalk.yellow(`Warning: Pre-push hook may not be working due to error ${error}`)
       );
     });
   });

@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+﻿import fs from 'fs';
 
 const installHooks = () => {
   // data to be written to the file
@@ -19,8 +19,9 @@ const installHooks = () => {
   fs.writeFile('./.git/hooks/pre-push', data, 'utf8', err => {
     if (err) {
       console.log('\x1b[31m%o\x1b[0m', err);
+    } else {
+      console.log('\x1b[32m%s\x1b[0m', 'Success!');
     }
-    console.log('\x1b[32m%s\x1b[0m', 'Success!');
   });
 };
 

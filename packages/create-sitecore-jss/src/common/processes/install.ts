@@ -1,3 +1,4 @@
+import { exec } from 'child_process';
 import path from 'path';
 import chalk from 'chalk';
 import { run } from '../utils/cmd';
@@ -58,4 +59,19 @@ export const lintFix = (projectFolder: string, silent?: boolean) => {
     },
     silent
   );
+};
+
+/**
+ * Install pre-push hook for lint check
+ * @param {string} destination path to the app folder
+ * @param {boolean} [silent] suppress logs
+ */
+export const installPrePushHook = (destination: string, silent?: boolean) => {
+  silent || console.log(chalk.cyan('Installing pre-push hook...'));
+
+  exec(`cd ${destination} && git init && npm run install-pre-push-hook`, (err) => {
+    if (err) {
+      console.log(chalk.yellow(`Warning: Pre-push hook may not be working due to error ${err}`));
+    }
+  });
 };
