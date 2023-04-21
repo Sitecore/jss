@@ -11,6 +11,12 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 21.1.1
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` [SXA] fixed middleware redirects ([#1431](https://github.com/Sitecore/jss/pull/1431))
+
 ## 21.1.0
 
 ### 🎉 New Features & Improvements
