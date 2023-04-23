@@ -29,6 +29,7 @@ Our versioning strategy is as follows:
 
 ### 🧹 Chores
 
+* Revisit and update github ISSUE_TEMPLATE ([#1445](https://github.com/Sitecore/jss/pull/1445))
 * Configure the recommended VSCode extensions for the starters ([#1437](https://github.com/Sitecore/jss/pull/1437))
 * `[templates/nextjs]` `[templates/nextjs-styleguide-tracking]` Move remaining Styleguide-Tracking artifacts from the base template ([#1422](https://github.com/Sitecore/jss/pull/1422))
 
