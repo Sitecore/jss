@@ -150,6 +150,7 @@ export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
 export { EditingComponentPlaceholder } from './components/EditingComponentPlaceholder';
 export { NextImage } from './components/NextImage';
+export { ComponentFactoryCreator } from './componentFactoryCreator';
 
 export {
   ComponentFactory,
@@ -186,4 +187,5 @@ export {
   ComponentConsumerProps,
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
+  withComponentFactory
 } from '@sitecore-jss/sitecore-jss-react';
