@@ -75,7 +75,7 @@ export const installPrePushHook = async (destination: string, silent?: boolean) 
         console.log(chalk.yellow(`Warning: Pre-push hook may not be working due to error ${err}`));
         reject(err);
       } else {
-        console.log(chalk.cyan('Pre-push hook installed successfully!'));
+        silent || console.log(chalk.cyan('Pre-push hook installed successfully!'));
         resolve();
       }
     });
