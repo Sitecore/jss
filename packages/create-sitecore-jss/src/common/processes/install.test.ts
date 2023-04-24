@@ -12,7 +12,6 @@ describe('install', () => {
   let isDevEnvironment: SinonStub;
   let openPackageJson: SinonStub;
   let log: SinonStub;
-  const execStub = sinon.stub(childProcess, 'exec');
 
   beforeEach(() => {
     run = sinon.stub(cmd, 'run');
@@ -152,6 +151,8 @@ describe('install', () => {
   });
 
   describe('installPrePushHook', () => {
+    const execStub = sinon.stub(childProcess, 'exec');
+
     it('should run exec function', () => {
       const destination = './some/path';
 
@@ -175,12 +176,16 @@ describe('install', () => {
       );
     });
 
-    it('should log a warning message if there is an error', () => {
+    it('should log a warning message if there is an error', async () => {
       const destination = './some/path';
       const error = new Error('some error');
       execStub.yields(error);
 
-      installPrePushHook(destination);
+      try {
+        await installPrePushHook(destination);
+      } catch (err) {
+        expect(err).to.equal(error);
+      }
 
       expect(log).to.have.been.calledWith(
         chalk.yellow(`Warning: Pre-push hook may not be working due to error ${error}`)
