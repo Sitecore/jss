@@ -131,13 +131,16 @@
   },
   "//": [
     "overrides (for npm) and resolutions (for yarn) used to work around the bug in critters that affect bootstrap: https://github.com/GoogleChromeLabs/critters/issues/103",
-    "both sections can be removed once critters and css-select versions are updated in build-angular"
+    "both sections can be removed once critters and css-select versions are updated in build-angular",
+    "for webpack, we use lower version to fix the angular/webpack bug: https://github.com/webpack/webpack/issues/16981 that prevents project from building",
+    "remove webpack override when upgrading Angular to next major version"
   ],
   "overrides": {
     "@angular-devkit/build-angular": {
       "critters": {
         "css-select": "4.2.1"
-      }
+      },
+      "webpack": "5.78.0"
     }
   },
   "resolutions": {
