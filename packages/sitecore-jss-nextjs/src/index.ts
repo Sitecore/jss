@@ -187,5 +187,4 @@ export {
   ComponentConsumerProps,
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
-  withComponentFactory
 } from '@sitecore-jss/sitecore-jss-react';

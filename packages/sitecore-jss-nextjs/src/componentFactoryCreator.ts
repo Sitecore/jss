@@ -10,23 +10,25 @@ type FactoryCreatorConfig = {
 
 type ComponentFactoryConfig = { projectName?: string; isEditing?: boolean };
 
-
 type ModuleFactoryConfig = { projectName?: string };
 
 /**
- * Component type returned by factory. 
+ * Component type returned by factory.
  * We need to support different scenarios (dynamic/static) but in the end we get a React component
  */
-type ComponentType = ReactComponentType | {
-  [key: string]: ReactComponentType | ((isEditing?: boolean) => ReactComponentType);
+type ComponentType = {
+  module?: () => ReactComponentType;
+  element?: (isEditing?: boolean) => ReactComponentType;
+} & {
+  [key: string]: ReactComponentType;
 };
 
 /**
  * Class used to generate and use a component factory with multi-project support
- * Used in a next.js app, 
+ * Used in a next.js app,
  */
 export class ComponentFactoryCreator {
-  protected components: Map<string, any>;
+  protected components: Map<string, ComponentType>;
   protected DEFAULT_EXPORT_NAME = 'Default';
 
   constructor(protected config: FactoryCreatorConfig) {
@@ -46,7 +48,7 @@ export class ComponentFactoryCreator {
       const component = this.getComponent({ projectName, componentName });
 
       // check that component is lazy loading module
-      if (!component?.default && component?.module) {
+      if (!component?.default && component?.module && component.module) {
         // return js dynamic import
         return component.module();
       }
@@ -78,7 +80,7 @@ export class ComponentFactoryCreator {
         return component.element(isEditing);
       }
 
-      if (exportName && exportName !== this.DEFAULT_EXPORT_NAME) {
+      if (component && exportName && exportName !== this.DEFAULT_EXPORT_NAME) {
         return component[exportName];
       }
 
