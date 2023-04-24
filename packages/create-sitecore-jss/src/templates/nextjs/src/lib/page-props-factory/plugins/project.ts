@@ -8,8 +8,11 @@ class ProjectPlugin implements Plugin {
   order = 1;
 
   async exec(props: SitecorePageProps) {
-    const isProjectImplemented =
-      props.site.project && fs.existsSync(`${process.cwd()}/src/projects/${props.site.project}`);
+    if (!props.site.project) {
+      return props;
+    }
+
+    const isProjectImplemented = fs.existsSync(`${process.cwd()}/src/projects/${props.site.project}`);
 
     if (process.env.NODE_ENV === 'development' && !isProjectImplemented) {
       console.log(
