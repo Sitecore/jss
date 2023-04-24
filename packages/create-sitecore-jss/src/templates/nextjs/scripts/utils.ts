@@ -24,8 +24,15 @@ export function getItems<Item>(settings: {
   resolveItem: (path: string, name: string) => Item;
   cb?: (name: string) => void;
   fileFormat?: RegExp;
+  recursive?: boolean;
 }): Item[] {
-  const { path, resolveItem, cb, fileFormat = new RegExp(/(.+)(?<!\.d)\.[jt]sx?$/) } = settings;
+  const {
+    recursive = true,
+    path,
+    resolveItem,
+    cb,
+    fileFormat = new RegExp(/(.+)(?<!\.d)\.[jt]sx?$/),
+  } = settings;
   const items: Item[] = [];
   const folders: fs.Dirent[] = [];
 
@@ -45,14 +52,16 @@ export function getItems<Item>(settings: {
   });
 
   for (const folder of folders) {
-    items.push(
-      ...getItems<Item>({
-        path: `${path}/${folder.name}`,
-        resolveItem,
-        cb,
-        fileFormat,
-      })
-    );
+    recursive
+      ? items.push(
+          ...getItems<Item>({
+            path: `${path}/${folder.name}`,
+            resolveItem,
+            cb,
+            fileFormat,
+          })
+        )
+      : items.push(resolveItem(`${path}/${folder.name}`, folder.name));
   }
 
   return items;

@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import { BootstrapPlugin } from '../index';
 import generateComponentFactory, {
   ComponentFile,
   PackageDefinition,
@@ -68,7 +67,7 @@ function watchComponentFactory() {
  * new component instances in code).
  * Modify this function to use a different convention.
  */
-function writeComponentFactory() {
+export function writeComponentFactory() {
   /**
    * You can specify components which you want to import from external/internal packages
    * in format:
@@ -142,11 +141,3 @@ export function getProjectList(path: string): Project[] {
 
   return projects;
 }
-
-class GenerateComponentFactoryPlugin implements BootstrapPlugin {
-  exec() {
-    writeComponentFactory();
-  }
-}
-
-export const generateComponentFactoryPlugin = new GenerateComponentFactoryPlugin();

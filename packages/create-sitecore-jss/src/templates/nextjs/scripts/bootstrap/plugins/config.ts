@@ -67,4 +67,4 @@ class GenerateConfigPlugin implements BootstrapPlugin {
   }
 }
 
-export const generateConfigPlugin = new GenerateConfigPlugin();
+export const configPlugin = new GenerateConfigPlugin();
