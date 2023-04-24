@@ -17,6 +17,7 @@ export function watchItems(paths: string[], cb: () => void): void {
  * @param resolveItem will resolve item in required data format
  * @param cb will be called when new item is found
  * @param fileFormat Matches specific files
+ * @param recursive if true will search recursively
  * @returns {Item[]} items
  */
 export function getItems<Item>(settings: {

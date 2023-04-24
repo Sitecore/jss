@@ -7,6 +7,9 @@ import { getItems } from 'scripts/utils';
 import { projectRootPath } from './../../generate-component-factory';
 import { BootstrapPlugin } from '../index';
 
+/**
+ * Compiles sass files for each project, minifies it and writes it to the public folder.
+ */
 const compileStyles = () => {
   const projects = getItems<string>({
     path: projectRootPath,

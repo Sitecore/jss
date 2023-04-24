@@ -61,6 +61,9 @@ const config = {};\n`;
   fs.writeFileSync(configPath, configText, { encoding: 'utf8' });
 }
 
+/**
+ * Generates the JSS config file which contains runtime configuration.
+ */
 class GenerateConfigPlugin implements BootstrapPlugin {
   exec() {
     generateConfig(defaultConfig);
