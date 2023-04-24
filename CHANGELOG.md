@@ -42,6 +42,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Fix regex for middleware redirects ([#1431](https://github.com/Sitecore/jss/pull/1431))
 * `[sitecore-jss-angular]` Fix memory leak in image and link components ([#1435](https://github.com/Sitecore/jss/pull/1435))
 * `[templates/nextjs-multisite]` Fix skipped site info fetch ([#1434](https://github.com/Sitecore/jss/pull/1434))
+* `[angular]` Fix app build errors. Webpack version is locked at 5.78 due to https://github.com/webpack/webpack/issues/16981 ([#1448](https://github.com/Sitecore/jss/pull/1448))
 
 ## 21.1.1
 
