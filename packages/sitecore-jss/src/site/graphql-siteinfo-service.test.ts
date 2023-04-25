@@ -24,6 +24,11 @@ describe('GraphQLSiteInfoService', () => {
                 en: 'en-pos',
               },
             },
+            otherProperties: {
+              value: {
+                project: 'foo',
+              },
+            },
           },
           {
             name: {
@@ -34,6 +39,9 @@ describe('GraphQLSiteInfoService', () => {
             },
             language: {
               value: '',
+            },
+            otherProperties: {
+              value: {},
             },
           },
         ],
@@ -70,6 +78,7 @@ describe('GraphQLSiteInfoService', () => {
         pointOfSale: {
           en: 'en-pos',
         },
+        project: 'foo',
       },
       {
         name: 'public',
@@ -117,6 +126,7 @@ describe('GraphQLSiteInfoService', () => {
         pointOfSale: {
           en: 'en-pos',
         },
+        project: 'foo',
       },
       {
         name: 'public',
