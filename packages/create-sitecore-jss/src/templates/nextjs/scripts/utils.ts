@@ -2,7 +2,7 @@ import fs from 'fs';
 import chokidar from 'chokidar';
 
 /**
- * Run watch mode, watching on @var rootPath
+ * Run watch mode, watching on @var paths
  */
 export function watchItems(paths: string[], cb: () => void): void {
   chokidar

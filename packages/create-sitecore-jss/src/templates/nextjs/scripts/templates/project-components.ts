@@ -2,9 +2,9 @@
 
 /**
  * Generates an auto-generated file that exports all components in the project.
- * @param components  The components to export
- * @param project  The project name
- * @returns  The generated file as a string
+ * @param components The components to export
+ * @param project The project name
+ * @returns The generated file as a string
  */
 export const generateProjectComponents = (components: ComponentFile[], project: string): string => {
   return `/* eslint-disable */

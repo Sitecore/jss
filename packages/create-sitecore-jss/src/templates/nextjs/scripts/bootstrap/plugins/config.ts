@@ -5,12 +5,6 @@ import { constantCase } from 'constant-case';
 import { JssConfig, jssConfigFactory } from '../../config';
 import { BootstrapPlugin } from '../index';
 
-/*
-  CONFIG GENERATION
-  Generates the /src/temp/config.js file which contains runtime configuration
-  that the app can import and use.
-*/
-
 const defaultConfig: JssConfig = {
   sitecoreApiKey: process.env[`${constantCase('sitecoreApiKey')}`],
   sitecoreApiHost: process.env[`${constantCase('sitecoreApiHost')}`],
@@ -19,8 +13,6 @@ const defaultConfig: JssConfig = {
   defaultLanguage: process.env[`${constantCase('defaultLanguage')}`],
   graphQLEndpoint: process.env[`${constantCase('graphQLEndpoint')}`],
 };
-
-generateConfig(defaultConfig);
 
 /**
  * Generates the JSS config based on config plugins (under ./config/plugins)
@@ -62,7 +54,9 @@ const config = {};\n`;
 }
 
 /**
- * Generates the JSS config file which contains runtime configuration.
+ * CONFIG GENERATION
+ * Generates the /src/temp/config.js file which contains runtime configuration
+ * that the app can import and use.
  */
 class GenerateConfigPlugin implements BootstrapPlugin {
   exec() {
