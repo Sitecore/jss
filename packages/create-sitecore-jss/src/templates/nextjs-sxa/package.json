@@ -4,6 +4,8 @@
     "font-awesome": "^4.7.0"
   },
   "devDependencies": {
+    "@types/csso": "^5.0.0",
+    "csso": "^5.0.5",
     "sass-alias": "^1.0.5",
     "sass": "^1.52.3"
   },

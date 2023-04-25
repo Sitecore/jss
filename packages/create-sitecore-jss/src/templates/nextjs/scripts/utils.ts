@@ -2,11 +2,11 @@ import fs from 'fs';
 import chokidar from 'chokidar';
 
 /**
- * Run watch mode, watching on @var rootPath
+ * Run watch mode, watching on @var paths
  */
-export function watchItems(rootPath: string, cb: () => void): void {
+export function watchItems(paths: string[], cb: () => void): void {
   chokidar
-    .watch(rootPath, { ignoreInitial: true, awaitWriteFinish: true })
+    .watch(paths, { ignoreInitial: true, awaitWriteFinish: true })
     .on('add', cb)
     .on('unlink', cb);
 }
@@ -17,6 +17,7 @@ export function watchItems(rootPath: string, cb: () => void): void {
  * @param resolveItem will resolve item in required data format
  * @param cb will be called when new item is found
  * @param fileFormat Matches specific files
+ * @param recursive if true will search recursively
  * @returns {Item[]} items
  */
 export function getItems<Item>(settings: {
@@ -24,14 +25,21 @@ export function getItems<Item>(settings: {
   resolveItem: (path: string, name: string) => Item;
   cb?: (name: string) => void;
   fileFormat?: RegExp;
+  recursive?: boolean;
 }): Item[] {
-  const { path, resolveItem, cb, fileFormat = new RegExp(/(.+)(?<!\.d)\.[jt]sx?$/) } = settings;
+  const {
+    recursive = true,
+    path,
+    resolveItem,
+    cb,
+    fileFormat = new RegExp(/(.+)(?<!\.d)\.[jt]sx?$/),
+  } = settings;
   const items: Item[] = [];
   const folders: fs.Dirent[] = [];
 
   if (!fs.existsSync(path)) return [];
 
-  fs.readdirSync(path, { withFileTypes: true }).forEach((item) => {
+  fs.readdirSync(path, { withFileTypes: true }).forEach(item => {
     if (item.isDirectory()) {
       folders.push(item);
     }
@@ -45,14 +53,16 @@ export function getItems<Item>(settings: {
   });
 
   for (const folder of folders) {
-    items.push(
-      ...getItems<Item>({
-        path: `${path}/${folder.name}`,
-        resolveItem,
-        cb,
-        fileFormat,
-      })
-    );
+    recursive
+      ? items.push(
+          ...getItems<Item>({
+            path: `${path}/${folder.name}`,
+            resolveItem,
+            cb,
+            fileFormat,
+          })
+        )
+      : items.push(resolveItem(`${path}/${folder.name}`, folder.name));
   }
 
   return items;

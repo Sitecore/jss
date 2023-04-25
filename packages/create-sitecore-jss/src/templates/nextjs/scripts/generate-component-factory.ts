@@ -3,8 +3,10 @@ import path from 'path';
 import generateComponentFactory, {
   ComponentFile,
   PackageDefinition,
-} from './templates/component-factory';
-import { getItems, watchItems } from './utils';
+  Project,
+} from 'scripts/templates/component-factory';
+import { generateProjectComponents } from 'scripts/templates/project-components';
+import { getItems, watchItems } from 'scripts/utils';
 
 /*
   COMPONENT FACTORY GENERATION
@@ -29,10 +31,13 @@ import { getItems, watchItems } from './utils';
 
 const componentFactoryPath = path.resolve('src/temp/componentFactory.ts');
 const componentRootPath = 'src/components';
+export const projectRootPath = 'src/projects';
 
-const isWatch = process.argv.some((arg) => arg === '--watch');
+const projects = getProjectList(projectRootPath);
 
-(isWatch ? watchComponentFactory : writeComponentFactory)();
+const isWatch = process.argv.some(arg => arg === '--watch');
+
+isWatch && watchComponentFactory();
 
 /**
  * Watches component directory for changes. When files are added or deleted, the component factory
@@ -42,7 +47,15 @@ const isWatch = process.argv.some((arg) => arg === '--watch');
 function watchComponentFactory() {
   console.log(`Watching for changes to component factory sources in ${componentRootPath}...`);
 
-  watchItems(componentRootPath, writeComponentFactory);
+  const projectComponentsPaths = projects.map(project => {
+    console.log(
+      `Watching for changes to component factory sources in ${project.componentsPath}...`
+    );
+
+    return project.componentsPath;
+  });
+
+  watchItems([componentRootPath, ...projectComponentsPaths], writeComponentFactory);
 }
 
 /**
@@ -54,7 +67,7 @@ function watchComponentFactory() {
  * new component instances in code).
  * Modify this function to use a different convention.
  */
-function writeComponentFactory() {
+export function writeComponentFactory() {
   /**
    * You can specify components which you want to import from external/internal packages
    * in format:
@@ -73,10 +86,31 @@ function writeComponentFactory() {
 
   components.unshift(...packages);
 
-  const fileContent = generateComponentFactory(components);
+  const fileContent = generateComponentFactory([...components]);
   console.log(`Writing component factory to ${componentFactoryPath}`);
   fs.writeFileSync(componentFactoryPath, fileContent, {
     encoding: 'utf8',
+  });
+
+  if (!fs.existsSync('src/temp/projects')) {
+    fs.mkdirSync('src/temp/projects');
+  }
+
+  projects.forEach(project => {
+    const indexFilePath = path.resolve(`src/temp/projects/${project.projectName}.ts`);
+
+    console.log(`Writing project ${project.projectName} component source to ${indexFilePath}`);
+
+    // Exclude `index.ts` file if exists
+    const components = getComponentList(project.componentsPath).filter(
+      (c: ComponentFile) => !indexFilePath.includes(c.path)
+    ) as ComponentFile[];
+
+    const fileContent = generateProjectComponents(components, project.projectName);
+
+    fs.writeFileSync(indexFilePath, fileContent, {
+      encoding: 'utf8',
+    });
   });
 }
 
@@ -88,8 +122,22 @@ function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
       componentName: name,
       moduleName: name.replace(/[^\w]+/g, ''),
     }),
-    cb: (name) => console.debug(`Registering JSS component ${name}`),
+    cb: name => console.debug(`Registering JSS component ${name}`),
   });
 
   return components;
+}
+
+export function getProjectList(path: string): Project[] {
+  const projects = getItems<Project>({
+    path,
+    resolveItem: (path, name) => ({
+      projectName: name,
+      componentsPath: `${path}/components`,
+    }),
+    cb: name => console.debug(`Registering JSS project ${name}`),
+    recursive: false,
+  });
+
+  return projects;
 }
