@@ -150,7 +150,7 @@ export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
 export { EditingComponentPlaceholder } from './components/EditingComponentPlaceholder';
 export { NextImage } from './components/NextImage';
-export { ComponentFactoryCreator } from './componentFactoryCreator';
+export { ComponentFactoryCreator } from './ComponentFactoryCreator';
 
 export {
   ComponentFactory,
