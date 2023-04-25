@@ -12,6 +12,7 @@ const defaultConfig: JssConfig = {
   graphQLEndpointPath: process.env[`${constantCase('graphQLEndpointPath')}`],
   defaultLanguage: process.env[`${constantCase('defaultLanguage')}`],
   graphQLEndpoint: process.env[`${constantCase('graphQLEndpoint')}`],
+  project: process.env[`${constantCase('project')}`],
 };
 
 /**
