@@ -32,6 +32,11 @@ interface PluginFile {
 
 const pluginDefinitions = [
   {
+    listPath: 'scripts/temp/bootstrap-plugins.ts',
+    rootPath: 'scripts/bootstrap/plugins',
+    moduleType: ModuleType.ESM,
+  },
+  {
     listPath: 'scripts/temp/config-plugins.ts',
     rootPath: 'scripts/config/plugins',
     moduleType: ModuleType.ESM,
@@ -71,7 +76,7 @@ const pluginDefinitions = [
 run(pluginDefinitions);
 
 function run(definitions: PluginDefinition[]) {
-  definitions.forEach((definition) => {
+  definitions.forEach(definition => {
     writePlugins(definition.listPath, definition.rootPath, definition.moduleType);
   });
 }
@@ -91,7 +96,7 @@ function writePlugins(listPath: string, rootPath: string, moduleType: ModuleType
   let fileContent = '';
 
   fileContent = plugins
-    .map((plugin) => {
+    .map(plugin => {
       return moduleType === ModuleType.CJS
         ? `exports.${plugin.name} = require('${plugin.path.replace('src/', '../')}');`
         : `export { ${plugin.name} } from '${plugin.path}';`;
@@ -115,9 +120,9 @@ function getPluginList(path: string, pluginName: string): PluginFile[] {
     path,
     resolveItem: (path, name) => ({
       path: `${path}/${name}`,
-      name: `${name.replace(/-./g, (x) => x[1].toUpperCase())}Plugin`,
+      name: `${name.replace(/-./g, x => x[1].toUpperCase())}Plugin`,
     }),
-    cb: (name) => console.debug(`Registering ${pluginName} plugin ${name}`),
+    cb: name => console.debug(`Registering ${pluginName} plugin ${name}`),
   });
 
   return plugins;
