@@ -61,11 +61,13 @@ async function regenerateLockFile() {
       }
 
       console.log(chalk.red('yarn.lock was removed.'));
+      console.log(chalk.yellow('Installing dependencies...'));
     });
 
     // Re-install dependencies
     await promisify(exec)('yarn install', { cwd: rootPath });
     // Dependencies installed successfully
+    console.log(chalk.green('Dependencies installed successfully.'));
     console.log(chalk.green('yarn.lock generated successfully.'));
   } catch (err) {
     console.error(err);
@@ -78,11 +80,11 @@ const initializeApps = async (noInstall: boolean) => {
     watch = await import(path.resolve('watch.json'));
     const initializers = watch.initializers || [];
     await initRunner(initializers, { ...watch.args, templates: initializers, noInstall });
-    if (watch.args.restoreLockfile) {
-      restoreLockfile();
-    }
     if (initializers.includes('react')) {
       await regenerateLockFile();
+    }
+    if (watch.args.restoreLockfile) {
+      restoreLockfile();
     }
   } catch (error) {
     console.log(chalk.red('An error occurred: ', error));
