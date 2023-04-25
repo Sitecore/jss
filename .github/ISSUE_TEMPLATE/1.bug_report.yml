@@ -10,14 +10,14 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: Expected Behavior
-      description: Provide a clear and concise description of what you expected to happen.
+      label: To Reproduce
+      description: Steps to reproduce the behavior, please provide a clear description of how to reproduce the issue, screenshots.
     validations:
       required: true
   - type: textarea
     attributes:
-      label: To Reproduce
-      description: Steps to reproduce the behavior, please provide a clear description of how to reproduce the issue, screenshots.
+      label: Expected Behavior
+      description: Provide a clear and concise description of what you expected to happen.
     validations:
       required: true
   - type: textarea
