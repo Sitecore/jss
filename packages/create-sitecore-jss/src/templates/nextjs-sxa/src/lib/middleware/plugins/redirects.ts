@@ -24,6 +24,8 @@ class RedirectsPlugin implements MiddlewarePlugin {
       disabled: () => process.env.NODE_ENV === 'development',
       // Site resolver implementation
       siteResolver,
+      // This list of sites need for searching context site language when we use token like $siteLang it's not locale of site
+      sites: JSON.parse(config.sites),
     });
   }
 
