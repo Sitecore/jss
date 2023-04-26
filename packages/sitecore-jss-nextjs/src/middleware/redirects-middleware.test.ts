@@ -7,7 +7,12 @@ import sinonChai from 'sinon-chai';
 import sinon, { spy } from 'sinon';
 import { NextRequest, NextResponse } from 'next/server';
 import { debug } from '@sitecore-jss/sitecore-jss';
-import { REDIRECT_TYPE_SERVER_TRANSFER, SiteResolver } from '@sitecore-jss/sitecore-jss/site';
+import {
+  REDIRECT_TYPE_301,
+  REDIRECT_TYPE_302,
+  REDIRECT_TYPE_SERVER_TRANSFER,
+  SiteResolver,
+} from '@sitecore-jss/sitecore-jss/site';
 import { RedirectsMiddleware } from './redirects-middleware';
 
 use(sinonChai);
@@ -360,7 +365,7 @@ describe('RedirectsMiddleware', () => {
         const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
-          redirectType: 'REDIRECT_301',
+          redirectType: REDIRECT_TYPE_301,
           isQueryStringPreserved: true,
           locale: 'en',
         });
@@ -503,6 +508,108 @@ describe('RedirectsMiddleware', () => {
         nextRewriteStub.restore();
       });
 
+      it('should redirect, when pattern uses with query string', async () => {
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/found',
+          status: 301,
+          setCookies,
+        });
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
+          return ({
+            url,
+            status,
+            cookies: { set: setCookies },
+            headers: res.headers,
+          } as unknown) as NextResponse;
+        });
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            search: 'abc=def',
+            href: 'http://localhost:3000/found?abc=def',
+            locale: 'en',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+        });
+
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
+          pattern: 'not-found\\?abc=def',
+          target: 'http://localhost:3000/found',
+          redirectType: REDIRECT_TYPE_301,
+          isQueryStringPreserved: true,
+          locale: 'en',
+        });
+
+        const finalRes = await middleware.getHandler()(req);
+
+        validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
+          pathname: '/not-found',
+        });
+
+        validateDebugLog('redirects middleware end: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url: 'http://localhost:3000/found',
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+
+        nextRedirectStub.restore();
+      });
+
+      it('should not redirect, when pattern uses with query string', async () => {
+        const res = NextResponse.next();
+
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            href: 'http://localhost:3000/found',
+            locale: 'en',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+        });
+
+        const { middleware } = createMiddleware({
+          pattern: 'not-found\\?abc=def',
+          target: 'http://localhost:3000/found',
+          redirectType: REDIRECT_TYPE_301,
+          isQueryStringPreserved: true,
+          locale: 'en',
+        });
+
+        const finalRes = await middleware.getHandler()(req, res);
+
+        validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
+          pathname: '/not-found',
+        });
+
+        validateDebugLog('redirects middleware end: %o', {
+          headers: {
+            'set-cookie': 'sc_site=nextjs-app; Path=/',
+            'x-middleware-next': '1',
+          },
+          redirected: false,
+          status: 200,
+          url: '',
+        });
+
+        expect(finalRes).to.deep.equal(res);
+      });
+
       it('should return 302 redirect', async () => {
         const setCookies = () => {};
         const res = createResponse({
@@ -532,7 +639,7 @@ describe('RedirectsMiddleware', () => {
         const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
-          redirectType: 'REDIRECT_302',
+          redirectType: REDIRECT_TYPE_302,
           isQueryStringPreserved: true,
           locale: 'en',
         });
@@ -683,7 +790,7 @@ describe('RedirectsMiddleware', () => {
         const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
-          redirectType: 'REDIRECT_301',
+          redirectType: REDIRECT_TYPE_301,
           isQueryStringPreserved: true,
           locale: 'en',
         });
@@ -840,7 +947,7 @@ describe('RedirectsMiddleware', () => {
         const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
-          redirectType: 'REDIRECT_301',
+          redirectType: REDIRECT_TYPE_301,
           isQueryStringPreserved: true,
           locale: 'en',
         });
@@ -900,7 +1007,7 @@ describe('RedirectsMiddleware', () => {
         const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
-          redirectType: 'REDIRECT_301',
+          redirectType: REDIRECT_TYPE_301,
           isQueryStringPreserved: true,
           locale: 'en',
           defaultHostname: 'foobar',
