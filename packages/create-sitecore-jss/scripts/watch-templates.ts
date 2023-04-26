@@ -54,15 +54,9 @@ async function regenerateLockFile() {
 
   try {
     // Remove yarn.lock
-    fs.unlink(yarnLockPath, (err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-
-      console.log(chalk.red('yarn.lock was removed.'));
-      console.log(chalk.yellow('Installing dependencies...'));
-    });
+    fs.unlinkSync(yarnLockPath);
+    console.log(chalk.red('yarn.lock was removed.'));
+    console.log(chalk.yellow('Installing dependencies...'));
 
     // Re-install dependencies
     await promisify(exec)('yarn install', { cwd: rootPath });
