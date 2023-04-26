@@ -32,9 +32,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  isDev: $[eq(variables['Build.SourceBranch'], 'refs/heads/dev')]
+  isDev: $[or(eq(variables['Build.SourceBranch'], 'refs/heads/dev'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'))]
 
 steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '14.x'
   - script: |
       npm ci
     displayName: 'npm ci'
