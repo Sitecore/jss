@@ -1,5 +1,5 @@
 name: 'Docs Request for an Update or Improvement'
-description: A request to update or improve JSS documentation
+description: A request to update or improve JSS documentation. Alternatively you can send a feedback about the documentation to docsite@sitecore.net
 labels: ['📑 doc']
 body:
   - type: textarea
