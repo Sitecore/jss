@@ -24,10 +24,6 @@ export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fet
      * These should match those in your next.config.js (i18n.locales).
      */
     locales: string[];
-    /**
-     * These are list of sites for searching context site language(not locale of site)
-     */
-    sites?: SiteInfo[];
   };
 /**
  * Middleware / handler fetches all redirects from Sitecore instance by grapqhl service
@@ -50,11 +46,19 @@ export class RedirectsMiddleware extends MiddlewareBase {
   }
 
   /**
-   * Gets the Next.js API route handler
+   * Gets the Next.js middleware handler with error handling
    * @returns route handler
    */
   public getHandler(): (req: NextRequest, res?: NextResponse) => Promise<NextResponse> {
-    return this.handler;
+    return async (req, res) => {
+      try {
+        return await this.handler(req, res);
+      } catch (error) {
+        console.log('Redirect middleware failed:');
+        console.log(error);
+        return res || NextResponse.next();
+      }
+    };
   }
 
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
@@ -94,17 +98,9 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
       // Find context site language and replace token
       if (REGEXP_CONTEXT_SITE_LANG.test(existsRedirect.target)) {
-        const siteInfo = this.config.sites?.find(
-          (siteItem: SiteInfo) => siteItem.name === site?.name
-        );
-
-        if (!siteInfo) {
-          throw new Error(`Could not resolve context site language for site ${site.name}`);
-        }
-
         existsRedirect.target = existsRedirect.target.replace(
           REGEXP_CONTEXT_SITE_LANG,
-          siteInfo?.language
+          site.language
         );
       }
 
