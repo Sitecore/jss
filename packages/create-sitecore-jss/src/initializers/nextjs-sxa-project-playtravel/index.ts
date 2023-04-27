@@ -5,7 +5,6 @@ import {
   transform,
   DEFAULT_APPNAME,
   ClientAppArgs,
-  missingAddonMsg,
 } from '../../common';
 
 export default class NextjsSxaProjectPlayTravel implements Initializer {
@@ -25,10 +24,6 @@ export default class NextjsSxaProjectPlayTravel implements Initializer {
     const templatePath = path.resolve(__dirname, '../../templates/nextjs-sxa-project-playtravel');
 
     await transform(templatePath, mergedArgs);
-
-    if (!args.templates.includes('nextjs-sxa') && !pkg.config?.templates?.includes('nextjs-sxa')) {
-      console.log(missingAddonMsg('nextjs-sxa-project-playtravel', 'nextjs-sxa'));
-    }
 
     const response = {
       nextSteps: [],

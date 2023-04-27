@@ -56,11 +56,6 @@ export default class NextjsInitializer implements Initializer {
           },
           {
             name:
-              'nextjs-sxa-project-playtravel - Includes example components and assets for Headless SXA projects',
-            value: 'nextjs-sxa-project-playtravel',
-          },
-          {
-            name:
               'nextjs-personalize - Includes example setup for projects using XM Cloud Embedded Personalization',
             value: 'nextjs-personalize',
           },
