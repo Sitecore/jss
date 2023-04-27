@@ -27,6 +27,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` FEaaS component will render 'staged' variant for editing and preview and 'published' variant for live site by default, unless variant is overriden via rendering parameters. ([#1433](https://github.com/Sitecore/jss/pull/1433))
 * `[templates/nextjs]` `[templates/angular]` `[templates/react]` `[templates/vue]` Pre-push hook for lint check ([#1427](https://github.com/Sitecore/jss/pull/1427))
 ([#1442](https://github.com/Sitecore/jss/pull/1442)) ([#1444](https://github.com/Sitecore/jss/pull/1444))
+* `[templates/nextjs-sxa-project-playtravel]` Add new theme based nextjs-sxa-project-playtravel add-on ([#1459](https://github.com/Sitecore/jss/pull/1459))
 
 ### 🧹 Chores
 
