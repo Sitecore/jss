@@ -2,13 +2,8 @@ import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import { constantCase } from 'constant-case';
-import { JssConfig, jssConfigFactory } from './config';
-
-/*
-  CONFIG GENERATION
-  Generates the /src/temp/config.js file which contains runtime configuration
-  that the app can import and use.
-*/
+import { JssConfig, jssConfigFactory } from '../../config';
+import { BootstrapPlugin } from '../index';
 
 const defaultConfig: JssConfig = {
   sitecoreApiKey: process.env[`${constantCase('sitecoreApiKey')}`],
@@ -17,9 +12,8 @@ const defaultConfig: JssConfig = {
   graphQLEndpointPath: process.env[`${constantCase('graphQLEndpointPath')}`],
   defaultLanguage: process.env[`${constantCase('defaultLanguage')}`],
   graphQLEndpoint: process.env[`${constantCase('graphQLEndpoint')}`],
+  project: process.env[`${constantCase('project')}`],
 };
-
-generateConfig(defaultConfig);
 
 /**
  * Generates the JSS config based on config plugins (under ./config/plugins)
@@ -29,10 +23,10 @@ generateConfig(defaultConfig);
 function generateConfig(defaultConfig: JssConfig): void {
   jssConfigFactory
     .create(defaultConfig)
-    .then((config) => {
+    .then(config => {
       writeConfig(config);
     })
-    .catch((e) => {
+    .catch(e => {
       console.error('Error generating config');
       console.error(e);
       process.exit(1);
@@ -50,7 +44,7 @@ function writeConfig(config: JssConfig): void {
 const config = {};\n`;
 
   // Set configuration values, allowing override with environment variables
-  Object.keys(config).forEach((prop) => {
+  Object.keys(config).forEach(prop => {
     configText += `config.${prop} = process.env.${constantCase(prop)} || '${config[prop]}',\n`;
   });
   configText += `module.exports = config;`;
@@ -59,3 +53,16 @@ const config = {};\n`;
   console.log(`Writing runtime config to ${configPath}`);
   fs.writeFileSync(configPath, configText, { encoding: 'utf8' });
 }
+
+/**
+ * CONFIG GENERATION
+ * Generates the /src/temp/config.js file which contains runtime configuration
+ * that the app can import and use.
+ */
+class GenerateConfigPlugin implements BootstrapPlugin {
+  exec() {
+    generateConfig(defaultConfig);
+  }
+}
+
+export const configPlugin = new GenerateConfigPlugin();
