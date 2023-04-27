@@ -26,7 +26,10 @@ describe('RedirectsMiddleware', () => {
   const referrer = 'http://localhost:3000';
   const hostname = 'foo.net';
   const siteName = 'nextjs-app';
-  const sitesFromConfigFile = [{"name":"basicSite","hostName":"*","language":"en"},{"name":"nextjs-app","hostName":"*","language":"da"}];
+  const sitesFromConfigFile = [
+    { name: 'basicSite', hostName: '*', language: 'en' },
+    { name: 'nextjs-app', hostName: '*', language: 'da' },
+  ];
 
   const createRequest = (props: any = {}) => {
     const req = {
