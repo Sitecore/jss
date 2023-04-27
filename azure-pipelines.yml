@@ -35,6 +35,7 @@ pool:
 
 variables:
   isDev: $[or(eq(variables['Build.SourceBranch'], 'refs/heads/dev'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'))]
+  branchName: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
 
 steps:
   - task: NodeTool@0
@@ -75,7 +76,7 @@ steps:
       git config user.email builds@sitecore.com
       git config user.name "Automated Build"
       git remote set-url origin https://$GITHUB_PAT_ENV@github.com/Sitecore/jss.git
-      git checkout $(Build.SourceBranchName)
+      git checkout $(branchName)
       $(npm bin)/lerna version prerelease --preid canary --force-publish --message "version %s [skip ci]" --yes
     displayName: 'pre-release version update'
     condition: and(succeeded(), eq(variables.isDev, true))
