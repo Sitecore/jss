@@ -27,7 +27,7 @@ describe('RedirectsMiddleware', () => {
   const hostname = 'foo.net';
   const siteName = 'nextjs-app';
   const sitesFromConfigFile = [
-    { name: 'basicSite', hostName: '*', language: 'en' },
+    { name: 'basicSite', hostName: 'localhost', language: 'en' },
     { name: 'nextjs-app', hostName: '*', language: 'da' },
   ];
 
@@ -102,6 +102,7 @@ describe('RedirectsMiddleware', () => {
     } = {}
   ) => {
     class MockSiteResolver extends SiteResolver {
+      sites = sitesFromConfigFile;
       getByName = sinon.stub().callsFake((siteName: string) => ({
         name: siteName,
         language: props.language || '',
@@ -110,7 +111,7 @@ describe('RedirectsMiddleware', () => {
 
       getByHost = sinon.stub().callsFake((hostName: string) => ({
         name: siteName,
-        language: props.language || '',
+        language: props.language || 'da',
         hostName,
       }));
     }
@@ -644,7 +645,7 @@ describe('RedirectsMiddleware', () => {
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
           redirectType: REDIRECT_TYPE_302,
-          isQueryStringPreserved: true,
+          isQueryStringPreserved: false,
           locale: 'en',
         });
 
