@@ -35,8 +35,6 @@ export default class NextjsSxaInitializer implements Initializer {
 
     let addThemeProject: string[] = [];
 
-    console.log(args);
-
     // prompt to select which theme projects to include
     // don't prompt for add-on initializers if --yes or they've already specified
     if (!args.yes && args.templates.includes('nextjs-sxa')) {
