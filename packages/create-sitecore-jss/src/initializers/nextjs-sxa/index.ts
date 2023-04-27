@@ -36,8 +36,7 @@ export default class NextjsSxaInitializer implements Initializer {
     let addThemeProject: string[] = [];
 
     // prompt to select which theme projects to include
-    // don't prompt for add-on initializers if --yes or they've already specified
-    if (!args.yes && args.templates.includes('nextjs-sxa')) {
+    if (args.templates.includes('nextjs-sxa')) {
       const addThemeAnswer = await inquirer.prompt({
         type: 'nextjs-sxa-checkbox' as 'checkbox',
         name: 'addThemeProject',
