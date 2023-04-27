@@ -63,8 +63,8 @@ describe('ComponentFactoryCreator', () => {
         expect(componentFactory('z')).to.equal('zcomponent');
       });
 
-      it('should return undefined when component does not exist', () => {
-        expect(componentFactory('c')).to.equal(undefined);
+      it('should return null when component does not exist', () => {
+        expect(componentFactory('c')).to.equal(null);
       });
     });
 
@@ -87,8 +87,8 @@ describe('ComponentFactoryCreator', () => {
         expect(componentFactory('b')).to.equal('bcomponent');
       });
 
-      it('should return undefined when component does not exist', () => {
-        expect(componentFactory('test')).to.equal(undefined);
+      it('should return null when component does not exist', () => {
+        expect(componentFactory('test')).to.equal(null);
       });
     });
 

@@ -1,16 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect, ComponentType } from 'react';
 <% if (prerender === 'SSG') { -%>
 import { GetStaticPaths, GetStaticProps } from 'next';
 <% } else if (prerender === 'SSR') { -%>
 import { GetServerSideProps } from 'next';
 <% } -%>
 import NotFound from 'src/NotFound';
-import Layout from 'src/Layout';
 import {
   RenderingType,
   SitecoreContext,
   ComponentPropsContext,
   EditingComponentPlaceholder,
+  LayoutServiceData,
+  HTMLLink,
   <% if (prerender === 'SSG') { -%>
   StaticPath,
   <% } -%>
@@ -18,14 +19,13 @@ import {
 import { handleEditorFastRefresh } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
-// different componentFactory method will be used based on whether page is being edited
-import { componentFactory, editingComponentFactory } from 'temp/componentFactory';
+import { componentFactoryCreator } from 'temp/componentFactoryCreator';
 <% if (prerender === 'SSG') { -%>
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
 <% } -%>
 
-const SitecorePage = ({ notFound, componentProps, layoutData, headLinks }: SitecorePageProps): JSX.Element => {
+const SitecorePage = ({ notFound, componentProps, layoutData, headLinks, site }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
     // Since Sitecore editors do not support Fast Refresh, need to refresh editor chromes after Fast Refresh finished
     handleEditorFastRefresh();
@@ -39,11 +39,21 @@ const SitecorePage = ({ notFound, componentProps, layoutData, headLinks }: Sitec
   const isEditing = layoutData.sitecore.context.pageEditing;
   const isComponentRendering =
     layoutData.sitecore.context.renderingType === RenderingType.Component;
+  
+  const componentFactory = componentFactoryCreator.getComponentFactory({
+    projectName: site.project,
+    isEditing,
+  });
+
+  const Layout = componentFactory('Layout') as ComponentType<{
+    layoutData: LayoutServiceData;
+    headLinks: HTMLLink[];
+  }>;
 
   return (
     <ComponentPropsContext value={componentProps}>
       <SitecoreContext
-        componentFactory={isEditing ? editingComponentFactory : componentFactory}
+        componentFactory={componentFactory}
         layoutData={layoutData}
       >
         {/*

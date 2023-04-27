@@ -1,7 +1,7 @@
 import { ComponentPropsService } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
-import { componentModule } from 'temp/componentFactory';
+import { componentFactoryCreator } from 'temp/componentFactoryCreator';
 import { Plugin, isServerSidePropsContext } from '..';
 
 class ComponentPropsPlugin implements Plugin {
@@ -15,6 +15,8 @@ class ComponentPropsPlugin implements Plugin {
 
   async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
     if (!props.layoutData.sitecore.route) return props;
+
+    const componentModule = componentFactoryCreator.getModuleFactory({ projectName: props.site.project });
 
     // Retrieve component props using side-effects defined on components level
     if (isServerSidePropsContext(context)) {

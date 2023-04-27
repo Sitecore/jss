@@ -24,10 +24,8 @@ describe('GraphQLSiteInfoService', () => {
                 en: 'en-pos',
               },
             },
-            otherProperties: {
-              value: {
-                project: 'foo',
-              },
+            project: {
+              value: 'foo',
             },
           },
           {
@@ -40,8 +38,8 @@ describe('GraphQLSiteInfoService', () => {
             language: {
               value: '',
             },
-            otherProperties: {
-              value: {},
+            project: {
+              value: undefined,
             },
           },
         ],
@@ -85,6 +83,7 @@ describe('GraphQLSiteInfoService', () => {
         hostName: 'pr.showercurtains.org',
         language: '',
         pointOfSale: undefined,
+        project: undefined,
       },
     ]);
   });
@@ -133,6 +132,7 @@ describe('GraphQLSiteInfoService', () => {
         hostName: 'pr.showercurtains.org',
         language: '',
         pointOfSale: undefined,
+        project: undefined,
       },
     ]);
     nock.cleanAll();

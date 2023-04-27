@@ -38,7 +38,7 @@ const defaultQuery = /* GraphQL */ `
         pointOfSale: field(name: "POS") {
           value
         }
-        otherProperties: field(name: "OtherProperties") {
+        project: field(name: "Project") {
           value
         }
       }
@@ -104,7 +104,7 @@ type GraphQLSiteInfoResult = {
   pointOfSale?: {
     value: string;
   };
-  otherProperties: {
+  project?: {
     value: string;
   };
 };
@@ -135,8 +135,7 @@ export class GraphQLSiteInfoService {
     const response = await this.graphQLClient.request<GraphQLSiteInfoResponse>(this.query);
     const result = response?.search?.results?.reduce<SiteInfo[]>((result, current) => {
       result.push({
-        // Includes "project" property, etc.
-        ...Object.fromEntries(new URLSearchParams(current.otherProperties.value)),
+        project: current.project?.value || undefined,
         pointOfSale: current.pointOfSale?.value
           ? Object.fromEntries(new URLSearchParams(current.pointOfSale.value))
           : undefined,

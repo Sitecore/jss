@@ -1,9 +1,17 @@
+import { ComponentType } from 'react';
 import { GetServerSideComponentProps, GetStaticComponentProps } from './component-props';
 
 export type Module = {
-  default: React.Component;
+  default: ComponentType;
   getServerSideProps?: GetServerSideComponentProps;
   getStaticProps?: GetStaticComponentProps;
+} & {
+  [key: string]: ComponentType;
+};
+
+export type LazyModule = {
+  module?: () => Promise<Module>;
+  element?: (isEditing?: boolean) => ComponentType;
 };
 
 /**
