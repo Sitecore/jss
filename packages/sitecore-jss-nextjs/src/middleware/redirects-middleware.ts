@@ -164,7 +164,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
   ): Promise<RedirectInfo | undefined> {
     const redirects = await this.redirectsService.fetchRedirects(siteName);
     const tragetURL = req.nextUrl.pathname;
-    const targetQS = `?${req.nextUrl.search || ''}`;
+    const targetQS = req.nextUrl.search || '';
 
     return redirects.length
       ? redirects.find((redirect: RedirectInfo) => {
@@ -175,7 +175,8 @@ export class RedirectsMiddleware extends MiddlewareBase {
           return (
             (regexParser(pattern).test(tragetURL) ||
               regexParser(pattern).test(`${tragetURL}${targetQS}`) ||
-              regexParser(pattern).test(`/${req.nextUrl.locale}${tragetURL}`.toLowerCase())) &&
+              regexParser(pattern).test(`/${req.nextUrl.locale}${tragetURL}`) ||
+              regexParser(pattern).test(`/${req.nextUrl.locale}${tragetURL}${targetQS}`)) &&
             (redirect.locale
               ? redirect.locale.toLowerCase() === req.nextUrl.locale.toLowerCase()
               : true)
