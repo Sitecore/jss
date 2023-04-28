@@ -692,7 +692,7 @@ describe('RedirectsMiddleware', () => {
           nextUrl: {
             pathname: '/not-found',
             search: 'abc=def',
-            href: 'http://localhost:3000/found',
+            href: 'http://localhost:3000/not-found',
             locale: 'en',
             clone() {
               return Object.assign({}, req.nextUrl);
