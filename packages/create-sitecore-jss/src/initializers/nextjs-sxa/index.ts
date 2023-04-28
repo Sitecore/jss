@@ -1,4 +1,6 @@
 ﻿import path, { sep } from 'path';
+import inquirer from 'inquirer';
+import CheckboxPrompt from 'inquirer/lib/prompts/checkbox';
 import {
   Initializer,
   openPackageJson,
@@ -7,6 +9,8 @@ import {
   ClientAppArgs,
   incompatibleAddonsMsg,
 } from '../../common';
+
+inquirer.registerPrompt('nextjs-sxa-checkbox', CheckboxPrompt);
 
 export default class NextjsSxaInitializer implements Initializer {
   get isBase(): boolean {
@@ -29,6 +33,25 @@ export default class NextjsSxaInitializer implements Initializer {
 
     await transform(templatePath, mergedArgs);
 
+    let addThemeProject: string[] = [];
+
+    // prompt to select which theme projects to include
+
+    const addThemeAnswer = await inquirer.prompt({
+      type: 'nextjs-sxa-checkbox' as 'checkbox',
+      name: 'addThemeProject',
+      message: 'Would you like to include any projects?',
+      choices: [
+        {
+          name:
+            'nextjs-sxa-project-playtravel - Includes example components and assets for Play Travel project',
+          value: 'nextjs-sxa-project-playtravel',
+        },
+      ],
+    });
+
+    addThemeProject = addThemeAnswer.addThemeProject;
+
     if (
       args.templates.includes('nextjs-styleguide') ||
       pkg.config?.templates?.includes('nextjs-styleguide')
@@ -40,6 +63,7 @@ export default class NextjsSxaInitializer implements Initializer {
       // TODO: next steps
       nextSteps: [],
       appName: mergedArgs.appName,
+      initializers: [...addThemeProject],
     };
 
     return response;
