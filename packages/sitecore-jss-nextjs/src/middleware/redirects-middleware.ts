@@ -12,6 +12,8 @@ import {
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
 
+const REGEXP_CONTEXT_SITE_LANG = new RegExp(/\$siteLang/, 'gi');
+
 /**
  * extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
  */
@@ -44,11 +46,19 @@ export class RedirectsMiddleware extends MiddlewareBase {
   }
 
   /**
-   * Gets the Next.js API route handler
+   * Gets the Next.js middleware handler with error handling
    * @returns route handler
    */
   public getHandler(): (req: NextRequest, res?: NextResponse) => Promise<NextResponse> {
-    return this.handler;
+    return async (req, res) => {
+      try {
+        return await this.handler(req, res);
+      } catch (error) {
+        console.log('Redirect middleware failed:');
+        console.log(error);
+        return res || NextResponse.next();
+      }
+    };
   }
 
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
@@ -84,6 +94,14 @@ export class RedirectsMiddleware extends MiddlewareBase {
         debug.redirects('skipped (redirect does not exist)');
 
         return res || NextResponse.next();
+      }
+
+      // Find context site language and replace token
+      if (REGEXP_CONTEXT_SITE_LANG.test(existsRedirect.target)) {
+        existsRedirect.target = existsRedirect.target.replace(
+          REGEXP_CONTEXT_SITE_LANG,
+          site.language
+        );
       }
 
       const url = req.nextUrl.clone();
@@ -145,15 +163,14 @@ export class RedirectsMiddleware extends MiddlewareBase {
     siteName: string
   ): Promise<RedirectInfo | undefined> {
     const redirects = await this.redirectsService.fetchRedirects(siteName);
-    const tragetURL = `${req.nextUrl.pathname}`.toLowerCase();
-    const targetQS = `?${req.nextUrl.search || ''}`.toLowerCase();
+    const tragetURL = req.nextUrl.pathname;
+    const targetQS = `?${req.nextUrl.search || ''}`;
 
     return redirects.length
       ? redirects.find((redirect: RedirectInfo) => {
           const pattern = `/^/${redirect.pattern
-            .toLowerCase()
             .replace(/^\/|\/$/g, '')
-            .replace(/^\^|\$$/g, '')}$/`;
+            .replace(/^\^|\$$/g, '')}$/gi`;
 
           return (
             (regexParser(pattern).test(tragetURL) ||

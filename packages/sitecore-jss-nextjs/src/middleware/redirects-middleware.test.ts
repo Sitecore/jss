@@ -26,6 +26,10 @@ describe('RedirectsMiddleware', () => {
   const referrer = 'http://localhost:3000';
   const hostname = 'foo.net';
   const siteName = 'nextjs-app';
+  const sitesFromConfigFile = [
+    { name: 'basicSite', hostName: 'localhost', language: 'en' },
+    { name: 'nextjs-app', hostName: '*', language: 'da' },
+  ];
 
   const createRequest = (props: any = {}) => {
     const req = {
@@ -98,6 +102,7 @@ describe('RedirectsMiddleware', () => {
     } = {}
   ) => {
     class MockSiteResolver extends SiteResolver {
+      sites = sitesFromConfigFile;
       getByName = sinon.stub().callsFake((siteName: string) => ({
         name: siteName,
         language: props.language || '',
@@ -106,7 +111,7 @@ describe('RedirectsMiddleware', () => {
 
       getByHost = sinon.stub().callsFake((hostName: string) => ({
         name: siteName,
-        language: props.language || '',
+        language: props.language || 'da',
         hostName,
       }));
     }
@@ -640,7 +645,7 @@ describe('RedirectsMiddleware', () => {
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
           redirectType: REDIRECT_TYPE_302,
-          isQueryStringPreserved: true,
+          isQueryStringPreserved: false,
           locale: 'en',
         });
 
@@ -657,6 +662,66 @@ describe('RedirectsMiddleware', () => {
           redirected: undefined,
           status: 302,
           url: 'http://localhost:3000/found',
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+
+        nextRedirectStub.restore();
+      });
+
+      it('should redirect uses token $siteLang in target url', async () => {
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/da/found',
+          status: 301,
+          setCookies,
+        });
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
+          return ({
+            url,
+            status,
+            cookies: { set: setCookies },
+            headers: res.headers,
+          } as unknown) as NextResponse;
+        });
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            search: 'abc=def',
+            href: 'http://localhost:3000/not-found',
+            locale: 'en',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+        });
+
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
+          pattern: '/not-found/',
+          target: 'http://localhost:3000/$siteLang/found',
+          redirectType: REDIRECT_TYPE_301,
+          isQueryStringPreserved: false,
+          locale: 'en',
+          sites: sitesFromConfigFile,
+        });
+
+        const finalRes = await middleware.getHandler()(req);
+
+        validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
+          pathname: '/not-found',
+        });
+
+        validateDebugLog('redirects middleware end: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url: 'http://localhost:3000/da/found',
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
