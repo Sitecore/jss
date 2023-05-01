@@ -43,7 +43,6 @@ export {
   RestDictionaryService,
 } from '@sitecore-jss/sitecore-jss/i18n';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
-export { getFEAASLibraryStylesheetLinks } from '@sitecore-jss/sitecore-jss/feaas';
 export { ComponentFactory } from './components/sharedTypes';
 export { Placeholder, PlaceholderComponentProps } from './components/Placeholder';
 export {
