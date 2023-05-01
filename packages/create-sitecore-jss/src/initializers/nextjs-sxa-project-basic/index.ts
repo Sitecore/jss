@@ -5,6 +5,7 @@ import {
   transform,
   DEFAULT_APPNAME,
   ClientAppArgs,
+  missingAddonMsg,
 } from '../../common';
 
 export default class NextjsSxaProjectBasic implements Initializer {
@@ -24,6 +25,10 @@ export default class NextjsSxaProjectBasic implements Initializer {
     const templatePath = path.resolve(__dirname, '../../templates/nextjs-sxa-project-basic');
 
     await transform(templatePath, mergedArgs);
+
+    if (!args.templates.includes('nextjs-sxa') && !pkg.config?.templates?.includes('nextjs-sxa')) {
+      console.log(missingAddonMsg('nextjs-sxa-project-basic', 'nextjs-sxa'));
+    }
 
     const response = {
       nextSteps: [],
