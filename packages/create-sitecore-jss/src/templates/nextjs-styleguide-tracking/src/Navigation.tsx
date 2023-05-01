@@ -1,10 +1,5 @@
 import Link from 'next/link';
 import { useI18n } from 'next-localization';
-import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs/utils';
-
-// Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
-// If you're not supporting the Experience Editor, you can remove this.
-const publicUrl = getPublicUrl();
 
 const Navigation = (): JSX.Element => {
   const { t } = useI18n();
@@ -13,7 +8,7 @@ const Navigation = (): JSX.Element => {
     <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom">
       <h5 className="my-0 me-md-auto fw-normal">
         <Link className="text-dark" href="/">
-          <img src={`${publicUrl}/sc_logo.svg`} alt="Sitecore" />
+          <img src={`/sc_logo.svg`} alt="Sitecore" />
         </Link>
       </h5>
       <nav className="my-2 my-md-0 me-md-3">
