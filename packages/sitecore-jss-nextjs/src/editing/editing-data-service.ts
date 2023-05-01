@@ -3,8 +3,10 @@ import { EditingData } from './editing-data';
 import { EditingDataCache, editingDataDiskCache } from './editing-data-cache';
 import { getJssEditingSecret } from '../utils/utils';
 import { PreviewData } from 'next';
-
-export const QUERY_PARAM_EDITING_SECRET = 'secret';
+import {
+  QUERY_PARAM_EDITING_SECRET,
+  VERCEL_PROTECTION_BYPASS_SECRET_PARAM,
+} from '../utils/constants';
 
 /**
  * Data for Next.js Preview (Editing) mode
@@ -188,6 +190,10 @@ export class ServerlessEditingDataService implements EditingDataService {
     const apiRoute = this.apiRoute?.replace('[key]', key);
     const url = new URL(apiRoute, serverUrl);
     url.searchParams.append(QUERY_PARAM_EDITING_SECRET, getJssEditingSecret());
+    const vercelSecret = process.env.VERCEL_PROTECTION_BYPASS_SECRET;
+    if (vercelSecret) {
+      url.searchParams.append(VERCEL_PROTECTION_BYPASS_SECRET_PARAM, vercelSecret);
+    }
     return url.toString();
   }
 }

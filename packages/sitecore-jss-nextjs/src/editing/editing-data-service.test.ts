@@ -8,11 +8,11 @@ import { EditingDataCache } from './editing-data-cache';
 import {
   ServerlessEditingDataService,
   BasicEditingDataService,
-  QUERY_PARAM_EDITING_SECRET,
   generateKey,
 } from './editing-data-service';
 import sinonChai from 'sinon-chai';
 import { spy } from 'sinon';
+import { QUERY_PARAM_EDITING_SECRET, VERCEL_PROTECTION_BYPASS_SECRET_PARAM } from '../utils/constants';
 
 use(sinonChai);
 use(chaiAsPromised);
@@ -56,6 +56,7 @@ describe('generateKey', () => {
 
 describe('ServerlessEditingDataService', () => {
   const secret = 'secret1234';
+  const vercelSecret = 'do-not-tell';
 
   beforeEach(() => {
     process.env.JSS_EDITING_SECRET = secret;
@@ -86,6 +87,29 @@ describe('ServerlessEditingDataService', () => {
       service['generateKey'] = () => key;
 
       return service.setEditingData(data, serverUrl).then((previewData) => {
+        expect(previewData.key).to.equal(key);
+        expect(previewData.serverUrl).to.equal(serverUrl);
+        expect(fetcher.put).to.have.been.calledOnce;
+        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
+      });
+    });
+
+    it('should use vercel bypass secret in PUT request when present', async () => {
+      const data = {
+        path: '/styleguide',
+      } as EditingData;
+      const key = '1234key';
+      const serverUrl = 'https://test.com';
+      const expectedUrl = `${serverUrl}/api/editing/data/${key}?${QUERY_PARAM_EDITING_SECRET}=${secret}&${VERCEL_PROTECTION_BYPASS_SECRET_PARAM}=${vercelSecret}`;      ;
+
+      const fetcher = mockFetcher();
+
+      const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
+      service['generateKey'] = () => key;
+      process.env.VERCEL_PROTECTION_BYPASS_SECRET = vercelSecret;
+      return service.setEditingData(data, serverUrl).then((previewData) => {
+        delete process.env.VERCEL_PROTECTION_BYPASS_SECRET;
+        
         expect(previewData.key).to.equal(key);
         expect(previewData.serverUrl).to.equal(serverUrl);
         expect(fetcher.put).to.have.been.calledOnce;
@@ -158,6 +182,27 @@ describe('ServerlessEditingDataService', () => {
       expect(fetcher.get).to.have.been.calledOnce;
       expect(fetcher.get).to.have.been.calledWith(expectedUrl);
     });
+
+    it('should use vercel bypass secret in GET request when present', async () => {
+      const data = {
+        path: '/styleguide',
+      } as EditingData;
+      const key = '1234key';
+      const serverUrl = 'https://test.com';
+      const expectedUrl = `${serverUrl}/api/editing/data/${key}?${QUERY_PARAM_EDITING_SECRET}=${secret}&${VERCEL_PROTECTION_BYPASS_SECRET_PARAM}=${vercelSecret}`;
+
+      const fetcher = mockFetcher(data);
+      process.env.VERCEL_PROTECTION_BYPASS_SECRET = vercelSecret;
+      const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
+      service['generateKey'] = () => key;
+
+      const editingData = await service.getEditingData({ key, serverUrl });
+      delete process.env.VERCEL_PROTECTION_BYPASS_SECRET;
+      expect(editingData).to.equal(data);
+      expect(fetcher.get).to.have.been.calledOnce;
+      expect(fetcher.get).to.have.been.calledWith(expectedUrl);
+    });
+
 
     it('should return undefined if serverUrl missing', async () => {
       const data = {

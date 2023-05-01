@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
+import { VERCEL_PROTECTION_BYPASS_SECRET_PARAM } from './constants';
 
 /**
  * Get the publicUrl.
@@ -42,7 +43,7 @@ export const handleEditorFastRefresh = (forceReload = false): void => {
     // Only run if development mode and editor is active
     return;
   }
-  const eventSource = new window.EventSource(`${getPublicUrl()}/_next/webpack-hmr`);
+  const eventSource = new window.EventSource('/_next/webpack-hmr');
 
   window.addEventListener('beforeunload', () => eventSource.close());
 

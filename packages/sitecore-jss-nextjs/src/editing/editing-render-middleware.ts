@@ -4,12 +4,12 @@ import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EDITING_COMPONENT_ID, RenderingType } from '@sitecore-jss/sitecore-jss/layout';
 import { parse } from 'node-html-parser';
 import { EditingData } from './editing-data';
-import {
-  EditingDataService,
-  editingDataService,
-  QUERY_PARAM_EDITING_SECRET,
-} from './editing-data-service';
+import { EditingDataService, editingDataService } from './editing-data-service';
 import { getJssEditingSecret } from '../utils/utils';
+import {
+  QUERY_PARAM_EDITING_SECRET,
+  VERCEL_PROTECTION_BYPASS_SECRET_PARAM,
+} from '../utils/constants';
 
 export interface EditingRenderMiddlewareConfig {
   /**
@@ -128,9 +128,18 @@ export class EditingRenderMiddleware {
       // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
       const requestUrl = this.resolvePageUrl(serverUrl, editingData.path);
       debug.editing('fetching page route for %s', editingData.path);
+
       const queryStringCharacter = requestUrl.indexOf('?') === -1 ? '?' : '&';
+      let pageUrl = `${requestUrl}${queryStringCharacter}timestamp=${Date.now()}`;
+      
+      const verelProtectionBypass = process.env.VERCEL_PROTECTION_BYPASS_SECRET;
+      if (verelProtectionBypass) {
+        pageUrl = pageUrl.concat(
+          `&${VERCEL_PROTECTION_BYPASS_SECRET_PARAM}=${verelProtectionBypass}`
+        );
+      }
       const pageRes = await this.dataFetcher
-        .get<string>(`${requestUrl}${queryStringCharacter}timestamp=${Date.now()}`, {
+        .get<string>(pageUrl, {
           headers: {
             Cookie: cookies.join(';'),
           },
