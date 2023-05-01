@@ -9,7 +9,7 @@ import {
   incompatibleAddonsMsg,
 } from '../../common';
 
-export default class NextjsStyleguideInitializer implements Initializer {
+export default class NextjsStyleguideTrackingInitializer implements Initializer {
   get isBase(): boolean {
     return false;
   }
