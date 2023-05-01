@@ -36,7 +36,6 @@ export default class NextjsSxaInitializer implements Initializer {
     let addThemeProject: string[] = [];
 
     // prompt to select which theme projects to include
-
     const addThemeAnswer = await inquirer.prompt({
       type: 'nextjs-sxa-checkbox' as 'checkbox',
       name: 'addThemeProject',
@@ -46,6 +45,11 @@ export default class NextjsSxaInitializer implements Initializer {
           name:
             'nextjs-sxa-project-playtravel - Includes example components and assets for Play Travel project',
           value: 'nextjs-sxa-project-playtravel',
+        },
+        {
+          name:
+            'nextjs-sxa-project-basic - Includes example components and assets for Basic project',
+          value: 'nextjs-sxa-project-basic',
         },
       ],
     });

@@ -1,4 +1,4 @@
-﻿import path, { sep } from 'path';
+﻿﻿import path, { sep } from 'path';
 import {
   Initializer,
   openPackageJson,
@@ -8,7 +8,7 @@ import {
   missingAddonMsg,
 } from '../../common';
 
-export default class NextjsSxaProjectPlayTravel implements Initializer {
+export default class NextjsSxaProjectBasic implements Initializer {
   get isBase(): boolean {
     return false;
   }
@@ -22,12 +22,12 @@ export default class NextjsSxaProjectPlayTravel implements Initializer {
       appPrefix: args.appPrefix || pkg?.config?.prefix || false,
     };
 
-    const templatePath = path.resolve(__dirname, '../../templates/nextjs-sxa-project-playtravel');
+    const templatePath = path.resolve(__dirname, '../../templates/nextjs-sxa-project-basic');
 
     await transform(templatePath, mergedArgs);
 
     if (!args.templates.includes('nextjs-sxa') && !pkg.config?.templates?.includes('nextjs-sxa')) {
-      console.log(missingAddonMsg('nextjs-sxa-project-playtravel', 'nextjs-sxa'));
+      console.log(missingAddonMsg('nextjs-sxa-project-basic', 'nextjs-sxa'));
     }
 
     const response = {
