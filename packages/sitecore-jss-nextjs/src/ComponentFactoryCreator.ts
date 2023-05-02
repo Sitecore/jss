@@ -1,4 +1,9 @@
-import { ComponentType as ReactComponentType } from 'react';
+import { ComponentFactory } from '@sitecore-jss/sitecore-jss-react';
+import {
+  Module,
+  LazyModule,
+  ComponentModule as ModuleFactory,
+} from './sharedTypes/component-module';
 
 /**
  * With multi-project setups we use a config for a factory that can return both default and project components
@@ -16,12 +21,7 @@ type ModuleFactoryConfig = { projectName?: string };
  * Component type returned by factory.
  * We need to support different scenarios (dynamic/static) but in the end we get a React component
  */
-type ComponentType = {
-  module?: () => ReactComponentType;
-  element?: (isEditing?: boolean) => ReactComponentType;
-} & {
-  [key: string]: ReactComponentType;
-};
+type ComponentType = Module | LazyModule;
 
 /**
  * Class used to generate and use a component factory with multi-project support
@@ -41,19 +41,19 @@ export class ComponentFactoryCreator {
    * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports
    * @param {ModuleFactoryConfig} [config] factory config
    */
-  getModuleFactory(config: ModuleFactoryConfig = {}) {
+  getModuleFactory(config: ModuleFactoryConfig = {}): ModuleFactory {
     const { projectName } = config;
 
     return (componentName: string) => {
       const component = this.getComponent({ projectName, componentName });
 
       // check that component is lazy loading module
-      if (!component?.default && component?.module && component.module) {
+      if (component && !('default' in component) && component.module) {
         // return js dynamic import
         return component.module();
       }
 
-      return component;
+      return component as Module;
     };
   }
 
@@ -68,23 +68,27 @@ export class ComponentFactoryCreator {
    * As we need to be able to seamlessly work with dynamic components in both editing and normal modes, different methods world be called under component.element()
    * @param {ComponentFactoryConfig} [config] factory config
    */
-  getComponentFactory(config: ComponentFactoryConfig = {}) {
+  getComponentFactory(config: ComponentFactoryConfig = {}): ComponentFactory {
     const { projectName, isEditing } = config;
 
     return (componentName: string, exportName?: string) => {
       const component = this.getComponent({ projectName, componentName });
 
-      // check that component should be dynamically imported
-      if (component?.element) {
+      if (!component) return null;
+
+      const lazyComponent = (component as LazyModule).element;
+
+      // check if component should be dynamically imported
+      if (lazyComponent) {
         // return next.js dynamic import
-        return component.element(isEditing);
+        return lazyComponent(isEditing);
       }
 
       if (component && exportName && exportName !== this.DEFAULT_EXPORT_NAME) {
-        return component[exportName];
+        return (component as Module)[exportName];
       }
 
-      return component?.Default || component?.default || component;
+      return (component as Module)?.Default || (component as Module)?.default || component;
     };
   }
 
