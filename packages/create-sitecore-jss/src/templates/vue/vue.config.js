@@ -1,6 +1,7 @@
 let vueConfig = {};
 const path = require('path');
 const { constants } = require('@sitecore-jss/sitecore-jss-vue');
+const config = require('./src/temp/config');
 
 if (process.env.BUILD_TARGET_ENV === 'server') {
   const serverConfig = require('./server/server.vue.config');
@@ -37,7 +38,17 @@ if (process.env.BUILD_TARGET_ENV === 'server') {
     proxy:
       process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED
         ? `http://localhost:${process.env.PROXY_PORT || 3042}`
-        : undefined,
+        : {
+            '^/sitecore': {
+              target: config.sitecoreApiHost,
+            },
+            '^/-': {
+              target: config.sitecoreApiHost,
+            },
+            '^/layouts': {
+              target: config.sitecoreApiHost,
+            },
+          },
   };
 }
 
