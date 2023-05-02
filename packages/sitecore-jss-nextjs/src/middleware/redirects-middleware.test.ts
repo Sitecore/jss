@@ -531,7 +531,7 @@ describe('RedirectsMiddleware', () => {
         const req = createRequest({
           nextUrl: {
             pathname: '/not-found',
-            search: 'abc=def',
+            search: '?abc=def',
             href: 'http://localhost:3000/found?abc=def',
             locale: 'en',
             clone() {
