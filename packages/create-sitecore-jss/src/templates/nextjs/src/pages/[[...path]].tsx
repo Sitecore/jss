@@ -10,14 +10,13 @@ import {
   SitecoreContext,
   ComponentPropsContext,
   EditingComponentPlaceholder,
-  LayoutServiceData,
-  HTMLLink,
   <% if (prerender === 'SSG') { -%>
   StaticPath,
   <% } -%>
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { handleEditorFastRefresh } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 import { SitecorePageProps } from 'lib/page-props';
+import { LayoutProps } from 'lib/layout-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactoryCreator } from 'temp/componentFactoryCreator';
 <% if (prerender === 'SSG') { -%>
@@ -40,15 +39,15 @@ const SitecorePage = ({ notFound, componentProps, layoutData, headLinks, site }:
   const isComponentRendering =
     layoutData.sitecore.context.renderingType === RenderingType.Component;
   
+  /**
+   * Getting component factory based on specific configuration
+   */
   const componentFactory = componentFactoryCreator.getComponentFactory({
     projectName: site.project,
     isEditing,
   });
 
-  const Layout = componentFactory('Layout') as ComponentType<{
-    layoutData: LayoutServiceData;
-    headLinks: HTMLLink[];
-  }>;
+  const Layout = componentFactory('Layout') as ComponentType<LayoutProps>;
 
   return (
     <ComponentPropsContext value={componentProps}>

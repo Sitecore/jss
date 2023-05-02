@@ -16,6 +16,9 @@ class ComponentPropsPlugin implements Plugin {
   async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
     if (!props.layoutData.sitecore.route) return props;
 
+    /**
+     * Getting module factory based on project name, in order to resolve project modules
+     */
     const componentModule = componentFactoryCreator.getModuleFactory({ projectName: props.site.project });
 
     // Retrieve component props using side-effects defined on components level
