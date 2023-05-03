@@ -29,7 +29,7 @@ const PROXY_CONFIG = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED ? 
       '/sitecore',
       // media items
       '/-',
-      // // visitor identification
+      // visitor identification
       '/layouts'
     ],
     target: environment.sitecoreApiHost,
