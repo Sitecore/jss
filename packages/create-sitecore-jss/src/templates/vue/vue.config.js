@@ -46,12 +46,15 @@ if (process.env.BUILD_TARGET_ENV === 'server') {
       process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED
         ? `http://localhost:${process.env.PROXY_PORT || 3042}`
         : {
+            // API endpoints
             '^/sitecore': {
               target: config.sitecoreApiHost,
             },
+            // media items
             '^/-': {
               target: config.sitecoreApiHost,
             },
+            // visitor identification
             '^/layouts': {
               target: config.sitecoreApiHost,
             },
