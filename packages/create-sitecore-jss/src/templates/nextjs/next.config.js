@@ -9,6 +9,7 @@ const publicUrl = getPublicUrl();
  */
 const nextConfig = {
   // Set assetPrefix to our public URL
+  // We need to have it set in dev to support HMR with local dev container setup
   assetPrefix: process.env.NODE_ENV === 'development' ? publicUrl : undefined,
 
   // Allow specifying a distinct distDir when concurrently running app in a container
