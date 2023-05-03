@@ -1,7 +1,14 @@
 let vueConfig = {};
 const path = require('path');
 const { constants } = require('@sitecore-jss/sitecore-jss-vue');
-const config = require('./src/temp/config');
+
+let config;
+
+try {
+  config = require('./src/temp/config');
+} catch (e) {
+  config = {};
+}
 
 if (process.env.BUILD_TARGET_ENV === 'server') {
   const serverConfig = require('./server/server.vue.config');

@@ -9,6 +9,7 @@
   See /scripts/disconnected-mode-proxy.ts for the proxy API server configuration.
 */
 const constants = require('@sitecore-jss/sitecore-jss-angular/cjs').constants;
+const environment = require('./src/environments/environment.js').environment;
 
 const port = 3043;
 
@@ -18,6 +19,13 @@ const PROXY_CONFIG = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED ? 
     target: `http://localhost:${port}`,
     secure: false,
   },
-] : undefined;
+] : [
+  {
+    context: ['/sitecore', '/-', '/layouts'],
+    target: environment.sitecoreApiHost,
+    secure: false,
+    changeOrigin: true
+  }
+];
 
 module.exports = PROXY_CONFIG;
