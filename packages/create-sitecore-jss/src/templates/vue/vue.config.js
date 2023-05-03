@@ -50,14 +50,20 @@ if (process.env.BUILD_TARGET_ENV === 'server') {
             // API endpoints
             '^/sitecore': {
               target: config.sitecoreApiHost,
+              secure: false,
+              changeOrigin: true
             },
             // media items
             '^/-': {
               target: config.sitecoreApiHost,
+              secure: false,
+              changeOrigin: true
             },
             // visitor identification
             '^/layouts': {
               target: config.sitecoreApiHost,
+              secure: false,
+              changeOrigin: true
             },
           },
   };
