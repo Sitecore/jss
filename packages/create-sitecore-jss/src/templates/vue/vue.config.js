@@ -4,6 +4,7 @@ const { constants } = require('@sitecore-jss/sitecore-jss-vue');
 
 let config;
 
+// For bypassing during 'lint' command execution
 try {
   config = require('./src/temp/config');
 } catch (e) {
