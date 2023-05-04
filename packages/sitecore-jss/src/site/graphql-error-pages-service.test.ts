@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import nock from 'nock';
 import { ErrorPages, GraphQLErrorPagesService } from './graphql-error-pages-service';
 import { siteNameError } from '../constants';
+import { LayoutServiceData } from '../layout';
 
 const errorQueryResultNull = {
   site: {
@@ -16,7 +17,9 @@ describe('GraphQLErrorPagesService', () => {
   const language = 'en';
   const mockErrorPages = {
     notFoundPagePath: '/notFoundPage',
+    notFoundPage: { rendered: {} as LayoutServiceData },
     serverErrorPagePath: '/serverErrorPage',
+    serverErrorPage: { rendered: {} as LayoutServiceData },
   };
 
   afterEach(() => {
