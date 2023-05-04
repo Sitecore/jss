@@ -8,6 +8,7 @@ class DefaultPlugin implements SiteResolverPlugin {
     sites.unshift({
       name: config.jssAppName,
       language: config.defaultLanguage,
+      project: config.project,
       hostName: '*',
     });
 

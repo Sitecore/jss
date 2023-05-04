@@ -1,23 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
-import {
-  Placeholder,
-  LayoutServiceData,
-  Field,
-  HTMLLink,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Placeholder, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 import Navigation from 'src/Navigation';
 import Scripts from 'src/Scripts';
+import { LayoutProps } from 'lib/layout-props';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore editors.
 // If you're not supporting Sitecore editors, you can remove this.
 const publicUrl = getPublicUrl();
-
-interface LayoutProps {
-  layoutData: LayoutServiceData;
-  headLinks: HTMLLink[];
-}
 
 interface RouteFields {
   [key: string]: unknown;

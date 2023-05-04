@@ -3,23 +3,14 @@
  */
 import React from 'react';
 import Head from 'next/head';
-import {
-  Placeholder,
-  LayoutServiceData,
-  Field,
-  HTMLLink,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Placeholder, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs/utils';
+import { LayoutProps } from 'lib/layout-props';
 import Scripts from 'src/Scripts';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
 const publicUrl = getPublicUrl();
-
-interface LayoutProps {
-  layoutData: LayoutServiceData;
-  headLinks: HTMLLink[];
-}
 
 interface RouteFields {
   [key: string]: unknown;

@@ -38,6 +38,9 @@ const defaultQuery = /* GraphQL */ `
         pointOfSale: field(name: "POS") {
           value
         }
+        project: field(name: "Project") {
+          value
+        }
       }
     }
   }
@@ -65,6 +68,10 @@ export type SiteInfo = {
    * Site point of sale
    */
   pointOfSale?: Record<string, string>;
+  /**
+   * Assigned project
+   */
+  project?: string;
 };
 
 export type GraphQLSiteInfoServiceConfig = CacheOptions & {
@@ -97,6 +104,9 @@ type GraphQLSiteInfoResult = {
   pointOfSale?: {
     value: string;
   };
+  project?: {
+    value: string;
+  };
 };
 
 export class GraphQLSiteInfoService {
@@ -125,6 +135,7 @@ export class GraphQLSiteInfoService {
     const response = await this.graphQLClient.request<GraphQLSiteInfoResponse>(this.query);
     const result = response?.search?.results?.reduce<SiteInfo[]>((result, current) => {
       result.push({
+        project: current.project?.value || undefined,
         pointOfSale: current.pointOfSale?.value
           ? Object.fromEntries(new URLSearchParams(current.pointOfSale.value))
           : undefined,
