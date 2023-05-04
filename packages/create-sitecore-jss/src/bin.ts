@@ -13,6 +13,7 @@ export const parseArgs = (): ParsedArgs => {
   const options = {
     boolean: ['appPrefix', 'force', 'noInstall', 'yes', 'silent', 'prePushHook'],
     string: ['appName', 'destination', 'templates', 'hostName', 'fetchWith', 'language'],
+    default: { prePushHook: null },
   };
   const args: ParsedArgs = minimist(process.argv.slice(2), options);
 
@@ -99,13 +100,17 @@ export const main = async (args: ParsedArgs) => {
   }
 
   if (!args.yes) {
-    const answer = await inquirer.prompt({
-      type: 'confirm',
-      name: 'prePushHook',
-      message: 'Would you like to use the pre-push hook for linting check?',
-    });
+    if (args.prePushHook === null) {
+      const answer = await inquirer.prompt({
+        type: 'confirm',
+        name: 'prePushHook',
+        message: 'Would you like to use the pre-push hook for linting check?',
+      });
 
-    args.prePushHook = answer.prePushHook;
+      args.prePushHook = answer.prePushHook;
+    }
+  } else {
+    args.prePushHook = true;
   }
 
   try {
