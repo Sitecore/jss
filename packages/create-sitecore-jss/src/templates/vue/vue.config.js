@@ -2,6 +2,15 @@ let vueConfig = {};
 const path = require('path');
 const { constants } = require('@sitecore-jss/sitecore-jss-vue');
 
+let config;
+
+// For bypassing during 'lint' command execution
+try {
+  config = require('./src/temp/config');
+} catch (e) {
+  config = {};
+}
+
 if (process.env.BUILD_TARGET_ENV === 'server') {
   const serverConfig = require('./server/server.vue.config');
   vueConfig = serverConfig;
@@ -37,7 +46,26 @@ if (process.env.BUILD_TARGET_ENV === 'server') {
     proxy:
       process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED
         ? `http://localhost:${process.env.PROXY_PORT || 3042}`
-        : undefined,
+        : {
+            // API endpoints
+            '^/sitecore': {
+              target: config.sitecoreApiHost,
+              secure: false,
+              changeOrigin: true
+            },
+            // media items
+            '^/-': {
+              target: config.sitecoreApiHost,
+              secure: false,
+              changeOrigin: true
+            },
+            // visitor identification
+            '^/layouts': {
+              target: config.sitecoreApiHost,
+              secure: false,
+              changeOrigin: true
+            },
+          },
   };
 }
 

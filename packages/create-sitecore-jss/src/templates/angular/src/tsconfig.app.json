@@ -17,6 +17,6 @@
     "./app/i18n/jss-translation-server-loader.service.ts",
     "./app/app.server.module.ts",
     "./main.server.ts",
-    "./environments/environment.prod.ts"
+    "./environments/environment.prod.js"
   ],
 }
