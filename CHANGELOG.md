@@ -28,6 +28,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` `[templates/angular]` `[templates/react]` `[templates/vue]` Pre-push hook for lint check ([#1427](https://github.com/Sitecore/jss/pull/1427))
 ([#1442](https://github.com/Sitecore/jss/pull/1442)) ([#1444](https://github.com/Sitecore/jss/pull/1444)) ([#1468](https://github.com/Sitecore/jss/pull/1468))
 * `[sitecore-jss-nextjs] Add a new handling for token $siteLang(context site language) in middleware redirect ([#1454](https://github.com/Sitecore/jss/pull/1454))
+* `[sitecore-jss]` `[templates/nextjs-sxa]` Rewrite logic of handling custom error pages. The error pages rewrite page with error(it's saving status code) instead of redirected ([#1469](https://github.com/Sitecore/jss/pull/1469))
 
 ### 🧹 Chores
 
