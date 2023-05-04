@@ -7,9 +7,6 @@
 ### Properties
 
 - [context](SitecoreContextState.md#context)
-
-### Methods
-
 - [setContext](SitecoreContextState.md#setcontext)
 
 ## Properties
@@ -20,24 +17,28 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L15)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L16)
 
-## Methods
+___
 
 ### setContext
 
-▸ **setContext**(`value`): `void`
+• **setContext**: (`value`: [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../README.md#sitecorecontextvalue)) => `void`
 
-#### Parameters
+#### Type declaration
+
+▸ (`value`): `void`
+
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `value` | [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../README.md#sitecorecontextvalue) |
 
-#### Returns
+##### Returns
 
 `void`
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L14)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L15)

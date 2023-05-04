@@ -66,7 +66,7 @@ Component&lt;FormProps, FormState &amp; FieldStateCollection\&gt;.constructor
 
 #### Defined in
 
-[src/components/form.tsx:66](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L66)
+[src/components/form.tsx:67](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/form.tsx#L67)
 
 ## Properties
 
@@ -76,13 +76,13 @@ Component&lt;FormProps, FormState &amp; FieldStateCollection\&gt;.constructor
 
 #### Defined in
 
-[src/components/form.tsx:64](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L64)
+[src/components/form.tsx:65](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/form.tsx#L65)
 
 ___
 
 ### context
 
-• **context**: `any`
+• **context**: `unknown`
 
 If using the new style context, re-declare this in your class to be the
 `React.ContextType` of your `static contextType`.
@@ -96,7 +96,9 @@ context!: React.ContextType<typeof MyContext>
 declare context: React.ContextType<typeof MyContext>
 ```
 
-**`see`** https://reactjs.org/docs/context.html
+**`See`**
+
+https://reactjs.org/docs/context.html
 
 #### Inherited from
 
@@ -104,13 +106,13 @@ Component.context
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:479
+node_modules/@types/react/index.d.ts:471
 
 ___
 
 ### props
 
-• `Readonly` **props**: `Readonly`<[`FormProps`](../interfaces/FormProps.md)\> & `Readonly`<`Object`\>
+• `Readonly` **props**: `Readonly`<[`FormProps`](../interfaces/FormProps.md)\>
 
 #### Inherited from
 
@@ -118,7 +120,7 @@ Component.props
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:504
+node_modules/@types/react/index.d.ts:491
 
 ___
 
@@ -126,7 +128,8 @@ ___
 
 • **refs**: `Object`
 
-**`deprecated`**
+**`Deprecated`**
+
 https://reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs
 
 #### Index signature
@@ -139,7 +142,7 @@ Component.refs
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:510
+node_modules/@types/react/index.d.ts:497
 
 ___
 
@@ -153,7 +156,7 @@ Component.state
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:505
+node_modules/@types/react/index.d.ts:492
 
 ___
 
@@ -178,7 +181,9 @@ class Foo extends React.Component {
 }
 ```
 
-**`see`** https://reactjs.org/docs/context.html#classcontexttype
+**`See`**
+
+https://reactjs.org/docs/context.html#classcontexttype
 
 #### Inherited from
 
@@ -186,7 +191,7 @@ Component.contextType
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:461
+node_modules/@types/react/index.d.ts:454
 
 ## Methods
 
@@ -202,11 +207,14 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use componentDidMount or the constructor instead
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+16.3, use componentDidMount or the constructor instead
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Returns
 
@@ -218,7 +226,7 @@ Component.UNSAFE\_componentWillMount
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:717
+node_modules/@types/react/index.d.ts:688
 
 ___
 
@@ -237,11 +245,14 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use static getDerivedStateFromProps instead
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+16.3, use static getDerivedStateFromProps instead
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -260,7 +271,7 @@ Component.UNSAFE\_componentWillReceiveProps
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:749
+node_modules/@types/react/index.d.ts:720
 
 ___
 
@@ -277,11 +288,14 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use getSnapshotBeforeUpdate instead
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+16.3, use getSnapshotBeforeUpdate instead
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -301,7 +315,7 @@ Component.UNSAFE\_componentWillUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:777
+node_modules/@types/react/index.d.ts:748
 
 ___
 
@@ -315,7 +329,7 @@ ___
 
 #### Defined in
 
-[src/components/form.tsx:315](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L315)
+[src/components/form.tsx:318](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/form.tsx#L318)
 
 ___
 
@@ -343,7 +357,7 @@ Component.componentDidCatch
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:646
+node_modules/@types/react/index.d.ts:617
 
 ___
 
@@ -363,7 +377,7 @@ Component.componentDidMount
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:625
+node_modules/@types/react/index.d.ts:596
 
 ___
 
@@ -393,7 +407,7 @@ Component.componentDidUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:688
+node_modules/@types/react/index.d.ts:659
 
 ___
 
@@ -407,11 +421,14 @@ Avoid introducing any side-effects or subscriptions in this method.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use componentDidMount or the constructor instead; will stop working in React 17
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+16.3, use componentDidMount or the constructor instead; will stop working in React 17
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Returns
 
@@ -423,7 +440,7 @@ Component.componentWillMount
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:703
+node_modules/@types/react/index.d.ts:674
 
 ___
 
@@ -440,11 +457,14 @@ Calling `Component#setState` generally does not trigger this method.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use static getDerivedStateFromProps instead; will stop working in React 17
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+16.3, use static getDerivedStateFromProps instead; will stop working in React 17
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -463,7 +483,7 @@ Component.componentWillReceiveProps
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:732
+node_modules/@types/react/index.d.ts:703
 
 ___
 
@@ -484,7 +504,7 @@ Component.componentWillUnmount
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:641
+node_modules/@types/react/index.d.ts:612
 
 ___
 
@@ -499,11 +519,14 @@ Note: You cannot call `Component#setState` here.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use getSnapshotBeforeUpdate instead; will stop working in React 17
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+16.3, use getSnapshotBeforeUpdate instead; will stop working in React 17
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -523,7 +546,7 @@ Component.componentWillUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:762
+node_modules/@types/react/index.d.ts:733
 
 ___
 
@@ -547,7 +570,7 @@ field component
 
 #### Defined in
 
-[src/components/form.tsx:129](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L129)
+[src/components/form.tsx:132](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/form.tsx#L132)
 
 ___
 
@@ -571,7 +594,7 @@ Component.forceUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:496
+node_modules/@types/react/index.d.ts:488
 
 ___
 
@@ -599,7 +622,7 @@ field state
 
 #### Defined in
 
-[src/components/form.tsx:161](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L161)
+[src/components/form.tsx:164](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/form.tsx#L164)
 
 ___
 
@@ -631,7 +654,7 @@ Component.getSnapshotBeforeUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:682
+node_modules/@types/react/index.d.ts:653
 
 ___
 
@@ -654,7 +677,7 @@ This is important for multistep forms to disambiguate between back and next/subm
 
 #### Defined in
 
-[src/components/form.tsx:205](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L205)
+[src/components/form.tsx:208](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/form.tsx#L208)
 
 ___
 
@@ -670,7 +693,7 @@ Handler triggered by child components that updates a given field's current value
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `key` | `string` | Field's name attribute |
-| `value` | `string` \| `File`[] \| `string`[] | New field value |
+| `value` | `string` \| `string`[] \| `File`[] | New field value |
 | `isValid` | `boolean` | Whether the field is valid or not |
 | `errors` | `string`[] | Validation error message(s) if field is invalid |
 
@@ -680,7 +703,7 @@ Handler triggered by child components that updates a given field's current value
 
 #### Defined in
 
-[src/components/form.tsx:217](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L217)
+[src/components/form.tsx:220](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/form.tsx#L220)
 
 ___
 
@@ -703,7 +726,7 @@ steps in a multistep form or handle a final submit.
 
 #### Defined in
 
-[src/components/form.tsx:233](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L233)
+[src/components/form.tsx:236](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/form.tsx#L236)
 
 ___
 
@@ -721,7 +744,7 @@ Component.render
 
 #### Defined in
 
-[src/components/form.tsx:88](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L88)
+[src/components/form.tsx:89](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/form.tsx#L89)
 
 ___
 
@@ -739,7 +762,7 @@ across steps in a multistep form.
 
 #### Defined in
 
-[src/components/form.tsx:328](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/form.tsx#L328)
+[src/components/form.tsx:331](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/form.tsx#L331)
 
 ___
 
@@ -770,7 +793,7 @@ Component.setState
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:491
+node_modules/@types/react/index.d.ts:483
 
 ___
 
@@ -805,4 +828,4 @@ Component.shouldComponentUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:636
+node_modules/@types/react/index.d.ts:607

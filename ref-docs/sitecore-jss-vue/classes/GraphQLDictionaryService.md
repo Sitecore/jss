@@ -4,7 +4,9 @@
 
 Service that fetch dictionary data using Sitecore's GraphQL API.
 
-**`mixes`** SearchQueryService<DictionaryQueryResult>
+**`Mixes`**
+
+SearchQueryService<DictionaryQueryResult>
 
 ## Hierarchy
 
@@ -96,9 +98,13 @@ sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:49
 
 Fetches dictionary data for internalization.
 
-**`default`** query (@see query)
+**`Default`**
 
-**`throws`** {Error} if the app root was not found for the specified site and language.
+query (@see query)
+
+**`Throws`**
+
+if the app root was not found for the specified site and language.
 
 #### Parameters
 
@@ -150,7 +156,12 @@ ___
 
 ▸ **getCacheValue**(`key`): `DictionaryPhrases`
 
-Retrieves a @see DictionaryPhrases value from the cache.
+Retrieves a
+
+**`See`**
+
+ - DictionaryPhrases value from the cache.
+ - DictionaryPhrases value, or null if the specified key is not found in the cache.
 
 #### Parameters
 
@@ -162,7 +173,7 @@ Retrieves a @see DictionaryPhrases value from the cache.
 
 `DictionaryPhrases`
 
-The @see DictionaryPhrases value, or null if the specified key is not found in the cache.
+The
 
 #### Inherited from
 
@@ -198,9 +209,15 @@ ___
 
 ▸ **setCacheValue**(`key`, `value`): `DictionaryPhrases`
 
-Caches a @see DictionaryPhrases value for the specified cache key.
+Caches a
 
-**`mixes`** CacheClient<DictionaryPhrases>
+**`See`**
+
+DictionaryPhrases value for the specified cache key.
+
+**`Mixes`**
+
+CacheClient<DictionaryPhrases>
 
 #### Parameters
 

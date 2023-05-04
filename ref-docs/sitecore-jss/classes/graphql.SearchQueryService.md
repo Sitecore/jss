@@ -7,7 +7,7 @@
 Provides functionality for performing GraphQL 'search' operations, including handling pagination.
 This class is meant to be extended or used as a mixin; it's not meant to be used directly.
 
-**`mixin`**
+**`Mixin`**
 
 ## Type parameters
 
@@ -51,13 +51,19 @@ Creates an instance of search query service.
 
 #### Defined in
 
-[graphql/search-service.ts:83](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/graphql/search-service.ts#L83)
+[src/graphql/search-service.ts:89](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/graphql/search-service.ts#L89)
 
 ## Properties
 
 ### client
 
 • `Protected` **client**: [`GraphQLClient`](../interfaces/index.GraphQLClient.md)
+
+that fetches data from a GraphQL endpoint.
+
+#### Defined in
+
+[src/graphql/search-service.ts:89](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/graphql/search-service.ts#L89)
 
 ## Methods
 
@@ -69,16 +75,20 @@ Creates an instance of search query service.
 2. Executes search query with pagination
 3. Aggregates pagination results into a single result-set.
 
-**`throws`** {RangeError} if a valid root item ID is not provided.
+**`Throws`**
 
-**`throws`** {RangeError} if the provided language(s) is(are) not valid.
+if a valid root item ID is not provided.
+
+**`Throws`**
+
+if the provided language(s) is(are) not valid.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `query` | `string` \| `DocumentNode` | the search query. |
-| `args` | [`SearchQueryVariables`](../modules/graphql.md#searchqueryvariables) | search query arguments. |
+| `args` | [`SearchQueryVariables`](../interfaces/graphql.SearchQueryVariables.md) | search query arguments. |
 
 #### Returns
 
@@ -88,4 +98,4 @@ array of result objects.
 
 #### Defined in
 
-[graphql/search-service.ts:96](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/graphql/search-service.ts#L96)
+[src/graphql/search-service.ts:102](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/graphql/search-service.ts#L102)

@@ -62,7 +62,7 @@ React.Component&lt;SitecoreContextProps\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L24)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L24)
 
 ## Properties
 
@@ -72,7 +72,7 @@ React.Component&lt;SitecoreContextProps\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:22](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L22)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:22](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L22)
 
 ___
 
@@ -92,7 +92,9 @@ context!: React.ContextType<typeof MyContext>
 declare context: React.ContextType<typeof MyContext>
 ```
 
-**`see`** https://reactjs.org/docs/context.html
+**`See`**
+
+https://reactjs.org/docs/context.html
 
 #### Inherited from
 
@@ -106,7 +108,7 @@ ___
 
 ### props
 
-• `Readonly` **props**: `Readonly`<`SitecoreContextProps`\> & `Readonly`<`Object`\>
+• `Readonly` **props**: `Readonly`<`SitecoreContextProps`\> & `Readonly`<{ `children?`: `ReactNode`  }\>
 
 #### Inherited from
 
@@ -122,7 +124,8 @@ ___
 
 • **refs**: `Object`
 
-**`deprecated`**
+**`Deprecated`**
+
 https://reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs
 
 #### Index signature
@@ -141,7 +144,7 @@ ___
 
 ### state
 
-• **state**: `Readonly`<`Object`\>
+• **state**: `Readonly`<{}\>
 
 #### Inherited from
 
@@ -174,7 +177,9 @@ class Foo extends React.Component {
 }
 ```
 
-**`see`** https://reactjs.org/docs/context.html#classcontexttype
+**`See`**
+
+https://reactjs.org/docs/context.html#classcontexttype
 
 #### Inherited from
 
@@ -192,7 +197,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L20)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L20)
 
 ___
 
@@ -205,11 +210,11 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `children` | `Validator`<`any`\> |
-| `componentFactory` | `Requireable`<`fn`\> |
+| `componentFactory` | `Requireable`<(...`args`: `any`[]) => `any`\> |
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L15)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L15)
 
 ## Methods
 
@@ -225,11 +230,14 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use componentDidMount or the constructor instead
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+16.3, use componentDidMount or the constructor instead
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Returns
 
@@ -260,11 +268,14 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use static getDerivedStateFromProps instead
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+16.3, use static getDerivedStateFromProps instead
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -300,18 +311,21 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use getSnapshotBeforeUpdate instead
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+16.3, use getSnapshotBeforeUpdate instead
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextState` | `Readonly`<`Object`\> |
+| `nextState` | `Readonly`<{}\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -389,7 +403,7 @@ The snapshot is only present if getSnapshotBeforeUpdate is present and returns n
 | Name | Type |
 | :------ | :------ |
 | `prevProps` | `Readonly`<`SitecoreContextProps`\> |
-| `prevState` | `Readonly`<`Object`\> |
+| `prevState` | `Readonly`<{}\> |
 | `snapshot?` | `any` |
 
 #### Returns
@@ -416,11 +430,14 @@ Avoid introducing any side-effects or subscriptions in this method.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use componentDidMount or the constructor instead; will stop working in React 17
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+16.3, use componentDidMount or the constructor instead; will stop working in React 17
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Returns
 
@@ -449,11 +466,14 @@ Calling `Component#setState` generally does not trigger this method.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use static getDerivedStateFromProps instead; will stop working in React 17
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+16.3, use static getDerivedStateFromProps instead; will stop working in React 17
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -508,18 +528,21 @@ Note: You cannot call `Component#setState` here.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use getSnapshotBeforeUpdate instead; will stop working in React 17
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+16.3, use getSnapshotBeforeUpdate instead; will stop working in React 17
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextState` | `Readonly`<`Object`\> |
+| `nextState` | `Readonly`<{}\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -576,7 +599,7 @@ lifecycle events from running.
 | Name | Type |
 | :------ | :------ |
 | `prevProps` | `Readonly`<`SitecoreContextProps`\> |
-| `prevState` | `Readonly`<`Object`\> |
+| `prevState` | `Readonly`<{}\> |
 
 #### Returns
 
@@ -606,7 +629,7 @@ React.Component.render
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L29)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L29)
 
 ___
 
@@ -624,7 +647,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `state` | {} \| (`prevState`: `Readonly`<`Object`\>, `props`: `Readonly`<`SitecoreContextProps`\>) => {} \| `Pick`<`Object`, `K`\> \| `Pick`<`Object`, `K`\> |
+| `state` | {} \| (`prevState`: `Readonly`<{}\>, `props`: `Readonly`<`SitecoreContextProps`\>) => {} \| `Pick`<{}, `K`\> \| `Pick`<{}, `K`\> |
 | `callback?` | () => `void` |
 
 #### Returns
@@ -659,7 +682,7 @@ and `componentDidUpdate` will not be called.
 | Name | Type |
 | :------ | :------ |
 | `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextState` | `Readonly`<`Object`\> |
+| `nextState` | `Readonly`<{}\> |
 | `nextContext` | `any` |
 
 #### Returns

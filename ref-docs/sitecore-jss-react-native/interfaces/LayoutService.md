@@ -18,12 +18,12 @@ Fetch layout data for an item.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `itemPath` | `string` |
-| `language?` | `string` |
-| `req?` | `IncomingMessage` |
-| `res?` | `ServerResponse` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `itemPath` | `string` |  |
+| `language?` | `string` |  |
+| `req?` | `IncomingMessage` | Request instance |
+| `res?` | `ServerResponse` | Response instance |
 
 #### Returns
 

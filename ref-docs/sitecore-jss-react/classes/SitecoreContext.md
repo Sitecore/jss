@@ -62,13 +62,13 @@ React.Component&lt;SitecoreContextProps, SitecoreContextState\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:44](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L44)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:45](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L45)
 
 ## Properties
 
 ### context
 
-• **context**: `any`
+• **context**: `unknown`
 
 If using the new style context, re-declare this in your class to be the
 `React.ContextType` of your `static contextType`.
@@ -82,7 +82,9 @@ context!: React.ContextType<typeof MyContext>
 declare context: React.ContextType<typeof MyContext>
 ```
 
-**`see`** https://reactjs.org/docs/context.html
+**`See`**
+
+https://reactjs.org/docs/context.html
 
 #### Inherited from
 
@@ -90,13 +92,13 @@ React.Component.context
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:479
+sitecore-jss-react/node_modules/@types/react/index.d.ts:471
 
 ___
 
 ### props
 
-• `Readonly` **props**: `Readonly`<`SitecoreContextProps`\> & `Readonly`<`Object`\>
+• `Readonly` **props**: `Readonly`<`SitecoreContextProps`\>
 
 #### Inherited from
 
@@ -104,7 +106,7 @@ React.Component.props
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:504
+sitecore-jss-react/node_modules/@types/react/index.d.ts:491
 
 ___
 
@@ -112,7 +114,8 @@ ___
 
 • **refs**: `Object`
 
-**`deprecated`**
+**`Deprecated`**
+
 https://reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs
 
 #### Index signature
@@ -125,7 +128,7 @@ React.Component.refs
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:510
+sitecore-jss-react/node_modules/@types/react/index.d.ts:497
 
 ___
 
@@ -139,7 +142,7 @@ React.Component.state
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:505
+sitecore-jss-react/node_modules/@types/react/index.d.ts:492
 
 ___
 
@@ -164,7 +167,9 @@ class Foo extends React.Component {
 }
 ```
 
-**`see`** https://reactjs.org/docs/context.html#classcontexttype
+**`See`**
+
+https://reactjs.org/docs/context.html#classcontexttype
 
 #### Inherited from
 
@@ -172,7 +177,7 @@ React.Component.contextType
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:461
+sitecore-jss-react/node_modules/@types/react/index.d.ts:454
 
 ___
 
@@ -182,7 +187,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:42](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L42)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:43](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L43)
 
 ___
 
@@ -195,12 +200,12 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `children` | `Validator`<`any`\> |
-| `componentFactory` | `Requireable`<`fn`\> |
-| `layoutData` | `Requireable`<`InferProps`<`Object`\>\> |
+| `componentFactory` | `Requireable`<(...`args`: `any`[]) => `any`\> |
+| `layoutData` | `Requireable`<`InferProps`<{ `sitecore`: `Requireable`<`InferProps`<{ `context`: `Requireable`<`any`\> = PropTypes.any; `route`: `Requireable`<`any`\> = PropTypes.any }\>\>  }\>\> |
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:31](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L31)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:32](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L32)
 
 ## Methods
 
@@ -216,11 +221,14 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use componentDidMount or the constructor instead
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+16.3, use componentDidMount or the constructor instead
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Returns
 
@@ -232,7 +240,7 @@ React.Component.UNSAFE\_componentWillMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:717
+sitecore-jss-react/node_modules/@types/react/index.d.ts:688
 
 ___
 
@@ -251,11 +259,14 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use static getDerivedStateFromProps instead
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+16.3, use static getDerivedStateFromProps instead
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -274,7 +285,7 @@ React.Component.UNSAFE\_componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:749
+sitecore-jss-react/node_modules/@types/react/index.d.ts:720
 
 ___
 
@@ -291,11 +302,14 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use getSnapshotBeforeUpdate instead
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+16.3, use getSnapshotBeforeUpdate instead
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -315,7 +329,7 @@ React.Component.UNSAFE\_componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:777
+sitecore-jss-react/node_modules/@types/react/index.d.ts:748
 
 ___
 
@@ -343,7 +357,7 @@ React.Component.componentDidCatch
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:646
+sitecore-jss-react/node_modules/@types/react/index.d.ts:617
 
 ___
 
@@ -363,7 +377,7 @@ React.Component.componentDidMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:625
+sitecore-jss-react/node_modules/@types/react/index.d.ts:596
 
 ___
 
@@ -387,7 +401,7 @@ React.Component.componentDidUpdate
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:69](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L69)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L70)
 
 ___
 
@@ -401,11 +415,14 @@ Avoid introducing any side-effects or subscriptions in this method.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use componentDidMount or the constructor instead; will stop working in React 17
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+16.3, use componentDidMount or the constructor instead; will stop working in React 17
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Returns
 
@@ -417,7 +434,7 @@ React.Component.componentWillMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:703
+sitecore-jss-react/node_modules/@types/react/index.d.ts:674
 
 ___
 
@@ -434,11 +451,14 @@ Calling `Component#setState` generally does not trigger this method.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use static getDerivedStateFromProps instead; will stop working in React 17
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+16.3, use static getDerivedStateFromProps instead; will stop working in React 17
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -457,7 +477,7 @@ React.Component.componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:732
+sitecore-jss-react/node_modules/@types/react/index.d.ts:703
 
 ___
 
@@ -478,7 +498,7 @@ React.Component.componentWillUnmount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:641
+sitecore-jss-react/node_modules/@types/react/index.d.ts:612
 
 ___
 
@@ -493,11 +513,14 @@ Note: You cannot call `Component#setState` here.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use getSnapshotBeforeUpdate instead; will stop working in React 17
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+16.3, use getSnapshotBeforeUpdate instead; will stop working in React 17
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -517,7 +540,7 @@ React.Component.componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:762
+sitecore-jss-react/node_modules/@types/react/index.d.ts:733
 
 ___
 
@@ -537,7 +560,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:55](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L55)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:56](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L56)
 
 ___
 
@@ -561,7 +584,7 @@ React.Component.forceUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:496
+sitecore-jss-react/node_modules/@types/react/index.d.ts:488
 
 ___
 
@@ -593,7 +616,7 @@ React.Component.getSnapshotBeforeUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:682
+sitecore-jss-react/node_modules/@types/react/index.d.ts:653
 
 ___
 
@@ -611,7 +634,7 @@ React.Component.render
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:92](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L92)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:93](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L93)
 
 ___
 
@@ -619,8 +642,7 @@ ___
 
 ▸ **setContext**(`value`): `void`
 
-Update context state. Value can be @type {LayoutServiceData} which will be automatically transformed
-or you can provide exact @type {SitecoreContextValue}
+Update context state. Value can be
 
 #### Parameters
 
@@ -634,7 +656,7 @@ or you can provide exact @type {SitecoreContextValue}
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:84](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L84)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:85](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L85)
 
 ___
 
@@ -665,7 +687,7 @@ React.Component.setState
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:491
+sitecore-jss-react/node_modules/@types/react/index.d.ts:483
 
 ___
 
@@ -700,4 +722,4 @@ React.Component.shouldComponentUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:636
+sitecore-jss-react/node_modules/@types/react/index.d.ts:607

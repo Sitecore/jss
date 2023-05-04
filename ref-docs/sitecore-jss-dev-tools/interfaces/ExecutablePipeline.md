@@ -14,9 +14,6 @@
 
 - [args](ExecutablePipeline.md#args)
 - [name](ExecutablePipeline.md#name)
-
-### Methods
-
 - [processors](ExecutablePipeline.md#processors)
 
 ## Properties
@@ -29,7 +26,7 @@ Base args object for the pipeline.
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:40](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L40)
+[pipelines/pipelineFactory.ts:40](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L40)
 
 ___
 
@@ -41,20 +38,24 @@ name of the pipeline
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:36](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L36)
+[pipelines/pipelineFactory.ts:36](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L36)
 
-## Methods
+___
 
 ### processors
 
-▸ **processors**(): [`Processor`](Processor.md)[]
+• **processors**: () => [`Processor`](Processor.md)[]
+
+#### Type declaration
+
+▸ (): [`Processor`](Processor.md)[]
 
 the processors for the pipeline
 
-#### Returns
+##### Returns
 
 [`Processor`](Processor.md)[]
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:44](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L44)
+[pipelines/pipelineFactory.ts:44](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L44)

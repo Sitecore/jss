@@ -63,13 +63,15 @@ Component<ValueFieldProps<FileInputViewModel\>\>.constructor
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:481
+node_modules/@types/react/index.d.ts:473
 
 • **new FileUpload**(`props`, `context`)
 
-**`deprecated`**
+**`Deprecated`**
 
-**`see`** https://reactjs.org/docs/legacy-context.html
+**`See`**
+
+https://reactjs.org/docs/legacy-context.html
 
 #### Parameters
 
@@ -84,7 +86,7 @@ Component<ValueFieldProps<FileInputViewModel\>\>.constructor
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:486
+node_modules/@types/react/index.d.ts:478
 
 ## Properties
 
@@ -98,13 +100,13 @@ node_modules/@types/react/index.d.ts:486
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
+[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
 
 ___
 
 ### context
 
-• **context**: `any`
+• **context**: `unknown`
 
 If using the new style context, re-declare this in your class to be the
 `React.ContextType` of your `static contextType`.
@@ -118,7 +120,9 @@ context!: React.ContextType<typeof MyContext>
 declare context: React.ContextType<typeof MyContext>
 ```
 
-**`see`** https://reactjs.org/docs/context.html
+**`See`**
+
+https://reactjs.org/docs/context.html
 
 #### Inherited from
 
@@ -126,7 +130,7 @@ Component.context
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:479
+node_modules/@types/react/index.d.ts:471
 
 ___
 
@@ -136,13 +140,13 @@ ___
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
+[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
 
 ___
 
 ### props
 
-• `Readonly` **props**: `Readonly`<[`ValueFieldProps`](../README.md#valuefieldprops)<`FileInputViewModel`\>\> & `Readonly`<`Object`\>
+• `Readonly` **props**: `Readonly`<[`ValueFieldProps`](../README.md#valuefieldprops)<`FileInputViewModel`\>\>
 
 #### Inherited from
 
@@ -150,7 +154,7 @@ Component.props
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:504
+node_modules/@types/react/index.d.ts:491
 
 ___
 
@@ -158,7 +162,8 @@ ___
 
 • **refs**: `Object`
 
-**`deprecated`**
+**`Deprecated`**
+
 https://reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs
 
 #### Index signature
@@ -171,13 +176,13 @@ Component.refs
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:510
+node_modules/@types/react/index.d.ts:497
 
 ___
 
 ### state
 
-• **state**: `Readonly`<`Object`\>
+• **state**: `Readonly`<{}\>
 
 #### Inherited from
 
@@ -185,7 +190,7 @@ Component.state
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:505
+node_modules/@types/react/index.d.ts:492
 
 ___
 
@@ -210,7 +215,9 @@ class Foo extends React.Component {
 }
 ```
 
-**`see`** https://reactjs.org/docs/context.html#classcontexttype
+**`See`**
+
+https://reactjs.org/docs/context.html#classcontexttype
 
 #### Inherited from
 
@@ -218,7 +225,7 @@ Component.contextType
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:461
+node_modules/@types/react/index.d.ts:454
 
 ## Methods
 
@@ -234,11 +241,14 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use componentDidMount or the constructor instead
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+16.3, use componentDidMount or the constructor instead
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Returns
 
@@ -250,7 +260,7 @@ Component.UNSAFE\_componentWillMount
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:717
+node_modules/@types/react/index.d.ts:688
 
 ___
 
@@ -269,11 +279,14 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use static getDerivedStateFromProps instead
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+16.3, use static getDerivedStateFromProps instead
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -292,7 +305,7 @@ Component.UNSAFE\_componentWillReceiveProps
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:749
+node_modules/@types/react/index.d.ts:720
 
 ___
 
@@ -309,18 +322,21 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use getSnapshotBeforeUpdate instead
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+16.3, use getSnapshotBeforeUpdate instead
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `nextProps` | `Readonly`<[`ValueFieldProps`](../README.md#valuefieldprops)<`FileInputViewModel`\>\> |
-| `nextState` | `Readonly`<`Object`\> |
+| `nextState` | `Readonly`<{}\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -333,7 +349,7 @@ Component.UNSAFE\_componentWillUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:777
+node_modules/@types/react/index.d.ts:748
 
 ___
 
@@ -361,7 +377,7 @@ Component.componentDidCatch
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:646
+node_modules/@types/react/index.d.ts:617
 
 ___
 
@@ -381,7 +397,7 @@ Component.componentDidMount
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:625
+node_modules/@types/react/index.d.ts:596
 
 ___
 
@@ -405,7 +421,7 @@ Component.componentDidUpdate
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
+[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
 
 ___
 
@@ -419,11 +435,14 @@ Avoid introducing any side-effects or subscriptions in this method.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use componentDidMount or the constructor instead; will stop working in React 17
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+16.3, use componentDidMount or the constructor instead; will stop working in React 17
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Returns
 
@@ -435,7 +454,7 @@ Component.componentWillMount
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:703
+node_modules/@types/react/index.d.ts:674
 
 ___
 
@@ -452,11 +471,14 @@ Calling `Component#setState` generally does not trigger this method.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use static getDerivedStateFromProps instead; will stop working in React 17
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+16.3, use static getDerivedStateFromProps instead; will stop working in React 17
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -475,7 +497,7 @@ Component.componentWillReceiveProps
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:732
+node_modules/@types/react/index.d.ts:703
 
 ___
 
@@ -496,7 +518,7 @@ Component.componentWillUnmount
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:641
+node_modules/@types/react/index.d.ts:612
 
 ___
 
@@ -511,18 +533,21 @@ Note: You cannot call `Component#setState` here.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
-**`deprecated`** 16.3, use getSnapshotBeforeUpdate instead; will stop working in React 17
+**`Deprecated`**
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+16.3, use getSnapshotBeforeUpdate instead; will stop working in React 17
 
-**`see`** https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+**`See`**
+
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `nextProps` | `Readonly`<[`ValueFieldProps`](../README.md#valuefieldprops)<`FileInputViewModel`\>\> |
-| `nextState` | `Readonly`<`Object`\> |
+| `nextState` | `Readonly`<{}\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -535,7 +560,7 @@ Component.componentWillUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:762
+node_modules/@types/react/index.d.ts:733
 
 ___
 
@@ -559,7 +584,7 @@ Component.forceUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:496
+node_modules/@types/react/index.d.ts:488
 
 ___
 
@@ -579,7 +604,7 @@ ___
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
+[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
 
 ___
 
@@ -599,7 +624,7 @@ ___
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
+[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
 
 ___
 
@@ -619,7 +644,7 @@ lifecycle events from running.
 | Name | Type |
 | :------ | :------ |
 | `prevProps` | `Readonly`<[`ValueFieldProps`](../README.md#valuefieldprops)<`FileInputViewModel`\>\> |
-| `prevState` | `Readonly`<`Object`\> |
+| `prevState` | `Readonly`<{}\> |
 
 #### Returns
 
@@ -631,7 +656,7 @@ Component.getSnapshotBeforeUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:682
+node_modules/@types/react/index.d.ts:653
 
 ___
 
@@ -653,7 +678,7 @@ ___
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
+[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
 
 ___
 
@@ -671,7 +696,7 @@ Component.render
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
+[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
 
 ___
 
@@ -689,7 +714,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `state` | ``null`` \| {} \| (`prevState`: `Readonly`<`Object`\>, `props`: `Readonly`<[`ValueFieldProps`](../README.md#valuefieldprops)<`FileInputViewModel`\>\>) => ``null`` \| {} \| `Pick`<`Object`, `K`\> \| `Pick`<`Object`, `K`\> |
+| `state` | ``null`` \| {} \| (`prevState`: `Readonly`<{}\>, `props`: `Readonly`<[`ValueFieldProps`](../README.md#valuefieldprops)<`FileInputViewModel`\>\>) => ``null`` \| {} \| `Pick`<{}, `K`\> \| `Pick`<{}, `K`\> |
 | `callback?` | () => `void` |
 
 #### Returns
@@ -702,7 +727,7 @@ Component.setState
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:491
+node_modules/@types/react/index.d.ts:483
 
 ___
 
@@ -724,7 +749,7 @@ and `componentDidUpdate` will not be called.
 | Name | Type |
 | :------ | :------ |
 | `nextProps` | `Readonly`<[`ValueFieldProps`](../README.md#valuefieldprops)<`FileInputViewModel`\>\> |
-| `nextState` | `Readonly`<`Object`\> |
+| `nextState` | `Readonly`<{}\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -737,4 +762,4 @@ Component.shouldComponentUpdate
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:636
+node_modules/@types/react/index.d.ts:607

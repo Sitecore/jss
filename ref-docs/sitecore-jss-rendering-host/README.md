@@ -15,7 +15,7 @@
 
 ### getDefaultAppInvocationInfoResolver
 
-▸ **getDefaultAppInvocationInfoResolver**(`__namedParameters`): `AppInvocationInfoResolver`
+▸ **getDefaultAppInvocationInfoResolver**(`baseAppPath?`): `AppInvocationInfoResolver`
 
 Returns the default AppInvocationInfoResolver, which is responsible for resolving the function, within your app bundle,
 that should be invoked for rendering your app.
@@ -29,9 +29,9 @@ By default, the resolver assumes a folder structure of:
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `__namedParameters` | `Object` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `baseAppPath?` | `Object` | The base path to your JSS app(s), defaults to `./dist` |
 
 #### Returns
 
@@ -41,13 +41,13 @@ resolver
 
 #### Defined in
 
-[defaultAppInvocationInfoResolver.ts:19](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L19)
+[defaultAppInvocationInfoResolver.ts:19](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L19)
 
 ___
 
 ### ssrMiddleware
 
-▸ `Const` **ssrMiddleware**(`options`): `WebServerMiddleware`
+▸ **ssrMiddleware**(`options`): `WebServerMiddleware`
 
 #### Parameters
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[ssrMiddleware.ts:45](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-rendering-host/src/ssrMiddleware.ts#L45)
+[ssrMiddleware.ts:41](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-rendering-host/src/ssrMiddleware.ts#L41)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[tunnel.ts:12](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-rendering-host/src/tunnel.ts#L12)
+[tunnel.ts:12](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-rendering-host/src/tunnel.ts#L12)
 
 ___
 
@@ -102,4 +102,4 @@ ___
 
 #### Defined in
 
-[renderingHostServer.ts:47](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-rendering-host/src/renderingHostServer.ts#L47)
+[renderingHostServer.ts:47](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-rendering-host/src/renderingHostServer.ts#L47)

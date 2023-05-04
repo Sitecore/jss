@@ -20,9 +20,9 @@ Fetch dictionary data for a language.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `language` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `language` | `string` | the language to be used to fetch the dictionary |
 
 #### Returns
 

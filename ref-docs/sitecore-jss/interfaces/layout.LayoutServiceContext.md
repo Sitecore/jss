@@ -17,6 +17,7 @@ Shape of context data from the Sitecore Layout Service
 - [language](layout.LayoutServiceContext.md#language)
 - [pageEditing](layout.LayoutServiceContext.md#pageediting)
 - [pageState](layout.LayoutServiceContext.md#pagestate)
+- [renderingType](layout.LayoutServiceContext.md#renderingtype)
 - [site](layout.LayoutServiceContext.md#site)
 - [visitorIdentificationTimestamp](layout.LayoutServiceContext.md#visitoridentificationtimestamp)
 
@@ -28,7 +29,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[layout/models.ts:25](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/models.ts#L25)
+[src/layout/models.ts:43](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/models.ts#L43)
 
 ___
 
@@ -38,7 +39,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:24](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/models.ts#L24)
+[src/layout/models.ts:42](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/models.ts#L42)
 
 ___
 
@@ -48,7 +49,17 @@ ___
 
 #### Defined in
 
-[layout/models.ts:26](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/models.ts#L26)
+[src/layout/models.ts:44](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/models.ts#L44)
+
+___
+
+### renderingType
+
+• `Optional` **renderingType**: [`Component`](../enums/layout.RenderingType.md#component)
+
+#### Defined in
+
+[src/layout/models.ts:41](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/models.ts#L41)
 
 ___
 
@@ -64,7 +75,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:28](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/models.ts#L28)
+[src/layout/models.ts:46](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/models.ts#L46)
 
 ___
 
@@ -74,4 +85,4 @@ ___
 
 #### Defined in
 
-[layout/models.ts:27](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/models.ts#L27)
+[src/layout/models.ts:45](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/models.ts#L45)

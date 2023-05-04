@@ -42,7 +42,7 @@ module
 
 #### Defined in
 
-[sitecore-jss-angular/src/lib.module.ts:93](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/lib.module.ts#L93)
+[sitecore-jss-angular/src/lib.module.ts:114](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-angular/src/lib.module.ts#L114)
 
 ___
 
@@ -61,7 +61,7 @@ module
 
 #### Defined in
 
-[sitecore-jss-angular/src/lib.module.ts:81](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/lib.module.ts#L81)
+[sitecore-jss-angular/src/lib.module.ts:89](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-angular/src/lib.module.ts#L89)
 
 ___
 
@@ -77,7 +77,7 @@ Appropriate when defining the set of JSS components that your app is aware of.
 | Name | Type |
 | :------ | :------ |
 | `components` | [`ComponentNameAndType`](ComponentNameAndType.md)[] |
-| `lazyComponents?` | `ComponentNameAndModule`[] |
+| `lazyComponents?` | [`ComponentNameAndModule`](../interfaces/ComponentNameAndModule.md)[] |
 
 #### Returns
 
@@ -87,4 +87,4 @@ module
 
 #### Defined in
 
-[sitecore-jss-angular/src/lib.module.ts:111](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/lib.module.ts#L111)
+[sitecore-jss-angular/src/lib.module.ts:132](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-angular/src/lib.module.ts#L132)

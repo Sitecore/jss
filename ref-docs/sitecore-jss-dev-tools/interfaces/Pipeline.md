@@ -12,17 +12,40 @@
 
 ### Properties
 
+- [addProcessor](Pipeline.md#addprocessor)
 - [args](Pipeline.md#args)
 - [name](Pipeline.md#name)
-
-### Methods
-
-- [addProcessor](Pipeline.md#addprocessor)
 - [processors](Pipeline.md#processors)
 - [run](Pipeline.md#run)
 - [runWithCompilers](Pipeline.md#runwithcompilers)
 
 ## Properties
+
+### addProcessor
+
+• **addProcessor**: (`processor`: [`Processor`](Processor.md)) => `void`
+
+#### Type declaration
+
+▸ (`processor`): `void`
+
+adds a processor to the pipeline
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `processor` | [`Processor`](Processor.md) |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[pipelines/pipelineFactory.ts:63](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L63)
+
+___
 
 ### args
 
@@ -36,7 +59,7 @@ Base args object for the pipeline.
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:55](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L55)
+[pipelines/pipelineFactory.ts:55](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L55)
 
 ___
 
@@ -52,39 +75,21 @@ name of the pipeline
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:51](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L51)
-
-## Methods
-
-### addProcessor
-
-▸ **addProcessor**(`processor`): `void`
-
-adds a processor to the pipeline
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `processor` | [`Processor`](Processor.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[pipelines/pipelineFactory.ts:63](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L63)
+[pipelines/pipelineFactory.ts:51](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L51)
 
 ___
 
 ### processors
 
-▸ **processors**(): [`Processor`](Processor.md)[]
+• **processors**: () => [`Processor`](Processor.md)[]
+
+#### Type declaration
+
+▸ (): [`Processor`](Processor.md)[]
 
 the processors for the pipeline
 
-#### Returns
+##### Returns
 
 [`Processor`](Processor.md)[]
 
@@ -94,42 +99,50 @@ the processors for the pipeline
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:59](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L59)
+[pipelines/pipelineFactory.ts:59](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L59)
 
 ___
 
 ### run
 
-▸ **run**(): `Promise`<`any`\>
+• **run**: () => `Promise`<`any`\>
+
+#### Type declaration
+
+▸ (): `Promise`<`any`\>
 
 runs the pipeline with the given pipeline args
 
-#### Returns
+##### Returns
 
 `Promise`<`any`\>
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:67](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L67)
+[pipelines/pipelineFactory.ts:67](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L67)
 
 ___
 
 ### runWithCompilers
 
-▸ **runWithCompilers**(`compilers`): `Promise`<`any`\>
+• **runWithCompilers**: (`compilers`: `string`[]) => `Promise`<`any`\>
+
+#### Type declaration
+
+▸ (`compilers`): `Promise`<`any`\>
 
 runs the pipeline with the given pipeline args, importing the given compilers first
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `compilers` | `string`[] |
 
-#### Returns
+##### Returns
 
 `Promise`<`any`\>
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:71](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L71)
+[pipelines/pipelineFactory.ts:71](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L71)

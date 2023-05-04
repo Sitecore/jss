@@ -12,13 +12,32 @@
 
 ### Variables
 
+- [FETCH\_WITH](index.constants.md#fetch_with)
 - [JSS\_MODE](index.constants.md#jss_mode)
+- [siteNameError](index.constants.md#sitenameerror)
 
 ## Variables
 
+### FETCH\_WITH
+
+• `Const` **FETCH\_WITH**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `GRAPHQL` | `string` |
+| `REST` | `string` |
+
+#### Defined in
+
+[src/constants.ts:9](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/constants.ts#L9)
+
+___
+
 ### JSS\_MODE
 
-• **JSS\_MODE**: `Object`
+• `Const` **JSS\_MODE**: `Object`
 
 #### Type declaration
 
@@ -29,4 +48,14 @@
 
 #### Defined in
 
-[constants.ts:9](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/constants.ts#L9)
+[src/constants.ts:14](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/constants.ts#L14)
+
+___
+
+### siteNameError
+
+• `Const` **siteNameError**: ``"The siteName cannot be empty"``
+
+#### Defined in
+
+[src/constants.ts:19](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/constants.ts#L19)

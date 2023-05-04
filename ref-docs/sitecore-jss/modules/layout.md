@@ -7,6 +7,7 @@
 ### Enumerations
 
 - [LayoutServicePageState](../enums/layout.LayoutServicePageState.md)
+- [RenderingType](../enums/layout.RenderingType.md)
 
 ### Classes
 
@@ -28,19 +29,24 @@
 - [PlaceholderData](../interfaces/layout.PlaceholderData.md)
 - [RouteData](../interfaces/layout.RouteData.md)
 
-### Type aliases
+### Type Aliases
 
 - [DataFetcherResolver](layout.md#datafetcherresolver)
 - [GraphQLLayoutServiceConfig](layout.md#graphqllayoutserviceconfig)
 - [PlaceholdersData](layout.md#placeholdersdata)
 - [RestLayoutServiceConfig](layout.md#restlayoutserviceconfig)
 
+### Variables
+
+- [EDITING\_COMPONENT\_ID](layout.md#editing_component_id)
+- [EDITING\_COMPONENT\_PLACEHOLDER](layout.md#editing_component_placeholder)
+
 ### Functions
 
 - [getChildPlaceholder](layout.md#getchildplaceholder)
 - [getFieldValue](layout.md#getfieldvalue)
 
-## Type aliases
+## Type Aliases
 
 ### DataFetcherResolver
 
@@ -60,10 +66,10 @@ Data fetcher resolver in order to provide custom data fetcher
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `req?` | `IncomingMessage` |
-| `res?` | `ServerResponse` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `req?` | `IncomingMessage` | Request instance |
+| `res?` | `ServerResponse` | Response instance |
 
 ##### Returns
 
@@ -71,7 +77,7 @@ Data fetcher resolver in order to provide custom data fetcher
 
 #### Defined in
 
-[layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
 
 ___
 
@@ -85,12 +91,12 @@ ___
 | :------ | :------ | :------ |
 | `apiKey` | `string` | The API key to use for authentication |
 | `endpoint` | `string` | Your Graphql endpoint |
+| `formatLayoutQuery?` | (`siteName`: `string`, `itemPath`: `string`, `locale?`: `string`) => `string` | Override default layout query **`Default`** Layout query layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}") |
 | `siteName` | `string` | The JSS application name |
-| `formatLayoutQuery?` | (`siteName`: `string`, `itemPath`: `string`, `locale?`: `string`) => `string` | - |
 
 #### Defined in
 
-[layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
+[src/layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
 
 ___
 
@@ -105,11 +111,11 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 | Name | Type |
 | :------ | :------ |
-| `TYPEDNAME` | extends `string``string` |
+| `TYPEDNAME` | extends `string` = `string` |
 
 #### Defined in
 
-[layout/models.ts:64](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/models.ts#L64)
+[src/layout/models.ts:80](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/models.ts#L80)
 
 ___
 
@@ -126,11 +132,35 @@ ___
 | `configurationName?` | `string` | Layout Service "named" configuration |
 | `dataFetcherResolver?` | [`DataFetcherResolver`](layout.md#datafetcherresolver) | Function that handles fetching API data |
 | `siteName` | `string` | The JSS application name |
-| `tracking?` | `boolean` | Enables/disables analytics tracking for the Layout Service invocation (default is true). More than likely, this would be set to false for SSG/hybrid implementations, and the JSS tracker would instead be used on the client-side: [https://jss.sitecore.com/docs/fundamentals/services/tracking](https://jss.sitecore.com/docs/fundamentals/services/tracking)  **`default`** true |
+| `tracking?` | `boolean` | Enables/disables analytics tracking for the Layout Service invocation (default is true). More than likely, this would be set to false for SSG/hybrid implementations, and the JSS tracker would instead be used on the client-side: [https://jss.sitecore.com/docs/fundamentals/services/tracking](https://jss.sitecore.com/docs/fundamentals/services/tracking) **`Default`** true |
 
 #### Defined in
 
-[layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+[src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+
+## Variables
+
+### EDITING\_COMPONENT\_ID
+
+• `Const` **EDITING\_COMPONENT\_ID**: ``"editing-component"``
+
+Id of wrapper for component rendering
+
+#### Defined in
+
+[src/layout/models.ts:9](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/models.ts#L9)
+
+___
+
+### EDITING\_COMPONENT\_PLACEHOLDER
+
+• `Const` **EDITING\_COMPONENT\_PLACEHOLDER**: ``"editing-componentmode-placeholder"``
+
+Static placeholder name used for component rendering
+
+#### Defined in
+
+[src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/models.ts#L4)
 
 ## Functions
 
@@ -155,7 +185,7 @@ child placeholder
 
 #### Defined in
 
-[layout/utils.ts:58](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/utils.ts#L58)
+[src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/utils.ts#L60)
 
 ___
 
@@ -174,18 +204,20 @@ Null will be returned if the field is not defined.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| `Fields` |
-| `fieldName` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| [`ComponentFields`](../interfaces/layout.ComponentFields.md) | the rendering or fields object to extract the field from |
+| `fieldName` | `string` | the name of the field to extract |
 
 #### Returns
 
 `T` \| `undefined`
 
+the field value or null if the field is not defined
+
 #### Defined in
 
-[layout/utils.ts:9](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/utils.ts#L9)
+[src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/utils.ts#L10)
 
 ▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -197,16 +229,18 @@ Null will be returned if the field is not defined.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| `Fields` |
-| `fieldName` | `string` |
-| `defaultValue` | `T` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| [`ComponentFields`](../interfaces/layout.ComponentFields.md) | the rendering or fields object to extract the field from |
+| `fieldName` | `string` | the name of the field to extract |
+| `defaultValue` | `T` | the default value to return if the field is not defined |
 
 #### Returns
 
 `T`
 
+the field value or the default value if the field is not defined
+
 #### Defined in
 
-[layout/utils.ts:14](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/utils.ts#L14)
+[src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss/src/layout/utils.ts#L15)

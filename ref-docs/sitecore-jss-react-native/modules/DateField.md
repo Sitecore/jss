@@ -16,14 +16,26 @@
 
 • **defaultProps**: `Partial`<`DateFieldProps`\>
 
+#### Defined in
+
+[sitecore-jss-react-native/src/components/Date.tsx:56](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-native/src/components/Date.tsx#L56)
+
 ___
 
 ### displayName
 
 • **displayName**: `string`
 
+#### Defined in
+
+[sitecore-jss-react-native/src/components/Date.tsx:60](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-native/src/components/Date.tsx#L60)
+
 ___
 
 ### propTypes
 
 • **propTypes**: `WeakValidationMap`<`DateFieldProps`\>
+
+#### Defined in
+
+[sitecore-jss-react-native/src/components/Date.tsx:47](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-native/src/components/Date.tsx#L47)

@@ -14,7 +14,11 @@
 
 ### defaultProps
 
-• **defaultProps**: `Partial`<`DateFieldProps`\>
+• **defaultProps**: `Partial`<[`DateFieldProps`](../interfaces/DateFieldProps.md)\>
+
+#### Defined in
+
+[sitecore-jss-react/src/components/Date.tsx:71](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react/src/components/Date.tsx#L71)
 
 ___
 
@@ -22,8 +26,16 @@ ___
 
 • **displayName**: `string`
 
+#### Defined in
+
+[sitecore-jss-react/src/components/Date.tsx:75](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react/src/components/Date.tsx#L75)
+
 ___
 
 ### propTypes
 
-• **propTypes**: `WeakValidationMap`<`DateFieldProps`\>
+• **propTypes**: `WeakValidationMap`<[`DateFieldProps`](../interfaces/DateFieldProps.md)\>
+
+#### Defined in
+
+[sitecore-jss-react/src/components/Date.tsx:61](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react/src/components/Date.tsx#L61)

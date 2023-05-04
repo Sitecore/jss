@@ -15,8 +15,16 @@
 
 • **displayName**: `string`
 
+#### Defined in
+
+[sitecore-jss-react-native/src/components/Text.tsx:31](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-native/src/components/Text.tsx#L31)
+
 ___
 
 ### propTypes
 
 • **propTypes**: `WeakValidationMap`<`TextProps`\>
+
+#### Defined in
+
+[sitecore-jss-react-native/src/components/Text.tsx:24](https://github.com/Sitecore/jss/blob/46e924ec9/packages/sitecore-jss-react-native/src/components/Text.tsx#L24)
