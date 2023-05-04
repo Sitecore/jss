@@ -135,18 +135,16 @@ describe('bin', () => {
       getBaseTemplatesStub.returns(['foo']);
       fsExistsSyncStub.returns(false);
       fsReaddirSyncStub.returns([]);
-      inquirerPromptStub.returns({
-        prePushHook: true,
-      });
 
       const args = mockArgs({
         templates: 'foo,bar',
         destination: 'test\\path',
+        prePushHook: false,
       });
       const expectedTemplates = ['foo', 'bar'];
 
       await main(args);
-      expect(inquirerPromptStub).to.have.been.called;
+      expect(inquirerPromptStub).to.not.have.been.called;
       expect(initRunnerStub).to.have.been.calledOnceWith(expectedTemplates, {
         ...args,
         destination: args.destination,
@@ -159,19 +157,15 @@ describe('bin', () => {
       getBaseTemplatesStub.returns(['foo']);
       fsExistsSyncStub.returns(false);
       fsReaddirSyncStub.returns([]);
-      inquirerPromptStub.returns({
-        prePushHook: true,
-      });
 
       const args = mockArgs({
         destination: 'test\\path',
-        prePushHook: true,
         _: ['foo,bar'],
       });
       const expectedTemplates = ['foo', 'bar'];
       await main(args);
 
-      expect(inquirerPromptStub).to.have.been.called;
+      expect(inquirerPromptStub).to.not.have.been.called;
       expect(initRunnerStub).to.have.been.calledOnceWith(expectedTemplates, {
         ...args,
         destination: args.destination,
@@ -184,9 +178,6 @@ describe('bin', () => {
       getBaseTemplatesStub.returns(['foo']);
       fsExistsSyncStub.returns(false);
       fsReaddirSyncStub.returns([]);
-      inquirerPromptStub.returns({
-        prePushHook: true,
-      });
 
       const invalidTemplate = 'baz';
       const args = mockArgs({
@@ -264,6 +255,34 @@ describe('bin', () => {
       expect(initRunnerStub).to.have.been.calledWith(expectedTemplates, {
         ...args,
         destination: mockDestination,
+        templates: expectedTemplates,
+      });
+    });
+
+    it('should prompt for prePushHook if missing', async () => {
+      getAllTemplatesStub.returns(['foo', 'bar']);
+      getBaseTemplatesStub.returns(['foo']);
+      fsExistsSyncStub.returns(false);
+      fsReaddirSyncStub.returns([]);
+      inquirerPromptStub.returns({
+        destination: 'test\\path',
+      });
+
+      const mockPrePushHook = true;
+      inquirerPromptStub.returns({
+        prePushHook: mockPrePushHook,
+      });
+
+      const args = mockArgs({
+        templates: 'foo',
+      });
+      const expectedTemplates = ['foo'];
+      await main(args);
+
+      expect(inquirerPromptStub).to.have.been.called;
+      expect(initRunnerStub).to.have.been.calledWith(expectedTemplates, {
+        ...args,
+        destination: args.destination,
         templates: expectedTemplates,
       });
     });
@@ -417,9 +436,6 @@ describe('bin', () => {
         getBaseTemplatesStub.returns(['foo']);
         fsExistsSyncStub.returns(true);
         fsReaddirSyncStub.returns(['file.txt']);
-        inquirerPromptStub.returns({
-          continue: false,
-        });
 
         const args = mockArgs({
           templates: 'foo,bar',
@@ -429,7 +445,7 @@ describe('bin', () => {
         const expectedTemplates = ['foo', 'bar'];
         await main(args);
 
-        expect(inquirerPromptStub).to.have.been.called;
+        expect(inquirerPromptStub).to.not.have.been.called;
         expect(initRunnerStub).to.have.been.calledOnceWith(expectedTemplates, {
           ...args,
           destination: args.destination,
