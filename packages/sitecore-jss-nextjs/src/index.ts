@@ -167,7 +167,6 @@ export {
   FEaaSComponentProps,
   FEaaSComponentParams,
   fetchFEaaSComponentServerProps,
-  getFEAASLibraryStylesheetLinks,
   File,
   FileField,
   RichTextField,
