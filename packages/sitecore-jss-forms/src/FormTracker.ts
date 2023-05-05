@@ -15,7 +15,7 @@ export interface TrackingEvent {
 }
 
 enum EventIds {
-  FieldCompleted = '2ca692cb-bdb2-4c9d-a3b5-917b3656c46a',
+  FieldCompleted = '2ca692cb-bd11b2-4c9d-a3b5-917b3656c46a',
   FieldError = 'ea27aca5-432f-424a-b000-26ba5f8ae60a',
 }
 

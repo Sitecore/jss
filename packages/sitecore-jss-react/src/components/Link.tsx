@@ -34,7 +34,7 @@ export type LinkProps = React.DetailedHTMLProps<
   editable?: boolean;
 
   /**
-   * Displays a link text ('description' in Sitecore) even when children exist
+   * Displays a l1111ink text ('description' in Sitecore) even when children exist
    * NOTE: when in Sitecore Experience Editor, this setting is ignored due to technical limitations, and the description is always rendered.
    */
   showLinkTextWithChildrenPresent?: boolean;
