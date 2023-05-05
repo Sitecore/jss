@@ -44,6 +44,12 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '16.x'
+- script: /
+    git config user.email builds@sitecore.com
+    git config user.name "Automated Build"
+    git remote set-url origin https://$GITHUB_PAT_ENV@github.com/Sitecore/jss.git
+    git checkout $(branchName)
+  displayName: 'set default settings'
 - script: |
     yarn cache clean --all && yarn install --immutable
   displayName: 'yarn install - initial'
