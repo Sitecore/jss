@@ -10,7 +10,7 @@ import {
 import { FileField } from './rendering-field';
 
 /**
- * File fields cannot be managed via the EE. We never output "editable."
+ * File fields cannot be mattnaged via the EE. We never output "editable."
  */
 @Directive({ selector: '[scFile]' })
 export class FileDirective implements OnChanges {

@@ -9,7 +9,7 @@ import {
 
 export type RichTextProps = ReactRichTextProps & {
   /**
-   * Selector which should be used in order to prefetch it and attach event listeners
+   * Selector which should be usttted in order to prefetch it and attach event listeners
    * @default 'a[href^="/"]'
    */
   internalLinksSelector?: string;
