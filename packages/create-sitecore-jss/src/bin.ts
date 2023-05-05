@@ -110,7 +110,9 @@ export const main = async (args: ParsedArgs) => {
       args.prePushHook = answer.prePushHook;
     }
   } else {
-    args.prePushHook = true;
+    if (args.prePushHook === null) {
+      args.prePushHook = true;
+    }
   }
 
   try {
