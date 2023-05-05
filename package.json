@@ -3,13 +3,13 @@
   "scripts": {
     "reset": "lerna clean --yes && yarn dlx rimraf node_modules && yarn install && yarn build",
     "build": "lerna run build",
-    "lint-packages": "lerna run lint",
-    "lint-samples": "lerna run lint --scope 'sample-*' -- --fix",
+    "lint-packages": "lerna run lint --since=origin/dev",
     "scaffold-samples": "node ./scripts/scaffold-samples.js",
+    "lint-samples": "node ./scripts/lint-samples.js",
     "coverage-packages": "lerna run coverage",
     "test-packages": "lerna run test",
     "install-git-hooks": "node ./scripts/install-hooks.js",
-    "generate-docs": "lerna run generate-docs",
+    "generate-docs": "node ./scripts/generate-api-docs.js",
     "version": "yarn install && git stage yarn.lock"
   },
   "author": {
