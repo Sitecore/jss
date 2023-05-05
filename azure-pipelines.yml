@@ -44,7 +44,6 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '16.x'
-  displayName: 'set default settings'
 - script: |
     yarn cache clean --all && yarn install --immutable
   displayName: 'yarn install - initial'
@@ -89,20 +88,24 @@ steps:
   condition: and(succeeded(), ne(variables.shouldPublish, true))
 
   # Only for 'dev' and 'release' branches
-  # in order to don't produce extra changes in the Pull Request
 - script: |
     git config user.email builds@sitecore.com
     git config user.name "Automated Build"
     git remote set-url origin https://$GITHUB_PAT_ENV@github.com/Sitecore/jss.git
     git checkout $(branchName)
-    
+  displayName: 'apply git configuration'
+  condition: and(succeeded(), eq(variables.shouldPublish, true))
+  env:
+    GITHUB_PAT_ENV: $(GITHUB-PAT)
+
+  # Only for 'dev' and 'release' branches
+  # in order to don't produce extra changes in the Pull Request
+- script: |
     yarn generate-docs
     git add ./ref-docs/**/*
     git commit -m "Update API docs [skip ci]"
   displayName: 'generate API docs'
   condition: and(succeeded(), eq(variables.shouldPublish, true))
-  env:
-    GITHUB_PAT_ENV: $(GITHUB-PAT)
 
   #
   # LERNA VERSION
