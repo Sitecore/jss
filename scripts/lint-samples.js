@@ -7,7 +7,7 @@ const samples = require('./samples.json');
  * - create-sitecore-jss/src/initializers/**
  */
 
-const affectedTemplates = execSync('git diff --name-only ../packages/create-sitecore-jss', {
+const affectedTemplates = execSync('git diff --name-only packages/create-sitecore-jss', {
   encoding: 'utf-8',
 })
   .split('\n')
@@ -20,12 +20,24 @@ const affectedTemplates = execSync('git diff --name-only ../packages/create-site
   // Removing null values and leaving unique template names
   .filter((template, index, list) => template && list.indexOf(template) === index);
 
+if (!affectedTemplates.length) {
+  console.log('No modified templates to lint');
+
+  return;
+}
+
 const affectedSamples = samples
   .filter((sample) => sample.initializers.some((template) => affectedTemplates.includes(template)))
   .map(
     (sample) =>
       `sample-${sample.args.appName}-${sample.args.fetchWith || ''}-${sample.args.prerender || ''}`
   );
+
+if (!affectedSamples.length) {
+  console.log('No modified samples to lint');
+
+  return;
+}
 
 execSync(`npx lerna run lint --scope={${affectedSamples.join(',')}} -- --fix`, {
   stdio: 'inherit',
