@@ -19,7 +19,7 @@ const config = (environment as {
   defaultLanguage: string
 });
 
-const touchToReloadFilePath = 'src/environments/environment.ts';
+const touchToReloadFilePath = 'src/environments/environment.js';
 
 const proxyOptions: DisconnectedServerOptions = {
   appRoot: join(__dirname, '..'),

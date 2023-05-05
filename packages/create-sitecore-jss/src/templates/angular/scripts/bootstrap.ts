@@ -19,7 +19,7 @@ if (disconnected && process.env.FETCH_WITH === constants.FETCH_WITH.GRAPHQL) {
 
 /*
   CONFIG GENERATION
-  Generates the /src/environments/environment.ts file which contains runtime configuration
+  Generates the /src/environments/environment.js file which contains runtime configuration
   that the app can import and use.
 
   This is generated rather than using Angular environments because of the need to set config params
@@ -34,7 +34,7 @@ function writeConfig(configOverride: { production: boolean, sitecoreApiHost?: st
 }
 
 writeConfig({ production: false });
-writeConfig({ production: true }, 'src/environments/environment.prod.ts');
+writeConfig({ production: true }, 'src/environments/environment.prod.js');
 
 /*
   COMPONENT FACTORY GENERATION
