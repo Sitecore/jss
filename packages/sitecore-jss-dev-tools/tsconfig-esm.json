@@ -9,6 +9,7 @@
     "types",
     "src/bin",
     "src/test*",
+    "nextjs.d.ts",
     "node_modules",
     "src/**/*.test.ts"
   ]

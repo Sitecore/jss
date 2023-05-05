@@ -1,12 +1,12 @@
-﻿import { writeComponentFactoryCreator } from './../../generate-component-factory-creator';
-import { BootstrapPlugin } from '../index';
+﻿import { writeComponentFactoryCreator } from '@sitecore-jss/sitecore-jss-dev-tools/nextjs';
+import { BoostrapConfig, BootstrapPlugin } from '../index';
 
 /**
  * Generates the component factory creator file.
  */
 class ComponentFactoryCreatorPlugin implements BootstrapPlugin {
-  exec() {
-    writeComponentFactoryCreator();
+  exec(bootConfig: BoostrapConfig) {
+    writeComponentFactoryCreator(bootConfig.componentRootPath, bootConfig.projectRootPath);
   }
 }
 

@@ -1,6 +1,6 @@
 ﻿import fs from 'fs';
 import path from 'path';
-import { getItems } from './utils';
+import { getItems } from '@sitecore-jss/sitecore-jss-dev-tools/nextjs';
 
 /*
   PLUGINS GENERATION

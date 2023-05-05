@@ -1,16 +1,25 @@
 ﻿// eslint-disable-next-line @typescript-eslint/no-var-requires
 const plugins = require('scripts/temp/bootstrap-plugins');
 
+export interface BoostrapConfig {
+  componentRootPath: string;
+  projectRootPath: string;
+}
+
 export interface BootstrapPlugin {
   /**
    * A function which will be called during bootstrap execution
    */
-  exec(): void;
+  exec(bootConfig: BoostrapConfig): void;
 }
 
 export class JssBootstrapFactory {
   public async create(): Promise<void> {
-    return (Object.values(plugins) as BootstrapPlugin[]).forEach(plugin => plugin.exec());
+    const bootConfig = {
+      componentRootPath: 'src/components',
+      projectRootPath: 'src/projects',
+    }
+    return (Object.values(plugins) as BootstrapPlugin[]).forEach((plugin) => plugin.exec(bootConfig));
   }
 }
 

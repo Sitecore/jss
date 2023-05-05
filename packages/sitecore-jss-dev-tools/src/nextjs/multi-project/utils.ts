@@ -1,32 +1,26 @@
 import fs from 'fs';
-import chokidar from 'chokidar';
 
 /**
- * Run watch mode, watching on @var paths
- */
-export function watchItems(paths: string[], cb: () => void): void {
-  chokidar
-    .watch(paths, { ignoreInitial: true, awaitWriteFinish: true })
-    .on('add', cb)
-    .on('unlink', cb);
-}
-
-/**
- * Using @var path find all files recursively and generate output using @var resolveItem by calling it for each file
- * @param path plugins path
+ * @param {string} path plugins path
  * @param resolveItem will resolve item in required data format
  * @param cb will be called when new item is found
- * @param fileFormat Matches specific files
- * @param recursive if true will search recursively
- * @returns {Item[]} items
+ * @param {RegExp} fileFormat Matches specific files
+ * @param {boolean} recursive if true will search recursively
  */
-export function getItems<Item>(settings: {
+type GetItemsSettings<Item> = {
   path: string;
   resolveItem: (path: string, name: string) => Item;
   cb?: (name: string) => void;
   fileFormat?: RegExp;
   recursive?: boolean;
-}): Item[] {
+};
+
+/**
+ * Using @var path find all files recursively and generate output using @var resolveItem by calling it for each file
+ * @param {GetItemsSettings} settings
+ * @returns {Item[]} items
+ */
+export function getItems<Item>(settings: GetItemsSettings<Item>): Item[] {
   const {
     recursive = true,
     path,
@@ -39,7 +33,7 @@ export function getItems<Item>(settings: {
 
   if (!fs.existsSync(path)) return [];
 
-  fs.readdirSync(path, { withFileTypes: true }).forEach(item => {
+  fs.readdirSync(path, { withFileTypes: true }).forEach((item) => {
     if (item.isDirectory()) {
       folders.push(item);
     }
