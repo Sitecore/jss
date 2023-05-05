@@ -1,6 +1,12 @@
 const { execSync } = require('child_process');
 const samples = require('./samples.json');
 
+/**
+ * Start linting process only for the samples that were affected by the new changes in:
+ * - create-sitecore-jss/src/templates/**
+ * - create-sitecore-jss/src/initializers/**
+ */
+
 const affectedTemplates = execSync('git diff --name-only ../packages/create-sitecore-jss', {
   encoding: 'utf-8',
 })
