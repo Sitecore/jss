@@ -1,7 +1,7 @@
-﻿import fs from 'fs';
-import path from 'path';
-import { promisify } from 'util';
-import { exec } from 'child_process';
+﻿﻿const fs = require('fs');
+const path = require('path');
+const { promisify } = require('util');
+const { exec } = require('child_process');
 
 const gitRootDirMessage = '\x1b[32m%s\x1b[0m';
 const successMessage = '\x1b[32m%s\x1b[0m';
