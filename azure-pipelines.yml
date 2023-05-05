@@ -87,7 +87,10 @@ steps:
   displayName: 'lint samples'
   condition: and(succeeded(), ne(variables.shouldPublish, true))
 
-  # Only for 'dev' and 'release' branches
+  # * Configure git with a commit user
+  # * Update git remote to include a Personal Access Token, so lerna can push
+  # * Explicitly check out the current branch since Pipelines will use disconnected HEAD by default
+  # * Only run for 'dev' and 'release' branches
 - script: |
     git config user.email builds@sitecore.com
     git config user.name "Automated Build"
@@ -98,7 +101,7 @@ steps:
   env:
     GITHUB_PAT_ENV: $(GITHUB-PAT)
 
-  # Only for 'dev' and 'release' branches
+  # Only run for 'dev' and 'release' branches
   # in order to don't produce extra changes in the Pull Request
 - script: |
     yarn generate-docs
@@ -109,9 +112,6 @@ steps:
 
   #
   # LERNA VERSION
-  # * Configure git with a commit user
-  # * Update git remote to include a Personal Access Token, so lerna can push
-  # * Explicitly check out the current branch since Pipelines will use disconnected HEAD by default
   # * Increment pre-release version
   #     * Force version update even if lerna doesn't detect changes
   #     * Include [skip ci] in commit message to stop pipeline from triggering again when lerna pushes
