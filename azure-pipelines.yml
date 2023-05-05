@@ -49,6 +49,9 @@ steps:
     git config user.name "Automated Build"
     git remote set-url origin https://$GITHUB_PAT_ENV@github.com/Sitecore/jss.git
     git checkout $(branchName)
+  env:
+    GITHUB_PAT_ENV: $(GITHUB-PAT)
+
   displayName: 'set default settings'
 - script: |
     yarn cache clean --all && yarn install --immutable
