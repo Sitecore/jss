@@ -4,7 +4,7 @@ const installHooks = () => {
   // data to be written to the file
   const data = `#!/bin/sh
 #
-# pre-push hook that runs our linter/api doc generation so we don't have to wait for
+# pre-push hook that runs our linter so we don't have to wait for
 # CI to do it for us!
 #
 # To skip this hook, use the --no-verify flag
