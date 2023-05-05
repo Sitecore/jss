@@ -50,6 +50,7 @@ Our versioning strategy is as follows:
 * `[angular]` Fix app build errors. Webpack version is locked at 5.78 due to https://github.com/webpack/webpack/issues/16981 ([#1448](https://github.com/Sitecore/jss/pull/1448))
 * `[sitecore-jss-nextjs]` Fix middleware redirect when the target use regexp with querystring ([#1449](https://github.com/Sitecore/jss/pull/1449)) ([#1460](https://github.com/Sitecore/jss/pull/1460))
 * `[templates/nextjs]` Fix incorrectly named .gitignore file `\scripts\temp\.npmignore` ([#1463](https://github.com/Sitecore/jss/pull/1463))
+* `[angular]` Avoid sending two dictionary service calls when switching language and refreshing the page ([#1473](https://github.com/Sitecore/jss/pull/1473))
 
 ## 21.1.1
 
