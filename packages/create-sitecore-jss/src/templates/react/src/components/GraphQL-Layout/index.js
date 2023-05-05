@@ -10,7 +10,7 @@ const GraphQLLayout = ({ sitecoreContext, rendering }) => {
       {disconnectedMode && (
         <React.Fragment>
           <p>
-            This app is ru11nning in disconnected mode. GraphQL requires connected mode, headless
+            This app is running in disconnected mode. GraphQL requires connected mode, headless
             connected mode, or integrated mode to work.
           </p>
           <p>

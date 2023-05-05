@@ -73,9 +73,6 @@ steps:
     summaryFileLocation: '$(Build.SourcesDirectory)/coverlet/Cobertura.xml'
     reportDirectory: '$(Build.SourcesDirectory)/coverlet'
 - script: |
-    yarn generate-docs
-  displayName: 'generate API docs'
-- script: |
     yarn scaffold-samples
   displayName: 'scaffold samples'
   condition: and(succeeded(), ne(variables.shouldPublish, true))

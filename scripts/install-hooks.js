@@ -4,7 +4,7 @@ const installHooks = () => {
   // data to be written to the file
   const data = `#!/bin/sh
 #
-# pre-push hook that runs our linter so we don't have to wait for
+# pre-push hook that runs our linter/api doc generation so we don't have to wait for
 # CI to do it for us!
 #
 # To skip this hook, use the --no-verify flag
@@ -12,7 +12,10 @@ const installHooks = () => {
 #
 
 echo "Linting packages..."
-npm run lint-packages;`;
+npm run lint-packages;
+echo "Generating API docs..."
+npm run generate-docs;
+`;
 
   // \x1b[32m%s\x1b[0m - set color to green, insert the string, reset color after string is logged to console
   console.log('\x1b[32m%s\x1b[0m', 'Writing to local .git folder...');

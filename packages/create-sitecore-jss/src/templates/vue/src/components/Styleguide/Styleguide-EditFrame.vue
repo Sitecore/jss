@@ -7,7 +7,7 @@
 <template>
   <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-edit-frame">
     <sc-edit-frame v-bind="editFrameProps">
-      This is the co11ntent that will be wrapped by edit frame in Experience Editor.<br/>
+      This is the content that will be wrapped by edit frame in Experience Editor.<br/>
       Try out the custom webedit buttons for a variety of tasks like executing javascript, or webedit commands. <br/>
       Or use field edit buttons to author fields that are not usually editable in Experience Editor.<br/>
       <br/>
