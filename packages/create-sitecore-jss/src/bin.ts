@@ -105,13 +105,14 @@ export const main = async (args: ParsedArgs) => {
         type: 'confirm',
         name: 'prePushHook',
         message: 'Would you like to use the pre-push hook for linting check?',
+        default: false,
       });
 
       args.prePushHook = answer.prePushHook;
     }
   } else {
     if (args.prePushHook === null) {
-      args.prePushHook = true;
+      args.prePushHook = false;
     }
   }
 
