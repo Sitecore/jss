@@ -4,7 +4,7 @@ import fs from 'fs';
 import { constantCase } from 'constant-case';
 import { jssConfigFactory } from '../../config'
 import { JssConfig } from '../../config';
-import { BoostrapConfig, BootstrapPlugin } from '../index';
+import { BootstrapPlugin } from '../index';
 
 const defaultConfig: JssConfig = {
   sitecoreApiKey: process.env[`${constantCase('sitecoreApiKey')}`],
@@ -60,8 +60,8 @@ function generateConfig(defaultConfig: JssConfig): void {
  * that the app can import and use.
  */
 class GenerateConfigPlugin implements BootstrapPlugin {
-  exec(bootConfig: BoostrapConfig) {
-    generateConfig({...defaultConfig, ...bootConfig});
+  exec() {
+    generateConfig(defaultConfig);
   }
 }
 

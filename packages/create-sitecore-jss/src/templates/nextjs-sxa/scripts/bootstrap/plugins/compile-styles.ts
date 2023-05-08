@@ -3,13 +3,15 @@ import path from 'path';
 import sass from 'sass';
 import { minify } from 'csso';
 import { pathToFileURL } from 'url';
-import { getItems } from '@sitecore-jss/sitecore-jss-dev-tools/nextjs';
-import { BoostrapConfig, BootstrapPlugin } from '../index';
+import { getItems } from '@sitecore-jss/sitecore-jss-dev-tools';
+import { constants } from '@sitecore-jss/sitecore-jss-dev-tools/nextjs'
+import { BootstrapPlugin } from '../index';
 
 /**
  * Compiles sass files for each project, minifies it and writes it to the public folder.
  */
-const compileStyles = (projectRootPath: string) => {
+const compileStyles = () => {
+  const projectRootPath = constants.PROJECT_ROOT_PATH;
   const projects = getItems<string>({
     path: projectRootPath,
     resolveItem: (_path, name) => name,
@@ -74,8 +76,8 @@ const compileStyles = (projectRootPath: string) => {
 };
 
 class CompileStylesPlugin implements BootstrapPlugin {
-  exec(bootConfig: BoostrapConfig) {
-    compileStyles(bootConfig.projectRootPath);
+  exec() {
+    compileStyles();
   }
 }
 

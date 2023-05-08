@@ -1,4 +1,4 @@
-import { PackageDefinition, ComponentFile, Project } from './models';
+import { PackageDefinition, ComponentFile, Project } from '../../utils';
 
 const isLazyLoadingModule = (componentPath: string) => componentPath.includes('.dynamic');
 

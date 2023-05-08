@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
-import { getItems } from './utils';
-import { ComponentFile, PackageDefinition, Project } from './models';
-import { generateComponentFactoryCreator } from './component-factory-creator';
-import { generateProjectComponents } from './project-components';
+import { getItems } from '../utils';
+import { ComponentFile, PackageDefinition, Project } from '../utils';
+import { generateComponentFactoryCreator } from './templates/component-factory-creator';
+import { generateProjectComponents } from './templates/project-components';
 
 const componentFactoryCreatorPath = path.resolve('src/temp/componentFactoryCreator.ts');
 

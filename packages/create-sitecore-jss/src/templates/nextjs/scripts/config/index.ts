@@ -12,8 +12,6 @@ export interface JssConfig extends Record<string, string | undefined> {
   defaultLanguage?: string;
   graphQLEndpoint?: string;
   project?: string;
-  componentRootPath?: string;
-  projectRootPath?: string;
 }
 
 export interface ConfigPlugin {

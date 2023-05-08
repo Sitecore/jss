@@ -1,1 +1,1 @@
-export * from './types/nextjs/index';
+export * from './types/templating/nextjs/index';

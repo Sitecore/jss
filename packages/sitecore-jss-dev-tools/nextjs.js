@@ -1,1 +1,1 @@
-module.exports = require('./dist/cjs/nextjs/index');
+module.exports = require('./dist/cjs/templating/nextjs/index');
