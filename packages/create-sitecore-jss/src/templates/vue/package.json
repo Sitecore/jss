@@ -76,6 +76,7 @@
     "@vue/cli-service": "~5.0.8",
     "@vue/compiler-sfc": "^3.2.45",
     "@vue/eslint-config-prettier": "~7.0.0",
+    "chalk": "~4.1.2",
     "chokidar": "~3.5.3",
     "constant-case": "^3.0.4",
     "cross-env": "~7.0.3",

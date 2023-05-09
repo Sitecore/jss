@@ -1,28 +1,32 @@
-﻿const fs = require('fs');
+﻿﻿const fs = require('fs');
+const path = require('path');
+const { promisify } = require('util');
+const { exec } = require('child_process');
+const chalk = require('chalk');
 
-const installHooks = () => {
-  // data to be written to the file
-  const data = `#!/bin/sh
-  #
-  # pre-push hook runs our linter before we push our changes
-  #
-  # To skip this hook, use the --no-verify flag
-  # when pushing.
-  #
-  echo "Running lint check..."
-  npm run lint`;
+const installHooks = async () => {
+  try {
+    const appPath = path.join(__dirname, '..').replace(/\\/g, '/');
+    const { stdout } = await promisify(exec)('git rev-parse --show-toplevel');
+    const gitRootPath = stdout.trim();
+    console.log(chalk.green(`Writing data to local .git folder ${gitRootPath}...`));
 
-  // \x1b[32m%s\x1b[0m - set color to green, insert the string, reset color after string is logged to console
-  console.log('\x1b[32m%s\x1b[0m', 'Writing to local .git folder...');
+    const data = `#!/bin/sh
+#
+# pre-push hook runs our linter before we push our changes
+#
+# To skip this hook, use the --no-verify flag
+# when pushing.
+#
+echo "Running lint check..."
+cd ${appPath}
+npm run lint`;
 
-  // Write the hook to the local .git folder. Using writeFile in order to catch any errors
-  fs.writeFile('./.git/hooks/pre-push', data, 'utf8', err => {
-    if (err) {
-      console.log('\x1b[31m%o\x1b[0m', err);
-    } else {
-      console.log('\x1b[32m%s\x1b[0m', 'Success!');
-    }
-  });
+    await promisify(fs.writeFile)(`${gitRootPath}/.git/hooks/pre-push`, data, 'utf8');
+    console.log(chalk.green('Success'));
+  } catch (error) {
+    console.log(chalk.red(`Error installing hook: ${error}`));
+  }
 };
 
 installHooks();
