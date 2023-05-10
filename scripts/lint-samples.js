@@ -1,5 +1,6 @@
 const { execSync } = require('child_process');
 const samples = require('./samples.json');
+const { getAppName } = require('./utils');
 
 /**
  * Start linting process only for the samples that were affected by the new changes in:
@@ -7,9 +8,12 @@ const samples = require('./samples.json');
  * - create-sitecore-jss/src/initializers/**
  */
 
-const affectedTemplates = execSync('git diff --name-only packages/create-sitecore-jss', {
-  encoding: 'utf-8',
-})
+const affectedTemplates = execSync(
+  'git diff --name-only origin/dev... -- packages/create-sitecore-jss',
+  {
+    encoding: 'utf-8',
+  }
+)
   .split('\n')
   .map((filepath) => {
     // Extracting template names from the filepath
@@ -28,10 +32,7 @@ if (!affectedTemplates.length) {
 
 const affectedSamples = samples
   .filter((sample) => sample.initializers.some((template) => affectedTemplates.includes(template)))
-  .map(
-    (sample) =>
-      `sample-${sample.args.appName}-${sample.args.fetchWith || ''}-${sample.args.prerender || ''}`
-  );
+  .map((sample) => getAppName(sample.args));
 
 if (!affectedSamples.length) {
   console.log('No modified samples to lint');

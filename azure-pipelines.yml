@@ -122,7 +122,6 @@ steps:
   displayName: 'pre-release version update'
   condition: and(succeeded(), eq(variables.shouldPublish, true))
   env:
-    GITHUB_PAT_ENV: $(GITHUB-PAT)
     YARN_ENABLE_IMMUTABLE_INSTALLS: false
   #
   # LERNA PUBLISH
