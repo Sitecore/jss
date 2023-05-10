@@ -1,14 +1,11 @@
-import { sitecorePagePropsFactory } from 'lib/page-props-factory';
-import Layout from 'src/Layout';
 import config from 'temp/config';
-import {
-  ComponentPropsContext,
-  GraphQLErrorPagesService,
-  SitecoreContext,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import { componentFactory } from 'temp/componentFactory';
+import { GraphQLErrorPagesService, SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import NotFound from 'src/NotFound';
+import { componentFactory } from 'temp/componentFactory';
+import Layout from 'src/Layout';
+import { GetStaticProps } from 'next';
+import { siteResolver } from 'lib/site-resolver';
 
 const Custom404 = (props: SitecorePageProps): JSX.Element => {
   if (!(props && props.layoutData)) {
@@ -16,31 +13,29 @@ const Custom404 = (props: SitecorePageProps): JSX.Element => {
   }
 
   return (
-    <ComponentPropsContext value={{}}>
-      <SitecoreContext componentFactory={componentFactory} layoutData={props.layoutData}>
-        <Layout layoutData={props.layoutData} headLinks={props.headLinks} />
-      </SitecoreContext>
-    </ComponentPropsContext>
+    <SitecoreContext componentFactory={componentFactory} layoutData={props.layoutData}>
+      <Layout layoutData={props.layoutData} headLinks={props.headLinks} />
+    </SitecoreContext>
   );
 };
 
-export async function getStaticProps(context: SitecorePageProps) {
-  const props = await sitecorePagePropsFactory.create(context);
+export const getStaticProps: GetStaticProps = async (context) => {
+  const site = siteResolver.getByName(config.jssAppName);
   const errorPagesService = new GraphQLErrorPagesService({
     endpoint: config.graphQLEndpoint,
     apiKey: config.sitecoreApiKey,
-    siteName: props.site.name,
-    language: (props.site.locale || context.locale) as string,
+    siteName: site.name,
+    language: context.locale || config.defaultLanguage,
   });
 
   const resultErrorPages = await errorPagesService.fetchErrorPages();
 
   return {
     props: {
-      ...props,
+      headLinks: [],
       layoutData: resultErrorPages?.notFoundPage?.rendered || null,
     },
   };
-}
+};
 
 export default Custom404;
