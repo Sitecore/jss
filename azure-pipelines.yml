@@ -48,7 +48,7 @@ steps:
     yarn cache clean --all && yarn install --immutable
   displayName: 'yarn install - initial'
 - script: |
-    yarn lint-packages -- ${{ variables.lernaSinceFlag }}
+    yarn lint-packages ${{ variables.lernaSinceFlag }}
   displayName: 'lint packages'
 - script: |
     lerna run build
@@ -83,7 +83,7 @@ steps:
   env:
     YARN_ENABLE_IMMUTABLE_INSTALLS: false
 - script: |
-    yarn lint-samples -- ${{ variables.lernaSinceFlag }}
+    yarn lint-samples ${{ variables.lernaSinceFlag }}
   displayName: 'lint samples'
   condition: and(succeeded(), ne(variables.shouldPublish, true))
 
@@ -104,7 +104,7 @@ steps:
   # Only run for 'dev' and 'release' branches
   # in order to don't produce extra changes in the Pull Request
 - script: |
-    yarn generate-docs -- ${{ variables.lernaSinceFlag }}
+    yarn generate-docs ${{ variables.lernaSinceFlag }}
     git add ./ref-docs/**/*
     git commit -m "Update API docs [skip ci]"
   displayName: 'generate API docs'
