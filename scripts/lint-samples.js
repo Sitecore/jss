@@ -55,4 +55,4 @@ if (!affectedSamples.length) {
   return;
 }
 
-runLintCommand(`{${affectedSamples.join(',')}}`);
+runLintCommand(affectedSamples.length > 1 ? `{${affectedSamples.join(',')}}` : affectedSamples[0]);
