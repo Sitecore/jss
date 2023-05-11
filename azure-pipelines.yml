@@ -33,11 +33,11 @@ variables:
     branchName: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
     branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
+    lernaSinceFlag: "--since $(variables['branchName'])"
 # disable `PublishCodeCoverageResults` report generation, as `reportgenerator` provides custom report
   disable.coverage.autogenerate: 'true'
 # Some steps here scaffold jss apps and check if they build and lint correctly
 # build apps step currently excluded: RAV apps have issues with yarn build, nextjs has some with all builds without Sitecore connection
-# using --since for lerna commands could be nice but it introduces a lot of branching execution paths that need to be covered
 # TODO: add step for lerna run build --scope sample-* when RAV and nextjs yarn build issues are resolved
 
 steps:
@@ -48,7 +48,7 @@ steps:
     yarn cache clean --all && yarn install --immutable
   displayName: 'yarn install - initial'
 - script: |
-    yarn lint-packages
+    yarn lint-packages -- ${{ variables.lernaSinceFlag }}
   displayName: 'lint packages'
 - script: |
     lerna run build
@@ -83,7 +83,7 @@ steps:
   env:
     YARN_ENABLE_IMMUTABLE_INSTALLS: false
 - script: |
-    yarn lint-samples
+    yarn lint-samples -- ${{ variables.lernaSinceFlag }}
   displayName: 'lint samples'
   condition: and(succeeded(), ne(variables.shouldPublish, true))
 
@@ -104,7 +104,7 @@ steps:
   # Only run for 'dev' and 'release' branches
   # in order to don't produce extra changes in the Pull Request
 - script: |
-    yarn generate-docs
+    yarn generate-docs -- ${{ variables.lernaSinceFlag }}
     git add ./ref-docs/**/*
     git commit -m "Update API docs [skip ci]"
   displayName: 'generate API docs'

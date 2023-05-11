@@ -2,6 +2,20 @@ const { execSync } = require('child_process');
 const samples = require('./samples.json');
 const { getAppName } = require('./utils');
 
+const cliArgs = process.argv.slice(2);
+const lernaSinceFlag = cliArgs.length ? cliArgs[1] : undefined;
+
+const runLintCommand = (scope) =>
+  execSync(`lerna run lint --scope ${scope} -- --fix`, {
+    stdio: 'inherit',
+  });
+
+if (!lernaSinceFlag) {
+  runLintCommand('sample-*');
+
+  return;
+}
+
 /**
  * Start linting process only for the samples that were affected by the new changes in:
  * - create-sitecore-jss/src/templates/**
@@ -9,7 +23,7 @@ const { getAppName } = require('./utils');
  */
 
 const affectedTemplates = execSync(
-  'git diff --name-only origin/dev... -- packages/create-sitecore-jss',
+  `git diff --name-only ${lernaSinceFlag}... -- packages/create-sitecore-jss`,
   {
     encoding: 'utf-8',
   }
@@ -40,6 +54,4 @@ if (!affectedSamples.length) {
   return;
 }
 
-execSync(`npx lerna run lint --scope={${affectedSamples.join(',')}} -- --fix`, {
-  stdio: 'inherit',
-});
+runLintCommand(`{${affectedSamples.join(',')}}`);
