@@ -7,7 +7,7 @@ import { ComponentPropsCollection } from '../sharedTypes/component-props';
 export const ComponentPropsReactContext = createContext<ComponentPropsCollection>({});
 
 /**
- * Hook in order to get access to props related to specific component. Data comes from ComponentPropsContext.
+ * Hook in order to get acces11s to props related to specific component. Data comes from ComponentPropsContext.
  * @see ComponentPropsContext
  * @param {string | undefined} componentUid component uId
  * @returns {ComponentData | undefined} component props
