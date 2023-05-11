@@ -5,6 +5,8 @@ const { getAppName } = require('./utils');
 const cliArgs = process.argv.slice(2);
 const lernaSinceFlag = cliArgs.length ? cliArgs[1] : undefined;
 
+// test
+
 const runLintCommand = (scope) =>
   execSync(`lerna run lint --scope ${scope} -- --fix`, {
     stdio: 'inherit',
