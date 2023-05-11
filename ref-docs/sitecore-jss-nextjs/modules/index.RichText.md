@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:72](https://github.com/Sitecore/jss/blob/0b7f86c79/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L72)
+[sitecore-jss-nextjs/src/components/RichText.tsx:72](https://github.com/Sitecore/jss/blob/d0540aafa/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L72)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:77](https://github.com/Sitecore/jss/blob/0b7f86c79/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L77)
+[sitecore-jss-nextjs/src/components/RichText.tsx:77](https://github.com/Sitecore/jss/blob/d0540aafa/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L77)
 
 ___
 
@@ -56,4 +56,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:67](https://github.com/Sitecore/jss/blob/0b7f86c79/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L67)
+[sitecore-jss-nextjs/src/components/RichText.tsx:67](https://github.com/Sitecore/jss/blob/d0540aafa/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L67)
