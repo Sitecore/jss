@@ -11,6 +11,12 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 21.1.2
+
+### 🐛 Bug Fixes
+
+* `[templates/angular]` Fix app build errors. Webpack version is locked at 5.78 due to https://github.com/webpack/webpack/issues/16981 ([#1448](https://github.com/Sitecore/jss/pull/1448))
+
 ## 21.1.1
 
 ### 🐛 Bug Fixes
