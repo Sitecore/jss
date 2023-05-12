@@ -11,6 +11,12 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 21.1.3
+
+### 🐛 Bug Fixes
+
+* Fix installed sitecore-jss-* dependency version ([#1480](https://github.com/Sitecore/jss/pull/1480))
+
 ## 21.1.2
 
 ### 🎉 New Features & Improvements

@@ -55,7 +55,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-forms": "^21.1.2",
+    "@sitecore-jss/sitecore-jss-forms": "~21.1.2",
     "prop-types": "^15.8.1"
   },
   "description": "",
