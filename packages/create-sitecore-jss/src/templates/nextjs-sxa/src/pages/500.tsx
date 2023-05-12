@@ -48,7 +48,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      headLinks: [],
       layoutData: resultErrorPages?.serverErrorPage?.rendered || null,
     },
   };
