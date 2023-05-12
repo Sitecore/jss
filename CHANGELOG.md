@@ -15,7 +15,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[sitecore-jss]` `[templates/nextjs-sxa]` Rewrite logic of handling custom error pages. The error pages rewrite page with error(it's saving status code) instead of redirected ([#1469](https://github.com/Sitecore/jss/pull/1469))
+* `[sitecore-jss]` `[templates/nextjs-sxa]` Rewrite logic of handling custom error pages. The error pages rewrite page with error(it's saving status code) instead of redirected ([#1469](https://github.com/Sitecore/jss/pull/1469)) ([#1476](https://github.com/Sitecore/jss/pull/1476))
 
 ### 🐛 Bug Fixes
 
