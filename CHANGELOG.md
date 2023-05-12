@@ -97,6 +97,12 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-angular]` Due to the Angular version upgrade and the change in _sitecore-jss-angular_ package output format  _sitecore-jss_ exports are not available in angular app scripts (src/scripts) via '@sitecore-jss/sitecore-jss-angular'. Please use '@sitecore-jss/sitecore-jss-angular/cjs' import instead. Check bootstrap.ts scripts as for a usage example.
 
+## 21.0.9
+
+### 🐛 Bug Fixes
+
+* Fix installed sitecore-jss-* dependency version ([#1480](https://github.com/Sitecore/jss/pull/1480))
+
 ## 21.0.8
 
 ### 🐛 Bug Fixes
