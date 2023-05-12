@@ -51,7 +51,7 @@
     "vue": "^3.2.45"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^21.2.0-canary.15",
+    "@sitecore-jss/sitecore-jss": "~21.2.0-canary.15",
     "@vue/compiler-sfc": "^3.0.11"
   },
   "types": "./types/index.d.ts",
