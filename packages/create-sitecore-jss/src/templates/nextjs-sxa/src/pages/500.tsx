@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     endpoint: config.graphQLEndpoint,
     apiKey: config.sitecoreApiKey,
     siteName: site.name,
-    language: context.locale || context.defaultLocale,
+    language: context.locale || context.defaultLocale || config.defaultLanguage,
   });
 
   const resultErrorPages = await errorPagesService.fetchErrorPages();
