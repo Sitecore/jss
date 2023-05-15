@@ -1,7 +1,7 @@
 {
   "name": "<%- appName %>",
   "description": "Application utilizing Sitecore JavaScript Services and React (create-react-app).",
-  "version": "21.1.1",
+  "version": "21.1.2",
   "private": true,
   "config": {
     "appName": "<%- appName %>",
@@ -113,10 +113,5 @@
     "eject": "react-scripts eject",
     "eject:script": "ncp ./scripts ./scripts-copy && node ./scripts-copy/eject.js && ncp ./scripts-copy ./scripts && del-cli ./scripts-copy"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
 }

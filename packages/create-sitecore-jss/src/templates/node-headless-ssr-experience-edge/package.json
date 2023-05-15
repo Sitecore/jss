@@ -1,6 +1,6 @@
 {
   "name": "node-headless-ssr-experience-edge-sample",
-  "version": "21.1.1",
+  "version": "21.1.2",
   "description": "Node server-side-rendering sample for running JSS apps under Node hosting using Experience Edge",
   "scripts": {
     "start": "ts-node ./src/index.ts"

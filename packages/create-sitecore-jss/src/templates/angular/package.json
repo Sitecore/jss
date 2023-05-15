@@ -1,6 +1,6 @@
 {
   "name": "<%- appName %>",
-  "version": "21.1.1",
+  "version": "21.1.2",
   "description": "Application utilizing Sitecore JavaScript Services and Angular (angular-cli).",
   "config": {
     "appName": "<%- appName %>",
@@ -61,7 +61,7 @@
     "@angular/platform-server": "~14.2.10",
     "@angular/router": "~14.2.10",
     "@apollo/client": "^3.3.12",
- 	  "@ngx-translate/core": "~14.0.0",
+    "@ngx-translate/core": "~14.0.0",
     "@ngx-translate/http-loader": "~7.0.0",
     "@sitecore-jss/sitecore-jss-angular": "~21.1.2",
     "apollo-angular": "~4.1.1",

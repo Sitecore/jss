@@ -1,12 +1,10 @@
 {
   "name": "<%- appName %>",
-  "version": "21.1.1",
+  "version": "21.1.2",
   "description": "A basic React Native app utilizing Sitecore JavaScript Services",
   "config": {
     "appName": "<%- appName %>",
-    "rootPlaceholders": [
-      "jss-main"
-    ],
+    "rootPlaceholders": ["jss-main"],
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "language": "en"
   },

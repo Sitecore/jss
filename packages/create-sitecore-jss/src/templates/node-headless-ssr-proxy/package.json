@@ -1,6 +1,6 @@
 {
   "name": "node-headless-ssr-proxy-sample",
-  "version": "21.1.1",
+  "version": "21.1.2",
   "description": "Node server-side-rendering proxy sample for running JSS apps under Node hosting",
   "scripts": {
     "start": "ts-node ./src/index.ts"
