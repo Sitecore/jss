@@ -4,7 +4,7 @@
     "packages/*",
     "samples/*"
   ],
-  "version": "21.0.8",
+  "version": "21.0.9",
   "npmClient": "yarn",
   "useWorkspaces": true
 }

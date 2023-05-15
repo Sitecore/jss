@@ -29,7 +29,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-nextjs": "~21.0.8",
+    "@sitecore-jss/sitecore-jss-nextjs": "~21.0.9",
     "graphql": "~15.8.0",
     "graphql-tag": "^2.11.0",
     "next": "^12.3.1",
@@ -45,7 +45,7 @@
     "@graphql-codegen/typescript-operations": "^1.17.9",
     "@graphql-codegen/typescript-resolvers": "^1.17.10",
     "@graphql-typed-document-node/core": "^3.1.0",
-    "@sitecore-jss/sitecore-jss-cli": "~21.0.8",
+    "@sitecore-jss/sitecore-jss-cli": "~21.0.9",
     "@types/node": "^14.6.4",
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
