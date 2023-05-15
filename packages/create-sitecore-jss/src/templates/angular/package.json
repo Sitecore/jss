@@ -1,6 +1,6 @@
 {
   "name": "<%- appName %>",
-  "version": "21.1.3-canary",
+  "version": "21.1.3",
   "description": "Application utilizing Sitecore JavaScript Services and Angular (angular-cli).",
   "config": {
     "appName": "<%- appName %>",

@@ -1,6 +1,6 @@
 {
   "name": "<%- appName %>",
-  "version": "21.1.3-canary",
+  "version": "21.1.3",
   "description": "A basic React Native app utilizing Sitecore JavaScript Services",
   "config": {
     "appName": "<%- appName %>",
