@@ -2,7 +2,7 @@
 
 Sitecore JSS for SSR using Experience Edge is considered experimental.
 
-[Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/210/sitecore-headless-development/server-side-render-jss-apps-headlessly-using-a-sitecore-experience-edge-endpoint.html)
+[Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/201/sitecore-headless-development/server-side-render-jss-apps-headlessly-using-a-sitecore-experience-edge-endpoint.html)
 
 > This is a sample setup that is not officially supported by Sitecore.
 

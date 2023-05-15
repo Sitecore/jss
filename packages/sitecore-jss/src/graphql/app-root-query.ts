@@ -1,5 +1,6 @@
 import { GraphQLClient } from './../graphql-request-client';
 import { SitecoreTemplateId } from '../constants';
+import debug from '../debug';
 
 /** @private */
 export const siteNameError = 'The site name must be a non-empty string';
@@ -61,19 +62,14 @@ export async function getAppRootId(
   if (!language) {
     throw new RangeError(languageError);
   }
-  let fetchResponse = await client.request<AppRootQueryResult>(appRootQuery, {
+
+  debug.dictionary('fetching site root for %s %s', language, siteName);
+
+  const fetchResponse = await client.request<AppRootQueryResult>(appRootQuery, {
     jssAppTemplateId: jssAppTemplateId || SitecoreTemplateId.JssApp,
     siteName,
     language,
   });
-
-  if (!fetchResponse?.layout?.homePage?.rootItem?.length && language !== 'en') {
-    fetchResponse = await client.request<AppRootQueryResult>(appRootQuery, {
-      jssAppTemplateId: jssAppTemplateId || SitecoreTemplateId.JssApp,
-      siteName,
-      language: 'en',
-    });
-  }
 
   if (!fetchResponse?.layout?.homePage?.rootItem?.length) {
     return null;

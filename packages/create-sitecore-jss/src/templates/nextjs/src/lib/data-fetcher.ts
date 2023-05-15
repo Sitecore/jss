@@ -1,4 +1,5 @@
-import { AxiosDataFetcher, AxiosResponse } from '@sitecore-jss/sitecore-jss-nextjs';
+import { AxiosResponse } from 'axios';
+import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
  * Implements a data fetcher using Axios - replace with your favorite

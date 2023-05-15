@@ -14,8 +14,8 @@ A reply from the Sitecore Layout Service
 
 ### sitecore
 
-• **sitecore**: [`LayoutServiceContextData`](LayoutServiceContextData.md) & { `route`: [`RouteData`](RouteData.md)  }
+• **sitecore**: [`LayoutServiceContextData`](LayoutServiceContextData.md) & { `route`: [`RouteData`](RouteData.md)<`Record`<`string`, [`Field`](Field.md)<`GenericFieldValue`\> \| `Item` \| `Item`[]\>\>  }
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:5
+sitecore-jss/types/layout/models.d.ts:13

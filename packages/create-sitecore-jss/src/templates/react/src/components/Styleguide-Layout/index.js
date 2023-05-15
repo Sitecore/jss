@@ -23,7 +23,7 @@ const StyleguideLayout = (props) => {
     }))
     .map((section) => (
       <nav key={section.heading} className="nav flex-column pt-2">
-        <a href={`#${section.id}`} className="nav-item fw-bold">
+        <a href={`#${section.id}`} className="nav-item font-weight-bold">
           {section.heading}
         </a>
         {section.children && (

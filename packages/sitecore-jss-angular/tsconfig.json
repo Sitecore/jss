@@ -1,9 +1,9 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "es2020",
+    "target": "es5",
     "module": "es2020",
     "strictPropertyInitialization": false,
-    "typeRoots": ["./node_modules/@types", "./typings"],
+    "typeRoots": ["./node_modules/@types", "./typings"]
   }
 }

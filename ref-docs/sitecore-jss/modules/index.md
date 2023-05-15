@@ -16,7 +16,6 @@
 
 ### Interfaces
 
-- [AxiosResponse](../interfaces/index.AxiosResponse.md)
 - [GraphQLClient](../interfaces/index.GraphQLClient.md)
 - [HttpResponse](../interfaces/index.HttpResponse.md)
 
@@ -45,7 +44,7 @@
 
 #### Defined in
 
-[src/axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/axios-fetcher.ts#L35)
+[axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/axios-fetcher.ts#L35)
 
 ___
 
@@ -55,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/debug.ts:6](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/debug.ts#L6)
+[debug.ts:6](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/debug.ts#L6)
 
 ___
 
@@ -76,7 +75,7 @@ Minimum configuration options for classes that implement @see GraphQLClient
 
 #### Defined in
 
-[src/graphql-request-client.ts:22](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/graphql-request-client.ts#L22)
+[graphql-request-client.ts:22](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/graphql-request-client.ts#L22)
 
 ___
 
@@ -115,7 +114,7 @@ The interface implementation must:
 
 #### Defined in
 
-[src/data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/data-fetcher.ts#L26)
+[data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/data-fetcher.ts#L26)
 
 ___
 
@@ -125,7 +124,7 @@ ___
 
 #### Defined in
 
-[src/native-fetcher.ts:20](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/native-fetcher.ts#L20)
+[native-fetcher.ts:20](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/native-fetcher.ts#L20)
 
 ## Properties
 
@@ -142,7 +141,6 @@ ___
 | `errorpages` | `Debugger` |
 | `http` | `Debugger` |
 | `layout` | `Debugger` |
-| `multisite` | `Debugger` |
 | `personalize` | `Debugger` |
 | `redirects` | `Debugger` |
 | `robots` | `Debugger` |
@@ -168,7 +166,7 @@ Enable debug logging dynamically
 
 #### Defined in
 
-[src/debug.ts:24](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/debug.ts#L24)
+[debug.ts:24](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/debug.ts#L24)
 
 ___
 
@@ -196,4 +194,4 @@ ___
 
 #### Defined in
 
-[src/data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/data-fetcher.ts#L57)
+[data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/data-fetcher.ts#L57)

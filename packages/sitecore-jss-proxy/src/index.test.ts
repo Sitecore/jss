@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 import { IncomingMessage } from 'http';
-import { Request } from 'express';
-import { removeEmptyAnalyticsCookie, rewriteRequestPath } from './';
+import { ProxyIncomingMessage, removeEmptyAnalyticsCookie, rewriteRequestPath } from './';
 import config from './test/config.test';
 
 describe('removeEmptyAnalyticsCookie', () => {
@@ -35,7 +34,7 @@ describe('rewriteRequestPath', () => {
         headers: {
           'accept-encoding': 'gzip or whatever',
         },
-      } as unknown) as Request;
+      } as unknown) as IncomingMessage;
 
       const actual = rewriteRequestPath(url, mockRequest, config);
       expect(actual).to.equal(expected);
@@ -49,7 +48,7 @@ describe('rewriteRequestPath', () => {
         headers: {
           'accept-encoding': 'gzip or whatever',
         },
-      } as unknown) as Request;
+      } as unknown) as IncomingMessage;
 
       const actual = rewriteRequestPath(url, mockRequest, config);
       expect(actual).to.equal(expected);
@@ -63,7 +62,7 @@ describe('rewriteRequestPath', () => {
         headers: {
           'accept-encoding': 'gzip or whatever',
         },
-      } as unknown) as Request;
+      } as unknown) as IncomingMessage;
 
       const actual = rewriteRequestPath(url, mockRequest, config);
       expect(actual).to.equal(expected);
@@ -75,7 +74,7 @@ describe('rewriteRequestPath', () => {
         headers: {
           'accept-encoding': 'gzip or whatever',
         },
-      } as unknown) as Request;
+      } as unknown) as IncomingMessage;
 
       const actual = rewriteRequestPath(url, mockRequest, config);
       expect(actual).to.equal(expected);
@@ -91,7 +90,7 @@ describe('rewriteRequestPath', () => {
           headers: {
             'accept-encoding': 'gzip or whatever',
           },
-        } as unknown) as Request;
+        } as unknown) as IncomingMessage;
 
         const actual = rewriteRequestPath(url, req, config);
 
@@ -110,7 +109,7 @@ describe('rewriteRequestPath', () => {
           headers: {
             'accept-encoding': 'gzip or whatever',
           },
-        } as unknown) as Request;
+        } as unknown) as IncomingMessage;
 
         const actual = rewriteRequestPath(url, mockRequest, config);
         expect(actual).to.equal(expected);
@@ -127,7 +126,7 @@ describe('rewriteRequestPath', () => {
           headers: {
             'accept-encoding': 'gzip or whatever',
           },
-        } as unknown) as Request;
+        } as unknown) as IncomingMessage;
         const parseRouteUrl = () => ({
           sitecoreRoute: 'ipsum/dolor',
           lang: 'zz-ZZ',
@@ -145,7 +144,7 @@ describe('rewriteRequestPath', () => {
           headers: {
             'accept-encoding': 'gzip or whatever',
           },
-        } as unknown) as Request;
+        } as unknown) as IncomingMessage;
         const parseRouteUrl = (incomingUrl: string) => ({
           sitecoreRoute: `${incomingUrl}/dolor`,
           lang: 'zz-ZZ',
@@ -164,7 +163,7 @@ describe('rewriteRequestPath', () => {
           headers: {
             'accept-encoding': 'gzip or whatever',
           },
-        } as unknown) as Request;
+        } as unknown) as IncomingMessage;
 
         const actual = rewriteRequestPath(url, req, qsParamsConfig);
 
@@ -182,7 +181,11 @@ describe('rewriteRequestPath', () => {
           },
         };
 
-        const actual = rewriteRequestPath(url, (req as unknown) as Request, qsParamsConfig);
+        const actual = rewriteRequestPath(
+          url,
+          (req as unknown) as ProxyIncomingMessage,
+          qsParamsConfig
+        );
 
         expect(actual).to.equal(expected);
       });

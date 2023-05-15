@@ -7,7 +7,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "<%- appName %>": {
-      "root": ".",
+      "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "architect": {
@@ -143,7 +143,7 @@
           }
         },
         "lint": {
-          "builder": "@angular-eslint/angular-eslint",
+          "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
               "e2e/tsconfig.e2e.json"
@@ -156,10 +156,11 @@
       }
     }
   },
+  "defaultProject": "<%- appName %>",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "style": "css"
+      "styleext": "css"
     },
     "@schematics/angular:directive": {
       "prefix": "app"

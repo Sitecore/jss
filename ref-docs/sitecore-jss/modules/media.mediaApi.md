@@ -36,7 +36,7 @@ found image tag; null in case if not found
 
 #### Defined in
 
-[src/media/media-api.ts:18](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/media/media-api.ts#L18)
+[media/media-api.ts:18](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/media/media-api.ts#L18)
 
 ___
 
@@ -68,7 +68,7 @@ requiredParams
 
 #### Defined in
 
-[src/media/media-api.ts:44](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/media/media-api.ts#L44)
+[media/media-api.ts:44](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/media/media-api.ts#L44)
 
 ___
 
@@ -103,7 +103,7 @@ The prepared URL
 
 #### Defined in
 
-[src/media/media-api.ts:131](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/media/media-api.ts#L131)
+[media/media-api.ts:131](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/media/media-api.ts#L131)
 
 ___
 
@@ -129,7 +129,7 @@ The URL with the media URL prefix replaced
 
 #### Defined in
 
-[src/media/media-api.ts:57](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/media/media-api.ts#L57)
+[media/media-api.ts:57](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/media/media-api.ts#L57)
 
 ___
 
@@ -159,4 +159,4 @@ The prepared URL
 
 #### Defined in
 
-[src/media/media-api.ts:83](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/media/media-api.ts#L83)
+[media/media-api.ts:83](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/media/media-api.ts#L83)

@@ -103,6 +103,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 <% } -%>
   const props = await sitecorePagePropsFactory.create(context);
 
+  // Check if we have a redirect (e.g. custom error page)
+  if (props.redirect) {
+    return {
+      redirect: props.redirect,
+    };
+  }
+
   return {
     props,
 <% if (prerender === 'SSG') { -%>

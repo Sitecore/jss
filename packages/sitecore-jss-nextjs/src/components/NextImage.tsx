@@ -28,8 +28,6 @@ export const NextImage: React.FC<NextImageProps> = ({
   imageParams,
   field,
   mediaUrlPrefix,
-  fill,
-  priority,
   ...otherProps
 }) => {
   // next handles src and we use a custom loader,
@@ -70,8 +68,6 @@ export const NextImage: React.FC<NextImageProps> = ({
   const attrs = {
     ...img,
     ...otherProps,
-    fill,
-    priority,
     src: mediaApi.updateImageUrl(
       img.src as string,
       imageParams as { [paramName: string]: string | number },
@@ -86,16 +82,10 @@ export const NextImage: React.FC<NextImageProps> = ({
     src: mediaApi.replaceMediaUrlPrefix(attrs.src, mediaUrlPrefix as RegExp),
   };
 
-  // Exclude `width`, `height` in case image is responsive, `fill` is used
-  if (imageProps.fill) {
-    delete imageProps.width;
-    delete imageProps.height;
-  }
-
   const loader = (otherProps.loader ? otherProps.loader : sitecoreLoader) as ImageLoader;
 
   if (attrs) {
-    return <Image alt="" loader={loader} {...imageProps} />;
+    return <Image loader={loader} {...imageProps} />;
   }
 
   return null; // we can't handle the truth

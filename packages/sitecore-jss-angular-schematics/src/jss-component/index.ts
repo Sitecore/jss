@@ -23,7 +23,7 @@ import {
 import { getWorkspace } from '@schematics/angular/utility/workspace';
 import { ProjectType } from '@schematics/angular/utility/workspace-models';
 import { parseName } from '@schematics/angular/utility/parse-name';
-import { validateHtmlSelector } from '@schematics/angular/utility/validation';
+import { validateHtmlSelector, validateName } from '@schematics/angular/utility/validation';
 import chalk from 'chalk';
 import { Schema as ComponentOptions } from './schema';
 
@@ -66,6 +66,7 @@ export default function(options: ComponentOptions) {
     options.path = parsedPath.path;
     options.selector = options.selector || buildSelector(options, project?.prefix);
 
+    validateName(options.name);
     validateHtmlSelector(options.selector);
 
     const sources: Rule[] = [];

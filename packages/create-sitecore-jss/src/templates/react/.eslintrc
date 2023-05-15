@@ -8,14 +8,10 @@
     "plugin:yaml/recommended",
     "plugin:prettier/recommended"
   ],
-  "parser": "@babel/eslint-parser",
+  "parser": "babel-eslint",
   "parserOptions": {
-    "requireConfigFile": false,
     "ecmaFeatures": {
       "jsx": true
-    },
-    "babelOptions": {
-      "presets": ["@babel/preset-react"]
     }
   },
   "plugins": [

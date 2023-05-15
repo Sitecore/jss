@@ -7,16 +7,11 @@
     "**/*.test.ts",
     "src/test-data",
     "dist",
-    "src/test.ts",
-    "**/create.ts",
-    "**/deploy.package.ts",
-    "**/index.global.ts",
-    "**/index.ts",
-    "**/cli.global.ts"
+    "src/test.ts"
   ],
   "all": true,
   "reporter": [
-    "cobertura",
+    "json-summary",
     "text"
   ],
   "require": ["ts-node/register"]

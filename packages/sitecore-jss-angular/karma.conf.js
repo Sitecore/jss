@@ -6,32 +6,40 @@ module.exports = function(config) {
     basePath: '',
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', '@angular-devkit/build-angular'],
-    plugins: [
-      require('karma-jasmine'),
-      require('karma-jasmine-html-reporter'),
-      require('karma-chrome-launcher'),
-      require('karma-coverage'),
-      require('@angular-devkit/build-angular/plugins/karma'),
-    ],
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-      'src/**/*.ts': 'coverage'
-    },
+    frameworks: ['jasmine', 'karma-typescript'],
     // list of files / patterns to load in the browser
+    files: [
+      { pattern: 'node_modules/reflect-metadata/Reflect.js', watched: false },
+      { pattern: 'node_modules/zone.js/dist/zone.js', watched: false },
+      { pattern: 'node_modules/zone.js/dist/long-stack-trace-zone.js', watched: false },
+      { pattern: 'node_modules/zone.js/dist/proxy.js', watched: false },
+      { pattern: 'node_modules/zone.js/dist/sync-test.js', watched: false },
+      { pattern: 'node_modules/zone.js/dist/jasmine-patch.js', watched: false },
+      { pattern: 'node_modules/zone.js/dist/async-test.js', watched: false },
+      { pattern: 'node_modules/zone.js/dist/fake-async-test.js', watched: false },
+      { pattern: './src/**/*.ts' },
+    ],
     // list of files to exclude
     exclude: [],
-    coverageReporter: {
-      reporters: [
-        { type: 'cobertura', subdir: './', dir: './coverage', file: 'cobertura-coverage.xml' },
-        { type: 'text' },
-      ]
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: { '**/*.ts': ['karma-typescript'] },
+    karmaTypescriptConfig: {
+      include: ['./src/**/*.ts'],
+      compilerOptions: { lib: ['es2017', 'dom'] },
+      reports: {
+        'json-summary': {
+          directory: './coverage',
+          filename: 'coverage-summary.json',
+          subdirectory: './',
+        },
+        text: '',
+      },
     },
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'karma-typescript'],
     // web server port
     port: 9876,
     // enable / disable colors in the output (reporters and logs)

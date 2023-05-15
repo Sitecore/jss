@@ -3,19 +3,13 @@ export {
   // generic data access
   HttpDataFetcher,
   HttpResponse,
-  AxiosResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
   NativeDataFetcher,
   NativeDataFetcherConfig,
   enableDebug,
 } from '@sitecore-jss/sitecore-jss';
-export {
-  isEditorActive,
-  resetEditorChromes,
-  resolveUrl,
-  tryParseEnvValue,
-} from '@sitecore-jss/sitecore-jss/utils';
+export { isEditorActive, resetEditorChromes, resolveUrl } from '@sitecore-jss/sitecore-jss/utils';
 export {
   LayoutService,
   LayoutServiceData,
@@ -65,8 +59,12 @@ export {
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
   CdpHelper,
-  PosResolver,
 } from '@sitecore-jss/sitecore-jss/personalize';
+export {
+  RobotsQueryResult,
+  GraphQLRobotsService,
+  GraphQLRobotsServiceConfig,
+} from '@sitecore-jss/sitecore-jss/site';
 export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 export {
@@ -87,26 +85,11 @@ export {
 } from './services/graphql-sitemap-service';
 
 export {
-  MultisiteGraphQLSitemapService,
-  MultisiteGraphQLSitemapServiceConfig,
-} from './services/mutisite-graphql-sitemap-service';
-
-export {
   GraphQLSitemapXmlService,
   GraphQLSitemapXmlServiceConfig,
   GraphQLErrorPagesService,
   GraphQLErrorPagesServiceConfig,
-  RobotsQueryResult,
-  GraphQLRobotsService,
-  GraphQLRobotsServiceConfig,
   ErrorPages,
-  SiteInfo,
-  SiteResolver,
-  GraphQLSiteInfoService,
-  GraphQLSiteInfoServiceConfig,
-  getSiteRewrite,
-  getSiteRewriteData,
-  normalizeSiteRewrite,
 } from '@sitecore-jss/sitecore-jss/site';
 
 export { StaticPath } from './services/graphql-sitemap-service';
@@ -137,7 +120,6 @@ export {
   Text,
   TextField,
   DateField,
-  EditFrame,
   FEaaSComponent,
   FEaaSComponentProps,
   File,

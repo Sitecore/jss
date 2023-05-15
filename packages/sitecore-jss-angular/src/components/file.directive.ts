@@ -14,9 +14,9 @@ import { FileField } from './rendering-field';
  */
 @Directive({ selector: '[scFile]' })
 export class FileDirective implements OnChanges {
-  @Input('scFile') field: FileField;
-
   private viewRef: EmbeddedViewRef<unknown>;
+
+  @Input('scFile') field: FileField;
 
   constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<unknown>) {}
 

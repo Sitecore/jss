@@ -89,11 +89,6 @@ export const config: ProxyConfig = {
    */
   maxResponseSizeBytes: 10 * 1024 * 1024,
   /**
-   * Enables or disables proxy handling WebSocket connections
-   * Disabled by default - default JSS proxy logic doesn't handle WS requests and extra implementation is needed for WS to be processed.
-   */
-  ws: false,
-  /**
    * Options object for http-proxy-middleware. Consult its docs.
    */
   proxyOptions: {

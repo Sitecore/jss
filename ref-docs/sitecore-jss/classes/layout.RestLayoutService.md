@@ -47,7 +47,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:65](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L65)
+[layout/rest-layout-service.ts:65](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/rest-layout-service.ts#L65)
 
 ## Methods
 
@@ -80,7 +80,7 @@ LayoutServiceBase.fetchLayoutData
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:78](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L78)
+[layout/rest-layout-service.ts:78](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/rest-layout-service.ts#L78)
 
 ___
 
@@ -110,13 +110,13 @@ placeholder data
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:133](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L133)
+[layout/rest-layout-service.ts:133](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/rest-layout-service.ts#L133)
 
 ___
 
 ### getDefaultFetcher
 
-▸ `Protected` **getDefaultFetcher**<`T`\>(`req?`, `res?`): (`url`: `string`, `data?`: `unknown`) => `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
+▸ `Protected` **getDefaultFetcher**<`T`\>(`req?`, `res?`): (`url`: `string`, `data?`: `unknown`) => `Promise`<`AxiosResponse`<`T`\>\>
 
 Provides default @see AxiosDataFetcher data fetcher
 
@@ -139,7 +139,7 @@ Provides default @see AxiosDataFetcher data fetcher
 
 default fetcher
 
-▸ (`url`, `data?`): `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
+▸ (`url`, `data?`): `Promise`<`AxiosResponse`<`T`\>\>
 
 ##### Parameters
 
@@ -150,11 +150,11 @@ default fetcher
 
 ##### Returns
 
-`Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
+`Promise`<`AxiosResponse`<`T`\>\>
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:193](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L193)
+[layout/rest-layout-service.ts:193](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/rest-layout-service.ts#L193)
 
 ___
 
@@ -178,7 +178,7 @@ fetch options
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:167](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L167)
+[layout/rest-layout-service.ts:167](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/rest-layout-service.ts#L167)
 
 ___
 
@@ -202,7 +202,7 @@ the layout service url
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:181](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L181)
+[layout/rest-layout-service.ts:181](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/rest-layout-service.ts#L181)
 
 ___
 
@@ -238,13 +238,13 @@ axios request config
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:215](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L215)
+[layout/rest-layout-service.ts:215](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/rest-layout-service.ts#L215)
 
 ___
 
 ### setupResHeaders
 
-▸ `Protected` **setupResHeaders**(`res`): (`serverRes`: [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>) => [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>
+▸ `Protected` **setupResHeaders**(`res`): (`serverRes`: `AxiosResponse`<`any`\>) => `AxiosResponse`<`any`\>
 
 Setup response headers based on response from layout service
 
@@ -260,18 +260,18 @@ Setup response headers based on response from layout service
 
 response
 
-▸ (`serverRes`): [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>
+▸ (`serverRes`): `AxiosResponse`<`any`\>
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `serverRes` | [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\> |
+| `serverRes` | `AxiosResponse`<`any`\> |
 
 ##### Returns
 
-[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>
+`AxiosResponse`<`any`\>
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:234](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L234)
+[layout/rest-layout-service.ts:234](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/rest-layout-service.ts#L234)

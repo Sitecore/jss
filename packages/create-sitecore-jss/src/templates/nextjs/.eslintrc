@@ -4,7 +4,7 @@
     "next",
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
+    "prettier/@typescript-eslint",
     "plugin:yaml/recommended",
     "plugin:prettier/recommended"
   ],

@@ -4,7 +4,6 @@
     ".tsx"
   ],
   "exclude": [
-    "**/index.ts",
     "**/*.d.ts",
     "**/*.test.tsx",
     "**/*.test.ts",
@@ -15,7 +14,7 @@
   ],
   "all": true,
   "reporter": [
-    "cobertura",
+    "json-summary",
     "text"
   ],
   "require": ["ts-node/register/transpile-only"]

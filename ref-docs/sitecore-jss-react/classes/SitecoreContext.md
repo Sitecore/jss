@@ -62,13 +62,13 @@ React.Component&lt;SitecoreContextProps, SitecoreContextState\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:44](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L44)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:45](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L45)
 
 ## Properties
 
 ### context
 
-• **context**: `any`
+• **context**: `unknown`
 
 If using the new style context, re-declare this in your class to be the
 `React.ContextType` of your `static contextType`.
@@ -90,13 +90,13 @@ React.Component.context
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:479
+sitecore-jss-react/node_modules/@types/react/index.d.ts:470
 
 ___
 
 ### props
 
-• `Readonly` **props**: `Readonly`<`SitecoreContextProps`\> & `Readonly`<`Object`\>
+• `Readonly` **props**: `Readonly`<`SitecoreContextProps`\>
 
 #### Inherited from
 
@@ -104,7 +104,7 @@ React.Component.props
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:504
+sitecore-jss-react/node_modules/@types/react/index.d.ts:490
 
 ___
 
@@ -125,7 +125,7 @@ React.Component.refs
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:510
+sitecore-jss-react/node_modules/@types/react/index.d.ts:496
 
 ___
 
@@ -139,7 +139,7 @@ React.Component.state
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:505
+sitecore-jss-react/node_modules/@types/react/index.d.ts:491
 
 ___
 
@@ -172,7 +172,7 @@ React.Component.contextType
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:461
+sitecore-jss-react/node_modules/@types/react/index.d.ts:453
 
 ___
 
@@ -182,7 +182,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:42](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L42)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:43](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L43)
 
 ___
 
@@ -200,7 +200,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:31](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L31)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:32](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L32)
 
 ## Methods
 
@@ -232,7 +232,7 @@ React.Component.UNSAFE\_componentWillMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:717
+sitecore-jss-react/node_modules/@types/react/index.d.ts:687
 
 ___
 
@@ -274,7 +274,7 @@ React.Component.UNSAFE\_componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:749
+sitecore-jss-react/node_modules/@types/react/index.d.ts:719
 
 ___
 
@@ -315,7 +315,7 @@ React.Component.UNSAFE\_componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:777
+sitecore-jss-react/node_modules/@types/react/index.d.ts:747
 
 ___
 
@@ -343,7 +343,7 @@ React.Component.componentDidCatch
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:646
+sitecore-jss-react/node_modules/@types/react/index.d.ts:616
 
 ___
 
@@ -363,7 +363,7 @@ React.Component.componentDidMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:625
+sitecore-jss-react/node_modules/@types/react/index.d.ts:595
 
 ___
 
@@ -387,7 +387,7 @@ React.Component.componentDidUpdate
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:69](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L69)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L70)
 
 ___
 
@@ -417,7 +417,7 @@ React.Component.componentWillMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:703
+sitecore-jss-react/node_modules/@types/react/index.d.ts:673
 
 ___
 
@@ -457,7 +457,7 @@ React.Component.componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:732
+sitecore-jss-react/node_modules/@types/react/index.d.ts:702
 
 ___
 
@@ -478,7 +478,7 @@ React.Component.componentWillUnmount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:641
+sitecore-jss-react/node_modules/@types/react/index.d.ts:611
 
 ___
 
@@ -517,7 +517,7 @@ React.Component.componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:762
+sitecore-jss-react/node_modules/@types/react/index.d.ts:732
 
 ___
 
@@ -537,7 +537,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:55](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L55)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:56](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L56)
 
 ___
 
@@ -561,7 +561,7 @@ React.Component.forceUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:496
+sitecore-jss-react/node_modules/@types/react/index.d.ts:487
 
 ___
 
@@ -593,7 +593,7 @@ React.Component.getSnapshotBeforeUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:682
+sitecore-jss-react/node_modules/@types/react/index.d.ts:652
 
 ___
 
@@ -611,7 +611,7 @@ React.Component.render
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:92](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L92)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:93](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L93)
 
 ___
 
@@ -634,7 +634,7 @@ or you can provide exact @type {SitecoreContextValue}
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:84](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L84)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:85](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L85)
 
 ___
 
@@ -665,7 +665,7 @@ React.Component.setState
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:491
+sitecore-jss-react/node_modules/@types/react/index.d.ts:482
 
 ___
 
@@ -700,4 +700,4 @@ React.Component.shouldComponentUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:636
+sitecore-jss-react/node_modules/@types/react/index.d.ts:606

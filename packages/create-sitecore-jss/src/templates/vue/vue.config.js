@@ -24,7 +24,6 @@ if (process.env.BUILD_TARGET_ENV === 'server') {
       config.plugin('html').init((Plugin, args) => {
         const newArgs = {
           ...args[0],
-          minify: args[0].minify || {},
         };
         newArgs.minify.removeAttributeQuotes = false;
         return new Plugin(newArgs);

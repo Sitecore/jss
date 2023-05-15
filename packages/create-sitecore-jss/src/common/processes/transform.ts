@@ -4,7 +4,7 @@ import glob from 'glob';
 import path, { sep } from 'path';
 import { parse } from 'dotenv';
 import { Data, renderFile } from 'ejs';
-import inquirer from 'inquirer';
+import { prompt } from 'inquirer';
 import {
   getPascalCaseName,
   getAppPrefix,
@@ -18,7 +18,7 @@ import { BaseArgs } from '../args/base';
 
 const FILE_FOR_COPY_REGEXP = /(index\.html)$|\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf|jar|eot|woff|ttf|woff2)$/;
 
-export type JsonPropertyType = number | string | boolean | (number | string)[] | JsonObjectType;
+export type JsonPropertyType = number | string | (number | string)[] | JsonObjectType;
 export type JsonObjectType = {
   [key: string]: JsonPropertyType;
 };
@@ -111,7 +111,7 @@ export const diffFiles = async (
 
   console.log(`Showing potential changes in ${chalk.yellow(targetFilePath.replace('/', '\\'))}`);
 
-  const answer = await inquirer.prompt({
+  const answer = await prompt({
     type: 'list',
     name: 'choice',
     choices: ['yes', 'skip', 'yes to all', 'abort'],

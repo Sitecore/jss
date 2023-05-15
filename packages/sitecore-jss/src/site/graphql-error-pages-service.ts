@@ -1,7 +1,6 @@
 import { GraphQLClient, GraphQLRequestClient } from '../graphql';
 import { siteNameError } from '../constants';
 import debug from '../debug';
-import { LayoutServiceData } from '../layout';
 
 // The default query for request error handling
 const defaultQuery = /* GraphQL */ `
@@ -9,13 +8,7 @@ const defaultQuery = /* GraphQL */ `
     site {
       siteInfo(site: $siteName) {
         errorHandling(language: $language) {
-          notFoundPage {
-            rendered
-          }
           notFoundPagePath
-          serverErrorPage {
-            rendered
-          }
           serverErrorPagePath
         }
       }
@@ -45,12 +38,7 @@ export type GraphQLErrorPagesServiceConfig = {
 /**
  * Object model of Error Pages result
  */
-export type ErrorPages = {
-  notFoundPage: { rendered: LayoutServiceData };
-  notFoundPagePath: string;
-  serverErrorPage: { rendered: LayoutServiceData };
-  serverErrorPagePath: string;
-};
+export type ErrorPages = { notFoundPagePath: string; serverErrorPagePath: string };
 
 /**
  * The schema of data returned in response to error pages link request

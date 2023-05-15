@@ -1,6 +1,6 @@
 import { IncomingMessage, ServerResponse, Agent } from 'http';
 import { Agent as HttpsAgent } from 'https';
-import { Options } from 'http-proxy-middleware';
+import { Config as HttpProxyConfig } from 'http-proxy-middleware';
 import { AppRenderer } from './AppRenderer';
 import { RenderResponse } from './RenderResponse';
 import { RouteUrlParser } from './RouteUrlParser';
@@ -41,16 +41,12 @@ export interface ProxyConfig {
    */
   pathRewriteExcludeRoutes?: string[];
   /**
-   * Turn WebSocket requests processing on or off
-   */
-  ws?: boolean;
-  /**
    * Function to determine if a given URL should be SSRed (return true), or passed through (return false)
    * Mutually exclusive with pathRewriteExcludeRoutes.
    */
   pathRewriteExcludePredicate?: (originalUrl: string) => boolean;
   /** Configure `http-proxy-middleware` */
-  proxyOptions?: Options;
+  proxyOptions?: HttpProxyConfig;
   /** Enables or disables proxy diagnostics in console.log (disable for production or get bad performance) */
   debug?: boolean;
   /** Callback when an exception is thrown during SSR; decides what to send back to client (500 errors) */

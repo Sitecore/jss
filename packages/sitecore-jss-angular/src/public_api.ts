@@ -4,22 +4,8 @@ export { LinkDirective } from './components/link.directive';
 export { RouterLinkDirective } from './components/router-link.directive';
 export { GenericLinkDirective } from './components/generic-link.directive';
 export { PlaceholderComponent } from './components/placeholder.component';
-export { HiddenRenderingComponent } from './components/hidden-rendering.component';
-export { RenderEachDirective } from './components/render-each.directive';
-export { RenderEmptyDirective } from './components/render-empty.directive';
-export { RenderComponentComponent } from './components/render-component.component';
-export { DateDirective } from './components/date.directive';
-export { EditFrameComponent } from './components/editframe.component';
-export {
-  ComponentNameAndType,
-  DYNAMIC_COMPONENT,
-  ComponentNameAndModule,
-  JssResolve,
-  JssCanActivate,
-  JssCanActivateFn,
-  GuardInput,
-} from './components/placeholder.token';
 export { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
+export { ComponentNameAndType, DYNAMIC_COMPONENT } from './components/placeholder.token';
 export { isRawRendering } from './components/rendering';
 export {
   FileField,
@@ -60,11 +46,6 @@ export {
   isEditorActive,
   resetEditorChromes,
   handleEditorAnchors,
-  DefaultEditFrameButton,
-  DefaultEditFrameButtons,
-  EditFrameDataSource,
-  FieldEditButton,
-  WebEditButton,
 } from '@sitecore-jss/sitecore-jss/utils';
 export {
   trackingApi,

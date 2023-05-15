@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import path, { sep } from 'path';
-import inquirer from 'inquirer';
+import inquirer, { prompt } from 'inquirer';
 import { prompts, NextjsAnswer, NextjsCheckbox } from './prompts';
 import {
   Initializer,
@@ -20,7 +20,7 @@ export default class NextjsInitializer implements Initializer {
   }
 
   async init(args: NextjsArgs) {
-    const answers = await inquirer.prompt<NextjsAnswer>(prompts, args);
+    const answers = await prompt<NextjsAnswer>(prompts, args);
 
     const pkgPath = path.resolve(`${answers.destination}${sep}package.json`);
     const templatePath = path.resolve(__dirname, '../../templates/nextjs');
@@ -36,7 +36,7 @@ export default class NextjsInitializer implements Initializer {
     // don't prompt for add-on initializers if --yes or they've already specified
     // multiple via --templates (assume they know what they're doing)
     if (!args.yes && args.templates.length === 1) {
-      const addInitAnswer = await inquirer.prompt({
+      const addInitAnswer = await prompt({
         type: 'nextjs-checkbox' as 'checkbox',
         name: 'addInitializers',
         message: 'Would you like to include any add-on initializers?',
@@ -51,18 +51,14 @@ export default class NextjsInitializer implements Initializer {
             value: 'nextjs-styleguide-tracking',
           },
           {
-            name: 'nextjs-sxa - Includes example components and setup for Headless SXA projects',
+            name:
+              'nextjs-sxa - Includes example components and setup for Headless SXA projects',
             value: 'nextjs-sxa',
           },
           {
             name:
               'nextjs-personalize - Includes example setup for projects using XM Cloud Embedded Personalization',
             value: 'nextjs-personalize',
-          },
-          {
-            name:
-              'nextjs-multisite - Includes example setup for hosting multiple sites in a single NextJS application',
-            value: 'nextjs-multisite',
           },
         ],
       });

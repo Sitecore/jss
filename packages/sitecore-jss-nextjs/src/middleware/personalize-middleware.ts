@@ -6,13 +6,18 @@ import {
   CdpServiceConfig,
   ExperienceParams,
   getPersonalizedRewrite,
-  PosResolver,
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
-import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
-import { SiteInfo } from '@sitecore-jss/sitecore-jss/site';
 
-export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
+export type PersonalizeMiddlewareConfig = {
+  /**
+   * Function used to determine if route should be excluded from personalization.
+   * By default, files (pathname.includes('.')), Next.js API routes (pathname.startsWith('/api/')), and Sitecore API routes (pathname.startsWith('/sitecore/')) are ignored.
+   * This is an important performance consideration since Next.js Edge middleware runs on every request.
+   * @param {string} pathname The pathname
+   * @returns {boolean} Whether to exclude the route from personalization
+   */
+  excludeRoute?: (pathname: string) => boolean;
   /**
    * Configuration for your Sitecore Experience Edge endpoint
    */
@@ -22,18 +27,23 @@ export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
    */
   cdpConfig: Omit<CdpServiceConfig, 'dataFetcherResolver'>;
   /**
-   * function to resolve point of sale for a site
-   * @param {Siteinfo} site to get info from
-   * @param {string} language to get info for
-   * @returns point of sale value for site/language combination
+   * function used to resolve correct point of sale for current locale during a request
+   * @param {string} locale locale at the time of request
    */
-  getPointOfSale?: (site: SiteInfo, language: string) => string;
+  getPointOfSale: (locale: string) => string;
+  /**
+   * function, determines if middleware should be turned off, based on cookie, header, or other considerations
+   *  @param {NextRequest} [req] optional: request object from middleware handler
+   *  @param {NextResponse} [res] optional: response object from middleware handler
+   * @returns {boolean} false by default
+   */
+  disabled?: (req?: NextRequest, res?: NextResponse) => boolean;
 };
 
 /**
  * Middleware / handler to support Sitecore Personalize
  */
-export class PersonalizeMiddleware extends MiddlewareBase {
+export class PersonalizeMiddleware {
   private personalizeService: GraphQLPersonalizeService;
   private cdpService: CdpService;
 
@@ -41,8 +51,6 @@ export class PersonalizeMiddleware extends MiddlewareBase {
    * @param {PersonalizeMiddlewareConfig} [config] Personalize middleware config
    */
   constructor(protected config: PersonalizeMiddlewareConfig) {
-    super(config);
-
     // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
     // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
     this.personalizeService = new GraphQLPersonalizeService({
@@ -91,7 +99,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
   }
 
   protected getBrowserId(req: NextRequest): string | undefined {
-    return req.cookies.get(this.browserIdCookieName)?.value || undefined;
+    return req.cookies.get(this.browserIdCookieName) || undefined;
   }
 
   protected setBrowserId(res: NextResponse, browserId: string) {
@@ -112,17 +120,42 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     };
   }
 
+  protected excludeRoute(pathname: string) {
+    if (
+      pathname.includes('.') || // Ignore files
+      pathname.startsWith('/api/') || // Ignore Next.js API calls
+      pathname.startsWith('/sitecore/') || // Ignore Sitecore API calls
+      pathname.startsWith('/_next') // Ignore next service calls
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  protected isPreview(req: NextRequest) {
+    return req.cookies.get('__prerender_bypass') || req.cookies.get('__next_preview_data');
+  }
+
+  /**
+   * Safely extract all headers for debug logging
+   * Necessary to avoid middleware issue https://github.com/vercel/next.js/issues/39765
+   * @param {Headers} incomingHeaders Incoming headers
+   * @returns Object with headers as key/value pairs
+   */
+  protected extractDebugHeaders(incomingHeaders: Headers) {
+    const headers = {} as { [key: string]: string };
+    incomingHeaders.forEach((value, key) => (headers[key] = value));
+    return headers;
+  }
+
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
-    const language = this.getLanguage(req);
-    const hostname = this.getHostHeader(req) || this.defaultHostname;
+    const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
 
     let browserId = this.getBrowserId(req);
     debug.personalize('personalize middleware start: %o', {
       pathname,
       language,
-      hostname,
-      browserId,
     });
 
     // Response will be provided if other middleware is run before us (e.g. redirects)
@@ -136,7 +169,8 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     if (
       response.redirected || // Don't attempt to personalize a redirect
       this.isPreview(req) || // No need to personalize for preview (layout data is already prepared for preview)
-      this.excludeRoute(pathname)
+      this.excludeRoute(pathname) ||
+      (this.config.excludeRoute && this.config.excludeRoute(pathname))
     ) {
       debug.personalize(
         'skipped (%s)',
@@ -145,14 +179,8 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       return response;
     }
 
-    const site = this.getSite(req, res);
-
     // Get personalization info from Experience Edge
-    const personalizeInfo = await this.personalizeService.getPersonalizeInfo(
-      pathname,
-      language,
-      site.name
-    );
+    const personalizeInfo = await this.personalizeService.getPersonalizeInfo(pathname, language);
 
     if (!personalizeInfo) {
       // Likely an invalid route / language
@@ -177,9 +205,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     // Execute targeted experience in CDP
     const { ua } = userAgent(req);
     const params = this.getExperienceParams(req);
-    const pointOfSale = this.config.getPointOfSale
-      ? this.config.getPointOfSale(site, language)
-      : PosResolver.resolve(site, language);
+    const pointOfSale = this.config.getPointOfSale(language);
     const variantId = await this.cdpService.executeExperience(
       personalizeInfo.contentId,
       browserId,
@@ -198,11 +224,8 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       return response;
     }
 
-    // Path can be rewritten by previously executed middleware
-    const basePath = res?.headers.get('x-sc-rewrite') || pathname;
-
     // Rewrite to persononalized path
-    const rewritePath = getPersonalizedRewrite(basePath, { variantId });
+    const rewritePath = getPersonalizedRewrite(pathname, { variantId });
     // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
     const rewriteUrl = req.nextUrl.clone();
     rewriteUrl.pathname = rewritePath;
@@ -211,13 +234,9 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     // Disable preflight caching to force revalidation on client-side navigation (personalization may be influenced)
     // See https://github.com/vercel/next.js/issues/32727
     response.headers.set('x-middleware-cache', 'no-cache');
-    // Share rewrite path with following executed middlewares
-    response.headers.set('x-sc-rewrite', rewritePath);
 
     // Set browserId cookie on the response
     this.setBrowserId(response, browserId);
-    // Share site name with the following executed middlewares
-    response.cookies.set(this.SITE_SYMBOL, site.name);
 
     debug.personalize('personalize middleware end: %o', {
       rewritePath,

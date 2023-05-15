@@ -3,32 +3,35 @@ import { DictionaryService, LayoutService } from '@sitecore-jss/sitecore-jss-nex
 import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
 import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { SitecorePageProps } from 'lib/page-props';
-import { pathExtractor } from 'lib/extract-path';
+import config from 'temp/config';
 import { Plugin, isServerSidePropsContext } from '..';
+import { extractPath } from '../extract-path';
 
 class NormalModePlugin implements Plugin {
-  private dictionaryServices: Map<string, DictionaryService>;
-  private layoutServices: Map<string, LayoutService>;
+  private dictionaryService: DictionaryService;
+  private layoutService: LayoutService;
 
-  order = 1;
+  order = 0;
 
   constructor() {
-    this.dictionaryServices = new Map<string, DictionaryService>();
-    this.layoutServices = new Map<string, LayoutService>();
+    this.dictionaryService = dictionaryServiceFactory.create();
+    this.layoutService = layoutServiceFactory.create();
   }
 
   async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
     if (context.preview) return props;
 
+    /**
+     * Normal mode
+     */
     // Get normalized Sitecore item path
-    const path = pathExtractor.extract(context.params);
+    const path = extractPath(context.params);
 
-    // Use context locale if Next.js i18n is configured, otherwise use default site language
-    props.locale = context.locale ?? props.site.language;
+    // Use context locale if Next.js i18n is configured, otherwise use default language
+    props.locale = context.locale ?? config.defaultLanguage;
 
     // Fetch layout data, passing on req/res for SSR
-    const layoutService = this.getLayoutService(props.site.name);
-    props.layoutData = await layoutService.fetchLayoutData(
+    props.layoutData = await this.layoutService.fetchLayoutData(
       path,
       props.locale,
       // eslint-disable-next-line prettier/prettier
@@ -45,34 +48,9 @@ class NormalModePlugin implements Plugin {
     }
 
     // Fetch dictionary data
-    const dictionaryService = this.getDictionaryService(props.site.name);
-    props.dictionary = await dictionaryService.fetchDictionaryData(props.locale);
+    props.dictionary = await this.dictionaryService.fetchDictionaryData(props.locale);
 
     return props;
-  }
-
-  private getDictionaryService(siteName: string): DictionaryService {
-    if (this.dictionaryServices.has(siteName)) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      return this.dictionaryServices.get(siteName)!;
-    }
-
-    const dictionaryService = dictionaryServiceFactory.create(siteName);
-    this.dictionaryServices.set(siteName, dictionaryService);
-
-    return dictionaryService;
-  }
-
-  private getLayoutService(siteName: string): LayoutService {
-    if (this.layoutServices.has(siteName)) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      return this.layoutServices.get(siteName)!;
-    }
-
-    const layoutService = layoutServiceFactory.create(siteName);
-    this.layoutServices.set(siteName, layoutService);
-
-    return layoutService;
   }
 }
 

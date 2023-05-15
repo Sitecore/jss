@@ -52,13 +52,6 @@ describe('utils', () => {
       const result = getPersonalizedRewriteData(pathname);
       expect(result.variantId).to.equal('');
     });
-    it('should return varinat id from any position in pathname', () => {
-      const testId = '0451';
-      const path1 = `/${VARIANT_PREFIX}${testId}/some/path/`;
-      const path2 = `/_site_mysite/${VARIANT_PREFIX}${testId}/some/path/`;
-
-      expect(getPersonalizedRewriteData(path1)).to.deep.equal(getPersonalizedRewriteData(path2));
-    });
   });
 
   describe('normalizePersonalizedRewrite', () => {
@@ -84,13 +77,6 @@ describe('utils', () => {
       const pathname = `/${VARIANT_PREFIX}foo`;
       const result = normalizePersonalizedRewrite(pathname);
       expect(result).to.equal('/');
-    });
-    it('should normalize path with other prefixes present', () => {
-      const pathname = `/_site_mysite/${VARIANT_PREFIX}foo`;
-      const pathNameInversed = `/${VARIANT_PREFIX}foo/_site_mysite/`;
-      const result = normalizePersonalizedRewrite(pathname);
-      expect(result).to.equal('/_site_mysite/');
-      expect(normalizePersonalizedRewrite(pathNameInversed)).to.equal(result);
     });
   });
 

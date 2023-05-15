@@ -21,12 +21,6 @@ module.exports = {
   module: {
     rules: [
       {
-        // react-router-dom@6 uses mjs files
-        test: /\.mjs$/,
-        include: /node_modules/,
-        type: 'javascript/auto',
-      },
-      {
         test: /\.m?jsx?$/,
         use: {
           loader: 'babel-loader',
@@ -56,19 +50,16 @@ module.exports = {
       {
         test: /\.html$/,
         exclude: /node_modules/,
-        use: { 
-          loader: 'html-loader',
-          options: {
-            sources: false,
-          }, 
-        },
+        use: { loader: 'html-loader' },
       },
       {
         // anything not JS or HTML, we load as a URL
         // this makes static image imports work with SSR
         test: /\.(?!js|mjs|jsx|html|graphql$)[^.]+$/,
         exclude: /node_modules/,
-        type: 'asset/inline',
+        use: {
+          loader: 'url-loader',
+        },
       },
       {
         // anything in node_modules that isn't js,
@@ -87,9 +78,6 @@ module.exports = {
     // > WARNING in ./node_modules/encoding/lib/iconv-loader.js
     // > Critical dependency: the request of a dependency is an expression
     new webpack.NormalModuleReplacementPlugin(/\/iconv-loader$/, () => {}),
-    // prevents cross-fetch -> node-fetch from throwing `Can't resolve 'encoding'` error
-    // see https://github.com/node-fetch/node-fetch/issues/412
-    new webpack.IgnorePlugin({ resourceRegExp: /^encoding$/, contextRegExp: /node-fetch/ }),
   ],
   <% if (helper.isDev) { %>
   resolve: {

@@ -11,12 +11,9 @@ describe('<Link />', () => {
     // that is marked as required.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
-    const warnSpy = jest.spyOn(console, 'warn');
-    warnSpy.mockImplementation(() => {});
     const rendered = mount(Link);
     expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
-    warnSpy.mockRestore();
   });
 
   it('should render nothing with missing editable and value', () => {
@@ -27,12 +24,9 @@ describe('<Link />', () => {
     // that is marked as an Object.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
-    const warnSpy = jest.spyOn(console, 'warn');
-    warnSpy.mockImplementation(() => {});
     const rendered = mount(Link, { props });
     expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
-    warnSpy.mockRestore();
   });
 
   it('should render editable with an editable value', () => {

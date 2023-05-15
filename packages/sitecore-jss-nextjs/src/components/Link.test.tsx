@@ -42,7 +42,6 @@ describe('<Link />', () => {
         title: 'My Link',
         target: '_blank',
         querystring: 'foo=bar',
-        anchor: 'foo',
       },
     };
 
@@ -54,9 +53,7 @@ describe('<Link />', () => {
 
     const link = c.find('a');
 
-    expect(link.html()).to.contain(
-      `href="${field.value.href}?${field.value.querystring}#${field.value.anchor}"`
-    );
+    expect(link.html()).to.contain(`href="${field.value.href}?${field.value.querystring}"`);
     expect(link.html()).to.contain(`class="${field.value.class}"`);
     expect(link.html()).to.contain(`title="${field.value.title}"`);
     expect(link.html()).to.contain(`target="${field.value.target}"`);
@@ -185,22 +182,6 @@ describe('<Link />', () => {
 
     expect(c.find(NextLink).length).to.equal(1);
     expect(c.find(ReactLink).length).to.equal(0);
-  });
-
-  it('should not add extra hash when linktype is anchor', () => {
-    const field = {
-      linktype: 'anchor',
-      href: '#anchor',
-      text: 'anchor link',
-      anchor: 'anchor',
-    };
-    const rendered = mount(
-      <Page>
-        <Link field={field} />
-      </Page>
-    ).find('a');
-    expect(rendered.html()).to.contain(`href="${field.href}"`);
-    expect(rendered.text()).to.equal(field.text);
   });
 
   it('should render NextLink using internalLinkMatcher', () => {

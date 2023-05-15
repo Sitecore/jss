@@ -8,18 +8,11 @@
     "src/**/test-data",
     "src/pipelines/test",
     "dist",
-    "types",
-    "./src/manifest/index.ts",
-    "./src/pipelines/index.ts",
-    "./src/bin/*.ts",
-    "./src/manifest/generator/SitecoreIcon.ts",
-    "./src/manifest/generator/manifest.types*.ts",
-    "./src/manifest/generator/manifest.babel-shim.ts",
-    "**/pipeline.config.ts"
+    "types"
   ],
   "all": true,
   "reporter": [
-    "cobertura",
+    "json-summary",
     "text"
   ],
   "require": ["ts-node/register"]

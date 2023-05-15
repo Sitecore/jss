@@ -1,5 +1,5 @@
 ﻿import path from 'path';
-import inquirer from 'inquirer';
+import { prompt } from 'inquirer';
 import { prompts, VueAnswer } from './prompts';
 import { Initializer, transform } from '../../common';
 import { VueArgs } from './args';
@@ -11,7 +11,7 @@ export default class VueInitializer implements Initializer {
   }
 
   async init(args: VueArgs) {
-    const answers = await inquirer.prompt<VueAnswer>(prompts, args);
+    const answers = await prompt<VueAnswer>(prompts, args);
 
     const mergedArgs = {
       ...args,

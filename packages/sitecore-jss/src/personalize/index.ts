@@ -1,5 +1,4 @@
 ﻿export { personalizeLayout } from './layout-personalizer';
-export { PosResolver } from './pos-resolver';
 export {
   GraphQLPersonalizeService,
   GraphQLPersonalizeServiceConfig,

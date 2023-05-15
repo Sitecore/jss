@@ -37,7 +37,7 @@ const StyleguideFieldUsageLink = (props: StyleguideFieldUsageLinkProps): JSX.Ele
     <Link
       field={props.fields.externalLink}
       showLinkTextWithChildrenPresent={true}
-      className="fw-bold"
+      className="font-weight-bold"
       data-otherattributes="pass-through-to-anchor-tag"
     />
   </StyleguideSpecimen>

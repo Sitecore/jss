@@ -1,9 +1,0 @@
-{
-    "sitecore": {
-      "instancePath": "C:\\Work\\Sitecore.JSS\\container\\sxp\\deploy",
-      "apiKey": "{ADCF0159-031F-4093-9DDA-45FF14C81989}",
-      "deploySecret": "n5k0vzpto8ip03c1ws8tn3a6tlqr8rqivlyvahb93k9",
-      "deployUrl": "https://cm.jss.localhost/sitecore/api/jss/import",
-      "layoutServiceHost": "https://cm.jss.localhost"
-    }
-  }

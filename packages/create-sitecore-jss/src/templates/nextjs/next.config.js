@@ -1,4 +1,5 @@
 const jssConfig = require('./src/temp/config');
+const packageConfig = require('./package.json').config;
 const { getPublicUrl } = require('@sitecore-jss/sitecore-jss-nextjs');
 const plugins = require('./src/temp/next-config-plugins') || {};
 
@@ -25,7 +26,7 @@ const nextConfig = {
     locales: ['en'],
     // This is the locale that will be used when visiting a non-locale
     // prefixed path e.g. `/styleguide`.
-    defaultLocale: jssConfig.defaultLanguage,
+    defaultLocale: packageConfig.language,
   },
   
   // Enable React Strict Mode
@@ -49,16 +50,6 @@ const nextConfig = {
         source: '/layouts/system/:path*',
         destination: `${jssConfig.sitecoreApiHost}/layouts/system/:path*`,
       },
-      // healthz check
-      {
-        source: '/healthz',
-        destination: '/api/healthz',
-      },
-      // rewrite for Sitecore service pages
-      {
-        source: '/sitecore/service/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/sitecore/service/:path*`,
-      }, 
     ];
   },
 };

@@ -11,7 +11,7 @@
   ],
   "all": true,
   "reporter": [
-    "cobertura",
+    "json-summary",
     "text"
   ]
 }

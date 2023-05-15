@@ -10,9 +10,7 @@ export interface LinkFieldValue {
   title?: string;
   target?: string;
   text?: string;
-  anchor?: string;
   querystring?: string;
-  linktype?: string;
 }
 
 export interface LinkField {
@@ -96,11 +94,8 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       return null;
     }
 
-    const anchor = link.linktype !== 'anchor' && link.anchor ? `#${link.anchor}` : '';
-    const querystring = link.querystring ? `?${link.querystring}` : '';
-
     const anchorAttrs: { [attr: string]: unknown } = {
-      href: `${link.href}${querystring}${anchor}`,
+      href: link.querystring ? `${link.href}?${link.querystring}` : link.href,
       className: link.class,
       title: link.title,
       target: link.target,

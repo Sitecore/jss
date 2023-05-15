@@ -15,6 +15,7 @@ describe('GraphQLPersonalizeService', () => {
   const variantIds = ['variant-1', 'variant-2'];
   const config = {
     endpoint,
+    siteName,
     apiKey,
   };
   const personalizeQueryResult = {
@@ -29,7 +30,11 @@ describe('GraphQLPersonalizeService', () => {
     },
   };
 
-  const mockNonEmptyResponse = () => {
+  afterEach(() => {
+    nock.cleanAll();
+  });
+
+  it('should return personalize info for a route', async () => {
     nock('http://sctest', {
       reqheaders: {
         sc_apikey: apiKey,
@@ -39,9 +44,17 @@ describe('GraphQLPersonalizeService', () => {
       .reply(200, {
         data: personalizeQueryResult,
       });
-  };
 
-  const mockEmptyResponse = () => {
+    const service = new GraphQLPersonalizeService(config);
+    const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
+
+    expect(personalizeData).to.deep.equal({
+      contentId: `embedded_${id}_en`.toLowerCase(),
+      variantIds,
+    });
+  });
+
+  it('should return undefined if itemPath / language not found', async () => {
     nock('http://sctest', {
       reqheaders: {
         sc_apikey: apiKey,
@@ -53,37 +66,9 @@ describe('GraphQLPersonalizeService', () => {
           layout: {},
         },
       });
-  };
-
-  afterEach(() => {
-    nock.cleanAll();
-  });
-
-  it('should return personalize info for a route', async () => {
-    mockNonEmptyResponse();
 
     const service = new GraphQLPersonalizeService(config);
-    const personalizeData = await service.getPersonalizeInfo(
-      '/sitecore/content/home',
-      'en',
-      siteName
-    );
-
-    expect(personalizeData).to.deep.equal({
-      contentId: `embedded_${id}_en`.toLowerCase(),
-      variantIds,
-    });
-  });
-
-  it('should return undefined if itemPath / language not found', async () => {
-    mockEmptyResponse();
-
-    const service = new GraphQLPersonalizeService(config);
-    const personalizeData = await service.getPersonalizeInfo(
-      '/sitecore/content/home',
-      '',
-      siteName
-    );
+    const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', '');
 
     expect(personalizeData).to.eql(undefined);
   });
@@ -98,7 +83,7 @@ describe('GraphQLPersonalizeService', () => {
       .replyWithError('error_test');
     const service = new GraphQLPersonalizeService(config);
 
-    await service.getPersonalizeInfo('/sitecore/content/home', 'en', siteName).catch((error) => {
+    await service.getPersonalizeInfo('/sitecore/content/home', 'en').catch((error) => {
       expect(error.message).to.contain('error_test');
     });
   });
@@ -115,7 +100,7 @@ describe('GraphQLPersonalizeService', () => {
 
     const service = new GraphQLPersonalizeService(config);
 
-    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en', siteName);
+    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
     expect(result).to.equal(undefined);
   });
   it('should return fallback value when timeout is exceeded using provided timeout', async () => {
@@ -130,7 +115,7 @@ describe('GraphQLPersonalizeService', () => {
 
     const service = new GraphQLPersonalizeService({ ...config, timeout: 50 });
 
-    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en', siteName);
+    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
     expect(result).to.equal(undefined);
   });
   it('should return fallback value when api returns timeout error', async () => {
@@ -144,93 +129,8 @@ describe('GraphQLPersonalizeService', () => {
 
     const service = new GraphQLPersonalizeService({ ...config, timeout: 50 });
 
-    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en', siteName);
+    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
 
     expect(result).to.equal(undefined);
-  });
-
-  it('should cache service response by default', async () => {
-    mockNonEmptyResponse();
-
-    const itemPath = '/sitecore/content/home';
-    const lang = 'en';
-
-    const service = new GraphQLPersonalizeService(config);
-    const firstResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
-
-    expect(firstResult).to.deep.equal({
-      contentId: `embedded_${id}_en`.toLowerCase(),
-      variantIds,
-    });
-
-    mockEmptyResponse();
-
-    const secondResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
-
-    expect(secondResult).to.deep.equal(firstResult);
-  });
-
-  it('should be possible to disable cache', async () => {
-    mockNonEmptyResponse();
-
-    const itemPath = '/sitecore/content/home';
-    const lang = 'en';
-
-    const service = new GraphQLPersonalizeService({
-      ...config,
-      cacheEnabled: false,
-    });
-    const firstResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
-
-    expect(firstResult).to.deep.equal({
-      contentId: `embedded_${id}_en`.toLowerCase(),
-      variantIds,
-    });
-
-    mockEmptyResponse();
-
-    const secondResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
-
-    expect(secondResult).to.not.deep.equal(firstResult);
-  });
-
-  it('cache timeout should be used', async () => {
-    mockNonEmptyResponse();
-
-    const itemPath = '/sitecore/content/home';
-    const lang = 'en';
-
-    const service = new GraphQLPersonalizeService({
-      ...config,
-      cacheTimeout: 0.2,
-    });
-    const firstResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
-
-    mockEmptyResponse();
-
-    const cacheNonUpdate = new Promise((resolve) => {
-      setTimeout(
-        () =>
-          service.getPersonalizeInfo(itemPath, lang, siteName).then((newResult) => {
-            expect(newResult).to.deep.equal(firstResult);
-            resolve(undefined);
-          }),
-        100
-      );
-    });
-
-    const cacheUpdate = new Promise((resolve) => {
-      setTimeout(
-        () =>
-          service.getPersonalizeInfo(itemPath, lang, siteName).then((newResult) => {
-            expect(newResult).to.deep.equal(undefined);
-            resolve(undefined);
-          }),
-        250
-      );
-    });
-    await cacheNonUpdate;
-
-    await cacheUpdate;
   });
 });

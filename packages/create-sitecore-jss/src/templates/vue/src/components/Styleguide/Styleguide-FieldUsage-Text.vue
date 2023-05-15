@@ -13,7 +13,7 @@
       tag="section"
       :editable="false"
       :encode="false"
-      class="fw-bold"
+      class="font-weight-bold"
       data-sample="other-attributes-pass-through"
     />
 

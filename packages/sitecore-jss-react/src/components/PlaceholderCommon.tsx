@@ -172,7 +172,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
   }
 
   getSXAParams(rendering: ComponentRendering) {
-    if (!rendering.params) return {};
     return (
       rendering.params.FieldNames && {
         styles: `${rendering.params.GridParameters || ''} ${rendering.params.Styles || ''}`,

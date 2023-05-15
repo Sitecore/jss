@@ -1,6 +1,0 @@
-id: styleguide-edit-frame-list-item-1
-displayName: EditFrame Demo List Item 1
-# Template defines the available fields. See /sitecore/definitions/templates/Styleguide-EditFrame-ListItem-Template.sitecore.ts
-template: <%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-EditFrame-ListItem-Template
-fields:
-  title: Edit Frame Demo List Item 1

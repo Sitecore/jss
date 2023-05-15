@@ -53,14 +53,5 @@ export class NextjsCheckbox extends CheckboxPrompt {
         isValid: incompatibleAddonsMsg('nextjs-styleguide-tracking', 'nextjs-personalize'),
       });
     }
-
-    const isSxaSelected = isSelected('nextjs-sxa');
-    const isStyleguideSelected = isSelected('nextjs-styleguide');
-
-    if (isSxaSelected && isStyleguideSelected) {
-      this.onError({
-        isValid: incompatibleAddonsMsg('nextjs-sxa', 'nextjs-styleguide'),
-      });
-    }
   }
 }

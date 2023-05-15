@@ -15,11 +15,9 @@ Extends IncomingMessage as it should contain these properties but they are not p
 ### Properties
 
 - [aborted](ProxyIncomingMessage.md#aborted)
-- [closed](ProxyIncomingMessage.md#closed)
 - [complete](ProxyIncomingMessage.md#complete)
 - [connection](ProxyIncomingMessage.md#connection)
 - [destroyed](ProxyIncomingMessage.md#destroyed)
-- [errored](ProxyIncomingMessage.md#errored)
 - [headers](ProxyIncomingMessage.md#headers)
 - [httpVersion](ProxyIncomingMessage.md#httpversion)
 - [httpVersionMajor](ProxyIncomingMessage.md#httpversionmajor)
@@ -30,8 +28,6 @@ Extends IncomingMessage as it should contain these properties but they are not p
 - [rawHeaders](ProxyIncomingMessage.md#rawheaders)
 - [rawTrailers](ProxyIncomingMessage.md#rawtrailers)
 - [readable](ProxyIncomingMessage.md#readable)
-- [readableAborted](ProxyIncomingMessage.md#readableaborted)
-- [readableDidRead](ProxyIncomingMessage.md#readabledidread)
 - [readableEncoding](ProxyIncomingMessage.md#readableencoding)
 - [readableEnded](ProxyIncomingMessage.md#readableended)
 - [readableFlowing](ProxyIncomingMessage.md#readableflowing)
@@ -47,7 +43,6 @@ Extends IncomingMessage as it should contain these properties but they are not p
 ### Methods
 
 - [[asyncIterator]](ProxyIncomingMessage.md#[asynciterator])
-- [\_construct](ProxyIncomingMessage.md#_construct)
 - [\_destroy](ProxyIncomingMessage.md#_destroy)
 - [\_read](ProxyIncomingMessage.md#_read)
 - [addListener](ProxyIncomingMessage.md#addlistener)
@@ -84,38 +79,13 @@ Extends IncomingMessage as it should contain these properties but they are not p
 
 • **aborted**: `boolean`
 
-The `message.aborted` property will be `true` if the request has
-been aborted.
-
-**`since`** v10.1.0
-
-**`deprecated`** Since v17.0.0,v16.12.0 - Check `message.destroyed` from <a href="stream.html#class-streamreadable" class="type">stream.Readable</a>.
-
 #### Inherited from
 
 IncomingMessage.aborted
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1007
-
-___
-
-### closed
-
-• `Readonly` **closed**: `boolean`
-
-Is true after 'close' has been emitted.
-
-**`since`** v8.0.0
-
-#### Inherited from
-
-IncomingMessage.closed
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:134
+node_modules/@types/node/http.d.ts:345
 
 ___
 
@@ -123,36 +93,13 @@ ___
 
 • **complete**: `boolean`
 
-The `message.complete` property will be `true` if a complete HTTP message has
-been received and successfully parsed.
-
-This property is particularly useful as a means of determining if a client or
-server fully transmitted a message before a connection was terminated:
-
-```js
-const req = http.request({
-  host: '127.0.0.1',
-  port: 8080,
-  method: 'POST'
-}, (res) => {
-  res.resume();
-  res.on('end', () => {
-    if (!res.complete)
-      console.error(
-        'The connection was terminated while the message was still being sent');
-  });
-});
-```
-
-**`since`** v0.3.0
-
 #### Inherited from
 
 IncomingMessage.complete
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1042
+node_modules/@types/node/http.d.ts:349
 
 ___
 
@@ -160,19 +107,13 @@ ___
 
 • **connection**: `Socket`
 
-Alias for `message.socket`.
-
-**`since`** v0.1.90
-
-**`deprecated`** Since v16.0.0 - Use `socket`.
-
 #### Inherited from
 
 IncomingMessage.connection
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1048
+node_modules/@types/node/http.d.ts:350
 
 ___
 
@@ -180,35 +121,13 @@ ___
 
 • **destroyed**: `boolean`
 
-Is `true` after `readable.destroy()` has been called.
-
-**`since`** v18.0.0
-
 #### Inherited from
 
 IncomingMessage.destroyed
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:129
-
-___
-
-### errored
-
-• `Readonly` **errored**: ``null`` \| `Error`
-
-Returns error if the stream has been destroyed with an error.
-
-**`since`** v18.0.0
-
-#### Inherited from
-
-IncomingMessage.errored
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:139
+node_modules/@types/node/stream.d.ts:33
 
 ___
 
@@ -216,37 +135,13 @@ ___
 
 • **headers**: `IncomingHttpHeaders`
 
-The request/response headers object.
-
-Key-value pairs of header names and values. Header names are lower-cased.
-
-```js
-// Prints something like:
-//
-// { 'user-agent': 'curl/7.22.0',
-//   host: '127.0.0.1:8000',
-//   accept: '*' }
-console.log(request.getHeaders());
-```
-
-Duplicates in raw headers are handled in the following ways, depending on the
-header name:
-
-* Duplicates of `age`, `authorization`, `content-length`, `content-type`,`etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`,`last-modified`, `location`,
-`max-forwards`, `proxy-authorization`, `referer`,`retry-after`, `server`, or `user-agent` are discarded.
-* `set-cookie` is always an array. Duplicates are added to the array.
-* For duplicate `cookie` headers, the values are joined together with '; '.
-* For all other headers, the values are joined together with ', '.
-
-**`since`** v0.1.5
-
 #### Inherited from
 
 IncomingMessage.headers
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1085
+node_modules/@types/node/http.d.ts:351
 
 ___
 
@@ -254,21 +149,13 @@ ___
 
 • **httpVersion**: `string`
 
-In case of server request, the HTTP version sent by the client. In the case of
-client response, the HTTP version of the connected-to server.
-Probably either `'1.1'` or `'1.0'`.
-
-Also `message.httpVersionMajor` is the first integer and`message.httpVersionMinor` is the second.
-
-**`since`** v0.1.1
-
 #### Inherited from
 
 IncomingMessage.httpVersion
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1016
+node_modules/@types/node/http.d.ts:346
 
 ___
 
@@ -282,7 +169,7 @@ IncomingMessage.httpVersionMajor
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1017
+node_modules/@types/node/http.d.ts:347
 
 ___
 
@@ -296,7 +183,7 @@ IncomingMessage.httpVersionMinor
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1018
+node_modules/@types/node/http.d.ts:348
 
 ___
 
@@ -304,11 +191,7 @@ ___
 
 • `Optional` **method**: `string`
 
-**Only valid for request obtained from {@link Server}.**
-
-The request method as a string. Read only. Examples: `'GET'`, `'DELETE'`.
-
-**`since`** v0.1.1
+Only valid for request obtained from http.Server.
 
 #### Inherited from
 
@@ -316,7 +199,7 @@ IncomingMessage.method
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1133
+node_modules/@types/node/http.d.ts:359
 
 ___
 
@@ -326,7 +209,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:18](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-proxy/src/index.ts#L18)
+[src/index.ts:16](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-proxy/src/index.ts#L16)
 
 ___
 
@@ -340,7 +223,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:19](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss-proxy/src/index.ts#L19)
+[src/index.ts:17](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-proxy/src/index.ts#L17)
 
 ___
 
@@ -348,37 +231,13 @@ ___
 
 • **rawHeaders**: `string`[]
 
-The raw request/response headers list exactly as they were received.
-
-The keys and values are in the same list. It is _not_ a
-list of tuples. So, the even-numbered offsets are key values, and the
-odd-numbered offsets are the associated values.
-
-Header names are not lowercased, and duplicates are not merged.
-
-```js
-// Prints something like:
-//
-// [ 'user-agent',
-//   'this is invalid because there can be only one',
-//   'User-Agent',
-//   'curl/7.22.0',
-//   'Host',
-//   '127.0.0.1:8000',
-//   'ACCEPT',
-//   '*' ]
-console.log(request.rawHeaders);
-```
-
-**`since`** v0.11.6
-
 #### Inherited from
 
 IncomingMessage.rawHeaders
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1110
+node_modules/@types/node/http.d.ts:352
 
 ___
 
@@ -386,18 +245,13 @@ ___
 
 • **rawTrailers**: `string`[]
 
-The raw request/response trailer keys and values exactly as they were
-received. Only populated at the `'end'` event.
-
-**`since`** v0.11.6
-
 #### Inherited from
 
 IncomingMessage.rawTrailers
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1121
+node_modules/@types/node/http.d.ts:354
 
 ___
 
@@ -405,58 +259,13 @@ ___
 
 • **readable**: `boolean`
 
-Is `true` if it is safe to call `readable.read()`, which means
-the stream has not been destroyed or emitted `'error'` or `'end'`.
-
-**`since`** v11.4.0
-
 #### Inherited from
 
 IncomingMessage.readable
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:85
-
-___
-
-### readableAborted
-
-• `Readonly` **readableAborted**: `boolean`
-
-Returns whether the stream was destroyed or errored before emitting `'end'`.
-
-**`since`** v16.8.0
-
-**`experimental`**
-
-#### Inherited from
-
-IncomingMessage.readableAborted
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:79
-
-___
-
-### readableDidRead
-
-• `Readonly` **readableDidRead**: `boolean`
-
-Returns whether `'data'` has been emitted.
-
-**`since`** v16.7.0, v14.18.0
-
-**`experimental`**
-
-#### Inherited from
-
-IncomingMessage.readableDidRead
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:91
+node_modules/@types/node/stream.d.ts:26
 
 ___
 
@@ -464,17 +273,13 @@ ___
 
 • `Readonly` **readableEncoding**: ``null`` \| `BufferEncoding`
 
-Getter for the property `encoding` of a given `Readable` stream. The `encoding`property can be set using the `readable.setEncoding()` method.
-
-**`since`** v12.7.0
-
 #### Inherited from
 
 IncomingMessage.readableEncoding
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:96
+node_modules/@types/node/stream.d.ts:27
 
 ___
 
@@ -482,17 +287,13 @@ ___
 
 • `Readonly` **readableEnded**: `boolean`
 
-Becomes `true` when `'end'` event is emitted.
-
-**`since`** v12.9.0
-
 #### Inherited from
 
 IncomingMessage.readableEnded
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:101
+node_modules/@types/node/stream.d.ts:28
 
 ___
 
@@ -500,18 +301,13 @@ ___
 
 • `Readonly` **readableFlowing**: ``null`` \| `boolean`
 
-This property reflects the current state of a `Readable` stream as described
-in the `Three states` section.
-
-**`since`** v9.4.0
-
 #### Inherited from
 
 IncomingMessage.readableFlowing
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:107
+node_modules/@types/node/stream.d.ts:29
 
 ___
 
@@ -519,17 +315,13 @@ ___
 
 • `Readonly` **readableHighWaterMark**: `number`
 
-Returns the value of `highWaterMark` passed when creating this `Readable`.
-
-**`since`** v9.3.0
-
 #### Inherited from
 
 IncomingMessage.readableHighWaterMark
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:112
+node_modules/@types/node/stream.d.ts:30
 
 ___
 
@@ -537,19 +329,13 @@ ___
 
 • `Readonly` **readableLength**: `number`
 
-This property contains the number of bytes (or objects) in the queue
-ready to be read. The value provides introspection data regarding
-the status of the `highWaterMark`.
-
-**`since`** v9.4.0
-
 #### Inherited from
 
 IncomingMessage.readableLength
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:119
+node_modules/@types/node/stream.d.ts:31
 
 ___
 
@@ -557,17 +343,13 @@ ___
 
 • `Readonly` **readableObjectMode**: `boolean`
 
-Getter for the property `objectMode` of a given `Readable` stream.
-
-**`since`** v12.3.0
-
 #### Inherited from
 
 IncomingMessage.readableObjectMode
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:124
+node_modules/@types/node/stream.d.ts:32
 
 ___
 
@@ -575,24 +357,13 @@ ___
 
 • **socket**: `Socket`
 
-The `net.Socket` object associated with the connection.
-
-With HTTPS support, use `request.socket.getPeerCertificate()` to obtain the
-client's authentication details.
-
-This property is guaranteed to be an instance of the `net.Socket` class,
-a subclass of `stream.Duplex`, unless the user specified a socket
-type other than `net.Socket` or internally nulled.
-
-**`since`** v0.3.0
-
 #### Inherited from
 
 IncomingMessage.socket
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1060
+node_modules/@types/node/http.d.ts:372
 
 ___
 
@@ -600,11 +371,7 @@ ___
 
 • `Optional` **statusCode**: `number`
 
-**Only valid for response obtained from {@link ClientRequest}.**
-
-The 3-digit HTTP response status code. E.G. `404`.
-
-**`since`** v0.1.1
+Only valid for response obtained from http.ClientRequest.
 
 #### Inherited from
 
@@ -612,7 +379,7 @@ IncomingMessage.statusCode
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1180
+node_modules/@types/node/http.d.ts:367
 
 ___
 
@@ -620,11 +387,7 @@ ___
 
 • `Optional` **statusMessage**: `string`
 
-**Only valid for response obtained from {@link ClientRequest}.**
-
-The HTTP response status message (reason phrase). E.G. `OK` or `Internal Server Error`.
-
-**`since`** v0.11.10
+Only valid for response obtained from http.ClientRequest.
 
 #### Inherited from
 
@@ -632,17 +395,17 @@ IncomingMessage.statusMessage
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1187
+node_modules/@types/node/http.d.ts:371
 
 ___
 
 ### trailers
 
-• **trailers**: `Dict`<`string`\>
+• **trailers**: `Object`
 
-The request/response trailers object. Only populated at the `'end'` event.
+#### Index signature
 
-**`since`** v0.3.0
+▪ [key: `string`]: `string` \| `undefined`
 
 #### Inherited from
 
@@ -650,7 +413,7 @@ IncomingMessage.trailers
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1115
+node_modules/@types/node/http.d.ts:353
 
 ___
 
@@ -658,44 +421,7 @@ ___
 
 • `Optional` **url**: `string`
 
-**Only valid for request obtained from {@link Server}.**
-
-Request URL string. This contains only the URL that is present in the actual
-HTTP request. Take the following request:
-
-```http
-GET /status?name=ryan HTTP/1.1
-Accept: text/plain
-```
-
-To parse the URL into its parts:
-
-```js
-new URL(request.url, `http://${request.getHeaders().host}`);
-```
-
-When `request.url` is `'/status?name=ryan'` and`request.getHeaders().host` is `'localhost:3000'`:
-
-```console
-$ node
-> new URL(request.url, `http://${request.getHeaders().host}`)
-URL {
-  href: 'http://localhost:3000/status?name=ryan',
-  origin: 'http://localhost:3000',
-  protocol: 'http:',
-  username: '',
-  password: '',
-  host: 'localhost:3000',
-  hostname: 'localhost',
-  port: '3000',
-  pathname: '/status',
-  search: '?name=ryan',
-  searchParams: URLSearchParams { 'name' => 'ryan' },
-  hash: ''
-}
-```
-
-**`since`** v0.1.90
+Only valid for request obtained from http.Server.
 
 #### Inherited from
 
@@ -703,7 +429,7 @@ IncomingMessage.url
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1173
+node_modules/@types/node/http.d.ts:363
 
 ## Methods
 
@@ -717,35 +443,11 @@ node_modules/@types/node/ts4.8/http.d.ts:1173
 
 #### Inherited from
 
-IncomingMessage.\_\_@asyncIterator@22001
+IncomingMessage.\_\_@asyncIterator@21783
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:503
-
-___
-
-### \_construct
-
-▸ `Optional` **_construct**(`callback`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `callback` | (`error?`: ``null`` \| `Error`) => `void` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-IncomingMessage.\_construct
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:141
+node_modules/@types/node/stream.d.ts:106
 
 ___
 
@@ -770,7 +472,7 @@ IncomingMessage.\_destroy
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:423
+node_modules/@types/node/stream.d.ts:45
 
 ___
 
@@ -794,7 +496,7 @@ IncomingMessage.\_read
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:142
+node_modules/@types/node/stream.d.ts:35
 
 ___
 
@@ -807,10 +509,8 @@ The defined events on documents including:
 1. close
 2. data
 3. end
-4. error
-5. pause
-6. readable
-7. resume
+4. readable
+5. error
 
 #### Parameters
 
@@ -829,7 +529,7 @@ IncomingMessage.addListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:447
+node_modules/@types/node/stream.d.ts:57
 
 ▸ **addListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -850,7 +550,7 @@ IncomingMessage.addListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:448
+node_modules/@types/node/stream.d.ts:58
 
 ▸ **addListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -871,49 +571,7 @@ IncomingMessage.addListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:449
-
-▸ **addListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"error"`` |
-| `listener` | (`err`: `Error`) => `void` |
-
-#### Returns
-
-[`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Inherited from
-
-IncomingMessage.addListener
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:450
-
-▸ **addListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"pause"`` |
-| `listener` | () => `void` |
-
-#### Returns
-
-[`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Inherited from
-
-IncomingMessage.addListener
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:451
+node_modules/@types/node/stream.d.ts:59
 
 ▸ **addListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -934,7 +592,7 @@ IncomingMessage.addListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:452
+node_modules/@types/node/stream.d.ts:60
 
 ▸ **addListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -942,8 +600,8 @@ node_modules/@types/node/ts4.8/stream.d.ts:452
 
 | Name | Type |
 | :------ | :------ |
-| `event` | ``"resume"`` |
-| `listener` | () => `void` |
+| `event` | ``"error"`` |
+| `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
 
@@ -955,7 +613,7 @@ IncomingMessage.addListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:453
+node_modules/@types/node/stream.d.ts:61
 
 ▸ **addListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -976,18 +634,13 @@ IncomingMessage.addListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:454
+node_modules/@types/node/stream.d.ts:62
 
 ___
 
 ### destroy
 
-▸ **destroy**(`error?`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-Calls `destroy()` on the socket that received the `IncomingMessage`. If `error`is provided, an `'error'` event is emitted on the socket and `error` is passed
-as an argument to any listeners on the event.
-
-**`since`** v0.3.0
+▸ **destroy**(`error?`): `void`
 
 #### Parameters
 
@@ -997,7 +650,7 @@ as an argument to any listeners on the event.
 
 #### Returns
 
-[`ProxyIncomingMessage`](ProxyIncomingMessage.md)
+`void`
 
 #### Inherited from
 
@@ -1005,7 +658,7 @@ IncomingMessage.destroy
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1193
+node_modules/@types/node/http.d.ts:373
 
 ___
 
@@ -1029,7 +682,7 @@ IncomingMessage.emit
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:455
+node_modules/@types/node/stream.d.ts:64
 
 ▸ **emit**(`event`, `chunk`): `boolean`
 
@@ -1050,7 +703,7 @@ IncomingMessage.emit
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:456
+node_modules/@types/node/stream.d.ts:65
 
 ▸ **emit**(`event`): `boolean`
 
@@ -1070,7 +723,27 @@ IncomingMessage.emit
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:457
+node_modules/@types/node/stream.d.ts:66
+
+▸ **emit**(`event`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"readable"`` |
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+IncomingMessage.emit
+
+#### Defined in
+
+node_modules/@types/node/stream.d.ts:67
 
 ▸ **emit**(`event`, `err`): `boolean`
 
@@ -1091,67 +764,7 @@ IncomingMessage.emit
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:458
-
-▸ **emit**(`event`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"pause"`` |
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-IncomingMessage.emit
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:459
-
-▸ **emit**(`event`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"readable"`` |
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-IncomingMessage.emit
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:460
-
-▸ **emit**(`event`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"resume"`` |
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-IncomingMessage.emit
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:461
+node_modules/@types/node/stream.d.ts:68
 
 ▸ **emit**(`event`, ...`args`): `boolean`
 
@@ -1172,31 +785,13 @@ IncomingMessage.emit
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:462
+node_modules/@types/node/stream.d.ts:69
 
 ___
 
 ### eventNames
 
 ▸ **eventNames**(): (`string` \| `symbol`)[]
-
-Returns an array listing the events for which the emitter has registered
-listeners. The values in the array are strings or `Symbol`s.
-
-```js
-const EventEmitter = require('events');
-const myEE = new EventEmitter();
-myEE.on('foo', () => {});
-myEE.on('bar', () => {});
-
-const sym = Symbol('symbol');
-myEE.on(sym, () => {});
-
-console.log(myEE.eventNames());
-// Prints: [ 'foo', 'bar', Symbol(symbol) ]
-```
-
-**`since`** v6.0.0
 
 #### Returns
 
@@ -1208,18 +803,13 @@ IncomingMessage.eventNames
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:669
+node_modules/@types/node/globals.d.ts:655
 
 ___
 
 ### getMaxListeners
 
 ▸ **getMaxListeners**(): `number`
-
-Returns the current max listener value for the `EventEmitter` which is either
-set by `emitter.setMaxListeners(n)` or defaults to {@link defaultMaxListeners}.
-
-**`since`** v1.0.0
 
 #### Returns
 
@@ -1231,29 +821,13 @@ IncomingMessage.getMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:526
+node_modules/@types/node/globals.d.ts:647
 
 ___
 
 ### isPaused
 
 ▸ **isPaused**(): `boolean`
-
-The `readable.isPaused()` method returns the current operating state of the`Readable`. This is used primarily by the mechanism that underlies the`readable.pipe()` method. In most
-typical cases, there will be no reason to
-use this method directly.
-
-```js
-const readable = new stream.Readable();
-
-readable.isPaused(); // === false
-readable.pause();
-readable.isPaused(); // === true
-readable.resume();
-readable.isPaused(); // === false
-```
-
-**`since`** v0.11.14
 
 #### Returns
 
@@ -1265,23 +839,19 @@ IncomingMessage.isPaused
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:302
+node_modules/@types/node/stream.d.ts:40
 
 ___
 
 ### listenerCount
 
-▸ **listenerCount**(`eventName`): `number`
-
-Returns the number of listeners listening to the event named `eventName`.
-
-**`since`** v3.2.0
+▸ **listenerCount**(`type`): `number`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `eventName` | `string` \| `symbol` | The name of the event being listened for |
+| Name | Type |
+| :------ | :------ |
+| `type` | `string` \| `symbol` |
 
 #### Returns
 
@@ -1293,31 +863,19 @@ IncomingMessage.listenerCount
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:616
+node_modules/@types/node/globals.d.ts:651
 
 ___
 
 ### listeners
 
-▸ **listeners**(`eventName`): `Function`[]
-
-Returns a copy of the array of listeners for the event named `eventName`.
-
-```js
-server.on('connection', (stream) => {
-  console.log('someone connected!');
-});
-console.log(util.inspect(server.listeners('connection')));
-// Prints: [ [Function] ]
-```
-
-**`since`** v0.1.26
+▸ **listeners**(`event`): `Function`[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `eventName` | `string` \| `symbol` |
+| `event` | `string` \| `symbol` |
 
 #### Returns
 
@@ -1329,23 +887,19 @@ IncomingMessage.listeners
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:539
+node_modules/@types/node/globals.d.ts:648
 
 ___
 
 ### off
 
-▸ **off**(`eventName`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-Alias for `emitter.removeListener()`.
-
-**`since`** v10.0.0
+▸ **off**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `eventName` | `string` \| `symbol` |
+| `event` | `string` \| `symbol` |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -1358,7 +912,7 @@ IncomingMessage.off
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:499
+node_modules/@types/node/globals.d.ts:644
 
 ___
 
@@ -1383,7 +937,7 @@ IncomingMessage.on
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:463
+node_modules/@types/node/stream.d.ts:71
 
 ▸ **on**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1404,7 +958,7 @@ IncomingMessage.on
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:464
+node_modules/@types/node/stream.d.ts:72
 
 ▸ **on**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1425,49 +979,7 @@ IncomingMessage.on
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:465
-
-▸ **on**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"error"`` |
-| `listener` | (`err`: `Error`) => `void` |
-
-#### Returns
-
-[`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Inherited from
-
-IncomingMessage.on
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:466
-
-▸ **on**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"pause"`` |
-| `listener` | () => `void` |
-
-#### Returns
-
-[`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Inherited from
-
-IncomingMessage.on
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:467
+node_modules/@types/node/stream.d.ts:73
 
 ▸ **on**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1488,7 +1000,7 @@ IncomingMessage.on
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:468
+node_modules/@types/node/stream.d.ts:74
 
 ▸ **on**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1496,8 +1008,8 @@ node_modules/@types/node/ts4.8/stream.d.ts:468
 
 | Name | Type |
 | :------ | :------ |
-| `event` | ``"resume"`` |
-| `listener` | () => `void` |
+| `event` | ``"error"`` |
+| `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
 
@@ -1509,7 +1021,7 @@ IncomingMessage.on
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:469
+node_modules/@types/node/stream.d.ts:75
 
 ▸ **on**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1530,7 +1042,7 @@ IncomingMessage.on
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:470
+node_modules/@types/node/stream.d.ts:76
 
 ___
 
@@ -1555,7 +1067,7 @@ IncomingMessage.once
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:471
+node_modules/@types/node/stream.d.ts:78
 
 ▸ **once**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1576,7 +1088,7 @@ IncomingMessage.once
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:472
+node_modules/@types/node/stream.d.ts:79
 
 ▸ **once**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1597,49 +1109,7 @@ IncomingMessage.once
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:473
-
-▸ **once**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"error"`` |
-| `listener` | (`err`: `Error`) => `void` |
-
-#### Returns
-
-[`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Inherited from
-
-IncomingMessage.once
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:474
-
-▸ **once**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"pause"`` |
-| `listener` | () => `void` |
-
-#### Returns
-
-[`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Inherited from
-
-IncomingMessage.once
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:475
+node_modules/@types/node/stream.d.ts:80
 
 ▸ **once**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1660,7 +1130,7 @@ IncomingMessage.once
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:476
+node_modules/@types/node/stream.d.ts:81
 
 ▸ **once**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1668,8 +1138,8 @@ node_modules/@types/node/ts4.8/stream.d.ts:476
 
 | Name | Type |
 | :------ | :------ |
-| `event` | ``"resume"`` |
-| `listener` | () => `void` |
+| `event` | ``"error"`` |
+| `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
 
@@ -1681,7 +1151,7 @@ IncomingMessage.once
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:477
+node_modules/@types/node/stream.d.ts:82
 
 ▸ **once**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1702,34 +1172,13 @@ IncomingMessage.once
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:478
+node_modules/@types/node/stream.d.ts:83
 
 ___
 
 ### pause
 
 ▸ **pause**(): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-The `readable.pause()` method will cause a stream in flowing mode to stop
-emitting `'data'` events, switching out of flowing mode. Any data that
-becomes available will remain in the internal buffer.
-
-```js
-const readable = getReadableStreamSomehow();
-readable.on('data', (chunk) => {
-  console.log(`Received ${chunk.length} bytes of data.`);
-  readable.pause();
-  console.log('There will be no additional data for 1 second.');
-  setTimeout(() => {
-    console.log('Now data will start flowing again.');
-    readable.resume();
-  }, 1000);
-});
-```
-
-The `readable.pause()` method has no effect if there is a `'readable'`event listener.
-
-**`since`** v0.9.4
 
 #### Returns
 
@@ -1741,7 +1190,7 @@ IncomingMessage.pause
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:266
+node_modules/@types/node/stream.d.ts:38
 
 ___
 
@@ -1773,7 +1222,7 @@ IncomingMessage.pipe
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:26
+node_modules/@types/node/stream.d.ts:5
 
 ___
 
@@ -1798,7 +1247,7 @@ IncomingMessage.prependListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:479
+node_modules/@types/node/stream.d.ts:85
 
 ▸ **prependListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1819,7 +1268,7 @@ IncomingMessage.prependListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:480
+node_modules/@types/node/stream.d.ts:86
 
 ▸ **prependListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1840,49 +1289,7 @@ IncomingMessage.prependListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:481
-
-▸ **prependListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"error"`` |
-| `listener` | (`err`: `Error`) => `void` |
-
-#### Returns
-
-[`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Inherited from
-
-IncomingMessage.prependListener
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:482
-
-▸ **prependListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"pause"`` |
-| `listener` | () => `void` |
-
-#### Returns
-
-[`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Inherited from
-
-IncomingMessage.prependListener
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:483
+node_modules/@types/node/stream.d.ts:87
 
 ▸ **prependListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1903,7 +1310,7 @@ IncomingMessage.prependListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:484
+node_modules/@types/node/stream.d.ts:88
 
 ▸ **prependListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1911,8 +1318,8 @@ node_modules/@types/node/ts4.8/stream.d.ts:484
 
 | Name | Type |
 | :------ | :------ |
-| `event` | ``"resume"`` |
-| `listener` | () => `void` |
+| `event` | ``"error"`` |
+| `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
 
@@ -1924,7 +1331,7 @@ IncomingMessage.prependListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:485
+node_modules/@types/node/stream.d.ts:89
 
 ▸ **prependListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1945,7 +1352,7 @@ IncomingMessage.prependListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:486
+node_modules/@types/node/stream.d.ts:90
 
 ___
 
@@ -1970,7 +1377,7 @@ IncomingMessage.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:487
+node_modules/@types/node/stream.d.ts:92
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1991,7 +1398,7 @@ IncomingMessage.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:488
+node_modules/@types/node/stream.d.ts:93
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -2012,49 +1419,7 @@ IncomingMessage.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:489
-
-▸ **prependOnceListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"error"`` |
-| `listener` | (`err`: `Error`) => `void` |
-
-#### Returns
-
-[`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Inherited from
-
-IncomingMessage.prependOnceListener
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:490
-
-▸ **prependOnceListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"pause"`` |
-| `listener` | () => `void` |
-
-#### Returns
-
-[`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Inherited from
-
-IncomingMessage.prependOnceListener
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:491
+node_modules/@types/node/stream.d.ts:94
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -2075,7 +1440,7 @@ IncomingMessage.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:492
+node_modules/@types/node/stream.d.ts:95
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -2083,8 +1448,8 @@ node_modules/@types/node/ts4.8/stream.d.ts:492
 
 | Name | Type |
 | :------ | :------ |
-| `event` | ``"resume"`` |
-| `listener` | () => `void` |
+| `event` | ``"error"`` |
+| `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
 
@@ -2096,7 +1461,7 @@ IncomingMessage.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:493
+node_modules/@types/node/stream.d.ts:96
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -2117,7 +1482,7 @@ IncomingMessage.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:494
+node_modules/@types/node/stream.d.ts:97
 
 ___
 
@@ -2130,7 +1495,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `chunk` | `any` |
-| `encoding?` | `BufferEncoding` |
+| `encoding?` | `string` |
 
 #### Returns
 
@@ -2142,48 +1507,19 @@ IncomingMessage.push
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:422
+node_modules/@types/node/stream.d.ts:44
 
 ___
 
 ### rawListeners
 
-▸ **rawListeners**(`eventName`): `Function`[]
-
-Returns a copy of the array of listeners for the event named `eventName`,
-including any wrappers (such as those created by `.once()`).
-
-```js
-const emitter = new EventEmitter();
-emitter.once('log', () => console.log('log once'));
-
-// Returns a new Array with a function `onceWrapper` which has a property
-// `listener` which contains the original listener bound above
-const listeners = emitter.rawListeners('log');
-const logFnWrapper = listeners[0];
-
-// Logs "log once" to the console and does not unbind the `once` event
-logFnWrapper.listener();
-
-// Logs "log once" to the console and removes the listener
-logFnWrapper();
-
-emitter.on('log', () => console.log('log persistently'));
-// Will return a new Array with a single function bound by `.on()` above
-const newListeners = emitter.rawListeners('log');
-
-// Logs "log persistently" twice
-newListeners[0]();
-emitter.emit('log');
-```
-
-**`since`** v9.4.0
+▸ **rawListeners**(`event`): `Function`[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `eventName` | `string` \| `symbol` |
+| `event` | `string` \| `symbol` |
 
 #### Returns
 
@@ -2195,7 +1531,7 @@ IncomingMessage.rawListeners
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:569
+node_modules/@types/node/globals.d.ts:649
 
 ___
 
@@ -2203,86 +1539,11 @@ ___
 
 ▸ **read**(`size?`): `any`
 
-The `readable.read()` method reads data out of the internal buffer and
-returns it. If no data is available to be read, `null` is returned. By default,
-the data is returned as a `Buffer` object unless an encoding has been
-specified using the `readable.setEncoding()` method or the stream is operating
-in object mode.
-
-The optional `size` argument specifies a specific number of bytes to read. If`size` bytes are not available to be read, `null` will be returned _unless_the stream has ended, in which
-case all of the data remaining in the internal
-buffer will be returned.
-
-If the `size` argument is not specified, all of the data contained in the
-internal buffer will be returned.
-
-The `size` argument must be less than or equal to 1 GiB.
-
-The `readable.read()` method should only be called on `Readable` streams
-operating in paused mode. In flowing mode, `readable.read()` is called
-automatically until the internal buffer is fully drained.
-
-```js
-const readable = getReadableStreamSomehow();
-
-// 'readable' may be triggered multiple times as data is buffered in
-readable.on('readable', () => {
-  let chunk;
-  console.log('Stream is readable (new data received in buffer)');
-  // Use a loop to make sure we read all currently available data
-  while (null !== (chunk = readable.read())) {
-    console.log(`Read ${chunk.length} bytes of data...`);
-  }
-});
-
-// 'end' will be triggered once when there is no more data available
-readable.on('end', () => {
-  console.log('Reached end of stream.');
-});
-```
-
-Each call to `readable.read()` returns a chunk of data, or `null`. The chunks
-are not concatenated. A `while` loop is necessary to consume all data
-currently in the buffer. When reading a large file `.read()` may return `null`,
-having consumed all buffered content so far, but there is still more data to
-come not yet buffered. In this case a new `'readable'` event will be emitted
-when there is more data in the buffer. Finally the `'end'` event will be
-emitted when there is no more data to come.
-
-Therefore to read a file's whole contents from a `readable`, it is necessary
-to collect chunks across multiple `'readable'` events:
-
-```js
-const chunks = [];
-
-readable.on('readable', () => {
-  let chunk;
-  while (null !== (chunk = readable.read())) {
-    chunks.push(chunk);
-  }
-});
-
-readable.on('end', () => {
-  const content = chunks.join('');
-});
-```
-
-A `Readable` stream in object mode will always return a single item from
-a call to `readable.read(size)`, regardless of the value of the`size` argument.
-
-If the `readable.read()` method returns a chunk of data, a `'data'` event will
-also be emitted.
-
-Calling [read](ProxyIncomingMessage.md#read) after the `'end'` event has
-been emitted will return `null`. No runtime error will be raised.
-
-**`since`** v0.9.4
-
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `size?` | `number` | Optional argument to specify how much data to read. |
+| Name | Type |
+| :------ | :------ |
+| `size?` | `number` |
 
 #### Returns
 
@@ -2294,23 +1555,13 @@ IncomingMessage.read
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:219
+node_modules/@types/node/stream.d.ts:36
 
 ___
 
 ### removeAllListeners
 
 ▸ **removeAllListeners**(`event?`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-Removes all listeners, or those of the specified `eventName`.
-
-It is bad practice to remove listeners added elsewhere in the code,
-particularly when the `EventEmitter` instance was created by some other
-component or module (e.g. sockets or file streams).
-
-Returns a reference to the `EventEmitter`, so that calls can be chained.
-
-**`since`** v0.1.26
 
 #### Parameters
 
@@ -2328,7 +1579,7 @@ IncomingMessage.removeAllListeners
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:510
+node_modules/@types/node/globals.d.ts:645
 
 ___
 
@@ -2353,7 +1604,7 @@ IncomingMessage.removeListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:495
+node_modules/@types/node/stream.d.ts:99
 
 ▸ **removeListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -2374,7 +1625,7 @@ IncomingMessage.removeListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:496
+node_modules/@types/node/stream.d.ts:100
 
 ▸ **removeListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -2395,49 +1646,7 @@ IncomingMessage.removeListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:497
-
-▸ **removeListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"error"`` |
-| `listener` | (`err`: `Error`) => `void` |
-
-#### Returns
-
-[`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Inherited from
-
-IncomingMessage.removeListener
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:498
-
-▸ **removeListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"pause"`` |
-| `listener` | () => `void` |
-
-#### Returns
-
-[`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-#### Inherited from
-
-IncomingMessage.removeListener
-
-#### Defined in
-
-node_modules/@types/node/ts4.8/stream.d.ts:499
+node_modules/@types/node/stream.d.ts:101
 
 ▸ **removeListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -2458,7 +1667,7 @@ IncomingMessage.removeListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:500
+node_modules/@types/node/stream.d.ts:102
 
 ▸ **removeListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -2466,8 +1675,8 @@ node_modules/@types/node/ts4.8/stream.d.ts:500
 
 | Name | Type |
 | :------ | :------ |
-| `event` | ``"resume"`` |
-| `listener` | () => `void` |
+| `event` | ``"error"`` |
+| `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
 
@@ -2479,7 +1688,7 @@ IncomingMessage.removeListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:501
+node_modules/@types/node/stream.d.ts:103
 
 ▸ **removeListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -2500,31 +1709,13 @@ IncomingMessage.removeListener
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:502
+node_modules/@types/node/stream.d.ts:104
 
 ___
 
 ### resume
 
 ▸ **resume**(): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-The `readable.resume()` method causes an explicitly paused `Readable` stream to
-resume emitting `'data'` events, switching the stream into flowing mode.
-
-The `readable.resume()` method can be used to fully consume the data from a
-stream without actually processing any of that data:
-
-```js
-getReadableStreamSomehow()
-  .resume()
-  .on('end', () => {
-    console.log('Reached the end, but did not read anything.');
-  });
-```
-
-The `readable.resume()` method has no effect if there is a `'readable'`event listener.
-
-**`since`** v0.9.4
 
 #### Returns
 
@@ -2536,7 +1727,7 @@ IncomingMessage.resume
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:285
+node_modules/@types/node/stream.d.ts:39
 
 ___
 
@@ -2544,34 +1735,11 @@ ___
 
 ▸ **setEncoding**(`encoding`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
-The `readable.setEncoding()` method sets the character encoding for
-data read from the `Readable` stream.
-
-By default, no encoding is assigned and stream data will be returned as`Buffer` objects. Setting an encoding causes the stream data
-to be returned as strings of the specified encoding rather than as `Buffer`objects. For instance, calling `readable.setEncoding('utf8')` will cause the
-output data to be interpreted as UTF-8 data, and passed as strings. Calling`readable.setEncoding('hex')` will cause the data to be encoded in hexadecimal
-string format.
-
-The `Readable` stream will properly handle multi-byte characters delivered
-through the stream that would otherwise become improperly decoded if simply
-pulled from the stream as `Buffer` objects.
-
-```js
-const readable = getReadableStreamSomehow();
-readable.setEncoding('utf8');
-readable.on('data', (chunk) => {
-  assert.equal(typeof chunk, 'string');
-  console.log('Got %d characters of string data:', chunk.length);
-});
-```
-
-**`since`** v0.9.4
-
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `encoding` | `BufferEncoding` | The encoding to use. |
+| Name | Type |
+| :------ | :------ |
+| `encoding` | `string` |
 
 #### Returns
 
@@ -2583,22 +1751,13 @@ IncomingMessage.setEncoding
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:244
+node_modules/@types/node/stream.d.ts:37
 
 ___
 
 ### setMaxListeners
 
 ▸ **setMaxListeners**(`n`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-By default `EventEmitter`s will print a warning if more than `10` listeners are
-added for a particular event. This is a useful default that helps finding
-memory leaks. The `emitter.setMaxListeners()` method allows the limit to be
-modified for this specific `EventEmitter` instance. The value can be set to`Infinity` (or `0`) to indicate an unlimited number of listeners.
-
-Returns a reference to the `EventEmitter`, so that calls can be chained.
-
-**`since`** v0.3.5
 
 #### Parameters
 
@@ -2616,17 +1775,13 @@ IncomingMessage.setMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/events.d.ts:520
+node_modules/@types/node/globals.d.ts:646
 
 ___
 
 ### setTimeout
 
 ▸ **setTimeout**(`msecs`, `callback?`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-Calls `message.socket.setTimeout(msecs, callback)`.
-
-**`since`** v0.5.9
 
 #### Parameters
 
@@ -2645,7 +1800,7 @@ IncomingMessage.setTimeout
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/http.d.ts:1126
+node_modules/@types/node/http.d.ts:355
 
 ___
 
@@ -2653,36 +1808,11 @@ ___
 
 ▸ **unpipe**(`destination?`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
-The `readable.unpipe()` method detaches a `Writable` stream previously attached
-using the [pipe](ProxyIncomingMessage.md#pipe) method.
-
-If the `destination` is not specified, then _all_ pipes are detached.
-
-If the `destination` is specified, but no pipe is set up for it, then
-the method does nothing.
-
-```js
-const fs = require('fs');
-const readable = getReadableStreamSomehow();
-const writable = fs.createWriteStream('file.txt');
-// All the data from readable goes into 'file.txt',
-// but only for the first second.
-readable.pipe(writable);
-setTimeout(() => {
-  console.log('Stop writing to file.txt.');
-  readable.unpipe(writable);
-  console.log('Manually close the file stream.');
-  writable.end();
-}, 1000);
-```
-
-**`since`** v0.9.4
-
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `destination?` | `WritableStream` | Optional specific stream to unpipe |
+| Name | Type |
+| :------ | :------ |
+| `destination?` | `WritableStream` |
 
 #### Returns
 
@@ -2694,7 +1824,7 @@ IncomingMessage.unpipe
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:329
+node_modules/@types/node/stream.d.ts:41
 
 ___
 
@@ -2702,74 +1832,12 @@ ___
 
 ▸ **unshift**(`chunk`, `encoding?`): `void`
 
-Passing `chunk` as `null` signals the end of the stream (EOF) and behaves the
-same as `readable.push(null)`, after which no more data can be written. The EOF
-signal is put at the end of the buffer and any buffered data will still be
-flushed.
-
-The `readable.unshift()` method pushes a chunk of data back into the internal
-buffer. This is useful in certain situations where a stream is being consumed by
-code that needs to "un-consume" some amount of data that it has optimistically
-pulled out of the source, so that the data can be passed on to some other party.
-
-The `stream.unshift(chunk)` method cannot be called after the `'end'` event
-has been emitted or a runtime error will be thrown.
-
-Developers using `stream.unshift()` often should consider switching to
-use of a `Transform` stream instead. See the `API for stream implementers` section for more information.
-
-```js
-// Pull off a header delimited by \n\n.
-// Use unshift() if we get too much.
-// Call the callback with (error, header, stream).
-const { StringDecoder } = require('string_decoder');
-function parseHeader(stream, callback) {
-  stream.on('error', callback);
-  stream.on('readable', onReadable);
-  const decoder = new StringDecoder('utf8');
-  let header = '';
-  function onReadable() {
-    let chunk;
-    while (null !== (chunk = stream.read())) {
-      const str = decoder.write(chunk);
-      if (str.includes('\n\n')) {
-        // Found the header boundary.
-        const split = str.split(/\n\n/);
-        header += split.shift();
-        const remaining = split.join('\n\n');
-        const buf = Buffer.from(remaining, 'utf8');
-        stream.removeListener('error', callback);
-        // Remove the 'readable' listener before unshifting.
-        stream.removeListener('readable', onReadable);
-        if (buf.length)
-          stream.unshift(buf);
-        // Now the body of the message can be read from the stream.
-        callback(null, header, stream);
-        return;
-      }
-      // Still reading the header.
-      header += str;
-    }
-  }
-}
-```
-
-Unlike [push](ProxyIncomingMessage.md#push), `stream.unshift(chunk)` will not
-end the reading process by resetting the internal reading state of the stream.
-This can cause unexpected results if `readable.unshift()` is called during a
-read (i.e. from within a [_read](ProxyIncomingMessage.md#_read) implementation on a
-custom stream). Following the call to `readable.unshift()` with an immediate [push](ProxyIncomingMessage.md#push) will reset the reading state appropriately,
-however it is best to simply avoid calling `readable.unshift()` while in the
-process of performing a read.
-
-**`since`** v0.9.11
-
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `chunk` | `any` | Chunk of data to unshift onto the read queue. For streams not operating in object mode, `chunk` must be a string, `Buffer`, `Uint8Array` or `null`. For object mode streams, `chunk` may be any JavaScript value. |
-| `encoding?` | `BufferEncoding` | Encoding of string chunks. Must be a valid `Buffer` encoding, such as `'utf8'` or `'ascii'`. |
+| Name | Type |
+| :------ | :------ |
+| `chunk` | `any` |
+| `encoding?` | `BufferEncoding` |
 
 #### Returns
 
@@ -2781,43 +1849,19 @@ IncomingMessage.unshift
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:395
+node_modules/@types/node/stream.d.ts:42
 
 ___
 
 ### wrap
 
-▸ **wrap**(`stream`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
-
-Prior to Node.js 0.10, streams did not implement the entire `stream` module API
-as it is currently defined. (See `Compatibility` for more information.)
-
-When using an older Node.js library that emits `'data'` events and has a [pause](ProxyIncomingMessage.md#pause) method that is advisory only, the`readable.wrap()` method can be used to create a `Readable`
-stream that uses
-the old stream as its data source.
-
-It will rarely be necessary to use `readable.wrap()` but the method has been
-provided as a convenience for interacting with older Node.js applications and
-libraries.
-
-```js
-const { OldReader } = require('./old-api-module.js');
-const { Readable } = require('stream');
-const oreader = new OldReader();
-const myReader = new Readable().wrap(oreader);
-
-myReader.on('readable', () => {
-  myReader.read(); // etc.
-});
-```
-
-**`since`** v0.9.4
+▸ **wrap**(`oldStream`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `stream` | `ReadableStream` | An "old style" readable stream |
+| Name | Type |
+| :------ | :------ |
+| `oldStream` | `ReadableStream` |
 
 #### Returns
 
@@ -2829,4 +1873,4 @@ IncomingMessage.wrap
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/stream.d.ts:421
+node_modules/@types/node/stream.d.ts:43

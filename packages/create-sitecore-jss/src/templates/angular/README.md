@@ -1,7 +1,7 @@
 # Sitecore JSS Angular Sample Application
 
-[Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/210/sitecore-headless-development/sitecore-javascript-rendering-sdk--jss--for-angular.html)
 
+[Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/201/sitecore-headless-development/sitecore-javascript-rendering-sdk--jss--for-angular.html)
 
 
 ## App setup

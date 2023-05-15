@@ -100,7 +100,7 @@ placeholders:
                       href: https://dev.sitecore.net
                       text: Sitecore Dev Site
                       target: _blank
-                      class: fw-bold
+                      class: font-weight-bold
                       title: <a> title attribute
                 - componentName: StyleguideFieldUsageItemLink
                   fields:
@@ -251,21 +251,3 @@ placeholders:
                 - componentName: StyleguideAngularLazyLoading
                   fields:
                     heading: Lazy Loading
-          - componentName: StyleguideSection
-            fields:
-              heading: Editing
-            placeholders:
-              <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
-                - componentName: StyleguideEditFrame
-                  fields:
-                    heading: Edit Frame
-                    description: <p>Who framed Roger Rabbit? Hard to say. <br />
-                      But JSS now allows to edit frame any piece of content on a page in editing mode. <br />
-                      You can add web edit or field edit buttons, modify edit frame style through CSS class and put the frame wherever you need it.
-                      </p>
-                    applyRedToText: 0
-                    sampleList:
-                      # see /data/content/Styleguide/EditFrameDemo for definitions of these IDs
-                      - id: styleguide-edit-frame-list-item-1
-                      - id: styleguide-edit-frame-list-item-2
-

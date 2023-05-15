@@ -15,6 +15,7 @@ Shape of context data from the Sitecore Layout Service
 - [language](LayoutServiceContext.md#language)
 - [pageEditing](LayoutServiceContext.md#pageediting)
 - [pageState](LayoutServiceContext.md#pagestate)
+- [renderingType](LayoutServiceContext.md#renderingtype)
 - [site](LayoutServiceContext.md#site)
 - [visitorIdentificationTimestamp](LayoutServiceContext.md#visitoridentificationtimestamp)
 
@@ -26,7 +27,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:23
+sitecore-jss/types/layout/models.d.ts:38
 
 ___
 
@@ -36,7 +37,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:22
+sitecore-jss/types/layout/models.d.ts:37
 
 ___
 
@@ -46,7 +47,17 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:24
+sitecore-jss/types/layout/models.d.ts:39
+
+___
+
+### renderingType
+
+• `Optional` **renderingType**: `Component`
+
+#### Defined in
+
+sitecore-jss/types/layout/models.d.ts:36
 
 ___
 
@@ -62,7 +73,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:26
+sitecore-jss/types/layout/models.d.ts:41
 
 ___
 
@@ -72,4 +83,4 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:25
+sitecore-jss/types/layout/models.d.ts:40

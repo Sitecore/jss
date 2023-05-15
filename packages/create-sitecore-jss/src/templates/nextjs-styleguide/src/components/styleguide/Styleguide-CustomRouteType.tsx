@@ -28,7 +28,7 @@ const StyleguideCustomRouteType = (): JSX.Element => {
       <RichText field={fields.content} />
 
       <Link href="/styleguide">
-        Return to the Styleguide
+        <a>Return to the Styleguide</a>
       </Link>
     </div>
   );

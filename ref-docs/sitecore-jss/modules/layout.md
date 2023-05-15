@@ -77,7 +77,7 @@ Data fetcher resolver in order to provide custom data fetcher
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
+[layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
 
 ___
 
@@ -115,7 +115,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-[src/layout/models.ts:80](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/models.ts#L80)
+[layout/models.ts:80](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L80)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+[layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
 
 ## Variables
 
@@ -148,7 +148,7 @@ Id of wrapper for component rendering
 
 #### Defined in
 
-[src/layout/models.ts:9](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/models.ts#L9)
+[layout/models.ts:9](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L9)
 
 ___
 
@@ -160,7 +160,7 @@ Static placeholder name used for component rendering
 
 #### Defined in
 
-[src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/models.ts#L4)
+[layout/models.ts:4](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L4)
 
 ## Functions
 
@@ -185,7 +185,7 @@ child placeholder
 
 #### Defined in
 
-[src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/utils.ts#L60)
+[layout/utils.ts:62](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/utils.ts#L62)
 
 ___
 
@@ -206,7 +206,7 @@ Null will be returned if the field is not defined.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| [`ComponentFields`](../interfaces/layout.ComponentFields.md) | the rendering or fields object to extract the field from |
+| `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| `Fields` | the rendering or fields object to extract the field from |
 | `fieldName` | `string` | the name of the field to extract |
 
 #### Returns
@@ -217,7 +217,7 @@ the field value or null if the field is not defined
 
 #### Defined in
 
-[src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/utils.ts#L10)
+[layout/utils.ts:12](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/utils.ts#L12)
 
 ▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -231,7 +231,7 @@ the field value or null if the field is not defined
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| [`ComponentFields`](../interfaces/layout.ComponentFields.md) | the rendering or fields object to extract the field from |
+| `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| `Fields` | the rendering or fields object to extract the field from |
 | `fieldName` | `string` | the name of the field to extract |
 | `defaultValue` | `T` | - |
 
@@ -243,4 +243,4 @@ the field value or the default value if the field is not defined
 
 #### Defined in
 
-[src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/utils.ts#L15)
+[layout/utils.ts:17](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/utils.ts#L17)

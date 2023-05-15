@@ -115,8 +115,6 @@ describe('<Placeholder />', () => {
         const phData: any = dataSet.data.sitecore.route.placeholders.main;
         const component = phData.find((c: any) => c.componentName);
         const phKey = 'page-content';
-        const warnSpy = jest.spyOn(console, 'warn');
-        warnSpy.mockImplementation(() => {});
 
         const renderedComponent = mount(Placeholder, {
           props: {
@@ -130,7 +128,6 @@ describe('<Placeholder />', () => {
         // you'll need to visually inspect the snapshot to ensure expected rendering.
         // subsequent test runs will then compare the rendered output to the snapshot.
         expect(renderedComponent.html()).toMatchSnapshot();
-        warnSpy.mockRestore();
       });
 
       it('should render nested placeholders', () => {
@@ -155,11 +152,8 @@ describe('<Placeholder />', () => {
           },
         };
 
-        const warnSpy = jest.spyOn(console, 'warn');
-        warnSpy.mockImplementation(() => {});
         const renderedComponent = mount(testComponent);
         expect(renderedComponent.html()).toMatchSnapshot();
-        warnSpy.mockRestore();
       });
 
       it('should pass properties to nested components', () => {
@@ -313,8 +307,6 @@ describe('<Placeholder />', () => {
         });
       },
     };
-    const warnSpy = jest.spyOn(console, 'warn');
-    warnSpy.mockImplementation(() => {});
 
     const renderedComponent = mount(testComponent);
     expect(renderedComponent.html()).toMatchSnapshot();

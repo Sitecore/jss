@@ -22,7 +22,7 @@ Layout Service page state enum
 
 #### Defined in
 
-[src/layout/models.ts:25](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/models.ts#L25)
+[layout/models.ts:25](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L25)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[src/layout/models.ts:26](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/models.ts#L26)
+[layout/models.ts:26](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L26)
 
 ___
 
@@ -42,4 +42,4 @@ ___
 
 #### Defined in
 
-[src/layout/models.ts:24](https://github.com/Sitecore/jss/blob/84407752e/packages/sitecore-jss/src/layout/models.ts#L24)
+[layout/models.ts:24](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L24)

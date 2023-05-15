@@ -5,7 +5,6 @@ import {
   transform,
   DEFAULT_APPNAME,
   ClientAppArgs,
-  incompatibleAddonsMsg,
 } from '../../common';
 
 export default class NextjsSxaInitializer implements Initializer {
@@ -28,13 +27,6 @@ export default class NextjsSxaInitializer implements Initializer {
     const templatePath = path.resolve(__dirname, '../../templates/nextjs-sxa');
 
     await transform(templatePath, mergedArgs);
-
-    if (
-      args.templates.includes('nextjs-styleguide') ||
-      pkg.config?.templates?.includes('nextjs-styleguide')
-    ) {
-      console.log(incompatibleAddonsMsg('nextjs-sxa', 'nextjs-styleguide'));
-    }
 
     const response = {
       // TODO: next steps

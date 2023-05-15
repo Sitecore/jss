@@ -21,7 +21,38 @@ export default async function microManifest(
 ) {
   verifySetup();
 
-  argv = await verifyArgs(argv);
+  const packageJson = await resolvePackage();
+
+  if (!argv.appName) {
+    argv.appName = packageJson.config.appName;
+  }
+  if (!argv.appName) {
+    throw new Error('App Name was not defined as a parameter or in the package.json config');
+  }
+
+  const jssConfig = await resolveScJssConfig({ configPath: argv.config as string });
+
+  if (!argv.deployUrl) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const legacyConfig = jssConfig.sitecore as any;
+    argv.deployUrl = legacyConfig.shipUrl ? legacyConfig.shipUrl : jssConfig.sitecore.deployUrl;
+  }
+  if (!argv.deployUrl) {
+    throw new Error('deployUrl was not defined as a parameter or in the scjssconfig.json file');
+  }
+
+  if (/\/ship\/services\/package/.test(argv.deployUrl)) {
+    throw new Error(
+      'deployUrl appears to be a Sitecore.Ship endpoint. JSS no longer uses Ship. You will need to reconfigure your endpoint to the JSS deploy service and provide an app shared secret to deploy.'
+    );
+  }
+
+  if (!argv.deploySecret) {
+    argv.deploySecret = jssConfig.sitecore.deploySecret;
+  }
+  if (!argv.deploySecret) {
+    throw new Error('deploySecret was not defined as a parameter or in the scjssconfig.json file');
+  }
 
   return new Promise<void>((resolve, reject) => {
     tmp.dir({ unsafeCleanup: true }, async (err, tempDir, cleanupTempDir) => {
@@ -78,43 +109,4 @@ export default async function microManifest(
       resolve();
     });
   });
-}
-
-/**
- *
- */
-export async function verifyArgs(argv: { [key: string]: any }) {
-  const packageJson = await resolvePackage();
-  if (!argv.appName) {
-    argv.appName = packageJson.config.appName;
-  }
-  if (!argv.appName) {
-    throw new Error('App Name was not defined as a parameter or in the package.json config');
-  }
-
-  const jssConfig = await resolveScJssConfig({ configPath: argv.config as string });
-
-  if (!argv.deployUrl) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const legacyConfig = jssConfig.sitecore as any;
-    argv.deployUrl = legacyConfig.shipUrl ? legacyConfig.shipUrl : jssConfig.sitecore.deployUrl;
-  }
-  if (!argv.deployUrl) {
-    throw new Error('deployUrl was not defined as a parameter or in the scjssconfig.json file');
-  }
-
-  if (/\/ship\/services\/package/.test(argv.deployUrl)) {
-    throw new Error(
-      'deployUrl appears to be a Sitecore.Ship endpoint. JSS no longer uses Ship. You will need to reconfigure your endpoint to the JSS deploy service and provide an app shared secret to deploy.'
-    );
-  }
-
-  if (!argv.deploySecret) {
-    argv.deploySecret = jssConfig.sitecore.deploySecret;
-  }
-  if (!argv.deploySecret) {
-    throw new Error('deploySecret was not defined as a parameter or in the scjssconfig.json file');
-  }
-
-  return argv;
 }

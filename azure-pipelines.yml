@@ -33,8 +33,7 @@ variables:
     branchName: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
     branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
-# disable `PublishCodeCoverageResults` report generation, as `reportgenerator` provides custom report
-  disable.coverage.autogenerate: 'true'
+
 # Some steps here scaffold jss apps and check if they build and lint correctly
 # build apps step currently excluded: RAV apps have issues with yarn build, nextjs has some with all builds without Sitecore connection
 # using --since for lerna commands could be nice but it introduces a lot of branching execution paths that need to be covered
@@ -59,19 +58,6 @@ steps:
   env: {
     testEnv: 'ci'
   }
-- task: reportgenerator@5
-  displayName: 'generate code coverage report'
-  inputs:
-    reports: '$(System.DefaultWorkingDirectory)/**/cobertura-coverage.xml'
-    targetdir: '$(Build.SourcesDirectory)/coverlet'
-    reporttypes: 'HtmlInline_AzurePipelines;Cobertura'
-    verbosity: 'Verbose'
-- task: PublishCodeCoverageResults@1
-  displayName: 'publish code coverage report'
-  inputs: 
-    codeCoverageTool: Cobertura
-    summaryFileLocation: '$(Build.SourcesDirectory)/coverlet/Cobertura.xml'
-    reportDirectory: '$(Build.SourcesDirectory)/coverlet'
 - script: |
     yarn scaffold-samples
   displayName: 'scaffold samples'
@@ -83,7 +69,7 @@ steps:
   env:
     YARN_ENABLE_IMMUTABLE_INSTALLS: false
 - script: |
-    yarn lint-samples
+    lerna run lint --scope sample-* -- --fix
   displayName: 'lint samples'
   condition: and(succeeded(), ne(variables.shouldPublish, true))
 
@@ -118,7 +104,7 @@ steps:
   #
 - script: |
     echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-    $(npm bin)/lerna publish from-git --canary --pre-dist-tag ver21-canary --preid canary --no-verify-access --yes
+    $(npm bin)/lerna publish from-git --canary --pre-dist-tag hotfix --preid canary --no-verify-access --yes
     yarn install --no-immutable --mode=update-lockfile
     git add yarn.lock
     git commit -m "update yarn.lock [skip ci]"

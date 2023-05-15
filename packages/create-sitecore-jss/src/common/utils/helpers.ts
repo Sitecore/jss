@@ -77,15 +77,6 @@ export const sortKeys = (obj: JsonObjectType) => {
 };
 
 /**
- * Returns all templates
- * @param {string} templatePath path to the templates
- * @returns {string[]} templates
- */
-export const getAllTemplates = (templatePath: string): string[] => {
-  return fs.readdirSync(templatePath, 'utf8');
-};
-
-/**
  * Returns subset of base templates
  * @param {string} templatePath path to the templates
  * @returns {string[]} base templates

@@ -51,18 +51,6 @@ describe('<Link />', () => {
     expect(rendered.html()).to.contain(field.text);
   });
 
-  it('should not add extra hash when linktype is anchor', () => {
-    const field = {
-      linktype: 'anchor',
-      href: '#anchor',
-      text: 'anchor link',
-      anchor: 'anchor',
-    };
-    const rendered = mount(<Link field={field} />).find('a');
-    expect(rendered.html()).to.contain(`href="${field.href}"`);
-    expect(rendered.text()).to.equal(field.text);
-  });
-
   it('should render ee HTML', () => {
     const field = {
       editableFirstPart: eeLinkData,
@@ -76,7 +64,6 @@ describe('<Link />', () => {
     const field = {
       value: {
         href: '/lorem',
-        anchor: 'foo',
         text: 'ipsum',
         class: 'my-link',
         title: 'My Link',
@@ -85,9 +72,7 @@ describe('<Link />', () => {
       },
     };
     const rendered = mount(<Link field={field} />).find('a');
-    expect(rendered.html()).to.contain(
-      `href="${field.value.href}?${field.value.querystring}#${field.value.anchor}"`
-    );
+    expect(rendered.html()).to.contain(`href="${field.value.href}?${field.value.querystring}"`);
     expect(rendered.html()).to.contain(`class="${field.value.class}"`);
     expect(rendered.html()).to.contain(`title="${field.value.title}"`);
     expect(rendered.html()).to.contain(`target="${field.value.target}"`);

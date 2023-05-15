@@ -12,7 +12,7 @@ import sinon from 'sinon';
 
 describe('<EditingComponentPlaceholder />', () => {
   it('should render component', () => {
-    const stub = sinon.stub(PlaceholderModule, 'Placeholder').returns(<div className="test"></div>);
+    sinon.stub(PlaceholderModule, 'Placeholder').returns(<div className="test"></div>);
     const rendering: RouteData = {
       name: 'ComponentRendering',
       placeholders: {
@@ -32,6 +32,5 @@ describe('<EditingComponentPlaceholder />', () => {
 
     expect(component.find(PlaceholderModule.Placeholder).length).to.equal(1);
     expect(component.find('.test').length).to.equal(1);
-    stub.restore();
   });
 });
