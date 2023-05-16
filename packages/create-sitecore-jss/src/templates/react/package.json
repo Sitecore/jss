@@ -1,7 +1,7 @@
 {
   "name": "<%- appName %>",
   "description": "Application utilizing Sitecore JavaScript Services and React (create-react-app).",
-  "version": "21.1.4",
+  "version": "21.1.5-canary",
   "private": true,
   "config": {
     "appName": "<%- appName %>",
