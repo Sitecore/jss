@@ -58,17 +58,25 @@ Our versioning strategy is as follows:
 
 ## 21.1.5
 
+### 🐛 Bug Fixes
+
 * `[create-sitecore-jss]` Change ^ to ~ for versioning in templates and use exact versions for sitecore-jss monorepo dependencies.
 
 ## 21.1.4
+
+### 🐛 Bug Fixes
 
 * `[create-sitecore-jss]` Change ^ to ~ for versioning in templates.
 
 ## 21.1.3
 
+### 🐛 Bug Fixes
+
 *  Fix installed sitecore-jss-* dependency version. Change ^ to ~ ([#1481](https://github.com/Sitecore/jss/pull/1481))
 
 ## 21.0.10
+
+### 🐛 Bug Fixes
 
 *  Fix installed sitecore-jss-* dependency version. Change ^ to ~ ([#1481](https://github.com/Sitecore/jss/pull/1481))
 
