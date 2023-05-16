@@ -68,7 +68,7 @@ Our versioning strategy is as follows:
 
 *  Fix installed sitecore-jss-* dependency version. Change ^ to ~ ([#1481](https://github.com/Sitecore/jss/pull/1481))
 
-## 21.0.9
+## 21.0.10
 
 *  Fix installed sitecore-jss-* dependency version. Change ^ to ~ ([#1481](https://github.com/Sitecore/jss/pull/1481))
 
