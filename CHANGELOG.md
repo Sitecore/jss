@@ -54,13 +54,13 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Fix middleware redirect when the target use regexp with querystring ([#1449](https://github.com/Sitecore/jss/pull/1449)) ([#1460](https://github.com/Sitecore/jss/pull/1460))
 * `[templates/nextjs]` Fix incorrectly named .gitignore file `\scripts\temp\.npmignore` ([#1463](https://github.com/Sitecore/jss/pull/1463))
 * `[angular]` Avoid sending two dictionary service calls when switching language and refreshing the page ([#1473](https://github.com/Sitecore/jss/pull/1473))
-* Fix installed sitecore-jss-* dependency version ([#1478](https://github.com/Sitecore/jss/pull/1478))
+* Fix installed sitecore-jss-* dependency version ([#1478](https://github.com/Sitecore/jss/pull/1478)) ([#1478](https://github.com/Sitecore/jss/pull/1478))
 
 ## 21.1.2
 
 ### 🎉 New Features & Improvements
 
-* `[sitecore-jss]` `[templates/nextjs-sxa]` Rewrite logic of handling custom error pages. The error pages rewrite page with error(it's saving status code) instead of redirected ([#1469](https://github.com/Sitecore/jss/pull/1469)) ([#1476](https://github.com/Sitecore/jss/pull/1476))
+* `[sitecore-jss]` `[templates/nextjs-sxa]` Rewrite logic of handling custom error pages. The error pages rewrite page with error(it's saving status code) instead of redirected ([#1469](https://github.com/Sitecore/jss/pull/1469)) ([#1476](https://github.com/Sitecore/jss/pull/1476)) ([#1482](https://github.com/Sitecore/jss/pull/1482))
 
 ### 🐛 Bug Fixes
 
