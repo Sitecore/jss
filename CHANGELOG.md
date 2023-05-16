@@ -56,6 +56,22 @@ Our versioning strategy is as follows:
 * `[angular]` Avoid sending two dictionary service calls when switching language and refreshing the page ([#1473](https://github.com/Sitecore/jss/pull/1473))
 * Fix installed sitecore-jss-* dependency version ([#1478](https://github.com/Sitecore/jss/pull/1478))
 
+## 21.1.5
+
+* `[create-sitecore-jss]` Change ^ to ~ for versioning in templates and use exact versions for sitecore-jss monorepo dependencies.
+
+## 21.1.4
+
+* `[create-sitecore-jss]` Change ^ to ~ for versioning in templates.
+
+## 21.1.3
+
+*  Fix installed sitecore-jss-* dependency version. Change ^ to ~ ([#1481](https://github.com/Sitecore/jss/pull/1481))
+
+## 21.0.9
+
+*  Fix installed sitecore-jss-* dependency version. Change ^ to ~ ([#1481](https://github.com/Sitecore/jss/pull/1481))
+
 ## 21.1.2
 
 ### 🎉 New Features & Improvements
