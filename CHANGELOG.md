@@ -166,7 +166,7 @@ Our versioning strategy is as follows:
 
 * Change ^ to ~ in sitecore-jss templates
 
-## 21.0.10
+## 21.0.9
 
 ### 🐛 Bug Fixes
 
