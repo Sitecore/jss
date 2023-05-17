@@ -1,12 +1,10 @@
 {
   "dependencies": {
     "bootstrap": "^5.1.3",
-    "font-awesome": "^4.7.0"
-  },
-  "devDependencies": {
-    "sass-alias": "^1.0.5",
-    "sass": "^1.52.3"
-  },
+    "font-awesome": "^4.7.0",
+    "sass": "^1.52.3",
+    "sass-alias": "^1.0.5"    
+  }, 
   "scripts": {
     "scaffold": "ts-node --project tsconfig.scripts.json scripts/scaffold-component.ts"
   }
