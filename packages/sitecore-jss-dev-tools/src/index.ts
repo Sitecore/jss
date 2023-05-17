@@ -34,6 +34,7 @@ export { strip } from './templating/strip';
 export {
   getItems,
   writePlugins,
+  PluginDefinition,
   ModuleType,
   ComponentFile,
   PackageDefinition,

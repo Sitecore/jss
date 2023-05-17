@@ -35,6 +35,23 @@ const isWatch = process.argv.some(arg => arg === '--watch');
 isWatch ? watchComponentFactoryCreator(): writeComponentFactoryCreator(config.componentRootPath, config.projectRootPath);
 
 /**
+ * You can specify components which you want to import from external/internal packages
+ * in format:
+ * let customPackages = [{
+ *    name: 'package name',
+ *    components: [
+ *      {
+ *        componentName: 'component name', // component rendering name,
+ *        moduleName: 'module name' // component name to import from the package
+ *      }
+ *    ]
+ *  },
+ *  {... extra packages..}]
+ * and pass them into writeComponentFactoryCreator
+ * writeComponentFactoryCreator(config.componentRootPath, config.projectRootPath, customPackages)
+ */
+
+/**
  * Watches component directory for changes. When files are added or deleted, the component factory creator
  * file (componentFactoryCreator.ts) is regenerated. This is used during `jss start` to pick up new or
  * removed components at runtime.

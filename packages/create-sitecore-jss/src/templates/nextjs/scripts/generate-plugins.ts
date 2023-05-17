@@ -1,4 +1,4 @@
-﻿import { writePlugins, ModuleType} from '@sitecore-jss/sitecore-jss-dev-tools';
+﻿import { writePlugins, ModuleType, PluginDefinition } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /*
   PLUGINS GENERATION
@@ -11,13 +11,6 @@
   name. For example, the file `/lib/page-props-factory/plugins/exampleName.ts` would map to plugin `exampleNamePlugin`.
   This can be customized in writePlugins().
 */
-
-interface PluginDefinition {
-  listPath: string;
-  rootPath: string;
-  moduleType: ModuleType;
-}
-
 
 const pluginDefinitions = [
   {

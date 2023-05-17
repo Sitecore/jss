@@ -27,6 +27,12 @@ export enum ModuleType {
   ESM,
 }
 
+export interface PluginDefinition {
+  listPath: string;
+  rootPath: string;
+  moduleType: ModuleType;
+}
+
 /**
  * Describes a file that represents a component definition
  */
