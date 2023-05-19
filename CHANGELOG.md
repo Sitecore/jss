@@ -57,6 +57,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` Fix incorrectly named .gitignore file `\scripts\temp\.npmignore` ([#1463](https://github.com/Sitecore/jss/pull/1463))
 * `[angular]` Avoid sending two dictionary service calls when switching language and refreshing the page ([#1473](https://github.com/Sitecore/jss/pull/1473))
 * Fix installed sitecore-jss-* dependency version ([#1478](https://github.com/Sitecore/jss/pull/1478))
+* [node-headless-ssr-experience-edge] Add helper comment for rootItemId ([#1491](https://github.com/Sitecore/jss/pull/1491))
 
 ## 21.1.5
 
