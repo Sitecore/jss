@@ -31,6 +31,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs] Add a new handling for token $siteLang(context site language) in middleware redirect ([#1454](https://github.com/Sitecore/jss/pull/1454))
 * `[sitecore-jss]` `[templates/nextjs-sxa]` Rewrite logic of handling custom error pages. The error pages rewrite page with error(it's saving status code) instead of redirected ([#1469](https://github.com/Sitecore/jss/pull/1469)) ([#1476](https://github.com/Sitecore/jss/pull/1476))
 * `[templates/nextjs]` Remove .babelrc to (re)enable SWC compilation by default ([#1483](https://github.com/Sitecore/jss/pull/1483))
+* `[sitecore-jss]` Handle null items in graphql layout service. ([#1492](https://github.com/Sitecore/jss/pull/1492))
 
 ### 🧹 Chores
 
