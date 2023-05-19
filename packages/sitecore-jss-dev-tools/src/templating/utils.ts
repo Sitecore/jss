@@ -2,64 +2,10 @@ import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 
-/**
- * @param {string} path plugins path
- * @param resolveItem will resolve item in required data format
- * @param cb will be called when new item is found
- * @param {RegExp} fileFormat Matches specific files
- * @param {boolean} recursive if true will search recursively
- */
-type GetItemsSettings<Item> = {
-  path: string;
-  resolveItem: (path: string, name: string) => Item;
-  cb?: (name: string) => void;
-  fileFormat?: RegExp;
-  recursive?: boolean;
-};
-
-interface PluginFile {
-  path: string;
-  name: string;
-}
-
 export enum ModuleType {
   CJS,
   ESM,
 }
-
-export interface PluginDefinition {
-  listPath: string;
-  rootPath: string;
-  moduleType: ModuleType;
-}
-
-/**
- * Describes a file that represents a component definition
- */
-export interface ComponentFile {
-  path: string;
-  moduleName: string;
-  componentName: string;
-}
-
-/**
- * Describes a package and components to be imported
- */
-export interface PackageDefinition {
-  name: string;
-  components: {
-    moduleName: string;
-    componentName: string;
-  }[];
-}
-
-/**
- * Describes a project item
- */
-export type Project = {
-  projectName: string;
-  componentsPath: string;
-};
 
 /**
  * Using @var path find all files recursively and generate output using @var resolveItem by calling it for each file
@@ -149,7 +95,7 @@ export function writePlugins(listPath: string, rootPath: string, moduleType: Mod
  * @param {string} path path to get plugin from
  * @param {string} pluginName plugin name
  */
-function getPluginList(path: string, pluginName: string): PluginFile[] {
+export function getPluginList(path: string, pluginName: string): PluginFile[] {
   const plugins = getItems<PluginFile>({
     path,
     resolveItem: (path, name) => ({
@@ -195,6 +141,60 @@ export function scaffoldFile(
  * Replace: `lf` (\n), `cr` (\r)
  * @param {string} content
  */
-function editLineEndings(content: string) {
+export function editLineEndings(content: string) {
   return content.replace(/\r|\n/gm, '\r\n');
 }
+
+/**
+ * @param {string} path plugins path
+ * @param resolveItem will resolve item in required data format
+ * @param cb will be called when new item is found
+ * @param {RegExp} fileFormat Matches specific files
+ * @param {boolean} recursive if true will search recursively
+ */
+type GetItemsSettings<Item> = {
+  path: string;
+  resolveItem: (path: string, name: string) => Item;
+  cb?: (name: string) => void;
+  fileFormat?: RegExp;
+  recursive?: boolean;
+};
+
+interface PluginFile {
+  path: string;
+  name: string;
+}
+
+export interface PluginDefinition {
+  listPath: string;
+  rootPath: string;
+  moduleType: ModuleType;
+}
+
+/**
+ * Describes a file that represents a component definition
+ */
+export interface ComponentFile {
+  path: string;
+  moduleName: string;
+  componentName: string;
+}
+
+/**
+ * Describes a package and components to be imported
+ */
+export interface PackageDefinition {
+  name: string;
+  components: {
+    moduleName: string;
+    componentName: string;
+  }[];
+}
+
+/**
+ * Describes a project item
+ */
+export type Project = {
+  projectName: string;
+  componentsPath: string;
+};

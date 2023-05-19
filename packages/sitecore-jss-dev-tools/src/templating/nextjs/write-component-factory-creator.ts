@@ -1,11 +1,10 @@
 import fs from 'fs';
 import path from 'path';
-import { getItems } from '../utils';
 import { ComponentFile, PackageDefinition, Project } from '../utils';
 import { generateComponentFactoryCreator } from './templates/component-factory-creator';
 import { generateProjectComponents } from './templates/project-components';
-
-const componentFactoryCreatorPath = path.resolve('src/temp/componentFactoryCreator.ts');
+import { getComponentList, getProjectList } from './component-factory-utils';
+import { componentFactoryOutputPath, projectsOutputPath } from './constants';
 
 /**
  * Generates the component factory creator file and saves it to the filesystem.
@@ -18,76 +17,66 @@ const componentFactoryCreatorPath = path.resolve('src/temp/componentFactoryCreat
  * stripped, is used to identify the component's JavaScript module definition (for initializing
  * new component instances in code).
  * Modify this function to use a different convention.
- * @param {string} componentRootPath
- * @param {string} projectRootPath
+ * @param {string} componentRootPath - path to get components from
+ * @param {string} projectRootPath - path to the project
+ * @param {PackageDefinition[]} customPackages - extra component definitions added from code
  */
-export function writeComponentFactoryCreator(componentRootPath: string, projectRootPath: string, customPackages?: PackageDefinition[]) {
+export function writeComponentFactoryCreator(
+  componentRootPath: string,
+  projectRootPath: string,
+  customPackages?: PackageDefinition[]
+) {
   const packages: PackageDefinition[] = customPackages || [];
   const projects = getProjectList(projectRootPath);
   const components = getComponentList(componentRootPath);
 
   components.unshift(...packages);
 
+  writeComponentFactory(components, projects);
+
+  if (!fs.existsSync(projectsOutputPath)) {
+    fs.mkdirSync(projectsOutputPath);
+  }
+
+  projects.forEach((project) => {
+    writeProjectComponents(project);
+  });
+}
+
+/**
+ * writes component factory to file
+ * @param {(PackageDefinition | ComponentFile)[]} components list of components to register
+ * @param {Project[]} projects list of projects to reference
+ */
+export function writeComponentFactory(
+  components: (PackageDefinition | ComponentFile)[],
+  projects: Project[]
+) {
+  const componentFactoryCreatorPath = path.resolve(componentFactoryOutputPath);
   const fileContent = generateComponentFactoryCreator([...components, ...projects]);
   console.log(`Writing component factory creator to ${componentFactoryCreatorPath}`);
   fs.writeFileSync(componentFactoryCreatorPath, fileContent, {
     encoding: 'utf8',
   });
-
-  if (!fs.existsSync('src/temp/projects')) {
-    fs.mkdirSync('src/temp/projects');
-  }
-
-  projects.forEach((project) => {
-    const indexFilePath = path.resolve(`src/temp/projects/${project.projectName}.ts`);
-
-    console.log(`Writing project ${project.projectName} component source to ${indexFilePath}`);
-
-    // Exclude `index.ts` file if exists
-    const components = (getComponentList(project.componentsPath) as ComponentFile[]).filter(
-      (c: ComponentFile) => !indexFilePath.includes(c.path)
-    );
-
-    const fileContent = generateProjectComponents(components, project.projectName);
-
-    fs.writeFileSync(indexFilePath, fileContent, {
-      encoding: 'utf8',
-    });
-  });
 }
 
 /**
- * Get components from a path in an app
- * @param {string} path
+ * writes component factory for project into file
+ * @param {Project} project project definition to generate factory for
  */
-function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
-  const components = getItems<PackageDefinition | ComponentFile>({
-    path,
-    resolveItem: (path, name) => ({
-      path: `${path}/${name}`,
-      componentName: name,
-      moduleName: name.replace(/[^\w]+/g, ''),
-    }),
-    cb: (name) => console.debug(`Registering JSS component ${name}`),
+export function writeProjectComponents(project: Project) {
+  const indexFilePath = path.resolve(`src/temp/projects/${project.projectName}.ts`);
+
+  console.log(`Writing project ${project.projectName} component source to ${indexFilePath}`);
+
+  // Exclude `index.ts` file if exists
+  const components = (getComponentList(project.componentsPath) as ComponentFile[]).filter(
+    (c: ComponentFile) => !indexFilePath.includes(c.path)
+  );
+
+  const fileContent = generateProjectComponents(components, project.projectName);
+
+  fs.writeFileSync(indexFilePath, fileContent, {
+    encoding: 'utf8',
   });
-
-  return components;
-}
-
-/**
- * Get projects registered in an app from a path
- * @param {string} path
- */
-export function getProjectList(path: string): Project[] {
-  const projects = getItems<Project>({
-    path,
-    resolveItem: (path, name) => ({
-      projectName: name,
-      componentsPath: `${path}/components`,
-    }),
-    cb: (name) => console.debug(`Registering JSS project ${name}`),
-    recursive: false,
-  });
-
-  return projects;
 }
