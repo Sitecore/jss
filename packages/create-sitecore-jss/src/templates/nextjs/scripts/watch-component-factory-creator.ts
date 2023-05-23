@@ -55,14 +55,14 @@ watchComponentFactoryCreator();
  */
 function watchComponentFactoryCreator() {
   console.log(
-    `Watching for changes to component factory creator sources in ${constants.PROJECT_ROOT_PATH}...`
+    `Watching for changes to component factory creator sources in ${constants.COMPONENT_ROOT_PATH}...`
   );
 
-  const projects = getProjectList(config.projectRootPath);
+  const projects = getProjectList(constants.PROJECT_ROOT_PATH);
 
   const projectComponentsPaths = projects.map(project => {
     console.log(
-      `Watching for changes to component factory creator sources in ${constants.COMPONENT_ROOT_PATH}...`
+      `Watching for changes to component factory creator sources in ${project.componentsPath}...`
     );
 
     return project.componentsPath;
@@ -72,6 +72,5 @@ function watchComponentFactoryCreator() {
   {
     writeComponentFactoryCreator(constants.COMPONENT_ROOT_PATH, constants.PROJECT_ROOT_PATH);
   }
- 
   watchItems([constants.COMPONENT_ROOT_PATH, ...projectComponentsPaths], componentFactoryCreatorWrapper);
 }
