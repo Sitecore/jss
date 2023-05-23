@@ -30,6 +30,7 @@ Our versioning strategy is as follows:
 ([#1472](https://github.com/Sitecore/jss/pull/1472))
 * `[sitecore-jss-nextjs] Add a new handling for token $siteLang(context site language) in middleware redirect ([#1454](https://github.com/Sitecore/jss/pull/1454))
 * `[sitecore-jss]` `[templates/nextjs-sxa]` Rewrite logic of handling custom error pages. The error pages rewrite page with error(it's saving status code) instead of redirected ([#1469](https://github.com/Sitecore/jss/pull/1469)) ([#1476](https://github.com/Sitecore/jss/pull/1476))
+* `[sitecore-jss]` `[templates/nextjs-personalize]` Unique Identifier Scope ([#1494](https://github.com/Sitecore/jss/pull/1494))
 
 ### 🧹 Chores
 
