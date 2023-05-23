@@ -30,6 +30,8 @@ Our versioning strategy is as follows:
 ([#1472](https://github.com/Sitecore/jss/pull/1472))
 * `[sitecore-jss-nextjs] Add a new handling for token $siteLang(context site language) in middleware redirect ([#1454](https://github.com/Sitecore/jss/pull/1454))
 * `[sitecore-jss]` `[templates/nextjs-sxa]` Rewrite logic of handling custom error pages. The error pages rewrite page with error(it's saving status code) instead of redirected ([#1469](https://github.com/Sitecore/jss/pull/1469)) ([#1476](https://github.com/Sitecore/jss/pull/1476))
+* `[templates/nextjs]` Remove .babelrc to (re)enable SWC compilation by default ([#1483](https://github.com/Sitecore/jss/pull/1483))
+* `[sitecore-jss]` Handle null items in graphql layout service. ([#1492](https://github.com/Sitecore/jss/pull/1492))
 * `[sitecore-jss]` `[templates/nextjs-personalize]` Unique Identifier Scope ([#1494](https://github.com/Sitecore/jss/pull/1494))
 
 ### 🧹 Chores
@@ -55,6 +57,26 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Fix middleware redirect when the target use regexp with querystring ([#1449](https://github.com/Sitecore/jss/pull/1449)) ([#1460](https://github.com/Sitecore/jss/pull/1460))
 * `[templates/nextjs]` Fix incorrectly named .gitignore file `\scripts\temp\.npmignore` ([#1463](https://github.com/Sitecore/jss/pull/1463))
 * `[angular]` Avoid sending two dictionary service calls when switching language and refreshing the page ([#1473](https://github.com/Sitecore/jss/pull/1473))
+* Fix installed sitecore-jss-* dependency version ([#1478](https://github.com/Sitecore/jss/pull/1478))
+* [node-headless-ssr-experience-edge] Add helper comment for rootItemId ([#1491](https://github.com/Sitecore/jss/pull/1491))
+
+## 21.1.5
+
+### 🐛 Bug Fixes
+
+* `[create-sitecore-jss]` Change ^ to ~ for versioning in templates and use exact versions for sitecore-jss monorepo dependencies.
+
+## 21.1.4
+
+### 🐛 Bug Fixes
+
+* `[create-sitecore-jss]` Change ^ to ~ for versioning in templates.
+
+## 21.1.3
+
+### 🐛 Bug Fixes
+
+* Fix installed sitecore-jss-* dependency version. Change ^ to ~ ([#1481](https://github.com/Sitecore/jss/pull/1481))
 
 ## 21.1.2
 
@@ -141,6 +163,18 @@ Our versioning strategy is as follows:
   https://update.angular.io/?l=3&v=11.0-14.0
 
 * `[sitecore-jss-angular]` Due to the Angular version upgrade and the change in _sitecore-jss-angular_ package output format  _sitecore-jss_ exports are not available in angular app scripts (src/scripts) via '@sitecore-jss/sitecore-jss-angular'. Please use '@sitecore-jss/sitecore-jss-angular/cjs' import instead. Check bootstrap.ts scripts as for a usage example.
+
+## 21.0.10
+
+### 🐛 Bug Fixes
+
+* Change ^ to ~ in sitecore-jss templates
+
+## 21.0.9
+
+### 🐛 Bug Fixes
+
+* Fix installed sitecore-jss-* dependency version. Change ^ to ~ ([#1481](https://github.com/Sitecore/jss/pull/1481))
 
 ## 21.0.8
 
