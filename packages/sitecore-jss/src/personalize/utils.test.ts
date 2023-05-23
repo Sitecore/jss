@@ -102,6 +102,13 @@ describe('utils', () => {
         const result = CdpHelper.getPageVariantId(pageId, language, DEFAULT_VARIANT);
         expect(result).to.equal(`${pageId}_${language}_default`);
       });
+      it('should format default variant with scope', () => {
+        const pageId = '110d559fdea542ea9c1c8a5df7e70ef9';
+        const language = 'en';
+        const scope = 'myscope1';
+        const result = CdpHelper.getPageVariantId(pageId, language, DEFAULT_VARIANT, scope);
+        expect(result).to.equal(`${scope}_${pageId}_${language}_default`);
+      });
       it('should format empty variant', () => {
         const pageId = '110d559fdea542ea9c1c8a5df7e70ef9';
         const language = 'en';
@@ -114,6 +121,14 @@ describe('utils', () => {
         const variantId = '54c8e9b50b2c53638fa6d32a3a302f51';
         const result = CdpHelper.getPageVariantId(pageId, language, variantId);
         expect(result).to.equal(`${pageId}_${language}_${variantId}`);
+      });
+      it('should format variant with scope', () => {
+        const pageId = '110d559fdea542ea9c1c8a5df7e70ef9';
+        const language = 'en';
+        const variantId = '54c8e9b50b2c53638fa6d32a3a302f51';
+        const scope = 'myscope1';
+        const result = CdpHelper.getPageVariantId(pageId, language, variantId, scope);
+        expect(result).to.equal(`${scope}_${pageId}_${language}_${variantId}`);
       });
       it('should use lowercase', () => {
         const pageId = '3E0A2F20B3255E57881FFF6648D08575';
@@ -147,6 +162,13 @@ describe('utils', () => {
         const result = CdpHelper.getContentId(pageId, language);
         expect(result).to.equal(`embedded_${pageId}_${language}`);
       });
+      it('should format variant with scope', () => {
+        const pageId = '110d559fdea542ea9c1c8a5df7e70ef9';
+        const language = 'en';
+        const scope = 'myscope1';
+        const result = CdpHelper.getContentId(pageId, language, scope);
+        expect(result).to.equal(`embedded_${scope}_${pageId}_${language}`);
+      });
       it('should use lowercase', () => {
         const pageId = '3E0A2F20B3255E57881FFF6648D08575';
         const language = 'EN';
@@ -166,6 +188,30 @@ describe('utils', () => {
         expect(result).to.equal(
           `embedded_FFCD3AC438E35286A0B95F7113D5E74A_${language}`.toLowerCase()
         );
+      });
+    });
+
+    describe('getScope', () => {
+      it('should return empty string when no scope value is provided', () => {
+        expect(CdpHelper.getScope()).to.equal('');
+        expect(CdpHelper.getScope('')).to.equal('');
+      });
+
+      it('should return scope when scope value is provided', () => {
+        const scope = 'myscope';
+        expect(CdpHelper.getScope(scope)).to.equal(scope);
+      });
+
+      it('should return scope when scope value is provided and is alphanumeric', () => {
+        const scope = 'myscope123';
+        const result = CdpHelper.getScope(scope);
+        expect(result).to.equal(scope);
+      });
+
+      it('should return scope when scope value is provided and includes non-alphanumeric characters', () => {
+        const scope = '_myscope-12+3_';
+        const result = CdpHelper.getScope(scope);
+        expect(result).to.equal('myscope123');
       });
     });
   });

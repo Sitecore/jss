@@ -18,6 +18,10 @@ export type GraphQLPersonalizeServiceConfig = CacheOptions & {
    */
   timeout?: number;
   /**
+   * The Sitecore scope unique identifier allowing you to isolate your personalization data between XM Cloud environments
+   */
+  scope?: string;
+  /**
    * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
    */
   fetch?: typeof fetch;
@@ -104,8 +108,8 @@ export class GraphQLPersonalizeService {
     }
     return data?.layout?.item
       ? {
-          // CDP expects content id format `embedded_<id>_<lang>` (lowercase)
-          contentId: CdpHelper.getContentId(data.layout.item.id, language),
+          // CDP expects content id format `embedded_[scope_]<id>_<lang>` (lowercase)
+          contentId: CdpHelper.getContentId(data.layout.item.id, language, this.config.scope),
           variantIds: data.layout.item.personalization.variantIds,
         }
       : undefined;
