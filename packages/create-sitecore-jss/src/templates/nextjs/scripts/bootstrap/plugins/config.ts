@@ -2,8 +2,7 @@ import 'dotenv/config';
 import path from 'path';
 import fs from 'fs';
 import { constantCase } from 'constant-case';
-import { jssConfigFactory } from '../../config'
-import { JssConfig } from '../../config';
+import { jssConfigFactory, JssConfig } from '../../config'
 import { BootstrapPlugin } from '../index';
 
 const defaultConfig: JssConfig = {

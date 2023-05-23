@@ -1,7 +1,5 @@
-import { getProjectList, writeComponentFactoryCreator } from '@sitecore-jss/sitecore-jss-dev-tools/nextjs'
-import config from 'temp/config';
-import chokidar from 'chokidar';
-
+import { getProjectList, writeComponentFactoryCreator, constants } from '@sitecore-jss/sitecore-jss-dev-tools/nextjs';
+import { watchItems } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /*
   COMPONENT FACTORY CREATOR GENERATION
@@ -22,17 +20,16 @@ import chokidar from 'chokidar';
   The default convention uses the component's filename (without the extension) as the component
   name. For example, the file `/components/ComponentName.ts` would map to component `ComponentName`.
   This can be customized in writeComponentFactoryCreator().
-
-  This script supports two modes. In default mode, the component factory creator file is written once.
+*/ 
+/*
+  This script supports utilizes factory creator in watch mode.
   In watch mode, the component factory creator source folder is watched, and componentFactoryCreator.ts is
-  regenerated whenever files are added or deleted. Run in watch mode by passing a `--watch` argument
-  when calling the script.
+  regenerated whenever files are added or deleted.
+
+  For manual component factory generation run bootstrap
 */
 
-
-const isWatch = process.argv.some(arg => arg === '--watch');
-
-isWatch ? watchComponentFactoryCreator(): writeComponentFactoryCreator(config.componentRootPath, config.projectRootPath);
+watchComponentFactoryCreator();
 
 /**
  * You can specify components which you want to import from external/internal packages
@@ -58,14 +55,14 @@ isWatch ? watchComponentFactoryCreator(): writeComponentFactoryCreator(config.co
  */
 function watchComponentFactoryCreator() {
   console.log(
-    `Watching for changes to component factory creator sources in ${config.projectRootPath}...`
+    `Watching for changes to component factory creator sources in ${constants.PROJECT_ROOT_PATH}...`
   );
 
   const projects = getProjectList(config.projectRootPath);
 
   const projectComponentsPaths = projects.map(project => {
     console.log(
-      `Watching for changes to component factory creator sources in ${project.componentsPath}...`
+      `Watching for changes to component factory creator sources in ${constants.COMPONENT_ROOT_PATH}...`
     );
 
     return project.componentsPath;
@@ -73,18 +70,8 @@ function watchComponentFactoryCreator() {
 
   const componentFactoryCreatorWrapper = () => 
   {
-    writeComponentFactoryCreator(config.componentRootPath, config.projectRootPath);
+    writeComponentFactoryCreator(constants.COMPONENT_ROOT_PATH, constants.PROJECT_ROOT_PATH);
   }
  
-  watchItems([config.componentRootPath, ...projectComponentsPaths], componentFactoryCreatorWrapper);
-}
-
-/**
- * Run watch mode, watching on @var paths
- */
-function watchItems(paths: string[], componentFactoryCallback: () => void): void {
-    chokidar
-      .watch(paths, { ignoreInitial: true, awaitWriteFinish: true })
-      .on('add', componentFactoryCallback)
-      .on('unlink', componentFactoryCallback);
+  watchItems([constants.COMPONENT_ROOT_PATH, ...projectComponentsPaths], componentFactoryCreatorWrapper);
 }

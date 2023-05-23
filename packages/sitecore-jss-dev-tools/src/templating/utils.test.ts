@@ -38,6 +38,30 @@ describe('utils', () => {
       name: '',
     };
 
+    const setupFolderTest = (path: string) => {
+      const callbackStub = sinon.stub();
+      return {
+        input: {
+          path: path,
+          resolveItem: (_: any, name: string) => {
+            return name;
+          },
+          cb: callbackStub,
+        },
+        parentDir: {
+          ...baseDirent,
+          isDirectory: () => true,
+          name: 'parent',
+        },
+        childFile: {
+          ...baseDirent,
+          isFile: () => true,
+          name: 'child.tsx',
+        },
+        resolveItemCb: callbackStub,
+      };
+    };
+
     it('should return empty array when path does not exist', () => {
       const path = 'C:/Windows';
       const input = {
@@ -54,28 +78,12 @@ describe('utils', () => {
 
     it('should check folders recursively', () => {
       const path = 'C:/Windows';
-      const childFileName = 'child.tsx';
-      const input = {
-        path: path,
-        resolveItem: (_: any, name: string) => {
-          return name;
-        },
-        cb: () => {},
-      };
-      const parentDir = {
-        ...baseDirent,
-        isDirectory: () => true,
-        name: 'parent',
-      };
-      const childFile = {
-        ...baseDirent,
-        isFile: () => true,
-        name: childFileName,
-      };
+      const { input, parentDir, childFile } = setupFolderTest(path);
       sinon.stub(fs, 'existsSync').returns(true);
       const readDirStub = sinon.stub(fs, 'readdirSync');
       readDirStub.withArgs(path, { withFileTypes: true }).returns([parentDir]);
       readDirStub.withArgs(`${path}/parent`, { withFileTypes: true }).returns([childFile]);
+
       const result = getItems(input);
 
       expect(result).to.deep.equal(['child']);
@@ -83,33 +91,16 @@ describe('utils', () => {
 
     it('should invoke callback on files only', () => {
       const path = 'C:/Windows';
-      const childFileName = 'child.tsx';
-      const callbackStub = sinon.stub();
-      const input = {
-        path: path,
-        resolveItem: (_: any, name: string) => {
-          return name;
-        },
-        cb: callbackStub,
-      };
-      const parentDir = {
-        ...baseDirent,
-        isDirectory: () => true,
-        name: 'parent',
-      };
-      const childFile = {
-        ...baseDirent,
-        isFile: () => true,
-        name: childFileName,
-      };
+      const { input, parentDir, childFile, resolveItemCb } = setupFolderTest(path);
       sinon.stub(fs, 'existsSync').returns(true);
       const readDirStub = sinon.stub(fs, 'readdirSync');
       readDirStub.withArgs(path, { withFileTypes: true }).returns([parentDir]);
       readDirStub.withArgs(`${path}/parent`, { withFileTypes: true }).returns([childFile]);
+
       getItems(input);
 
-      expect(callbackStub.calledWith('parent')).to.equal(false);
-      expect(callbackStub.calledWith('child')).to.equal(true);
+      expect(resolveItemCb.calledWith('parent')).to.equal(false);
+      expect(resolveItemCb.calledWith('child')).to.equal(true);
     });
   });
 
@@ -118,23 +109,31 @@ describe('utils', () => {
       sinon.restore();
     });
 
+    const setupTest = () => {
+      return {
+        mkDirStub: sinon.stub(fs, 'mkdir'),
+        writeFileStub: sinon.stub(fs, 'writeFileSync'),
+        scaffoldInput: {
+          rootPath: 'C:/myapp',
+          fileContent: 'sample content',
+          filename: 'index.ts',
+          componentPath: 'FreshComponent',
+        },
+      };
+    };
+
     it('should scaffold file', () => {
       sinon.stub(fs, 'existsSync').returns(false);
-      const mkDirStub = sinon.stub(fs, 'mkdir');
-      const writeFileStub = sinon.stub(fs, 'writeFileSync');
-      const scaffoldInput = {
-        rootPath: 'C:/myapp',
-        fileContent: 'sample content',
-        filename: 'index.ts',
-        componentPath: 'FreshComponent',
-      };
+      const { mkDirStub, writeFileStub, scaffoldInput } = setupTest();
       const expectedOutputDir = `${scaffoldInput.rootPath}/${scaffoldInput.componentPath}`;
+
       const result = scaffoldFile(
         scaffoldInput.rootPath,
         scaffoldInput.fileContent,
         scaffoldInput.filename,
         scaffoldInput.componentPath
       );
+
       expect(mkDirStub.calledWith(`${expectedOutputDir}`, { recursive: true }));
       expect(
         writeFileStub.calledWith(
@@ -147,23 +146,17 @@ describe('utils', () => {
     });
 
     it('should return null when output file already exists', () => {
-      const scaffoldInput = {
-        rootPath: 'C:/myapp',
-        fileContent: 'sample content',
-        filename: 'index.ts',
-        componentPath: 'FreshComponent',
-      };
-
+      const { mkDirStub, writeFileStub, scaffoldInput } = setupTest();
       const existsStub = sinon.stub(fs, 'existsSync');
       existsStub.withArgs('C:\\myapp\\FreshComponent\\index.ts').returns(true);
-      const mkDirStub = sinon.stub(fs, 'mkdir');
-      const writeFileStub = sinon.stub(fs, 'writeFileSync');
+
       const result = scaffoldFile(
         scaffoldInput.rootPath,
         scaffoldInput.fileContent,
         scaffoldInput.filename,
         scaffoldInput.componentPath
       );
+
       expect(result).to.equal(null);
       expect(mkDirStub.called).to.equal(false);
       expect(writeFileStub.called).to.equal(false);

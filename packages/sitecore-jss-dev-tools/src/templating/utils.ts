@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
+import chokidar from 'chokidar';
 
 export enum ModuleType {
   CJS,
@@ -134,6 +135,18 @@ export function scaffoldFile(
   fs.writeFileSync(outputFile, editLineEndings(fileContent), 'utf8');
   console.log(chalk.green(`File ${outputFile} has been scaffolded.`));
   return outputFile;
+}
+
+/**
+ * Run watch mode, watching on @var paths
+ * @param {string[]} paths paths to watch by chokidar
+ * @param {Function<void>}componentFactoryCallback component factory method to call on changes to watched components
+ */
+export function watchItems(paths: string[], componentFactoryCallback: () => void): void {
+  chokidar
+    .watch(paths, { ignoreInitial: true, awaitWriteFinish: true })
+    .on('add', componentFactoryCallback)
+    .on('unlink', componentFactoryCallback);
 }
 
 /**
