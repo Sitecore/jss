@@ -1,4 +1,4 @@
-﻿import { writeComponentFactoryCreator, constants } from '@sitecore-jss/sitecore-jss-dev-tools/nextjs';
+﻿import { startComponentFactoryCreator } from 'scripts/component-factory/startComponentFactoryCreator';
 import { BootstrapPlugin } from '../index';
 
 /**
@@ -6,7 +6,7 @@ import { BootstrapPlugin } from '../index';
  */
 class ComponentFactoryCreatorPlugin implements BootstrapPlugin {
   exec() {
-    writeComponentFactoryCreator(constants.COMPONENT_ROOT_PATH, constants.PROJECT_ROOT_PATH);
+    startComponentFactoryCreator();
   }
 }
 

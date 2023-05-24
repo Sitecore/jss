@@ -16,7 +16,7 @@
 
 import chalk from 'chalk';
 import generateComponentSrc from './templates/component-src';
-import { constants } from '@sitecore-jss/sitecore-jss-dev-tools/nextjs';
+import { componentsRootPath } from 'scripts/component-factory/startComponentFactoryCreator';
 import { scaffoldFile } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 
@@ -41,7 +41,7 @@ const componentName = regExResult[2];
 const filename = `${componentName}.tsx`;
 
 const componentOutputPath = scaffoldFile(
-  constants.COMPONENT_ROOT_PATH,
+  componentsRootPath,
   generateComponentSrc(componentName),
   filename,
   componentPath
