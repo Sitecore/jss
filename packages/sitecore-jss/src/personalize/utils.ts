@@ -66,7 +66,7 @@ export class CdpHelper {
   ): string {
     const formattedPageId = pageId.replace(/[{}-]/g, '');
     const formattedLanguage = language.replace('-', '_');
-    const scopeId = scope ? `${this.getScope(scope)}_` : '';
+    const scopeId = scope ? `${this.normalizeScope(scope)}_` : '';
     let formattedVariantId = variantId;
     if (!variantId || variantId === DEFAULT_VARIANT) {
       formattedVariantId = 'default';
@@ -84,17 +84,17 @@ export class CdpHelper {
   static getContentId(pageId: string, language: string, scope?: string): string {
     const formattedPageId = pageId.replace(/[{}-]/g, '');
     const formattedLanguage = language.replace('-', '_');
-    const scopeId = scope ? `${this.getScope(scope)}_` : '';
+    const scopeId = scope ? `${this.normalizeScope(scope)}_` : '';
     return `embedded_${scopeId}${formattedPageId}_${formattedLanguage}`.toLowerCase();
   }
 
   /**
-   * Parses the scope from the given string value
+   * Normalizes the scope from the given string value
    * Removes all non-alphanumeric characters
    * @param {string} [scope] the scope value
-   * @returns {string} parsed scope value
+   * @returns {string} normalized scope value
    */
-  static getScope(scope?: string): string {
+  static normalizeScope(scope?: string): string {
     return scope?.replace(/[^a-zA-Z0-9]+/g, '') || '';
   }
 }

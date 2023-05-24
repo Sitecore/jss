@@ -191,26 +191,26 @@ describe('utils', () => {
       });
     });
 
-    describe('getScope', () => {
+    describe('normalizeScope', () => {
       it('should return empty string when no scope value is provided', () => {
-        expect(CdpHelper.getScope()).to.equal('');
-        expect(CdpHelper.getScope('')).to.equal('');
+        expect(CdpHelper.normalizeScope()).to.equal('');
+        expect(CdpHelper.normalizeScope('')).to.equal('');
       });
 
       it('should return scope when scope value is provided', () => {
         const scope = 'myscope';
-        expect(CdpHelper.getScope(scope)).to.equal(scope);
+        expect(CdpHelper.normalizeScope(scope)).to.equal(scope);
       });
 
       it('should return scope when scope value is provided and is alphanumeric', () => {
         const scope = 'myscope123';
-        const result = CdpHelper.getScope(scope);
+        const result = CdpHelper.normalizeScope(scope);
         expect(result).to.equal(scope);
       });
 
       it('should return scope when scope value is provided and includes non-alphanumeric characters', () => {
         const scope = '_myscope-12+3_';
-        const result = CdpHelper.getScope(scope);
+        const result = CdpHelper.normalizeScope(scope);
         expect(result).to.equal('myscope123');
       });
     });
