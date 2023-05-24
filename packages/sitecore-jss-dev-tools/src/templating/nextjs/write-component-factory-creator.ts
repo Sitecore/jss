@@ -13,12 +13,12 @@ import { componentFactoryOutputPath, projectsOutputPath } from './constants';
  * * Project components under src/projects/<project>/components/**
  * (subfolders are searched recursively).
  * The filename, with the extension stripped, is used for the component's
- * string name (for mapping to Sitecore). The filename, with extension and non-word characters
- * stripped, is used to identify the component's JavaScript module definition (for initializing
- * new component instances in code).
+ * string name (for mapping to Sitecore). 
+ * The filename, with extension and non-word characters stripped, is used to identify the 
+ * component's JavaScript module definition (for initializing new component instances in code).
  * Modify this function to use a different convention.
  * @param {string} componentRootPath - path to get components from
- * @param {string} projectRootPath - path to the project
+ * @param {string} projectRootPath - path to the projects
  * @param {PackageDefinition[]} customPackages - extra component definitions added from code
  */
 export function writeComponentFactoryCreator(
@@ -61,8 +61,8 @@ export function writeComponentFactory(
 }
 
 /**
- * writes component factory for project into file
- * @param {Project} project project definition to generate factory for
+ * writes component project components into file
+ * @param {Project} project project definition to generate file for
  */
 export function writeProjectComponents(project: Project) {
   const indexFilePath = path.resolve(`src/temp/projects/${project.projectName}.ts`);

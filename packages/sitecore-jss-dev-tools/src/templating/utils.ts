@@ -173,11 +173,20 @@ type GetItemsSettings<Item> = {
   recursive?: boolean;
 };
 
+/**
+ * Type to specify plugin file details
+ */
 interface PluginFile {
   path: string;
   name: string;
 }
 
+/**
+ * Definition to be used for plugin registration during bootstrap
+ * listPath - destination path to compile plugins to
+ * rootPath - source path for where the plugins are defined
+ * moduleType - CJS or ESM - which type to compile plugins to
+ */
 export interface PluginDefinition {
   listPath: string;
   rootPath: string;
