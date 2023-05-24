@@ -16,6 +16,7 @@ Static utility class for Sitecore CDP
 
 - [getContentId](personalize.CdpHelper.md#getcontentid)
 - [getPageVariantId](personalize.CdpHelper.md#getpagevariantid)
+- [normalizeScope](personalize.CdpHelper.md#normalizescope)
 
 ## Constructors
 
@@ -27,9 +28,9 @@ Static utility class for Sitecore CDP
 
 ### getContentId
 
-▸ `Static` **getContentId**(`pageId`, `language`): `string`
+▸ `Static` **getContentId**(`pageId`, `language`, `scope?`): `string`
 
-Gets the content id for CDP in the required format `embedded_<id>_<lang>`
+Gets the content id for CDP in the required format `embedded_[<scope>_]<id>_<lang>`
 
 #### Parameters
 
@@ -37,6 +38,7 @@ Gets the content id for CDP in the required format `embedded_<id>_<lang>`
 | :------ | :------ | :------ |
 | `pageId` | `string` | the page id |
 | `language` | `string` | the language |
+| `scope?` | `string` | the scope value |
 
 #### Returns
 
@@ -46,13 +48,13 @@ the content id
 
 #### Defined in
 
-[src/personalize/utils.ts:76](https://github.com/Sitecore/jss/blob/6e3992c38/packages/sitecore-jss/src/personalize/utils.ts#L76)
+[src/personalize/utils.ts:84](https://github.com/Sitecore/jss/blob/e22ddef1a/packages/sitecore-jss/src/personalize/utils.ts#L84)
 
 ___
 
 ### getPageVariantId
 
-▸ `Static` **getPageVariantId**(`pageId`, `language`, `variantId`): `string`
+▸ `Static` **getPageVariantId**(`pageId`, `language`, `variantId`, `scope?`): `string`
 
 Gets the page variant id for CDP in the required format
 
@@ -63,6 +65,7 @@ Gets the page variant id for CDP in the required format
 | `pageId` | `string` | the page id |
 | `language` | `string` | the language |
 | `variantId` | `string` | the variant id |
+| `scope?` | `string` | the scope value |
 
 #### Returns
 
@@ -72,4 +75,29 @@ the formatted page variant id
 
 #### Defined in
 
-[src/personalize/utils.ts:60](https://github.com/Sitecore/jss/blob/6e3992c38/packages/sitecore-jss/src/personalize/utils.ts#L60)
+[src/personalize/utils.ts:61](https://github.com/Sitecore/jss/blob/e22ddef1a/packages/sitecore-jss/src/personalize/utils.ts#L61)
+
+___
+
+### normalizeScope
+
+▸ `Static` **normalizeScope**(`scope?`): `string`
+
+Normalizes the scope from the given string value
+Removes all non-alphanumeric characters
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `scope?` | `string` | the scope value |
+
+#### Returns
+
+`string`
+
+normalized scope value
+
+#### Defined in
+
+[src/personalize/utils.ts:97](https://github.com/Sitecore/jss/blob/e22ddef1a/packages/sitecore-jss/src/personalize/utils.ts#L97)
