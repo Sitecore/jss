@@ -104,7 +104,7 @@ steps:
   # Only run for 'dev' and 'release' branches
   # in order to don't produce extra changes in the Pull Request
 - script: |
-    yarn generate-docs ${{ variables.lernaSinceFlag }}
+    yarn generate-docs
     git add ./ref-docs/**/*
     git commit -m "Update API docs [skip ci]"
   displayName: 'generate API docs'
