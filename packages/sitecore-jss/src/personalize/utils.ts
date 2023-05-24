@@ -55,27 +55,46 @@ export class CdpHelper {
    * @param {string} pageId the page id
    * @param {string} language the language
    * @param {string} variantId the variant id
+   * @param {string} [scope] the scope value
    * @returns {string} the formatted page variant id
    */
-  static getPageVariantId(pageId: string, language: string, variantId: string): string {
+  static getPageVariantId(
+    pageId: string,
+    language: string,
+    variantId: string,
+    scope?: string
+  ): string {
     const formattedPageId = pageId.replace(/[{}-]/g, '');
     const formattedLanguage = language.replace('-', '_');
+    const scopeId = scope ? `${this.normalizeScope(scope)}_` : '';
     let formattedVariantId = variantId;
     if (!variantId || variantId === DEFAULT_VARIANT) {
       formattedVariantId = 'default';
     }
-    return `${formattedPageId}_${formattedLanguage}_${formattedVariantId}`.toLowerCase();
+    return `${scopeId}${formattedPageId}_${formattedLanguage}_${formattedVariantId}`.toLowerCase();
   }
 
   /**
-   * Gets the content id for CDP in the required format `embedded_<id>_<lang>`
+   * Gets the content id for CDP in the required format `embedded_[<scope>_]<id>_<lang>`
    * @param {string} pageId the page id
    * @param {string} language the language
+   * @param {string} [scope] the scope value
    * @returns {string} the content id
    */
-  static getContentId(pageId: string, language: string): string {
+  static getContentId(pageId: string, language: string, scope?: string): string {
     const formattedPageId = pageId.replace(/[{}-]/g, '');
     const formattedLanguage = language.replace('-', '_');
-    return `embedded_${formattedPageId}_${formattedLanguage}`.toLowerCase();
+    const scopeId = scope ? `${this.normalizeScope(scope)}_` : '';
+    return `embedded_${scopeId}${formattedPageId}_${formattedLanguage}`.toLowerCase();
+  }
+
+  /**
+   * Normalizes the scope from the given string value
+   * Removes all non-alphanumeric characters
+   * @param {string} [scope] the scope value
+   * @returns {string} normalized scope value
+   */
+  static normalizeScope(scope?: string): string {
+    return scope?.replace(/[^a-zA-Z0-9]+/g, '') || '';
   }
 }

@@ -70,7 +70,9 @@ const CdpPageView = (): JSX.Element => {
 
     const siteInfo = siteResolver.getByName(site?.name || config.jssAppName);
     const language = route.itemLanguage || config.defaultLanguage;
-    const pageVariantId = CdpHelper.getPageVariantId(route.itemId, language, variantId as string);
+    const scope = process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE;
+
+    const pageVariantId = CdpHelper.getPageVariantId(route.itemId, language, variantId as string, scope);
     createPageView(route.name, language, siteInfo, pageVariantId);
   }, [pageState, route, variantId, site]);
 

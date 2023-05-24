@@ -30,6 +30,7 @@ class PersonalizePlugin implements MiddlewarePlugin {
           (process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT &&
             parseInt(process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT)) ||
           250,
+        scope: process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE,
       },
       // Configuration for your Sitecore CDP endpoint
       cdpConfig: {
