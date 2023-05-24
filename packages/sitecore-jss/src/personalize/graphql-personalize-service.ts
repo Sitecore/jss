@@ -108,7 +108,7 @@ export class GraphQLPersonalizeService {
     }
     return data?.layout?.item
       ? {
-          // CDP expects content id format `embedded_[scope_]<id>_<lang>` (lowercase)
+          // CDP expects content id format `embedded_[<scope>_]<id>_<lang>` (lowercase)
           contentId: CdpHelper.getContentId(data.layout.item.id, language, this.config.scope),
           variantIds: data.layout.item.personalization.variantIds,
         }
