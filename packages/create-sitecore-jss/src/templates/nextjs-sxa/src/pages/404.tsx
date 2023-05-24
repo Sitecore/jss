@@ -1,5 +1,9 @@
 import config from 'temp/config';
-import { GraphQLErrorPagesService, SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  GraphQLErrorPagesService,
+  SitecoreContext,
+  ErrorPages,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import NotFound from 'src/NotFound';
 import { componentFactory } from 'temp/componentFactory';
@@ -27,8 +31,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
     siteName: site.name,
     language: context.locale || config.defaultLanguage,
   });
+  let resultErrorPages: ErrorPages | null = null;
 
-  const resultErrorPages = await errorPagesService.fetchErrorPages();
+  if (process.env.NODE_ENV !== 'development' && !process.env.DISABLE_SSG_FETCH) {
+    try {
+      // Note: Next.js runs export in production mode
+      resultErrorPages = await errorPagesService.fetchErrorPages();
+    } catch (error) {
+      console.log('Error occurred while fetching error pages');
+      console.log(error);
+    }
+  }
 
   return {
     props: {
