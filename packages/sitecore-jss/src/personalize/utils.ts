@@ -75,7 +75,7 @@ export class CdpHelper {
   }
 
   /**
-   * Gets the content id for CDP in the required format `embedded_[scope_]<id>_<lang>`
+   * Gets the content id for CDP in the required format `embedded_[<scope>_]<id>_<lang>`
    * @param {string} pageId the page id
    * @param {string} language the language
    * @param {string} [scope] the scope value
