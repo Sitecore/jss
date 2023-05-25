@@ -1,9 +1,9 @@
-﻿import { ComponentFile } from './models';
+﻿import { ComponentFile } from '../../utils';
 
 /**
  * Generates an auto-generated file that exports all components in the project.
- * @param components The components to export
- * @param project The project name
+ * @param {ComponentFile[]} components The components to export
+ * @param {string} project The project name
  * @returns The generated file as a string
  */
 export const generateProjectComponents = (components: ComponentFile[], project: string): string => {
@@ -12,7 +12,7 @@ export const generateProjectComponents = (components: ComponentFile[], project: 
 // See scripts/generate-component-factory-creator.ts to modify the generation of this file.
 ${components
   .map(
-    c =>
+    (c) =>
       `export * as ${c.componentName} from 'src/projects/${project}/components/${c.componentName}';`
   )
   .join('\n')}

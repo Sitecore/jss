@@ -14,12 +14,11 @@
 
 /* eslint-disable no-throw-literal,no-console */
 
-import fs from 'fs';
-import path from 'path';
 import chalk from 'chalk';
 import generateComponentSrc from './templates/component-src';
+import { componentsRootPath } from 'scripts/component-factory/startComponentFactoryCreator';
+import { scaffoldFile } from '@sitecore-jss/sitecore-jss-dev-tools';
 
-const componentRootPath = 'src/components';
 
 // Matches component names that start with a capital letter, and contain only letters, number,
 // underscores, or dashes. Optionally, the component name can be preceded by a relative path
@@ -42,9 +41,10 @@ const componentName = regExResult[2];
 const filename = `${componentName}.tsx`;
 
 const componentOutputPath = scaffoldFile(
-  componentRootPath,
+  componentsRootPath,
   generateComponentSrc(componentName),
-  filename
+  filename,
+  componentPath
 );
 
 console.log(
@@ -55,35 +55,4 @@ Next steps:`)
 
 if (componentOutputPath) {
   console.log(`* Implement the React component in ${chalk.green(componentOutputPath)}`);
-}
-
-/**
- * Force to use `crlf` line endings, we are using `crlf` across the project.
- * Replace: `lf` (\n), `cr` (\r)
- * @param {string} content
- */
-function editLineEndings(content: string) {
-  return content.replace(/\r|\n/gm, '\r\n');
-}
-
-/**
- * Creates a file relative to the specified path if the file doesn't exist. Creates directories as needed.
- * @param {string} rootPath - the root path
- * @param {string} fileContent - the file content
- * @param {string} filename - the filename
- * @returns the new file's filepath
- */
-function scaffoldFile(rootPath: string, fileContent: string, filename: string): string | null {
-  const outputDir = path.join(rootPath, componentPath);
-  const outputFile = path.join(outputDir, filename);
-
-  if (fs.existsSync(outputFile)) {
-    console.log(chalk.red(`Skipping creating ${outputFile}; already exists.`));
-    return null;
-  }
-
-  fs.mkdirSync(outputDir, { recursive: true });
-  fs.writeFileSync(outputFile, editLineEndings(fileContent), 'utf8');
-  console.log(chalk.green(`File ${outputFile} has been scaffolded.`));
-  return outputFile;
 }

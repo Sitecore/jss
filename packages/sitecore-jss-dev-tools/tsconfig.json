@@ -7,5 +7,11 @@
     "typeRoots": ["node_modules/@types"],
     "declarationDir": "./types",
   },
-  "exclude": ["node_modules", "types", "dist", "src/test", "src/**/*.test.ts"]
+  "exclude": [
+    "node_modules", 
+    "types", 
+    "dist", 
+    "src/test", 
+    "src/**/*.test.ts",
+    "nextjs.d.ts"]
 }

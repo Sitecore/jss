@@ -10,7 +10,7 @@ export interface BootstrapPlugin {
 
 export class JssBootstrapFactory {
   public async create(): Promise<void> {
-    return (Object.values(plugins) as BootstrapPlugin[]).forEach(plugin => plugin.exec());
+    return (Object.values(plugins) as BootstrapPlugin[]).forEach((plugin) => plugin.exec());
   }
 }
 

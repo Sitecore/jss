@@ -27,6 +27,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` FEaaS component will render 'staged' variant for editing and preview and 'published' variant for live site by default, unless variant is overriden via rendering parameters. ([#1433](https://github.com/Sitecore/jss/pull/1433))
 * `[templates/nextjs]` `[templates/angular]` `[templates/react]` `[templates/vue]` Pre-push hook for lint check ([#1427](https://github.com/Sitecore/jss/pull/1427))
 ([#1442](https://github.com/Sitecore/jss/pull/1442)) ([#1444](https://github.com/Sitecore/jss/pull/1444))
+* `[sitecore-jss-nextjs] Add a new handling for token $siteLang(context site language) in middleware redirect ([#1454](https://github.com/Sitecore/jss/pull/1454))
 
 ### 🧹 Chores
 
@@ -44,7 +45,8 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-angular]` Fix memory leak in image and link components ([#1435](https://github.com/Sitecore/jss/pull/1435))
 * `[templates/nextjs-multisite]` Fix skipped site info fetch ([#1434](https://github.com/Sitecore/jss/pull/1434))
 * `[angular]` Fix app build errors. Webpack version is locked at 5.78 due to https://github.com/webpack/webpack/issues/16981 ([#1448](https://github.com/Sitecore/jss/pull/1448))
-* `[sitecore-jss-nextjs]` Fix middleware redirect when the target use regexp with querystring ([#1449](https://github.com/Sitecore/jss/pull/1449))
+* `[sitecore-jss-nextjs]` Fix middleware redirect when the target use regexp with querystring ([#1449](https://github.com/Sitecore/jss/pull/1449)) ([#1460](https://github.com/Sitecore/jss/pull/1460))
+* `[templates/nextjs]` Fix incorrectly named .gitignore file `\scripts\temp\.npmignore` ([#1463](https://github.com/Sitecore/jss/pull/1463))
 
 ## 21.1.1
 

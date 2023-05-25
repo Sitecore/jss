@@ -19,7 +19,6 @@
     "tracking.d.ts",
     "site.d.ts",
     "personalize.d.ts",
-    "feaas.d.ts",
     "src/**/*.test.ts",
     "src/test-data/*"
   ]
