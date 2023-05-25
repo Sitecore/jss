@@ -1,0 +1,9 @@
+// This file exists in order to disable Next.js SWC compilation due to
+// current instability. Specifically, when compiling on Windows-based
+// rendering hosts using containers you may see the following error:
+// https://nextjs.org/docs/messages/failed-loading-swc
+//
+// You may wish to remove this file when deploying to Vercel.
+{
+    "presets": ["next/babel"]
+}
