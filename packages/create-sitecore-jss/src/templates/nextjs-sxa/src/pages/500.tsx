@@ -49,9 +49,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   });
   let resultErrorPages: ErrorPages | null = null;
 
-  if (process.env.NODE_ENV !== 'development' && !process.env.DISABLE_SSG_FETCH) {
+  if (!process.env.DISABLE_SSG_FETCH) {
     try {
-      // Note: Next.js runs export in production mode
       resultErrorPages = await errorPagesService.fetchErrorPages();
     } catch (error) {
       console.log('Error occurred while fetching error pages');
