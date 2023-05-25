@@ -44,7 +44,9 @@ export const componentsRootPath = 'src/components';
 const customPackages: PackageDefinition[] = [];
 
 /**
- * Watches component directory for changes. When files are added or deleted, the component factory creator
+ * By default - launches component factory creator.
+ * 
+ * When shoudWatch is true: Watches component directory for changes. When files are added or deleted, the component factory creator
  * file (componentFactoryCreator.ts) is regenerated. This is used during `jss start` to pick up new or
  * removed components at runtime.
  */

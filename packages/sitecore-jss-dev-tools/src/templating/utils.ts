@@ -183,13 +183,19 @@ interface PluginFile {
 
 /**
  * Definition to be used for plugin registration during bootstrap
- * listPath - destination path to compile plugins to
- * rootPath - source path for where the plugins are defined
- * moduleType - CJS or ESM - which type to compile plugins to
  */
 export interface PluginDefinition {
+  /**
+   * destination path to compile plugins to
+   */
   listPath: string;
+  /**
+   * source path for where the plugins are defined
+   */
   rootPath: string;
+  /**
+   * CJS or ESM - which type to compile plugins to
+   */
   moduleType: ModuleType;
 }
 
