@@ -7,34 +7,18 @@ describe('GraphQLSiteInfoService', () => {
   const apiKey = 'some-api-key';
   const nonEmptyResponse = {
     data: {
-      search: {
-        results: [
+      site: {
+        siteInfoCollection: [
           {
-            name: {
-              value: 'site 51',
-            },
-            hostName: {
-              value: 'restricted.gov',
-            },
-            language: {
-              value: 'en',
-            },
-            pointOfSale: {
-              value: {
-                en: 'en-pos',
-              },
-            },
+            name: 'site 51',
+            hostName: 'restricted.gov',
+            language: 'en',
+            attributes: [{ key: 'POS', value: 'en=en-pos' }],
           },
           {
-            name: {
-              value: 'public',
-            },
-            hostName: {
-              value: 'pr.showercurtains.org',
-            },
-            language: {
-              value: '',
-            },
+            name: 'public',
+            hostName: 'pr.showercurtains.org',
+            language: '',
           },
         ],
       },
@@ -42,8 +26,8 @@ describe('GraphQLSiteInfoService', () => {
   };
   const emptyResponse = {
     data: {
-      search: {
-        results: [],
+      site: {
+        siteInfoCollection: [],
       },
     },
   };

@@ -1,1 +1,1 @@
-export { SiteResolver, SiteInfo } from '@sitecore-jss/sitecore-jss/site';
+export { SiteResolver, SiteInfo, ResolverMode } from '@sitecore-jss/sitecore-jss/site';

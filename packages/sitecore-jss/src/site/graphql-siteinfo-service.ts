@@ -3,45 +3,20 @@ import { GraphQLClient, GraphQLRequestClient } from '../graphql';
 import debug from '../debug';
 import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
 
-const headlessSiteGroupingTemplate = 'E46F3AF2-39FA-4866-A157-7017C4B2A40C';
-const sitecoreContentRootItem = '0DE95AE4-41AB-4D01-9EB0-67441B7C2450';
-
-const defaultQuery = /* GraphQL */ `
+const siteQuery = /* GraphQL */ `
   {
-    search(
-      where: {
-        AND: [
-          {
-            name: "_templates"
-            value: "${headlessSiteGroupingTemplate}"
-            operator: CONTAINS
-          }
-          {
-            name: "_path"
-            value: "${sitecoreContentRootItem}"
-            operator: CONTAINS
-          }
-        ]
-      }
-    ) {
-      results {
-      ... on Item {
-        name: field(name: "SiteName") {
-          value
-        }
-        hostName: field(name: "Hostname") {
-          value
-        }
-        language: field(name: "Language") {
-          value
-        }
-        pointOfSale: field(name: "POS") {
+    site {
+      siteInfoCollection {
+        name
+        hostname
+        language
+        attributes {
+          key
           value
         }
       }
     }
   }
-}
 `;
 
 export type SiteInfo = {
@@ -79,32 +54,25 @@ export type GraphQLSiteInfoServiceConfig = CacheOptions & {
 };
 
 type GraphQLSiteInfoResponse = {
-  search: {
-    results: GraphQLSiteInfoResult[];
+  site: {
+    siteInfoCollection: GraphQLSiteInfoResult[];
   };
 };
 
 type GraphQLSiteInfoResult = {
-  name: {
-    value: string;
-  };
-  hostName: {
-    value: string;
-  };
-  language: {
-    value: string;
-  };
-  pointOfSale?: {
-    value: string;
-  };
+  name: string;
+  hostName: string;
+  language: string;
+  attributes?: {key: string, value: string}[];
 };
+
 
 export class GraphQLSiteInfoService {
   private graphQLClient: GraphQLClient;
   private cache: CacheClient<SiteInfo[]>;
 
   protected get query(): string {
-    return defaultQuery;
+    return siteQuery;
   }
 
   /**
@@ -123,18 +91,28 @@ export class GraphQLSiteInfoService {
     }
 
     const response = await this.graphQLClient.request<GraphQLSiteInfoResponse>(this.query);
-    const result = response?.search?.results?.reduce<SiteInfo[]>((result, current) => {
+    const result = response?.site?.siteInfoCollection?.reduce<SiteInfo[]>((result, current) => {
+      const parsedAttributes = this.tryParseAttributes(current.attributes);
       result.push({
-        pointOfSale: current.pointOfSale?.value
-          ? Object.fromEntries(new URLSearchParams(current.pointOfSale.value))
-          : undefined,
-        name: current.name.value,
-        hostName: current.hostName.value,
-        language: current.language.value,
+        pointOfSale:
+          parsedAttributes.POS
+            ? Object.fromEntries(new URLSearchParams(parsedAttributes.POS))
+            : undefined,
+        name: current.name,
+        hostName: current.hostName,
+        language: current.language,
       });
       return result;
     }, []);
     this.cache.setCacheValue(this.getCacheKey(), result);
+    return result;
+  }
+
+  protected tryParseAttributes(attributes?: {key: string, value: string}[]) {
+    let result: Record<string, string> = {};
+    attributes && attributes.forEach(pair => {
+      result[pair.key] = pair.value;
+    });
     return result;
   }
 

@@ -1,4 +1,4 @@
-import { SiteInfo, SiteResolver } from '@sitecore-jss/sitecore-jss-nextjs/site';
+import { SiteInfo, SiteResolver, ResolverMode } from '@sitecore-jss/sitecore-jss-nextjs/site';
 import * as plugins from 'temp/site-resolver-plugins';
 
 /*
@@ -22,4 +22,7 @@ const sites = (Object.values(plugins) as SiteResolverPlugin[]).reduce(
   []
 );
 
-export const siteResolver = new SiteResolver(sites);
+// Site resolver can use two modes of operation
+// Headless: JSS will match site with the most specific hostname first regardless of the order they are configured in Sitecore
+// Classic: JSS will match the first site based on the order of sites retrieved from Sitecore
+export const siteResolver = new SiteResolver(sites, ResolverMode.Headles);

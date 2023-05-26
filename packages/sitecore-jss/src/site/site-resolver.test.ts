@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import { SiteResolver } from './site-resolver';
+import { ResolverMode, SiteResolver } from './site-resolver';
 
 describe('SiteResolver', () => {
   describe('getByHost', () => {
@@ -64,7 +64,7 @@ describe('SiteResolver', () => {
       expect(site?.name).to.equal('foo');
     });
 
-    it('should prefer most specific match', () => {
+    it('should prefer most specific match by default', () => {
       const resolver = new SiteResolver([
         { hostName: '*', language: '', name: 'foo' },
         { hostName: '*.app.net', language: '', name: 'bar' },
@@ -83,6 +83,48 @@ describe('SiteResolver', () => {
       site = resolver.getByHost('Baz.app.net');
       expect(site).to.not.be.undefined;
       expect(site?.name).to.equal('baz');
+    });
+
+    it('should prefer most specific match in Headless mode', () => {
+      const resolver = new SiteResolver([
+        { hostName: '*', language: '', name: 'foo' },
+        { hostName: '*.app.net', language: '', name: 'bar' },
+        { hostName: 'i.app.net', language: '', name: 'i-bar' },
+        { hostName: 'baz.app.net', language: '', name: 'baz' },
+      ], ResolverMode.Headless);
+      let site = resolver.getByHost('foo.net');
+      expect(site).to.not.be.undefined;
+      expect(site?.name).to.equal('foo');
+      site = resolver.getByHost('bar.app.net');
+      expect(site).to.not.be.undefined;
+      expect(site?.name).to.equal('bar');
+      site = resolver.getByHost('i.app.net');
+      expect(site).to.not.be.undefined;
+      expect(site?.name).to.equal('i-bar');
+      site = resolver.getByHost('Baz.app.net');
+      expect(site).to.not.be.undefined;
+      expect(site?.name).to.equal('baz');
+    });
+
+    it('should pick the first match in Classic mode', () => {
+      const resolver = new SiteResolver([
+        { hostName: '*.app.net', language: '', name: 'bar' },
+        { hostName: 'i.app.net', language: '', name: 'i-bar' },
+        { hostName: '*', language: '', name: 'foo' },
+        { hostName: 'baz.app.net', language: '', name: 'baz' },
+      ], ResolverMode.Classic);
+      let site = resolver.getByHost('foo.net');
+      expect(site).to.not.be.undefined;
+      expect(site?.name).to.equal('foo');
+      site = resolver.getByHost('bar.app.net');
+      expect(site).to.not.be.undefined;
+      expect(site?.name).to.equal('bar');
+      site = resolver.getByHost('i.app.net');
+      expect(site).to.not.be.undefined;
+      expect(site?.name).to.equal('bar');
+      site = resolver.getByHost('Baz.app.net');
+      expect(site).to.not.be.undefined;
+      expect(site?.name).to.equal('bar');
     });
 
     it('should prefer first site match for same hostName', () => {
