@@ -11,6 +11,24 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 21.1.6
+
+### 🐛 Bug Fixes
+
+`[templates/nextjs-sxa]` Add condition DISABLE_SSG_FETCH for 404/500 pages to enable full ISR (Incremental Static Regeneration) flow ([#1496](https://github.com/Sitecore/jss/pull/1496))
+
+## 21.1.5
+
+### 🐛 Bug Fixes
+
+* `[create-sitecore-jss]` Change ^ to ~ for versioning in templates and use exact versions for sitecore-jss monorepo dependencies.
+
+## 21.1.4
+
+### 🐛 Bug Fixes
+
+* `[create-sitecore-jss]` Change ^ to ~ for versioning in templates.
+
 ## 21.1.3
 
 ### 🐛 Bug Fixes
