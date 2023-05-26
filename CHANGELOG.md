@@ -15,7 +15,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-`[templates/nextjs-sxa]` Add condition DISABLE_SSG_FETCH for 404/500 pages to enable full ISR (Incremental Static Regeneration) flow ([#1496](https://github.com/Sitecore/jss/pull/1496))
+* `[templates/nextjs-sxa]` Add condition DISABLE_SSG_FETCH for 404/500 pages to enable full ISR (Incremental Static Regeneration) flow ([#1496](https://github.com/Sitecore/jss/pull/1496))
 
 ## 21.1.5
 
