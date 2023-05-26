@@ -61,6 +61,12 @@ Our versioning strategy is as follows:
 * [node-headless-ssr-experience-edge] Add helper comment for rootItemId ([#1491](https://github.com/Sitecore/jss/pull/1491))
 * `[templates/nextjs-sxa]` Add condition DISABLE_SSG_FETCH for 404/500 pages to enable full ISR (Incremental Static Regeneration) flow ([#1496](https://github.com/Sitecore/jss/pull/1496))
 
+## 21.1.6
+
+### 🐛 Bug Fixes
+
+* `[templates/nextjs-sxa]` Add condition DISABLE_SSG_FETCH for 404/500 pages to enable full ISR (Incremental Static Regeneration) flow ([#1496](https://github.com/Sitecore/jss/pull/1496))
+
 ## 21.1.5
 
 ### 🐛 Bug Fixes
