@@ -30,7 +30,7 @@ export const RichText = (props: RichTextProps): JSX.Element => {
     if (hasText && !isEditing) {
       initializeLinks();
     }
-  }, []);
+  }, [hasText]);
 
   const routeHandler = (ev: MouseEvent) => {
     if (!ev.target) return;
