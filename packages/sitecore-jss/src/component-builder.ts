@@ -1,5 +1,3 @@
-export type ComponentFactory<ComponentType> = (componentName: string) => ComponentType | null;
-
 export type ComponentBuilderBaseConfig<ComponentType> = {
   components: Map<string, ComponentType>;
 };
@@ -11,5 +9,5 @@ export abstract class ComponentBuilderBase<ComponentType> {
     this.components = new Map([...config.components]);
   }
 
-  protected abstract getComponentFactory(componentName: string): ComponentFactory<ComponentType>;
+  protected abstract getComponentFactory(componentName: string): unknown;
 }

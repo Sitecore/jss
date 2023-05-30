@@ -1,9 +1,9 @@
 import path from 'path';
 import fs from 'fs';
-import chokidar from 'chokidar';
 import { getComponentList } from './utils';
 import { getComponentBuilderTemplate } from './templates/component-builder';
 import { PackageDefinition } from '../types';
+import { watchItems } from '../utils';
 
 const componentBuilderOutputPath = 'src/temp/componentBuilder.js';
 
@@ -26,10 +26,7 @@ export function generateComponentBuilder({
 function watchComponentBuilder(componentRootPath: string, packages?: PackageDefinition[]) {
   console.log(`Watching for changes to component builder sources in ${componentRootPath}...`);
 
-  chokidar
-    .watch(componentRootPath, { ignoreInitial: true, awaitWriteFinish: true })
-    .on('add', writeComponentBuilder.bind(null, componentRootPath, packages))
-    .on('unlink', writeComponentBuilder.bind(null, componentRootPath, packages));
+  watchItems([componentRootPath], writeComponentBuilder.bind(null, componentRootPath, packages));
 }
 
 function writeComponentBuilder(componentRootPath: string, packages: PackageDefinition[] = []) {

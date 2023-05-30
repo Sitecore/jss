@@ -31,7 +31,7 @@ export {
 } from './disconnected-server/create-default-disconnected-server';
 export { ScJssConfig, JssConfiguration, resolveScJssConfig } from './resolve-scjssconfig';
 export { strip } from './templating/strip';
-export { getItems, writePlugins, watchItems } from './templating/utils';
+export { getItems, writePlugins, watchItems, scaffoldFile } from './templating/utils';
 export {
   PluginDefinition,
   ModuleType,

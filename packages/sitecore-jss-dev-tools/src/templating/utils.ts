@@ -128,9 +128,9 @@ export function scaffoldFile(
   rootPath: string,
   fileContent: string,
   filename: string,
-  componentPath: string
+  componentPath?: string
 ): string | null {
-  const outputDir = path.join(rootPath, componentPath);
+  const outputDir = componentPath ? path.join(rootPath, componentPath) : rootPath;
   const outputFile = path.join(outputDir, filename);
 
   if (fs.existsSync(outputFile)) {
