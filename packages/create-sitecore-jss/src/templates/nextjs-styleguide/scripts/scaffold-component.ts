@@ -19,6 +19,7 @@ import path from 'path';
 import chalk from 'chalk';
 import generateComponentSrc from './templates/component-src';
 import generateComponentManifest from './templates/component-manifest';
+import { scaffoldFile } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 const componentManifestDefinitionsPath = 'sitecore/definitions/components';
 
@@ -47,7 +48,8 @@ const filename = `${componentName}.tsx`;
 const componentOutputPath = scaffoldFile(
   componentRootPath,
   generateComponentSrc(componentName),
-  filename
+  filename,
+  componentPath
 );
 
 let manifestOutputPath = null;
@@ -57,7 +59,8 @@ if (fs.existsSync(componentManifestDefinitionsPath)) {
   manifestOutputPath = scaffoldFile(
     componentManifestDefinitionsPath,
     generateComponentManifest(componentName),
-    filename
+    filename,
+    componentPath
   );
 } else {
   console.log(
@@ -96,35 +99,4 @@ if (manifestOutputPath) {
     )} or ${chalk.green('jss deploy files')})`
   );
   console.log(`* Add the component to a route using Sitecore Experience Editor, and test it.`);
-}
-
-/**
- * Force to use `crlf` line endings, we are using `crlf` across the project.
- * Replace: `lf` (\n), `cr` (\r)
- * @param {string} content
- */
-function editLineEndings(content: string) {
-  return content.replace(/\r|\n/gm, '\r\n');
-}
-
-/**
- * Creates a file relative to the specified path if the file doesn't exist. Creates directories as needed.
- * @param {string} rootPath - the root path
- * @param {string} fileContent - the file content
- * @param {string} filename - the filename
- * @returns the new file's filepath
- */
-function scaffoldFile(rootPath: string, fileContent: string, filename: string): string | null {
-  const outputDir = path.join(rootPath, componentPath);
-  const outputFile = path.join(outputDir, filename);
-
-  if (fs.existsSync(outputFile)) {
-    console.log(chalk.red(`Skipping creating ${outputFile}; already exists.`));
-    return null;
-  }
-
-  fs.mkdirSync(outputDir, { recursive: true });
-  fs.writeFileSync(outputFile, editLineEndings(fileContent), 'utf8');
-  console.log(chalk.green(`File ${outputFile} has been scaffolded.`));
-  return outputFile;
 }

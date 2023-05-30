@@ -35,6 +35,7 @@ export {
   getItems,
   writePlugins,
   watchItems,
+  scaffoldFile,
   PluginDefinition,
   ModuleType,
   ComponentFile,
