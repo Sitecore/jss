@@ -178,56 +178,54 @@ describe('RichText', () => {
     document.body.removeChild(app);
   });
 
-    it('should initialize links using internalLinksSelector', () => {
-      const app = document.createElement('main');
+  it('should initialize links using internalLinksSelector', () => {
+    const app = document.createElement('main');
 
-      document.body.appendChild(app);
+    document.body.appendChild(app);
 
-      const router = Router();
+    const router = Router();
 
-      const props = {
-        field: {
-          value:
-            '<div id="test"><h1>Hello!</h1><a href="/testpath/t1?test=sample1">t1</a><a href="/t2">t2</a></div>',
-        },
-        internalLinksSelector: 'a[href^="/testpath"]',
-      };
+    const props = {
+      field: {
+        value:
+          '<div id="test"><h1>Hello!</h1><a href="/testpath/t1?test=sample1">t1</a><a href="/t2">t2</a></div>',
+      },
+      internalLinksSelector: 'a[href^="/testpath"]',
+    };
 
-      const c = mount(
-        <Page value={router}>
-          <RichText {...props} />
-        </Page>,
-        { attachTo: app }
-      );
+    const c = mount(
+      <Page value={router}>
+        <RichText {...props} />
+      </Page>,
+      { attachTo: app }
+    );
 
-      expect(c.html()).contains('<div id="test">');
-      expect(c.html()).contains('<h1>Hello!</h1>');
+    expect(c.html()).contains('<div id="test">');
+    expect(c.html()).contains('<h1>Hello!</h1>');
 
-      expect(router.prefetch).callCount(1);
+    expect(router.prefetch).callCount(1);
 
-      const main = document.querySelector('main');
-      
-      const links = main && main.querySelectorAll('a');
-      
-      const link1 = links && links[0];
-      const link2 = links && links[1];
-      
-      expect(link1!.href).to.endWith('/testpath/t1?test=sample1');
-      expect(link2!.pathname).to.equal('/t2');
-      
-      link1 && link1.click();
-      
-      expect(router.push).callCount(1);
+    const main = document.querySelector('main');
+    const links = main && main.querySelectorAll('a');
+    const link1 = links && links[0];
+    const link2 = links && links[1];
 
-      link2 && link2.click();
+    expect(link1!.href).to.endWith('/testpath/t1?test=sample1');
+    expect(link2!.pathname).to.equal('/t2');
 
-      // Check that push not invoked, because second link don't have event listener
-      expect(router.push).callCount(1);
+    link1 && link1.click();
 
-      expect(c.find(ReactRichText).length).to.equal(1);
+    expect(router.push).callCount(1);
 
-      document.body.removeChild(app);
-    });
+    link2 && link2.click();
+
+    // Check that push not invoked, because second link don't have event listener
+    expect(router.push).callCount(1);
+
+    expect(c.find(ReactRichText).length).to.equal(1);
+
+    document.body.removeChild(app);
+  });
 
   it('should not initialize links when does not have value', () => {
     const router = Router();
