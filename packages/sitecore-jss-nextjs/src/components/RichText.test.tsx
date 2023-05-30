@@ -119,7 +119,7 @@ describe('RichText', () => {
     expect(initialMountedComponent.html()).contains('<a href="/t100">1</a>');
     expect(initialMountedComponent.html()).contains('<a href="/t100">2</a>');
 
-    // expect(router.prefetch).callCount(1);
+    expect(router.prefetch).callCount(1);
 
     const main = document.querySelector('main');
 
@@ -155,7 +155,7 @@ describe('RichText', () => {
     expect(remountedComponent.html()).contains('<a href="/t20">1</a>');
     expect(remountedComponent.html()).contains('<a href="/t20">2</a>');
 
-    // expect(router.prefetch).callCount(1);
+    expect(router.prefetch).callCount(2);
 
     const links2 = main && main.querySelectorAll('a');
 
@@ -203,7 +203,8 @@ describe('RichText', () => {
       expect(c.html()).contains('<div id="test">');
       expect(c.html()).contains('<h1>Hello!</h1>');
 
-      
+      expect(router.prefetch).callCount(1);
+
       const main = document.querySelector('main');
       
       const links = main && main.querySelectorAll('a');
