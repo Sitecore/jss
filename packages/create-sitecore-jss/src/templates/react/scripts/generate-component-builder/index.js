@@ -2,10 +2,9 @@ const plugins = require('../temp/component-builder-plugins');
 
 /*
   COMPONENT BUILDER GENERATION
-  Generates the /src/temp/componentBuilder.js file which maps React components
-  to JSS components.
-
-  componentBuilder file includes and exports componentFactory implementation.
+  Generates the /src/temp/componentBuilder.js file.
+  
+  componentBuilder file includes and exports componentFactory which maps React components to JSS components.
 
   The component factory is a mapping between a string name and a React component instance.
   When the Sitecore Layout service returns a layout definition, it returns named components.
