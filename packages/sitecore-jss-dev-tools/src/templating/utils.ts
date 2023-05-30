@@ -2,7 +2,13 @@ import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 import chokidar from 'chokidar';
-import { GetItemsSettings, ModuleType, PluginFile } from './types';
+import {
+  ComponentFile,
+  GetItemsSettings,
+  ModuleType,
+  PackageDefinition,
+  PluginFile,
+} from './types';
 
 /**
  * Using @var path find all files recursively and generate output using @var resolveItem by calling it for each file
@@ -142,6 +148,24 @@ export function scaffoldFile(
   fs.writeFileSync(outputFile, editLineEndings(fileContent), 'utf8');
   console.log(chalk.green(`File ${outputFile} has been scaffolded.`));
   return outputFile;
+}
+
+/**
+ * Get components from a path in an app
+ * @param {string} path
+ */
+export function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
+  const components = getItems<PackageDefinition | ComponentFile>({
+    path,
+    resolveItem: (path, name) => ({
+      path: `${path}/${name}`,
+      componentName: name,
+      moduleName: name.replace(/[^\w]+/g, ''),
+    }),
+    cb: (name) => console.debug(`Registering JSS component ${name}`),
+  });
+
+  return components;
 }
 
 /**

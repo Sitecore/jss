@@ -6,6 +6,7 @@ import sinon from 'sinon';
 import fs from 'fs';
 import path from 'path';
 import * as utils from './component-factory-utils';
+import * as commonUtils from '../utils';
 import { expect } from 'chai';
 import {
   writeComponentFactory,
@@ -13,7 +14,7 @@ import {
   writeProjectComponents,
 } from './write-component-factory-creator';
 import { projectsOutputPath } from './constants';
-import { ComponentFile, PackageDefinition, Project } from '../utils';
+import { ComponentFile, PackageDefinition, Project } from '../types';
 
 describe('writeComponentFactoryCreator', () => {
   afterEach(() => {
@@ -108,7 +109,7 @@ describe('writeComponentFactoryCreator', () => {
         },
       ];
 
-      const getComponentStub = sinon.stub(utils, 'getComponentList');
+      const getComponentStub = sinon.stub(commonUtils, 'getComponentList');
       getComponentStub.withArgs(project.componentsPath).returns(projectComponents);
       sinon.stub(path, 'resolve').callsFake((path) => path);
       const writeFileStub = sinon.stub(fs, 'writeFileSync');
@@ -138,7 +139,7 @@ describe('writeComponentFactoryCreator', () => {
 
     sinon.stub(path, 'resolve').callsFake((path) => path);
 
-    sinon.stub(utils, 'getComponentList').returns([]);
+    sinon.stub(commonUtils, 'getComponentList').returns([]);
     sinon.stub(utils, 'getProjectList').returns([]);
 
     writeComponentFactoryCreator('src/components', 'src/projects');

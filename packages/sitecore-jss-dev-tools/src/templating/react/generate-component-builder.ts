@@ -1,9 +1,8 @@
 import path from 'path';
 import fs from 'fs';
-import { getComponentList } from './utils';
 import { getComponentBuilderTemplate } from './templates/component-builder';
 import { PackageDefinition } from '../types';
-import { watchItems } from '../utils';
+import { watchItems, getComponentList } from '../utils';
 
 const componentBuilderOutputPath = 'src/temp/componentBuilder.js';
 
@@ -23,13 +22,16 @@ export function generateComponentBuilder({
   }
 }
 
-function watchComponentBuilder(componentRootPath: string, packages?: PackageDefinition[]) {
+export function watchComponentBuilder(componentRootPath: string, packages?: PackageDefinition[]) {
   console.log(`Watching for changes to component builder sources in ${componentRootPath}...`);
 
   watchItems([componentRootPath], writeComponentBuilder.bind(null, componentRootPath, packages));
 }
 
-function writeComponentBuilder(componentRootPath: string, packages: PackageDefinition[] = []) {
+export function writeComponentBuilder(
+  componentRootPath: string,
+  packages: PackageDefinition[] = []
+) {
   const components = getComponentList(componentRootPath);
 
   components.unshift(...packages);

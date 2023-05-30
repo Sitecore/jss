@@ -2,9 +2,9 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { spy } from 'sinon';
-import { ComponentBuilder } from './ComponentBuilder';
+import { ComponentFactoryCreator } from './ComponentFactoryCreator';
 
-describe('ComponentBuilder', () => {
+describe('ComponentFactoryCreator', () => {
   const components = new Map();
   components.set('text', 'textcomponent');
   components.set('number', 'numbercomponent');
@@ -14,7 +14,7 @@ describe('ComponentBuilder', () => {
   projectComponents.set('bar', { a: 'acomponent', b: 'bcomponent' });
 
   it('should set components', () => {
-    const creator = new ComponentBuilder({ components, projectComponents });
+    const creator = new ComponentFactoryCreator({ components, projectComponents });
 
     const expectedMap = new Map();
     expectedMap.set('text', 'textcomponent');
@@ -42,7 +42,7 @@ describe('ComponentBuilder', () => {
       d: { element: () => 'dcomponent' },
     });
 
-    const creator = new ComponentBuilder({ components, projectComponents });
+    const creator = new ComponentFactoryCreator({ components, projectComponents });
 
     describe('default', () => {
       const componentFactory = creator.getComponentFactory();
@@ -127,7 +127,7 @@ describe('ComponentBuilder', () => {
       b: { default: 'bcomponent' },
     });
 
-    const creator = new ComponentBuilder({ components, projectComponents });
+    const creator = new ComponentFactoryCreator({ components, projectComponents });
 
     describe('default', () => {
       const moduleFactory = creator.getModuleFactory();
@@ -165,7 +165,7 @@ describe('ComponentBuilder', () => {
   describe('getComponent', () => {
     describe('project name is provided', () => {
       it('should return project component', () => {
-        const creator = new ComponentBuilder({ components, projectComponents });
+        const creator = new ComponentFactoryCreator({ components, projectComponents });
 
         expect(creator['getComponent']({ componentName: 'b', projectName: 'bar' })).to.equal(
           'bcomponent'
@@ -173,7 +173,7 @@ describe('ComponentBuilder', () => {
       });
 
       it('should return component when project component does not exist', () => {
-        const creator = new ComponentBuilder({ components, projectComponents });
+        const creator = new ComponentFactoryCreator({ components, projectComponents });
 
         expect(creator['getComponent']({ componentName: 'number', projectName: 'bar' })).to.equal(
           'numbercomponent'
@@ -182,20 +182,20 @@ describe('ComponentBuilder', () => {
     });
 
     it('should return component', () => {
-      const creator = new ComponentBuilder({ components, projectComponents });
+      const creator = new ComponentFactoryCreator({ components, projectComponents });
 
       expect(creator['getComponent']({ componentName: 'number' })).to.equal('numbercomponent');
     });
 
     it('should return undefined when component does not exist', () => {
-      const creator = new ComponentBuilder({ components, projectComponents });
+      const creator = new ComponentFactoryCreator({ components, projectComponents });
 
       expect(creator['getComponent']({ componentName: 'test' })).to.equal(undefined);
     });
   });
 
   it('getProjectComponentName', () => {
-    const creator = new ComponentBuilder({ components: new Map() });
+    const creator = new ComponentFactoryCreator({ components: new Map() });
 
     expect(creator['getProjectComponentName']('foo', 'bar')).to.equal('foo_bar');
   });

@@ -1,9 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import { ComponentFile, PackageDefinition, Project } from '../types';
+import { getComponentList } from '../utils';
 import { generateComponentFactoryCreator } from './templates/component-factory-creator';
 import { generateProjectComponents } from './templates/project-components';
-import { getComponentList, getProjectList } from './component-factory-utils';
+import { getProjectList } from './component-factory-utils';
 import { componentFactoryOutputPath, projectsOutputPath } from './constants';
 
 /**

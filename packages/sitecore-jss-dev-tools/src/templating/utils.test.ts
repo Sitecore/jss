@@ -5,7 +5,6 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import fs from 'fs';
 import { editLineEndings, getItems, scaffoldFile } from './utils';
-// import * as utils from './utils';
 
 describe('utils', () => {
   describe('getItems', () => {

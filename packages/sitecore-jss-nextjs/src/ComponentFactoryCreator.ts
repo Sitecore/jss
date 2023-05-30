@@ -1,8 +1,4 @@
-import {
-  ComponentFactory,
-  ComponentBuilderBase,
-  ComponentBuilderBaseConfig,
-} from '@sitecore-jss/sitecore-jss-react';
+import { ComponentFactory } from '@sitecore-jss/sitecore-jss-react';
 import {
   Module,
   LazyModule,
@@ -12,7 +8,8 @@ import {
 /**
  * With multi-project setups we use a config for a factory that can return both default and project components
  */
-type ComponentBuilderConfig = ComponentBuilderBaseConfig<ComponentType> & {
+type FactoryCreatorConfig = {
+  components: Map<string, ComponentType>;
   projectComponents?: Map<string, { [key: string]: ComponentType }>;
 };
 
@@ -30,11 +27,12 @@ type ComponentType = Module | LazyModule;
  * Class used to generate and use a component factory with multi-project support
  * Used in a next.js app,
  */
-export class ComponentBuilder extends ComponentBuilderBase<ComponentType> {
+export class ComponentFactoryCreator {
+  protected components: Map<string, ComponentType>;
   protected DEFAULT_EXPORT_NAME = 'Default';
 
-  constructor(protected config: ComponentBuilderConfig) {
-    super(config);
+  constructor(protected config: FactoryCreatorConfig) {
+    this.components = new Map([...config.components]);
     this.setProjectComponents();
   }
 
