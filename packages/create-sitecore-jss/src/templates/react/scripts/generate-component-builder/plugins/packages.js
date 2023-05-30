@@ -1,5 +1,5 @@
 /**
- * Generates the component builder file.
+ * Provides custom packages configuration
  */
 class PackagesPlugin {
   order = 0;
