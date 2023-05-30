@@ -1,4 +1,5 @@
-import { ComponentFile, PackageDefinition, Project, getItems } from '../utils';
+import { ComponentFile, PackageDefinition, Project } from '../types';
+import { getItems } from '../utils';
 
 /**
  * Get components from a path in an app

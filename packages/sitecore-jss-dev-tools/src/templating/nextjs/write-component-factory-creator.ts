@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { ComponentFile, PackageDefinition, Project } from '../utils';
+import { ComponentFile, PackageDefinition, Project } from '../types';
 import { generateComponentFactoryCreator } from './templates/component-factory-creator';
 import { generateProjectComponents } from './templates/project-components';
 import { getComponentList, getProjectList } from './component-factory-utils';
@@ -13,7 +13,7 @@ import { componentFactoryOutputPath, projectsOutputPath } from './constants';
  * * Project components under src/projects/<project>/components/**
  * (subfolders are searched recursively).
  * The filename, with the extension stripped, is used for the component's
- * string name (for mapping to Sitecore). 
+ * string name (for mapping to Sitecore).
  * The filename, with extension and non-word characters stripped, is used to identify the 
  * component's JavaScript module definition (for initializing new component instances in code).
  * Modify this function to use a different convention.

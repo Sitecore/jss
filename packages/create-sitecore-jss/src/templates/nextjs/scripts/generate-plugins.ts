@@ -59,6 +59,6 @@ run(pluginDefinitions);
 
 function run(definitions: PluginDefinition[]) {
   definitions.forEach(definition => {
-    writePlugins(definition.listPath, definition.rootPath, definition.moduleType);
+    writePlugins(definition);
   });
 }

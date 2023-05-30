@@ -2,11 +2,7 @@ import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 import chokidar from 'chokidar';
-
-export enum ModuleType {
-  CJS,
-  ESM,
-}
+import { GetItemsSettings, ModuleType, PluginFile } from './types';
 
 /**
  * Using @var path find all files recursively and generate output using @var resolveItem by calling it for each file
@@ -57,16 +53,23 @@ export function getItems<Item>(settings: GetItemsSettings<Item>): Item[] {
 
 /**
  * Generates the plugins file and saves it to the filesystem.
- * By convention, we expect to find plugins under src/lib/{pluginName}/plugins/** (subfolders are
+ * By convention, we expect to find plugins under {pluginName}/plugins/** (subfolders are
  * searched recursively). The filename, with extension and non-word characters
  * stripped, is used to identify the plugin's JavaScript module definition (for adding
  * new plugin to the factory).
- * Modify this function to use a different convention.
- * @param {string} listPath path to write plugins to
- * @param {string} rootPath plugin source path
- * @param {string} moduleType module type: CJS or ESM
+ * @param {Object} definition plugin definition
+ * @param {string} definition.listPath path to write plugins to
+ * @param {string} definition.rootPath plugin source path
+ * @param {string} definition.moduleType module type: CJS or ESM
+ * @param {boolean} [definition.relative] whether to use relative paths in the generated file. By default, absolute paths are used.
  */
-export function writePlugins(listPath: string, rootPath: string, moduleType: ModuleType) {
+export function writePlugins(definition: {
+  listPath: string;
+  rootPath: string;
+  moduleType: ModuleType;
+  relative?: boolean;
+}) {
+  const { rootPath, listPath, moduleType, relative } = definition;
   const segments = rootPath.split('/');
   const pluginName = segments[segments.length - 2];
   const plugins = getPluginList(rootPath, pluginName);
@@ -74,9 +77,13 @@ export function writePlugins(listPath: string, rootPath: string, moduleType: Mod
 
   fileContent = plugins
     .map((plugin) => {
+      const sourcePath = relative
+        ? path.relative(path.dirname(listPath), plugin.path).replace(/\\/g, '/')
+        : plugin.path;
+
       return moduleType === ModuleType.CJS
-        ? `exports.${plugin.name} = require('${plugin.path.replace('src/', '../')}');`
-        : `export { ${plugin.name} } from '${plugin.path}';`;
+        ? `exports.${plugin.name} = require('${sourcePath.replace('src/', '../')}');`
+        : `export { ${plugin.name} } from '${sourcePath}';`;
     })
     .join('\r\n')
     .concat('\r\n');
@@ -140,13 +147,13 @@ export function scaffoldFile(
 /**
  * Run watch mode, watching on @var paths
  * @param {string[]} paths paths to watch by chokidar
- * @param {Function<void>}componentFactoryCallback component factory method to call on changes to watched components
+ * @param {Function<void>} componentBuilderCb component builder method to call on changes to watched components
  */
-export function watchItems(paths: string[], componentFactoryCallback: () => void): void {
+export function watchItems(paths: string[], componentBuilderCb: () => void): void {
   chokidar
     .watch(paths, { ignoreInitial: true, awaitWriteFinish: true })
-    .on('add', componentFactoryCallback)
-    .on('unlink', componentFactoryCallback);
+    .on('add', componentBuilderCb)
+    .on('unlink', componentBuilderCb);
 }
 
 /**
@@ -157,72 +164,3 @@ export function watchItems(paths: string[], componentFactoryCallback: () => void
 export function editLineEndings(content: string) {
   return content.replace(/\r|\n/gm, '\r\n');
 }
-
-/**
- * @param {string} path plugins path
- * @param resolveItem will resolve item in required data format
- * @param cb will be called when new item is found
- * @param {RegExp} fileFormat Matches specific files
- * @param {boolean} recursive if true will search recursively
- */
-type GetItemsSettings<Item> = {
-  path: string;
-  resolveItem: (path: string, name: string) => Item;
-  cb?: (name: string) => void;
-  fileFormat?: RegExp;
-  recursive?: boolean;
-};
-
-/**
- * Type to specify plugin file details
- */
-interface PluginFile {
-  path: string;
-  name: string;
-}
-
-/**
- * Definition to be used for plugin registration during bootstrap
- */
-export interface PluginDefinition {
-  /**
-   * destination path to compile plugins to
-   */
-  listPath: string;
-  /**
-   * source path for where the plugins are defined
-   */
-  rootPath: string;
-  /**
-   * CJS or ESM - which type to compile plugins to
-   */
-  moduleType: ModuleType;
-}
-
-/**
- * Describes a file that represents a component definition
- */
-export interface ComponentFile {
-  path: string;
-  moduleName: string;
-  componentName: string;
-}
-
-/**
- * Describes a package and components to be imported
- */
-export interface PackageDefinition {
-  name: string;
-  components: {
-    moduleName: string;
-    componentName: string;
-  }[];
-}
-
-/**
- * Describes a project item
- */
-export type Project = {
-  projectName: string;
-  componentsPath: string;
-};

@@ -13,5 +13,7 @@
     "dist", 
     "src/test", 
     "src/**/*.test.ts",
-    "nextjs.d.ts"]
+    "nextjs.d.ts",
+    "react.d.ts",
+  ]
 }

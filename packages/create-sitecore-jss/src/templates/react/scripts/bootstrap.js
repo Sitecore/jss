@@ -26,7 +26,6 @@ const configOverride = disconnected ? { sitecoreApiHost: `http://localhost:${por
 
 configGenerator(configOverride);
 
-/*
-  COMPONENT FACTORY GENERATION
-*/
-require('./generate-component-factory');
+require('./generate-plugins');
+
+require('./generate-component-builder');

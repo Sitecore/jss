@@ -2,7 +2,7 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import { Route, Routes, useParams } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
-import componentFactory from './temp/componentFactory';
+import componentFactory from './temp/componentBuilder';
 import RouteHandler from './RouteHandler';
 
 // This is the main JSX entry point of the app invoked by the renderer (server or client rendering).

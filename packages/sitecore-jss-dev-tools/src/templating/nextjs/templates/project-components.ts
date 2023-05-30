@@ -1,4 +1,4 @@
-﻿import { ComponentFile } from '../../utils';
+﻿import { ComponentFile } from '../../types';
 
 /**
  * Generates an auto-generated file that exports all components in the project.

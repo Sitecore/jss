@@ -10,6 +10,7 @@
     "src/bin",
     "src/test*",
     "nextjs.d.ts",
+    "react.d.ts",
     "node_modules",
     "src/**/*.test.ts"
   ]

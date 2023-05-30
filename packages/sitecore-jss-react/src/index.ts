@@ -1,4 +1,9 @@
-export { constants, enableDebug } from '@sitecore-jss/sitecore-jss';
+export {
+  constants,
+  enableDebug,
+  ComponentBuilderBase,
+  ComponentBuilderBaseConfig,
+} from '@sitecore-jss/sitecore-jss';
 export {
   isEditorActive,
   resetEditorChromes,
@@ -83,3 +88,4 @@ export { withEditorChromes } from './enhancers/withEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';
 export { withDatasourceCheck } from './enhancers/withDatasourceCheck';
 export { EditFrameProps, EditFrame } from './components/EditFrame';
+export { ComponentBuilder } from './ComponentBuilder';
