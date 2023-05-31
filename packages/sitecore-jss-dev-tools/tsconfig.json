@@ -7,5 +7,5 @@
     "typeRoots": ["node_modules/@types"],
     "declarationDir": "./types",
   },
-  "exclude": ["node_modules", "types", "dist", "src/test", "src/**/*.test.ts", "templating.d.ts"]
+  "exclude": ["node_modules", "types", "dist", "src/test", "src/**/*.test.ts", "react.d.ts"]
 }

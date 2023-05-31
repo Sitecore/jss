@@ -9,8 +9,13 @@
 
 const pluginDefinitions = [
   {
-    distPath: 'scripts/temp/component-builder-plugins.js',
-    rootPath: 'scripts/component-builder/plugins',
+    distPath: 'scripts/temp/generate-component-builder-plugins.js',
+    rootPath: 'scripts/generate-component-builder/plugins',
+    moduleType: ModuleType.CJS,
+  },
+  {
+    distPath: 'scripts/temp/config-plugins.js',
+    rootPath: 'scripts/config/plugins',
     moduleType: ModuleType.CJS,
   },
 ];
@@ -18,7 +23,7 @@ const pluginDefinitions = [
 run(pluginDefinitions);
 
 function run(definitions) {
-  definitions.forEach((definition) => {
+  definitions.forEach(definition => {
     generatePlugins(definition);
   });
 }

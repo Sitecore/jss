@@ -1,4 +1,4 @@
-const plugins = require('../temp/component-builder-plugins');
+const plugins = require('../temp/generate-component-builder-plugins');
 
 /*
   COMPONENT BUILDER GENERATION

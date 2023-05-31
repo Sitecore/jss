@@ -39,6 +39,11 @@ if (fs.existsSync(componentManifestDefinitionsPath)) {
 
 const componentOutputPath = scaffoldComponent();
 
+// Component is not scaffolded if it already exists
+if (!componentOutputPath) {
+  return;
+}
+
 console.log();
 console.log(chalk.green(`Component ${componentName} has been scaffolded.`));
 console.log(chalk.green('Next steps:'));

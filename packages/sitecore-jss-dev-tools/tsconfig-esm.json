@@ -11,6 +11,6 @@
     "src/test*",
     "node_modules",
     "src/**/*.test.ts",
-    "templating.d.ts"
+    "react.d.ts"
   ]
 }
