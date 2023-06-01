@@ -22,6 +22,12 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
+* `[templates/react]` `[sitecore-jss-dev-tools]` Refactoring for react template ([#1506](https://github.com/Sitecore/jss/pull/1506)):
+  * `[templates/react]` Introduced plugins architecture for boostrap, config and component builder generation process
+  * `[sitecore-jss-react]` Introduced _ComponentBuilder_ class for generating component factories
+  * `[sitecore-jss-dev-tools]`:
+    * Introduced _react_ submodule, which contains component builder generation functionality
+    * Added common utils for plugins, file generation
 * `[templates/nextjs-personalize]` Disable page view tracking event in development ([#1414](https://github.com/Sitecore/jss/pull/1414))
 * `[templates/nextjs-sxa]` Add custom template for _jss scaffold_ ([#1420](https://github.com/Sitecore/jss/pull/1420))
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` FEaaS component will render 'staged' variant for editing and preview and 'published' variant for live site by default, unless variant is overriden via rendering parameters. ([#1433](https://github.com/Sitecore/jss/pull/1433))

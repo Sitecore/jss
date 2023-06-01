@@ -17,6 +17,10 @@ describe('scaffold', () => {
   });
 
   describe('scaffoldFile', () => {
+    afterEach(() => {
+      sinon.restore();
+    });
+
     const setupTest = () => {
       return {
         mkDirStub: sinon.stub(fs, 'mkdir'),

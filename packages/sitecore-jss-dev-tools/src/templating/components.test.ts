@@ -10,6 +10,10 @@ describe('components', () => {
   });
 
   describe('getComponentList', () => {
+    afterEach(() => {
+      sinon.restore();
+    });
+
     it('should return list of components', () => {
       const items = [
         {
