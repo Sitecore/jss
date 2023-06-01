@@ -47,12 +47,9 @@ const componentOutputPath = scaffoldFile(
   componentPath
 );
 
-console.log(
-  chalk.green(`
-Scaffolding of ${componentName} complete.
-Next steps:`)
-);
+console.log(chalk.green(`Scaffolding of ${componentName} complete.`));
 
 if (componentOutputPath) {
+  console.log(chalk.green('Next steps:'));
   console.log(`* Implement the React component in ${chalk.green(componentOutputPath)}`);
 }

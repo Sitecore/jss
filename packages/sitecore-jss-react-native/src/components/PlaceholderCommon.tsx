@@ -143,7 +143,7 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
             component = this.getComponentForRendering(componentRendering);
             if (!component) {
               console.error(
-                `Placeholder ${name} contains unknown component ${componentRendering.componentName}. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
+                `Placeholder ${name} contains unknown component ${componentRendering.componentName}. Ensure that a React component exists for it, and that it is registered in your component factory implementation.`
               );
 
               component = missingComponentComponent || MissingComponent;
