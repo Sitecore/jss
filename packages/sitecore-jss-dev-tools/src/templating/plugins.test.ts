@@ -69,6 +69,7 @@ describe('plugins', () => {
       const logStub = sinon.stub(console, 'log');
       const writeFileStub = sinon.stub(fs, 'writeFileSync');
       sinon.stub(path, 'resolve').callsFake((path) => path);
+      sinon.stub(path, 'relative').callsFake((_, path) => path);
 
       const expectedFileContent = [
         "exports.fooPlugin = require('scripts/component-builder/plugins/foo');\r\n",
@@ -141,6 +142,7 @@ describe('plugins', () => {
       const logStub = sinon.stub(console, 'log');
       const writeFileStub = sinon.stub(fs, 'writeFileSync');
       sinon.stub(path, 'resolve').callsFake((path) => path);
+      sinon.stub(path, 'relative').callsFake((_, path) => path);
 
       const expectedFileContent = [
         "export { fooPlugin } from 'scripts/component-builder/plugins/foo';\r\n",

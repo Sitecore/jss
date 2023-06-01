@@ -57,7 +57,6 @@ export function writeComponentBuilder(
   const componentBuilderPath = path.resolve(componentBuilderOutputPath);
   const fileContent = getComponentBuilderTemplate(components, componentBuilderPath);
   console.log(`Writing component builder to ${componentBuilderPath}`);
-  console.log('FILE CONTENT!!!', componentBuilderPath, fileContent);
   fs.writeFileSync(componentBuilderPath, fileContent, {
     encoding: 'utf8',
   });
