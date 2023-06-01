@@ -51,19 +51,19 @@ describe('scaffold', () => {
           'utf8'
         )
       );
-      expect(result).to.equal('C:\\myapp\\FreshComponent\\index.ts');
+      expect(result).to.equal(filePath);
     });
 
     it('should return null when output file already exists', () => {
       const { mkDirStub, writeFileStub, scaffoldInput } = setupTest();
       const existsStub = sinon.stub(fs, 'existsSync');
-      existsStub.withArgs('C:\\myapp\\FreshComponent\\index.ts').returns(true);
-
       const filePath = path.join(
         scaffoldInput.rootPath,
         scaffoldInput.componentPath,
         scaffoldInput.filename
       );
+
+      existsStub.withArgs(filePath).returns(true);
 
       const result = scaffoldFile(filePath, scaffoldInput.fileContent);
 

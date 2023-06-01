@@ -15,6 +15,10 @@ describe('generate-component-builder', () => {
   });
 
   describe('generateComponentBuilder', () => {
+    afterEach(() => {
+      sinon.restore();
+    });
+
     it('default', () => {
       const componentsPath = 'src/components';
       const writeFileStub = sinon.stub(fs, 'writeFileSync');
