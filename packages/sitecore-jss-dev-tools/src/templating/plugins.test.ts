@@ -13,6 +13,10 @@ describe('plugins', () => {
   });
 
   describe('getPluginList', () => {
+    afterEach(() => {
+      sinon.restore();
+    });
+
     it('should return list of components', () => {
       const items = [
         {
@@ -45,6 +49,10 @@ describe('plugins', () => {
   });
 
   describe('generatePlugins', () => {
+    afterEach(() => {
+      sinon.restore();
+    });
+
     it('should generate file using CJS format', () => {
       const items: PluginFile[] = [
         {
