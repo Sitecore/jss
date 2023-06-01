@@ -103,6 +103,8 @@ export function generatePlugins(definition: PluginDefinition) {
 
   const filePath = path.resolve(distPath);
   console.log(`Writing ${pluginName} plugins to ${filePath}`);
+
+  console.log('FILE CONTENT!!!', filePath, fileContent);
   fs.writeFileSync(filePath, fileContent, {
     encoding: 'utf8',
   });
