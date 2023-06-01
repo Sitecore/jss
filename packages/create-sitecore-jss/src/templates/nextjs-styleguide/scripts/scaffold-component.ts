@@ -15,7 +15,6 @@
 /* eslint-disable no-throw-literal,no-console */
 
 import fs from 'fs';
-import path from 'path';
 import chalk from 'chalk';
 import generateComponentSrc from './templates/component-src';
 import generateComponentManifest from './templates/component-manifest';
