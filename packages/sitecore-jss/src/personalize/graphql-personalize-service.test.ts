@@ -242,7 +242,7 @@ describe('GraphQLPersonalizeService', () => {
             expect(newResult).to.deep.equal(undefined);
             resolve(undefined);
           }),
-        250
+        400
       );
     });
     await cacheNonUpdate;

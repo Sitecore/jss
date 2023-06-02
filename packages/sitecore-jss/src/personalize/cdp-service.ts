@@ -40,7 +40,7 @@ export type CdpServiceConfig = {
    */
   dataFetcherResolver?: DataFetcherResolver;
   /**
-   * Timeout (ms) for CDP request. Default is 250.
+   * Timeout (ms) for CDP request. Default is 400.
    */
   timeout?: number;
 };
@@ -75,7 +75,7 @@ export class CdpService {
    */
   private timeout: number;
   constructor(protected config: CdpServiceConfig) {
-    this.timeout = config.timeout || 250;
+    this.timeout = config.timeout || 400;
   }
 
   /**
