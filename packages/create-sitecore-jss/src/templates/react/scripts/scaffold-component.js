@@ -6,6 +6,7 @@
 
 /* eslint-disable no-throw-literal,no-console */
 
+const { scaffoldFile } = require('@sitecore-jss/sitecore-jss-dev-tools');
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
@@ -38,8 +39,12 @@ if (fs.existsSync(componentManifestDefinitionsPath)) {
 
 const componentOutputPath = scaffoldComponent();
 
+// Component is not scaffolded if it already exists
+if (!componentOutputPath) {
+  return;
+}
+
 console.log();
-console.log(chalk.green(`Component ${componentName} has been scaffolded.`));
 console.log(chalk.green('Next steps:'));
 if (manifestOutputPath) {
   console.log(`* Define the component's data in ${chalk.green(manifestOutputPath)}`);
@@ -70,15 +75,6 @@ if (manifestOutputPath) {
   TEMPLATING FUNCTIONS
 */
 
-/**
- * Force to use `crlf` line endings, we are using `crlf` across the project.
- * Replace: `lf` (\n), `cr` (\r)
- * @param {string} content
- */
-function editLineEndings(content) {
-  return content.replace(/\r|\n/gm, '\r\n');
-}
-
 function scaffoldComponent() {
   const exportVarName = componentName.replace(/[^\w]+/g, '');
 
@@ -95,19 +91,9 @@ const ${exportVarName} = (props) => (
 export default ${exportVarName};
 `;
 
-  const outputDirectoryPath = path.join(componentRootPath, componentName);
+  const outputFilePath = path.join(componentRootPath, `${componentName}.js`);
 
-  if (fs.existsSync(outputDirectoryPath)) {
-    throw `Component path ${outputDirectoryPath} already existed. Not creating component.`;
-  }
-
-  fs.mkdirSync(outputDirectoryPath);
-
-  const outputFilePath = path.join(outputDirectoryPath, 'index.js');
-
-  fs.writeFileSync(outputFilePath, editLineEndings(componentTemplate), 'utf8');
-
-  return outputFilePath;
+  return scaffoldFile(outputFilePath, componentTemplate);
 }
 
 function scaffoldManifest() {
@@ -133,16 +119,7 @@ export default function (manifest) {
 }
 `;
 
-  const outputFilePath = path.join(
-    componentManifestDefinitionsPath,
-    `${componentName}.sitecore.js`
-  );
+  const filePath = path.join(componentManifestDefinitionsPath, `${componentName}.sitecore.js`);
 
-  if (fs.existsSync(outputFilePath)) {
-    throw `Manifest definition path ${outputFilePath} already exists. Not creating manifest definition.`;
-  }
-
-  fs.writeFileSync(outputFilePath, editLineEndings(manifestTemplate), 'utf8');
-
-  return outputFilePath;
+  return scaffoldFile(filePath, manifestTemplate);
 }

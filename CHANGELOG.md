@@ -22,6 +22,14 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
+* `[templates/react]` `[sitecore-jss-dev-tools]` Refactoring for react template ([#1506](https://github.com/Sitecore/jss/pull/1506)):
+  * `[templates/react]`:
+    * Introduced plugins architecture for boostrap, config and component builder generation process
+    * Updated components tree to represent the structure: _fields_, _styleguide_, _graphql_ folders.
+  * `[sitecore-jss-react]` Introduced _ComponentBuilder_ class for generating component factories
+  * `[sitecore-jss-dev-tools]`:
+    * Introduced _react_ submodule, which contains component builder generation functionality
+    * Added common utils for plugins, file generation
 * `[templates/nextjs-personalize]` Disable page view tracking event in development ([#1414](https://github.com/Sitecore/jss/pull/1414))
 * `[templates/nextjs-sxa]` Add custom template for _jss scaffold_ ([#1420](https://github.com/Sitecore/jss/pull/1420))
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` FEaaS component will render 'staged' variant for editing and preview and 'published' variant for live site by default, unless variant is overriden via rendering parameters. ([#1433](https://github.com/Sitecore/jss/pull/1433))
@@ -47,6 +55,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[templates/angular]` `[templates/vue]` Link component does not add anchor to the internal links ([#1511](https://github.com/Sitecore/jss/pull/1511))
+* `[templates/react]` [React] Cannot find package '@babel/plugin-proposal-export-namespace-from' ([#1510](https://github.com/Sitecore/jss/pull/1510))
 * `[templates/angular]` `[templates/vue]` Sitecore service endpoint is not proxied in Connected mode ([#1465](https://github.com/Sitecore/jss/pull/1465))
 * `[templates/nextjs]` Healthz shows page not found for multisite setup ([#1443](https://github.com/Sitecore/jss/pull/1443))
 * `[sitecore-jss-react]` Hydration error when render Link in Edit mode ([#1432](https://github.com/Sitecore/jss/pull/1432))
