@@ -14,7 +14,7 @@ export type GraphQLPersonalizeServiceConfig = CacheOptions & {
    */
   apiKey: string;
   /**
-   * Timeout (ms) for the Personalize request. Default is 250.
+   * Timeout (ms) for the Personalize request. Default is 400.
    */
   timeout?: number;
   /**
@@ -68,7 +68,7 @@ export class GraphQLPersonalizeService {
    * @param {GraphQLPersonalizeServiceConfig} config
    */
   constructor(protected config: GraphQLPersonalizeServiceConfig) {
-    this.config.timeout = config.timeout || 250;
+    this.config.timeout = config.timeout || 400;
     this.graphQLClient = this.getGraphQLClient();
     this.cache = this.getCacheClient();
   }

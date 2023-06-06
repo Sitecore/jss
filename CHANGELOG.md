@@ -33,6 +33,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` Remove .babelrc to (re)enable SWC compilation by default ([#1483](https://github.com/Sitecore/jss/pull/1483))
 * `[sitecore-jss]` Handle null items in graphql layout service. ([#1492](https://github.com/Sitecore/jss/pull/1492))
 * `[sitecore-jss]` `[templates/nextjs-personalize]` Introduced optional personalize scope identifier to isolate embedded personalization data among XM Cloud Environments that are sharing a Personalize tenant ([#1494](https://github.com/Sitecore/jss/pull/1494))
+* `[templates/nextjs-personalize]` `[sitecore-jss]` Update the default personalize middleware, personalize/cdp service timeout values to 400 ([#1507](https://github.com/Sitecore/jss/pull/1507))
 
 ### 🧹 Chores
 
@@ -60,6 +61,8 @@ Our versioning strategy is as follows:
 * Fix installed sitecore-jss-* dependency version ([#1478](https://github.com/Sitecore/jss/pull/1478))
 * [node-headless-ssr-experience-edge] Add helper comment for rootItemId ([#1491](https://github.com/Sitecore/jss/pull/1491))
 * `[templates/nextjs-sxa]` Add condition DISABLE_SSG_FETCH for 404/500 pages to enable full ISR (Incremental Static Regeneration) flow ([#1496](https://github.com/Sitecore/jss/pull/1496))
+* `[templates/nextjs-sxa]` Fix class .indent for component which have column size 12 ([#1505](https://github.com/Sitecore/jss/pull/1505))
+* `[templates/nextjs-sxa]` Fix type(from Text to RichText) of editing text in value Text2 for Promo Component in WithText variant ([#1504](https://github.com/Sitecore/jss/pull/1504)).
 
 ## 21.1.6
 
