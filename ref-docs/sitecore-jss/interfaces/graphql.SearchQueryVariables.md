@@ -26,7 +26,7 @@ Required. The language versions to search for. Fetch pages that have versions in
 
 #### Defined in
 
-[src/graphql/search-service.ts:43](https://github.com/Sitecore/jss/blob/a63ade5ad/packages/sitecore-jss/src/graphql/search-service.ts#L43)
+[src/graphql/search-service.ts:43](https://github.com/Sitecore/jss/blob/5fd343a40/packages/sitecore-jss/src/graphql/search-service.ts#L43)
 
 ___
 
@@ -44,7 +44,7 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 
 #### Defined in
 
-[src/graphql/search-service.ts:60](https://github.com/Sitecore/jss/blob/a63ade5ad/packages/sitecore-jss/src/graphql/search-service.ts#L60)
+[src/graphql/search-service.ts:60](https://github.com/Sitecore/jss/blob/5fd343a40/packages/sitecore-jss/src/graphql/search-service.ts#L60)
 
 ___
 
@@ -56,7 +56,7 @@ Optional. The ID of the search root item. Fetch items that have this item as an 
 
 #### Defined in
 
-[src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/a63ade5ad/packages/sitecore-jss/src/graphql/search-service.ts#L48)
+[src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/5fd343a40/packages/sitecore-jss/src/graphql/search-service.ts#L48)
 
 ___
 
@@ -68,4 +68,4 @@ Optional. Sitecore template ID(s). Fetch items that inherit from this template(s
 
 #### Defined in
 
-[src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/a63ade5ad/packages/sitecore-jss/src/graphql/search-service.ts#L53)
+[src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/5fd343a40/packages/sitecore-jss/src/graphql/search-service.ts#L53)

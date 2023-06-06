@@ -3,10 +3,8 @@ import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { InMemoryCache, NormalizedCacheObject, PossibleTypesMap } from '@apollo/client/core';
 import { Apollo, ApolloModule } from 'apollo-angular';
 import { HttpBatchLink } from 'apollo-angular/http';
-import { createPersistedQueryLink } from 'apollo-angular/persisted-queries';
 import { isPlatformServer } from '@angular/common';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
-import { sha256 } from 'js-sha256';
 import { environment } from '../environments/environment';
 import { JssGraphQLService } from './jss-graphql.service';
 
@@ -57,7 +55,6 @@ export class GraphQLModule {
       See the apollo-link documentation for more details.
     */
 
-
     // set sc_apikey header which is required for any GraphQL calls
     const sc_apikey = new HttpHeaders().set('sc_apikey', environment.sitecoreApiKey);
 
@@ -68,13 +65,8 @@ export class GraphQLModule {
     // ...or a batched link (multiple queries within 10ms all go in one HTTP request)
     const batchHttp = this.httpLink.create({
       uri: environment.graphQLEndpoint,
-      headers: sc_apikey
+      headers: sc_apikey,
     });
-
-    // ...and an automatic persisted query link, which reduces bandwidth by using query hashes to alias content
-    // the APQ link is _chained_ behind another link that performs the actual HTTP calls, so you can choose
-    // APQ + batched, or APQ + http links for example.
-    const automaticPersistHttp = createPersistedQueryLink({ sha256 }).concat(batchHttp);
 
     const possibleTypes = {} as PossibleTypesMap;
 
@@ -87,7 +79,7 @@ export class GraphQLModule {
     });
 
     this.apollo.create({
-      link: automaticPersistHttp,
+      link: batchHttp,
       cache,
       ssrMode: isPlatformServer(this.platformId),
       ssrForceFetchDelay: 100,
