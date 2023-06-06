@@ -70,7 +70,7 @@ describe('<a *scLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
-    expect(rendered.nativeElement.href).toContain(`${field.value.href}`);
+    expect(rendered.nativeElement.href).toContain(field.value.href);
     expect(rendered.nativeElement.innerHTML).toBe(field.value.text);
   });
 
@@ -83,7 +83,7 @@ describe('<a *scLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
-    expect(rendered.nativeElement.href).toContain(`${field.href}`);
+    expect(rendered.nativeElement.href).toContain(field.href);
     expect(rendered.nativeElement.innerHTML).toBe(field.text);
   });
 
