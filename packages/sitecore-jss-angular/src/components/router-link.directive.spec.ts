@@ -67,7 +67,6 @@ describe('<a *scRouterLink />', () => {
   it('should render value with editing explicitly disabled', () => {
     const field = {
       value: {
-        anchor: 'sample-anchor',
         href: '/lorem',
         text: 'ipsum',
       },
@@ -78,13 +77,12 @@ describe('<a *scRouterLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
-    expect(rendered.nativeElement.href).toContain(`${field.value.href}#${field.value.anchor}`);
+    expect(rendered.nativeElement.href).toContain(`${field.value.href}`);
     expect(rendered.nativeElement.innerHTML).toBe(field.value.text);
   });
 
   it('should render with href directly on provided field', () => {
     const field = {
-      anchor: 'sample-anchor',
       href: '/lorem',
       text: 'ipsum',
     };
@@ -92,7 +90,7 @@ describe('<a *scRouterLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
-    expect(rendered.nativeElement.href).toContain(`${field.href}#${field.anchor}`);
+    expect(rendered.nativeElement.href).toContain(`${field.href}`);
     expect(rendered.nativeElement.innerHTML).toBe(field.text);
   });
 
