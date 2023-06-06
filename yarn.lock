@@ -5904,12 +5904,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-feaas/clientside@npm:^0.1.48":
-  version: 0.1.48
-  resolution: "@sitecore-feaas/clientside@npm:0.1.48"
+"@sitecore-feaas/clientside@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "@sitecore-feaas/clientside@npm:0.2.1"
   peerDependencies:
     react-dom: ">=16.8.0"
-  checksum: cba16924228800d0ff11a13c1e99f0f9c1578e39e7496f3d86236d1b65885c8e37f2b5e5cea45c3bca8582fe6c59f7825526b41b636c2881b25bd2724a25fba7
+  checksum: 32f6f72fdea1c3e4a8bbefd58554d12b70578e90727a3126f14849f479e0158c700a2ba7a25029025d7263fad380d761002737c1f9a640c1397d4285306ae463
   languageName: node
   linkType: hard
 
@@ -6238,7 +6238,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
-    "@sitecore-feaas/clientside": ^0.1.48
+    "@sitecore-feaas/clientside": ^0.2.1
     "@sitecore-jss/sitecore-jss": ^21.2.0-canary.27
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
