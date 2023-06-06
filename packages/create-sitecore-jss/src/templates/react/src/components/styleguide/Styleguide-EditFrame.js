@@ -1,6 +1,6 @@
 import React from 'react';
 import { EditFrame } from '@sitecore-jss/sitecore-jss-react';
-import StyleguideSpecimen from '../styleguide/Styleguide-Specimen';
+import StyleguideSpecimen from './Styleguide-Specimen';
 
 /**
  * A sample component to describe Edit Frame usage with JSS.

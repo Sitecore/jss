@@ -1,5 +1,5 @@
 import React from 'react';
-import StyleguideSpecimen from '../styleguide/Styleguide-Specimen';
+import StyleguideSpecimen from './Styleguide-Specimen';
 
 const StyleguideComponentParams = (props) => {
   // props.params (i.e. props.params.cssClass without destructuring) contains the component's params

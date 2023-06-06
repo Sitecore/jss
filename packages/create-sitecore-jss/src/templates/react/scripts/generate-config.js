@@ -1,9 +1,22 @@
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const { constantCase } = require('constant-case');
 const { jssConfigFactory } = require('./config');
 
 /* eslint-disable no-console */
+
+/**
+ * REACT_APP is the default prefix for environment variables that will be made available to the app.
+ */
+const defaultConfig = {
+  sitecoreApiKey: process.env[`${constantCase('reactAppSitecoreApiKey')}`],
+  sitecoreApiHost: process.env[`${constantCase('reactAppSitecoreApiHost')}`],
+  jssAppName: process.env[`${constantCase('reactAppJssAppName')}`],
+  graphQLEndpointPath: process.env[`${constantCase('reactAppGraphQLEndpointPath')}`],
+  defaultLanguage: process.env[`${constantCase('reactAppDefaultLanguage')}`],
+  graphQLEndpoint: process.env[`${constantCase('reactAppGraphQLEndpoint')}`],
+};
 
 generateConfig()
 
@@ -15,13 +28,11 @@ generateConfig()
  * NOTE! Any configs returned here will be written into the client-side JS bundle. DO NOT PUT SECRETS HERE.
  */
 function generateConfig() {
-  let config = { sitecoreApiHost: '' };
-
   try {
-    config = jssConfigFactory.create(config)
+    config = jssConfigFactory.create(defaultConfig)
   } catch (error) {
     console.error('Error generating config');
-    console.error(e);
+    console.error(error);
     process.exit(1);
   }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from '@sitecore-jss/sitecore-jss-react';
 import { withTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import StyleguideSpecimen from '../styleguide/Styleguide-Specimen';
+import StyleguideSpecimen from './Styleguide-Specimen';
 
 /**
  * Demonstrates using the dictionary functionality and defining route data in

@@ -23,7 +23,7 @@ describe('scaffold', () => {
 
     const setupTest = () => {
       return {
-        mkDirStub: sinon.stub(fs, 'mkdir'),
+        mkDirStub: sinon.stub(fs, 'mkdirSync'),
         writeFileStub: sinon.stub(fs, 'writeFileSync'),
         scaffoldInput: {
           rootPath: 'C:/myapp',

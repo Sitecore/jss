@@ -1,6 +1,6 @@
 import React from 'react';
 import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
-import StyleguideSpecimen from '../styleguide/Styleguide-Specimen';
+import StyleguideSpecimen from './Styleguide-Specimen';
 
 /**
  * Demonstrates gaining access to the route-level Sitecore Context from

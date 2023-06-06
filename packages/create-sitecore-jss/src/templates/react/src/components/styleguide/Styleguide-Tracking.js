@@ -2,7 +2,7 @@ import React from 'react';
 import { withSitecoreContext, trackingApi } from '@sitecore-jss/sitecore-jss-react';
 import { dataFetcher } from '../../dataFetcher';
 import config from '../../temp/config';
-import StyleguideSpecimen from '../styleguide/Styleguide-Specimen';
+import StyleguideSpecimen from './Styleguide-Specimen';
 
 /* eslint-disable no-alert,no-undef */
 

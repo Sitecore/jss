@@ -45,7 +45,6 @@ if (!componentOutputPath) {
 }
 
 console.log();
-console.log(chalk.green(`Component ${componentName} has been scaffolded.`));
 console.log(chalk.green('Next steps:'));
 if (manifestOutputPath) {
   console.log(`* Define the component's data in ${chalk.green(manifestOutputPath)}`);

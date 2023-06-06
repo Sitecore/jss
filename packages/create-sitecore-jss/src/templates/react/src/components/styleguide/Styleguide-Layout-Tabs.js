@@ -1,6 +1,6 @@
 import React from 'react';
 import { withPlaceholder, withSitecoreContext, Text } from '@sitecore-jss/sitecore-jss-react';
-import StyleguideSpecimen from '../styleguide/Styleguide-Specimen';
+import StyleguideSpecimen from './Styleguide-Specimen';
 
 /**
  * Demonstrates advanced component techniques in JSS.

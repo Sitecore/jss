@@ -1,4 +1,3 @@
-require('dotenv').config();
 const chalk = require('chalk');
 const { constants } = require('@sitecore-jss/sitecore-jss-react');
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Placeholder } from '@sitecore-jss/sitecore-jss-react';
-import StyleguideSpecimen from '../styleguide/Styleguide-Specimen';
+import StyleguideSpecimen from './Styleguide-Specimen';
 
 /**
  * Demonstrates how to reuse content within JSS. See /data/routes/styleguide/en.yml

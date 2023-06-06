@@ -6,6 +6,7 @@ import { watchItems } from '../utils';
 
 // Default destination path for component builder
 const componentBuilderOutputPath = 'src/temp/componentBuilder.js';
+const defaultComponentRootPath = 'src/components';
 
 /**
  * Generate component builder based on provided settings
@@ -15,7 +16,7 @@ const componentBuilderOutputPath = 'src/temp/componentBuilder.js';
  * @param {boolean} settings.watch whether to watch for changes to component builder sources
  */
 export function generateComponentBuilder({
-  componentRootPath = 'src/components',
+  componentRootPath = defaultComponentRootPath,
   packages,
   watch,
 }: {
