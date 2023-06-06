@@ -11,6 +11,12 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 21.1.7
+
+### 🐛 Bug Fixes
+
+* `[templates/react]` [React] Cannot find package '@babel/plugin-proposal-export-namespace-from' ([#1510](https://github.com/Sitecore/jss/pull/1510))
+
 ## 21.1.6
 
 ### 🐛 Bug Fixes
