@@ -123,6 +123,7 @@ describe('<a *scGenericLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
+    expect(rendered.nativeElement.href).toContain(`${field.value.href}#${field.value.anchor}`);
     expect(rendered.nativeElement.className).toBe('external-css-class my-link');
     expect(rendered.nativeElement.title).toContain(field.value.title);
     expect(rendered.nativeElement.target).toContain(field.value.target);
