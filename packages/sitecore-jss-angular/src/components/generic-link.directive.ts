@@ -37,11 +37,24 @@ export class GenericLinkDirective extends LinkDirective {
     viewRef.rootNodes.forEach((node) => {
       Object.entries(props).forEach(([key, propValue]: [string, string]) => {
         if (key === 'href' && !isAbsoluteUrl(propValue)) {
-          const urlTree = this.router.createUrlTree([propValue], this.extras);
+          const fragments = propValue.split('#');
+          const url = fragments[0];
+          const anchor = fragments[1];
+          const urlTree = this.router.createUrlTree([url], {
+            fragment: anchor,
+            ...this.extras,
+          });
           this.updateAttribute(node, key, this.router.serializeUrl(urlTree));
           this.renderer.listen(node, 'click', (event) => {
-            this.router.navigate([propValue], this.extras);
-            event.preventDefault();
+            this.router.navigate([url], {
+              fragment: anchor,
+              ...this.extras,
+            });
+
+            // shouldn't prevent default if the link includes a fragment
+            if (!anchor) {
+              event.preventDefault();
+            }
           });
         } else {
           this.updateAttribute(node, key, propValue);

@@ -35,6 +35,7 @@ export interface LinkFieldValue {
   [key: string]: unknown;
   href?: string;
   text?: string;
+  anchor?: string;
 }
 
 export interface LinkField extends LinkFieldValue, RenderingField {

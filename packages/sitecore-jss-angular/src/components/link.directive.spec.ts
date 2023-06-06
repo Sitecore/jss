@@ -60,6 +60,7 @@ describe('<a *scLink />', () => {
   it('should render value with editing explicitly disabled', () => {
     const field = {
       value: {
+        anchor: 'sample-anchor',
         href: '/lorem',
         text: 'ipsum',
       },
@@ -70,12 +71,13 @@ describe('<a *scLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
-    expect(rendered.nativeElement.href).toContain(field.value.href);
+    expect(rendered.nativeElement.href).toContain(`${field.value.href}#${field.value.anchor}`);
     expect(rendered.nativeElement.innerHTML).toBe(field.value.text);
   });
 
   it('should render with href directly on provided field', () => {
     const field = {
+      anchor: 'sample-anchor',
       href: '/lorem',
       text: 'ipsum',
     };
@@ -83,7 +85,7 @@ describe('<a *scLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
-    expect(rendered.nativeElement.href).toContain(field.href);
+    expect(rendered.nativeElement.href).toContain(`${field.href}#${field.anchor}`);
     expect(rendered.nativeElement.innerHTML).toBe(field.text);
   });
 
@@ -104,6 +106,7 @@ describe('<a *scLink />', () => {
   it('should render all value attributes', () => {
     const field = {
       value: {
+        anchor: 'sample-anchor',
         href: '/lorem',
         text: 'ipsum',
         class: 'my-link',
@@ -115,7 +118,7 @@ describe('<a *scLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
-    expect(rendered.nativeElement.href).toContain(field.value.href);
+    expect(rendered.nativeElement.href).toContain(`${field.value.href}#${field.value.anchor}`);
     expect(rendered.nativeElement.className).toContain(field.value.class);
     expect(rendered.nativeElement.title).toContain(field.value.title);
     expect(rendered.nativeElement.target).toContain(field.value.target);
