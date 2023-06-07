@@ -38,7 +38,11 @@ export class RouterLinkDirective extends LinkDirective {
         if (key === 'href') {
           this.renderer.listen(node, 'click', (event) => {
             this.router.navigateByUrl(propValue);
-            event.preventDefault();
+
+            // shouldn't prevent default if the link includes a fragment
+            if (!propValue.includes('#')) {
+              event.preventDefault();
+            }
           });
         }
       });

@@ -55,6 +55,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* `[templates/angular]` `[templates/vue]` Link component does not add anchor to the internal links ([#1511](https://github.com/Sitecore/jss/pull/1511))
 * `[templates/react]` [React] Cannot find package '@babel/plugin-proposal-export-namespace-from' ([#1510](https://github.com/Sitecore/jss/pull/1510))
 * `[templates/angular]` `[templates/vue]` Sitecore service endpoint is not proxied in Connected mode ([#1465](https://github.com/Sitecore/jss/pull/1465))
 * `[templates/nextjs]` Healthz shows page not found for multisite setup ([#1443](https://github.com/Sitecore/jss/pull/1443))
