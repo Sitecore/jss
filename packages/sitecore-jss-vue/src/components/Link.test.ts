@@ -98,12 +98,13 @@ describe('<Link />', () => {
           title: 'My Link',
           target: '_blank',
           querystring: 'foo=bar',
+          anchor: 'sample-anchor',
         },
       },
     };
     const rendered = mount(Link, { props }).find('a');
     expect(rendered.html()).toContain(
-      `href="${props.field.value.href}?${props.field.value.querystring}"`
+      `href="${props.field.value.href}?${props.field.value.querystring}#${props.field.value.anchor}"`
     );
     expect(rendered.html()).toContain(`class="${props.field.value.class}"`);
     expect(rendered.html()).toContain(`title="${props.field.value.title}"`);

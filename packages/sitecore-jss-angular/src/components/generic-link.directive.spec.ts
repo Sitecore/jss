@@ -111,6 +111,7 @@ describe('<a *scGenericLink />', () => {
   it('should render all value attributes', () => {
     const field = {
       value: {
+        anchor: 'sample-anchor',
         href: '/lorem',
         text: 'ipsum',
         class: 'my-link',
@@ -122,6 +123,7 @@ describe('<a *scGenericLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
+    expect(rendered.nativeElement.href).toContain(`${field.value.href}#${field.value.anchor}`);
     expect(rendered.nativeElement.className).toBe('external-css-class my-link');
     expect(rendered.nativeElement.title).toContain(field.value.title);
     expect(rendered.nativeElement.target).toContain(field.value.target);
@@ -264,7 +266,10 @@ describe('<a *scGenericLink></a>', () => {
     renderedLink.click();
     fixture.detectChanges();
     expect(comp.extras).toEqual({});
-    expect(router.navigate).toHaveBeenCalledWith(['lorem'], comp.extras);
+    expect(router.navigate).toHaveBeenCalledWith(['lorem'], {
+      ...comp.extras,
+      fragment: undefined,
+    });
   });
 
   it('should navigate to an internal link with query parameters using routerlink', () => {
@@ -281,7 +286,10 @@ describe('<a *scGenericLink></a>', () => {
     expect(renderedLink.getAttribute('href')).toBe(`/${field.href}?foo=bar`);
     renderedLink.click();
     fixture.detectChanges();
-    expect(router.navigate).toHaveBeenCalledWith(['lorem'], queryParams);
+    expect(router.navigate).toHaveBeenCalledWith(['lorem'], {
+      ...queryParams,
+      fragment: undefined,
+    });
   });
 
   it('should navigate to an external link using routerlink', () => {

@@ -22,7 +22,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[templates/react]` `[sitecore-jss-dev-tools]` Refactoring for react template ([#1506](https://github.com/Sitecore/jss/pull/1506)):
+* `[templates/react]` `[sitecore-jss-dev-tools]` Refactoring for react template ([#1506](https://github.com/Sitecore/jss/pull/1506))([#1515](https://github.com/Sitecore/jss/pull/1515)):
   * `[templates/react]`:
     * Introduced plugins architecture for boostrap, config and component builder generation process
     * Updated components tree to represent the structure: _fields_, _styleguide_, _graphql_ folders.
@@ -55,6 +55,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* `[templates/angular]` `[templates/vue]` Link component does not add anchor to the internal links ([#1511](https://github.com/Sitecore/jss/pull/1511))
 * `[templates/react]` [React] Cannot find package '@babel/plugin-proposal-export-namespace-from' ([#1510](https://github.com/Sitecore/jss/pull/1510))
 * `[templates/angular]` `[templates/vue]` Sitecore service endpoint is not proxied in Connected mode ([#1465](https://github.com/Sitecore/jss/pull/1465))
 * `[templates/nextjs]` Healthz shows page not found for multisite setup ([#1443](https://github.com/Sitecore/jss/pull/1443))
@@ -73,6 +74,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Add condition DISABLE_SSG_FETCH for 404/500 pages to enable full ISR (Incremental Static Regeneration) flow ([#1496](https://github.com/Sitecore/jss/pull/1496))
 * `[templates/nextjs-sxa]` Fix class .indent for component which have column size 12 ([#1505](https://github.com/Sitecore/jss/pull/1505))
 * `[templates/nextjs-sxa]` Fix type(from Text to RichText) of editing text in value Text2 for Promo Component in WithText variant ([#1504](https://github.com/Sitecore/jss/pull/1504)).
+* `[sitecore-jss-nextjs]` Fix RichText component to re-initialize links when content changes ([#1503](https://github.com/Sitecore/jss/pull/1503))
 
 ## 21.1.6
 
