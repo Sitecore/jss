@@ -15,7 +15,7 @@ export type RichTextProps = ReactRichTextProps & {
   internalLinksSelector?: string;
 
   /**
-   * Turns off prefetch of internal links. This can be beneficial if you have RichText fields
+   * Controls the prefetch of internal links. This can be beneficial if you have RichText fields
    * with large numbers of internal links in them.
    * @default true
    */
