@@ -87,6 +87,8 @@
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
   "files": [
     "dist",
-    "types"
+    "types",
+    "/*.js",
+    "/*.d.ts"
   ]
 }

@@ -22,7 +22,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[templates/react]` `[sitecore-jss-dev-tools]` Refactoring for react template ([#1506](https://github.com/Sitecore/jss/pull/1506)):
+* `[templates/react]` `[sitecore-jss-dev-tools]` Refactoring for react template ([#1506](https://github.com/Sitecore/jss/pull/1506))([#1515](https://github.com/Sitecore/jss/pull/1515)):
   * `[templates/react]`:
     * Introduced plugins architecture for boostrap, config and component builder generation process
     * Updated components tree to represent the structure: _fields_, _styleguide_, _graphql_ folders.
