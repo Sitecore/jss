@@ -43,6 +43,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss]` `[templates/nextjs-personalize]` Introduced optional personalize scope identifier to isolate embedded personalization data among XM Cloud Environments that are sharing a Personalize tenant ([#1494](https://github.com/Sitecore/jss/pull/1494))
 * `[templates/nextjs-personalize]` `[sitecore-jss]` Update the default personalize middleware, personalize/cdp service timeout values to 400 ([#1507](https://github.com/Sitecore/jss/pull/1507))
 * `[templates/react]` `[templates/angular]` `[templates/vue]` Remove persisted query link since APQ(Automatic Persisted Queries) is not supported on Sitecore Experience Edge Delivery ([#1420](https://github.com/Sitecore/jss/pull/1512))
+* `[sitecore-jss-nextjs]` Add prefetchLinks paramter to the RichText component to allow prefetching of links to be enabled/disabled ([#1517](https://github.com/Sitecore/jss/pull/1517))
 
 ### 🧹 Chores
 
