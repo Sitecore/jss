@@ -33,7 +33,6 @@ Our versioning strategy is as follows:
 * `[sitecore-jss]` Handle null items in graphql layout service. ([#1492](https://github.com/Sitecore/jss/pull/1492))
 * `[templates/nextjs-personalize]` `[sitecore-jss]` Update the default personalize middleware, personalize/cdp service timeout values to 400 ([#1507](https://github.com/Sitecore/jss/pull/1507))
 * `[templates/react]` `[templates/angular]` `[templates/vue]` Remove persisted query link since APQ(Automatic Persisted Queries) is not supported on Sitecore Experience Edge Delivery ([#1420](https://github.com/Sitecore/jss/pull/1512))
-* `[sitecore-jss-nextjs]` `[templates/nextjs]` `[templates/nextjs-personalize]` `[templates/nextjs-sxa]` Ensure that wildcard ('*') point of sale value is used as first backup, when point of sale is not found for request language. ([#1380](https://github.com/Sitecore/jss/pull/1380))
 * `[sitecore-jss]` `[templates/nextjs-personalize]` Introduced optional personalize scope identifier to isolate embedded personalization data among XM Cloud Environments that are sharing a Personalize tenant ([#1494](https://github.com/Sitecore/jss/pull/1494))
 
 ### 🧹 Chores
@@ -175,7 +174,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` Fix rendering issue in components using withPlaceholder ([#1349](https://github.com/Sitecore/jss/pull/1349))
 * `[sitecore-jss-react-forms]` The language of the form is changed after clicking the submit button ([#1261](https://github.com/Sitecore/jss/pull/1261))
 * `[templates/nextjs-sxa]` Cumulative SXA bug fixes ([#1319](https://github.com/Sitecore/jss/pull/1319)) ([#1292](https://github.com/Sitecore/jss/pull/1292)) ([#1165](https://github.com/Sitecore/jss/pull/1165)) ([#1245](https://github.com/Sitecore/jss/pull/1245)) ([#1268](https://github.com/Sitecore/jss/pull/1268)) ([#1269](https://github.com/Sitecore/jss/pull/1269)) ([#1272](https://github.com/Sitecore/jss/pull/1272)) ([#1278](https://github.com/Sitecore/jss/pull/1278)) ([#1333](https://github.com/Sitecore/jss/pull/1333)) ([#1185](https://github.com/Sitecore/jss/pull/1185)) ([#1172](https://github.com/Sitecore/jss/pull/1172)) ([#1255](https://github.com/Sitecore/jss/pull/1255))
-* `[templates/nextjs-personalize]` `[sitecore-jss-nextjs]` Add support for fallback point of sale ([#1367](https://github.com/Sitecore/jss/pull/1367))
+* `[templates/nextjs-personalize]` `[sitecore-jss-nextjs]` Add support for fallback point of sale ([#1367](https://github.com/Sitecore/jss/pull/1367)) ([#1380](https://github.com/Sitecore/jss/pull/1380))
 * `[templates/vue]` Fix local dev server launch error ([#1368](https://github.com/Sitecore/jss/pull/1368))
 * `[sitecore-jss-nextjs]` Implemented MiddlewareBase abstraction. Skip Redirects middleware during editing ([#1370](https://github.com/Sitecore/jss/pull/1370))
 * `[sitecore-jss-nextjs]` Redirects middleware should debug log start/end ([#1372](https://github.com/Sitecore/jss/pull/1372))
