@@ -83,6 +83,12 @@ Our versioning strategy is as follows:
 * `[vue]` Fix disconnected mode not starting in monorepo setup ([#1418](https://github.com/Sitecore/jss/pull/1418))
 * `[sitecore-jss-proxy]` The rewriteRequestPath function ignores query string parameters added in a middleware([#1373](https://github.com/Sitecore/jss/pull/1373)) ([#1379](https://github.com/Sitecore/jss/pull/1379))
 
+## 21.1.7
+
+### 🐛 Bug Fixes
+
+* [React] Cannot find package '@babel/plugin-proposal-export-namespace-from' ([#1510](https://github.com/Sitecore/jss/pull/1510))
+
 ## 21.1.6
 
 ### 🐛 Bug Fixes
