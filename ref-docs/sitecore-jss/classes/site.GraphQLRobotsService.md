@@ -42,7 +42,7 @@ Creates an instance of graphQL robots.txt service with the provided options
 
 #### Defined in
 
-[src/site/graphql-robots-service.ts:50](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss/src/site/graphql-robots-service.ts#L50)
+[src/site/graphql-robots-service.ts:50](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss/src/site/graphql-robots-service.ts#L50)
 
 ## Properties
 
@@ -52,7 +52,7 @@ Creates an instance of graphQL robots.txt service with the provided options
 
 #### Defined in
 
-[src/site/graphql-robots-service.ts:40](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss/src/site/graphql-robots-service.ts#L40)
+[src/site/graphql-robots-service.ts:40](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss/src/site/graphql-robots-service.ts#L40)
 
 ___
 
@@ -64,7 +64,7 @@ instance
 
 #### Defined in
 
-[src/site/graphql-robots-service.ts:50](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss/src/site/graphql-robots-service.ts#L50)
+[src/site/graphql-robots-service.ts:50](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss/src/site/graphql-robots-service.ts#L50)
 
 ## Accessors
 
@@ -78,7 +78,7 @@ instance
 
 #### Defined in
 
-[src/site/graphql-robots-service.ts:42](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss/src/site/graphql-robots-service.ts#L42)
+[src/site/graphql-robots-service.ts:42](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss/src/site/graphql-robots-service.ts#L42)
 
 ## Methods
 
@@ -100,7 +100,7 @@ text of robots.txt
 
 #### Defined in
 
-[src/site/graphql-robots-service.ts:59](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss/src/site/graphql-robots-service.ts#L59)
+[src/site/graphql-robots-service.ts:59](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss/src/site/graphql-robots-service.ts#L59)
 
 ___
 
@@ -120,4 +120,4 @@ implementation
 
 #### Defined in
 
-[src/site/graphql-robots-service.ts:84](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss/src/site/graphql-robots-service.ts#L84)
+[src/site/graphql-robots-service.ts:84](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss/src/site/graphql-robots-service.ts#L84)

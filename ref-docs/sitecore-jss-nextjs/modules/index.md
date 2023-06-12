@@ -21,6 +21,7 @@
 
 - [AxiosDataFetcher](../classes/index.AxiosDataFetcher.md)
 - [CdpHelper](../classes/index.CdpHelper.md)
+- [ComponentBuilder](../classes/index.ComponentBuilder.md)
 - [ComponentPropsService](../classes/index.ComponentPropsService.md)
 - [DisconnectedSitemapService](../classes/index.DisconnectedSitemapService.md)
 - [GraphQLDictionaryService](../classes/index.GraphQLDictionaryService.md)
@@ -84,8 +85,8 @@
 ### Type Aliases
 
 - [AxiosDataFetcherConfig](index.md#axiosdatafetcherconfig)
+- [ComponentBuilderConfig](index.md#componentbuilderconfig)
 - [ComponentFactory](index.md#componentfactory)
-- [ComponentModule](index.md#componentmodule)
 - [ComponentPropsCollection](index.md#componentpropscollection)
 - [ComponentPropsContextProps](index.md#componentpropscontextprops)
 - [ErrorPages](index.md#errorpages)
@@ -101,6 +102,8 @@
 - [HTMLLink](index.md#htmllink)
 - [HttpDataFetcher](index.md#httpdatafetcher)
 - [LinkProps](index.md#linkprops)
+- [Module](index.md#module)
+- [ModuleFactory](index.md#modulefactory)
 - [NativeDataFetcherConfig](index.md#nativedatafetcherconfig)
 - [PlaceholdersData](index.md#placeholdersdata)
 - [RestDictionaryServiceConfig](index.md#restdictionaryserviceconfig)
@@ -169,6 +172,30 @@ sitecore-jss/types/axios-fetcher.d.ts:33
 
 ___
 
+### ComponentBuilderConfig
+
+Ƭ **ComponentBuilderConfig**<`Component`\>: `Object`
+
+Configuration for ComponentBuilder
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `Component` |
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `components` | `Map`<`string`, `Component`\> | List of components to be stored |
+
+#### Defined in
+
+[sitecore-jss-nextjs/src/ComponentBuilder.ts:21](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L21)
+
+___
+
 ### ComponentFactory
 
 Ƭ **ComponentFactory**: (`componentName`: `string`, `exportName?`: `string`) => `ComponentType` \| ``null``
@@ -194,36 +221,6 @@ sitecore-jss-react/types/components/sharedTypes.d.ts:6
 
 ___
 
-### ComponentModule
-
-Ƭ **ComponentModule**: (`componentName`: `string`) => `Module` \| `Promise`<`Module`\> \| `undefined`
-
-#### Type declaration
-
-▸ (`componentName`): `Module` \| `Promise`<`Module`\> \| `undefined`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `componentName` | `string` |
-
-##### Returns
-
-`Module` \| `Promise`<`Module`\> \| `undefined`
-
-`undefined` module not found
-
-`Module` regular module
-
-`Promise<Module>` when module should be lazy loaded
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/sharedTypes/component-module.ts:14](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/sharedTypes/component-module.ts#L14)
-
-___
-
 ### ComponentPropsCollection
 
 Ƭ **ComponentPropsCollection**: `Object`
@@ -236,7 +233,7 @@ Shape of component props storage
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:7](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L7)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:7](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L7)
 
 ___
 
@@ -253,7 +250,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
 
 ___
 
@@ -325,7 +322,7 @@ Shape of getServerSideProps function on component level
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:23](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L23)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:23](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L23)
 
 ___
 
@@ -337,7 +334,7 @@ Shape of getStaticProps function on component level
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:28](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L28)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:28](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L28)
 
 ___
 
@@ -482,7 +479,45 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/components/Link.tsx#L12)
+[sitecore-jss-nextjs/src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/components/Link.tsx#L12)
+
+___
+
+### Module
+
+Ƭ **Module**: { `Default?`: `ComponentType` ; `default?`: `ComponentType` ; `getServerSideProps?`: [`GetServerSideComponentProps`](index.md#getserversidecomponentprops) ; `getStaticProps?`: [`GetStaticComponentProps`](index.md#getstaticcomponentprops)  } & { `[key: string]`: `ComponentType`;  }
+
+Represents a module (file)
+
+#### Defined in
+
+[sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:7](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L7)
+
+___
+
+### ModuleFactory
+
+Ƭ **ModuleFactory**: (`componentName`: `string`) => [`Module`](index.md#module) \| `Promise`<[`Module`](index.md#module)\> \| ``null``
+
+#### Type declaration
+
+▸ (`componentName`): [`Module`](index.md#module) \| `Promise`<[`Module`](index.md#module)\> \| ``null``
+
+Represents a module factory
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `componentName` | `string` |
+
+##### Returns
+
+[`Module`](index.md#module) \| `Promise`<[`Module`](index.md#module)\> \| ``null``
+
+#### Defined in
+
+[sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:34](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L34)
 
 ___
 
@@ -552,7 +587,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)
+[sitecore-jss-nextjs/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)
 
 ___
 
@@ -625,7 +660,7 @@ Object model of a site page item.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:31](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L31)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:31](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L31)
 
 ## Variables
 
@@ -637,7 +672,7 @@ Component props context which we are using in order to store data fetched on com
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
 
 ___
 
@@ -691,7 +726,7 @@ sitecore-jss-react/types/components/SitecoreContext.d.ts:14
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:31](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L31)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:31](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L31)
 
 ___
 
@@ -712,7 +747,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:521
+sitecore-jss-react/node_modules/@types/react/index.d.ts:521
 
 ___
 
@@ -733,7 +768,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:521
+sitecore-jss-react/node_modules/@types/react/index.d.ts:521
 
 ___
 
@@ -754,7 +789,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/EditingComponentPlaceholder.tsx:9](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/components/EditingComponentPlaceholder.tsx#L9)
+[sitecore-jss-nextjs/src/components/EditingComponentPlaceholder.tsx:9](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/components/EditingComponentPlaceholder.tsx#L9)
 
 ___
 
@@ -795,7 +830,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:521
+sitecore-jss-react/node_modules/@types/react/index.d.ts:521
 
 ___
 
@@ -816,7 +851,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:521
+sitecore-jss-react/node_modules/@types/react/index.d.ts:521
 
 ___
 
@@ -838,7 +873,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:351
+sitecore-jss-react/node_modules/@types/react/index.d.ts:351
 
 ___
 
@@ -859,7 +894,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:521
+sitecore-jss-react/node_modules/@types/react/index.d.ts:521
 
 ___
 
@@ -879,7 +914,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/Placeholder.tsx:8](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/components/Placeholder.tsx#L8)
+[sitecore-jss-nextjs/src/components/Placeholder.tsx:8](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/components/Placeholder.tsx#L8)
 
 ___
 
@@ -899,7 +934,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:27](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L27)
+[sitecore-jss-nextjs/src/components/RichText.tsx:27](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L27)
 
 ___
 
@@ -920,7 +955,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:521
+sitecore-jss-react/node_modules/@types/react/index.d.ts:521
 
 ___
 
@@ -941,7 +976,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:521
+sitecore-jss-react/node_modules/@types/react/index.d.ts:521
 
 ___
 
@@ -1138,7 +1173,7 @@ preview deployment has unique url, we don't know exact url.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:11](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/utils/utils.ts#L11)
+[sitecore-jss-nextjs/src/utils/utils.ts:11](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/utils/utils.ts#L11)
 
 ___
 
@@ -1216,7 +1251,7 @@ forceReload false
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:40](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/utils/utils.ts#L40)
+[sitecore-jss-nextjs/src/utils/utils.ts:40](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/utils/utils.ts#L40)
 
 ___
 
@@ -1417,7 +1452,7 @@ component props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/b96bed6e0/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
 
 ___
 
