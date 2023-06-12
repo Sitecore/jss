@@ -35,6 +35,7 @@ Our versioning strategy is as follows:
 * `[templates/react]` `[templates/angular]` `[templates/vue]` Remove persisted query link since APQ(Automatic Persisted Queries) is not supported on Sitecore Experience Edge Delivery ([#1420](https://github.com/Sitecore/jss/pull/1512))
 * `[sitecore-jss]` `[templates/nextjs-personalize]` Introduced optional personalize scope identifier to isolate embedded personalization data among XM Cloud Environments that are sharing a Personalize tenant ([#1494](https://github.com/Sitecore/jss/pull/1494))
 * `[sitecore-jss-nextjs]` Add prefetchLinks paramter to the RichText component to allow prefetching of links to be enabled/disabled ([#1517](https://github.com/Sitecore/jss/pull/1517))
+* `[templates/nextjs-sxa]` Add the attribute tabIndex for each component of SXA ([#1521](https://github.com/Sitecore/jss/pull/1521))
 
 ### 🧹 Chores
 
