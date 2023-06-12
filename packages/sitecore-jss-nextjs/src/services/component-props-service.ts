@@ -9,7 +9,7 @@ import {
   ComponentPropsCollection,
   ComponentPropsFetchFunction,
 } from '../sharedTypes/component-props';
-import { ModuleFactory } from '../sharedTypes/component-module';
+import { ModuleFactory } from '../sharedTypes/module-factory';
 
 export type FetchComponentPropsArguments<NextContext> = {
   layoutData: LayoutServiceData;

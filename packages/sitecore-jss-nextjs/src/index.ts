@@ -102,7 +102,7 @@ export {
   GetServerSideComponentProps,
 } from './sharedTypes/component-props';
 
-export { ModuleFactory } from './sharedTypes/component-module';
+export { ModuleFactory, Module } from './sharedTypes/module-factory';
 
 export { ComponentPropsService } from './services/component-props-service';
 

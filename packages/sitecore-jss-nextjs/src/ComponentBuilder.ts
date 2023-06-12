@@ -1,5 +1,5 @@
 import { ComponentFactory } from '@sitecore-jss/sitecore-jss-react';
-import { Module, ModuleFactory, LazyModule } from './sharedTypes/component-module';
+import { Module, ModuleFactory, LazyModule } from './sharedTypes/module-factory';
 
 /**
  * Component is a module or a lazy module
@@ -64,7 +64,7 @@ export class ComponentBuilder {
 
   /**
    * Creates a new instance of component factory
-   * Component factory provides a component imported dynamically or statically.
+   * Component can be imported dynamically or statically.
    * @param {Object} config Component factory configuration
    * @param {boolean} config.isEditing Indicates if component factory is used in editing mode
    * @returns {ComponentFactory} Component factory implementation
