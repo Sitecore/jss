@@ -74,11 +74,11 @@ export class ComponentBuilder {
   /**
    * Creates a new instance of component factory
    * Component can be imported dynamically or statically.
-   * @param {Object} config Component factory configuration
-   * @param {boolean} config.isEditing Indicates if component factory is used in editing mode
+   * @param {Object} [config] Component factory configuration
+   * @param {boolean} [config.isEditing] Indicates if component factory is used in editing mode
    * @returns {ComponentFactory} Component factory implementation
    */
-  getComponentFactory({ isEditing }: ComponentFactoryConfig): ComponentFactory {
+  getComponentFactory({ isEditing }: ComponentFactoryConfig = {}): ComponentFactory {
     return (componentName: string, exportName?: string) => {
       const component = this.components.get(componentName);
 

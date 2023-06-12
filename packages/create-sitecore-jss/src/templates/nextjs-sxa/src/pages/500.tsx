@@ -34,7 +34,7 @@ const Custom500 = (props: SitecorePageProps): JSX.Element => {
 
   return (
     <SitecoreContext
-      componentFactory={componentBuilder.getComponentFactory({})}
+      componentFactory={componentBuilder.getComponentFactory()}
       layoutData={props.layoutData}
     >
       <Layout layoutData={props.layoutData} headLinks={props.headLinks} />
