@@ -14,16 +14,17 @@ Our versioning strategy is as follows:
 ### 🎉 New Features & Improvements
 
 * `[templates/nexts]` `[sitecore-jss-dev-tools]` Move template related script to the base package ([#1520](https://github.com/Sitecore/jss/pull/1520)):
-  `[sitecore-jss-nextjs]`:
+  * `[sitecore-jss-nextjs]`:
     * Introduced _ComponentBuilder_ class for generating component factories and module factories.
     * ComponentPropsService _componentModule_ property renamed to _moduleFactory_.
     * Adjusted _ComponentModule_ definition:
       * renamed to _ModuleFactory_.
       * _Module_ type besides the initial limited set of props now can also include any React component. _React.Component_ is replaced by _React.ComponentType_.
   * `[sitecore-jss-dev-tools]`:
-    * Introduced _nextjs_ submodule, which contains component builder generation functionality
-  `[templates/nextjs]`:
-    * Introduced plugins architecture for _component builder_ and _scaffold component_ generation processes
+    * Introduced _nextjs_ submodule, which contains component builder generation functionality.
+  * `[templates/nextjs]`:
+    * Introduced plugins architecture for _component builder_ and _scaffold component_ generation processes.
+    * Reused new utils added to _sitecore-jss-dev-tools_.
 * `[templates/react]` `[sitecore-jss-dev-tools]` Refactoring for react template ([#1506](https://github.com/Sitecore/jss/pull/1506))([#1515](https://github.com/Sitecore/jss/pull/1515)):
   * `[templates/react]`:
     * Introduced plugins architecture for boostrap, config and component builder generation process
