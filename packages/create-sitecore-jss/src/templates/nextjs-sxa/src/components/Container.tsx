@@ -26,14 +26,17 @@ const DefaultContainer = (props: ComponentProps): JSX.Element => {
 
   if (backgroundImage) {
     const prefix = `${sitecoreContext.pageState !== 'normal' ? '/sitecore/shell' : ''}/-/media/`;
-    backgroundImage = `${backgroundImage?.match(BACKGROUND_REG_EXP)?.pop()?.replace(/-/gi, '')}`;
+    backgroundImage = `${backgroundImage
+      ?.match(BACKGROUND_REG_EXP)
+      ?.pop()
+      ?.replace(/-/gi, '')}`;
     backgroundStyle = {
       backgroundImage: `url('${prefix}${backgroundImage}')`,
     };
   }
 
   return (
-    <div className={`component container-default ${styles}`} id={id ? id : undefined}>
+    <div className={`component container-default ${styles}`} id={id ? id : undefined} tabIndex={1}>
       <div className="component-content" style={backgroundStyle}>
         <div className="row">
           <Placeholder name={phKey} rendering={props.rendering} />
@@ -41,10 +44,10 @@ const DefaultContainer = (props: ComponentProps): JSX.Element => {
       </div>
     </div>
   );
-}
+};
 
 export const Default = (props: ComponentProps): JSX.Element => {
-  const splitStyles = props.params?.Styles?.split(" ");;  
+  const splitStyles = props.params?.Styles?.split(' ');
 
   if (splitStyles && splitStyles.includes('container')) {
     return (
@@ -54,5 +57,5 @@ export const Default = (props: ComponentProps): JSX.Element => {
     );
   }
 
-  return <DefaultContainer {...props} />
+  return <DefaultContainer {...props} />;
 };
