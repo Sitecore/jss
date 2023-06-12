@@ -5,52 +5,75 @@ import { PackageDefinition, getComponentList } from '../components';
 import { watchItems } from '../utils';
 
 // Default destination path for component builder
-const componentBuilderOutputPath = 'src/temp/componentBuilder.ts';
+const defaultComponentBuilderOutputPath = 'src/temp/componentBuilder.ts';
 const defaultComponentRootPath = 'src/components';
 
 /**
  * Generate component builder based on provided settings
- * @param {Object} settings settings for component builder generation
- * @param {string} settings.componentRootPath path to components root
- * @param {PackageDefinition[]} settings.packages list of packages to include in component builder
- * @param {boolean} settings.watch whether to watch for changes to component builder sources
+ * @param {Object} [settings] settings for component builder generation
+ * @param {string} [settings.componentRootPath] path to components root
+ * @param {string} [settings.componentBuilderOutputPath] path to component builder output
+ * @param {PackageDefinition[]} [settings.packages] list of packages to include in component builder
+ * @param {boolean} [settings.watch] whether to watch for changes to component builder sources
  */
 export function generateComponentBuilder({
   componentRootPath = defaultComponentRootPath,
-  packages,
+  componentBuilderOutputPath = defaultComponentBuilderOutputPath,
+  packages = [],
   watch,
 }: {
   componentRootPath?: string;
+  componentBuilderOutputPath?: string;
   packages?: PackageDefinition[];
   watch?: boolean;
-}) {
+} = {}) {
   if (watch) {
-    watchComponentBuilder(componentRootPath, packages);
+    watchComponentBuilder({ componentRootPath, componentBuilderOutputPath, packages });
   } else {
-    writeComponentBuilder(componentRootPath, packages);
+    writeComponentBuilder({ componentRootPath, componentBuilderOutputPath, packages });
   }
 }
 
 /**
  * Watch for changes to component builder sources
- * @param {string} componentRootPath root path to components
- * @param {PackageDefinition[]} [packages] packages to include in component builder
+ * @param {Object} settings settings for component builder generation
+ * @param {string} settings.componentRootPath path to components root
+ * @param {string} settings.componentBuilderOutputPath path to component builder output
+ * @param {PackageDefinition[]} settings.packages list of packages to include in component builder
  */
-export function watchComponentBuilder(componentRootPath: string, packages?: PackageDefinition[]) {
+export function watchComponentBuilder({
+  componentRootPath,
+  componentBuilderOutputPath,
+  packages,
+}: {
+  componentRootPath: string;
+  componentBuilderOutputPath: string;
+  packages: PackageDefinition[];
+}) {
   console.log(`Watching for changes to component builder sources in ${componentRootPath}...`);
 
-  watchItems([componentRootPath], writeComponentBuilder.bind(null, componentRootPath, packages));
+  watchItems(
+    [componentRootPath],
+    writeComponentBuilder.bind(null, { componentRootPath, componentBuilderOutputPath, packages })
+  );
 }
 
 /**
  * Write component builder to file
- * @param {string} componentRootPath root path to components
- * @param {PackageDefinition[]} [packages] packages to include in component builder
+ * @param {Object} settings settings for component builder generation
+ * @param {string} settings.componentRootPath path to components root
+ * @param {string} settings.componentBuilderOutputPath path to component builder output
+ * @param {PackageDefinition[]} settings.packages list of packages to include in component builder
  */
-export function writeComponentBuilder(
-  componentRootPath: string,
-  packages: PackageDefinition[] = []
-) {
+export function writeComponentBuilder({
+  componentRootPath,
+  componentBuilderOutputPath,
+  packages,
+}: {
+  componentRootPath: string;
+  componentBuilderOutputPath: string;
+  packages: PackageDefinition[];
+}) {
   const components = getComponentList(componentRootPath);
 
   components.unshift(...packages);

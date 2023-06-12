@@ -28,6 +28,7 @@ export interface ScaffoldComponentPluginConfig {
   [key: string]: unknown;
   componentName: string;
   componentPath: string;
+  nextSteps: string[];
 }
 
 export interface ScaffoldComponentPlugin {
@@ -61,8 +62,11 @@ dashes, or underscores. If specifying a path, it must be relative to src/compone
 const defaultConfig: ScaffoldComponentPluginConfig = {
   componentPath: regExResult[1],
   componentName: regExResult[2],
+  nextSteps: [],
 };
 
-(Object.values(plugins) as ScaffoldComponentPlugin[])
+const config = (Object.values(plugins) as ScaffoldComponentPlugin[])
   .sort((p1, p2) => p1.order - p2.order)
   .reduce((config, plugin) => plugin.exec(config), defaultConfig);
+
+console.log(config.nextSteps.join('\n'));

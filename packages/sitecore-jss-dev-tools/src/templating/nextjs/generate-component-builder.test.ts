@@ -21,6 +21,7 @@ describe('generate-component-builder', () => {
 
     it('default', () => {
       const componentsPath = 'src/components';
+      const outputPath = 'src/foo/componentBuilder.ts';
       const writeFileStub = sinon.stub(fs, 'writeFileSync');
       const getComponentStub = sinon.stub(componentUtils, 'getComponentList');
       const components: ComponentFile[] = [
@@ -48,6 +49,7 @@ describe('generate-component-builder', () => {
 
       generateComponentBuilder({
         componentRootPath: componentsPath,
+        componentBuilderOutputPath: outputPath,
         packages: [
           {
             name: 'custom-module',
@@ -62,7 +64,7 @@ describe('generate-component-builder', () => {
       });
 
       expect(
-        writeFileStub.calledWith('src/temp/componentBuilder.ts', expectedOutput, {
+        writeFileStub.calledWith(outputPath, expectedOutput, {
           encoding: 'utf8',
         })
       ).to.be.true;
@@ -70,6 +72,7 @@ describe('generate-component-builder', () => {
 
     it('dynamic components', () => {
       const componentsPath = 'src/components';
+      const outputPath = 'src/foo/componentBuilder.ts';
       const writeFileStub = sinon.stub(fs, 'writeFileSync');
       const getComponentStub = sinon.stub(componentUtils, 'getComponentList');
       const components: ComponentFile[] = [
@@ -108,6 +111,7 @@ describe('generate-component-builder', () => {
 
       generateComponentBuilder({
         componentRootPath: componentsPath,
+        componentBuilderOutputPath: outputPath,
         packages: [
           {
             name: 'custom-module',
@@ -122,7 +126,7 @@ describe('generate-component-builder', () => {
       });
 
       expect(
-        writeFileStub.calledWith('src/temp/componentBuilder.ts', expectedOutput, {
+        writeFileStub.calledWith(outputPath, expectedOutput, {
           encoding: 'utf8',
         })
       ).to.be.true;

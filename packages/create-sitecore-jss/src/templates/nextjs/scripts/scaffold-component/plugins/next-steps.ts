@@ -11,13 +11,12 @@ class NextStepsPlugin implements ScaffoldComponentPlugin {
     const { componentOutputPath, componentName } = config;
 
     if (componentOutputPath) {
-      console.log(
+      config.nextSteps.push(
         chalk.green(`
 Scaffolding of ${componentName} complete.
-Next steps:`)
+Next steps:`),
+        `* Implement the React component in ${chalk.green(componentOutputPath)}`
       );
-
-      console.log(`* Implement the React component in ${chalk.green(componentOutputPath)}`);
     }
 
     return config;
