@@ -32,7 +32,9 @@ describe('plugins', () => {
       const logStub = sinon.stub(console, 'debug');
       const getItemsStub = sinon.stub(utils, 'getItems').returns(items);
 
-      expect(getPluginList('src/builder/plugins', 'builder')).to.deep.equal(items);
+      expect(getPluginList({ path: 'src/builder/plugins', pluginName: 'builder' })).to.deep.equal(
+        items
+      );
       expect(getItemsStub.called).to.be.true;
 
       const getItemsStubArgs = getItemsStub.getCall(0).args[0];
@@ -45,6 +47,38 @@ describe('plugins', () => {
       getItemsStubArgs.cb!('foo');
 
       expect(logStub.calledOnceWith('Registering builder plugin foo')).to.be.true;
+    });
+
+    it('should return list of components using silent mode', () => {
+      const items = [
+        {
+          name: 'fooPlugin',
+          path: 'src/builder/plugins/foo',
+        },
+        {
+          name: 'barPlugin',
+          path: 'src/builder/plugins/bar',
+        },
+      ];
+
+      const logStub = sinon.stub(console, 'debug');
+      const getItemsStub = sinon.stub(utils, 'getItems').returns(items);
+
+      expect(
+        getPluginList({ path: 'src/builder/plugins', pluginName: 'builder', silent: true })
+      ).to.deep.equal(items);
+      expect(getItemsStub.called).to.be.true;
+
+      const getItemsStubArgs = getItemsStub.getCall(0).args[0];
+
+      expect(getItemsStubArgs.resolveItem('src/builder/plugins', 'foo')).to.deep.equal({
+        path: 'src/builder/plugins/foo',
+        name: 'fooPlugin',
+      });
+
+      getItemsStubArgs.cb!('foo');
+
+      expect(logStub.notCalled).to.be.true;
     });
   });
 
@@ -190,6 +224,46 @@ describe('plugins', () => {
           'Writing component-builder plugins to scripts/temp/component-builder-plugins.js'
         )
       ).to.be.true;
+      expect(getItemsStub.calledOnce).to.be.true;
+      expect(
+        writeFileStub.calledOnceWith(
+          'scripts/temp/component-builder-plugins.js',
+          expectedFileContent
+        )
+      ).to.be.true;
+    });
+
+    it('should generate file using silent mode', () => {
+      const items: PluginFile[] = [
+        {
+          name: 'fooPlugin',
+          path: 'scripts/component-builder/plugins/foo',
+        },
+        {
+          name: 'barPlugin',
+          path: 'scripts/component-builder/plugins/bar',
+        },
+      ];
+
+      const getItemsStub = sinon.stub(utils, 'getItems').returns(items);
+      const logStub = sinon.stub(console, 'log');
+      const writeFileStub = sinon.stub(fs, 'writeFileSync');
+      sinon.stub(path, 'resolve').callsFake((path) => path);
+      sinon.stub(path, 'relative').callsFake((_, path) => path);
+
+      const expectedFileContent = [
+        "exports.fooPlugin = require('scripts/component-builder/plugins/foo');\r\n",
+        "exports.barPlugin = require('scripts/component-builder/plugins/bar');\r\n",
+      ].join('');
+
+      generatePlugins({
+        distPath: 'scripts/temp/component-builder-plugins.js',
+        rootPath: 'scripts/component-builder/plugins',
+        moduleType: ModuleType.CJS,
+        silent: true,
+      });
+
+      expect(logStub.notCalled).to.be.true;
       expect(getItemsStub.calledOnce).to.be.true;
       expect(
         writeFileStub.calledOnceWith(

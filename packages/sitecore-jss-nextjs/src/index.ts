@@ -102,7 +102,7 @@ export {
   GetServerSideComponentProps,
 } from './sharedTypes/component-props';
 
-export { ComponentModule } from './sharedTypes/component-module';
+export { ModuleFactory, Module } from './sharedTypes/module-factory';
 
 export { ComponentPropsService } from './services/component-props-service';
 
@@ -150,6 +150,8 @@ export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
 export { EditingComponentPlaceholder } from './components/EditingComponentPlaceholder';
 export { NextImage } from './components/NextImage';
+
+export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
 
 export {
   ComponentFactory,

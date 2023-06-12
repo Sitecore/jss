@@ -3,7 +3,7 @@ import { ComponentFile, PackageDefinition } from '../../components';
 
 /**
  * Generate component builder template
- * @param {(PackageDefinition | ComponentFile)[]}components components to include in component builder
+ * @param {(PackageDefinition | ComponentFile)[]} components components to include in component builder
  * @param {string} distPath destination path for component builder
  * @returns generated component builder template
  */
