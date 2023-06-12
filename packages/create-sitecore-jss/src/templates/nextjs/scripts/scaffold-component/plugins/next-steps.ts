@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import { ScaffoldComponentPlugin, ScaffoldComponentPluginConfig } from '..';
 
 /**
- * Logs next steps. Should be the last plugin to run.
+ * Set next steps.
  */
 class NextStepsPlugin implements ScaffoldComponentPlugin {
   order = 100;
