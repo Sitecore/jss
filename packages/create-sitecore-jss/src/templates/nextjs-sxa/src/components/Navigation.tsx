@@ -88,7 +88,7 @@ export const Default = (props: NavigationProps): JSX.Element => {
     ));
 
   return (
-    <div className={`component navigation ${styles}`} id={id ? id : undefined}>
+    <div className={`component navigation ${styles}`} id={id ? id : undefined} tabIndex={1}>
       <label className="menu-mobile-navigate-wrapper">
         <input
           type="checkbox"
