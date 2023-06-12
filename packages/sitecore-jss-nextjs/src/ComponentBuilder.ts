@@ -1,5 +1,14 @@
 import { ComponentFactory } from '@sitecore-jss/sitecore-jss-react';
-import { Module, ModuleFactory, LazyModule } from './sharedTypes/module-factory';
+import { Module, ModuleFactory } from './sharedTypes/module-factory';
+import { ComponentType } from 'react';
+
+/**
+ * Represents a component that can be imported dynamically
+ */
+export type LazyModule = {
+  module: () => Promise<Module>;
+  element: (isEditing?: boolean) => ComponentType;
+};
 
 /**
  * Component is a module or a lazy module

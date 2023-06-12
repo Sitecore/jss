@@ -2,7 +2,7 @@ import { ComponentType } from 'react';
 import { GetServerSideComponentProps, GetStaticComponentProps } from './component-props';
 
 /**
- * Represents a module (file) that can be imported statically
+ * Represents a module (file)
  */
 export type Module = {
   Default?: ComponentType;
@@ -11,14 +11,6 @@ export type Module = {
   getStaticProps?: GetStaticComponentProps;
 } & {
   [key: string]: ComponentType;
-};
-
-/**
- * Represents a module (file) that can be imported dynamically
- */
-export type LazyModule = {
-  module: () => Promise<Module>;
-  element: (isEditing?: boolean) => ComponentType;
 };
 
 /**
