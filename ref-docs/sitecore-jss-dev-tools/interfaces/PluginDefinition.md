@@ -23,7 +23,7 @@ destination path to compile plugins to
 
 #### Defined in
 
-[templating/plugins.ts:28](https://github.com/Sitecore/jss/blob/9a2c6b283/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L28)
+[templating/plugins.ts:28](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L28)
 
 ___
 
@@ -35,7 +35,7 @@ CJS or ESM - which type to compile plugins to
 
 #### Defined in
 
-[templating/plugins.ts:36](https://github.com/Sitecore/jss/blob/9a2c6b283/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L36)
+[templating/plugins.ts:36](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L36)
 
 ___
 
@@ -47,7 +47,7 @@ whether to use relative or absolute paths in the generated file. By default, rel
 
 #### Defined in
 
-[templating/plugins.ts:40](https://github.com/Sitecore/jss/blob/9a2c6b283/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L40)
+[templating/plugins.ts:40](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L40)
 
 ___
 
@@ -59,4 +59,4 @@ source path for where the plugins are defined
 
 #### Defined in
 
-[templating/plugins.ts:32](https://github.com/Sitecore/jss/blob/9a2c6b283/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L32)
+[templating/plugins.ts:32](https://github.com/Sitecore/jss/blob/f84d6d61a/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L32)
