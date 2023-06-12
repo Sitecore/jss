@@ -329,4 +329,33 @@ describe('RichText', () => {
 
     expect(c.find(ReactRichText).length).to.equal(1);
   });
+
+  it('Should not call prefetch when prefetchLinks is set to false', () => {
+    const app = document.createElement('main');
+
+    document.body.appendChild(app);
+
+    const router = Router();
+
+    const props = {
+      field: {
+        value:
+          '<div id="test"><h1>Prefetch test!</h1><a href="/notprefetched1">1</a><a href="/notprefetched2">2</a></div>',
+      },
+    };
+
+    const c = mount(
+      <Page value={router}>
+        <RichText {...props} prefetchLinks={false} />
+      </Page>,
+      { attachTo: app }
+    );
+
+    expect(c.html()).contains('<div id="test">');
+    expect(c.html()).contains('<h1>Prefetch test!</h1>');
+    expect(c.html()).contains('<a href="/notprefetched1">1</a>');
+    expect(c.html()).contains('<a href="/notprefetched2">2</a>');
+
+    expect(router.prefetch).callCount(0);
+  });
 });

@@ -11,7 +11,7 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
-### 🛠 Breaking Changes
+### 🎉 New Features & Improvements
 
 * `[templates/nexts]` `[sitecore-jss-dev-tools]` Move template related script to the base package ([#1520](https://github.com/Sitecore/jss/pull/1520)):
   `[sitecore-jss-nextjs]`:
@@ -24,15 +24,6 @@ Our versioning strategy is as follows:
     * Introduced _nextjs_ submodule, which contains component builder generation functionality
   `[templates/nextjs]`:
     * Introduced plugins architecture for _component builder_ and _scaffold component_ generation processes
-* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` FEaaS component is now server rendered. Prop type used FEaaSWrapper has been modified alongside with FEaaSWrapper implementation. Make sure you use the updated type and the updated wrapper. ([#1413](https://github.com/Sitecore/jss/pull/1413))
-* `[sitecore-jss-rendering-host]` `startDevServer` is retired. `startRenderingHostServer` is the only way to start the rendering host from now on. ([#1426](https://github.com/Sitecore/jss/pull/1426))
-* `[sitecore-jss-nextjs]` Some imports have been moved to avoid accidentally importing nextjs server logic inside client componenents([#1430](https://github.com/Sitecore/jss/pull/1430/)):
-  * SiteInfo and SiteResolver imports have been moved from '@sitecore-jss/sitecore-jss-nextjs/middleware' module to '@sitecore-jss/sitecore-jss-nextjs/site'
-  * tryParseEnvValue import has been moved from '@sitecore-jss/sitecore-jss-nextjs/middleware' module to '@sitecore-jss/sitecore-jss-nextjs/utils'
-  * exports for isEditorActive, resetEditorChromes, resolveUrl, tryParseEnvValue, handleEditorFastRefresh, getPublicUrl from '@sitecore-jss/sitecore-jss-nextjs' are depreceated. '@sitecore-jss/sitecore-jss-nextjs/utils' module should be used for them instead. 
-
-### 🎉 New Features & Improvements
-
 * `[templates/react]` `[sitecore-jss-dev-tools]` Refactoring for react template ([#1506](https://github.com/Sitecore/jss/pull/1506))([#1515](https://github.com/Sitecore/jss/pull/1515)):
   * `[templates/react]`:
     * Introduced plugins architecture for boostrap, config and component builder generation process
@@ -51,9 +42,10 @@ Our versioning strategy is as follows:
 * `[sitecore-jss]` `[templates/nextjs-sxa]` Rewrite logic of handling custom error pages. The error pages rewrite page with error(it's saving status code) instead of redirected ([#1469](https://github.com/Sitecore/jss/pull/1469)) ([#1476](https://github.com/Sitecore/jss/pull/1476))
 * `[templates/nextjs]` Remove .babelrc to (re)enable SWC compilation by default ([#1483](https://github.com/Sitecore/jss/pull/1483))
 * `[sitecore-jss]` Handle null items in graphql layout service. ([#1492](https://github.com/Sitecore/jss/pull/1492))
-* `[sitecore-jss]` `[templates/nextjs-personalize]` Introduced optional personalize scope identifier to isolate embedded personalization data among XM Cloud Environments that are sharing a Personalize tenant ([#1494](https://github.com/Sitecore/jss/pull/1494))
 * `[templates/nextjs-personalize]` `[sitecore-jss]` Update the default personalize middleware, personalize/cdp service timeout values to 400 ([#1507](https://github.com/Sitecore/jss/pull/1507))
 * `[templates/react]` `[templates/angular]` `[templates/vue]` Remove persisted query link since APQ(Automatic Persisted Queries) is not supported on Sitecore Experience Edge Delivery ([#1420](https://github.com/Sitecore/jss/pull/1512))
+* `[sitecore-jss]` `[templates/nextjs-personalize]` Introduced optional personalize scope identifier to isolate embedded personalization data among XM Cloud Environments that are sharing a Personalize tenant ([#1494](https://github.com/Sitecore/jss/pull/1494))
+* `[sitecore-jss-nextjs]` Add prefetchLinks paramter to the RichText component to allow prefetching of links to be enabled/disabled ([#1517](https://github.com/Sitecore/jss/pull/1517))
 
 ### 🧹 Chores
 
@@ -63,6 +55,9 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` `[templates/nextjs-styleguide-tracking]` Move remaining Styleguide-Tracking artifacts from the base template ([#1422](https://github.com/Sitecore/jss/pull/1422))
 * Fix API Doc generation ([#1464](https://github.com/Sitecore/jss/pull/1464))
 * Update Sitecore logos ([#1467](https://github.com/Sitecore/jss/pull/1467))
+* Fix security vulnerabilities ([#1381](https://github.com/Sitecore/jss/pull/1381))
+* `[templates/nextjs-sxa]` Move some dependencies to devDependencies ([#1489](https://github.com/Sitecore/jss/pull/1489))
+* `[templates/nextjs-sxa]` Clarify rootItemId usage for Dictionary Service in SXA sites ([#1409](https://github.com/Sitecore/jss/pull/1409))
 
 ### 🐛 Bug Fixes
 
@@ -86,6 +81,24 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Fix class .indent for component which have column size 12 ([#1505](https://github.com/Sitecore/jss/pull/1505))
 * `[templates/nextjs-sxa]` Fix type(from Text to RichText) of editing text in value Text2 for Promo Component in WithText variant ([#1504](https://github.com/Sitecore/jss/pull/1504)).
 * `[sitecore-jss-nextjs]` Fix RichText component to re-initialize links when content changes ([#1503](https://github.com/Sitecore/jss/pull/1503))
+* `[angular]` `[react]` `[vue]` `[nextjs]` Prevent personalized component rendering errors when default variant is hidden ([#1383](https://github.com/Sitecore/jss/pull/1383))
+* `[vue]` Fix disconnected mode not starting in monorepo setup ([#1418](https://github.com/Sitecore/jss/pull/1418))
+* `[sitecore-jss-proxy]` The rewriteRequestPath function ignores query string parameters added in a middleware([#1373](https://github.com/Sitecore/jss/pull/1373)) ([#1379](https://github.com/Sitecore/jss/pull/1379))
+
+### 🛠 Breaking Changes
+
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` FEaaS component is now server rendered. Prop type used FEaaSWrapper has been modified alongside with FEaaSWrapper implementation. Make sure you use the updated type and the updated wrapper. ([#1413](https://github.com/Sitecore/jss/pull/1413)) ([#1513](https://github.com/Sitecore/jss/pull/1513))
+* `[sitecore-jss-rendering-host]` `startDevServer` is retired. `startRenderingHostServer` is the only way to start the rendering host from now on. ([#1426](https://github.com/Sitecore/jss/pull/1426))
+* `[sitecore-jss-nextjs]` Some imports have been moved to avoid accidentally importing nextjs server logic inside client componenents([#1430](https://github.com/Sitecore/jss/pull/1430/)):
+  * SiteInfo and SiteResolver imports have been moved from '@sitecore-jss/sitecore-jss-nextjs/middleware' module to '@sitecore-jss/sitecore-jss-nextjs/site'
+  * tryParseEnvValue import has been moved from '@sitecore-jss/sitecore-jss-nextjs/middleware' module to '@sitecore-jss/sitecore-jss-nextjs/utils'
+  * exports for isEditorActive, resetEditorChromes, resolveUrl, tryParseEnvValue, handleEditorFastRefresh, getPublicUrl from '@sitecore-jss/sitecore-jss-nextjs' are depreceated. '@sitecore-jss/sitecore-jss-nextjs/utils' module should be used for them instead.
+
+## 21.1.7
+
+### 🐛 Bug Fixes
+
+* [React] Cannot find package '@babel/plugin-proposal-export-namespace-from' ([#1510](https://github.com/Sitecore/jss/pull/1510))
 
 ## 21.1.6
 
@@ -173,7 +186,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` Fix rendering issue in components using withPlaceholder ([#1349](https://github.com/Sitecore/jss/pull/1349))
 * `[sitecore-jss-react-forms]` The language of the form is changed after clicking the submit button ([#1261](https://github.com/Sitecore/jss/pull/1261))
 * `[templates/nextjs-sxa]` Cumulative SXA bug fixes ([#1319](https://github.com/Sitecore/jss/pull/1319)) ([#1292](https://github.com/Sitecore/jss/pull/1292)) ([#1165](https://github.com/Sitecore/jss/pull/1165)) ([#1245](https://github.com/Sitecore/jss/pull/1245)) ([#1268](https://github.com/Sitecore/jss/pull/1268)) ([#1269](https://github.com/Sitecore/jss/pull/1269)) ([#1272](https://github.com/Sitecore/jss/pull/1272)) ([#1278](https://github.com/Sitecore/jss/pull/1278)) ([#1333](https://github.com/Sitecore/jss/pull/1333)) ([#1185](https://github.com/Sitecore/jss/pull/1185)) ([#1172](https://github.com/Sitecore/jss/pull/1172)) ([#1255](https://github.com/Sitecore/jss/pull/1255))
-* `[templates/nextjs-personalize]` `[sitecore-jss-nextjs]` Add support for fallback point of sale ([#1367](https://github.com/Sitecore/jss/pull/1367))
+* `[templates/nextjs-personalize]` `[sitecore-jss-nextjs]` Add support for fallback point of sale ([#1367](https://github.com/Sitecore/jss/pull/1367)) ([#1380](https://github.com/Sitecore/jss/pull/1380))
 * `[templates/vue]` Fix local dev server launch error ([#1368](https://github.com/Sitecore/jss/pull/1368))
 * `[sitecore-jss-nextjs]` Implemented MiddlewareBase abstraction. Skip Redirects middleware during editing ([#1370](https://github.com/Sitecore/jss/pull/1370))
 * `[sitecore-jss-nextjs]` Redirects middleware should debug log start/end ([#1372](https://github.com/Sitecore/jss/pull/1372))

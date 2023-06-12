@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/bd86495af/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/9a2c6b283/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 ## Properties
 
@@ -45,7 +45,7 @@
 
 #### Defined in
 
-[src/native-fetcher.ts:23](https://github.com/Sitecore/jss/blob/bd86495af/packages/sitecore-jss/src/native-fetcher.ts#L23)
+[src/native-fetcher.ts:23](https://github.com/Sitecore/jss/blob/9a2c6b283/packages/sitecore-jss/src/native-fetcher.ts#L23)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/bd86495af/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/9a2c6b283/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 ## Methods
 
@@ -79,7 +79,7 @@ Object with headers as key/value pairs
 
 #### Defined in
 
-[src/native-fetcher.ts:114](https://github.com/Sitecore/jss/blob/bd86495af/packages/sitecore-jss/src/native-fetcher.ts#L114)
+[src/native-fetcher.ts:114](https://github.com/Sitecore/jss/blob/9a2c6b283/packages/sitecore-jss/src/native-fetcher.ts#L114)
 
 ___
 
@@ -114,7 +114,7 @@ response
 
 #### Defined in
 
-[src/native-fetcher.ts:33](https://github.com/Sitecore/jss/blob/bd86495af/packages/sitecore-jss/src/native-fetcher.ts#L33)
+[src/native-fetcher.ts:33](https://github.com/Sitecore/jss/blob/9a2c6b283/packages/sitecore-jss/src/native-fetcher.ts#L33)
 
 ___
 
@@ -139,4 +139,4 @@ The final request settings
 
 #### Defined in
 
-[src/native-fetcher.ts:96](https://github.com/Sitecore/jss/blob/bd86495af/packages/sitecore-jss/src/native-fetcher.ts#L96)
+[src/native-fetcher.ts:96](https://github.com/Sitecore/jss/blob/9a2c6b283/packages/sitecore-jss/src/native-fetcher.ts#L96)
