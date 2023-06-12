@@ -13,6 +13,17 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Changes
 
+* `[templates/nexts]` `[sitecore-jss-dev-tools]` Move template related script to the base package ([#1520](https://github.com/Sitecore/jss/pull/1520)):
+  `[sitecore-jss-nextjs]`:
+    * Introduced _ComponentBuilder_ class for generating component factories and module factories.
+    * ComponentPropsService _componentModule_ property renamed to _moduleFactory_.
+    * `sitecore-jss-nextjs` Adjusted _ComponentModule_ definition:
+      * renamed to _ModuleFactory_.
+      * _Module_ besides the initial limited set of props now can also include any React component. _React.Component_ is replaced by _React.ComponentType_.
+  * `[sitecore-jss-dev-tools]`:
+    * Introduced _nextjs_ submodule, which contains component builder generation functionality
+  `[templates/nextjs]`:
+    * Introduced plugins architecture for _component builder_ and _scaffold component_ generation processes
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` FEaaS component is now server rendered. Prop type used FEaaSWrapper has been modified alongside with FEaaSWrapper implementation. Make sure you use the updated type and the updated wrapper. ([#1413](https://github.com/Sitecore/jss/pull/1413))
 * `[sitecore-jss-rendering-host]` `startDevServer` is retired. `startRenderingHostServer` is the only way to start the rendering host from now on. ([#1426](https://github.com/Sitecore/jss/pull/1426))
 * `[sitecore-jss-nextjs]` Some imports have been moved to avoid accidentally importing nextjs server logic inside client componenents([#1430](https://github.com/Sitecore/jss/pull/1430/)):
