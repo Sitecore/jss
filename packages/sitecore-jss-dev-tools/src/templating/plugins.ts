@@ -35,9 +35,13 @@ export interface PluginDefinition {
    */
   moduleType: ModuleType;
   /**
-   * whether to use relative or absolute paths in the generated file. By default, relative paths are used.
+   * whether to use relative or absolute paths in the generated file. By default, absolute paths are used.
    */
   relative?: boolean;
+  /**
+   * whether to suppress console output
+   */
+  silent?: boolean;
 }
 
 /**
@@ -48,17 +52,27 @@ export interface PluginDefinition {
  *   name: 'fooPlugin'
  * }
  * @example getPluginList('src/foo/plugins', 'Foo')
- * @param {string} path path to get plugin from
- * @param {string} pluginName plugin name
+ * @param {Object} definition plugin definition
+ * @param {string} definition.path path to get plugin from
+ * @param {string} definition.pluginName plugin name
+ * @param {boolean} [definition.silent] whether to suppress console output
  */
-export function getPluginList(path: string, pluginName: string): PluginFile[] {
+export function getPluginList({
+  path,
+  pluginName,
+  silent = false,
+}: {
+  path: string;
+  pluginName: string;
+  silent?: boolean;
+}): PluginFile[] {
   const plugins = getItems<PluginFile>({
     path,
     resolveItem: (path, name) => ({
       path: `${path}/${name}`,
       name: `${name.replace(/-./g, (x) => x[1].toUpperCase())}Plugin`,
     }),
-    cb: (name) => console.debug(`Registering ${pluginName} plugin ${name}`),
+    cb: (name) => !silent && console.debug(`Registering ${pluginName} plugin ${name}`),
   });
 
   return plugins;
@@ -71,17 +85,13 @@ export function getPluginList(path: string, pluginName: string): PluginFile[] {
  * CJS: exports.fooPlugin = require('{pluginPath}');
  * ESM: export { fooPlugin } from '{pluginPath}';
  * @example generatePlugins({ distPath: 'src/temp/foo-plugins.js', rootPath: 'src/foo/plugins', moduleType: ModuleType.CJS })
- * @param {Object} definition plugin definition
- * @param {string} definition.distPath path to write plugins to
- * @param {string} definition.rootPath plugin source path
- * @param {string} definition.moduleType module type: CJS or ESM
- * @param {boolean} [definition.relative] whether to use relative paths in the generated file. By default, absolute paths are used.
+ * @param {PluginDefinition} definition plugin definition
  */
 export function generatePlugins(definition: PluginDefinition) {
-  const { rootPath, distPath, moduleType, relative = true } = definition;
+  const { rootPath, distPath, moduleType, relative = false, silent } = definition;
   const segments = rootPath.split('/');
   const pluginName = segments[segments.length - 2];
-  const plugins = getPluginList(rootPath, pluginName);
+  const plugins = getPluginList({ path: rootPath, pluginName, silent });
   let fileContent = '';
 
   fileContent = plugins
@@ -102,7 +112,7 @@ export function generatePlugins(definition: PluginDefinition) {
   }
 
   const filePath = path.resolve(distPath);
-  console.log(`Writing ${pluginName} plugins to ${filePath}`);
+  !silent && console.log(`Writing ${pluginName} plugins to ${filePath}`);
 
   fs.writeFileSync(filePath, fileContent, {
     encoding: 'utf8',

@@ -18,8 +18,7 @@ import {
 import { handleEditorFastRefresh } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
-// different componentFactory method will be used based on whether page is being edited
-import { componentFactory, editingComponentFactory } from 'temp/componentFactory';
+import { componentBuilder } from 'temp/componentBuilder';
 <% if (prerender === 'SSG') { -%>
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
@@ -43,7 +42,7 @@ const SitecorePage = ({ notFound, componentProps, layoutData, headLinks }: Sitec
   return (
     <ComponentPropsContext value={componentProps}>
       <SitecoreContext
-        componentFactory={isEditing ? editingComponentFactory : componentFactory}
+        componentFactory={componentBuilder.getComponentFactory({ isEditing })}
         layoutData={layoutData}
       >
         {/*

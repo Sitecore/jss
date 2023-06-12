@@ -6,7 +6,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import NotFound from 'src/NotFound';
-import { componentFactory } from 'temp/componentFactory';
+import { componentBuilder } from 'temp/componentBuilder';
 import Layout from 'src/Layout';
 import { GetStaticProps } from 'next';
 import { siteResolver } from 'lib/site-resolver';
@@ -17,7 +17,10 @@ const Custom404 = (props: SitecorePageProps): JSX.Element => {
   }
 
   return (
-    <SitecoreContext componentFactory={componentFactory} layoutData={props.layoutData}>
+    <SitecoreContext
+      componentFactory={componentBuilder.getComponentFactory({})}
+      layoutData={props.layoutData}
+    >
       <Layout layoutData={props.layoutData} headLinks={props.headLinks} />
     </SitecoreContext>
   );

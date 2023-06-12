@@ -11,6 +11,7 @@
     "src/test*",
     "node_modules",
     "src/**/*.test.ts",
-    "react.d.ts"
+    "react.d.ts",
+    "nextjs.d.ts"
   ]
 }

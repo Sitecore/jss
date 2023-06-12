@@ -18,7 +18,7 @@ const pluginDefinitions = [
     rootPath: 'scripts/config/plugins',
     moduleType: ModuleType.CJS,
   },
-];
+].map(definition => ({ ...definition, relative: true }));
 
 run(pluginDefinitions);
 
