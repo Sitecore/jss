@@ -40,7 +40,11 @@ export const Banner = (props: ImageProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
   return (
-    <div className={`component hero-banner ${props.params.styles}`} id={id ? id : undefined}>
+    <div
+      className={`component hero-banner ${props.params.styles}`}
+      id={id ? id : undefined}
+      tabIndex={1}
+    >
       <div className="component-content sc-sxa-image-hero-banner" style={backgroundStyle}>
         {sitecoreContext.pageEditing ? <JssImage field={modifyImageProps} /> : ''}
       </div>
@@ -56,7 +60,11 @@ export const Default = (props: ImageProps): JSX.Element => {
     const id = props.params.RenderingIdentifier;
 
     return (
-      <div className={`component image ${props.params.styles}`} id={id ? id : undefined}>
+      <div
+        className={`component image ${props.params.styles}`}
+        id={id ? id : undefined}
+        tabIndex={1}
+      >
         <div className="component-content">
           {sitecoreContext.pageState === 'edit' ? (
             <Image />
