@@ -17,9 +17,9 @@ Our versioning strategy is as follows:
   `[sitecore-jss-nextjs]`:
     * Introduced _ComponentBuilder_ class for generating component factories and module factories.
     * ComponentPropsService _componentModule_ property renamed to _moduleFactory_.
-    * `sitecore-jss-nextjs` Adjusted _ComponentModule_ definition:
+    * Adjusted _ComponentModule_ definition:
       * renamed to _ModuleFactory_.
-      * _Module_ besides the initial limited set of props now can also include any React component. _React.Component_ is replaced by _React.ComponentType_.
+      * _Module_ type besides the initial limited set of props now can also include any React component. _React.Component_ is replaced by _React.ComponentType_.
   * `[sitecore-jss-dev-tools]`:
     * Introduced _nextjs_ submodule, which contains component builder generation functionality
   `[templates/nextjs]`:
