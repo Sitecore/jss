@@ -87,6 +87,7 @@ Our versioning strategy is as follows:
 * `[vue]` Fix disconnected mode not starting in monorepo setup ([#1418](https://github.com/Sitecore/jss/pull/1418))
 * `[sitecore-jss-proxy]` The rewriteRequestPath function ignores query string parameters added in a middleware([#1373](https://github.com/Sitecore/jss/pull/1373)) ([#1379](https://github.com/Sitecore/jss/pull/1379))
 * `[templates/react]` [React] Fix build error ([#1505](https://github.com/Sitecore/jss/pull/1523))
+* `[templates/vue]` [Vue] Fix integrated mode error ([#1505](https://github.com/Sitecore/jss/pull/1524))
 
 ### 🛠 Breaking Changes
 
