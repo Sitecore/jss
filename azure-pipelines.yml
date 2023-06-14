@@ -51,7 +51,7 @@ steps:
     yarn lint-packages ${{ variables.lernaSinceFlag }}
   displayName: 'lint packages'
 - script: |
-    lerna run build
+    npm run build
   displayName: 'build packages'
 - script: |
     yarn coverage-packages
