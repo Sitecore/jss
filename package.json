@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "reset": "lerna clean --yes && yarn dlx rimraf node_modules && yarn install && yarn build",
-    "build": "lerna run build",
+    "build": "lerna repair && lerna run build",
     "lint-packages": "lerna run lint",
     "scaffold-samples": "node ./scripts/scaffold-samples.js",
     "lint-samples": "node ./scripts/lint-samples.js",
