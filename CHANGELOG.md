@@ -13,6 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
+* `[templates]` Add support for layout service REST configuration name
 * `[templates/nexts]` `[sitecore-jss-dev-tools]` Move template related script to the base package ([#1520](https://github.com/Sitecore/jss/pull/1520)):
   * `[sitecore-jss-nextjs]`:
     * Introduced _ComponentBuilder_ class for generating component factories and module factories.
