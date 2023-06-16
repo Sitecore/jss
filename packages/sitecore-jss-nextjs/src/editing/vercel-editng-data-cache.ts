@@ -4,32 +4,42 @@ import { EditingData } from './editing-data';
 import { debug } from '@sitecore-jss/sitecore-jss';
 
 export class VercelEditingDataCache implements EditingDataCache {
-  private redisCache: VercelKV;
+  protected redisCache: VercelKV;
+  private ttl;
 
-  constructor(redisUrl?: string, redisToken?: string) {
+  constructor(redisUrl: string | undefined, redisToken: string | undefined, entryTtlSeconds: number = 60) {
+    if (!redisUrl || !redisToken) {
+      throw Error(
+        'API URL or token are missing, ensure you have set the KV or Upstash storage correctly.'
+      );
+    };
+    this.ttl = entryTtlSeconds;
     this.redisCache = createClient({
-      url: redisUrl || process.env.KV_REST_API_URL || '',
-      token: redisToken || process.env.KV_REST_API_TOKEN || '',
+      url: redisUrl,
+      token: redisToken,
     });
   }
-
+  
   set(key: string, editingData: EditingData): Promise<void> {
-    debug.editing(`Putting editing data ${key} into redis storage`);
+    debug.editing(`Putting editing data for ${key} into redis storage...`);
     return new Promise<void>((resolve, reject) => {
       this.redisCache
         .set(key, JSON.stringify(editingData))
-        .then(() => resolve())
+        .then(() => {
+          this.redisCache.expire(key, this.ttl).then(() => {
+            resolve();
+          });
+        })
         .catch((err) => reject(err));
     });
   }
 
   get(key: string): Promise<EditingData | undefined> {
-    debug.editing(`Getting editing data ${key} from redis storage`);
+    debug.editing(`Getting editing data for ${key} from redis storage...`);
     return new Promise<EditingData | undefined>((resolve, reject) => {
       this.redisCache
         .get(key)
         .then((entry) => {
-          console.log(`${key} - ${entry}`);
           const obj = {
             val: entry as string,
           };

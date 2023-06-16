@@ -14,3 +14,4 @@ export {
   ServerlessEditingDataServiceConfig,
   editingDataService,
 } from './editing-data-service';
+export { VercelEditingDataCache } from './vercel-editng-data-cache';
