@@ -11,6 +11,8 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 21.2.0
+
 ### 🎉 New Features & Improvements
 
 * `[templates/nexts]` `[sitecore-jss-dev-tools]` Move template related script to the base package ([#1520](https://github.com/Sitecore/jss/pull/1520)):
