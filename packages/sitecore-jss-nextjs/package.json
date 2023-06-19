@@ -70,7 +70,6 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@redis/client": "^1.5.8",
     "@sitecore-jss/sitecore-jss": "^21.2.0-canary.39",
     "@sitecore-jss/sitecore-jss-dev-tools": "^21.2.0-canary.39",
     "@sitecore-jss/sitecore-jss-react": "^21.2.0-canary.39",
