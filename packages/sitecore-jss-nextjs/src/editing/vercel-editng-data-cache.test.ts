@@ -1,70 +1,106 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { expect } from 'chai';
+import { expect, use } from 'chai';
 import * as vercelKv from '@vercel/kv';
 import sinon from 'sinon';
 import { EditingData } from './editing-data';
 import { VercelEditingDataCache } from './vercel-editng-data-cache';
+import sinonChai from 'sinon-chai';
 
-describe('verecel editing data cache', () => {
+use(sinonChai);
+const sandbox = sinon.createSandbox();
 
-    function setup() {
-        const kvStub: vercelKv.VercelKV = new vercelKv.VercelKV({
-            url: 'test',
-            token: 'test'
-        });
-        kvStub.set = sinon.stub();
-        kvStub.get = sinon.stub();
-        kvStub.expire = sinon.stub();
-        sinon.stub(vercelKv, 'createClient').returns(kvStub);
-        return kvStub;
-    }
-
-    afterEach(() => {
-        sinon.reset();
+describe('vercel editing data cache', () => {
+  const setup = (key: string, value: Record<string, unknown> | null) => {
+    const kvStub: vercelKv.VercelKV = new vercelKv.VercelKV({
+      url: 'test',
+      token: 'test',
     });
+    sandbox.stub(kvStub, 'set').resolves();
+    sandbox
+      .stub(kvStub, 'get')
+      .withArgs(key)
+      .resolves(value);
+    sandbox.stub(kvStub, 'expire').resolves();
+    sandbox.stub(vercelKv, 'createClient').returns(kvStub);
+    return kvStub;
+  };
 
-    it('should put entries into storage', async () => {
-        const kvStub = setup();
-        const key = 'top-secret';
-        const entry = `{
-            path: 'c:/rome',
-            language: 'en',
-            layoutData: {
-                sitecore: {
-                    route: null,
-                    context: {}
-                }
-            }
-        }`;
-        const expectedResult: EditingData = {
-            path: 'c:/rome',
-            language: 'en',
-            layoutData: {
-                sitecore: {
-                    route: null,
-                    context: {}
-                }
-            },
-            dictionary: {
+  afterEach(() => {
+    sandbox.restore();
+  });
 
-            }
-        };
-        kvStub.get = sinon.stub().withArgs(key).resolves(entry);
-        const result = await new VercelEditingDataCache('test', 'tset').get(key);
+  it('should get entries from storage', async () => {
+    const key = 'top-secret';
+    const expectedResult: EditingData = {
+      path: '/rome',
+      language: 'en',
+      layoutData: {
+        sitecore: {
+          route: null,
+          context: {},
+        },
+      },
+      dictionary: {},
+    };
+    JSON.stringify(expectedResult);
+    setup(key, expectedResult);
 
-        expect(result).to.deep.equal(expectedResult);
-    });
+    const result = await new VercelEditingDataCache('test', 'tset').get(key);
 
-    xit('should get entries into storage', async () => {
+    expect(result as EditingData).to.deep.equal(expectedResult);
+  });
 
-    });
+  it('should return undefined on cache miss', async () => {
+    const key = 'no-such-key';
+    setup(key, null);
+    const result = await new VercelEditingDataCache('test', 'tset').get('no-such-key');
+    expect(result).to.deep.equal(undefined);
+  });
 
-    xit('should put entries into storage with ttl', async () => {
+  it('should put entries into storage', async () => {
+    const key = 'top-secret';
+    const entry: EditingData = {
+      path: '/rome',
+      language: 'en',
+      layoutData: {
+        sitecore: {
+          route: null,
+          context: {},
+        },
+      },
+      dictionary: {},
+    };
+    const kvStub = setup('key', {});
 
-    });
+    await new VercelEditingDataCache('test', 'tset').set(key, entry);
 
-    xit('should return undefined on cache miss', async () => {
+    expect(kvStub.set).to.have.been.calledWith(key, JSON.stringify(entry));
+  });
 
-    });
+  it('should put entries into storage with ttl', async () => {
+    const key = 'top-secret';
+    const entry: EditingData = {
+      path: '/rome',
+      language: 'en',
+      layoutData: {
+        sitecore: {
+          route: null,
+          context: {},
+        },
+      },
+      dictionary: {},
+    };
+    const ttl = 148;
+    const kvStub = setup('key', {});
+
+    await new VercelEditingDataCache('test', 'tset', ttl).set(key, entry);
+
+    expect(kvStub.set).to.have.been.calledWith(key, JSON.stringify(entry));
+    expect(kvStub.expire).to.have.been.calledWith(key, ttl);
+  });
+
+  it('should throw if initialized without API URL and token', () => {
+    expect(() => new VercelEditingDataCache('', '')).to.throw();
+  });
 });

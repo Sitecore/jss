@@ -1,4 +1,14 @@
 import { EditingDataMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';
+/**
+ * For Vercel deployments: you can use Vercel KV, Upstash or a self hosted Redis storage for editing cache.
+ * For Vercel KV:
+ * import { VercelEditingDataCache } from '@sitecore-jss/sitecore-jss-nextjs/editing';
+ * const redisDataCache = new VercelEditingDataCache(
+    process.env.KV_REST_API_URL,
+    process.env.KV_REST_API_TOKEN
+  );
+ * Pass redisDataCache into EditingDataMiddleware constructor.
+ */
 
 /**
  * This Next.js API route is used to handle Sitecore editor data storage and retrieval by key
@@ -20,6 +30,8 @@ export const config = {
 };
 
 // Wire up the EditingDataMiddleware handler
+// For Vercel deployments: specify editingDataCache like:
+// new EditingDataMiddleware({ editingDataCache: redisDataCache }).getHandler();
 const handler = new EditingDataMiddleware().getHandler();
 
 export default handler;
