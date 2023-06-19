@@ -37,7 +37,7 @@ which is required for Sitecore editing support.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:36](https://github.com/Sitecore/jss/blob/ac7cb1b6d/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L36)
+[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:36](https://github.com/Sitecore/jss/blob/358053eb2/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L36)
 
 ## Properties
 
@@ -47,7 +47,7 @@ which is required for Sitecore editing support.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:31](https://github.com/Sitecore/jss/blob/ac7cb1b6d/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L31)
+[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:31](https://github.com/Sitecore/jss/blob/358053eb2/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L31)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:30](https://github.com/Sitecore/jss/blob/ac7cb1b6d/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L30)
+[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:30](https://github.com/Sitecore/jss/blob/358053eb2/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L30)
 
 ## Methods
 
@@ -92,7 +92,7 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:45](https://github.com/Sitecore/jss/blob/ac7cb1b6d/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L45)
+[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:45](https://github.com/Sitecore/jss/blob/358053eb2/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L45)
 
 ___
 
@@ -113,4 +113,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:49](https://github.com/Sitecore/jss/blob/ac7cb1b6d/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L49)
+[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:49](https://github.com/Sitecore/jss/blob/358053eb2/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L49)
