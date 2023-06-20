@@ -15,9 +15,9 @@ import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editi
  */
 
 /**
- * For Vercel deployments: you may need to use BasicEditingDataService (imported from @sitecore-jss/sitecore-jss-nextjs/editing) 
- * for EditingRenderMiddleware and pass down VercelEditingDataCache (imported from the same place) or a custom Redis implementation into it
- * Refer to documentation for a detailed guide.
+ * For Vercel deployments: 
+ * if you experience crashes in editing, you may need to use VercelEditingDataCache or a custom Redis data cache implementation with EditingRenderMiddleware
+ * Please refer to documentation for a detailed guide.
  */
 
 // Bump body size limit (1mb by default) and disable response limit for Sitecore editor payloads
