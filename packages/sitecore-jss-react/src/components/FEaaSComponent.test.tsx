@@ -83,19 +83,19 @@ describe('<FEaaSComponent />', () => {
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
       expect(wrapper.html()).to.contain(
-        `data="${props.params?.ComponentDataOverride!.replace(/"/g, '&quot;')}"`
+        `data="${props.params?.ComponentDataOverride!.replace(/"/g, '&quot;').replace(/\s/g, '')}"`
       );
     });
 
     it('should send datasource fields', () => {
       const fields: ComponentFields = {
         sampleText: {
-          value: 'Welcome to Sitecore JSS',
+          value: 'Welcome-to-Sitecore-JSS',
         },
         sampleImage: {
           value: {
             src: '/-/media/sc_logo.png',
-            alt: 'Sitecore Logo',
+            alt: 'Sitecore-Logo',
           },
         },
         sampleNumber: {
@@ -116,24 +116,24 @@ describe('<FEaaSComponent />', () => {
         fields,
       };
       const expectedData = {
-        _: {
-          sampleText: 'Welcome to Sitecore JSS',
-          sampleImage: {
-            src: '/-/media/sc_logo.png',
-            alt: 'Sitecore Logo',
-          },
-          sampleNumber: 1.21,
-          sampleLink: {
-            href: '/',
-            id: '{54C8E9B5-0B2C-5363-8FA6-D32A3A302F51}',
-            linktype: 'internal',
-          },
+        sampleText: 'Welcome-to-Sitecore-JSS',
+        sampleImage: {
+          src: '/-/media/sc_logo.png',
+          alt: 'Sitecore-Logo',
+        },
+        sampleNumber: 1.21,
+        sampleLink: {
+          href: '/',
+          id: '{54C8E9B5-0B2C-5363-8FA6-D32A3A302F51}',
+          linktype: 'internal',
         },
       };
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
       expect(wrapper.html()).to.contain(
-        `data="${JSON.stringify(expectedData).replace(/"/g, '&quot;')}"`
+        `data="${JSON.stringify(expectedData)
+          .replace(/"/g, '&quot;')
+          .replace(/\s/g, '')}"`
       );
     });
 
@@ -154,7 +154,7 @@ describe('<FEaaSComponent />', () => {
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
       expect(wrapper.html()).to.contain(
-        `data="${props.params?.ComponentDataOverride!.replace(/"/g, '&quot;')}"`
+        `data="${props.params?.ComponentDataOverride!.replace(/"/g, '&quot;').replace(/\s/g, '')}"`
       );
     });
   });
