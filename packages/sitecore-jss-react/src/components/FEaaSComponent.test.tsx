@@ -116,22 +116,24 @@ describe('<FEaaSComponent />', () => {
         fields,
       };
       const expectedData = {
-          sampleText: 'Welcome-to-Sitecore-JSS',
-          sampleImage: {
-            src: '/-/media/sc_logo.png',
-            alt: 'Sitecore-Logo',
-          },
-          sampleNumber: 1.21,
-          sampleLink: {
-            href: '/',
-            id: '{54C8E9B5-0B2C-5363-8FA6-D32A3A302F51}',
-            linktype: 'internal',
-          },        
+        sampleText: 'Welcome-to-Sitecore-JSS',
+        sampleImage: {
+          src: '/-/media/sc_logo.png',
+          alt: 'Sitecore-Logo',
+        },
+        sampleNumber: 1.21,
+        sampleLink: {
+          href: '/',
+          id: '{54C8E9B5-0B2C-5363-8FA6-D32A3A302F51}',
+          linktype: 'internal',
+        },
       };
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
       expect(wrapper.html()).to.contain(
-        `data="${JSON.stringify(expectedData).replace(/"/g, '&quot;').replace(/\s/g, '')}"`
+        `data="${JSON.stringify(expectedData)
+          .replace(/"/g, '&quot;')
+          .replace(/\s/g, '')}"`
       );
     });
 
