@@ -89,7 +89,6 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
     }
   } else if (props.fields) {
     // Otherwise use datasource data (provided in fields)
-    // FEaaS expects wrapping "_" as catch-all datasource template id
     data = getDataFromFields(props.fields);
   }
 
