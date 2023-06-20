@@ -16,7 +16,7 @@ export const Default = (props: ${componentName}Props): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
   return (
-    <div className={\`component \${props.params.styles}\`} id={id ? id : undefined} tabIndex={1}>
+    <div className={\`component \${props.params.styles}\`} id={id ? id : undefined}>
       <div className="component-content">
         <p>${componentName} Component</p>
       </div>

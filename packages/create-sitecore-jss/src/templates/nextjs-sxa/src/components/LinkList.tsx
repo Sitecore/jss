@@ -68,7 +68,7 @@ export const Default = (props: LinkListProps): JSX.Element => {
       ));
 
     return (
-      <div className={styles} id={id ? id : undefined} tabIndex={1}>
+      <div className={styles} id={id ? id : undefined}>
         <div className="component-content">
           <Text tag="h3" field={datasource?.field?.title} />
           <ul>{list}</ul>
@@ -78,7 +78,7 @@ export const Default = (props: LinkListProps): JSX.Element => {
   }
 
   return (
-    <div className={styles} id={id ? id : undefined} tabIndex={1}>
+    <div className={styles} id={id ? id : undefined}>
       <div className="component-content">
         <h3>Link List</h3>
       </div>
