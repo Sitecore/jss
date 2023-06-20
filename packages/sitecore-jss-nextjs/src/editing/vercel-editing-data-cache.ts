@@ -10,20 +10,19 @@ import { debug } from '@sitecore-jss/sitecore-jss';
  */
 export class VercelEditingDataCache implements EditingDataCache {
   protected redisCache: VercelKV;
-  private ttl;
-  
+  private defaultTtl = 120;
+
   /**
    * @param {string} redisUrl KV endpoint URL. Usually stored in process.env.KV_REST_API_URL
    * @param {string} redisToken KV endpoint tokem. Usually stored in process.env.KV_REST_API_TOKEN
    * @param {string} [entryTtlSeconds] TTL of cache entries in second. Default: 60 
    */
-  constructor(redisUrl: string | undefined, redisToken: string | undefined, entryTtlSeconds = 60) {
+  constructor(redisUrl: string | undefined, redisToken: string | undefined) {
     if (!redisUrl || !redisToken) {
       throw Error(
         'API URL or token are missing, ensure you have set the KV or Upstash storage correctly.'
       );
     }
-    this.ttl = entryTtlSeconds;
     this.redisCache = createClient({
       url: redisUrl,
       token: redisToken,
@@ -34,12 +33,8 @@ export class VercelEditingDataCache implements EditingDataCache {
     debug.editing(`Putting editing data for ${key} into redis storage...`);
     return new Promise<void>((resolve, reject) => {
       this.redisCache
-        .set(key, JSON.stringify(editingData))
-        .then(() => {
-          this.redisCache.expire(key, this.ttl).then(() => {
-            resolve();
-          });
-        })
+        .set(key, JSON.stringify(editingData), {ex: this.defaultTtl})
+        .then(() => resolve())
         .catch((err) => reject(err));
     });
   }
@@ -52,7 +47,7 @@ export class VercelEditingDataCache implements EditingDataCache {
         .then((entry) => {
           // We need to normalize the object we get from API then JSON-ify it, won't work otherwise
           const result = (entry ? JSON.parse(JSON.stringify(entry)) : undefined) as EditingData;
-          resolve(result);
+          this.redisCache.expire(key, 0).then(() => resolve(result));          
         })
         .catch((err) => reject(err));
     });

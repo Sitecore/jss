@@ -7,7 +7,6 @@ import { EditingDataMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing
     process.env.KV_REST_API_URL,
     process.env.KV_REST_API_TOKEN
   );
- * Pass redisDataCache into EditingDataMiddleware constructor.
  */
 
 /**
@@ -30,8 +29,8 @@ export const config = {
 };
 
 // Wire up the EditingDataMiddleware handler
-// For Vercel deployments: specify editingDataCache like:
-// new EditingDataMiddleware({ editingDataCache: redisDataCache }).getHandler();
+// You can specify a custom data cache here
+// new EditingDataMiddleware({ editingDataCache: customDataCache }).getHandler();
 const handler = new EditingDataMiddleware().getHandler();
 
 export default handler;

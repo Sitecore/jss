@@ -4,7 +4,7 @@ import { expect, use } from 'chai';
 import * as vercelKv from '@vercel/kv';
 import sinon from 'sinon';
 import { EditingData } from './editing-data';
-import { VercelEditingDataCache } from './vercel-editng-data-cache';
+import { VercelEditingDataCache } from './vercel-editing-data-cache';
 import sinonChai from 'sinon-chai';
 
 use(sinonChai);
@@ -58,6 +58,27 @@ describe('vercel editing data cache', () => {
     expect(result).to.deep.equal(undefined);
   });
 
+  it('should invalidate entry after get', async () => {
+    const key = 'top-secret';
+    const expectedResult: EditingData = {
+      path: '/rome',
+      language: 'en',
+      layoutData: {
+        sitecore: {
+          route: null,
+          context: {},
+        },
+      },
+      dictionary: {},
+    };
+    JSON.stringify(expectedResult);
+    const kvStub = setup(key, expectedResult);
+
+    await new VercelEditingDataCache('test', 'tset').get(key);
+
+    expect(kvStub.expire).to.have.been.calledWith(key, 0);
+  });
+
   it('should put entries into storage', async () => {
     const key = 'top-secret';
     const entry: EditingData = {
@@ -91,13 +112,11 @@ describe('vercel editing data cache', () => {
       },
       dictionary: {},
     };
-    const ttl = 148;
     const kvStub = setup('key', {});
 
-    await new VercelEditingDataCache('test', 'tset', ttl).set(key, entry);
+    await new VercelEditingDataCache('test', 'tset').set(key, entry);
 
-    expect(kvStub.set).to.have.been.calledWith(key, JSON.stringify(entry));
-    expect(kvStub.expire).to.have.been.calledWith(key, ttl);
+    expect(kvStub.set).to.have.been.calledWith(key, JSON.stringify(entry), {ex: 120});
   });
 
   it('should throw if initialized without API URL and token', () => {
