@@ -45,8 +45,7 @@ export class VercelEditingDataCache implements EditingDataCache {
       this.redisCache
         .get(key)
         .then((entry) => {
-          // We need to normalize the object we get from API then JSON-ify it, won't work otherwise
-          const result = (entry ? JSON.parse(JSON.stringify(entry)) : undefined) as EditingData;
+          const result = (entry || undefined) as EditingData;
           this.redisCache.expire(key, 0).then(() => resolve(result));          
         })
         .catch((err) => reject(err));
