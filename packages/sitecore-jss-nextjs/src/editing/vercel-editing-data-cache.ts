@@ -15,7 +15,6 @@ export class VercelEditingDataCache implements EditingDataCache {
   /**
    * @param {string} redisUrl KV endpoint URL. Usually stored in process.env.KV_REST_API_URL
    * @param {string} redisToken KV endpoint tokem. Usually stored in process.env.KV_REST_API_TOKEN
-   * @param {string} [entryTtlSeconds] TTL of cache entries in second. Default: 60 
    */
   constructor(redisUrl: string | undefined, redisToken: string | undefined) {
     if (!redisUrl || !redisToken) {
@@ -33,7 +32,7 @@ export class VercelEditingDataCache implements EditingDataCache {
     debug.editing(`Putting editing data for ${key} into redis storage...`);
     return new Promise<void>((resolve, reject) => {
       this.redisCache
-        .set(key, JSON.stringify(editingData), {ex: this.defaultTtl})
+        .set(key, JSON.stringify(editingData), { ex: this.defaultTtl })
         .then(() => resolve())
         .catch((err) => reject(err));
     });
@@ -46,7 +45,7 @@ export class VercelEditingDataCache implements EditingDataCache {
         .get(key)
         .then((entry) => {
           const result = (entry || undefined) as EditingData;
-          this.redisCache.expire(key, 0).then(() => resolve(result));          
+          this.redisCache.expire(key, 0).then(() => resolve(result));
         })
         .catch((err) => reject(err));
     });

@@ -116,7 +116,7 @@ describe('vercel editing data cache', () => {
 
     await new VercelEditingDataCache('test', 'tset').set(key, entry);
 
-    expect(kvStub.set).to.have.been.calledWith(key, JSON.stringify(entry), {ex: 120});
+    expect(kvStub.set).to.have.been.calledWith(key, JSON.stringify(entry), { ex: 120 });
   });
 
   it('should throw if initialized without API URL and token', () => {
