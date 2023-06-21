@@ -79,14 +79,17 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
     return null;
   }
 
-  let data: string = null;
+  let data: { [key: string]: unknown } = null;
   if (props.params?.ComponentDataOverride) {
     // Use override data if provided
-    data = props.params.ComponentDataOverride;
+    try {
+      data = JSON.parse(props.params.ComponentDataOverride);
+    } catch (e) {
+      data = null;
+    }
   } else if (props.fields) {
     // Otherwise use datasource data (provided in fields)
-    // FEaaS expects wrapping "_" as catch-all datasource template id
-    data = JSON.stringify({ _: getDataFromFields(props.fields) });
+    data = getDataFromFields(props.fields);
   }
 
   // FEaaS control would still be hydrated by client
