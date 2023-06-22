@@ -104,6 +104,7 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
       library={props.params?.LibraryId}
       version={props.params?.ComponentVersion}
       component={props.params?.ComponentId}
+      instance={props.params?.ComponentInstanceId}
       revision={computedRevision}
     />
   );
