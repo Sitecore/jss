@@ -20,4 +20,4 @@ A reply from the Sitecore Layout Service
 
 #### Defined in
 
-[src/layout/models.ts:15](https://github.com/Sitecore/jss/blob/1e53b5ce1/packages/sitecore-jss/src/layout/models.ts#L15)
+[src/layout/models.ts:15](https://github.com/Sitecore/jss/blob/fc2e9b60c/packages/sitecore-jss/src/layout/models.ts#L15)
