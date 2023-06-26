@@ -11,6 +11,10 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🧹 Chores
+
+* Update outdated documentation links ([#1538](https://github.com/Sitecore/jss/pull/1538))
+
 ### 🎉 New Features & Improvements
 
 * `[templates/nexts]` `[sitecore-jss-dev-tools]` `[sitecore-jss-nextjs]` Move template related script to the base package ([#1520](https://github.com/Sitecore/jss/pull/1520)):
