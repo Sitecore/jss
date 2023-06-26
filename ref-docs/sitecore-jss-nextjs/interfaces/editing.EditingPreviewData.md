@@ -21,7 +21,7 @@ Data for Next.js Preview (Editing) mode
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:13](https://github.com/Sitecore/jss/blob/3351f1a5e/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L13)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:13](https://github.com/Sitecore/jss/blob/39d67f271/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L13)
 
 ___
 
@@ -31,4 +31,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:14](https://github.com/Sitecore/jss/blob/3351f1a5e/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L14)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:14](https://github.com/Sitecore/jss/blob/39d67f271/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L14)
