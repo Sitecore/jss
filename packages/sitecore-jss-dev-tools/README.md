@@ -2,6 +2,11 @@
 
 This module is provided as a part of Sitecore JavaScript Rendering SDK (JSS). It contains developer tooling, such as development proxies and deployment scripts.
 
-Consult the [Sitecore JSS documentation](https://doc.sitecore.com/xp/en/developers/hd/190/sitecore-headless-development/sitecore-javascript-rendering-sdks--jss-.html) for further details.
+<!---
+@TODO: Update to next version docs before release
+-->
+[Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/21/sitecore-headless-development/sitecore-javascript-rendering-sdks--jss-.html)
 
-Consult the package [API reference documentation](/ref-docs/sitecore-jss-dev-tools/).
+[Documentation (XM Cloud)](https://doc.sitecore.com/xmc/en/developers/xm-cloud/sitecore-javascript-rendering-sdks--jss-.html)
+
+[API reference documentation](/ref-docs/sitecore-jss-dev-tools/)
