@@ -11,9 +11,13 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 21.2.1
+
 ### 🧹 Chores
 
-* Update outdated documentation links ([#1538](https://github.com/Sitecore/jss/pull/1538))
+* Update outdated documentation links ([#1539](https://github.com/Sitecore/jss/pull/1539))
+
+## 21.2.0
 
 ### 🎉 New Features & Improvements
 
