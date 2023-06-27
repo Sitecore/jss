@@ -22,6 +22,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-dev-tools]` Fix line endings for component builder ([#1580](https://github.com/Sitecore/jss/pull/1580))
 * `[templates/nextjs-sxa]` Fix type(from Text to RichText) of editing text in value Text2 for Promo Component in WithText variant ([#1504](https://github.com/Sitecore/jss/pull/1504)).
 * `[templates/nextjs-sxa]` Fix font awesome - added CDN instead of using node_modules(problem with CORS) ([#1536](https://github.com/Sitecore/jss/pull/1536))
+* `[templates/nextjs-sxa]` Fix menu component of third-level menu. ([#1540](https://github.com/Sitecore/jss/pull/1540))
 
 ## 21.2.3
 
