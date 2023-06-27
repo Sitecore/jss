@@ -31,7 +31,7 @@ EditingDataMiddleware
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:116](https://github.com/Sitecore/jss/blob/8d5d9ef1a/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L116)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:116](https://github.com/Sitecore/jss/blob/f72bee065/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L116)
 
 ___
 
@@ -51,4 +51,4 @@ AxiosDataFetcher
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:122](https://github.com/Sitecore/jss/blob/8d5d9ef1a/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L122)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:122](https://github.com/Sitecore/jss/blob/f72bee065/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L122)
