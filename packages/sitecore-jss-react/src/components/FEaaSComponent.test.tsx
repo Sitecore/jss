@@ -51,14 +51,23 @@ describe('<FEaaSComponent />', () => {
     expect(wrapper.html()).to.equal(null);
   });
 
-  it('should render with template and last-modified when provided', () => {
-    const template = '<div>test output</div>';
-    const lastModified = 'March 1 2020';
-    const wrapper = shallow(<FEaaSComponent template={template} lastModified={lastModified} />);
+  it('should render when fallback server props provided', () => {
+    const props: FEaaSComponentProps = {
+      params: requiredParams,
+      revisionFallback: 'staged',
+    };
+    const wrapper = shallow(<FEaaSComponent {...props} />);
     expect(wrapper).to.have.length(1);
     expect(wrapper.html()).to.equal(
-      `<feaas-component last-modified="${lastModified}">${template}</feaas-component>`
+      '<feaas-component cdn="host123" library="library123" version="version123" component="component123" revision="staged"></feaas-component>'
     );
+  });
+
+  it('should render with template when provided', () => {
+    const template = '<div>test output</div>';
+    const wrapper = shallow(<FEaaSComponent template={template} />);
+    expect(wrapper).to.have.length(1);
+    expect(wrapper.html()).to.equal(`<feaas-component>${template}</feaas-component>`);
   });
 
   it('should render when only params are provided', () => {
