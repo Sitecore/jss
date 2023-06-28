@@ -79,9 +79,10 @@ describe('PersonalizeMiddleware', () => {
         get(key: string) {
           return req.headers[key];
         },
+        referer: referrer,
         ...props.headerValues,
       },
-      referrer,
+      referrer: 'about:client',
     } as NextRequest;
 
     return req;
@@ -858,7 +859,7 @@ describe('PersonalizeMiddleware', () => {
     it('optional experiece params are not present', async () => {
       userAgentStub.returns({ ua: '' } as any);
 
-      const req = createRequest();
+      const req = createRequest({ headerValues: { referer: null } });
 
       const res = createResponse();
 
@@ -883,7 +884,7 @@ describe('PersonalizeMiddleware', () => {
 
       expect(
         executeExperience.calledWith(contentId, browserId, '', pointOfSale, {
-          referrer,
+          referrer: 'about:client',
           utm: {
             campaign: 'utm_campaign',
             content: null,

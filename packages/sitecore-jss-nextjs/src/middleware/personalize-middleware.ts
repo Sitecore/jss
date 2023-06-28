@@ -102,7 +102,10 @@ export class PersonalizeMiddleware extends MiddlewareBase {
 
   protected getExperienceParams(req: NextRequest): ExperienceParams {
     return {
-      referrer: req.referrer,
+      // It's expected that the header name "referer" is actually a misspelling of the word "referrer"
+      // req.referrer is used during fetching to determine the value of the Referer header of the request being made,
+      // used as a fallback
+      referrer: req.headers.get('referer') || req.referrer,
       utm: {
         campaign: req.nextUrl.searchParams.get('utm_campaign'),
         content: req.nextUrl.searchParams.get('utm_content'),
