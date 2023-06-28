@@ -11,9 +11,23 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🐛 Bug Fixes
+
+* `[templates/nextjs-sxa]` Fix font awesome - added CDN instead of using node_modules(problem with CORS) ([#1536](https://github.com/Sitecore/jss/pull/1536))
+* `[templates/nextjs-sxa]` Fix menu component of third-level menu. ([#1540](https://github.com/Sitecore/jss/pull/1540))
+* `[sitecore-jss-react]` [FEaaS] Prevent extra components client-side requests for SSR ([1541](https://github.com/Sitecore/jss/pull/1541))
+
+## 21.2.1
+
+### 🧹 Chores
+
+* Update outdated documentation links ([#1539](https://github.com/Sitecore/jss/pull/1539))
+
+## 21.2.0
+
 ### 🎉 New Features & Improvements
 
-* `[templates/nexts]` `[sitecore-jss-dev-tools]` Move template related script to the base package ([#1520](https://github.com/Sitecore/jss/pull/1520)):
+* `[templates/nexts]` `[sitecore-jss-dev-tools]` `[sitecore-jss-nextjs]` Move template related script to the base package ([#1520](https://github.com/Sitecore/jss/pull/1520)):
   * `[sitecore-jss-nextjs]`:
     * Introduced _ComponentBuilder_ class for generating component factories and module factories.
     * ComponentPropsService _componentModule_ property renamed to _moduleFactory_.
@@ -90,6 +104,10 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Changes
 
+* `[templates/nexts]` `[sitecore-jss-dev-tools]` `[sitecore-jss-nextjs]` Move template related script to the base package ([#1520](https://github.com/Sitecore/jss/pull/1520)):
+  * `[sitecore-jss-nextjs]`:
+    * ComponentPropsService _fetchServerSideComponentProps_, _fetchStaticComponentProps_ methods accept _params.moduleFactory_ instead of _params.componentModule_.
+    * Exports _ModuleFactory_ instead of _ComponentModule_.
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` FEaaS component is now server rendered. Prop type used FEaaSWrapper has been modified alongside with FEaaSWrapper implementation. Make sure you use the updated type and the updated wrapper. ([#1413](https://github.com/Sitecore/jss/pull/1413)) ([#1513](https://github.com/Sitecore/jss/pull/1513))
 * `[sitecore-jss-rendering-host]` `startDevServer` is retired. `startRenderingHostServer` is the only way to start the rendering host from now on. ([#1426](https://github.com/Sitecore/jss/pull/1426))
 * `[sitecore-jss-nextjs]` Some imports have been moved to avoid accidentally importing nextjs server logic inside client componenents([#1430](https://github.com/Sitecore/jss/pull/1430/)):

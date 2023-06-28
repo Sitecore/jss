@@ -35,10 +35,6 @@ type FEaaSComponentServerProps = {
    */
   template?: string;
   /**
-   * the date component data was last modified
-   */
-  lastModified?: string;
-  /**
    * Default revision to be fetched. Should be 'staged' for editing/preview. Can be overriden by params.ComponentRevision
    */
   revisionFallback?: RevisionType;
@@ -67,7 +63,7 @@ export type FEaaSComponentProps = FEaaSComponentServerProps & FEaaSComponentClie
 export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
   const computedRevision = props.params?.ComponentRevision || props.revisionFallback;
   if (
-    (!props.lastModified || !props.template) &&
+    !props.template &&
     (!props.params ||
       !props.params.LibraryId ||
       !props.params.ComponentId ||
@@ -99,11 +95,11 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
     <FEAAS.Component
       data={data}
       template={props.template || ''}
-      last-modified={props.lastModified}
       cdn={props.params?.ComponentHostName}
       library={props.params?.LibraryId}
       version={props.params?.ComponentVersion}
       component={props.params?.ComponentId}
+      instance={props.params?.ComponentInstanceId}
       revision={computedRevision}
     />
   );
@@ -125,11 +121,10 @@ export async function fetchFEaaSComponentServerProps(
     pageState && pageState !== LayoutServicePageState.Normal ? 'staged' : 'published';
   const src = endpointOverride || composeComponentEndpoint(params, revisionFallback);
   try {
-    const { template, lastModified } = await FEAAS.fetchComponent(src);
+    const { template } = await FEAAS.fetchComponent(src);
     return {
       revisionFallback,
       template,
-      lastModified,
     };
   } catch (e) {
     console.error(

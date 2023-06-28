@@ -2,6 +2,9 @@
 
 This module is provided as a part of Sitecore JavaScript Rendering SDK (JSS). It contains the rendering host implementation.
 
-Consult the [Sitecore JSS documentation](https://doc.sitecore.com/xp/en/developers/hd/190/sitecore-headless-development/sitecore-javascript-rendering-sdks--jss-.html) for further details.
+<!---
+@TODO: Update to next version docs before release
+-->
+[Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/21/sitecore-headless-development/sitecore-javascript-rendering-sdks--jss-.html)
 
-Consult the package [API reference documentation](/ref-docs/sitecore-jss-rendering-host/).
+[API reference documentation](/ref-docs/sitecore-jss-rendering-host/)
