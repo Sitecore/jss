@@ -80,8 +80,9 @@ describe('PersonalizeMiddleware', () => {
           return req.headers[key];
         },
         ...props.headerValues,
+        referer: referrer,
       },
-      referrer,
+      referrer: 'about:client',
     } as NextRequest;
 
     return req;
