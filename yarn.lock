@@ -6105,6 +6105,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     "@types/sinon": ^10.0.13
     "@types/sinon-chai": ^3.2.9
+    "@vercel/kv": ^0.2.1
     "@wojtekmaj/enzyme-adapter-react-17": ^0.8.0
     chai: ^4.3.7
     chai-as-promised: ^7.1.1
@@ -7767,6 +7768,24 @@ __metadata:
     "@typescript-eslint/types": 5.43.0
     eslint-visitor-keys: ^3.3.0
   checksum: 4820679e50096dcdaadc7c95d32e5dca3ba8510acf1a865e283822bae3940a2faec02ad8abe793f8a25f75b600f1e7215e1fd3b3ba73779eff737fa90d092550
+  languageName: node
+  linkType: hard
+
+"@upstash/redis@npm:1.20.6":
+  version: 1.20.6
+  resolution: "@upstash/redis@npm:1.20.6"
+  dependencies:
+    isomorphic-fetch: ^3.0.0
+  checksum: e4bcf1d61b0fa3dec5b2b730831a0d6939416bdafe1af753479e53b035aa70be49ca96a6f3f52473d488ec896588a0134ee71b4c71f0caecb6454648f2e3bd29
+  languageName: node
+  linkType: hard
+
+"@vercel/kv@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "@vercel/kv@npm:0.2.1"
+  dependencies:
+    "@upstash/redis": 1.20.6
+  checksum: 156058160caf151ee0a64204d83d1d6fa3fe9c568de2cb9c89f2e809855fda9ec26976c99a1f1fa74043f1fb00102561909608c6ea8f2ab4399b9663561d00b4
   languageName: node
   linkType: hard
 
@@ -17220,6 +17239,16 @@ __metadata:
     node-fetch: ^1.0.1
     whatwg-fetch: ">=0.10.0"
   checksum: bb5daa7c3785d6742f4379a81e55b549a469503f7c9bf9411b48592e86632cf5e8fe8ea878dba185c0f33eb7c510c23abdeb55aebfdf5d3c70f031ced68c5424
+  languageName: node
+  linkType: hard
+
+"isomorphic-fetch@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "isomorphic-fetch@npm:3.0.0"
+  dependencies:
+    node-fetch: ^2.6.1
+    whatwg-fetch: ^3.4.1
+  checksum: e5ab79a56ce5af6ddd21265f59312ad9a4bc5a72cebc98b54797b42cb30441d5c5f8d17c5cd84a99e18101c8af6f90c081ecb8d12fd79e332be1778d58486d75
   languageName: node
   linkType: hard
 
@@ -27897,7 +27926,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"whatwg-fetch@npm:>=0.10.0, whatwg-fetch@npm:^3.0.0":
+"whatwg-fetch@npm:>=0.10.0, whatwg-fetch@npm:^3.0.0, whatwg-fetch@npm:^3.4.1":
   version: 3.6.2
   resolution: "whatwg-fetch@npm:3.6.2"
   checksum: ee976b7249e7791edb0d0a62cd806b29006ad7ec3a3d89145921ad8c00a3a67e4be8f3fb3ec6bc7b58498724fd568d11aeeeea1f7827e7e1e5eae6c8a275afed

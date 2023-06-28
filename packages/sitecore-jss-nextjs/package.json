@@ -73,6 +73,7 @@
     "@sitecore-jss/sitecore-jss": "^21.3.0-canary.10",
     "@sitecore-jss/sitecore-jss-dev-tools": "^21.3.0-canary.10",
     "@sitecore-jss/sitecore-jss-react": "^21.3.0-canary.10",
+    "@vercel/kv": "^0.2.1",
     "node-html-parser": "^6.1.4",
     "prop-types": "^15.8.1",
     "regex-parser": "^2.2.11",
