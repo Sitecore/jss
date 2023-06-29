@@ -21,6 +21,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Fix font awesome - added CDN instead of using node_modules(problem with CORS) ([#1536](https://github.com/Sitecore/jss/pull/1536))
 * `[templates/nextjs-sxa]` Fix menu component of third-level menu. ([#1540](https://github.com/Sitecore/jss/pull/1540))
 * `[sitecore-jss-react]` [FEaaS] Prevent extra components client-side requests for SSR ([1541](https://github.com/Sitecore/jss/pull/1541))
+* `[sitecore-jss-react]` Remove use of reactDom/server from React Image ([1544](https://github.com/Sitecore/jss/pull/1544))
 
 ## 21.2.1
 
