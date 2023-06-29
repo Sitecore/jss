@@ -17,7 +17,7 @@ export class LayoutServiceFactory {
           apiHost: config.sitecoreApiHost,
           apiKey: config.sitecoreApiKey,
           siteName: config.jssAppName,
-          configurationName: 'default',
+          configurationName: config.configurationName,
         });
   }
 }
