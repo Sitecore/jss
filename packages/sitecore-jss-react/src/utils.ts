@@ -74,3 +74,14 @@ export const addClassName = (otherAttrs: { [key: string]: unknown }): void => {
     delete otherAttrs.class;
   }
 };
+
+/**
+ * attributes are passed in as an object, but need to be converted to a string
+ * @param {string} attributes all other props included on the image component
+ * * @returns {void} converted attributes
+ */
+export const getAttributesString = (attributes: { [key: string]: string }) => {
+  return Object.entries(attributes)
+    .map(([key, value]) => `${key}="${value}"`)
+    .join(' ');
+};
