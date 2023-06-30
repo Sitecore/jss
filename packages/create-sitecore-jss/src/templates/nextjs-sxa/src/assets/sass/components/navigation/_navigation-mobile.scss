@@ -12,55 +12,6 @@
     cursor: pointer;
     margin: 0;
     background: $bg-basic-color;
-    > ul {
-      li {
-        position: relative;
-        a:before {
-          @include fa-icon();
-          content: $fa-var-chevron-right;
-          display: block;
-          position: absolute;
-          left: 0;
-          font-size: 10px;
-          top: 20px;
-          transform: translateY(-50%);
-        }
-      }
-      padding-left: 25px;
-      display: none;
-      background: $nav-bg-submenu;
-    }
-    &.submenu {
-      > ul {
-        display: none;
-      }
-      &:focus {
-        > .navigation-title:before {
-          transform: rotate(180deg);
-          transition: 0.6s;
-          transform-style: preserve-3d;
-        }
-        > ul {
-          display: block;
-        }
-      }
-      > .navigation-title {
-        position: relative;
-        &:before {
-          @include fa-icon();
-          content: $fa-var-chevron-down;
-          display: block;
-          position: absolute;
-          right: 10px;
-          font-size: 10px;
-          top: 20px;
-          transform: translateY(-50%);
-          transform: rotate(0);
-          transition: 0.6s;
-          transform-style: preserve-3d;
-        }
-      }
-    }
     > .navigation-title {
       border-bottom: 1px solid $border-basic-color;
       margin: 0;
@@ -82,8 +33,53 @@
     .navigation-title > a {
       font-weight: 500;
     }
-    ul {
+  }
+  .submenu {
+    > ul {
+      li {
+        position: relative;
+        a:before {
+          @include fa-icon();
+          content: $fa-var-chevron-right;
+          display: block;
+          position: absolute;
+          left: 0;
+          font-size: 10px;
+          top: 20px;
+          transform: translateY(-50%);
+        }
+      }
+      padding-left: 25px;
+      background: $nav-bg-submenu;
+    }
+    > ul {
       display: none;
+    }
+    &.active{
+      > .navigation-title:before {
+        transform: rotate(180deg);
+        transition: 0.6s;
+        transform-style: preserve-3d;
+      }
+      > ul {
+        display: block;
+      }
+    }
+    > .navigation-title {
+      position: relative;
+      &:before {
+        @include fa-icon();
+        content: $fa-var-chevron-down;
+        display: block;
+        position: absolute;
+        right: 10px;
+        font-size: 10px;
+        top: 20px;
+        transform: translateY(-50%);
+        transform: rotate(0);
+        transition: 0.6s;
+        transform-style: preserve-3d;
+      }
     }
   }
 }
