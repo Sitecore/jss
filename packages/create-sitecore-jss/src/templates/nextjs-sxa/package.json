@@ -2,6 +2,7 @@
   "dependencies": {
     "@sitecore-feaas/clientside": "^0.3.0",
     "bootstrap": "^5.1.3",
+    "font-awesome": "^4.7.0",
     "sass": "^1.52.3",
     "sass-alias": "^1.0.5"
   },
