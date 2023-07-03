@@ -68,7 +68,7 @@ export const mergeEnv = (targetContent: string, sourceContent: string): string =
 
   const targetEnv = parse(targetContent);
 
-  const sourceLines = sourceContent.split('\n');
+  const sourceLines = sourceContent.split('\r\n');
 
   Object.keys(sourceEnv).forEach((sourceEnvVar) => {
     const isDuplicate = Object.keys(targetEnv).includes(sourceEnvVar);
@@ -90,7 +90,7 @@ export const mergeEnv = (targetContent: string, sourceContent: string): string =
     } while (lineIndex >= 0 && sourceLines[lineIndex].startsWith('#'));
   });
 
-  sourceContent = sourceLines.join('\n');
+  sourceContent = sourceLines.join('\r\n');
 
   // No variables left in a source
   if (!sourceContent) return targetContent;
