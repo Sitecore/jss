@@ -84,6 +84,13 @@ export const mergeEnv = (targetContent: string, sourceContent: string): string =
     // Removing duplicate variable and related comments in a source .env file,
     // since source and target will be concatenated
     let lineIndex = sourceLines.findIndex((line) => line.startsWith(sourceEnvVar));
+
+    // remove empty lines after the definition
+    while (sourceLines[lineIndex + 1] === '') {
+      sourceLines.splice(lineIndex + 1, 1);
+    }
+
+    // remove definition and comments
     do {
       sourceLines.splice(lineIndex, 1);
       lineIndex--;
