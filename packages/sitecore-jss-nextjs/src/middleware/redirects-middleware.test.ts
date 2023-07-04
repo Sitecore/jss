@@ -126,7 +126,6 @@ describe('RedirectsMiddleware', () => {
       locales: ['en', 'ua'],
     });
 
-
     const fetchRedirects = (middleware['redirectsService']['fetchRedirects'] =
       props.fetchRedirectsStub ||
       sinon.stub().returns(

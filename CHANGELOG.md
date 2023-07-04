@@ -21,7 +21,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Fix menu component of third-level menu. ([#1540](https://github.com/Sitecore/jss/pull/1540)) ([#1546](https://github.com/Sitecore/jss/pull/1546))
 * `[sitecore-jss-react]` [FEaaS] Prevent extra components client-side requests for SSR ([1541](https://github.com/Sitecore/jss/pull/1541))
 * `[sitecore-jss-nextjs]` Referrer is not captured by Personalize middleware ([#1542](https://github.com/Sitecore/jss/pull/1542))
-
+* `[sitecore-jss-nextjs]` Fix of redirects middleware. Add possible to use tokens like $1, $2, $3, etc. ([#1547](https://github.com/Sitecore/jss/pull/1547))
 ## 21.2.1
 
 ### 🧹 Chores
