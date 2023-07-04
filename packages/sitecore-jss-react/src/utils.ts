@@ -80,8 +80,18 @@ export const addClassName = (otherAttrs: { [key: string]: unknown }): void => {
  * @param {string} attributes all other props included on the image component
  * * @returns {void} converted attributes
  */
-export const getAttributesString = (attributes: { [key: string]: string }) => {
+export const getAttributesString = (attributes: {
+  [key: string]: string | number | boolean | Record<string, unknown>;
+}) => {
   return Object.entries(attributes)
-    .map(([key, value]) => `${key}="${value}"`)
+    .map(([key, value]) => {
+      if (typeof value === 'object') {
+        const valueString = JSON.stringify(value)
+          .replace(/"|{|}/g, '')
+          .replace(/,/g, ';');
+        return `${key}="${valueString}"`;
+      }
+      return `${key}="${value}"`;
+    })
     .join(' ');
 };

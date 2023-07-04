@@ -1,5 +1,10 @@
 import { expect } from 'chai';
-import { addClassName, convertAttributesToReactProps, convertStyleAttribute } from './utils';
+import {
+  addClassName,
+  convertAttributesToReactProps,
+  convertStyleAttribute,
+  getAttributesString,
+} from './utils';
 
 describe('jss-react utils', () => {
   describe('convertStyleAttribute', () => {
@@ -59,6 +64,29 @@ describe('jss-react utils', () => {
           className: 'second-class',
         });
       });
+    });
+  });
+
+  describe('getAttributesString', () => {
+    it('should construct the attributes string correctly', () => {
+      const attributes = {
+        width: '300',
+        height: '200',
+        alt: 'Example image',
+      };
+
+      const result = getAttributesString(attributes);
+
+      const expectedAttributesString = 'width="300" height="200" alt="Example image"';
+      expect(result).to.deep.equal(expectedAttributesString);
+    });
+
+    it('should return an empty string if no attributes are provided', () => {
+      const attributes = {};
+
+      const result = getAttributesString(attributes);
+
+      expect(result).to.eql('');
     });
   });
 });

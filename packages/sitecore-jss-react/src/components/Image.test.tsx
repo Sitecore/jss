@@ -115,7 +115,7 @@ describe('<Image />', () => {
 
     it('should render <img /> with style and className props', () => {
       expect(img.getAttribute('style')).to.equal('width:100%');
-      expect(img.getAttribute('class')).to.equal(props.className);
+      expect(img.getAttribute('className')).to.equal(props.className);
     });
   });
 
@@ -148,7 +148,7 @@ describe('<Image />', () => {
 
     it('should render <img /> with style and className props', () => {
       expect(img.getAttribute('style')).to.equal('width:100%');
-      expect(img.getAttribute('class')).to.equal(props.className);
+      expect(img.getAttribute('className')).to.equal(props.className);
     });
   });
 
