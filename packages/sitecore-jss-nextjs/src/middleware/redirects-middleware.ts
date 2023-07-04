@@ -118,13 +118,12 @@ export class RedirectsMiddleware extends MiddlewareBase {
           existsRedirect.target = existsRedirect.target.replace(`/${urlFirstPart}`, '');
         }
 
-        url.pathname = existsRedirect.target;
         url.pathname = url.pathname.replace(
           regexParser(existsRedirect.pattern),
           existsRedirect.target
         );
 
-        url.href = `${parseURL.origin}/${url.pathname}${
+        url.href = `${parseURL.origin}${url.pathname}${
           existsRedirect.isQueryStringPreserved ? '?' + url.search : ''
         }`;
       }

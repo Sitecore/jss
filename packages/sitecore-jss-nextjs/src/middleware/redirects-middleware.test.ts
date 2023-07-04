@@ -618,7 +618,7 @@ describe('RedirectsMiddleware', () => {
         expect(finalRes).to.deep.equal(res);
       });
 
-      xit('should redirect uses token in target', async () => {
+      it('should redirect uses token in target', async () => {
         const setCookies = () => {};
         const res = createResponse({
           url: 'http://localhost:3000/test1',
