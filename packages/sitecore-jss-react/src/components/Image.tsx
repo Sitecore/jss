@@ -139,11 +139,14 @@ export const getEEMarkup = (
   // We do not attempt to merge.
   const imgAttrs = getImageAttrs({ ...foundImgProps, ...otherProps }, imageParams, mediaUrlPrefix);
 
+  // console.log(imgAttrs);
   if (!imgAttrs) {
     return getEditableWrapper(imageField.editable);
   }
 
-  const imgHtml = `<img ${getAttributesString(imgAttrs as { [key: string]: string })} />`;
+  const imgHtml = `<img ${getAttributesString(
+    imgAttrs as { [key: string]: string | number | boolean | Record<string, unknown> }
+  )} />`;
   const editableMarkup = imageField.editable.replace(foundImg.imgTag, imgHtml);
   return getEditableWrapper(editableMarkup);
 };
