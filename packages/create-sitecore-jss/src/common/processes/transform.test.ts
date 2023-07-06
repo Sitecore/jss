@@ -14,7 +14,7 @@ import * as helpers from '../utils/helpers';
 const {
   transformFilename,
   merge,
-  concatEnv,
+  mergeEnv,
   diffFiles,
   diffAndWriteFiles,
   transform: transformFunc,
@@ -86,65 +86,135 @@ describe('transform', () => {
     });
   });
 
-  describe('concatEnv', () => {
-    it('should combine content', () => {
-      const target = `VAL1=ONE
-                      VAL2=TWO`;
-      const source = `VAL3=three
-                      # Comment
-                      VAL4=four`;
+  describe('mergeEnv', () => {
+    it('should merge content when source includes duplicates and unique variables', () => {
+      const target = [
+        '# Foo1',
+        '# Foo2',
+        'VAL1=ONE',
+        'VAL2=TWO',
+        '',
+        '',
+        '# Bar1',
+        '# Bar2',
+        'VAL3=three',
+      ].join('\r\n');
+      const source = [
+        'VAL4=four',
+        '# Foo1',
+        '# Foo2',
+        'VAL1=ONE_MODIFIED',
+        '# Bar5',
+        'VAL5=five',
+        '',
+        '# Car1',
+        '# Car2',
+        'VAL3=THREE_MODIFIED',
+        '',
+        '',
+        '',
+        '# Bar6',
+        'VAL6=SIX',
+      ].join('\r\n');
 
-      const result = concatEnv(target, source);
+      const result = mergeEnv(target, source);
 
-      expect(result).to.contain(`VAL1=ONE
-                      VAL2=TWO`);
-      expect(result).to.contain(`VAL3=three
-                      # Comment
-                      VAL4=four`);
+      expect(result).to.equal(
+        [
+          '# Foo1',
+          '# Foo2',
+          'VAL1=ONE_MODIFIED',
+          'VAL2=TWO',
+          '',
+          '',
+          '# Bar1',
+          '# Bar2',
+          'VAL3=THREE_MODIFIED',
+          'VAL4=four',
+          '# Bar5',
+          'VAL5=five',
+          '',
+          '# Bar6',
+          'VAL6=SIX',
+        ].join('\r\n')
+      );
     });
 
-    it('should join with crlf', () => {
-      const target = 'foo';
-      const source = 'bar';
+    it('should merge content when source includes duplicates only', () => {
+      const target = [
+        '# Foo1',
+        '# Foo2',
+        'VAL1=ONE',
+        'VAL2=TWO',
+        '# Bar1',
+        '# Bar2',
+        'VAL3=three',
+      ].join('\r\n');
+      const source = ['# Bar1', '# Bar2', 'VAL3=three_modified', 'VAL2=two_modified'].join('\r\n');
 
-      const result = concatEnv(target, source);
+      const result = mergeEnv(target, source);
 
-      expect(result).to.equal('foo\r\nbar');
+      expect(result).to.equal(
+        [
+          '# Foo1',
+          '# Foo2',
+          'VAL1=ONE',
+          'VAL2=two_modified',
+          '# Bar1',
+          '# Bar2',
+          'VAL3=three_modified',
+        ].join('\r\n')
+      );
     });
 
-    it('should not add if all values exist', () => {
-      const target = `VAL1=ONE
-                      VAL2=TWO
-                      VAL3=three
-                      VAL4=four`;
-      const source = `VAL3=three
-                      # Comment
-                      VAL4=four`;
+    it('should merge content when source includes unique values only', () => {
+      const target = [
+        '# Foo1',
+        '# Foo2',
+        'VAL1=ONE',
+        'VAL2=TWO',
+        '# Bar1',
+        '# Bar2',
+        'VAL3=three',
+      ].join('\r\n');
+      const source = ['# Bar4', '# Bar5', 'VAL4=four', 'VAL5=five'].join('\r\n');
 
-      const result = concatEnv(target, source);
+      const result = mergeEnv(target, source);
 
-      expect(result).to.contain(`VAL1=ONE
-                      VAL2=TWO`);
-      expect(result).to.not.contain(`VAL3=three
-                      # Comment
-                      VAL4=four`);
+      expect(result).to.equal(
+        [
+          '# Foo1',
+          '# Foo2',
+          'VAL1=ONE',
+          'VAL2=TWO',
+          '# Bar1',
+          '# Bar2',
+          'VAL3=three',
+          '# Bar4',
+          '# Bar5',
+          'VAL4=four',
+          'VAL5=five',
+        ].join('\r\n')
+      );
     });
 
-    it('should add if some values exist', () => {
-      const target = `VAL1=ONE
-                      VAL2=TWO
-                      VAL3=three`;
-      const source = `VAL3=three
-                      # Comment
-                      VAL4=four`;
+    it('should return target content when source is empty', () => {
+      const target = [
+        '# Foo1',
+        '# Foo2',
+        'VAL1=ONE',
+        'VAL2=TWO',
+        '# Bar1',
+        '# Bar2',
+        'VAL3=three',
+      ].join('\r\n');
+      const source = '';
 
-      const result = concatEnv(target, source);
+      const result = mergeEnv(target, source);
 
-      expect(result).to.contain(`VAL1=ONE
-                      VAL2=TWO`);
-      expect(result).to.contain(`VAL3=three
-                      # Comment
-                      VAL4=four`);
+      expect(result).to.equal(
+        ['# Foo1', '# Foo2', 'VAL1=ONE', 'VAL2=TWO', '# Bar1', '# Bar2', 'VAL3=three'].join('\r\n')
+      );
     });
   });
 
@@ -401,7 +471,7 @@ describe('transform', () => {
     let fsReadFileSunc: SinonStub;
     let globSyncStub: SinonStub;
     let ejsRenderFileStub: SinonStub;
-    let concatEnvStub: SinonStub;
+    let mergeEnvStub: SinonStub;
     let mergeStub: SinonStub;
     let diffAndWriteFilesStub: SinonStub;
     let writeFileToPathStub: SinonStub;
@@ -420,7 +490,7 @@ describe('transform', () => {
       fsReadFileSunc?.restore();
       globSyncStub?.restore();
       ejsRenderFileStub?.restore();
-      concatEnvStub?.restore();
+      mergeEnvStub?.restore();
       mergeStub?.restore();
       diffAndWriteFilesStub?.restore();
       writeFileToPathStub?.restore();
@@ -599,7 +669,7 @@ describe('transform', () => {
       fsExistsSyncStub = sinon.stub(fs, 'existsSync').returns(true);
       fsReadFileSunc = sinon.stub(fs, 'readFileSync').returns(currentDotEnv);
       ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(templateDotEnv));
-      concatEnvStub = sinon.stub(transform, 'concatEnv').returns(concatDotEnv);
+      mergeEnvStub = sinon.stub(transform, 'mergeEnv').returns(concatDotEnv);
       diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
 
       const answers = {
@@ -619,7 +689,7 @@ describe('transform', () => {
           getAppPrefix: helpers.getAppPrefix,
         },
       });
-      expect(concatEnvStub).to.have.been.calledOnceWith(currentDotEnv, templateDotEnv);
+      expect(mergeEnvStub).to.have.been.calledOnceWith(currentDotEnv, templateDotEnv);
       expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({
         rendered: concatDotEnv,
         pathToNewFile: path.join(destinationPath, file),
