@@ -35,4 +35,4 @@ layout data
 
 #### Defined in
 
-[src/layout/layout-service.ts:13](https://github.com/Sitecore/jss/blob/ec0e89568/packages/sitecore-jss/src/layout/layout-service.ts#L13)
+[src/layout/layout-service.ts:13](https://github.com/Sitecore/jss/blob/2c76f9cae/packages/sitecore-jss/src/layout/layout-service.ts#L13)
