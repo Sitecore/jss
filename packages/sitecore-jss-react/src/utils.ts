@@ -59,7 +59,7 @@ export const convertAttributesToReactProps = (
 /**
  * "class" property will be transformed into or appended to "className" instead.
  * @param {string} otherAttrs all other props included on the image component
- * * @returns {void}
+ * @returns {void}
  */
 export const addClassName = (otherAttrs: { [key: string]: unknown }): void => {
   if (otherAttrs.class) {
@@ -73,4 +73,28 @@ export const addClassName = (otherAttrs: { [key: string]: unknown }): void => {
     }
     delete otherAttrs.class;
   }
+};
+
+/**
+ * Converts the given tag attributes object to a string
+ * @param {Object.<string, unknown>} attributes the attributes object
+ * @returns {string} string representation of the attributes
+ */
+export const getAttributesString = (attributes: { [key: string]: unknown }): string => {
+  const { className, ...restAttributes } = attributes;
+  const attributesEntries = Object.entries(restAttributes).map(([key, value]) => {
+    if (typeof value === 'object') {
+      const valueString = JSON.stringify(value)
+        .replace(/"|{|}/g, '')
+        .replace(/,/g, ';');
+      return `${key}="${valueString}"`;
+    }
+    return `${key}="${value}"`;
+  });
+
+  if (className) {
+    attributesEntries.push(`class="${className}"`);
+  }
+
+  return attributesEntries.join(' ');
 };
