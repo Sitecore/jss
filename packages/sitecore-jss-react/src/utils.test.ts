@@ -73,14 +73,14 @@ describe('jss-react utils', () => {
         width: '300',
         className: 'container',
         height: '200',
-        style: { width: '100%' },
+        style: { width: '100%', height: '100%' },
         alt: 'Example image',
       };
 
       const result = getAttributesString(attributes);
 
       const expectedAttributesString =
-        'width="300" height="200" style="width:100%" alt="Example image" class="container"';
+        'width="300" height="200" style="width:100%;height:100%" alt="Example image" class="container"';
       expect(result).to.deep.equal(expectedAttributesString);
     });
 

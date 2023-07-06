@@ -77,12 +77,10 @@ export const addClassName = (otherAttrs: { [key: string]: unknown }): void => {
 
 /**
  * Converts the given tag attributes object to a string
- * @param {Object.<string, string | number | boolean | Record<string, unknown>>} attributes the attributes object
+ * @param {Object.<string, unknown>} attributes the attributes object
  * @returns {string} string representation of the attributes
  */
-export const getAttributesString = (attributes: {
-  [key: string]: string | number | boolean | Record<string, unknown>;
-}): string => {
+export const getAttributesString = (attributes: { [key: string]: unknown }): string => {
   const { className, ...restAttributes } = attributes;
   const attributesEntries = Object.entries(restAttributes).map(([key, value]) => {
     if (typeof value === 'object') {
