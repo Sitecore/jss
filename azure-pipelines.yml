@@ -118,7 +118,7 @@ steps:
   # * Only run for 'dev' and 'release' branches
   #
 - script: |
-    $(npm bin)/lerna version prerelease --preid canary --force-publish --message "version %s [skip ci]" --yes
+    $(npm bin)/lerna version prerelease --exact --preid canary --force-publish --message "version %s [skip ci]" --yes
   displayName: 'pre-release version update'
   condition: and(succeeded(), eq(variables.shouldPublish, true))
   env:
