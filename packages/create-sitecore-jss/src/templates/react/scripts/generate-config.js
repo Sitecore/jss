@@ -16,6 +16,7 @@ const defaultConfig = {
   graphQLEndpointPath: process.env[`${constantCase('reactAppGraphQLEndpointPath')}`],
   defaultLanguage: process.env[`${constantCase('reactAppDefaultLanguage')}`],
   graphQLEndpoint: process.env[`${constantCase('reactAppGraphQLEndpoint')}`],
+  layoutServiceConfigurationName: process.env[`${constantCase('reactAppLayoutServiceConfigurationName')}`],
 };
 
 generateConfig()
