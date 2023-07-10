@@ -10,6 +10,7 @@ export {
   NativeDataFetcherConfig,
   HTMLLink,
   enableDebug,
+  debug,
 } from '@sitecore-jss/sitecore-jss';
 
 // we will remove the root exports for these later

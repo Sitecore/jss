@@ -32,6 +32,7 @@ export class NativeDataFetcher {
    */
   async fetch<T>(url: string, data?: unknown): Promise<HttpResponse<T>> {
     const { debugger: debugOverride, fetch: fetchOverride, ...init } = this.config;
+    const startTimestamp = Date.now();
     const fetchImpl = fetchOverride || fetch;
     const debug = debugOverride || debuggers.http;
     const requestInit = this.getRequestInit(init, data);
@@ -80,7 +81,7 @@ export class NativeDataFetcher {
       debug('response error: %o', debugResponse);
       throw new Error(`HTTP ${response.status} ${response.statusText}`);
     }
-    debug('response: %o', debugResponse);
+    debug('response in %dms: %o', Date.now() - startTimestamp, debugResponse);
     return {
       ...response,
       data: respData as T,

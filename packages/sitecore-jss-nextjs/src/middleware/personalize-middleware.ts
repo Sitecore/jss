@@ -119,6 +119,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     const pathname = req.nextUrl.pathname;
     const language = this.getLanguage(req);
     const hostname = this.getHostHeader(req) || this.defaultHostname;
+    const startTimestamp = Date.now();
 
     let browserId = this.getBrowserId(req);
     debug.personalize('personalize middleware start: %o', {
@@ -222,7 +223,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     // Share site name with the following executed middlewares
     response.cookies.set(this.SITE_SYMBOL, site.name);
 
-    debug.personalize('personalize middleware end: %o', {
+    debug.personalize('personalize middleware end in %dms: %o', Date.now() - startTimestamp, {
       rewritePath,
       browserId,
       headers: this.extractDebugHeaders(response.headers),

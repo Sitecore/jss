@@ -22,6 +22,11 @@ describe('RedirectsMiddleware', () => {
   const debugSpy = spy(debug, 'redirects');
   const validateDebugLog = (message, ...params) =>
     expect(debugSpy.args.find((log) => log[0] === message)).to.deep.equal([message, ...params]);
+  const validateEndMessageDebugLog = (message, params) => {
+    const logParams = debugSpy.args.find((log) => log[0] === message) as Array<unknown>;
+
+    expect(logParams[2]).to.deep.equal(params);
+  };
 
   const referrer = 'http://localhost:3000';
   const hostname = 'foo.net';
@@ -172,7 +177,7 @@ describe('RedirectsMiddleware', () => {
 
         validateDebugLog('skipped (%s)', 'preview');
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {
             'x-middleware-next': '1',
           },
@@ -204,7 +209,7 @@ describe('RedirectsMiddleware', () => {
 
         validateDebugLog('skipped (%s)', 'preview');
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {
             'x-middleware-next': '1',
           },
@@ -237,7 +242,7 @@ describe('RedirectsMiddleware', () => {
 
         validateDebugLog('skipped (%s)', 'route excluded');
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {
             'x-middleware-next': '1',
           },
@@ -297,7 +302,7 @@ describe('RedirectsMiddleware', () => {
 
       validateDebugLog('skipped (redirects middleware is disabled)');
 
-      validateDebugLog('redirects middleware end: %o', {
+      validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
         headers: {},
         redirected: undefined,
         status: undefined,
@@ -326,7 +331,7 @@ describe('RedirectsMiddleware', () => {
 
       validateDebugLog('skipped (redirect does not exist)');
 
-      validateDebugLog('redirects middleware end: %o', {
+      validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
         headers: {},
         redirected: undefined,
         status: undefined,
@@ -383,7 +388,7 @@ describe('RedirectsMiddleware', () => {
           pathname: '/not-found',
         });
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {},
           redirected: undefined,
           status: 301,
@@ -440,7 +445,7 @@ describe('RedirectsMiddleware', () => {
           language: 'en',
         });
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {},
           redirected: undefined,
           status: 301,
@@ -497,7 +502,7 @@ describe('RedirectsMiddleware', () => {
           pathname: '/not-found',
         });
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {},
           redirected: undefined,
           status: 301,
@@ -556,7 +561,7 @@ describe('RedirectsMiddleware', () => {
           pathname: '/not-found',
         });
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {},
           redirected: undefined,
           status: 301,
@@ -602,7 +607,7 @@ describe('RedirectsMiddleware', () => {
           pathname: '/not-found',
         });
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {
             'set-cookie': 'sc_site=nextjs-app; Path=/',
             'x-middleware-next': '1',
@@ -657,7 +662,7 @@ describe('RedirectsMiddleware', () => {
           pathname: '/not-found',
         });
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {},
           redirected: undefined,
           status: 302,
@@ -717,7 +722,7 @@ describe('RedirectsMiddleware', () => {
           pathname: '/not-found',
         });
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {},
           redirected: undefined,
           status: 301,
@@ -769,7 +774,7 @@ describe('RedirectsMiddleware', () => {
           pathname: '/not-found',
         });
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {},
           redirected: undefined,
           status: 301,
@@ -823,7 +828,7 @@ describe('RedirectsMiddleware', () => {
           pathname: '/not-found',
         });
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {},
           redirected: undefined,
           status: undefined,
@@ -868,7 +873,7 @@ describe('RedirectsMiddleware', () => {
           pathname: '/not-found',
         });
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {
             location: 'http://localhost:3000/found',
             'set-cookie': 'sc_site=foo; Path=/',
@@ -915,7 +920,7 @@ describe('RedirectsMiddleware', () => {
           pathname: '/not-found',
         });
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {
             'set-cookie': 'sc_site=learn2grow; Path=/',
             'x-middleware-next': '1',
@@ -964,7 +969,7 @@ describe('RedirectsMiddleware', () => {
 
         validateDebugLog('skipped (redirects middleware is disabled)');
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {
             'set-cookie': 'sc_site=learn2grow; Path=/',
             'x-middleware-next': '1',
@@ -1025,7 +1030,7 @@ describe('RedirectsMiddleware', () => {
           pathname: '/not-found',
         });
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {},
           redirected: undefined,
           status: 301,
@@ -1086,7 +1091,7 @@ describe('RedirectsMiddleware', () => {
           language: 'en',
         });
 
-        validateDebugLog('redirects middleware end: %o', {
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {},
           redirected: undefined,
           status: 301,
