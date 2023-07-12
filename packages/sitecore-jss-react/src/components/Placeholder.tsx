@@ -2,7 +2,7 @@ import React from 'react';
 import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
-import { HorizonEditor, ExperienceEditor } from '@sitecore-jss/sitecore-jss/utils';
+import { HorizonEditor } from '@sitecore-jss/sitecore-jss/utils';
 
 export interface PlaceholderComponentProps extends PlaceholderProps {
   /**
@@ -90,11 +90,11 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
       this.props.name
     );
 
+    const components = this.getComponentsForRenderingData(placeholderData);
+
     this.isEmpty = placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>
       isRawRendering(rendering)
     );
-
-    const components = this.getComponentsForRenderingData(placeholderData);
 
     if (this.props.renderEmpty && this.isEmpty) {
       const rendered = this.props.renderEmpty(components);
