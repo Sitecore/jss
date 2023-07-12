@@ -105,19 +105,28 @@ export class RedirectsMiddleware extends MiddlewareBase {
       }
 
       const url = req.nextUrl.clone();
+      const parseURL = new URL(url.href);
       const absoluteUrlRegex = new RegExp('^(?:[a-z]+:)?//', 'i');
+
       if (absoluteUrlRegex.test(existsRedirect.target)) {
         url.href = existsRedirect.target;
         url.locale = req.nextUrl.locale;
       } else {
-        url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
         const urlFirstPart = existsRedirect.target.split('/')[1];
         if (this.locales.includes(urlFirstPart)) {
           url.locale = urlFirstPart;
-          url.pathname = existsRedirect.target.replace(`/${urlFirstPart}`, '');
-        } else {
-          url.pathname = existsRedirect.target;
+          existsRedirect.target = existsRedirect.target.replace(`/${urlFirstPart}`, '');
         }
+
+        url.pathname = existsRedirect.target;
+        url.pathname = url.pathname.replace(
+          regexParser(existsRedirect.pattern),
+          existsRedirect.target
+        );
+
+        url.href = `${parseURL.origin}/${url.pathname}${
+          existsRedirect.isQueryStringPreserved ? '?' + url.search : ''
+        }`;
       }
 
       const redirectUrl = decodeURIComponent(url.href);
