@@ -94,38 +94,6 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
       isRawRendering(rendering)
     );
 
-    // This is a workaround to insert Experience Editor-specific markup on the page for empty placeholders.
-    // It makes sure the markup is inserted by react and thus avoiding hydration errors when in editing mode
-    if (this.isEmpty && ExperienceEditor.isActive()) {
-      const codePos = placeholderData.findIndex(
-        (component) =>
-          (component as HtmlElementRendering).name === 'code' &&
-          (component as HtmlElementRendering).attributes.kind === 'open'
-      );
-      const plhId = (placeholderData[codePos] as HtmlElementRendering).attributes.id;
-      const emptyPlaceholderMarkup: HtmlElementRendering[] = [
-        {
-          name: 'span',
-          contents: null,
-          attributes: {
-            type: 'text/sitecore',
-            'sc-part-of': 'placeholder rendering',
-            style: 'display: none;',
-          },
-        },
-        {
-          name: 'div',
-          contents: null,
-          attributes: {
-            class: 'scEnabledChrome scEmptyPlaceholder',
-            'sc-part-of': 'placeholder',
-            'sc-placeholder-id': plhId,
-          },
-        },
-      ];
-      placeholderData.splice(codePos + 1, 0, ...emptyPlaceholderMarkup);
-    }
-
     const components = this.getComponentsForRenderingData(placeholderData);
 
     if (this.props.renderEmpty && this.isEmpty) {
