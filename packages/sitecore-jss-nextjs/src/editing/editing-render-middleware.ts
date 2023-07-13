@@ -78,6 +78,8 @@ export class EditingRenderMiddleware {
   private handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
     const { method, query, body, headers } = req;
 
+    const startTimestamp = Date.now();
+
     debug.editing('editing render middleware start: %o', {
       method,
       query,
@@ -172,7 +174,10 @@ export class EditingRenderMiddleware {
       const body = { html };
 
       // Return expected JSON result
-      debug.editing('editing render middleware end: %o', { status: 200, body });
+      debug.editing('editing render middleware end in %dms: %o', Date.now() - startTimestamp, {
+        status: 200,
+        body,
+      });
       res.status(200).json(body);
     } catch (err) {
       const error = err as Record<string, unknown>;
