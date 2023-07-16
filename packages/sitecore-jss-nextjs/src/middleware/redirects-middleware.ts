@@ -173,15 +173,18 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
     return redirects.length
       ? redirects.find((redirect: RedirectInfo) => {
-          const pattern = `/^\/${redirect.pattern
+          redirect.pattern = `/^\/${redirect.pattern
             .replace(/^\/|\/$/g, '')
+            .replace(/^\^\/|\/\$$/g, '')
             .replace(/^\^|\$$/g, '')}$/gi`;
 
           return (
-            (regexParser(pattern).test(tragetURL) ||
-              regexParser(pattern).test(`${tragetURL}${targetQS}`) ||
-              regexParser(pattern).test(`/${req.nextUrl.locale}${tragetURL}`) ||
-              regexParser(pattern).test(`/${req.nextUrl.locale}${tragetURL}${targetQS}`)) &&
+            (regexParser(redirect.pattern).test(tragetURL) ||
+              regexParser(redirect.pattern).test(`${tragetURL}${targetQS}`) ||
+              regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${tragetURL}`) ||
+              regexParser(redirect.pattern).test(
+                `/${req.nextUrl.locale}${tragetURL}${targetQS}`
+              )) &&
             (redirect.locale
               ? redirect.locale.toLowerCase() === req.nextUrl.locale.toLowerCase()
               : true)
