@@ -13,7 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-* `[sitecore-jss-nextjs]` Fix of redirects middleware. Add possible to use tokens like $1, $2, $3, etc. ([#1547](https://github.com/Sitecore/jss/pull/1547)) ([#1559](https://github.com/Sitecore/jss/pull/1559))
+* `[sitecore-jss-nextjs]` Fix of redirects middleware. Add possible to use tokens like $1, $2, $3, etc. ([#1547](https://github.com/Sitecore/jss/pull/1547)) ([#1559](https://github.com/Sitecore/jss/pull/1559)) ([#1561](https://github.com/Sitecore/jss/pull/1561))
 
 ## 21.2.1
 
