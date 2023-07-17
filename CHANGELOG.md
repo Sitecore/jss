@@ -30,6 +30,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Referrer is not captured by Personalize middleware ([#1542](https://github.com/Sitecore/jss/pull/1542))
 * `[sitecore.jss-react]` Fix double placeholder in Experience Editor in production mode ([#1557](https://github.com/Sitecore/jss/pull/1557))
 * `[sitecore-jss-nextjs]` Fix of redirects middleware. Add possible to use tokens like $1, $2, $3, etc. ([#1547](https://github.com/Sitecore/jss/pull/1547)) ([#1559](https://github.com/Sitecore/jss/pull/1559)) ([#1561](https://github.com/Sitecore/jss/pull/1561))
+* `[templates/nextjs-sxa]` Change Content-Type of robots.txt response (`text/html;charset=utf-8`➡`text/plain`).
 
 ## 21.2.1
 
@@ -197,7 +198,7 @@ Our versioning strategy is as follows:
 ### 🧹 Chores
 
 * `[sitecore-jss-vue]` Suppress unit test warnings ([#1335](https://github.com/Sitecore/jss/pull/1335))
-* Add test-packages npm command ([#1233](https://github.com/Sitecore/jss/pull/1233)) 
+* Add test-packages npm command ([#1233](https://github.com/Sitecore/jss/pull/1233))
 * `[create-sitecore-jss]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` `[sitecore-jss-cli]` `[sitecore-jss]` `[sitecore-jss-dev-tools]` Increase unit test coverage ([#1258](https://github.com/Sitecore/jss/pull/1258)) ([#1259](https://github.com/Sitecore/jss/pull/1259)) ([#1260](https://github.com/Sitecore/jss/pull/1260)) ([#1262](https://github.com/Sitecore/jss/pull/1262)) ([#1263](https://github.com/Sitecore/jss/pull/1263)) ([#1265](https://github.com/Sitecore/jss/pull/1265)) ([#1256](https://github.com/Sitecore/jss/pull/1256))
 * Improve unit test coverage reporting ([#1202](https://github.com/Sitecore/jss/pull/1202))
 * Update CHANGELOG with updated version strategy ([#1330](https://github.com/Sitecore/jss/pull/1330))
@@ -462,7 +463,7 @@ Our versioning strategy is as follows:
 
 `[template/angular]` Language is not preserved when navigating to another page ([#793](https://github.com/Sitecore/jss/pull/793))
 
-`[template/nextjs]` `[template/react]` `[template/angular]` `[template/vue]` 
+`[template/nextjs]` `[template/react]` `[template/angular]` `[template/vue]`
 * Use the app name as the prefix value for templates ([#800](https://github.com/Sitecore/jss/pull/800)), ([#811](https://github.com/Sitecore/jss/pull/811)), ([#813](https://github.com/Sitecore/jss/pull/813)), ([#814](https://github.com/Sitecore/jss/pull/814))
 * Throw error when run jss start using `FETCH_WITH=GraphQL` ([#920](https://github.com/Sitecore/jss/pull/920))
 * Bring environment variable support to config generation ([#911](https://github.com/Sitecore/jss/pull/911), [#commit](https://github.com/Sitecore/jss/commit/dcacaccccc77add195458a552f0b061d381e29ef))
@@ -651,7 +652,7 @@ All JSS services have been upgraded to support [**Sitecore Experience Edge** Gra
 * Allow overriding 3rd party dependencies in JSS services that depend on 3rd party functionality (GraphQLLayoutService, RestDictionaryService, GraphQLDictionaryService, GraphQLSitemapService).
 
 `[sitecore-jss-nextjs]`
-* Make `GraphQLSitemapService` easier to customize by allowing overrides of default options. ([#682](https://github.com/Sitecore/jss/pull/682), [#705](https://github.com/Sitecore/jss/pull/705)) 
+* Make `GraphQLSitemapService` easier to customize by allowing overrides of default options. ([#682](https://github.com/Sitecore/jss/pull/682), [#705](https://github.com/Sitecore/jss/pull/705))
 
 ### Other Notable Improvements
 
@@ -745,7 +746,7 @@ There are [migration instructions](https://jss.sitecore.com/upgrade-guides/16.0)
 
 ### Bug Fixes
 
-* [PR #1309](https://github.com/Sitecore/jss/pull/1309) [sitecore-jss-react-forms] The language of the form is changed after clicking the submit button 
+* [PR #1309](https://github.com/Sitecore/jss/pull/1309) [sitecore-jss-react-forms] The language of the form is changed after clicking the submit button
 
 ## Sitecore JSS 15.0.2
 
@@ -797,7 +798,7 @@ There are [migration instructions](https://jss.sitecore.com/upgrade-guides/15.0)
 * [PR #464](https://github.com/Sitecore/jss/pull/464) [Security] Review and resolve security vulnerabilities
 * [PR #456](https://github.com/Sitecore/jss/pull/456) [React sample] Race condition, under load React app may render HTML from a different route
 * [Issue #428](https://github.com/Sitecore/jss/issues/428) imageParams on Image react component don't play nice with allowedMediaParams
-* [PR #448](https://github.com/Sitecore/jss/pull/448) [node-headless-proxy] Extend headers handling and remove content-security-policy header 
+* [PR #448](https://github.com/Sitecore/jss/pull/448) [node-headless-proxy] Extend headers handling and remove content-security-policy header
 * [PR #444](https://github.com/Sitecore/jss/pull/444) [Vue sample] Fix i18n memory leak
 * [PR #414](https://github.com/Sitecore/jss/pull/414) [sitecore-jss-react] Memory leak in SitecoreContext
 * [Commit](https://github.com/Sitecore/jss/commit/88eb05ec0288c82bd8d4f24a647b8d5ba82b8ead) [Forms] Number Forms field has incorrect model and step attribute
@@ -950,7 +951,7 @@ There are [migration instructions](https://jss.sitecore.com/upgrade-guides/13.0)
 ### New Features & Improvements
 
 * JSS Rendering host
-* 
+*
     Updated:
     * React: from 16.3.0 to 16.12.0,
     * Angular: from 7.0 to 8.2.8,
@@ -987,13 +988,13 @@ There are [migration instructions](https://jss.sitecore.com/upgrade-guides/13.0)
 	* ng-packagr: option workingDirectory is removed, removed corresponding getter from NgPackage class. (https://github.com/ng-packagr/ng-packagr/blob/master/CHANGELOG.md#breaking-changes-5)
 	* Setting ngPackage.src has no effect any more. The source directory (base path) is equivalent to the location of the (primary) ng-package.json, package.json, or ng-package.js. (https://github.com/ng-packagr/ng-packagr/blob/master/CHANGELOG.md#breaking-changes-6)
 	* The setting for external dependencies (lib.externals) has been removed in favour of lib.umdModuleIds which is now just used to provide the UMD module identifiers of external dependencies. (https://github.com/ng-packagr/ng-packagr/blob/master/CHANGELOG.md#migrating-from-v1-breaking-changes-from-v160-to-v200)
-	* @angular/core: Default setting for @ViewChild and @ContentChild queries is changed (https://angular.io/guide/static-query-migration#should-i-use-static-true) ComponentNameAndModule interface is changed accordingly to new lazy loading syntax: https://angular.io/guide/deprecations#loadchildren-string-syntax 
+	* @angular/core: Default setting for @ViewChild and @ContentChild queries is changed (https://angular.io/guide/static-query-migration#should-i-use-static-true) ComponentNameAndModule interface is changed accordingly to new lazy loading syntax: https://angular.io/guide/deprecations#loadchildren-string-syntax
 * sitecore-jss-cli package
 	yargs: CommandModule interface is changed https://github.com/Sitecore/jss/pull/272/files#diff-e0b90a991107a0e06b6fa1bb626b6d5eR25
 
 SXA and Sitecore Forms compatibility table
 | Sitecore  | JSS      | SXA   | Forms
-| --------- | -------- |------ | ------ 
+| --------- | -------- |------ | ------
 | 9.3       | 13.0     | 9.3   | Yes
 | 9.2       | 12.0     | 1.9   | Yes
 | 9.1.1     | 11.1     | 1.9   | No
@@ -1028,7 +1029,7 @@ No special upgrade steps needed, it's safe to promote to newer version.
 
 SXA and Sitecore Forms compatibility table
 | Sitecore  | JSS      | SXA   | Forms
-| --------- | -------- |------ | ------ 
+| --------- | -------- |------ | ------
 | 9.2       | 12.0     | 1.9   | Yes
 | 9.1.1     | 11.1     | 1.9   | No
 | 9.1       | 11.0     | No    | No
