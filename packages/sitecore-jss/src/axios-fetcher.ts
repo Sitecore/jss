@@ -77,6 +77,8 @@ export class AxiosDataFetcher {
       this.instance.interceptors.request.use(
         (config: AxiosRequestConfig) => {
           debug('request: %o', config);
+          // passing timestamp for debug logging
+          config.headers.timestamp = Date.now();
           return config;
         },
         (error: unknown) => {
@@ -97,7 +99,9 @@ export class AxiosDataFetcher {
           // Note we're removing redundant properties (already part of request log above) to trim down log entry
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
           const { request, config, ...rest } = response;
-          debug('response: %o', rest);
+          const duration = Date.now() - config.headers.timestamp;
+          delete response.config.headers.timestamp;
+          debug('response in %dms: %o', duration, rest);
           return response;
         },
         (error: unknown) => {

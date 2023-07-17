@@ -82,6 +82,8 @@ export class GraphQLRequestClient implements GraphQLClient {
     query: string | DocumentNode,
     variables?: { [key: string]: unknown }
   ): Promise<T> {
+    const startTimestamp = Date.now();
+
     return new Promise((resolve, reject) => {
       // Note we don't have access to raw request/response with graphql-request
       // (or nice hooks like we have with Axios), but we should log whatever we have.
@@ -100,7 +102,7 @@ export class GraphQLRequestClient implements GraphQLClient {
       Promise.race(fetchWithOptionalTimeout).then(
         (data: T) => {
           this.abortTimeout?.clear();
-          this.debug('response: %o', data);
+          this.debug('response in %dms: %o', Date.now() - startTimestamp, data);
           resolve(data);
         },
         (error: ClientError) => {
