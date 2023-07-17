@@ -28,7 +28,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` Remove use of reactDom/server from React Image ([1544](https://github.com/Sitecore/jss/pull/1544))
 * `[sitecore-jss-nextjs]` Referrer is not captured by Personalize middleware ([#1542](https://github.com/Sitecore/jss/pull/1542))
 * `[sitecore-jss-nextjs]` Fix of redirects middleware. Add possible to use tokens like $1, $2, $3, etc. ([#1547](https://github.com/Sitecore/jss/pull/1547))
-* `[create-sitecore-jss]` Change Content-Type of robots.txt response (`text/html;charset=utf-8`➡`text/plain`).
+* `[templates/nextjs-sxa]` Change Content-Type of robots.txt response (`text/html;charset=utf-8`➡`text/plain`).
 
 ## 21.2.1
 
