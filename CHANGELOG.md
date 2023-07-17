@@ -29,7 +29,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` Remove use of reactDom/server from React Image ([1544](https://github.com/Sitecore/jss/pull/1544))
 * `[sitecore-jss-nextjs]` Referrer is not captured by Personalize middleware ([#1542](https://github.com/Sitecore/jss/pull/1542))
 * `[sitecore.jss-react]` Fix double placeholder in Experience Editor in production mode ([#1557](https://github.com/Sitecore/jss/pull/1557))
-* `[sitecore-jss-nextjs]` Fix of redirects middleware. Add possible to use tokens like $1, $2, $3, etc. ([#1547](https://github.com/Sitecore/jss/pull/1547)) ([#1559](https://github.com/Sitecore/jss/pull/1559))
+* `[sitecore-jss-nextjs]` Fix of redirects middleware. Add possible to use tokens like $1, $2, $3, etc. ([#1547](https://github.com/Sitecore/jss/pull/1547)) ([#1559](https://github.com/Sitecore/jss/pull/1559)) ([#1561](https://github.com/Sitecore/jss/pull/1561))
 
 ## 21.2.1
 
