@@ -16,6 +16,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      lernaSinceFlag: "--since=origin/dev"
+
     steps:
       - name: Set up Node.js
         uses: actions/setup-node@v2
