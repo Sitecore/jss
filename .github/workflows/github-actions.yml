@@ -1,5 +1,6 @@
 ﻿name: Node.js CI
 
+# should trigger builds for PRs targeting any of the listed branches
 on:
   push:
     branches:
@@ -20,41 +21,50 @@ jobs:
       lernaSinceFlag: "--since=origin/dev"
 
     steps:
+      # Get the code
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16.x'
 
+      # Clean Yarn cache and install project dependencies
       - name: Clean Yarn cache and install dependencies
         run: |
           yarn cache clean --all
           yarn install --immutable
 
+      # Lint project packages
       - name: Lint packages
         run: |
           yarn lint-packages ${{ env.lernaSinceFlag }}
 
+      # Build project packages
       - name: Build packages
         run: |
           npm run build
 
+      # Run project tests
       - name: Run tests
         run: |
           yarn coverage-packages
         env:
           testEnv: 'ci'
 
+      # Generate code coverage report
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
 
+      # Scaffold project samples
       - name: Scaffold samples
         run: |
           yarn scaffold-samples
         if: always() && env.shouldPublish != 'true'
 
+      # Refresh Yarn installation
       - name: Refresh Yarn install
         run: |
           yarn install
@@ -62,7 +72,8 @@ jobs:
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
 
-      - name: Lint samples
+      # Lint templates
+      - name: Lint templates
         run: |
           yarn lint-samples ${{ env.lernaSinceFlag }}
         if: always() && env.shouldPublish != 'true'
