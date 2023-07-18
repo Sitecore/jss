@@ -1,0 +1,69 @@
+﻿name: Node.js CI
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+      - 'release/*'
+  pull_request:
+    branches:
+      - master
+      - dev
+      - 'release/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+
+      - name: Clean Yarn cache and install dependencies
+        run: |
+          yarn cache clean --all
+          yarn install --immutable
+
+      - name: Lint packages
+        run: |
+          yarn lint-packages ${{ env.lernaSinceFlag }}
+
+      - name: Build packages
+        run: |
+          npm run build
+
+      - name: Run tests
+        run: |
+          yarn coverage-packages
+        env:
+          testEnv: 'ci'
+
+      - name: Generate code coverage report
+        run: |
+          reportgenerator -reports:$(System.DefaultWorkingDirectory)/**/cobertura-coverage.xml -targetdir:$(GITHUB_WORKSPACE)/coverlet -reporttypes:HtmlInline_AzurePipelines;Cobertura -verbosity:Verbose
+        shell: bash
+
+      - name: Publish code coverage report
+        run: |
+          bash <(curl -s https://codecov.io/bash)
+        if: always()
+
+      - name: Scaffold samples
+        run: |
+          yarn scaffold-samples
+        if: always() && env.shouldPublish != 'true'
+
+      - name: Refresh Yarn install
+        run: |
+          yarn install
+        if: always() && env.shouldPublish != 'true'
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+
+      - name: Lint samples
+        run: |
+          yarn lint-samples ${{ env.lernaSinceFlag }}
+        if: always() && env.shouldPublish != 'true'
