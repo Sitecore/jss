@@ -119,7 +119,6 @@ export class RedirectsMiddleware extends MiddlewareBase {
           existsRedirect.target = existsRedirect.target.replace(`/${urlFirstPart}`, '');
         }
 
-        url.pathname = existsRedirect.target;
         url.pathname = url.pathname
           .replace(regexParser(existsRedirect.pattern), existsRedirect.target)
           .replace(/^\/\//, '/');
