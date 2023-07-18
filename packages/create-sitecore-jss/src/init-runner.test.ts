@@ -54,7 +54,7 @@ describe('initRunner', () => {
     const mockFoo = mockInitializer(true, { appName });
     const mockBar = mockInitializer(false, { appName });
     createStub = sinon.stub(InitializerFactory.prototype, 'create');
-    createStub.withArgs('foo').returns(mockFoo);
+    createStub.withArgs('fo').returns(mockFoo);
     createStub.withArgs('bar').returns(mockBar);
 
     await initRunner(templates, args);
