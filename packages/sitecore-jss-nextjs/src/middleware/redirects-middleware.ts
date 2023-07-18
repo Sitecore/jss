@@ -106,6 +106,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
       const url = req.nextUrl.clone();
       const absoluteUrlRegex = new RegExp('^(?:[a-z]+:)?//', 'i');
+
       if (absoluteUrlRegex.test(existsRedirect.target)) {
         url.href = existsRedirect.target;
         url.locale = req.nextUrl.locale;
@@ -114,10 +115,12 @@ export class RedirectsMiddleware extends MiddlewareBase {
         const urlFirstPart = existsRedirect.target.split('/')[1];
         if (this.locales.includes(urlFirstPart)) {
           url.locale = urlFirstPart;
-          url.pathname = existsRedirect.target.replace(`/${urlFirstPart}`, '');
-        } else {
-          url.pathname = existsRedirect.target;
+          existsRedirect.target = existsRedirect.target.replace(`/${urlFirstPart}`, '');
         }
+
+        url.pathname = url.pathname
+          .replace(regexParser(existsRedirect.pattern), existsRedirect.target)
+          .replace(/^\/\//, '/');
       }
 
       const redirectUrl = decodeURIComponent(url.href);
@@ -168,15 +171,18 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
     return redirects.length
       ? redirects.find((redirect: RedirectInfo) => {
-          const pattern = `/^/${redirect.pattern
+          redirect.pattern = `/^\/${redirect.pattern
             .replace(/^\/|\/$/g, '')
+            .replace(/^\^\/|\/\$$/g, '')
             .replace(/^\^|\$$/g, '')}$/gi`;
 
           return (
-            (regexParser(pattern).test(tragetURL) ||
-              regexParser(pattern).test(`${tragetURL}${targetQS}`) ||
-              regexParser(pattern).test(`/${req.nextUrl.locale}${tragetURL}`) ||
-              regexParser(pattern).test(`/${req.nextUrl.locale}${tragetURL}${targetQS}`)) &&
+            (regexParser(redirect.pattern).test(tragetURL) ||
+              regexParser(redirect.pattern).test(`${tragetURL}${targetQS}`) ||
+              regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${tragetURL}`) ||
+              regexParser(redirect.pattern).test(
+                `/${req.nextUrl.locale}${tragetURL}${targetQS}`
+              )) &&
             (redirect.locale
               ? redirect.locale.toLowerCase() === req.nextUrl.locale.toLowerCase()
               : true)
