@@ -26,7 +26,7 @@ Interface for the server.bundle.js file
 
 #### Defined in
 
-[src/ProxyConfig.ts:23](https://github.com/Sitecore/jss/blob/5e361b44a/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L23)
+[src/ProxyConfig.ts:23](https://github.com/Sitecore/jss/blob/007a91935/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L23)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[src/ProxyConfig.ts:22](https://github.com/Sitecore/jss/blob/5e361b44a/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L22)
+[src/ProxyConfig.ts:22](https://github.com/Sitecore/jss/blob/007a91935/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L22)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[src/ProxyConfig.ts:25](https://github.com/Sitecore/jss/blob/5e361b44a/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L25)
+[src/ProxyConfig.ts:25](https://github.com/Sitecore/jss/blob/007a91935/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L25)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/ProxyConfig.ts:24](https://github.com/Sitecore/jss/blob/5e361b44a/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L24)
+[src/ProxyConfig.ts:24](https://github.com/Sitecore/jss/blob/007a91935/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L24)
 
 ___
 
@@ -81,4 +81,4 @@ ___
 
 #### Defined in
 
-[src/ProxyConfig.ts:26](https://github.com/Sitecore/jss/blob/5e361b44a/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L26)
+[src/ProxyConfig.ts:26](https://github.com/Sitecore/jss/blob/007a91935/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L26)

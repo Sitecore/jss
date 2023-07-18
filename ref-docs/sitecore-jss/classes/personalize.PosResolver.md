@@ -39,4 +39,4 @@
 
 #### Defined in
 
-[src/personalize/pos-resolver.ts:4](https://github.com/Sitecore/jss/blob/5e361b44a/packages/sitecore-jss/src/personalize/pos-resolver.ts#L4)
+[src/personalize/pos-resolver.ts:4](https://github.com/Sitecore/jss/blob/007a91935/packages/sitecore-jss/src/personalize/pos-resolver.ts#L4)
