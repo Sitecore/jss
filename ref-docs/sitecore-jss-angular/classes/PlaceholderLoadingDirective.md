@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder-loading.directive.ts:7](https://github.com/Sitecore/jss/blob/7390d607c/packages/sitecore-jss-angular/src/components/placeholder-loading.directive.ts#L7)
+[sitecore-jss-angular/src/components/placeholder-loading.directive.ts:7](https://github.com/Sitecore/jss/blob/8b3cd364a/packages/sitecore-jss-angular/src/components/placeholder-loading.directive.ts#L7)
 
 ## Properties
 
@@ -36,4 +36,4 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder-loading.directive.ts:7](https://github.com/Sitecore/jss/blob/7390d607c/packages/sitecore-jss-angular/src/components/placeholder-loading.directive.ts#L7)
+[sitecore-jss-angular/src/components/placeholder-loading.directive.ts:7](https://github.com/Sitecore/jss/blob/8b3cd364a/packages/sitecore-jss-angular/src/components/placeholder-loading.directive.ts#L7)
