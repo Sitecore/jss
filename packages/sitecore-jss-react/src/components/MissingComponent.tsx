@@ -5,6 +5,7 @@ export interface MissingComponentProps {
   rendering?: {
     componentName?: string;
   };
+  errorOverride?: string;
 }
 
 export const MissingComponent: React.FC<MissingComponentProps> = (props) => {
@@ -14,7 +15,9 @@ export const MissingComponent: React.FC<MissingComponentProps> = (props) => {
       : 'Unnamed Component';
 
   console.log(`Component props for unimplemented '${componentName}' component`, props);
-
+  const errorMessage =
+    props.errorOverride ||
+    'JSS component is missing React implementation. See the developer console for more information.';
   return (
     <div
       style={{
@@ -26,10 +29,7 @@ export const MissingComponent: React.FC<MissingComponentProps> = (props) => {
       }}
     >
       <h2>{componentName}</h2>
-      <p>
-        JSS component is missing React implementation. See the developer console for more
-        information.
-      </p>
+      <p>{errorMessage}</p>
     </div>
   );
 };
