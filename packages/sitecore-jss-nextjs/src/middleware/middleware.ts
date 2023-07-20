@@ -48,7 +48,6 @@ export abstract class MiddlewareBase {
 
   protected excludeRoute(pathname: string) {
     return (
-      pathname.includes('.') || // Ignore files
       pathname.startsWith('/api/') || // Ignore Next.js API calls
       pathname.startsWith('/sitecore/') || // Ignore Sitecore API calls
       pathname.startsWith('/_next') || // Ignore next service calls
