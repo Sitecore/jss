@@ -1,42 +1,44 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import sinon from 'sinon';
-
-import { BYOCProps, BYOCRenderer } from './BYOCRenderer';
+import { BYOCRenderer } from './BYOCRenderer';
 import { MissingComponent } from './MissingComponent';
-import * as FEAAS from '@sitecore-feaas/clientside/react';
-import { afterEach } from 'node:test';
 import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
 
 describe('<BYOCRenderer />', () => {
-  const sandbox = sinon.createSandbox();
-
   type PropType = {
     text: string;
   };
+
   const ComponentWithProps = (props: PropType) => (
     <div className="byoc">I display this: {props.text || 'nothing'}</div>
   );
 
-  afterEach(() => {
-    sandbox.restore();
-  });
-
-  it('should render the registered component with provided props', () => {
+  const getBaseByocProps = (
+    registeredComponent: React.ComponentType<any>,
+    componentProps?: string,
+    fields?: ComponentFields
+  ) => {
     const registeredComponents = {
       RegisteredComponent: {
         name: 'RegisteredComponent',
-        component: () => <div className="byoc">Registered Component</div>,
+        component: registeredComponent,
       },
     };
-    sandbox.stub(FEAAS.External, 'registered').value(registeredComponents);
-    const props: BYOCProps = {
+
+    return {
       params: {
         ComponentName: 'RegisteredComponent',
+        ComponentProps: componentProps,
       },
+      fields: fields,
+      components: registeredComponents,
     };
+  };
+
+  it('should render the registered component with provided props', () => {
+    const noPropComponent = () => <div className="byoc">Registered Component</div>;
+    const props = getBaseByocProps(noPropComponent);
 
     const wrapper = mount(<BYOCRenderer {...props} />);
 
@@ -44,8 +46,7 @@ describe('<BYOCRenderer />', () => {
   });
 
   it('should render missing component frame when component isnt registered', () => {
-    sandbox.stub(FEAAS.External, 'registered').value({});
-    const props = { params: { ComponentName: 'NonExistentComponent' } };
+    const props = { params: { ComponentName: 'NonExistentComponent' }, components: {} };
 
     const wrapper = mount(<BYOCRenderer {...props} />);
 
@@ -53,19 +54,7 @@ describe('<BYOCRenderer />', () => {
   });
 
   it('should use props from rendering params when present', () => {
-    const registeredComponents = {
-      RegisteredComponent: {
-        name: 'RegisteredComponent',
-        component: ComponentWithProps,
-      },
-    };
-    sandbox.stub(FEAAS.External, 'registered').value(registeredComponents);
-    const props: BYOCProps = {
-      params: {
-        ComponentName: 'RegisteredComponent',
-        ComonentProps: JSON.stringify({ text: 'this is text' }),
-      },
-    };
+    const props = getBaseByocProps(ComponentWithProps, JSON.stringify({ text: 'this is text' }));
 
     const wrapper = mount(<BYOCRenderer {...props} />);
 
@@ -74,25 +63,17 @@ describe('<BYOCRenderer />', () => {
   });
 
   it('should prioritize props from rendering params', () => {
-    const registeredComponents = {
-      RegisteredComponent: {
-        name: 'RegisteredComponent',
-        component: ComponentWithProps,
-      },
-    };
     const dataSourceFields: ComponentFields = {
       text: {
         value: 'this is data source text',
       },
     };
-    sandbox.stub(FEAAS.External, 'registered').value(registeredComponents);
-    const props: BYOCProps = {
-      params: {
-        ComponentName: 'RegisteredComponent',
-        ComonentProps: JSON.stringify({ text: 'this is param text' }),
-      },
-      fields: dataSourceFields,
-    };
+
+    const props = getBaseByocProps(
+      ComponentWithProps,
+      JSON.stringify({ text: 'this is param text' }),
+      dataSourceFields
+    );
 
     const wrapper = mount(<BYOCRenderer {...props} />);
 
@@ -101,25 +82,12 @@ describe('<BYOCRenderer />', () => {
   });
 
   it('should use props from data source as fallback', () => {
-    const registeredComponents = {
-      RegisteredComponent: {
-        name: 'RegisteredComponent',
-        component: ComponentWithProps,
-      },
-    };
     const dataSourceFields: ComponentFields = {
       text: {
         value: 'this is data source text',
       },
     };
-    sandbox.stub(FEAAS.External, 'registered').value(registeredComponents);
-    const props: BYOCProps = {
-      params: {
-        ComponentName: 'RegisteredComponent',
-        ComonentProps: '',
-      },
-      fields: dataSourceFields,
-    };
+    const props = getBaseByocProps(ComponentWithProps, '', dataSourceFields);
 
     const wrapper = mount(<BYOCRenderer {...props} />);
 
@@ -128,46 +96,21 @@ describe('<BYOCRenderer />', () => {
   });
 
   it('should use props from data source if params have invalid JSON', () => {
-    const registeredComponents = {
-      RegisteredComponent: {
-        name: 'RegisteredComponent',
-        component: ComponentWithProps,
-      },
-    };
     const dataSourceFields: ComponentFields = {
       text: {
         value: 'this is data source text',
       },
     };
-    sandbox.stub(FEAAS.External, 'registered').value(registeredComponents);
-    const props: BYOCProps = {
-      params: {
-        ComponentName: 'RegisteredComponent',
-        ComonentProps: 'this is not a JSON',
-      },
-      fields: dataSourceFields,
-    };
+    const props = getBaseByocProps(ComponentWithProps, 'this is not a JSON', dataSourceFields);
 
     const wrapper = mount(<BYOCRenderer {...props} />);
 
     expect(wrapper.find('div.byoc').text()).to.contain('I display this');
     expect(wrapper.find('div.byoc').text()).to.contain('this is data source text');
   });
+
   it('should fallback to empty props when other sources fail', () => {
-    const registeredComponents = {
-      RegisteredComponent: {
-        name: 'RegisteredComponent',
-        component: ComponentWithProps,
-      },
-    };
-    sandbox.stub(FEAAS.External, 'registered').value(registeredComponents);
-    const props: BYOCProps = {
-      params: {
-        ComponentName: 'RegisteredComponent',
-        ComonentProps: '',
-      },
-      fields: {},
-    };
+    const props = getBaseByocProps(ComponentWithProps, '', {});
 
     const wrapper = mount(<BYOCRenderer {...props} />);
 

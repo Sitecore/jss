@@ -1,31 +1,59 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import * as FEAAS from '@sitecore-feaas/clientside/react';
 import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
 import { getDataFromFields } from '../utils';
 import { MissingComponent } from './MissingComponent';
+import { RegisteredComponents } from '@sitecore-feaas/clientside/types/ui/FEAASExternal';
 
+/**
+ * Data from rendering params on Sitecore's BYOC rendering
+ */
 type BYOCRenderingParams = {
+  /**
+   * Name of the component to render
+   */
   ComponentName: string;
-  ComonentProps?: string;
+  /**
+   * JSON props to pass into rendered component
+   */
+  ComponentProps?: string;
 };
 
+/**
+ * Props for BYOC wrapper component
+ */
 export type BYOCProps = {
+  /**
+   * rendering params
+   */
   params?: BYOCRenderingParams;
+  /**
+   * fields from datasource items to be passed as rendered child component props
+   */
   fields?: ComponentFields;
 };
 
 /**
- * BYOCRenderer helps us
- * @param props
- * @returns
+ * Props for BYOCRenderer component. Includes components list to load external components from.
  */
-export const BYOCRenderer = (props: BYOCProps) => {
+type ByocRendererProps = BYOCProps & {
+  components: RegisteredComponents;
+};
+
+/**
+ * BYOCRenderer helps rendering BYOC components - that can be taken from anywhere
+ * and registered without being deployed as Sitecore renderings
+ * @param {ByocRendererProps} props component props
+ * @returns dynamicly rendered component or Missing Component error frame
+ */
+export const BYOCRenderer = (props: ByocRendererProps) => {
   const { ComponentName: componentName } = props.params || {};
   if (!componentName) return <MissingComponent />;
 
-  const Component = Object.keys(FEAAS.External.registered).length
-    ? Object.values(FEAAS.External.registered).find((component) => component.name === componentName)
+  // props.components would contain component from internal FEAAS regsitered component collection (registered in app)
+  // we can't access this collection here directly, as the collection from packages's dependency would be different from the one in app
+  const Component = Object.keys(props.components).length
+    ? Object.values(props.components).find((component) => component.name === componentName)
         ?.component
     : null;
 
@@ -41,9 +69,9 @@ export const BYOCRenderer = (props: BYOCProps) => {
 
   let componentProps: { [key: string]: unknown } = undefined;
 
-  if (props.params?.ComonentProps) {
+  if (props.params?.ComponentProps) {
     try {
-      componentProps = JSON.parse(props.params.ComonentProps) ?? {};
+      componentProps = JSON.parse(props.params.ComponentProps) ?? {};
     } catch (e) {
       console.warn(
         `Parsing props for ${componentName} component from rendering params failed. Attempting to parse from data source`
@@ -56,5 +84,3 @@ export const BYOCRenderer = (props: BYOCProps) => {
 
   return <Component {...componentProps} />;
 };
-// this will be in initializer/nextjs app
-export const BYOCWrapper = () => <BYOCRenderer></BYOCRenderer>;

@@ -102,7 +102,7 @@ export const getAttributesString = (attributes: { [key: string]: unknown }): str
 
 /**
  * Used in FEAAS and BYOC implementations to convert datasource item field values into component props
- * @param fields field collection from Sitecore
+ * @param {ComponentFields} fields field collection from Sitecore
  * @returns JSON object that can be used as props
  */
 export const getDataFromFields = (fields: ComponentFields): { [key: string]: unknown } => {

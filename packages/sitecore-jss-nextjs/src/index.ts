@@ -170,6 +170,8 @@ export {
   FEaaSComponentProps,
   FEaaSComponentParams,
   fetchFEaaSComponentServerProps,
+  BYOCProps,
+  BYOCRenderer,
   File,
   FileField,
   RichTextField,
