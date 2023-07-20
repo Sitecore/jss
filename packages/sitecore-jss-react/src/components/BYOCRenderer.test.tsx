@@ -7,78 +7,170 @@ import sinon from 'sinon';
 import { BYOCProps, BYOCRenderer } from './BYOCRenderer';
 import { MissingComponent } from './MissingComponent';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
+import { afterEach } from 'node:test';
+import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
 
 describe('<BYOCRenderer />', () => {
-  // const ExternalComponent = () => {
-  //   <div className="byoc">I was rendered, woo!</div>;
-  // };
+  const sandbox = sinon.createSandbox();
 
-  // type TestProps = {
-  //   message: string;
-  // };
+  type PropType = {
+    text: string;
+  };
+  const ComponentWithProps = (props: PropType) => (
+    <div className="byoc">I display this: {props.text || 'nothing'}</div>
+  );
 
-  // const ExternalWithPropsComponent = (props: TestProps) => {
-  //   <div className="byoc">My message to you is {props.message}</div>;
-  // };
-
-  // const sandbox = sinon.createSandbox();
-
-  // afterEach(() => {
-  //   sandbox.restore();
-  // });
-
-  // it('should render component', () => {
-  //   const components: Record<string, unknown> = {};
-  //   components['ExternalComponent'] = { name: 'ExternalComponent', component: ExternalComponent };
-  //   sandbox.stub(FEAAS.External, 'registered').value(components);
-  //   const props: BYOCProps = {
-  //     params: {
-  //       ComponentName: 'ExternalComponent',
-  //     },
-  //   };
-  //   const rendered = mount(<BYOCRenderer {...props} />);
-  //   // const wrapper = shallow(<BYOCRenderer {...props} />);
-  //   expect(rendered).to.have.length(1);
-  //   expect(rendered.text()).to.contain('I was rendered, woo!');
-  // });
+  afterEach(() => {
+    sandbox.restore();
+  });
 
   it('should render the registered component with provided props', () => {
     const registeredComponents = {
       RegisteredComponent: {
         name: 'RegisteredComponent',
-        component: () => <div>Registered Component</div>,
+        component: () => <div className="byoc">Registered Component</div>,
       },
     };
-
-    // Mocking the FEAAS.External.registered
-    const registeredStub = sinon.stub(FEAAS.External, 'registered').value(registeredComponents);
-
+    sandbox.stub(FEAAS.External, 'registered').value(registeredComponents);
     const props: BYOCProps = {
       params: {
         ComponentName: 'RegisteredComponent',
-        ComonentProps: JSON.stringify({ text: 'Hello, World!' }),
       },
     };
 
     const wrapper = mount(<BYOCRenderer {...props} />);
-    expect(wrapper.find('div').text()).to.equal('Registered Component');
 
-    registeredStub.restore();
+    expect(wrapper.find('div.byoc').text()).to.equal('Registered Component');
   });
 
   it('should render missing component frame when component isnt registered', () => {
-    const registeredStub = sinon.stub(FEAAS.External, 'registered').value({});
-
+    sandbox.stub(FEAAS.External, 'registered').value({});
     const props = { params: { ComponentName: 'NonExistentComponent' } };
 
     const wrapper = mount(<BYOCRenderer {...props} />);
-    expect(wrapper.find(MissingComponent)).to.have.lengthOf(1);
 
-    registeredStub.restore();
+    expect(wrapper.find(MissingComponent)).to.have.lengthOf(1);
   });
 
-  xit('should use props from rendering params when present', () => {});
-  xit('should use props from data source as fallback', () => {});
-  xit('should use props from data source if params have invalid JSON', () => {});
-  xit('should fallback to empty props when other sources fail', () => {});
+  it('should use props from rendering params when present', () => {
+    const registeredComponents = {
+      RegisteredComponent: {
+        name: 'RegisteredComponent',
+        component: ComponentWithProps,
+      },
+    };
+    sandbox.stub(FEAAS.External, 'registered').value(registeredComponents);
+    const props: BYOCProps = {
+      params: {
+        ComponentName: 'RegisteredComponent',
+        ComonentProps: JSON.stringify({ text: 'this is text' }),
+      },
+    };
+
+    const wrapper = mount(<BYOCRenderer {...props} />);
+
+    expect(wrapper.find('div.byoc').text()).to.contain('I display this');
+    expect(wrapper.find('div.byoc').text()).to.contain('this is text');
+  });
+
+  it('should prioritize props from rendering params', () => {
+    const registeredComponents = {
+      RegisteredComponent: {
+        name: 'RegisteredComponent',
+        component: ComponentWithProps,
+      },
+    };
+    const dataSourceFields: ComponentFields = {
+      text: {
+        value: 'this is data source text',
+      },
+    };
+    sandbox.stub(FEAAS.External, 'registered').value(registeredComponents);
+    const props: BYOCProps = {
+      params: {
+        ComponentName: 'RegisteredComponent',
+        ComonentProps: JSON.stringify({ text: 'this is param text' }),
+      },
+      fields: dataSourceFields,
+    };
+
+    const wrapper = mount(<BYOCRenderer {...props} />);
+
+    expect(wrapper.find('div.byoc').text()).to.contain('I display this');
+    expect(wrapper.find('div.byoc').text()).to.contain('this is param text');
+  });
+
+  it('should use props from data source as fallback', () => {
+    const registeredComponents = {
+      RegisteredComponent: {
+        name: 'RegisteredComponent',
+        component: ComponentWithProps,
+      },
+    };
+    const dataSourceFields: ComponentFields = {
+      text: {
+        value: 'this is data source text',
+      },
+    };
+    sandbox.stub(FEAAS.External, 'registered').value(registeredComponents);
+    const props: BYOCProps = {
+      params: {
+        ComponentName: 'RegisteredComponent',
+        ComonentProps: '',
+      },
+      fields: dataSourceFields,
+    };
+
+    const wrapper = mount(<BYOCRenderer {...props} />);
+
+    expect(wrapper.find('div.byoc').text()).to.contain('I display this');
+    expect(wrapper.find('div.byoc').text()).to.contain('this is data source text');
+  });
+
+  it('should use props from data source if params have invalid JSON', () => {
+    const registeredComponents = {
+      RegisteredComponent: {
+        name: 'RegisteredComponent',
+        component: ComponentWithProps,
+      },
+    };
+    const dataSourceFields: ComponentFields = {
+      text: {
+        value: 'this is data source text',
+      },
+    };
+    sandbox.stub(FEAAS.External, 'registered').value(registeredComponents);
+    const props: BYOCProps = {
+      params: {
+        ComponentName: 'RegisteredComponent',
+        ComonentProps: 'this is not a JSON',
+      },
+      fields: dataSourceFields,
+    };
+
+    const wrapper = mount(<BYOCRenderer {...props} />);
+
+    expect(wrapper.find('div.byoc').text()).to.contain('I display this');
+    expect(wrapper.find('div.byoc').text()).to.contain('this is data source text');
+  });
+  it('should fallback to empty props when other sources fail', () => {
+    const registeredComponents = {
+      RegisteredComponent: {
+        name: 'RegisteredComponent',
+        component: ComponentWithProps,
+      },
+    };
+    sandbox.stub(FEAAS.External, 'registered').value(registeredComponents);
+    const props: BYOCProps = {
+      params: {
+        ComponentName: 'RegisteredComponent',
+        ComonentProps: '',
+      },
+      fields: {},
+    };
+
+    const wrapper = mount(<BYOCRenderer {...props} />);
+
+    expect(wrapper.find('div.byoc').text()).to.equal('I display this: nothing');
+  });
 });

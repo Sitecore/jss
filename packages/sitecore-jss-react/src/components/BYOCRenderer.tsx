@@ -39,7 +39,7 @@ export const BYOCRenderer = (props: BYOCProps) => {
     return <MissingComponent {...missingProps} />;
   }
 
-  let componentProps: { [key: string]: unknown } = {};
+  let componentProps: { [key: string]: unknown } = undefined;
 
   if (props.params?.ComonentProps) {
     try {
@@ -50,11 +50,11 @@ export const BYOCRenderer = (props: BYOCProps) => {
       );
     }
   }
-  if (!componentProps && props.fields) {
-    componentProps = getDataFromFields(props.fields) ?? {};
+  if (!componentProps) {
+    componentProps = props.fields ? getDataFromFields(props.fields) : {};
   }
 
-  return <>{Component && <Component {...componentProps} />}</>;
+  return <Component {...componentProps} />;
 };
 // this will be in initializer/nextjs app
 export const BYOCWrapper = () => <BYOCRenderer></BYOCRenderer>;
