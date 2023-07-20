@@ -112,6 +112,11 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     };
   }
 
+  protected excludeRoute(pathname: string): boolean | undefined {
+    // ignore files
+    return pathname.includes('.') || super.excludeRoute(pathname);
+  }
+
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
     const language = this.getLanguage(req);
