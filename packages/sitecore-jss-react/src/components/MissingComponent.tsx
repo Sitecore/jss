@@ -14,7 +14,9 @@ export const MissingComponent: React.FC<MissingComponentProps> = (props) => {
       ? props.rendering.componentName
       : 'Unnamed Component';
 
-  console.log(`Component props for unimplemented '${componentName}' component`, props);
+  // error override would mean component is not unimplemented
+  !props.errorOverride &&
+    console.log(`Component props for unimplemented '${componentName}' component`, props);
   const errorMessage =
     props.errorOverride ||
     'JSS component is missing React implementation. See the developer console for more information.';

@@ -58,11 +58,14 @@ export const BYOCRenderer = (props: ByocRendererProps) => {
     : null;
 
   if (!Component) {
+    console.warn(
+      `Component "${componentName}" was not registered, please ensure the FEEAS.External.registerComponent call is made.`
+    );
     const missingProps = {
       rendering: {
         componentName: componentName,
       },
-      errorOverride: 'BYOC: The component you requested is not registered',
+      errorOverride: 'BYOC: This component was not registered.',
     };
     return <MissingComponent {...missingProps} />;
   }
