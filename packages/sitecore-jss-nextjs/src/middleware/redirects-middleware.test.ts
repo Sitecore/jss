@@ -259,7 +259,6 @@ describe('RedirectsMiddleware', () => {
       it('default', async () => {
         const { middleware } = createMiddleware();
 
-        await test('/src/image.png', middleware);
         await test('/api/layout/render', middleware);
         await test('/sitecore/render', middleware);
         await test('/_next/webpack', middleware);
@@ -272,7 +271,6 @@ describe('RedirectsMiddleware', () => {
           excludeRoute,
         });
 
-        await test('/src/image.png', middleware);
         await test('/api/layout/render', middleware);
         await test('/sitecore/render', middleware);
         await test('/_next/webpack', middleware);

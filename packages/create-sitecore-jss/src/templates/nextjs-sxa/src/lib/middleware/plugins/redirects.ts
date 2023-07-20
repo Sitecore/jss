@@ -18,7 +18,7 @@ class RedirectsPlugin implements MiddlewarePlugin {
       // This function determines if a route should be excluded from RedirectsMiddleware.
       // Certain paths are ignored by default (e.g. files and Next.js API routes), but you may wish to exclude more.
       // This is an important performance consideration since Next.js Edge middleware runs on every request.
-      excludeRoute: () => false,
+      excludeRoute: (pathname) => pathname.includes('.'),
       // This function determines if the middleware should be turned off.
       // By default it is disabled while in development mode.
       disabled: () => process.env.NODE_ENV === 'development',
