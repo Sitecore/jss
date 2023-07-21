@@ -1,48 +1,63 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { expect } from 'chai';
 import nock from 'nock';
-import { GraphQLSiteInfoService } from './graphql-siteinfo-service';
+import { GraphQLSiteInfoService, GraphQLSiteInfoResult } from './graphql-siteinfo-service';
+import { PageInfo } from '../graphql';
 
 describe('GraphQLSiteInfoService', () => {
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';
-  const nonEmptyResponse = {
+
+  const site = ({
+    name,
+    hostName,
+    language,
+    pointOfSale = '',
+  }: {
+    name: string;
+    hostName: string;
+    language: string;
+    pointOfSale: string;
+  }): GraphQLSiteInfoResult => ({
+    name: { value: name },
+    hostName: { value: hostName },
+    language: { value: language },
+    pointOfSale: { value: pointOfSale },
+  });
+
+  const nonEmptyResponse = ({
+    count = 1,
+    start = 0,
+    pageInfo = { hasNext: false, endCursor: '' },
+    sites = [],
+  }: {
+    count?: number;
+    start?: number;
+    pageInfo?: PageInfo;
+    sites?: GraphQLSiteInfoResult[];
+  } = {}) => ({
     data: {
       search: {
+        pageInfo,
         results: [
-          {
-            name: {
-              value: 'site 51',
-            },
-            hostName: {
-              value: 'restricted.gov',
-            },
-            language: {
-              value: 'en',
-            },
-            pointOfSale: {
-              value: {
-                en: 'en-pos',
-              },
-            },
-          },
-          {
-            name: {
-              value: 'public',
-            },
-            hostName: {
-              value: 'pr.showercurtains.org',
-            },
-            language: {
-              value: '',
-            },
-          },
+          ...[...Array(count).keys()].map((n) =>
+            site({
+              name: `site ${start + n}`,
+              hostName: 'restricted.gov',
+              language: 'en',
+              pointOfSale: 'en=en-pos',
+            })
+          ),
+          ...sites,
         ],
       },
     },
-  };
+  });
+
   const emptyResponse = {
     data: {
       search: {
+        pageInfo: {},
         results: [],
       },
     },
@@ -52,19 +67,30 @@ describe('GraphQLSiteInfoService', () => {
     nock.cleanAll();
   });
 
-  const mockSiteInfoRequest = () => {
+  const mockSiteInfoRequest = (response: { [key: string]: unknown }) => {
     nock(endpoint)
       .post('/')
-      .reply(200, nonEmptyResponse);
+      .reply(200, response);
   };
 
   it('should return correct result', async () => {
-    mockSiteInfoRequest();
+    mockSiteInfoRequest(
+      nonEmptyResponse({
+        sites: [
+          site({
+            name: 'public 0',
+            hostName: 'pr.showercurtains.org',
+            language: '',
+            pointOfSale: '',
+          }),
+        ],
+      })
+    );
     const service = new GraphQLSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
     const result = await service.fetchSiteInfo();
     expect(result).to.be.deep.equal([
       {
-        name: 'site 51',
+        name: 'site 0',
         hostName: 'restricted.gov',
         language: 'en',
         pointOfSale: {
@@ -72,10 +98,73 @@ describe('GraphQLSiteInfoService', () => {
         },
       },
       {
-        name: 'public',
+        name: 'public 0',
         hostName: 'pr.showercurtains.org',
         language: '',
         pointOfSale: undefined,
+      },
+    ]);
+  });
+
+  it('should return correct result using custom pageSize', async () => {
+    mockSiteInfoRequest(nonEmptyResponse({ count: 2, pageInfo: { hasNext: true, endCursor: '' } }));
+    mockSiteInfoRequest(
+      nonEmptyResponse({ count: 2, start: 2, pageInfo: { hasNext: true, endCursor: '' } })
+    );
+    mockSiteInfoRequest(
+      nonEmptyResponse({ count: 2, start: 4, pageInfo: { hasNext: false, endCursor: '' } })
+    );
+
+    const service = new GraphQLSiteInfoService({ apiKey: apiKey, endpoint: endpoint, pageSize: 2 });
+    const result = await service.fetchSiteInfo();
+    expect(result).to.be.deep.equal([
+      {
+        name: 'site 0',
+        hostName: 'restricted.gov',
+        language: 'en',
+        pointOfSale: {
+          en: 'en-pos',
+        },
+      },
+      {
+        name: 'site 1',
+        hostName: 'restricted.gov',
+        language: 'en',
+        pointOfSale: {
+          en: 'en-pos',
+        },
+      },
+      {
+        name: 'site 2',
+        hostName: 'restricted.gov',
+        language: 'en',
+        pointOfSale: {
+          en: 'en-pos',
+        },
+      },
+      {
+        name: 'site 3',
+        hostName: 'restricted.gov',
+        language: 'en',
+        pointOfSale: {
+          en: 'en-pos',
+        },
+      },
+      {
+        name: 'site 4',
+        hostName: 'restricted.gov',
+        language: 'en',
+        pointOfSale: {
+          en: 'en-pos',
+        },
+      },
+      {
+        name: 'site 5',
+        hostName: 'restricted.gov',
+        language: 'en',
+        pointOfSale: {
+          en: 'en-pos',
+        },
       },
     ]);
   });
@@ -90,7 +179,7 @@ describe('GraphQLSiteInfoService', () => {
   });
 
   it('should use caching by default', async () => {
-    mockSiteInfoRequest();
+    mockSiteInfoRequest(nonEmptyResponse());
     const service = new GraphQLSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
     const result = await service.fetchSiteInfo();
     nock.cleanAll();
@@ -102,7 +191,18 @@ describe('GraphQLSiteInfoService', () => {
   });
 
   it('should be possible to disable cache', async () => {
-    mockSiteInfoRequest();
+    mockSiteInfoRequest(
+      nonEmptyResponse({
+        sites: [
+          site({
+            name: 'public 0',
+            hostName: 'pr.showercurtains.org',
+            language: '',
+            pointOfSale: '',
+          }),
+        ],
+      })
+    );
     const service = new GraphQLSiteInfoService({
       apiKey: apiKey,
       endpoint: endpoint,
@@ -111,7 +211,7 @@ describe('GraphQLSiteInfoService', () => {
     const result = await service.fetchSiteInfo();
     expect(result).to.be.deep.equal([
       {
-        name: 'site 51',
+        name: 'site 0',
         hostName: 'restricted.gov',
         language: 'en',
         pointOfSale: {
@@ -119,7 +219,7 @@ describe('GraphQLSiteInfoService', () => {
         },
       },
       {
-        name: 'public',
+        name: 'public 0',
         hostName: 'pr.showercurtains.org',
         language: '',
         pointOfSale: undefined,
