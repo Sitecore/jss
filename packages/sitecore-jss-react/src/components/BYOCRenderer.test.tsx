@@ -51,6 +51,16 @@ describe('<BYOCRenderer />', () => {
     const wrapper = mount(<BYOCRenderer {...props} />);
 
     expect(wrapper.find(MissingComponent)).to.have.lengthOf(1);
+    expect(wrapper.find('div p').text()).to.contain('This component was not registered');
+  });
+
+  it('should render missing component frame when component name is not provided', () => {
+    const props = { params: { ComponentName: '' }, components: {} };
+
+    const wrapper = mount(<BYOCRenderer {...props} />);
+
+    expect(wrapper.find(MissingComponent)).to.have.lengthOf(1);
+    expect(wrapper.find('div p').text()).to.contain('The ComponentName for this rendering is missing');
   });
 
   it('should use props from rendering params when present', () => {

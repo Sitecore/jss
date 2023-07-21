@@ -48,14 +48,15 @@ type ByocRendererProps = BYOCProps & {
  */
 export const BYOCRenderer = (props: ByocRendererProps) => {
   const { ComponentName: componentName } = props.params || {};
-  if (!componentName) return <MissingComponent />;
-
+  if (!componentName) {
+    const noNameProps = {
+      errorOverride: 'BYOC: The ComponentName for this rendering is missing',
+    }
+    return <MissingComponent {...noNameProps} />;
+  }
   // props.components would contain component from internal FEAAS regsitered component collection (registered in app)
   // we can't access this collection here directly, as the collection from packages's dependency would be different from the one in app
-  const Component = Object.keys(props.components).length
-    ? Object.values(props.components).find((component) => component.name === componentName)
-        ?.component
-    : null;
+  const Component = props.components[componentName]?.component;
 
   if (!Component) {
     console.warn(
