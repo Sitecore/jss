@@ -60,7 +60,9 @@ describe('<BYOCRenderer />', () => {
     const wrapper = mount(<BYOCRenderer {...props} />);
 
     expect(wrapper.find(MissingComponent)).to.have.lengthOf(1);
-    expect(wrapper.find('div p').text()).to.contain('The ComponentName for this rendering is missing');
+    expect(wrapper.find('div p').text()).to.contain(
+      'The ComponentName for this rendering is missing'
+    );
   });
 
   it('should use props from rendering params when present', () => {

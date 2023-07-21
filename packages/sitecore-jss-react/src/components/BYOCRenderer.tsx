@@ -51,7 +51,7 @@ export const BYOCRenderer = (props: ByocRendererProps) => {
   if (!componentName) {
     const noNameProps = {
       errorOverride: 'BYOC: The ComponentName for this rendering is missing',
-    }
+    };
     return <MissingComponent {...noNameProps} />;
   }
   // props.components would contain component from internal FEAAS regsitered component collection (registered in app)
