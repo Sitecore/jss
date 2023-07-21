@@ -1,5 +1,5 @@
 import { URLSearchParams } from 'url';
-import { GraphQLClient, GraphQLRequestClient } from '../graphql';
+import { GraphQLClient, GraphQLRequestClient, PageInfo } from '../graphql';
 import debug from '../debug';
 import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
 
@@ -7,41 +7,39 @@ const headlessSiteGroupingTemplate = 'E46F3AF2-39FA-4866-A157-7017C4B2A40C';
 const sitecoreContentRootItem = '0DE95AE4-41AB-4D01-9EB0-67441B7C2450';
 
 const defaultQuery = /* GraphQL */ `
-  {
+  query($pageSize: Int = 10, $after: String) {
     search(
       where: {
         AND: [
-          {
-            name: "_templates"
-            value: "${headlessSiteGroupingTemplate}"
-            operator: CONTAINS
-          }
-          {
-            name: "_path"
-            value: "${sitecoreContentRootItem}"
-            operator: CONTAINS
-          }
+          { name: "_templates", value: "${headlessSiteGroupingTemplate}", operator: CONTAINS }
+          { name: "_path", value: "${sitecoreContentRootItem}", operator: CONTAINS }
         ]
       }
+      first: $pageSize
+      after: $after
     ) {
+      pageInfo {
+        endCursor
+        hasNext
+      }
       results {
-      ... on Item {
-        name: field(name: "SiteName") {
-          value
-        }
-        hostName: field(name: "Hostname") {
-          value
-        }
-        language: field(name: "Language") {
-          value
-        }
-        pointOfSale: field(name: "POS") {
-          value
+        ... on Item {
+          name: field(name: "SiteName") {
+            value
+          }
+          hostName: field(name: "Hostname") {
+            value
+          }
+          language: field(name: "Language") {
+            value
+          }
+          pointOfSale: field(name: "POS") {
+            value
+          }
         }
       }
     }
   }
-}
 `;
 
 export type SiteInfo = {
@@ -76,15 +74,22 @@ export type GraphQLSiteInfoServiceConfig = CacheOptions & {
    * The API key to use for authentication
    */
   apiKey: string;
+  /** common variable for all GraphQL queries
+   * it will be used for every type of query to regulate result batch size
+   * Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
+   * @default 10
+   */
+  pageSize?: number;
 };
 
 type GraphQLSiteInfoResponse = {
   search: {
+    pageInfo: PageInfo;
     results: GraphQLSiteInfoResult[];
   };
 };
 
-type GraphQLSiteInfoResult = {
+export type GraphQLSiteInfoResult = {
   name: {
     value: string;
   };
@@ -122,20 +127,34 @@ export class GraphQLSiteInfoService {
       return cachedResult;
     }
 
-    const response = await this.graphQLClient.request<GraphQLSiteInfoResponse>(this.query);
-    const result = response?.search?.results?.reduce<SiteInfo[]>((result, current) => {
-      result.push({
-        pointOfSale: current.pointOfSale?.value
-          ? Object.fromEntries(new URLSearchParams(current.pointOfSale.value))
-          : undefined,
-        name: current.name.value,
-        hostName: current.hostName.value,
-        language: current.language.value,
+    const results: SiteInfo[] = [];
+    let hasNext = true;
+    let after = '';
+
+    while (hasNext) {
+      const response = await this.graphQLClient.request<GraphQLSiteInfoResponse>(this.query, {
+        pageSize: this.config.pageSize,
+        after,
       });
-      return result;
-    }, []);
-    this.cache.setCacheValue(this.getCacheKey(), result);
-    return result;
+      const result = response?.search?.results?.reduce<SiteInfo[]>((result, current) => {
+        result.push({
+          pointOfSale: current.pointOfSale?.value
+            ? Object.fromEntries(new URLSearchParams(current.pointOfSale.value))
+            : undefined,
+          name: current.name.value,
+          hostName: current.hostName.value,
+          language: current.language.value,
+        });
+        return result;
+      }, []);
+
+      results.push(...result);
+      hasNext = response.search.pageInfo.hasNext;
+      after = response.search.pageInfo.endCursor;
+    }
+
+    this.cache.setCacheValue(this.getCacheKey(), results);
+    return results;
   }
 
   /**
