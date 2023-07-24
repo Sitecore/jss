@@ -102,11 +102,11 @@ describe('jss-react utils', () => {
           value: 'we count to',
         },
         number: {
-          value: 10
+          value: 10,
         },
         message: {
           value: 'well done counting',
-        }
+        },
       };
       const expectedResult = {
         text: 'we count to',
