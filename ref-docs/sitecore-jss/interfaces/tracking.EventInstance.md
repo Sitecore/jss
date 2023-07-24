@@ -24,4 +24,4 @@ GUID or alias (name) of event to trigger
 
 #### Defined in
 
-[src/tracking/dataModels.ts:16](https://github.com/Sitecore/jss/blob/1d31c5d29/packages/sitecore-jss/src/tracking/dataModels.ts#L16)
+[src/tracking/dataModels.ts:16](https://github.com/Sitecore/jss/blob/d85db8e8b/packages/sitecore-jss/src/tracking/dataModels.ts#L16)
