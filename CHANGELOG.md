@@ -11,6 +11,10 @@ Our versioning strategy is as follows:
 
 ## 21.2.4
 
+### 🎉 New Features & Improvements
+
+* `[templates]` Add JSS_APP_NAME to .env files ([#1571](https://github.com/Sitecore/jss/pull/1571))
+
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss]` GraphQLSiteInfoService does not fetch more than 10 sites ([#1569](https://github.com/Sitecore/jss/pull/1569))
