@@ -23,6 +23,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* `[sitecore-jss-vue]` Link component renders link description even when children are provided ([#1570](https://github.com/Sitecore/jss/pull/1570))
 * `[sitecore-jss]` GraphQLSiteInfoService does not fetch more than 10 sites ([#1569](https://github.com/Sitecore/jss/pull/1569))
 * `[tempaltes/nextjs]` `[templates/nextjs-sxa]` `[sitecore-jss-nexjts]` Redirects don't work when file extensions present in a route ([#1566](https://github.com/Sitecore/jss/pull/1566))
 * `[templates/vue]` "lint" command is failing due to bug introduced by eslint-plugin-prettier ([#1563](https://github.com/Sitecore/jss/pull/1563))
