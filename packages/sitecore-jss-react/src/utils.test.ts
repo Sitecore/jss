@@ -4,7 +4,9 @@ import {
   convertAttributesToReactProps,
   convertStyleAttribute,
   getAttributesString,
+  getDataFromFields,
 } from './utils';
+import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
 
 describe('jss-react utils', () => {
   describe('convertStyleAttribute', () => {
@@ -90,6 +92,29 @@ describe('jss-react utils', () => {
       const result = getAttributesString(attributes);
 
       expect(result).to.eql('');
+    });
+  });
+
+  describe('getDataFromFields', () => {
+    it('should parse fields into JSON', () => {
+      const fields: ComponentFields = {
+        text: {
+          value: 'we count to',
+        },
+        number: {
+          value: 10
+        },
+        message: {
+          value: 'well done counting',
+        }
+      };
+      const expectedResult = {
+        text: 'we count to',
+        number: 10,
+        message: 'well done counting',
+      };
+
+      expect(getDataFromFields(fields)).to.deep.equal(expectedResult);
     });
   });
 });
