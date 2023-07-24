@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
 import { getDataFromFields } from '../utils';
@@ -17,6 +16,8 @@ type BYOCRenderingParams = {
    * JSON props to pass into rendered component
    */
   ComponentProps?: string;
+  styles?: string;
+  RenderingIdentifier?: string;
 };
 
 /**
@@ -36,7 +37,7 @@ export type BYOCProps = {
 /**
  * Props for BYOCRenderer component. Includes components list to load external components from.
  */
-type ByocRendererProps = BYOCProps & {
+type BYOCRendererProps = BYOCProps & {
   components: RegisteredComponents;
 };
 
@@ -46,45 +47,66 @@ type ByocRendererProps = BYOCProps & {
  * @param {ByocRendererProps} props component props
  * @returns dynamicly rendered component or Missing Component error frame
  */
-export const BYOCRenderer = (props: ByocRendererProps) => {
-  const { ComponentName: componentName } = props.params || {};
-  if (!componentName) {
-    const noNameProps = {
-      errorOverride: 'BYOC: The ComponentName for this rendering is missing',
-    };
-    return <MissingComponent {...noNameProps} />;
-  }
-  // props.components would contain component from internal FEAAS regsitered component collection (registered in app)
-  // we can't access this collection here directly, as the collection from packages's dependency would be different from the one in app
-  const Component = props.components[componentName]?.component;
+export class BYOCRenderer extends React.Component<BYOCRendererProps> {
+  state: Readonly<{ error?: Error }>;
 
-  if (!Component) {
-    console.warn(
-      `Component "${componentName}" was not registered, please ensure the FEEAS.External.registerComponent call is made.`
-    );
-    const missingProps = {
-      rendering: {
-        componentName: componentName,
-      },
-      errorOverride: 'BYOC: This component was not registered.',
-    };
-    return <MissingComponent {...missingProps} />;
+  constructor(props: BYOCRendererProps) {
+    super(props);
+    this.state = {};
   }
 
-  let componentProps: { [key: string]: unknown } = undefined;
+  static getDerivedStateFromError(error: Error) {
+    // Update state so the next render will show the fallback UI.
+    return { error: error };
+  }
 
-  if (props.params?.ComponentProps) {
-    try {
-      componentProps = JSON.parse(props.params.ComponentProps) ?? {};
-    } catch (e) {
-      console.warn(
-        `Parsing props for ${componentName} component from rendering params failed. Attempting to parse from data source`
-      );
+  componentDidCatch(error: Error) {
+    this.setState({ error });
+  }
+
+  render() {
+    const props: BYOCRendererProps = this.props;
+    if (this.state.error) {
+      return <div>A rendering error occurred: {this.state.error.message}.</div>;
     }
-  }
-  if (!componentProps) {
-    componentProps = props.fields ? getDataFromFields(props.fields) : {};
-  }
+    const { ComponentName: componentName } = props.params || {};
+    if (!componentName) {
+      const noNameProps = {
+        errorOverride: 'BYOC: The ComponentName for this rendering is missing',
+      };
+      return <MissingComponent {...noNameProps} />;
+    }
+    // props.components would contain component from internal FEAAS regsitered component collection (registered in app)
+    // we can't access this collection here directly, as the collection from packages's dependency would be different from the one in app
+    const Component = props.components[componentName]?.component;
 
-  return <Component {...componentProps} />;
-};
+    if (!Component) {
+      console.warn(
+        `Component "${componentName}" was not registered, please ensure the FEEAS.External.registerComponent call is made.`
+      );
+      const missingProps = {
+        rendering: {
+          componentName: componentName,
+        },
+        errorOverride: 'BYOC: This component was not registered.',
+      };
+      return <MissingComponent {...missingProps} />;
+    }
+
+    let componentProps: { [key: string]: unknown } = undefined;
+
+    if (props.params?.ComponentProps) {
+      try {
+        componentProps = JSON.parse(props.params.ComponentProps) ?? {};
+      } catch (e) {
+        console.warn(
+          `Parsing props for ${componentName} component from rendering params failed. Attempting to parse from data source`
+        );
+      }
+    }
+    if (!componentProps) {
+      componentProps = props.fields ? getDataFromFields(props.fields) : {};
+    }
+    return <Component {...componentProps} />;
+  }
+}
