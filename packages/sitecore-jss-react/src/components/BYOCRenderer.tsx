@@ -7,7 +7,7 @@ import { RegisteredComponents } from '@sitecore-feaas/clientside/types/ui/FEAASE
 /**
  * Data from rendering params on Sitecore's BYOC rendering
  */
-type BYOCRenderingParams = {
+export type BYOCRenderingParams = {
   /**
    * Name of the component to render
    */
@@ -16,6 +16,9 @@ type BYOCRenderingParams = {
    * JSON props to pass into rendered component
    */
   ComponentProps?: string;
+  /**
+   * A string with classes that can be used to apply themes, via SXA functionality
+   */
   styles?: string;
   RenderingIdentifier?: string;
 };
