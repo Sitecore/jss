@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
 import { getDataFromFields } from '../utils';
-import { MissingComponent } from './MissingComponent';
+import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import { RegisteredComponents } from '@sitecore-feaas/clientside/types/ui/FEAASExternal';
 
 /**
@@ -42,7 +42,20 @@ export type BYOCProps = {
  */
 type BYOCRendererProps = BYOCProps & {
   components: RegisteredComponents;
+  errorComponent?: React.ComponentClass<ErrorComponentProps> | React.FC<ErrorComponentProps>;
+  missingComponentComponent?:
+    | React.ComponentClass<MissingComponentProps>
+    | React.FC<MissingComponentProps>;
 };
+
+type ErrorComponentProps = {
+  [prop: string]: unknown;
+  error?: Error;
+};
+
+const DefaultErrorComponent = (props: ErrorComponentProps) => (
+  <div>A rendering error occurred: {props.error.message}.</div>
+);
 
 /**
  * BYOCRenderer helps rendering BYOC components - that can be taken from anywhere
@@ -70,14 +83,22 @@ export class BYOCRenderer extends React.Component<BYOCRendererProps> {
   render() {
     const props: BYOCRendererProps = this.props;
     if (this.state.error) {
-      return <div>A rendering error occurred: {this.state.error.message}.</div>;
+      return this.props.errorComponent ? (
+        <this.props.errorComponent error={this.state.error} />
+      ) : (
+        <DefaultErrorComponent error={this.state.error} />
+      );
     }
     const { ComponentName: componentName } = props.params || {};
     if (!componentName) {
       const noNameProps = {
         errorOverride: 'BYOC: The ComponentName for this rendering is missing',
       };
-      return <MissingComponent {...noNameProps} />;
+      return props.missingComponentComponent ? (
+        <this.props.missingComponentComponent {...noNameProps} />
+      ) : (
+        <MissingComponent {...noNameProps} />
+      );
     }
     // props.components would contain component from internal FEAAS regsitered component collection (registered in app)
     // we can't access this collection here directly, as the collection from packages's dependency would be different from the one in app
@@ -93,7 +114,11 @@ export class BYOCRenderer extends React.Component<BYOCRendererProps> {
         },
         errorOverride: 'BYOC: This component was not registered.',
       };
-      return <MissingComponent {...missingProps} />;
+      return props.missingComponentComponent ? (
+        <this.props.missingComponentComponent {...missingProps} />
+      ) : (
+        <MissingComponent {...missingProps} />
+      );
     }
 
     let componentProps: { [key: string]: unknown } = undefined;
@@ -103,7 +128,12 @@ export class BYOCRenderer extends React.Component<BYOCRendererProps> {
         componentProps = JSON.parse(props.params.ComponentProps) ?? {};
       } catch (e) {
         console.warn(
-          `Parsing props for ${componentName} component from rendering params failed. Attempting to parse from data source`
+          `Parsing props for ${componentName} component from rendering params failed. Error: ${e}`
+        );
+        return this.props.errorComponent ? (
+          <this.props.errorComponent error={e as Error} />
+        ) : (
+          <DefaultErrorComponent error={e as Error} />
         );
       }
     }
