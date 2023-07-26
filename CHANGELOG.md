@@ -15,8 +15,8 @@ Our versioning strategy is as follows:
 
 * `[templates/nextjs-sxa]` `[sitecore-jss-nextjs]` "Bring Your Own Code" (BYOC) feature is introduced. This allows developers and editors more flexibility when developing and working with new components, i.e.:
   * Avoid the jss deploy process for components, and use FEAAS registration instead
-  * Put components anywhere in the project, with any prop type that is not dependent on Layout Service data
-  * (As soon as the feature is fully integrated for editing) Set component props on the fly when editing a page
+  * Put components anywhere in the project, 
+  * Use any prop type, without dependence on Layout Service data 
 Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore/jss/pull/1568))
 * `[templates]` Add JSS_APP_NAME to .env files ([#1571](https://github.com/Sitecore/jss/pull/1571))
 * `[sitecore-jss]` `[sitecore-jss-nextjs]` `[templates/nextjs]` Introduce performance metrics for debug logging ([#1555](https://github.com/Sitecore/jss/pull/1555))
