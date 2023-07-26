@@ -173,6 +173,7 @@ export {
   BYOCProps,
   BYOCRenderingParams,
   BYOCRenderer,
+  BYOCRendererProps,
   File,
   FileField,
   RichTextField,

@@ -62,7 +62,12 @@ export {
   FEaaSComponentParams,
   fetchFEaaSComponentServerProps,
 } from './components/FEaaSComponent';
-export { BYOCProps, BYOCRenderer, BYOCRenderingParams } from './components/BYOCRenderer';
+export {
+  BYOCProps,
+  BYOCRenderer,
+  BYOCRenderingParams,
+  BYOCRendererProps,
+} from './components/BYOCRenderer';
 export { Link, LinkField, LinkFieldValue, LinkProps, LinkPropTypes } from './components/Link';
 export { File, FileField } from './components/File';
 export { VisitorIdentification } from './components/VisitorIdentification';

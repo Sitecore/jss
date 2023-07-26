@@ -40,9 +40,19 @@ export type BYOCProps = {
 /**
  * Props for BYOCRenderer component. Includes components list to load external components from.
  */
-type BYOCRendererProps = BYOCProps & {
+export type BYOCRendererProps = BYOCProps & {
+  /**
+   * Registered component collection. Would be taken from FEAAS.External.registered
+   */
   components: RegisteredComponents;
+  /**
+   * Error component override. To be shown when Renderer or underlying component throws
+   */
   errorComponent?: React.ComponentClass<ErrorComponentProps> | React.FC<ErrorComponentProps>;
+  /**
+   * Override to indicate missing component situations. Would be shown when BYOC component is not registered
+   * or ComponentName is missing
+   */
   missingComponentComponent?:
     | React.ComponentClass<MissingComponentProps>
     | React.FC<MissingComponentProps>;
@@ -54,7 +64,7 @@ type ErrorComponentProps = {
 };
 
 const DefaultErrorComponent = (props: ErrorComponentProps) => (
-  <div>A rendering error occurred: {props.error.message}.</div>
+  <div>A rendering error occurred: {props.error?.message}.</div>
 );
 
 /**
