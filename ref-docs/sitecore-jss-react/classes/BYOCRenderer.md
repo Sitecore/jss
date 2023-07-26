@@ -1,68 +1,72 @@
-[@sitecore-jss/sitecore-jss-react](../README.md) / SitecoreContext
+[@sitecore-jss/sitecore-jss-react](../README.md) / BYOCRenderer
 
-# Class: SitecoreContext
+# Class: BYOCRenderer
+
+BYOCRenderer helps rendering BYOC components - that can be taken from anywhere
+and registered without being deployed as Sitecore renderings
+
+**`Param`**
+
+component props
 
 ## Hierarchy
 
-- `Component`<`SitecoreContextProps`, [`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>
+- `Component`<[`BYOCRendererProps`](../README.md#byocrendererprops)\>
 
-  ↳ **`SitecoreContext`**
+  ↳ **`BYOCRenderer`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](SitecoreContext.md#constructor)
+- [constructor](BYOCRenderer.md#constructor)
 
 ### Properties
 
-- [context](SitecoreContext.md#context)
-- [props](SitecoreContext.md#props)
-- [refs](SitecoreContext.md#refs)
-- [state](SitecoreContext.md#state)
-- [contextType](SitecoreContext.md#contexttype)
-- [displayName](SitecoreContext.md#displayname)
-- [propTypes](SitecoreContext.md#proptypes)
+- [context](BYOCRenderer.md#context)
+- [props](BYOCRenderer.md#props)
+- [refs](BYOCRenderer.md#refs)
+- [state](BYOCRenderer.md#state)
+- [contextType](BYOCRenderer.md#contexttype)
 
 ### Methods
 
-- [UNSAFE\_componentWillMount](SitecoreContext.md#unsafe_componentwillmount)
-- [UNSAFE\_componentWillReceiveProps](SitecoreContext.md#unsafe_componentwillreceiveprops)
-- [UNSAFE\_componentWillUpdate](SitecoreContext.md#unsafe_componentwillupdate)
-- [componentDidCatch](SitecoreContext.md#componentdidcatch)
-- [componentDidMount](SitecoreContext.md#componentdidmount)
-- [componentDidUpdate](SitecoreContext.md#componentdidupdate)
-- [componentWillMount](SitecoreContext.md#componentwillmount)
-- [componentWillReceiveProps](SitecoreContext.md#componentwillreceiveprops)
-- [componentWillUnmount](SitecoreContext.md#componentwillunmount)
-- [componentWillUpdate](SitecoreContext.md#componentwillupdate)
-- [constructContext](SitecoreContext.md#constructcontext)
-- [forceUpdate](SitecoreContext.md#forceupdate)
-- [getSnapshotBeforeUpdate](SitecoreContext.md#getsnapshotbeforeupdate)
-- [render](SitecoreContext.md#render)
-- [setContext](SitecoreContext.md#setcontext)
-- [setState](SitecoreContext.md#setstate)
-- [shouldComponentUpdate](SitecoreContext.md#shouldcomponentupdate)
+- [UNSAFE\_componentWillMount](BYOCRenderer.md#unsafe_componentwillmount)
+- [UNSAFE\_componentWillReceiveProps](BYOCRenderer.md#unsafe_componentwillreceiveprops)
+- [UNSAFE\_componentWillUpdate](BYOCRenderer.md#unsafe_componentwillupdate)
+- [componentDidCatch](BYOCRenderer.md#componentdidcatch)
+- [componentDidMount](BYOCRenderer.md#componentdidmount)
+- [componentDidUpdate](BYOCRenderer.md#componentdidupdate)
+- [componentWillMount](BYOCRenderer.md#componentwillmount)
+- [componentWillReceiveProps](BYOCRenderer.md#componentwillreceiveprops)
+- [componentWillUnmount](BYOCRenderer.md#componentwillunmount)
+- [componentWillUpdate](BYOCRenderer.md#componentwillupdate)
+- [forceUpdate](BYOCRenderer.md#forceupdate)
+- [getSnapshotBeforeUpdate](BYOCRenderer.md#getsnapshotbeforeupdate)
+- [render](BYOCRenderer.md#render)
+- [setState](BYOCRenderer.md#setstate)
+- [shouldComponentUpdate](BYOCRenderer.md#shouldcomponentupdate)
+- [getDerivedStateFromError](BYOCRenderer.md#getderivedstatefromerror)
 
 ## Constructors
 
 ### constructor
 
-• **new SitecoreContext**(`props`)
+• **new BYOCRenderer**(`props`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `props` | `SitecoreContextProps` |
+| `props` | [`BYOCRendererProps`](../README.md#byocrendererprops) |
 
 #### Overrides
 
-React.Component&lt;SitecoreContextProps, SitecoreContextState\&gt;.constructor
+React.Component&lt;BYOCRendererProps\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:45](https://github.com/Sitecore/jss/blob/e5d07f7d9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L45)
+[sitecore-jss-react/src/components/BYOCRenderer.tsx:79](https://github.com/Sitecore/jss/blob/e5d07f7d9/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L79)
 
 ## Properties
 
@@ -98,7 +102,7 @@ ___
 
 ### props
 
-• `Readonly` **props**: `Readonly`<`SitecoreContextProps`\>
+• `Readonly` **props**: `Readonly`<[`BYOCRendererProps`](../README.md#byocrendererprops)\>
 
 #### Inherited from
 
@@ -134,15 +138,15 @@ ___
 
 ### state
 
-• **state**: `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>
+• **state**: `Readonly`<{ `error?`: `Error`  }\>
 
-#### Inherited from
+#### Overrides
 
 React.Component.state
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:492
+[sitecore-jss-react/src/components/BYOCRenderer.tsx:77](https://github.com/Sitecore/jss/blob/e5d07f7d9/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L77)
 
 ___
 
@@ -178,34 +182,6 @@ React.Component.contextType
 #### Defined in
 
 sitecore-jss-react/node_modules/@types/react/index.d.ts:454
-
-___
-
-### displayName
-
-▪ `Static` **displayName**: `string` = `'SitecoreContext'`
-
-#### Defined in
-
-[sitecore-jss-react/src/components/SitecoreContext.tsx:43](https://github.com/Sitecore/jss/blob/e5d07f7d9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L43)
-
-___
-
-### propTypes
-
-▪ `Static` **propTypes**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `children` | `Validator`<`any`\> |
-| `componentFactory` | `Requireable`<(...`args`: `any`[]) => `any`\> |
-| `layoutData` | `Requireable`<`InferProps`<{ `sitecore`: `Requireable`<`InferProps`<{ `context`: `Requireable`<`any`\> = PropTypes.any; `route`: `Requireable`<`any`\> = PropTypes.any }\>\>  }\>\> |
-
-#### Defined in
-
-[sitecore-jss-react/src/components/SitecoreContext.tsx:32](https://github.com/Sitecore/jss/blob/e5d07f7d9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L32)
 
 ## Methods
 
@@ -272,7 +248,7 @@ prevents this from being invoked.
 
 | Name | Type |
 | :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
+| `nextProps` | `Readonly`<[`BYOCRendererProps`](../README.md#byocrendererprops)\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -315,8 +291,8 @@ prevents this from being invoked.
 
 | Name | Type |
 | :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextState` | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
+| `nextProps` | `Readonly`<[`BYOCRendererProps`](../README.md#byocrendererprops)\> |
+| `nextState` | `Readonly`<{}\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -335,29 +311,25 @@ ___
 
 ### componentDidCatch
 
-▸ `Optional` **componentDidCatch**(`error`, `errorInfo`): `void`
-
-Catches exceptions generated in descendant components. Unhandled exceptions will cause
-the entire component tree to unmount.
+▸ **componentDidCatch**(`error`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `error` | `Error` |
-| `errorInfo` | `ErrorInfo` |
 
 #### Returns
 
 `void`
 
-#### Inherited from
+#### Overrides
 
 React.Component.componentDidCatch
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:617
+[sitecore-jss-react/src/components/BYOCRenderer.tsx:89](https://github.com/Sitecore/jss/blob/e5d07f7d9/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L89)
 
 ___
 
@@ -383,25 +355,31 @@ ___
 
 ### componentDidUpdate
 
-▸ **componentDidUpdate**(`prevProps`): `void`
+▸ `Optional` **componentDidUpdate**(`prevProps`, `prevState`, `snapshot?`): `void`
+
+Called immediately after updating occurs. Not called for the initial render.
+
+The snapshot is only present if getSnapshotBeforeUpdate is present and returns non-null.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `prevProps` | `SitecoreContextProps` |
+| `prevProps` | `Readonly`<[`BYOCRendererProps`](../README.md#byocrendererprops)\> |
+| `prevState` | `Readonly`<{}\> |
+| `snapshot?` | `any` |
 
 #### Returns
 
 `void`
 
-#### Overrides
+#### Inherited from
 
 React.Component.componentDidUpdate
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/e5d07f7d9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L70)
+sitecore-jss-react/node_modules/@types/react/index.d.ts:659
 
 ___
 
@@ -464,7 +442,7 @@ prevents this from being invoked.
 
 | Name | Type |
 | :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
+| `nextProps` | `Readonly`<[`BYOCRendererProps`](../README.md#byocrendererprops)\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -526,8 +504,8 @@ prevents this from being invoked.
 
 | Name | Type |
 | :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextState` | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
+| `nextProps` | `Readonly`<[`BYOCRendererProps`](../README.md#byocrendererprops)\> |
+| `nextState` | `Readonly`<{}\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -541,26 +519,6 @@ React.Component.componentWillUpdate
 #### Defined in
 
 sitecore-jss-react/node_modules/@types/react/index.d.ts:733
-
-___
-
-### constructContext
-
-▸ **constructContext**(`layoutData?`): [`SitecoreContextValue`](../README.md#sitecorecontextvalue)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `layoutData?` | [`LayoutServiceData`](../interfaces/LayoutServiceData.md) |
-
-#### Returns
-
-[`SitecoreContextValue`](../README.md#sitecorecontextvalue)
-
-#### Defined in
-
-[sitecore-jss-react/src/components/SitecoreContext.tsx:56](https://github.com/Sitecore/jss/blob/e5d07f7d9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L56)
 
 ___
 
@@ -603,8 +561,8 @@ lifecycle events from running.
 
 | Name | Type |
 | :------ | :------ |
-| `prevProps` | `Readonly`<`SitecoreContextProps`\> |
-| `prevState` | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
+| `prevProps` | `Readonly`<[`BYOCRendererProps`](../README.md#byocrendererprops)\> |
+| `prevState` | `Readonly`<{}\> |
 
 #### Returns
 
@@ -634,29 +592,7 @@ React.Component.render
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:93](https://github.com/Sitecore/jss/blob/e5d07f7d9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L93)
-
-___
-
-### setContext
-
-▸ **setContext**(`value`): `void`
-
-Update context state. Value can be
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | [`LayoutServiceData`](../interfaces/LayoutServiceData.md) \| [`SitecoreContextValue`](../README.md#sitecorecontextvalue) | New context value |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[sitecore-jss-react/src/components/SitecoreContext.tsx:85](https://github.com/Sitecore/jss/blob/e5d07f7d9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L85)
+[sitecore-jss-react/src/components/BYOCRenderer.tsx:93](https://github.com/Sitecore/jss/blob/e5d07f7d9/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L93)
 
 ___
 
@@ -668,13 +604,13 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `K` | extends keyof [`SitecoreContextState`](../interfaces/SitecoreContextState.md) |
+| `K` | extends `never` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `state` | [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| (`prevState`: `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>, `props`: `Readonly`<`SitecoreContextProps`\>) => [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| `Pick`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> \| `Pick`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> |
+| `state` | {} \| (`prevState`: `Readonly`<{}\>, `props`: `Readonly`<[`BYOCRendererProps`](../README.md#byocrendererprops)\>) => {} \| `Pick`<{}, `K`\> \| `Pick`<{}, `K`\> |
 | `callback?` | () => `void` |
 
 #### Returns
@@ -708,8 +644,8 @@ and `componentDidUpdate` will not be called.
 
 | Name | Type |
 | :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextState` | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
+| `nextProps` | `Readonly`<[`BYOCRendererProps`](../README.md#byocrendererprops)\> |
+| `nextState` | `Readonly`<{}\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -723,3 +659,27 @@ React.Component.shouldComponentUpdate
 #### Defined in
 
 sitecore-jss-react/node_modules/@types/react/index.d.ts:607
+
+___
+
+### getDerivedStateFromError
+
+▸ `Static` **getDerivedStateFromError**(`error`): `Object`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `error` | `Error` |
+
+#### Returns
+
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `error` | `Error` |
+
+#### Defined in
+
+[sitecore-jss-react/src/components/BYOCRenderer.tsx:84](https://github.com/Sitecore/jss/blob/e5d07f7d9/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L84)
