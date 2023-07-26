@@ -10,12 +10,6 @@ class NextStepsPlugin implements ScaffoldComponentPlugin {
   exec(config: ScaffoldComponentPluginConfig) {
     const { componentOutputPath, manifestOutputPath, componentName } = config;
 
-    config.nextSteps.push(
-      chalk.green(`
-Scaffolding of ${componentName} complete.
-Next steps:`)
-    );
-
     if (manifestOutputPath) {
       config.nextSteps.push(`* Define the component's data in ${chalk.green(manifestOutputPath)}`);
     } else {

@@ -12,9 +12,6 @@ class NextStepsPlugin implements ScaffoldComponentPlugin {
 
     if (componentOutputPath) {
       config.nextSteps.push(
-        chalk.green(`
-Scaffolding of ${componentName} complete.
-Next steps:`),
         `* Implement the React component in ${chalk.green(componentOutputPath)}`
       );
     }
