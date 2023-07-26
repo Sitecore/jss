@@ -1,10 +1,7 @@
 import React from 'react';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
-import {
-  ComponentFields,
-  LayoutServicePageState,
-  getFieldValue,
-} from '@sitecore-jss/sitecore-jss/layout';
+import { ComponentFields, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
+import { getDataFromFields } from '../utils';
 
 export const FEAAS_COMPONENT_RENDERING_NAME = 'FEaaSComponent';
 
@@ -138,15 +135,6 @@ export async function fetchFEaaSComponentServerProps(
     };
   }
 }
-
-const getDataFromFields = (fields: ComponentFields): { [key: string]: unknown } => {
-  let data: { [key: string]: unknown } = {};
-  data = Object.entries(fields).reduce((acc, [key]) => {
-    acc[key] = getFieldValue(fields, key);
-    return acc;
-  }, data);
-  return data;
-};
 
 /**
  * Build component endpoint URL from component's params
