@@ -13,10 +13,16 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
+* `[templates/nextjs-sxa]` `[sitecore-jss-nextjs]` "Bring Your Own Code" (BYOC) feature is introduced. This allows developers and editors more flexibility when developing and working with new components, i.e.:
+  * Avoid the jss deploy process for components, and use FEAAS registration instead
+  * Put components anywhere in the project, 
+  * Use any prop type, without dependence on Layout Service data 
+Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore/jss/pull/1568))
 * `[templates]` Add JSS_APP_NAME to .env files ([#1571](https://github.com/Sitecore/jss/pull/1571))
 * `[sitecore-jss]` `[sitecore-jss-nextjs]` `[templates/nextjs]` Introduce performance metrics for debug logging ([#1555](https://github.com/Sitecore/jss/pull/1555))
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]`  Introduce layout service REST configuration name environment variable ([#1543](https://github.com/Sitecore/jss/pull/1543))
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Support for out-of-process editing data caches was added. Vercel KV or a custom Redis cache can be used to improve editing in Pages and Experience Editor when using Vercel deployment as editing/rendering host ([#1530](https://github.com/Sitecore/jss/pull/1530))
+* `[sitecore-jss-react]` Built-in MissingComponent component can now accept "errorOverride" text in props - to be displayed in the yellow frame as a custom error message. ([#1568](https://github.com/Sitecore/jss/pull/1568))
 
 ### 🧹 Chores
 
@@ -24,6 +30,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* `[sitecore-jss-vue]` Link component renders link description even when children are provided ([#1570](https://github.com/Sitecore/jss/pull/1570))
 * `[sitecore-jss]` GraphQLSiteInfoService does not fetch more than 10 sites ([#1569](https://github.com/Sitecore/jss/pull/1569))
 * `[tempaltes/nextjs]` `[templates/nextjs-sxa]` `[sitecore-jss-nexjts]` Redirects don't work when file extensions present in a route ([#1566](https://github.com/Sitecore/jss/pull/1566))
 * `[templates/vue]` "lint" command is failing due to bug introduced by eslint-plugin-prettier ([#1563](https://github.com/Sitecore/jss/pull/1563))
