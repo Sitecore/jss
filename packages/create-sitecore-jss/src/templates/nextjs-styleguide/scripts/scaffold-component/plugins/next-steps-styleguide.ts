@@ -5,7 +5,7 @@ import { ScaffoldComponentPlugin, ScaffoldComponentPluginConfig } from '..';
  * Set next steps.
  */
 class NextStepsPlugin implements ScaffoldComponentPlugin {
-  order = 100;
+  order = 101;
 
   exec(config: ScaffoldComponentPluginConfig) {
     const { componentOutputPath, manifestOutputPath, componentName } = config;
@@ -18,9 +18,6 @@ class NextStepsPlugin implements ScaffoldComponentPlugin {
           `jss deploy component ${componentName} --allowedPlaceholders placeholder-for-component`
         )}, or create the rendering item and datasource template yourself.`
       );
-    }
-    if (componentOutputPath) {
-      config.nextSteps.push(`* Implement the React component in ${chalk.green(componentOutputPath)}`);
     }
     if (manifestOutputPath) {
       config.nextSteps.push(
