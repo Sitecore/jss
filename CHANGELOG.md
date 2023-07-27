@@ -26,6 +26,7 @@ Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore
 
 ### 🧹 Chores
 
+* Automatically create a Jira Issue once a github issue/doc request/PR is created ([#1573](https://github.com/Sitecore/jss/pull/1573))
 * Use exact canary version instead of range ([#1553](https://github.com/Sitecore/jss/pull/1553))
 
 ### 🐛 Bug Fixes
