@@ -1,5 +1,5 @@
 import { ScaffoldComponentPlugin, ScaffoldComponentPluginConfig } from '..';
-import generateByocComponentSrc from '../../templates/byoc-component-src'; 
+import generateByocComponentSrc from 'scripts/templates/byoc-component-src'; 
 
 /**
  * Sets up generation for BYOC components

@@ -8,7 +8,7 @@ class NextStepsPlugin implements ScaffoldComponentPlugin {
   order = 100;
 
   exec(config: ScaffoldComponentPluginConfig) {
-    const { componentOutputPath, componentName } = config;
+    const { componentOutputPath } = config;
 
     if (componentOutputPath) {
       config.nextSteps.push(
