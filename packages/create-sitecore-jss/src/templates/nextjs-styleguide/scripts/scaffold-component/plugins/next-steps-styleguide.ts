@@ -8,7 +8,7 @@ class NextStepsPlugin implements ScaffoldComponentPlugin {
   order = 101;
 
   exec(config: ScaffoldComponentPluginConfig) {
-    const { componentOutputPath, manifestOutputPath, componentName } = config;
+    const { manifestOutputPath, componentName } = config;
 
     if (manifestOutputPath) {
       config.nextSteps.push(`* Define the component's data in ${chalk.green(manifestOutputPath)}`);
