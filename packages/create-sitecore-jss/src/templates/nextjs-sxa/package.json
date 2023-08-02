@@ -7,6 +7,6 @@
     "sass-alias": "^1.0.5"
   },
   "scripts": {
-    "scaffold": "ts-node --project tsconfig.scripts.json scripts/scaffold-component.ts"
+    "scaffold": "ts-node --project tsconfig.scripts.json scripts/scaffold-component/index.ts"
   }
 }
