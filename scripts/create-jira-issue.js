@@ -46,6 +46,11 @@ const JIRA_ISSUE_TYPE = Object.freeze([
 ]);
 
 (async () => {
+  if (!process.env.JIRA_WEBHOOK_URL) {
+    console.log('Skipped Jira issue creation. The Pull Request was created from fork');
+    return;
+  }
+
   const jiraIssueType = JIRA_ISSUE_TYPE.find((o) => o.validate(github.event)).type;
   const event = github.event.issue || github.event.pull_request;
 
