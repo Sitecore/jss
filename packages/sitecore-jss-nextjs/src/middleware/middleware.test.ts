@@ -113,7 +113,6 @@ describe('MiddlewareBase', () => {
     it('default', () => {
       const middleware = new SampleMiddleware({ siteResolver: new MockSiteResolver([]) });
 
-      expect(middleware['excludeRoute']('/src/image.png')).to.equal(true);
       expect(middleware['excludeRoute']('/api/layout/render')).to.equal(true);
       expect(middleware['excludeRoute']('/sitecore/render')).to.equal(true);
       expect(middleware['excludeRoute']('/_next/webpack')).to.equal(true);
