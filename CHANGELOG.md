@@ -46,6 +46,18 @@ Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore
 * `[sitecore-jss-nextjs]` Fix of redirects middleware. Add possible to use tokens like $1, $2, $3, etc. ([#1547](https://github.com/Sitecore/jss/pull/1547)) ([#1559](https://github.com/Sitecore/jss/pull/1559)) ([#1561](https://github.com/Sitecore/jss/pull/1561)) ([#1562](https://github.com/Sitecore/jss/pull/1562))
 * `[templates/nextjs-sxa]` Change Content-Type of robots.txt response (`text/html;charset=utf-8`➡`text/plain`).
 
+## 21.2.3
+
+### 🐛 Bug Fixes
+
+* `[tempaltes/nextjs]` `[templates/nextjs-sxa]` `[sitecore-jss-nexjts]` Redirects don't work when file extensions present in a route ([#1566](https://github.com/Sitecore/jss/pull/1566))
+
+## 21.2.2
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Fix of redirects middleware. Add possible to use tokens like $1, $2, $3, etc. ([#1547](https://github.com/Sitecore/jss/pull/1547)) ([#1559](https://github.com/Sitecore/jss/pull/1559)) ([#1561](https://github.com/Sitecore/jss/pull/1561)) ([#1562](https://github.com/Sitecore/jss/pull/1562))
+
 ## 21.2.1
 
 ### 🧹 Chores
