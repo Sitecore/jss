@@ -28,11 +28,17 @@ export const getComponentBuilderTemplate = (components: (PackageDefinition | Com
 ${hasLazyModules ? "import dynamic from 'next/dynamic';" : ''}
 import { ComponentBuilder } from '@sitecore-jss/sitecore-jss-nextjs';
 
-${packages.map((pkg) => {
-  const list = pkg.components.map((c) => c.moduleName).join(', ');
-
-  return `import { ${list} } from '${pkg.name}'`;
-})}
+${packages
+  .map((pkg) => {
+    if (pkg.defaultImport?.useDefault) {
+      const defaultAlias = pkg.defaultImport.defaultAlias || pkg.name;
+      return `import * as ${defaultAlias} from '${pkg.name}';\n`;
+    } else {
+      const list = pkg.components.map((c) => c.moduleName).join(', ');
+      return `import { ${list} } from '${pkg.name}';\n`;
+    }
+  })
+  .join('')}
 ${componentFiles
   .map((component) => {
     if (isLazyLoadingModule(component.path)) {
@@ -48,11 +54,16 @@ ${componentFiles
   .join('\n')}
 
 const components = new Map();
-${packages.map((p) =>
-  p.components.map(
-    (component) => `components.set('${component.componentName}', ${component.moduleName})`
+${packages
+  .map((pkg) =>
+    pkg.components.map((component) =>
+      pkg.defaultImport
+        ? `components.set('${component.componentName}', ${pkg.defaultImport.defaultAlias}.${component.moduleName});\n`
+        : `components.set('${component.componentName}', ${component.moduleName});\n`
+    )
   )
-)}
+  .flat()
+  .join('')}
 ${componentFiles
   .map(
     (component) =>

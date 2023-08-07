@@ -18,6 +18,10 @@ export interface PackageDefinition {
     moduleName: string;
     componentName: string;
   }[];
+  defaultImport?: {
+    useDefault: boolean;
+    defaultAlias: string;
+  };
 }
 
 /**
@@ -41,5 +45,14 @@ export function getComponentList(path: string): (PackageDefinition | ComponentFi
     cb: (name) => console.debug(`Registering JSS component ${name}`),
   });
 
-  return components;
+  return components.map((component) => {
+    // Check if it's a PackageDefinition and set the defaultImport property
+    if ('components' in component) {
+      const pkg = component as PackageDefinition;
+      const defaultImport =
+        pkg.defaultImport && pkg.defaultImport.useDefault ? pkg.defaultImport : undefined;
+      return { ...pkg, defaultImport };
+    }
+    return component; // Return unchanged for ComponentFile
+  });
 }
