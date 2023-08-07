@@ -17,7 +17,11 @@ class PackagesPlugin implements ComponentBuilderPlugin {
      *        componentName: 'component name', // component rendering name,
      *        moduleName: 'module name' // component name to import from the package
      *      }
-     *    ]
+     *    ],
+     *    defaultImport: {
+     *     useDefault: true, // Set to true for default imports
+     *     defaultAlias: 'customNamespace' // Namespace for default imports (optional)
+     *   }
      *  }
      */
 
