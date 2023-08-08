@@ -19,7 +19,7 @@ export const ${componentName} = (props: ${componentName}Props): JSX.Element => {
   }
   return (
     <div className="container">
-      <h2>\${props.title || 'BYOC Demo'}</h2>
+      <h2>{props.title || 'BYOC Demo'}</h2>
       <p>${componentName} Component</p>
       <div className="row">
         {columns.map((text, index) => (
@@ -36,14 +36,13 @@ FEAAS.External.registerComponent(${componentName}, {
   name: '${componentName}',
   properties: {
     title: {
-      type: 'string'
+      type: 'string',
     },
     columnsCount: {
-      type: 'number'
+      type: 'number',
     },
-  }
+  },
 });
-
 `;
 }
 
