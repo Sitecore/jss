@@ -71,6 +71,8 @@ describe('generate-component-builder', () => {
         ],
       });
 
+      expect(writeFileStub.getCall(0).args[1]).to.equal(expectedOutput);
+
       expect(
         writeFileStub.calledWith(outputPath, expectedOutput, {
           encoding: 'utf8',
@@ -105,7 +107,7 @@ describe('generate-component-builder', () => {
           "import dynamic from 'next/dynamic';\n" +
           "import { ComponentBuilder } from '@sitecore-jss/sitecore-jss-nextjs';\n" +
           '\n' +
-          "import * as CustomNamespace1 from 'custom-module';\n" +
+          "import { Foo } from 'custom-module';\n" +
           '\n' +
           "import * as barModule from 'bar';\n" +
           'const carModule = {\n' +
@@ -114,7 +116,7 @@ describe('generate-component-builder', () => {
           '}\n' +
           '\n' +
           'const components = new Map();\n' +
-          "components.set('Foo', CustomNamespace1.Foo);\n" +
+          "components.set('Foo', Foo);\n" +
           '\n' +
           "components.set('BarComponent', barModule);\n" +
           "components.set('CarComponent', carModule);\n" +
@@ -136,13 +138,11 @@ describe('generate-component-builder', () => {
                 moduleName: 'Foo',
               },
             ],
-            defaultImport: {
-              useDefault: true,
-              defaultAlias: 'CustomNamespace1',
-            },
           },
         ],
       });
+
+      expect(writeFileStub.getCall(0).args[1]).to.equal(expectedOutput);
 
       expect(
         writeFileStub.calledWith(outputPath, expectedOutput, {
