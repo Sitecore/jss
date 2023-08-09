@@ -26,9 +26,9 @@ import { ComponentBuilder } from '@sitecore-jss/sitecore-jss-react';
 ${packages
   .map((pkg) => {
     const list = pkg.components.map((c) => c.moduleName).join(', ');
-    return `import { ${list} } from '${pkg.name}'`;
+    return `import { ${list} } from '${pkg.name}';\n`;
   })
-  .join('\n')}
+  .join('')}
 ${componentFiles
   .map((component) => {
     const sourcePath = path.relative(path.dirname(distPath), component.path).replace(/\\/g, '/');
@@ -40,10 +40,11 @@ const components = new Map();
 ${packages
   .map((p) =>
     p.components.map(
-      (component) => `components.set('${component.componentName}', ${component.moduleName})`
+      (component) => `components.set('${component.componentName}', ${component.moduleName});\n`
     )
   )
-  .join('\n')}
+  .flat()
+  .join('')}
 ${componentFiles
   .map((component) => `components.set('${component.componentName}', ${component.moduleName});`)
   .join('\n')}
