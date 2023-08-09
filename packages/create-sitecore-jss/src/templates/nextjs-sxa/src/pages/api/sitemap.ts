@@ -49,14 +49,8 @@ const sitemapApi = async (
   const sitemaps = await sitemapXmlService.fetchSitemaps();
 
   if (!sitemaps.length) {
-    return new AxiosDataFetcher()
-      .get(`${config.sitecoreApiHost}/sitemap.xml`, {
-        responseType: 'stream',
-      })
-      .then((response: AxiosResponse) => {
-        response.data.pipe(res);
-      })
-      .catch(() => res.redirect('/404'));  }
+    return res.redirect('/404');
+  }
 
   const SitemapLinks = sitemaps
     .map((item) => {
