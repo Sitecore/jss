@@ -20,7 +20,6 @@ Our versioning strategy is as follows:
 * `[sitecore-jss]` GraphQLSiteInfoService does not fetch more than 10 sites ([#1569](https://github.com/Sitecore/jss/pull/1569))
 * `[sitecore-jss-vue]` Link component renders link description even when children are provided ([#1570](https://github.com/Sitecore/jss/pull/1570))
 * `[sitecore-jss-dev-tools]` Fix line endings for component builder ([#1580](https://github.com/Sitecore/jss/pull/1580))
-* `[templates/nextjs-sxa]` Fixed opening sitemap.xml ([#1581](https://github.com/Sitecore/jss/pull/1581))
 
 ## 21.2.3
 
