@@ -348,7 +348,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:18](https://github.com/Sitecore/jss/blob/7fbfed0d5/packages/sitecore-jss-proxy/src/index.ts#L18)
+[src/index.ts:18](https://github.com/Sitecore/jss/blob/4495ba329/packages/sitecore-jss-proxy/src/index.ts#L18)
 
 ___
 
@@ -362,7 +362,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:19](https://github.com/Sitecore/jss/blob/7fbfed0d5/packages/sitecore-jss-proxy/src/index.ts#L19)
+[src/index.ts:19](https://github.com/Sitecore/jss/blob/4495ba329/packages/sitecore-jss-proxy/src/index.ts#L19)
 
 ___
 
