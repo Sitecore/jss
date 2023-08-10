@@ -152,6 +152,8 @@ export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
 export { EditingComponentPlaceholder } from './components/EditingComponentPlaceholder';
 export { NextImage } from './components/NextImage';
+import * as FEaaSWrapper from './components/FEaaSWrapper';
+export { FEaaSWrapper };
 
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
 
@@ -171,10 +173,11 @@ export {
   FEaaSComponentProps,
   FEaaSComponentParams,
   fetchFEaaSComponentServerProps,
-  BYOCComponentParams,
-  BYOCComponent,
-  BYOCComponentProps,
-  getFEAASLibraryStylesheetLinks,
+  BYOCProps,
+  BYOCRenderingParams,
+  BYOCRenderer,
+  BYOCRendererProps,
+  BYOCWrapper,
   File,
   FileField,
   RichTextField,

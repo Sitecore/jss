@@ -4,6 +4,8 @@ import { getDataFromFields } from '../utils';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 
+export const BYOC_RENDERER_RENDERING_NAME = 'BYOCRenderer';
+
 /**
  * Data from rendering params on Sitecore's BYOC rendering
  */
@@ -35,6 +37,12 @@ export type BYOCComponentProps = {
    * fields from datasource items to be passed as rendered child component props
    */
   fields?: ComponentFields;
+};
+
+/**
+ * Props for BYOCRenderer component
+ */
+export type BYOCRendererProps = BYOCProps & {
   /**
    * Error component override. To be shown when Renderer or underlying component throws
    */
@@ -101,6 +109,9 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
         <MissingComponent {...noNameProps} />
       );
     }
+    // props.components would contain component from internal FEAAS regsitered component collection (registered in app)
+    // we can't access this collection here directly, as the collection from packages's dependency would be different from the one in app
+    const Component = FEAAS.External.registered[componentName]?.component;
 
     const unRegisteredComponentProps = {
       rendering: {
