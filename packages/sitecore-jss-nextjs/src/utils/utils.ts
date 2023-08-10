@@ -9,7 +9,8 @@ import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/u
  * preview deployment has unique url, we don't know exact url.
  */
 export const getPublicUrl = (): string => {
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  if (process.env.URL) return process.env.URL; // Netlify public URL
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`; // Vercel public URL
 
   let url = process.env.PUBLIC_URL;
   if (url === undefined) {
