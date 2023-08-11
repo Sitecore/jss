@@ -99,6 +99,7 @@ export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 export {
   ComponentPropsCollection,
+  ComponentPropsError,
   GetStaticComponentProps,
   GetServerSideComponentProps,
 } from './sharedTypes/component-props';
