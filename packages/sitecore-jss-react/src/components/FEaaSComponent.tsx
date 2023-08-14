@@ -35,6 +35,7 @@ type FEaaSComponentServerProps = {
    * Default revision to be fetched. Should be 'staged' for editing/preview. Can be overriden by params.ComponentRevision
    */
   revisionFallback?: RevisionType;
+  fetchedData?: any;
 };
 
 /**
@@ -73,15 +74,11 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
   }
 
   let data: { [key: string]: unknown } = null;
-  if (props.params?.ComponentDataOverride) {
-    // Use override data if provided
-    try {
-      data = JSON.parse(props.params.ComponentDataOverride);
-    } catch (e) {
-      data = null;
-    }
+  // Use override data if provided
+  if (Object.keys(props.fetchedData.length).length) {
+    data = props.fetchedData;
   } else if (props.fields) {
-    // Otherwise use datasource data (provided in fields)
+    // Use datasource data (provided in fields)
     data = getDataFromFields(props.fields);
   }
 
@@ -119,7 +116,14 @@ export async function fetchFEaaSComponentServerProps(
   const src = endpointOverride || composeComponentEndpoint(params, revisionFallback);
   try {
     const { template } = await FEAAS.fetchComponent(src);
+
+    // Fetch data settings here and store them in fetchedData property
+    const fetchedData = await FEAAS.DataSettings.fetch(
+      params.ComponentDataOverride ? JSON.parse(params.ComponentDataOverride) : {}
+    );
+
     return {
+      fetchedData,
       revisionFallback,
       template,
     };
