@@ -35,7 +35,10 @@ type FEaaSComponentServerProps = {
    * Default revision to be fetched. Should be 'staged' for editing/preview. Can be overriden by params.ComponentRevision
    */
   revisionFallback?: RevisionType;
-  fetchedData?: any;
+  /**
+   * Fetched data from server component props for server rendering, based on rendering params.
+   */
+  fetchedData?: FEAAS.DataScopes;
 };
 
 /**
@@ -73,13 +76,21 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
     return null;
   }
 
+  // console.log(props.fetchedData);
+
   let data: { [key: string]: unknown } = null;
-  // Use override data if provided
-  if (Object.keys(props.fetchedData.length).length) {
-    data = props.fetchedData;
-  } else if (props.fields) {
-    // Use datasource data (provided in fields)
-    data = getDataFromFields(props.fields);
+  if (props.fetchedData === null || props.fetchedData === undefined) {
+    if (props.params?.ComponentDataOverride) {
+      // Use override data if provided
+      try {
+        data = JSON.parse(props.params.ComponentDataOverride);
+      } catch (e) {
+        data = null;
+      }
+    } else if (props.fields) {
+      // Otherwise use datasource data (provided in fields)
+      data = getDataFromFields(props.fields);
+    }
   }
 
   // FEaaS control would still be hydrated by client
@@ -87,8 +98,8 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
   // this also allows component to fall back to full client-side rendering when template or src is empty
   return (
     <FEAAS.Component
-      data={data}
-      template={props.template || ''}
+      data={props.fetchedData || data}
+      template={props.template}
       cdn={props.params?.ComponentHostName}
       library={props.params?.LibraryId}
       version={props.params?.ComponentVersion}
@@ -114,29 +125,65 @@ export async function fetchFEaaSComponentServerProps(
   const revisionFallback =
     pageState && pageState !== LayoutServicePageState.Normal ? 'staged' : 'published';
   const src = endpointOverride || composeComponentEndpoint(params, revisionFallback);
+  let template = '';
+  let fetchedData: FEAAS.DataScopes = null;
+  const fetchDataOptions: FEAAS.DataOptions = params.ComponentDataOverride
+    ? JSON.parse(params.ComponentDataOverride)
+    : {};
+
+  try {
+    template = await fetchComponentTemplate(src, params, revisionFallback);
+
+    fetchedData = await fetchData(fetchDataOptions);
+  } catch (e) {
+    console.error(e);
+  }
+
+  return {
+    fetchedData,
+    revisionFallback,
+    template,
+  };
+}
+
+/**
+ * @param {string} src component endpoint
+ * @param {FEaaSComponentParams} params rendering parameters for FEAAS component
+ * @param {RevisionType} revisionFallback fallback revision to fetch if revision is absent in params
+ */
+async function fetchComponentTemplate(
+  src: string,
+  params: FEaaSComponentParams,
+  revisionFallback: string
+): Promise<string> {
   try {
     const { template } = await FEAAS.fetchComponent(src);
-
-    // Fetch data settings here and store them in fetchedData property
-    const fetchedData = await FEAAS.DataSettings.fetch(
-      params.ComponentDataOverride ? JSON.parse(params.ComponentDataOverride) : {}
-    );
-
-    return {
-      fetchedData,
-      revisionFallback,
-      template,
-    };
-  } catch (e) {
+    return template;
+  } catch (error) {
     console.error(
       `Fetch FEAAS component from ${src} failed. Ensure the component revision "${params.ComponentRevision ||
         revisionFallback}" is present`
     );
-    console.error(e);
-    // leave revision fallback in so we can re-try with client-side rendering
-    return {
-      revisionFallback,
-    };
+    throw error;
+  }
+}
+
+/**
+ * Fetches component data based on the provided data options.
+ * This function asynchronously fetches data using the FEAAS.DataSettings.fetch method.
+ *
+ * @param {FEAAS.DataOptions} dataOptions - Options to customize data fetching.
+ * @returns {Promise<FEAAS.DataScopes>} A promise that resolves with the fetched data,
+ * or rejects with an error if data fetching encounters an issue.
+ * @throws {Error} If an error occurs during data fetching, it is propagated as an error.
+ */
+async function fetchData(dataOptions: FEAAS.DataOptions): Promise<FEAAS.DataScopes> {
+  try {
+    const fetchedData = await FEAAS.DataSettings.fetch(dataOptions || {});
+    return fetchedData;
+  } catch (error) {
+    console.error('Error fetching component data settings.');
+    throw error;
   }
 }
 

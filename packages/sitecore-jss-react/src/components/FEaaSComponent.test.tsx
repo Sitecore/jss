@@ -166,5 +166,31 @@ describe('<FEaaSComponent />', () => {
         `data="${props.params?.ComponentDataOverride!.replace(/"/g, '&quot;').replace(/\s/g, '')}"`
       );
     });
+
+    it('should get data using SSR', () => {
+      const fetchedData = {
+        foo: 'bar',
+        baz: 42,
+      };
+
+      const props: FEaaSComponentProps = {
+        params: {
+          ...requiredParams,
+        },
+        fetchedData,
+      };
+
+      // Simulate the shallow rendering
+      const wrapper = shallow(<FEaaSComponent {...props} />);
+
+      // Expect the component to render
+      expect(wrapper).to.have.length(1);
+
+      // Check if the rendered HTML contains the expected data
+      const expectedData = JSON.stringify(fetchedData)
+        .replace(/"/g, '&quot;')
+        .replace(/\s/g, '');
+      expect(wrapper.html()).to.contain(`data="${expectedData}"`);
+    });
   });
 });
