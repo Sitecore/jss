@@ -105,7 +105,8 @@ describe('ComponentPropsService', () => {
     expect(result).to.deep.equal({
       x11: 'x11SSRData',
       x14: {
-        error: 'Error during preload data for component x14: whoops',
+        error: 'Error during preload data for component namex14 (x14): whoops',
+        componentName: 'namex14',
       },
       x16: 'myCustomComponentSSRData',
       x161: 'myCustomComponentSSRData',
@@ -156,7 +157,8 @@ describe('ComponentPropsService', () => {
     expect(result).to.deep.equal({
       x11: 'x11SSRData',
       x14: {
-        error: 'Error during preload data for component x14: whoops',
+        error: 'Error during preload data for component namex14 (x14): whoops',
+        componentName: 'namex14',
       },
       x16: 'myCustomComponentSSRData',
       x161: 'myCustomComponentSSRData',
@@ -198,7 +200,8 @@ describe('ComponentPropsService', () => {
     expect(result).to.deep.equal({
       x11: 'x11StaticData',
       x14: {
-        error: 'Error during preload data for component x14: whoops',
+        error: 'Error during preload data for component namex14 (x14): whoops',
+        componentName: 'namex14',
       },
       x16: 'myCustomComponentStaticData',
       x161: 'myCustomComponentStaticData',
@@ -234,7 +237,8 @@ describe('ComponentPropsService', () => {
     expect(result).to.deep.equal({
       x11: 'x11StaticData',
       x14: {
-        error: 'Error during preload data for component x14: whoops',
+        error: 'Error during preload data for component namex14 (x14): whoops',
+        componentName: 'namex14',
       },
       x16: 'myCustomComponentStaticData',
       x161: 'myCustomComponentStaticData',

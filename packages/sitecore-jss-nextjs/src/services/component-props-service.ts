@@ -182,13 +182,15 @@ export class ComponentPropsService {
           componentProps[uid] = result;
         })
         .catch((error) => {
-          const errLog = `Error during preload data for component ${uid}: ${error.message ||
-            error}`;
+          const errLog = `Error during preload data for component ${
+            req.rendering.componentName
+          } (${uid}): ${error.message || error}`;
 
           console.error(chalk.red(errLog));
 
           componentProps[uid] = {
             error: error.message || errLog,
+            componentName: req.rendering.componentName,
           };
         });
     });
