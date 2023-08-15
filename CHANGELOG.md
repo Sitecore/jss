@@ -26,6 +26,7 @@ Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]`  Introduce layout service REST configuration name environment variable ([#1543](https://github.com/Sitecore/jss/pull/1543))
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Support for out-of-process editing data caches was added. Vercel KV or a custom Redis cache can be used to improve editing in Pages and Experience Editor when using Vercel deployment as editing/rendering host ([#1530](https://github.com/Sitecore/jss/pull/1530))
 * `[sitecore-jss-react]` Built-in MissingComponent component can now accept "errorOverride" text in props - to be displayed in the yellow frame as a custom error message. ([#1568](https://github.com/Sitecore/jss/pull/1568))
+* `[sitecore-jss-nextjs]` Support for public URL resolution in Netlify ([#1585](https://github.com/Sitecore/jss/pull/1585))
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Better error handling for component-level data fetching ([#1586](https://github.com/Sitecore/jss/pull/1586))
 
 ### 🧹 Chores
