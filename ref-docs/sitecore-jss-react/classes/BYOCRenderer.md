@@ -66,7 +66,7 @@ React.Component&lt;BYOCRendererProps\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCRenderer.tsx:79](https://github.com/Sitecore/jss/blob/a88930ad3/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L79)
+[sitecore-jss-react/src/components/BYOCRenderer.tsx:79](https://github.com/Sitecore/jss/blob/ec26b9a16/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L79)
 
 ## Properties
 
@@ -146,7 +146,7 @@ React.Component.state
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCRenderer.tsx:77](https://github.com/Sitecore/jss/blob/a88930ad3/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L77)
+[sitecore-jss-react/src/components/BYOCRenderer.tsx:77](https://github.com/Sitecore/jss/blob/ec26b9a16/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L77)
 
 ___
 
@@ -329,7 +329,7 @@ React.Component.componentDidCatch
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCRenderer.tsx:89](https://github.com/Sitecore/jss/blob/a88930ad3/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L89)
+[sitecore-jss-react/src/components/BYOCRenderer.tsx:89](https://github.com/Sitecore/jss/blob/ec26b9a16/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L89)
 
 ___
 
@@ -592,7 +592,7 @@ React.Component.render
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCRenderer.tsx:93](https://github.com/Sitecore/jss/blob/a88930ad3/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L93)
+[sitecore-jss-react/src/components/BYOCRenderer.tsx:93](https://github.com/Sitecore/jss/blob/ec26b9a16/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L93)
 
 ___
 
@@ -682,4 +682,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCRenderer.tsx:84](https://github.com/Sitecore/jss/blob/a88930ad3/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L84)
+[sitecore-jss-react/src/components/BYOCRenderer.tsx:84](https://github.com/Sitecore/jss/blob/ec26b9a16/packages/sitecore-jss-react/src/components/BYOCRenderer.tsx#L84)
