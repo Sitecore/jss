@@ -46,7 +46,7 @@ Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore
 * `[sitecore-jss-nextjs]` Fix of redirects middleware. Add possible to use tokens like $1, $2, $3, etc. ([#1547](https://github.com/Sitecore/jss/pull/1547)) ([#1559](https://github.com/Sitecore/jss/pull/1559)) ([#1561](https://github.com/Sitecore/jss/pull/1561)) ([#1562](https://github.com/Sitecore/jss/pull/1562))
 * `[templates/nextjs-sxa]` Change Content-Type of robots.txt response (`text/html;charset=utf-8`➡`text/plain`).
 * `[sitecore-jss-dev-tools]` Fix line endings for component builder ([#1580](https://github.com/Sitecore/jss/pull/1580))
-
+* `[templates/nextjs-sxa]` Fix styles of Image component for Banner variant when we try to edit image in EE for Basic Site ([#1588](https://github.com/Sitecore/jss/pull/1588))
 
 ## 21.2.3
 
