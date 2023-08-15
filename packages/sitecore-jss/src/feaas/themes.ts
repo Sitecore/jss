@@ -30,9 +30,7 @@ export function getFEAASLibraryStylesheetLinks(
   if (!layoutData.sitecore.route) return [];
 
   traverseComponent(layoutData.sitecore.route, ids);
-  [...ids].forEach((id) => {
-    console.log(getStylesheetUrl(id, serverUrl));
-  });
+
   return [...ids].map((id) => ({ href: getStylesheetUrl(id, serverUrl), rel: 'style' }));
 }
 
@@ -83,7 +81,6 @@ const traverseComponent = (
   if (!libraryId && 'attributes' in component && typeof component.attributes.class === 'string') {
     libraryId = component.attributes.class.match(FEAAS_LIBRARY_ID_REGEX)?.[1];
   }
-  console.log(libraryId);
   if (libraryId) {
     ids.add(libraryId);
   }
