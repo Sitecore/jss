@@ -180,13 +180,9 @@ describe('<FEaaSComponent />', () => {
         fetchedData,
       };
 
-      // Simulate the shallow rendering
       const wrapper = shallow(<FEaaSComponent {...props} />);
 
-      // Expect the component to render
       expect(wrapper).to.have.length(1);
-
-      // Check if the rendered HTML contains the expected data
       const expectedData = JSON.stringify(fetchedData)
         .replace(/"/g, '&quot;')
         .replace(/\s/g, '');

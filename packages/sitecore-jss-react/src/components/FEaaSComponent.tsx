@@ -76,8 +76,6 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
     return null;
   }
 
-  // console.log(props.fetchedData);
-
   let data: { [key: string]: unknown } = null;
   if (props.fetchedData === null || props.fetchedData === undefined) {
     if (props.params?.ComponentDataOverride) {
