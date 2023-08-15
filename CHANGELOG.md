@@ -28,6 +28,7 @@ Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore
 * `[sitecore-jss-react]` Built-in MissingComponent component can now accept "errorOverride" text in props - to be displayed in the yellow frame as a custom error message. ([#1568](https://github.com/Sitecore/jss/pull/1568))
 * `[sitecore-jss-nextjs]` Support for public URL resolution in Netlify ([#1585](https://github.com/Sitecore/jss/pull/1585))
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Better error handling for component-level data fetching ([#1586](https://github.com/Sitecore/jss/pull/1586))
+* `[sitecore-jss-react]` Fetch Data for FEaaS Components as part of Component SSR/SSG ([#1586](https://github.com/Sitecore/jss/pull/1590))
 
 ### 🧹 Chores
 
