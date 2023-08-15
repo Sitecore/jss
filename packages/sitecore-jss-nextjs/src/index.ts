@@ -175,6 +175,7 @@ export {
   BYOCRenderingParams,
   BYOCRenderer,
   BYOCRendererProps,
+  getFEAASLibraryStylesheetLinks,
   File,
   FileField,
   RichTextField,
