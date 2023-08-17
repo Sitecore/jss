@@ -88,6 +88,7 @@ describe('<FEaaSComponent />', () => {
           ...requiredParams,
           ComponentDataOverride: '{ "foo": "bar", "baz": 1 }',
         },
+        fetchedData: undefined,
       };
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
