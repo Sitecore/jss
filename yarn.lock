@@ -5904,7 +5904,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-feaas/clientside@npm:^0.3.10":
+"@sitecore-feaas/clientside@npm:^0.3.0":
   version: 0.3.10
   resolution: "@sitecore-feaas/clientside@npm:0.3.10"
   peerDependencies:
