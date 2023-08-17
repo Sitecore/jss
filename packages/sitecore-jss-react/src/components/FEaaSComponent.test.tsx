@@ -167,7 +167,7 @@ describe('<FEaaSComponent />', () => {
       );
     });
 
-    it('should get data using SSR', () => {
+    it('should send prefetched data', () => {
       const fetchedData = {
         foo: 'bar',
         baz: 42,
@@ -177,6 +177,30 @@ describe('<FEaaSComponent />', () => {
         params: {
           ...requiredParams,
         },
+        fetchedData,
+      };
+
+      const wrapper = shallow(<FEaaSComponent {...props} />);
+
+      expect(wrapper).to.have.length(1);
+      const expectedData = JSON.stringify(fetchedData)
+        .replace(/"/g, '&quot;')
+        .replace(/\s/g, '');
+      expect(wrapper.html()).to.contain(`data="${expectedData}"`);
+    });
+
+    it('should send prefetched data', () => {
+      const fetchedData = {
+        foo: 'bar',
+        baz: 42,
+      };
+
+      const props: FEaaSComponentProps = {
+        params: {
+          ...requiredParams,
+          ComponentDataOverride: '{ "foo": "test", "baz": 22 }',
+        },
+
         fetchedData,
       };
 

@@ -180,7 +180,7 @@ async function fetchData(dataOptions: FEAAS.DataOptions): Promise<FEAAS.DataScop
     const fetchedData = await FEAAS.DataSettings.fetch(dataOptions || {});
     return fetchedData;
   } catch (error) {
-    console.error('Error fetching component data settings.');
+    console.error('Fetch FEAAS component data settings failed');
     throw error;
   }
 }
