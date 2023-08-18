@@ -49,7 +49,7 @@ export interface ScaffoldComponentPlugin {
 
 // Matches component names that start with a capital letter, and contain only letters, number,
 // underscores, or dashes. Optionally, the component name can be preceded by a relative path
-const nameParamFormat = new RegExp(/^((?:[\w-]+\/)*)([A-Z][\w-]+)$/);
+const nameParamFormat = new RegExp(/^((?:[\w\-]+\/)*)([A-Z][\w-]+)$/);
 const componentArg = process.argv[2];
 const args = process.argv.slice(3);
 
