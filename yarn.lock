@@ -5905,11 +5905,11 @@ __metadata:
   linkType: hard
 
 "@sitecore-feaas/clientside@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "@sitecore-feaas/clientside@npm:0.3.0"
+  version: 0.3.10
+  resolution: "@sitecore-feaas/clientside@npm:0.3.10"
   peerDependencies:
     react-dom: ">=16.8.0"
-  checksum: cf1309e68b92f544ac7569cd444b211f153a8433bb7c42c8f74e5453cf58e164a95a1c59d4f78f06ae8980c5b4c25f09bf081880ab160b9dcb8b477a5c8b22d3
+  checksum: b60391c33fa446b0fad164bc76babfc8cf2e7c892a741703df45d4acb74c6efd5aa2640650b85571d2d9d3072c02cf6653c3042cade6932365d214dc34402825
   languageName: node
   linkType: hard
 
