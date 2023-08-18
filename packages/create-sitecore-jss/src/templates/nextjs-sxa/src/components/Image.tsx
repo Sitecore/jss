@@ -58,7 +58,7 @@ export const Default = (props: ImageProps): JSX.Element => {
     return (
       <div className={`component image ${props.params.styles}`} id={id ? id : undefined}>
         <div className="component-content">
-          {sitecoreContext.pageState === 'edit' ? (
+          {sitecoreContext.pageState === 'edit' || !props.fields.TargetUrl?.value?.href ? (
             <Image />
           ) : (
             <JssLink field={props.fields.TargetUrl}>
