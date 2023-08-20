@@ -32,14 +32,16 @@
     opacity: 0;
   }
   &.scEnabledChrome {
-    .sc-image-wrapper {
-      display: block;
-      width: 100%;
-
-      .scEmptyImage {
-        max-height: 800px;
-        max-width: 100%;
+    &.hero-banner-empty {
+      .sc-image-wrapper {
+        display: block;
         width: 100%;
+  
+        .scEmptyImage {
+          max-height: 800px;
+          max-width: 100%;
+          width: 100%;
+        }
       }
     }
   }
