@@ -4,6 +4,9 @@
  * @param {import('next').NextConfig} nextConfig
  */
 const corsHeaderPlugin = (nextConfig = {}) => {
+  if (!config.sitecoreApiHost) {
+    return nextConfig;
+  }
   return Object.assign({}, nextConfig, {
     async headers() {
       return [
