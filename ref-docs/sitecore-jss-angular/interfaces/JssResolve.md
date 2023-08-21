@@ -32,4 +32,4 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:100](https://github.com/Sitecore/jss/blob/a981585ba/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L100)
+[sitecore-jss-angular/src/components/placeholder.token.ts:100](https://github.com/Sitecore/jss/blob/a3b05707b/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L100)
