@@ -41,11 +41,13 @@ describe('generate-component-builder', () => {
           "import { ComponentBuilder } from '@sitecore-jss/sitecore-jss-react';\n" +
           "import { Foo } from 'custom-module';\n" +
           '\n' +
+          "import Text from 'src/custom-components/Text';\n" +
           "import barModule from 'bar';\n" +
           '\n' +
           'const components = new Map();\n' +
           "components.set('Foo', Foo);\n" +
           '\n' +
+          "components.set('TextComponent', Text);\n" +
           "components.set('BarComponent', barModule);\n" +
           '\n' +
           'const componentBuilder = new ComponentBuilder({ components });\n' +
@@ -64,6 +66,13 @@ describe('generate-component-builder', () => {
                 moduleName: 'Foo',
               },
             ],
+          },
+        ],
+        components: [
+          {
+            path: 'src/custom-components/Text',
+            moduleName: 'Text',
+            componentName: 'TextComponent',
           },
         ],
       });

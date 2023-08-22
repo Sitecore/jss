@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import { getComponentBuilderTemplate } from './templates/component-builder';
-import { PackageDefinition, getComponentList } from '../components';
+import { ComponentFile, PackageDefinition, getComponentList } from '../components';
 import { watchItems } from '../utils';
 
 // Default destination path for component builder
@@ -14,23 +14,26 @@ const defaultComponentRootPath = 'src/components';
  * @param {string} [settings.componentRootPath] path to components root
  * @param {string} [settings.componentBuilderOutputPath] path to component builder output
  * @param {PackageDefinition[]} [settings.packages] list of packages to include in component builder
+ * @param {ComponentFile[]} [settings.components] list of components to include in component builder
  * @param {boolean} [settings.watch] whether to watch for changes to component builder sources
  */
 export function generateComponentBuilder({
   componentRootPath = defaultComponentRootPath,
   componentBuilderOutputPath = defaultComponentBuilderOutputPath,
   packages = [],
+  components = [],
   watch,
 }: {
   componentRootPath?: string;
   componentBuilderOutputPath?: string;
   packages?: PackageDefinition[];
+  components?: ComponentFile[];
   watch?: boolean;
 } = {}) {
   if (watch) {
-    watchComponentBuilder({ componentRootPath, componentBuilderOutputPath, packages });
+    watchComponentBuilder({ componentRootPath, componentBuilderOutputPath, packages, components });
   } else {
-    writeComponentBuilder({ componentRootPath, componentBuilderOutputPath, packages });
+    writeComponentBuilder({ componentRootPath, componentBuilderOutputPath, packages, components });
   }
 }
 
@@ -40,21 +43,29 @@ export function generateComponentBuilder({
  * @param {string} settings.componentRootPath path to components root
  * @param {string} settings.componentBuilderOutputPath path to component builder output
  * @param {PackageDefinition[]} settings.packages list of packages to include in component builder
+ * @param {ComponentFile[]} settings.components list of components to include in component builder
  */
 export function watchComponentBuilder({
   componentRootPath,
   componentBuilderOutputPath,
   packages,
+  components,
 }: {
   componentRootPath: string;
   componentBuilderOutputPath: string;
   packages: PackageDefinition[];
+  components: ComponentFile[];
 }) {
   console.log(`Watching for changes to component builder sources in ${componentRootPath}...`);
 
   watchItems(
     [componentRootPath],
-    writeComponentBuilder.bind(null, { componentRootPath, componentBuilderOutputPath, packages })
+    writeComponentBuilder.bind(null, {
+      componentRootPath,
+      componentBuilderOutputPath,
+      packages,
+      components,
+    })
   );
 }
 
@@ -64,22 +75,27 @@ export function watchComponentBuilder({
  * @param {string} settings.componentRootPath path to components root
  * @param {string} settings.componentBuilderOutputPath path to component builder output
  * @param {PackageDefinition[]} settings.packages list of packages to include in component builder
+ * @param {ComponentFile[]} settings.components list of components to include in component builder
  */
 export function writeComponentBuilder({
   componentRootPath,
   componentBuilderOutputPath,
   packages,
+  components,
 }: {
   componentRootPath: string;
   componentBuilderOutputPath: string;
   packages: PackageDefinition[];
+  components: ComponentFile[];
 }) {
-  const components = getComponentList(componentRootPath);
-
-  components.unshift(...packages);
+  const items: (ComponentFile | PackageDefinition)[] = [
+    ...packages,
+    ...components,
+    ...getComponentList(componentRootPath),
+  ];
 
   const componentBuilderPath = path.resolve(componentBuilderOutputPath);
-  const fileContent = getComponentBuilderTemplate(components);
+  const fileContent = getComponentBuilderTemplate(items);
   console.log(`Writing component builder to ${componentBuilderPath}`);
   fs.writeFileSync(componentBuilderPath, fileContent, {
     encoding: 'utf8',
