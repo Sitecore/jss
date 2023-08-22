@@ -18,14 +18,6 @@ class PackagesPlugin {
      *    ]
      *  }
      */
-    
-    /**
-     * Or you can register all components from a path using the below approach:
-     * import { PackageDefinition, getComponentList } from '@sitecore-jss/sitecore-jss-dev-tools/templating';
-     * ...
-     * const componentsPath = 'src/extra';
-     * config.packages = getComponentList(extraPath) as PackageDefinition[];
-     */
     config.packages = [];
 
     return config;
