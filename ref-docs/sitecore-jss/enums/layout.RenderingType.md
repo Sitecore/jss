@@ -20,4 +20,4 @@ Editing rendering type
 
 #### Defined in
 
-[src/layout/models.ts:33](https://github.com/Sitecore/jss/blob/a981585ba/packages/sitecore-jss/src/layout/models.ts#L33)
+[src/layout/models.ts:33](https://github.com/Sitecore/jss/blob/031d7188a/packages/sitecore-jss/src/layout/models.ts#L33)

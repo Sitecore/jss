@@ -30,6 +30,11 @@ const ImageDefault = (props: ImageProps): JSX.Element => (
 
 export const Banner = (props: ImageProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
+  const isPageEditing = sitecoreContext.pageEditing;
+  const classHeroBannerEmpty =
+    isPageEditing && props.fields?.Image?.value?.class === 'scEmptyImage'
+      ? 'hero-banner-empty'
+      : '';
   const backgroundStyle = { backgroundImage: `url('${props?.fields?.Image?.value?.src}')` };
   const modifyImageProps = {
     ...props.fields.Image,
@@ -40,7 +45,10 @@ export const Banner = (props: ImageProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
   return (
-    <div className={`component hero-banner ${props.params.styles}`} id={id ? id : undefined}>
+    <div
+      className={`component hero-banner ${props.params.styles} ${classHeroBannerEmpty}`}
+      id={id ? id : undefined}
+    >
       <div className="component-content sc-sxa-image-hero-banner" style={backgroundStyle}>
         {sitecoreContext.pageEditing ? <JssImage field={modifyImageProps} /> : ''}
       </div>
