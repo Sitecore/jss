@@ -5,7 +5,7 @@ import { BYOCComponent } from './BYOCComponent';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 
 describe('BYOCComponent', () => {
-  it('should render ExternalComponent with props when ComponentProps is provided', () => {
+  it('should render with props when ComponentProps is provided', () => {
     const mockProps = {
       params: {
         ComponentName: 'ExternalComponent',
@@ -13,11 +13,10 @@ describe('BYOCComponent', () => {
       },
     };
     const wrapper = mount(<BYOCComponent {...mockProps} />);
-    console.log(wrapper.debug());
-    // const externalComponent = wrapper.find('Se');
-    expect(wrapper).to.have.lengthOf(1);
-    // expect(externalComponent.prop('componentName')).to.equal('ExternalComponent');
-    // expect(externalComponent.prop('prop1')).to.equal('value1');
+    const externalComponent = wrapper.find('Se');
+    expect(externalComponent).to.have.lengthOf(1);
+    expect(externalComponent.prop('componentName')).to.equal('ExternalComponent');
+    expect(externalComponent.prop('prop1')).to.equal('value1');
   });
 });
 
