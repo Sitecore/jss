@@ -4,7 +4,7 @@ import { ScaffoldComponentPlugin, ScaffoldComponentPluginConfig } from '..';
 /**
  * Set next steps.
  */
-class NextStepsPlugin implements ScaffoldComponentPlugin {
+class NextStepsStyleguidePlugin implements ScaffoldComponentPlugin {
   order = 101;
 
   exec(config: ScaffoldComponentPluginConfig) {
@@ -38,4 +38,4 @@ class NextStepsPlugin implements ScaffoldComponentPlugin {
   }
 }
 
-export const nextStepsPlugin = new NextStepsPlugin();
+export const nextStepsStyleguidePlugin = new NextStepsStyleguidePlugin();

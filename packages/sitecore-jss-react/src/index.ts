@@ -65,7 +65,7 @@ export {
 } from './components/FEaaSComponent';
 export {
   BYOCProps,
-  BYOCRenderer,
+  BYOCComponent,
   BYOCRenderingParams,
   BYOCRendererProps,
 } from './components/BYOCComponent';
