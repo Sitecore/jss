@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-      "@sitecore-jss-angular": {
+      "sitecore-jss-angular": {
         "projectType": "library",
         "root": ".",
         "sourceRoot": "./src",
@@ -12,7 +12,7 @@
           "build": {            
             "builder": "@angular-devkit/build-angular:ng-packagr",
             "options": {
-                "main": "./src/public_api.ts",
+              "main": "./src/public_api.ts",
               "project": "./ng-package.json"
             },
             "configurations": {
