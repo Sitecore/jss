@@ -66,8 +66,8 @@ export {
 export {
   BYOCProps,
   BYOCComponent,
-  BYOCRenderingParams,
-  BYOCRendererProps,
+  BYOCComponentParams,
+  BYOCComponentProps,
 } from './components/BYOCComponent';
 export { Link, LinkField, LinkFieldValue, LinkProps, LinkPropTypes } from './components/Link';
 export { File, FileField } from './components/File';
