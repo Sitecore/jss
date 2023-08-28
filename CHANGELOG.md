@@ -30,6 +30,7 @@ Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Better error handling for component-level data fetching ([#1586](https://github.com/Sitecore/jss/pull/1586))
 * `[sitecore-jss-react]` Fetch Data for FEaaS Components as part of Component SSR/SSG ([#1586](https://github.com/Sitecore/jss/pull/1590))
 * `[sitecore-jss-dev-tools]` `[templates/nextjs]` `[templates/react]` Introduce "components" configuration for ComponentBuilder ([#1598](https://github.com/Sitecore/jss/pull/1598))
+* `[sitecore-jss-react]` `[templates/nextjs-sxa]` Use FEAAS.ExternalComponent for BYOCWrapper ([#1603](https://github.com/Sitecore/jss/pull/1603))
 
 ### 🧹 Chores
 
