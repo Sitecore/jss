@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
 import { getDataFromFields } from '../utils';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
@@ -7,7 +7,7 @@ import * as FEAAS from '@sitecore-feaas/clientside/react';
 /**
  * Data from rendering params on Sitecore's BYOC rendering
  */
-export type BYOCRenderingParams = {
+export type BYOCComponentParams = {
   /**
    * Name of the component to render
    */
@@ -30,7 +30,7 @@ export type BYOCProps = {
   /**
    * rendering params
    */
-  params?: BYOCRenderingParams;
+  params?: BYOCComponentParams;
   /**
    * fields from datasource items to be passed as rendered child component props
    */
@@ -38,9 +38,9 @@ export type BYOCProps = {
 };
 
 /**
- * Props for BYOCRenderer component. Includes components list to load external components from.
+ * Props for BYOCComponent. Includes components list to load external components from.
  */
-export type BYOCRendererProps = BYOCProps & {
+export type BYOCComponentProps = BYOCProps & {
   /**
    * Error component override. To be shown when Renderer or underlying component throws
    */
@@ -64,62 +64,84 @@ const DefaultErrorComponent = (props: ErrorComponentProps) => (
 );
 
 /**
- * BYOCRenderer helps rendering BYOC components - that can be taken from anywhere
+ * BYOCComponent helps rendering BYOC components - that can be taken from anywhere
  * and registered without being deployed as Sitecore renderings
- * @param {ByocRendererProps} props component props
+ * @param {ByocComponentProps} props component props
  * @returns dynamicly rendered component or Missing Component error frame
  */
-export const BYOCComponent = (props: BYOCRendererProps): JSX.Element => {
-  const [error, setError] = useState<Error | undefined>(undefined);
-  const { ComponentName: componentName } = props.params || {};
-  const { missingComponentComponent } = props;
+export class BYOCComponent extends React.Component<BYOCComponentProps> {
+  state: Readonly<{ error?: Error }>;
 
-  const noNameProps = {
-    errorOverride: 'BYOC: The ComponentName for this rendering is missing',
-  };
-
-  const unRegisteredComponentProps = {
-    rendering: {
-      componentName: componentName,
-    },
-    errorOverride: 'BYOC: This component was not registered.',
-  };
-
-  const missingProps = !componentName ? noNameProps : unRegisteredComponentProps;
-
-  const missingComponent = missingComponentComponent ? (
-    <props.missingComponentComponent {...missingProps} />
-  ) : (
-    <MissingComponent {...missingProps} />
-  );
-
-  if (error) {
-    const ErrorComponent = props.errorComponent || DefaultErrorComponent;
-    return <ErrorComponent error={error} />;
+  constructor(props: BYOCComponentProps) {
+    super(props);
+    this.state = {};
   }
 
-  let componentProps: { [key: string]: unknown } = {};
+  static getDerivedStateFromError(error: Error) {
+    // Update state so the next render will show the fallback UI.
+    return { error: error };
+  }
 
-  if (props.params?.ComponentProps) {
-    try {
-      componentProps = JSON.parse(props.params.ComponentProps) || {};
-    } catch (e) {
-      console.warn(`Parsing props for ${componentName} component failed. Error: ${e}`);
-      setError(e as Error);
-      const ErrorComponent = props.errorComponent || DefaultErrorComponent;
-      return <ErrorComponent error={e as Error} />;
+  componentDidCatch(error: Error) {
+    this.setState({ error });
+  }
+
+  render() {
+    const props: BYOCComponentProps = this.props;
+    if (this.state.error) {
+      return this.props.errorComponent ? (
+        <this.props.errorComponent error={this.state.error} />
+      ) : (
+        <DefaultErrorComponent error={this.state.error} />
+      );
     }
-  }
+    const { ComponentName: componentName } = props.params || {};
 
-  if (!componentProps) {
-    componentProps = props.fields ? getDataFromFields(props.fields) : {};
-  }
+    const noNameProps = {
+      errorOverride: 'BYOC: The ComponentName for this rendering is missing',
+    };
 
-  return (
-    <FEAAS.ExternalComponent
-      componentName={componentName}
-      fallback={missingComponent}
-      {...componentProps}
-    />
-  );
-};
+    const unRegisteredComponentProps = {
+      rendering: {
+        componentName: componentName,
+      },
+      errorOverride: 'BYOC: This component was not registered.',
+    };
+
+    const missingProps = !componentName ? noNameProps : unRegisteredComponentProps;
+
+    const missingComponent = props.missingComponentComponent ? (
+      <props.missingComponentComponent {...missingProps} />
+    ) : (
+      <MissingComponent {...missingProps} />
+    );
+
+    let componentProps: { [key: string]: unknown } = undefined;
+
+    if (props.params?.ComponentProps) {
+      try {
+        componentProps = JSON.parse(props.params.ComponentProps) ?? {};
+      } catch (e) {
+        console.warn(
+          `Parsing props for ${componentName} component from rendering params failed. Error: ${e}`
+        );
+        return this.props.errorComponent ? (
+          <this.props.errorComponent error={e as Error} />
+        ) : (
+          <DefaultErrorComponent error={e as Error} />
+        );
+      }
+    }
+    if (!componentProps) {
+      componentProps = props.fields ? getDataFromFields(props.fields) : {};
+    }
+
+    return (
+      <FEAAS.ExternalComponent
+        componentName={componentName}
+        fallback={missingComponent}
+        {...componentProps}
+      />
+    );
+  }
+}

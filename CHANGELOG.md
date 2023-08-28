@@ -13,11 +13,11 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[templates/nextjs-sxa]` `[sitecore-jss-nextjs]` "Bring Your Own Code" (BYOC) feature is introduced. This allows developers and editors more flexibility when developing and working with new components, i.e.:
+* `[templates/nextjs-sxa]` `[sitecore-jss-react]` "Bring Your Own Code" (BYOC) feature is introduced. This allows developers and editors more flexibility when developing and working with new components, i.e.:
   * Avoid the jss deploy process for components, and use FEAAS registration instead
   * Put components anywhere in the project, 
   * Use any prop type, without dependence on Layout Service data 
-Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore/jss/pull/1568))
+Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore/jss/pull/1568)) ([#1603](https://github.com/Sitecore/jss/pull/1603))
 * `[templates/nextjs-sxa]` Scaffolding components for BYOC is added. Use '--byoc' flag at the end of `jss scaffold` command to create a boilerplate component for BYOC ([#1572](https://github.com/Sitecore/jss/pull/1572))
 * `[sitecore-jss-nextjs]` Stylesheet loading via page head links for FEAAS and BYOC is implemented. This allows stylesheets to be loaded during SSR and avoid extra calls on client. ([#1587](https://github.com/Sitecore/jss/pull/1587))
 * `[templates/nextjs]` Scaffold new components outside of 'src/components' folder by specifying a path with src in it, i.e. `jss scaffold src/new-folder/NewComponent` ([#1572](https://github.com/Sitecore/jss/pull/1572))
@@ -30,7 +30,6 @@ Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Better error handling for component-level data fetching ([#1586](https://github.com/Sitecore/jss/pull/1586))
 * `[sitecore-jss-react]` Fetch Data for FEaaS Components as part of Component SSR/SSG ([#1586](https://github.com/Sitecore/jss/pull/1590))
 * `[sitecore-jss-dev-tools]` `[templates/nextjs]` `[templates/react]` Introduce "components" configuration for ComponentBuilder ([#1598](https://github.com/Sitecore/jss/pull/1598))
-* `[sitecore-jss-react]` `[templates/nextjs-sxa]` Use FEAAS.ExternalComponent for BYOCWrapper ([#1603](https://github.com/Sitecore/jss/pull/1603))
 
 ### 🧹 Chores
 
