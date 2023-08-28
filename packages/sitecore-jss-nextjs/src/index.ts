@@ -173,7 +173,7 @@ export {
   fetchFEaaSComponentServerProps,
   BYOCProps,
   BYOCRenderingParams,
-  BYOCRenderer,
+  BYOCComponent,
   BYOCRendererProps,
   getFEAASLibraryStylesheetLinks,
   File,
