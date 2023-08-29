@@ -97,9 +97,16 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
     }
     const { ComponentName: componentName } = props.params || {};
 
-    const noNameProps = {
-      errorOverride: 'BYOC: The ComponentName for this rendering is missing',
-    };
+    if (!componentName) {
+      const noNameProps = {
+        errorOverride: 'BYOC: The ComponentName for this rendering is missing',
+      };
+      return props.missingComponentComponent ? (
+        <this.props.missingComponentComponent {...noNameProps} />
+      ) : (
+        <MissingComponent {...noNameProps} />
+      );
+    }
 
     const unRegisteredComponentProps = {
       rendering: {
@@ -107,14 +114,6 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
       },
       errorOverride: 'BYOC: This component was not registered.',
     };
-
-    const missingProps = !componentName ? noNameProps : unRegisteredComponentProps;
-
-    const missingComponent = props.missingComponentComponent ? (
-      <props.missingComponentComponent {...missingProps} />
-    ) : (
-      <MissingComponent {...missingProps} />
-    );
 
     let componentProps: { [key: string]: unknown } = undefined;
 
@@ -139,7 +138,7 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
     return (
       <FEAAS.ExternalComponent
         componentName={componentName}
-        fallback={missingComponent}
+        fallback={<MissingComponent {...unRegisteredComponentProps} />}
         {...componentProps}
       />
     );
