@@ -16,7 +16,6 @@ describe('<FEaaSComponent />', () => {
     ComponentVersion: 'version123',
     ComponentRevision: 'staged',
     ComponentHostName: 'host123',
-    hydrate: false,
   };
 
   describe('composeComponentEndpoint', () => {
