@@ -109,8 +109,6 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
         <MissingComponent {...noNameProps} />
       );
     }
-    // props.components would contain component from internal FEAAS regsitered component collection (registered in app)
-    // we can't access this collection here directly, as the collection from packages's dependency would be different from the one in app
     const Component = FEAAS.External.registered[componentName]?.component;
 
     const unRegisteredComponentProps = {

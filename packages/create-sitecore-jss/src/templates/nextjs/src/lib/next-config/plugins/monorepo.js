@@ -6,15 +6,11 @@ const CWD = process.cwd();
  */
 const monorepoPlugin = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
-    // Monorepo support for @sitecore-feaas/clientside/react (part 1)
-    experimental: {
-      esmExternals: false,
-    },
     webpack: (config, options) => {
       if (options.isServer) {
         config.externals = ['react', 'vertx', ...config.externals];
       }
-      // Monorepo support for @sitecore-feaas/clientside/react (part 2)
+      // Monorepo support for @sitecore-feaas/clientside/react
       config.resolve.alias['@sitecore-feaas/clientside/react'] = path.resolve(
         CWD, options.isServer ? 
           './node_modules/@sitecore-feaas/clientside/dist/node/react.cjs' :
