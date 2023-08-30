@@ -116,6 +116,12 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
       errorOverride: 'BYOC: This component was not registered.',
     };
 
+    const fallbackComponent = this.props.missingComponentComponent ? (
+      <this.props.missingComponentComponent {...unRegisteredComponentProps} />
+    ) : (
+      <MissingComponent {...unRegisteredComponentProps} />
+    );
+
     let componentProps: { [key: string]: unknown } = undefined;
 
     if (props.params?.ComponentProps) {
@@ -139,7 +145,7 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
     return (
       <FEAAS.ExternalComponent
         componentName={componentName}
-        fallback={<MissingComponent {...unRegisteredComponentProps} />}
+        fallback={fallbackComponent}
         {...componentProps}
       />
     );
