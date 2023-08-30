@@ -64,8 +64,9 @@ const DefaultErrorComponent = (props: ErrorComponentProps) => (
 );
 
 /**
- * BYOCComponent helps rendering BYOC components - that can be taken from anywhere
- * and registered without being deployed as Sitecore renderings
+ *
+ * BYOCComponent facilitate the rendering of external components. It manages potential errors,
+ * missing components, and customization of error messages or alternative rendering components.
  * @param {ByocComponentProps} props component props
  * @returns dynamicly rendered component or Missing Component error frame
  */
