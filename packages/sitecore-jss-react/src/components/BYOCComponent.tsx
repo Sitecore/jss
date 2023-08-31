@@ -2,12 +2,12 @@ import React from 'react';
 import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
 import { getDataFromFields } from '../utils';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
-import { RegisteredComponents } from '@sitecore-feaas/clientside/types/ui/FEAASExternal';
+import * as FEAAS from '@sitecore-feaas/clientside/react';
 
 /**
  * Data from rendering params on Sitecore's BYOC rendering
  */
-export type BYOCRenderingParams = {
+export type BYOCComponentParams = {
   /**
    * Name of the component to render
    */
@@ -24,27 +24,17 @@ export type BYOCRenderingParams = {
 };
 
 /**
- * Props for BYOC wrapper component
+ * Props for BYOCComponent. Includes components list to load external components from.
  */
-export type BYOCProps = {
+export type BYOCComponentProps = {
   /**
    * rendering params
    */
-  params?: BYOCRenderingParams;
+  params?: BYOCComponentParams;
   /**
    * fields from datasource items to be passed as rendered child component props
    */
   fields?: ComponentFields;
-};
-
-/**
- * Props for BYOCRenderer component. Includes components list to load external components from.
- */
-export type BYOCRendererProps = BYOCProps & {
-  /**
-   * Registered component collection. Would be taken from FEAAS.External.registered
-   */
-  components: RegisteredComponents;
   /**
    * Error component override. To be shown when Renderer or underlying component throws
    */
@@ -68,15 +58,15 @@ const DefaultErrorComponent = (props: ErrorComponentProps) => (
 );
 
 /**
- * BYOCRenderer helps rendering BYOC components - that can be taken from anywhere
- * and registered without being deployed as Sitecore renderings
- * @param {ByocRendererProps} props component props
+ * BYOCComponent facilitate the rendering of external components. It manages potential errors,
+ * missing components, and customization of error messages or alternative rendering components.
+ * @param {ByocComponentProps} props component props
  * @returns dynamicly rendered component or Missing Component error frame
  */
-export class BYOCRenderer extends React.Component<BYOCRendererProps> {
+export class BYOCComponent extends React.Component<BYOCComponentProps> {
   state: Readonly<{ error?: Error }>;
 
-  constructor(props: BYOCRendererProps) {
+  constructor(props: BYOCComponentProps) {
     super(props);
     this.state = {};
   }
@@ -91,7 +81,7 @@ export class BYOCRenderer extends React.Component<BYOCRendererProps> {
   }
 
   render() {
-    const props: BYOCRendererProps = this.props;
+    const props: BYOCComponentProps = this.props;
     if (this.state.error) {
       return this.props.errorComponent ? (
         <this.props.errorComponent error={this.state.error} />
@@ -100,6 +90,7 @@ export class BYOCRenderer extends React.Component<BYOCRendererProps> {
       );
     }
     const { ComponentName: componentName } = props.params || {};
+
     if (!componentName) {
       const noNameProps = {
         errorOverride: 'BYOC: The ComponentName for this rendering is missing',
@@ -110,26 +101,19 @@ export class BYOCRenderer extends React.Component<BYOCRendererProps> {
         <MissingComponent {...noNameProps} />
       );
     }
-    // props.components would contain component from internal FEAAS regsitered component collection (registered in app)
-    // we can't access this collection here directly, as the collection from packages's dependency would be different from the one in app
-    const Component = props.components[componentName]?.component;
 
-    if (!Component) {
-      console.warn(
-        `Component "${componentName}" was not registered, please ensure the FEEAS.External.registerComponent call is made.`
-      );
-      const missingProps = {
-        rendering: {
-          componentName: componentName,
-        },
-        errorOverride: 'BYOC: This component was not registered.',
-      };
-      return props.missingComponentComponent ? (
-        <this.props.missingComponentComponent {...missingProps} />
-      ) : (
-        <MissingComponent {...missingProps} />
-      );
-    }
+    const unRegisteredComponentProps = {
+      rendering: {
+        componentName: componentName,
+      },
+      errorOverride: 'BYOC: This component was not registered.',
+    };
+
+    const fallbackComponent = this.props.missingComponentComponent ? (
+      <this.props.missingComponentComponent {...unRegisteredComponentProps} />
+    ) : (
+      <MissingComponent {...unRegisteredComponentProps} />
+    );
 
     let componentProps: { [key: string]: unknown } = undefined;
 
@@ -150,6 +134,13 @@ export class BYOCRenderer extends React.Component<BYOCRendererProps> {
     if (!componentProps) {
       componentProps = props.fields ? getDataFromFields(props.fields) : {};
     }
-    return <Component {...componentProps} />;
+
+    return (
+      <FEAAS.ExternalComponent
+        componentName={componentName}
+        fallback={fallbackComponent}
+        {...componentProps}
+      />
+    );
   }
 }
