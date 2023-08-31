@@ -1,7 +1,7 @@
-import { BYOCProps, BYOCComponent } from '@sitecore-jss/sitecore-jss-nextjs';
+import { BYOCComponentProps, BYOCComponent } from '@sitecore-jss/sitecore-jss-nextjs';
 import React from 'react';
 
-export const Default = (props: BYOCProps): JSX.Element => {
+export const Default = (props: BYOCComponentProps): JSX.Element => {
   const styles = props.params?.styles?.trimEnd();
   const id = props.params?.RenderingIdentifier;
 

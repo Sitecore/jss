@@ -24,9 +24,9 @@ export type BYOCComponentParams = {
 };
 
 /**
- * Props for BYOC wrapper component
+ * Props for BYOCComponent. Includes components list to load external components from.
  */
-export type BYOCProps = {
+export type BYOCComponentProps = {
   /**
    * rendering params
    */
@@ -35,12 +35,6 @@ export type BYOCProps = {
    * fields from datasource items to be passed as rendered child component props
    */
   fields?: ComponentFields;
-};
-
-/**
- * Props for BYOCComponent. Includes components list to load external components from.
- */
-export type BYOCComponentProps = BYOCProps & {
   /**
    * Error component override. To be shown when Renderer or underlying component throws
    */
@@ -64,7 +58,6 @@ const DefaultErrorComponent = (props: ErrorComponentProps) => (
 );
 
 /**
- *
  * BYOCComponent facilitate the rendering of external components. It manages potential errors,
  * missing components, and customization of error messages or alternative rendering components.
  * @param {ByocComponentProps} props component props

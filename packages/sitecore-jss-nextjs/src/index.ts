@@ -171,7 +171,6 @@ export {
   FEaaSComponentProps,
   FEaaSComponentParams,
   fetchFEaaSComponentServerProps,
-  BYOCProps,
   BYOCComponentParams,
   BYOCComponent,
   BYOCComponentProps,
