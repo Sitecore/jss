@@ -31,7 +31,7 @@
     "start:proxy": "ts-node --project src/tsconfig.webpack-server.json scripts/disconnected-mode-proxy.ts",
     "start:watch-components": "ts-node --project src/tsconfig.webpack-server.json scripts/generate-component-factory.ts --watch",
     "build:client": "cross-env-shell ng build --deploy-url $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/",
-    "build:server": "cross-env-shell ng run <%- appName %>:server:production --output-path=$npm_package_config_buildArtifactsPath/server --output-hashing=none --bundle-dependencies true",
+    "build:server": "cross-env-shell ng run <%- appName %>:server:production --output-path=$npm_package_config_buildArtifactsPath/server --output-hashing=none",
     "postbuild:server": "move-cli ./dist/server/main.js ./dist/server.bundle.js && del-cli ./dist/server",
     "bootstrap": "ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts",
     "graphql:update": "ts-node --project src/tsconfig.webpack-server.json ./scripts/update-graphql-fragment-data.ts",
@@ -66,7 +66,7 @@
     "@ngx-translate/http-loader": "~7.0.0",
     "@sitecore-jss/sitecore-jss-angular": "~21.3.0-canary",
     "apollo-angular": "~4.2.1",
-    "bootstrap": "^5.2.3",
+    "bootstrap": "^5.3.1",
     "core-js": "~3.9.1",
     "graphql": "15.5.0",
     "graphql-tag": "~2.11.0",
@@ -132,7 +132,7 @@
     "overrides (for npm) and resolutions (for yarn) used to work around the bug in critters that affect bootstrap: https://github.com/GoogleChromeLabs/critters/issues/103",
     "both sections can be removed once critters and css-select versions are updated in build-angular",
     "for webpack, we use lower version to fix the angular/webpack bug: https://github.com/webpack/webpack/issues/16981 that prevents project from building",
-    "remove webpack override when upgrading Angular to next major version"
+    "remove webpack override when upgrading Angular to v16"
   ],
   "overrides": {
     "@angular-devkit/build-angular": {

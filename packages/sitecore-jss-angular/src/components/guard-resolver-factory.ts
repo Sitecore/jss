@@ -5,7 +5,7 @@ import { ComponentFactoryResult } from '../jss-component-factory.service';
 import { wrapIntoObservable } from '../utils';
 import { JssCanActivate, JssCanActivateFn } from './placeholder.token';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
-import { throwError, of } from 'rxjs';
+import { throwError, of, lastValueFrom } from 'rxjs';
 
 /**
  * @param {boolean | string | string[] | UrlTree} value
@@ -81,18 +81,18 @@ export function guardResolverFactory(
 
     const canActivate$ = wrapIntoObservable(guardValue);
 
-    return canActivate$
-      .pipe(
+    return lastValueFrom(
+      canActivate$.pipe(
         take(1),
         mergeMap((value) => {
           if (isRedirectValue(value)) {
-            return throwError(value);
+            return throwError(() => new Error(value.toString()));
           } else {
             return of(value);
           }
         })
       )
-      .toPromise();
+    );
   }
 
   return function resolveGuards(factories: ComponentFactoryResult[]) {

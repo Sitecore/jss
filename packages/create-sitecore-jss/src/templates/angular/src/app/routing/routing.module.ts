@@ -3,7 +3,7 @@ import { RouterModule, Routes, UrlSegment, UrlMatchResult } from '@angular/route
 import { LayoutComponent } from './layout/layout.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
-import { JssRouteResolver } from './jss-route-resolver.service';
+import { jssRouteResolver } from './jss-route-resolver.service';
 import { JssRouteBuilderService } from './jss-route-builder.service';
 import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { BrowserModule } from '@angular/platform-browser';
@@ -40,7 +40,7 @@ const routes: Routes = [
     matcher: jssRouteMatcher,
     component: LayoutComponent,
     resolve: {
-      jssState: JssRouteResolver
+      jssState: jssRouteResolver
     },
     runGuardsAndResolvers: 'always',
   }
@@ -65,7 +65,6 @@ const routes: Routes = [
     VisitorIdentificationComponent
   ],
   providers: [
-    JssRouteResolver,
     JssRouteBuilderService,
   ]
 })

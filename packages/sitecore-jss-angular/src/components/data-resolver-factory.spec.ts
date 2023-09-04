@@ -36,7 +36,7 @@ describe('dataResolverFactory', () => {
   );
 
   beforeEach(() => {
-    resolver = TestBed.get(DATA_RESOLVER);
+    resolver = TestBed.inject(DATA_RESOLVER);
   });
 
   it('Resolves data from sync, async, literal and type resolvers', (done) => {
