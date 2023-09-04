@@ -4,8 +4,8 @@ import { PackageDefinition, ComponentFile } from '@sitecore-jss/sitecore-jss-dev
 
 export interface ComponentBuilderPluginConfig {
   watch?: boolean;
-  packages?: PackageDefinition[];
-  components?: ComponentFile[];
+  packages: PackageDefinition[];
+  components: ComponentFile[];
 }
 
 export interface ComponentBuilderPlugin {
@@ -39,6 +39,7 @@ export interface ComponentBuilderPlugin {
 const defaultConfig: ComponentBuilderPluginConfig = {
   watch: process.argv.some(arg => arg === '--watch'),
   packages: [],
+  components: [],
 };
 
 (Object.values(plugins) as ComponentBuilderPlugin[])
