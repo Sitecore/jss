@@ -13,10 +13,9 @@ describe('BYOCComponent', () => {
       },
     };
     const wrapper = mount(<BYOCComponent {...mockProps} />);
-    const externalComponent = wrapper.find('Se');
+    const externalComponent = wrapper.find('feaas-external');
     expect(externalComponent).to.have.lengthOf(1);
-    expect(externalComponent.prop('componentName')).to.equal('ExternalComponent');
-    expect(externalComponent.prop('prop1')).to.equal('value1');
+    expect(externalComponent.prop('data-external-id')).to.equal('ExternalComponent');
   });
 });
 
