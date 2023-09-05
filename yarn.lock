@@ -5274,14 +5274,14 @@ __metadata:
     karma-jasmine-html-reporter: ~2.0.0
     ng-packagr: ^15.2.2
     reflect-metadata: ^0.1.13
-    rxjs: ~7.0.0
+    rxjs: ~7.8.1
     tsickle: ^0.46.3
     tslib: ^2.3.1
     typescript: ~4.8.4
     zone.js: ~0.11.8
   peerDependencies:
     "@types/debug": ^4.1.5
-    rxjs: ~7.0.0
+    rxjs: ~7.8.1
   languageName: unknown
   linkType: soft
 
@@ -22704,21 +22704,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^7.2.0, rxjs@npm:^7.5.5, rxjs@npm:^7.5.6":
+"rxjs@npm:^7.2.0, rxjs@npm:^7.5.5, rxjs@npm:^7.5.6, rxjs@npm:~7.8.1":
   version: 7.8.1
   resolution: "rxjs@npm:7.8.1"
   dependencies:
     tslib: ^2.1.0
   checksum: de4b53db1063e618ec2eca0f7965d9137cabe98cf6be9272efe6c86b47c17b987383df8574861bcced18ebd590764125a901d5506082be84a8b8e364bf05f119
-  languageName: node
-  linkType: hard
-
-"rxjs@npm:~7.0.0":
-  version: 7.0.1
-  resolution: "rxjs@npm:7.0.1"
-  dependencies:
-    tslib: ~2.1.0
-  checksum: 04256b9d4b0efd37b20da496681caeb9716736d0a224f7c4f8d19c254dc15696d7a680095e6dbdba243cbeca9a6a770ecc47ebfa8b9b94e2a00ee4231213765d
   languageName: node
   linkType: hard
 
@@ -24696,13 +24687,6 @@ __metadata:
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
   checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad
-  languageName: node
-  linkType: hard
-
-"tslib@npm:~2.1.0":
-  version: 2.1.0
-  resolution: "tslib@npm:2.1.0"
-  checksum: aa189c8179de0427b0906da30926fd53c59d96ec239dff87d6e6bc831f608df0cbd6f77c61dabc074408bd0aa0b9ae4ec35cb2c15f729e32f37274db5730cb78
   languageName: node
   linkType: hard
 
