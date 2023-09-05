@@ -94,14 +94,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   private destroyed = false;
   private parentStyleAttribute = '';
 
-  @Input()
-  set inputs(value: { [key: string]: unknown }) {
-    this._inputs = value;
-    if (!this._differ && value) {
-      this._differ = this.differs.find(value).create();
-    }
-  }
-
   constructor(
     private differs: KeyValueDiffers,
     private componentFactory: JssComponentFactoryService,
@@ -117,6 +109,14 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     // eslint-disable-next-line @typescript-eslint/ban-types
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
+
+  @Input()
+  set inputs(value: { [key: string]: unknown }) {
+    this._inputs = value;
+    if (!this._differ && value) {
+      this._differ = this.differs.find(value).create();
+    }
+  }
 
   ngOnInit() {
     // just to ensure the element exists

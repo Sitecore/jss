@@ -5,6 +5,7 @@ import { take } from 'rxjs/operators';
 import { ComponentFactoryResult } from '../jss-component-factory.service';
 import { wrapIntoObservable } from '../utils';
 import { JssResolve } from './placeholder.token';
+import { lastValueFrom } from 'rxjs';
 
 /**
  * @param {Injector} injector
@@ -56,7 +57,7 @@ export function dataResolverFactory(
     });
     const data$ = wrapIntoObservable(data);
 
-    return data$.pipe(take(1)).toPromise();
+    return lastValueFrom(data$.pipe(take(1)));
   }
 
   return function resolveData(factories: ComponentFactoryResult[]) {

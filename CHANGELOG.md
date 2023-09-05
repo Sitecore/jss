@@ -57,6 +57,15 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Don't let Image component wrap <img> with <a> tag when TargetUrl is not configured. ([#1593](https://github.com/Sitecore/jss/issues/1593))
 * `[template/nextjs]` Next config header plugin for CORS. ([#1597](https://github.com/Sitecore/jss/pull/1597))
 
+### 🛠 Breaking Changes
+
+* `[sitecore-jss-angular]` `[sitecore-jss-angular-schematics]` `[templates/angular]` Angular is updated to v15. This update includes the below major version upgrades and changes. Please make sure your codebase is updated to accomodate the changes in the above dependencies.
+  * Angular update: https://github.com/angular/angular/releases/tag/15.0.0
+  * Angular CLI: https://github.com/angular/angular-cli/releases/tag/15.0.0
+  * Angular ESLint: https://github.com/angular-eslint/angular-eslint/releases/tag/v15.0.0
+  * rxjs: https://rxjs.dev/6-to-7-change-summary
+  * Angular sample has been updated to use ES2022.
+
 ## 21.2.3
 
 ### 🐛 Bug Fixes
