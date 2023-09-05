@@ -1,11 +1,11 @@
-[@sitecore-jss/sitecore-jss-nextjs](../README.md) / [index](../modules/index.md) / BYOCRenderer
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / [index](../modules/index.md) / BYOCComponent
 
-# Class: BYOCRenderer
+# Class: BYOCComponent
 
-[index](../modules/index.md).BYOCRenderer
+[index](../modules/index.md).BYOCComponent
 
-BYOCRenderer helps rendering BYOC components - that can be taken from anywhere
-and registered without being deployed as Sitecore renderings
+BYOCComponent facilitate the rendering of external components. It manages potential errors,
+missing components, and customization of error messages or alternative rendering components.
 
 **`Param`**
 
@@ -13,62 +13,62 @@ component props
 
 ## Hierarchy
 
-- `Component`<[`BYOCRendererProps`](../modules/index.md#byocrendererprops)\>
+- `Component`<[`BYOCComponentProps`](../modules/index.md#byoccomponentprops)\>
 
-  ↳ **`BYOCRenderer`**
+  ↳ **`BYOCComponent`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](index.BYOCRenderer.md#constructor)
+- [constructor](index.BYOCComponent.md#constructor)
 
 ### Properties
 
-- [context](index.BYOCRenderer.md#context)
-- [props](index.BYOCRenderer.md#props)
-- [refs](index.BYOCRenderer.md#refs)
-- [state](index.BYOCRenderer.md#state)
-- [contextType](index.BYOCRenderer.md#contexttype)
+- [context](index.BYOCComponent.md#context)
+- [props](index.BYOCComponent.md#props)
+- [refs](index.BYOCComponent.md#refs)
+- [state](index.BYOCComponent.md#state)
+- [contextType](index.BYOCComponent.md#contexttype)
 
 ### Methods
 
-- [UNSAFE\_componentWillMount](index.BYOCRenderer.md#unsafe_componentwillmount)
-- [UNSAFE\_componentWillReceiveProps](index.BYOCRenderer.md#unsafe_componentwillreceiveprops)
-- [UNSAFE\_componentWillUpdate](index.BYOCRenderer.md#unsafe_componentwillupdate)
-- [componentDidCatch](index.BYOCRenderer.md#componentdidcatch)
-- [componentDidMount](index.BYOCRenderer.md#componentdidmount)
-- [componentDidUpdate](index.BYOCRenderer.md#componentdidupdate)
-- [componentWillMount](index.BYOCRenderer.md#componentwillmount)
-- [componentWillReceiveProps](index.BYOCRenderer.md#componentwillreceiveprops)
-- [componentWillUnmount](index.BYOCRenderer.md#componentwillunmount)
-- [componentWillUpdate](index.BYOCRenderer.md#componentwillupdate)
-- [forceUpdate](index.BYOCRenderer.md#forceupdate)
-- [getSnapshotBeforeUpdate](index.BYOCRenderer.md#getsnapshotbeforeupdate)
-- [render](index.BYOCRenderer.md#render)
-- [setState](index.BYOCRenderer.md#setstate)
-- [shouldComponentUpdate](index.BYOCRenderer.md#shouldcomponentupdate)
-- [getDerivedStateFromError](index.BYOCRenderer.md#getderivedstatefromerror)
+- [UNSAFE\_componentWillMount](index.BYOCComponent.md#unsafe_componentwillmount)
+- [UNSAFE\_componentWillReceiveProps](index.BYOCComponent.md#unsafe_componentwillreceiveprops)
+- [UNSAFE\_componentWillUpdate](index.BYOCComponent.md#unsafe_componentwillupdate)
+- [componentDidCatch](index.BYOCComponent.md#componentdidcatch)
+- [componentDidMount](index.BYOCComponent.md#componentdidmount)
+- [componentDidUpdate](index.BYOCComponent.md#componentdidupdate)
+- [componentWillMount](index.BYOCComponent.md#componentwillmount)
+- [componentWillReceiveProps](index.BYOCComponent.md#componentwillreceiveprops)
+- [componentWillUnmount](index.BYOCComponent.md#componentwillunmount)
+- [componentWillUpdate](index.BYOCComponent.md#componentwillupdate)
+- [forceUpdate](index.BYOCComponent.md#forceupdate)
+- [getSnapshotBeforeUpdate](index.BYOCComponent.md#getsnapshotbeforeupdate)
+- [render](index.BYOCComponent.md#render)
+- [setState](index.BYOCComponent.md#setstate)
+- [shouldComponentUpdate](index.BYOCComponent.md#shouldcomponentupdate)
+- [getDerivedStateFromError](index.BYOCComponent.md#getderivedstatefromerror)
 
 ## Constructors
 
 ### constructor
 
-• **new BYOCRenderer**(`props`)
+• **new BYOCComponent**(`props`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `props` | [`BYOCRendererProps`](../modules/index.md#byocrendererprops) |
+| `props` | [`BYOCComponentProps`](../modules/index.md#byoccomponentprops) |
 
 #### Overrides
 
-React.Component&lt;BYOCRendererProps\&gt;.constructor
+React.Component&lt;BYOCComponentProps\&gt;.constructor
 
 #### Defined in
 
-sitecore-jss-react/types/components/BYOCRenderer.d.ts:68
+sitecore-jss-react/types/components/BYOCComponent.d.ts:58
 
 ## Properties
 
@@ -104,7 +104,7 @@ ___
 
 ### props
 
-• `Readonly` **props**: `Readonly`<[`BYOCRendererProps`](../modules/index.md#byocrendererprops)\>
+• `Readonly` **props**: `Readonly`<[`BYOCComponentProps`](../modules/index.md#byoccomponentprops)\>
 
 #### Inherited from
 
@@ -148,7 +148,7 @@ React.Component.state
 
 #### Defined in
 
-sitecore-jss-react/types/components/BYOCRenderer.d.ts:65
+sitecore-jss-react/types/components/BYOCComponent.d.ts:55
 
 ___
 
@@ -250,7 +250,7 @@ prevents this from being invoked.
 
 | Name | Type |
 | :------ | :------ |
-| `nextProps` | `Readonly`<[`BYOCRendererProps`](../modules/index.md#byocrendererprops)\> |
+| `nextProps` | `Readonly`<[`BYOCComponentProps`](../modules/index.md#byoccomponentprops)\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -293,7 +293,7 @@ prevents this from being invoked.
 
 | Name | Type |
 | :------ | :------ |
-| `nextProps` | `Readonly`<[`BYOCRendererProps`](../modules/index.md#byocrendererprops)\> |
+| `nextProps` | `Readonly`<[`BYOCComponentProps`](../modules/index.md#byoccomponentprops)\> |
 | `nextState` | `Readonly`<{}\> |
 | `nextContext` | `any` |
 
@@ -331,7 +331,7 @@ React.Component.componentDidCatch
 
 #### Defined in
 
-sitecore-jss-react/types/components/BYOCRenderer.d.ts:72
+sitecore-jss-react/types/components/BYOCComponent.d.ts:62
 
 ___
 
@@ -367,7 +367,7 @@ The snapshot is only present if getSnapshotBeforeUpdate is present and returns n
 
 | Name | Type |
 | :------ | :------ |
-| `prevProps` | `Readonly`<[`BYOCRendererProps`](../modules/index.md#byocrendererprops)\> |
+| `prevProps` | `Readonly`<[`BYOCComponentProps`](../modules/index.md#byoccomponentprops)\> |
 | `prevState` | `Readonly`<{}\> |
 | `snapshot?` | `any` |
 
@@ -444,7 +444,7 @@ prevents this from being invoked.
 
 | Name | Type |
 | :------ | :------ |
-| `nextProps` | `Readonly`<[`BYOCRendererProps`](../modules/index.md#byocrendererprops)\> |
+| `nextProps` | `Readonly`<[`BYOCComponentProps`](../modules/index.md#byoccomponentprops)\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -506,7 +506,7 @@ prevents this from being invoked.
 
 | Name | Type |
 | :------ | :------ |
-| `nextProps` | `Readonly`<[`BYOCRendererProps`](../modules/index.md#byocrendererprops)\> |
+| `nextProps` | `Readonly`<[`BYOCComponentProps`](../modules/index.md#byoccomponentprops)\> |
 | `nextState` | `Readonly`<{}\> |
 | `nextContext` | `any` |
 
@@ -563,7 +563,7 @@ lifecycle events from running.
 
 | Name | Type |
 | :------ | :------ |
-| `prevProps` | `Readonly`<[`BYOCRendererProps`](../modules/index.md#byocrendererprops)\> |
+| `prevProps` | `Readonly`<[`BYOCComponentProps`](../modules/index.md#byoccomponentprops)\> |
 | `prevState` | `Readonly`<{}\> |
 
 #### Returns
@@ -594,7 +594,7 @@ React.Component.render
 
 #### Defined in
 
-sitecore-jss-react/types/components/BYOCRenderer.d.ts:73
+sitecore-jss-react/types/components/BYOCComponent.d.ts:63
 
 ___
 
@@ -612,7 +612,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `state` | ``null`` \| {} \| (`prevState`: `Readonly`<{}\>, `props`: `Readonly`<[`BYOCRendererProps`](../modules/index.md#byocrendererprops)\>) => ``null`` \| {} \| `Pick`<{}, `K`\> \| `Pick`<{}, `K`\> |
+| `state` | ``null`` \| {} \| (`prevState`: `Readonly`<{}\>, `props`: `Readonly`<[`BYOCComponentProps`](../modules/index.md#byoccomponentprops)\>) => ``null`` \| {} \| `Pick`<{}, `K`\> \| `Pick`<{}, `K`\> |
 | `callback?` | () => `void` |
 
 #### Returns
@@ -646,7 +646,7 @@ and `componentDidUpdate` will not be called.
 
 | Name | Type |
 | :------ | :------ |
-| `nextProps` | `Readonly`<[`BYOCRendererProps`](../modules/index.md#byocrendererprops)\> |
+| `nextProps` | `Readonly`<[`BYOCComponentProps`](../modules/index.md#byoccomponentprops)\> |
 | `nextState` | `Readonly`<{}\> |
 | `nextContext` | `any` |
 
@@ -684,4 +684,4 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/BYOCRenderer.d.ts:69
+sitecore-jss-react/types/components/BYOCComponent.d.ts:59
