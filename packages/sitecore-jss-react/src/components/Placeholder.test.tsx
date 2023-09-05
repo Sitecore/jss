@@ -371,7 +371,7 @@ describe('<Placeholder />', () => {
     });
   });
 
-  describe('BYOC', () => {
+  describe('BYOC fallback', () => {
     let byocComponentStub;
     let byocWrapperStub;
 
@@ -404,7 +404,7 @@ describe('<Placeholder />', () => {
     });
   });
 
-  describe('FEaaS', () => {
+  describe('FEaaS fallback', () => {
     let feaasComponentStub;
     let feaasWrapperStub;
 
