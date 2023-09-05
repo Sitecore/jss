@@ -6,17 +6,8 @@ import { BYOCWrapper } from './BYOCWrapper';
 import * as BYOCComponent from './BYOCComponent';
 
 describe('<BYOCWrapper />', () => {
-  let byocComponentStub;
-
-  beforeEach(() => {
-    byocComponentStub = stub(BYOCComponent, 'BYOCComponent').callsFake(() => <p>Foo</p>);
-  });
-
-  afterEach(() => {
-    byocComponentStub.restore();
-  });
-
   it('should render', () => {
+    const byocComponentStub = stub(BYOCComponent, 'BYOCComponent').callsFake(() => <p>Foo</p>);
     const mockProps = {
       params: {
         ComponentName: 'xxx',
@@ -41,5 +32,7 @@ describe('<BYOCWrapper />', () => {
     expect(root).to.have.lengthOf(1);
     expect(root.props().className).to.equal('bar car');
     expect(root.props().id).to.equal('foo-id');
+
+    byocComponentStub.restore();
   });
 });

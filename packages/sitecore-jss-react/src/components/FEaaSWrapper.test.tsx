@@ -5,7 +5,6 @@ import { mount } from 'enzyme';
 import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
 import { FEaaSWrapper } from './FEaaSWrapper';
 import * as FEaaSComponent from './FEaaSComponent';
-import { afterEach } from 'node:test';
 
 describe('<FEaaSWrapper />', () => {
   const params: FEaaSComponent.FEaaSComponentParams = {
@@ -29,17 +28,9 @@ describe('<FEaaSWrapper />', () => {
     baz: 42,
   };
 
-  let feaasComponentStub;
-
-  beforeEach(() => {
-    feaasComponentStub = stub(FEaaSComponent, 'FEaaSComponent').callsFake(() => <p>Foo</p>);
-  });
-
-  afterEach(() => {
-    feaasComponentStub.restore();
-  });
-
   it('should render', () => {
+    const feaasComponentStub = stub(FEaaSComponent, 'FEaaSComponent').callsFake(() => <p>Foo</p>);
+
     const mockProps: FEaaSComponent.FEaaSComponentProps = {
       params,
       fields,
@@ -73,5 +64,7 @@ describe('<FEaaSWrapper />', () => {
     expect(root).to.have.lengthOf(1);
     expect(root.props().className).to.equal('component feaas foo bar');
     expect(root.props().id).to.equal('foo-id');
+
+    feaasComponentStub.restore();
   });
 });
