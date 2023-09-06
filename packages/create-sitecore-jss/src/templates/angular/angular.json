@@ -46,7 +46,19 @@
               ],
               "baseHref": "/",
               "aot": true,
-              "optimization": true,
+              "//": [
+                "The below configuration is a workaround for Angular CLI bug to be fixed with Angular v16",
+                "The warnings will be absent during build but may occur in jss connected mode. Check below for possible fixes",
+                "https://github.com/ng-bootstrap/ng-bootstrap/issues/4306"
+              ],
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": true
+              },
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
