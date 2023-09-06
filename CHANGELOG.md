@@ -17,7 +17,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Changes
 
-* `[sitecore-jss-angular]` `[sitecore-jss-angular-schematics]` `[templates/angular]` Angular is updated to v15. This update includes the below major version upgrades and changes. Please make sure your codebase is updated to accomodate the changes in the above dependencies.
+* `[sitecore-jss-angular]` `[sitecore-jss-angular-schematics]` `[templates/angular]` Angular is updated to v15. This update includes the below major version upgrades and changes. Please make sure your codebase is updated to accomodate the changes in the above dependencies. ([#1604](https://github.com/Sitecore/jss/pull/1604) [#1607](https://github.com/Sitecore/jss/pull/1607))
   * Angular update: https://github.com/angular/angular/releases/tag/15.0.0
   * Angular CLI: https://github.com/angular/angular-cli/releases/tag/15.0.0
   * Angular ESLint: https://github.com/angular-eslint/angular-eslint/releases/tag/v15.0.0
