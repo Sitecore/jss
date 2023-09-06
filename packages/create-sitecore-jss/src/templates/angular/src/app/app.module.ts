@@ -1,4 +1,4 @@
-import { BrowserModule, BrowserTransferStateModule, TransferState } from '@angular/platform-browser';
+import { BrowserModule, TransferState } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -18,7 +18,6 @@ import { JssMetaService } from './jss-meta.service';
   imports: [
     // withServerTransition is needed to enable universal rendering
     BrowserModule.withServerTransition({ appId: 'my-app' }),
-    BrowserTransferStateModule,
     HttpClientModule,
     GraphQLModule,
     RoutingModule,
