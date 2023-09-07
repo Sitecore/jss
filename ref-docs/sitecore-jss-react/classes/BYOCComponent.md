@@ -66,7 +66,7 @@ React.Component&lt;BYOCComponentProps\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:69](https://github.com/Sitecore/jss/blob/120a81ae5/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L69)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:69](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L69)
 
 ## Properties
 
@@ -146,7 +146,7 @@ React.Component.state
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:67](https://github.com/Sitecore/jss/blob/120a81ae5/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L67)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:67](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L67)
 
 ___
 
@@ -329,7 +329,7 @@ React.Component.componentDidCatch
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:79](https://github.com/Sitecore/jss/blob/120a81ae5/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L79)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:79](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L79)
 
 ___
 
@@ -592,7 +592,7 @@ React.Component.render
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:83](https://github.com/Sitecore/jss/blob/120a81ae5/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L83)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:83](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L83)
 
 ___
 
@@ -682,4 +682,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:74](https://github.com/Sitecore/jss/blob/120a81ae5/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L74)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:74](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L74)
