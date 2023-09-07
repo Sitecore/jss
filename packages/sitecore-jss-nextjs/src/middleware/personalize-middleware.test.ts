@@ -6,7 +6,7 @@ import sinonChai from 'sinon-chai';
 import sinon, { spy } from 'sinon';
 import nextjs, { NextRequest, NextResponse } from 'next/server';
 import { debug } from '@sitecore-jss/sitecore-jss';
-import { ExperienceParams } from '@sitecore-jss/sitecore-jss/personalize';
+import { ExperienceParams } from './personalize-middleware';
 import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { PersonalizeMiddleware } from './personalize-middleware';
 
@@ -31,7 +31,6 @@ describe('PersonalizeMiddleware', () => {
   const id = 'item-id';
   const version = '1';
   const variantIds = ['variant-1', 'variant-2'];
-  const browserId = 'browser-id';
   const contentId = `${id}_en_${version}`.toLowerCase();
   const defaultLang = 'en';
   const pointOfSale = 'cdp-pos';
@@ -41,9 +40,9 @@ describe('PersonalizeMiddleware', () => {
     referrer,
     utm: {
       campaign: 'utm_campaign',
-      content: null,
-      medium: null,
-      source: null,
+      content: undefined,
+      medium: undefined,
+      source: undefined,
     },
   };
 
@@ -57,9 +56,9 @@ describe('PersonalizeMiddleware', () => {
           get(key) {
             return {
               utm_campaign: 'utm_campaign',
-              utm_content: null,
-              utm_medium: null,
-              utm_source: null,
+              utm_content: undefined,
+              utm_medium: undefined,
+              utm_source: undefined,
             }[key];
           },
         },
@@ -71,7 +70,7 @@ describe('PersonalizeMiddleware', () => {
       cookies: {
         get(cookieName: string) {
           const cookies = {
-            'BID_cdp-client-key': 'browser-id',
+            'bid_cdp-client-key': 'browser-id',
             ...props.cookieValues,
           };
 
@@ -137,17 +136,16 @@ describe('PersonalizeMiddleware', () => {
       [key: string]: unknown;
       language?: string;
       siteResolver?: SiteResolver;
-      cdpConfig?: any;
       edgeConfig?: any;
+      cdpConfig?: any;
       variantId?: string;
-      browserId?: string;
       personalizeInfo?: {
         contentId: string;
         variantIds: string[];
       } | null;
-      executeExperienceStub?: sinon.SinonStub;
-      generateBrowserIdStub?: sinon.SinonStub;
       getPersonalizeInfoStub?: sinon.SinonStub;
+      getVariantIdStub?: sinon.SinonStub;
+      handleCookieStub?: sinon.SinonStub;
     } = {}
   ) => {
     const cdpConfig = {
@@ -155,7 +153,6 @@ describe('PersonalizeMiddleware', () => {
       endpoint: 'http://cdp-endpoint',
       ...(props?.cdpConfig || {}),
     };
-
     const edgeConfig = {
       apiKey: 'edge-api-key',
       endpoint: 'http://edge-endpoint/api/graph/edge',
@@ -191,11 +188,11 @@ describe('PersonalizeMiddleware', () => {
       edgeConfig,
     });
 
-    const executeExperience = (middleware['cdpService']['executeExperience'] =
-      props.executeExperienceStub || sinon.stub().returns(Promise.resolve(props.variantId)));
+    const getVariantId = (middleware['getVariantId'] =
+      props.getVariantIdStub || sinon.stub().returns(Promise.resolve(props.variantId)));
 
-    const generateBrowserId = (middleware['cdpService']['generateBrowserId'] =
-      props.generateBrowserIdStub || sinon.stub().returns(Promise.resolve(props.browserId)));
+    const handleCookie = (middleware['handleCookie'] =
+      props.handleCookieStub || sinon.stub().returns(Promise.resolve()));
 
     const getPersonalizeInfo = (middleware['personalizeService']['getPersonalizeInfo'] =
       props.getPersonalizeInfoStub ||
@@ -212,8 +209,8 @@ describe('PersonalizeMiddleware', () => {
 
     return {
       middleware,
-      executeExperience,
-      generateBrowserId,
+      getVariantId,
+      handleCookie,
       getPersonalizeInfo,
       siteResolver,
     };
@@ -243,12 +240,9 @@ describe('PersonalizeMiddleware', () => {
 
       const { middleware } = createMiddleware(props);
 
-      const getCookiesSpy = spy(req.cookies, 'get');
-
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -256,11 +250,7 @@ describe('PersonalizeMiddleware', () => {
 
       validateDebugLog('skipped (personalize middleware is disabled)');
 
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
       expect(finalRes).to.deep.equal(res);
-
-      getCookiesSpy.restore();
     });
 
     it('redirected', async () => {
@@ -270,12 +260,9 @@ describe('PersonalizeMiddleware', () => {
 
       const { middleware } = createMiddleware();
 
-      const getCookiesSpy = spy(req.cookies, 'get');
-
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -283,11 +270,7 @@ describe('PersonalizeMiddleware', () => {
 
       validateDebugLog('skipped (%s)', 'redirected');
 
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
       expect(finalRes).to.deep.equal(res);
-
-      getCookiesSpy.restore();
     });
 
     describe('preview', () => {
@@ -307,7 +290,6 @@ describe('PersonalizeMiddleware', () => {
         const finalRes = await middleware.getHandler()(req, res);
 
         validateDebugLog('personalize middleware start: %o', {
-          browserId: 'browser-id',
           hostname: 'foo.net',
           pathname: '/styleguide',
           language: 'en',
@@ -315,12 +297,9 @@ describe('PersonalizeMiddleware', () => {
 
         validateDebugLog('skipped (%s)', 'preview');
 
-        expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
         expect(getCookiesSpy.calledWith('__prerender_bypass')).to.be.true;
 
         expect(finalRes).to.deep.equal(res);
-
-        getCookiesSpy.restore();
       });
 
       it('preview data cookie is present', async () => {
@@ -339,7 +318,6 @@ describe('PersonalizeMiddleware', () => {
         const finalRes = await middleware.getHandler()(req, res);
 
         validateDebugLog('personalize middleware start: %o', {
-          browserId: 'browser-id',
           hostname: 'foo.net',
           pathname: '/styleguide',
           language: 'en',
@@ -347,13 +325,10 @@ describe('PersonalizeMiddleware', () => {
 
         validateDebugLog('skipped (%s)', 'preview');
 
-        expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
         expect(getCookiesSpy.calledWith('__prerender_bypass')).to.be.true;
         expect(getCookiesSpy.calledWith('__next_preview_data')).to.be.true;
 
         expect(finalRes).to.deep.equal(res);
-
-        getCookiesSpy.restore();
       });
     });
 
@@ -367,12 +342,9 @@ describe('PersonalizeMiddleware', () => {
           },
         });
 
-        const getCookiesSpy = spy(req.cookies, 'get');
-
         const finalRes = await middleware.getHandler()(req, res);
 
         validateDebugLog('personalize middleware start: %o', {
-          browserId: 'browser-id',
           hostname: 'foo.net',
           pathname,
           language: 'en',
@@ -380,11 +352,8 @@ describe('PersonalizeMiddleware', () => {
 
         validateDebugLog('skipped (%s)', 'route excluded');
 
-        expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
         expect(finalRes).to.deep.equal(res);
 
-        getCookiesSpy.restore();
         debugSpy.resetHistory();
       };
 
@@ -421,12 +390,9 @@ describe('PersonalizeMiddleware', () => {
         personalizeInfo: null,
       });
 
-      const getCookiesSpy = spy(req.cookies, 'get');
-
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -436,11 +402,7 @@ describe('PersonalizeMiddleware', () => {
 
       validateDebugLog('skipped (personalize info not found)');
 
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
       expect(finalRes).to.deep.equal(res);
-
-      getCookiesSpy.restore();
     });
 
     it('no personalization configured', async () => {
@@ -455,12 +417,9 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      const getCookiesSpy = spy(req.cookies, 'get');
-
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -470,46 +429,7 @@ describe('PersonalizeMiddleware', () => {
 
       validateDebugLog('skipped (no personalization configured)');
 
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
       expect(finalRes).to.deep.equal(res);
-
-      getCookiesSpy.restore();
-    });
-
-    it('browser id generation failed', async () => {
-      const req = createRequest({
-        cookieValues: { 'BID_cdp-client-key': undefined },
-      });
-
-      const res = createResponse();
-
-      const { middleware, generateBrowserId, getPersonalizeInfo } = createMiddleware({
-        browserId: undefined,
-      });
-
-      const getCookiesSpy = spy(req.cookies, 'get');
-
-      const finalRes = await middleware.getHandler()(req, res);
-
-      validateDebugLog('personalize middleware start: %o', {
-        browserId: undefined,
-        hostname: 'foo.net',
-        pathname: '/styleguide',
-        language: 'en',
-      });
-
-      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
-
-      expect(generateBrowserId.calledOnce).to.be.true;
-
-      validateDebugLog('skipped (browser id generation failed)');
-
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
-      expect(finalRes).to.deep.equal(res);
-
-      getCookiesSpy.restore();
     });
 
     it('no variant identified', async () => {
@@ -517,16 +437,13 @@ describe('PersonalizeMiddleware', () => {
 
       const res = createResponse();
 
-      const { middleware, executeExperience, getPersonalizeInfo } = createMiddleware({
+      const { middleware, getVariantId, getPersonalizeInfo } = createMiddleware({
         variantId: undefined,
       });
-
-      const getCookiesSpy = spy(req.cookies, 'get');
 
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -534,16 +451,11 @@ describe('PersonalizeMiddleware', () => {
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
-        .to.be.true;
+      expect(getVariantId.calledOnce).to.be.true;
 
       validateDebugLog('skipped (no variant identified)');
 
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
       expect(finalRes).to.deep.equal(res);
-
-      getCookiesSpy.restore();
     });
 
     it('invalid variant', async () => {
@@ -551,152 +463,28 @@ describe('PersonalizeMiddleware', () => {
 
       const res = createResponse();
 
-      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
+      const { middleware, getVariantId, getPersonalizeInfo } = createMiddleware({
         variantId: 'invalid-variant',
       });
-
-      const getCookiesSpy = spy(req.cookies, 'get');
 
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
       });
-
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
-        .to.be.true;
+      expect(getVariantId.calledOnce).to.be.true;
 
       validateDebugLog('skipped (invalid variant)');
 
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
       expect(finalRes).to.deep.equal(res);
-
-      getCookiesSpy.restore();
     });
   });
 
   describe('request passed', () => {
-    it('browser id is present in cookies', async () => {
-      const req = createRequest({
-        cookieValues: {
-          'BID_cdp-client-key': 'browser-id',
-        },
-      });
-
-      const res = createResponse();
-
-      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
-
-      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
-        variantId: 'variant-2',
-      });
-
-      const getCookiesSpy = spy(req.cookies, 'get');
-
-      const finalRes = await middleware.getHandler()(req, res);
-
-      validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
-        hostname: 'foo.net',
-        pathname: '/styleguide',
-        language: 'en',
-      });
-
-      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
-
-      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
-        .to.be.true;
-
-      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
-        rewritePath: '/_variantId_variant-2/styleguide',
-        browserId: 'browser-id',
-        headers: {
-          ...res.headers,
-          'x-middleware-cache': 'no-cache',
-          'x-sc-rewrite': '/_variantId_variant-2/styleguide',
-        },
-      });
-
-      expect(siteResolver.getByHost).to.be.calledWith(hostname);
-
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
-      expect(finalRes).to.deep.equal(res);
-
-      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
-
-      getCookiesSpy.restore();
-      nextRewriteStub.restore();
-    });
-
-    it('browser id is not present in cookies', async () => {
-      const req = createRequest({
-        cookieValues: {
-          'BID_cdp-client-key': undefined,
-        },
-      });
-
-      const res = createResponse();
-
-      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
-
-      const {
-        middleware,
-        generateBrowserId,
-        getPersonalizeInfo,
-        executeExperience,
-        siteResolver,
-      } = createMiddleware({
-        browserId,
-        variantId: 'variant-2',
-      });
-
-      const getCookiesSpy = spy(req.cookies, 'get');
-
-      const finalRes = await middleware.getHandler()(req, res);
-
-      validateDebugLog('personalize middleware start: %o', {
-        browserId: undefined,
-        hostname: 'foo.net',
-        pathname: '/styleguide',
-        language: 'en',
-      });
-
-      expect(generateBrowserId.calledOnce).to.be.true;
-
-      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
-
-      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
-        .to.be.true;
-
-      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
-        rewritePath: '/_variantId_variant-2/styleguide',
-        browserId: 'browser-id',
-        headers: {
-          ...res.headers,
-          'x-middleware-cache': 'no-cache',
-          'x-sc-rewrite': '/_variantId_variant-2/styleguide',
-        },
-      });
-
-      expect(siteResolver.getByHost).to.be.calledWith(hostname);
-
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
-      expect(finalRes).to.deep.equal(res);
-
-      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
-
-      getCookiesSpy.restore();
-      nextRewriteStub.restore();
-    });
-
     it('fallback defaultLocale is used', async () => {
       const contentId = `${id}_da-dk_${version}`;
       const language = 'da-DK';
@@ -711,7 +499,7 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
+      const { middleware, getPersonalizeInfo, getVariantId, siteResolver } = createMiddleware({
         language,
         variantId: 'variant-2',
         personalizeInfo: {
@@ -720,12 +508,9 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      const getCookiesSpy = spy(req.cookies, 'get');
-
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: language,
@@ -733,12 +518,10 @@ describe('PersonalizeMiddleware', () => {
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'da-DK')).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
-        .to.be.true;
+      expect(getVariantId.calledOnce).to.be.true;
 
       validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
-        browserId: 'browser-id',
         headers: {
           ...res.headers,
           'x-middleware-cache': 'no-cache',
@@ -748,13 +531,8 @@ describe('PersonalizeMiddleware', () => {
 
       expect(siteResolver.getByHost).to.be.calledWith(hostname);
 
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
       expect(finalRes).to.deep.equal(res);
 
-      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
-
-      getCookiesSpy.restore();
       nextRewriteStub.restore();
     });
 
@@ -770,16 +548,12 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
+      const { middleware, getPersonalizeInfo, getVariantId, siteResolver } = createMiddleware({
         variantId: 'variant-2',
       });
-
-      const getCookiesSpy = spy(req.cookies, 'get');
-
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -787,12 +561,10 @@ describe('PersonalizeMiddleware', () => {
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
-        .to.be.true;
+      expect(getVariantId.calledOnce).to.be.true;
 
       validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
-        browserId: 'browser-id',
         headers: {
           ...res.headers,
           'x-middleware-cache': 'no-cache',
@@ -802,13 +574,8 @@ describe('PersonalizeMiddleware', () => {
 
       expect(siteResolver.getByHost).to.be.calledWith(hostname);
 
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
       expect(finalRes).to.deep.equal(res);
 
-      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
-
-      getCookiesSpy.restore();
       nextRewriteStub.restore();
     });
 
@@ -819,21 +586,17 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
+      const { middleware, getPersonalizeInfo, getVariantId, siteResolver } = createMiddleware({
         variantId: 'variant-2',
       });
-
-      const getCookiesSpy = spy(req.cookies, 'get');
 
       const finalRes = await middleware.getHandler()(req);
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
-        .to.be.true;
+      expect(getVariantId.calledOnce).to.be.true;
 
       validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -841,7 +604,6 @@ describe('PersonalizeMiddleware', () => {
 
       validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
-        browserId: 'browser-id',
         headers: {
           ...res.headers,
           'x-middleware-cache': 'no-cache',
@@ -851,17 +613,12 @@ describe('PersonalizeMiddleware', () => {
 
       expect(siteResolver.getByHost).to.be.calledWith(hostname);
 
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
       expect(finalRes).to.deep.equal(res);
 
-      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
-
-      getCookiesSpy.restore();
       nextRewriteStub.restore();
     });
 
-    it('optional experiece params are not present', async () => {
+    it('optional experience params are not present', async () => {
       userAgentStub.returns({ ua: '' } as any);
 
       const req = createRequest({ headerValues: { referer: null } });
@@ -870,16 +627,13 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
+      const { middleware, getPersonalizeInfo, getVariantId, siteResolver } = createMiddleware({
         variantId: 'variant-2',
       });
-
-      const getCookiesSpy = spy(req.cookies, 'get');
 
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -887,21 +641,10 @@ describe('PersonalizeMiddleware', () => {
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      expect(
-        executeExperience.calledWith(contentId, browserId, '', pointOfSale, {
-          referrer: 'about:client',
-          utm: {
-            campaign: 'utm_campaign',
-            content: null,
-            medium: null,
-            source: null,
-          },
-        })
-      ).to.be.true;
+      expect(getVariantId.calledOnce).to.be.true;
 
       validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
-        browserId: 'browser-id',
         headers: {
           ...res.headers,
           'x-middleware-cache': 'no-cache',
@@ -911,13 +654,8 @@ describe('PersonalizeMiddleware', () => {
 
       expect(siteResolver.getByHost).to.be.calledWith(hostname);
 
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
       expect(finalRes).to.deep.equal(res);
 
-      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
-
-      getCookiesSpy.restore();
       nextRewriteStub.restore();
     });
 
@@ -932,16 +670,13 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
+      const { middleware, getPersonalizeInfo, getVariantId, siteResolver } = createMiddleware({
         variantId: 'variant-2',
       });
-
-      const getCookiesSpy = spy(req.cookies, 'get');
 
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -949,12 +684,10 @@ describe('PersonalizeMiddleware', () => {
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en', 'foo')).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
-        .to.be.true;
+      expect(getVariantId.calledOnce).to.be.true;
 
       validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
-        browserId: 'browser-id',
         headers: {
           ...res.headers,
           'x-middleware-cache': 'no-cache',
@@ -965,13 +698,8 @@ describe('PersonalizeMiddleware', () => {
       expect(siteResolver.getByHost).not.called.to.equal(true);
       expect(siteResolver.getByName).calledOnceWith('foo');
 
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
       expect(finalRes).to.deep.equal(res);
 
-      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
-
-      getCookiesSpy.restore();
       nextRewriteStub.restore();
     });
 
@@ -985,16 +713,13 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
+      const { middleware, getPersonalizeInfo, getVariantId, siteResolver } = createMiddleware({
         variantId: 'variant-2',
       });
-
-      const getCookiesSpy = spy(req.cookies, 'get');
 
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -1002,12 +727,10 @@ describe('PersonalizeMiddleware', () => {
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
-        .to.be.true;
+      expect(getVariantId.calledOnce).to.be.true;
 
       validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/_site_nextjs-app/styleguide',
-        browserId: 'browser-id',
         headers: {
           ...res.headers,
           'x-middleware-cache': 'no-cache',
@@ -1017,13 +740,8 @@ describe('PersonalizeMiddleware', () => {
 
       expect(siteResolver.getByHost).to.be.calledWith(hostname);
 
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
       expect(finalRes).to.deep.equal(res);
 
-      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
-
-      getCookiesSpy.restore();
       nextRewriteStub.restore();
     });
 
@@ -1037,16 +755,13 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
+      const { middleware, getPersonalizeInfo, getVariantId, siteResolver } = createMiddleware({
         variantId: 'variant-2',
       });
-
-      const getCookiesSpy = spy(req.cookies, 'get');
 
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
         hostname: 'localhost',
         pathname: '/styleguide',
         language: 'en',
@@ -1054,12 +769,10 @@ describe('PersonalizeMiddleware', () => {
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
-        .to.be.true;
+      expect(getVariantId.calledOnce).to.be.true;
 
       validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
-        browserId: 'browser-id',
         headers: {
           ...res.headers,
           'x-middleware-cache': 'no-cache',
@@ -1069,13 +782,8 @@ describe('PersonalizeMiddleware', () => {
 
       expect(siteResolver.getByHost).to.be.calledWith('localhost');
 
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
       expect(finalRes).to.deep.equal(res);
 
-      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
-
-      getCookiesSpy.restore();
       nextRewriteStub.restore();
     });
 
@@ -1089,30 +797,31 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience, siteResolver } = createMiddleware({
+      const {
+        middleware,
+        getPersonalizeInfo,
+        getVariantId,
+        handleCookie,
+        siteResolver,
+      } = createMiddleware({
         variantId: 'variant-2',
         defaultHostname: 'foobar',
       });
 
-      const getCookiesSpy = spy(req.cookies, 'get');
-
       const finalRes = await middleware.getHandler()(req, res);
 
+      expect(handleCookie.calledOnce).to.be.true;
+      expect(getVariantId.calledOnce).to.be.true;
+
       validateDebugLog('personalize middleware start: %o', {
-        browserId: 'browser-id',
         hostname: 'foobar',
         pathname: '/styleguide',
         language: 'en',
       });
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
-
-      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
-        .to.be.true;
-
       validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
-        browserId: 'browser-id',
         headers: {
           ...res.headers,
           'x-middleware-cache': 'no-cache',
@@ -1122,13 +831,8 @@ describe('PersonalizeMiddleware', () => {
 
       expect(siteResolver.getByHost).to.be.calledWith('foobar');
 
-      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
-
       expect(finalRes).to.deep.equal(res);
 
-      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
-
-      getCookiesSpy.restore();
       nextRewriteStub.restore();
     });
   });
@@ -1153,41 +857,19 @@ describe('PersonalizeMiddleware', () => {
       errorSpy.restore();
     });
 
-    it('should log error when executeExperience throws', async () => {
-      const error = new Error('CDP executeExperience fails');
+    it('should log error when getVariantId throws', async () => {
+      const error = new Error('CDP getVariantId fails');
 
-      const executeExperienceWithError = sinon.stub().throws(error);
+      const getVariantIdWithError = sinon.stub().throws(error);
 
-      const { middleware, executeExperience } = createMiddleware({
-        executeExperienceStub: executeExperienceWithError,
+      const { middleware, handleCookie, getVariantId } = createMiddleware({
+        getVariantIdStub: getVariantIdWithError,
       });
 
       const finalRes = await middleware.getHandler()(req, res);
 
-      expect(executeExperience.called).to.be.true;
-
-      expect(errorSpy.getCall(0).calledWith('Personalize middleware failed:')).to.be.true;
-      expect(errorSpy.getCall(1).calledWith(error)).to.be.true;
-
-      expect(finalRes).to.deep.equal(res);
-    });
-
-    it('should log error when generateBrowserId throws', async () => {
-      const error = new Error('CDP generateBrowserId fails');
-      const req = createRequest({
-        cookieValues: { 'BID_cdp-client-key': undefined },
-      });
-
-      const generateBrowserIdWithError = sinon.stub().throws(error);
-
-      const { middleware, generateBrowserId } = createMiddleware({
-        browserId: undefined,
-        generateBrowserIdStub: generateBrowserIdWithError,
-      });
-
-      const finalRes = await middleware.getHandler()(req, res);
-
-      expect(generateBrowserId.called).to.be.true;
+      expect(handleCookie.calledOnce).to.be.true;
+      expect(getVariantId.calledOnce).to.be.true;
 
       expect(errorSpy.getCall(0).calledWith('Personalize middleware failed:')).to.be.true;
       expect(errorSpy.getCall(1).calledWith(error)).to.be.true;
