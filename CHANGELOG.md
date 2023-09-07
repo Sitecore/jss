@@ -55,7 +55,8 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Fix styles of Image component for Banner variant when we try to edit image in EE for Basic Site ([#1588](https://github.com/Sitecore/jss/pull/1588)) ([#1596](https://github.com/Sitecore/jss/pull/1596))
 * `[templates/nextjs-sxa]` Fix style for main layout(horizontal scrollbar). ([#1589](https://github.com/Sitecore/jss/pull/1589))
 * `[templates/nextjs-sxa]` Don't let Image component wrap <img> with <a> tag when TargetUrl is not configured. ([#1593](https://github.com/Sitecore/jss/issues/1593))
-* `[template/nextjs]` Next config header plugin for CORS. ([#1597](https://github.com/Sitecore/jss/pull/1597))
+* `[templates/nextjs]` Next config header plugin for CORS. ([#1597](https://github.com/Sitecore/jss/pull/1597))
+* `[templates/nextjs]` Ensure dictionary data is only fetched when layout data is present for a route ([#1608](https://github.com/Sitecore/jss/pull/1608)) 
 
 ### 🛠 Breaking Changes
 
