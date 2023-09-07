@@ -93,9 +93,11 @@
 
 ### Functions
 
+- [BYOCWrapper](README.md#byocwrapper)
 - [DateField](README.md#datefield)
 - [EditFrame](README.md#editframe)
 - [FEaaSComponent](README.md#feaascomponent)
+- [FEaaSWrapper](README.md#feaaswrapper)
 - [File](README.md#file)
 - [Image](README.md#image)
 - [Link](README.md#link)
@@ -136,7 +138,7 @@ Data from rendering params on Sitecore's BYOC rendering
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:10](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L10)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:12](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L12)
 
 ___
 
@@ -157,7 +159,7 @@ Props for BYOCComponent. Includes components list to load external components fr
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:29](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L29)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:31](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L31)
 
 ___
 
@@ -181,7 +183,7 @@ Configuration for ComponentBuilder
 
 #### Defined in
 
-[sitecore-jss-react/src/ComponentBuilder.ts:7](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/ComponentBuilder.ts#L7)
+[sitecore-jss-react/src/ComponentBuilder.ts:7](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/ComponentBuilder.ts#L7)
 
 ___
 
@@ -206,7 +208,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/sharedTypes.ts:7](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/sharedTypes.ts#L7)
+[sitecore-jss-react/src/components/sharedTypes.ts:7](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/sharedTypes.ts#L7)
 
 ___
 
@@ -261,7 +263,7 @@ Params from a Sitecore FEaaS rendering
 
 #### Defined in
 
-[sitecore-jss-react/src/components/FEaaSComponent.tsx:11](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L11)
+[sitecore-jss-react/src/components/FEaaSComponent.tsx:11](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L11)
 
 ___
 
@@ -271,7 +273,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/FEaaSComponent.tsx:59](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L59)
+[sitecore-jss-react/src/components/FEaaSComponent.tsx:59](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L59)
 
 ___
 
@@ -291,7 +293,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:23](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/Link.tsx#L23)
+[sitecore-jss-react/src/components/Link.tsx:23](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/Link.tsx#L23)
 
 ___
 
@@ -301,7 +303,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:26](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L26)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:26](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L26)
 
 ___
 
@@ -327,7 +329,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:17](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L17)
+[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:17](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L17)
 
 ## Variables
 
@@ -385,7 +387,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:129](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/Link.tsx#L129)
+[sitecore-jss-react/src/components/Link.tsx:129](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/Link.tsx#L129)
 
 ___
 
@@ -403,7 +405,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/RichText.tsx:44](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/RichText.tsx#L44)
+[sitecore-jss-react/src/components/RichText.tsx:44](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/RichText.tsx#L44)
 
 ___
 
@@ -413,9 +415,29 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:19](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L19)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:19](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L19)
 
 ## Functions
+
+### BYOCWrapper
+
+▸ **BYOCWrapper**(`props`): `Element`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `props` | [`BYOCComponentProps`](README.md#byoccomponentprops) |
+
+#### Returns
+
+`Element`
+
+#### Defined in
+
+[sitecore-jss-react/src/components/BYOCWrapper.tsx:6](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/BYOCWrapper.tsx#L6)
+
+___
 
 ### DateField
 
@@ -475,7 +497,27 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/FEaaSComponent.tsx:64](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L64)
+[sitecore-jss-react/src/components/FEaaSComponent.tsx:64](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L64)
+
+___
+
+### FEaaSWrapper
+
+▸ **FEaaSWrapper**(`props`): `Element`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `props` | [`FEaaSComponentProps`](README.md#feaascomponentprops) |
+
+#### Returns
+
+`Element`
+
+#### Defined in
+
+[sitecore-jss-react/src/components/FEaaSWrapper.tsx:6](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/FEaaSWrapper.tsx#L6)
 
 ___
 
@@ -561,7 +603,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withComponentFactory.tsx:20](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/enhancers/withComponentFactory.tsx#L20)
+[sitecore-jss-react/src/enhancers/withComponentFactory.tsx:20](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/enhancers/withComponentFactory.tsx#L20)
 
 ___
 
@@ -671,7 +713,7 @@ Component endpoint will either be retrieved from params or from endpointOverride
 
 #### Defined in
 
-[sitecore-jss-react/src/components/FEaaSComponent.tsx:118](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L118)
+[sitecore-jss-react/src/components/FEaaSComponent.tsx:118](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L118)
 
 ___
 
@@ -721,7 +763,7 @@ Experience Editor Markup
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Image.tsx:125](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/components/Image.tsx#L125)
+[sitecore-jss-react/src/components/Image.tsx:125](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/components/Image.tsx#L125)
 
 ___
 
@@ -897,7 +939,7 @@ const EditMode = () => {
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L70)
+[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L70)
 
 ___
 
@@ -952,7 +994,7 @@ The wrapped component, if a datasource is present.
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx:30](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx#L30)
+[sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx:30](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx#L30)
 
 ___
 
@@ -972,7 +1014,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withEditorChromes.tsx:4](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L4)
+[sitecore-jss-react/src/enhancers/withEditorChromes.tsx:4](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L4)
 
 ___
 
@@ -1023,7 +1065,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withPlaceholder.tsx:45](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L45)
+[sitecore-jss-react/src/enhancers/withPlaceholder.tsx:45](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L45)
 
 ___
 
@@ -1073,4 +1115,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:25](https://github.com/Sitecore/jss/blob/4b157b27f/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L25)
+[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:25](https://github.com/Sitecore/jss/blob/d85b881ea/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L25)
