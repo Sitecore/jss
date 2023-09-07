@@ -1,7 +1,9 @@
-import { BYOCComponentProps, BYOCComponent } from '@sitecore-jss/sitecore-jss-nextjs';
+import { BYOCComponentProps, BYOCComponent } from './BYOCComponent';
 import React from 'react';
 
-export const Default = (props: BYOCComponentProps): JSX.Element => {
+export const BYOC_WRAPPER_RENDERING_NAME = 'BYOCWrapper';
+
+export const BYOCWrapper = (props: BYOCComponentProps): JSX.Element => {
   const styles = props.params?.styles?.trimEnd();
   const id = props.params?.RenderingIdentifier;
 

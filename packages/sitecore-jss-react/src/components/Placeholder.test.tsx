@@ -4,6 +4,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { stub } from 'sinon';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
@@ -18,11 +19,17 @@ import {
   sxaRenderingVariantData,
   sxaRenderingVariantDataWithCommonContainerName as sxaRenderingCommonContainerName,
   sxaRenderingVariantDataWithoutCommonContainerName as sxaRenderingWithoutContainerName,
+  byocWrapperData,
+  feaasWrapperData,
 } from '../test-data/non-ee-data';
 import { convertedData as eeData, emptyPlaceholderData } from '../test-data/ee-data';
 import * as SxaRichText from '../test-data/sxa-rich-text';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import { HiddenRendering } from './HiddenRendering';
+import * as BYOCComponent from './BYOCComponent';
+import * as BYOCWrapper from './BYOCWrapper';
+import * as FEAASComponent from './FEaaSComponent';
+import * as FEAASWrapper from './FEaaSWrapper';
 
 const componentFactory: ComponentFactory = (componentName: string) => {
   const components = new Map<string, React.FC>();
@@ -361,6 +368,72 @@ describe('<Placeholder />', () => {
         'rendering-variant col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 test-css-class-y'
       );
       expect(renderedComponent.find('.default').length).to.equal(1);
+    });
+  });
+
+  describe('BYOC fallback', () => {
+    let byocComponentStub;
+    let byocWrapperStub;
+
+    const componentFactory: ComponentFactory = (_componentName: string, _exportName?: string) =>
+      null;
+
+    it('should render', () => {
+      const component = byocWrapperData.sitecore.route as RouteData;
+      const phKey = 'main';
+
+      byocComponentStub = stub(BYOCComponent, 'BYOCComponent').callsFake(() => (
+        <p className="byoc-component">Foo</p>
+      ));
+
+      byocWrapperStub = stub(BYOCWrapper, 'BYOCWrapper').callsFake(() => (
+        <div className="byoc-wrapper">
+          <BYOCComponent.BYOCComponent />
+        </div>
+      ));
+
+      const renderedComponent = mount(
+        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      );
+
+      expect(renderedComponent.find('.byoc-component').length).to.equal(2);
+      expect(renderedComponent.find('.byoc-wrapper').length).to.equal(1);
+
+      byocComponentStub.restore();
+      byocWrapperStub.restore();
+    });
+  });
+
+  describe('FEaaS fallback', () => {
+    let feaasComponentStub;
+    let feaasWrapperStub;
+
+    const componentFactory: ComponentFactory = (_componentName: string, _exportName?: string) =>
+      null;
+
+    it('should render', () => {
+      const component = feaasWrapperData.sitecore.route as RouteData;
+      const phKey = 'main';
+
+      feaasComponentStub = stub(FEAASComponent, 'FEaaSComponent').callsFake(() => (
+        <p className="feaas-component">Foo</p>
+      ));
+
+      feaasWrapperStub = stub(FEAASWrapper, 'FEaaSWrapper').callsFake(() => (
+        <div className="feaas-wrapper">
+          <FEAASComponent.FEaaSComponent />
+        </div>
+      ));
+
+      const renderedComponent = mount(
+        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      );
+
+      expect(renderedComponent.find('.feaas-component').length).to.equal(2);
+      expect(renderedComponent.find('.feaas-wrapper').length).to.equal(1);
+
+      feaasComponentStub.restore();
+      feaasWrapperStub.restore();
     });
   });
 
