@@ -221,14 +221,16 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         }
 
         // Fallback/defaults for Sitecore Component renderings (in case not defined in component factory)
-        if (componentRendering.componentName === FEAAS_COMPONENT_RENDERING_NAME) {
-          component = FEaaSComponent;
-        } else if (componentRendering.componentName === FEAAS_WRAPPER_RENDERING_NAME) {
-          component = FEaaSWrapper;
-        } else if (componentRendering.componentName === BYOC_COMPONENT_RENDERING_NAME) {
-          component = BYOCComponent;
-        } else if (componentRendering.componentName === BYOC_WRAPPER_RENDERING_NAME) {
-          component = BYOCWrapper;
+        if (!component) {
+          if (componentRendering.componentName === FEAAS_COMPONENT_RENDERING_NAME) {
+            component = FEaaSComponent;
+          } else if (componentRendering.componentName === FEAAS_WRAPPER_RENDERING_NAME) {
+            component = FEaaSWrapper;
+          } else if (componentRendering.componentName === BYOC_COMPONENT_RENDERING_NAME) {
+            component = BYOCComponent;
+          } else if (componentRendering.componentName === BYOC_WRAPPER_RENDERING_NAME) {
+            component = BYOCWrapper;
+          }
         }
 
         if (!component) {
