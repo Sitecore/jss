@@ -71,7 +71,7 @@ describe('guardResolverFactory', () => {
   );
 
   beforeEach(() => {
-    resolver = TestBed.get(GUARD_RESOLVER);
+    resolver = TestBed.inject(GUARD_RESOLVER);
   });
 
   it('Returns rendering if single function sync guard returns true', async () => {
