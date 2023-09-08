@@ -46,12 +46,7 @@
               ],
               "baseHref": "/",
               "aot": true,
-              "//": [
-                "You might want to adjust the optimization entry to workaround a bug with bootstrap warnings caused by Angular",
-                "The warnings may occur during build and when running connected mode. Check below for possible fixes.",
-                "https://github.com/ng-bootstrap/ng-bootstrap/issues/4306"
-              ],
-              "optimization": "true",
+              "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
