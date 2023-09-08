@@ -153,7 +153,9 @@ export { Placeholder } from './components/Placeholder';
 export { EditingComponentPlaceholder } from './components/EditingComponentPlaceholder';
 export { NextImage } from './components/NextImage';
 import * as FEaaSWrapper from './components/FEaaSWrapper';
+import * as BYOCWrapper from './components/BYOCWrapper';
 export { FEaaSWrapper };
+export { BYOCWrapper };
 
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
 
@@ -177,7 +179,6 @@ export {
   BYOCComponent,
   BYOCComponentProps,
   getFEAASLibraryStylesheetLinks,
-  BYOCWrapper,
   File,
   FileField,
   RichTextField,

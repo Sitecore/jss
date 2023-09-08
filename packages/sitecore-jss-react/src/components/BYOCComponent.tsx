@@ -7,13 +7,23 @@ import * as FEAAS from '@sitecore-feaas/clientside/react';
 export const BYOC_COMPONENT_RENDERING_NAME = 'BYOCComponent';
 
 /**
+ * FEaaS props for server rendering.
+ */
+type BYOCServerProps = {
+  /**
+   * Fetched data from server component props for server rendering, based on rendering params.
+   */
+  fetchedData?: FEAAS.DataScopes;
+};
+
+/**
  * Data from rendering params on Sitecore's BYOC rendering
  */
-export type BYOCComponentParams = {
+export type BYOCComponentParams = BYOCServerProps & {
   /**
    * Name of the component to render
    */
-  ComponentName: string;
+  ComponentName?: string;
   /**
    * JSON props to pass into rendered component
    */
@@ -119,30 +129,75 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
 
     let componentProps: { [key: string]: unknown } = undefined;
 
-    if (props.params?.ComponentProps) {
-      try {
-        componentProps = JSON.parse(props.params.ComponentProps) ?? {};
-      } catch (e) {
-        console.warn(
-          `Parsing props for ${componentName} component from rendering params failed. Error: ${e}`
-        );
-        return this.props.errorComponent ? (
-          <this.props.errorComponent error={e as Error} />
-        ) : (
-          <DefaultErrorComponent error={e as Error} />
-        );
+    if (props.params.fetchedData === null) {
+      if (props.params?.ComponentProps) {
+        try {
+          componentProps = JSON.parse(props.params.ComponentProps) ?? {};
+        } catch (e) {
+          console.warn(
+            `Parsing props for ${componentName} component from rendering params failed. Error: ${e}`
+          );
+          return this.props.errorComponent ? (
+            <this.props.errorComponent error={e as Error} />
+          ) : (
+            <DefaultErrorComponent error={e as Error} />
+          );
+        }
       }
     }
-    if (!componentProps) {
+    if (!componentProps && props.params.fetchedData === null) {
       componentProps = props.fields ? getDataFromFields(props.fields) : {};
     }
+
+    const data = props.params.fetchedData || componentProps || {};
 
     return (
       <FEAAS.ExternalComponent
         componentName={componentName}
         fallback={fallbackComponent}
-        {...componentProps}
+        {...data}
       />
     );
+  }
+}
+
+/**
+ * @param {BYOCComponentParams} params rendering parameters for BYOC component
+ */
+export async function fetchBYOCComponentServerProps(
+  params: BYOCComponentParams
+): Promise<BYOCComponentParams> {
+  let fetchedData: FEAAS.DataScopes = null;
+  const fetchDataOptions: FEAAS.DataOptions = params.ComponentProps
+    ? JSON.parse(params.ComponentProps)
+    : {};
+
+  try {
+    fetchedData = await fetchData(fetchDataOptions);
+  } catch (e) {
+    console.error(e);
+  }
+
+  return {
+    fetchedData,
+  };
+}
+
+/**
+ * Fetches component data based on the provided data options.
+ * This function asynchronously fetches data using the FEAAS.DataSettings.fetch method.
+ *
+ * @param {FEAAS.DataOptions} dataOptions - Options to customize data fetching.
+ * @returns {Promise<FEAAS.DataScopes>} A promise that resolves with the fetched data,
+ * or rejects with an error if data fetching encounters an issue.
+ * @throws {Error} If an error occurs during data fetching, it is propagated as an error.
+ */
+async function fetchData(dataOptions: FEAAS.DataOptions): Promise<FEAAS.DataScopes> {
+  try {
+    const fetchedData = await FEAAS.DataSettings.fetch(dataOptions || {});
+    return fetchedData;
+  } catch (error) {
+    console.error('Fetch BYOC component props failed');
+    throw error;
   }
 }
