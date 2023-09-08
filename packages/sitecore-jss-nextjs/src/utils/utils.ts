@@ -7,10 +7,8 @@ import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/u
  * This is set to http://localhost:3000 by default.
  * VERCEL_URL is provided by Vercel in case if we are in Preview deployment (deployment based on the custom branch),
  * preview deployment has unique url, we don't know exact url.
- * Similarly, DEPLOY_URL is provided by Netlify and would give us the deploy URL
  */
 export const getPublicUrl = (): string => {
-  if (process.env.NETLIFY && process.env.DEPLOY_URL) return process.env.DEPLOY_URL;
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
 
   let url = process.env.PUBLIC_URL;
