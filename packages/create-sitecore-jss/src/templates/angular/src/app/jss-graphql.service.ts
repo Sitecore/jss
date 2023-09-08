@@ -1,6 +1,6 @@
 import { Injectable, PLATFORM_ID, Inject, } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { ExtraSubscriptionOptions, EmptyObject, MutationResult } from 'apollo-angular/types';
+import { ExtraSubscriptionOptions, EmptyObject, MutationResult } from 'apollo-angular/build/types';
 import {
   QueryOptions,
   ApolloQueryResult,

@@ -94,13 +94,10 @@ function parseRouteUrl(url: string) {
   };
 }
 
-const apiKey = environment.sitecoreApiKey;
-const appName = environment.jssAppName;
-
-export {
+module.exports = {
   renderView,
   parseRouteUrl,
   setUpDefaultAgents,
-  apiKey,
-  appName,
+  apiKey: environment.sitecoreApiKey,
+  appName: environment.jssAppName,
 };

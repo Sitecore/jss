@@ -17,7 +17,7 @@ export class GenericLinkDirective extends LinkDirective {
 
   @Input('scGenericLinkAttrs') attrs: { [key: string]: string } = {};
 
-  @Input('scGenericLink') declare field: LinkField;
+  @Input('scGenericLink') field: LinkField;
 
   @Input('scGenericLinkExtras') extras?: NavigationExtras;
 

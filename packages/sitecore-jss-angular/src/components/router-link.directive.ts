@@ -16,7 +16,7 @@ export class RouterLinkDirective extends LinkDirective {
 
   @Input('scRouterLinkAttrs') attrs: { [attr: string]: string } = {};
 
-  @Input('scRouterLink') declare field: LinkField;
+  @Input('scRouterLink') field: LinkField;
 
   constructor(
     viewContainer: ViewContainerRef,

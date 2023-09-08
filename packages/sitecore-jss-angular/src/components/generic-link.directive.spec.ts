@@ -244,7 +244,7 @@ describe('<a *scGenericLink></a>', () => {
       imports: [RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }])],
     });
 
-    router = TestBed.inject(Router);
+    router = TestBed.get(Router);
     spyOn(router, 'navigate');
     fixture = TestBed.createComponent(TestComponent);
     de = fixture.debugElement;

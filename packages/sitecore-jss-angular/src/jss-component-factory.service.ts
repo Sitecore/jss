@@ -86,6 +86,9 @@ export class JssComponentFactoryService {
         return {
           componentDefinition: component,
           componentImplementation: componentType,
+          componentFactory: moduleRef.componentFactoryResolver.resolveComponentFactory(
+            componentType
+          ),
           canActivate: lazyComponent.canActivate,
           resolve: lazyComponent.resolve,
         };

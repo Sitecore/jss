@@ -1,5 +1,12 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { Injector, ModuleWithProviders, NgModule, Provider, Type } from '@angular/core';
+import {
+  ANALYZE_FOR_ENTRY_COMPONENTS,
+  Injector,
+  ModuleWithProviders,
+  NgModule,
+  Provider,
+  Type,
+} from '@angular/core';
 import { ActivatedRoute, Router, ROUTES } from '@angular/router';
 import { dataResolverFactory } from './components/data-resolver-factory';
 import { DateDirective } from './components/date.directive';
@@ -108,6 +115,7 @@ export class JssModule {
     return {
       ngModule: JssModule,
       providers: [
+        { provide: ANALYZE_FOR_ENTRY_COMPONENTS, useValue: component, multi: true },
         { provide: ROUTES, useValue: [], multi: true },
         { provide: DYNAMIC_COMPONENT, useValue: component },
       ],
@@ -128,6 +136,11 @@ export class JssModule {
     return {
       ngModule: JssModule,
       providers: [
+        {
+          provide: ANALYZE_FOR_ENTRY_COMPONENTS,
+          useValue: components,
+          multi: true,
+        },
         { provide: PLACEHOLDER_COMPONENTS, useValue: components },
         { provide: PLACEHOLDER_LAZY_COMPONENTS, useValue: lazyComponents || [] },
         { provide: ROUTES, useValue: lazyComponents || [], multi: true },

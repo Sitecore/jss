@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ServerModule } from '@angular/platform-server';
+import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 import { AppModule } from './app.module';
@@ -14,6 +14,7 @@ import { JssTranslationServerLoaderService } from './i18n/jss-translation-server
     // by the ServerModule from @angular/platform-server.
     AppModule,
     ServerModule,
+    ServerTransferStateModule,
     TranslateModule.forRoot({
       // <-- *Important* to get translation values server-side
       loader: {
