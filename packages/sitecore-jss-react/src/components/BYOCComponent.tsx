@@ -19,7 +19,7 @@ type BYOCServerProps = {
 /**
  * Data from rendering params on Sitecore's BYOC rendering
  */
-export type BYOCComponentParams = BYOCServerProps & {
+export type BYOCComponentParams = {
   /**
    * Name of the component to render
    */
@@ -38,7 +38,7 @@ export type BYOCComponentParams = BYOCServerProps & {
 /**
  * Props for BYOCComponent. Includes components list to load external components from.
  */
-export type BYOCComponentProps = {
+export type BYOCComponentClientProps = {
   /**
    * rendering params
    */
@@ -59,6 +59,8 @@ export type BYOCComponentProps = {
     | React.ComponentClass<MissingComponentProps>
     | React.FC<MissingComponentProps>;
 };
+
+export type BYOCComponentProps = BYOCComponentClientProps & BYOCServerProps;
 
 type ErrorComponentProps = {
   [prop: string]: unknown;
@@ -129,7 +131,7 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
 
     let componentProps: { [key: string]: unknown } = undefined;
 
-    if (props.params.fetchedData === null) {
+    if (props.fetchedData === null) {
       if (props.params?.ComponentProps) {
         try {
           componentProps = JSON.parse(props.params.ComponentProps) ?? {};
@@ -145,11 +147,11 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
         }
       }
     }
-    if (!componentProps && props.params.fetchedData === null) {
+    if (!componentProps && props.fetchedData === null) {
       componentProps = props.fields ? getDataFromFields(props.fields) : {};
     }
 
-    const data = props.params.fetchedData || componentProps || {};
+    const data = props.fetchedData || componentProps || {};
 
     return (
       <FEAAS.ExternalComponent
@@ -166,7 +168,7 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
  */
 export async function fetchBYOCComponentServerProps(
   params: BYOCComponentParams
-): Promise<BYOCComponentParams> {
+): Promise<BYOCComponentProps> {
   let fetchedData: FEAAS.DataScopes = null;
   const fetchDataOptions: FEAAS.DataOptions = params.ComponentProps
     ? JSON.parse(params.ComponentProps)
