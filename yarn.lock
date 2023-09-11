@@ -6634,6 +6634,7 @@ __metadata:
     "@sitecore-jss/sitecore-jss": 21.4.0-canary.1
     "@sitecore-jss/sitecore-jss-dev-tools": 21.4.0-canary.1
     "@sitecore-jss/sitecore-jss-react": 21.4.0-canary.1
+    "@sitecore/engage": ^1.4.0
     "@types/chai": ^4.3.4
     "@types/chai-as-promised": ^7.1.5
     "@types/chai-string": ^1.4.2
@@ -6912,6 +6913,13 @@ __metadata:
     url-parse: ^1.5.9
   languageName: unknown
   linkType: soft
+
+"@sitecore/engage@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@sitecore/engage@npm:1.4.0"
+  checksum: f656045dfcb65f63ff44af195c9ae92d375a237bdf91a4638e9d296df2d143837145f13ca033aeabd03323c900ee5c78249d2967c7665368fde82ef2e758ad43
+  languageName: node
+  linkType: hard
 
 "@socket.io/component-emitter@npm:~3.1.0":
   version: 3.1.0
