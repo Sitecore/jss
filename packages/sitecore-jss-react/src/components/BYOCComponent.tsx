@@ -4,6 +4,8 @@ import { getDataFromFields } from '../utils';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 
+export const BYOC_COMPONENT_RENDERING_NAME = 'BYOCComponent';
+
 /**
  * Data from rendering params on Sitecore's BYOC rendering
  */

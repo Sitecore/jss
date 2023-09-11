@@ -13,12 +13,12 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[templates/nextjs-sxa]` `[sitecore-jss-react]` "Bring Your Own Code" (BYOC) feature is introduced. This allows developers and editors more flexibility when developing and working with new components, i.e.:
+* `[templates/nextjs-sxa]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` "Bring Your Own Code" (BYOC) feature is introduced. This allows developers and editors more flexibility when developing and working with new components, i.e.:
   * Avoid the jss deploy process for components, and use FEAAS registration instead
   * Put components anywhere in the project,
   * Use any prop type, without dependence on Layout Service data
 
-  Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore/jss/pull/1568)) ([#1603](https://github.com/Sitecore/jss/pull/1603))
+  Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore/jss/pull/1568)) ([#1603](https://github.com/Sitecore/jss/pull/1603))([#1605](https://github.com/Sitecore/jss/pull/1605))
 * `[templates/nextjs-sxa]` Scaffolding components for BYOC is added. Use '--byoc' flag at the end of `jss scaffold` command to create a boilerplate component for BYOC ([#1572](https://github.com/Sitecore/jss/pull/1572))
 * `[sitecore-jss-nextjs]` Stylesheet loading via page head links for FEAAS and BYOC is implemented. This allows stylesheets to be loaded during SSR and avoid extra calls on client. ([#1587](https://github.com/Sitecore/jss/pull/1587))
 * `[templates/nextjs]` Scaffold new components outside of 'src/components' folder by specifying a path with src in it, i.e. `jss scaffold src/new-folder/NewComponent` ([#1572](https://github.com/Sitecore/jss/pull/1572))
@@ -55,7 +55,17 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Fix styles of Image component for Banner variant when we try to edit image in EE for Basic Site ([#1588](https://github.com/Sitecore/jss/pull/1588)) ([#1596](https://github.com/Sitecore/jss/pull/1596))
 * `[templates/nextjs-sxa]` Fix style for main layout(horizontal scrollbar). ([#1589](https://github.com/Sitecore/jss/pull/1589))
 * `[templates/nextjs-sxa]` Don't let Image component wrap <img> with <a> tag when TargetUrl is not configured. ([#1593](https://github.com/Sitecore/jss/issues/1593))
-* `[template/nextjs]` Next config header plugin for CORS. ([#1597](https://github.com/Sitecore/jss/pull/1597))
+* `[templates/nextjs]` Next config header plugin for CORS. ([#1597](https://github.com/Sitecore/jss/pull/1597))
+* `[templates/nextjs]` Ensure dictionary data is only fetched when layout data is present for a route ([#1608](https://github.com/Sitecore/jss/pull/1608)) 
+
+### 🛠 Breaking Changes
+
+* `[sitecore-jss-angular]` `[sitecore-jss-angular-schematics]` `[templates/angular]` Angular is updated to v15. This update includes the below major version upgrades and changes. Please make sure your codebase is updated to accomodate the changes in the above dependencies. ([#1604](https://github.com/Sitecore/jss/pull/1604) [#1607](https://github.com/Sitecore/jss/pull/1607))
+  * Angular update: https://github.com/angular/angular/releases/tag/15.0.0
+  * Angular CLI: https://github.com/angular/angular-cli/releases/tag/15.0.0
+  * Angular ESLint: https://github.com/angular-eslint/angular-eslint/releases/tag/v15.0.0
+  * rxjs: https://rxjs.dev/6-to-7-change-summary
+  * Angular sample has been updated to use ES2022.
 
 ## 21.2.3
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
+import * as FEAAS from '@sitecore-feaas/clientside/react';
 import { BYOCComponent } from './BYOCComponent';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 
@@ -8,15 +9,25 @@ describe('BYOCComponent', () => {
   it('should render with props when ComponentProps is provided', () => {
     const mockProps = {
       params: {
-        ComponentName: 'ExternalComponent',
+        ComponentName: 'Foo',
         ComponentProps: JSON.stringify({ prop1: 'value1' }),
       },
     };
+    const Foo = () => <p id="foo-content">Test</p>;
+    FEAAS.External.registerComponent(Foo, {
+      name: 'Foo',
+      properties: {
+        prop1: {
+          type: 'string',
+        },
+      },
+    });
     const wrapper = mount(<BYOCComponent {...mockProps} />);
-    const externalComponent = wrapper.find('Se');
-    expect(externalComponent).to.have.lengthOf(1);
-    expect(externalComponent.prop('componentName')).to.equal('ExternalComponent');
-    expect(externalComponent.prop('prop1')).to.equal('value1');
+    const fooComponent = wrapper.find('feaas-external');
+    expect(fooComponent).to.have.lengthOf(1);
+    expect(fooComponent.prop('prop1')).to.equal('value1');
+    expect(fooComponent.prop('data-external-id')).to.equal('Foo');
+    expect(fooComponent.find('#foo-content')).to.have.length(1);
   });
 });
 

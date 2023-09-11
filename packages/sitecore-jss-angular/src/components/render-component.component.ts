@@ -40,6 +40,13 @@ export class RenderComponentComponent implements OnChanges {
   private _differ: KeyValueDiffer<string, unknown>;
   private destroyed = false;
 
+  constructor(
+    private differs: KeyValueDiffers,
+    private componentFactory: JssComponentFactoryService,
+    @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT)
+    private missingComponentComponent: Type<{ [key: string]: unknown }>
+  ) {}
+
   @Input()
   set inputs(value: { [key: string]: unknown }) {
     this._inputs = value;
@@ -47,13 +54,6 @@ export class RenderComponentComponent implements OnChanges {
       this._differ = this.differs.find(value).create();
     }
   }
-
-  constructor(
-    private differs: KeyValueDiffers,
-    private componentFactory: JssComponentFactoryService,
-    @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT)
-    private missingComponentComponent: Type<{ [key: string]: unknown }>
-  ) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.rendering) {
