@@ -1,7 +1,7 @@
 {
   "name": "<%- appName %>",
   "description": "Application utilizing Sitecore JavaScript Services and Next.js",
-  "version": "21.3.1-canary",
+  "version": "21.3.1",
   "private": true,
   "config": {
     "appName": "<%- appName %>",
@@ -29,7 +29,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-nextjs": "~21.3.1-canary",
+    "@sitecore-jss/sitecore-jss-nextjs": "~21.3.1",
     "graphql": "~15.8.0",
     "graphql-tag": "^2.12.6",
     "next": "^13.1.6",
@@ -46,8 +46,8 @@
     "@graphql-codegen/typescript-operations": "^2.5.12",
     "@graphql-codegen/typescript-resolvers": "^2.7.12",
     "@graphql-typed-document-node/core": "^3.1.1",
-    "@sitecore-jss/sitecore-jss-cli": "~21.3.1-canary",
-    "@sitecore-jss/sitecore-jss-dev-tools": "~21.3.1-canary",
+    "@sitecore-jss/sitecore-jss-cli": "~21.3.1",
+    "@sitecore-jss/sitecore-jss-dev-tools": "~21.3.1",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
