@@ -131,7 +131,9 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
 
     const ErrorComponent = this.props.errorComponent;
 
-    let componentProps: { [key: string]: any } = props.fetchedData;
+    const isNull = Object.keys(props.fetchedData).length === 0;
+
+    let componentProps: { [key: string]: any } = isNull ? null : props.fetchedData;
 
     if (!componentProps) {
       if (props.params?.ComponentProps) {
@@ -168,16 +170,12 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
 export async function fetchBYOCComponentServerProps(
   params: BYOCComponentParams
 ): Promise<BYOCComponentProps> {
-  let fetchedData: FEAAS.DataScopes = null;
+  let fetchedData: FEAAS.DataScopes;
   const fetchDataOptions: FEAAS.DataOptions = params.ComponentProps
     ? JSON.parse(params.ComponentProps)
     : {};
 
-  try {
-    fetchedData = await FEAAS.DataSettings.fetch(fetchDataOptions || {});
-  } catch (e) {
-    console.error('Fetch BYOC component props failed');
-  }
+  fetchedData = await FEAAS.DataSettings.fetch(fetchDataOptions);
 
   return {
     fetchedData,
