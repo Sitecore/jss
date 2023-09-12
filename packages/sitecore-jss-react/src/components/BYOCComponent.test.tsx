@@ -12,7 +12,7 @@ describe('BYOCComponent', () => {
         ComponentName: 'Foo',
         ComponentProps: JSON.stringify({ prop1: 'value1' }),
       },
-      fetchedData: null,
+      fetchedData: {},
     };
     const Foo = () => <p id="foo-content">Test</p>;
     FEAAS.External.registerComponent(Foo, {
@@ -67,7 +67,7 @@ describe('Error handling', () => {
         ComponentName: 'ExampleComponent',
         ComponentProps: 'invalid-json',
       },
-      fetchedData: null,
+      fetchedData: {},
     };
     const wrapper = mount(<BYOCComponent {...props} />);
     const errorComponent = wrapper.find('DefaultErrorComponent');
@@ -82,7 +82,7 @@ describe('Error handling', () => {
         ComponentName: 'ExampleComponent',
         ComponentProps: 'invalid-json',
       },
-      fetchedData: null,
+      fetchedData: {},
     };
 
     const wrapper = mount(<BYOCComponent {...props} />);
@@ -127,7 +127,11 @@ describe('Error handling', () => {
   });
 
   it('should render missing component frame when component is not registered', () => {
-    const props = { params: { ComponentName: 'NonExistentComponent' }, components: {} };
+    const props = {
+      params: { ComponentName: 'NonExistentComponent' },
+      components: {},
+      fetchedData: {},
+    };
 
     const wrapper = mount(<BYOCComponent {...props} />);
 
@@ -146,6 +150,7 @@ describe('Error handling', () => {
       missingComponentComponent: missingComponent,
       params: { ComponentName: 'NonExistentComponent' },
       components: {},
+      fetchedData: {},
     };
     const wrapper = mount(<BYOCComponent {...props} />);
 
