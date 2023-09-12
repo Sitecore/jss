@@ -6,7 +6,6 @@ import sinonChai from 'sinon-chai';
 import sinon, { spy } from 'sinon';
 import nextjs, { NextRequest, NextResponse } from 'next/server';
 import { debug } from '@sitecore-jss/sitecore-jss';
-import { ExperienceParams } from './personalize-middleware';
 import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { PersonalizeMiddleware } from './personalize-middleware';
 
@@ -36,15 +35,6 @@ describe('PersonalizeMiddleware', () => {
   const pointOfSale = 'cdp-pos';
 
   const referrer = 'http://localhost:3000';
-  const experienceParams: ExperienceParams = {
-    referrer,
-    utm: {
-      campaign: 'utm_campaign',
-      content: undefined,
-      medium: undefined,
-      source: undefined,
-    },
-  };
 
   const createRequest = (props: any = {}) => {
     const req = {
