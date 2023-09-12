@@ -427,7 +427,7 @@ describe('PersonalizeMiddleware', () => {
 
       const res = createResponse();
 
-      const { middleware, getVariantId, getPersonalizeInfo } = createMiddleware({
+      const { middleware, getVariantId, handleCookie, getPersonalizeInfo } = createMiddleware({
         variantId: undefined,
       });
 
@@ -441,6 +441,8 @@ describe('PersonalizeMiddleware', () => {
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
+      expect(handleCookie.calledOnce).to.be.true;
+
       expect(getVariantId.calledOnce).to.be.true;
 
       validateDebugLog('skipped (no variant identified)');
@@ -453,7 +455,7 @@ describe('PersonalizeMiddleware', () => {
 
       const res = createResponse();
 
-      const { middleware, getVariantId, getPersonalizeInfo } = createMiddleware({
+      const { middleware, getVariantId, handleCookie, getPersonalizeInfo } = createMiddleware({
         variantId: 'invalid-variant',
       });
 
@@ -465,6 +467,8 @@ describe('PersonalizeMiddleware', () => {
         language: 'en',
       });
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
+
+      expect(handleCookie.calledOnce).to.be.true;
 
       expect(getVariantId.calledOnce).to.be.true;
 
@@ -489,7 +493,13 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, getVariantId, siteResolver } = createMiddleware({
+      const {
+        middleware,
+        getPersonalizeInfo,
+        getVariantId,
+        handleCookie,
+        siteResolver,
+      } = createMiddleware({
         language,
         variantId: 'variant-2',
         personalizeInfo: {
@@ -507,6 +517,8 @@ describe('PersonalizeMiddleware', () => {
       });
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'da-DK')).to.be.true;
+
+      expect(handleCookie.calledOnce).to.be.true;
 
       expect(getVariantId.calledOnce).to.be.true;
 
@@ -538,7 +550,13 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, getVariantId, siteResolver } = createMiddleware({
+      const {
+        middleware,
+        getPersonalizeInfo,
+        getVariantId,
+        handleCookie,
+        siteResolver,
+      } = createMiddleware({
         variantId: 'variant-2',
       });
       const finalRes = await middleware.getHandler()(req, res);
@@ -550,6 +568,8 @@ describe('PersonalizeMiddleware', () => {
       });
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
+
+      expect(handleCookie.calledOnce).to.be.true;
 
       expect(getVariantId.calledOnce).to.be.true;
 
@@ -576,13 +596,21 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, getVariantId, siteResolver } = createMiddleware({
+      const {
+        middleware,
+        getPersonalizeInfo,
+        getVariantId,
+        handleCookie,
+        siteResolver,
+      } = createMiddleware({
         variantId: 'variant-2',
       });
 
       const finalRes = await middleware.getHandler()(req);
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
+
+      expect(handleCookie.calledOnce).to.be.true;
 
       expect(getVariantId.calledOnce).to.be.true;
 
@@ -617,7 +645,13 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, getVariantId, siteResolver } = createMiddleware({
+      const {
+        middleware,
+        getPersonalizeInfo,
+        getVariantId,
+        handleCookie,
+        siteResolver,
+      } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -630,6 +664,8 @@ describe('PersonalizeMiddleware', () => {
       });
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
+
+      expect(handleCookie.calledOnce).to.be.true;
 
       expect(getVariantId.calledOnce).to.be.true;
 
@@ -660,7 +696,13 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, getVariantId, siteResolver } = createMiddleware({
+      const {
+        middleware,
+        getPersonalizeInfo,
+        getVariantId,
+        handleCookie,
+        siteResolver,
+      } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -673,6 +715,8 @@ describe('PersonalizeMiddleware', () => {
       });
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en', 'foo')).to.be.true;
+
+      expect(handleCookie.calledOnce).to.be.true;
 
       expect(getVariantId.calledOnce).to.be.true;
 
@@ -703,7 +747,13 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, getVariantId, siteResolver } = createMiddleware({
+      const {
+        middleware,
+        getPersonalizeInfo,
+        getVariantId,
+        handleCookie,
+        siteResolver,
+      } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -716,6 +766,8 @@ describe('PersonalizeMiddleware', () => {
       });
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
+
+      expect(handleCookie.calledOnce).to.be.true;
 
       expect(getVariantId.calledOnce).to.be.true;
 
@@ -745,7 +797,13 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, getVariantId, siteResolver } = createMiddleware({
+      const {
+        middleware,
+        getPersonalizeInfo,
+        getVariantId,
+        handleCookie,
+        siteResolver,
+      } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -758,6 +816,8 @@ describe('PersonalizeMiddleware', () => {
       });
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
+
+      expect(handleCookie.calledOnce).to.be.true;
 
       expect(getVariantId.calledOnce).to.be.true;
 
