@@ -129,42 +129,41 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
       <MissingComponent {...unRegisteredComponentProps} />
     );
 
-    let componentProps: { [key: string]: unknown } = undefined;
+    const ErrorComponent = this.props.errorComponent;
 
-    if (props.fetchedData === null) {
+    let componentProps: { [key: string]: any } = props.fetchedData;
+
+    if (!componentProps) {
       if (props.params?.ComponentProps) {
         try {
           componentProps = JSON.parse(props.params.ComponentProps) ?? {};
         } catch (e) {
-          console.warn(
+          console.error(
             `Parsing props for ${componentName} component from rendering params failed. Error: ${e}`
           );
-          return this.props.errorComponent ? (
-            <this.props.errorComponent error={e as Error} />
+          return ErrorComponent ? (
+            <ErrorComponent error={e as Error} />
           ) : (
             <DefaultErrorComponent error={e as Error} />
           );
         }
+      } else {
+        componentProps = props.fields ? getDataFromFields(props.fields) : {};
       }
     }
-    if (!componentProps && props.fetchedData === null) {
-      componentProps = props.fields ? getDataFromFields(props.fields) : {};
-    }
-
-    const data = props.fetchedData || componentProps || {};
-
     return (
       <FEAAS.ExternalComponent
         componentName={componentName}
         fallback={fallbackComponent}
-        {...data}
+        {...componentProps}
       />
     );
   }
 }
 
 /**
- * @param {BYOCComponentParams} params rendering parameters for BYOC component
+ * Fetches server component props required for server rendering, based on rendering params.
+ * @param {BYOCComponentParams} params component params
  */
 export async function fetchBYOCComponentServerProps(
   params: BYOCComponentParams
@@ -175,31 +174,12 @@ export async function fetchBYOCComponentServerProps(
     : {};
 
   try {
-    fetchedData = await fetchData(fetchDataOptions);
+    fetchedData = await FEAAS.DataSettings.fetch(fetchDataOptions || {});
   } catch (e) {
-    console.error(e);
+    console.error('Fetch BYOC component props failed');
   }
 
   return {
     fetchedData,
   };
-}
-
-/**
- * Fetches component data based on the provided data options.
- * This function asynchronously fetches data using the FEAAS.DataSettings.fetch method.
- *
- * @param {FEAAS.DataOptions} dataOptions - Options to customize data fetching.
- * @returns {Promise<FEAAS.DataScopes>} A promise that resolves with the fetched data,
- * or rejects with an error if data fetching encounters an issue.
- * @throws {Error} If an error occurs during data fetching, it is propagated as an error.
- */
-async function fetchData(dataOptions: FEAAS.DataOptions): Promise<FEAAS.DataScopes> {
-  try {
-    const fetchedData = await FEAAS.DataSettings.fetch(dataOptions || {});
-    return fetchedData;
-  } catch (error) {
-    console.error('Fetch BYOC component props failed');
-    throw error;
-  }
 }
