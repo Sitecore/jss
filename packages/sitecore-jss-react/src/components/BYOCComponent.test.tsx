@@ -12,6 +12,7 @@ describe('BYOCComponent', () => {
         ComponentName: 'Foo',
         ComponentProps: JSON.stringify({ prop1: 'value1' }),
       },
+      fetchedData: {},
     };
     const Foo = () => <p id="foo-content">Test</p>;
     FEAAS.External.registerComponent(Foo, {
@@ -29,6 +30,34 @@ describe('BYOCComponent', () => {
     expect(fooComponent.prop('data-external-id')).to.equal('Foo');
     expect(fooComponent.find('#foo-content')).to.have.length(1);
   });
+
+  it('should render when props are prefetched', () => {
+    const fetchedData = {
+      prop1: 'prefetched_value1',
+    };
+    const mockProps = {
+      params: {
+        ComponentName: 'Foo',
+        ComponentProps: JSON.stringify({ prop1: 'value1' }),
+      },
+      fetchedData,
+    };
+    const Foo = () => <p id="foo-content">Test</p>;
+    FEAAS.External.registerComponent(Foo, {
+      name: 'Foo',
+      properties: {
+        prop1: {
+          type: 'string',
+        },
+      },
+    });
+    const wrapper = mount(<BYOCComponent {...mockProps} />);
+    const fooComponent = wrapper.find('feaas-external');
+    expect(fooComponent).to.have.lengthOf(1);
+    expect(fooComponent.prop('prop1')).to.equal('prefetched_value1');
+    expect(fooComponent.prop('data-external-id')).to.equal('Foo');
+    expect(fooComponent.find('#foo-content')).to.have.length(1);
+  });
 });
 
 describe('Error handling', () => {
@@ -38,6 +67,7 @@ describe('Error handling', () => {
         ComponentName: 'ExampleComponent',
         ComponentProps: 'invalid-json',
       },
+      fetchedData: {},
     };
     const wrapper = mount(<BYOCComponent {...props} />);
     const errorComponent = wrapper.find('DefaultErrorComponent');
@@ -52,6 +82,7 @@ describe('Error handling', () => {
         ComponentName: 'ExampleComponent',
         ComponentProps: 'invalid-json',
       },
+      fetchedData: {},
     };
 
     const wrapper = mount(<BYOCComponent {...props} />);
@@ -96,7 +127,11 @@ describe('Error handling', () => {
   });
 
   it('should render missing component frame when component is not registered', () => {
-    const props = { params: { ComponentName: 'NonExistentComponent' }, components: {} };
+    const props = {
+      params: { ComponentName: 'NonExistentComponent' },
+      components: {},
+      fetchedData: {},
+    };
 
     const wrapper = mount(<BYOCComponent {...props} />);
 
@@ -115,6 +150,7 @@ describe('Error handling', () => {
       missingComponentComponent: missingComponent,
       params: { ComponentName: 'NonExistentComponent' },
       components: {},
+      fetchedData: {},
     };
     const wrapper = mount(<BYOCComponent {...props} />);
 
