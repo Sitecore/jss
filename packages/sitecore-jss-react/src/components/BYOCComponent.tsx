@@ -170,12 +170,11 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
 export async function fetchBYOCComponentServerProps(
   params: BYOCComponentParams
 ): Promise<BYOCComponentProps> {
-  let fetchedData: FEAAS.DataScopes;
   const fetchDataOptions: FEAAS.DataOptions = params.ComponentProps
     ? JSON.parse(params.ComponentProps)
     : {};
 
-  fetchedData = await FEAAS.DataSettings.fetch(fetchDataOptions);
+  const fetchedData: FEAAS.DataScopes = await FEAAS.DataSettings.fetch(fetchDataOptions || {});
 
   return {
     fetchedData,
