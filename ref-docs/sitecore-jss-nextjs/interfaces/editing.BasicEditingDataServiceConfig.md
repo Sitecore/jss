@@ -30,4 +30,4 @@ editingDataDiskCache
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:59](https://github.com/Sitecore/jss/blob/2ac8c8c51/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L59)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:59](https://github.com/Sitecore/jss/blob/f8d5f67b8/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L59)
