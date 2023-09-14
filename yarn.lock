@@ -6634,7 +6634,7 @@ __metadata:
     "@sitecore-jss/sitecore-jss": 21.4.0-canary.2
     "@sitecore-jss/sitecore-jss-dev-tools": 21.4.0-canary.2
     "@sitecore-jss/sitecore-jss-react": 21.4.0-canary.2
-     "@sitecore/engage": ^1.4.0
+    "@sitecore/engage": ^1.4.0
     "@types/chai": ^4.3.4
     "@types/chai-as-promised": ^7.1.5
     "@types/chai-string": ^1.4.2
