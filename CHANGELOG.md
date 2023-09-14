@@ -32,6 +32,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` Fetch Data for FEaaS Components as part of Component SSR/SSG ([#1586](https://github.com/Sitecore/jss/pull/1590))
 * `[sitecore-jss-dev-tools]` `[templates/nextjs]` `[templates/react]` Introduce "components" configuration for ComponentBuilder ([#1598](https://github.com/Sitecore/jss/pull/1598))
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade Engage to latest ([#1609](https://github.com/Sitecore/jss/pull/1609))
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Component level data fetching(SSR/SSG) for BYOC ([#1610](https://github.com/Sitecore/jss/pull/1610))
 
 ### 🧹 Chores
 

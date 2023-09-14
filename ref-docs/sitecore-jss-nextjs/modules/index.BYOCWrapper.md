@@ -1,16 +1,16 @@
-[@sitecore-jss/sitecore-jss-nextjs](../README.md) / [index](index.md) / FEaaSWrapper
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / [index](index.md) / BYOCWrapper
 
-# Namespace: FEaaSWrapper
+# Namespace: BYOCWrapper
 
-[index](index.md).FEaaSWrapper
+[index](index.md).BYOCWrapper
 
 ## Table of contents
 
 ### Functions
 
-- [default](index.FEaaSWrapper.md#default)
-- [getServerSideProps](index.FEaaSWrapper.md#getserversideprops)
-- [getStaticProps](index.FEaaSWrapper.md#getstaticprops)
+- [default](index.BYOCWrapper.md#default)
+- [getServerSideProps](index.BYOCWrapper.md#getserversideprops)
+- [getStaticProps](index.BYOCWrapper.md#getstaticprops)
 
 ## Functions
 
@@ -22,7 +22,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `props` | [`FEaaSComponentProps`](index.md#feaascomponentprops) |
+| `props` | [`BYOCComponentProps`](index.md#byoccomponentprops) |
 
 #### Returns
 
@@ -30,7 +30,7 @@
 
 #### Defined in
 
-sitecore-jss-react/types/components/FEaaSWrapper.d.ts:3
+sitecore-jss-react/types/components/BYOCWrapper.d.ts:3
 
 ___
 

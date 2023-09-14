@@ -53,7 +53,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:45](https://github.com/Sitecore/jss/blob/3ef5b2c1b/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L45)
+[src/layout/graphql-layout-service.ts:45](https://github.com/Sitecore/jss/blob/2ac8c8c51/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L45)
 
 ## Properties
 
@@ -63,7 +63,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:39](https://github.com/Sitecore/jss/blob/3ef5b2c1b/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L39)
+[src/layout/graphql-layout-service.ts:39](https://github.com/Sitecore/jss/blob/2ac8c8c51/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L39)
 
 ___
 
@@ -75,7 +75,7 @@ configuration
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:45](https://github.com/Sitecore/jss/blob/3ef5b2c1b/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L45)
+[src/layout/graphql-layout-service.ts:45](https://github.com/Sitecore/jss/blob/2ac8c8c51/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L45)
 
 ## Methods
 
@@ -104,7 +104,7 @@ LayoutServiceBase.fetchLayoutData
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:56](https://github.com/Sitecore/jss/blob/3ef5b2c1b/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L56)
+[src/layout/graphql-layout-service.ts:56](https://github.com/Sitecore/jss/blob/2ac8c8c51/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L56)
 
 ___
 
@@ -124,7 +124,7 @@ implementation
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:83](https://github.com/Sitecore/jss/blob/3ef5b2c1b/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L83)
+[src/layout/graphql-layout-service.ts:83](https://github.com/Sitecore/jss/blob/2ac8c8c51/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L83)
 
 ___
 
@@ -149,4 +149,4 @@ GraphQL query
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:96](https://github.com/Sitecore/jss/blob/3ef5b2c1b/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L96)
+[src/layout/graphql-layout-service.ts:96](https://github.com/Sitecore/jss/blob/2ac8c8c51/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L96)
