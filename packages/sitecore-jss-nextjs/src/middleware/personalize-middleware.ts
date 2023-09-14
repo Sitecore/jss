@@ -8,7 +8,7 @@ import {
 import { SiteInfo } from '@sitecore-jss/sitecore-jss/site';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
-import { initServer, EngageServer, IPersonalizerInput } from '@sitecore/engage';
+import { initServer, EngageServer } from '@sitecore/engage';
 
 export type CdpServiceConfig = {
   /**
@@ -23,6 +23,10 @@ export type CdpServiceConfig = {
    * The Sitecore CDP channel to use for events. Uses 'WEB' by default.
    */
   channel?: string;
+  /**
+   * Currency for CDP request. Uses 'USA' as default.
+   */
+  currency?: string;
   /**
    * Timeout (ms) for CDP request. Default is 400.
    */
@@ -110,40 +114,6 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     return engageServer;
   }
 
-  protected async getVariantId(
-    engageServer: EngageServer,
-    personalizationData: IPersonalizerInput,
-    req: NextRequest
-  ): Promise<string | undefined> {
-    try {
-      const response = (await engageServer.personalize(
-        personalizationData,
-        req,
-        this.config.cdpConfig.timeout
-      )) as {
-        variantId: string;
-      };
-      return response?.variantId || undefined;
-    } catch (error) {
-      console.log(error);
-      return;
-    }
-  }
-
-  protected async handleCookie(
-    req: NextRequest,
-    res: NextResponse,
-    engageServer: EngageServer
-  ): Promise<void | Error> {
-    try {
-      await engageServer.handleCookie(req, res, this.config.cdpConfig.timeout);
-    } catch (error) {
-      return error as Error;
-    }
-
-    return;
-  }
-
   protected getExperienceParams(req: NextRequest): ExperienceParams {
     const utm = {
       campaign: req.nextUrl.searchParams.get('utm_campaign') || undefined,
@@ -153,6 +123,9 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     };
 
     return {
+      // It's expected that the header name "referer" is actually a misspelling of the word "referrer"
+      // req.referrer is used during fetching to determine the value of the Referer header of the request being made,
+      // used as a fallback
       referrer: req.headers.get('referer') || req.referrer,
       utm: utm,
     };
@@ -163,34 +136,22 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     return pathname.includes('.') || super.excludeRoute(pathname);
   }
 
-  private handler = async (req: NextRequest, res?: any): Promise<NextResponse> => {
+  private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
     const language = this.getLanguage(req);
     const hostname = this.getHostHeader(req) || this.defaultHostname;
     const startTimestamp = Date.now();
-    const site = this.getSite(req, res);
-    const engageServer = this.initializeEngageServer(site, language);
+    const timeout = this.config.cdpConfig.timeout;
 
     debug.personalize('personalize middleware start: %o', {
       pathname,
       language,
       hostname,
+      headers: this.extractDebugHeaders(req.headers),
     });
 
     // Response will be provided if other middleware is run before us (e.g. redirects)
     let response = res || NextResponse.next();
-
-    debug.personalize('generating browser id');
-
-    // creates the browser ID cookie on the server side
-    // and includes the cookie in the response header
-    try {
-      await this.handleCookie(req, res, engageServer);
-    } catch (error) {
-      debug.personalize('skipped (browser id generation failed)');
-      console.log(error);
-      return response;
-    }
 
     if (this.config.disabled && this.config.disabled(req, response)) {
       debug.personalize('skipped (personalize middleware is disabled)');
@@ -208,6 +169,20 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       );
       return response;
     }
+
+    const site = this.getSite(req, response);
+    const engageServer = this.initializeEngageServer(site, language);
+
+    // creates the browser ID cookie on the server side
+    // and includes the cookie in the response header
+    try {
+      await engageServer.handleCookie(req, response, timeout);
+    } catch (error) {
+      debug.personalize('skipped (browser id generation failed)');
+      console.log(error);
+      throw error;
+    }
+
     // Get personalization info from Experience Edge
     const personalizeInfo = await this.personalizeService.getPersonalizeInfo(
       pathname,
@@ -228,23 +203,25 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     const params = this.getExperienceParams(req);
     const { ua } = userAgent(req);
 
-    debug.personalize(
-      'executing experience for %s %s %s %o',
-      personalizeInfo.contentId,
-      ua,
-      params
-    );
+    debug.personalize('executing experience for %s %s %o', personalizeInfo.contentId, ua, params);
 
-    // Execute targeted experience in CDP
     const personalizationData = {
-      channel: 'WEB',
-      currency: 'USA',
+      channel: this.config.cdpConfig.channel || 'WEB',
+      currency: this.config.cdpConfig.currency ?? 'USA',
       friendlyId: personalizeInfo.contentId,
       params,
       language,
     };
 
-    const variantId = await this.getVariantId(engageServer, personalizationData, req);
+    let variantId: string;
+
+    // Execute targeted experience in CDP
+    try {
+      variantId = (await engageServer.personalize(personalizationData, req, timeout)) as string;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
 
     if (!variantId) {
       debug.personalize('skipped (no variant identified)');
