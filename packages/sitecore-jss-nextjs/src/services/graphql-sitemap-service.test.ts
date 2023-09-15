@@ -439,7 +439,8 @@ describe('GraphQLSitemapService', () => {
           .post(
             '/',
             (body) =>
-              body.query.indexOf('$pageSize: Int = 10') > 0 && body.variables.pageSize === undefined
+              body.query.indexOf('$pageSize: Int = 100') > 0 &&
+              body.variables.pageSize === undefined
           )
           .reply(200, sitemapDefaultQueryResult);
 
