@@ -213,11 +213,13 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       language,
     };
 
-    let variantId: string;
+    let variantId;
 
     // Execute targeted experience in CDP
     try {
-      variantId = (await engageServer.personalize(personalizationData, req, timeout)) as string;
+      variantId = ((await engageServer.personalize(personalizationData, req, timeout)) as {
+        variantId: string;
+      }).variantId;
     } catch (error) {
       console.log(error);
       throw error;
