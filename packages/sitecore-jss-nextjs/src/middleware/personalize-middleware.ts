@@ -1,4 +1,4 @@
-import { NextResponse, NextRequest, userAgent } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 import {
   GraphQLPersonalizeService,
   GraphQLPersonalizeServiceConfig,
@@ -143,15 +143,15 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     const startTimestamp = Date.now();
     const timeout = this.config.cdpConfig.timeout;
 
+    // Response will be provided if other middleware is run before us (e.g. redirects)
+    let response = res || NextResponse.next();
+
     debug.personalize('personalize middleware start: %o', {
       pathname,
       language,
       hostname,
       headers: this.extractDebugHeaders(req.headers),
     });
-
-    // Response will be provided if other middleware is run before us (e.g. redirects)
-    let response = res || NextResponse.next();
 
     if (this.config.disabled && this.config.disabled(req, response)) {
       debug.personalize('skipped (personalize middleware is disabled)');
@@ -179,7 +179,6 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       await engageServer.handleCookie(req, response, timeout);
     } catch (error) {
       debug.personalize('skipped (browser id generation failed)');
-      console.log(error);
       throw error;
     }
 
@@ -201,9 +200,8 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     }
 
     const params = this.getExperienceParams(req);
-    const { ua } = userAgent(req);
 
-    debug.personalize('executing experience for %s %s %o', personalizeInfo.contentId, ua, params);
+    debug.personalize('executing experience for %s %s %o', personalizeInfo.contentId, params);
 
     const personalizationData = {
       channel: this.config.cdpConfig.channel || 'WEB',
@@ -216,12 +214,12 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     let variantId;
 
     // Execute targeted experience in CDP
+    // eslint-disable-next-line no-useless-catch
     try {
       variantId = ((await engageServer.personalize(personalizationData, req, timeout)) as {
         variantId: string;
       }).variantId;
     } catch (error) {
-      console.log(error);
       throw error;
     }
 

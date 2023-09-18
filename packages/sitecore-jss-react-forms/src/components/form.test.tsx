@@ -5,7 +5,7 @@ import sinon from 'sinon';
 import React from 'react';
 import * as submit from '@sitecore-jss/sitecore-jss-forms/dist/cjs/submitForm';
 
-import { Form, FormProps } from './form';
+import { Form, FormProps, FormState } from './form';
 import Button from './field-templates/button';
 import FileUpload from './field-templates/file-upload';
 
@@ -242,6 +242,7 @@ describe('<Form />', () => {
           errors: [],
           nextForm: null,
           submitButton: null,
+          submitInProgress: false,
         });
       });
     });
@@ -267,6 +268,7 @@ describe('<Form />', () => {
           errors: [],
           nextForm,
           submitButton: null,
+          submitInProgress: false,
         });
       });
     });
@@ -322,6 +324,7 @@ describe('<Form />', () => {
           errors: [],
           nextForm,
           submitButton: null,
+          submitInProgress: false,
           x1: undefined,
           x2: undefined,
         });
@@ -353,6 +356,7 @@ describe('<Form />', () => {
           errors: [],
           nextForm,
           submitButton: null,
+          submitInProgress: false,
           x1: {
             value: undefined,
             isValid: false,
@@ -396,6 +400,7 @@ describe('<Form />', () => {
           errors: [],
           nextForm,
           submitButton: null,
+          submitInProgress: false,
         });
 
         expect(window.location.href).to.equal('http://jssredirectweb');
@@ -430,9 +435,65 @@ describe('<Form />', () => {
           errors: [],
           nextForm,
           submitButton: null,
+          submitInProgress: false,
         });
 
         expect(onRedirect.calledWith('http://jssredirectweb')).to.be.true;
+      });
+    });
+
+    it('should set submitInProgress in state to true during submit', () => {
+      const props = p();
+      const ev = { preventDefault: sinon.spy(), target: { action: 'custom_submit_url' } };
+
+      const resolveSubmitResult = new Promise((resolve) =>
+        setTimeout(() => {
+          resolve({ success: true, nextForm });
+        }, 1000)
+      );
+
+      submitForm.returns(resolveSubmitResult);
+
+      const c = shallow(<Form {...props} />);
+
+      (c.instance() as Form).onSubmit(ev as any);
+      const curState = c.state() as FormState;
+      expect(curState.submitInProgress).to.equal(true);
+    });
+
+    it('should make render from with inert when submitInProgress is true', () => {
+      const props = p();
+
+      const c = mount(<Form {...props} />);
+
+      c.setState({ submitInProgress: true });
+
+      expect(c.find('form').prop('inert')).to.be.true;
+    });
+
+    it('should return form to non-inert state after submit is done', () => {
+      const props = p();
+      const ev = { preventDefault: sinon.spy(), target: { action: 'custom_submit_url' } };
+
+      const resolveSubmitResult = Promise.resolve().then(() => ({ success: true, nextForm }));
+
+      submitForm.returns(resolveSubmitResult);
+
+      const c = shallow(<Form {...props} />);
+
+      (c.instance() as Form).onSubmit(ev as any);
+
+      return resolveSubmitResult.then(() => {
+        expect(submitForm.args[0][0].data).to.deep.equal(formData);
+
+        expect(submitForm.args[0][1]).to.equal('custom_submit_url');
+
+        expect(c.state()).to.deep.equal({
+          errors: [],
+          nextForm,
+          submitButton: null,
+          submitInProgress: false,
+        });
       });
     });
 
@@ -509,6 +570,7 @@ describe('<Form />', () => {
           errors: ['Hello, I am error'],
           nextForm: null,
           submitButton: null,
+          submitInProgress: false,
         });
       }, 0);
     });

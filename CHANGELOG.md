@@ -33,6 +33,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-dev-tools]` `[templates/nextjs]` `[templates/react]` Introduce "components" configuration for ComponentBuilder ([#1598](https://github.com/Sitecore/jss/pull/1598))
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade Engage to latest ([#1609](https://github.com/Sitecore/jss/pull/1609))
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Component level data fetching(SSR/SSG) for BYOC ([#1610](https://github.com/Sitecore/jss/pull/1610))
+* `[sitecore-jss-nextjs]` Reduce the amount of Edge API calls during fetch getStaticPaths ([#1612](https://github.com/Sitecore/jss/pull/1612))
 
 ### 🧹 Chores
 
@@ -60,6 +61,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` Next config header plugin for CORS. ([#1597](https://github.com/Sitecore/jss/pull/1597))
 * `[templates/nextjs]` Ensure dictionary data is only fetched when layout data is present for a route ([#1608](https://github.com/Sitecore/jss/pull/1608)) 
 * `[templates/nextjs-personalize]` Fix cookie domain for localhost ([#1609](https://github.com/Sitecore/jss/pull/1609)) 
+* `[sitecore-jss-react-forms]` Form should be blocked while submit is in progress to avoid submit spam ([#1611](https://github.com/Sitecore/jss/pull/1611))
 
 ### 🛠 Breaking Changes
 
