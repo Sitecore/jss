@@ -54,6 +54,7 @@ export interface FormState {
   errors: string[];
   nextForm: SitecoreForm | null;
   submitButton: string | null;
+  submitInProgress?: boolean;
 }
 
 export interface FieldStateCollection {
@@ -107,13 +108,15 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
     const fieldComponents = form.fields.map(this.createFieldComponent);
     const ErrorComponent = this.props.errorComponent || DefaultError;
     const fieldErrors = this.collectCurrentFieldValues().filter((field) => !field.state.isValid);
-
+    const isInert = this.state.submitInProgress;
+    // react does not support inert natively yet - so we use a workaround to block the form while it's submitting
     return (
       <form
         className={this.props.className}
         action={action}
         method="POST"
         onSubmit={this.onSubmit.bind(this)}
+        {...{ inert: isInert || undefined }}
       >
         <ErrorComponent form={form} formErrors={this.state.errors} fieldErrors={fieldErrors} />
         {fieldComponents}
@@ -232,6 +235,11 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
    */
   onSubmit(e: FormEvent) {
     e.preventDefault();
+    if (this.state.submitInProgress) {
+      return;
+    }
+
+    this.setState({ submitInProgress: true });
 
     const form = this.state.nextForm || this.props.form;
 
@@ -263,6 +271,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
 
     submitForm(formData, submitUrl, { fetcher: this.props.formFetcher })
       .then((result) => {
+        this.setState({ submitInProgress: false });
         if (result.success && result.redirectUrl) {
           // Process redirect-on-success action.
           if (this.props.onRedirect) {
@@ -300,6 +309,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
         this.setState({ errors: [] });
       })
       .catch((error: Error | string[] | string) => {
+        this.setState({ submitInProgress: false });
         if (Array.isArray(error)) {
           this.setState({ errors: error });
         } else if (typeof error === 'string') {
@@ -327,7 +337,11 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
    */
   resetFieldsState() {
     const keys = Object.keys(this.state).filter(
-      (key) => key !== 'nextForm' && key !== 'errors' && key !== 'submitButton'
+      (key) =>
+        key !== 'nextForm' &&
+        key !== 'errors' &&
+        key !== 'submitButton' &&
+        key !== 'submitInProgress'
     );
     const stateReset = keys.reduce((acc, v) => ({ ...acc, [v]: undefined }), {});
     this.setState({ ...stateReset, errors: [] });
