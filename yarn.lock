@@ -6641,7 +6641,7 @@ __metadata:
     "@types/mocha": ^10.0.1
     "@types/node": ~18.11.18
     "@types/prop-types": ^15.7.5
-    "@types/react": ^18.0.27
+    "@types/react": ^18.2.22
     "@types/react-dom": ^18.0.10
     "@types/sinon": ^10.0.13
     "@types/sinon-chai": ^3.2.9
@@ -6788,7 +6788,7 @@ __metadata:
     "@types/mocha": ^10.0.1
     "@types/node": 18.11.10
     "@types/prop-types": ^15.7.5
-    "@types/react": ^18.0.27
+    "@types/react": ^18.2.22
     "@types/react-dom": ^18.0.10
     "@types/sinon": ^10.0.13
     "@types/sinon-chai": ^3.2.9
@@ -7843,14 +7843,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.0.27":
-  version: 18.0.27
-  resolution: "@types/react@npm:18.0.27"
+"@types/react@npm:^18.2.22":
+  version: 18.2.22
+  resolution: "@types/react@npm:18.2.22"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 600fdbc39a92ea4a77047db3e12f05f67776a710f5918248c0189a59ac2a38900c9db5a5d2e433a16df528a3ecab1aa114b322cacea573bb1ca2fc0b094c52d1
+  checksum: 44289523dabaadcd3fd85689abb98f9ebcc8492d7e978348d1c986138acef4801030b279e89a19e38a6319e294bcea77559e37e0c803e4bacf2b8ae3a56ba587
   languageName: node
   linkType: hard
 
