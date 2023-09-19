@@ -116,7 +116,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
         action={action}
         method="POST"
         onSubmit={this.onSubmit.bind(this)}
-        {...{ inert: isInert || undefined }}
+        {...{ inert: isInert ? 'true' : undefined }}
       >
         <ErrorComponent form={form} formErrors={this.state.errors} fieldErrors={fieldErrors} />
         {fieldComponents}
