@@ -467,7 +467,7 @@ describe('<Form />', () => {
 
       c.setState({ submitInProgress: true });
 
-      expect(c.find('form').prop('inert')).to.be.true;
+      expect(c.find('form').prop('inert')).to.be.equal('true');
     });
 
     it('should return form to non-inert state after submit is done', () => {
