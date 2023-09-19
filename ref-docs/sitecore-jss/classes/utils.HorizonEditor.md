@@ -40,7 +40,7 @@ true if executing within a Horizon Editor
 
 #### Defined in
 
-[src/utils/editing.ts:56](https://github.com/Sitecore/jss/blob/fb32a11df/packages/sitecore-jss/src/utils/editing.ts#L56)
+[src/utils/editing.ts:56](https://github.com/Sitecore/jss/blob/8a4072ffa/packages/sitecore-jss/src/utils/editing.ts#L56)
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 #### Defined in
 
-[src/utils/editing.ts:63](https://github.com/Sitecore/jss/blob/fb32a11df/packages/sitecore-jss/src/utils/editing.ts#L63)
+[src/utils/editing.ts:63](https://github.com/Sitecore/jss/blob/8a4072ffa/packages/sitecore-jss/src/utils/editing.ts#L63)
