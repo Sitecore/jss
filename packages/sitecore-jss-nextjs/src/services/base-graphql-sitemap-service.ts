@@ -27,7 +27,7 @@ query ${usesPersonalize ? 'PersonalizeSitemapQuery' : 'DefaultSitemapQuery'}(
   $language: String!
   $includedPaths: [String]
   $excludedPaths: [String]
-  $pageSize: Int = 10
+  $pageSize: Int = 100
   $after: String
 ) {
   site {
@@ -86,7 +86,7 @@ interface SiteRouteQueryVariables {
   /** common variable for all GraphQL queries
    * it will be used for every type of query to regulate result batch size
    * Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
-   * @default 10
+   * @default 100
    */
   pageSize?: number;
 }
@@ -223,21 +223,24 @@ export abstract class BaseGraphQLSitemapService {
     formatStaticPath: (path: string[], language: string) => StaticPath
   ) {
     const paths = new Array<StaticPath>();
-    await Promise.all(
-      languages.map(async (language) => {
-        if (language === '') {
-          throw new RangeError(languageEmptyError);
-        }
-        debug.sitemap('fetching sitemap data for %s %s', language, siteName);
-        const results = await this.fetchLanguageSitePaths(language, siteName);
-        const transformedPaths = await this.transformLanguageSitePaths(
-          results,
-          formatStaticPath,
-          language
-        );
-        paths.push(...transformedPaths);
-      })
-    );
+
+    for (const language of languages) {
+      if (language === '') {
+        throw new RangeError(languageEmptyError);
+      }
+
+      debug.sitemap('fetching sitemap data for %s %s', language, siteName);
+
+      const results = await this.fetchLanguageSitePaths(language, siteName);
+      const transformedPaths = await this.transformLanguageSitePaths(
+        results,
+        formatStaticPath,
+        language
+      );
+
+      paths.push(...transformedPaths);
+    }
+
     return paths;
   }
 
