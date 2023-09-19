@@ -60,6 +60,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` Next config header plugin for CORS. ([#1597](https://github.com/Sitecore/jss/pull/1597))
 * `[templates/nextjs]` Ensure dictionary data is only fetched when layout data is present for a route ([#1608](https://github.com/Sitecore/jss/pull/1608)) 
 * `[sitecore-jss-react-forms]` Form should be blocked while submit is in progress to avoid submit spam ([#1611](https://github.com/Sitecore/jss/pull/1611))
+* `[templates/nextjs]` Fix linting error ([#1613](https://github.com/Sitecore/jss/pull/1613))
 
 ### 🛠 Breaking Changes
 
