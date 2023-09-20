@@ -32,7 +32,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` Fetch Data for FEaaS Components as part of Component SSR/SSG ([#1586](https://github.com/Sitecore/jss/pull/1590))
 * `[sitecore-jss-dev-tools]` `[templates/nextjs]` `[templates/react]` Introduce "components" configuration for ComponentBuilder ([#1598](https://github.com/Sitecore/jss/pull/1598))
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Component level data fetching(SSR/SSG) for BYOC ([#1610](https://github.com/Sitecore/jss/pull/1610))
-* `[sitecore-jss-nextjs]` Reduce the amount of Edge API calls during fetch getStaticPaths ([#1612](https://github.com/Sitecore/jss/pull/1612))
+* `[sitecore-jss-nextjs]` Reduce the amount of Edge API calls during fetch getStaticPaths ([#1612](https://github.com/Sitecore/jss/pull/1612) [#1614](https://github.com/Sitecore/jss/pull/1614))
 
 ### 🧹 Chores
 
