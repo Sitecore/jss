@@ -53,7 +53,7 @@ MiddlewareBase.constructor
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:20](https://github.com/Sitecore/jss/blob/548cb4bfa/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L20)
+[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:20](https://github.com/Sitecore/jss/blob/bc42072b7/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L20)
 
 ## Properties
 
@@ -67,7 +67,7 @@ MiddlewareBase.SITE\_SYMBOL
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:31](https://github.com/Sitecore/jss/blob/548cb4bfa/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L31)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:31](https://github.com/Sitecore/jss/blob/bc42072b7/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L31)
 
 ___
 
@@ -83,7 +83,7 @@ MiddlewareBase.config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:20](https://github.com/Sitecore/jss/blob/548cb4bfa/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L20)
+[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:20](https://github.com/Sitecore/jss/blob/bc42072b7/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L20)
 
 ___
 
@@ -97,7 +97,7 @@ MiddlewareBase.defaultHostname
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:32](https://github.com/Sitecore/jss/blob/548cb4bfa/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L32)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:32](https://github.com/Sitecore/jss/blob/bc42072b7/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L32)
 
 ## Methods
 
@@ -121,7 +121,7 @@ MiddlewareBase.excludeRoute
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:40](https://github.com/Sitecore/jss/blob/548cb4bfa/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L40)
+[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:40](https://github.com/Sitecore/jss/blob/bc42072b7/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L40)
 
 ___
 
@@ -150,13 +150,13 @@ MiddlewareBase.extractDebugHeaders
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:64](https://github.com/Sitecore/jss/blob/548cb4bfa/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L64)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:64](https://github.com/Sitecore/jss/blob/bc42072b7/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L64)
 
 ___
 
 ### getHandler
 
-▸ **getHandler**(): (`req`: `NextRequest`, `res?`: `NextResponse`) => `Promise`<`NextResponse`\>
+▸ **getHandler**(): (`req`: `NextRequest`, `res?`: `NextResponse`<`unknown`\>) => `Promise`<`NextResponse`<`unknown`\>\>
 
 Gets the Next.js middleware handler with error handling
 
@@ -166,7 +166,7 @@ Gets the Next.js middleware handler with error handling
 
 middleware handler
 
-▸ (`req`, `res?`): `Promise`<`NextResponse`\>
+▸ (`req`, `res?`): `Promise`<`NextResponse`<`unknown`\>\>
 
 Gets the Next.js middleware handler with error handling
 
@@ -175,17 +175,17 @@ Gets the Next.js middleware handler with error handling
 | Name | Type |
 | :------ | :------ |
 | `req` | `NextRequest` |
-| `res?` | `NextResponse` |
+| `res?` | `NextResponse`<`unknown`\> |
 
 ##### Returns
 
-`Promise`<`NextResponse`\>
+`Promise`<`NextResponse`<`unknown`\>\>
 
 middleware handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:28](https://github.com/Sitecore/jss/blob/548cb4bfa/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L28)
+[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:28](https://github.com/Sitecore/jss/blob/bc42072b7/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L28)
 
 ___
 
@@ -211,7 +211,7 @@ MiddlewareBase.getHostHeader
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:83](https://github.com/Sitecore/jss/blob/548cb4bfa/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L83)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:83](https://github.com/Sitecore/jss/blob/bc42072b7/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L83)
 
 ___
 
@@ -239,7 +239,7 @@ MiddlewareBase.getLanguage
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:75](https://github.com/Sitecore/jss/blob/548cb4bfa/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L75)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:75](https://github.com/Sitecore/jss/blob/bc42072b7/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L75)
 
 ___
 
@@ -255,7 +255,7 @@ Can not be used in **Preview** mode, since site will not be resolved
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `req` | `NextRequest` | request |
-| `res?` | `NextResponse` | response |
+| `res?` | `NextResponse`<`unknown`\> | response |
 
 #### Returns
 
@@ -269,28 +269,28 @@ MiddlewareBase.getSite
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:94](https://github.com/Sitecore/jss/blob/548cb4bfa/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L94)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:94](https://github.com/Sitecore/jss/blob/bc42072b7/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L94)
 
 ___
 
 ### handler
 
-▸ `Private` **handler**(`req`, `res?`): `Promise`<`NextResponse`\>
+▸ `Private` **handler**(`req`, `res?`): `Promise`<`NextResponse`<`unknown`\>\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `req` | `NextRequest` |
-| `res?` | `NextResponse` |
+| `res?` | `NextResponse`<`unknown`\> |
 
 #### Returns
 
-`Promise`<`NextResponse`\>
+`Promise`<`NextResponse`<`unknown`\>\>
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:45](https://github.com/Sitecore/jss/blob/548cb4bfa/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L45)
+[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:45](https://github.com/Sitecore/jss/blob/bc42072b7/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L45)
 
 ___
 
@@ -318,4 +318,4 @@ MiddlewareBase.isPreview
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:43](https://github.com/Sitecore/jss/blob/548cb4bfa/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L43)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:43](https://github.com/Sitecore/jss/blob/bc42072b7/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L43)
