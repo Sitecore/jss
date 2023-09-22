@@ -31,9 +31,9 @@ Registers a statically loaded component
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:12](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L12)
+[sitecore-jss-angular/src/components/placeholder.token.ts:12](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L12)
 
-___
+---
 
 ### name
 
@@ -41,9 +41,9 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:9](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L9)
+[sitecore-jss-angular/src/components/placeholder.token.ts:9](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L9)
 
-___
+---
 
 ### resolve
 
@@ -55,9 +55,9 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:17](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L17)
+[sitecore-jss-angular/src/components/placeholder.token.ts:17](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L17)
 
-___
+---
 
 ### type
 
@@ -65,4 +65,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:10](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L10)
+[sitecore-jss-angular/src/components/placeholder.token.ts:10](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L10)

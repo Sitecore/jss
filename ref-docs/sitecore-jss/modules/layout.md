@@ -38,8 +38,8 @@
 
 ### Variables
 
-- [EDITING\_COMPONENT\_ID](layout.md#editing_component_id)
-- [EDITING\_COMPONENT\_PLACEHOLDER](layout.md#editing_component_placeholder)
+- [EDITING_COMPONENT_ID](layout.md#editing_component_id)
+- [EDITING_COMPONENT_PLACEHOLDER](layout.md#editing_component_placeholder)
 
 ### Functions
 
@@ -61,15 +61,15 @@ Data fetcher resolver in order to provide custom data fetcher
 ##### Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 ##### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse` | Response instance |
+| Name   | Type              | Description       |
+| :----- | :---------------- | :---------------- |
+| `req?` | `IncomingMessage` | Request instance  |
+| `res?` | `ServerResponse`  | Response instance |
 
 ##### Returns
 
@@ -77,9 +77,9 @@ Data fetcher resolver in order to provide custom data fetcher
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
 
-___
+---
 
 ### GraphQLLayoutServiceConfig
 
@@ -87,18 +87,18 @@ ___
 
 #### Type declaration
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `apiKey` | `string` | The API key to use for authentication |
-| `endpoint` | `string` | Your Graphql endpoint |
-| `formatLayoutQuery?` | (`siteName`: `string`, `itemPath`: `string`, `locale?`: `string`) => `string` | Override default layout query **`Default`** Layout query layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}") |
-| `siteName` | `string` | The JSS application name |
+| Name                 | Type                                                                          | Description                                                                                                                           |
+| :------------------- | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| `apiKey`             | `string`                                                                      | The API key to use for authentication                                                                                                 |
+| `endpoint`           | `string`                                                                      | Your Graphql endpoint                                                                                                                 |
+| `formatLayoutQuery?` | (`siteName`: `string`, `itemPath`: `string`, `locale?`: `string`) => `string` | Override default layout query **`Default`** Layout query layout(site:"${siteName}", routePath:"${itemPath}", language:"\${language}") |
+| `siteName`           | `string`                                                                      | The JSS application name                                                                                                              |
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
+[src/layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
 
-___
+---
 
 ### PlaceholdersData
 
@@ -109,15 +109,15 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type                        |
+| :---------- | :-------------------------- |
 | `TYPEDNAME` | extends `string` = `string` |
 
 #### Defined in
 
-[src/layout/models.ts:80](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/layout/models.ts#L80)
+[src/layout/models.ts:80](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/models.ts#L80)
 
-___
+---
 
 ### RestLayoutServiceConfig
 
@@ -125,42 +125,42 @@ ___
 
 #### Type declaration
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `apiHost` | `string` | Your Sitecore instance hostname that is the backend for JSS |
-| `apiKey` | `string` | The Sitecore SSC API key your app uses |
-| `configurationName?` | `string` | Layout Service "named" configuration |
-| `dataFetcherResolver?` | [`DataFetcherResolver`](layout.md#datafetcherresolver) | Function that handles fetching API data |
-| `siteName` | `string` | The JSS application name |
-| `tracking?` | `boolean` | Enables/disables analytics tracking for the Layout Service invocation (default is true). More than likely, this would be set to false for SSG/hybrid implementations, and the JSS tracker would instead be used on the client-side: [https://jss.sitecore.com/docs/fundamentals/services/tracking](https://jss.sitecore.com/docs/fundamentals/services/tracking) **`Default`** true |
+| Name                   | Type                                                   | Description                                                                                                                                                                                                                                                                                                                                                                         |
+| :--------------------- | :----------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `apiHost`              | `string`                                               | Your Sitecore instance hostname that is the backend for JSS                                                                                                                                                                                                                                                                                                                         |
+| `apiKey`               | `string`                                               | The Sitecore SSC API key your app uses                                                                                                                                                                                                                                                                                                                                              |
+| `configurationName?`   | `string`                                               | Layout Service "named" configuration                                                                                                                                                                                                                                                                                                                                                |
+| `dataFetcherResolver?` | [`DataFetcherResolver`](layout.md#datafetcherresolver) | Function that handles fetching API data                                                                                                                                                                                                                                                                                                                                             |
+| `siteName`             | `string`                                               | The JSS application name                                                                                                                                                                                                                                                                                                                                                            |
+| `tracking?`            | `boolean`                                              | Enables/disables analytics tracking for the Layout Service invocation (default is true). More than likely, this would be set to false for SSG/hybrid implementations, and the JSS tracker would instead be used on the client-side: [https://jss.sitecore.com/docs/fundamentals/services/tracking](https://jss.sitecore.com/docs/fundamentals/services/tracking) **`Default`** true |
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+[src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
 
 ## Variables
 
-### EDITING\_COMPONENT\_ID
+### EDITING_COMPONENT_ID
 
-• `Const` **EDITING\_COMPONENT\_ID**: ``"editing-component"``
+• `Const` **EDITING_COMPONENT_ID**: `"editing-component"`
 
 Id of wrapper for component rendering
 
 #### Defined in
 
-[src/layout/models.ts:9](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/layout/models.ts#L9)
+[src/layout/models.ts:9](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/models.ts#L9)
 
-___
+---
 
-### EDITING\_COMPONENT\_PLACEHOLDER
+### EDITING_COMPONENT_PLACEHOLDER
 
-• `Const` **EDITING\_COMPONENT\_PLACEHOLDER**: ``"editing-componentmode-placeholder"``
+• `Const` **EDITING_COMPONENT_PLACEHOLDER**: `"editing-componentmode-placeholder"`
 
 Static placeholder name used for component rendering
 
 #### Defined in
 
-[src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/layout/models.ts#L4)
+[src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/models.ts#L4)
 
 ## Functions
 
@@ -172,10 +172,10 @@ Gets rendering definitions in a given child placeholder under a current renderin
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `rendering` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) |
-| `placeholderName` | `string` |
+| Name              | Type                                                               |
+| :---------------- | :----------------------------------------------------------------- |
+| `rendering`       | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) |
+| `placeholderName` | `string`                                                           |
 
 #### Returns
 
@@ -185,9 +185,9 @@ child placeholder
 
 #### Defined in
 
-[src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/layout/utils.ts#L60)
+[src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/utils.ts#L60)
 
-___
+---
 
 ### getFieldValue
 
@@ -199,15 +199,15 @@ Null will be returned if the field is not defined.
 #### Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name                | Type                                                                                                                               | Description                                              |
+| :------------------ | :--------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------- |
 | `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| [`ComponentFields`](../interfaces/layout.ComponentFields.md) | the rendering or fields object to extract the field from |
-| `fieldName` | `string` | the name of the field to extract |
+| `fieldName`         | `string`                                                                                                                           | the name of the field to extract                         |
 
 #### Returns
 
@@ -217,23 +217,23 @@ the field value or null if the field is not defined
 
 #### Defined in
 
-[src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/layout/utils.ts#L10)
+[src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/utils.ts#L10)
 
 ▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
 #### Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name                | Type                                                                                                                               | Description                                              |
+| :------------------ | :--------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------- |
 | `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| [`ComponentFields`](../interfaces/layout.ComponentFields.md) | the rendering or fields object to extract the field from |
-| `fieldName` | `string` | the name of the field to extract |
-| `defaultValue` | `T` | the default value to return if the field is not defined |
+| `fieldName`         | `string`                                                                                                                           | the name of the field to extract                         |
+| `defaultValue`      | `T`                                                                                                                                | the default value to return if the field is not defined  |
 
 #### Returns
 
@@ -243,4 +243,4 @@ the field value or the default value if the field is not defined
 
 #### Defined in
 
-[src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/layout/utils.ts#L15)
+[src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/utils.ts#L15)

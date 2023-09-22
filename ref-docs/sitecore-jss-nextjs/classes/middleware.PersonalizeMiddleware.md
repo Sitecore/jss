@@ -20,7 +20,7 @@ Middleware / handler to support Sitecore Personalize
 
 ### Properties
 
-- [SITE\_SYMBOL](middleware.PersonalizeMiddleware.md#site_symbol)
+- [SITE_SYMBOL](middleware.PersonalizeMiddleware.md#site_symbol)
 - [cdpService](middleware.PersonalizeMiddleware.md#cdpservice)
 - [config](middleware.PersonalizeMiddleware.md#config)
 - [defaultHostname](middleware.PersonalizeMiddleware.md#defaulthostname)
@@ -52,8 +52,8 @@ Middleware / handler to support Sitecore Personalize
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type                                                                                  | Description                   |
+| :-------- | :------------------------------------------------------------------------------------ | :---------------------------- |
 | `config?` | [`PersonalizeMiddlewareConfig`](../modules/middleware.md#personalizemiddlewareconfig) | Personalize middleware config |
 
 #### Overrides
@@ -62,23 +62,23 @@ MiddlewareBase.constructor
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:43](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L43)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:43](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L43)
 
 ## Properties
 
-### SITE\_SYMBOL
+### SITE_SYMBOL
 
-• `Protected` **SITE\_SYMBOL**: `string` = `'sc_site'`
+• `Protected` **SITE_SYMBOL**: `string` = `'sc_site'`
 
 #### Inherited from
 
-MiddlewareBase.SITE\_SYMBOL
+MiddlewareBase.SITE_SYMBOL
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:31](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L31)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:31](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L31)
 
-___
+---
 
 ### cdpService
 
@@ -86,9 +86,9 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:38](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L38)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:38](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L38)
 
-___
+---
 
 ### config
 
@@ -102,9 +102,9 @@ MiddlewareBase.config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:43](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L43)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:43](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L43)
 
-___
+---
 
 ### defaultHostname
 
@@ -116,9 +116,9 @@ MiddlewareBase.defaultHostname
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:32](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L32)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:32](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L32)
 
-___
+---
 
 ### personalizeService
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:37](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L37)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:37](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L37)
 
 ## Accessors
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:88](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L88)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:88](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L88)
 
 ## Methods
 
@@ -150,8 +150,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type     |
+| :--------- | :------- |
 | `pathname` | `string` |
 
 #### Returns
@@ -164,9 +164,9 @@ MiddlewareBase.excludeRoute
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:115](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L115)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:118](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L118)
 
-___
+---
 
 ### extractDebugHeaders
 
@@ -177,8 +177,8 @@ Necessary to avoid middleware issue https://github.com/vercel/next.js/issues/397
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name              | Type      | Description      |
+| :---------------- | :-------- | :--------------- |
 | `incomingHeaders` | `Headers` | Incoming headers |
 
 #### Returns
@@ -193,9 +193,9 @@ MiddlewareBase.extractDebugHeaders
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:64](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L64)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:64](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L64)
 
-___
+---
 
 ### getBrowserId
 
@@ -203,8 +203,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type          |
+| :---- | :------------ |
 | `req` | `NextRequest` |
 
 #### Returns
@@ -213,9 +213,9 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:93](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L93)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:93](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L93)
 
-___
+---
 
 ### getExperienceParams
 
@@ -223,8 +223,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type          |
+| :---- | :------------ |
 | `req` | `NextRequest` |
 
 #### Returns
@@ -233,13 +233,13 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:103](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L103)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:103](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L103)
 
-___
+---
 
 ### getHandler
 
-▸ **getHandler**(): (`req`: `NextRequest`, `res?`: `NextResponse`) => `Promise`<`NextResponse`\>
+▸ **getHandler**(): (`req`: `NextRequest`, `res?`: `NextResponse`<`unknown`\>) => `Promise`<`NextResponse`<`unknown`\>\>
 
 Gets the Next.js middleware handler with error handling
 
@@ -249,28 +249,28 @@ Gets the Next.js middleware handler with error handling
 
 middleware handler
 
-▸ (`req`, `res?`): `Promise`<`NextResponse`\>
+▸ (`req`, `res?`): `Promise`<`NextResponse`<`unknown`\>\>
 
 Gets the Next.js middleware handler with error handling
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `req` | `NextRequest` |
-| `res?` | `NextResponse` |
+| Name   | Type                       |
+| :----- | :------------------------- |
+| `req`  | `NextRequest`              |
+| `res?` | `NextResponse`<`unknown`\> |
 
 ##### Returns
 
-`Promise`<`NextResponse`\>
+`Promise`<`NextResponse`<`unknown`\>\>
 
 middleware handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:76](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L76)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:76](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L76)
 
-___
+---
 
 ### getHostHeader
 
@@ -280,9 +280,9 @@ Extract 'host' header
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `req` | `NextRequest` | request |
+| Name  | Type          | Description |
+| :---- | :------------ | :---------- |
+| `req` | `NextRequest` | request     |
 
 #### Returns
 
@@ -294,9 +294,9 @@ MiddlewareBase.getHostHeader
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:83](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L83)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:83](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L83)
 
-___
+---
 
 ### getLanguage
 
@@ -306,9 +306,9 @@ Provides used language
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `req` | `NextRequest` | request |
+| Name  | Type          | Description |
+| :---- | :------------ | :---------- |
+| `req` | `NextRequest` | request     |
 
 #### Returns
 
@@ -322,9 +322,9 @@ MiddlewareBase.getLanguage
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:75](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L75)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:75](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L75)
 
-___
+---
 
 ### getSite
 
@@ -335,10 +335,10 @@ Can not be used in **Preview** mode, since site will not be resolved
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `req` | `NextRequest` | request |
-| `res?` | `NextResponse` | response |
+| Name   | Type                       | Description |
+| :----- | :------------------------- | :---------- |
+| `req`  | `NextRequest`              | request     |
+| `res?` | `NextResponse`<`unknown`\> | response    |
 
 #### Returns
 
@@ -352,30 +352,30 @@ MiddlewareBase.getSite
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:94](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L94)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:94](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L94)
 
-___
+---
 
 ### handler
 
-▸ `Private` **handler**(`req`, `res?`): `Promise`<`NextResponse`\>
+▸ `Private` **handler**(`req`, `res?`): `Promise`<`NextResponse`<`unknown`\>\>
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `req` | `NextRequest` |
-| `res?` | `NextResponse` |
+| Name   | Type                       |
+| :----- | :------------------------- |
+| `req`  | `NextRequest`              |
+| `res?` | `NextResponse`<`unknown`\> |
 
 #### Returns
 
-`Promise`<`NextResponse`\>
+`Promise`<`NextResponse`<`unknown`\>\>
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:120](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L120)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:123](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L123)
 
-___
+---
 
 ### isPreview
 
@@ -385,9 +385,9 @@ Determines if mode is preview
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `req` | `NextRequest` | request |
+| Name  | Type          | Description |
+| :---- | :------------ | :---------- |
+| `req` | `NextRequest` | request     |
 
 #### Returns
 
@@ -401,9 +401,9 @@ MiddlewareBase.isPreview
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:43](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L43)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:43](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L43)
 
-___
+---
 
 ### setBrowserId
 
@@ -411,10 +411,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `res` | `NextResponse` |
-| `browserId` | `string` |
+| Name        | Type                       |
+| :---------- | :------------------------- |
+| `res`       | `NextResponse`<`unknown`\> |
+| `browserId` | `string`                   |
 
 #### Returns
 
@@ -422,4 +422,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:97](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L97)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:97](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L97)

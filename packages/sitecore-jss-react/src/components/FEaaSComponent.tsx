@@ -1,10 +1,7 @@
 import React from 'react';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
-import {
-  ComponentFields,
-  LayoutServicePageState,
-  getFieldValue,
-} from '@sitecore-jss/sitecore-jss/layout';
+import { ComponentFields, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
+import { getDataFromFields } from '../utils';
 
 export const FEAAS_COMPONENT_RENDERING_NAME = 'FEaaSComponent';
 
@@ -35,13 +32,13 @@ type FEaaSComponentServerProps = {
    */
   template?: string;
   /**
-   * the date component data was last modified
-   */
-  lastModified?: string;
-  /**
    * Default revision to be fetched. Should be 'staged' for editing/preview. Can be overriden by params.ComponentRevision
    */
   revisionFallback?: RevisionType;
+  /**
+   * Fetched data from server component props for server rendering, based on rendering params.
+   */
+  fetchedData?: FEAAS.DataScopes;
 };
 
 /**
@@ -67,7 +64,7 @@ export type FEaaSComponentProps = FEaaSComponentServerProps & FEaaSComponentClie
 export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
   const computedRevision = props.params?.ComponentRevision || props.revisionFallback;
   if (
-    (!props.lastModified || !props.template) &&
+    !props.template &&
     (!props.params ||
       !props.params.LibraryId ||
       !props.params.ComponentId ||
@@ -80,6 +77,7 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
   }
 
   let data: { [key: string]: unknown } = null;
+<<<<<<< HEAD
   if (props.params?.ComponentDataOverride) {
     // Use override data if provided
     try {
@@ -90,6 +88,20 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
   } else if (props.fields) {
     // Otherwise use datasource data (provided in fields)
     data = getDataFromFields(props.fields);
+=======
+  if (props.fetchedData === null || props.fetchedData === undefined) {
+    if (props.params?.ComponentDataOverride) {
+      // Use override data if provided
+      try {
+        data = JSON.parse(props.params.ComponentDataOverride);
+      } catch (e) {
+        data = null;
+      }
+    } else if (props.fields) {
+      // Otherwise use datasource data (provided in fields)
+      data = getDataFromFields(props.fields);
+    }
+>>>>>>> dc42c1a8da79bb219c8b8575668eb30404cb86f8
   }
 
   // FEaaS control would still be hydrated by client
@@ -97,9 +109,8 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
   // this also allows component to fall back to full client-side rendering when template or src is empty
   return (
     <FEAAS.Component
-      data={data}
-      template={props.template || ''}
-      last-modified={props.lastModified}
+      data={props.fetchedData || data}
+      template={props.template}
       cdn={props.params?.ComponentHostName}
       library={props.params?.LibraryId}
       version={props.params?.ComponentVersion}
@@ -125,34 +136,67 @@ export async function fetchFEaaSComponentServerProps(
   const revisionFallback =
     pageState && pageState !== LayoutServicePageState.Normal ? 'staged' : 'published';
   const src = endpointOverride || composeComponentEndpoint(params, revisionFallback);
+  let template = '';
+  let fetchedData: FEAAS.DataScopes = null;
+  const fetchDataOptions: FEAAS.DataOptions = params.ComponentDataOverride
+    ? JSON.parse(params.ComponentDataOverride)
+    : {};
+
   try {
-    const { template, lastModified } = await FEAAS.fetchComponent(src);
-    return {
-      revisionFallback,
-      template,
-      lastModified,
-    };
+    template = await fetchComponentTemplate(src, params, revisionFallback);
+
+    fetchedData = await fetchData(fetchDataOptions);
   } catch (e) {
+    console.error(e);
+  }
+
+  return {
+    fetchedData,
+    revisionFallback,
+    template,
+  };
+}
+
+/**
+ * @param {string} src component endpoint
+ * @param {FEaaSComponentParams} params rendering parameters for FEAAS component
+ * @param {RevisionType} revisionFallback fallback revision to fetch if revision is absent in params
+ */
+async function fetchComponentTemplate(
+  src: string,
+  params: FEaaSComponentParams,
+  revisionFallback: string
+): Promise<string> {
+  try {
+    const { template } = await FEAAS.fetchComponent(src);
+    return template;
+  } catch (error) {
     console.error(
       `Fetch FEAAS component from ${src} failed. Ensure the component revision "${params.ComponentRevision ||
         revisionFallback}" is present`
     );
-    console.error(e);
-    // leave revision fallback in so we can re-try with client-side rendering
-    return {
-      revisionFallback,
-    };
+    throw error;
   }
 }
 
-const getDataFromFields = (fields: ComponentFields): { [key: string]: unknown } => {
-  let data: { [key: string]: unknown } = {};
-  data = Object.entries(fields).reduce((acc, [key]) => {
-    acc[key] = getFieldValue(fields, key);
-    return acc;
-  }, data);
-  return data;
-};
+/**
+ * Fetches component data based on the provided data options.
+ * This function asynchronously fetches data using the FEAAS.DataSettings.fetch method.
+ *
+ * @param {FEAAS.DataOptions} dataOptions - Options to customize data fetching.
+ * @returns {Promise<FEAAS.DataScopes>} A promise that resolves with the fetched data,
+ * or rejects with an error if data fetching encounters an issue.
+ * @throws {Error} If an error occurs during data fetching, it is propagated as an error.
+ */
+async function fetchData(dataOptions: FEAAS.DataOptions): Promise<FEAAS.DataScopes> {
+  try {
+    const fetchedData = await FEAAS.DataSettings.fetch(dataOptions || {});
+    return fetchedData;
+  } catch (error) {
+    console.error('Fetch FEAAS component data settings failed');
+    throw error;
+  }
+}
 
 /**
  * Build component endpoint URL from component's params

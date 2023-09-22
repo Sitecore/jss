@@ -11,9 +11,9 @@ This class is meant to be extended or used as a mixin; it's not meant to be used
 
 ## Type parameters
 
-| Name | Description |
-| :------ | :------ |
-| `T` | The type of objects being requested. |
+| Name | Description                          |
+| :--- | :----------------------------------- |
+| `T`  | The type of objects being requested. |
 
 ## Table of contents
 
@@ -40,18 +40,18 @@ Creates an instance of search query service.
 #### Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name     | Type                                                    | Description                                |
+| :------- | :------------------------------------------------------ | :----------------------------------------- |
 | `client` | [`GraphQLClient`](../interfaces/index.GraphQLClient.md) | that fetches data from a GraphQL endpoint. |
 
 #### Defined in
 
-[src/graphql/search-service.ts:89](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/graphql/search-service.ts#L89)
+[src/graphql/search-service.ts:89](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/graphql/search-service.ts#L89)
 
 ## Properties
 
@@ -63,7 +63,7 @@ that fetches data from a GraphQL endpoint.
 
 #### Defined in
 
-[src/graphql/search-service.ts:89](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/graphql/search-service.ts#L89)
+[src/graphql/search-service.ts:89](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/graphql/search-service.ts#L89)
 
 ## Methods
 
@@ -85,10 +85,10 @@ if the provided language(s) is(are) not valid.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `query` | `string` \| `DocumentNode` | the search query. |
-| `args` | [`SearchQueryVariables`](../interfaces/graphql.SearchQueryVariables.md) | search query arguments. |
+| Name    | Type                                                                    | Description             |
+| :------ | :---------------------------------------------------------------------- | :---------------------- |
+| `query` | `string` \| `DocumentNode`                                              | the search query.       |
+| `args`  | [`SearchQueryVariables`](../interfaces/graphql.SearchQueryVariables.md) | search query arguments. |
 
 #### Returns
 
@@ -98,4 +98,4 @@ array of result objects.
 
 #### Defined in
 
-[src/graphql/search-service.ts:102](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/graphql/search-service.ts#L102)
+[src/graphql/search-service.ts:102](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/graphql/search-service.ts#L102)

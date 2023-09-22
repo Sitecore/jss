@@ -36,13 +36,13 @@ Utilizes a cache for storage and retrieval of editing data.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type                                                                                      | Description                 |
+| :-------- | :---------------------------------------------------------------------------------------- | :-------------------------- |
 | `config?` | [`BasicEditingDataServiceConfig`](../interfaces/editing.BasicEditingDataServiceConfig.md) | Editing data service config |
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:74](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L74)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:74](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L74)
 
 ## Properties
 
@@ -52,9 +52,9 @@ Utilizes a cache for storage and retrieval of editing data.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:69](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L69)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:69](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L69)
 
-___
+---
 
 ### generateKey
 
@@ -71,8 +71,8 @@ Example generated key: 52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x
 
 ##### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name   | Type                                               | Description      |
+| :----- | :------------------------------------------------- | :--------------- |
 | `data` | [`EditingData`](../modules/editing.md#editingdata) | The editing data |
 
 ##### Returns
@@ -83,7 +83,7 @@ The unique key
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:68](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L68)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:68](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L68)
 
 ## Methods
 
@@ -95,8 +95,8 @@ Retrieves Sitecore editor payload data by key
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name          | Type          | Description                                                  |
+| :------------ | :------------ | :----------------------------------------------------------- |
 | `previewData` | `PreviewData` | Editing preview data containing the key to use for retrieval |
 
 #### Returns
@@ -111,9 +111,9 @@ The [EditingData](../modules/editing.md#editingdata)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:100](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L100)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:100](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L100)
 
-___
+---
 
 ### setEditingData
 
@@ -123,8 +123,8 @@ Stores Sitecore editor payload data for later retrieval by key
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name   | Type                                               | Description  |
+| :----- | :------------------------------------------------- | :----------- |
 | `data` | [`EditingData`](../modules/editing.md#editingdata) | Editing data |
 
 #### Returns
@@ -139,4 +139,4 @@ The [EditingPreviewData](../interfaces/editing.EditingPreviewData.md) containing
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:83](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L83)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:83](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L83)

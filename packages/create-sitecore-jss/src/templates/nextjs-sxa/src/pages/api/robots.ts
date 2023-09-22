@@ -4,8 +4,7 @@ import { siteResolver } from 'lib/site-resolver';
 import config from 'temp/config';
 
 const robotsApi = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
-  // Ensure response is text/html
-  res.setHeader('Content-Type', 'text/html;charset=utf-8');
+  res.setHeader('Content-Type', 'text/plain');
 
   // Resolve site based on hostname
   const hostName = req.headers['host']?.split(':')[0] || 'localhost';

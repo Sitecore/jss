@@ -44,9 +44,11 @@ class NormalModePlugin implements Plugin {
       props.notFound = true;
     }
 
-    // Fetch dictionary data
-    const dictionaryService = this.getDictionaryService(props.site.name);
-    props.dictionary = await dictionaryService.fetchDictionaryData(props.locale);
+    // Fetch dictionary data if layout data was present
+    if (!props.notFound) {      
+      const dictionaryService = this.getDictionaryService(props.site.name);
+      props.dictionary = await dictionaryService.fetchDictionaryData(props.locale);
+    }
 
     // Initialize links to be inserted on the page
     props.headLinks = [];

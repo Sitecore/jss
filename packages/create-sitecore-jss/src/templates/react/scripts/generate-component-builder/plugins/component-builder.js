@@ -7,7 +7,7 @@ class ComponentBuilderPlugin {
   order = 9999;
 
   exec(config) {
-    generateComponentBuilder({ packages: config.packages, watch: config.watch });
+    generateComponentBuilder(config);
   }
 }
 

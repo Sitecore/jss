@@ -1,8 +1,8 @@
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactDOMServer from 'react-dom/server';
 import { addClassName, convertAttributesToReactProps } from '../utils';
+import { getAttributesString } from '../utils';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -143,7 +143,7 @@ export const getEEMarkup = (
     return getEditableWrapper(imageField.editable);
   }
 
-  const imgHtml = ReactDOMServer.renderToStaticMarkup(<img {...imgAttrs} />);
+  const imgHtml = `<img ${getAttributesString(imgAttrs as { [key: string]: unknown })} />`;
   const editableMarkup = imageField.editable.replace(foundImg.imgTag, imgHtml);
   return getEditableWrapper(editableMarkup);
 };

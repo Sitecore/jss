@@ -17,6 +17,11 @@ describe('MultisiteMiddleware', () => {
   const debugSpy = spy(debug, 'multisite');
   const validateDebugLog = (message, ...params) =>
     expect(debugSpy.args.find((log) => log[0] === message)).to.deep.equal([message, ...params]);
+  const validateEndMessageDebugLog = (message, params) => {
+    const logParams = debugSpy.args.find((log) => log[0] === message) as Array<unknown>;
+
+    expect(logParams[2]).to.deep.equal(params);
+  };
 
   const siteName = 'foo';
 
@@ -235,7 +240,7 @@ describe('MultisiteMiddleware', () => {
         hostname: 'bar.net',
       });
 
-      validateDebugLog('multisite middleware end: %o', {
+      validateEndMessageDebugLog('multisite middleware end in %dms: %o', {
         rewritePath: '/_site_foo/styleguide',
         siteName: 'foo',
         headers: {
@@ -276,7 +281,7 @@ describe('MultisiteMiddleware', () => {
         hostname: 'localhost',
       });
 
-      validateDebugLog('multisite middleware end: %o', {
+      validateEndMessageDebugLog('multisite middleware end in %dms: %o', {
         rewritePath: '/_site_foo/styleguide',
         siteName: 'foo',
         headers: {
@@ -315,7 +320,7 @@ describe('MultisiteMiddleware', () => {
         hostname: 'foo.net',
       });
 
-      validateDebugLog('multisite middleware end: %o', {
+      validateEndMessageDebugLog('multisite middleware end in %dms: %o', {
         rewritePath: '/_site_foo/styleguide',
         siteName: 'foo',
         headers: {
@@ -354,7 +359,7 @@ describe('MultisiteMiddleware', () => {
         hostname: 'foo.net',
       });
 
-      validateDebugLog('multisite middleware end: %o', {
+      validateEndMessageDebugLog('multisite middleware end in %dms: %o', {
         rewritePath: '/_site_foo/styleguide',
         siteName: 'foo',
         headers: {
@@ -397,7 +402,7 @@ describe('MultisiteMiddleware', () => {
         hostname: 'foo.net',
       });
 
-      validateDebugLog('multisite middleware end: %o', {
+      validateEndMessageDebugLog('multisite middleware end in %dms: %o', {
         rewritePath: '/_site_qsFoo/styleguide',
         siteName: 'qsFoo',
         headers: {
@@ -441,7 +446,7 @@ describe('MultisiteMiddleware', () => {
         hostname: 'foo.net',
       });
 
-      validateDebugLog('multisite middleware end: %o', {
+      validateEndMessageDebugLog('multisite middleware end in %dms: %o', {
         rewritePath: '/_site_foobar/styleguide',
         siteName: 'foobar',
         headers: {
@@ -483,7 +488,7 @@ describe('MultisiteMiddleware', () => {
         hostname: 'foo.net',
       });
 
-      validateDebugLog('multisite middleware end: %o', {
+      validateEndMessageDebugLog('multisite middleware end in %dms: %o', {
         rewritePath: '/_site_foo/styleguide',
         siteName: 'foo',
         headers: {

@@ -1,21 +1,19 @@
 import path from 'path';
 import { scaffoldFile } from '@sitecore-jss/sitecore-jss-dev-tools';
-import generateComponentSrc from 'scripts/templates/component-src';
 import { ScaffoldComponentPlugin, ScaffoldComponentPluginConfig } from '..';
 
 /**
  * Generates the component file.
  */
 class ComponentPlugin implements ScaffoldComponentPlugin {
-  order = 0;
-
-  componentRootPath = 'src/components';
+  order = 99;
 
   exec(config: ScaffoldComponentPluginConfig) {
     const { componentName, componentPath } = config;
     const filename = `${componentName}.tsx`;
-    const outputFilePath = path.join(this.componentRootPath, componentPath, filename);
-    const template = generateComponentSrc(componentName);
+    const componentRoot = componentPath.startsWith('src/') ? '' : 'src/components';
+    const outputFilePath = path.join(componentRoot, componentPath, filename);
+    const template = config.componentTemplateGenerator(componentName);
 
     const componentOutputPath = scaffoldFile(outputFilePath, template);
 

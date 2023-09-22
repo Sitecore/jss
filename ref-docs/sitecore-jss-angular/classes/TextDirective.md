@@ -34,14 +34,14 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `viewContainer` | `ViewContainerRef` |
-| `templateRef` | `TemplateRef`<`unknown`\> |
+| Name            | Type                      |
+| :-------------- | :------------------------ |
+| `viewContainer` | `ViewContainerRef`        |
+| `templateRef`   | `TemplateRef`<`unknown`\> |
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/text.directive.ts:24](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/components/text.directive.ts#L24)
+[sitecore-jss-angular/src/components/text.directive.ts:24](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/components/text.directive.ts#L24)
 
 ## Properties
 
@@ -51,9 +51,9 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/text.directive.ts:16](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/components/text.directive.ts#L16)
+[sitecore-jss-angular/src/components/text.directive.ts:16](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/components/text.directive.ts#L16)
 
-___
+---
 
 ### encode
 
@@ -61,9 +61,9 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/text.directive.ts:18](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/components/text.directive.ts#L18)
+[sitecore-jss-angular/src/components/text.directive.ts:18](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/components/text.directive.ts#L18)
 
-___
+---
 
 ### field
 
@@ -71,9 +71,9 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/text.directive.ts:20](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/components/text.directive.ts#L20)
+[sitecore-jss-angular/src/components/text.directive.ts:20](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/components/text.directive.ts#L20)
 
-___
+---
 
 ### templateRef
 
@@ -81,9 +81,9 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/text.directive.ts:24](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/components/text.directive.ts#L24)
+[sitecore-jss-angular/src/components/text.directive.ts:24](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/components/text.directive.ts#L24)
 
-___
+---
 
 ### viewContainer
 
@@ -91,9 +91,9 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/text.directive.ts:24](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/components/text.directive.ts#L24)
+[sitecore-jss-angular/src/components/text.directive.ts:24](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/components/text.directive.ts#L24)
 
-___
+---
 
 ### viewRef
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/text.directive.ts:22](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/components/text.directive.ts#L22)
+[sitecore-jss-angular/src/components/text.directive.ts:22](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/components/text.directive.ts#L22)
 
 ## Methods
 
@@ -111,8 +111,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type            |
+| :-------- | :-------------- |
 | `changes` | `SimpleChanges` |
 
 #### Returns
@@ -125,9 +125,9 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/text.directive.ts:26](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/components/text.directive.ts#L26)
+[sitecore-jss-angular/src/components/text.directive.ts:26](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/components/text.directive.ts#L26)
 
-___
+---
 
 ### updateView
 
@@ -139,4 +139,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/text.directive.ts:37](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/components/text.directive.ts#L37)
+[sitecore-jss-angular/src/components/text.directive.ts:37](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/components/text.directive.ts#L37)

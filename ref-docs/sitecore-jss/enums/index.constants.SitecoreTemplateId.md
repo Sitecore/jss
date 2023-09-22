@@ -15,18 +15,18 @@
 
 ### DictionaryEntry
 
-• **DictionaryEntry** = ``"6d1cd89719364a3aa511289a94c2a7b1"``
+• **DictionaryEntry** = `"6d1cd89719364a3aa511289a94c2a7b1"`
 
 #### Defined in
 
-[src/constants.ts:6](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/constants.ts#L6)
+[src/constants.ts:6](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/constants.ts#L6)
 
-___
+---
 
 ### JssApp
 
-• **JssApp** = ``"061cba1554744b918a0617903b102b82"``
+• **JssApp** = `"061cba1554744b918a0617903b102b82"`
 
 #### Defined in
 
-[src/constants.ts:3](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/constants.ts#L3)
+[src/constants.ts:3](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/constants.ts#L3)

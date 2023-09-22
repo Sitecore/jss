@@ -19,6 +19,11 @@ describe('PersonalizeMiddleware', () => {
   const debugSpy = spy(debug, 'personalize');
   const validateDebugLog = (message, ...params) =>
     expect(debugSpy.args.find((log) => log[0] === message)).to.deep.equal([message, ...params]);
+  const validateEndMessageDebugLog = (message, params) => {
+    const logParams = debugSpy.args.find((log) => log[0] === message) as Array<unknown>;
+
+    expect(logParams[2]).to.deep.equal(params);
+  };
 
   const hostname = 'foo.net';
   const siteName = 'bar';
@@ -79,9 +84,10 @@ describe('PersonalizeMiddleware', () => {
         get(key: string) {
           return req.headers[key];
         },
+        referer: referrer,
         ...props.headerValues,
       },
-      referrer,
+      referrer: 'about:client',
     } as NextRequest;
 
     return req;
@@ -607,7 +613,7 @@ describe('PersonalizeMiddleware', () => {
       expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
         .to.be.true;
 
-      validateDebugLog('personalize middleware end: %o', {
+      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {
@@ -669,7 +675,7 @@ describe('PersonalizeMiddleware', () => {
       expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
         .to.be.true;
 
-      validateDebugLog('personalize middleware end: %o', {
+      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {
@@ -730,7 +736,7 @@ describe('PersonalizeMiddleware', () => {
       expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
         .to.be.true;
 
-      validateDebugLog('personalize middleware end: %o', {
+      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {
@@ -784,7 +790,7 @@ describe('PersonalizeMiddleware', () => {
       expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
         .to.be.true;
 
-      validateDebugLog('personalize middleware end: %o', {
+      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {
@@ -833,7 +839,7 @@ describe('PersonalizeMiddleware', () => {
         language: 'en',
       });
 
-      validateDebugLog('personalize middleware end: %o', {
+      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {
@@ -858,7 +864,7 @@ describe('PersonalizeMiddleware', () => {
     it('optional experiece params are not present', async () => {
       userAgentStub.returns({ ua: '' } as any);
 
-      const req = createRequest();
+      const req = createRequest({ headerValues: { referer: null } });
 
       const res = createResponse();
 
@@ -883,7 +889,7 @@ describe('PersonalizeMiddleware', () => {
 
       expect(
         executeExperience.calledWith(contentId, browserId, '', pointOfSale, {
-          referrer,
+          referrer: 'about:client',
           utm: {
             campaign: 'utm_campaign',
             content: null,
@@ -893,7 +899,7 @@ describe('PersonalizeMiddleware', () => {
         })
       ).to.be.true;
 
-      validateDebugLog('personalize middleware end: %o', {
+      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {
@@ -946,7 +952,7 @@ describe('PersonalizeMiddleware', () => {
       expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
         .to.be.true;
 
-      validateDebugLog('personalize middleware end: %o', {
+      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {
@@ -999,7 +1005,7 @@ describe('PersonalizeMiddleware', () => {
       expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
         .to.be.true;
 
-      validateDebugLog('personalize middleware end: %o', {
+      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/_site_nextjs-app/styleguide',
         browserId: 'browser-id',
         headers: {
@@ -1051,7 +1057,7 @@ describe('PersonalizeMiddleware', () => {
       expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
         .to.be.true;
 
-      validateDebugLog('personalize middleware end: %o', {
+      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {
@@ -1104,7 +1110,7 @@ describe('PersonalizeMiddleware', () => {
       expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
         .to.be.true;
 
-      validateDebugLog('personalize middleware end: %o', {
+      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {

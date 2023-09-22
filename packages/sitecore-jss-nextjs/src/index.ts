@@ -10,6 +10,7 @@ export {
   NativeDataFetcherConfig,
   HTMLLink,
   enableDebug,
+  debug,
 } from '@sitecore-jss/sitecore-jss';
 
 // we will remove the root exports for these later
@@ -98,6 +99,7 @@ export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 export {
   ComponentPropsCollection,
+  ComponentPropsError,
   GetStaticComponentProps,
   GetServerSideComponentProps,
 } from './sharedTypes/component-props';
@@ -150,6 +152,10 @@ export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
 export { EditingComponentPlaceholder } from './components/EditingComponentPlaceholder';
 export { NextImage } from './components/NextImage';
+import * as FEaaSWrapper from './components/FEaaSWrapper';
+import * as BYOCWrapper from './components/BYOCWrapper';
+export { FEaaSWrapper };
+export { BYOCWrapper };
 
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
 
@@ -169,6 +175,10 @@ export {
   FEaaSComponentProps,
   FEaaSComponentParams,
   fetchFEaaSComponentServerProps,
+  BYOCComponentParams,
+  BYOCComponent,
+  BYOCComponentProps,
+  getFEAASLibraryStylesheetLinks,
   File,
   FileField,
   RichTextField,

@@ -369,3 +369,105 @@ export const sxaRenderingColumnSplitterVariant = {
     },
   },
 };
+
+export const byocWrapperData = {
+  sitecore: {
+    context: {
+      pageEditing: false,
+    },
+    route: {
+      name: 'Home',
+      displayName: 'Home',
+      fields: {
+        key: {
+          value: 'This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;',
+        },
+      },
+      placeholders: {
+        main: [
+          {
+            uid: '278b99a7-8d73-4362-ac05-53e7c35154d5',
+            componentName: 'BYOCWrapper',
+            dataSource: '',
+            params: {
+              ComponentName: 'Foo',
+              ComponentProps: '{ "columns": 7 }',
+              GridParameters: 'col-12',
+              DynamicPlaceholderId: '1',
+              FieldNames: 'Default',
+            },
+          },
+          {
+            uid: '278b99a7-8d73-4362-ac05-53e7c35154d5',
+            componentName: 'BYOCComponent',
+            dataSource: '',
+            params: {
+              ComponentName: 'Bar',
+              ComponentProps: '{ "columns": 5 }',
+              GridParameters: 'col-12',
+              DynamicPlaceholderId: '1',
+              FieldNames: 'Default',
+            },
+          },
+        ],
+      },
+    },
+  },
+};
+
+export const feaasWrapperData = {
+  sitecore: {
+    context: {
+      pageEditing: false,
+    },
+    route: {
+      name: 'Home',
+      displayName: 'Home',
+      fields: {
+        key: {
+          value: 'This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;',
+        },
+      },
+      placeholders: {
+        main: [
+          {
+            uid: 'd07d1832-f2a1-4f56-a949-5d1ab263a1d5',
+            componentName: 'FEaaSWrapper',
+            dataSource: '',
+            params: {
+              ComponentName: 'Two product teaser',
+              LibraryId: '4lcTPh6h5L4soeuM0WkXtf',
+              ComponentId: 'bkpRNHFB2v',
+              ComponentVersion: 'responsive',
+              ComponentRevision: 'staged',
+              ComponentHostName: 'https://feaas.windows.net',
+              ComponentInstanceId: 'bSE5grxVRMCVB0K',
+              GridParameters: 'col-12',
+              CacheClearingBehavior: 'Clear on publish',
+              DynamicPlaceholderId: '2',
+              FieldNames: 'Default',
+            },
+          },
+          {
+            uid: 'd07d1832-f2a1-4f56-a949-5d1ab263a1d5',
+            componentName: 'FEaaSComponent',
+            dataSource: '',
+            params: {
+              ComponentName: 'One product teaser',
+              LibraryId: '4lcTPh6h5L4soeuM0WkXtf',
+              ComponentId: 'bkpRNHFB2v',
+              ComponentVersion: 'responsive',
+              ComponentRevision: 'staged',
+              ComponentHostName: 'https://feaas.windows.net',
+              ComponentInstanceId: 'bSE5grxVRMCVB0K',
+              GridParameters: 'col-9',
+              CacheClearingBehavior: 'Clear on publish',
+              DynamicPlaceholderId: '2',
+              FieldNames: 'Default',
+            },
+          },
+        ],
+      },
+    },
+  },
+};

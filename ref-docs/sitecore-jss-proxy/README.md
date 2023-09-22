@@ -24,11 +24,11 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `renderer` | `AppRenderer` |
-| `config` | [`ProxyConfig`](interfaces/ProxyConfig.md) |
-| `parseRouteUrl` | `RouteUrlParser` |
+| Name            | Type                                       |
+| :-------------- | :----------------------------------------- |
+| `renderer`      | `AppRenderer`                              |
+| `config`        | [`ProxyConfig`](interfaces/ProxyConfig.md) |
+| `parseRouteUrl` | `RouteUrlParser`                           |
 
 #### Returns
 
@@ -36,9 +36,9 @@
 
 #### Defined in
 
-[src/index.ts:580](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-proxy/src/index.ts#L580)
+[src/index.ts:580](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-proxy/src/index.ts#L580)
 
-___
+---
 
 ### removeEmptyAnalyticsCookie
 
@@ -46,8 +46,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name            | Type              |
+| :-------------- | :---------------- |
 | `proxyResponse` | `IncomingMessage` |
 
 #### Returns
@@ -56,9 +56,9 @@ ___
 
 #### Defined in
 
-[src/index.ts:34](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-proxy/src/index.ts#L34)
+[src/index.ts:34](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-proxy/src/index.ts#L34)
 
-___
+---
 
 ### rewriteRequestPath
 
@@ -66,12 +66,12 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `reqPath` | `string` |
-| `req` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `config` | [`ProxyConfig`](interfaces/ProxyConfig.md) |
-| `parseRouteUrl?` | `RouteUrlParser` |
+| Name             | Type                                                                                 |
+| :--------------- | :----------------------------------------------------------------------------------- |
+| `reqPath`        | `string`                                                                             |
+| `req`            | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
+| `config`         | [`ProxyConfig`](interfaces/ProxyConfig.md)                                           |
+| `parseRouteUrl?` | `RouteUrlParser`                                                                     |
 
 #### Returns
 
@@ -79,4 +79,4 @@ ___
 
 #### Defined in
 
-[src/index.ts:360](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-proxy/src/index.ts#L360)
+[src/index.ts:360](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-proxy/src/index.ts#L360)

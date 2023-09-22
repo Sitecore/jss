@@ -1,3 +1,4 @@
+import { ComponentFields, getFieldValue } from '@sitecore-jss/sitecore-jss/layout';
 import { parse as styleParse } from 'style-attr';
 
 // https://stackoverflow.com/a/10426674/9324
@@ -59,7 +60,7 @@ export const convertAttributesToReactProps = (
 /**
  * "class" property will be transformed into or appended to "className" instead.
  * @param {string} otherAttrs all other props included on the image component
- * * @returns {void}
+ * @returns {void}
  */
 export const addClassName = (otherAttrs: { [key: string]: unknown }): void => {
   if (otherAttrs.class) {
@@ -73,4 +74,42 @@ export const addClassName = (otherAttrs: { [key: string]: unknown }): void => {
     }
     delete otherAttrs.class;
   }
+};
+
+/**
+ * Converts the given tag attributes object to a string
+ * @param {Object.<string, unknown>} attributes the attributes object
+ * @returns {string} string representation of the attributes
+ */
+export const getAttributesString = (attributes: { [key: string]: unknown }): string => {
+  const { className, ...restAttributes } = attributes;
+  const attributesEntries = Object.entries(restAttributes).map(([key, value]) => {
+    if (typeof value === 'object') {
+      const valueString = JSON.stringify(value)
+        .replace(/"|{|}/g, '')
+        .replace(/,/g, ';');
+      return `${key}="${valueString}"`;
+    }
+    return `${key}="${value}"`;
+  });
+
+  if (className) {
+    attributesEntries.push(`class="${className}"`);
+  }
+
+  return attributesEntries.join(' ');
+};
+
+/**
+ * Used in FEAAS and BYOC implementations to convert datasource item field values into component props
+ * @param {ComponentFields} fields field collection from Sitecore
+ * @returns JSON object that can be used as props
+ */
+export const getDataFromFields = (fields: ComponentFields): { [key: string]: unknown } => {
+  let data: { [key: string]: unknown } = {};
+  data = Object.entries(fields).reduce((acc, [key]) => {
+    acc[key] = getFieldValue(fields, key);
+    return acc;
+  }, data);
+  return data;
 };

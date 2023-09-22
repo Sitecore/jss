@@ -12,6 +12,9 @@ import {
 import { convertAttributesToReactProps } from '../utils';
 import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
 import { FEaaSComponent, FEAAS_COMPONENT_RENDERING_NAME } from './FEaaSComponent';
+import { FEaaSWrapper, FEAAS_WRAPPER_RENDERING_NAME } from './FEaaSWrapper';
+import { BYOCComponent, BYOC_COMPONENT_RENDERING_NAME } from './BYOCComponent';
+import { BYOCWrapper, BYOC_WRAPPER_RENDERING_NAME } from './BYOCWrapper';
 
 /**
  * These patterns need for right rendering Dynamic placeholders.
@@ -217,8 +220,17 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           component = this.getComponentForRendering(componentRendering);
         }
 
-        if (componentRendering.componentName === FEAAS_COMPONENT_RENDERING_NAME) {
-          component = FEaaSComponent;
+        // Fallback/defaults for Sitecore Component renderings (in case not defined in component factory)
+        if (!component) {
+          if (componentRendering.componentName === FEAAS_COMPONENT_RENDERING_NAME) {
+            component = FEaaSComponent;
+          } else if (componentRendering.componentName === FEAAS_WRAPPER_RENDERING_NAME) {
+            component = FEaaSWrapper;
+          } else if (componentRendering.componentName === BYOC_COMPONENT_RENDERING_NAME) {
+            component = BYOCComponent;
+          } else if (componentRendering.componentName === BYOC_WRAPPER_RENDERING_NAME) {
+            component = BYOCWrapper;
+          }
         }
 
         if (!component) {

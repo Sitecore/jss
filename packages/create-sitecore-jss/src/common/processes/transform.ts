@@ -61,16 +61,47 @@ export const merge = (targetObj: JsonObjectType, sourceObj: JsonObjectType): Jso
   return mergeObject(targetObj, sourceObj);
 };
 
-export const concatEnv = (targetContent: string, sourceContent: string): string => {
-  const env = parse(sourceContent);
-  if (
-    env &&
-    Object.keys(env).length > 0 &&
-    Object.keys(env).every((value) => targetContent.includes(value))
-  ) {
-    // Don't add if the target already contains every .env value
-    return targetContent;
-  }
+export const mergeEnv = (targetContent: string, sourceContent: string): string => {
+  const sourceEnv = parse(sourceContent);
+
+  if (!sourceEnv || !Object.keys(sourceEnv).length) return targetContent;
+
+  const targetEnv = parse(targetContent);
+
+  const sourceLines = sourceContent.split('\r\n');
+
+  Object.keys(sourceEnv).forEach((sourceEnvVar) => {
+    const isDuplicate = Object.keys(targetEnv).includes(sourceEnvVar);
+
+    if (!isDuplicate) return;
+
+    // Overriding value in a target .env file
+    targetContent = targetContent.replace(
+      new RegExp(`^${sourceEnvVar}=.*$`, 'gm'),
+      `${sourceEnvVar}=${sourceEnv[sourceEnvVar]}`
+    );
+
+    // Removing duplicate variable and related comments in a source .env file,
+    // since source and target will be concatenated
+    let lineIndex = sourceLines.findIndex((line) => line.startsWith(sourceEnvVar));
+
+    // remove empty lines after the definition
+    while (sourceLines[lineIndex + 1] === '') {
+      sourceLines.splice(lineIndex + 1, 1);
+    }
+
+    // remove definition and comments
+    do {
+      sourceLines.splice(lineIndex, 1);
+      lineIndex--;
+    } while (lineIndex >= 0 && sourceLines[lineIndex].startsWith('#'));
+  });
+
+  sourceContent = sourceLines.join('\r\n');
+
+  // No variables left in a source
+  if (!sourceContent) return targetContent;
+
   // NOTE we are enforcing CRLF for the repo in .gitattributes, so match it here
   const eol = '\r\n';
   return targetContent + eol + sourceContent;
@@ -262,8 +293,8 @@ export const transform = async (
         // read the current .env and the template .env (rendered with ejs)
         const currentDotEnv = fs.readFileSync(path.resolve(process.cwd(), pathToNewFile), 'utf8');
         const templateDotEnv = await renderFile(path.resolve(pathToTemplate), ejsData);
-        // concatenate them and set the result to str which will then go through diff
-        str = concatEnv(currentDotEnv, templateDotEnv);
+        // merge them and set the result to str which will then go through diff
+        str = mergeEnv(currentDotEnv, templateDotEnv);
       }
 
       str = str ?? (await renderFile(path.resolve(pathToTemplate), ejsData));

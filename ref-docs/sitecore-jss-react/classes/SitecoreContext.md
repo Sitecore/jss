@@ -26,9 +26,9 @@
 
 ### Methods
 
-- [UNSAFE\_componentWillMount](SitecoreContext.md#unsafe_componentwillmount)
-- [UNSAFE\_componentWillReceiveProps](SitecoreContext.md#unsafe_componentwillreceiveprops)
-- [UNSAFE\_componentWillUpdate](SitecoreContext.md#unsafe_componentwillupdate)
+- [UNSAFE_componentWillMount](SitecoreContext.md#unsafe_componentwillmount)
+- [UNSAFE_componentWillReceiveProps](SitecoreContext.md#unsafe_componentwillreceiveprops)
+- [UNSAFE_componentWillUpdate](SitecoreContext.md#unsafe_componentwillupdate)
 - [componentDidCatch](SitecoreContext.md#componentdidcatch)
 - [componentDidMount](SitecoreContext.md#componentdidmount)
 - [componentDidUpdate](SitecoreContext.md#componentdidupdate)
@@ -52,8 +52,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type                   |
+| :------ | :--------------------- |
 | `props` | `SitecoreContextProps` |
 
 #### Overrides
@@ -62,7 +62,7 @@ React.Component&lt;SitecoreContextProps, SitecoreContextState\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:45](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L45)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:45](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L45)
 
 ## Properties
 
@@ -84,7 +84,7 @@ declare context: React.ContextType<typeof MyContext>
 
 **`See`**
 
-https://reactjs.org/docs/context.html
+https://react.dev/reference/react/Component#context
 
 #### Inherited from
 
@@ -92,9 +92,9 @@ React.Component.context
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:471
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:482
 
-___
+---
 
 ### props
 
@@ -106,9 +106,9 @@ React.Component.props
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:491
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:502
 
-___
+---
 
 ### refs
 
@@ -116,7 +116,7 @@ ___
 
 **`Deprecated`**
 
-https://reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs
+https://legacy.reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs
 
 #### Index signature
 
@@ -128,9 +128,9 @@ React.Component.refs
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:497
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:508
 
-___
+---
 
 ### state
 
@@ -142,9 +142,9 @@ React.Component.state
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:492
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:503
 
-___
+---
 
 ### contextType
 
@@ -155,13 +155,13 @@ If set, `this.context` will be set at runtime to the current value of the given 
 Usage:
 
 ```ts
-type MyContext = number
-const Ctx = React.createContext<MyContext>(0)
+type MyContext = number;
+const Ctx = React.createContext<MyContext>(0);
 
 class Foo extends React.Component {
-  static contextType = Ctx
-  context!: React.ContextType<typeof Ctx>
-  render () {
+  static contextType = Ctx;
+  context!: React.ContextType<typeof Ctx>;
+  render() {
     return <>My context's value: {this.context}</>;
   }
 }
@@ -169,7 +169,7 @@ class Foo extends React.Component {
 
 **`See`**
 
-https://reactjs.org/docs/context.html#classcontexttype
+https://react.dev/reference/react/Component#static-contexttype
 
 #### Inherited from
 
@@ -177,9 +177,9 @@ React.Component.contextType
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:454
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:465
 
-___
+---
 
 ### displayName
 
@@ -187,9 +187,9 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:43](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L43)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:43](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L43)
 
-___
+---
 
 ### propTypes
 
@@ -197,19 +197,19 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `children` | `Validator`<`any`\> |
-| `componentFactory` | `Requireable`<(...`args`: `any`[]) => `any`\> |
-| `layoutData` | `Requireable`<`InferProps`<{ `sitecore`: `Requireable`<`InferProps`<{ `context`: `Requireable`<`any`\> = PropTypes.any; `route`: `Requireable`<`any`\> = PropTypes.any }\>\>  }\>\> |
+| Name               | Type                                                                                                                                                                               |
+| :----------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `children`         | `Validator`<`any`\>                                                                                                                                                                |
+| `componentFactory` | `Requireable`<(...`args`: `any`[]) => `any`\>                                                                                                                                      |
+| `layoutData`       | `Requireable`<`InferProps`<{ `sitecore`: `Requireable`<`InferProps`<{ `context`: `Requireable`<`any`\> = PropTypes.any; `route`: `Requireable`<`any`\> = PropTypes.any }\>\> }\>\> |
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:32](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L32)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:32](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L32)
 
 ## Methods
 
-### UNSAFE\_componentWillMount
+### UNSAFE_componentWillMount
 
 ▸ `Optional` **UNSAFE_componentWillMount**(): `void`
 
@@ -227,8 +227,8 @@ prevents this from being invoked.
 
 **`See`**
 
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Returns
 
@@ -236,15 +236,15 @@ prevents this from being invoked.
 
 #### Inherited from
 
-React.Component.UNSAFE\_componentWillMount
+React.Component.UNSAFE_componentWillMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:688
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:699
 
-___
+---
 
-### UNSAFE\_componentWillReceiveProps
+### UNSAFE_componentWillReceiveProps
 
 ▸ `Optional` **UNSAFE_componentWillReceiveProps**(`nextProps`, `nextContext`): `void`
 
@@ -265,15 +265,15 @@ prevents this from being invoked.
 
 **`See`**
 
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextContext` | `any` |
+| Name          | Type                                |
+| :------------ | :---------------------------------- |
+| `nextProps`   | `Readonly`<`SitecoreContextProps`\> |
+| `nextContext` | `any`                               |
 
 #### Returns
 
@@ -281,15 +281,15 @@ prevents this from being invoked.
 
 #### Inherited from
 
-React.Component.UNSAFE\_componentWillReceiveProps
+React.Component.UNSAFE_componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:720
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:731
 
-___
+---
 
-### UNSAFE\_componentWillUpdate
+### UNSAFE_componentWillUpdate
 
 ▸ `Optional` **UNSAFE_componentWillUpdate**(`nextProps`, `nextState`, `nextContext`): `void`
 
@@ -308,16 +308,16 @@ prevents this from being invoked.
 
 **`See`**
 
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextState` | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
-| `nextContext` | `any` |
+| Name          | Type                                                                         |
+| :------------ | :--------------------------------------------------------------------------- |
+| `nextProps`   | `Readonly`<`SitecoreContextProps`\>                                          |
+| `nextState`   | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
+| `nextContext` | `any`                                                                        |
 
 #### Returns
 
@@ -325,13 +325,13 @@ prevents this from being invoked.
 
 #### Inherited from
 
-React.Component.UNSAFE\_componentWillUpdate
+React.Component.UNSAFE_componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:748
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:759
 
-___
+---
 
 ### componentDidCatch
 
@@ -342,9 +342,9 @@ the entire component tree to unmount.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `error` | `Error` |
+| Name        | Type        |
+| :---------- | :---------- |
+| `error`     | `Error`     |
 | `errorInfo` | `ErrorInfo` |
 
 #### Returns
@@ -357,9 +357,9 @@ React.Component.componentDidCatch
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:617
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:628
 
-___
+---
 
 ### componentDidMount
 
@@ -377,9 +377,9 @@ React.Component.componentDidMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:596
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:607
 
-___
+---
 
 ### componentDidUpdate
 
@@ -387,8 +387,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type                   |
+| :---------- | :--------------------- |
 | `prevProps` | `SitecoreContextProps` |
 
 #### Returns
@@ -401,9 +401,9 @@ React.Component.componentDidUpdate
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L70)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L70)
 
-___
+---
 
 ### componentWillMount
 
@@ -421,8 +421,8 @@ prevents this from being invoked.
 
 **`See`**
 
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Returns
 
@@ -434,9 +434,9 @@ React.Component.componentWillMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:674
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:685
 
-___
+---
 
 ### componentWillReceiveProps
 
@@ -457,15 +457,15 @@ prevents this from being invoked.
 
 **`See`**
 
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextContext` | `any` |
+| Name          | Type                                |
+| :------------ | :---------------------------------- |
+| `nextProps`   | `Readonly`<`SitecoreContextProps`\> |
+| `nextContext` | `any`                               |
 
 #### Returns
 
@@ -477,9 +477,9 @@ React.Component.componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:703
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:714
 
-___
+---
 
 ### componentWillUnmount
 
@@ -498,9 +498,9 @@ React.Component.componentWillUnmount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:612
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:623
 
-___
+---
 
 ### componentWillUpdate
 
@@ -519,16 +519,16 @@ prevents this from being invoked.
 
 **`See`**
 
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextState` | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
-| `nextContext` | `any` |
+| Name          | Type                                                                         |
+| :------------ | :--------------------------------------------------------------------------- |
+| `nextProps`   | `Readonly`<`SitecoreContextProps`\>                                          |
+| `nextState`   | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
+| `nextContext` | `any`                                                                        |
 
 #### Returns
 
@@ -540,9 +540,9 @@ React.Component.componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:733
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:744
 
-___
+---
 
 ### constructContext
 
@@ -550,8 +550,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name          | Type                                                      |
+| :------------ | :-------------------------------------------------------- |
 | `layoutData?` | [`LayoutServiceData`](../interfaces/LayoutServiceData.md) |
 
 #### Returns
@@ -560,9 +560,9 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:56](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L56)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:56](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L56)
 
-___
+---
 
 ### forceUpdate
 
@@ -570,8 +570,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type         |
+| :---------- | :----------- |
 | `callback?` | () => `void` |
 
 #### Returns
@@ -584,9 +584,9 @@ React.Component.forceUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:488
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:499
 
-___
+---
 
 ### getSnapshotBeforeUpdate
 
@@ -601,9 +601,9 @@ lifecycle events from running.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `prevProps` | `Readonly`<`SitecoreContextProps`\> |
+| Name        | Type                                                                         |
+| :---------- | :--------------------------------------------------------------------------- |
+| `prevProps` | `Readonly`<`SitecoreContextProps`\>                                          |
 | `prevState` | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
 
 #### Returns
@@ -616,9 +616,9 @@ React.Component.getSnapshotBeforeUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:653
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:664
 
-___
+---
 
 ### render
 
@@ -634,9 +634,9 @@ React.Component.render
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:93](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L93)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:93](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L93)
 
-___
+---
 
 ### setContext
 
@@ -646,8 +646,8 @@ Update context state. Value can be
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type                                                                                                                     | Description       |
+| :------ | :----------------------------------------------------------------------------------------------------------------------- | :---------------- |
 | `value` | [`LayoutServiceData`](../interfaces/LayoutServiceData.md) \| [`SitecoreContextValue`](../README.md#sitecorecontextvalue) | New context value |
 
 #### Returns
@@ -656,9 +656,9 @@ Update context state. Value can be
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:85](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L85)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:85](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L85)
 
-___
+---
 
 ### setState
 
@@ -666,16 +666,16 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `K` | extends keyof [`SitecoreContextState`](../interfaces/SitecoreContextState.md) |
+| Name | Type                                                                          |
+| :--- | :---------------------------------------------------------------------------- |
+| `K`  | extends keyof [`SitecoreContextState`](../interfaces/SitecoreContextState.md) |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `state` | [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| (`prevState`: `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>, `props`: `Readonly`<`SitecoreContextProps`\>) => [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| `Pick`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> \| `Pick`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> |
-| `callback?` | () => `void` |
+| Name        | Type                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `state`     | [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| (`prevState`: `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>, `props`: `Readonly`<`SitecoreContextProps`\>) => [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| `Pick`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> \| `Pick`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> |
+| `callback?` | () => `void`                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 #### Returns
 
@@ -687,9 +687,9 @@ React.Component.setState
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:483
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:494
 
-___
+---
 
 ### shouldComponentUpdate
 
@@ -706,11 +706,11 @@ and `componentDidUpdate` will not be called.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextState` | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
-| `nextContext` | `any` |
+| Name          | Type                                                                         |
+| :------------ | :--------------------------------------------------------------------------- |
+| `nextProps`   | `Readonly`<`SitecoreContextProps`\>                                          |
+| `nextState`   | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
+| `nextContext` | `any`                                                                        |
 
 #### Returns
 
@@ -722,4 +722,4 @@ React.Component.shouldComponentUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:607
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:618

@@ -17,9 +17,9 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L16)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L16)
 
-___
+---
 
 ### setContext
 
@@ -31,8 +31,8 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type                                                                                                       |
+| :------ | :--------------------------------------------------------------------------------------------------------- |
 | `value` | [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../README.md#sitecorecontextvalue) |
 
 ##### Returns
@@ -41,4 +41,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L15)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L15)

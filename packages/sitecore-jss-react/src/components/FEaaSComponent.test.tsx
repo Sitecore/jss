@@ -51,13 +51,24 @@ describe('<FEaaSComponent />', () => {
     expect(wrapper.html()).to.equal(null);
   });
 
-  it('should render with template and last-modified when provided', () => {
-    const template = '<div>test output</div>';
-    const lastModified = 'March 1 2020';
-    const wrapper = shallow(<FEaaSComponent template={template} lastModified={lastModified} />);
+  it('should render when fallback server props provided', () => {
+    const props: FEaaSComponentProps = {
+      params: requiredParams,
+      revisionFallback: 'staged',
+    };
+    const wrapper = shallow(<FEaaSComponent {...props} />);
     expect(wrapper).to.have.length(1);
     expect(wrapper.html()).to.equal(
-      `<feaas-component last-modified="${lastModified}">${template}</feaas-component>`
+      '<feaas-component cdn="host123" library="library123" version="version123" component="component123" revision="staged" hydrate="false"></feaas-component>'
+    );
+  });
+
+  it('should render with template when provided', () => {
+    const template = '<div>test output</div>';
+    const wrapper = shallow(<FEaaSComponent template={template} />);
+    expect(wrapper).to.have.length(1);
+    expect(wrapper.html()).to.equal(
+      `<feaas-component hydrate="false">${template}</feaas-component>`
     );
   });
 
@@ -68,7 +79,7 @@ describe('<FEaaSComponent />', () => {
     const wrapper = shallow(<FEaaSComponent {...props} />);
     expect(wrapper).to.have.length(1);
     expect(wrapper.html()).to.equal(
-      '<feaas-component cdn="host123" library="library123" version="version123" component="component123" revision="staged"></feaas-component>'
+      '<feaas-component cdn="host123" library="library123" version="version123" component="component123" revision="staged" hydrate="false"></feaas-component>'
     );
   });
 
@@ -79,6 +90,7 @@ describe('<FEaaSComponent />', () => {
           ...requiredParams,
           ComponentDataOverride: '{ "foo": "bar", "baz": 1 }',
         },
+        fetchedData: undefined,
       };
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
@@ -156,6 +168,29 @@ describe('<FEaaSComponent />', () => {
       expect(wrapper.html()).to.contain(
         `data="${props.params?.ComponentDataOverride!.replace(/"/g, '&quot;').replace(/\s/g, '')}"`
       );
+    });
+
+    it('should send prefetched data', () => {
+      const fetchedData = {
+        foo: 'bar',
+        baz: 42,
+      };
+
+      const props: FEaaSComponentProps = {
+        params: {
+          ...requiredParams,
+          ComponentDataOverride: '{ "foo": "test", "baz": 22 }',
+        },
+        fetchedData,
+      };
+
+      const wrapper = shallow(<FEaaSComponent {...props} />);
+
+      expect(wrapper).to.have.length(1);
+      const expectedData = JSON.stringify(fetchedData)
+        .replace(/"/g, '&quot;')
+        .replace(/\s/g, '');
+      expect(wrapper.html()).to.contain(`data="${expectedData}"`);
     });
   });
 });

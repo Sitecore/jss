@@ -30,8 +30,8 @@ Instantiates a module for a lazy-loaded JSS component
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type               |
+| :---------- | :----------------- |
 | `component` | `Type`<`unknown`\> |
 
 #### Returns
@@ -42,9 +42,9 @@ module
 
 #### Defined in
 
-[sitecore-jss-angular/src/lib.module.ts:107](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/lib.module.ts#L107)
+[sitecore-jss-angular/src/lib.module.ts:107](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/lib.module.ts#L107)
 
-___
+---
 
 ### forRoot
 
@@ -61,9 +61,9 @@ module
 
 #### Defined in
 
-[sitecore-jss-angular/src/lib.module.ts:82](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/lib.module.ts#L82)
+[sitecore-jss-angular/src/lib.module.ts:82](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/lib.module.ts#L82)
 
-___
+---
 
 ### withComponents
 
@@ -74,9 +74,9 @@ Appropriate when defining the set of JSS components that your app is aware of.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `components` | [`ComponentNameAndType`](ComponentNameAndType.md)[] |
+| Name              | Type                                                                  |
+| :---------------- | :-------------------------------------------------------------------- |
+| `components`      | [`ComponentNameAndType`](ComponentNameAndType.md)[]                   |
 | `lazyComponents?` | [`ComponentNameAndModule`](../interfaces/ComponentNameAndModule.md)[] |
 
 #### Returns
@@ -87,4 +87,4 @@ module
 
 #### Defined in
 
-[sitecore-jss-angular/src/lib.module.ts:124](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss-angular/src/lib.module.ts#L124)
+[sitecore-jss-angular/src/lib.module.ts:124](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-angular/src/lib.module.ts#L124)

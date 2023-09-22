@@ -43,6 +43,7 @@ export {
   RestDictionaryService,
 } from '@sitecore-jss/sitecore-jss/i18n';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
+export { getFEAASLibraryStylesheetLinks } from '@sitecore-jss/sitecore-jss/feaas';
 export { ComponentFactory } from './components/sharedTypes';
 export { Placeholder, PlaceholderComponentProps } from './components/Placeholder';
 export {
@@ -62,6 +63,14 @@ export {
   FEaaSComponentParams,
   fetchFEaaSComponentServerProps,
 } from './components/FEaaSComponent';
+export { FEaaSWrapper } from './components/FEaaSWrapper';
+export {
+  BYOCComponent,
+  BYOCComponentParams,
+  BYOCComponentProps,
+  fetchBYOCComponentServerProps,
+} from './components/BYOCComponent';
+export { BYOCWrapper } from './components/BYOCWrapper';
 export { Link, LinkField, LinkFieldValue, LinkProps, LinkPropTypes } from './components/Link';
 export { File, FileField } from './components/File';
 export { VisitorIdentification } from './components/VisitorIdentification';

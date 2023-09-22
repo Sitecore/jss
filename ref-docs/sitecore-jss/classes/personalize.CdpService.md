@@ -32,13 +32,13 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type                                                             |
+| :------- | :--------------------------------------------------------------- |
 | `config` | [`CdpServiceConfig`](../modules/personalize.md#cdpserviceconfig) |
 
 #### Defined in
 
-[src/personalize/cdp-service.ts:77](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/personalize/cdp-service.ts#L77)
+[src/personalize/cdp-service.ts:77](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/personalize/cdp-service.ts#L77)
 
 ## Properties
 
@@ -48,9 +48,9 @@
 
 #### Defined in
 
-[src/personalize/cdp-service.ts:77](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/personalize/cdp-service.ts#L77)
+[src/personalize/cdp-service.ts:77](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/personalize/cdp-service.ts#L77)
 
-___
+---
 
 ### timeout
 
@@ -62,7 +62,7 @@ CDP service config
 
 #### Defined in
 
-[src/personalize/cdp-service.ts:76](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/personalize/cdp-service.ts#L76)
+[src/personalize/cdp-service.ts:76](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/personalize/cdp-service.ts#L76)
 
 ## Methods
 
@@ -74,13 +74,13 @@ Executes targeted experience for a page and params to determine the variant to r
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `contentId` | `string` | the friendly content id of the page |
-| `browserId` | `string` | the browser id |
-| `userAgent` | `string` | the user agent |
-| `pointOfSale` | `string` | current point of sale |
-| `params` | [`ExperienceParams`](../modules/personalize.md#experienceparams) | the experience params for the user |
+| Name          | Type                                                             | Description                         |
+| :------------ | :--------------------------------------------------------------- | :---------------------------------- |
+| `contentId`   | `string`                                                         | the friendly content id of the page |
+| `browserId`   | `string`                                                         | the browser id                      |
+| `userAgent`   | `string`                                                         | the user agent                      |
+| `pointOfSale` | `string`                                                         | current point of sale               |
+| `params`      | [`ExperienceParams`](../modules/personalize.md#experienceparams) | the experience params for the user  |
 
 #### Returns
 
@@ -90,9 +90,9 @@ the execute experience result
 
 #### Defined in
 
-[src/personalize/cdp-service.ts:90](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/personalize/cdp-service.ts#L90)
+[src/personalize/cdp-service.ts:90](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/personalize/cdp-service.ts#L90)
 
-___
+---
 
 ### generateBrowserId
 
@@ -108,9 +108,9 @@ browser id
 
 #### Defined in
 
-[src/personalize/cdp-service.ts:134](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/personalize/cdp-service.ts#L134)
+[src/personalize/cdp-service.ts:134](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/personalize/cdp-service.ts#L134)
 
-___
+---
 
 ### getDefaultFetcher
 
@@ -125,13 +125,13 @@ AxiosDataFetcher data fetcher
 #### Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type                |
+| :------- | :------------------ |
 | `config` | `DataFetcherConfig` |
 
 #### Returns
@@ -144,9 +144,9 @@ default fetcher
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
+| Name    | Type      |
+| :------ | :-------- |
+| `url`   | `string`  |
 | `data?` | `unknown` |
 
 ##### Returns
@@ -155,9 +155,9 @@ default fetcher
 
 #### Defined in
 
-[src/personalize/cdp-service.ts:186](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/personalize/cdp-service.ts#L186)
+[src/personalize/cdp-service.ts:186](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/personalize/cdp-service.ts#L186)
 
-___
+---
 
 ### getExecuteExperienceUrl
 
@@ -173,9 +173,9 @@ formatted URL
 
 #### Defined in
 
-[src/personalize/cdp-service.ts:166](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/personalize/cdp-service.ts#L166)
+[src/personalize/cdp-service.ts:166](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/personalize/cdp-service.ts#L166)
 
-___
+---
 
 ### getFetcher
 
@@ -185,14 +185,14 @@ Returns provided data fetcher otherwise default one
 
 #### Type parameters
 
-| Name |
-| :------ |
+| Name       |
+| :--------- |
 | `Response` |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type                          | Description      |
+| :--------- | :---------------------------- | :--------------- |
 | `headers?` | `Record`<`string`, `string`\> | Optional headers |
 
 #### Returns
@@ -203,9 +203,9 @@ data fetcher
 
 #### Defined in
 
-[src/personalize/cdp-service.ts:175](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/personalize/cdp-service.ts#L175)
+[src/personalize/cdp-service.ts:175](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/personalize/cdp-service.ts#L175)
 
-___
+---
 
 ### getGenerateBrowserIdUrl
 
@@ -221,4 +221,4 @@ formatted URL
 
 #### Defined in
 
-[src/personalize/cdp-service.ts:158](https://github.com/Sitecore/jss/blob/8004fe2cf/packages/sitecore-jss/src/personalize/cdp-service.ts#L158)
+[src/personalize/cdp-service.ts:158](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/personalize/cdp-service.ts#L158)
