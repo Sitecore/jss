@@ -9,6 +9,53 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 21.4.0
+
+### 🎉 New Features & Improvements
+
+* `[templates/nextjs-sxa]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` "Bring Your Own Code" (BYOC) feature is introduced. This allows developers and editors more flexibility when developing and working with new components, i.e.:
+  * Avoid the jss deploy process for components, and use FEAAS registration instead
+  * Put components anywhere in the project,
+  * Use any prop type, without dependence on Layout Service data
+
+  Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore/jss/pull/1568)) ([#1603](https://github.com/Sitecore/jss/pull/1603))([#1605](https://github.com/Sitecore/jss/pull/1605))
+* `[templates/nextjs-sxa]` Scaffolding components for BYOC is added. Use '--byoc' flag at the end of `jss scaffold` command to create a boilerplate component for BYOC ([#1572](https://github.com/Sitecore/jss/pull/1572))
+* `[sitecore-jss-nextjs]` Stylesheet loading via page head links for FEAAS and BYOC is implemented. This allows stylesheets to be loaded during SSR and avoid extra calls on client. ([#1587](https://github.com/Sitecore/jss/pull/1587))
+* `[templates/nextjs]` Scaffold new components outside of 'src/components' folder by specifying a path with src in it, i.e. `jss scaffold src/new-folder/NewComponent` ([#1572](https://github.com/Sitecore/jss/pull/1572))
+* `[sitecore-jss]` `[sitecore-jss-nextjs]` `[templates/nextjs]` Introduce performance metrics for debug logging ([#1555](https://github.com/Sitecore/jss/pull/1555))
+* `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]`  Introduce layout service REST configuration name environment variable ([#1543](https://github.com/Sitecore/jss/pull/1543))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Support for out-of-process editing data caches was added. Vercel KV or a custom Redis cache can be used to improve editing in Pages and Experience Editor when using Vercel deployment as editing/rendering host ([#1530](https://github.com/Sitecore/jss/pull/1530))
+* `[sitecore-jss-react]` Built-in MissingComponent component can now accept "errorOverride" text in props - to be displayed in the yellow frame as a custom error message. ([#1568](https://github.com/Sitecore/jss/pull/1568))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Better error handling for component-level data fetching ([#1586](https://github.com/Sitecore/jss/pull/1586))
+* `[sitecore-jss-react]` Fetch Data for FEaaS Components as part of Component SSR/SSG ([#1586](https://github.com/Sitecore/jss/pull/1590))
+* `[sitecore-jss-dev-tools]` `[templates/nextjs]` `[templates/react]` Introduce "components" configuration for ComponentBuilder ([#1598](https://github.com/Sitecore/jss/pull/1598))
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Component level data fetching(SSR/SSG) for BYOC ([#1610](https://github.com/Sitecore/jss/pull/1610))
+* `[sitecore-jss-nextjs]` Reduce the amount of Edge API calls during fetch getStaticPaths ([#1612](https://github.com/Sitecore/jss/pull/1612))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade Nextjs to 13.4.16([#1616](https://github.com/Sitecore/jss/pull/1616))
+
+### 🧹 Chores
+
+* Automatically create a Jira Issue once a github issue/doc request/PR is created ([#1573](https://github.com/Sitecore/jss/pull/1573))
+* Use exact canary version instead of range ([#1553](https://github.com/Sitecore/jss/pull/1553))
+
+### 🐛 Bug Fixes
+
+* `[tempaltes/nextjs]` `[templates/nextjs-sxa]` `[sitecore-jss-nexjts]` Redirects don't work when file extensions present in a route ([#1566](https://github.com/Sitecore/jss/pull/1566))
+* `[templates/vue]` "lint" command is failing due to bug introduced by eslint-plugin-prettier ([#1563](https://github.com/Sitecore/jss/pull/1563))
+* `[sitecore-jss-react]` [FEaaS] Prevent extra components client-side requests for SSR ([1541](https://github.com/Sitecore/jss/pull/1541))
+* `[sitecore-jss-react]` Remove use of reactDom/server from React Image ([1544](https://github.com/Sitecore/jss/pull/1544))
+* `[sitecore-jss-nextjs]` Referrer is not captured by Personalize middleware ([#1542](https://github.com/Sitecore/jss/pull/1542))
+* `[sitecore.jss-react]` Fix double placeholder in Experience Editor in production mode ([#1557](https://github.com/Sitecore/jss/pull/1557))
+* `[sitecore-jss-nextjs]` Fix of redirects middleware. Add possible to use tokens like $1, $2, $3, etc. ([#1547](https://github.com/Sitecore/jss/pull/1547)) ([#1559](https://github.com/Sitecore/jss/pull/1559)) ([#1561](https://github.com/Sitecore/jss/pull/1561)) ([#1562](https://github.com/Sitecore/jss/pull/1562))
+* `[templates/nextjs-sxa]` Change Content-Type of robots.txt response (`text/html;charset=utf-8`➡`text/plain`).
+* `[templates/nextjs-sxa]` Fix styles of Image component for Banner variant when we try to edit image in EE for Basic Site ([#1588](https://github.com/Sitecore/jss/pull/1588)) ([#1596](https://github.com/Sitecore/jss/pull/1596))
+* `[templates/nextjs-sxa]` Fix style for main layout(horizontal scrollbar). ([#1589](https://github.com/Sitecore/jss/pull/1589))
+* `[templates/nextjs-sxa]` Don't let Image component wrap <img> with <a> tag when TargetUrl is not configured. ([#1593](https://github.com/Sitecore/jss/issues/1593))
+* `[templates/nextjs]` Next config header plugin for CORS. ([#1597](https://github.com/Sitecore/jss/pull/1597))
+* `[templates/nextjs]` Ensure dictionary data is only fetched when layout data is present for a route ([#1608](https://github.com/Sitecore/jss/pull/1608))
+* `[sitecore-jss-react-forms]` Form should be blocked while submit is in progress to avoid submit spam ([#1611](https://github.com/Sitecore/jss/pull/1611) [#1614](https://github.com/Sitecore/jss/pull/1614))
+* `[templates/nextjs]` Fix linting errors, fix type error by upgrading @react/types to v18.2.22 ([#1613](https://github.com/Sitecore/jss/pull/1613))
+
 ## 21.3.1
 
 ### 🐛 Bug Fixes
@@ -67,108 +114,6 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-<<<<<<< HEAD
-=======
-* `[templates/nextjs-sxa]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` "Bring Your Own Code" (BYOC) feature is introduced. This allows developers and editors more flexibility when developing and working with new components, i.e.:
-  * Avoid the jss deploy process for components, and use FEAAS registration instead
-  * Put components anywhere in the project,
-  * Use any prop type, without dependence on Layout Service data
-
-  Check the BYOC documentation for more info. ([#1568](https://github.com/Sitecore/jss/pull/1568)) ([#1603](https://github.com/Sitecore/jss/pull/1603))([#1605](https://github.com/Sitecore/jss/pull/1605))
-* `[templates/nextjs-sxa]` Scaffolding components for BYOC is added. Use '--byoc' flag at the end of `jss scaffold` command to create a boilerplate component for BYOC ([#1572](https://github.com/Sitecore/jss/pull/1572))
-* `[sitecore-jss-nextjs]` Stylesheet loading via page head links for FEAAS and BYOC is implemented. This allows stylesheets to be loaded during SSR and avoid extra calls on client. ([#1587](https://github.com/Sitecore/jss/pull/1587))
-* `[templates/nextjs]` Scaffold new components outside of 'src/components' folder by specifying a path with src in it, i.e. `jss scaffold src/new-folder/NewComponent` ([#1572](https://github.com/Sitecore/jss/pull/1572))
-* `[sitecore-jss]` `[sitecore-jss-nextjs]` `[templates/nextjs]` Introduce performance metrics for debug logging ([#1555](https://github.com/Sitecore/jss/pull/1555))
-* `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]`  Introduce layout service REST configuration name environment variable ([#1543](https://github.com/Sitecore/jss/pull/1543))
-* `[templates/nextjs]` `[sitecore-jss-nextjs]` Support for out-of-process editing data caches was added. Vercel KV or a custom Redis cache can be used to improve editing in Pages and Experience Editor when using Vercel deployment as editing/rendering host ([#1530](https://github.com/Sitecore/jss/pull/1530))
-* `[sitecore-jss-react]` Built-in MissingComponent component can now accept "errorOverride" text in props - to be displayed in the yellow frame as a custom error message. ([#1568](https://github.com/Sitecore/jss/pull/1568))
-* `[templates/nextjs]` `[sitecore-jss-nextjs]` Better error handling for component-level data fetching ([#1586](https://github.com/Sitecore/jss/pull/1586))
-* `[sitecore-jss-react]` Fetch Data for FEaaS Components as part of Component SSR/SSG ([#1586](https://github.com/Sitecore/jss/pull/1590))
-* `[sitecore-jss-dev-tools]` `[templates/nextjs]` `[templates/react]` Introduce "components" configuration for ComponentBuilder ([#1598](https://github.com/Sitecore/jss/pull/1598))
-* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Component level data fetching(SSR/SSG) for BYOC ([#1610](https://github.com/Sitecore/jss/pull/1610))
-* `[sitecore-jss-nextjs]` Reduce the amount of Edge API calls during fetch getStaticPaths ([#1612](https://github.com/Sitecore/jss/pull/1612))
-* `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade Nextjs to 13.4.16([#1616](https://github.com/Sitecore/jss/pull/1616))
-
-### 🧹 Chores
-
-* Automatically create a Jira Issue once a github issue/doc request/PR is created ([#1573](https://github.com/Sitecore/jss/pull/1573))
-* Use exact canary version instead of range ([#1553](https://github.com/Sitecore/jss/pull/1553))
-
-### 🐛 Bug Fixes
-
-* `[tempaltes/nextjs]` `[templates/nextjs-sxa]` `[sitecore-jss-nexjts]` Redirects don't work when file extensions present in a route ([#1566](https://github.com/Sitecore/jss/pull/1566))
-* `[templates/vue]` "lint" command is failing due to bug introduced by eslint-plugin-prettier ([#1563](https://github.com/Sitecore/jss/pull/1563))
-* `[sitecore-jss-react]` [FEaaS] Prevent extra components client-side requests for SSR ([1541](https://github.com/Sitecore/jss/pull/1541))
-* `[sitecore-jss-react]` Remove use of reactDom/server from React Image ([1544](https://github.com/Sitecore/jss/pull/1544))
-* `[sitecore-jss-nextjs]` Referrer is not captured by Personalize middleware ([#1542](https://github.com/Sitecore/jss/pull/1542))
-* `[sitecore.jss-react]` Fix double placeholder in Experience Editor in production mode ([#1557](https://github.com/Sitecore/jss/pull/1557))
-* `[sitecore-jss-nextjs]` Fix of redirects middleware. Add possible to use tokens like $1, $2, $3, etc. ([#1547](https://github.com/Sitecore/jss/pull/1547)) ([#1559](https://github.com/Sitecore/jss/pull/1559)) ([#1561](https://github.com/Sitecore/jss/pull/1561)) ([#1562](https://github.com/Sitecore/jss/pull/1562))
-* `[templates/nextjs-sxa]` Change Content-Type of robots.txt response (`text/html;charset=utf-8`➡`text/plain`).
-* `[templates/nextjs-sxa]` Fix styles of Image component for Banner variant when we try to edit image in EE for Basic Site ([#1588](https://github.com/Sitecore/jss/pull/1588)) ([#1596](https://github.com/Sitecore/jss/pull/1596))
-* `[templates/nextjs-sxa]` Fix style for main layout(horizontal scrollbar). ([#1589](https://github.com/Sitecore/jss/pull/1589))
-* `[templates/nextjs-sxa]` Don't let Image component wrap <img> with <a> tag when TargetUrl is not configured. ([#1593](https://github.com/Sitecore/jss/issues/1593))
-* `[templates/nextjs]` Next config header plugin for CORS. ([#1597](https://github.com/Sitecore/jss/pull/1597))
-* `[templates/nextjs]` Ensure dictionary data is only fetched when layout data is present for a route ([#1608](https://github.com/Sitecore/jss/pull/1608)) 
-* `[sitecore-jss-react-forms]` Form should be blocked while submit is in progress to avoid submit spam ([#1611](https://github.com/Sitecore/jss/pull/1611) [#1614](https://github.com/Sitecore/jss/pull/1614))
-* `[templates/nextjs]` Fix linting errors, fix type error by upgrading @react/types to v18.2.22 ([#1613](https://github.com/Sitecore/jss/pull/1613))
-
-## 21.3.1
-
-### 🐛 Bug Fixes
-
-* `[create-sitecore-jss]` This is a maintenance release to fix package versioning in JSS templates.
-
-## 21.3.0
-
-### 🎉 New Features & Improvements
-
-* `[sitecore-jss-nextjs]` Support for public URL resolution in Netlify ([#1585](https://github.com/Sitecore/jss/pull/1585))
-
-### 🛠 Breaking Changes
-
-* `[sitecore-jss-angular]` `[sitecore-jss-angular-schematics]` `[templates/angular]` Angular is updated to v15. This update includes the below major version upgrades and changes. Please make sure your codebase is updated to accomodate the changes in the above dependencies. ([#1604](https://github.com/Sitecore/jss/pull/1604) [#1607](https://github.com/Sitecore/jss/pull/1607))
-  * Angular update: https://github.com/angular/angular/releases/tag/15.0.0
-  * Angular CLI: https://github.com/angular/angular-cli/releases/tag/15.0.0
-  * Angular ESLint: https://github.com/angular-eslint/angular-eslint/releases/tag/v15.0.0
-  * rxjs: https://rxjs.dev/6-to-7-change-summary
-  * Angular sample has been updated to use ES2022.
-
-## 21.2.4
-
-### 🎉 New Features & Improvements
-
-* `[templates]` Add JSS_APP_NAME to .env files ([#1571](https://github.com/Sitecore/jss/pull/1571))
-### 🐛 Bug Fixes
-
-* `[sitecore-jss]` GraphQLSiteInfoService does not fetch more than 10 sites ([#1569](https://github.com/Sitecore/jss/pull/1569))
-* `[sitecore-jss-vue]` Link component renders link description even when children are provided ([#1570](https://github.com/Sitecore/jss/pull/1570))
-* `[sitecore-jss-dev-tools]` Fix line endings for component builder ([#1580](https://github.com/Sitecore/jss/pull/1580))
-* `[templates/nextjs-sxa]` Fix font awesome - added CDN instead of using node_modules(problem with CORS) ([#1536](https://github.com/Sitecore/jss/pull/1536) ([#1545](https://github.com/Sitecore/jss/pull/1545))
-* `[templates/nextjs-sxa]` Fix menu component of third-level menu. ([#1540](https://github.com/Sitecore/jss/pull/1540)) ([#1546](https://github.com/Sitecore/jss/pull/1546))
-
-## 21.2.3
-
-### 🐛 Bug Fixes
-
-* `[tempaltes/nextjs]` `[templates/nextjs-sxa]` `[sitecore-jss-nexjts]` Redirects don't work when file extensions present in a route ([#1566](https://github.com/Sitecore/jss/pull/1566))
-
-## 21.2.2
-
-### 🐛 Bug Fixes
-
-* `[sitecore-jss-nextjs]` Fix of redirects middleware. Add possible to use tokens like $1, $2, $3, etc. ([#1547](https://github.com/Sitecore/jss/pull/1547)) ([#1559](https://github.com/Sitecore/jss/pull/1559)) ([#1561](https://github.com/Sitecore/jss/pull/1561)) ([#1562](https://github.com/Sitecore/jss/pull/1562))
-
-## 21.2.1
-
-### 🧹 Chores
-
-* Update outdated documentation links ([#1539](https://github.com/Sitecore/jss/pull/1539))
-
-## 21.2.0
-
-### 🎉 New Features & Improvements
-
->>>>>>> dc42c1a8da79bb219c8b8575668eb30404cb86f8
 * `[templates/nexts]` `[sitecore-jss-dev-tools]` `[sitecore-jss-nextjs]` Move template related script to the base package ([#1520](https://github.com/Sitecore/jss/pull/1520)):
   * `[sitecore-jss-nextjs]`:
     * Introduced _ComponentBuilder_ class for generating component factories and module factories.
