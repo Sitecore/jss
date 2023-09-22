@@ -22,9 +22,9 @@ Contents of a single placeholder returned from placeholder service
 
 #### Defined in
 
-[src/layout/models.ts:156](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/models.ts#L156)
+[src/layout/models.ts:156](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss/src/layout/models.ts#L156)
 
----
+___
 
 ### name
 
@@ -32,9 +32,9 @@ Contents of a single placeholder returned from placeholder service
 
 #### Defined in
 
-[src/layout/models.ts:154](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/models.ts#L154)
+[src/layout/models.ts:154](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss/src/layout/models.ts#L154)
 
----
+___
 
 ### path
 
@@ -42,4 +42,4 @@ Contents of a single placeholder returned from placeholder service
 
 #### Defined in
 
-[src/layout/models.ts:155](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/models.ts#L155)
+[src/layout/models.ts:155](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss/src/layout/models.ts#L155)

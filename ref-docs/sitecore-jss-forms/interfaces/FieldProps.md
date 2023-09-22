@@ -4,8 +4,8 @@
 
 ## Type parameters
 
-| Name         | Type                              |
-| :----------- | :-------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `TFormField` | extends `FormField` = `FormField` |
 
 ## Hierarchy
@@ -33,9 +33,9 @@ Form field schema data
 
 #### Defined in
 
-[src/FieldProps.ts:12](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react-forms/src/FieldProps.ts#L12)
+[src/FieldProps.ts:12](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-react-forms/src/FieldProps.ts#L12)
 
----
+___
 
 ### fieldFactory
 
@@ -49,8 +49,8 @@ Function that can be called to create child form field components (used for sect
 
 ##### Parameters
 
-| Name    | Type                      |
-| :------ | :------------------------ |
+| Name | Type |
+| :------ | :------ |
 | `field` | `FormField`<`ViewModel`\> |
 
 ##### Returns
@@ -59,9 +59,9 @@ Function that can be called to create child form field components (used for sect
 
 #### Defined in
 
-[src/FieldProps.ts:14](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react-forms/src/FieldProps.ts#L14)
+[src/FieldProps.ts:14](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-react-forms/src/FieldProps.ts#L14)
 
----
+___
 
 ### key
 
@@ -69,9 +69,9 @@ Function that can be called to create child form field components (used for sect
 
 #### Defined in
 
-[src/FieldProps.ts:18](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react-forms/src/FieldProps.ts#L18)
+[src/FieldProps.ts:18](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-react-forms/src/FieldProps.ts#L18)
 
----
+___
 
 ### onButtonClick
 
@@ -85,8 +85,8 @@ Callback for when a submit button is clicked. Tells the parent form which button
 
 ##### Parameters
 
-| Name              | Type     |
-| :---------------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `buttonFieldName` | `string` |
 
 ##### Returns
@@ -95,4 +95,4 @@ Callback for when a submit button is clicked. Tells the parent form which button
 
 #### Defined in
 
-[src/FieldProps.ts:16](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react-forms/src/FieldProps.ts#L16)
+[src/FieldProps.ts:16](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-react-forms/src/FieldProps.ts#L16)

@@ -31,13 +31,13 @@ which is required for Sitecore editing support.
 
 #### Parameters
 
-| Name      | Type                                                                                  | Description                    |
-| :-------- | :------------------------------------------------------------------------------------ | :----------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `config?` | [`EditingDataMiddlewareConfig`](../interfaces/editing.EditingDataMiddlewareConfig.md) | Editing data middleware config |
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:36](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L36)
+[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:36](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L36)
 
 ## Properties
 
@@ -47,9 +47,9 @@ which is required for Sitecore editing support.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:31](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L31)
+[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:31](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L31)
 
----
+___
 
 ### queryParamKey
 
@@ -57,7 +57,7 @@ which is required for Sitecore editing support.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:30](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L30)
+[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:30](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L30)
 
 ## Methods
 
@@ -79,9 +79,9 @@ Gets the Next.js API route handler
 
 ##### Parameters
 
-| Name  | Type                      |
-| :---- | :------------------------ |
-| `req` | `NextApiRequest`          |
+| Name | Type |
+| :------ | :------ |
+| `req` | `NextApiRequest` |
 | `res` | `NextApiResponse`<`any`\> |
 
 ##### Returns
@@ -92,9 +92,9 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:45](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L45)
+[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:45](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L45)
 
----
+___
 
 ### handler
 
@@ -102,9 +102,9 @@ route handler
 
 #### Parameters
 
-| Name  | Type                      |
-| :---- | :------------------------ |
-| `req` | `NextApiRequest`          |
+| Name | Type |
+| :------ | :------ |
+| `req` | `NextApiRequest` |
 | `res` | `NextApiResponse`<`any`\> |
 
 #### Returns
@@ -113,4 +113,4 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:49](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L49)
+[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:49](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L49)

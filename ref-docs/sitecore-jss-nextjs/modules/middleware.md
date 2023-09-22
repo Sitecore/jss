@@ -30,30 +30,30 @@ Re-exports [debug](index.md#debug)
 
 ### MultisiteMiddlewareConfig
 
-Ƭ **MultisiteMiddlewareConfig**: `Omit`<`MiddlewareBaseConfig`, `"disabled"`\> & { `useCookieResolution?`: (`req`: `NextRequest`) => `boolean` }
+Ƭ **MultisiteMiddlewareConfig**: `Omit`<`MiddlewareBaseConfig`, ``"disabled"``\> & { `useCookieResolution?`: (`req`: `NextRequest`) => `boolean`  }
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:6](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L6)
+[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:6](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L6)
 
----
+___
 
 ### PersonalizeMiddlewareConfig
 
-Ƭ **PersonalizeMiddlewareConfig**: `MiddlewareBaseConfig` & { `cdpConfig`: `Omit`<`CdpServiceConfig`, `"dataFetcherResolver"`\> ; `edgeConfig`: `Omit`<`GraphQLPersonalizeServiceConfig`, `"fetch"`\> ; `getPointOfSale?`: (`site`: [`SiteInfo`](index.md#siteinfo), `language`: `string`) => `string` }
+Ƭ **PersonalizeMiddlewareConfig**: `MiddlewareBaseConfig` & { `cdpConfig`: `Omit`<`CdpServiceConfig`, ``"dataFetcherResolver"``\> ; `edgeConfig`: `Omit`<`GraphQLPersonalizeServiceConfig`, ``"fetch"``\> ; `getPointOfSale?`: (`site`: [`SiteInfo`](index.md#siteinfo), `language`: `string`) => `string`  }
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:15](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L15)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:15](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L15)
 
----
+___
 
 ### RedirectsMiddlewareConfig
 
-Ƭ **RedirectsMiddlewareConfig**: `Omit`<`GraphQLRedirectsServiceConfig`, `"fetch"`\> & `MiddlewareBaseConfig` & { `locales`: `string`[] }
+Ƭ **RedirectsMiddlewareConfig**: `Omit`<`GraphQLRedirectsServiceConfig`, ``"fetch"``\> & `MiddlewareBaseConfig` & { `locales`: `string`[]  }
 
 extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:20](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L20)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:20](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L20)

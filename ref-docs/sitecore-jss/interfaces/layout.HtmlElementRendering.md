@@ -27,19 +27,19 @@ HTML content used to support Sitecore Experience Editor
 
 #### Defined in
 
-[src/layout/models.ts:117](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/models.ts#L117)
+[src/layout/models.ts:117](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss/src/layout/models.ts#L117)
 
----
+___
 
 ### contents
 
-• **contents**: `null` \| `string`
+• **contents**: ``null`` \| `string`
 
 #### Defined in
 
-[src/layout/models.ts:116](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/models.ts#L116)
+[src/layout/models.ts:116](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss/src/layout/models.ts#L116)
 
----
+___
 
 ### name
 
@@ -47,9 +47,9 @@ HTML content used to support Sitecore Experience Editor
 
 #### Defined in
 
-[src/layout/models.ts:114](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/models.ts#L114)
+[src/layout/models.ts:114](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss/src/layout/models.ts#L114)
 
----
+___
 
 ### type
 
@@ -57,4 +57,4 @@ HTML content used to support Sitecore Experience Editor
 
 #### Defined in
 
-[src/layout/models.ts:115](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/layout/models.ts#L115)
+[src/layout/models.ts:115](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss/src/layout/models.ts#L115)
