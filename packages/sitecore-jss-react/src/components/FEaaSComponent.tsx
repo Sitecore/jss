@@ -77,18 +77,6 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
   }
 
   let data: { [key: string]: unknown } = null;
-<<<<<<< HEAD
-  if (props.params?.ComponentDataOverride) {
-    // Use override data if provided
-    try {
-      data = JSON.parse(props.params.ComponentDataOverride);
-    } catch (e) {
-      data = null;
-    }
-  } else if (props.fields) {
-    // Otherwise use datasource data (provided in fields)
-    data = getDataFromFields(props.fields);
-=======
   if (props.fetchedData === null || props.fetchedData === undefined) {
     if (props.params?.ComponentDataOverride) {
       // Use override data if provided
@@ -101,7 +89,6 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
       // Otherwise use datasource data (provided in fields)
       data = getDataFromFields(props.fields);
     }
->>>>>>> dc42c1a8da79bb219c8b8575668eb30404cb86f8
   }
 
   // FEaaS control would still be hydrated by client
