@@ -21,9 +21,9 @@ Data for Next.js Preview (Editing) mode
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:13](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L13)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:13](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L13)
 
----
+___
 
 ### serverUrl
 
@@ -31,4 +31,4 @@ Data for Next.js Preview (Editing) mode
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:14](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L14)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:14](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L14)

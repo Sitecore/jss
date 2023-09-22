@@ -103,7 +103,7 @@ IncomingMessage.aborted
 
 node_modules/@types/node/ts4.8/http.d.ts:1007
 
----
+___
 
 ### closed
 
@@ -123,7 +123,7 @@ IncomingMessage.closed
 
 node_modules/@types/node/ts4.8/stream.d.ts:134
 
----
+___
 
 ### complete
 
@@ -136,20 +136,18 @@ This property is particularly useful as a means of determining if a client or
 server fully transmitted a message before a connection was terminated:
 
 ```js
-const req = http.request(
-  {
-    host: '127.0.0.1',
-    port: 8080,
-    method: 'POST',
-  },
-  (res) => {
-    res.resume();
-    res.on('end', () => {
-      if (!res.complete)
-        console.error('The connection was terminated while the message was still being sent');
-    });
-  }
-);
+const req = http.request({
+  host: '127.0.0.1',
+  port: 8080,
+  method: 'POST'
+}, (res) => {
+  res.resume();
+  res.on('end', () => {
+    if (!res.complete)
+      console.error(
+        'The connection was terminated while the message was still being sent');
+  });
+});
 ```
 
 **`Since`**
@@ -164,7 +162,7 @@ IncomingMessage.complete
 
 node_modules/@types/node/ts4.8/http.d.ts:1042
 
----
+___
 
 ### connection
 
@@ -188,7 +186,7 @@ IncomingMessage.connection
 
 node_modules/@types/node/ts4.8/http.d.ts:1048
 
----
+___
 
 ### destroyed
 
@@ -208,11 +206,11 @@ IncomingMessage.destroyed
 
 node_modules/@types/node/ts4.8/stream.d.ts:129
 
----
+___
 
 ### errored
 
-• `Readonly` **errored**: `null` \| `Error`
+• `Readonly` **errored**: ``null`` \| `Error`
 
 Returns error if the stream has been destroyed with an error.
 
@@ -228,7 +226,7 @@ IncomingMessage.errored
 
 node_modules/@types/node/ts4.8/stream.d.ts:139
 
----
+___
 
 ### headers
 
@@ -250,11 +248,11 @@ console.log(request.getHeaders());
 Duplicates in raw headers are handled in the following ways, depending on the
 header name:
 
-- Duplicates of `age`, `authorization`, `content-length`, `content-type`,`etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`,`last-modified`, `location`,
-  `max-forwards`, `proxy-authorization`, `referer`,`retry-after`, `server`, or `user-agent` are discarded.
-- `set-cookie` is always an array. Duplicates are added to the array.
-- For duplicate `cookie` headers, the values are joined together with '; '.
-- For all other headers, the values are joined together with ', '.
+* Duplicates of `age`, `authorization`, `content-length`, `content-type`,`etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`,`last-modified`, `location`,
+`max-forwards`, `proxy-authorization`, `referer`,`retry-after`, `server`, or `user-agent` are discarded.
+* `set-cookie` is always an array. Duplicates are added to the array.
+* For duplicate `cookie` headers, the values are joined together with '; '.
+* For all other headers, the values are joined together with ', '.
 
 **`Since`**
 
@@ -268,7 +266,7 @@ IncomingMessage.headers
 
 node_modules/@types/node/ts4.8/http.d.ts:1085
 
----
+___
 
 ### httpVersion
 
@@ -292,7 +290,7 @@ IncomingMessage.httpVersion
 
 node_modules/@types/node/ts4.8/http.d.ts:1016
 
----
+___
 
 ### httpVersionMajor
 
@@ -306,7 +304,7 @@ IncomingMessage.httpVersionMajor
 
 node_modules/@types/node/ts4.8/http.d.ts:1017
 
----
+___
 
 ### httpVersionMinor
 
@@ -320,7 +318,7 @@ IncomingMessage.httpVersionMinor
 
 node_modules/@types/node/ts4.8/http.d.ts:1018
 
----
+___
 
 ### method
 
@@ -342,7 +340,7 @@ IncomingMessage.method
 
 node_modules/@types/node/ts4.8/http.d.ts:1133
 
----
+___
 
 ### originalUrl
 
@@ -350,9 +348,9 @@ node_modules/@types/node/ts4.8/http.d.ts:1133
 
 #### Defined in
 
-[src/index.ts:18](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-proxy/src/index.ts#L18)
+[src/index.ts:18](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-proxy/src/index.ts#L18)
 
----
+___
 
 ### query
 
@@ -364,9 +362,9 @@ node_modules/@types/node/ts4.8/http.d.ts:1133
 
 #### Defined in
 
-[src/index.ts:19](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-proxy/src/index.ts#L19)
+[src/index.ts:19](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-proxy/src/index.ts#L19)
 
----
+___
 
 ### rawHeaders
 
@@ -406,7 +404,7 @@ IncomingMessage.rawHeaders
 
 node_modules/@types/node/ts4.8/http.d.ts:1110
 
----
+___
 
 ### rawTrailers
 
@@ -427,7 +425,7 @@ IncomingMessage.rawTrailers
 
 node_modules/@types/node/ts4.8/http.d.ts:1121
 
----
+___
 
 ### readable
 
@@ -448,7 +446,7 @@ IncomingMessage.readable
 
 node_modules/@types/node/ts4.8/stream.d.ts:85
 
----
+___
 
 ### readableAborted
 
@@ -468,7 +466,7 @@ IncomingMessage.readableAborted
 
 node_modules/@types/node/ts4.8/stream.d.ts:79
 
----
+___
 
 ### readableDidRead
 
@@ -488,11 +486,11 @@ IncomingMessage.readableDidRead
 
 node_modules/@types/node/ts4.8/stream.d.ts:91
 
----
+___
 
 ### readableEncoding
 
-• `Readonly` **readableEncoding**: `null` \| `BufferEncoding`
+• `Readonly` **readableEncoding**: ``null`` \| `BufferEncoding`
 
 Getter for the property `encoding` of a given `Readable` stream. The `encoding`property can be set using the `readable.setEncoding()` method.
 
@@ -508,7 +506,7 @@ IncomingMessage.readableEncoding
 
 node_modules/@types/node/ts4.8/stream.d.ts:96
 
----
+___
 
 ### readableEnded
 
@@ -528,11 +526,11 @@ IncomingMessage.readableEnded
 
 node_modules/@types/node/ts4.8/stream.d.ts:101
 
----
+___
 
 ### readableFlowing
 
-• `Readonly` **readableFlowing**: `null` \| `boolean`
+• `Readonly` **readableFlowing**: ``null`` \| `boolean`
 
 This property reflects the current state of a `Readable` stream as described
 in the `Three states` section.
@@ -549,7 +547,7 @@ IncomingMessage.readableFlowing
 
 node_modules/@types/node/ts4.8/stream.d.ts:107
 
----
+___
 
 ### readableHighWaterMark
 
@@ -569,7 +567,7 @@ IncomingMessage.readableHighWaterMark
 
 node_modules/@types/node/ts4.8/stream.d.ts:112
 
----
+___
 
 ### readableLength
 
@@ -591,7 +589,7 @@ IncomingMessage.readableLength
 
 node_modules/@types/node/ts4.8/stream.d.ts:119
 
----
+___
 
 ### readableObjectMode
 
@@ -611,7 +609,7 @@ IncomingMessage.readableObjectMode
 
 node_modules/@types/node/ts4.8/stream.d.ts:124
 
----
+___
 
 ### socket
 
@@ -638,7 +636,7 @@ IncomingMessage.socket
 
 node_modules/@types/node/ts4.8/http.d.ts:1060
 
----
+___
 
 ### statusCode
 
@@ -660,7 +658,7 @@ IncomingMessage.statusCode
 
 node_modules/@types/node/ts4.8/http.d.ts:1180
 
----
+___
 
 ### statusMessage
 
@@ -682,7 +680,7 @@ IncomingMessage.statusMessage
 
 node_modules/@types/node/ts4.8/http.d.ts:1187
 
----
+___
 
 ### trailers
 
@@ -702,7 +700,7 @@ IncomingMessage.trailers
 
 node_modules/@types/node/ts4.8/http.d.ts:1115
 
----
+___
 
 ### url
 
@@ -775,17 +773,17 @@ IncomingMessage.\_\_@asyncIterator@21531
 
 node_modules/@types/node/ts4.8/stream.d.ts:503
 
----
+___
 
 ### \_construct
 
-▸ `Optional` **\_construct**(`callback`): `void`
+▸ `Optional` **_construct**(`callback`): `void`
 
 #### Parameters
 
-| Name       | Type                                    |
-| :--------- | :-------------------------------------- |
-| `callback` | (`error?`: `null` \| `Error`) => `void` |
+| Name | Type |
+| :------ | :------ |
+| `callback` | (`error?`: ``null`` \| `Error`) => `void` |
 
 #### Returns
 
@@ -799,18 +797,18 @@ IncomingMessage.\_construct
 
 node_modules/@types/node/ts4.8/stream.d.ts:141
 
----
+___
 
 ### \_destroy
 
-▸ **\_destroy**(`error`, `callback`): `void`
+▸ **_destroy**(`error`, `callback`): `void`
 
 #### Parameters
 
-| Name       | Type                                    |
-| :--------- | :-------------------------------------- |
-| `error`    | `null` \| `Error`                       |
-| `callback` | (`error?`: `null` \| `Error`) => `void` |
+| Name | Type |
+| :------ | :------ |
+| `error` | ``null`` \| `Error` |
+| `callback` | (`error?`: ``null`` \| `Error`) => `void` |
 
 #### Returns
 
@@ -824,16 +822,16 @@ IncomingMessage.\_destroy
 
 node_modules/@types/node/ts4.8/stream.d.ts:423
 
----
+___
 
 ### \_read
 
-▸ **\_read**(`size`): `void`
+▸ **_read**(`size`): `void`
 
 #### Parameters
 
-| Name   | Type     |
-| :----- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `size` | `number` |
 
 #### Returns
@@ -848,7 +846,7 @@ IncomingMessage.\_read
 
 node_modules/@types/node/ts4.8/stream.d.ts:142
 
----
+___
 
 ### addListener
 
@@ -856,7 +854,6 @@ node_modules/@types/node/ts4.8/stream.d.ts:142
 
 Event emitter
 The defined events on documents including:
-
 1. close
 2. data
 3. end
@@ -867,9 +864,9 @@ The defined events on documents including:
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"close"`    |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"close"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -888,9 +885,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:447
 
 #### Parameters
 
-| Name       | Type                       |
-| :--------- | :------------------------- |
-| `event`    | `"data"`                   |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"data"`` |
 | `listener` | (`chunk`: `any`) => `void` |
 
 #### Returns
@@ -909,9 +906,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:448
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"end"`      |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"end"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -930,9 +927,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:449
 
 #### Parameters
 
-| Name       | Type                       |
-| :--------- | :------------------------- |
-| `event`    | `"error"`                  |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"error"`` |
 | `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
@@ -951,9 +948,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:450
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"pause"`    |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"pause"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -972,9 +969,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:451
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"readable"` |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"readable"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -993,9 +990,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:452
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"resume"`   |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"resume"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1014,9 +1011,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:453
 
 #### Parameters
 
-| Name       | Type                           |
-| :--------- | :----------------------------- |
-| `event`    | `string` \| `symbol`           |
+| Name | Type |
+| :------ | :------ |
+| `event` | `string` \| `symbol` |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -1031,7 +1028,7 @@ IncomingMessage.addListener
 
 node_modules/@types/node/ts4.8/stream.d.ts:454
 
----
+___
 
 ### destroy
 
@@ -1046,8 +1043,8 @@ v0.3.0
 
 #### Parameters
 
-| Name     | Type    |
-| :------- | :------ |
+| Name | Type |
+| :------ | :------ |
 | `error?` | `Error` |
 
 #### Returns
@@ -1062,7 +1059,7 @@ IncomingMessage.destroy
 
 node_modules/@types/node/ts4.8/http.d.ts:1193
 
----
+___
 
 ### emit
 
@@ -1070,9 +1067,9 @@ node_modules/@types/node/ts4.8/http.d.ts:1193
 
 #### Parameters
 
-| Name    | Type      |
-| :------ | :-------- |
-| `event` | `"close"` |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"close"`` |
 
 #### Returns
 
@@ -1090,10 +1087,10 @@ node_modules/@types/node/ts4.8/stream.d.ts:455
 
 #### Parameters
 
-| Name    | Type     |
-| :------ | :------- |
-| `event` | `"data"` |
-| `chunk` | `any`    |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"data"`` |
+| `chunk` | `any` |
 
 #### Returns
 
@@ -1111,9 +1108,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:456
 
 #### Parameters
 
-| Name    | Type    |
+| Name | Type |
 | :------ | :------ |
-| `event` | `"end"` |
+| `event` | ``"end"`` |
 
 #### Returns
 
@@ -1131,10 +1128,10 @@ node_modules/@types/node/ts4.8/stream.d.ts:457
 
 #### Parameters
 
-| Name    | Type      |
-| :------ | :-------- |
-| `event` | `"error"` |
-| `err`   | `Error`   |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"error"`` |
+| `err` | `Error` |
 
 #### Returns
 
@@ -1152,9 +1149,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:458
 
 #### Parameters
 
-| Name    | Type      |
-| :------ | :-------- |
-| `event` | `"pause"` |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"pause"`` |
 
 #### Returns
 
@@ -1172,9 +1169,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:459
 
 #### Parameters
 
-| Name    | Type         |
-| :------ | :----------- |
-| `event` | `"readable"` |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"readable"`` |
 
 #### Returns
 
@@ -1192,9 +1189,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:460
 
 #### Parameters
 
-| Name    | Type       |
-| :------ | :--------- |
-| `event` | `"resume"` |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"resume"`` |
 
 #### Returns
 
@@ -1212,10 +1209,10 @@ node_modules/@types/node/ts4.8/stream.d.ts:461
 
 #### Parameters
 
-| Name      | Type                 |
-| :-------- | :------------------- |
-| `event`   | `string` \| `symbol` |
-| `...args` | `any`[]              |
+| Name | Type |
+| :------ | :------ |
+| `event` | `string` \| `symbol` |
+| `...args` | `any`[] |
 
 #### Returns
 
@@ -1229,7 +1226,7 @@ IncomingMessage.emit
 
 node_modules/@types/node/ts4.8/stream.d.ts:462
 
----
+___
 
 ### eventNames
 
@@ -1267,7 +1264,7 @@ IncomingMessage.eventNames
 
 node_modules/@types/node/ts4.8/events.d.ts:669
 
----
+___
 
 ### getMaxListeners
 
@@ -1292,7 +1289,7 @@ IncomingMessage.getMaxListeners
 
 node_modules/@types/node/ts4.8/events.d.ts:526
 
----
+___
 
 ### isPaused
 
@@ -1328,7 +1325,7 @@ IncomingMessage.isPaused
 
 node_modules/@types/node/ts4.8/stream.d.ts:302
 
----
+___
 
 ### listenerCount
 
@@ -1342,8 +1339,8 @@ v3.2.0
 
 #### Parameters
 
-| Name        | Type                 | Description                              |
-| :---------- | :------------------- | :--------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `eventName` | `string` \| `symbol` | The name of the event being listened for |
 
 #### Returns
@@ -1358,7 +1355,7 @@ IncomingMessage.listenerCount
 
 node_modules/@types/node/ts4.8/events.d.ts:616
 
----
+___
 
 ### listeners
 
@@ -1380,8 +1377,8 @@ v0.1.26
 
 #### Parameters
 
-| Name        | Type                 |
-| :---------- | :------------------- |
+| Name | Type |
+| :------ | :------ |
 | `eventName` | `string` \| `symbol` |
 
 #### Returns
@@ -1396,7 +1393,7 @@ IncomingMessage.listeners
 
 node_modules/@types/node/ts4.8/events.d.ts:539
 
----
+___
 
 ### off
 
@@ -1410,10 +1407,10 @@ v10.0.0
 
 #### Parameters
 
-| Name        | Type                           |
-| :---------- | :----------------------------- |
-| `eventName` | `string` \| `symbol`           |
-| `listener`  | (...`args`: `any`[]) => `void` |
+| Name | Type |
+| :------ | :------ |
+| `eventName` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
 
@@ -1427,7 +1424,7 @@ IncomingMessage.off
 
 node_modules/@types/node/ts4.8/events.d.ts:499
 
----
+___
 
 ### on
 
@@ -1435,9 +1432,9 @@ node_modules/@types/node/ts4.8/events.d.ts:499
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"close"`    |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"close"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1456,9 +1453,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:463
 
 #### Parameters
 
-| Name       | Type                       |
-| :--------- | :------------------------- |
-| `event`    | `"data"`                   |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"data"`` |
 | `listener` | (`chunk`: `any`) => `void` |
 
 #### Returns
@@ -1477,9 +1474,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:464
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"end"`      |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"end"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1498,9 +1495,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:465
 
 #### Parameters
 
-| Name       | Type                       |
-| :--------- | :------------------------- |
-| `event`    | `"error"`                  |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"error"`` |
 | `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
@@ -1519,9 +1516,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:466
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"pause"`    |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"pause"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1540,9 +1537,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:467
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"readable"` |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"readable"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1561,9 +1558,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:468
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"resume"`   |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"resume"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1582,9 +1579,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:469
 
 #### Parameters
 
-| Name       | Type                           |
-| :--------- | :----------------------------- |
-| `event`    | `string` \| `symbol`           |
+| Name | Type |
+| :------ | :------ |
+| `event` | `string` \| `symbol` |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -1599,7 +1596,7 @@ IncomingMessage.on
 
 node_modules/@types/node/ts4.8/stream.d.ts:470
 
----
+___
 
 ### once
 
@@ -1607,9 +1604,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:470
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"close"`    |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"close"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1628,9 +1625,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:471
 
 #### Parameters
 
-| Name       | Type                       |
-| :--------- | :------------------------- |
-| `event`    | `"data"`                   |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"data"`` |
 | `listener` | (`chunk`: `any`) => `void` |
 
 #### Returns
@@ -1649,9 +1646,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:472
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"end"`      |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"end"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1670,9 +1667,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:473
 
 #### Parameters
 
-| Name       | Type                       |
-| :--------- | :------------------------- |
-| `event`    | `"error"`                  |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"error"`` |
 | `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
@@ -1691,9 +1688,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:474
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"pause"`    |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"pause"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1712,9 +1709,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:475
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"readable"` |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"readable"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1733,9 +1730,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:476
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"resume"`   |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"resume"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1754,9 +1751,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:477
 
 #### Parameters
 
-| Name       | Type                           |
-| :--------- | :----------------------------- |
-| `event`    | `string` \| `symbol`           |
+| Name | Type |
+| :------ | :------ |
+| `event` | `string` \| `symbol` |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -1771,7 +1768,7 @@ IncomingMessage.once
 
 node_modules/@types/node/ts4.8/stream.d.ts:478
 
----
+___
 
 ### pause
 
@@ -1812,7 +1809,7 @@ IncomingMessage.pause
 
 node_modules/@types/node/ts4.8/stream.d.ts:266
 
----
+___
 
 ### pipe
 
@@ -1820,16 +1817,16 @@ node_modules/@types/node/ts4.8/stream.d.ts:266
 
 #### Type parameters
 
-| Name | Type                           |
-| :--- | :----------------------------- |
-| `T`  | extends `WritableStream`<`T`\> |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `WritableStream`<`T`\> |
 
 #### Parameters
 
-| Name           | Type      |
-| :------------- | :-------- |
-| `destination`  | `T`       |
-| `options?`     | `Object`  |
+| Name | Type |
+| :------ | :------ |
+| `destination` | `T` |
+| `options?` | `Object` |
 | `options.end?` | `boolean` |
 
 #### Returns
@@ -1844,7 +1841,7 @@ IncomingMessage.pipe
 
 node_modules/@types/node/ts4.8/stream.d.ts:26
 
----
+___
 
 ### prependListener
 
@@ -1852,9 +1849,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:26
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"close"`    |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"close"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1873,9 +1870,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:479
 
 #### Parameters
 
-| Name       | Type                       |
-| :--------- | :------------------------- |
-| `event`    | `"data"`                   |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"data"`` |
 | `listener` | (`chunk`: `any`) => `void` |
 
 #### Returns
@@ -1894,9 +1891,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:480
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"end"`      |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"end"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1915,9 +1912,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:481
 
 #### Parameters
 
-| Name       | Type                       |
-| :--------- | :------------------------- |
-| `event`    | `"error"`                  |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"error"`` |
 | `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
@@ -1936,9 +1933,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:482
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"pause"`    |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"pause"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1957,9 +1954,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:483
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"readable"` |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"readable"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1978,9 +1975,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:484
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"resume"`   |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"resume"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1999,9 +1996,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:485
 
 #### Parameters
 
-| Name       | Type                           |
-| :--------- | :----------------------------- |
-| `event`    | `string` \| `symbol`           |
+| Name | Type |
+| :------ | :------ |
+| `event` | `string` \| `symbol` |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -2016,7 +2013,7 @@ IncomingMessage.prependListener
 
 node_modules/@types/node/ts4.8/stream.d.ts:486
 
----
+___
 
 ### prependOnceListener
 
@@ -2024,9 +2021,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:486
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"close"`    |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"close"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -2045,9 +2042,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:487
 
 #### Parameters
 
-| Name       | Type                       |
-| :--------- | :------------------------- |
-| `event`    | `"data"`                   |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"data"`` |
 | `listener` | (`chunk`: `any`) => `void` |
 
 #### Returns
@@ -2066,9 +2063,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:488
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"end"`      |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"end"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -2087,9 +2084,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:489
 
 #### Parameters
 
-| Name       | Type                       |
-| :--------- | :------------------------- |
-| `event`    | `"error"`                  |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"error"`` |
 | `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
@@ -2108,9 +2105,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:490
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"pause"`    |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"pause"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -2129,9 +2126,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:491
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"readable"` |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"readable"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -2150,9 +2147,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:492
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"resume"`   |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"resume"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -2171,9 +2168,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:493
 
 #### Parameters
 
-| Name       | Type                           |
-| :--------- | :----------------------------- |
-| `event`    | `string` \| `symbol`           |
+| Name | Type |
+| :------ | :------ |
+| `event` | `string` \| `symbol` |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -2188,7 +2185,7 @@ IncomingMessage.prependOnceListener
 
 node_modules/@types/node/ts4.8/stream.d.ts:494
 
----
+___
 
 ### push
 
@@ -2196,9 +2193,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:494
 
 #### Parameters
 
-| Name        | Type             |
-| :---------- | :--------------- |
-| `chunk`     | `any`            |
+| Name | Type |
+| :------ | :------ |
+| `chunk` | `any` |
 | `encoding?` | `BufferEncoding` |
 
 #### Returns
@@ -2213,7 +2210,7 @@ IncomingMessage.push
 
 node_modules/@types/node/ts4.8/stream.d.ts:422
 
----
+___
 
 ### rawListeners
 
@@ -2252,8 +2249,8 @@ v9.4.0
 
 #### Parameters
 
-| Name        | Type                 |
-| :---------- | :------------------- |
+| Name | Type |
+| :------ | :------ |
 | `eventName` | `string` \| `symbol` |
 
 #### Returns
@@ -2268,7 +2265,7 @@ IncomingMessage.rawListeners
 
 node_modules/@types/node/ts4.8/events.d.ts:569
 
----
+___
 
 ### read
 
@@ -2280,7 +2277,7 @@ the data is returned as a `Buffer` object unless an encoding has been
 specified using the `readable.setEncoding()` method or the stream is operating
 in object mode.
 
-The optional `size` argument specifies a specific number of bytes to read. If`size` bytes are not available to be read, `null` will be returned \_unless_the stream has ended, in which
+The optional `size` argument specifies a specific number of bytes to read. If`size` bytes are not available to be read, `null` will be returned _unless_the stream has ended, in which
 case all of the data remaining in the internal
 buffer will be returned.
 
@@ -2353,8 +2350,8 @@ v0.9.4
 
 #### Parameters
 
-| Name    | Type     | Description                                         |
-| :------ | :------- | :-------------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `size?` | `number` | Optional argument to specify how much data to read. |
 
 #### Returns
@@ -2369,7 +2366,7 @@ IncomingMessage.read
 
 node_modules/@types/node/ts4.8/stream.d.ts:219
 
----
+___
 
 ### removeAllListeners
 
@@ -2389,8 +2386,8 @@ v0.1.26
 
 #### Parameters
 
-| Name     | Type                 |
-| :------- | :------------------- |
+| Name | Type |
+| :------ | :------ |
 | `event?` | `string` \| `symbol` |
 
 #### Returns
@@ -2405,7 +2402,7 @@ IncomingMessage.removeAllListeners
 
 node_modules/@types/node/ts4.8/events.d.ts:510
 
----
+___
 
 ### removeListener
 
@@ -2413,9 +2410,9 @@ node_modules/@types/node/ts4.8/events.d.ts:510
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"close"`    |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"close"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -2434,9 +2431,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:495
 
 #### Parameters
 
-| Name       | Type                       |
-| :--------- | :------------------------- |
-| `event`    | `"data"`                   |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"data"`` |
 | `listener` | (`chunk`: `any`) => `void` |
 
 #### Returns
@@ -2455,9 +2452,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:496
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"end"`      |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"end"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -2476,9 +2473,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:497
 
 #### Parameters
 
-| Name       | Type                       |
-| :--------- | :------------------------- |
-| `event`    | `"error"`                  |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"error"`` |
 | `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
@@ -2497,9 +2494,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:498
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"pause"`    |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"pause"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -2518,9 +2515,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:499
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"readable"` |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"readable"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -2539,9 +2536,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:500
 
 #### Parameters
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `event`    | `"resume"`   |
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"resume"`` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -2560,9 +2557,9 @@ node_modules/@types/node/ts4.8/stream.d.ts:501
 
 #### Parameters
 
-| Name       | Type                           |
-| :--------- | :----------------------------- |
-| `event`    | `string` \| `symbol`           |
+| Name | Type |
+| :------ | :------ |
+| `event` | `string` \| `symbol` |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -2577,7 +2574,7 @@ IncomingMessage.removeListener
 
 node_modules/@types/node/ts4.8/stream.d.ts:502
 
----
+___
 
 ### resume
 
@@ -2615,7 +2612,7 @@ IncomingMessage.resume
 
 node_modules/@types/node/ts4.8/stream.d.ts:285
 
----
+___
 
 ### setEncoding
 
@@ -2648,8 +2645,8 @@ v0.9.4
 
 #### Parameters
 
-| Name       | Type             | Description          |
-| :--------- | :--------------- | :------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `encoding` | `BufferEncoding` | The encoding to use. |
 
 #### Returns
@@ -2664,7 +2661,7 @@ IncomingMessage.setEncoding
 
 node_modules/@types/node/ts4.8/stream.d.ts:244
 
----
+___
 
 ### setMaxListeners
 
@@ -2683,9 +2680,9 @@ v0.3.5
 
 #### Parameters
 
-| Name | Type     |
-| :--- | :------- |
-| `n`  | `number` |
+| Name | Type |
+| :------ | :------ |
+| `n` | `number` |
 
 #### Returns
 
@@ -2699,7 +2696,7 @@ IncomingMessage.setMaxListeners
 
 node_modules/@types/node/ts4.8/events.d.ts:520
 
----
+___
 
 ### setTimeout
 
@@ -2713,9 +2710,9 @@ v0.5.9
 
 #### Parameters
 
-| Name        | Type         |
-| :---------- | :----------- |
-| `msecs`     | `number`     |
+| Name | Type |
+| :------ | :------ |
+| `msecs` | `number` |
 | `callback?` | () => `void` |
 
 #### Returns
@@ -2730,7 +2727,7 @@ IncomingMessage.setTimeout
 
 node_modules/@types/node/ts4.8/http.d.ts:1126
 
----
+___
 
 ### unpipe
 
@@ -2765,8 +2762,8 @@ v0.9.4
 
 #### Parameters
 
-| Name           | Type             | Description                        |
-| :------------- | :--------------- | :--------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `destination?` | `WritableStream` | Optional specific stream to unpipe |
 
 #### Returns
@@ -2781,7 +2778,7 @@ IncomingMessage.unpipe
 
 node_modules/@types/node/ts4.8/stream.d.ts:329
 
----
+___
 
 ### unshift
 
@@ -2826,7 +2823,8 @@ function parseHeader(stream, callback) {
         stream.removeListener('error', callback);
         // Remove the 'readable' listener before unshifting.
         stream.removeListener('readable', onReadable);
-        if (buf.length) stream.unshift(buf);
+        if (buf.length)
+          stream.unshift(buf);
         // Now the body of the message can be read from the stream.
         callback(null, header, stream);
         return;
@@ -2841,7 +2839,7 @@ function parseHeader(stream, callback) {
 Unlike [push](ProxyIncomingMessage.md#push), `stream.unshift(chunk)` will not
 end the reading process by resetting the internal reading state of the stream.
 This can cause unexpected results if `readable.unshift()` is called during a
-read (i.e. from within a [\_read](ProxyIncomingMessage.md#_read) implementation on a
+read (i.e. from within a [_read](ProxyIncomingMessage.md#_read) implementation on a
 custom stream). Following the call to `readable.unshift()` with an immediate [push](ProxyIncomingMessage.md#push) will reset the reading state appropriately,
 however it is best to simply avoid calling `readable.unshift()` while in the
 process of performing a read.
@@ -2852,10 +2850,10 @@ v0.9.11
 
 #### Parameters
 
-| Name        | Type             | Description                                                                                                                                                                                                       |
-| :---------- | :--------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `chunk`     | `any`            | Chunk of data to unshift onto the read queue. For streams not operating in object mode, `chunk` must be a string, `Buffer`, `Uint8Array` or `null`. For object mode streams, `chunk` may be any JavaScript value. |
-| `encoding?` | `BufferEncoding` | Encoding of string chunks. Must be a valid `Buffer` encoding, such as `'utf8'` or `'ascii'`.                                                                                                                      |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `chunk` | `any` | Chunk of data to unshift onto the read queue. For streams not operating in object mode, `chunk` must be a string, `Buffer`, `Uint8Array` or `null`. For object mode streams, `chunk` may be any JavaScript value. |
+| `encoding?` | `BufferEncoding` | Encoding of string chunks. Must be a valid `Buffer` encoding, such as `'utf8'` or `'ascii'`. |
 
 #### Returns
 
@@ -2869,7 +2867,7 @@ IncomingMessage.unshift
 
 node_modules/@types/node/ts4.8/stream.d.ts:395
 
----
+___
 
 ### wrap
 
@@ -2903,8 +2901,8 @@ v0.9.4
 
 #### Parameters
 
-| Name     | Type             | Description                    |
-| :------- | :--------------- | :----------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `stream` | `ReadableStream` | An "old style" readable stream |
 
 #### Returns

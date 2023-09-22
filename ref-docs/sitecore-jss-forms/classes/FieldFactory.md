@@ -31,7 +31,7 @@ but it maps form element components instead of layout components
 
 #### Defined in
 
-[src/field-factory.tsx:18](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react-forms/src/field-factory.tsx#L18)
+[src/field-factory.tsx:18](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-react-forms/src/field-factory.tsx#L18)
 
 ## Properties
 
@@ -41,9 +41,9 @@ but it maps form element components instead of layout components
 
 #### Defined in
 
-[src/field-factory.tsx:16](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react-forms/src/field-factory.tsx#L16)
+[src/field-factory.tsx:16](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-react-forms/src/field-factory.tsx#L16)
 
----
+___
 
 ### \_fieldMap
 
@@ -51,7 +51,7 @@ but it maps form element components instead of layout components
 
 #### Defined in
 
-[src/field-factory.tsx:15](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react-forms/src/field-factory.tsx#L15)
+[src/field-factory.tsx:15](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-react-forms/src/field-factory.tsx#L15)
 
 ## Methods
 
@@ -61,9 +61,9 @@ but it maps form element components instead of layout components
 
 #### Parameters
 
-| Name    | Type                                                                    |
-| :------ | :---------------------------------------------------------------------- |
-| `field` | `FormField`<`ViewModel`\>                                               |
+| Name | Type |
+| :------ | :------ |
+| `field` | `FormField`<`ViewModel`\> |
 | `props` | [`FieldProps`](../interfaces/FieldProps.md)<`FormField`<`ViewModel`\>\> |
 
 #### Returns
@@ -72,9 +72,9 @@ but it maps form element components instead of layout components
 
 #### Defined in
 
-[src/field-factory.tsx:38](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react-forms/src/field-factory.tsx#L38)
+[src/field-factory.tsx:38](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-react-forms/src/field-factory.tsx#L38)
 
----
+___
 
 ### setComponent
 
@@ -82,15 +82,15 @@ but it maps form element components instead of layout components
 
 #### Type parameters
 
-| Name     | Type                                                                                      |
-| :------- | :---------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `TProps` | extends [`FieldProps`](../interfaces/FieldProps.md)<`FormField`<`ViewModel`\>, `TProps`\> |
 
 #### Parameters
 
-| Name        | Type                            |
-| :---------- | :------------------------------ |
-| `type`      | `string`                        |
+| Name | Type |
+| :------ | :------ |
+| `type` | `string` |
 | `component` | `FormFieldComponent`<`TProps`\> |
 
 #### Returns
@@ -99,9 +99,9 @@ but it maps form element components instead of layout components
 
 #### Defined in
 
-[src/field-factory.tsx:31](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react-forms/src/field-factory.tsx#L31)
+[src/field-factory.tsx:31](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-react-forms/src/field-factory.tsx#L31)
 
----
+___
 
 ### setComponentNotFoundComponent
 
@@ -109,8 +109,8 @@ but it maps form element components instead of layout components
 
 #### Parameters
 
-| Name        | Type                                        |
-| :---------- | :------------------------------------------ |
+| Name | Type |
+| :------ | :------ |
 | `component` | `ComponentType`<`FormField`<`ViewModel`\>\> |
 
 #### Returns
@@ -119,4 +119,4 @@ but it maps form element components instead of layout components
 
 #### Defined in
 
-[src/field-factory.tsx:27](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-react-forms/src/field-factory.tsx#L27)
+[src/field-factory.tsx:27](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-react-forms/src/field-factory.tsx#L27)

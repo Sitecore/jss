@@ -19,9 +19,9 @@
 
 #### Defined in
 
-[mergeFs.ts:121](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L121)
+[mergeFs.ts:121](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L121)
 
----
+___
 
 ### folders
 
@@ -29,9 +29,9 @@
 
 #### Defined in
 
-[mergeFs.ts:122](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L122)
+[mergeFs.ts:122](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L122)
 
----
+___
 
 ### name
 
@@ -39,9 +39,9 @@
 
 #### Defined in
 
-[mergeFs.ts:120](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L120)
+[mergeFs.ts:120](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L120)
 
----
+___
 
 ### path
 
@@ -49,4 +49,4 @@
 
 #### Defined in
 
-[mergeFs.ts:119](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L119)
+[mergeFs.ts:119](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L119)

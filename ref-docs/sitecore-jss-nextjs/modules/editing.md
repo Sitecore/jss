@@ -41,16 +41,16 @@ Data sent from Sitecore editors
 
 #### Type declaration
 
-| Name         | Type                                                            |
-| :----------- | :-------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `dictionary` | [`DictionaryPhrases`](../interfaces/index.DictionaryPhrases.md) |
-| `language`   | `string`                                                        |
+| `language` | `string` |
 | `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) |
-| `path`       | `string`                                                        |
+| `path` | `string` |
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
+[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
 
 ## Variables
 
@@ -66,4 +66,4 @@ https://vercel.com/docs/environment-variables#system-environment-variables
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:202](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L202)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:202](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L202)

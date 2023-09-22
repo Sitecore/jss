@@ -12,50 +12,50 @@
 
 ### Variables
 
-- [FETCH_WITH](index.constants.md#fetch_with)
-- [JSS_MODE](index.constants.md#jss_mode)
+- [FETCH\_WITH](index.constants.md#fetch_with)
+- [JSS\_MODE](index.constants.md#jss_mode)
 - [siteNameError](index.constants.md#sitenameerror)
 
 ## Variables
 
-### FETCH_WITH
+### FETCH\_WITH
 
-• `Const` **FETCH_WITH**: `Object`
+• `Const` **FETCH\_WITH**: `Object`
 
 #### Type declaration
 
-| Name      | Type     |
-| :-------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `GRAPHQL` | `string` |
-| `REST`    | `string` |
+| `REST` | `string` |
 
 #### Defined in
 
-[src/constants.ts:9](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/constants.ts#L9)
+[src/constants.ts:9](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss/src/constants.ts#L9)
 
----
+___
 
-### JSS_MODE
+### JSS\_MODE
 
-• `Const` **JSS_MODE**: `Object`
+• `Const` **JSS\_MODE**: `Object`
 
 #### Type declaration
 
-| Name           | Type     |
-| :------------- | :------- |
-| `CONNECTED`    | `string` |
+| Name | Type |
+| :------ | :------ |
+| `CONNECTED` | `string` |
 | `DISCONNECTED` | `string` |
 
 #### Defined in
 
-[src/constants.ts:14](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/constants.ts#L14)
+[src/constants.ts:14](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss/src/constants.ts#L14)
 
----
+___
 
 ### siteNameError
 
-• `Const` **siteNameError**: `"The siteName cannot be empty"`
+• `Const` **siteNameError**: ``"The siteName cannot be empty"``
 
 #### Defined in
 
-[src/constants.ts:19](https://github.com/Sitecore/jss/blob/19e6229c3/packages/sitecore-jss/src/constants.ts#L19)
+[src/constants.ts:19](https://github.com/Sitecore/jss/blob/ebff04d91/packages/sitecore-jss/src/constants.ts#L19)
