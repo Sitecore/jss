@@ -2,7 +2,6 @@ import { LayoutServiceBase } from './layout-service';
 import { LayoutServiceData } from './models';
 import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
 import debug from '../debug';
-import pThrottle from 'p-throttle';
 
 export type GraphQLLayoutServiceConfig = {
   /**
@@ -48,8 +47,6 @@ export class GraphQLLayoutService extends LayoutServiceBase {
     this.graphQLClient = this.getGraphQLClient();
   }
 
-  private throttle = pThrottle({limit: 5, interval: 1000})
-
   /**
    * Fetch layout data for an item.
    * @param {string} itemPath item path to fetch layout data for.
@@ -76,13 +73,6 @@ export class GraphQLLayoutService extends LayoutServiceBase {
       }
     );
   }
-
-  throttledFetch = this.throttle(async (itemPath: string, language?: string) => {
-
-    const data = await this.fetchLayoutData(itemPath, language);
-
-    return data
-})
 
   /**
    * Gets a GraphQL client that can make requests to the API. Uses graphql-request as the default
