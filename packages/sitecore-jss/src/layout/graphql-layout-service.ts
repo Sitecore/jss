@@ -1,6 +1,10 @@
 import { LayoutServiceBase } from './layout-service';
 import { LayoutServiceData } from './models';
-import { GraphQLClient, GraphQLRequestClient, GraphQLServiceRetryConfig } from '../graphql-request-client';
+import {
+  GraphQLClient,
+  GraphQLRequestClient,
+  GraphQLServiceRetryConfig,
+} from '../graphql-request-client';
 import debug from '../debug';
 
 export interface GraphQLLayoutServiceConfig extends GraphQLServiceRetryConfig {
@@ -28,7 +32,7 @@ export interface GraphQLLayoutServiceConfig extends GraphQLServiceRetryConfig {
    * layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
    */
   formatLayoutQuery?: (siteName: string, itemPath: string, locale?: string) => string;
-};
+}
 
 /**
  * Service that fetch layout data using Sitecore's GraphQL API.
@@ -78,13 +82,14 @@ export class GraphQLLayoutService extends LayoutServiceBase {
    * Gets a GraphQL client that can make requests to the API. Uses graphql-request as the default
    * library for fetching graphql data (@see GraphQLRequestClient). Override this method if you
    * want to use something else.
+   * @param {number} retries number of retries a graphql client should attempt
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(retries?: number): GraphQLClient {
     return new GraphQLRequestClient(this.serviceConfig.endpoint, {
       apiKey: this.serviceConfig.apiKey,
       debugger: debug.layout,
-      retries
+      retries,
     });
   }
 

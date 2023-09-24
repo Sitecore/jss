@@ -206,7 +206,7 @@ describe('GraphQLRequestClient', () => {
         },
       });
 
-    const graphQLClient = new GraphQLRequestClient(endpoint, {retries: 2});
+    const graphQLClient = new GraphQLRequestClient(endpoint, { retries: 2 });
     spy.on(graphQLClient['client'], 'request');
     await graphQLClient.request('test').catch((error) => {
       expect(graphQLClient['client'].request).to.be.called.exactly(2);

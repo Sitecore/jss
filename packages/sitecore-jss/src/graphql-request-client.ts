@@ -13,10 +13,7 @@ export interface GraphQLClient {
    * @param {string | DocumentNode} query graphql query
    * @param {Object} variables graphql variables
    */
-  request<T>(
-    query: string | DocumentNode,
-    variables?: { [key: string]: unknown },
-  ): Promise<T>;
+  request<T>(query: string | DocumentNode, variables?: { [key: string]: unknown }): Promise<T>;
 }
 
 /**
@@ -26,7 +23,7 @@ export interface GraphQLServiceRetryConfig {
   /**
    * Number of retries to pass into graphql client configuration
    */
-  retries?: number 
+  retries?: number;
 }
 
 /**

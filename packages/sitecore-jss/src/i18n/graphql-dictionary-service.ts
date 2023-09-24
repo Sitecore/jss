@@ -1,4 +1,8 @@
-import { GraphQLClient, GraphQLRequestClient, GraphQLServiceRetryConfig } from '../graphql-request-client';
+import {
+  GraphQLClient,
+  GraphQLRequestClient,
+  GraphQLServiceRetryConfig,
+} from '../graphql-request-client';
 import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase } from './dictionary-service';
 import { CacheOptions } from '../cache-client';
@@ -48,7 +52,10 @@ const query = /* GraphQL */ `
 /**
  * Configuration options for @see GraphQLDictionaryService instances
  */
-export interface GraphQLDictionaryServiceConfig extends SearchServiceConfig, CacheOptions, GraphQLServiceRetryConfig {
+export interface GraphQLDictionaryServiceConfig
+  extends SearchServiceConfig,
+    CacheOptions,
+    GraphQLServiceRetryConfig {
   /**
    * The URL of the graphQL endpoint.
    */
@@ -151,6 +158,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
    * Gets a GraphQL client that can make requests to the API. Uses graphql-request as the default
    * library for fetching graphql data (@see GraphQLRequestClient). Override this method if you
    * want to use something else.
+   * @param {number} retries number of retries a graphql client should attempt
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(retries?: number): GraphQLClient {
