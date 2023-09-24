@@ -13,7 +13,20 @@ export interface GraphQLClient {
    * @param {string | DocumentNode} query graphql query
    * @param {Object} variables graphql variables
    */
-  request<T>(query: string | DocumentNode, variables?: { [key: string]: unknown }): Promise<T>;
+  request<T>(
+    query: string | DocumentNode,
+    variables?: { [key: string]: unknown },
+  ): Promise<T>;
+}
+
+/**
+ * Interface for graphql services that utilize retry functionality from GraphQL client
+ */
+export interface GraphQLServiceRetryConfig {
+  /**
+   * Number of retries to pass into graphql client configuration
+   */
+  retries?: number 
 }
 
 /**
@@ -36,6 +49,10 @@ export type GraphQLRequestClientConfig = {
    * GraphQLClient request timeout
    */
   timeout?: number;
+  /**
+   * Number of retries for client
+   */
+  retries?: number;
 };
 
 /**
@@ -48,6 +65,7 @@ export class GraphQLRequestClient implements GraphQLClient {
   private debug: Debugger;
   private abortTimeout?: TimeoutPromise;
   private timeout?: number;
+  private retries?: number;
 
   /**
    * Provides ability to execute graphql query using given `endpoint`
@@ -66,6 +84,7 @@ export class GraphQLRequestClient implements GraphQLClient {
     }
 
     this.timeout = clientConfig.timeout;
+    this.retries = clientConfig.retries;
     this.client = new Client(endpoint, {
       headers: this.headers,
       fetch: clientConfig.fetch,
@@ -82,8 +101,6 @@ export class GraphQLRequestClient implements GraphQLClient {
     query: string | DocumentNode,
     variables?: { [key: string]: unknown }
   ): Promise<T> {
-    const startTimestamp = Date.now();
-
     return new Promise((resolve, reject) => {
       // Note we don't have access to raw request/response with graphql-request
       // (or nice hooks like we have with Axios), but we should log whatever we have.
@@ -93,23 +110,48 @@ export class GraphQLRequestClient implements GraphQLClient {
         query,
         variables,
       });
+      let retriesLeft = this.retries || 1;
 
-      const fetchWithOptionalTimeout = [this.client.request(query, variables)];
-      if (this.timeout) {
-        this.abortTimeout = new TimeoutPromise(this.timeout);
-        fetchWithOptionalTimeout.push(this.abortTimeout.start);
-      }
-      Promise.race(fetchWithOptionalTimeout).then(
-        (data: T) => {
-          this.abortTimeout?.clear();
-          this.debug('response in %dms: %o', Date.now() - startTimestamp, data);
-          resolve(data);
-        },
-        (error: ClientError) => {
-          this.abortTimeout?.clear();
-          this.debug('response error: %o', error.response || error.message || error);
-          reject(error);
+      const retryer = async (): Promise<T> => {
+        const startTimestamp = Date.now();
+        retriesLeft--;
+        const fetchWithOptionalTimeout = [this.client.request(query, variables)];
+        if (this.timeout) {
+          this.abortTimeout = new TimeoutPromise(this.timeout);
+          fetchWithOptionalTimeout.push(this.abortTimeout.start);
         }
+        return Promise.race(fetchWithOptionalTimeout).then(
+          (data: T) => {
+            this.abortTimeout?.clear();
+            this.debug('response in %dms: %o', Date.now() - startTimestamp, data);
+            return Promise.resolve(data);
+          },
+          (error: ClientError) => {
+            this.abortTimeout?.clear();
+            this.debug('response error: %o', error.response || error.message || error);
+            if (error.response?.status === 429 && retriesLeft > 0) {
+              const rawHeaders = (error as ClientError)?.response?.headers;
+              const delaySeconds =
+                rawHeaders && rawHeaders.get('Retry-After')
+                  ? Number.parseInt(rawHeaders.get('Retry-After'), 10)
+                  : 1;
+              this.debug(
+                'Endpoint responded with 429. Retrying in %ds. Retries left: %d',
+                delaySeconds,
+                retriesLeft
+              );
+              return new Promise((resolve) => setTimeout(resolve, delaySeconds * 1000)).then(() => {
+                return retryer();
+              });
+            } else {
+              return Promise.reject(error);
+            }
+          }
+        );
+      };
+      retryer().then(
+        (data) => resolve(data),
+        (error: ClientError) => reject(error)
       );
     });
   }

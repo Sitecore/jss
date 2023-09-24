@@ -1,9 +1,9 @@
 import { LayoutServiceBase } from './layout-service';
 import { LayoutServiceData } from './models';
-import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
+import { GraphQLClient, GraphQLRequestClient, GraphQLServiceRetryConfig } from '../graphql-request-client';
 import debug from '../debug';
 
-export type GraphQLLayoutServiceConfig = {
+export interface GraphQLLayoutServiceConfig extends GraphQLServiceRetryConfig {
   /**
    * Your Graphql endpoint
    */
@@ -44,7 +44,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
    */
   constructor(public serviceConfig: GraphQLLayoutServiceConfig) {
     super();
-    this.graphQLClient = this.getGraphQLClient();
+    this.graphQLClient = this.getGraphQLClient(serviceConfig.retries);
   }
 
   /**
@@ -80,10 +80,11 @@ export class GraphQLLayoutService extends LayoutServiceBase {
    * want to use something else.
    * @returns {GraphQLClient} implementation
    */
-  protected getGraphQLClient(): GraphQLClient {
+  protected getGraphQLClient(retries?: number): GraphQLClient {
     return new GraphQLRequestClient(this.serviceConfig.endpoint, {
       apiKey: this.serviceConfig.apiKey,
       debugger: debug.layout,
+      retries
     });
   }
 

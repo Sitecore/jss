@@ -27,6 +27,12 @@ export class DictionaryServiceFactory {
             Otherwise, if your Sitecore instance only has 1 JSS App (i.e. in a Sitecore XP setup), you can specify the root item ID here.
             rootItemId: '{GUID}'
           */
+          /*
+            GraphQL Dictionary and Layout Services can handle 429 code errors from server.
+            For this, specify the number of retries the GraphQL server will attempt. 
+            It will only try the request once by default
+            retries: %number% 
+          */
         })
       : new RestDictionaryService({
           apiHost: config.sitecoreApiHost,

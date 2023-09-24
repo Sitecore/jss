@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-expressions */
+/* eslint-disable dot-notation */
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
@@ -131,6 +132,86 @@ describe('GraphQLRequestClient', () => {
     const graphQLClient = new GraphQLRequestClient(endpoint);
     await graphQLClient.request('test').catch((error) => {
       expect(error.name).to.equal('AbortError');
+    });
+  });
+
+  it('should use retry and throw error when retries specified', async function() {
+    this.timeout(6000);
+    nock('http://jssnextweb')
+      .post('/graphql')
+      .reply(429)
+      .post('/graphql')
+      .reply(429)
+      .post('/graphql')
+      .reply(429);
+    const graphQLClient = new GraphQLRequestClient(endpoint, { retries: 3 });
+    spy.on(graphQLClient['client'], 'request');
+    await graphQLClient.request('test').catch((error) => {
+      expect(error).to.not.be.undefined;
+      expect(graphQLClient['client'].request).to.be.called.exactly(3);
+      spy.restore(graphQLClient);
+    });
+  });
+
+  it('should use retry and resolve if one of the requests resolves', async function() {
+    this.timeout(6000);
+    nock('http://jssnextweb')
+      .post('/graphql')
+      .reply(429)
+      .post('/graphql')
+      .reply(429)
+      .post('/graphql')
+      .reply(200, {
+        data: {
+          result: 'Hello world...',
+        },
+      });
+    const graphQLClient = new GraphQLRequestClient(endpoint, { retries: 3 });
+    spy.on(graphQLClient['client'], 'request');
+
+    const data = await graphQLClient.request('test');
+
+    expect(data).to.not.be.null;
+    expect(graphQLClient['client'].request).to.be.called.exactly(3);
+    spy.restore(graphQLClient);
+  });
+
+  it('should use [retry-after] header value when response is 429', async function() {
+    this.timeout(6000);
+    nock('http://jssnextweb')
+      .post('/graphql')
+      .reply(429, {}, { 'Retry-After': '2' });
+    const graphQLClient = new GraphQLRequestClient(endpoint, { retries: 2 });
+    spy.on(graphQLClient, 'debug');
+
+    await graphQLClient.request('test').catch(() => {
+      expect(graphQLClient['debug']).to.have.been.called.with(
+        'Endpoint responded with 429. Retrying in %ds. Retries left: %d',
+        1,
+        2
+      );
+      spy.restore(graphQLClient);
+    });
+  });
+
+  it('should throw error when request is aborted with default timeout value after retry', async () => {
+    nock('http://jssnextweb')
+      .post('/graphql')
+      .reply(429)
+      .post('/graphql')
+      .delay(100)
+      .reply(200, {
+        data: {
+          result: 'Hello world...',
+        },
+      });
+
+    const graphQLClient = new GraphQLRequestClient(endpoint, {retries: 2});
+    spy.on(graphQLClient['client'], 'request');
+    await graphQLClient.request('test').catch((error) => {
+      expect(graphQLClient['client'].request).to.be.called.exactly(2);
+      expect(error.name).to.equal('AbortError');
+      spy.restore(graphQLClient);
     });
   });
 
