@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[src/constants.ts:6](https://github.com/Sitecore/jss/blob/3cda72051/packages/sitecore-jss/src/constants.ts#L6)
+[src/constants.ts:6](https://github.com/Sitecore/jss/blob/6dacbc0f6/packages/sitecore-jss/src/constants.ts#L6)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[src/constants.ts:3](https://github.com/Sitecore/jss/blob/3cda72051/packages/sitecore-jss/src/constants.ts#L3)
+[src/constants.ts:3](https://github.com/Sitecore/jss/blob/6dacbc0f6/packages/sitecore-jss/src/constants.ts#L3)

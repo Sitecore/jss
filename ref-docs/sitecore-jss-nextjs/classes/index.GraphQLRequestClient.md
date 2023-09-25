@@ -24,6 +24,7 @@ https://github.com/prisma-labs/graphql-request
 - [debug](index.GraphQLRequestClient.md#debug)
 - [endpoint](index.GraphQLRequestClient.md#endpoint)
 - [headers](index.GraphQLRequestClient.md#headers)
+- [retries](index.GraphQLRequestClient.md#retries)
 - [timeout](index.GraphQLRequestClient.md#timeout)
 
 ### Methods
@@ -47,7 +48,7 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:53
+sitecore-jss/types/graphql-request-client.d.ts:58
 
 ## Properties
 
@@ -57,7 +58,7 @@ sitecore-jss/types/graphql-request-client.d.ts:53
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:46
+sitecore-jss/types/graphql-request-client.d.ts:51
 
 ___
 
@@ -67,7 +68,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:43
+sitecore-jss/types/graphql-request-client.d.ts:47
 
 ___
 
@@ -77,7 +78,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:45
+sitecore-jss/types/graphql-request-client.d.ts:49
 
 ___
 
@@ -87,7 +88,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:42
+sitecore-jss/types/graphql-request-client.d.ts:46
 
 ___
 
@@ -97,7 +98,17 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:44
+sitecore-jss/types/graphql-request-client.d.ts:48
+
+___
+
+### retries
+
+• `Private` **retries**: `any`
+
+#### Defined in
+
+sitecore-jss/types/graphql-request-client.d.ts:50
 
 ___
 
@@ -107,7 +118,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:47
+sitecore-jss/types/graphql-request-client.d.ts:52
 
 ## Methods
 
@@ -140,4 +151,4 @@ GraphQLClient.request
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:59
+sitecore-jss/types/graphql-request-client.d.ts:64

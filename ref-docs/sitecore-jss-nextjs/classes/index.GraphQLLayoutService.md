@@ -45,7 +45,7 @@ Fetch layout data using the Sitecore GraphQL endpoint.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `serviceConfig` | [`GraphQLLayoutServiceConfig`](../modules/index.md#graphqllayoutserviceconfig) | configuration |
+| `serviceConfig` | [`GraphQLLayoutServiceConfig`](../interfaces/index.GraphQLLayoutServiceConfig.md) | configuration |
 
 #### Overrides
 
@@ -69,7 +69,7 @@ ___
 
 ### serviceConfig
 
-• **serviceConfig**: [`GraphQLLayoutServiceConfig`](../modules/index.md#graphqllayoutserviceconfig)
+• **serviceConfig**: [`GraphQLLayoutServiceConfig`](../interfaces/index.GraphQLLayoutServiceConfig.md)
 
 #### Defined in
 
