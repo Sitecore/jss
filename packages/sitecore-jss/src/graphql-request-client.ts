@@ -127,9 +127,9 @@ export class GraphQLRequestClient implements GraphQLClient {
                 delaySeconds,
                 retriesLeft
               );
-              return new Promise((resolve) => setTimeout(resolve, delaySeconds * 1000)).then(() => {
-                return retryer();
-              });
+              return new Promise((resolve) => setTimeout(resolve, delaySeconds * 1000)).then(
+                retryer
+              );
             } else {
               return Promise.reject(error);
             }
