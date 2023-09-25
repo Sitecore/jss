@@ -20,6 +20,7 @@
 - [ComponentParams](../interfaces/layout.ComponentParams.md)
 - [ComponentRendering](../interfaces/layout.ComponentRendering.md)
 - [Field](../interfaces/layout.Field.md)
+- [GraphQLLayoutServiceConfig](../interfaces/layout.GraphQLLayoutServiceConfig.md)
 - [HtmlElementRendering](../interfaces/layout.HtmlElementRendering.md)
 - [Item](../interfaces/layout.Item.md)
 - [LayoutService](../interfaces/layout.LayoutService.md)
@@ -32,7 +33,6 @@
 ### Type Aliases
 
 - [DataFetcherResolver](layout.md#datafetcherresolver)
-- [GraphQLLayoutServiceConfig](layout.md#graphqllayoutserviceconfig)
 - [PlaceholdersData](layout.md#placeholdersdata)
 - [RestLayoutServiceConfig](layout.md#restlayoutserviceconfig)
 
@@ -77,26 +77,7 @@ Data fetcher resolver in order to provide custom data fetcher
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
-
-___
-
-### GraphQLLayoutServiceConfig
-
-Ƭ **GraphQLLayoutServiceConfig**: `Object`
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `apiKey` | `string` | The API key to use for authentication |
-| `endpoint` | `string` | Your Graphql endpoint |
-| `formatLayoutQuery?` | (`siteName`: `string`, `itemPath`: `string`, `locale?`: `string`) => `string` | Override default layout query **`Default`** Layout query layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}") |
-| `siteName` | `string` | The JSS application name |
-
-#### Defined in
-
-[src/layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
+[src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
 
 ___
 
@@ -115,7 +96,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-[src/layout/models.ts:80](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/layout/models.ts#L80)
+[src/layout/models.ts:80](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/layout/models.ts#L80)
 
 ___
 
@@ -136,7 +117,7 @@ ___
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+[src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
 
 ## Variables
 
@@ -148,7 +129,7 @@ Id of wrapper for component rendering
 
 #### Defined in
 
-[src/layout/models.ts:9](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/layout/models.ts#L9)
+[src/layout/models.ts:9](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/layout/models.ts#L9)
 
 ___
 
@@ -160,7 +141,7 @@ Static placeholder name used for component rendering
 
 #### Defined in
 
-[src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/layout/models.ts#L4)
+[src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/layout/models.ts#L4)
 
 ## Functions
 
@@ -185,7 +166,7 @@ child placeholder
 
 #### Defined in
 
-[src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/layout/utils.ts#L60)
+[src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/layout/utils.ts#L60)
 
 ___
 
@@ -217,7 +198,7 @@ the field value or null if the field is not defined
 
 #### Defined in
 
-[src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/layout/utils.ts#L10)
+[src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/layout/utils.ts#L10)
 
 ▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -243,4 +224,4 @@ the field value or the default value if the field is not defined
 
 #### Defined in
 
-[src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/layout/utils.ts#L15)
+[src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/layout/utils.ts#L15)

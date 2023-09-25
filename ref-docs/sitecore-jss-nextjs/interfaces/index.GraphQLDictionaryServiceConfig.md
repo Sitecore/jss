@@ -16,6 +16,8 @@ GraphQLDictionaryService instances
 
 - `CacheOptions`
 
+- `Pick`<`GraphQLRequestClientConfig`, ``"retries"``\>
+
   ↳ **`GraphQLDictionaryServiceConfig`**
 
 ## Table of contents
@@ -29,6 +31,7 @@ GraphQLDictionaryService instances
 - [endpoint](index.GraphQLDictionaryServiceConfig.md#endpoint)
 - [jssAppTemplateId](index.GraphQLDictionaryServiceConfig.md#jssapptemplateid)
 - [pageSize](index.GraphQLDictionaryServiceConfig.md#pagesize)
+- [retries](index.GraphQLDictionaryServiceConfig.md#retries)
 - [rootItemId](index.GraphQLDictionaryServiceConfig.md#rootitemid)
 - [siteName](index.GraphQLDictionaryServiceConfig.md#sitename)
 - [templates](index.GraphQLDictionaryServiceConfig.md#templates)
@@ -150,6 +153,22 @@ SearchServiceConfig.pageSize
 #### Defined in
 
 sitecore-jss/types/graphql/search-service.d.ts:51
+
+___
+
+### retries
+
+• `Optional` **retries**: `number`
+
+Number of retries for client. Will be used if endpoint responds with 429 (rate limit reached) error
+
+#### Inherited from
+
+Pick.retries
+
+#### Defined in
+
+sitecore-jss/types/graphql-request-client.d.ts:39
 
 ___
 
