@@ -24,4 +24,4 @@ GUID or alias (name) of campaign to trigger
 
 #### Defined in
 
-[src/tracking/dataModels.ts:4](https://github.com/Sitecore/jss/blob/fb32a11df/packages/sitecore-jss/src/tracking/dataModels.ts#L4)
+[src/tracking/dataModels.ts:4](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/tracking/dataModels.ts#L4)
