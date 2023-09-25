@@ -24,6 +24,7 @@ https://github.com/prisma-labs/graphql-request
 - [debug](index.GraphQLRequestClient.md#debug)
 - [endpoint](index.GraphQLRequestClient.md#endpoint)
 - [headers](index.GraphQLRequestClient.md#headers)
+- [retries](index.GraphQLRequestClient.md#retries)
 - [timeout](index.GraphQLRequestClient.md#timeout)
 
 ### Methods
@@ -47,7 +48,7 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Defined in
 
-[src/graphql-request-client.ts:57](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/graphql-request-client.ts#L57)
+[src/graphql-request-client.ts:62](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/graphql-request-client.ts#L62)
 
 ## Properties
 
@@ -57,7 +58,7 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Defined in
 
-[src/graphql-request-client.ts:49](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/graphql-request-client.ts#L49)
+[src/graphql-request-client.ts:54](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/graphql-request-client.ts#L54)
 
 ___
 
@@ -67,7 +68,7 @@ ___
 
 #### Defined in
 
-[src/graphql-request-client.ts:46](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/graphql-request-client.ts#L46)
+[src/graphql-request-client.ts:50](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/graphql-request-client.ts#L50)
 
 ___
 
@@ -77,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/graphql-request-client.ts:48](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/graphql-request-client.ts#L48)
+[src/graphql-request-client.ts:52](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/graphql-request-client.ts#L52)
 
 ___
 
@@ -89,7 +90,7 @@ The Graphql endpoint
 
 #### Defined in
 
-[src/graphql-request-client.ts:57](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/graphql-request-client.ts#L57)
+[src/graphql-request-client.ts:62](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/graphql-request-client.ts#L62)
 
 ___
 
@@ -99,7 +100,17 @@ ___
 
 #### Defined in
 
-[src/graphql-request-client.ts:47](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/graphql-request-client.ts#L47)
+[src/graphql-request-client.ts:51](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/graphql-request-client.ts#L51)
+
+___
+
+### retries
+
+• `Private` **retries**: `number`
+
+#### Defined in
+
+[src/graphql-request-client.ts:53](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/graphql-request-client.ts#L53)
 
 ___
 
@@ -109,7 +120,7 @@ ___
 
 #### Defined in
 
-[src/graphql-request-client.ts:50](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/graphql-request-client.ts#L50)
+[src/graphql-request-client.ts:55](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/graphql-request-client.ts#L55)
 
 ## Methods
 
@@ -142,4 +153,4 @@ Execute graphql request
 
 #### Defined in
 
-[src/graphql-request-client.ts:81](https://github.com/Sitecore/jss/blob/aed30a4f5/packages/sitecore-jss/src/graphql-request-client.ts#L81)
+[src/graphql-request-client.ts:87](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/graphql-request-client.ts#L87)
