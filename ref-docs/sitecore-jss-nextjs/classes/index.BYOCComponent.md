@@ -90,7 +90,7 @@ declare context: React.ContextType<typeof MyContext>
 
 **`See`**
 
-https://reactjs.org/docs/context.html
+https://react.dev/reference/react/Component#context
 
 #### Inherited from
 
@@ -98,7 +98,7 @@ React.Component.context
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:471
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:482
 
 ___
 
@@ -112,7 +112,7 @@ React.Component.props
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:491
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:502
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 **`Deprecated`**
 
-https://reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs
+https://legacy.reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs
 
 #### Index signature
 
@@ -134,7 +134,7 @@ React.Component.refs
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:497
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:508
 
 ___
 
@@ -175,7 +175,7 @@ class Foo extends React.Component {
 
 **`See`**
 
-https://reactjs.org/docs/context.html#classcontexttype
+https://react.dev/reference/react/Component#static-contexttype
 
 #### Inherited from
 
@@ -183,7 +183,7 @@ React.Component.contextType
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:454
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:465
 
 ## Methods
 
@@ -205,8 +205,8 @@ prevents this from being invoked.
 
 **`See`**
 
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Returns
 
@@ -218,7 +218,7 @@ React.Component.UNSAFE\_componentWillMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:688
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:699
 
 ___
 
@@ -243,8 +243,8 @@ prevents this from being invoked.
 
 **`See`**
 
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -263,7 +263,7 @@ React.Component.UNSAFE\_componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:720
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:731
 
 ___
 
@@ -286,8 +286,8 @@ prevents this from being invoked.
 
 **`See`**
 
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -307,7 +307,7 @@ React.Component.UNSAFE\_componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:748
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:759
 
 ___
 
@@ -351,7 +351,7 @@ React.Component.componentDidMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:596
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:607
 
 ___
 
@@ -381,7 +381,7 @@ React.Component.componentDidUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:659
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:670
 
 ___
 
@@ -401,8 +401,8 @@ prevents this from being invoked.
 
 **`See`**
 
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Returns
 
@@ -414,7 +414,7 @@ React.Component.componentWillMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:674
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:685
 
 ___
 
@@ -437,8 +437,8 @@ prevents this from being invoked.
 
 **`See`**
 
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -457,7 +457,7 @@ React.Component.componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:703
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:714
 
 ___
 
@@ -478,7 +478,7 @@ React.Component.componentWillUnmount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:612
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:623
 
 ___
 
@@ -499,8 +499,8 @@ prevents this from being invoked.
 
 **`See`**
 
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
- - https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
@@ -520,7 +520,7 @@ React.Component.componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:733
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:744
 
 ___
 
@@ -544,7 +544,7 @@ React.Component.forceUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:488
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:499
 
 ___
 
@@ -576,7 +576,7 @@ React.Component.getSnapshotBeforeUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:653
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:664
 
 ___
 
@@ -625,7 +625,7 @@ React.Component.setState
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:483
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:494
 
 ___
 
@@ -660,7 +660,7 @@ React.Component.shouldComponentUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/index.d.ts:607
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:618
 
 ___
 
