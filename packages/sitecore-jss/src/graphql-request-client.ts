@@ -71,7 +71,7 @@ export class GraphQLRequestClient implements GraphQLClient {
     }
 
     this.timeout = clientConfig.timeout;
-    this.retries = clientConfig.retries || 1;
+    this.retries = clientConfig.retries || 0;
     this.client = new Client(endpoint, {
       headers: this.headers,
       fetch: clientConfig.fetch,
@@ -88,7 +88,9 @@ export class GraphQLRequestClient implements GraphQLClient {
     query: string | DocumentNode,
     variables?: { [key: string]: unknown }
   ): Promise<T> {
-    return new Promise((resolve, reject) => {
+    let retriesLeft = this.retries;
+
+    const retryer = async (): Promise<T> => {
       // Note we don't have access to raw request/response with graphql-request
       // (or nice hooks like we have with Axios), but we should log whatever we have.
       this.debug('request: %o', {
@@ -97,49 +99,41 @@ export class GraphQLRequestClient implements GraphQLClient {
         query,
         variables,
       });
-      let retriesLeft = this.retries;
-
-      const retryer = async (): Promise<T> => {
-        const startTimestamp = Date.now();
-        retriesLeft--;
-        const fetchWithOptionalTimeout = [this.client.request(query, variables)];
-        if (this.timeout) {
-          this.abortTimeout = new TimeoutPromise(this.timeout);
-          fetchWithOptionalTimeout.push(this.abortTimeout.start);
-        }
-        return Promise.race(fetchWithOptionalTimeout).then(
-          (data: T) => {
-            this.abortTimeout?.clear();
-            this.debug('response in %dms: %o', Date.now() - startTimestamp, data);
-            return Promise.resolve(data);
-          },
-          (error: ClientError) => {
-            this.abortTimeout?.clear();
-            this.debug('response error: %o', error.response || error.message || error);
-            if (error.response?.status === 429 && retriesLeft > 0) {
-              const rawHeaders = (error as ClientError)?.response?.headers;
-              const delaySeconds =
-                rawHeaders && rawHeaders.get('Retry-After')
-                  ? Number.parseInt(rawHeaders.get('Retry-After'), 10)
-                  : 1;
-              this.debug(
-                'Error: Rate limit reached for GraphQL endpoint. Retrying in %ds. Retries left: %d',
-                delaySeconds,
-                retriesLeft
-              );
-              return new Promise((resolve) => setTimeout(resolve, delaySeconds * 1000)).then(
-                retryer
-              );
-            } else {
-              return Promise.reject(error);
-            }
+      const startTimestamp = Date.now();
+      const fetchWithOptionalTimeout = [this.client.request(query, variables)];
+      if (this.timeout) {
+        this.abortTimeout = new TimeoutPromise(this.timeout);
+        fetchWithOptionalTimeout.push(this.abortTimeout.start);
+      }
+      return Promise.race(fetchWithOptionalTimeout).then(
+        (data: T) => {
+          this.abortTimeout?.clear();
+          this.debug('response in %dms: %o', Date.now() - startTimestamp, data);
+          return Promise.resolve(data);
+        },
+        (error: ClientError) => {
+          this.abortTimeout?.clear();
+          this.debug('response error: %o', error.response || error.message || error);
+          if (error.response?.status === 429 && retriesLeft > 0) {
+            const rawHeaders = (error as ClientError)?.response?.headers;
+            const delaySeconds =
+              rawHeaders && rawHeaders.get('Retry-After')
+                ? Number.parseInt(rawHeaders.get('Retry-After'), 10)
+                : 1;
+            this.debug(
+              'Error: Rate limit reached for GraphQL endpoint. Retrying in %ds. Retries left: %d',
+              delaySeconds,
+              retriesLeft
+            );
+            retriesLeft--;
+            return new Promise((resolve) => setTimeout(resolve, delaySeconds * 1000)).then(retryer);
+          } else {
+            return Promise.reject(error);
           }
-        );
-      };
-      retryer().then(
-        (data) => resolve(data),
-        (error: ClientError) => reject(error)
+        }
       );
-    });
+    };
+
+    return retryer();
   }
 }
