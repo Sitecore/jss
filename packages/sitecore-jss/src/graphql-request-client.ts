@@ -17,16 +17,6 @@ export interface GraphQLClient {
 }
 
 /**
- * Interface for graphql services that utilize retry functionality from GraphQL client
- */
-export interface GraphQLServiceRetryConfig {
-  /**
-   * Number of retries to pass into graphql client configuration
-   */
-  retries?: number;
-}
-
-/**
  * Minimum configuration options for classes that implement @see GraphQLClient
  */
 export type GraphQLRequestClientConfig = {
@@ -47,7 +37,7 @@ export type GraphQLRequestClientConfig = {
    */
   timeout?: number;
   /**
-   * Number of retries for client
+   * Number of retries for client. Will be used if endpoint responds with 429 (rate limit reached) error
    */
   retries?: number;
 };
@@ -60,9 +50,9 @@ export class GraphQLRequestClient implements GraphQLClient {
   private client: Client;
   private headers: Record<string, string> = {};
   private debug: Debugger;
+  private retries: number;
   private abortTimeout?: TimeoutPromise;
   private timeout?: number;
-  private retries?: number;
 
   /**
    * Provides ability to execute graphql query using given `endpoint`
@@ -81,7 +71,7 @@ export class GraphQLRequestClient implements GraphQLClient {
     }
 
     this.timeout = clientConfig.timeout;
-    this.retries = clientConfig.retries;
+    this.retries = clientConfig.retries || 1;
     this.client = new Client(endpoint, {
       headers: this.headers,
       fetch: clientConfig.fetch,
@@ -107,7 +97,7 @@ export class GraphQLRequestClient implements GraphQLClient {
         query,
         variables,
       });
-      let retriesLeft = this.retries || 1;
+      let retriesLeft = this.retries;
 
       const retryer = async (): Promise<T> => {
         const startTimestamp = Date.now();
@@ -133,7 +123,7 @@ export class GraphQLRequestClient implements GraphQLClient {
                   ? Number.parseInt(rawHeaders.get('Retry-After'), 10)
                   : 1;
               this.debug(
-                'Endpoint responded with 429. Retrying in %ds. Retries left: %d',
+                'Error: Rate limit reached for GraphQL endpoint. Retrying in %ds. Retries left: %d',
                 delaySeconds,
                 retriesLeft
               );

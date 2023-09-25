@@ -21,10 +21,11 @@ export class LayoutServiceFactory {
           apiKey: config.sitecoreApiKey,
           siteName,
           /*
-            GraphQL Dictionary and Layout Services can handle 429 code errors from server.
-            For this, specify the number of retries the GraphQL server will attempt. 
-            It will only try the request once by default
-            retries: %number% 
+            GraphQL endpoint may reach its rate limit with the amount of Layout and Dictionary requests it receives and throw a rate limit error.
+            GraphQL Dictionary and Layout Services can handle rate limit errors from server and attempt a retry on requests.
+            For this, specify the number of retries the GraphQL client will attempt. 
+            It will only try the request once by default.
+            retries: 'number' 
           */
         })
       : new RestLayoutService({

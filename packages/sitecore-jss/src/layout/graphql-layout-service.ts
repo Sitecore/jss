@@ -3,11 +3,11 @@ import { LayoutServiceData } from './models';
 import {
   GraphQLClient,
   GraphQLRequestClient,
-  GraphQLServiceRetryConfig,
+  GraphQLRequestClientConfig,
 } from '../graphql-request-client';
 import debug from '../debug';
 
-export interface GraphQLLayoutServiceConfig extends GraphQLServiceRetryConfig {
+export interface GraphQLLayoutServiceConfig extends Pick<GraphQLRequestClientConfig, 'retries'> {
   /**
    * Your Graphql endpoint
    */
@@ -48,7 +48,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
    */
   constructor(public serviceConfig: GraphQLLayoutServiceConfig) {
     super();
-    this.graphQLClient = this.getGraphQLClient(serviceConfig.retries);
+    this.graphQLClient = this.getGraphQLClient();
   }
 
   /**
@@ -82,14 +82,13 @@ export class GraphQLLayoutService extends LayoutServiceBase {
    * Gets a GraphQL client that can make requests to the API. Uses graphql-request as the default
    * library for fetching graphql data (@see GraphQLRequestClient). Override this method if you
    * want to use something else.
-   * @param {number} retries number of retries a graphql client should attempt
    * @returns {GraphQLClient} implementation
    */
-  protected getGraphQLClient(retries?: number): GraphQLClient {
+  protected getGraphQLClient(): GraphQLClient {
     return new GraphQLRequestClient(this.serviceConfig.endpoint, {
       apiKey: this.serviceConfig.apiKey,
       debugger: debug.layout,
-      retries,
+      retries: this.serviceConfig.retries,
     });
   }
 
