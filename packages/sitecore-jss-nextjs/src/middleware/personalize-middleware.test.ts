@@ -9,7 +9,6 @@ import { debug } from '@sitecore-jss/sitecore-jss';
 import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { PersonalizeMiddleware } from './personalize-middleware';
 import { ExperienceParams } from '@sitecore-jss/sitecore-jss/personalize';
-import { EngageServer } from '@sitecore/engage';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
@@ -46,11 +45,6 @@ describe('PersonalizeMiddleware', () => {
     },
   };
   const createRequest = (props: any = {}) => {
-    const headers = new Headers();
-
-    headers.append('host', hostname);
-    headers.append('referer', referrer);
-
     const req = {
       ...props,
       nextUrl: {
@@ -82,9 +76,32 @@ describe('PersonalizeMiddleware', () => {
         },
         ...props.cookies,
       },
-      headers: headers,
+      headers: {
+        host: hostname,
+        get(key: string) {
+          return req.headers[key];
+        },
+        referer: referrer,
+        ...props.headerValues,
+      },
       referrer: 'about:client',
     } as NextRequest;
+
+    Object.defineProperties(req.headers, {
+      set: {
+        value: (key, value) => {
+          req.headers[key] = value;
+        },
+        enumerable: false,
+      },
+      forEach: {
+        value: (cb) => {
+          Object.keys(req.headers).forEach((key) => cb(req.headers[key], key, req.headers));
+        },
+        enumerable: false,
+      },
+    });
+
     return req;
   };
 
@@ -248,14 +265,13 @@ describe('PersonalizeMiddleware', () => {
 
       const finalRes = await middleware.getHandler()(req, res);
 
-      const headers = {};
-      req.headers.forEach((value, key) => (headers[key] = value));
-
       validateDebugLog('personalize middleware start: %o', {
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
-        headers,
+        headers: {
+          ...req.headers,
+        },
       });
 
       validateDebugLog('skipped (personalize middleware is disabled)');
@@ -272,14 +288,13 @@ describe('PersonalizeMiddleware', () => {
 
       const finalRes = await middleware.getHandler()(req, res);
 
-      const headers = {};
-      req.headers.forEach((value, key) => (headers[key] = value));
-
       validateDebugLog('personalize middleware start: %o', {
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
-        headers,
+        headers: {
+          ...req.headers,
+        },
       });
 
       validateDebugLog('skipped (%s)', 'redirected');
@@ -298,18 +313,20 @@ describe('PersonalizeMiddleware', () => {
         const { middleware } = createMiddleware();
         const getCookiesSpy = spy(req.cookies, 'get');
         const finalRes = await middleware.getHandler()(req, res);
-        const headers = {};
-        req.headers.forEach((value, key) => (headers[key] = value));
+
         validateDebugLog('personalize middleware start: %o', {
           hostname: 'foo.net',
           pathname: '/styleguide',
           language: 'en',
-          headers,
+          headers: {
+            ...req.headers,
+          },
         });
         validateDebugLog('skipped (%s)', 'preview');
         expect(getCookiesSpy.calledWith('__prerender_bypass')).to.be.true;
         expect(finalRes).to.deep.equal(res);
       });
+
       it('preview data cookie is present', async () => {
         const req = createRequest({
           cookieValues: {
@@ -320,13 +337,14 @@ describe('PersonalizeMiddleware', () => {
         const { middleware } = createMiddleware();
         const getCookiesSpy = spy(req.cookies, 'get');
         const finalRes = await middleware.getHandler()(req, res);
-        const headers = {};
-        req.headers.forEach((value, key) => (headers[key] = value));
+
         validateDebugLog('personalize middleware start: %o', {
           hostname: 'foo.net',
           pathname: '/styleguide',
           language: 'en',
-          headers,
+          headers: {
+            ...req.headers,
+          },
         });
         validateDebugLog('skipped (%s)', 'preview');
         expect(getCookiesSpy.calledWith('__prerender_bypass')).to.be.true;
@@ -458,6 +476,7 @@ describe('PersonalizeMiddleware', () => {
       expect(finalRes).to.deep.equal(res);
     });
   });
+
   describe('request passed', () => {
     it('fallback defaultLocale is used', async () => {
       const contentId = `${id}_da-dk_${version}`;
@@ -479,10 +498,11 @@ describe('PersonalizeMiddleware', () => {
         },
       });
       const finalRes = await middleware.getHandler()(req, res);
-      const headers = {};
-      req.headers.forEach((value, key) => (headers[key] = value));
+
       validateDebugLog('personalize middleware start: %o', {
-        headers,
+        headers: {
+          ...req.headers,
+        },
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: language,
@@ -501,6 +521,7 @@ describe('PersonalizeMiddleware', () => {
       expect(finalRes).to.deep.equal(res);
       nextRewriteStub.restore();
     });
+
     it('fallback locale is used', async () => {
       const req = createRequest({
         nextUrl: {
@@ -514,10 +535,11 @@ describe('PersonalizeMiddleware', () => {
         variantId: 'variant-2',
       });
       const finalRes = await middleware.getHandler()(req, res);
-      const headers = {};
-      req.headers.forEach((value, key) => (headers[key] = value));
+
       validateDebugLog('personalize middleware start: %o', {
-        headers,
+        headers: {
+          ...req.headers,
+        },
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -536,6 +558,7 @@ describe('PersonalizeMiddleware', () => {
       expect(finalRes).to.deep.equal(res);
       nextRewriteStub.restore();
     });
+
     it('custom response object is not provided', async () => {
       const req = createRequest();
       const res = createResponse();
@@ -544,12 +567,13 @@ describe('PersonalizeMiddleware', () => {
         variantId: 'variant-2',
       });
       const finalRes = await middleware.getHandler()(req);
-      const headers = {};
-      req.headers.forEach((value, key) => (headers[key] = value));
+
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
       expect(engageServer.calledOnce).to.be.true;
       validateDebugLog('personalize middleware start: %o', {
-        headers,
+        headers: {
+          ...req.headers,
+        },
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -566,6 +590,7 @@ describe('PersonalizeMiddleware', () => {
       expect(finalRes).to.deep.equal(res);
       nextRewriteStub.restore();
     });
+
     it('optional experience params are not present', async () => {
       userAgentStub.returns({ ua: '' } as any);
       const req = createRequest({ headerValues: { referer: null } });
@@ -575,10 +600,11 @@ describe('PersonalizeMiddleware', () => {
         variantId: 'variant-2',
       });
       const finalRes = await middleware.getHandler()(req, res);
-      const headers = {};
-      req.headers.forEach((value, key) => (headers[key] = value));
+
       validateDebugLog('personalize middleware start: %o', {
-        headers,
+        headers: {
+          ...req.headers,
+        },
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -610,10 +636,11 @@ describe('PersonalizeMiddleware', () => {
         variantId: 'variant-2',
       });
       const finalRes = await middleware.getHandler()(req, res);
-      const headers = {};
-      req.headers.forEach((value, key) => (headers[key] = value));
+
       validateDebugLog('personalize middleware start: %o', {
-        headers,
+        headers: {
+          ...req.headers,
+        },
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -633,6 +660,7 @@ describe('PersonalizeMiddleware', () => {
       expect(finalRes).to.deep.equal(res);
       nextRewriteStub.restore();
     });
+
     it('x-sc-rewrite header is provided', async () => {
       const req = createRequest();
       const res = createResponse({
@@ -645,10 +673,11 @@ describe('PersonalizeMiddleware', () => {
         variantId: 'variant-2',
       });
       const finalRes = await middleware.getHandler()(req, res);
-      const headers = {};
-      req.headers.forEach((value, key) => (headers[key] = value));
+
       validateDebugLog('personalize middleware start: %o', {
-        headers,
+        headers: {
+          ...req.headers,
+        },
         hostname: 'foo.net',
         pathname: '/styleguide',
         language: 'en',
@@ -668,73 +697,75 @@ describe('PersonalizeMiddleware', () => {
       nextRewriteStub.restore();
     });
 
-    // it('default fallback hostname is used', async () => {
-    //   const req = createRequest({
-    //     headerValues: {
-    //       host: undefined,
-    //     },
-    //   });
-    //   const res = createResponse();
-    //   const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
-    //   const { middleware, getPersonalizeInfo, engageServer, siteResolver } = createMiddleware({
-    //     variantId: 'variant-2',
-    //   });
-    //   const finalRes = await middleware.getHandler()(req, res);
-    //   const headers = new Headers();
-    //   req.headers.forEach((value, key) => (headers[key] = value));
-    //   validateDebugLog('personalize middleware start: %o', {
-    //     headers,
-    //     hostname: 'localhost',
-    //     pathname: '/styleguide',
-    //     language: 'en',
-    //   });
-    //   expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
-    //   expect(engageServer.calledOnce).to.be.true;
-    //   validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
-    //     rewritePath: '/_variantId_variant-2/styleguide',
-    //     headers: {
-    //       ...res.headers,
-    //       'x-middleware-cache': 'no-cache',
-    //       'x-sc-rewrite': '/_variantId_variant-2/styleguide',
-    //     },
-    //   });
-    //   expect(siteResolver.getByHost).to.be.calledWith('localhost');
-    //   expect(finalRes).to.deep.equal(res);
-    //   nextRewriteStub.restore();
-    // });
-    // it('custom fallback hostname is used', async () => {
-    //   const req = createRequest({
-    //     headerValues: {
-    //       host: undefined,
-    //     },
-    //   });
-    //   const res = createResponse();
-    //   const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
-    //   const { middleware, getPersonalizeInfo, engageServer, siteResolver } = createMiddleware({
-    //     variantId: 'variant-2',
-    //     defaultHostname: 'foobar',
-    //   });
-    //   const finalRes = await middleware.getHandler()(req, res);
-    //   // expect(engageServer.calledOnce).to.be.true;
-    //   validateDebugLog('personalize middleware start: %o', {
-    //     headers: { host: 'foo.net', referer: 'http://localhost:3000' },
-    //     hostname: 'foobar',
-    //     pathname: '/styleguide',
-    //     language: 'en',
-    //   });
-    //   // expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
-    //   // validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
-    //   //   rewritePath: '/_variantId_variant-2/styleguide',
-    //   //   headers: {
-    //   //     ...res.headers,
-    //   //     'x-middleware-cache': 'no-cache',
-    //   //     'x-sc-rewrite': '/_variantId_variant-2/styleguide',
-    //   //   },
-    //   // });
-    //   expect(siteResolver.getByHost).to.be.calledWith('foobar');
-    //   expect(finalRes).to.deep.equal(res);
-    //   nextRewriteStub.restore();
-    // });
+    it('default fallback hostname is used', async () => {
+      const req = createRequest({
+        headerValues: {
+          host: undefined,
+        },
+      });
+      const res = createResponse();
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      const { middleware, getPersonalizeInfo, engageServer, siteResolver } = createMiddleware({
+        variantId: 'variant-2',
+      });
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateDebugLog('personalize middleware start: %o', {
+        headers: {
+          ...req.headers,
+        },
+        hostname: 'localhost',
+        pathname: '/styleguide',
+        language: 'en',
+      });
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
+      expect(engageServer.calledOnce).to.be.true;
+      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
+        rewritePath: '/_variantId_variant-2/styleguide',
+        headers: {
+          ...res.headers,
+          'x-middleware-cache': 'no-cache',
+          'x-sc-rewrite': '/_variantId_variant-2/styleguide',
+        },
+      });
+      expect(siteResolver.getByHost).to.be.calledWith('localhost');
+      expect(finalRes).to.deep.equal(res);
+      nextRewriteStub.restore();
+    });
+
+    it('custom fallback hostname is used', async () => {
+      const req = createRequest({
+        headerValues: {
+          host: undefined,
+        },
+      });
+      const res = createResponse();
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      const { middleware, getPersonalizeInfo, engageServer, siteResolver } = createMiddleware({
+        variantId: 'variant-2',
+        defaultHostname: 'foobar',
+      });
+      const finalRes = await middleware.getHandler()(req, res);
+      expect(engageServer.calledOnce).to.be.true;
+      validateDebugLog('personalize middleware start: %o', {
+        headers: { ...req.headers },
+        hostname: 'foobar',
+        pathname: '/styleguide',
+        language: 'en',
+      });
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
+      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
+        rewritePath: '/_variantId_variant-2/styleguide',
+        headers: {
+          ...res.headers,
+          'x-middleware-cache': 'no-cache',
+          'x-sc-rewrite': '/_variantId_variant-2/styleguide',
+        },
+      });
+      expect(siteResolver.getByHost).to.be.calledWith('foobar');
+      expect(finalRes).to.deep.equal(res);
+      nextRewriteStub.restore();
+    });
   });
 
   describe('error handling', () => {

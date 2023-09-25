@@ -31,7 +31,6 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Better error handling for component-level data fetching ([#1586](https://github.com/Sitecore/jss/pull/1586))
 * `[sitecore-jss-react]` Fetch Data for FEaaS Components as part of Component SSR/SSG ([#1586](https://github.com/Sitecore/jss/pull/1590))
 * `[sitecore-jss-dev-tools]` `[templates/nextjs]` `[templates/react]` Introduce "components" configuration for ComponentBuilder ([#1598](https://github.com/Sitecore/jss/pull/1598))
-* `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade Engage to latest ([#1609](https://github.com/Sitecore/jss/pull/1609))
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Component level data fetching(SSR/SSG) for BYOC ([#1610](https://github.com/Sitecore/jss/pull/1610))
 * `[sitecore-jss-nextjs]` Reduce the amount of Edge API calls during fetch getStaticPaths ([#1612](https://github.com/Sitecore/jss/pull/1612))
 
@@ -71,6 +70,7 @@ Our versioning strategy is as follows:
   * Angular ESLint: https://github.com/angular-eslint/angular-eslint/releases/tag/v15.0.0
   * rxjs: https://rxjs.dev/6-to-7-change-summary
   * Angular sample has been updated to use ES2022.
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade @sitecore/engage to 1.4.0 also, this dependency has been added to @sitecore-jss-nextjs package to make use of the latest features from the SDK.  ([#1609](https://github.com/Sitecore/jss/pull/1609))
 
 ## 21.2.3
 
