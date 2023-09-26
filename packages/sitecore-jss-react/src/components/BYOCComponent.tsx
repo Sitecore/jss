@@ -131,7 +131,7 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
 
     const ErrorComponent = this.props.errorComponent;
 
-    const isNull = Object.keys(props.fetchedData).length === 0;
+    const isNull = props.fetchedData && Object.keys(props.fetchedData).length === 0;
 
     let componentProps: { [key: string]: any } = isNull ? null : props.fetchedData;
 
