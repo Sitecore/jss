@@ -66,6 +66,7 @@
     "typescript": "~4.9.4"
   },
   "peerDependencies": {
+    "@sitecore/engage": "^1.4.0",
     "next": "^13.4.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
