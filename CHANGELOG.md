@@ -82,7 +82,6 @@ Our versioning strategy is as follows:
   * Angular ESLint: https://github.com/angular-eslint/angular-eslint/releases/tag/v15.0.0
   * rxjs: https://rxjs.dev/6-to-7-change-summary
   * Angular sample has been updated to use ES2022.
-* `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade @sitecore/engage to 1.4.0 also, this dependency has been added to @sitecore-jss-nextjs package to make use of the latest features from the SDK.  ([#1609](https://github.com/Sitecore/jss/pull/1609))
 
 ## 21.2.4
 
