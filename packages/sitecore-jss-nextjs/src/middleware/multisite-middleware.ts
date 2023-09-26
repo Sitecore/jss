@@ -77,8 +77,11 @@ export class MultisiteMiddleware extends MiddlewareBase {
     });
     response = this.rewrite(rewritePath, req, response);
 
-    // Share site name with the following executed middlewares as cookie for legacy
+    // Save the site name as a cookie for legacy
+    // Note: Cookies will be added to the header, but will not appear in the "cookies" property
+    //       of later middleware calls. Values for later middleware should be passed in the header.
     response.cookies.set(this.SITE_SYMBOL, siteName);
+
     // Share site name with the following executed middlewares
     response.headers.set(this.SITE_HEADER_NAME, siteName);
 
