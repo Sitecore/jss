@@ -59,7 +59,7 @@ describe('BYOCComponent', () => {
     expect(fooComponent.find('#foo-content')).to.have.length(1);
   });
 
-  it('should render with props when ComponentProps when props when fetchedData is not present', () => {
+  it('should render with props when ComponentProps are provided but fetchedData is not present', () => {
     const mockProps = {
       params: {
         ComponentName: 'Foo',
