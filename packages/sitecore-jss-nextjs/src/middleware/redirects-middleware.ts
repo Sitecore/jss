@@ -75,7 +75,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
     });
 
     const createResponse = async () => {
-      if (this.config.disabled && this.config.disabled(req, NextResponse.next())) {
+      if (this.config.disabled && this.config.disabled(req, res || NextResponse.next())) {
         debug.redirects('skipped (redirects middleware is disabled)');
         return res || NextResponse.next();
       }
@@ -129,21 +129,17 @@ export class RedirectsMiddleware extends MiddlewareBase {
       /** return Response redirect with http code of redirect type **/
       switch (existsRedirect.redirectType) {
         case REDIRECT_TYPE_301:
-          return NextResponse.redirect(redirectUrl, 301);
+          return NextResponse.redirect(redirectUrl, { status: 301, statusText: 'Moved Permanently', headers: res?.headers });
         case REDIRECT_TYPE_302:
-          return NextResponse.redirect(redirectUrl, 302);
+          return NextResponse.redirect(redirectUrl,  { status: 302, statusText: 'Found', headers: res?.headers });
         case REDIRECT_TYPE_SERVER_TRANSFER:
-          return NextResponse.rewrite(redirectUrl);
+          return NextResponse.rewrite(redirectUrl, res);
         default:
-          return NextResponse.next();
+          return res || NextResponse.next();
       }
     };
 
     const response = await createResponse();
-
-    // Share site name with the following executed middlewares
-    // Don't need to set when middleware is disabled
-    site && response.cookies.set(this.SITE_SYMBOL, site.name);
 
     debug.redirects('redirects middleware end in %dms: %o', Date.now() - startTimestamp, {
       redirected: response.redirected,
