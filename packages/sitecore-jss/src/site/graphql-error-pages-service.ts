@@ -23,7 +23,8 @@ const defaultQuery = /* GraphQL */ `
   }
 `;
 
-export interface GraphQLErrorPagesServiceConfig extends Pick<GraphQLRequestClientConfig, 'retries'> {
+export interface GraphQLErrorPagesServiceConfig
+  extends Pick<GraphQLRequestClientConfig, 'retries'> {
   /**
    * Your Graphql endpoint
    */
@@ -40,7 +41,7 @@ export interface GraphQLErrorPagesServiceConfig extends Pick<GraphQLRequestClien
    * The language
    */
   language: string;
-};
+}
 
 /**
  * Object model of Error Pages result
