@@ -129,9 +129,17 @@ export class RedirectsMiddleware extends MiddlewareBase {
       /** return Response redirect with http code of redirect type **/
       switch (existsRedirect.redirectType) {
         case REDIRECT_TYPE_301:
-          return NextResponse.redirect(redirectUrl, { status: 301, statusText: 'Moved Permanently', headers: res?.headers });
+          return NextResponse.redirect(redirectUrl, {
+            status: 301,
+            statusText: 'Moved Permanently',
+            headers: res?.headers,
+          });
         case REDIRECT_TYPE_302:
-          return NextResponse.redirect(redirectUrl,  { status: 302, statusText: 'Found', headers: res?.headers });
+          return NextResponse.redirect(redirectUrl, {
+            status: 302,
+            statusText: 'Found',
+            headers: res?.headers,
+          });
         case REDIRECT_TYPE_SERVER_TRANSFER:
           return NextResponse.rewrite(redirectUrl, res);
         default:

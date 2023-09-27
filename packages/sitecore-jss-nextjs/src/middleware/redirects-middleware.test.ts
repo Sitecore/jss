@@ -414,7 +414,8 @@ describe('RedirectsMiddleware', () => {
           status: 301,
           setCookies,
         });
-        const nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url, init) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url, _init) => {
           return ({
             url,
             status: 301,
@@ -862,7 +863,8 @@ describe('RedirectsMiddleware', () => {
           url: 'http://localhost:3000/found',
           setCookies,
         });
-        const nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url, init) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url, _init) => {
           return ({
             url,
             cookies: { set: setCookies },
@@ -934,7 +936,10 @@ describe('RedirectsMiddleware', () => {
           locale: 'en',
         });
 
-        const expected = NextResponse.redirect('http://localhost:3000/found', { status: 301, headers: res.headers });
+        const expected = NextResponse.redirect('http://localhost:3000/found', {
+          status: 301,
+          headers: res.headers,
+        });
 
         const finalRes = await middleware.getHandler()(req, res);
 
