@@ -1,9 +1,13 @@
 import { LayoutServiceBase } from './layout-service';
 import { LayoutServiceData } from './models';
-import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
+import {
+  GraphQLClient,
+  GraphQLRequestClient,
+  GraphQLRequestClientConfig,
+} from '../graphql-request-client';
 import debug from '../debug';
 
-export type GraphQLLayoutServiceConfig = {
+export interface GraphQLLayoutServiceConfig extends Pick<GraphQLRequestClientConfig, 'retries'> {
   /**
    * Your Graphql endpoint
    */
@@ -28,7 +32,7 @@ export type GraphQLLayoutServiceConfig = {
    * layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
    */
   formatLayoutQuery?: (siteName: string, itemPath: string, locale?: string) => string;
-};
+}
 
 /**
  * Service that fetch layout data using Sitecore's GraphQL API.
@@ -84,6 +88,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
     return new GraphQLRequestClient(this.serviceConfig.endpoint, {
       apiKey: this.serviceConfig.apiKey,
       debugger: debug.layout,
+      retries: this.serviceConfig.retries,
     });
   }
 
