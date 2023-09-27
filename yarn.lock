@@ -6488,11 +6488,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-cli@workspace:packages/sitecore-jss-cli"
   dependencies:
-<<<<<<< HEAD
-    "@sitecore-jss/sitecore-jss-dev-tools": 21.5.0-canary.2
-=======
     "@sitecore-jss/sitecore-jss-dev-tools": 21.5.0-canary.3
->>>>>>> b22963eb055912886a5381387e1d4ef48937849e
     "@types/chai": ^4.2.4
     "@types/cross-spawn": ^6.0.2
     "@types/mocha": ^10.0.1
