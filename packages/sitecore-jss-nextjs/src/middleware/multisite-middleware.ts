@@ -46,6 +46,7 @@ export class MultisiteMiddleware extends MiddlewareBase {
     const pathname = req.nextUrl.pathname;
     const language = this.getLanguage(req);
     const hostname = this.getHostHeader(req) || this.defaultHostname;
+    const startTimestamp = Date.now();
 
     debug.multisite('multisite middleware start: %o', {
       pathname,
@@ -87,7 +88,7 @@ export class MultisiteMiddleware extends MiddlewareBase {
     // Share rewrite path with following executed middlewares
     response.headers.set('x-sc-rewrite', rewritePath);
 
-    debug.multisite('multisite middleware end: %o', {
+    debug.multisite('multisite middleware end in %dms: %o', Date.now() - startTimestamp, {
       rewritePath,
       siteName,
       headers: this.extractDebugHeaders(response.headers),

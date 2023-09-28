@@ -18,6 +18,7 @@ module.exports = function generateConfig(configOverrides) {
     sitecoreApiKey: 'no-api-key-set',
     sitecoreApiHost: '',
     jssAppName: 'Unknown',
+    layoutServiceConfigurationName: 'default',
   };
 
   // require + combine config sources

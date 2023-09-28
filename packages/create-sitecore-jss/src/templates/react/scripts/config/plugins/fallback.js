@@ -11,6 +11,7 @@ class FallbackPlugin {
       defaultLanguage: config.defaultLanguage || 'en',
       sitecoreApiKey: config.sitecoreApiKey || 'no-api-key-set',
       jssAppName: config.jssAppName || 'Unknown',
+      layoutServiceConfigurationName: config.layoutServiceConfigurationName || 'default',
     });
   }
 }

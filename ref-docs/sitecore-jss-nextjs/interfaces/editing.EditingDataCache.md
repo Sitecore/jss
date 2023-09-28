@@ -9,6 +9,7 @@ Defines an editing data cache implementation
 ## Implemented by
 
 - [`EditingDataDiskCache`](../classes/editing.EditingDataDiskCache.md)
+- [`VercelEditingDataCache`](../classes/editing.VercelEditingDataCache.md)
 
 ## Table of contents
 
@@ -35,7 +36,7 @@ Defines an editing data cache implementation
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/d54d20669/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L12)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/1bf221683/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L12)
 
 ___
 
@@ -56,4 +57,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:11](https://github.com/Sitecore/jss/blob/d54d20669/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L11)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:11](https://github.com/Sitecore/jss/blob/1bf221683/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L11)

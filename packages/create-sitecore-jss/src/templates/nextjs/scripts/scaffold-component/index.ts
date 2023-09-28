@@ -1,4 +1,6 @@
 import { ModuleType, generatePlugins } from '@sitecore-jss/sitecore-jss-dev-tools';
+import generateComponentSrc from 'scripts/templates/component-src';
+import chalk from 'chalk';
 
 generatePlugins({
   distPath: 'scripts/temp/scaffold-component-plugins.ts',
@@ -28,6 +30,8 @@ export interface ScaffoldComponentPluginConfig {
   [key: string]: unknown;
   componentName: string;
   componentPath: string;
+  componentTemplateGenerator: (componentName: string) => string;
+  args: string[];
   nextSteps: string[];
 }
 
@@ -45,8 +49,9 @@ export interface ScaffoldComponentPlugin {
 
 // Matches component names that start with a capital letter, and contain only letters, number,
 // underscores, or dashes. Optionally, the component name can be preceded by a relative path
-const nameParamFormat = new RegExp(/^((?:[\w-]+\/)*)([A-Z][\w-]+)$/);
+const nameParamFormat = new RegExp(/^((?:[\w\-]+\/)*)([A-Z][\w-]+)$/);
 const componentArg = process.argv[2];
+const args = process.argv.slice(3);
 
 if (!componentArg) {
   throw 'Component name was not passed. Usage: jss scaffold <ComponentName>';
@@ -62,8 +67,17 @@ dashes, or underscores. If specifying a path, it must be relative to src/compone
 const defaultConfig: ScaffoldComponentPluginConfig = {
   componentPath: regExResult[1],
   componentName: regExResult[2],
+  componentTemplateGenerator: generateComponentSrc,
+  args: args,
   nextSteps: [],
 };
+
+// default entry in next steps
+defaultConfig.nextSteps.push(
+  chalk.green(`
+Scaffolding of ${defaultConfig.componentName} complete.
+Next steps:`)
+);
 
 const config = (Object.values(plugins) as ScaffoldComponentPlugin[])
   .sort((p1, p2) => p1.order - p2.order)

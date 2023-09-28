@@ -1,5 +1,12 @@
 import { expect } from 'chai';
-import { addClassName, convertAttributesToReactProps, convertStyleAttribute } from './utils';
+import {
+  addClassName,
+  convertAttributesToReactProps,
+  convertStyleAttribute,
+  getAttributesString,
+  getDataFromFields,
+} from './utils';
+import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
 
 describe('jss-react utils', () => {
   describe('convertStyleAttribute', () => {
@@ -59,6 +66,55 @@ describe('jss-react utils', () => {
           className: 'second-class',
         });
       });
+    });
+  });
+
+  describe('getAttributesString', () => {
+    it('should construct the attributes string correctly', () => {
+      const attributes = {
+        width: '300',
+        className: 'container',
+        height: '200',
+        style: { width: '100%', height: '100%' },
+        alt: 'Example image',
+      };
+
+      const result = getAttributesString(attributes);
+
+      const expectedAttributesString =
+        'width="300" height="200" style="width:100%;height:100%" alt="Example image" class="container"';
+      expect(result).to.deep.equal(expectedAttributesString);
+    });
+
+    it('should return an empty string if no attributes are provided', () => {
+      const attributes = {};
+
+      const result = getAttributesString(attributes);
+
+      expect(result).to.eql('');
+    });
+  });
+
+  describe('getDataFromFields', () => {
+    it('should parse fields into JSON', () => {
+      const fields: ComponentFields = {
+        text: {
+          value: 'we count to',
+        },
+        number: {
+          value: 10,
+        },
+        message: {
+          value: 'well done counting',
+        },
+      };
+      const expectedResult = {
+        text: 'we count to',
+        number: 10,
+        message: 'well done counting',
+      };
+
+      expect(getDataFromFields(fields)).to.deep.equal(expectedResult);
     });
   });
 });

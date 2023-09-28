@@ -30,8 +30,8 @@ export interface PackageDefinition {
  * }
  * @param {string} path path to search
  */
-export function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
-  const components = getItems<PackageDefinition | ComponentFile>({
+export function getComponentList(path: string): ComponentFile[] {
+  const components = getItems<ComponentFile>({
     path,
     resolveItem: (path, name) => ({
       path: `${path}/${name}`,

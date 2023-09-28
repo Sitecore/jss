@@ -13,7 +13,7 @@ export type LazyModule = {
 /**
  * Component is a module or a lazy module
  */
-type Component = Module | LazyModule;
+type Component = Module | LazyModule | ComponentType;
 
 /**
  * Configuration for ComponentBuilder
@@ -97,7 +97,11 @@ export class ComponentBuilder {
         return (component as Module)[exportName];
       }
 
-      return (component as Module).Default || (component as Module).default || null;
+      return (
+        (component as Module).Default ||
+        (component as Module).default ||
+        (component as ComponentType)
+      );
     };
   }
 }

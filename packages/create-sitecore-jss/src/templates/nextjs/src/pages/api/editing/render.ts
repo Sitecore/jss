@@ -14,6 +14,12 @@ import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editi
  *  5. Return the rendered page HTML to the Sitecore editor
  */
 
+/**
+ * For Vercel deployments: 
+ * if you experience crashes in editing, you may need to use VercelEditingDataCache or a custom Redis data cache implementation with EditingRenderMiddleware
+ * Please refer to documentation for a detailed guide.
+ */
+
 // Bump body size limit (1mb by default) and disable response limit for Sitecore editor payloads
 // See https://nextjs.org/docs/api-routes/request-helpers#custom-config
 export const config = {

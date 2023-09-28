@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import { getComponentBuilderTemplate } from './templates/component-builder';
-import { PackageDefinition, getComponentList } from '../components';
+import { ComponentFile, PackageDefinition, getComponentList } from '../components';
 import { watchItems } from '../utils';
 
 // Default destination path for component builder
@@ -12,51 +12,75 @@ const defaultComponentRootPath = 'src/components';
  * Generate component builder based on provided settings
  * @param {Object} settings settings for component builder generation
  * @param {string} settings.componentRootPath path to components root
- * @param {PackageDefinition[]} settings.packages list of packages to include in component builder
+ * @param {PackageDefinition[]} [settings.packages] list of packages to include in component builder
+ * @param {ComponentFile[]} [settings.components] list of components to include in component builder
  * @param {boolean} settings.watch whether to watch for changes to component builder sources
  */
 export function generateComponentBuilder({
   componentRootPath = defaultComponentRootPath,
-  packages,
+  packages = [],
+  components = [],
   watch,
 }: {
   componentRootPath?: string;
   packages?: PackageDefinition[];
+  components?: ComponentFile[];
   watch?: boolean;
 }) {
   if (watch) {
-    watchComponentBuilder(componentRootPath, packages);
+    watchComponentBuilder({ componentRootPath, packages, components });
   } else {
-    writeComponentBuilder(componentRootPath, packages);
+    writeComponentBuilder({ componentRootPath, packages, components });
   }
 }
 
 /**
  * Watch for changes to component builder sources
  * @param {string} componentRootPath root path to components
- * @param {PackageDefinition[]} [packages] packages to include in component builder
+ * @param {PackageDefinition[]} packages packages to include in component builder
+ * @param {ComponentFile[]} components components to include in component builder
  */
-export function watchComponentBuilder(componentRootPath: string, packages?: PackageDefinition[]) {
+export function watchComponentBuilder({
+  componentRootPath,
+  packages,
+  components,
+}: {
+  componentRootPath: string;
+  packages: PackageDefinition[];
+  components: ComponentFile[];
+}) {
   console.log(`Watching for changes to component builder sources in ${componentRootPath}...`);
 
-  watchItems([componentRootPath], writeComponentBuilder.bind(null, componentRootPath, packages));
+  watchItems(
+    [componentRootPath],
+    writeComponentBuilder.bind(null, { componentRootPath, packages, components })
+  );
 }
 
 /**
  * Write component builder to file
- * @param {string} componentRootPath root path to components
- * @param {PackageDefinition[]} [packages] packages to include in component builder
+ * @param {Object} settings settings for component builder generation
+ * @param {string} settings.componentRootPath root path to components
+ * @param {PackageDefinition[]} settings.packages packages to include in component builder
+ * @param {ComponentFile[]} settings.components list of components to include in component builder
  */
-export function writeComponentBuilder(
-  componentRootPath: string,
-  packages: PackageDefinition[] = []
-) {
-  const components = getComponentList(componentRootPath);
-
-  components.unshift(...packages);
+export function writeComponentBuilder({
+  componentRootPath,
+  packages,
+  components,
+}: {
+  componentRootPath: string;
+  packages: PackageDefinition[];
+  components: ComponentFile[];
+}) {
+  const items: (ComponentFile | PackageDefinition)[] = [
+    ...packages,
+    ...components,
+    ...getComponentList(componentRootPath),
+  ];
 
   const componentBuilderPath = path.resolve(componentBuilderOutputPath);
-  const fileContent = getComponentBuilderTemplate(components, componentBuilderPath);
+  const fileContent = getComponentBuilderTemplate(items, componentBuilderPath);
   console.log(`Writing component builder to ${componentBuilderPath}`);
   fs.writeFileSync(componentBuilderPath, fileContent, {
     encoding: 'utf8',

@@ -66,6 +66,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
     const language = this.getLanguage(req);
     const hostname = this.getHostHeader(req) || this.defaultHostname;
     let site: SiteInfo | undefined;
+    const startTimestamp = Date.now();
 
     debug.redirects('redirects middleware start: %o', {
       pathname,
@@ -144,7 +145,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
     // Don't need to set when middleware is disabled
     site && response.cookies.set(this.SITE_SYMBOL, site.name);
 
-    debug.redirects('redirects middleware end: %o', {
+    debug.redirects('redirects middleware end in %dms: %o', Date.now() - startTimestamp, {
       redirected: response.redirected,
       status: response.status,
       url: response.url,

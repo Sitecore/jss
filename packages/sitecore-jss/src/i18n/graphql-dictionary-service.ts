@@ -1,4 +1,8 @@
-import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
+import {
+  GraphQLClient,
+  GraphQLRequestClient,
+  GraphQLRequestClientConfig,
+} from '../graphql-request-client';
 import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase } from './dictionary-service';
 import { CacheOptions } from '../cache-client';
@@ -48,7 +52,10 @@ const query = /* GraphQL */ `
 /**
  * Configuration options for @see GraphQLDictionaryService instances
  */
-export interface GraphQLDictionaryServiceConfig extends SearchServiceConfig, CacheOptions {
+export interface GraphQLDictionaryServiceConfig
+  extends SearchServiceConfig,
+    CacheOptions,
+    Pick<GraphQLRequestClientConfig, 'retries'> {
   /**
    * The URL of the graphQL endpoint.
    */
@@ -157,6 +164,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
     return new GraphQLRequestClient(this.options.endpoint, {
       apiKey: this.options.apiKey,
       debugger: debug.dictionary,
+      retries: this.options.retries,
     });
   }
 }

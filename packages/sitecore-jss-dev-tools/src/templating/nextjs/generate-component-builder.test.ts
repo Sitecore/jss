@@ -43,11 +43,13 @@ describe('generate-component-builder', () => {
           '\n' +
           "import { Foo } from 'custom-module';\n" +
           '\n' +
+          "import * as Text from 'src/custom-components/Text';\n" +
           "import * as barModule from 'bar';\n" +
           '\n' +
           'const components = new Map();\n' +
           "components.set('Foo', Foo);\n" +
           '\n' +
+          "components.set('TextComponent', Text);\n" +
           "components.set('BarComponent', barModule);\n" +
           '\n' +
           'export const componentBuilder = new ComponentBuilder({ components });\n' +
@@ -67,6 +69,13 @@ describe('generate-component-builder', () => {
                 moduleName: 'Foo',
               },
             ],
+          },
+        ],
+        components: [
+          {
+            path: 'src/custom-components/Text',
+            moduleName: 'Text',
+            componentName: 'TextComponent',
           },
         ],
       });
@@ -109,6 +118,11 @@ describe('generate-component-builder', () => {
           '\n' +
           "import { Foo } from 'custom-module';\n" +
           '\n' +
+          "import * as Text from 'src/custom-components/Text';\n" +
+          'const GraphQL = {\n' +
+          "  module: () => import('src/custom-components/GraphQL.dynamic'),\n" +
+          "  element: (isEditing?: boolean) => isEditing ? require('src/custom-components/GraphQL.dynamic')?.default : dynamic(GraphQL.module)\n" +
+          '}\n' +
           "import * as barModule from 'bar';\n" +
           'const carModule = {\n' +
           "  module: () => import('car.dynamic'),\n" +
@@ -118,6 +132,8 @@ describe('generate-component-builder', () => {
           'const components = new Map();\n' +
           "components.set('Foo', Foo);\n" +
           '\n' +
+          "components.set('TextComponent', Text);\n" +
+          "components.set('GraphQLComponent', GraphQL);\n" +
           "components.set('BarComponent', barModule);\n" +
           "components.set('CarComponent', carModule);\n" +
           '\n' +
@@ -138,6 +154,18 @@ describe('generate-component-builder', () => {
                 moduleName: 'Foo',
               },
             ],
+          },
+        ],
+        components: [
+          {
+            path: 'src/custom-components/Text',
+            moduleName: 'Text',
+            componentName: 'TextComponent',
+          },
+          {
+            path: 'src/custom-components/GraphQL.dynamic',
+            moduleName: 'GraphQL',
+            componentName: 'GraphQLComponent',
           },
         ],
       });

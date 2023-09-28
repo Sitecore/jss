@@ -1,10 +1,11 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const plugins = require('scripts/temp/generate-component-builder-plugins');
-import { PackageDefinition } from '@sitecore-jss/sitecore-jss-dev-tools';
+import { PackageDefinition, ComponentFile } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 export interface ComponentBuilderPluginConfig {
   watch?: boolean;
-  packages?: PackageDefinition[];
+  packages: PackageDefinition[];
+  components: ComponentFile[];
 }
 
 export interface ComponentBuilderPlugin {
@@ -37,6 +38,8 @@ export interface ComponentBuilderPlugin {
 
 const defaultConfig: ComponentBuilderPluginConfig = {
   watch: process.argv.some(arg => arg === '--watch'),
+  packages: [],
+  components: [],
 };
 
 (Object.values(plugins) as ComponentBuilderPlugin[])

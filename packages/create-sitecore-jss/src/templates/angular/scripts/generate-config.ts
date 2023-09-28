@@ -19,6 +19,7 @@ export function generateConfig(configOverrides?: { [key: string]: unknown }, out
     sitecoreLayoutServiceConfig: 'jss',
     defaultLanguage: 'en',
     defaultServerRoute: '/',
+    layoutServiceConfigurationName: 'default',
   };
 
   if (!outputPath) {
