@@ -29,7 +29,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Better error handling for component-level data fetching ([#1586](https://github.com/Sitecore/jss/pull/1586))
 * `[sitecore-jss-react]` Fetch Data for FEaaS Components as part of Component SSR/SSG ([#1586](https://github.com/Sitecore/jss/pull/1590))
 * `[sitecore-jss-dev-tools]` `[templates/nextjs]` `[templates/react]` Introduce "components" configuration for ComponentBuilder ([#1598](https://github.com/Sitecore/jss/pull/1598))
-* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Component level data fetching(SSR/SSG) for BYOC ([#1610](https://github.com/Sitecore/jss/pull/1610))
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Component level data fetching(SSR/SSG) for BYOC ([#1610](https://github.com/Sitecore/jss/pull/1610)) ([#1621](https://github.com/Sitecore/jss/pull/1621))
 * `[sitecore-jss-nextjs]` Reduce the amount of Edge API calls during fetch getStaticPaths ([#1612](https://github.com/Sitecore/jss/pull/1612))
 * `[sitecore-jss]` `[templates/nextjs] [templates/nextjs-sxa]` GraphQL Layout and Dictionary services in base remplate, and ErrorPages service in nextjs-sxa can handle endpoint rate limits through retryer functionality in GraphQLClient. To prevent SSG builds from failing and enable multiple retries, set retry amount in lib/dictionary-service-factory and lib/layout-service-factory ([#1618](https://github.com/Sitecore/jss/pull/1618) [#1619](https://github.com/Sitecore/jss/pull/1619))
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade Nextjs to 13.4.16([#1616](https://github.com/Sitecore/jss/pull/1616))
