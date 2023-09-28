@@ -38,7 +38,7 @@ Creates an instance of graphQL error pages service with the provided options
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | [`GraphQLErrorPagesServiceConfig`](../modules/index.md#graphqlerrorpagesserviceconfig) | instance |
+| `options` | [`GraphQLErrorPagesServiceConfig`](../interfaces/index.GraphQLErrorPagesServiceConfig.md) | instance |
 
 #### Defined in
 
@@ -58,7 +58,7 @@ ___
 
 ### options
 
-• **options**: [`GraphQLErrorPagesServiceConfig`](../modules/index.md#graphqlerrorpagesserviceconfig)
+• **options**: [`GraphQLErrorPagesServiceConfig`](../interfaces/index.GraphQLErrorPagesServiceConfig.md)
 
 #### Defined in
 
