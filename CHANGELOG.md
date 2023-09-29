@@ -13,6 +13,12 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
+### 🐛 Bug Fixes
+
+## 21.4.0
+
+### 🎉 New Features & Improvements
+
 * `[templates/nextjs-sxa]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` "Bring Your Own Code" (BYOC) feature is introduced. This allows developers and editors more flexibility when developing and working with new components, i.e.:
   * Avoid the jss deploy process for components, and use FEAAS registration instead
   * Put components anywhere in the project,
