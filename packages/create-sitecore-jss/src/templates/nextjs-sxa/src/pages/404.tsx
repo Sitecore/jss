@@ -33,6 +33,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
     apiKey: config.sitecoreApiKey,
     siteName: site.name,
     language: context.locale || config.defaultLanguage,
+    retries:
+      (process.env.GRAPH_QL_SERVICE_RETRIES &&
+        parseInt(process.env.GRAPH_QL_SERVICE_RETRIES, 10)) ||
+      0,
   });
   let resultErrorPages: ErrorPages | null = null;
 
