@@ -9,6 +9,12 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 21.5.0
+
+### 🛠 Breaking Changes
+
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade of @sitecore/engage to 1.4.0, now this dependency has been added as a peer dependency to @sitecore-jss-nextjs package in order to replace the existing CDP service in the @sitecore-jss/sitecore-jss with the new functions/features introduced in the engage SDK. ([#1609](https://github.com/Sitecore/jss/pull/1609))
+
 ## 21.4.0
 
 ### 🎉 New Features & Improvements
@@ -55,6 +61,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` Next config header plugin for CORS. ([#1597](https://github.com/Sitecore/jss/pull/1597))
 * `[templates/nextjs]` Ensure dictionary data is only fetched when layout data is present for a route ([#1608](https://github.com/Sitecore/jss/pull/1608))
 * `[sitecore-jss-react-forms]` Form should be blocked while submit is in progress to avoid submit spam ([#1611](https://github.com/Sitecore/jss/pull/1611) [#1614](https://github.com/Sitecore/jss/pull/1614))
+* `[templates/nextjs-personalize]` Fix cookie domain for localhost ([#1609](https://github.com/Sitecore/jss/pull/1609)) 
 * `[templates/nextjs]` Fix linting errors, fix type error by upgrading @react/types to v18.2.22 ([#1613](https://github.com/Sitecore/jss/pull/1613))
 
 ## 21.3.1

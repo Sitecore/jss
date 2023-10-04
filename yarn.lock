@@ -6606,6 +6606,7 @@ __metadata:
     "@sitecore-jss/sitecore-jss": 21.5.0-canary.8
     "@sitecore-jss/sitecore-jss-dev-tools": 21.5.0-canary.8
     "@sitecore-jss/sitecore-jss-react": 21.5.0-canary.8
+    "@sitecore/engage": ^1.4.0
     "@types/chai": ^4.3.4
     "@types/chai-as-promised": ^7.1.5
     "@types/chai-string": ^1.4.2
@@ -6645,6 +6646,7 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.4
   peerDependencies:
+    "@sitecore/engage": ^1.4.0
     next: ^13.4.16
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -6884,6 +6886,13 @@ __metadata:
     url-parse: ^1.5.9
   languageName: unknown
   linkType: soft
+
+"@sitecore/engage@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@sitecore/engage@npm:1.4.0"
+  checksum: f656045dfcb65f63ff44af195c9ae92d375a237bdf91a4638e9d296df2d143837145f13ca033aeabd03323c900ee5c78249d2967c7665368fde82ef2e758ad43
+  languageName: node
+  linkType: hard
 
 "@socket.io/component-emitter@npm:~3.1.0":
   version: 3.1.0

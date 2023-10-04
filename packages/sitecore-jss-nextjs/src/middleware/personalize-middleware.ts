@@ -1,16 +1,37 @@
-import { NextResponse, NextRequest, userAgent } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 import {
   GraphQLPersonalizeService,
   GraphQLPersonalizeServiceConfig,
-  CdpService,
-  CdpServiceConfig,
-  ExperienceParams,
   getPersonalizedRewrite,
   PosResolver,
 } from '@sitecore-jss/sitecore-jss/personalize';
-import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
-import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
 import { SiteInfo } from '@sitecore-jss/sitecore-jss/site';
+import { debug } from '@sitecore-jss/sitecore-jss';
+import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
+import { initServer, EngageServer } from '@sitecore/engage';
+
+export type CdpServiceConfig = {
+  /**
+   * Your Sitecore CDP API endpoint
+   */
+  endpoint: string;
+  /**
+   * The client key to use for authentication
+   */
+  clientKey: string;
+  /**
+   * The Sitecore CDP channel to use for events. Uses 'WEB' by default.
+   */
+  channel?: string;
+  /**
+   * Currency for CDP request. Uses 'USA' as default.
+   */
+  currency?: string;
+  /**
+   * Timeout (ms) for CDP request. Default is 400.
+   */
+  timeout?: number;
+};
 
 export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
   /**
@@ -20,7 +41,7 @@ export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
   /**
    * Configuration for your Sitecore CDP endpoint
    */
-  cdpConfig: Omit<CdpServiceConfig, 'dataFetcherResolver'>;
+  cdpConfig: CdpServiceConfig;
   /**
    * function to resolve point of sale for a site
    * @param {Siteinfo} site to get info from
@@ -31,11 +52,24 @@ export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
 };
 
 /**
+ * Object model of Experience Context data
+ */
+export type ExperienceParams = {
+  referrer: string;
+  utm: {
+    [key: string]: string | undefined;
+    campaign: string | undefined;
+    source: string | undefined;
+    medium: string | undefined;
+    content: string | undefined;
+  };
+};
+
+/**
  * Middleware / handler to support Sitecore Personalize
  */
 export class PersonalizeMiddleware extends MiddlewareBase {
   private personalizeService: GraphQLPersonalizeService;
-  private cdpService: CdpService;
 
   /**
    * @param {PersonalizeMiddlewareConfig} [config] Personalize middleware config
@@ -48,24 +82,6 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     this.personalizeService = new GraphQLPersonalizeService({
       ...config.edgeConfig,
       fetch: fetch,
-    });
-    // NOTE: same here, we provide NativeDataFetcher for compatibility on Next.js Edge Runtime
-    this.cdpService = new CdpService({
-      ...config.cdpConfig,
-      dataFetcherResolver: <T>({
-        timeout,
-        headers,
-      }: {
-        timeout: number;
-        headers?: Record<string, string>;
-      }) => {
-        const fetcher = new NativeDataFetcher({
-          debugger: debug.personalize,
-          timeout,
-          headers,
-        });
-        return (url: string, data?: unknown) => fetcher.fetch<T>(url, data);
-      },
     });
   }
 
@@ -85,33 +101,33 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     };
   }
 
-  protected get browserIdCookieName(): string {
-    // Each user should have saved identifier to connect between session, CDP uses bid cookies + local storage
-    return `BID_${this.config.cdpConfig.clientKey}`;
-  }
+  protected initializeEngageServer(site: SiteInfo, language: string): EngageServer {
+    const engageServer = initServer({
+      clientKey: this.config.cdpConfig.clientKey,
+      targetURL: this.config.cdpConfig.endpoint,
+      pointOfSale: this.config.getPointOfSale
+        ? this.config.getPointOfSale(site, language)
+        : PosResolver.resolve(site, language),
+      forceServerCookieMode: true,
+    });
 
-  protected getBrowserId(req: NextRequest): string | undefined {
-    return req.cookies.get(this.browserIdCookieName)?.value || undefined;
-  }
-
-  protected setBrowserId(res: NextResponse, browserId: string) {
-    const expiryDate = new Date(new Date().setFullYear(new Date().getFullYear() + 2));
-    const options = { expires: expiryDate, secure: true };
-    res.cookies.set(this.browserIdCookieName, browserId, options);
+    return engageServer;
   }
 
   protected getExperienceParams(req: NextRequest): ExperienceParams {
+    const utm = {
+      campaign: req.nextUrl.searchParams.get('utm_campaign') || undefined,
+      content: req.nextUrl.searchParams.get('utm_content') || undefined,
+      medium: req.nextUrl.searchParams.get('utm_medium') || undefined,
+      source: req.nextUrl.searchParams.get('utm_source') || undefined,
+    };
+
     return {
       // It's expected that the header name "referer" is actually a misspelling of the word "referrer"
       // req.referrer is used during fetching to determine the value of the Referer header of the request being made,
       // used as a fallback
       referrer: req.headers.get('referer') || req.referrer,
-      utm: {
-        campaign: req.nextUrl.searchParams.get('utm_campaign'),
-        content: req.nextUrl.searchParams.get('utm_content'),
-        medium: req.nextUrl.searchParams.get('utm_medium'),
-        source: req.nextUrl.searchParams.get('utm_source'),
-      },
+      utm: utm,
     };
   }
 
@@ -125,17 +141,17 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     const language = this.getLanguage(req);
     const hostname = this.getHostHeader(req) || this.defaultHostname;
     const startTimestamp = Date.now();
+    const timeout = this.config.cdpConfig.timeout;
 
-    let browserId = this.getBrowserId(req);
+    // Response will be provided if other middleware is run before us (e.g. redirects)
+    let response = res || NextResponse.next();
+
     debug.personalize('personalize middleware start: %o', {
       pathname,
       language,
       hostname,
-      browserId,
+      headers: this.extractDebugHeaders(req.headers),
     });
-
-    // Response will be provided if other middleware is run before us (e.g. redirects)
-    let response = res || NextResponse.next();
 
     if (this.config.disabled && this.config.disabled(req, response)) {
       debug.personalize('skipped (personalize middleware is disabled)');
@@ -154,7 +170,17 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       return response;
     }
 
-    const site = this.getSite(req, res);
+    const site = this.getSite(req, response);
+    const engageServer = this.initializeEngageServer(site, language);
+
+    // creates the browser ID cookie on the server side
+    // and includes the cookie in the response header
+    try {
+      await engageServer.handleCookie(req, response, timeout);
+    } catch (error) {
+      debug.personalize('skipped (browser id generation failed)');
+      throw error;
+    }
 
     // Get personalization info from Experience Edge
     const personalizeInfo = await this.personalizeService.getPersonalizeInfo(
@@ -162,7 +188,6 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       language,
       site.name
     );
-
     if (!personalizeInfo) {
       // Likely an invalid route / language
       debug.personalize('skipped (personalize info not found)');
@@ -174,28 +199,29 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       return response;
     }
 
-    if (!browserId) {
-      browserId = await this.cdpService.generateBrowserId();
+    const params = this.getExperienceParams(req);
 
-      if (!browserId) {
-        debug.personalize('skipped (browser id generation failed)');
-        return response;
-      }
-    }
+    debug.personalize('executing experience for %s %s %o', personalizeInfo.contentId, params);
+
+    const personalizationData = {
+      channel: this.config.cdpConfig.channel || 'WEB',
+      currency: this.config.cdpConfig.currency ?? 'USA',
+      friendlyId: personalizeInfo.contentId,
+      params,
+      language,
+    };
+
+    let variantId;
 
     // Execute targeted experience in CDP
-    const { ua } = userAgent(req);
-    const params = this.getExperienceParams(req);
-    const pointOfSale = this.config.getPointOfSale
-      ? this.config.getPointOfSale(site, language)
-      : PosResolver.resolve(site, language);
-    const variantId = await this.cdpService.executeExperience(
-      personalizeInfo.contentId,
-      browserId,
-      ua,
-      pointOfSale,
-      params
-    );
+    // eslint-disable-next-line no-useless-catch
+    try {
+      variantId = ((await engageServer.personalize(personalizationData, req, timeout)) as {
+        variantId: string;
+      }).variantId;
+    } catch (error) {
+      throw error;
+    }
 
     if (!variantId) {
       debug.personalize('skipped (no variant identified)');
@@ -223,14 +249,11 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     // Share rewrite path with following executed middlewares
     response.headers.set('x-sc-rewrite', rewritePath);
 
-    // Set browserId cookie on the response
-    this.setBrowserId(response, browserId);
     // Share site name with the following executed middlewares
     response.cookies.set(this.SITE_SYMBOL, site.name);
 
     debug.personalize('personalize middleware end in %dms: %o', Date.now() - startTimestamp, {
       rewritePath,
-      browserId,
       headers: this.extractDebugHeaders(response.headers),
     });
 
