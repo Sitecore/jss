@@ -5,13 +5,6 @@ export {
   GraphQLPersonalizeServiceConfig,
 } from './graphql-personalize-service';
 export {
-  CdpService,
-  CdpServiceConfig,
-  ExperienceParams,
-  ExecuteExperienceResult,
-  GenerateBrowserIdResult,
-} from './cdp-service';
-export {
   getPersonalizedRewrite,
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
