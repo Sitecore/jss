@@ -15,6 +15,8 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* `[templates/nextjs-sxa]` Fix shown horizontal scrollbar in EE mode. ([#1625](https://github.com/Sitecore/jss/pull/1625))
+
 ## 21.4.0
 
 ### 🎉 New Features & Improvements
