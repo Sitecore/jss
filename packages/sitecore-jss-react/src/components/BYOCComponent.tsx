@@ -123,7 +123,7 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
       errorOverride: 'BYOC: This component was not registered.',
     };
 
-    const fallbackComponent = this.props.missingComponentComponent ? (
+    const fallbackComponent = typeof window !== 'undefined' && this.props.missingComponentComponent ? (
       <this.props.missingComponentComponent {...unRegisteredComponentProps} />
     ) : (
       <MissingComponent {...unRegisteredComponentProps} />
