@@ -11,6 +11,10 @@ Our versioning strategy is as follows:
 
 ## 21.5.0
 
+### 🐛 Bug Fixes
+
+* `[templates/nextjs-personalize]` Fix cookie domain for localhost ([#1609](https://github.com/Sitecore/jss/pull/1609)) 
+
 ### 🛠 Breaking Changes
 
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade of @sitecore/engage to 1.4.0, now this dependency has been added as a peer dependency to @sitecore-jss-nextjs package in order to replace the existing CDP service in the @sitecore-jss/sitecore-jss with the new functions/features introduced in the engage SDK. ([#1609](https://github.com/Sitecore/jss/pull/1609))
@@ -61,7 +65,6 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` Next config header plugin for CORS. ([#1597](https://github.com/Sitecore/jss/pull/1597))
 * `[templates/nextjs]` Ensure dictionary data is only fetched when layout data is present for a route ([#1608](https://github.com/Sitecore/jss/pull/1608))
 * `[sitecore-jss-react-forms]` Form should be blocked while submit is in progress to avoid submit spam ([#1611](https://github.com/Sitecore/jss/pull/1611) [#1614](https://github.com/Sitecore/jss/pull/1614))
-* `[templates/nextjs-personalize]` Fix cookie domain for localhost ([#1609](https://github.com/Sitecore/jss/pull/1609)) 
 * `[templates/nextjs]` Fix linting errors, fix type error by upgrading @react/types to v18.2.22 ([#1613](https://github.com/Sitecore/jss/pull/1613))
 
 ## 21.3.1
