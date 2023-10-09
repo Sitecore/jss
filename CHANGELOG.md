@@ -13,6 +13,10 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
+* `[templates/nextjs][sitecore-jss-react]` Enable client-only BYOC component imports. Client-only components can be imported through src/byoc-imports/index.client.ts. Hybrid (server render with client hydration)components can be imported through src/byoc-imports/index.ts ([#1628](https://github.com/Sitecore/jss/pull/1628))
+
+* `[templates/nextjs]` Import SitecoreForm component into sample nextjs app ([#1628](https://github.com/Sitecore/jss/pull/1628))
+
 ### 🐛 Bug Fixes
 
 * `[templates/nextjs-sxa]` Fix shown horizontal scrollbar in EE mode. ([#1625](https://github.com/Sitecore/jss/pull/1625)), ([#1626](https://github.com/Sitecore/jss/pull/1626))
