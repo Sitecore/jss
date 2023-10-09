@@ -19,8 +19,3 @@ import './generate-config';
   COMPONENT BUILDER GENERATION
 */
 import './generate-component-builder';
-
-/*
-  BYOC SETUP
-*/
-import './setup-byoc';
