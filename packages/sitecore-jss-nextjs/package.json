@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "21.5.0-canary.6",
+  "version": "21.6.0-canary.2",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -30,6 +30,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
+    "@sitecore/engage": "^1.4.0",
     "@types/chai": "^4.3.4",
     "@types/chai-as-promised": "^7.1.5",
     "@types/chai-string": "^1.4.2",
@@ -65,14 +66,15 @@
     "typescript": "~4.9.4"
   },
   "peerDependencies": {
+    "@sitecore/engage": "^1.4.0",
     "next": "^13.4.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "21.5.0-canary.6",
-    "@sitecore-jss/sitecore-jss-dev-tools": "21.5.0-canary.6",
-    "@sitecore-jss/sitecore-jss-react": "21.5.0-canary.6",
+    "@sitecore-jss/sitecore-jss": "21.6.0-canary.2",
+    "@sitecore-jss/sitecore-jss-dev-tools": "21.6.0-canary.2",
+    "@sitecore-jss/sitecore-jss-react": "21.6.0-canary.2",
     "@vercel/kv": "^0.2.1",
     "node-html-parser": "^6.1.4",
     "prop-types": "^15.8.1",
