@@ -26,6 +26,15 @@ interface ExtendedClientRequest extends ClientRequest {
   method: string;
 }
 
+/**
+ * When `followRedirects` is `true` proxyReq object has different type and properties which we need access to in case when incoming request is `HEAD`
+ */
+interface RedirectableRequest extends ClientRequest {
+  _currentRequest: {
+    method: string;
+  };
+}
+
 // For some reason, every other response returned by Sitecore contains the 'set-cookie' header with the SC_ANALYTICS_GLOBAL_COOKIE value as an empty string.
 // This effectively sets the cookie to empty on the client as well, so if a user were to close their browser
 // after one of these 'empty value' responses, they would not be tracked as a returning visitor after re-opening their browser.
@@ -517,15 +526,32 @@ function handleProxyRequest(
     | ((proxyReq: ClientRequest, req: Request, res: Response, options: ServerOptions) => void)
     | undefined
 ) {
+  const rewriteMessage = 'DEBUG: Rewriting HEAD request to GET to create accurate headers';
+
   // if a HEAD request, we still need to issue a GET so we can return accurate headers
-  if (
-    (proxyReq as ExtendedClientRequest).method === 'HEAD' &&
-    !isUrlIgnored((req as Request).originalUrl, config, true)
-  ) {
-    if (config.debug) {
-      console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
+  // proxyReq is of different type depending on the value of `followRedirects`, so we need to modify different property
+  if (config.proxyOptions?.followRedirects) {
+    if (
+      (proxyReq as RedirectableRequest)._currentRequest.method === 'HEAD' &&
+      !isUrlIgnored((req as Request).originalUrl, config, true)
+    ) {
+      if (config.debug) {
+        console.log(rewriteMessage);
+      }
+
+      (proxyReq as RedirectableRequest)._currentRequest.method = 'GET';
     }
-    (proxyReq as ExtendedClientRequest).method = 'GET';
+  } else {
+    if (
+      (proxyReq as ExtendedClientRequest).method === 'HEAD' &&
+      !isUrlIgnored((req as Request).originalUrl, config, true)
+    ) {
+      if (config.debug) {
+        console.log(rewriteMessage);
+      }
+
+      (proxyReq as ExtendedClientRequest).method = 'GET';
+    }
   }
   // invoke custom onProxyReq
   if (customOnProxyReq) {
