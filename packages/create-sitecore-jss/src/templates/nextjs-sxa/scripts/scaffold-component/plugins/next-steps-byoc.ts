@@ -15,7 +15,7 @@ class NextStepsByocPlugin implements ScaffoldComponentPlugin {
       );
       if (!(componentOutputPath as string).includes('src\\components')) {
         config.nextSteps.push(
-          `* Ensure component availability by importing it in your app through src/byoc-components or registration in scripts\\generate-component-builder`
+          `* Ensure component availability by importing it in your app through src/byoc-imports or registering it in scripts\\generate-component-builder`
         );
       }
     }

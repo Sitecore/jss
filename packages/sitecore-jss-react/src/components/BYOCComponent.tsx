@@ -122,13 +122,12 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
       },
       errorOverride: 'BYOC: This component was not registered.',
     };
-    // For now we'll make fallback client-only - to ensure client-only BYOC components won't cause 'missing' error frame in SSR
-    const fallbackComponent =
-      typeof window !== 'undefined' && this.props.missingComponentComponent ? (
-        <this.props.missingComponentComponent {...unRegisteredComponentProps} />
-      ) : (
-        <MissingComponent {...unRegisteredComponentProps} />
-      );
+    
+    const fallbackComponent = this.props.missingComponentComponent ? (
+      <this.props.missingComponentComponent {...unRegisteredComponentProps} />
+    ) : (
+      <MissingComponent {...unRegisteredComponentProps} />
+    );
 
     const ErrorComponent = this.props.errorComponent;
 
