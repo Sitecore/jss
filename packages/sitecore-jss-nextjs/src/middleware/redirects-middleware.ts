@@ -175,7 +175,8 @@ export class RedirectsMiddleware extends MiddlewareBase {
           redirect.pattern = `/^\/${redirect.pattern
             .replace(/^\/|\/$/g, '')
             .replace(/^\^\/|\/\$$/g, '')
-            .replace(/^\^|\$$/g, '')}$/gi`;
+            .replace(/^\^|\$$/g, '')
+            .replace(/\$\/gi$/g, '')}$/gi`;
 
           return (
             (regexParser(redirect.pattern).test(tragetURL) ||
