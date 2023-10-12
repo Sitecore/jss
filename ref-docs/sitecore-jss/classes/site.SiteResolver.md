@@ -37,7 +37,7 @@ Resolves site based on the provided host or site name
 
 #### Defined in
 
-[src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/8c2109f50/packages/sitecore-jss/src/site/site-resolver.ts#L13)
+[src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/a178ed5a1/packages/sitecore-jss/src/site/site-resolver.ts#L13)
 
 ## Properties
 
@@ -49,7 +49,7 @@ Array of sites to be used in resolution
 
 #### Defined in
 
-[src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/8c2109f50/packages/sitecore-jss/src/site/site-resolver.ts#L13)
+[src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/a178ed5a1/packages/sitecore-jss/src/site/site-resolver.ts#L13)
 
 ## Methods
 
@@ -77,7 +77,7 @@ the resolved site
 
 #### Defined in
 
-[src/site/site-resolver.ts:21](https://github.com/Sitecore/jss/blob/8c2109f50/packages/sitecore-jss/src/site/site-resolver.ts#L21)
+[src/site/site-resolver.ts:21](https://github.com/Sitecore/jss/blob/a178ed5a1/packages/sitecore-jss/src/site/site-resolver.ts#L21)
 
 ___
 
@@ -105,7 +105,7 @@ the resolved site
 
 #### Defined in
 
-[src/site/site-resolver.ts:36](https://github.com/Sitecore/jss/blob/8c2109f50/packages/sitecore-jss/src/site/site-resolver.ts#L36)
+[src/site/site-resolver.ts:36](https://github.com/Sitecore/jss/blob/a178ed5a1/packages/sitecore-jss/src/site/site-resolver.ts#L36)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[src/site/site-resolver.ts:48](https://github.com/Sitecore/jss/blob/8c2109f50/packages/sitecore-jss/src/site/site-resolver.ts#L48)
+[src/site/site-resolver.ts:48](https://github.com/Sitecore/jss/blob/a178ed5a1/packages/sitecore-jss/src/site/site-resolver.ts#L48)
 
 ___
 
@@ -140,4 +140,4 @@ ___
 
 #### Defined in
 
-[src/site/site-resolver.ts:80](https://github.com/Sitecore/jss/blob/8c2109f50/packages/sitecore-jss/src/site/site-resolver.ts#L80)
+[src/site/site-resolver.ts:80](https://github.com/Sitecore/jss/blob/a178ed5a1/packages/sitecore-jss/src/site/site-resolver.ts#L80)
