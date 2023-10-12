@@ -15,5 +15,5 @@ import '@sitecore/components/form';
  * import './MyClientComponent';
  */
 
-// Client components bundle exporting an empty ExternalComponent enables proper BYOC registration and prevents nextjs from optimizing components away
+// An important boilerplate component that prevents BYOC components from being optimized away. Should be kept in this file.
 export default (props: unknown) => FEAAS.ExternalComponent(props);
