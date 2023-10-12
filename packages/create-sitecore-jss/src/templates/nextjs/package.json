@@ -1,7 +1,7 @@
 {
   "name": "<%- appName %>",
   "description": "Application utilizing Sitecore JavaScript Services and Next.js",
-  "version": "20.1.3",
+  "version": "20.2.0-canary",
   "private": true,
   "config": {
     "appName": "<%- appName %>",

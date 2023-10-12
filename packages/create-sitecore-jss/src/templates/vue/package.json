@@ -1,6 +1,6 @@
 {
   "name": "<%- appName %>",
-  "version": "20.1.3",
+  "version": "20.2.0-canary",
   "description": "Application utilizing Sitecore JavaScript Services and Vue (vue-cli).",
   "private": true,
   "config": {
