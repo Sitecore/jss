@@ -6215,8 +6215,8 @@ __metadata:
   linkType: hard
 
 "@rjsf/utils@npm:*":
-  version: 5.13.0
-  resolution: "@rjsf/utils@npm:5.13.0"
+  version: 5.13.1
+  resolution: "@rjsf/utils@npm:5.13.1"
   dependencies:
     json-schema-merge-allof: ^0.8.1
     jsonpointer: ^5.0.1
@@ -6225,7 +6225,7 @@ __metadata:
     react-is: ^18.2.0
   peerDependencies:
     react: ^16.14.0 || >=17
-  checksum: 283e2b405eac2f4fdd243b2e35ade7e83a4bf7551eb5e075499e8eb5d3a3ae161e9c047bcf63d2e6fef7c6b2e7438f1a150f353b909df992e85194940c311f9b
+  checksum: bbdb6b7e8b8bb1b868f8fbab996e34e90de8552d7c9a706a05e4f2b323d5c4dd0a273677b2b38261e61fe4ca1cf586c4974954c3ac674cd79ceb1c90bd5bdbc3
   languageName: node
   linkType: hard
 
@@ -7841,13 +7841,13 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:^18.0.25":
-  version: 18.2.28
-  resolution: "@types/react@npm:18.2.28"
+  version: 18.0.25
+  resolution: "@types/react@npm:18.0.25"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 81381bedeba83278f4c9febb0b83e0bd3f42a25897a50b9cb36ef53651d34b3d50f87ebf11211ea57ea575131f85d31e93e496ce46478a00b0f9bf7b26b5917a
+  checksum: 231d658c45abdef044a716b4502774f1585d8336d73b2f5bd68f181acbfc874b7a457686ecd29b415b43ed0922c309bab7e2cf96832d188a3f4f1b02f2af760a
   languageName: node
   linkType: hard
 
