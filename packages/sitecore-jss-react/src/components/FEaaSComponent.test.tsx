@@ -141,9 +141,7 @@ describe('<FEaaSComponent />', () => {
       expect(output).to.contain(
         `<img data-path-src="sampleImage.src" data-path-alt="sampleImage.alt" src="${fields.sampleImage.value.src}" alt="${fields.sampleImage.value.alt}"/>`
       );
-      expect(output).to.contain(
-        `<p data-path="sampleNumber">${fields.sampleNumber.value}</p>`
-      );
+      expect(output).to.contain(`<p data-path="sampleNumber">${fields.sampleNumber.value}</p>`);
       expect(output).to.contain(
         `<a data-path-href="sampleLink.href" data-path-id="sampleLink.id" href="${fields.sampleLink.value.href}" id="${fields.sampleLink.value.id}"></a>`
       );
