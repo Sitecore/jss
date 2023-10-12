@@ -14,12 +14,15 @@ export const queryError =
 /** @private */
 export const languageError = 'The list of languages cannot be empty';
 
+/** @private */
+const languageEmptyError = 'The language must be a non-empty string';
+
 // Even though _hasLayout should always be "true" in this query, using a variable is necessary for compatibility with Edge
 const defaultQuery = /* GraphQL */ `
   query SitemapQuery(
     $rootItemId: String!
     $language: String!
-    $pageSize: Int = 10
+    $pageSize: Int = 100
     $hasLayout: String = "true"
     $after: String
   ) {
@@ -173,23 +176,29 @@ export class GraphQLSitemapService {
       throw new Error(queryError);
     }
 
-    // Fetch paths using all locales
-    const paths = await Promise.all(
-      languages.map((language) => {
-        debug.sitemap('fetching sitemap data for %s', language);
-        return this.searchService
-          .fetch(this.query, {
-            rootItemId,
-            language,
-            pageSize: this.options.pageSize,
-          })
-          .then((results) => {
-            return results.map((item) =>
-              formatStaticPath(item.url.path.replace(/^\/|\/$/g, '').split('/'), language)
-            );
-          });
-      })
-    );
+    const paths: StaticPath[] = [];
+
+    for (const language of languages) {
+      if (language === '') {
+        throw new RangeError(languageEmptyError);
+      }
+
+      debug.sitemap('fetching sitemap data for %s', language);
+
+      const languagePaths = await this.searchService
+        .fetch(this.query, {
+          rootItemId,
+          language,
+          pageSize: this.options.pageSize,
+        })
+        .then((results) => {
+          return results.map((item) =>
+            formatStaticPath(item.url.path.replace(/^\/|\/$/g, '').split('/'), language)
+          );
+        });
+
+      paths.push(...languagePaths);
+    }
 
     // merge promises results into single result
     return ([] as StaticPath[]).concat(...paths);
