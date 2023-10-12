@@ -13,6 +13,10 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
+* `[templates/nextjs]` Enable client-only BYOC component imports. Client-only components can be imported through src/byoc-imports/index.client.ts. Hybrid (server render with client hydration) components can be imported through src/byoc-imports/index.hybrid.ts. BYOC scaffold logic is also moved from nextjs-sxa addon into base template ([#1628](https://github.com/Sitecore/jss/pull/1628))
+
+* `[templates/nextjs]` Import SitecoreForm component into sample nextjs app ([#1628](https://github.com/Sitecore/jss/pull/1628))
+
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-proxy]` Setting "followRedirects" to "true" breaks HEAD requests ([#1630](https://github.com/Sitecore/jss/pull/1630))
