@@ -7,6 +7,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ### 🎉 New Features & Improvements
 
+* `[sitecore-jss]` `[templates/nextjs]` GraphQL Layout and Dictionary services can handle endpoint rate limits through retryer functionality in GraphQLClient. To prevent SSG builds from failing and enable multiple retries, set retry amount in lib/dictionary-service-factory and lib/layout-service-factory ([#1618](https://github.com/Sitecore/jss/pull/1618))
 `[sitecore-jss-nextjs]` Reduce the amount of Edge API calls during fetch getStaticPaths ([#1612](https://github.com/Sitecore/jss/pull/1612))
 
 ## 20.1.0

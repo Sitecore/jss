@@ -14,6 +14,10 @@ class ErrorPagesPlugin implements Plugin {
       apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,
       language: props.locale,
+      retries:
+        (process.env.GRAPH_QL_SERVICE_RETRIES &&
+          parseInt(process.env.GRAPH_QL_SERVICE_RETRIES, 10)) ||
+        0,
     });
 
     if (props.notFound) {
