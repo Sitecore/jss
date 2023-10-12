@@ -7,6 +7,8 @@ title: Component-level data fetching
 
 Next.js provides the ability to pre-render pages at build time using [`getStaticProps`](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) or on each request using [`getServerSideProps`](https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering). It expects you to fetch all required data in `getStaticProps`/`getServerSideProps`. We provide the ability to fetch page-level data using the [`SitecorePagePropsFactory`](./data-services). 
 
+> Component-level `getStaticProps` and `getServerSideProps` functions are included in the client-side bundle. Any imports they depend on are also included in the client-side bundle, even if the client-side code does not use the imports. Do not include any secrets, or sensitive information you don't want to expose. This does not affect page-level `getStaticProps` and `getServerSideProps` functions.
+
 We can therefore pre-render pages with data fetched on the page level. But what if we want to fetch component-specific data at the component level? 
 
 In the JSS Next.js sample application, we provide a simple way to fetch component-specific data at the component level. 
