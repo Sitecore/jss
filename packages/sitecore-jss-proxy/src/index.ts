@@ -1,5 +1,5 @@
 import { IncomingMessage, ServerResponse, ClientRequest, IncomingHttpHeaders } from 'http';
-import { Request, Response } from 'express';
+import { Request, RequestHandler, Response } from 'express';
 import { ServerOptions } from 'http-proxy';
 import { createProxyMiddleware, Options } from 'http-proxy-middleware';
 import HttpStatus from 'http-status-codes';
@@ -11,19 +11,9 @@ import { RenderResponse } from './RenderResponse';
 import { RouteUrlParser } from './RouteUrlParser';
 import { buildQueryString, tryParseJson } from './util';
 
-/**
- * Extends IncomingMessage as it should contain these properties but they are not provided in types
- */
-export interface ProxyIncomingMessage extends IncomingMessage {
-  originalUrl: string;
-  query: { [key: string]: string | number | boolean };
-}
-
-/**
- * Extends ClientRequest as it should contain `method` but it's not provided in types
- */
-interface ExtendedClientRequest extends ClientRequest {
-  method: string;
+interface ExtendedRequest extends Request {
+  // Custom property we set to keep an original method when we swap 'HEAD' with 'GET'
+  originalMethod?: string;
 }
 
 // For some reason, every other response returned by Sitecore contains the 'set-cookie' header with the SC_ANALYTICS_GLOBAL_COOKIE value as an empty string.
@@ -330,8 +320,8 @@ function handleProxyResponse(
 
   if (config.debug) {
     console.log('DEBUG: request url', request.url);
-    console.log('DEBUG: request query', (request as ProxyIncomingMessage).query);
-    console.log('DEBUG: request original url', (request as ProxyIncomingMessage).originalUrl);
+    console.log('DEBUG: request query', request.query);
+    console.log('DEBUG: request original url', request.originalUrl);
     console.log('DEBUG: proxied request response code', proxyResponse.statusCode);
     console.log('DEBUG: RAW request headers', JSON.stringify(request.headers, null, 2));
     console.log(
@@ -342,7 +332,7 @@ function handleProxyResponse(
 
   // if the request URL contains any of the excluded rewrite routes, we assume the response does not need to be server rendered.
   // instead, the response should just be relayed as usual.
-  if (isUrlIgnored((request as ProxyIncomingMessage).originalUrl, config, true)) {
+  if (isUrlIgnored(request.originalUrl, config, true)) {
     return Promise.resolve(undefined);
   }
 
@@ -385,7 +375,7 @@ export function rewriteRequestPath(
   const qsIndex = finalReqPath.indexOf('?');
   let qs = '';
   if (qsIndex > -1 || Object.keys(req.query).length) {
-    qs = buildQueryString((req as ProxyIncomingMessage).query);
+    qs = buildQueryString(req.query as { [key: string]: string | number | boolean });
     // Splice qs part when url contains that
     if (qsIndex > -1) finalReqPath = finalReqPath.slice(0, qsIndex);
   }
@@ -509,7 +499,7 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug = false)
  */
 function handleProxyRequest(
   proxyReq: ClientRequest,
-  req: Request,
+  req: ExtendedRequest,
   res: Response,
   options: ServerOptions,
   config: ProxyConfig,
@@ -517,16 +507,26 @@ function handleProxyRequest(
     | ((proxyReq: ClientRequest, req: Request, res: Response, options: ServerOptions) => void)
     | undefined
 ) {
-  // if a HEAD request, we still need to issue a GET so we can return accurate headers
-  if (
-    (proxyReq as ExtendedClientRequest).method === 'HEAD' &&
-    !isUrlIgnored((req as Request).originalUrl, config, true)
-  ) {
-    if (config.debug) {
-      console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
+  if (!isUrlIgnored(req.originalUrl, config, true)) {
+    // In case 'followRedirects' is enabled, and before the proxy was initialized we had set 'originalMethod'
+    // now we need to set req.method back to original one, since proxyReq is already initialized.
+    // See more info in 'preProxyHandler'
+    if (options.followRedirects && req.originalMethod === 'HEAD') {
+      req.method = req.originalMethod;
+      delete req.originalMethod;
+
+      if (config.debug) {
+        console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
+      }
+    } else if (proxyReq.method === 'HEAD' && !isUrlIgnored(req.originalUrl, config, true)) {
+      if (config.debug) {
+        console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
+      }
+      // if a HEAD request, we still need to issue a GET so we can return accurate headers
+      proxyReq.method = 'GET';
     }
-    (proxyReq as ExtendedClientRequest).method = 'GET';
   }
+
   // invoke custom onProxyReq
   if (customOnProxyReq) {
     customOnProxyReq(proxyReq, req, res, options);
@@ -583,7 +583,26 @@ export default function scProxy(
   parseRouteUrl: RouteUrlParser
 ) {
   const options = createOptions(renderer, config, parseRouteUrl);
-  return createProxyMiddleware(options);
+
+  const preProxyHandler: RequestHandler = (req, _res, next) => {
+    // When 'followRedirects' is enabled, 'onProxyReq' is executed after 'proxyReq' is initialized based on original 'req'
+    // and there are no public properties/methods to modify Redirectable 'proxyReq'.
+    // so, we need to set 'HEAD' req as 'GET' before the proxy is initialized.
+    // During the 'onProxyReq' event we will set 'req.method' back as 'HEAD'.
+    // if a HEAD request, we need to issue a GET so we can return accurate headers
+    if (
+      req.method === 'HEAD' &&
+      options.followRedirects &&
+      !isUrlIgnored(req.originalUrl, config, true)
+    ) {
+      req.method = 'GET';
+      (req as ExtendedRequest).originalMethod = 'HEAD';
+    }
+
+    next();
+  };
+
+  return [preProxyHandler, createProxyMiddleware(options)];
 }
 
 export { ProxyConfig, ServerBundle };
