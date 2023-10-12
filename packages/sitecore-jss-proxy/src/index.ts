@@ -518,7 +518,7 @@ function handleProxyRequest(
       if (config.debug) {
         console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
       }
-    } else if (proxyReq.method === 'HEAD' && !isUrlIgnored(req.originalUrl, config, true)) {
+    } else if (proxyReq.method === 'HEAD') {
       if (config.debug) {
         console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
       }
