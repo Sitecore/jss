@@ -1,3 +1,4 @@
+/* eslint-disable dot-notation */
 /* eslint-disable no-unused-expressions */
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
@@ -116,5 +117,64 @@ describe('GraphQLRequestClient', () => {
         `Error: Invalid GraphQL endpoint '${endpoint}'. Verify that 'layoutServiceHost' property in 'scjssconfig.json' file or appropriate environment variable is set`
       );
     }
+  });
+
+  it('should use retry and throw error when retries specified', async function() {
+    this.timeout(6000);
+    nock('http://jssnextweb')
+      .post('/graphql')
+      .reply(429)
+      .post('/graphql')
+      .reply(429)
+      .post('/graphql')
+      .reply(429);
+    const graphQLClient = new GraphQLRequestClient(endpoint, { retries: 2 });
+    spy.on(graphQLClient['client'], 'request');
+    await graphQLClient.request('test').catch((error) => {
+      expect(error).to.not.be.undefined;
+      expect(graphQLClient['client'].request).to.be.called.exactly(3);
+      spy.restore(graphQLClient);
+    });
+  });
+
+  it('should use retry and resolve if one of the requests resolves', async function() {
+    this.timeout(6000);
+    nock('http://jssnextweb')
+      .post('/graphql')
+      .reply(429)
+      .post('/graphql')
+      .reply(429)
+      .post('/graphql')
+      .reply(200, {
+        data: {
+          result: 'Hello world...',
+        },
+      });
+    const graphQLClient = new GraphQLRequestClient(endpoint, { retries: 3 });
+    spy.on(graphQLClient['client'], 'request');
+
+    const data = await graphQLClient.request('test');
+
+    expect(data).to.not.be.null;
+    expect(graphQLClient['client'].request).to.be.called.exactly(3);
+    spy.restore(graphQLClient);
+  });
+
+  it('should use [retry-after] header value when response is 429', async function() {
+    this.timeout(6000);
+    nock('http://jssnextweb')
+      .post('/graphql')
+      .reply(429, {}, { 'Retry-After': '2' });
+    const graphQLClient = new GraphQLRequestClient(endpoint, { retries: 1 });
+    spy.on(graphQLClient, 'debug');
+
+    await graphQLClient.request('test').catch(() => {
+      expect(graphQLClient['debug']).to.have.been.called.with(
+        'Error: Rate limit reached for GraphQL endpoint. Retrying in %ds. Retries left: %d',
+        2,
+        1
+      );
+      spy.restore(graphQLClient);
+    });
   });
 });

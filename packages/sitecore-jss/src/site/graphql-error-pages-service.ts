@@ -1,4 +1,4 @@
-import { GraphQLClient, GraphQLRequestClient } from '../graphql';
+import { GraphQLClient, GraphQLRequestClient, GraphQLRequestClientConfig } from '../graphql';
 import { siteNameError } from '../constants';
 import debug from '../debug';
 
@@ -16,7 +16,7 @@ const defaultQuery = /* GraphQL */ `
   }
 `;
 
-export type GraphQLErrorPagesServiceConfig = {
+export type GraphQLErrorPagesServiceConfig = Pick<GraphQLRequestClientConfig, 'retries'> & {
   /**
    * Your Graphql endpoint
    */
@@ -98,6 +98,7 @@ export class GraphQLErrorPagesService {
     return new GraphQLRequestClient(this.options.endpoint, {
       apiKey: this.options.apiKey,
       debugger: debug.errorpages,
+      retries: this.options.retries,
     });
   }
 }

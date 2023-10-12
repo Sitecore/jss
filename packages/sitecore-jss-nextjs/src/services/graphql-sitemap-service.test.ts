@@ -232,6 +232,17 @@ describe('GraphQLSitemapService', () => {
       });
     });
 
+    it('should throw error if empty language is provided', async () => {
+      mockPathsRequest();
+
+      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      await service.fetchSSGSitemap(['']).catch((error: RangeError) => {
+        expect(error.message).to.equal('The language must be a non-empty string');
+      });
+
+      return expect(nock.isDone()).to.be.false;
+    });
+
     it('should use a custom pageSize, if provided', async () => {
       const customPageSize = 20;
 
@@ -257,7 +268,7 @@ describe('GraphQLSitemapService', () => {
         .post(
           '/',
           (body) =>
-            body.query.indexOf('$pageSize: Int = 10') > 0 && body.variables.pageSize === undefined
+            body.query.indexOf('$pageSize: Int = 100') > 0 && body.variables.pageSize === undefined
         )
         .reply(200, sitemapQueryResult);
 

@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file. The format 
 
 This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), and major versions of this project denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the [Sitecore modules compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1000576) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for more details on versioning.
 
+## 20.2.0
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss]` `[templates/nextjs]` GraphQL Layout and Dictionary services can handle endpoint rate limits through retryer functionality in GraphQLClient. To prevent SSG builds from failing and enable multiple retries, set retry amount in lib/dictionary-service-factory and lib/layout-service-factory ([commit](https://github.com/Sitecore/jss/pull/1631/commits/d39d74ad7bbeddcb66b7de4377070e178851abc5))([#1631](https://github.com/Sitecore/jss/pull/1631))
+* `[sitecore-jss-nextjs]` Reduce the amount of Edge API calls during fetch getStaticPaths ([commit](https://github.com/Sitecore/jss/pull/1631/commits/cd2771b256ac7c38818ee6bea48278958ac455ca))([#1631](https://github.com/Sitecore/jss/pull/1631))
+
 ## 20.1.0
 
 ### 🎉 New Features & Improvements
