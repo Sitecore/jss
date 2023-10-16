@@ -67,8 +67,6 @@ export type ExperienceParams = {
 
 /**
  * Middleware / handler to support Sitecore Personalize
- * @param req
- * @param res
  */
 export class PersonalizeMiddleware extends MiddlewareBase {
   private personalizeService: GraphQLPersonalizeService;
@@ -256,7 +254,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     // Disable preflight caching to force revalidation on client-side navigation (personalization may be influenced)
     // See https://github.com/vercel/next.js/issues/32727
     response.headers.set('x-middleware-cache', 'no-cache');
-    // Share rewrite path with following executed middlewaressni
+    // Share rewrite path with following executed middleware
     response.headers.set('x-sc-rewrite', rewritePath);
     // Share site name with the following executed middlewares
     response.cookies.set(this.SITE_SYMBOL, site.name);
