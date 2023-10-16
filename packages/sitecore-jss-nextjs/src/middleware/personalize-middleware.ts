@@ -67,6 +67,8 @@ export type ExperienceParams = {
 
 /**
  * Middleware / handler to support Sitecore Personalize
+ * @param req
+ * @param res
  */
 export class PersonalizeMiddleware extends MiddlewareBase {
   private personalizeService: GraphQLPersonalizeService;
@@ -101,13 +103,18 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     };
   }
 
-  protected initializeEngageServer(site: SiteInfo, language: string): EngageServer {
+  protected initializeEngageServer(
+    hostName: string,
+    site: SiteInfo,
+    language: string
+  ): EngageServer {
     const engageServer = initServer({
       clientKey: this.config.cdpConfig.clientKey,
       targetURL: this.config.cdpConfig.endpoint,
       pointOfSale: this.config.getPointOfSale
         ? this.config.getPointOfSale(site, language)
         : PosResolver.resolve(site, language),
+      cookieDomain: hostName,
       forceServerCookieMode: true,
     });
 
@@ -171,16 +178,6 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     }
 
     const site = this.getSite(req, response);
-    const engageServer = this.initializeEngageServer(site, language);
-
-    // creates the browser ID cookie on the server side
-    // and includes the cookie in the response header
-    try {
-      await engageServer.handleCookie(req, response, timeout);
-    } catch (error) {
-      debug.personalize('skipped (browser id generation failed)');
-      throw error;
-    }
 
     // Get personalization info from Experience Edge
     const personalizeInfo = await this.personalizeService.getPersonalizeInfo(
@@ -199,6 +196,16 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       return response;
     }
 
+    const engageServer = this.initializeEngageServer(hostname, site, language);
+
+    // creates the browser ID cookie on the server side
+    // and includes the cookie in the response header
+    try {
+      await engageServer.handleCookie(req, response, timeout);
+    } catch (error) {
+      debug.personalize('skipped (browser id generation failed)');
+      throw error;
+    }
     const params = this.getExperienceParams(req);
 
     debug.personalize('executing experience for %s %s %o', personalizeInfo.contentId, params);
@@ -240,17 +247,23 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     const rewritePath = getPersonalizedRewrite(basePath, { variantId });
     // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
     const rewriteUrl = req.nextUrl.clone();
+
     rewriteUrl.pathname = rewritePath;
-    response = NextResponse.rewrite(rewriteUrl);
+    response = NextResponse.rewrite(rewriteUrl, response);
+
+    const setCookieHeader = response.headers.get('set-cookie');
 
     // Disable preflight caching to force revalidation on client-side navigation (personalization may be influenced)
     // See https://github.com/vercel/next.js/issues/32727
     response.headers.set('x-middleware-cache', 'no-cache');
-    // Share rewrite path with following executed middlewares
+    // Share rewrite path with following executed middlewaressni
     response.headers.set('x-sc-rewrite', rewritePath);
-
     // Share site name with the following executed middlewares
     response.cookies.set(this.SITE_SYMBOL, site.name);
+
+    if (setCookieHeader) {
+      response.headers.set('set-cookie', setCookieHeader);
+    }
 
     debug.personalize('personalize middleware end in %dms: %o', Date.now() - startTimestamp, {
       rewritePath,
