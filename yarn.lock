@@ -6904,7 +6904,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-
 "@sitecore/byoc@npm:>=0.0.17":
   version: 0.0.17
   resolution: "@sitecore/byoc@npm:0.0.17"
