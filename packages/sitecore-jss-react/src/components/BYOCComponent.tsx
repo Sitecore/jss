@@ -153,10 +153,11 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
         componentProps = props.fields ? getDataFromFields(props.fields) : {};
       }
     }
+    // we render fallback on client to avoid problems with client-only components
     return (
       <FEAAS.ExternalComponent
         componentName={componentName}
-        fallback={fallbackComponent}
+        clientFallback={fallbackComponent}
         {...componentProps}
       />
     );

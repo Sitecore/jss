@@ -11,6 +11,8 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 import Scripts from 'src/Scripts';
+// The bundle imports external (BYOC) components into the app and makes sure they are ready to be used.
+import ExternalComponentBundle from 'src/byoc-imports';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -35,6 +37,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
   return (
     <>
       <Scripts />
+      <ExternalComponentBundle />
       <Head>
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
