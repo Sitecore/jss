@@ -263,13 +263,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     // Restore cookies from previous response since 
     // browserId cookie gets omitted after rewrite
     cookies.forEach((cookie) => {
-      response.cookies.set(cookie.name, cookie.value, {
-        domain: cookie.domain,
-        expires: cookie.expires,
-        maxAge: cookie.maxAge,
-        sameSite: cookie.sameSite,
-        secure: cookie.secure,
-      });
+      response.cookies.set(cookie);
     });
 
     debug.personalize('personalize middleware end in %dms: %o', Date.now() - startTimestamp, {
