@@ -245,7 +245,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     const rewritePath = getPersonalizedRewrite(basePath, { variantId });
     // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
     const rewriteUrl = req.nextUrl.clone();
-    
+
     // Preserve cookies from previous response
     const cookies = response.cookies.getAll();
 
@@ -260,7 +260,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     // Share site name with the following executed middlewares
     response.cookies.set(this.SITE_SYMBOL, site.name);
 
-    // Restore cookies from previous response since 
+    // Restore cookies from previous response since
     // browserId cookie gets omitted after rewrite
     cookies.forEach((cookie) => {
       response.cookies.set(cookie);
