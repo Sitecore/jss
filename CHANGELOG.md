@@ -17,7 +17,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Changes
 
-* `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade of @sitecore/engage to 1.4.0, now this dependency has been added as a peer dependency to @sitecore-jss-nextjs package in order to replace the existing CDP service in the @sitecore-jss/sitecore-jss with the new functions/features introduced in the engage SDK. ([#1609](https://github.com/Sitecore/jss/pull/1609))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade of @sitecore/engage to 1.4.0, now this dependency has been added as a peer dependency to @sitecore-jss-nextjs package in order to replace the existing CDP service in the @sitecore-jss/sitecore-jss with the new functions/features introduced in the engage SDK. ([#1609](https://github.com/Sitecore/jss/pull/1609)) ([#1633](https://github.com/Sitecore/jss/pull/1633))
 
 ## 21.4.0
 
