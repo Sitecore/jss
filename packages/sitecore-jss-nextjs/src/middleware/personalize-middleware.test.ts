@@ -114,6 +114,9 @@ describe('PersonalizeMiddleware', () => {
         get(key) {
           return { value: res.cookies[key] };
         },
+        getAll() {
+          return Object.keys(res.cookies).map((key) => ({ name: key, value: res.cookies[key] }));
+        },
         ...props.cookieValues,
       },
       headers: {
@@ -799,7 +802,7 @@ describe('PersonalizeMiddleware', () => {
 
       const finalRes = await middleware.getHandler()(req, res);
 
-      expect(engageServer.called).to.be.true;
+      expect(engageServer.called).to.be.false;
 
       expect(getPersonalizeInfo.called).to.be.true;
       expect(errorSpy.getCall(0).calledWith('Personalize middleware failed:')).to.be.true;

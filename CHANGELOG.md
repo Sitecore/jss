@@ -23,6 +23,16 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Fix shown horizontal scrollbar in EE mode. ([#1625](https://github.com/Sitecore/jss/pull/1625)), ([#1626](https://github.com/Sitecore/jss/pull/1626))
 * `[sitecore-jss-nextjs]` Fix issue when redirects works each every other times. ([#1629](https://github.com/Sitecore/jss/pull/1629))
 
+## 21.5.0
+
+### 🐛 Bug Fixes
+
+* `[templates/nextjs-personalize]` Fix cookie domain for localhost ([#1609](https://github.com/Sitecore/jss/pull/1609)) 
+
+### 🛠 Breaking Changes
+
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade of @sitecore/engage to 1.4.0, now this dependency has been added as a peer dependency to @sitecore-jss-nextjs package in order to replace the existing CDP service in the @sitecore-jss/sitecore-jss with the new functions/features introduced in the engage SDK. ([#1609](https://github.com/Sitecore/jss/pull/1609)) ([#1633](https://github.com/Sitecore/jss/pull/1633))
+
 ## 21.4.0
 
 ### 🎉 New Features & Improvements
@@ -68,13 +78,8 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Don't let Image component wrap <img> with <a> tag when TargetUrl is not configured. ([#1593](https://github.com/Sitecore/jss/issues/1593))
 * `[templates/nextjs]` Next config header plugin for CORS. ([#1597](https://github.com/Sitecore/jss/pull/1597))
 * `[templates/nextjs]` Ensure dictionary data is only fetched when layout data is present for a route ([#1608](https://github.com/Sitecore/jss/pull/1608)) 
-* `[templates/nextjs-personalize]` Fix cookie domain for localhost ([#1609](https://github.com/Sitecore/jss/pull/1609)) 
 * `[sitecore-jss-react-forms]` Form should be blocked while submit is in progress to avoid submit spam ([#1611](https://github.com/Sitecore/jss/pull/1611))
 * `[templates/nextjs]` Fix linting errors, fix type error by upgrading @react/types to v18.2.22 ([#1613](https://github.com/Sitecore/jss/pull/1613))
-
-### 🛠 Breaking Changes
-
-* `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade @sitecore/engage to 1.4.0 also, this dependency has been added to @sitecore-jss-nextjs package to make use of the latest features from the SDK.  ([#1609](https://github.com/Sitecore/jss/pull/1609))
 
 ## 21.3.1
 
