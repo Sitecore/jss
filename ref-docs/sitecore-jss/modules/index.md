@@ -46,7 +46,7 @@
 
 #### Defined in
 
-[src/axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/c30972e72/packages/sitecore-jss/src/axios-fetcher.ts#L35)
+[src/axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/878424c53/packages/sitecore-jss/src/axios-fetcher.ts#L35)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/debug.ts:6](https://github.com/Sitecore/jss/blob/c30972e72/packages/sitecore-jss/src/debug.ts#L6)
+[src/debug.ts:6](https://github.com/Sitecore/jss/blob/878424c53/packages/sitecore-jss/src/debug.ts#L6)
 
 ___
 
@@ -82,7 +82,7 @@ GraphQLClient
 
 #### Defined in
 
-[src/graphql-request-client.ts:22](https://github.com/Sitecore/jss/blob/c30972e72/packages/sitecore-jss/src/graphql-request-client.ts#L22)
+[src/graphql-request-client.ts:22](https://github.com/Sitecore/jss/blob/878424c53/packages/sitecore-jss/src/graphql-request-client.ts#L22)
 
 ___
 
@@ -94,7 +94,7 @@ Html <link> tag data model
 
 #### Defined in
 
-[src/models.ts:4](https://github.com/Sitecore/jss/blob/c30972e72/packages/sitecore-jss/src/models.ts#L4)
+[src/models.ts:4](https://github.com/Sitecore/jss/blob/878424c53/packages/sitecore-jss/src/models.ts#L4)
 
 ___
 
@@ -133,7 +133,7 @@ The interface implementation must:
 
 #### Defined in
 
-[src/data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/c30972e72/packages/sitecore-jss/src/data-fetcher.ts#L26)
+[src/data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/878424c53/packages/sitecore-jss/src/data-fetcher.ts#L26)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[src/native-fetcher.ts:20](https://github.com/Sitecore/jss/blob/c30972e72/packages/sitecore-jss/src/native-fetcher.ts#L20)
+[src/native-fetcher.ts:20](https://github.com/Sitecore/jss/blob/878424c53/packages/sitecore-jss/src/native-fetcher.ts#L20)
 
 ## Variables
 
@@ -172,7 +172,7 @@ See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) f
 
 #### Defined in
 
-[src/debug.ts:30](https://github.com/Sitecore/jss/blob/c30972e72/packages/sitecore-jss/src/debug.ts#L30)
+[src/debug.ts:30](https://github.com/Sitecore/jss/blob/878424c53/packages/sitecore-jss/src/debug.ts#L30)
 
 ## Functions
 
@@ -194,7 +194,7 @@ Enable debug logging dynamically
 
 #### Defined in
 
-[src/debug.ts:24](https://github.com/Sitecore/jss/blob/c30972e72/packages/sitecore-jss/src/debug.ts#L24)
+[src/debug.ts:24](https://github.com/Sitecore/jss/blob/878424c53/packages/sitecore-jss/src/debug.ts#L24)
 
 ___
 
@@ -222,4 +222,4 @@ ___
 
 #### Defined in
 
-[src/data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/c30972e72/packages/sitecore-jss/src/data-fetcher.ts#L57)
+[src/data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/878424c53/packages/sitecore-jss/src/data-fetcher.ts#L57)
