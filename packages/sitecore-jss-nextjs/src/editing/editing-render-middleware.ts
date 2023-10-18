@@ -4,11 +4,12 @@ import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EDITING_COMPONENT_ID, RenderingType } from '@sitecore-jss/sitecore-jss/layout';
 import { parse } from 'node-html-parser';
 import { EditingData } from './editing-data';
+import { EditingDataService, editingDataService } from './editing-data-service';
 import {
-  EditingDataService,
-  editingDataService,
   QUERY_PARAM_EDITING_SECRET,
-} from './editing-data-service';
+  QUERY_PARAM_PROTECTION_BYPASS_SITECORE,
+  QUERY_PARAM_PROTECTION_BYPASS_VERCEL,
+} from './constants';
 import { getJssEditingSecret } from '../utils/utils';
 
 export interface EditingRenderMiddlewareConfig {
@@ -75,6 +76,28 @@ export class EditingRenderMiddleware {
     return this.handler;
   }
 
+  /**
+   * Gets query parameters that should be passed along to subsequent requests
+   * @param query Object of query parameters from incoming URL
+   * @returns Object of approved query parameters
+   */
+  protected getQueryParamsForPropagation = (
+    query: Partial<{ [key: string]: string | string[] }>
+  ): { [key: string]: string } => {
+    const params: { [key: string]: string } = {};
+    if (query[QUERY_PARAM_PROTECTION_BYPASS_SITECORE]) {
+      params[QUERY_PARAM_PROTECTION_BYPASS_SITECORE] = query[
+        QUERY_PARAM_PROTECTION_BYPASS_SITECORE
+      ] as string;
+    }
+    if (query[QUERY_PARAM_PROTECTION_BYPASS_VERCEL]) {
+      params[QUERY_PARAM_PROTECTION_BYPASS_VERCEL] = query[
+        QUERY_PARAM_PROTECTION_BYPASS_VERCEL
+      ] as string;
+    }
+    return params;
+  };
+
   private handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
     const { method, query, body, headers } = req;
 
@@ -115,10 +138,17 @@ export class EditingRenderMiddleware {
       // Resolve server URL
       const serverUrl = this.resolveServerUrl(req);
 
+      // Get query string parameters to propagate on subsequent requests (e.g. for deployment protection bypass)
+      const params = this.getQueryParamsForPropagation(query);
+
       // Stash for use later on (i.e. within getStatic/ServerSideProps).
       // Note we can't set this directly in setPreviewData since it's stored as a cookie (2KB limit)
       // https://nextjs.org/docs/advanced-features/preview-mode#previewdata-size-limits)
-      const previewData = await this.editingDataService.setEditingData(editingData, serverUrl);
+      const previewData = await this.editingDataService.setEditingData(
+        editingData,
+        serverUrl,
+        params
+      );
 
       // Enable Next.js Preview Mode, passing our preview data (i.e. editingData cache key)
       res.setPreviewData(previewData);
@@ -126,13 +156,18 @@ export class EditingRenderMiddleware {
       // Grab the Next.js preview cookies to send on to the render request
       const cookies = res.getHeader('Set-Cookie') as string[];
 
-      // Make actual render request for page route, passing on preview cookies.
+      // Make actual render request for page route, passing on preview cookies as well as any approved query string parameters.
       // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
-      const requestUrl = this.resolvePageUrl(serverUrl, editingData.path);
       debug.editing('fetching page route for %s', editingData.path);
-      const queryStringCharacter = requestUrl.indexOf('?') === -1 ? '?' : '&';
+      const requestUrl = new URL(this.resolvePageUrl(serverUrl, editingData.path));
+      for (const key in params) {
+        if ({}.hasOwnProperty.call(params, key)) {
+          requestUrl.searchParams.append(key, params[key]);
+        }
+      }
+      requestUrl.searchParams.append('timestamp', Date.now().toString());
       const pageRes = await this.dataFetcher
-        .get<string>(`${requestUrl}${queryStringCharacter}timestamp=${Date.now()}`, {
+        .get<string>(requestUrl.toString(), {
           headers: {
             Cookie: cookies.join(';'),
           },
@@ -149,7 +184,7 @@ export class EditingRenderMiddleware {
 
       let html = pageRes.data;
       if (!html || html.length === 0) {
-        throw new Error(`Failed to render html for ${requestUrl}`);
+        throw new Error(`Failed to render html for ${editingData.path}`);
       }
 
       // replace phkey attribute with key attribute so that newly added renderings
@@ -168,7 +203,7 @@ export class EditingRenderMiddleware {
         // Handle component rendering. Extract component markup only
         html = parse(html).getElementById(EDITING_COMPONENT_ID)?.innerHTML;
 
-        if (!html) throw new Error(`Failed to render component for ${requestUrl}`);
+        if (!html) throw new Error(`Failed to render component for ${editingData.path}`);
       }
 
       const body = { html };
