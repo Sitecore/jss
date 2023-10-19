@@ -8,6 +8,8 @@ import * as FEAAS from '@sitecore-feaas/clientside/react';
 // SitecoreForm component which enables new Sitecore Forms for XMCloud functionality. Requires a license to be available in Pages.
 // Sitecore Forms for Sitecore XP are still available separately via @sitecore-jss-forms package
 import '@sitecore/components/form';
+import React from 'react';
+import { ComponentProps } from 'react';
 
 /**
  * End of built-in JSS imports
@@ -16,4 +18,6 @@ import '@sitecore/components/form';
  */
 
 // An important boilerplate component that prevents BYOC components from being optimized away. Should be kept in this file.
-export default (props: unknown) => FEAAS.ExternalComponent(props);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DefaultExport = (props: ComponentProps<any>) => FEAAS.ExternalComponent(props) || <></>;
+export default DefaultExport;
