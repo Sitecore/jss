@@ -19,5 +19,5 @@ import { ComponentProps } from 'react';
 
 // An important boilerplate component that prevents BYOC components from being optimized away. Should be kept in this file.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const DefaultExport = (props: ComponentProps<any>) => FEAAS.ExternalComponent(props) || <></>;
+const DefaultExport = (props: ComponentProps) => FEAAS.ExternalComponent(props) || <></>;
 export default DefaultExport;
