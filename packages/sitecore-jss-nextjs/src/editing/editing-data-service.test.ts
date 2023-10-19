@@ -8,9 +8,9 @@ import { EditingDataCache } from './editing-data-cache';
 import {
   ServerlessEditingDataService,
   BasicEditingDataService,
-  QUERY_PARAM_EDITING_SECRET,
   generateKey,
 } from './editing-data-service';
+import { QUERY_PARAM_EDITING_SECRET } from './constants';
 import sinonChai from 'sinon-chai';
 import { spy } from 'sinon';
 
@@ -93,6 +93,29 @@ describe('ServerlessEditingDataService', () => {
       });
     });
 
+    it('should invoke PUT request with extra params and return in preview data', async () => {
+      const data = {
+        path: '/styleguide',
+      } as EditingData;
+      const key = '1234key';
+      const serverUrl = 'https://test.com';
+      const paramFoo = 'foo';
+      const paramBar = 'bar';
+      const params = { paramFoo, paramBar };
+      const expectedUrl = `${serverUrl}/api/editing/data/${key}?${QUERY_PARAM_EDITING_SECRET}=${secret}&paramFoo=${paramFoo}&paramBar=${paramBar}`;
+
+      const fetcher = mockFetcher();
+
+      const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
+      service['generateKey'] = () => key;
+
+      return service.setEditingData(data, serverUrl, params).then((previewData) => {
+        expect(previewData.params).to.equal(params);
+        expect(fetcher.put).to.have.been.calledOnce;
+        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
+      });
+    });
+
     it('should use custom apiRoute', async () => {
       const data = {
         layoutData: { sitecore: { route: { itemId: 'd6ac9d26-9474-51cf-982d-4f8d44951229' } } },
@@ -115,24 +138,23 @@ describe('ServerlessEditingDataService', () => {
       });
     });
 
-    it('should URI encode secret', async () => {
+    it('should URI encode secret and params', async () => {
       const superSecret = ';,/?:@&=+$';
+      const encodedSecret = encodeURIComponent(superSecret);
       process.env.JSS_EDITING_SECRET = superSecret;
       const data = {
         layoutData: { sitecore: { route: { itemId: 'd6ac9d26-9474-51cf-982d-4f8d44951229' } } },
       } as EditingData;
       const key = '1234key';
       const serverUrl = 'https://test.com';
-      const expectedUrl = `${serverUrl}/api/editing/data/${key}?${QUERY_PARAM_EDITING_SECRET}=${encodeURIComponent(
-        superSecret
-      )}`;
+      const expectedUrl = `${serverUrl}/api/editing/data/${key}?${QUERY_PARAM_EDITING_SECRET}=${encodedSecret}&param=${encodedSecret}`;
 
       const fetcher = mockFetcher();
 
       const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
       service['generateKey'] = () => key;
 
-      return service.setEditingData(data, serverUrl).then(() => {
+      return service.setEditingData(data, serverUrl, { param: superSecret }).then(() => {
         expect(fetcher.put).to.have.been.calledOnce;
         expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
       });
@@ -154,6 +176,28 @@ describe('ServerlessEditingDataService', () => {
       service['generateKey'] = () => key;
 
       const editingData = await service.getEditingData({ key, serverUrl });
+      expect(editingData).to.equal(data);
+      expect(fetcher.get).to.have.been.calledOnce;
+      expect(fetcher.get).to.have.been.calledWith(expectedUrl);
+    });
+
+    it('should invoke GET request with extra params', async () => {
+      const data = {
+        path: '/styleguide',
+      } as EditingData;
+      const key = '1234key';
+      const serverUrl = 'https://test.com';
+      const paramFoo = 'foo';
+      const paramBar = 'bar';
+      const params = { paramFoo, paramBar };
+      const expectedUrl = `${serverUrl}/api/editing/data/${key}?${QUERY_PARAM_EDITING_SECRET}=${secret}&paramFoo=${paramFoo}&paramBar=${paramBar}`;
+
+      const fetcher = mockFetcher(data);
+
+      const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
+      service['generateKey'] = () => key;
+
+      const editingData = await service.getEditingData({ key, serverUrl, params });
       expect(editingData).to.equal(data);
       expect(fetcher.get).to.have.been.calledOnce;
       expect(fetcher.get).to.have.been.calledWith(expectedUrl);
@@ -181,7 +225,7 @@ describe('BasicEditingDataService', () => {
     const cache = {} as EditingDataCache;
     cache.set = spy();
     cache.get = spy(() => {
-      return data;
+      return Promise.resolve(data);
     });
     return cache;
   };
