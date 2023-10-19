@@ -31,6 +31,10 @@ export type GraphQLRequestClientConfig = {
    * Override fetch method. Uses 'graphql-request' library default otherwise ('cross-fetch').
    */
   fetch?: typeof fetch;
+  /**
+   * Number of retries for client. Will be used if endpoint responds with 429 (rate limit reached) error
+   */
+  retries?: number;
 };
 
 /**
@@ -41,6 +45,7 @@ export class GraphQLRequestClient implements GraphQLClient {
   private client: Client;
   private headers: Record<string, string> = {};
   private debug: Debugger;
+  private retries: number;
 
   /**
    * Provides ability to execute graphql query using given `endpoint`
@@ -58,6 +63,7 @@ export class GraphQLRequestClient implements GraphQLClient {
       );
     }
 
+    this.retries = clientConfig.retries || 0;
     this.client = new Client(endpoint, { headers: this.headers, fetch: clientConfig.fetch });
     this.debug = clientConfig.debugger || debuggers.http;
   }
@@ -71,7 +77,9 @@ export class GraphQLRequestClient implements GraphQLClient {
     query: string | DocumentNode,
     variables?: { [key: string]: unknown }
   ): Promise<T> {
-    return new Promise((resolve, reject) => {
+    let retriesLeft = this.retries;
+
+    const retryer = async (): Promise<T> => {
       // Note we don't have access to raw request/response with graphql-request
       // (or nice hooks like we have with Axios), but we should log whatever we have.
       this.debug('request: %o', {
@@ -81,16 +89,36 @@ export class GraphQLRequestClient implements GraphQLClient {
         variables,
       });
 
-      this.client
+      return this.client
         .request(query, variables)
         .then((data: T) => {
           this.debug('response: %o', data);
-          resolve(data);
+          return data;
         })
         .catch((error: ClientError) => {
           this.debug('response error: %o', error.response);
-          return reject(error);
+
+          if (error.response?.status === 429 && retriesLeft > 0) {
+            const rawHeaders = (error as ClientError)?.response?.headers;
+            const delaySeconds =
+              rawHeaders && rawHeaders.get('Retry-After')
+                ? Number.parseInt(rawHeaders.get('Retry-After'), 10)
+                : 1;
+
+            this.debug(
+              'Error: Rate limit reached for GraphQL endpoint. Retrying in %ds. Retries left: %d',
+              delaySeconds,
+              retriesLeft
+            );
+
+            retriesLeft--;
+            return new Promise((resolve) => setTimeout(resolve, delaySeconds * 1000)).then(retryer);
+          }
+
+          throw error;
         });
-    });
+    };
+
+    return retryer();
   }
 }
