@@ -8,6 +8,7 @@ import { ProxyConfig } from './ProxyConfig';
 import { RenderResponse } from './RenderResponse';
 import { RouteUrlParser } from './RouteUrlParser';
 import { buildQueryString, tryParseJson } from './util';
+import { Request, RequestHandler } from 'express';
 
 /**
  * Extends IncomingMessage as it should contain these properties but they are not provided in types
@@ -15,13 +16,12 @@ import { buildQueryString, tryParseJson } from './util';
 export interface ProxyIncomingMessage extends IncomingMessage {
   originalUrl: string;
   query: { [key: string]: string | number | boolean };
+  originalMethod?: string;
 }
 
-/**
- * Extends ClientRequest as it should contain `method` but it's not provided in types
- */
-interface ExtendedClientRequest extends ClientRequest {
-  method: string;
+interface ExtendedRequest extends Request {
+  // Custom property we set to keep an original method when we swap 'HEAD' with 'GET'
+  originalMethod?: string;
 }
 
 // For some reason, every other response returned by Sitecore contains the 'set-cookie' header with the SC_ANALYTICS_GLOBAL_COOKIE value as an empty string.
@@ -300,7 +300,7 @@ async function renderAppToResponse(
         viewBag
       );
     } catch (error) {
-      return replyWithError(error);
+      return replyWithError(error as Error);
     }
   };
 }
@@ -500,7 +500,7 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug = false)
  */
 function handleProxyRequest(
   proxyReq: ClientRequest,
-  req: IncomingMessage,
+  req: ProxyIncomingMessage,
   res: ServerResponse,
   config: ProxyConfig,
   customOnProxyReq:
@@ -508,14 +508,24 @@ function handleProxyRequest(
     | undefined
 ) {
   // if a HEAD request, we still need to issue a GET so we can return accurate headers
-  if (
-    (proxyReq as ExtendedClientRequest).method === 'HEAD' &&
-    !isUrlIgnored((req as ProxyIncomingMessage).originalUrl, config, true)
-  ) {
-    if (config.debug) {
-      console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
+  if (!isUrlIgnored(req.originalUrl, config, true)) {
+    // In case 'followRedirects' is enabled, and before the proxy was initialized we had set 'originalMethod'
+    // now we need to set req.method back to original one, since proxyReq is already initialized.
+    // See more info in 'preProxyHandler'
+    if (config.proxyOptions?.followRedirects && req.originalMethod === 'HEAD') {
+      req.method = req.originalMethod;
+      delete req.originalMethod;
+
+      if (config.debug) {
+        console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
+      }
+    } else if (proxyReq.method === 'HEAD') {
+      if (config.debug) {
+        console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
+      }
+      // if a HEAD request, we still need to issue a GET so we can return accurate headers
+      proxyReq.method = 'GET';
     }
-    (proxyReq as ExtendedClientRequest).method = 'GET';
   }
   // invoke custom onProxyReq
   if (customOnProxyReq) {
@@ -557,7 +567,7 @@ function createOptions(
     pathRewrite: (reqPath, req) => rewriteRequestPath(reqPath, req, config, parseRouteUrl),
     logLevel: config.debug ? 'debug' : 'info',
     onProxyReq: (proxyReq, req, res) =>
-      handleProxyRequest(proxyReq, req, res, config, customOnProxyReq),
+      handleProxyRequest(proxyReq, req as ProxyIncomingMessage, res, config, customOnProxyReq),
     onProxyRes: (proxyRes, req, res) => handleProxyResponse(proxyRes, req, res, renderer, config),
   };
 }
@@ -573,5 +583,24 @@ export default function scProxy(
   parseRouteUrl: RouteUrlParser
 ) {
   const options = createOptions(renderer, config, parseRouteUrl);
-  return proxy(options);
+
+  const preProxyHandler: RequestHandler = (req, _res, next) => {
+    // When 'followRedirects' is enabled, 'onProxyReq' is executed after 'proxyReq' is initialized based on original 'req'
+    // and there are no public properties/methods to modify Redirectable 'proxyReq'.
+    // so, we need to set 'HEAD' req as 'GET' before the proxy is initialized.
+    // During the 'onProxyReq' event we will set 'req.method' back as 'HEAD'.
+    // if a HEAD request, we need to issue a GET so we can return accurate headers
+    if (
+      req.method === 'HEAD' &&
+      options.followRedirects &&
+      !isUrlIgnored(req.originalUrl, config, true)
+    ) {
+      req.method = 'GET';
+      (req as ExtendedRequest).originalMethod = 'HEAD';
+    }
+
+    next();
+  };
+
+  return [preProxyHandler, proxy(options)];
 }
