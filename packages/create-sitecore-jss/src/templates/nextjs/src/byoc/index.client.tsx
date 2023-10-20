@@ -1,15 +1,14 @@
 import * as FEAAS from '@sitecore-feaas/clientside/react';
-
+import React from 'react';
+import { ComponentProps } from 'react';
 /**
  * Below are built-in JSS imports. These should be available in Pages, if a license required for specific components is present
  * Any built-in import can be removed if not used.
  */
 
-// SitecoreForm component which enables new Sitecore Forms for XMCloud functionality. Requires a license to be available in Pages.
+// SitecoreForm component which enables Forms for XM Cloud functionality. Requires a license to be available in Pages.
 // Sitecore Forms for Sitecore XP are still available separately via @sitecore-jss-forms package
 import '@sitecore/components/form';
-import React from 'react';
-import { ComponentProps } from 'react';
 
 /**
  * End of built-in JSS imports
