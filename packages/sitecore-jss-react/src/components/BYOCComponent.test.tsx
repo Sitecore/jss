@@ -4,7 +4,6 @@ import { mount } from 'enzyme';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 import { BYOCComponent } from './BYOCComponent';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
-import { resolve } from 'path';
 
 describe('BYOCComponent', () => {
   it('should render with props when ComponentProps is provided', () => {
@@ -150,7 +149,6 @@ describe('Error handling', () => {
       'The ComponentName for this rendering is missing'
     );
   });
-
 
   // Disabling these two tests until we have AppRouter and can switch back from clientFallback to fallback
   // Components does some workarounds to support client BYOC and client fallback without error frame flickering during component load
