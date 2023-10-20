@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/render-empty.directive.ts:7](https://github.com/Sitecore/jss/blob/35a590d04/packages/sitecore-jss-angular/src/components/render-empty.directive.ts#L7)
+[sitecore-jss-angular/src/components/render-empty.directive.ts:7](https://github.com/Sitecore/jss/blob/aa3ad840e/packages/sitecore-jss-angular/src/components/render-empty.directive.ts#L7)
 
 ## Properties
 
@@ -36,4 +36,4 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/render-empty.directive.ts:7](https://github.com/Sitecore/jss/blob/35a590d04/packages/sitecore-jss-angular/src/components/render-empty.directive.ts#L7)
+[sitecore-jss-angular/src/components/render-empty.directive.ts:7](https://github.com/Sitecore/jss/blob/aa3ad840e/packages/sitecore-jss-angular/src/components/render-empty.directive.ts#L7)
