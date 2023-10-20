@@ -1,10 +1,9 @@
+import { QUERY_PARAM_EDITING_SECRET } from './constants';
 import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from './editing-data';
 import { EditingDataCache, editingDataDiskCache } from './editing-data-cache';
 import { getJssEditingSecret } from '../utils/utils';
 import { PreviewData } from 'next';
-
-export const QUERY_PARAM_EDITING_SECRET = 'secret';
 
 /**
  * Data for Next.js Preview (Editing) mode
@@ -12,6 +11,7 @@ export const QUERY_PARAM_EDITING_SECRET = 'secret';
 export interface EditingPreviewData {
   key: string;
   serverUrl?: string;
+  params?: { [key: string]: string };
 }
 
 /**
@@ -24,7 +24,11 @@ export interface EditingDataService {
    * @param {string} serverUrl The server url e.g. which can be used for further API requests
    * @returns The {@link EditingPreviewData} containing the information to use for retrieval
    */
-  setEditingData(data: EditingData, serverUrl: string): Promise<EditingPreviewData>;
+  setEditingData(
+    data: EditingData,
+    serverUrl: string,
+    params?: { [key: string]: string }
+  ): Promise<EditingPreviewData>;
   /**
    * Retrieves Sitecore editor payload data
    * @param {PreviewData} previewData Editing preview data containing the information to use for retrieval
@@ -149,13 +153,18 @@ export class ServerlessEditingDataService implements EditingDataService {
    * @param {string} serverUrl The server url to use for subsequent data API requests
    * @returns {Promise} The {@link EditingPreviewData} containing the generated key and serverUrl to use for retrieval
    */
-  async setEditingData(data: EditingData, serverUrl: string): Promise<EditingPreviewData> {
+  async setEditingData(
+    data: EditingData,
+    serverUrl: string,
+    params?: { [key: string]: string }
+  ): Promise<EditingPreviewData> {
     const key = this.generateKey(data);
-    const url = this.getUrl(serverUrl, key);
+    const url = this.getUrl(serverUrl, key, params);
 
     const previewData = {
       key,
       serverUrl,
+      params,
     } as EditingPreviewData;
 
     debug.editing('storing editing data for %o: %o', previewData, data);
@@ -174,7 +183,11 @@ export class ServerlessEditingDataService implements EditingDataService {
     if (!editingPreviewData?.serverUrl) {
       return undefined;
     }
-    const url = this.getUrl(editingPreviewData.serverUrl, editingPreviewData.key);
+    const url = this.getUrl(
+      editingPreviewData.serverUrl,
+      editingPreviewData.key,
+      editingPreviewData.params
+    );
 
     debug.editing('retrieving editing data for %o', previewData);
     return this.dataFetcher.get<EditingData>(url).then((response: { data: EditingData }) => {
@@ -182,12 +195,19 @@ export class ServerlessEditingDataService implements EditingDataService {
     });
   }
 
-  protected getUrl(serverUrl: string, key: string): string {
+  protected getUrl(serverUrl: string, key: string, params?: { [key: string]: string }): string {
     // Example URL format:
     //  http://localhost:3000/api/editing/data/52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x?secret=1234secret
     const apiRoute = this.apiRoute?.replace('[key]', key);
     const url = new URL(apiRoute, serverUrl);
     url.searchParams.append(QUERY_PARAM_EDITING_SECRET, getJssEditingSecret());
+    if (params) {
+      for (const key in params) {
+        if ({}.hasOwnProperty.call(params, key)) {
+          url.searchParams.append(key, params[key]);
+        }
+      }
+    }
     return url.toString();
   }
 }

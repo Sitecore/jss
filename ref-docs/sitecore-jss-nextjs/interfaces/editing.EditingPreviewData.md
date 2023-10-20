@@ -11,6 +11,7 @@ Data for Next.js Preview (Editing) mode
 ### Properties
 
 - [key](editing.EditingPreviewData.md#key)
+- [params](editing.EditingPreviewData.md#params)
 - [serverUrl](editing.EditingPreviewData.md#serverurl)
 
 ## Properties
@@ -21,7 +22,21 @@ Data for Next.js Preview (Editing) mode
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:13](https://github.com/Sitecore/jss/blob/c4ac344b4/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L13)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:12](https://github.com/Sitecore/jss/blob/35a590d04/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L12)
+
+___
+
+### params
+
+• `Optional` **params**: `Object`
+
+#### Index signature
+
+▪ [key: `string`]: `string`
+
+#### Defined in
+
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:14](https://github.com/Sitecore/jss/blob/35a590d04/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L14)
 
 ___
 
@@ -31,4 +46,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:14](https://github.com/Sitecore/jss/blob/c4ac344b4/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L14)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:13](https://github.com/Sitecore/jss/blob/35a590d04/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L13)
