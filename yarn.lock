@@ -6215,8 +6215,8 @@ __metadata:
   linkType: hard
 
 "@rjsf/utils@npm:*":
-  version: 5.13.1
-  resolution: "@rjsf/utils@npm:5.13.1"
+  version: 5.13.2
+  resolution: "@rjsf/utils@npm:5.13.2"
   dependencies:
     json-schema-merge-allof: ^0.8.1
     jsonpointer: ^5.0.1
@@ -6225,7 +6225,7 @@ __metadata:
     react-is: ^18.2.0
   peerDependencies:
     react: ^16.14.0 || >=17
-  checksum: bbdb6b7e8b8bb1b868f8fbab996e34e90de8552d7c9a706a05e4f2b323d5c4dd0a273677b2b38261e61fe4ca1cf586c4974954c3ac674cd79ceb1c90bd5bdbc3
+  checksum: 06834669205fa0429355f04fc551986ca6899c7b656feb2f2f0477c02e6da625bf198bd292b06e703e2c029436d899a2c802fe28d1bfe5017b2a2d016a361180
   languageName: node
   linkType: hard
 
@@ -6433,14 +6433,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-feaas/clientside@npm:^0.4.4":
-  version: 0.4.4
-  resolution: "@sitecore-feaas/clientside@npm:0.4.4"
+"@sitecore-feaas/clientside@npm:0.4.12":
+  version: 0.4.12
+  resolution: "@sitecore-feaas/clientside@npm:0.4.12"
   dependencies:
-    "@sitecore/byoc": ^0.1.3
+    "@sitecore/byoc": ^0.1.10
   peerDependencies:
     react-dom: ">=16.8.0"
-  checksum: 7704a1a18729c49c52e6a73ed2dd6418f2507265c439e5b6564325228b24a18a8414109efcf63c3f94520b96b3a7369308a388536e900071529ff347038123de
+  checksum: 018433bf57a9e57e31b94bf2a4a5d5e5a768cd653490776507d4f4ca7dcd20bf45de287db92a50d46c73132fdfe93fcf375b0570b3a9c6d64490cef45741ad2b
   languageName: node
   linkType: hard
 
@@ -6770,7 +6770,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
-    "@sitecore-feaas/clientside": ^0.4.4
+    "@sitecore-feaas/clientside": 0.4.12
     "@sitecore-jss/sitecore-jss": 21.6.0-canary.10
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
@@ -6804,7 +6804,7 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.3
   peerDependencies:
-    "@sitecore-feaas/clientside": ^0.4.4
+    "@sitecore-feaas/clientside": ~0.4.12
     react: ^18.2.0
     react-dom: ^18.2.0
   languageName: unknown
@@ -6904,13 +6904,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore/byoc@npm:^0.1.3":
-  version: 0.1.3
-  resolution: "@sitecore/byoc@npm:0.1.3"
+"@sitecore/byoc@npm:^0.1.10":
+  version: 0.1.10
+  resolution: "@sitecore/byoc@npm:0.1.10"
   dependencies:
     "@rjsf/utils": "*"
     json-schema: ^0.4.0
-  checksum: 90219866c5add03ba88451875e87165a906a371922678de942163d8fd2064b18e122e4e7f15a889b54a83462d5be0958c78a9a4a14f77c91c03dcc38d002e858
+  checksum: 11c6c4ddd030ecf839ef420ef769c678bfc6a5ed28c245664cc83d9b06c303d466ffc52018bf2721231284bb634ecb749e696b29747e46dbdeb22b9a8f8c560d
   languageName: node
   linkType: hard
 
