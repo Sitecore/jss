@@ -10,6 +10,7 @@ const corsHeaderPlugin = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
     async headers() {
       return [
+        ...await nextConfig?.headers(),
         {
           source: '/_next/:path*',
           headers: [{ key: 'Access-Control-Allow-Origin', value: config.sitecoreApiHost }],
