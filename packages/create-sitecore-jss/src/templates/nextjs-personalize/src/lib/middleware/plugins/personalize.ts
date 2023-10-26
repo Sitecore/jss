@@ -24,12 +24,12 @@ class PersonalizePlugin implements MiddlewarePlugin {
     this.personalizeMiddleware = new PersonalizeMiddleware({
       // Configuration for your Sitecore Experience Edge endpoint
       edgeConfig: {
+        clientFactory,
         timeout:
           (process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT &&
             parseInt(process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT)) ||
           400,
         scope: process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE,
-        clientFactory,
       },
       // Configuration for your Sitecore CDP endpoint
       cdpConfig: {
