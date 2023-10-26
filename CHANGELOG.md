@@ -9,6 +9,14 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 21.5.1
+
+### 🎉 New Features & Improvements
+
+* [templates/nextjs] Fix custom headers. Now in cors-header plugin extends custom headers from next.config.js file. (#1637)
+
+### 🐛 Bug Fixes
+
 ## 21.5.0
 
 ### 🐛 Bug Fixes
