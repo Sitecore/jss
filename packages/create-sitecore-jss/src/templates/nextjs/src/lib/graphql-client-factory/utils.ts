@@ -6,7 +6,7 @@ import {
 import { JssConfig } from 'scripts/config';
 
 /**
- * The clientFactory serves as the central hub for executing GraphQL requests within the application
+ * Creates a new GraphQLRequestClientFactory instance
  * @param config jss config
  * @returns GraphQLRequestClientFactory instance
  */
