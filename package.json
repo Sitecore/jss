@@ -5,7 +5,7 @@
     "bootstrap-packages": "lerna bootstrap --scope @sitecore-jss/*",
     "bootstrap-packages:ci": "lerna bootstrap --ci --scope @sitecore-jss/*",
     "build-packages": "lerna run build --ignore *-sample*",
-    "lint-packages": "lerna run lint --ignore *-sample* --ignore *sitecore-jss-proxy*",
+    "lint-packages": "lerna run lint --ignore *-sample*",
     "test-packages": "lerna run test --ignore *-sample*",
     "build-apps": "lerna run build --scope *-sample*",
     "test": "lerna run test",
