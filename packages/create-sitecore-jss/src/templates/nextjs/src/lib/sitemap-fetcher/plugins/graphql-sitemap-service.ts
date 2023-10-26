@@ -6,7 +6,7 @@
 import config from 'temp/config';
 import { SitemapFetcherPlugin } from '..';
 import { GetStaticPathsContext } from 'next';
-import { graphQLClientFactory } from 'lib/graphql-client-factory';
+import clientFactory from 'lib/graphql-client-factory';
 
 class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
   _graphqlSitemapService: GraphQLSitemapService;
@@ -14,7 +14,7 @@ class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
   constructor() {
     this._graphqlSitemapService = new GraphQLSitemapService({
       siteName: config.siteName,
-      clientFactory: graphQLClientFactory,
+      clientFactory,
     });
   }
 

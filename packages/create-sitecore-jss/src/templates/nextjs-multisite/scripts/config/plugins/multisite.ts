@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import { GraphQLSiteInfoService, SiteInfo } from '@sitecore-jss/sitecore-jss-nextjs';
+import { createGraphQLClientFactory } from 'lib/graphql-client-factory/utils';
 import { ConfigPlugin, JssConfig } from '..';
-import { graphQLClientFactory } from 'lib/graphql-client-factory';
 
 /**
  * This plugin will set the "sites" config prop.
@@ -20,9 +20,10 @@ class MultisitePlugin implements ConfigPlugin {
       console.warn(chalk.yellow('Skipping site information fetch (missing GraphQL endpoint).'));
     } else {
       console.log(`Fetching site information from ${endpoint}`);
+
       try {
         const siteInfoService = new GraphQLSiteInfoService({
-          clientFactory: graphQLClientFactory,
+          clientFactory: createGraphQLClientFactory(config),
         });
         sites = await siteInfoService.fetchSiteInfo();
       } catch (error) {

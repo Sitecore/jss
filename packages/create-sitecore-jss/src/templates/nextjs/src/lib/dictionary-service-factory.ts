@@ -5,7 +5,7 @@ import {
   constants,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
-import { graphQLClientFactory } from 'lib/graphql-client-factory';
+import clientFactory from 'lib/graphql-client-factory';
 
 /**
  * Factory responsible for creating a DictionaryService instance
@@ -19,7 +19,7 @@ export class DictionaryServiceFactory {
     return process.env.FETCH_WITH === constants.FETCH_WITH.GRAPHQL
       ? new GraphQLDictionaryService({
           siteName,
-          clientFactory: graphQLClientFactory,
+          clientFactory,
           /*
             The Dictionary Service needs a root item ID in order to fetch dictionary phrases for the current app. 
             When not provided, the service will attempt to figure out the root item for the current JSS App using GraphQL and app name.

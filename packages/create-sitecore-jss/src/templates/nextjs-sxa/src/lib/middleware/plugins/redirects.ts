@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { RedirectsMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
 import { MiddlewarePlugin } from '..';
 import { siteResolver } from 'lib/site-resolver';
-import { graphQLClientFactory } from 'lib/graphql-client-factory';
+import clientFactory from 'lib/graphql-client-factory';
 
 class RedirectsPlugin implements MiddlewarePlugin {
   private redirectsMiddleware: RedirectsMiddleware;
@@ -11,7 +11,7 @@ class RedirectsPlugin implements MiddlewarePlugin {
   constructor() {
     this.redirectsMiddleware = new RedirectsMiddleware({
       // Client factory implementation
-      clientFactory: graphQLClientFactory,
+      clientFactory,
       // These are all the locales you support in your application.
       // These should match those in your next.config.js (i18n.locales).
       locales: ['en'],

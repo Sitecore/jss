@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { PersonalizeMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
 import { MiddlewarePlugin } from '..';
-import { graphQLClientFactory } from 'lib/graphql-client-factory';
+import clientFactory from 'lib/graphql-client-factory';
 import { siteResolver } from 'lib/site-resolver';
 
 /**
@@ -29,7 +29,7 @@ class PersonalizePlugin implements MiddlewarePlugin {
             parseInt(process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT)) ||
           400,
         scope: process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE,
-        clientFactory: graphQLClientFactory,
+        clientFactory,
       },
       // Configuration for your Sitecore CDP endpoint
       cdpConfig: {
