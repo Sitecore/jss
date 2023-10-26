@@ -17,6 +17,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` Import SitecoreForm component into sample nextjs app ([#1628](https://github.com/Sitecore/jss/pull/1628))
 * `[sitecore-jss-nextjs]` (Vercel/Sitecore) Deployment Protection Bypass support for editing integration. ([#1634](https://github.com/Sitecore/jss/pull/1634))
 * `[templates/nextjs]` Fix custom headers. Now in cors-header plugin extends custom headers from next.config.js file. ([#1637](https://github.com/Sitecore/jss/pull/1637))
+* `[sitecore-jss-react]` Fix PlaceholderCommon with using two and more dynamic placeholders. ([#1641](https://github.com/Sitecore/jss/pull/1641))
 
 ### 🐛 Bug Fixes
 
