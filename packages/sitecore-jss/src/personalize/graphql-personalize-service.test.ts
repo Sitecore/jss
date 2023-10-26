@@ -3,6 +3,7 @@ import { expect, use } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
 import { GraphQLPersonalizeService } from './graphql-personalize-service';
+import { GraphQLRequestClient } from '../graphql-request-client';
 
 use(spies);
 
@@ -63,6 +64,24 @@ describe('GraphQLPersonalizeService', () => {
     mockNonEmptyResponse();
 
     const service = new GraphQLPersonalizeService(config);
+    const personalizeData = await service.getPersonalizeInfo(
+      '/sitecore/content/home',
+      'en',
+      siteName
+    );
+
+    expect(personalizeData).to.deep.equal({
+      contentId: `embedded_${id}_en`.toLowerCase(),
+      variantIds,
+    });
+  });
+
+  it('should return personalize info for a route using clientFactory', async () => {
+    mockNonEmptyResponse();
+
+    const clientFactory = GraphQLRequestClient.createClientFactory(config);
+
+    const service = new GraphQLPersonalizeService({ clientFactory });
     const personalizeData = await service.getPersonalizeInfo(
       '/sitecore/content/home',
       'en',

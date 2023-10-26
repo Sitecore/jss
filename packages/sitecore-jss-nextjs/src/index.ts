@@ -8,6 +8,8 @@ export {
   AxiosDataFetcherConfig,
   NativeDataFetcher,
   NativeDataFetcherConfig,
+  GraphQLRequestClient,
+  GraphQLRequestClientFactoryConfig,
   HTMLLink,
   enableDebug,
   debug,
@@ -69,6 +71,7 @@ export {
   EDITING_COMPONENT_PLACEHOLDER,
   EDITING_COMPONENT_ID,
 } from '@sitecore-jss/sitecore-jss/layout';
+export { getEdgeProxyContentUrl } from '@sitecore-jss/sitecore-jss/graphql';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
   trackingApi,
@@ -95,7 +98,6 @@ export {
   CdpHelper,
   PosResolver,
 } from '@sitecore-jss/sitecore-jss/personalize';
-export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 export {
   ComponentPropsCollection,

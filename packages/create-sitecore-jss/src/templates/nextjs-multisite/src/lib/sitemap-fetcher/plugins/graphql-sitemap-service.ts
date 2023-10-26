@@ -8,14 +8,14 @@ import config from 'temp/config';
 import { SitemapFetcherPlugin } from '..';
 import { GetStaticPathsContext } from 'next';
 import { siteResolver } from 'lib/site-resolver';
+import { graphQLClientFactory } from 'lib/graphql-client';
 
 class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
   _graphqlSitemapService: MultisiteGraphQLSitemapService;
 
   constructor() {
     this._graphqlSitemapService = new MultisiteGraphQLSitemapService({
-      endpoint: config.graphQLEndpoint,
-      apiKey: config.sitecoreApiKey,
+      clientFactory: graphQLClientFactory,
       sites: [...new Set(siteResolver.sites.map((site: SiteInfo) => site.name))],
     });
   }

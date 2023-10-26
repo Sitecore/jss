@@ -230,4 +230,19 @@ describe('GraphQLRequestClient', () => {
       expect(error.name).to.equal('AbortError');
     });
   });
+
+  describe('createClientFactory', () => {
+    it('should create a graphql request factory', () => {
+      const clientFactory = GraphQLRequestClient.createClientFactory({
+        endpoint: 'https://foo.com',
+        apiKey: 'bar',
+      });
+
+      const client = clientFactory({ retries: 5, timeout: 300 });
+
+      expect(client instanceof GraphQLRequestClient).to.equal(true);
+      expect(client['retries']).to.equal(5);
+      expect(client['timeout']).to.equal(300);
+    });
+  });
 });
