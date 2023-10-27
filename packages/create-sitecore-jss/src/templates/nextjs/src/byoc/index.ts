@@ -1,10 +1,17 @@
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 import dynamic from 'next/dynamic';
+import config from 'temp/config';
 /**
  * This is an out-of-box bundler for External components (BYOC) (see Sitecore documentation for more details)
  * It enables registering components in client-only or SSR/hybrid contexts
  * It's recommended to not modify this file - please add BYOC imports in corresponding index.*.ts files instead
  */
+
+// Set context properties to be available within BYOC components
+FEAAS.setContextProperties({
+  sitecoreEdgeUrl: config.sitecoreEdgeUrl,
+  sitecoreEdgeContextId: config.sitecoreEdgeContextId,
+});
 
 // Import your client-only components via client-bundle. Nextjs's dynamic() call will ensure they are only rendered client-side
 const ClientBundle = dynamic(() => import('./index.client'), {

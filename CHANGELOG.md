@@ -13,6 +13,10 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` `[sitecore-jss]` ([#1640](https://github.com/Sitecore/jss/pull/1640)) Sitecore Edge Platform and Context support:
+  * Introducing the _clientFactory_ property. This property can be utilized by GraphQL-based services, the previously used _endpoint_ and _apiKey_ properties are deprecated. The _clientFactory_ serves as the central hub for executing GraphQL requests within the application.
+  * New SITECORE_EDGE_CONTEXT_ID environment variable has been added.
+  * The JSS_APP_NAME environment variable has been updated and is now referred to as SITE_NAME.
 * `[templates/nextjs]` Enable client-only BYOC component imports. Client-only components can be imported through src/byoc/index.client.ts. Hybrid (server render with client hydration) components can be imported through src/byoc/index.hybrid.ts. BYOC scaffold logic is also moved from nextjs-sxa addon into base template ([#1628](https://github.com/Sitecore/jss/pull/1628)[#1636](https://github.com/Sitecore/jss/pull/1636))
 * `[templates/nextjs]` Import SitecoreForm component into sample nextjs app ([#1628](https://github.com/Sitecore/jss/pull/1628))
 * `[sitecore-jss-nextjs]` (Vercel/Sitecore) Deployment Protection Bypass support for editing integration. ([#1634](https://github.com/Sitecore/jss/pull/1634))
@@ -22,6 +26,9 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-proxy]` Setting "followRedirects" to "true" breaks HEAD requests ([#1630](https://github.com/Sitecore/jss/pull/1630))
 * `[templates/nextjs-sxa]` Fix shown horizontal scrollbar in EE mode. ([#1625](https://github.com/Sitecore/jss/pull/1625)), ([#1626](https://github.com/Sitecore/jss/pull/1626))
 * `[sitecore-jss-nextjs]` Fix issue when redirects works each every other times. ([#1629](https://github.com/Sitecore/jss/pull/1629))
+* `[templates/nextjs]` Fix custom headers. Now in cors-header plugin extends custom headers from next.config.js file. ([#1637](https://github.com/Sitecore/jss/pull/1637))
+* `[sitecore-jss-react]` Fix PlaceholderCommon with using two and more dynamic placeholders. ([#1641](https://github.com/Sitecore/jss/pull/1641))
+
 
 ## 21.5.0
 
@@ -512,6 +519,29 @@ Our versioning strategy is as follows:
   * `[sitecore-jss-nextjs]` All editing-related types have moved to a dedicated `editing` submodule. Imports must be updated to use this submodule. e.g.
     * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
     * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
+
+## 20.2.2
+
+### 🧹 Chores
+
+* `[create-sitecore-jss]` This is a maintenance release to fix package versioning in JSS templates.
+
+## 20.2.1
+
+### 🧹 Chores
+
+* `[create-sitecore-jss]` This is a maintenance release to fix package versioning in JSS templates.
+
+## 20.2.0
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss]` `[templates/nextjs]` GraphQL Layout and Dictionary services can handle endpoint rate limits through retryer functionality in GraphQLClient. To prevent SSG builds from failing and enable multiple retries, set retry amount in lib/dictionary-service-factory and lib/layout-service-factory ([commit](https://github.com/Sitecore/jss/pull/1631/commits/d39d74ad7bbeddcb66b7de4377070e178851abc5))([#1631](https://github.com/Sitecore/jss/pull/1631)) 
+* `[sitecore-jss-nextjs]` Reduce the amount of Edge API calls during fetch getStaticPaths ([commit](https://github.com/Sitecore/jss/pull/1631/commits/cd2771b256ac7c38818ee6bea48278958ac455ca))([#1631](https://github.com/Sitecore/jss/pull/1631))
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-proxy]` Setting "followRedirects" to "true" breaks HEAD requests ([#1630](https://github.com/Sitecore/jss/pull/1635))
 
 ## 20.1.0
 

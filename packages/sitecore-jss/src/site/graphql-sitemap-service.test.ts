@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import nock from 'nock';
 import { GraphQLSitemapXmlService } from './graphql-sitemap-service';
 import { siteNameError } from '../constants';
+import { GraphQLRequestClient } from '../graphql-request-client';
 
 const sitemapQueryResultNull = {
   site: {
@@ -57,6 +58,23 @@ describe('GraphQLSitemapXmlService', () => {
       mockSitemapRequest(mockSitemap);
 
       const service = new GraphQLSitemapXmlService({ endpoint, apiKey, siteName });
+      const sitemaps = await service.fetchSitemaps();
+
+      expect(sitemaps.length).to.equal(1);
+      expect(sitemaps).to.deep.equal(mockSitemap);
+
+      return expect(nock.isDone()).to.be.true;
+    });
+
+    it('should fetch sitemap using clientFactory', async () => {
+      mockSitemapRequest(mockSitemap);
+
+      const clientFactory = GraphQLRequestClient.createClientFactory({
+        endpoint,
+        apiKey,
+      });
+
+      const service = new GraphQLSitemapXmlService({ siteName, clientFactory });
       const sitemaps = await service.fetchSitemaps();
 
       expect(sitemaps.length).to.equal(1);

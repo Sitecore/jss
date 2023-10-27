@@ -42,6 +42,27 @@ describe('GraphQLDictionaryService', () => {
     expect(result.bar).to.equal('bar');
   });
 
+  it('should fetch dictionary phrases using clientFactory', async () => {
+    nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
+      .post('/', /DictionarySearch/gi)
+      .reply(200, dictionaryQueryResponse);
+
+    const clientFactory = GraphQLRequestClient.createClientFactory({
+      endpoint,
+      apiKey,
+    });
+
+    const service = new GraphQLDictionaryService({
+      siteName,
+      rootItemId,
+      cacheEnabled: false,
+      clientFactory,
+    });
+    const result = await service.fetchDictionaryData('en');
+    expect(result.foo).to.equal('foo');
+    expect(result.bar).to.equal('bar');
+  });
+
   it('should attempt to fetch the rootItemId, if rootItemId not provided', async () => {
     nock(endpoint)
       .post('/', /AppRootQuery/)
