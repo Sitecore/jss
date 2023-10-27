@@ -85,7 +85,6 @@ steps:
     # * Do a lerna canary publish of the version we've already updated and pushed
     # * Disable access verification (no-verify-access) as this doesn't seem to work behind Azure DevOps' npm proxy
     #     * https://github.com/lerna/lerna/issues/1685
-    # * Only run for 'dev' branch
     #
   - script: |
       echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
