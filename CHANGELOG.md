@@ -13,9 +13,10 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* [templates/nextjs] Fix custom headers. Now in cors-header plugin extends custom headers from next.config.js file. (#1637)
-
 ### 🐛 Bug Fixes
+
+* `[sitecore-jss-react]` Fix PlaceholderCommon with using two and more dynamic placeholders. ([#1641](https://github.com/Sitecore/jss/pull/1641))
+* [templates/nextjs] Fix custom headers. Now in cors-header plugin extends custom headers from next.config.js file. (#1637)
 
 ## 21.5.0
 
