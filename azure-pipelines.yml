@@ -67,7 +67,6 @@ steps:
     # * Increment pre-release version
     #     * Force version update even if lerna doesn't detect changes
     #     * Include [skip ci] in commit message to stop pipeline from triggering again when lerna pushes
-    # * Only run for 'dev' branch
     #
   - script: |
       git config user.email builds@sitecore.com
