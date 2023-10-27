@@ -30,6 +30,7 @@ https://github.com/prisma-labs/graphql-request
 ### Methods
 
 - [request](index.GraphQLRequestClient.md#request)
+- [createClientFactory](index.GraphQLRequestClient.md#createclientfactory)
 
 ## Constructors
 
@@ -48,7 +49,7 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:58
+sitecore-jss/types/graphql-request-client.d.ts:72
 
 ## Properties
 
@@ -58,7 +59,7 @@ sitecore-jss/types/graphql-request-client.d.ts:58
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:51
+sitecore-jss/types/graphql-request-client.d.ts:65
 
 ___
 
@@ -68,7 +69,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:47
+sitecore-jss/types/graphql-request-client.d.ts:61
 
 ___
 
@@ -78,7 +79,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:49
+sitecore-jss/types/graphql-request-client.d.ts:63
 
 ___
 
@@ -88,7 +89,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:46
+sitecore-jss/types/graphql-request-client.d.ts:60
 
 ___
 
@@ -98,7 +99,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:48
+sitecore-jss/types/graphql-request-client.d.ts:62
 
 ___
 
@@ -108,7 +109,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:50
+sitecore-jss/types/graphql-request-client.d.ts:64
 
 ___
 
@@ -118,7 +119,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:52
+sitecore-jss/types/graphql-request-client.d.ts:66
 
 ## Methods
 
@@ -151,4 +152,26 @@ GraphQLClient.request
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:64
+sitecore-jss/types/graphql-request-client.d.ts:85
+
+___
+
+### createClientFactory
+
+▸ `Static` **createClientFactory**(`config`): [`GraphQLRequestClientFactory`](../modules/index.md#graphqlrequestclientfactory)
+
+Factory method for creating a GraphQLRequestClientFactory.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `config` | [`GraphQLRequestClientFactoryConfig`](../modules/index.md#graphqlrequestclientfactoryconfig) | client configuration options. |
+
+#### Returns
+
+[`GraphQLRequestClientFactory`](../modules/index.md#graphqlrequestclientfactory)
+
+#### Defined in
+
+sitecore-jss/types/graphql-request-client.d.ts:79
