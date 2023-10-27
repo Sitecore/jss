@@ -9,6 +9,7 @@ export {
   NativeDataFetcher,
   NativeDataFetcherConfig,
   GraphQLRequestClient,
+  GraphQLRequestClientFactory,
   GraphQLRequestClientFactoryConfig,
   HTMLLink,
   enableDebug,

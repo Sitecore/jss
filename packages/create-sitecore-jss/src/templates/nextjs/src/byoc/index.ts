@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 import config from 'temp/config';
 
-// Setting up Edge Proxy settings to be available withing FEAAS components
+// Set context properties to be available within BYOC components
 FEAAS.setContextProperties({
   sitecoreEdgeUrl: config.sitecoreEdgeUrl,
   sitecoreEdgeContextId: config.sitecoreEdgeContextId,

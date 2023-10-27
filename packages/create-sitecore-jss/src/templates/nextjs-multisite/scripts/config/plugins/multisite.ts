@@ -1,7 +1,8 @@
 import chalk from 'chalk';
 import { GraphQLSiteInfoService, SiteInfo } from '@sitecore-jss/sitecore-jss-nextjs';
 import { createGraphQLClientFactory } from 'lib/graphql-client-factory/utils';
-import { ConfigPlugin, JssConfig } from '..';
+import { JssConfig } from 'lib/config';
+import { ConfigPlugin } from '..';
 
 /**
  * This plugin will set the "sites" config prop.

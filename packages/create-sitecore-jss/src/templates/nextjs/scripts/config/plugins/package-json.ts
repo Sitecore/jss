@@ -1,4 +1,5 @@
-import { ConfigPlugin, JssConfig } from '..';
+import { JssConfig } from 'lib/config';
+import { ConfigPlugin } from '..';
 import packageConfig from 'package.json';
 
 /**

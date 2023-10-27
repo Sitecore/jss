@@ -3,7 +3,7 @@ import {
   getEdgeProxyContentUrl,
   GraphQLRequestClient,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { JssConfig } from 'scripts/config';
+import { JssConfig } from 'lib/config';
 
 /**
  * Creates a new GraphQLRequestClientFactory instance
@@ -13,9 +13,9 @@ import { JssConfig } from 'scripts/config';
 export const createGraphQLClientFactory = (config: JssConfig) => {
   let clientConfig: GraphQLRequestClientFactoryConfig;
 
-  if (config.sitecoreEdgeContextId && config.sitecoreEdgeUrl) {
+  if (config.sitecoreEdgeContextId) {
     clientConfig = {
-      endpoint: getEdgeProxyContentUrl(config.sitecoreEdgeUrl, config.sitecoreEdgeContextId),
+      endpoint: getEdgeProxyContentUrl(config.sitecoreEdgeContextId, config.sitecoreEdgeUrl),
     };
   } else if (config.graphQLEndpoint && config.sitecoreApiKey) {
     clientConfig = {
@@ -24,7 +24,7 @@ export const createGraphQLClientFactory = (config: JssConfig) => {
     };
   } else {
     throw new Error(
-      'Please configure either your sitecoreEdgeUrl and sitecoreEdgeContextId, or your graphQLEndpoint and sitecoreApiKey'
+      'Please configure either your sitecoreEdgeContextId, or your graphQLEndpoint and sitecoreApiKey.'
     );
   }
 
