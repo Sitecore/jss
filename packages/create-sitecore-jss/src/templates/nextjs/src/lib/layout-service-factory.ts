@@ -5,6 +5,7 @@ import {
   constants,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
+import clientFactory from 'lib/graphql-client-factory';
 
 /**
  * Factory responsible for creating a LayoutService instance
@@ -17,9 +18,8 @@ export class LayoutServiceFactory {
   create(siteName: string): LayoutService {
     return process.env.FETCH_WITH === constants.FETCH_WITH.GRAPHQL
       ? new GraphQLLayoutService({
-          endpoint: config.graphQLEndpoint,
-          apiKey: config.sitecoreApiKey,
           siteName,
+          clientFactory,
           /*
             GraphQL endpoint may reach its rate limit with the amount of Layout and Dictionary requests it receives and throw a rate limit error.
             GraphQL Dictionary and Layout Services can handle rate limit errors from server and attempt a retry on requests.

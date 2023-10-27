@@ -43,6 +43,21 @@ export type GraphQLRequestClientConfig = {
 };
 
 /**
+ * A GraphQL Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
+ * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
+ * @param config - The configuration object that specifies how the GraphQL client should be set up.
+ * @returns An instance of a GraphQL Request Client ready to send GraphQL requests.
+ */
+export type GraphQLRequestClientFactory = (
+  config: Omit<GraphQLRequestClientConfig, 'apiKey'>
+) => GraphQLRequestClient;
+
+/**
+ * Configuration type for @type GraphQLRequestClientFactory
+ */
+export type GraphQLRequestClientFactoryConfig = { endpoint: string; apiKey?: string };
+
+/**
  * A GraphQL client for Sitecore APIs that uses the 'graphql-request' library.
  * https://github.com/prisma-labs/graphql-request
  */
@@ -77,6 +92,20 @@ export class GraphQLRequestClient implements GraphQLClient {
       fetch: clientConfig.fetch,
     });
     this.debug = clientConfig.debugger || debuggers.http;
+  }
+
+  /**
+   * Factory method for creating a GraphQLRequestClientFactory.
+   * @param {Object} config - client configuration options.
+   * @param {string} config.endpoint - endpoint
+   * @param {string} [config.apiKey] - apikey
+   */
+  static createClientFactory({
+    endpoint,
+    apiKey,
+  }: GraphQLRequestClientFactoryConfig): GraphQLRequestClientFactory {
+    return (config: Omit<GraphQLRequestClientConfig, 'apiKey'> = {}) =>
+      new GraphQLRequestClient(endpoint, { ...config, apiKey });
   }
 
   /**

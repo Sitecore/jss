@@ -8,6 +8,8 @@ export {
   GraphQLClient,
   GraphQLRequestClient,
   GraphQLRequestClientConfig,
+  GraphQLRequestClientFactory,
+  GraphQLRequestClientFactoryConfig,
 } from './graphql-request-client';
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
 export { AxiosResponse } from 'axios';
