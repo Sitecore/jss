@@ -10,8 +10,8 @@ import { HTMLLink } from '../models';
 
 /**
  * Stylesheets revision type
- * 'staged': Editing/Preview
- * 'published': Normal
+ * 'staged': Editing/Preview mode
+ * 'published': Normal mode
  */
 type RevisionType = 'staged' | 'published';
 
