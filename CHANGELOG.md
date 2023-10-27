@@ -16,14 +16,15 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` Enable client-only BYOC component imports. Client-only components can be imported through src/byoc/index.client.ts. Hybrid (server render with client hydration) components can be imported through src/byoc/index.hybrid.ts. BYOC scaffold logic is also moved from nextjs-sxa addon into base template ([#1628](https://github.com/Sitecore/jss/pull/1628)[#1636](https://github.com/Sitecore/jss/pull/1636))
 * `[templates/nextjs]` Import SitecoreForm component into sample nextjs app ([#1628](https://github.com/Sitecore/jss/pull/1628))
 * `[sitecore-jss-nextjs]` (Vercel/Sitecore) Deployment Protection Bypass support for editing integration. ([#1634](https://github.com/Sitecore/jss/pull/1634))
-* `[templates/nextjs]` Fix custom headers. Now in cors-header plugin extends custom headers from next.config.js file. ([#1637](https://github.com/Sitecore/jss/pull/1637))
-* `[sitecore-jss-react]` Fix PlaceholderCommon with using two and more dynamic placeholders. ([#1641](https://github.com/Sitecore/jss/pull/1641))
 
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-proxy]` Setting "followRedirects" to "true" breaks HEAD requests ([#1630](https://github.com/Sitecore/jss/pull/1630))
 * `[templates/nextjs-sxa]` Fix shown horizontal scrollbar in EE mode. ([#1625](https://github.com/Sitecore/jss/pull/1625)), ([#1626](https://github.com/Sitecore/jss/pull/1626))
 * `[sitecore-jss-nextjs]` Fix issue when redirects works each every other times. ([#1629](https://github.com/Sitecore/jss/pull/1629))
+* `[templates/nextjs]` Fix custom headers. Now in cors-header plugin extends custom headers from next.config.js file. ([#1637](https://github.com/Sitecore/jss/pull/1637))
+* `[sitecore-jss-react]` Fix PlaceholderCommon with using two and more dynamic placeholders. ([#1641](https://github.com/Sitecore/jss/pull/1641))
+
 
 ## 21.5.0
 
