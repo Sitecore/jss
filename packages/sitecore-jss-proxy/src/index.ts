@@ -13,7 +13,6 @@ import { buildQueryString, tryParseJson } from './util';
 
 export interface ProxyIncomingMessage extends IncomingMessage {
   originalUrl: string;
-  // originalMethod?: string;
 }
 
 interface ExtendedRequest extends Request {
