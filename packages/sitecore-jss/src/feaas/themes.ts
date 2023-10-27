@@ -2,10 +2,18 @@ import {
   ComponentRendering,
   HtmlElementRendering,
   LayoutServiceData,
+  LayoutServicePageState,
   RouteData,
   getFieldValue,
 } from '../layout';
 import { HTMLLink } from '../models';
+
+/**
+ * Stylesheets revision type
+ * 'staged': Editing/Preview
+ * 'published': Normal
+ */
+type RevisionType = 'staged' | 'published';
 
 /**
  * Pattern for library ids
@@ -31,11 +39,22 @@ export function getFEAASLibraryStylesheetLinks(
 
   traverseComponent(layoutData.sitecore.route, ids);
 
-  return [...ids].map((id) => ({ href: getStylesheetUrl(id, serverUrl), rel: 'style' }));
+  return [...ids].map((id) => ({
+    href: getStylesheetUrl(id, layoutData.sitecore.context.pageState, serverUrl),
+    rel: 'style',
+  }));
 }
 
-export const getStylesheetUrl = (id: string, serverUrl?: string) =>
-  `${serverUrl || FEAAS_SERVER_URL}/styles/${id}/published.css`;
+export const getStylesheetUrl = (
+  id: string,
+  pageState?: LayoutServicePageState,
+  serverUrl?: string
+) => {
+  const revision: RevisionType =
+    pageState && pageState !== LayoutServicePageState.Normal ? 'staged' : 'published';
+
+  return `${serverUrl || FEAAS_SERVER_URL}/styles/${id}/${revision}.css`;
+};
 
 /**
  * Traverse placeholder and components to add library ids
