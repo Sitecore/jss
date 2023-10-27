@@ -518,6 +518,29 @@ Our versioning strategy is as follows:
     * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
     * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
 
+## 20.2.2
+
+### 🧹 Chores
+
+* `[create-sitecore-jss]` This is a maintenance release to fix package versioning in JSS templates.
+
+## 20.2.1
+
+### 🧹 Chores
+
+* `[create-sitecore-jss]` This is a maintenance release to fix package versioning in JSS templates.
+
+## 20.2.0
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss]` `[templates/nextjs]` GraphQL Layout and Dictionary services can handle endpoint rate limits through retryer functionality in GraphQLClient. To prevent SSG builds from failing and enable multiple retries, set retry amount in lib/dictionary-service-factory and lib/layout-service-factory ([commit](https://github.com/Sitecore/jss/pull/1631/commits/d39d74ad7bbeddcb66b7de4377070e178851abc5))([#1631](https://github.com/Sitecore/jss/pull/1631)) 
+* `[sitecore-jss-nextjs]` Reduce the amount of Edge API calls during fetch getStaticPaths ([commit](https://github.com/Sitecore/jss/pull/1631/commits/cd2771b256ac7c38818ee6bea48278958ac455ca))([#1631](https://github.com/Sitecore/jss/pull/1631))
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-proxy]` Setting "followRedirects" to "true" breaks HEAD requests ([#1630](https://github.com/Sitecore/jss/pull/1635))
+
 ## 20.1.0
 
 ### 🎉 New Features & Improvements
