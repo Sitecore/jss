@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "reset": "lerna clean --yes && lerna bootstrap && npm run build-packages",
+    "reset": "lerna clean --yes && lerna bootstrap --ignore jss-sample-reactnative && npm run build-packages",
     "bootstrap": "lerna bootstrap",
     "bootstrap-packages": "lerna bootstrap --scope @sitecore-jss/*",
     "bootstrap-packages:ci": "lerna bootstrap --ci --scope @sitecore-jss/*",
