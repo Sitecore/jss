@@ -1,8 +1,14 @@
 import { expect } from 'chai';
-import { FEAAS_SERVER_URL, getFEAASLibraryStylesheetLinks, getStylesheetUrl } from './themes';
+import {
+  FEAAS_SERVER_URL_STAGING,
+  FEAAS_SERVER_URL_BETA,
+  FEAAS_SERVER_URL_PROD,
+  getFEAASLibraryStylesheetLinks,
+  getStylesheetUrl,
+} from './themes';
 import { ComponentRendering, HtmlElementRendering, LayoutServicePageState } from '../layout';
 
-describe('utils', () => {
+describe.only('themes', () => {
   describe('getFEAASLibraryStylesheetLinks', () => {
     const setBasicLayoutData = (
       component: ComponentRendering | HtmlElementRendering,
@@ -153,7 +159,7 @@ describe('utils', () => {
         ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'style' }]);
       });
 
-      it('should return links using custom server url', () => {
+      it('should return links using non-prod server url', () => {
         expect(
           getFEAASLibraryStylesheetLinks(
             setBasicLayoutData({
@@ -164,11 +170,15 @@ describe('utils', () => {
                 },
               },
             }),
-            'https://foo.net'
+            'https://edge-platform-dev.sitecorecloud.io'
           )
         ).to.deep.equal([
           {
-            href: getStylesheetUrl('bar', LayoutServicePageState.Normal, 'https://foo.net'),
+            href: getStylesheetUrl(
+              'bar',
+              LayoutServicePageState.Normal,
+              'https://edge-platform-dev.sitecorecloud.io'
+            ),
             rel: 'style',
           },
         ]);
@@ -345,7 +355,7 @@ describe('utils', () => {
         ]);
       });
 
-      it('should return links using custom server url', () => {
+      it('should return links using non-prod server url', () => {
         expect(
           getFEAASLibraryStylesheetLinks(
             setBasicLayoutData(
@@ -358,12 +368,16 @@ describe('utils', () => {
               },
               LayoutServicePageState.Edit
             ),
-            'https://foo.net'
+            'https://edge-platform-dev.sitecorecloud.io'
           )
         ).to.deep.equal([
           {
             rel: 'style',
-            href: getStylesheetUrl('bar', LayoutServicePageState.Edit, 'https://foo.net'),
+            href: getStylesheetUrl(
+              'bar',
+              LayoutServicePageState.Edit,
+              'https://edge-platform-dev.sitecorecloud.io',
+            ),
           },
         ]);
       });
@@ -450,36 +464,62 @@ describe('utils', () => {
     });
 
     describe('getStylesheetUrl', () => {
-      it('should return stylesheet url using default server url', () => {
+      it('should use published css url in Normal mode', () => {
         const pageState = LayoutServicePageState.Normal;
 
         expect(getStylesheetUrl('foo', pageState)).to.equal(
-          `${FEAAS_SERVER_URL}/styles/foo/published.css`
+          `${FEAAS_SERVER_URL_PROD}/styles/foo/published.css`
         );
       });
 
-      it('should return stylesheet url using default server url in Edit mode', () => {
+      it('should use staged css url in Edit mode', () => {
         const pageState = LayoutServicePageState.Edit;
 
         expect(getStylesheetUrl('foo', pageState)).to.equal(
-          `${FEAAS_SERVER_URL}/styles/foo/staged.css`
+          `${FEAAS_SERVER_URL_PROD}/styles/foo/staged.css`
         );
       });
 
-      it('should return stylesheet url using default server url in Preview mode', () => {
+      it('should use staged css url in Preview mode', () => {
         const pageState = LayoutServicePageState.Preview;
 
         expect(getStylesheetUrl('foo', pageState)).to.equal(
-          `${FEAAS_SERVER_URL}/styles/foo/staged.css`
+          `${FEAAS_SERVER_URL_PROD}/styles/foo/staged.css`
         );
       });
 
-      it('should return stylesheet url using custom server url', () => {
+      ['dev', 'qa', 'staging'].map((env) => {
+        it(`should use staging server url for edge ${env} url`, () => {
+          const pageState = LayoutServicePageState.Normal;
+
+          expect(
+            getStylesheetUrl(
+              'foo',
+              pageState,
+              `https://edge-platform-${env}.sitecore-staging.cloud`
+            )
+          ).to.equal(`${FEAAS_SERVER_URL_STAGING}/styles/foo/published.css`);
+        });
+      });
+
+      it('should use beta server url for edge preprod url', () => {
         const pageState = LayoutServicePageState.Normal;
 
-        expect(getStylesheetUrl('foo', pageState, 'https://bar.net')).to.equal(
-          'https://bar.net/styles/foo/published.css'
-        );
+        expect(
+          getStylesheetUrl(
+            'foo',
+            pageState,
+            'https://edge-platform-pre-production.sitecorecloud.io'
+          )
+        ).to.equal(`${FEAAS_SERVER_URL_BETA}/styles/foo/published.css`);
+      });
+
+      it('should use prod server url for edge prod url', () => {
+        const pageState = LayoutServicePageState.Normal;
+
+        expect(
+          getStylesheetUrl('foo', pageState, 'https://edge-platform.sitecorecloud.io')
+        ).to.equal(`${FEAAS_SERVER_URL_PROD}/styles/foo/published.css`);
       });
     });
   });
