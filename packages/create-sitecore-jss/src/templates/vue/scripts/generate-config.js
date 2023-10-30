@@ -17,7 +17,7 @@ module.exports = function generateConfig(configOverrides) {
   const defaultConfig = {
     sitecoreApiKey: 'no-api-key-set',
     sitecoreApiHost: '',
-    jssAppName: 'Unknown',
+    siteName: 'Unknown',
     layoutServiceConfigurationName: 'default',
   };
 
@@ -45,7 +45,9 @@ const config = {};\n`;
 
   // Set base configuration values, allowing override with environment variables
   Object.keys(config).forEach((prop) => {
-    configText += `config.${prop} = process.env.VUE_APP_${constantCase(prop)} || "${config[prop]}",\n`;
+    configText += `config.${prop} = process.env.VUE_APP_${constantCase(prop)} || "${
+      config[prop]
+    }",\n`;
   });
   // Set computed values, allowing override with environment variables
   Object.keys(computedConfig).forEach((prop) => {
@@ -83,7 +85,7 @@ function transformPackageConfig() {
   if (!packageConfig.config) return {};
 
   return {
-    jssAppName: packageConfig.config.appName,
+    siteName: packageConfig.config.appName,
     defaultLanguage: packageConfig.config.language || 'en',
     graphQLEndpointPath: packageConfig.config.graphQLEndpointPath || null,
   };
