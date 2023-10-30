@@ -2,6 +2,7 @@ import { LayoutServiceBase } from './layout-service';
 import { LayoutServiceData } from './models';
 import {
   GraphQLClient,
+  GraphQLRequestClientFactory,
   GraphQLRequestClient,
   GraphQLRequestClientConfig,
 } from '../graphql-request-client';
@@ -10,16 +11,23 @@ import debug from '../debug';
 export interface GraphQLLayoutServiceConfig extends Pick<GraphQLRequestClientConfig, 'retries'> {
   /**
    * Your Graphql endpoint
+   * @deprecated use @param clientFactory property instead
    */
-  endpoint: string;
+  endpoint?: string;
   /**
    * The JSS application name
    */
   siteName: string;
   /**
    * The API key to use for authentication
+   * @deprecated use @param clientFactory property instead
    */
-  apiKey: string;
+  apiKey?: string;
+  /**
+   * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
+   * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
+   */
+  clientFactory?: GraphQLRequestClientFactory;
   /**
    * Override default layout query
    * @param {string} siteName
@@ -85,6 +93,17 @@ export class GraphQLLayoutService extends LayoutServiceBase {
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(): GraphQLClient {
+    if (!this.serviceConfig.endpoint) {
+      if (!this.serviceConfig.clientFactory) {
+        throw new Error('You should provide either an endpoint and apiKey, or a clientFactory.');
+      }
+
+      return this.serviceConfig.clientFactory({
+        debugger: debug.layout,
+        retries: this.serviceConfig.retries,
+      });
+    }
+
     return new GraphQLRequestClient(this.serviceConfig.endpoint, {
       apiKey: this.serviceConfig.apiKey,
       debugger: debug.layout,

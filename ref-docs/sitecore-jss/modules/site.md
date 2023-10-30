@@ -64,17 +64,17 @@ Object model of Error Pages result
 
 #### Defined in
 
-[src/site/graphql-error-pages-service.ts:49](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L49)
+[src/site/graphql-error-pages-service.ts:57](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L57)
 
 ___
 
 ### GraphQLRedirectsServiceConfig
 
-Ƭ **GraphQLRedirectsServiceConfig**: `CacheOptions` & { `apiKey`: `string` ; `endpoint`: `string` ; `fetch?`: typeof `fetch`  }
+Ƭ **GraphQLRedirectsServiceConfig**: `CacheOptions` & { `apiKey?`: `string` ; `clientFactory?`: [`GraphQLRequestClientFactory`](index.md#graphqlrequestclientfactory) ; `endpoint?`: `string` ; `fetch?`: typeof `fetch`  }
 
 #### Defined in
 
-[src/site/graphql-redirects-service.ts:35](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L35)
+[src/site/graphql-redirects-service.ts:36](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L36)
 
 ___
 
@@ -86,23 +86,24 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `apiKey` | `string` | The API key to use for authentication |
-| `endpoint` | `string` | Your Graphql endpoint |
+| `apiKey?` | `string` | The API key to use for authentication **`Deprecated`** use **`Param`** property instead |
+| `clientFactory?` | [`GraphQLRequestClientFactory`](index.md#graphqlrequestclientfactory) | A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient. This factory function is used to create and configure GraphQL clients for making GraphQL API requests. |
+| `endpoint?` | `string` | Your Graphql endpoint **`Deprecated`** use **`Param`** property instead |
 | `siteName` | `string` | The JSS application name |
 
 #### Defined in
 
-[src/site/graphql-robots-service.ts:16](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/graphql-robots-service.ts#L16)
+[src/site/graphql-robots-service.ts:17](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/graphql-robots-service.ts#L17)
 
 ___
 
 ### GraphQLSiteInfoServiceConfig
 
-Ƭ **GraphQLSiteInfoServiceConfig**: `CacheOptions` & { `apiKey`: `string` ; `endpoint`: `string` ; `pageSize?`: `number`  }
+Ƭ **GraphQLSiteInfoServiceConfig**: `CacheOptions` & { `apiKey?`: `string` ; `clientFactory?`: [`GraphQLRequestClientFactory`](index.md#graphqlrequestclientfactory) ; `endpoint?`: `string` ; `pageSize?`: `number`  }
 
 #### Defined in
 
-[src/site/graphql-siteinfo-service.ts:68](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L68)
+[src/site/graphql-siteinfo-service.ts:69](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L69)
 
 ___
 
@@ -114,13 +115,14 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `apiKey` | `string` | The API key to use for authentication |
-| `endpoint` | `string` | Your Graphql endpoint |
+| `apiKey?` | `string` | The API key to use for authentication **`Deprecated`** use **`Param`** property instead |
+| `clientFactory?` | [`GraphQLRequestClientFactory`](index.md#graphqlrequestclientfactory) | A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient. This factory function is used to create and configure GraphQL clients for making GraphQL API requests. |
+| `endpoint?` | `string` | Your Graphql endpoint **`Deprecated`** use **`Param`** property instead |
 | `siteName` | `string` | The JSS application name |
 
 #### Defined in
 
-[src/site/graphql-sitemap-service.ts:18](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L18)
+[src/site/graphql-sitemap-service.ts:19](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L19)
 
 ___
 
@@ -140,7 +142,7 @@ ___
 
 #### Defined in
 
-[src/site/graphql-redirects-service.ts:10](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L10)
+[src/site/graphql-redirects-service.ts:11](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L11)
 
 ___
 
@@ -159,7 +161,7 @@ The schema of data returned in response to redirects array request
 
 #### Defined in
 
-[src/site/graphql-redirects-service.ts:53](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L53)
+[src/site/graphql-redirects-service.ts:61](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L61)
 
 ___
 
@@ -179,7 +181,7 @@ The schema of data returned in response to robots.txt request
 
 #### Defined in
 
-[src/site/graphql-robots-service.ts:34](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/graphql-robots-service.ts#L34)
+[src/site/graphql-robots-service.ts:42](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/graphql-robots-service.ts#L42)
 
 ___
 
@@ -202,7 +204,7 @@ ___
 
 #### Defined in
 
-[src/site/graphql-siteinfo-service.ts:45](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L45)
+[src/site/graphql-siteinfo-service.ts:46](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L46)
 
 ___
 
@@ -218,7 +220,7 @@ ___
 
 #### Defined in
 
-[src/site/utils.ts:3](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/utils.ts#L3)
+[src/site/utils.ts:3](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/utils.ts#L3)
 
 ___
 
@@ -238,7 +240,7 @@ The schema of data returned in response to sitemaps request
 
 #### Defined in
 
-[src/site/graphql-sitemap-service.ts:36](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L36)
+[src/site/graphql-sitemap-service.ts:44](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L44)
 
 ## Variables
 
@@ -248,7 +250,7 @@ The schema of data returned in response to sitemaps request
 
 #### Defined in
 
-[src/site/graphql-redirects-service.ts:6](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L6)
+[src/site/graphql-redirects-service.ts:7](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L7)
 
 ___
 
@@ -258,7 +260,7 @@ ___
 
 #### Defined in
 
-[src/site/graphql-redirects-service.ts:7](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L7)
+[src/site/graphql-redirects-service.ts:8](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L8)
 
 ___
 
@@ -268,7 +270,7 @@ ___
 
 #### Defined in
 
-[src/site/graphql-redirects-service.ts:8](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L8)
+[src/site/graphql-redirects-service.ts:9](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L9)
 
 ## Functions
 
@@ -293,7 +295,7 @@ the rewrite path
 
 #### Defined in
 
-[src/site/utils.ts:13](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/utils.ts#L13)
+[src/site/utils.ts:13](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/utils.ts#L13)
 
 ___
 
@@ -318,7 +320,7 @@ the site data from the rewrite
 
 #### Defined in
 
-[src/site/utils.ts:25](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/utils.ts#L25)
+[src/site/utils.ts:25](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/utils.ts#L25)
 
 ___
 
@@ -342,4 +344,4 @@ the pathname with site data removed
 
 #### Defined in
 
-[src/site/utils.ts:45](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/site/utils.ts#L45)
+[src/site/utils.ts:45](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/site/utils.ts#L45)

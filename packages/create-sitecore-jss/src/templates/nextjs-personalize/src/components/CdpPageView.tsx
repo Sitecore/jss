@@ -68,7 +68,7 @@ const CdpPageView = (): JSX.Element => {
       return;
     }
 
-    const siteInfo = siteResolver.getByName(site?.name || config.jssAppName);
+    const siteInfo = siteResolver.getByName(site?.name || config.siteName);
     const language = route.itemLanguage || config.defaultLanguage;
     const scope = process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE;
 

@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import nock from 'nock';
 import { GraphQLSiteInfoService, GraphQLSiteInfoResult } from './graphql-siteinfo-service';
-import { PageInfo } from '../graphql';
+import { GraphQLRequestClient, PageInfo } from '../graphql';
 
 describe('GraphQLSiteInfoService', () => {
   const endpoint = 'http://site';
@@ -87,6 +87,43 @@ describe('GraphQLSiteInfoService', () => {
       })
     );
     const service = new GraphQLSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+    const result = await service.fetchSiteInfo();
+    expect(result).to.be.deep.equal([
+      {
+        name: 'site 0',
+        hostName: 'restricted.gov',
+        language: 'en',
+        pointOfSale: {
+          en: 'en-pos',
+        },
+      },
+      {
+        name: 'public 0',
+        hostName: 'pr.showercurtains.org',
+        language: '',
+        pointOfSale: undefined,
+      },
+    ]);
+  });
+
+  it('should return correct result using clientFactory', async () => {
+    mockSiteInfoRequest(
+      nonEmptyResponse({
+        sites: [
+          site({
+            name: 'public 0',
+            hostName: 'pr.showercurtains.org',
+            language: '',
+            pointOfSale: '',
+          }),
+        ],
+      })
+    );
+    const clientFactory = GraphQLRequestClient.createClientFactory({
+      endpoint,
+      apiKey,
+    });
+    const service = new GraphQLSiteInfoService({ clientFactory });
     const result = await service.fetchSiteInfo();
     expect(result).to.be.deep.equal([
       {

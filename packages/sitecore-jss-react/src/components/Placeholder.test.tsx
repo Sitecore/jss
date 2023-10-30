@@ -314,7 +314,7 @@ describe('<Placeholder />', () => {
 
     it('should render with container-{*} type dynamic placeholder', () => {
       const component = sxaRenderingCommonContainerName.sitecore.route as RouteData;
-      const phKey = 'richText';
+      const phKey = 'container-1';
 
       const renderedComponent = mount(
         <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />

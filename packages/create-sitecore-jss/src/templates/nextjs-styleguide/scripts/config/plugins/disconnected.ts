@@ -1,7 +1,8 @@
 import 'dotenv/config';
 import chalk from 'chalk';
 import { constants } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ConfigPlugin, JssConfig } from '..';
+import { JssConfig } from 'lib/config';
+import { ConfigPlugin } from '..';
 
 /**
  * This plugin will override the "sitecoreApiHost" config prop

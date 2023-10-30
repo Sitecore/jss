@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import nock from 'nock';
 import { GraphQLRobotsService } from './graphql-robots-service';
 import { siteNameError } from '../constants';
+import { GraphQLRequestClient } from '../graphql-request-client';
 
 const robotsQueryResultNull = {
   site: {
@@ -55,6 +56,22 @@ describe('GraphQLRobotsService', () => {
       mockRobotsRequest(siteName);
 
       const service = new GraphQLRobotsService({ endpoint, apiKey, siteName });
+      const robots = await service.fetchRobots();
+      expect(robots).to.equal(siteName);
+
+      return expect(nock.isDone()).to.be.true;
+    });
+
+    it('should get robots.txt using clientFactory', async () => {
+      mockRobotsRequest(siteName);
+
+      const clientFactory = GraphQLRequestClient.createClientFactory({
+        endpoint,
+        apiKey,
+      });
+
+      const service = new GraphQLRobotsService({ siteName, clientFactory });
+
       const robots = await service.fetchRobots();
       expect(robots).to.equal(siteName);
 

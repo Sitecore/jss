@@ -9,6 +9,8 @@
 - [GraphQLClient](graphql.md#graphqlclient)
 - [GraphQLRequestClient](graphql.md#graphqlrequestclient)
 - [GraphQLRequestClientConfig](graphql.md#graphqlrequestclientconfig)
+- [GraphQLRequestClientFactory](graphql.md#graphqlrequestclientfactory)
+- [GraphQLRequestClientFactoryConfig](graphql.md#graphqlrequestclientfactoryconfig)
 
 ### Classes
 
@@ -28,6 +30,7 @@
 ### Functions
 
 - [getAppRootId](graphql.md#getapprootid)
+- [getEdgeProxyContentUrl](graphql.md#getedgeproxycontenturl)
 
 ## References
 
@@ -47,6 +50,18 @@ ___
 
 Re-exports [GraphQLRequestClientConfig](index.md#graphqlrequestclientconfig)
 
+___
+
+### GraphQLRequestClientFactory
+
+Re-exports [GraphQLRequestClientFactory](index.md#graphqlrequestclientfactory)
+
+___
+
+### GraphQLRequestClientFactoryConfig
+
+Re-exports [GraphQLRequestClientFactoryConfig](index.md#graphqlrequestclientfactoryconfig)
+
 ## Type Aliases
 
 ### AppRootQueryResult
@@ -65,7 +80,7 @@ The schema of data returned in response to an app root query request
 
 #### Defined in
 
-[src/graphql/app-root-query.ts:27](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/graphql/app-root-query.ts#L27)
+[src/graphql/app-root-query.ts:27](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/graphql/app-root-query.ts#L27)
 
 ___
 
@@ -91,7 +106,7 @@ Schema of data returned in response to a "search" query request
 
 #### Defined in
 
-[src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/graphql/search-service.ts#L22)
+[src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/graphql/search-service.ts#L22)
 
 ## Functions
 
@@ -131,4 +146,29 @@ the root item ID of the JSS App in Sitecore. Returns null if the app root item i
 
 #### Defined in
 
-[src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/f4095e05c/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
+[src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
+
+___
+
+### getEdgeProxyContentUrl
+
+▸ **getEdgeProxyContentUrl**(`sitecoreEdgeContextId`, `sitecoreEdgeUrl?`): `string`
+
+Generates a URL for accessing Sitecore Edge Platform Content using the provided endpoint and context ID.
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `sitecoreEdgeContextId` | `string` | `undefined` | The unique context id. |
+| `sitecoreEdgeUrl?` | `string` | `'https://edge-platform.sitecorecloud.io'` | The base endpoint URL for the Edge Platform. Default is https://edge-platform.sitecorecloud.io |
+
+#### Returns
+
+`string`
+
+The complete URL for accessing content through the Edge Platform.
+
+#### Defined in
+
+[src/graphql/graphql-edge-proxy.ts:7](https://github.com/Sitecore/jss/blob/3fa671c7e/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L7)
