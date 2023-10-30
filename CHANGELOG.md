@@ -13,6 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
+* `[sitecore-jss]` Support for both 'published' and 'staged' revisions of FEAAS stylesheets/themes ([#1644](https://github.com/Sitecore/jss/pull/1644))
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` `[sitecore-jss]` ([#1640](https://github.com/Sitecore/jss/pull/1640)) Sitecore Edge Platform and Context support:
   * Introducing the _clientFactory_ property. This property can be utilized by GraphQL-based services, the previously used _endpoint_ and _apiKey_ properties are deprecated. The _clientFactory_ serves as the central hub for executing GraphQL requests within the application.
   * New SITECORE_EDGE_CONTEXT_ID environment variable has been added.
