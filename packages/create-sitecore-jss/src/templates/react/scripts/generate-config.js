@@ -12,14 +12,15 @@ const { jssConfigFactory } = require('./config');
 const defaultConfig = {
   sitecoreApiKey: process.env[`${constantCase('reactAppSitecoreApiKey')}`],
   sitecoreApiHost: process.env[`${constantCase('reactAppSitecoreApiHost')}`],
-  jssAppName: process.env[`${constantCase('reactAppJssAppName')}`],
+  siteName: process.env[`${constantCase('siteName')}`],
   graphQLEndpointPath: process.env[`${constantCase('reactAppGraphQLEndpointPath')}`],
   defaultLanguage: process.env[`${constantCase('reactAppDefaultLanguage')}`],
   graphQLEndpoint: process.env[`${constantCase('reactAppGraphQLEndpoint')}`],
-  layoutServiceConfigurationName: process.env[`${constantCase('reactAppLayoutServiceConfigurationName')}`],
+  layoutServiceConfigurationName:
+    process.env[`${constantCase('reactAppLayoutServiceConfigurationName')}`],
 };
 
-generateConfig()
+generateConfig();
 
 /**
  * Generate config
@@ -30,7 +31,7 @@ generateConfig()
  */
 function generateConfig() {
   try {
-    config = jssConfigFactory.create(defaultConfig)
+    config = jssConfigFactory.create(defaultConfig);
   } catch (error) {
     console.error('Error generating config');
     console.error(error);
@@ -38,7 +39,7 @@ function generateConfig() {
   }
 
   writeConfig(config);
-};
+}
 
 function writeConfig(config) {
   let configText = `/* eslint-disable */
@@ -47,7 +48,7 @@ function writeConfig(config) {
 const config = {};\n`;
 
   // Set base configuration values, allowing override with environment variables
-  Object.keys(config).forEach((prop) => {
+  Object.keys(config).forEach(prop => {
     configText += `config.${prop} = process.env.REACT_APP_${constantCase(prop)} || "${
       config[prop]
     }",\n`;

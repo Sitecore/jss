@@ -40,7 +40,7 @@ export const setUpDefaultAgents = (httpAgent, httpsAgent) => {
 
 // Export app configuration; this will be used when this app runs in Headless mode (ie node-headless-ssr-experience-edge or node-headless-ssr-proxy)
 export const apiKey = config.sitecoreApiKey;
-export const appName = config.jssAppName;
+export const appName = config.siteName;
 export const defaultLanguage = config.defaultLanguage;
 
 /**
@@ -81,12 +81,12 @@ export function renderView(callback, path, data, viewBag) {
           />
         )
       )
-      .then((renderedAppHtml) =>
+      .then(renderedAppHtml =>
         // getHtmlTemplate() should return the "shell" HTML template that the rendered app
         // will be injected into. In many cases, the HTML template will be the same for client-side
         // rendering and for server-sider rendering. However, in some instances (e.g. JSS render host)
         // the HTML template needs to be modified or replaced when rendering.
-        getHtmlTemplate(state).then((htmlTemplate) => ({
+        getHtmlTemplate(state).then(htmlTemplate => ({
           htmlTemplate,
           renderedAppHtml,
         }))
@@ -139,7 +139,7 @@ export function renderView(callback, path, data, viewBag) {
 
         callback(null, { html });
       })
-      .catch((error) => callback(error, null));
+      .catch(error => callback(error, null));
   } catch (err) {
     // need to ensure the callback is always invoked no matter what
     // or else SSR will hang

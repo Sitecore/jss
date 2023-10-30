@@ -10,7 +10,7 @@ class FallbackPlugin {
     return Object.assign({}, config, {
       defaultLanguage: config.defaultLanguage || 'en',
       sitecoreApiKey: config.sitecoreApiKey || 'no-api-key-set',
-      jssAppName: config.jssAppName || 'Unknown',
+      siteName: config.siteName || 'Unknown',
       layoutServiceConfigurationName: config.layoutServiceConfigurationName || 'default',
     });
   }
