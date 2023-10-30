@@ -15,7 +15,7 @@ export function generateConfig(configOverrides?: { [key: string]: unknown }, out
     production: false,
     sitecoreApiHost: '',
     sitecoreApiKey: 'no-api-key-set',
-    jssAppName: 'Unknown',
+    siteName: 'Unknown',
     sitecoreLayoutServiceConfig: 'jss',
     defaultLanguage: 'en',
     defaultServerRoute: '/',
@@ -75,7 +75,9 @@ function transformScJssConfig() {
     return {};
   }
 
-  if (!config) { return {}; }
+  if (!config) {
+    return {};
+  }
 
   return {
     sitecoreApiKey: config.sitecore.apiKey,
@@ -86,10 +88,12 @@ function transformScJssConfig() {
 function transformPackageConfig() {
   const packageAny = packageConfig;
 
-  if (!packageAny.config) { return {}; }
+  if (!packageAny.config) {
+    return {};
+  }
 
   return {
-    jssAppName: packageAny.config.appName,
+    siteName: packageAny.config.appName,
     defaultLanguage: packageAny.config.language || 'en',
     graphQLEndpointPath: packageAny.config.graphQLEndpointPath || null,
   };
