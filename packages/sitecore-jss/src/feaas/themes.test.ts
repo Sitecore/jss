@@ -6,9 +6,10 @@ import {
   getFEAASLibraryStylesheetLinks,
   getStylesheetUrl,
 } from './themes';
+import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
 import { ComponentRendering, HtmlElementRendering, LayoutServicePageState } from '../layout';
 
-describe.only('themes', () => {
+describe('themes', () => {
   describe('getFEAASLibraryStylesheetLinks', () => {
     const setBasicLayoutData = (
       component: ComponentRendering | HtmlElementRendering,
@@ -517,9 +518,9 @@ describe.only('themes', () => {
       it('should use prod server url for edge prod url', () => {
         const pageState = LayoutServicePageState.Normal;
 
-        expect(
-          getStylesheetUrl('foo', pageState, 'https://edge-platform.sitecorecloud.io')
-        ).to.equal(`${FEAAS_SERVER_URL_PROD}/styles/foo/published.css`);
+        expect(getStylesheetUrl('foo', pageState, SITECORE_EDGE_URL_DEFAULT)).to.equal(
+          `${FEAAS_SERVER_URL_PROD}/styles/foo/published.css`
+        );
       });
     });
   });

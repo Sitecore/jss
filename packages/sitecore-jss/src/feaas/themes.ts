@@ -7,6 +7,7 @@ import {
   getFieldValue,
 } from '../layout';
 import { HTMLLink } from '../models';
+import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
 
 /**
  * Stylesheets revision type
@@ -33,7 +34,7 @@ export const FEAAS_SERVER_URL_PROD = 'https://feaas.blob.core.windows.net';
  */
 export function getFEAASLibraryStylesheetLinks(
   layoutData: LayoutServiceData,
-  sitecoreEdgeUrl = 'https://edge-platform.sitecorecloud.io'
+  sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT
 ): HTMLLink[] {
   const ids = new Set<string>();
 
@@ -50,7 +51,7 @@ export function getFEAASLibraryStylesheetLinks(
 export const getStylesheetUrl = (
   id: string,
   pageState?: LayoutServicePageState,
-  sitecoreEdgeUrl = 'https://edge-platform.sitecorecloud.io'
+  sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT
 ) => {
   const revision: RevisionType =
     pageState && pageState !== LayoutServicePageState.Normal ? 'staged' : 'published';
