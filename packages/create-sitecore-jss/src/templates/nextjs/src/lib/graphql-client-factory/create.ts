@@ -1,8 +1,8 @@
 import {
   GraphQLRequestClientFactoryConfig,
-  getEdgeProxyContentUrl,
   GraphQLRequestClient,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+} from '@sitecore-jss/sitecore-jss-nextjs/graphql-client';
+import { getEdgeProxyContentUrl } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 import { JssConfig } from 'lib/config';
 
 /**

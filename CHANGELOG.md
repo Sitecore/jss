@@ -22,6 +22,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` Import SitecoreForm component into sample nextjs app ([#1628](https://github.com/Sitecore/jss/pull/1628))
 * `[sitecore-jss-nextjs]` (Vercel/Sitecore) Deployment Protection Bypass support for editing integration. ([#1634](https://github.com/Sitecore/jss/pull/1634))
 * `[sitecore-jss]` `[templates/nextjs]` Load environment-specific FEAAS theme stylesheets based on Sitecore Edge Platform URL ([#1645](https://github.com/Sitecore/jss/pull/1645))
+* `[sitecore-jss-nextjs]` The _GraphQLRequestClient_ import from _@sitecore-jss/sitecore-jss-nextjs_ is deprecated, use import from _@sitecore-jss/sitecore-jss-nextjs/graphql-client_ submodule instead ([#1648](https://github.com/Sitecore/jss/pull/1648))
 
 ### 🐛 Bug Fixes
 
