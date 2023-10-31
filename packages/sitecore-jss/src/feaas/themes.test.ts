@@ -377,7 +377,7 @@ describe('themes', () => {
             href: getStylesheetUrl(
               'bar',
               LayoutServicePageState.Edit,
-              'https://edge-platform-dev.sitecorecloud.io',
+              'https://edge-platform-dev.sitecorecloud.io'
             ),
           },
         ]);
