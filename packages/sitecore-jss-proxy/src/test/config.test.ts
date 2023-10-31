@@ -17,7 +17,7 @@ const config: ProxyConfig = {
         lang: 'en',
       };
     },
-    appName: 'APP_NAME',
+    siteName: 'APP_NAME',
     apiKey: '{GUID}',
   },
 };

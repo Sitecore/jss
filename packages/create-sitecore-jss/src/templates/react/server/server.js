@@ -40,7 +40,7 @@ export const setUpDefaultAgents = (httpAgent, httpsAgent) => {
 
 // Export app configuration; this will be used when this app runs in Headless mode (ie node-headless-ssr-experience-edge or node-headless-ssr-proxy)
 export const apiKey = config.sitecoreApiKey;
-export const appName = config.siteName;
+export const siteName = config.siteName;
 export const defaultLanguage = config.defaultLanguage;
 
 /**
