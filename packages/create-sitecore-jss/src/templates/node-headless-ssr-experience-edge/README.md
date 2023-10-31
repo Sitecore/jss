@@ -24,7 +24,7 @@ This is a sample setup showing one of how you can configure rendering server on 
 
    > You can use JSS sample apps which support server side rendering (JSS integrated mode) to operate with this project.
 
-1. Deploy the build artifacts from your app (`/dist` or `/build` within the app) to the `sitecoreDistPath` set in your app's `package.json` under the SSR sample root path. Most apps use `/dist/${jssAppName}`, for example `$ssrSampleRoot/dist/${jssAppName}`.
+1. Deploy the build artifacts from your app (`/dist` or `/build` within the app) to the `sitecoreDistPath` set in your app's `package.json` under the SSR sample root path. Most apps use `/dist/${siteName}`, for example `$ssrSampleRoot/dist/${siteName}`.
 
    > Another way to deploy the artifacts to the SSR sample is to change the `instancePath` in your app's `scjssconfig.json` to the SSR sample root path, and then use `jss deploy files` within the app to complete the deployment to the SSR sample.
 
