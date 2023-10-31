@@ -8,9 +8,6 @@ export {
   AxiosDataFetcherConfig,
   NativeDataFetcher,
   NativeDataFetcherConfig,
-  GraphQLRequestClient,
-  GraphQLRequestClientFactory,
-  GraphQLRequestClientFactoryConfig,
   HTMLLink,
   enableDebug,
   debug,
@@ -18,6 +15,7 @@ export {
 
 // we will remove the root exports for these later
 // we cannot mark exports as deprected directly, so we're using this hack instead
+import { GraphQLRequestClient as GraphQLRequestClientDep } from './graphql-client';
 import {
   isEditorActive as isEditorActiveDep,
   resetEditorChromes as resetEditorChromesDep,
@@ -28,6 +26,7 @@ import {
   handleEditorFastRefresh as handleEditorFastRefreshDep,
   getPublicUrl as getPublicUrlDep,
 } from './utils';
+
 /** @deprecated use import from '@sitecore-jss/sitecore-jss-nextjs/utils' instead */
 const {
   isEditorActiveDep: isEditorActive,
@@ -44,6 +43,12 @@ const {
   handleEditorFastRefreshDep,
   getPublicUrlDep,
 };
+/** @deprecated use import from '@sitecore-jss/sitecore-jss-nextjs/graphql-client' instead */
+const { GraphQLRequestClientDep: GraphQLRequestClient } = {
+  GraphQLRequestClientDep,
+};
+
+export { GraphQLRequestClient };
 export { handleEditorFastRefresh, getPublicUrl };
 export { isEditorActive, resetEditorChromes, resolveUrl, tryParseEnvValue };
 
@@ -72,7 +77,6 @@ export {
   EDITING_COMPONENT_PLACEHOLDER,
   EDITING_COMPONENT_ID,
 } from '@sitecore-jss/sitecore-jss/layout';
-export { getEdgeProxyContentUrl } from '@sitecore-jss/sitecore-jss/graphql';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
   trackingApi,
