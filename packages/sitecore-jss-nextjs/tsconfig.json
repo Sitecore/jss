@@ -18,7 +18,7 @@
     "editing.d.ts",
     "monitoring.d.ts",
     "site.d.ts",
-    "graphql-client.d.ts",
+    "graphql.d.ts",
     "utils.d.ts",
     "src/tests/*",
     "src/test-data/*",
