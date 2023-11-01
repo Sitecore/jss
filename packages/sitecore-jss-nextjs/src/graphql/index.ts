@@ -2,5 +2,5 @@ export {
   GraphQLRequestClient,
   GraphQLRequestClientFactory,
   GraphQLRequestClientFactoryConfig,
-  getEdgeProxyContentUrl
+  getEdgeProxyContentUrl,
 } from '@sitecore-jss/sitecore-jss/graphql';
