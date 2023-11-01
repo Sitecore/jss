@@ -5,3 +5,4 @@ export {
   resetEditorChromes,
   resolveUrl,
 } from '@sitecore-jss/sitecore-jss/utils';
+export { getEdgeProxyContentUrl } from '@sitecore-jss/sitecore-jss/graphql';
