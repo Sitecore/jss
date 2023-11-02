@@ -8,7 +8,6 @@ import {
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
 import { initServer, personalizeServer } from '@sitecore-cloudsdk/personalize';
-import { init, initServer } from '@sitecore-cloudsdk/events';
 
 
 export type CdpServiceConfig = {

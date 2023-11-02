@@ -1,53 +1,22 @@
 import {
   CdpHelper,
   LayoutServicePageState,
-  SiteInfo,
   useSitecoreContext,
-  PosResolver,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { useEffect } from 'react';
 import config from 'temp/config';
-import { init } from '@sitecore/engage';
-import { siteResolver } from 'lib/site-resolver';
+import { createPageView } from 'lib/context/events';
 
 /**
  * This is the CDP page view component.
  * It uses the Sitecore Engage SDK to enable page view events on the client-side.
  * See Sitecore Engage SDK documentation for details.
- * https://www.npmjs.com/package/@sitecore/engage
+ * https://www.npmjs.com/package/@sitecore-cloudsdk/events
  */
 const CdpPageView = (): JSX.Element => {
   const {
     sitecoreContext: { pageState, route, variantId, site },
   } = useSitecoreContext();
-
-  /**
-   * Creates a page view event using the Sitecore Engage SDK.
-   */
-  const createPageView = async (
-    page: string,
-    language: string,
-    site: SiteInfo,
-    pageVariantId: string
-  ) => {
-    const pointOfSale = PosResolver.resolve(site, language);
-    const engage = await init({
-      clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
-      targetURL: process.env.NEXT_PUBLIC_CDP_TARGET_URL || '',
-      // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
-      cookieDomain: window.location.hostname.replace(/^www\./, ''),
-      // Cookie may be created in personalize middleware (server), but if not we should create it here
-      forceServerCookieMode: false,
-    });
-    engage.pageView({
-      channel: 'WEB',
-      currency: 'USD',
-      pointOfSale,
-      page,
-      pageVariantId,
-      language,
-    });
-  };
 
   /**
    * Determines if the page view events should be turned off.
@@ -63,12 +32,11 @@ const CdpPageView = (): JSX.Element => {
     if (pageState !== LayoutServicePageState.Normal || !route?.itemId) {
       return;
     }
-    // Do not create events if disabled (e.g. we don't have consent)
+    // // Do not create events if disabled (e.g. we don't have consent)
     if (disabled()) {
       return;
     }
 
-    const siteInfo = siteResolver.getByName(site?.name || config.siteName);
     const language = route.itemLanguage || config.defaultLanguage;
     const scope = process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE;
 
@@ -78,7 +46,8 @@ const CdpPageView = (): JSX.Element => {
       variantId as string,
       scope
     );
-    createPageView(route.name, language, siteInfo, pageVariantId);
+
+    createPageView(route.name, language, pageVariantId);
   }, [pageState, route, variantId, site]);
 
   return <></>;

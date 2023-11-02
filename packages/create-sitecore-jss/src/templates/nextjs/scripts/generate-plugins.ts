@@ -57,6 +57,11 @@ const pluginDefinitions: PluginDefinition[] = [
     rootPath: 'src/lib/site-resolver/plugins',
     moduleType: ModuleType.ESM,
   },
+  {
+    distPath: 'src/temp/context-plugins.ts',
+    rootPath: 'src/lib/context/plugins',
+    moduleType: ModuleType.ESM,
+  },
 ];
 
 pluginDefinitions.forEach(definition => {

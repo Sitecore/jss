@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "@sitecore/engage": "^1.4.1"
+    "@sitecore-cloudsdk/events": "^0.1.0-rc.0"
   }
 }
