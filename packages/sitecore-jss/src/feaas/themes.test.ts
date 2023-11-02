@@ -57,7 +57,7 @@ describe('themes', () => {
               },
             })
           )
-        ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'style' }]);
+        ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'stylesheet' }]);
       });
 
       it('should return links using LibraryId field', () => {
@@ -72,7 +72,7 @@ describe('themes', () => {
               },
             })
           )
-        ).to.deep.equal([{ href: getStylesheetUrl('bar'), rel: 'style' }]);
+        ).to.deep.equal([{ href: getStylesheetUrl('bar'), rel: 'stylesheet' }]);
       });
 
       it('should return links using CSSStyles param', () => {
@@ -85,7 +85,7 @@ describe('themes', () => {
               },
             })
           )
-        ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'style' }]);
+        ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'stylesheet' }]);
       });
 
       it('should return links using LibraryId param', () => {
@@ -98,7 +98,7 @@ describe('themes', () => {
               },
             })
           )
-        ).to.deep.equal([{ href: getStylesheetUrl('bar'), rel: 'style' }]);
+        ).to.deep.equal([{ href: getStylesheetUrl('bar'), rel: 'stylesheet' }]);
       });
 
       it('should return prefer params over fields', () => {
@@ -116,7 +116,7 @@ describe('themes', () => {
               },
             })
           )
-        ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'style' }]);
+        ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'stylesheet' }]);
 
         expect(
           getFEAASLibraryStylesheetLinks(
@@ -132,7 +132,7 @@ describe('themes', () => {
               },
             })
           )
-        ).to.deep.equal([{ href: getStylesheetUrl('bar'), rel: 'style' }]);
+        ).to.deep.equal([{ href: getStylesheetUrl('bar'), rel: 'stylesheet' }]);
       });
 
       it('should read LibraryId from class when matching param or field is not found', () => {
@@ -157,7 +157,7 @@ describe('themes', () => {
               },
             })
           )
-        ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'style' }]);
+        ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'stylesheet' }]);
       });
 
       it('should return links using non-prod server url', () => {
@@ -180,7 +180,7 @@ describe('themes', () => {
               LayoutServicePageState.Normal,
               'https://edge-platform-dev.sitecorecloud.io'
             ),
-            rel: 'style',
+            rel: 'stylesheet',
           },
         ]);
       });
@@ -330,7 +330,7 @@ describe('themes', () => {
         ).to.deep.equal(
           ['foo', 'x11', 'x12', 'x21', 'y1', 'y2', 'z1', 'z11', 'z21'].map((id) => ({
             href: getStylesheetUrl(id),
-            rel: 'style',
+            rel: 'stylesheet',
           }))
         );
       });
@@ -352,7 +352,7 @@ describe('themes', () => {
             )
           )
         ).to.deep.equal([
-          { href: getStylesheetUrl('bar', LayoutServicePageState.Edit), rel: 'style' },
+          { href: getStylesheetUrl('bar', LayoutServicePageState.Edit), rel: 'stylesheet' },
         ]);
       });
 
@@ -373,7 +373,7 @@ describe('themes', () => {
           )
         ).to.deep.equal([
           {
-            rel: 'style',
+            rel: 'stylesheet',
             href: getStylesheetUrl(
               'bar',
               LayoutServicePageState.Edit,
@@ -457,7 +457,7 @@ describe('themes', () => {
           })
         ).to.deep.equal(
           ['x1', 'y1', 'z1', 'z2'].map((id) => ({
-            rel: 'style',
+            rel: 'stylesheet',
             href: getStylesheetUrl(id, LayoutServicePageState.Edit),
           }))
         );
