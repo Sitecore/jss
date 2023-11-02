@@ -3,22 +3,19 @@ import {
   GraphQLPersonalizeService,
   GraphQLPersonalizeServiceConfig,
   getPersonalizedRewrite,
-  PosResolver,
+  PersonalizeInfo,
 } from '@sitecore-jss/sitecore-jss/personalize';
-import { SiteInfo } from '@sitecore-jss/sitecore-jss/site';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
-import { initServer, EngageServer } from '@sitecore/engage';
+import { initServer, personalizeServer } from '@sitecore-cloudsdk/personalize';
+import { init, initServer } from '@sitecore-cloudsdk/events';
+
 
 export type CdpServiceConfig = {
   /**
-   * Your Sitecore CDP API endpoint
+   * Your unified Sitecore Edge Context Id
    */
-  endpoint: string;
-  /**
-   * The client key to use for authentication
-   */
-  clientKey: string;
+  sitecoreEdgeContextId: string;
   /**
    * The Sitecore CDP channel to use for events. Uses 'WEB' by default.
    */
@@ -42,13 +39,6 @@ export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
    * Configuration for your Sitecore CDP endpoint
    */
   cdpConfig: CdpServiceConfig;
-  /**
-   * function to resolve point of sale for a site
-   * @param {Siteinfo} site to get info from
-   * @param {string} language to get info for
-   * @returns point of sale value for site/language combination
-   */
-  getPointOfSale?: (site: SiteInfo, language: string) => string;
 };
 
 /**
@@ -101,22 +91,53 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     };
   }
 
-  protected initializeEngageServer(
-    hostName: string,
-    site: SiteInfo,
-    language: string
-  ): EngageServer {
-    const engageServer = initServer({
-      clientKey: this.config.cdpConfig.clientKey,
-      targetURL: this.config.cdpConfig.endpoint,
-      pointOfSale: this.config.getPointOfSale
-        ? this.config.getPointOfSale(site, language)
-        : PosResolver.resolve(site, language),
-      cookieDomain: hostName,
-      forceServerCookieMode: true,
-    });
+  protected async initPersonalizeServer({
+    hostname,
+    sitecoreEdgeContextId,
+    siteName,
+    request,
+    response,
+  }: {
+    hostname: string;
+    sitecoreEdgeContextId: string;
+    siteName: string;
+    request: NextRequest;
+    response: NextResponse;
+  }): Promise<void> {
+    await initServer(
+      {
+        sitecoreEdgeContextId,
+        siteName,
+        cookieDomain: hostname,
+        enableServerCookie: true,
+      },
+      request,
+      response
+    );
+  }
 
-    return engageServer;
+  protected async personalize({
+    params,
+    personalizeInfo,
+    language,
+    timeout,
+  }: {
+    personalizeInfo: PersonalizeInfo;
+    params: ExperienceParams,
+    language: string;
+    timeout?: number;
+  }, request: NextRequest) {
+    const personalizationData = {
+      channel: this.config.cdpConfig.channel || 'WEB',
+      currency: this.config.cdpConfig.currency ?? 'USA',
+      friendlyId: personalizeInfo.contentId,
+      params,
+      language,
+    };
+
+    return (await personalizeServer(personalizationData, request, timeout)) as {
+      variantId: string;
+    };
   }
 
   protected getExperienceParams(req: NextRequest): ExperienceParams {
@@ -194,36 +215,25 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       return response;
     }
 
-    const engageServer = this.initializeEngageServer(hostname, site, language);
+    await this.initPersonalizeServer({
+      hostname,
+      siteName: site.name,
+      sitecoreEdgeContextId: this.config.cdpConfig.sitecoreEdgeContextId,
+      request: req,
+      response,
+    });
 
-    // creates the browser ID cookie on the server side
-    // and includes the cookie in the response header
-    try {
-      await engageServer.handleCookie(req, response, timeout);
-    } catch (error) {
-      debug.personalize('skipped (browser id generation failed)');
-      throw error;
-    }
     const params = this.getExperienceParams(req);
 
     debug.personalize('executing experience for %s %s %o', personalizeInfo.contentId, params);
 
-    const personalizationData = {
-      channel: this.config.cdpConfig.channel || 'WEB',
-      currency: this.config.cdpConfig.currency ?? 'USA',
-      friendlyId: personalizeInfo.contentId,
-      params,
-      language,
-    };
-
     let variantId;
 
-    // Execute targeted experience in CDP
+    // Execute targeted experience in Personalize SDK
     // eslint-disable-next-line no-useless-catch
     try {
-      variantId = ((await engageServer.personalize(personalizationData, req, timeout)) as {
-        variantId: string;
-      }).variantId;
+      const personalization = await this.personalize({ personalizeInfo, params, language, timeout }, req);
+      variantId = personalization.variantId;
     } catch (error) {
       throw error;
     }
