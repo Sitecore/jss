@@ -11,6 +11,8 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 21.6.0
+
 ### 🎉 New Features & Improvements
 
 * `[sitecore-jss]` Support for both 'published' and 'staged' revisions of FEAAS stylesheets/themes ([#1644](https://github.com/Sitecore/jss/pull/1644))
@@ -32,7 +34,6 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` Fix custom headers. Now in cors-header plugin extends custom headers from next.config.js file. ([#1637](https://github.com/Sitecore/jss/pull/1637))
 * `[sitecore-jss-react]` Fix PlaceholderCommon with using two and more dynamic placeholders. ([#1641](https://github.com/Sitecore/jss/pull/1641))
 * `[templates/nextjs-multisite]` Fix site info fetch errors (now skipped) on XM Cloud rendering/editing host builds. ([#1649](https://github.com/Sitecore/jss/pull/1649))
-
 
 ## 21.5.0
 
