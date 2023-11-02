@@ -12,7 +12,9 @@ const { jssConfigFactory } = require('./config');
 const defaultConfig = {
   sitecoreApiKey: process.env[`${constantCase('reactAppSitecoreApiKey')}`],
   sitecoreApiHost: process.env[`${constantCase('reactAppSitecoreApiHost')}`],
-  siteName: process.env[`${constantCase('reactAppSiteName')}`],
+  siteName:
+    process.env[`${constantCase('reactAppSiteName')}`] ||
+    process.env[`${constantCase('reactAppJssAppName')}`],
   graphQLEndpointPath: process.env[`${constantCase('reactAppGraphQLEndpointPath')}`],
   defaultLanguage: process.env[`${constantCase('reactAppDefaultLanguage')}`],
   graphQLEndpoint: process.env[`${constantCase('reactAppGraphQLEndpoint')}`],

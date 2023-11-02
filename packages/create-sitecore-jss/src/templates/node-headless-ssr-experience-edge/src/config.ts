@@ -1,5 +1,5 @@
 import { Config, ServerBundle } from './types';
-const siteName = process.env.SITECORE_SITE_NAME;
+const siteName = process.env.SITECORE_SITE_NAME || process.env.SITECORE_JSS_APP_NAME;
 
 /**
  * The server.bundle.js file from your pre-built JSS app

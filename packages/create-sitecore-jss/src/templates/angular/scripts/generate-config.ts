@@ -15,7 +15,8 @@ export function generateConfig(configOverrides?: { [key: string]: unknown }, out
     production: false,
     sitecoreApiHost: '',
     sitecoreApiKey: 'no-api-key-set',
-    siteName: 'Unknown',
+    jssAppName: 'Unknown',
+    siteName: '',
     sitecoreLayoutServiceConfig: 'jss',
     defaultLanguage: 'en',
     defaultServerRoute: '/',
@@ -38,6 +39,9 @@ export function generateConfig(configOverrides?: { [key: string]: unknown }, out
   // and finally config passed in the configOverrides param wins.
   const config = Object.assign(defaultConfig, scjssConfig, packageJson, configOverrides);
 
+  // for the sake of backwards compatibility - make sure to initialize siteName
+  config.siteName = config.siteName || config.jssAppName;
+
   // The GraphQL endpoint is an example of making a _computed_ config setting
   // based on other config settings.
   const computedConfig: { [key: string]: string } = {};
@@ -50,7 +54,14 @@ const config = {};\n`;
 
   // Set base configuration values, allowing override with environment variables
   Object.keys(config).forEach((prop) => {
-    configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]}",\n`;
+    if (prop === 'siteName') {
+      // for the sake of backwards compatibility - make sure to initialize siteName from jssAppName if necessary
+      configText += `config.${prop} = process.env.${constantCase(prop)} || "${
+        config[prop]
+      } || process.env.${constantCase('jssAppName')} || "${config.jssAppName}",\n`;
+    } else {
+      configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]}",\n`;
+    }
   });
   // Set computed values, allowing override with environment variables
   Object.keys(computedConfig).forEach((prop) => {
