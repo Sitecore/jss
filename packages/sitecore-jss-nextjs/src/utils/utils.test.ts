@@ -33,10 +33,32 @@ describe('utils', () => {
       expect(() => getPublicUrl()).to.throw();
     });
 
-    it('should use VERCEL_URL', () => {
+    it('should use VERCEL_URL if PUBLIC_URL is not defined', () => {
       process.env.VERCEL_URL = 'jss.uniqueid.vercel.com';
       const result = getPublicUrl();
       expect(result).to.equal('https://jss.uniqueid.vercel.com');
+    });
+
+    it('should use VERCEL_URL if PUBLIC_URL is not an empty string', () => {
+      process.env.VERCEL_URL = 'jss.uniqueid.vercel.com';
+      process.env.PUBLIC_URL = 'http://test.com';
+      const result = getPublicUrl();
+      expect(result).to.equal('https://jss.uniqueid.vercel.com');
+    });
+
+    it('should use PUBLIC_URL if it is an empty string and VERCEL_URL is defined', () => {
+      process.env.VERCEL_URL = 'jss.uniqueid.vercel.com';
+      const publicUrl = '';
+      process.env.PUBLIC_URL = publicUrl;
+      const result = getPublicUrl();
+      expect(result).to.equal(publicUrl);
+    });
+
+    it('should use PUBLIC_URL if it is defined and is empty string', () => {
+      const publicUrl = '';
+      process.env.PUBLIC_URL = publicUrl;
+      const result = getPublicUrl();
+      expect(result).to.equal(publicUrl);
     });
   });
   describe('getJssEditingSecret', () => {
