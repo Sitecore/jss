@@ -17,8 +17,14 @@ class MultisitePlugin implements ConfigPlugin {
 
     const endpoint = config.sitecoreEdgeContextId ? config.sitecoreEdgeUrl : config.graphQLEndpoint;
 
-    if (!endpoint) {
-      console.warn(chalk.yellow('Skipping site information fetch (missing GraphQL endpoint).'));
+    if (!endpoint || process.env.SITECORE) {
+      console.warn(
+        chalk.yellow(
+          `Skipping site information fetch (${
+            !endpoint ? 'missing GraphQL endpoint' : 'building on XM Cloud'
+          })`
+        )
+      );
     } else {
       console.log(`Fetching site information from ${endpoint}`);
 

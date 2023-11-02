@@ -1,13 +1,14 @@
 import { SitecorePageProps } from 'lib/page-props';
 import { getFEAASLibraryStylesheetLinks } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Plugin } from '..';
+import config from 'temp/config';
 
 class FEeaSThemesPlugin implements Plugin {
   order = 2;
 
   async exec(props: SitecorePageProps) {
     // Collect FEAAS themes
-    props.headLinks.push(...getFEAASLibraryStylesheetLinks(props.layoutData));
+    props.headLinks.push(...getFEAASLibraryStylesheetLinks(props.layoutData, config.sitecoreEdgeUrl));
 
     return props;
   }

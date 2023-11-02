@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { getEdgeProxyContentUrl } from './graphql-edge-proxy';
+import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
 
 describe('graphql-edge-proxy', () => {
   describe('getEdgeProxyContentUrl', () => {
@@ -10,7 +11,7 @@ describe('graphql-edge-proxy', () => {
       const url = getEdgeProxyContentUrl(sitecoreEdgeContextId);
 
       expect(url).to.equal(
-        'https://edge-platform.sitecorecloud.io/content/api/graphql/v1?sitecoreContextId=0730fc5a-3333-5555-5555-08db6d7ddb49'
+        `${SITECORE_EDGE_URL_DEFAULT}/content/api/graphql/v1?sitecoreContextId=0730fc5a-3333-5555-5555-08db6d7ddb49`
       );
     });
 
