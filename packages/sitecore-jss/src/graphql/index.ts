@@ -3,6 +3,8 @@ export {
   GraphQLClient,
   GraphQLRequestClient,
   GraphQLRequestClientConfig,
+  GraphQLRequestClientFactory,
+  GraphQLRequestClientFactoryConfig,
 } from './../graphql-request-client';
 export {
   SearchQueryResult,
@@ -11,3 +13,4 @@ export {
   SearchQueryService,
   PageInfo,
 } from './search-service';
+export { getEdgeProxyContentUrl } from './graphql-edge-proxy';

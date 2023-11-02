@@ -2,6 +2,7 @@ import { URLSearchParams } from 'url';
 import { GraphQLClient, GraphQLRequestClient, PageInfo } from '../graphql';
 import debug from '../debug';
 import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
+import { GraphQLRequestClientFactory } from '../graphql-request-client';
 
 const headlessSiteGroupingTemplate = 'E46F3AF2-39FA-4866-A157-7017C4B2A40C';
 const sitecoreContentRootItem = '0DE95AE4-41AB-4D01-9EB0-67441B7C2450';
@@ -68,18 +69,25 @@ export type SiteInfo = {
 export type GraphQLSiteInfoServiceConfig = CacheOptions & {
   /**
    * Your Graphql endpoint
+   * @deprecated use @param clientFactory property instead
    */
-  endpoint: string;
+  endpoint?: string;
   /**
    * The API key to use for authentication
+   * @deprecated use @param clientFactory property instead
    */
-  apiKey: string;
+  apiKey?: string;
   /** common variable for all GraphQL queries
    * it will be used for every type of query to regulate result batch size
    * Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
    * @default 10
    */
   pageSize?: number;
+  /**
+   * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
+   * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
+   */
+  clientFactory?: GraphQLRequestClientFactory;
 };
 
 type GraphQLSiteInfoResponse = {
@@ -176,6 +184,16 @@ export class GraphQLSiteInfoService {
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(): GraphQLClient {
+    if (!this.config.endpoint) {
+      if (!this.config.clientFactory) {
+        throw new Error('You should provide either an endpoint and apiKey, or a clientFactory.');
+      }
+
+      return this.config.clientFactory({
+        debugger: debug.multisite,
+      });
+    }
+
     return new GraphQLRequestClient(this.config.endpoint, {
       apiKey: this.config.apiKey,
       debugger: debug.multisite,

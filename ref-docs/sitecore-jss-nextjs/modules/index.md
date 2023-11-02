@@ -30,7 +30,6 @@
 - [GraphQLDictionaryService](../classes/index.GraphQLDictionaryService.md)
 - [GraphQLErrorPagesService](../classes/index.GraphQLErrorPagesService.md)
 - [GraphQLLayoutService](../classes/index.GraphQLLayoutService.md)
-- [GraphQLRequestClient](../classes/index.GraphQLRequestClient.md)
 - [GraphQLRobotsService](../classes/index.GraphQLRobotsService.md)
 - [GraphQLSiteInfoService](../classes/index.GraphQLSiteInfoService.md)
 - [GraphQLSitemapService](../classes/index.GraphQLSitemapService.md)
@@ -58,6 +57,7 @@
 - [FileField](../interfaces/index.FileField.md)
 - [GoalInstance](../interfaces/index.GoalInstance.md)
 - [GraphQLDictionaryServiceConfig](../interfaces/index.GraphQLDictionaryServiceConfig.md)
+- [GraphQLErrorPagesServiceConfig](../interfaces/index.GraphQLErrorPagesServiceConfig.md)
 - [GraphQLLayoutServiceConfig](../interfaces/index.GraphQLLayoutServiceConfig.md)
 - [GraphQLSitemapServiceConfig](../interfaces/index.GraphQLSitemapServiceConfig.md)
 - [HtmlElementRendering](../interfaces/index.HtmlElementRendering.md)
@@ -101,7 +101,6 @@
 - [FEaaSComponentProps](index.md#feaascomponentprops)
 - [GetServerSideComponentProps](index.md#getserversidecomponentprops)
 - [GetStaticComponentProps](index.md#getstaticcomponentprops)
-- [GraphQLErrorPagesServiceConfig](index.md#graphqlerrorpagesserviceconfig)
 - [GraphQLRobotsServiceConfig](index.md#graphqlrobotsserviceconfig)
 - [GraphQLSiteInfoServiceConfig](index.md#graphqlsiteinfoserviceconfig)
 - [GraphQLSitemapXmlServiceConfig](index.md#graphqlsitemapxmlserviceconfig)
@@ -125,6 +124,7 @@
 - [ComponentPropsReactContext](index.md#componentpropsreactcontext)
 - [EDITING\_COMPONENT\_ID](index.md#editing_component_id)
 - [EDITING\_COMPONENT\_PLACEHOLDER](index.md#editing_component_placeholder)
+- [GraphQLRequestClient](index.md#graphqlrequestclient)
 - [SitecoreContextReactContext](index.md#sitecorecontextreactcontext)
 - [debug](index.md#debug)
 
@@ -197,7 +197,7 @@ Data from rendering params on Sitecore's BYOC rendering
 
 #### Defined in
 
-sitecore-jss-react/types/components/BYOCComponent.d.ts:18
+sitecore-jss-react/types/components/BYOCComponent.d.ts:19
 
 ___
 
@@ -207,7 +207,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/BYOCComponent.d.ts:55
+sitecore-jss-react/types/components/BYOCComponent.d.ts:56
 
 ___
 
@@ -231,7 +231,7 @@ Configuration for ComponentBuilder
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/ComponentBuilder.ts:21](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L21)
+[sitecore-jss-nextjs/src/ComponentBuilder.ts:21](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L21)
 
 ___
 
@@ -256,7 +256,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/sharedTypes.d.ts:6
+sitecore-jss-react/types/components/sharedTypes.d.ts:7
 
 ___
 
@@ -272,7 +272,7 @@ Shape of component props storage
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:9](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L9)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:9](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L9)
 
 ___
 
@@ -289,7 +289,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
 
 ___
 
@@ -306,7 +306,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:4](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L4)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:4](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L4)
 
 ___
 
@@ -329,7 +329,7 @@ Object model of Error Pages result
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:24
+sitecore-jss/types/site/graphql-error-pages-service.d.ts:32
 
 ___
 
@@ -378,7 +378,7 @@ Shape of getServerSideProps function on component level
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:25](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L25)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:25](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L25)
 
 ___
 
@@ -390,26 +390,7 @@ Shape of getStaticProps function on component level
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:30](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L30)
-
-___
-
-### GraphQLErrorPagesServiceConfig
-
-Ƭ **GraphQLErrorPagesServiceConfig**: `Object`
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `apiKey` | `string` | The API key to use for authentication |
-| `endpoint` | `string` | Your Graphql endpoint |
-| `language` | `string` | The language |
-| `siteName` | `string` | The JSS application name |
-
-#### Defined in
-
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:3
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:30](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L30)
 
 ___
 
@@ -421,23 +402,24 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `apiKey` | `string` | The API key to use for authentication |
-| `endpoint` | `string` | Your Graphql endpoint |
+| `apiKey?` | `string` | The API key to use for authentication **`Deprecated`** use **`Param`** property instead |
+| `clientFactory?` | `GraphQLRequestClientFactory` | A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient. This factory function is used to create and configure GraphQL clients for making GraphQL API requests. |
+| `endpoint?` | `string` | Your Graphql endpoint **`Deprecated`** use **`Param`** property instead |
 | `siteName` | `string` | The JSS application name |
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-robots-service.d.ts:2
+sitecore-jss/types/site/graphql-robots-service.d.ts:3
 
 ___
 
 ### GraphQLSiteInfoServiceConfig
 
-Ƭ **GraphQLSiteInfoServiceConfig**: `CacheOptions` & { `apiKey`: `string` ; `endpoint`: `string` ; `pageSize?`: `number`  }
+Ƭ **GraphQLSiteInfoServiceConfig**: `CacheOptions` & { `apiKey?`: `string` ; `clientFactory?`: `GraphQLRequestClientFactory` ; `endpoint?`: `string` ; `pageSize?`: `number`  }
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-siteinfo-service.d.ts:25
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:26
 
 ___
 
@@ -449,13 +431,14 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `apiKey` | `string` | The API key to use for authentication |
-| `endpoint` | `string` | Your Graphql endpoint |
+| `apiKey?` | `string` | The API key to use for authentication **`Deprecated`** use **`Param`** property instead |
+| `clientFactory?` | `GraphQLRequestClientFactory` | A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient. This factory function is used to create and configure GraphQL clients for making GraphQL API requests. |
+| `endpoint?` | `string` | Your Graphql endpoint **`Deprecated`** use **`Param`** property instead |
 | `siteName` | `string` | The JSS application name |
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-sitemap-service.d.ts:2
+sitecore-jss/types/site/graphql-sitemap-service.d.ts:3
 
 ___
 
@@ -516,7 +499,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/components/Link.tsx#L12)
+[sitecore-jss-nextjs/src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/components/Link.tsx#L12)
 
 ___
 
@@ -528,7 +511,7 @@ Represents a module (file)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:7](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L7)
+[sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:7](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L7)
 
 ___
 
@@ -554,7 +537,7 @@ Represents a module factory
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:34](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L34)
+[sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:34](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L34)
 
 ___
 
@@ -624,7 +607,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)
+[sitecore-jss-nextjs/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)
 
 ___
 
@@ -644,7 +627,7 @@ The schema of data returned in response to robots.txt request
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-robots-service.d.ts:19
+sitecore-jss/types/site/graphql-robots-service.d.ts:27
 
 ___
 
@@ -667,7 +650,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-siteinfo-service.d.ts:3
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:4
 
 ___
 
@@ -677,7 +660,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:16
+sitecore-jss-react/types/components/SitecoreContext.d.ts:17
 
 ___
 
@@ -697,7 +680,7 @@ Object model of a site page item.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:31](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L31)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:31](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L31)
 
 ## Variables
 
@@ -709,7 +692,7 @@ Component props context which we are using in order to store data fetched on com
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
 
 ___
 
@@ -737,13 +720,23 @@ sitecore-jss/types/layout/models.d.ts:4
 
 ___
 
+### GraphQLRequestClient
+
+• **GraphQLRequestClient**: typeof `GraphQLRequestClient`
+
+#### Defined in
+
+[sitecore-jss-nextjs/src/index.ts:47](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/index.ts#L47)
+
+___
+
 ### SitecoreContextReactContext
 
 • `Const` **SitecoreContextReactContext**: `React.Context`<[`SitecoreContextState`](../interfaces/index.SitecoreContextState.md)\>
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:14
+sitecore-jss-react/types/components/SitecoreContext.d.ts:15
 
 ___
 
@@ -789,7 +782,7 @@ sitecore-jss/types/debug.d.ts:8
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:31](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L31)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:31](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L31)
 
 ___
 
@@ -852,7 +845,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/EditingComponentPlaceholder.tsx:9](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/components/EditingComponentPlaceholder.tsx#L9)
+[sitecore-jss-nextjs/src/components/EditingComponentPlaceholder.tsx:9](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/components/EditingComponentPlaceholder.tsx#L9)
 
 ___
 
@@ -977,7 +970,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/Placeholder.tsx:8](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/components/Placeholder.tsx#L8)
+[sitecore-jss-nextjs/src/components/Placeholder.tsx:8](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/components/Placeholder.tsx#L8)
 
 ___
 
@@ -997,7 +990,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:27](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L27)
+[sitecore-jss-nextjs/src/components/RichText.tsx:27](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L27)
 
 ___
 
@@ -1117,20 +1110,16 @@ ___
 
 ### getFEAASLibraryStylesheetLinks
 
-▸ **getFEAASLibraryStylesheetLinks**(`layoutData`, `serverUrl?`): [`HTMLLink`](index.md#htmllink)[]
+▸ **getFEAASLibraryStylesheetLinks**(`layoutData`, `sitecoreEdgeUrl?`): [`HTMLLink`](index.md#htmllink)[]
 
 Walks through rendering tree and returns list of links of all FEAAS Component Library Stylesheets that are used
-
-**`See`**
-
-url
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) | Layout service data |
-| `serverUrl?` | `string` | server URL, default is |
+| `sitecoreEdgeUrl?` | `string` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
 
 #### Returns
 
@@ -1140,7 +1129,7 @@ library stylesheet links
 
 #### Defined in
 
-sitecore-jss/types/feaas/themes.d.ts:10
+sitecore-jss/types/feaas/themes.d.ts:12
 
 ___
 
@@ -1266,7 +1255,7 @@ Similarly, DEPLOY_URL is provided by Netlify and would give us the deploy URL
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
+[sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
 
 ___
 
@@ -1344,7 +1333,7 @@ forceReload false
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:42](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/utils/utils.ts#L42)
+[sitecore-jss-nextjs/src/utils/utils.ts:42](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/utils/utils.ts#L42)
 
 ___
 
@@ -1545,7 +1534,7 @@ component props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
 
 ___
 
@@ -1601,7 +1590,7 @@ const EditMode = () => {
 
 #### Defined in
 
-sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:43
+sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:44
 
 ___
 
@@ -1656,7 +1645,7 @@ The wrapped component, if a datasource is present.
 
 #### Defined in
 
-sitecore-jss-react/types/enhancers/withDatasourceCheck.d.ts:21
+sitecore-jss-react/types/enhancers/withDatasourceCheck.d.ts:22
 
 ___
 
@@ -1676,7 +1665,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/enhancers/withEditorChromes.d.ts:2
+sitecore-jss-react/types/enhancers/withEditorChromes.d.ts:3
 
 ___
 
@@ -1775,4 +1764,4 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:17
+sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:18

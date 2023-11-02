@@ -1,7 +1,8 @@
-import { GraphQLClient, GraphQLRequestClient } from '../graphql';
+import { GraphQLClient, GraphQLRequestClient, GraphQLRequestClientConfig } from '../graphql';
 import { siteNameError } from '../constants';
 import debug from '../debug';
 import { LayoutServiceData } from '../layout';
+import { GraphQLRequestClientFactory } from '../graphql-request-client';
 
 // The default query for request error handling
 const defaultQuery = /* GraphQL */ `
@@ -23,15 +24,18 @@ const defaultQuery = /* GraphQL */ `
   }
 `;
 
-export type GraphQLErrorPagesServiceConfig = {
+export interface GraphQLErrorPagesServiceConfig
+  extends Pick<GraphQLRequestClientConfig, 'retries'> {
   /**
    * Your Graphql endpoint
+   * @deprecated use @param clientFactory property instead
    */
-  endpoint: string;
+  endpoint?: string;
   /**
    * The API key to use for authentication
+   * @deprecated use @param clientFactory property instead
    */
-  apiKey: string;
+  apiKey?: string;
   /**
    * The JSS application name
    */
@@ -40,7 +44,12 @@ export type GraphQLErrorPagesServiceConfig = {
    * The language
    */
   language: string;
-};
+  /**
+   * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
+   * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
+   */
+  clientFactory?: GraphQLRequestClientFactory;
+}
 
 /**
  * Object model of Error Pages result
@@ -107,9 +116,21 @@ export class GraphQLErrorPagesService {
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(): GraphQLClient {
+    if (!this.options.endpoint) {
+      if (!this.options.clientFactory) {
+        throw new Error('You should provide either an endpoint and apiKey, or a clientFactory.');
+      }
+
+      return this.options.clientFactory({
+        debugger: debug.errorpages,
+        retries: this.options.retries,
+      });
+    }
+
     return new GraphQLRequestClient(this.options.endpoint, {
       apiKey: this.options.apiKey,
       debugger: debug.errorpages,
+      retries: this.options.retries,
     });
   }
 }

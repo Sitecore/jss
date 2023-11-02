@@ -4,6 +4,7 @@ import spies from 'chai-spies';
 import nock from 'nock';
 import { GraphQLRedirectsService, RedirectsQueryResult } from './graphql-redirects-service';
 import { siteNameError } from '../constants';
+import { GraphQLRequestClient } from '../graphql-request-client';
 
 use(spies);
 
@@ -75,6 +76,22 @@ describe('GraphQLRedirectsService', () => {
       mockRedirectsRequest(siteName);
 
       const service = new GraphQLRedirectsService({ endpoint, apiKey });
+      const result = await service.fetchRedirects(siteName);
+
+      expect(result).to.deep.equal(redirectsQueryResult.site?.siteInfo?.redirects);
+
+      return expect(nock.isDone()).to.be.true;
+    });
+
+    it('should get redirects using clientFactory', async () => {
+      mockRedirectsRequest(siteName);
+
+      const clientFactory = GraphQLRequestClient.createClientFactory({
+        endpoint,
+        apiKey,
+      });
+
+      const service = new GraphQLRedirectsService({ clientFactory });
       const result = await service.fetchRedirects(siteName);
 
       expect(result).to.deep.equal(redirectsQueryResult.site?.siteInfo?.redirects);

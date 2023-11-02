@@ -25,6 +25,8 @@
 - [AxiosDataFetcherConfig](index.md#axiosdatafetcherconfig)
 - [Debugger](index.md#debugger)
 - [GraphQLRequestClientConfig](index.md#graphqlrequestclientconfig)
+- [GraphQLRequestClientFactory](index.md#graphqlrequestclientfactory)
+- [GraphQLRequestClientFactoryConfig](index.md#graphqlrequestclientfactoryconfig)
 - [HTMLLink](index.md#htmllink)
 - [HttpDataFetcher](index.md#httpdatafetcher)
 - [NativeDataFetcherConfig](index.md#nativedatafetcherconfig)
@@ -46,7 +48,7 @@
 
 #### Defined in
 
-[src/axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/axios-fetcher.ts#L35)
+[src/axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss/src/axios-fetcher.ts#L35)
 
 ___
 
@@ -56,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/debug.ts:6](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/debug.ts#L6)
+[src/debug.ts:6](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss/src/debug.ts#L6)
 
 ___
 
@@ -82,7 +84,55 @@ GraphQLClient
 
 #### Defined in
 
-[src/graphql-request-client.ts:22](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/graphql-request-client.ts#L22)
+[src/graphql-request-client.ts:22](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss/src/graphql-request-client.ts#L22)
+
+___
+
+### GraphQLRequestClientFactory
+
+Ƭ **GraphQLRequestClientFactory**: (`config`: `Omit`<[`GraphQLRequestClientConfig`](index.md#graphqlrequestclientconfig), ``"apiKey"``\>) => [`GraphQLRequestClient`](../classes/index.GraphQLRequestClient.md)
+
+#### Type declaration
+
+▸ (`config`): [`GraphQLRequestClient`](../classes/index.GraphQLRequestClient.md)
+
+A GraphQL Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
+This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
+
+##### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `config` | `Omit`<[`GraphQLRequestClientConfig`](index.md#graphqlrequestclientconfig), ``"apiKey"``\> | The configuration object that specifies how the GraphQL client should be set up. |
+
+##### Returns
+
+[`GraphQLRequestClient`](../classes/index.GraphQLRequestClient.md)
+
+An instance of a GraphQL Request Client ready to send GraphQL requests.
+
+#### Defined in
+
+[src/graphql-request-client.ts:51](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss/src/graphql-request-client.ts#L51)
+
+___
+
+### GraphQLRequestClientFactoryConfig
+
+Ƭ **GraphQLRequestClientFactoryConfig**: `Object`
+
+Configuration type for
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `apiKey?` | `string` |
+| `endpoint` | `string` |
+
+#### Defined in
+
+[src/graphql-request-client.ts:58](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss/src/graphql-request-client.ts#L58)
 
 ___
 
@@ -94,7 +144,7 @@ Html <link> tag data model
 
 #### Defined in
 
-[src/models.ts:4](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/models.ts#L4)
+[src/models.ts:4](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss/src/models.ts#L4)
 
 ___
 
@@ -133,7 +183,7 @@ The interface implementation must:
 
 #### Defined in
 
-[src/data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/data-fetcher.ts#L26)
+[src/data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss/src/data-fetcher.ts#L26)
 
 ___
 
@@ -143,7 +193,7 @@ ___
 
 #### Defined in
 
-[src/native-fetcher.ts:20](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/native-fetcher.ts#L20)
+[src/native-fetcher.ts:20](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss/src/native-fetcher.ts#L20)
 
 ## Variables
 
@@ -172,7 +222,7 @@ See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) f
 
 #### Defined in
 
-[src/debug.ts:30](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/debug.ts#L30)
+[src/debug.ts:30](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss/src/debug.ts#L30)
 
 ## Functions
 
@@ -194,7 +244,7 @@ Enable debug logging dynamically
 
 #### Defined in
 
-[src/debug.ts:24](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/debug.ts#L24)
+[src/debug.ts:24](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss/src/debug.ts#L24)
 
 ___
 
@@ -222,4 +272,4 @@ ___
 
 #### Defined in
 
-[src/data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/d8fa09357/packages/sitecore-jss/src/data-fetcher.ts#L57)
+[src/data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/bb9eb8881/packages/sitecore-jss/src/data-fetcher.ts#L57)

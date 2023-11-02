@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "@sitecore/engage": "^0.4.0"
+    "@sitecore/engage": "^1.4.1"
   }
 }

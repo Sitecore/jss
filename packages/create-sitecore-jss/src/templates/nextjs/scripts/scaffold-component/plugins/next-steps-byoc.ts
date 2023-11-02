@@ -8,9 +8,16 @@ class NextStepsByocPlugin implements ScaffoldComponentPlugin {
 
   exec(config: ScaffoldComponentPluginConfig) {
     if (config.args.includes('--byoc')) {
+      const { componentOutputPath } = config;
+
       config.nextSteps.push(
         `* Modify component registration through FEAAS.External.registerComponent if needed`
       );
+      if (!(componentOutputPath as string).includes('src\\components')) {
+        config.nextSteps.push(
+          `* Ensure component availability by importing it in your app through src\\byoc or registering it in scripts\\generate-component-builder`
+        );
+      }
     }
 
     return config;

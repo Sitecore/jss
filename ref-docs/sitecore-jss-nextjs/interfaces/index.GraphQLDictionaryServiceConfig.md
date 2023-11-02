@@ -27,6 +27,7 @@ GraphQLDictionaryService instances
 - [apiKey](index.GraphQLDictionaryServiceConfig.md#apikey)
 - [cacheEnabled](index.GraphQLDictionaryServiceConfig.md#cacheenabled)
 - [cacheTimeout](index.GraphQLDictionaryServiceConfig.md#cachetimeout)
+- [clientFactory](index.GraphQLDictionaryServiceConfig.md#clientfactory)
 - [dictionaryEntryTemplateId](index.GraphQLDictionaryServiceConfig.md#dictionaryentrytemplateid)
 - [endpoint](index.GraphQLDictionaryServiceConfig.md#endpoint)
 - [jssAppTemplateId](index.GraphQLDictionaryServiceConfig.md#jssapptemplateid)
@@ -40,13 +41,21 @@ GraphQLDictionaryService instances
 
 ### apiKey
 
-• **apiKey**: `string`
+• `Optional` **apiKey**: `string`
 
 The API key to use for authentication.
 
+**`Deprecated`**
+
+use
+
+**`Param`**
+
+property instead
+
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:18
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:20
 
 ___
 
@@ -90,6 +99,19 @@ sitecore-jss/types/cache-client.d.ts:33
 
 ___
 
+### clientFactory
+
+• `Optional` **clientFactory**: `GraphQLRequestClientFactory`
+
+A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
+This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
+
+#### Defined in
+
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:25
+
+___
+
 ### dictionaryEntryTemplateId
 
 • `Optional` **dictionaryEntryTemplateId**: `string`
@@ -102,19 +124,27 @@ Optional. The template ID to use when searching for dictionary entries.
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:23
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:30
 
 ___
 
 ### endpoint
 
-• **endpoint**: `string`
+• `Optional` **endpoint**: `string`
 
 The URL of the graphQL endpoint.
 
+**`Deprecated`**
+
+use
+
+**`Param`**
+
+property instead
+
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:14
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:15
 
 ___
 
@@ -130,7 +160,7 @@ Optional. The template ID of a JSS App to use when searching for the appRootId.
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:28
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:35
 
 ___
 

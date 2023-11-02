@@ -3,11 +3,12 @@
 import { expect, use } from 'chai';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { EditingDataService, EditingPreviewData } from './editing-data-service';
 import {
-  EditingDataService,
-  EditingPreviewData,
   QUERY_PARAM_EDITING_SECRET,
-} from './editing-data-service';
+  QUERY_PARAM_PROTECTION_BYPASS_SITECORE,
+  QUERY_PARAM_PROTECTION_BYPASS_VERCEL,
+} from './constants';
 import {
   EE_PATH,
   EE_LANGUAGE,
@@ -63,8 +64,7 @@ const mockResponse = () => {
 
 const mockFetcher = (html?: string) => {
   const fetcher = {} as AxiosDataFetcher;
-  fetcher.get = spy<any>((url, config) => {
-    console.log(url, config);
+  fetcher.get = spy<any>(() => {
     return Promise.resolve({ data: html ?? '' });
   });
   return fetcher;
@@ -204,9 +204,8 @@ describe('EditingRenderMiddleware', () => {
     expect(res.status).to.have.been.calledOnce;
     expect(res.status).to.have.been.calledWith(500);
     expect(res.json).to.have.been.calledOnce;
-    expect(res.json).to.have.been.calledWith({
-      html:
-        '<html><body>Error: Failed to render component for http://localhost:3000/test/path</body></html>',
+    expect(res.json).to.have.been.calledWithMatch({
+      html: '<html><body>Error: Failed to render component for /test/path</body></html>',
     });
   });
 
@@ -415,83 +414,116 @@ describe('EditingRenderMiddleware', () => {
     await handler(req, res);
 
     expect(fetcher.get).to.have.been.calledWithMatch('https://vercel.com');
+  });
 
-    it('should use custom resolveServerUrl', async () => {
-      const html = '<html><body>Something amazing</body></html>';
-      const fetcher = mockFetcher(html);
-      const dataService = mockDataService();
-      const query = {} as Query;
-      query[QUERY_PARAM_EDITING_SECRET] = secret;
-      const req = mockRequest(EE_BODY, query);
-      const res = mockResponse();
+  it('should use custom resolveServerUrl', async () => {
+    const html = '<html><body>Something amazing</body></html>';
+    const fetcher = mockFetcher(html);
+    const dataService = mockDataService();
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const req = mockRequest(EE_BODY, query);
+    const res = mockResponse();
 
-      const serverUrl = 'https://test.com';
+    const serverUrl = 'https://test.com';
 
-      const middleware = new EditingRenderMiddleware({
-        dataFetcher: fetcher,
-        editingDataService: dataService,
-        resolveServerUrl: () => {
-          return serverUrl;
-        },
-      });
-      const handler = middleware.getHandler();
+    const middleware = new EditingRenderMiddleware({
+      dataFetcher: fetcher,
+      editingDataService: dataService,
+      resolveServerUrl: () => {
+        return serverUrl;
+      },
+    });
+    const handler = middleware.getHandler();
 
-      await handler(req, res);
+    await handler(req, res);
 
-      expect(fetcher.get).to.have.been.calledWithMatch(serverUrl);
+    expect(fetcher.get).to.have.been.calledWithMatch(serverUrl);
+  });
+
+  it('should use custom resolvePageUrl', async () => {
+    const html = '<html><body>Something amazing</body></html>';
+    const fetcher = mockFetcher(html);
+    const dataService = mockDataService();
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const req = mockRequest(EE_BODY, query);
+    const res = mockResponse();
+
+    const serverUrl = 'https://test.com';
+    const expectedPageUrl = `${serverUrl}/some/path${EE_PATH}`;
+    const resolvePageUrl = spy((serverUrl: string, itemPath: string) => {
+      return `${serverUrl}/some/path${itemPath}`;
     });
 
-    it('should use custom resolvePageUrl', async () => {
-      const html = '<html><body>Something amazing</body></html>';
-      const fetcher = mockFetcher(html);
-      const dataService = mockDataService();
-      const query = {} as Query;
-      query[QUERY_PARAM_EDITING_SECRET] = secret;
-      const req = mockRequest(EE_BODY, query);
-      const res = mockResponse();
-
-      const serverUrl = 'https://test.com';
-      const resolvePageUrl = spy((serverUrl: string, itemPath: string) => {
-        return `${serverUrl}/some/path${itemPath}`;
-      });
-
-      const middleware = new EditingRenderMiddleware({
-        dataFetcher: fetcher,
-        editingDataService: dataService,
-        resolvePageUrl: resolvePageUrl,
-        resolveServerUrl: () => {
-          return serverUrl;
-        },
-      });
-      const handler = middleware.getHandler();
-
-      await handler(req, res);
-
-      expect(resolvePageUrl).to.have.been.calledOnce;
-      expect(resolvePageUrl).to.have.been.calledWith(EE_PATH);
-      expect(fetcher.get).to.have.been.calledWithMatch(serverUrl);
+    const middleware = new EditingRenderMiddleware({
+      dataFetcher: fetcher,
+      editingDataService: dataService,
+      resolvePageUrl: resolvePageUrl,
+      resolveServerUrl: () => {
+        return serverUrl;
+      },
     });
+    const handler = middleware.getHandler();
 
-    it('should respondWith 500 if rendered html empty', async () => {
-      const fetcher = mockFetcher('');
-      const dataService = mockDataService();
-      const query = {} as Query;
-      query[QUERY_PARAM_EDITING_SECRET] = secret;
-      const req = mockRequest(EE_BODY, query);
-      const res = mockResponse();
+    await handler(req, res);
 
-      const middleware = new EditingRenderMiddleware({
-        dataFetcher: fetcher,
-        editingDataService: dataService,
-      });
-      const handler = middleware.getHandler();
+    expect(resolvePageUrl).to.have.been.calledOnce;
+    expect(resolvePageUrl).to.have.been.calledWith(serverUrl, EE_PATH);
+    expect(fetcher.get).to.have.been.calledOnce;
+    expect(fetcher.get).to.have.been.calledWithMatch(expectedPageUrl);
+  });
 
-      await handler(req, res);
+  it('should respondWith 500 if rendered html empty', async () => {
+    const fetcher = mockFetcher('');
+    const dataService = mockDataService();
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const req = mockRequest(EE_BODY, query);
+    const res = mockResponse();
 
-      expect(res.status).to.have.been.calledOnce;
-      expect(res.status).to.have.been.calledWith(500);
-      expect(res.json).to.have.been.calledOnce;
+    const middleware = new EditingRenderMiddleware({
+      dataFetcher: fetcher,
+      editingDataService: dataService,
     });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(500);
+    expect(res.json).to.have.been.calledOnce;
+  });
+
+  it('should pass along protection bypass query parameters', async () => {
+    const html = '<html phkey="test1"><body phkey="test2">Something amazing</body></html>';
+    const query = {} as Query;
+    const bypassTokenSitecore = 'token1234Sitecore';
+    const bypassTokenVercel = 'token1234Vercel';
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    query[QUERY_PARAM_PROTECTION_BYPASS_SITECORE] = bypassTokenSitecore;
+    query[QUERY_PARAM_PROTECTION_BYPASS_VERCEL] = bypassTokenVercel;
+    const previewData = { key: 'key1234' } as EditingPreviewData;
+
+    const fetcher = mockFetcher(html);
+    const dataService = mockDataService(previewData);
+    const req = mockRequest(EE_BODY, query);
+    const res = mockResponse();
+
+    const middleware = new EditingRenderMiddleware({
+      dataFetcher: fetcher,
+      editingDataService: dataService,
+    });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(dataService.setEditingData, 'stash editing data').to.have.been.called;
+    expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
+    expect(fetcher.get).to.have.been.calledOnce;
+    expect(fetcher.get, 'pass along protection bypass query params').to.have.been.calledWithMatch(
+      `http://localhost:3000/test/path?${QUERY_PARAM_PROTECTION_BYPASS_SITECORE}=${bypassTokenSitecore}&${QUERY_PARAM_PROTECTION_BYPASS_VERCEL}=${bypassTokenVercel}&timestamp`
+    );
   });
 
   describe('extractEditingData', () => {
