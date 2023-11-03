@@ -1,3 +1,5 @@
+import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
+
 /**
  * Generates a URL for accessing Sitecore Edge Platform Content using the provided endpoint and context ID.
  * @param {string} sitecoreEdgeContextId - The unique context id.
@@ -6,5 +8,5 @@
  */
 export const getEdgeProxyContentUrl = (
   sitecoreEdgeContextId: string,
-  sitecoreEdgeUrl = 'https://edge-platform.sitecorecloud.io'
+  sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT
 ) => `${sitecoreEdgeUrl}/content/api/graphql/v1?sitecoreContextId=${sitecoreEdgeContextId}`;
