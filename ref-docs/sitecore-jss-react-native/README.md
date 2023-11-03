@@ -51,10 +51,10 @@
 
 #### Parameters
 
-| Name       | Type                                   |
-| :--------- | :------------------------------------- |
-| `props`    | `PropsWithChildren`<`DateFieldProps`\> |
-| `context?` | `any`                                  |
+| Name | Type |
+| :------ | :------ |
+| `props` | `PropsWithChildren`<`DateFieldProps`\> |
+| `context?` | `any` |
 
 #### Returns
 
@@ -64,7 +64,7 @@
 
 sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
----
+___
 
 ### Image
 
@@ -72,10 +72,10 @@ sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
 #### Parameters
 
-| Name       | Type                               |
-| :--------- | :--------------------------------- |
-| `props`    | `PropsWithChildren`<`ImageProps`\> |
-| `context?` | `any`                              |
+| Name | Type |
+| :------ | :------ |
+| `props` | `PropsWithChildren`<`ImageProps`\> |
+| `context?` | `any` |
 
 #### Returns
 
@@ -85,7 +85,7 @@ sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
 sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
----
+___
 
 ### Link
 
@@ -93,10 +93,10 @@ sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
 #### Parameters
 
-| Name       | Type                              |
-| :--------- | :-------------------------------- |
-| `props`    | `PropsWithChildren`<`LinkProps`\> |
-| `context?` | `any`                             |
+| Name | Type |
+| :------ | :------ |
+| `props` | `PropsWithChildren`<`LinkProps`\> |
+| `context?` | `any` |
 
 #### Returns
 
@@ -106,7 +106,7 @@ sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
 sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
----
+___
 
 ### Placeholder
 
@@ -114,8 +114,8 @@ sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
 #### Parameters
 
-| Name    | Type                        |
-| :------ | :-------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `props` | `PlaceholderComponentProps` |
 
 #### Returns
@@ -124,9 +124,9 @@ sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
 #### Defined in
 
-[sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx:15](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx#L15)
+[sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx:15](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx#L15)
 
----
+___
 
 ### RichText
 
@@ -134,10 +134,10 @@ sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
 #### Parameters
 
-| Name       | Type                                  |
-| :--------- | :------------------------------------ |
-| `props`    | `PropsWithChildren`<`RichTextProps`\> |
-| `context?` | `any`                                 |
+| Name | Type |
+| :------ | :------ |
+| `props` | `PropsWithChildren`<`RichTextProps`\> |
+| `context?` | `any` |
 
 #### Returns
 
@@ -147,7 +147,7 @@ sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
 sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
----
+___
 
 ### Text
 
@@ -155,10 +155,10 @@ sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
 #### Parameters
 
-| Name       | Type                              |
-| :--------- | :-------------------------------- |
-| `props`    | `PropsWithChildren`<`TextProps`\> |
-| `context?` | `any`                             |
+| Name | Type |
+| :------ | :------ |
+| `props` | `PropsWithChildren`<`TextProps`\> |
+| `context?` | `any` |
 
 #### Returns
 
@@ -168,7 +168,7 @@ sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
 sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
----
+___
 
 ### getChildPlaceholder
 
@@ -178,10 +178,10 @@ Gets rendering definitions in a given child placeholder under a current renderin
 
 #### Parameters
 
-| Name              | Type                                                     |
-| :---------------- | :------------------------------------------------------- |
-| `rendering`       | [`ComponentRendering`](interfaces/ComponentRendering.md) |
-| `placeholderName` | `string`                                                 |
+| Name | Type |
+| :------ | :------ |
+| `rendering` | [`ComponentRendering`](interfaces/ComponentRendering.md) |
+| `placeholderName` | `string` |
 
 #### Returns
 
@@ -193,7 +193,7 @@ child placeholder
 
 sitecore-jss/types/layout/utils.d.ts:17
 
----
+___
 
 ### getFieldValue
 
@@ -205,15 +205,15 @@ Null will be returned if the field is not defined.
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Parameters
 
-| Name                | Type                                                                                                           | Description                                              |
-| :------------------ | :------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`ComponentFields`](interfaces/ComponentFields.md) | the rendering or fields object to extract the field from |
-| `fieldName`         | `string`                                                                                                       | the name of the field to extract                         |
+| `fieldName` | `string` | the name of the field to extract |
 
 #### Returns
 
@@ -230,16 +230,16 @@ sitecore-jss/types/layout/utils.d.ts:9
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Parameters
 
-| Name                | Type                                                                                                           |
-| :------------------ | :------------------------------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`ComponentFields`](interfaces/ComponentFields.md) |
-| `fieldName`         | `string`                                                                                                       |
-| `defaultValue`      | `T`                                                                                                            |
+| `fieldName` | `string` |
+| `defaultValue` | `T` |
 
 #### Returns
 
@@ -249,7 +249,7 @@ sitecore-jss/types/layout/utils.d.ts:9
 
 sitecore-jss/types/layout/utils.d.ts:10
 
----
+___
 
 ### isEditorActive
 
@@ -268,7 +268,7 @@ true if executing within a Sitecore editor
 
 sitecore-jss/types/utils/editing.d.ts:36
 
----
+___
 
 ### resetEditorChromes
 

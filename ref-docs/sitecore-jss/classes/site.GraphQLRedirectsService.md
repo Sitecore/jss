@@ -38,13 +38,13 @@ Creates an instance of graphQL redirects service with the provided options
 
 #### Parameters
 
-| Name      | Type                                                                                | Description |
-| :-------- | :---------------------------------------------------------------------------------- | :---------- |
-| `options` | [`GraphQLRedirectsServiceConfig`](../modules/site.md#graphqlredirectsserviceconfig) | instance    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | [`GraphQLRedirectsServiceConfig`](../modules/site.md#graphqlredirectsserviceconfig) | instance |
 
 #### Defined in
 
-[src/site/graphql-redirects-service.ts:80](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L80)
+[src/site/graphql-redirects-service.ts:80](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L80)
 
 ## Properties
 
@@ -54,9 +54,9 @@ Creates an instance of graphQL redirects service with the provided options
 
 #### Defined in
 
-[src/site/graphql-redirects-service.ts:70](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L70)
+[src/site/graphql-redirects-service.ts:70](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L70)
 
----
+___
 
 ### graphQLClient
 
@@ -64,9 +64,9 @@ Creates an instance of graphQL redirects service with the provided options
 
 #### Defined in
 
-[src/site/graphql-redirects-service.ts:69](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L69)
+[src/site/graphql-redirects-service.ts:69](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L69)
 
----
+___
 
 ### options
 
@@ -76,7 +76,7 @@ instance
 
 #### Defined in
 
-[src/site/graphql-redirects-service.ts:80](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L80)
+[src/site/graphql-redirects-service.ts:80](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L80)
 
 ## Accessors
 
@@ -90,7 +90,7 @@ instance
 
 #### Defined in
 
-[src/site/graphql-redirects-service.ts:72](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L72)
+[src/site/graphql-redirects-service.ts:72](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L72)
 
 ## Methods
 
@@ -106,9 +106,9 @@ if the siteName is empty.
 
 #### Parameters
 
-| Name       | Type     | Description |
-| :--------- | :------- | :---------- |
-| `siteName` | `string` | site name   |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `siteName` | `string` | site name |
 
 #### Returns
 
@@ -118,9 +118,9 @@ Promise<RedirectInfo[]>
 
 #### Defined in
 
-[src/site/graphql-redirects-service.ts:91](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L91)
+[src/site/graphql-redirects-service.ts:91](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L91)
 
----
+___
 
 ### getCacheClient
 
@@ -137,9 +137,9 @@ CacheClient instance
 
 #### Defined in
 
-[src/site/graphql-redirects-service.ts:139](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L139)
+[src/site/graphql-redirects-service.ts:139](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L139)
 
----
+___
 
 ### getGraphQLClient
 
@@ -157,4 +157,4 @@ implementation
 
 #### Defined in
 
-[src/site/graphql-redirects-service.ts:115](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L115)
+[src/site/graphql-redirects-service.ts:115](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L115)

@@ -31,9 +31,9 @@ AxiosDataFetcher
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:21](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L21)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:21](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L21)
 
----
+___
 
 ### editingDataService
 
@@ -54,9 +54,9 @@ EditingDataService
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:30](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L30)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:30](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L30)
 
----
+___
 
 ### resolvePageUrl
 
@@ -79,10 +79,10 @@ resolveServerUrl
 
 ##### Parameters
 
-| Name        | Type     | Description                                        |
-| :---------- | :------- | :------------------------------------------------- |
-| `serverUrl` | `string` | The root server URL e.g. 'http://localhost:3000'   |
-| `itemPath`  | `string` | The Sitecore relative item path e.g. '/styleguide' |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `serverUrl` | `string` | The root server URL e.g. 'http://localhost:3000' |
+| `itemPath` | `string` | The Sitecore relative item path e.g. '/styleguide' |
 
 ##### Returns
 
@@ -92,9 +92,9 @@ The URL to render
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:40](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L40)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:40](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L40)
 
----
+___
 
 ### resolveServerUrl
 
@@ -117,8 +117,8 @@ resolvePageUrl
 
 ##### Parameters
 
-| Name  | Type             | Description          |
-| :---- | :--------------- | :------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `req` | `NextApiRequest` | The current request. |
 
 ##### Returns
@@ -127,4 +127,4 @@ resolvePageUrl
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:48](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L48)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:48](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L48)

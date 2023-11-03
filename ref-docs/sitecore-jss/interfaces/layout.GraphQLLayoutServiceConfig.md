@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `Pick`<[`GraphQLRequestClientConfig`](../modules/index.md#graphqlrequestclientconfig), `"retries"`\>
+- `Pick`<[`GraphQLRequestClientConfig`](../modules/index.md#graphqlrequestclientconfig), ``"retries"``\>
 
   ↳ **`GraphQLLayoutServiceConfig`**
 
@@ -39,9 +39,9 @@ property instead
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:25](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L25)
+[src/layout/graphql-layout-service.ts:25](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L25)
 
----
+___
 
 ### clientFactory
 
@@ -52,9 +52,9 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:30](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L30)
+[src/layout/graphql-layout-service.ts:30](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L30)
 
----
+___
 
 ### endpoint
 
@@ -72,9 +72,9 @@ property instead
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:16](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L16)
+[src/layout/graphql-layout-service.ts:16](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L16)
 
----
+___
 
 ### formatLayoutQuery
 
@@ -89,15 +89,15 @@ Override default layout query
 **`Default`**
 
 Layout query
-layout(site:"${siteName}", routePath:"${itemPath}", language:"\${language}")
+layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
 
 ##### Parameters
 
-| Name       | Type     |
-| :--------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `siteName` | `string` |
 | `itemPath` | `string` |
-| `locale?`  | `string` |
+| `locale?` | `string` |
 
 ##### Returns
 
@@ -107,9 +107,9 @@ custom layout query
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:42](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L42)
+[src/layout/graphql-layout-service.ts:42](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L42)
 
----
+___
 
 ### retries
 
@@ -123,9 +123,9 @@ Pick.retries
 
 #### Defined in
 
-[src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/graphql-request-client.ts#L42)
+[src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/graphql-request-client.ts#L42)
 
----
+___
 
 ### siteName
 
@@ -135,4 +135,4 @@ The JSS application name
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:20](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L20)
+[src/layout/graphql-layout-service.ts:20](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L20)

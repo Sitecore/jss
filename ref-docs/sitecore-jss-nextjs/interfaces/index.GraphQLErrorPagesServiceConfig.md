@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `Pick`<`GraphQLRequestClientConfig`, `"retries"`\>
+- `Pick`<`GraphQLRequestClientConfig`, ``"retries"``\>
 
   ↳ **`GraphQLErrorPagesServiceConfig`**
 
@@ -41,7 +41,7 @@ property instead
 
 sitecore-jss/types/site/graphql-error-pages-service.d.ts:14
 
----
+___
 
 ### clientFactory
 
@@ -54,7 +54,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 sitecore-jss/types/site/graphql-error-pages-service.d.ts:27
 
----
+___
 
 ### endpoint
 
@@ -74,7 +74,7 @@ property instead
 
 sitecore-jss/types/site/graphql-error-pages-service.d.ts:9
 
----
+___
 
 ### language
 
@@ -86,7 +86,7 @@ The language
 
 sitecore-jss/types/site/graphql-error-pages-service.d.ts:22
 
----
+___
 
 ### retries
 
@@ -102,7 +102,7 @@ Pick.retries
 
 sitecore-jss/types/graphql-request-client.d.ts:39
 
----
+___
 
 ### siteName
 

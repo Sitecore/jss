@@ -34,11 +34,11 @@ Gets the content id for CDP in the required format `embedded_[<scope>_]<id>_<lan
 
 #### Parameters
 
-| Name       | Type     | Description     |
-| :--------- | :------- | :-------------- |
-| `pageId`   | `string` | the page id     |
-| `language` | `string` | the language    |
-| `scope?`   | `string` | the scope value |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `pageId` | `string` | the page id |
+| `language` | `string` | the language |
+| `scope?` | `string` | the scope value |
 
 #### Returns
 
@@ -48,9 +48,9 @@ the content id
 
 #### Defined in
 
-[src/personalize/utils.ts:84](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/utils.ts#L84)
+[src/personalize/utils.ts:84](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/personalize/utils.ts#L84)
 
----
+___
 
 ### getPageVariantId
 
@@ -60,12 +60,12 @@ Gets the page variant id for CDP in the required format
 
 #### Parameters
 
-| Name        | Type     | Description     |
-| :---------- | :------- | :-------------- |
-| `pageId`    | `string` | the page id     |
-| `language`  | `string` | the language    |
-| `variantId` | `string` | the variant id  |
-| `scope?`    | `string` | the scope value |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `pageId` | `string` | the page id |
+| `language` | `string` | the language |
+| `variantId` | `string` | the variant id |
+| `scope?` | `string` | the scope value |
 
 #### Returns
 
@@ -75,9 +75,9 @@ the formatted page variant id
 
 #### Defined in
 
-[src/personalize/utils.ts:61](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/utils.ts#L61)
+[src/personalize/utils.ts:61](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/personalize/utils.ts#L61)
 
----
+___
 
 ### normalizeScope
 
@@ -88,8 +88,8 @@ Removes all non-alphanumeric characters
 
 #### Parameters
 
-| Name     | Type     | Description     |
-| :------- | :------- | :-------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `scope?` | `string` | the scope value |
 
 #### Returns
@@ -100,4 +100,4 @@ normalized scope value
 
 #### Defined in
 
-[src/personalize/utils.ts:97](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/utils.ts#L97)
+[src/personalize/utils.ts:97](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/personalize/utils.ts#L97)
