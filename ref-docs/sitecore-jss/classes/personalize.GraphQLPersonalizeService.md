@@ -37,13 +37,13 @@ Fetch personalize data using the Sitecore GraphQL endpoint.
 
 #### Parameters
 
-| Name     | Type                                                                                           |
-| :------- | :--------------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `config` | [`GraphQLPersonalizeServiceConfig`](../modules/personalize.md#graphqlpersonalizeserviceconfig) |
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:81](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L81)
+[src/personalize/graphql-personalize-service.ts:81](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L81)
 
 ## Properties
 
@@ -53,9 +53,9 @@ Fetch personalize data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:61](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L61)
+[src/personalize/graphql-personalize-service.ts:61](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L61)
 
----
+___
 
 ### config
 
@@ -63,9 +63,9 @@ Fetch personalize data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:81](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L81)
+[src/personalize/graphql-personalize-service.ts:81](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L81)
 
----
+___
 
 ### graphQLClient
 
@@ -73,7 +73,7 @@ Fetch personalize data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:60](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L60)
+[src/personalize/graphql-personalize-service.ts:60](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L60)
 
 ## Accessors
 
@@ -87,7 +87,7 @@ Fetch personalize data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:62](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L62)
+[src/personalize/graphql-personalize-service.ts:62](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L62)
 
 ## Methods
 
@@ -106,9 +106,9 @@ CacheClient instance
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:134](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L134)
+[src/personalize/graphql-personalize-service.ts:134](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L134)
 
----
+___
 
 ### getCacheKey
 
@@ -116,8 +116,8 @@ CacheClient instance
 
 #### Parameters
 
-| Name       | Type     |
-| :--------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `itemPath` | `string` |
 | `language` | `string` |
 | `siteName` | `string` |
@@ -128,9 +128,9 @@ CacheClient instance
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:141](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L141)
+[src/personalize/graphql-personalize-service.ts:141](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L141)
 
----
+___
 
 ### getGraphQLClient
 
@@ -148,9 +148,9 @@ implementation
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:151](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L151)
+[src/personalize/graphql-personalize-service.ts:151](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L151)
 
----
+___
 
 ### getPersonalizeInfo
 
@@ -160,11 +160,11 @@ Get personalize information for a route
 
 #### Parameters
 
-| Name       | Type     | Description |
-| :--------- | :------- | :---------- |
-| `itemPath` | `string` | page route  |
-| `language` | `string` | language    |
-| `siteName` | `string` | site name   |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `itemPath` | `string` | page route |
+| `language` | `string` | language |
+| `siteName` | `string` | site name |
 
 #### Returns
 
@@ -174,4 +174,4 @@ the personalize information or undefined (if itemPath / language not found)
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:94](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L94)
+[src/personalize/graphql-personalize-service.ts:94](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L94)

@@ -53,9 +53,9 @@ Creates an instance of graphQL sitemap service with the provided options
 
 #### Parameters
 
-| Name      | Type                                                                                                  | Description |
-| :-------- | :---------------------------------------------------------------------------------------------------- | :---------- |
-| `options` | [`MultisiteGraphQLSitemapServiceConfig`](../interfaces/index.MultisiteGraphQLSitemapServiceConfig.md) | instance    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | [`MultisiteGraphQLSitemapServiceConfig`](../interfaces/index.MultisiteGraphQLSitemapServiceConfig.md) | instance |
 
 #### Overrides
 
@@ -63,7 +63,7 @@ BaseGraphQLSitemapService.constructor
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:33](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L33)
+[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:33](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L33)
 
 ## Properties
 
@@ -79,7 +79,7 @@ BaseGraphQLSitemapService.options
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:33](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L33)
+[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:33](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L33)
 
 ## Accessors
 
@@ -99,9 +99,9 @@ BaseGraphQLSitemapService.graphQLClient
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:180](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L180)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:180](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L180)
 
----
+___
 
 ### query
 
@@ -119,7 +119,7 @@ BaseGraphQLSitemapService.query
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:187](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L187)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:187](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L187)
 
 ## Methods
 
@@ -137,8 +137,8 @@ StaticPath objects
 
 #### Parameters
 
-| Name     | Type     | Description                |
-| :------- | :------- | :------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `locale` | `string` | which application supports |
 
 #### Returns
@@ -153,9 +153,9 @@ BaseGraphQLSitemapService.fetchExportSitemap
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:206](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L206)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:206](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L206)
 
----
+___
 
 ### fetchLanguageSitePaths
 
@@ -165,10 +165,10 @@ Fetch and return site paths for multisite implementation, with prefixes included
 
 #### Parameters
 
-| Name       | Type     | Description   |
-| :--------- | :------- | :------------ |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `language` | `string` | path language |
-| `siteName` | `string` | site name     |
+| `siteName` | `string` | site name |
 
 #### Returns
 
@@ -182,9 +182,9 @@ BaseGraphQLSitemapService.fetchLanguageSitePaths
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:77](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L77)
+[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:77](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L77)
 
----
+___
 
 ### fetchSSGSitemap
 
@@ -198,8 +198,8 @@ StaticPath objects
 
 #### Parameters
 
-| Name      | Type       | Description                        |
-| :-------- | :--------- | :--------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `locales` | `string`[] | locales which application supports |
 
 #### Returns
@@ -214,9 +214,9 @@ BaseGraphQLSitemapService.fetchSSGSitemap
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:221](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L221)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:221](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L221)
 
----
+___
 
 ### fetchSitemap
 
@@ -235,9 +235,9 @@ if the any of the languages is an empty string.
 
 #### Parameters
 
-| Name               | Type                                                       | Description                                                                    |
-| :----------------- | :--------------------------------------------------------- | :----------------------------------------------------------------------------- |
-| `languages`        | `string`[]                                                 | Fetch pages that have versions in this language(s).                            |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `languages` | `string`[] | Fetch pages that have versions in this language(s). |
 | `formatStaticPath` | (`path`: `string`[], `language`: `string`) => `StaticPath` | Function for transforming the raw search results into (@see StaticPath) types. |
 
 #### Returns
@@ -252,9 +252,9 @@ BaseGraphQLSitemapService.fetchSitemap
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:46](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L46)
+[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:46](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L46)
 
----
+___
 
 ### getGraphQLClient
 
@@ -276,9 +276,9 @@ BaseGraphQLSitemapService.getGraphQLClient
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:328](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L328)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:328](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L328)
 
----
+___
 
 ### getTranformedPaths
 
@@ -286,10 +286,10 @@ BaseGraphQLSitemapService.getGraphQLClient
 
 #### Parameters
 
-| Name               | Type                                                       |
-| :----------------- | :--------------------------------------------------------- |
-| `siteName`         | `string`                                                   |
-| `languages`        | `string`[]                                                 |
+| Name | Type |
+| :------ | :------ |
+| `siteName` | `string` |
+| `languages` | `string`[] |
 | `formatStaticPath` | (`path`: `string`[], `language`: `string`) => `StaticPath` |
 
 #### Returns
@@ -302,9 +302,9 @@ BaseGraphQLSitemapService.getTranformedPaths
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:232](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L232)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:232](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L232)
 
----
+___
 
 ### transformLanguageSitePaths
 
@@ -312,11 +312,11 @@ BaseGraphQLSitemapService.getTranformedPaths
 
 #### Parameters
 
-| Name               | Type                                                       |
-| :----------------- | :--------------------------------------------------------- |
-| `sitePaths`        | `RouteListQueryResult`[]                                   |
+| Name | Type |
+| :------ | :------ |
+| `sitePaths` | `RouteListQueryResult`[] |
 | `formatStaticPath` | (`path`: `string`[], `language`: `string`) => `StaticPath` |
-| `language`         | `string`                                                   |
+| `language` | `string` |
 
 #### Returns
 
@@ -328,4 +328,4 @@ BaseGraphQLSitemapService.transformLanguageSitePaths
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:259](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L259)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:259](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L259)

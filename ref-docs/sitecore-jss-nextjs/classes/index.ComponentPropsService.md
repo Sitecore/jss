@@ -36,20 +36,20 @@ Write result in requests variable
 
 #### Type parameters
 
-| Name          |
-| :------------ |
+| Name |
+| :------ |
 | `NextContext` |
 
 #### Parameters
 
-| Name                          | Type                                                                  | Description |
-| :---------------------------- | :-------------------------------------------------------------------- | :---------- |
-| `params`                      | `Object`                                                              | params      |
-| `params.context`              | `NextContext`                                                         |             |
-| `params.fetchFunctionFactory` | `FetchFunctionFactory`<`NextContext`\>                                |             |
-| `params.layoutData`           | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md)       |             |
-| `params.placeholders?`        | [`PlaceholdersData`](../modules/index.md#placeholdersdata)<`string`\> |             |
-| `params.requests?`            | `ComponentPropsRequest`<`NextContext`\>[]                             |             |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params` | `Object` | params |
+| `params.context` | `NextContext` |  |
+| `params.fetchFunctionFactory` | `FetchFunctionFactory`<`NextContext`\> |  |
+| `params.layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) |  |
+| `params.placeholders?` | [`PlaceholdersData`](../modules/index.md#placeholdersdata)<`string`\> |  |
+| `params.requests?` | `ComponentPropsRequest`<`NextContext`\>[] |  |
 
 #### Returns
 
@@ -59,9 +59,9 @@ array of requests
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:115](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L115)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:115](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L115)
 
----
+___
 
 ### execRequests
 
@@ -71,15 +71,15 @@ Execute request for component props
 
 #### Type parameters
 
-| Name          |
-| :------------ |
+| Name |
+| :------ |
 | `NextContext` |
 
 #### Parameters
 
-| Name       | Type                                      | Description |
-| :--------- | :---------------------------------------- | :---------- |
-| `requests` | `ComponentPropsRequest`<`NextContext`\>[] | requests    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `requests` | `ComponentPropsRequest`<`NextContext`\>[] | requests |
 
 #### Returns
 
@@ -89,9 +89,9 @@ requests result
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:163](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L163)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:163](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L163)
 
----
+___
 
 ### fetchComponentProps
 
@@ -102,17 +102,17 @@ Side effect function can be: getStaticProps (SSG) or getServerSideProps (SSR)
 
 #### Type parameters
 
-| Name          |
-| :------------ |
+| Name |
+| :------ |
 | `NextContext` |
 
 #### Parameters
 
-| Name                   | Type                                                            | Description            |
-| :--------------------- | :-------------------------------------------------------------- | :--------------------- |
-| `fetchFunctionFactory` | `FetchFunctionFactory`<`NextContext`\>                          | fetch function factory |
-| `layoutData`           | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) | layout data            |
-| `context`              | `NextContext`                                                   | next context           |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `fetchFunctionFactory` | `FetchFunctionFactory`<`NextContext`\> | fetch function factory |
+| `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) | layout data |
+| `context` | `NextContext` | next context |
 
 #### Returns
 
@@ -122,9 +122,9 @@ component props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:88](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L88)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:88](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L88)
 
----
+___
 
 ### fetchServerSideComponentProps
 
@@ -135,8 +135,8 @@ Fetch component props using getServerSideProps function
 
 #### Parameters
 
-| Name     | Type                                                                                           | Description  |
-| :------- | :--------------------------------------------------------------------------------------------- | :----------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `params` | `FetchComponentPropsArguments`<`GetServerSidePropsContext`<`ParsedUrlQuery`, `PreviewData`\>\> | fetch params |
 
 #### Returns
@@ -147,9 +147,9 @@ props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:38](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L38)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:38](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L38)
 
----
+___
 
 ### fetchStaticComponentProps
 
@@ -160,8 +160,8 @@ Fetch component props using getStaticProps function
 
 #### Parameters
 
-| Name     | Type                                                                                       | Description     |
-| :------- | :----------------------------------------------------------------------------------------- | :-------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `params` | `FetchComponentPropsArguments`<`GetStaticPropsContext`<`ParsedUrlQuery`, `PreviewData`\>\> | fetch arguments |
 
 #### Returns
@@ -172,9 +172,9 @@ props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:62](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L62)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:62](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L62)
 
----
+___
 
 ### flatRenderings
 
@@ -186,19 +186,19 @@ Take renderings from all placeholders and returns a flat array of renderings.
 
 ```ts
 const placeholders = {
-  x1: [{ uid: 1 }, { uid: 2 }],
-  x2: [{ uid: 11 }, { uid: 22 }],
-};
+   x1: [{ uid: 1 }, { uid: 2 }],
+   x2: [{ uid: 11 }, { uid: 22 }]
+}
 
 flatRenderings(placeholders);
 
-RESULT: [{ uid: 1 }, { uid: 2 }, { uid: 11 }, { uid: 22 }];
+RESULT: [{ uid: 1 }, { uid: 2 }, { uid: 11 }, { uid: 22 }]
 ```
 
 #### Parameters
 
-| Name           | Type                                                                  | Description  |
-| :------------- | :-------------------------------------------------------------------- | :----------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `placeholders` | [`PlaceholdersData`](../modules/index.md#placeholdersdata)<`string`\> | placeholders |
 
 #### Returns
@@ -209,4 +209,4 @@ renderings
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:218](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L218)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:218](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L218)

@@ -17,9 +17,9 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/File.tsx:60](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-react/src/components/File.tsx#L60)
+[sitecore-jss-react/src/components/File.tsx:60](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-react/src/components/File.tsx#L60)
 
----
+___
 
 ### propTypes
 
@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/File.tsx:49](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-react/src/components/File.tsx#L49)
+[sitecore-jss-react/src/components/File.tsx:49](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-react/src/components/File.tsx#L49)

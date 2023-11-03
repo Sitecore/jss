@@ -18,9 +18,9 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:80](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L80)
+[sitecore-jss-angular/src/components/placeholder.token.ts:80](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L80)
 
----
+___
 
 ### rendering
 
@@ -28,9 +28,9 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:82](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L82)
+[sitecore-jss-angular/src/components/placeholder.token.ts:82](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L82)
 
----
+___
 
 ### routerState
 
@@ -38,4 +38,4 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:81](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L81)
+[sitecore-jss-angular/src/components/placeholder.token.ts:81](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L81)

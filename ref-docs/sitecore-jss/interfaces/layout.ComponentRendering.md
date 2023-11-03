@@ -25,9 +25,9 @@ Definition of a component instance within a placeholder on a route
 
 #### Defined in
 
-[src/layout/models.ts:102](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/models.ts#L102)
+[src/layout/models.ts:102](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/layout/models.ts#L102)
 
----
+___
 
 ### dataSource
 
@@ -35,9 +35,9 @@ Definition of a component instance within a placeholder on a route
 
 #### Defined in
 
-[src/layout/models.ts:103](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/models.ts#L103)
+[src/layout/models.ts:103](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/layout/models.ts#L103)
 
----
+___
 
 ### fields
 
@@ -45,9 +45,9 @@ Definition of a component instance within a placeholder on a route
 
 #### Defined in
 
-[src/layout/models.ts:106](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/models.ts#L106)
+[src/layout/models.ts:106](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/layout/models.ts#L106)
 
----
+___
 
 ### params
 
@@ -55,9 +55,9 @@ Definition of a component instance within a placeholder on a route
 
 #### Defined in
 
-[src/layout/models.ts:107](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/models.ts#L107)
+[src/layout/models.ts:107](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/layout/models.ts#L107)
 
----
+___
 
 ### placeholders
 
@@ -65,9 +65,9 @@ Definition of a component instance within a placeholder on a route
 
 #### Defined in
 
-[src/layout/models.ts:105](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/models.ts#L105)
+[src/layout/models.ts:105](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/layout/models.ts#L105)
 
----
+___
 
 ### uid
 
@@ -75,4 +75,4 @@ Definition of a component instance within a placeholder on a route
 
 #### Defined in
 
-[src/layout/models.ts:104](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/models.ts#L104)
+[src/layout/models.ts:104](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss/src/layout/models.ts#L104)

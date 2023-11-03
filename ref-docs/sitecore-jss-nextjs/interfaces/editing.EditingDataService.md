@@ -28,8 +28,8 @@ Retrieves Sitecore editor payload data
 
 #### Parameters
 
-| Name          | Type          | Description                                                          |
-| :------------ | :------------ | :------------------------------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `previewData` | `PreviewData` | Editing preview data containing the information to use for retrieval |
 
 #### Returns
@@ -40,9 +40,9 @@ The [EditingData](../modules/editing.md#editingdata)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:37](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L37)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:37](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L37)
 
----
+___
 
 ### setEditingData
 
@@ -52,11 +52,11 @@ Stores Sitecore editor payload data for later retrieval
 
 #### Parameters
 
-| Name        | Type                                               | Description                                                    |
-| :---------- | :------------------------------------------------- | :------------------------------------------------------------- |
-| `data`      | [`EditingData`](../modules/editing.md#editingdata) | Editing data                                                   |
-| `serverUrl` | `string`                                           | The server url e.g. which can be used for further API requests |
-| `params?`   | `Object`                                           | -                                                              |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | [`EditingData`](../modules/editing.md#editingdata) | Editing data |
+| `serverUrl` | `string` | The server url e.g. which can be used for further API requests |
+| `params?` | `Object` | - |
 
 #### Returns
 
@@ -66,4 +66,4 @@ The [EditingPreviewData](editing.EditingPreviewData.md) containing the informati
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:27](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L27)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:27](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L27)

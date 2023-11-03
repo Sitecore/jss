@@ -31,9 +31,9 @@ component props
 
 ### Methods
 
-- [UNSAFE_componentWillMount](BYOCComponent.md#unsafe_componentwillmount)
-- [UNSAFE_componentWillReceiveProps](BYOCComponent.md#unsafe_componentwillreceiveprops)
-- [UNSAFE_componentWillUpdate](BYOCComponent.md#unsafe_componentwillupdate)
+- [UNSAFE\_componentWillMount](BYOCComponent.md#unsafe_componentwillmount)
+- [UNSAFE\_componentWillReceiveProps](BYOCComponent.md#unsafe_componentwillreceiveprops)
+- [UNSAFE\_componentWillUpdate](BYOCComponent.md#unsafe_componentwillupdate)
 - [componentDidCatch](BYOCComponent.md#componentdidcatch)
 - [componentDidMount](BYOCComponent.md#componentdidmount)
 - [componentDidUpdate](BYOCComponent.md#componentdidupdate)
@@ -56,8 +56,8 @@ component props
 
 #### Parameters
 
-| Name    | Type                                                    |
-| :------ | :------------------------------------------------------ |
+| Name | Type |
+| :------ | :------ |
 | `props` | [`BYOCComponentProps`](../README.md#byoccomponentprops) |
 
 #### Overrides
@@ -66,7 +66,7 @@ React.Component&lt;BYOCComponentProps\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:83](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L83)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:83](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L83)
 
 ## Properties
 
@@ -98,7 +98,7 @@ React.Component.context
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:482
 
----
+___
 
 ### props
 
@@ -112,7 +112,7 @@ React.Component.props
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:502
 
----
+___
 
 ### refs
 
@@ -134,11 +134,11 @@ React.Component.refs
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:508
 
----
+___
 
 ### state
 
-• **state**: `Readonly`<{ `error?`: `Error` }\>
+• **state**: `Readonly`<{ `error?`: `Error`  }\>
 
 #### Overrides
 
@@ -146,9 +146,9 @@ React.Component.state
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:81](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L81)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:81](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L81)
 
----
+___
 
 ### contextType
 
@@ -159,13 +159,13 @@ If set, `this.context` will be set at runtime to the current value of the given 
 Usage:
 
 ```ts
-type MyContext = number;
-const Ctx = React.createContext<MyContext>(0);
+type MyContext = number
+const Ctx = React.createContext<MyContext>(0)
 
 class Foo extends React.Component {
-  static contextType = Ctx;
-  context!: React.ContextType<typeof Ctx>;
-  render() {
+  static contextType = Ctx
+  context!: React.ContextType<typeof Ctx>
+  render () {
     return <>My context's value: {this.context}</>;
   }
 }
@@ -185,7 +185,7 @@ sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:465
 
 ## Methods
 
-### UNSAFE_componentWillMount
+### UNSAFE\_componentWillMount
 
 ▸ `Optional` **UNSAFE_componentWillMount**(): `void`
 
@@ -203,8 +203,8 @@ prevents this from being invoked.
 
 **`See`**
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Returns
 
@@ -212,15 +212,15 @@ prevents this from being invoked.
 
 #### Inherited from
 
-React.Component.UNSAFE_componentWillMount
+React.Component.UNSAFE\_componentWillMount
 
 #### Defined in
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:699
 
----
+___
 
-### UNSAFE_componentWillReceiveProps
+### UNSAFE\_componentWillReceiveProps
 
 ▸ `Optional` **UNSAFE_componentWillReceiveProps**(`nextProps`, `nextContext`): `void`
 
@@ -241,15 +241,15 @@ prevents this from being invoked.
 
 **`See`**
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
-| Name          | Type                                                                 |
-| :------------ | :------------------------------------------------------------------- |
-| `nextProps`   | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
-| `nextContext` | `any`                                                                |
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -257,15 +257,15 @@ prevents this from being invoked.
 
 #### Inherited from
 
-React.Component.UNSAFE_componentWillReceiveProps
+React.Component.UNSAFE\_componentWillReceiveProps
 
 #### Defined in
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:731
 
----
+___
 
-### UNSAFE_componentWillUpdate
+### UNSAFE\_componentWillUpdate
 
 ▸ `Optional` **UNSAFE_componentWillUpdate**(`nextProps`, `nextState`, `nextContext`): `void`
 
@@ -284,16 +284,16 @@ prevents this from being invoked.
 
 **`See`**
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
-| Name          | Type                                                                 |
-| :------------ | :------------------------------------------------------------------- |
-| `nextProps`   | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
-| `nextState`   | `Readonly`<{}\>                                                      |
-| `nextContext` | `any`                                                                |
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
+| `nextState` | `Readonly`<{}\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -301,13 +301,13 @@ prevents this from being invoked.
 
 #### Inherited from
 
-React.Component.UNSAFE_componentWillUpdate
+React.Component.UNSAFE\_componentWillUpdate
 
 #### Defined in
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:759
 
----
+___
 
 ### componentDidCatch
 
@@ -315,7 +315,7 @@ sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:759
 
 #### Parameters
 
-| Name    | Type    |
+| Name | Type |
 | :------ | :------ |
 | `error` | `Error` |
 
@@ -329,9 +329,9 @@ React.Component.componentDidCatch
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:93](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L93)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:93](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L93)
 
----
+___
 
 ### componentDidMount
 
@@ -351,7 +351,7 @@ React.Component.componentDidMount
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:607
 
----
+___
 
 ### componentDidUpdate
 
@@ -363,11 +363,11 @@ The snapshot is only present if getSnapshotBeforeUpdate is present and returns n
 
 #### Parameters
 
-| Name        | Type                                                                 |
-| :---------- | :------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `prevProps` | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
-| `prevState` | `Readonly`<{}\>                                                      |
-| `snapshot?` | `any`                                                                |
+| `prevState` | `Readonly`<{}\> |
+| `snapshot?` | `any` |
 
 #### Returns
 
@@ -381,7 +381,7 @@ React.Component.componentDidUpdate
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:670
 
----
+___
 
 ### componentWillMount
 
@@ -399,8 +399,8 @@ prevents this from being invoked.
 
 **`See`**
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Returns
 
@@ -414,7 +414,7 @@ React.Component.componentWillMount
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:685
 
----
+___
 
 ### componentWillReceiveProps
 
@@ -435,15 +435,15 @@ prevents this from being invoked.
 
 **`See`**
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
-| Name          | Type                                                                 |
-| :------------ | :------------------------------------------------------------------- |
-| `nextProps`   | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
-| `nextContext` | `any`                                                                |
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -457,7 +457,7 @@ React.Component.componentWillReceiveProps
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:714
 
----
+___
 
 ### componentWillUnmount
 
@@ -478,7 +478,7 @@ React.Component.componentWillUnmount
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:623
 
----
+___
 
 ### componentWillUpdate
 
@@ -497,16 +497,16 @@ prevents this from being invoked.
 
 **`See`**
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Parameters
 
-| Name          | Type                                                                 |
-| :------------ | :------------------------------------------------------------------- |
-| `nextProps`   | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
-| `nextState`   | `Readonly`<{}\>                                                      |
-| `nextContext` | `any`                                                                |
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
+| `nextState` | `Readonly`<{}\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -520,7 +520,7 @@ React.Component.componentWillUpdate
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:744
 
----
+___
 
 ### forceUpdate
 
@@ -528,8 +528,8 @@ sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:744
 
 #### Parameters
 
-| Name        | Type         |
-| :---------- | :----------- |
+| Name | Type |
+| :------ | :------ |
 | `callback?` | () => `void` |
 
 #### Returns
@@ -544,7 +544,7 @@ React.Component.forceUpdate
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:499
 
----
+___
 
 ### getSnapshotBeforeUpdate
 
@@ -559,10 +559,10 @@ lifecycle events from running.
 
 #### Parameters
 
-| Name        | Type                                                                 |
-| :---------- | :------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `prevProps` | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
-| `prevState` | `Readonly`<{}\>                                                      |
+| `prevState` | `Readonly`<{}\> |
 
 #### Returns
 
@@ -576,7 +576,7 @@ React.Component.getSnapshotBeforeUpdate
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:664
 
----
+___
 
 ### render
 
@@ -592,9 +592,9 @@ React.Component.render
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:97](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L97)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:97](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L97)
 
----
+___
 
 ### setState
 
@@ -602,16 +602,16 @@ React.Component.render
 
 #### Type parameters
 
-| Name | Type            |
-| :--- | :-------------- |
-| `K`  | extends `never` |
+| Name | Type |
+| :------ | :------ |
+| `K` | extends `never` |
 
 #### Parameters
 
-| Name        | Type                                                                                                                                                              |
-| :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `state`     | {} \| (`prevState`: `Readonly`<{}\>, `props`: `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\>) => {} \| `Pick`<{}, `K`\> \| `Pick`<{}, `K`\> |
-| `callback?` | () => `void`                                                                                                                                                      |
+| Name | Type |
+| :------ | :------ |
+| `state` | {} \| (`prevState`: `Readonly`<{}\>, `props`: `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\>) => {} \| `Pick`<{}, `K`\> \| `Pick`<{}, `K`\> |
+| `callback?` | () => `void` |
 
 #### Returns
 
@@ -625,7 +625,7 @@ React.Component.setState
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:494
 
----
+___
 
 ### shouldComponentUpdate
 
@@ -642,11 +642,11 @@ and `componentDidUpdate` will not be called.
 
 #### Parameters
 
-| Name          | Type                                                                 |
-| :------------ | :------------------------------------------------------------------- |
-| `nextProps`   | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
-| `nextState`   | `Readonly`<{}\>                                                      |
-| `nextContext` | `any`                                                                |
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
+| `nextState` | `Readonly`<{}\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -660,7 +660,7 @@ React.Component.shouldComponentUpdate
 
 sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:618
 
----
+___
 
 ### getDerivedStateFromError
 
@@ -668,7 +668,7 @@ sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:618
 
 #### Parameters
 
-| Name    | Type    |
+| Name | Type |
 | :------ | :------ |
 | `error` | `Error` |
 
@@ -676,10 +676,10 @@ sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:618
 
 `Object`
 
-| Name    | Type    |
+| Name | Type |
 | :------ | :------ |
 | `error` | `Error` |
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:88](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L88)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:88](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L88)

@@ -17,9 +17,9 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Image.tsx:145](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-react-native/src/components/Image.tsx#L145)
+[sitecore-jss-react-native/src/components/Image.tsx:145](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-react-native/src/components/Image.tsx#L145)
 
----
+___
 
 ### propTypes
 
@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Image.tsx:133](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-react-native/src/components/Image.tsx#L133)
+[sitecore-jss-react-native/src/components/Image.tsx:133](https://github.com/Sitecore/jss/blob/5558288f0/packages/sitecore-jss-react-native/src/components/Image.tsx#L133)

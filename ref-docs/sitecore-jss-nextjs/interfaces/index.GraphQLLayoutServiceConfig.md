@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `Pick`<`GraphQLRequestClientConfig`, `"retries"`\>
+- `Pick`<`GraphQLRequestClientConfig`, ``"retries"``\>
 
   ↳ **`GraphQLLayoutServiceConfig`**
 
@@ -41,7 +41,7 @@ property instead
 
 sitecore-jss/types/layout/graphql-layout-service.d.ts:18
 
----
+___
 
 ### clientFactory
 
@@ -54,7 +54,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 sitecore-jss/types/layout/graphql-layout-service.d.ts:23
 
----
+___
 
 ### endpoint
 
@@ -74,7 +74,7 @@ property instead
 
 sitecore-jss/types/layout/graphql-layout-service.d.ts:9
 
----
+___
 
 ### formatLayoutQuery
 
@@ -89,15 +89,15 @@ Override default layout query
 **`Default`**
 
 Layout query
-layout(site:"${siteName}", routePath:"${itemPath}", language:"\${language}")
+layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
 
 ##### Parameters
 
-| Name       | Type     |
-| :--------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `siteName` | `string` |
 | `itemPath` | `string` |
-| `locale?`  | `string` |
+| `locale?` | `string` |
 
 ##### Returns
 
@@ -109,7 +109,7 @@ custom layout query
 
 sitecore-jss/types/layout/graphql-layout-service.d.ts:35
 
----
+___
 
 ### retries
 
@@ -125,7 +125,7 @@ Pick.retries
 
 sitecore-jss/types/graphql-request-client.d.ts:39
 
----
+___
 
 ### siteName
 
