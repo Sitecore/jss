@@ -1,6 +1,6 @@
 import { Config, ServerBundle } from './types';
 
-// SITECORE_JSS_APP_NAME env variable has been depracated since v.21.6, SITECORE_SITE_NAME should be used instead
+// SITECORE_JSS_APP_NAME env variable has been deprecated since v.21.6, SITECORE_SITE_NAME should be used instead
 const siteName = process.env.SITECORE_SITE_NAME || process.env.SITECORE_JSS_APP_NAME;
 
 /**

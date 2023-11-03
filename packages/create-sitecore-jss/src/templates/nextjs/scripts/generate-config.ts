@@ -10,7 +10,7 @@ import { jssConfigFactory } from './config';
   Generates the /src/temp/config.js file which contains runtime configuration
   that the app can import and use.
 */
-// JSS_APP_NAME env variable has been depracated since v.21.6, SITE_NAME should be used instead
+// JSS_APP_NAME env variable has been deprecated since v.21.6, SITE_NAME should be used instead
 const defaultConfig: JssConfig = {
   sitecoreApiKey: process.env[`${constantCase('sitecoreApiKey')}`],
   sitecoreApiHost: process.env[`${constantCase('sitecoreApiHost')}`],

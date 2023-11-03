@@ -7,7 +7,7 @@ import { httpAgentsConfig } from './httpAgents';
  * The sitecore site name defaults to providing part of the bundle path as well as the dictionary service endpoint.
  * If not passed as an environment variable or set here, any application name exported from the bundle will be used instead.
  */
-// SITECORE_JSS_APP_NAME env variable has been depracated since v.21.6, SITECORE_SITE_NAME should be used instead
+// SITECORE_JSS_APP_NAME env variable has been deprecated since v.21.6, SITECORE_SITE_NAME should be used instead
 let siteName =
   process.env.SITECORE_SITE_NAME || process.env.SITECORE_JSS_APP_NAME || 'YOUR SITE NAME';
 

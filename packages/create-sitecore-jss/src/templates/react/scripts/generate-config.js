@@ -9,7 +9,7 @@ const { jssConfigFactory } = require('./config');
 /**
  * REACT_APP is the default prefix for environment variables that will be made available to the app.
  */
-// REACT_APP_JSS_APP_NAME env variable has been depracated since v.21.6, REACT_APP_SITE_NAME should be used instead
+// REACT_APP_JSS_APP_NAME env variable has been deprecated since v.21.6, REACT_APP_SITE_NAME should be used instead
 const defaultConfig = {
   sitecoreApiKey: process.env[`${constantCase('reactAppSitecoreApiKey')}`],
   sitecoreApiHost: process.env[`${constantCase('reactAppSitecoreApiHost')}`],
