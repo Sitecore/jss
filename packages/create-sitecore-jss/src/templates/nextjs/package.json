@@ -1,11 +1,7 @@
 {
   "name": "<%- appName %>",
   "description": "Application utilizing Sitecore JavaScript Services and Next.js",
-<<<<<<< HEAD
   "version": "21.6.0-canary",
-=======
-  "version": "21.7.0-canary",
->>>>>>> d4bc9e9c9ff9fa4a530950aa23ae854f1da16ea3
   "private": true,
   "config": {
     "appName": "<%- appName %>",
