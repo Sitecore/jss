@@ -17,8 +17,8 @@ module.exports = function generateConfig(configOverrides) {
   const defaultConfig = {
     sitecoreApiKey: 'no-api-key-set',
     sitecoreApiHost: '',
-    jssAppName: 'Unknown',
-    siteName: '',
+    jssAppName: process.env.VUE_APP_JSS_APP_NAME,
+    siteName: process.env.VUE_APP_SITE_NAME,
     layoutServiceConfigurationName: 'default',
   };
 
@@ -49,16 +49,9 @@ const config = {};\n`;
 
   // Set base configuration values, allowing override with environment variables
   Object.keys(config).forEach((prop) => {
-    if (prop === 'siteName') {
-      // for the sake of backwards compatibility - make sure to initialize siteName from jssAppName if necessary
-      configText += `config.${prop} = process.env.VUE_APP_${constantCase(prop)} || "${
-        config[prop]
-      } || process.env.VUE_APP_JSS_APP_NAME || ${config.jssAppName}",\n`;
-    } else {
-      configText += `config.${prop} = process.env.VUE_APP_${constantCase('jssAppName')} || "${
-        config[prop]
-      }",\n`;
-    }
+    configText += `config.${prop} = process.env.VUE_APP_${constantCase(prop)} || "${
+      config[prop]
+    }",\n`;
   });
   // Set computed values, allowing override with environment variables
   Object.keys(computedConfig).forEach((prop) => {

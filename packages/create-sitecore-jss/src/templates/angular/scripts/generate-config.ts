@@ -15,8 +15,8 @@ export function generateConfig(configOverrides?: { [key: string]: unknown }, out
     production: false,
     sitecoreApiHost: '',
     sitecoreApiKey: 'no-api-key-set',
-    jssAppName: 'Unknown',
-    siteName: '',
+    jssAppName: process.env.JSS_APP_NAME,
+    siteName: process.env.SITE_NAME,
     sitecoreLayoutServiceConfig: 'jss',
     defaultLanguage: 'en',
     defaultServerRoute: '/',
@@ -54,14 +54,7 @@ const config = {};\n`;
 
   // Set base configuration values, allowing override with environment variables
   Object.keys(config).forEach((prop) => {
-    if (prop === 'siteName') {
-      // for the sake of backwards compatibility - make sure to initialize siteName from jssAppName if necessary
-      configText += `config.${prop} = process.env.${constantCase(prop)} || "${
-        config[prop]
-      } || process.env.${constantCase('jssAppName')} || "${config.jssAppName}",\n`;
-    } else {
-      configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]}",\n`;
-    }
+    configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]}",\n`;
   });
   // Set computed values, allowing override with environment variables
   Object.keys(computedConfig).forEach((prop) => {
