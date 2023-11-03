@@ -210,25 +210,6 @@ describe('PersonalizeMiddleware', () => {
       })
     ));
 
-    // {
-    //   handleCookie: async () => {
-    //     return props.handleCookieStub || Promise.resolve();
-    //   },
-    //   event: async () => {
-    //     return Promise.resolve(null);
-    //   },
-    //   personalize: async () => {
-    //     return Promise.resolve({ variantId: props.variantId });
-    //   },
-    //   identity: async () => {
-    //     return Promise.resolve(null);
-    //   },
-    //   pageView: async () => {
-    //     return Promise.resolve(null);
-    //   },
-    //   version: '1.0',
-    // }
-
     const getPersonalizeInfo = (middleware['personalizeService']['getPersonalizeInfo'] =
       props.getPersonalizeInfoStub ||
       sinon.stub().returns(
