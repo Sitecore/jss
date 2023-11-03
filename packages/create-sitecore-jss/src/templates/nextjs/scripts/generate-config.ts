@@ -4,6 +4,7 @@ import path from 'path';
 import { constantCase } from 'constant-case';
 import { JssConfig } from 'lib/config';
 import { jssConfigFactory } from './config';
+import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 
 /*
   CONFIG GENERATION
@@ -34,10 +35,10 @@ generateConfig(defaultConfig);
 function generateConfig(defaultConfig: JssConfig): void {
   jssConfigFactory
     .create(defaultConfig)
-    .then((config) => {
+    .then(config => {
       writeConfig(config);
     })
-    .catch((e) => {
+    .catch(e => {
       console.error('Error generating config');
       console.error(e);
       process.exit(1);
@@ -55,9 +56,13 @@ function writeConfig(config: JssConfig): void {
 const config = {};\n`;
 
   // Set configuration values, allowing override with environment variables
-  Object.keys(config).forEach((prop) => {
+  Object.keys(config).forEach(prop => {
     configText += `config.${prop} = process.env.${constantCase(prop)} || '${config[prop]}',\n`;
   });
+
+  const publicUrl = getPublicUrl();
+  configText += `config.publicUrl = '${publicUrl}',\n`;
+
   configText += `module.exports = config;`;
 
   const configPath = path.resolve('src/temp/config.js');
