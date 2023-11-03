@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:11](https://github.com/Sitecore/jss/blob/361a71f79/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L11)
+[src/personalize/graphql-personalize-service.ts:11](https://github.com/Sitecore/jss/blob/5a8d22ea7/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L11)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[src/personalize/utils.ts:4](https://github.com/Sitecore/jss/blob/361a71f79/packages/sitecore-jss/src/personalize/utils.ts#L4)
+[src/personalize/utils.ts:4](https://github.com/Sitecore/jss/blob/5a8d22ea7/packages/sitecore-jss/src/personalize/utils.ts#L4)
 
 ## Functions
 
@@ -71,7 +71,7 @@ the rewrite path
 
 #### Defined in
 
-[src/personalize/utils.ts:14](https://github.com/Sitecore/jss/blob/361a71f79/packages/sitecore-jss/src/personalize/utils.ts#L14)
+[src/personalize/utils.ts:14](https://github.com/Sitecore/jss/blob/5a8d22ea7/packages/sitecore-jss/src/personalize/utils.ts#L14)
 
 ___
 
@@ -95,7 +95,7 @@ the personalize data from the rewrite
 
 #### Defined in
 
-[src/personalize/utils.ts:24](https://github.com/Sitecore/jss/blob/361a71f79/packages/sitecore-jss/src/personalize/utils.ts#L24)
+[src/personalize/utils.ts:24](https://github.com/Sitecore/jss/blob/5a8d22ea7/packages/sitecore-jss/src/personalize/utils.ts#L24)
 
 ___
 
@@ -119,7 +119,7 @@ the pathname with personalize data removed
 
 #### Defined in
 
-[src/personalize/utils.ts:41](https://github.com/Sitecore/jss/blob/361a71f79/packages/sitecore-jss/src/personalize/utils.ts#L41)
+[src/personalize/utils.ts:41](https://github.com/Sitecore/jss/blob/5a8d22ea7/packages/sitecore-jss/src/personalize/utils.ts#L41)
 
 ___
 
@@ -142,4 +142,4 @@ Apply personalization to layout data. This will recursively go through all place
 
 #### Defined in
 
-[src/personalize/layout-personalizer.ts:17](https://github.com/Sitecore/jss/blob/361a71f79/packages/sitecore-jss/src/personalize/layout-personalizer.ts#L17)
+[src/personalize/layout-personalizer.ts:17](https://github.com/Sitecore/jss/blob/5a8d22ea7/packages/sitecore-jss/src/personalize/layout-personalizer.ts#L17)
