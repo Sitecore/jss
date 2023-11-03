@@ -6770,7 +6770,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
-    "@sitecore-feaas/clientside": ^0.3.17
+    "@sitecore-feaas/clientside": ^0.4.12
     "@sitecore-jss/sitecore-jss": 21.6.0-canary.22
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
