@@ -9,7 +9,7 @@ import { createPageView } from 'lib/context/events';
 
 /**
  * This is the CDP page view component.
- * It uses the Sitecore Engage SDK to enable page view events on the client-side.
+ * It uses the Sitecore Cloud SDK to enable page view events on the client-side.
  * See Sitecore Engage SDK documentation for details.
  * https://www.npmjs.com/package/@sitecore-cloudsdk/events
  */
@@ -32,7 +32,7 @@ const CdpPageView = (): JSX.Element => {
     if (pageState !== LayoutServicePageState.Normal || !route?.itemId) {
       return;
     }
-    // // Do not create events if disabled (e.g. we don't have consent)
+    // Do not create events if disabled (e.g. we don't have consent)
     if (disabled()) {
       return;
     }

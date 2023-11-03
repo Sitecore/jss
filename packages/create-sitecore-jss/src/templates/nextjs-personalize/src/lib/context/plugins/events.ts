@@ -1,10 +1,15 @@
 import * as Events from '@sitecore-cloudsdk/events';
 import { Plugin, Props, Context } from '..';
 
+/**
+ * This is Events plugin for Context initialization.
+ * It is used to enable Cloud SDK Events in Next.js.
+ */
 class EventsPlugin implements Plugin {
-  order = 1;
+  order = 0;
 
   async exec(props: Props, context: Context) {
+    // Events module can't be initialized on the server side
     if (typeof window === 'undefined') return;
 
     await Events.init({
