@@ -36,8 +36,6 @@ export let contextReady: Promise<void> | undefined;
 export const initContext = async (props: Props) => {
   if (initialized) return;
 
-  console.log('CONTEXT INIT IS CALLED');
-
   initialized = true;
 
   contextReady = new Promise(async (resolve) => {
@@ -48,8 +46,6 @@ export const initContext = async (props: Props) => {
       }, Promise.resolve());
 
     FEAAS.setContextProperties(context);
-
-    console.log('CONTEXT IS INITIALIZED', context);
 
     resolve();
   });

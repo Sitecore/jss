@@ -9,7 +9,7 @@ class EventsPlugin implements Plugin {
 
     await Events.init({
       siteName: props.site,
-      sitecoreEdgeContextId: context.sitecoreEdgeContextId || '5555',
+      sitecoreEdgeContextId: context.sitecoreEdgeContextId,
       // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
       cookieDomain: window.location.hostname.replace(/^www\./, ''),
       // Cookie may be created in personalize middleware (server), but if not we should create it here
