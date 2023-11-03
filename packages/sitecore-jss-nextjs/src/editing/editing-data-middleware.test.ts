@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect, use } from 'chai';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { QUERY_PARAM_EDITING_SECRET } from './editing-data-service';
+import { QUERY_PARAM_EDITING_SECRET } from './constants';
 import { EditingData } from './editing-data';
 import { EditingDataCache } from './editing-data-cache';
 import { EditingDataMiddleware } from './editing-data-middleware';
@@ -42,7 +42,7 @@ const mockCache = (data?: EditingData) => {
   const cache = {} as EditingDataCache;
   cache.set = spy();
   cache.get = spy(() => {
-    return data;
+    return Promise.resolve(data);
   });
   return cache;
 };

@@ -6,9 +6,9 @@
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | `GenericFieldValue` |
+| Name | Type                |
+| :--- | :------------------ |
+| `T`  | `GenericFieldValue` |
 
 ## Table of contents
 
@@ -25,9 +25,9 @@
 
 #### Defined in
 
-[src/layout/models.ts:134](https://github.com/Sitecore/jss/blob/711d6d7b0/packages/sitecore-jss/src/layout/models.ts#L134)
+[src/layout/models.ts:134](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/models.ts#L134)
 
-___
+---
 
 ### value
 
@@ -35,4 +35,4 @@ ___
 
 #### Defined in
 
-[src/layout/models.ts:133](https://github.com/Sitecore/jss/blob/711d6d7b0/packages/sitecore-jss/src/layout/models.ts#L133)
+[src/layout/models.ts:133](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/models.ts#L133)

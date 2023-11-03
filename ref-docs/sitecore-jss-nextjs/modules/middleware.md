@@ -30,30 +30,30 @@ Re-exports [debug](index.md#debug)
 
 ### MultisiteMiddlewareConfig
 
-Ƭ **MultisiteMiddlewareConfig**: `Omit`<`MiddlewareBaseConfig`, ``"disabled"``\> & { `useCookieResolution?`: (`req`: `NextRequest`) => `boolean`  }
+Ƭ **MultisiteMiddlewareConfig**: `Omit`<`MiddlewareBaseConfig`, `"disabled"`\> & { `useCookieResolution?`: (`req`: `NextRequest`) => `boolean` }
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:6](https://github.com/Sitecore/jss/blob/711d6d7b0/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L6)
+[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:6](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L6)
 
-___
+---
 
 ### PersonalizeMiddlewareConfig
 
-Ƭ **PersonalizeMiddlewareConfig**: `MiddlewareBaseConfig` & { `cdpConfig`: `CdpServiceConfig` ; `edgeConfig`: `Omit`<`GraphQLPersonalizeServiceConfig`, ``"fetch"``\> ; `getPointOfSale?`: (`site`: [`SiteInfo`](index.md#siteinfo), `language`: `string`) => `string`  }
+Ƭ **PersonalizeMiddlewareConfig**: `MiddlewareBaseConfig` & { `cdpConfig`: `CdpServiceConfig` ; `edgeConfig`: `Omit`<`GraphQLPersonalizeServiceConfig`, `"fetch"`\> ; `getPointOfSale?`: (`site`: [`SiteInfo`](index.md#siteinfo), `language`: `string`) => `string` }
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:36](https://github.com/Sitecore/jss/blob/711d6d7b0/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L36)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:36](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L36)
 
-___
+---
 
 ### RedirectsMiddlewareConfig
 
-Ƭ **RedirectsMiddlewareConfig**: `Omit`<`GraphQLRedirectsServiceConfig`, ``"fetch"``\> & `MiddlewareBaseConfig` & { `locales`: `string`[]  }
+Ƭ **RedirectsMiddlewareConfig**: `Omit`<`GraphQLRedirectsServiceConfig`, `"fetch"`\> & `MiddlewareBaseConfig` & { `locales`: `string`[] }
 
 extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:20](https://github.com/Sitecore/jss/blob/711d6d7b0/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L20)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:20](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L20)

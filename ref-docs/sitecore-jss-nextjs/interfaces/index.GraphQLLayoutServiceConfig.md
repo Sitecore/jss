@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `Pick`<`GraphQLRequestClientConfig`, ``"retries"``\>
+- `Pick`<`GraphQLRequestClientConfig`, `"retries"`\>
 
   ↳ **`GraphQLLayoutServiceConfig`**
 
@@ -15,6 +15,7 @@
 ### Properties
 
 - [apiKey](index.GraphQLLayoutServiceConfig.md#apikey)
+- [clientFactory](index.GraphQLLayoutServiceConfig.md#clientfactory)
 - [endpoint](index.GraphQLLayoutServiceConfig.md#endpoint)
 - [formatLayoutQuery](index.GraphQLLayoutServiceConfig.md#formatlayoutquery)
 - [retries](index.GraphQLLayoutServiceConfig.md#retries)
@@ -24,27 +25,56 @@
 
 ### apiKey
 
-• **apiKey**: `string`
+• `Optional` **apiKey**: `string`
 
 The API key to use for authentication
 
+**`Deprecated`**
+
+use
+
+**`Param`**
+
+property instead
+
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:16
+sitecore-jss/types/layout/graphql-layout-service.d.ts:18
 
-___
+---
+
+### clientFactory
+
+• `Optional` **clientFactory**: `GraphQLRequestClientFactory`
+
+A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
+This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
+
+#### Defined in
+
+sitecore-jss/types/layout/graphql-layout-service.d.ts:23
+
+---
 
 ### endpoint
 
-• **endpoint**: `string`
+• `Optional` **endpoint**: `string`
 
 Your Graphql endpoint
 
+**`Deprecated`**
+
+use
+
+**`Param`**
+
+property instead
+
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:8
+sitecore-jss/types/layout/graphql-layout-service.d.ts:9
 
-___
+---
 
 ### formatLayoutQuery
 
@@ -59,15 +89,15 @@ Override default layout query
 **`Default`**
 
 Layout query
-layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
+layout(site:"${siteName}", routePath:"${itemPath}", language:"\${language}")
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type     |
+| :--------- | :------- |
 | `siteName` | `string` |
 | `itemPath` | `string` |
-| `locale?` | `string` |
+| `locale?`  | `string` |
 
 ##### Returns
 
@@ -77,9 +107,9 @@ custom layout query
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:28
+sitecore-jss/types/layout/graphql-layout-service.d.ts:35
 
-___
+---
 
 ### retries
 
@@ -95,7 +125,7 @@ Pick.retries
 
 sitecore-jss/types/graphql-request-client.d.ts:39
 
-___
+---
 
 ### siteName
 
@@ -105,4 +135,4 @@ The JSS application name
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:12
+sitecore-jss/types/layout/graphql-layout-service.d.ts:13

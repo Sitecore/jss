@@ -18,7 +18,7 @@ const touchToReloadFilePath = 'src/temp/config.js';
 
 const serverOptions = {
   appRoot: path.join(__dirname, '..'),
-  appName: config.jssAppName,
+  appName: config.siteName,
   // Prevent require of ./sitecore/definitions/config.js, because ts-node is running
   requireArg: null,
   watchPaths: ['./data'],

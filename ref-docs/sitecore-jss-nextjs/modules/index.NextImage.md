@@ -20,9 +20,9 @@
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/NextImage.tsx:121](https://github.com/Sitecore/jss/blob/711d6d7b0/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L121)
+[sitecore-jss-nextjs/src/components/NextImage.tsx:121](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L121)
 
-___
+---
 
 ### displayName
 
@@ -30,9 +30,9 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/NextImage.tsx:125](https://github.com/Sitecore/jss/blob/711d6d7b0/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L125)
+[sitecore-jss-nextjs/src/components/NextImage.tsx:125](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L125)
 
-___
+---
 
 ### propTypes
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/NextImage.tsx:104](https://github.com/Sitecore/jss/blob/711d6d7b0/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L104)
+[sitecore-jss-nextjs/src/components/NextImage.tsx:104](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L104)

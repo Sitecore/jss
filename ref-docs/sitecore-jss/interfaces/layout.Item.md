@@ -24,9 +24,9 @@ Content data returned from Content Service
 
 #### Defined in
 
-[src/layout/models.ts:142](https://github.com/Sitecore/jss/blob/711d6d7b0/packages/sitecore-jss/src/layout/models.ts#L142)
+[src/layout/models.ts:142](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/models.ts#L142)
 
-___
+---
 
 ### fields
 
@@ -38,9 +38,9 @@ ___
 
 #### Defined in
 
-[src/layout/models.ts:145](https://github.com/Sitecore/jss/blob/711d6d7b0/packages/sitecore-jss/src/layout/models.ts#L145)
+[src/layout/models.ts:145](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/models.ts#L145)
 
-___
+---
 
 ### id
 
@@ -48,9 +48,9 @@ ___
 
 #### Defined in
 
-[src/layout/models.ts:143](https://github.com/Sitecore/jss/blob/711d6d7b0/packages/sitecore-jss/src/layout/models.ts#L143)
+[src/layout/models.ts:143](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/models.ts#L143)
 
-___
+---
 
 ### name
 
@@ -58,9 +58,9 @@ ___
 
 #### Defined in
 
-[src/layout/models.ts:141](https://github.com/Sitecore/jss/blob/711d6d7b0/packages/sitecore-jss/src/layout/models.ts#L141)
+[src/layout/models.ts:141](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/models.ts#L141)
 
-___
+---
 
 ### url
 
@@ -68,4 +68,4 @@ ___
 
 #### Defined in
 
-[src/layout/models.ts:144](https://github.com/Sitecore/jss/blob/711d6d7b0/packages/sitecore-jss/src/layout/models.ts#L144)
+[src/layout/models.ts:144](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/layout/models.ts#L144)
