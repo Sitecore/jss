@@ -35,6 +35,12 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` Fix PlaceholderCommon with using two and more dynamic placeholders. ([#1641](https://github.com/Sitecore/jss/pull/1641))
 * `[templates/nextjs-multisite]` Fix site info fetch errors (now skipped) on XM Cloud rendering/editing host builds. ([#1649](https://github.com/Sitecore/jss/pull/1649))
 
+### 🛠 Breaking Changes
+
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` CloudSDK Integration ([#1652](https://github.com/Sitecore/jss/pull/1652)):
+  * Removed the following properties from _PersonalizeMiddleware_: _getPointOfSale_, _clientKey_, _endpoint_. You now need to provide _sitecoreEdgeContextId_ as a replacement.
+  * _PersonalizeMiddleware_ has transitioned to utilizing the _CloudSDK_ package, replacing the previous dependency on _Engage_.
+
 ## 21.5.0
 
 ### 🐛 Bug Fixes
