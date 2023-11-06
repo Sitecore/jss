@@ -6433,6 +6433,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sitecore-cloudsdk/core@npm:^0.1.0-rc.2":
+  version: 0.1.0-rc.4
+  resolution: "@sitecore-cloudsdk/core@npm:0.1.0-rc.4"
+  dependencies:
+    "@sitecore-cloudsdk/utils": ^0.1.0-rc.2
+  checksum: 596ebb923e8a7598b15c7762c6a8c3f7e6bc1fb9746e8ae51c656a7c3dd91a39e75b089abb8f4a1784f6dba2cf4115d9947f9fada26d6022191985acb4ee28a5
+  languageName: node
+  linkType: hard
+
+"@sitecore-cloudsdk/personalize@npm:^0.1.0-rc.4":
+  version: 0.1.0-rc.4
+  resolution: "@sitecore-cloudsdk/personalize@npm:0.1.0-rc.4"
+  dependencies:
+    "@sitecore-cloudsdk/core": ^0.1.0-rc.2
+    "@sitecore-cloudsdk/utils": ^0.1.0-rc.2
+  checksum: 87623064f786234dfc03072d695d988059f65327d3371d9280e03d904228a0f75733c0bf109dce6de0d9a51a49ce0ee9feee21c22b757e0ae04747267897f4aa
+  languageName: node
+  linkType: hard
+
+"@sitecore-cloudsdk/utils@npm:^0.1.0-rc.2":
+  version: 0.1.0-rc.4
+  resolution: "@sitecore-cloudsdk/utils@npm:0.1.0-rc.4"
+  checksum: 28bce2648560a6b9e0621228642cc590baddc3ad1c335acec9ba0c45934472c1a3455048f9d9e4a566f933044fb1cc39c8b59f0ec1e60e878e9337f4227b72e5
+  languageName: node
+  linkType: hard
+
 "@sitecore-feaas/clientside@npm:^0.4.12":
   version: 0.4.12
   resolution: "@sitecore-feaas/clientside@npm:0.4.12"
@@ -6620,10 +6646,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
+    "@sitecore-cloudsdk/personalize": ^0.1.0-rc.4
     "@sitecore-jss/sitecore-jss": 21.6.0-canary.18
     "@sitecore-jss/sitecore-jss-dev-tools": 21.6.0-canary.18
     "@sitecore-jss/sitecore-jss-react": 21.6.0-canary.18
-    "@sitecore/engage": ^1.4.1
     "@types/chai": ^4.3.4
     "@types/chai-as-promised": ^7.1.5
     "@types/chai-string": ^1.4.2
@@ -6663,7 +6689,8 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.4
   peerDependencies:
-    "@sitecore/engage": ^1.4.1
+    "@sitecore-cloudsdk/events": ^0.1.0-rc.4
+    "@sitecore-cloudsdk/personalize": ^0.1.0-rc.4
     next: ^13.4.16
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -6911,13 +6938,6 @@ __metadata:
     "@rjsf/utils": "*"
     json-schema: ^0.4.0
   checksum: 11c6c4ddd030ecf839ef420ef769c678bfc6a5ed28c245664cc83d9b06c303d466ffc52018bf2721231284bb634ecb749e696b29747e46dbdeb22b9a8f8c560d
-  languageName: node
-  linkType: hard
-
-"@sitecore/engage@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "@sitecore/engage@npm:1.4.1"
-  checksum: 582b7a55ba407765def12518114790fb1735c359e60fe4594102a5e643539b148a494b02bf71970bcafc807b92fe19a1ab8ff7c2af3db2c080ab36ec2eb16d57
   languageName: node
   linkType: hard
 
