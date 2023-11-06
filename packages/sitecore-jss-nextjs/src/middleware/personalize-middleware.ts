@@ -9,7 +9,6 @@ import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
 import { init, personalize } from '@sitecore-cloudsdk/personalize/server';
 
-
 export type CdpServiceConfig = {
   /**
    * Your unified Sitecore Edge Context Id
@@ -115,17 +114,20 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     );
   }
 
-  protected async personalize({
-    params,
-    personalizeInfo,
-    language,
-    timeout,
-  }: {
-    personalizeInfo: PersonalizeInfo;
-    params: ExperienceParams,
-    language: string;
-    timeout?: number;
-  }, request: NextRequest) {
+  protected async personalize(
+    {
+      params,
+      personalizeInfo,
+      language,
+      timeout,
+    }: {
+      personalizeInfo: PersonalizeInfo;
+      params: ExperienceParams;
+      language: string;
+      timeout?: number;
+    },
+    request: NextRequest
+  ) {
     const personalizationData = {
       channel: this.config.cdpConfig.channel || 'WEB',
       currency: this.config.cdpConfig.currency ?? 'USA',
@@ -231,7 +233,10 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     // Execute targeted experience in Personalize SDK
     // eslint-disable-next-line no-useless-catch
     try {
-      const personalization = await this.personalize({ personalizeInfo, params, language, timeout }, req);
+      const personalization = await this.personalize(
+        { personalizeInfo, params, language, timeout },
+        req
+      );
       variantId = personalization.variantId;
     } catch (error) {
       throw error;

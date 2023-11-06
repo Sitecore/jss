@@ -429,7 +429,12 @@ describe('PersonalizeMiddleware', () => {
     it('no variant identified', async () => {
       const req = createRequest();
       const res = createResponse();
-      const { middleware, getPersonalizeInfo, initPersonalizeServer, personalize } = createMiddleware({
+      const {
+        middleware,
+        getPersonalizeInfo,
+        initPersonalizeServer,
+        personalize,
+      } = createMiddleware({
         variantId: undefined,
       });
       const headers = {};
@@ -451,11 +456,15 @@ describe('PersonalizeMiddleware', () => {
       const req = createRequest();
       const res = createResponse();
       const handleCookieStub = sinon.stub().resolves();
-      const { middleware, getPersonalizeInfo, initPersonalizeServer, personalize } =
-        createMiddleware({
-          variantId: 'invalid-variant',
-          handleCookieStub,
-        });
+      const {
+        middleware,
+        getPersonalizeInfo,
+        initPersonalizeServer,
+        personalize,
+      } = createMiddleware({
+        variantId: 'invalid-variant',
+        handleCookieStub,
+      });
       const finalRes = await middleware.getHandler()(req, res);
       const headers = {};
       req.headers.forEach((value, key) => (headers[key] = value));
@@ -485,15 +494,20 @@ describe('PersonalizeMiddleware', () => {
       });
       const res = createResponse();
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
-      const { middleware, getPersonalizeInfo, siteResolver, initPersonalizeServer, personalize } =
-        createMiddleware({
-          language,
-          variantId: 'variant-2',
-          personalizeInfo: {
-            variantIds,
-            contentId,
-          },
-        });
+      const {
+        middleware,
+        getPersonalizeInfo,
+        siteResolver,
+        initPersonalizeServer,
+        personalize,
+      } = createMiddleware({
+        language,
+        variantId: 'variant-2',
+        personalizeInfo: {
+          variantIds,
+          contentId,
+        },
+      });
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
@@ -529,10 +543,15 @@ describe('PersonalizeMiddleware', () => {
       });
       const res = createResponse();
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
-      const { middleware, getPersonalizeInfo, siteResolver, initPersonalizeServer, personalize } =
-        createMiddleware({
-          variantId: 'variant-2',
-        });
+      const {
+        middleware,
+        getPersonalizeInfo,
+        siteResolver,
+        initPersonalizeServer,
+        personalize,
+      } = createMiddleware({
+        variantId: 'variant-2',
+      });
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
@@ -563,10 +582,15 @@ describe('PersonalizeMiddleware', () => {
       const req = createRequest();
       const res = createResponse();
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
-      const { middleware, getPersonalizeInfo, siteResolver, initPersonalizeServer, personalize } =
-        createMiddleware({
-          variantId: 'variant-2',
-        });
+      const {
+        middleware,
+        getPersonalizeInfo,
+        siteResolver,
+        initPersonalizeServer,
+        personalize,
+      } = createMiddleware({
+        variantId: 'variant-2',
+      });
       const finalRes = await middleware.getHandler()(req);
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
@@ -598,10 +622,15 @@ describe('PersonalizeMiddleware', () => {
       const req = createRequest({ headerValues: { referer: null } });
       const res = createResponse();
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
-      const { middleware, getPersonalizeInfo, siteResolver, initPersonalizeServer, personalize } =
-        createMiddleware({
-          variantId: 'variant-2',
-        });
+      const {
+        middleware,
+        getPersonalizeInfo,
+        siteResolver,
+        initPersonalizeServer,
+        personalize,
+      } = createMiddleware({
+        variantId: 'variant-2',
+      });
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
@@ -636,10 +665,15 @@ describe('PersonalizeMiddleware', () => {
         },
       });
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
-      const { middleware, getPersonalizeInfo, initPersonalizeServer, personalize, siteResolver } =
-        createMiddleware({
-          variantId: 'variant-2',
-        });
+      const {
+        middleware,
+        getPersonalizeInfo,
+        initPersonalizeServer,
+        personalize,
+        siteResolver,
+      } = createMiddleware({
+        variantId: 'variant-2',
+      });
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
@@ -675,10 +709,15 @@ describe('PersonalizeMiddleware', () => {
         },
       });
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
-      const { middleware, getPersonalizeInfo, initPersonalizeServer, personalize, siteResolver } =
-        createMiddleware({
-          variantId: 'variant-2',
-        });
+      const {
+        middleware,
+        getPersonalizeInfo,
+        initPersonalizeServer,
+        personalize,
+        siteResolver,
+      } = createMiddleware({
+        variantId: 'variant-2',
+      });
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
@@ -713,10 +752,15 @@ describe('PersonalizeMiddleware', () => {
       });
       const res = createResponse();
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
-      const { middleware, getPersonalizeInfo, initPersonalizeServer, personalize, siteResolver } =
-        createMiddleware({
-          variantId: 'variant-2',
-        });
+      const {
+        middleware,
+        getPersonalizeInfo,
+        initPersonalizeServer,
+        personalize,
+        siteResolver,
+      } = createMiddleware({
+        variantId: 'variant-2',
+      });
       const finalRes = await middleware.getHandler()(req, res);
 
       validateDebugLog('personalize middleware start: %o', {
@@ -751,11 +795,16 @@ describe('PersonalizeMiddleware', () => {
       });
       const res = createResponse();
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
-      const { middleware, getPersonalizeInfo, initPersonalizeServer, personalize, siteResolver } =
-        createMiddleware({
-          variantId: 'variant-2',
-          defaultHostname: 'foobar',
-        });
+      const {
+        middleware,
+        getPersonalizeInfo,
+        initPersonalizeServer,
+        personalize,
+        siteResolver,
+      } = createMiddleware({
+        variantId: 'variant-2',
+        defaultHostname: 'foobar',
+      });
       const finalRes = await middleware.getHandler()(req, res);
       expect(initPersonalizeServer.calledOnce).to.be.true;
       expect(personalize.calledOnce).to.be.true;
@@ -805,10 +854,14 @@ describe('PersonalizeMiddleware', () => {
 
       const getPersonalizeInfoWithError = sinon.stub().throws(error);
 
-      const { middleware, getPersonalizeInfo, initPersonalizeServer, personalize } =
-        createMiddleware({
-          getPersonalizeInfoStub: getPersonalizeInfoWithError,
-        });
+      const {
+        middleware,
+        getPersonalizeInfo,
+        initPersonalizeServer,
+        personalize,
+      } = createMiddleware({
+        getPersonalizeInfoStub: getPersonalizeInfoWithError,
+      });
 
       const finalRes = await middleware.getHandler()(req, res);
 
