@@ -14,20 +14,15 @@ class MultisitePlugin implements ConfigPlugin {
 
   async exec(config: JssConfig) {
     let sites: SiteInfo[] = [];
-
-    if (process.env.SITECORE) {
-      console.warn(chalk.yellow('Skipping site information fetch (building on XM Cloud)'));
-    } else {
-      console.log('Fetching site information');
-      try {
-        const siteInfoService = new GraphQLSiteInfoService({
-          clientFactory: createGraphQLClientFactory(config),
-        });
-        sites = await siteInfoService.fetchSiteInfo();
-      } catch (error) {
-        console.error(chalk.red('Error fetching site information'));
-        console.error(error);
-      }
+    console.log('Fetching site information');
+    try {
+      const siteInfoService = new GraphQLSiteInfoService({
+        clientFactory: createGraphQLClientFactory(config),
+      });
+      sites = await siteInfoService.fetchSiteInfo();
+    } catch (error) {
+      console.error(chalk.red('Error fetching site information'));
+      console.error(error);
     }
 
     return Object.assign({}, config, {
