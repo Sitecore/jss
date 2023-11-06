@@ -9,7 +9,6 @@ export interface Props {
   site: string;
 }
 
-
 /**
  * Context definition
  */
@@ -25,34 +24,34 @@ export interface Plugin {
    */
   order: number;
   /**
-   * A function which will be called during the SDK initialization
+   * A function to be called during SDK initialization.
    */
   exec(props: Props, context: Context): Promise<void>;
+  /**
+   * The SDK associated with the plugin.
+   */
+  SDK: {
+    name: string;
+    lib: unknown;
+  };
 }
 
-
-/**
- * Context object to be utilized during the initialization of BYOC components.
- * This context is an essential part of BYOC component initialization and provides necessary configuration and information
- * to set up and customize BYOC components. It serves as the foundation for integrating and configuring BYOC features
- * within your application.
- */
 export const context: Context = {
   sitecoreEdgeUrl: config.sitecoreEdgeUrl,
   sitecoreEdgeContextId: config.sitecoreEdgeContextId,
   SDK: {},
 };
 
-let initialized = false;
+// Initialize promise list
+export const promises: { [key: string]: Promise<unknown> } = {};
 
-/**
- * An identifier used by other SDKs to ensure that a function is executed only after the Context is initialized.
- * This identifier serves as a synchronization mechanism to coordinate the initialization and execution of functions in different SDKs.
- * It helps ensure that a specific action or operation is performed only when the application's context has been fully initialized
- * and is ready to support the required functionality.
- * Defined once @function initContext is called
- */
-export let contextReady: Promise<void> | undefined;
+// Helper to wait for asynchronosuly initialized SDK
+export function whenSDKReady<ModuleType>(name: string): Promise<ModuleType> {
+  return promises[name] as Promise<ModuleType>;
+}
+
+// Indicates whether the Context and SDK(s) have been initialized.
+let initialized = false;
 
 /**
  * Initializes the application Context and associated Software Development Kits (SDKs).
@@ -64,15 +63,19 @@ export const initContext = async (props: Props) => {
 
   initialized = true;
 
-  contextReady = new Promise(async (resolve) => {
-    await (Object.values(plugins) as Plugin[])
-      .sort((p1, p2) => p1.order - p2.order)
-      .reduce(async (_, plugin) => {
-        await plugin.exec(props, context);
-      }, Promise.resolve());
+  const pluginList = Object.values(plugins).sort((p1, p2) => p1.order - p2.order) as Plugin[];
 
-    FEAAS.setContextProperties(context);
+  for (const plugin of pluginList) {
+    promises[plugin.SDK.name] = new Promise(async (resolve) => {
+      await plugin.exec(props, context);
 
-    resolve();
-  });
+      context.SDK[plugin.SDK.name] = plugin.SDK.lib;
+
+      resolve(plugin.SDK.lib);
+    });
+
+    await promises[plugin.SDK.name];
+  }
+
+  FEAAS.setContextProperties(context);
 };

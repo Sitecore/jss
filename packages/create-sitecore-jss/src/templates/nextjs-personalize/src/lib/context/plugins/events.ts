@@ -1,4 +1,4 @@
-import * as Events from '@sitecore-cloudsdk/events';
+import * as Events from '@sitecore-cloudsdk/events/browser';
 import { Plugin, Props, Context } from '..';
 
 /**
@@ -7,6 +7,11 @@ import { Plugin, Props, Context } from '..';
  */
 class EventsPlugin implements Plugin {
   order = 0;
+
+  SDK = {
+    name: 'Events',
+    lib: Events,
+  };
 
   async exec(props: Props, context: Context) {
     // Events module can't be initialized on the server side
@@ -20,8 +25,6 @@ class EventsPlugin implements Plugin {
       // Cookie may be created in personalize middleware (server), but if not we should create it here
       enableBrowserCookie: true,
     });
-
-    context.SDK.Events = Events;
   }
 }
 

@@ -30,7 +30,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "@sitecore-cloudsdk/personalize": "^0.1.0-rc.0",
+    "@sitecore-cloudsdk/personalize": "^0.1.0-rc.4",
     "@types/chai": "^4.3.4",
     "@types/chai-as-promised": "^7.1.5",
     "@types/chai-string": "^1.4.2",
@@ -66,8 +66,8 @@
     "typescript": "~4.9.4"
   },
   "peerDependencies": {
-    "@sitecore-cloudsdk/events": "^0.1.0-rc.0",
-    "@sitecore-cloudsdk/personalize": "^0.1.0-rc.0",
+    "@sitecore-cloudsdk/events": "^0.1.0-rc.4",
+    "@sitecore-cloudsdk/personalize": "^0.1.0-rc.4",
     "next": "^13.4.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

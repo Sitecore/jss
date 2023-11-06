@@ -7,7 +7,7 @@ import {
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
-import { initServer, personalizeServer } from '@sitecore-cloudsdk/personalize';
+import { init, personalize } from '@sitecore-cloudsdk/personalize/server';
 
 
 export type CdpServiceConfig = {
@@ -103,7 +103,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     request: NextRequest;
     response: NextResponse;
   }): Promise<void> {
-    await initServer(
+    await init(
       {
         sitecoreEdgeContextId,
         siteName,
@@ -134,7 +134,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       language,
     };
 
-    return (await personalizeServer(personalizationData, request, timeout)) as {
+    return (await personalize(personalizationData, request, timeout)) as {
       variantId: string;
     };
   }
