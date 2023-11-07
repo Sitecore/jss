@@ -40,7 +40,7 @@ declare type RouteUrlParser = (
 export interface ServerBundle {
   renderView: AppRenderer;
   parseRouteUrl: RouteUrlParser;
-  appName: string;
+  siteName: string;
   apiKey?: string;
 }
 
@@ -48,7 +48,7 @@ export interface Config {
   [key: string]: unknown;
   endpoint: string;
   apiKey: string;
-  appName: string;
+  siteName: string;
   port: string | number;
   defaultLanguage: string;
   serverBundle: ServerBundle;
