@@ -10,7 +10,7 @@ import { jssConfigFactory } from './config';
   Generates the /src/temp/config.js file which contains runtime configuration
   that the app can import and use.
 */
-
+// JSS_APP_NAME env variable has been deprecated since v.21.6, SITE_NAME should be used instead
 const defaultConfig: JssConfig = {
   sitecoreApiKey: process.env[`${constantCase('sitecoreApiKey')}`],
   sitecoreApiHost: process.env[`${constantCase('sitecoreApiHost')}`],
@@ -34,10 +34,10 @@ generateConfig(defaultConfig);
 function generateConfig(defaultConfig: JssConfig): void {
   jssConfigFactory
     .create(defaultConfig)
-    .then((config) => {
+    .then(config => {
       writeConfig(config);
     })
-    .catch((e) => {
+    .catch(e => {
       console.error('Error generating config');
       console.error(e);
       process.exit(1);
@@ -55,7 +55,7 @@ function writeConfig(config: JssConfig): void {
 const config = {};\n`;
 
   // Set configuration values, allowing override with environment variables
-  Object.keys(config).forEach((prop) => {
+  Object.keys(config).forEach(prop => {
     configText += `config.${prop} = process.env.${constantCase(prop)} || '${config[prop]}',\n`;
   });
   configText += `module.exports = config;`;
