@@ -10,6 +10,7 @@ export enum Prerender {
 
 export type NextjsAnswer = ClientAppAnswer & {
   prerender: Prerender;
+  xmcloud: boolean;
 };
 
 const DEFAULT_PRERENDER = Prerender.SSG;
@@ -29,6 +30,15 @@ export const prompts: QuestionCollection<NextjsAnswer> = [
       return !answers.prerender;
     },
   },
+  {
+    type: 'confirm',
+    name: 'xmcloud',
+    message: 'Are you building for Sitecore XM Cloud?',
+    default: false,
+    when: (answers: NextjsAnswer): boolean => {
+      return !answers.yes;
+    },
+  },
 ];
 
 /**
@@ -44,15 +54,6 @@ export class NextjsCheckbox extends CheckboxPrompt {
 
         return value === initializer && checked;
       });
-
-    const isPersonalizeSelected = isSelected('nextjs-personalize');
-    const isTrackingSelected = isSelected('nextjs-styleguide-tracking');
-
-    if (isPersonalizeSelected && isTrackingSelected) {
-      this.onError({
-        isValid: incompatibleAddonsMsg('nextjs-styleguide-tracking', 'nextjs-personalize'),
-      });
-    }
 
     const isSxaSelected = isSelected('nextjs-sxa');
     const isStyleguideSelected = isSelected('nextjs-styleguide');

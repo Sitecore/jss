@@ -14,8 +14,6 @@ import { jssConfigFactory } from './config';
 const defaultConfig: JssConfig = {
   sitecoreApiKey: process.env[`${constantCase('sitecoreApiKey')}`],
   sitecoreApiHost: process.env[`${constantCase('sitecoreApiHost')}`],
-  sitecoreEdgeUrl: process.env[`${constantCase('sitecoreEdgeUrl')}`],
-  sitecoreEdgeContextId: process.env[`${constantCase('sitecoreEdgeContextId')}`],
   siteName:
     process.env[`${constantCase('siteName')}`] || process.env[`${constantCase('jssAppName')}`],
   graphQLEndpointPath: process.env[`${constantCase('graphQLEndpointPath')}`],
