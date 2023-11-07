@@ -19,9 +19,6 @@ import { handleEditorFastRefresh } from '@sitecore-jss/sitecore-jss-nextjs/utils
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentBuilder } from 'temp/componentBuilder';
-import { initContext } from 'src/lib/context';
-import { siteResolver } from 'lib/site-resolver';
-import config from 'temp/config';
 <% if (prerender === 'SSG') { -%>
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
@@ -37,12 +34,6 @@ const SitecorePage = ({ notFound, componentProps, layoutData, headLinks }: Sitec
     // Shouldn't hit this (as long as 'notFound' is being returned below), but just to be safe
     return <NotFound />;
   }
-
-  const site = layoutData.sitecore.context.site;
-  const siteInfo = siteResolver.getByName(site?.name || config.siteName);
-
-  // Initialize the Context of the App
-  initContext({ siteName: siteInfo.name });
 
   const isEditing = layoutData.sitecore.context.pageEditing;
   const isComponentRendering =
