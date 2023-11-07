@@ -43,4 +43,4 @@ Execute graphql request
 
 #### Defined in
 
-[src/graphql-request-client.ts:16](https://github.com/Sitecore/jss/blob/a6918b2f2/packages/sitecore-jss/src/graphql-request-client.ts#L16)
+[src/graphql-request-client.ts:16](https://github.com/Sitecore/jss/blob/c5e77a2f6/packages/sitecore-jss/src/graphql-request-client.ts#L16)

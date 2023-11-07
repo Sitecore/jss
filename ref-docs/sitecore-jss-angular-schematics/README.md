@@ -38,4 +38,4 @@
 
 #### Defined in
 
-[index.ts:41](https://github.com/Sitecore/jss/blob/a6918b2f2/packages/sitecore-jss-angular-schematics/src/jss-component/index.ts#L41)
+[index.ts:41](https://github.com/Sitecore/jss/blob/c5e77a2f6/packages/sitecore-jss-angular-schematics/src/jss-component/index.ts#L41)
