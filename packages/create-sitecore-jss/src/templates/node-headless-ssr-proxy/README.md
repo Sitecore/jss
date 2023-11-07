@@ -24,7 +24,7 @@ You can use this as a starting point to unlock deployment of your JSS apps to an
 
     > You can use any of the JSS sample apps. Other apps must support server side rendering (JSS integrated mode) to operate with this project.
 
-1.  Deploy the build artifacts from your app (`/dist` or `/build` within the app) to the `sitecoreDistPath` set in your app's `package.json` under the proxy root path. Most apps use `/dist/${jssAppName}`, for example `$proxyRoot/dist/${jssAppName}`.
+1.  Deploy the build artifacts from your app (`/dist` or `/build` within the app) to the `sitecoreDistPath` set in your app's `package.json` under the proxy root path. Most apps use `/dist/${siteName}`, for example `$proxyRoot/dist/${siteName}`.
 
 > Another way to deploy the artifacts to the proxy is to change the `instancePath` in your app's `scjssconfig.json` to the proxy root path, and then use `jss deploy files` within the app to complete the deployment to the proxy.
 

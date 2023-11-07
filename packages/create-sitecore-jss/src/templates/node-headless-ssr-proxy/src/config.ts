@@ -4,16 +4,18 @@ import { RestDictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
 import { httpAgentsConfig } from './httpAgents';
 
 /**
- * The JSS application name defaults to providing part of the bundle path as well as the dictionary service endpoint.
+ * The sitecore site name defaults to providing part of the bundle path as well as the dictionary service endpoint.
  * If not passed as an environment variable or set here, any application name exported from the bundle will be used instead.
  */
-let appName = process.env.SITECORE_JSS_APP_NAME || 'YOUR APP NAME';
+// SITECORE_JSS_APP_NAME env variable has been deprecated since v.21.6, SITECORE_SITE_NAME should be used instead
+let siteName =
+  process.env.SITECORE_SITE_NAME || process.env.SITECORE_JSS_APP_NAME || 'YOUR SITE NAME';
 
 /**
  * The server.bundle.js file from your pre-built JSS app
  */
 
-const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `../dist/${appName}/server.bundle`;
+const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `../dist/${siteName}/server.bundle`;
 
 const serverBundle = require(bundlePath) as ServerBundle;
 
@@ -21,13 +23,13 @@ httpAgentsConfig.setUpDefaultAgents(serverBundle);
 
 const apiHost = process.env.SITECORE_API_HOST || 'http://my.sitecore.host';
 
-appName = appName || serverBundle.appName;
+siteName = siteName || serverBundle.siteName;
 
 const apiKey = process.env.SITECORE_API_KEY || serverBundle.apiKey || '{YOUR API KEY HERE}';
 
 const dictionaryService = new RestDictionaryService({
   apiHost,
-  siteName: appName,
+  siteName: siteName,
   apiKey,
   cacheTimeout: 60,
 });

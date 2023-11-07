@@ -48,7 +48,7 @@ the content id
 
 #### Defined in
 
-[src/personalize/utils.ts:84](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/utils.ts#L84)
+[src/personalize/utils.ts:84](https://github.com/Sitecore/jss/blob/19f5c22ac/packages/sitecore-jss/src/personalize/utils.ts#L84)
 
 ___
 
@@ -75,7 +75,7 @@ the formatted page variant id
 
 #### Defined in
 
-[src/personalize/utils.ts:61](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/utils.ts#L61)
+[src/personalize/utils.ts:61](https://github.com/Sitecore/jss/blob/19f5c22ac/packages/sitecore-jss/src/personalize/utils.ts#L61)
 
 ___
 
@@ -100,4 +100,4 @@ normalized scope value
 
 #### Defined in
 
-[src/personalize/utils.ts:97](https://github.com/Sitecore/jss/blob/0b8b1fca9/packages/sitecore-jss/src/personalize/utils.ts#L97)
+[src/personalize/utils.ts:97](https://github.com/Sitecore/jss/blob/19f5c22ac/packages/sitecore-jss/src/personalize/utils.ts#L97)
