@@ -58,14 +58,6 @@ describe('MiddlewareBase', () => {
           return { value: cookies[cookieName] };
         },
       },
-      headers: {
-        get(key: string) {
-          const headers = {
-            ...props?.headerValues,
-          };
-          return headers[key];
-        },
-      },
     } as NextResponse;
   };
 
@@ -215,22 +207,6 @@ describe('MiddlewareBase', () => {
       const res = createRes({
         cookies: {
           sc_site: 'xxx',
-        },
-      });
-      const siteResolver = new MockSiteResolver([]);
-      const middleware = new SampleMiddleware({ siteResolver });
-
-      expect(middleware['getSite'](req, res).name).to.equal('xxx');
-      expect(siteResolver.getByName).to.be.calledWith('xxx');
-    });
-  });
-
-  describe('getSite', () => {
-    it('should get site by name when site header is provided', () => {
-      const req = createReq();
-      const res = createRes({
-        headerValues: {
-          'x-sc-site': 'xxx',
         },
       });
       const siteResolver = new MockSiteResolver([]);

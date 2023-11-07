@@ -245,7 +245,6 @@ describe('MultisiteMiddleware', () => {
         siteName: 'foo',
         headers: {
           'x-sc-rewrite': '/_site_foo/styleguide',
-          'x-sc-site': 'foo',
         },
         cookies: {
           ...res.cookies,
@@ -287,7 +286,6 @@ describe('MultisiteMiddleware', () => {
         siteName: 'foo',
         headers: {
           'x-sc-rewrite': '/_site_foo/styleguide',
-          'x-sc-site': 'foo',
         },
         cookies: {
           ...res.cookies,
@@ -327,7 +325,6 @@ describe('MultisiteMiddleware', () => {
         siteName: 'foo',
         headers: {
           'x-sc-rewrite': '/_site_foo/styleguide',
-          'x-sc-site': 'foo',
         },
         cookies: {
           ...res.cookies,
@@ -367,7 +364,6 @@ describe('MultisiteMiddleware', () => {
         siteName: 'foo',
         headers: {
           'x-sc-rewrite': '/_site_foo/styleguide',
-          'x-sc-site': 'foo',
         },
         cookies: {
           ...res.cookies,
@@ -411,7 +407,6 @@ describe('MultisiteMiddleware', () => {
         siteName: 'qsFoo',
         headers: {
           'x-sc-rewrite': '/_site_qsFoo/styleguide',
-          'x-sc-site': 'qsFoo',
         },
         cookies: {
           ...res.cookies,
@@ -456,7 +451,6 @@ describe('MultisiteMiddleware', () => {
         siteName: 'foobar',
         headers: {
           'x-sc-rewrite': '/_site_foobar/styleguide',
-          'x-sc-site': 'foobar',
         },
         cookies: {
           ...res.cookies,
@@ -499,7 +493,6 @@ describe('MultisiteMiddleware', () => {
         siteName: 'foo',
         headers: {
           'x-sc-rewrite': '/_site_foo/styleguide',
-          'x-sc-site': 'foo',
         },
         cookies: {
           ...res.cookies,

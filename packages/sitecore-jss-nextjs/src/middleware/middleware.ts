@@ -29,7 +29,6 @@ export type MiddlewareBaseConfig = {
 
 export abstract class MiddlewareBase {
   protected SITE_SYMBOL = 'sc_site';
-  protected SITE_HEADER_NAME = 'x-sc-site';
   protected REWRITE_HEADER_NAME = 'x-sc-rewrite';
   protected defaultHostname: string;
 
@@ -94,10 +93,6 @@ export abstract class MiddlewareBase {
    * @returns {SiteInfo} site information
    */
   protected getSite(req: NextRequest, res?: NextResponse): SiteInfo {
-    const siteNameHeader = res?.headers.get(this.SITE_HEADER_NAME);
-
-    if (siteNameHeader) return this.config.siteResolver.getByName(siteNameHeader);
-
     const siteNameCookie = res?.cookies.get(this.SITE_SYMBOL)?.value;
 
     if (siteNameCookie) return this.config.siteResolver.getByName(siteNameCookie);
