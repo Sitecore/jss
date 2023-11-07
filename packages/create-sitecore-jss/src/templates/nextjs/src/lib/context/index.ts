@@ -1,57 +1,47 @@
 import * as FEAAS from '@sitecore-feaas/clientside/react';
-import * as plugins from 'temp/context-plugins';
+import { Context } from '@sitecore-jss/sitecore-jss-nextjs/context';
 import config from 'temp/config';
+
+import Events from './sdk/events';
+
+// Shape of the SDK object
+export type SDK<SDKType> = {
+  sdk: SDKType;
+  init: () => Promise<void>;
+};
+
+/**
+ * List of SDKs to be initialized.
+ * Each SDK is defined as a module with the @type {SDK} type.
+ */
+const modules = {
+  Events,
+};
+
+type SDKName = keyof typeof modules;
+
+// SDKs that are initialized by the Context
+type SDKs = { [name in SDKName]: typeof modules[name]['sdk'] };
 
 /**
  * Plugin's incoming properties
  */
 export interface Props {
-  site: string;
+  siteName: string;
 }
 
 /**
- * Context definition
+ * Context instance that is used to initialize the application Context and associated Software Development Kits (SDKs).
  */
-export interface Context {
-  sitecoreEdgeUrl: string;
-  sitecoreEdgeContextId: string;
-  SDK: { [key: string]: unknown };
-}
-
-export interface Plugin {
-  /**
-   * Detect order when the plugin should be called, e.g. 0 - will be called first (can be a plugin which has to be initialized before other plugins)
-   */
-  order: number;
-  /**
-   * A function to be called during SDK initialization.
-   */
-  exec(props: Props, context: Context): Promise<void>;
-  /**
-   * The SDK associated with the plugin.
-   */
-  SDK: {
-    name: string;
-    lib: unknown;
-  };
-}
-
-export const context: Context = {
+export const context = new Context<SDKs>({
   sitecoreEdgeUrl: config.sitecoreEdgeUrl,
   sitecoreEdgeContextId: config.sitecoreEdgeContextId,
-  SDK: {},
-};
+});
 
-// Initialize promise list
-export const promises: { [key: string]: Promise<unknown> } = {};
-
-// Helper to wait for asynchronosuly initialized SDK
-export function whenSDKReady<ModuleType>(name: string): Promise<ModuleType> {
-  return promises[name] as Promise<ModuleType>;
-}
-
-// Indicates whether the Context and SDK(s) have been initialized.
-let initialized = false;
+/**
+ * The application Context State
+ */
+export let contextState = context.getState();
 
 /**
  * Initializes the application Context and associated Software Development Kits (SDKs).
@@ -59,23 +49,25 @@ let initialized = false;
  * It prepares the resources needed to interact with various services and features within the application.
  */
 export const initContext = async (props: Props) => {
-  if (initialized) return;
+  // Context and SDKs are initialized only once
+  if (context.isInitialized) return;
 
-  initialized = true;
+  context.isInitialized = true;
 
-  const pluginList = Object.values(plugins).sort((p1, p2) => p1.order - p2.order) as Plugin[];
+  // Updating the context with the incoming properties
+  contextState = context.getState({
+    siteName: props.siteName,
+  });
 
-  for (const plugin of pluginList) {
-    promises[plugin.SDK.name] = new Promise(async (resolve) => {
-      await plugin.exec(props, context);
+  // iterate over the SDKs and initialize them
+  for (const sdkName of Object.keys(modules) as SDKName[]) {
+    await context.initSDK(sdkName, async () => {
+      await modules[sdkName].init();
 
-      context.SDK[plugin.SDK.name] = plugin.SDK.lib;
-
-      resolve(plugin.SDK.lib);
+      return modules[sdkName].sdk;
     });
-
-    await promises[plugin.SDK.name];
   }
 
+  // Setting the context properties for the FEAAS SDK
   FEAAS.setContextProperties(context);
 };

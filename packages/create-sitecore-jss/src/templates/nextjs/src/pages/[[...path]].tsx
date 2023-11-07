@@ -41,7 +41,8 @@ const SitecorePage = ({ notFound, componentProps, layoutData, headLinks }: Sitec
   const site = layoutData.sitecore.context.site;
   const siteInfo = siteResolver.getByName(site?.name || config.siteName);
 
-  initContext({ site: siteInfo.name });
+  // Initialize the Context of the App
+  initContext({ siteName: siteInfo.name });
 
   const isEditing = layoutData.sitecore.context.pageEditing;
   const isComponentRendering =

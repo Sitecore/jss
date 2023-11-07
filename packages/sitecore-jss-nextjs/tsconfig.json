@@ -14,6 +14,7 @@
     "types",
     "typings",
     "dist",
+    "context.d.ts",
     "middleware.d.ts",
     "editing.d.ts",
     "monitoring.d.ts",

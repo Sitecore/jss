@@ -5,7 +5,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { useEffect } from 'react';
 import config from 'temp/config';
-import { createPageView } from 'lib/context/events';
+import { context } from 'lib/context';
 
 /**
  * This is the CDP page view component.
@@ -47,7 +47,15 @@ const CdpPageView = (): JSX.Element => {
       scope
     );
 
-    createPageView(route.name, language, pageVariantId);
+    context.getSDK('Events')?.then((Events) =>
+      Events.pageView({
+        channel: 'WEB',
+        currency: 'USD',
+        page: route.name,
+        pageVariantId,
+        language,
+      })
+    );
   }, [pageState, route, variantId, site]);
 
   return <></>;
