@@ -8,7 +8,7 @@ import {
   incompatibleAddonsMsg,
 } from '../../common';
 
-export default class NextjsPersonalizeInitializer implements Initializer {
+export default class NextjsXMCloudInitializer implements Initializer {
   get isBase(): boolean {
     return false;
   }
@@ -16,16 +16,13 @@ export default class NextjsPersonalizeInitializer implements Initializer {
   async init(args: ClientAppArgs) {
     const pkg = openPackageJson(`${args.destination}${sep}package.json`);
 
-    // TODO: prompts for Personalize and argument types
-    // const answers = await prompt<StyleguideAnswer>(styleguidePrompts, args);
-
     const mergedArgs = {
       ...args,
       appName: args.appName || pkg?.config?.appName || DEFAULT_APPNAME,
       appPrefix: args.appPrefix || pkg?.config?.prefix || false,
     };
 
-    const templatePath = path.resolve(__dirname, '../../templates/nextjs-personalize');
+    const templatePath = path.resolve(__dirname, '../../templates/nextjs-xmcloud');
 
     await transform(templatePath, mergedArgs);
 
@@ -33,7 +30,7 @@ export default class NextjsPersonalizeInitializer implements Initializer {
       args.templates.includes('nextjs-styleguide-tracking') ||
       pkg.config?.templates?.includes('nextjs-styleguide-tracking')
     ) {
-      console.log(incompatibleAddonsMsg('nextjs-personalize', 'nextjs-styleguide-tracking'));
+      console.log(incompatibleAddonsMsg('nextjs-xmcloud', 'nextjs-styleguide-tracking'));
     }
 
     const response = {
