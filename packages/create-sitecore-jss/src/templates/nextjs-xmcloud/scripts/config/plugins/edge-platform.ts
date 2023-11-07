@@ -11,7 +11,10 @@ class EdgePlatformPlugin implements ConfigPlugin {
   order = 2;
 
   async exec(config: JssConfig) {
-    if (config.sitecoreApiKey && config.sitecoreEdgeContextId) {
+    const sitecoreEdgeUrl = process.env[`${constantCase('sitecoreEdgeUrl')}`] || 'https://edge-platform.sitecorecloud.io';
+    const sitecoreEdgeContextId = process.env[`${constantCase('sitecoreEdgeContextId')}`];
+
+    if (config.sitecoreApiKey && sitecoreEdgeContextId) {
       console.log(
         chalk.yellow(
           "You have configured both 'sitecoreApiKey' and 'sitecoreEdgeContextId' values. The 'sitecoreEdgeContextId' is used instead."
@@ -20,8 +23,8 @@ class EdgePlatformPlugin implements ConfigPlugin {
     }
 
     return Object.assign({}, config, {
-      sitecoreEdgeUrl: process.env[`${constantCase('sitecoreEdgeUrl')}`] || 'https://edge-platform.sitecorecloud.io',
-      sitecoreEdgeContextId: process.env[`${constantCase('sitecoreEdgeContextId')}`],
+      sitecoreEdgeUrl,
+      sitecoreEdgeContextId,
     });
   }
 }
