@@ -89,7 +89,7 @@ export class Context<SDKModules> {
   }
 
   /**
-   * Retrieves the SDK instance, ensuring it is initialized before returning
+   * Retrieves the Software Development Kit (SDK) instance, ensuring it is initialized before returning
    *
    * @param {string} name SDK name
    * @returns initialized SDK
