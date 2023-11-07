@@ -6442,13 +6442,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/personalize@npm:^0.1.0-rc.4":
-  version: 0.1.0-rc.4
-  resolution: "@sitecore-cloudsdk/personalize@npm:0.1.0-rc.4"
+"@sitecore-cloudsdk/personalize@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@sitecore-cloudsdk/personalize@npm:0.1.1"
   dependencies:
     "@sitecore-cloudsdk/core": ^0.1.0-rc.2
     "@sitecore-cloudsdk/utils": ^0.1.0-rc.2
-  checksum: 87623064f786234dfc03072d695d988059f65327d3371d9280e03d904228a0f75733c0bf109dce6de0d9a51a49ce0ee9feee21c22b757e0ae04747267897f4aa
+  checksum: e32a4f4b416a39c7657e475c49b6793ecc376a961e318cf3065ef148f78d6c00207ce2364d492a43ec5729322450a5faab0082ce3dafd580af4c26df9212530f
   languageName: node
   linkType: hard
 
@@ -6646,7 +6646,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
-    "@sitecore-cloudsdk/personalize": ^0.1.0-rc.4
+    "@sitecore-cloudsdk/personalize": ^0.1.1
     "@sitecore-jss/sitecore-jss": 21.7.0-canary.1
     "@sitecore-jss/sitecore-jss-dev-tools": 21.7.0-canary.1
     "@sitecore-jss/sitecore-jss-react": 21.7.0-canary.1
@@ -6689,8 +6689,8 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.4
   peerDependencies:
-    "@sitecore-cloudsdk/events": ^0.1.0-rc.4
-    "@sitecore-cloudsdk/personalize": ^0.1.0-rc.4
+    "@sitecore-cloudsdk/events": ^0.1.1
+    "@sitecore-cloudsdk/personalize": ^0.1.1
     next: ^13.4.16
     react: ^18.2.0
     react-dom: ^18.2.0
