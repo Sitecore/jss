@@ -24,7 +24,7 @@ type SDKName = keyof typeof modules;
 type SDKs = { [name in SDKName]: typeof modules[name]['sdk'] };
 
 /**
- * Plugin's incoming properties
+ * Initial properties for the application Context initialization.
  */
 export interface Props {
   siteName: string;
