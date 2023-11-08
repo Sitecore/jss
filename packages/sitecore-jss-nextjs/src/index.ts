@@ -101,7 +101,6 @@ export {
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
   CdpHelper,
-  PosResolver,
 } from '@sitecore-jss/sitecore-jss/personalize';
 
 export {
@@ -165,6 +164,8 @@ export { FEaaSWrapper };
 export { BYOCWrapper };
 
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
+
+export { Context, ContextConfig, SDK } from './context';
 
 export {
   ComponentFactory,

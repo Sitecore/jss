@@ -9,4 +9,4 @@ import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
 export const getEdgeProxyContentUrl = (
   sitecoreEdgeContextId: string,
   sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT
-) => `${sitecoreEdgeUrl}/content/api/graphql/v1?sitecoreContextId=${sitecoreEdgeContextId}`;
+) => `${sitecoreEdgeUrl}/v1/content/api/graphql/v1?sitecoreContextId=${sitecoreEdgeContextId}`;

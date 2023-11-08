@@ -11,7 +11,7 @@ describe('graphql-edge-proxy', () => {
       const url = getEdgeProxyContentUrl(sitecoreEdgeContextId);
 
       expect(url).to.equal(
-        `${SITECORE_EDGE_URL_DEFAULT}/content/api/graphql/v1?sitecoreContextId=0730fc5a-3333-5555-5555-08db6d7ddb49`
+        `${SITECORE_EDGE_URL_DEFAULT}/v1/content/api/graphql/v1?sitecoreContextId=0730fc5a-3333-5555-5555-08db6d7ddb49`
       );
     });
 
@@ -22,7 +22,7 @@ describe('graphql-edge-proxy', () => {
       const url = getEdgeProxyContentUrl(sitecoreEdgeContextId, sitecoreEdgeUrl);
 
       expect(url).to.equal(
-        'https://test.com/content/api/graphql/v1?sitecoreContextId=0730fc5a-3333-5555-5555-08db6d7ddb49'
+        'https://test.com/v1/content/api/graphql/v1?sitecoreContextId=0730fc5a-3333-5555-5555-08db6d7ddb49'
       );
     });
   });

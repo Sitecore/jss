@@ -1,4 +1,3 @@
-import { URLSearchParams } from 'url';
 import { GraphQLClient, GraphQLRequestClient, PageInfo } from '../graphql';
 import debug from '../debug';
 import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
@@ -34,9 +33,6 @@ const defaultQuery = /* GraphQL */ `
           language: field(name: "Language") {
             value
           }
-          pointOfSale: field(name: "POS") {
-            value
-          }
         }
       }
     }
@@ -60,10 +56,6 @@ export type SiteInfo = {
    * Site default language
    */
   language: string;
-  /**
-   * Site point of sale
-   */
-  pointOfSale?: Record<string, string>;
 };
 
 export type GraphQLSiteInfoServiceConfig = CacheOptions & {
@@ -107,9 +99,6 @@ export type GraphQLSiteInfoResult = {
   language: {
     value: string;
   };
-  pointOfSale?: {
-    value: string;
-  };
 };
 
 export class GraphQLSiteInfoService {
@@ -150,9 +139,6 @@ export class GraphQLSiteInfoService {
       });
       const result = response?.search?.results?.reduce<SiteInfo[]>((result, current) => {
         result.push({
-          pointOfSale: current.pointOfSale?.value
-            ? Object.fromEntries(new URLSearchParams(current.pointOfSale.value))
-            : undefined,
           name: current.name.value,
           hostName: current.hostName.value,
           language: current.language.value,
