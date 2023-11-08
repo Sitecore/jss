@@ -6650,7 +6650,6 @@ __metadata:
     "@sitecore-jss/sitecore-jss": 21.7.0-canary.6
     "@sitecore-jss/sitecore-jss-dev-tools": 21.7.0-canary.6
     "@sitecore-jss/sitecore-jss-react": 21.7.0-canary.6
-    "@sitecore/engage": ^1.4.1
     "@types/chai": ^4.3.4
     "@types/chai-as-promised": ^7.1.5
     "@types/chai-string": ^1.4.2
