@@ -34,6 +34,7 @@ class PersonalizePlugin implements MiddlewarePlugin {
       },
       // Configuration for your Sitecore CDP endpoint
       cdpConfig: {
+        sitecoreEdgeUrl: config.sitecoreEdgeUrl,
         sitecoreEdgeContextId: config.sitecoreEdgeContextId,
         timeout:
           (process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT &&
