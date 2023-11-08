@@ -2,6 +2,7 @@ import { QuestionCollection } from 'inquirer';
 import CheckboxPrompt from 'inquirer/lib/prompts/checkbox';
 
 import { clientAppPrompts, ClientAppAnswer, incompatibleAddonsMsg } from '../../common';
+import { NextjsArgs } from './args';
 
 export enum Prerender {
   SSG = 'SSG',
@@ -35,8 +36,15 @@ export const prompts: QuestionCollection<NextjsAnswer> = [
     name: 'xmcloud',
     message: 'Are you building for Sitecore XM Cloud?',
     default: false,
-    when: (answers: NextjsAnswer): boolean => {
-      return !answers.yes;
+    when: (answers: NextjsAnswer & NextjsArgs): boolean => {
+      // don't prompt if --yes or nextjs-xmcloud template was specified
+      if (answers.yes) {
+        return false;
+      } else if (answers.templates.includes('nextjs-xmcloud')) {
+        answers.xmcloud = true;
+        return false;
+      }
+      return true;
     },
   },
 ];
