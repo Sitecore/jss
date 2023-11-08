@@ -9,7 +9,7 @@ export type SDK<SDKType = unknown> = {
   /**
    * Initializes the Software Development Kit (SDK)
    */
-  init: () => Promise<void>;
+  init: (props: InitSDKProps) => Promise<void>;
 };
 
 /**
@@ -48,6 +48,14 @@ export interface ContextConfig<SDKModules extends SDKModulesType> {
    */
   SDK: { [module in keyof SDKModules]: SDKModules[module] };
 }
+
+/**
+ * Properties that are passed to the Software Development Kit (SDK) initialization function.
+ */
+type InitSDKProps = Pick<
+  ContextConfig<SDKModulesType>,
+  'siteName' | 'sitecoreEdgeContextId' | 'sitecoreEdgeUrl'
+>;
 
 /**
  * Context instance that is used to initialize the application Context and associated Software Development Kits (SDKs).
@@ -118,7 +126,7 @@ export class Context<SDKModules extends SDKModulesType> {
    */
   protected initSDK<T extends keyof SDKModules>(name: T): void {
     this.sdkPromises[name] = new Promise((resolve) => {
-      this.props.SDK[name].init().then(() => {
+      this.props.SDK[name].init(this).then(() => {
         this.SDK[name] = this.props.SDK[name].sdk;
 
         resolve(this.SDK[name]);
