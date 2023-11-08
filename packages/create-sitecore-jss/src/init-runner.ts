@@ -16,7 +16,7 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
 
   const initFactory = new InitializerFactory();
   const runner = async (inits: string[]): Promise<void> => {
-    for (const init of inits) {
+    for (const init of [...inits]) {
       const initializer = await initFactory.create(init);
       if (!initializer) {
         throw new RangeError(`Unknown template '${init}'`);
@@ -34,7 +34,7 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
         // add-ons will not have information about the initial
         // list of templates, as it has `nextjs` initializer for example
         args.templates.push(...response.initializers);
-        return await runner(response.initializers);
+        await runner(response.initializers);
       }
     }
   };
