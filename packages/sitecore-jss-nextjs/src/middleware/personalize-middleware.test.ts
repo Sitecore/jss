@@ -7,7 +7,6 @@ import sinon, { spy } from 'sinon';
 import nextjs, { NextRequest, NextResponse } from 'next/server';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
-import { ExperienceParams } from '@sitecore-jss/sitecore-jss/personalize';
 import { PersonalizeMiddleware } from './personalize-middleware';
 
 use(sinonChai);
@@ -33,17 +32,7 @@ describe('PersonalizeMiddleware', () => {
   const variantIds = ['variant-1', 'variant-2'];
   const contentId = `${id}_en_${version}`.toLowerCase();
   const defaultLang = 'en';
-  const pointOfSale = 'cdp-pos';
   const referrer = 'http://localhost:3000';
-  const experienceParams: ExperienceParams = {
-    referrer,
-    utm: {
-      campaign: 'utm_campaign',
-      content: null,
-      medium: null,
-      source: null,
-    },
-  };
   const createRequest = (props: any = {}) => {
     const req = {
       ...props,
@@ -164,8 +153,8 @@ describe('PersonalizeMiddleware', () => {
     } = {}
   ) => {
     const cdpConfig = {
-      clientKey: 'cdp-client-key',
-      endpoint: 'http://cdp-endpoint',
+      sitecoreEdgeContextId: '0000-0000-0000',
+      sitecoreEdgeUrl: 'https://foo.bar',
       ...(props?.cdpConfig || {}),
     };
     const edgeConfig = {
@@ -179,18 +168,12 @@ describe('PersonalizeMiddleware', () => {
         name: siteName,
         language: props.language || '',
         hostName: hostname,
-        pointOfSale: {
-          [props.language || defaultLang]: pointOfSale,
-        },
       }));
 
       getByHost = sinon.stub().callsFake((hostName: string) => ({
         name: siteName,
         language: props.language || '',
         hostName,
-        pointOfSale: {
-          [props.language || defaultLang]: pointOfSale,
-        },
       }));
     }
 
