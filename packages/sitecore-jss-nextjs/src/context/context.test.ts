@@ -34,7 +34,7 @@ describe('Context', () => {
     sitecoreEdgeUrl: 'https://edgeurl',
     sitecoreEdgeContextId: 'contextid',
     siteName: '',
-    SDK: sdks,
+    sdks,
   };
 
   afterEach(() => {
@@ -61,8 +61,8 @@ describe('Context', () => {
       expect(context.isInitialized).to.be.true;
       expect(context.siteName).to.equal(props.siteName);
 
-      expect(context.SDK.Bar).to.equal(undefined);
-      expect(context.SDK.Foo).to.equal(undefined);
+      expect(context.sdks.Bar).to.equal(undefined);
+      expect(context.sdks.Foo).to.equal(undefined);
 
       Promise.all([
         context.getSDK('Foo')?.then((sdk) => {
@@ -78,8 +78,8 @@ describe('Context', () => {
           return;
         }),
       ]).then(() => {
-        expect(context.SDK.Foo).to.deep.equal(sdks.Foo.sdk);
-        expect(context.SDK.Bar).to.deep.equal(sdks.Bar.sdk);
+        expect(context.sdks.Foo).to.deep.equal(sdks.Foo.sdk);
+        expect(context.sdks.Bar).to.deep.equal(sdks.Bar.sdk);
 
         done();
       });
@@ -93,8 +93,8 @@ describe('Context', () => {
       expect(context.isInitialized).to.be.true;
       expect(context.siteName).to.equal('website');
 
-      expect(context.SDK.Bar).to.equal(undefined);
-      expect(context.SDK.Foo).to.equal(undefined);
+      expect(context.sdks.Bar).to.equal(undefined);
+      expect(context.sdks.Foo).to.equal(undefined);
 
       Promise.all([
         context.getSDK('Foo')?.then((sdk) => {
@@ -110,8 +110,8 @@ describe('Context', () => {
           return;
         }),
       ]).then(() => {
-        expect(context.SDK.Foo).to.deep.equal(sdks.Foo.sdk);
-        expect(context.SDK.Bar).to.deep.equal(sdks.Bar.sdk);
+        expect(context.sdks.Foo).to.deep.equal(sdks.Foo.sdk);
+        expect(context.sdks.Bar).to.deep.equal(sdks.Bar.sdk);
 
         done();
       });
@@ -136,8 +136,8 @@ describe('Context', () => {
 
       context.init();
 
-      expect(context.SDK.Bar).to.equal(undefined);
-      expect(context.SDK.Foo).to.equal(undefined);
+      expect(context.sdks.Bar).to.equal(undefined);
+      expect(context.sdks.Foo).to.equal(undefined);
 
       Promise.all([
         context.getSDK('Foo')?.then((sdk) => {
@@ -153,8 +153,8 @@ describe('Context', () => {
           return;
         }),
       ]).then(() => {
-        expect(context.SDK.Foo).to.deep.equal(sdks.Foo.sdk);
-        expect(context.SDK.Bar).to.deep.equal(sdks.Bar.sdk);
+        expect(context.sdks.Foo).to.deep.equal(sdks.Foo.sdk);
+        expect(context.sdks.Bar).to.deep.equal(sdks.Bar.sdk);
 
         done();
       });

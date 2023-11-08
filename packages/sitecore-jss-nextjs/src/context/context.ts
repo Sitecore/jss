@@ -46,13 +46,13 @@ export interface ContextConfig<SDKModules extends SDKModulesType> {
   /**
    * Software Development Kits (SDKs) to be initialized
    */
-  SDK: { [module in keyof SDKModules]: SDKModules[module] };
+  sdks: { [module in keyof SDKModules]: SDKModules[module] };
 }
 
 /**
  * Properties that are passed to the Software Development Kit (SDK) initialization function.
  */
-type InitSDKProps = Omit<ContextConfig<SDKModulesType>, 'SDK'>;
+type InitSDKProps = Omit<ContextConfig<SDKModulesType>, 'sdks'>;
 
 /**
  * Context instance that is used to initialize the application Context and associated Software Development Kits (SDKs).
@@ -77,7 +77,7 @@ export class Context<SDKModules extends SDKModulesType> {
   /**
    * Software Development Kits (SDKs) to be initialized
    */
-  public readonly SDK: { [module in keyof SDKModules]?: SDKModules[module]['sdk'] } = {};
+  public readonly sdks: { [module in keyof SDKModules]?: SDKModules[module]['sdk'] } = {};
   /**
    * Promises for the SDKs
    */
@@ -100,7 +100,7 @@ export class Context<SDKModules extends SDKModulesType> {
     }
 
     // iterate over the SDKs and initialize them
-    for (const sdkName of Object.keys(this.props.SDK) as (keyof SDKModules)[]) {
+    for (const sdkName of Object.keys(this.props.sdks) as (keyof SDKModules)[]) {
       this.initSDK(sdkName);
     }
   }
@@ -123,10 +123,10 @@ export class Context<SDKModules extends SDKModulesType> {
    */
   protected initSDK<T extends keyof SDKModules>(name: T): void {
     this.sdkPromises[name] = new Promise((resolve) => {
-      this.props.SDK[name].init(this).then(() => {
-        this.SDK[name] = this.props.SDK[name].sdk;
+      this.props.sdks[name].init(this).then(() => {
+        this.sdks[name] = this.props.sdks[name].sdk;
 
-        resolve(this.SDK[name]);
+        resolve(this.sdks[name]);
       });
     });
   }

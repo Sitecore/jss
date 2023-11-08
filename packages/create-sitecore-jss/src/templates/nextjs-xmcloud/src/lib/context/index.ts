@@ -18,5 +18,5 @@ export const context = new Context<typeof sdks>({
   sitecoreEdgeUrl: config.sitecoreEdgeUrl,
   sitecoreEdgeContextId: config.sitecoreEdgeContextId,
   siteName: config.siteName,
-  SDK: sdks,
+  sdks,
 });
