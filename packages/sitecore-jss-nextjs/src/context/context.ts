@@ -52,10 +52,7 @@ export interface ContextConfig<SDKModules extends SDKModulesType> {
 /**
  * Properties that are passed to the Software Development Kit (SDK) initialization function.
  */
-type InitSDKProps = Pick<
-  ContextConfig<SDKModulesType>,
-  'siteName' | 'sitecoreEdgeContextId' | 'sitecoreEdgeUrl'
->;
+type InitSDKProps = Omit<ContextConfig<SDKModulesType>, 'SDK'>;
 
 /**
  * Context instance that is used to initialize the application Context and associated Software Development Kits (SDKs).
