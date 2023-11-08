@@ -1,25 +1,3 @@
-/**
- * Context State that keeps track of the Context and Software Development Kits (SDKs)
- */
-export interface ContextState<SDKModules> {
-  /**
-   * Your Sitecore Edge URL
-   */
-  sitecoreEdgeUrl: string;
-  /**
-   * Your Sitecore Edge Context ID
-   */
-  sitecoreEdgeContextId: string;
-  /**
-   * Software Development Kits (SDKs) that are initialized by the ContextInitializer
-   */
-  SDK: { [module in keyof SDKModules]?: SDKModules[module] };
-  /**
-   * Site name
-   */
-  siteName: string;
-}
-
 // Configuration for the Context
 export interface ContextConfig {
   /**
@@ -30,6 +8,10 @@ export interface ContextConfig {
    * Your Sitecore Edge Context ID
    */
   sitecoreEdgeContextId: string;
+  /**
+   * Your Sitecore site name
+   */
+  siteName: string;
 }
 
 /**
@@ -40,33 +22,32 @@ export class Context<SDKModules> {
    * Indicates whether the Context and SDK(s) have been initialized
    */
   public isInitialized = false;
-
+  /**
+   * The Sitecore Edge URL
+   */
+  public readonly sitecoreEdgeUrl: string;
+  /**
+   * The Sitecore Edge Context ID
+   */
+  public readonly sitecoreEdgeContextId: string;
+  /**
+   * The Sitecore site name
+   */
+  public siteName: string;
   /**
    * Software Development Kits (SDKs) to be initialized
    */
-  protected SDK: { [module in keyof SDKModules]?: SDKModules[module] } = {};
+  public readonly SDK: { [module in keyof SDKModules]?: SDKModules[module] } = {};
 
   /**
    * Promises for the SDKs
    */
   protected promises: { [module in keyof SDKModules]?: Promise<SDKModules[module]> } = {};
 
-  constructor(protected props: ContextConfig) {}
-
-  /**
-   * Retrieves the context object.
-   *
-   * @param {Object} params incoming parameters
-   * @param {string} params.siteName Site name
-   * @returns context object
-   */
-  public getState({ siteName = '' }: { siteName?: string } = {}): ContextState<SDKModules> {
-    return {
-      sitecoreEdgeUrl: this.props.sitecoreEdgeUrl,
-      sitecoreEdgeContextId: this.props.sitecoreEdgeContextId,
-      SDK: this.SDK,
-      siteName,
-    };
+  constructor(protected props: ContextConfig) {
+    this.sitecoreEdgeUrl = props.sitecoreEdgeUrl;
+    this.sitecoreEdgeContextId = props.sitecoreEdgeContextId;
+    this.siteName = props.siteName;
   }
 
   /**

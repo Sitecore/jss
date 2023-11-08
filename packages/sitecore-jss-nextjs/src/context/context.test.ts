@@ -8,6 +8,7 @@ describe('Context', () => {
   const props = {
     sitecoreEdgeUrl: 'https://edgeurl',
     sitecoreEdgeContextId: 'contextid',
+    siteName: 'website',
   };
 
   const sdks = {
@@ -56,6 +57,16 @@ describe('Context', () => {
     sdks.Foo.init.reset();
   });
 
+  describe('constructor', () => {
+    it('should create a new context', () => {
+      const context = new Context<SDKs>(props);
+
+      expect(context.sitecoreEdgeUrl).to.equal(props.sitecoreEdgeUrl);
+      expect(context.sitecoreEdgeContextId).to.equal(props.sitecoreEdgeContextId);
+      expect(context.siteName).to.equal(props.siteName);
+    });
+  });
+
   describe('initSDK', () => {
     it('should initialize the SDKs', async () => {
       const context = new Context<SDKs>(props);
@@ -93,52 +104,10 @@ describe('Context', () => {
           return;
         }),
       ]).then(() => {
-        expect(context['SDK'].Foo).to.deep.equal(sdks.Foo.sdk);
-        expect(context['SDK'].Bar).to.deep.equal(sdks.Bar.sdk);
+        expect(context.SDK.Foo).to.deep.equal(sdks.Foo.sdk);
+        expect(context.SDK.Bar).to.deep.equal(sdks.Bar.sdk);
 
         done();
-      });
-    });
-  });
-
-  describe('getState', () => {
-    it('should return the context state', () => {
-      const context = new Context<SDKs>(props);
-
-      expect(context.getState({ siteName: 'xyz' })).to.deep.equal({
-        sitecoreEdgeUrl: props.sitecoreEdgeUrl,
-        sitecoreEdgeContextId: props.sitecoreEdgeContextId,
-        SDK: {},
-        siteName: 'xyz',
-      });
-    });
-
-    it('should return the context state when siteName is not provided', () => {
-      const context = new Context<SDKs>(props);
-
-      expect(context.getState()).to.deep.equal({
-        sitecoreEdgeUrl: props.sitecoreEdgeUrl,
-        sitecoreEdgeContextId: props.sitecoreEdgeContextId,
-        SDK: {},
-        siteName: '',
-      });
-    });
-
-    it('should return the context state with SDKs', async () => {
-      const context = new Context<SDKs>(props);
-
-      await context.initSDK('Foo', initFoo);
-
-      await context.initSDK('Bar', initBar);
-
-      expect(context.getState()).to.deep.equal({
-        sitecoreEdgeUrl: props.sitecoreEdgeUrl,
-        sitecoreEdgeContextId: props.sitecoreEdgeContextId,
-        SDK: {
-          Foo: sdks.Foo.sdk,
-          Bar: sdks.Bar.sdk,
-        },
-        siteName: '',
       });
     });
   });

@@ -7,7 +7,7 @@ import Events from './sdk/events';
 // Shape of the SDK object
 export type SDK<SDKType> = {
   sdk: SDKType;
-  init: () => Promise<void>;
+  init: (contextInstance: typeof context) => Promise<void>;
 };
 
 /**
@@ -24,7 +24,7 @@ type SDKName = keyof typeof modules;
 type SDKs = { [name in SDKName]: typeof modules[name]['sdk'] };
 
 /**
- * Initial properties for the application Context initialization.
+ * Properties that are passed to the Context.
  */
 export interface Props {
   siteName: string;
@@ -36,12 +36,8 @@ export interface Props {
 export const context = new Context<SDKs>({
   sitecoreEdgeUrl: config.sitecoreEdgeUrl,
   sitecoreEdgeContextId: config.sitecoreEdgeContextId,
+  siteName: '',
 });
-
-/**
- * The application Context State
- */
-export let contextState = context.getState();
 
 /**
  * Initializes the application Context and associated Software Development Kits (SDKs).
@@ -55,14 +51,12 @@ export const initContext = async (props: Props) => {
   context.isInitialized = true;
 
   // Updating the context with the incoming properties
-  contextState = context.getState({
-    siteName: props.siteName,
-  });
+  context.siteName = props.siteName;
 
   // iterate over the SDKs and initialize them
   for (const sdkName of Object.keys(modules) as SDKName[]) {
     await context.initSDK(sdkName, async () => {
-      await modules[sdkName].init();
+      await modules[sdkName].init(context);
 
       return modules[sdkName].sdk;
     });

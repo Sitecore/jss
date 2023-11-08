@@ -11,6 +11,11 @@ import { init, personalize } from '@sitecore-cloudsdk/personalize/server';
 
 export type CdpServiceConfig = {
   /**
+   * Your Sitecore Edge Platform endpoint
+   * Default is https://edge-platform.sitecorecloud.io
+   */
+  sitecoreEdgeUrl?: string;
+  /**
    * Your unified Sitecore Edge Context Id
    */
   sitecoreEdgeContextId: string;
@@ -91,20 +96,19 @@ export class PersonalizeMiddleware extends MiddlewareBase {
 
   protected async initPersonalizeServer({
     hostname,
-    sitecoreEdgeContextId,
     siteName,
     request,
     response,
   }: {
     hostname: string;
-    sitecoreEdgeContextId: string;
     siteName: string;
     request: NextRequest;
     response: NextResponse;
   }): Promise<void> {
     await init(
       {
-        sitecoreEdgeContextId,
+        sitecoreEdgeUrl: this.config.cdpConfig.sitecoreEdgeUrl,
+        sitecoreEdgeContextId: this.config.cdpConfig.sitecoreEdgeContextId,
         siteName,
         cookieDomain: hostname,
         enableServerCookie: true,
@@ -130,7 +134,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
   ) {
     const personalizationData = {
       channel: this.config.cdpConfig.channel || 'WEB',
-      currency: this.config.cdpConfig.currency ?? 'USA',
+      currency: this.config.cdpConfig.currency ?? 'USD',
       friendlyId: personalizeInfo.contentId,
       params,
       language,
@@ -219,7 +223,6 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     await this.initPersonalizeServer({
       hostname,
       siteName: site.name,
-      sitecoreEdgeContextId: this.config.cdpConfig.sitecoreEdgeContextId,
       request: req,
       response,
     });

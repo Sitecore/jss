@@ -1,1 +1,1 @@
-export { Context, ContextConfig, ContextState } from './context';
+export { Context, ContextConfig } from './context';
