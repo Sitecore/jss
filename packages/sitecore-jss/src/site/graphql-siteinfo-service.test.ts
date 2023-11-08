@@ -19,17 +19,14 @@ describe('GraphQLSiteInfoService', () => {
     name,
     hostName,
     language,
-    pointOfSale = '',
   }: {
     name: string;
     hostName: string;
     language: string;
-    pointOfSale: string;
   }): GraphQLSiteInfoResult => ({
     name: { value: name },
     hostName: { value: hostName },
     language: { value: language },
-    pointOfSale: { value: pointOfSale },
   });
 
   const nonEmptyResponse = ({
@@ -52,7 +49,6 @@ describe('GraphQLSiteInfoService', () => {
               name: `site ${start + n}`,
               hostName: 'restricted.gov',
               language: 'en',
-              pointOfSale: 'en=en-pos',
             })
           ),
           ...sites,
@@ -103,7 +99,6 @@ describe('GraphQLSiteInfoService', () => {
             name: 'public 0',
             hostName: 'pr.showercurtains.org',
             language: '',
-            pointOfSale: '',
           }),
         ],
       })
@@ -115,15 +110,11 @@ describe('GraphQLSiteInfoService', () => {
         name: 'site 0',
         hostName: 'restricted.gov',
         language: 'en',
-        pointOfSale: {
-          en: 'en-pos',
-        },
       },
       {
         name: 'public 0',
         hostName: 'pr.showercurtains.org',
         language: '',
-        pointOfSale: undefined,
       },
     ]);
   });
@@ -136,7 +127,6 @@ describe('GraphQLSiteInfoService', () => {
             name: 'public 0',
             hostName: 'pr.showercurtains.org',
             language: '',
-            pointOfSale: '',
           }),
         ],
       })
@@ -152,15 +142,11 @@ describe('GraphQLSiteInfoService', () => {
         name: 'site 0',
         hostName: 'restricted.gov',
         language: 'en',
-        pointOfSale: {
-          en: 'en-pos',
-        },
       },
       {
         name: 'public 0',
         hostName: 'pr.showercurtains.org',
         language: '',
-        pointOfSale: undefined,
       },
     ]);
   });
@@ -181,49 +167,31 @@ describe('GraphQLSiteInfoService', () => {
         name: 'site 0',
         hostName: 'restricted.gov',
         language: 'en',
-        pointOfSale: {
-          en: 'en-pos',
-        },
       },
       {
         name: 'site 1',
         hostName: 'restricted.gov',
         language: 'en',
-        pointOfSale: {
-          en: 'en-pos',
-        },
       },
       {
         name: 'site 2',
         hostName: 'restricted.gov',
         language: 'en',
-        pointOfSale: {
-          en: 'en-pos',
-        },
       },
       {
         name: 'site 3',
         hostName: 'restricted.gov',
         language: 'en',
-        pointOfSale: {
-          en: 'en-pos',
-        },
       },
       {
         name: 'site 4',
         hostName: 'restricted.gov',
         language: 'en',
-        pointOfSale: {
-          en: 'en-pos',
-        },
       },
       {
         name: 'site 5',
         hostName: 'restricted.gov',
         language: 'en',
-        pointOfSale: {
-          en: 'en-pos',
-        },
       },
     ]);
   });
@@ -257,7 +225,6 @@ describe('GraphQLSiteInfoService', () => {
             name: 'public 0',
             hostName: 'pr.showercurtains.org',
             language: '',
-            pointOfSale: '',
           }),
         ],
       })
@@ -273,15 +240,11 @@ describe('GraphQLSiteInfoService', () => {
         name: 'site 0',
         hostName: 'restricted.gov',
         language: 'en',
-        pointOfSale: {
-          en: 'en-pos',
-        },
       },
       {
         name: 'public 0',
         hostName: 'pr.showercurtains.org',
         language: '',
-        pointOfSale: undefined,
       },
     ]);
     nock.cleanAll();
