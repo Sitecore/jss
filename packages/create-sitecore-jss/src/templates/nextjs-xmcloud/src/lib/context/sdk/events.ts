@@ -1,14 +1,15 @@
 import * as Events from '@sitecore-cloudsdk/events/browser';
-import { SDK } from '../index';
+import { SDK } from '@sitecore-jss/sitecore-jss-nextjs/context';
+import { context } from '../index';
 
 const sdkModule: SDK<typeof Events> = {
   sdk: Events,
-  init: async (context) => {
+  init: async () => {
     // Events module can't be initialized on the server side
     // We also don't want to initialize it in development mode
     if (typeof window === 'undefined' || process.env.NODE_ENV === 'development') return;
 
-    return Events.init({
+    await Events.init({
       siteName: context.siteName,
       sitecoreEdgeContextId: context.sitecoreEdgeContextId,
       // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"

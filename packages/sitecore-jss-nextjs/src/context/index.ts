@@ -1,1 +1,1 @@
-export { Context, ContextConfig } from './context';
+export { Context, ContextConfig, SDK } from './context';
