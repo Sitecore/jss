@@ -43,7 +43,7 @@ Creates an instance of graphQL service to retrieve site configuration list from 
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-siteinfo-service.d.ts:72
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:65
 
 ## Properties
 
@@ -53,7 +53,7 @@ sitecore-jss/types/site/graphql-siteinfo-service.d.ts:72
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-siteinfo-service.d.ts:66
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:59
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-siteinfo-service.d.ts:64
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:57
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-siteinfo-service.d.ts:87
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:80
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-siteinfo-service.d.ts:65
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:58
 
 ## Accessors
 
@@ -97,7 +97,7 @@ sitecore-jss/types/site/graphql-siteinfo-service.d.ts:65
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-siteinfo-service.d.ts:67
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:60
 
 ## Methods
 
@@ -111,7 +111,7 @@ sitecore-jss/types/site/graphql-siteinfo-service.d.ts:67
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-siteinfo-service.d.ts:73
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:66
 
 ___
 
@@ -130,7 +130,7 @@ CacheClient instance
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-siteinfo-service.d.ts:79
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:72
 
 ___
 
@@ -150,4 +150,4 @@ implementation
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-siteinfo-service.d.ts:86
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:79
