@@ -45,7 +45,7 @@ export const context = new Context<SDKs>({
  * It prepares the resources needed to interact with various services and features within the application.
  */
 export const initContext = async (props: Props) => {
-  // Context and SDKs are initialized only once
+  // Context can be initialized only once
   if (context.isInitialized) return;
 
   context.isInitialized = true;
