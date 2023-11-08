@@ -75,7 +75,7 @@ describe('initRunner', () => {
   });
 
   it('should process returned initializers', async () => {
-    const templates = ['foo', 'bar'];
+    const templates = ['foo', 'bar', 'zoo'];
     const appName = 'test-app';
     const args = {
       silent: false,
@@ -87,11 +87,13 @@ describe('initRunner', () => {
     const mockBar = mockInitializer(false, { appName, initializers: ['baz'] });
     const mockBaz = mockInitializer(false, { appName, initializers: ['huh'] });
     const mockHuh = mockInitializer(false, { appName, initializers: [] });
+    const mockZoo = mockInitializer(false, { appName, initializers: [] });
     createStub = sinon.stub(InitializerFactory.prototype, 'create');
     createStub.withArgs('foo').returns(mockFoo);
     createStub.withArgs('bar').returns(mockBar);
     createStub.withArgs('baz').returns(mockBaz);
     createStub.withArgs('huh').returns(mockHuh);
+    createStub.withArgs('zoo').returns(mockZoo);
 
     await initRunner(templates, args);
 
@@ -99,7 +101,8 @@ describe('initRunner', () => {
     expect(mockBar.init).to.be.calledOnceWith(args);
     expect(mockBaz.init).to.be.calledOnceWith(args);
     expect(mockHuh.init).to.be.calledOnceWith(args);
-    expect(args.templates).to.deep.equal(['foo', 'bar', 'baz', 'huh']);
+    expect(mockZoo.init).to.be.calledOnceWith(args);
+    expect(args.templates).to.deep.equal(['foo', 'bar', 'zoo', 'baz', 'huh']);
   });
 
   it('should aggregate nextSteps', async () => {
