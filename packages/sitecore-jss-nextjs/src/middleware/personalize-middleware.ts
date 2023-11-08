@@ -260,28 +260,11 @@ export class PersonalizeMiddleware extends MiddlewareBase {
 
     // Rewrite to persononalized path
     const rewritePath = getPersonalizedRewrite(basePath, { variantId });
-    // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
-    const rewriteUrl = req.nextUrl.clone();
-
-    // Preserve cookies from previous response
-    const cookies = response.cookies.getAll();
-
-    rewriteUrl.pathname = rewritePath;
-    response = NextResponse.rewrite(rewriteUrl, response);
+    response = this.rewrite(rewritePath, req, response);
 
     // Disable preflight caching to force revalidation on client-side navigation (personalization may be influenced)
     // See https://github.com/vercel/next.js/issues/32727
     response.headers.set('x-middleware-cache', 'no-cache');
-    // Share rewrite path with following executed middleware
-    response.headers.set('x-sc-rewrite', rewritePath);
-    // Share site name with the following executed middlewares
-    response.cookies.set(this.SITE_SYMBOL, site.name);
-
-    // Restore cookies from previous response since
-    // browserId cookie gets omitted after rewrite
-    cookies.forEach((cookie) => {
-      response.cookies.set(cookie);
-    });
 
     debug.personalize('personalize middleware end in %dms: %o', Date.now() - startTimestamp, {
       rewritePath,
