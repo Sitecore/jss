@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@sitecore/components": "^1.1.0",
+    "@sitecore/components": "^1.1.2",
     "@sitecore-cloudsdk/events": "^0.1.1",
     "@sitecore-feaas/clientside": "^0.4.12"
   }
