@@ -54,7 +54,7 @@ Context instance that is used to initialize the application Context and associat
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:86](https://github.com/Sitecore/jss/blob/900ccd739/packages/sitecore-jss-nextjs/src/context/context.ts#L86)
+[sitecore-jss-nextjs/src/context/context.ts:86](https://github.com/Sitecore/jss/blob/4260e287a/packages/sitecore-jss-nextjs/src/context/context.ts#L86)
 
 ## Properties
 
@@ -66,7 +66,7 @@ Indicates whether the Context and SDK(s) have been initialized
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:64](https://github.com/Sitecore/jss/blob/900ccd739/packages/sitecore-jss-nextjs/src/context/context.ts#L64)
+[sitecore-jss-nextjs/src/context/context.ts:64](https://github.com/Sitecore/jss/blob/4260e287a/packages/sitecore-jss-nextjs/src/context/context.ts#L64)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:86](https://github.com/Sitecore/jss/blob/900ccd739/packages/sitecore-jss-nextjs/src/context/context.ts#L86)
+[sitecore-jss-nextjs/src/context/context.ts:86](https://github.com/Sitecore/jss/blob/4260e287a/packages/sitecore-jss-nextjs/src/context/context.ts#L86)
 
 ___
 
@@ -88,7 +88,7 @@ Promises for the SDKs
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:84](https://github.com/Sitecore/jss/blob/900ccd739/packages/sitecore-jss-nextjs/src/context/context.ts#L84)
+[sitecore-jss-nextjs/src/context/context.ts:84](https://github.com/Sitecore/jss/blob/4260e287a/packages/sitecore-jss-nextjs/src/context/context.ts#L84)
 
 ___
 
@@ -100,7 +100,7 @@ Software Development Kits (SDKs) to be initialized
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:80](https://github.com/Sitecore/jss/blob/900ccd739/packages/sitecore-jss-nextjs/src/context/context.ts#L80)
+[sitecore-jss-nextjs/src/context/context.ts:80](https://github.com/Sitecore/jss/blob/4260e287a/packages/sitecore-jss-nextjs/src/context/context.ts#L80)
 
 ___
 
@@ -112,7 +112,7 @@ The Sitecore site name
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:76](https://github.com/Sitecore/jss/blob/900ccd739/packages/sitecore-jss-nextjs/src/context/context.ts#L76)
+[sitecore-jss-nextjs/src/context/context.ts:76](https://github.com/Sitecore/jss/blob/4260e287a/packages/sitecore-jss-nextjs/src/context/context.ts#L76)
 
 ___
 
@@ -124,7 +124,7 @@ The Sitecore Edge Context ID
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:72](https://github.com/Sitecore/jss/blob/900ccd739/packages/sitecore-jss-nextjs/src/context/context.ts#L72)
+[sitecore-jss-nextjs/src/context/context.ts:72](https://github.com/Sitecore/jss/blob/4260e287a/packages/sitecore-jss-nextjs/src/context/context.ts#L72)
 
 ___
 
@@ -136,7 +136,7 @@ The Sitecore Edge URL
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:68](https://github.com/Sitecore/jss/blob/900ccd739/packages/sitecore-jss-nextjs/src/context/context.ts#L68)
+[sitecore-jss-nextjs/src/context/context.ts:68](https://github.com/Sitecore/jss/blob/4260e287a/packages/sitecore-jss-nextjs/src/context/context.ts#L68)
 
 ## Methods
 
@@ -166,7 +166,7 @@ initialized SDK
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:114](https://github.com/Sitecore/jss/blob/900ccd739/packages/sitecore-jss-nextjs/src/context/context.ts#L114)
+[sitecore-jss-nextjs/src/context/context.ts:114](https://github.com/Sitecore/jss/blob/4260e287a/packages/sitecore-jss-nextjs/src/context/context.ts#L114)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:92](https://github.com/Sitecore/jss/blob/900ccd739/packages/sitecore-jss-nextjs/src/context/context.ts#L92)
+[sitecore-jss-nextjs/src/context/context.ts:92](https://github.com/Sitecore/jss/blob/4260e287a/packages/sitecore-jss-nextjs/src/context/context.ts#L92)
 
 ___
 
@@ -214,4 +214,4 @@ Initializes the Software Development Kit (SDK)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:124](https://github.com/Sitecore/jss/blob/900ccd739/packages/sitecore-jss-nextjs/src/context/context.ts#L124)
+[sitecore-jss-nextjs/src/context/context.ts:124](https://github.com/Sitecore/jss/blob/4260e287a/packages/sitecore-jss-nextjs/src/context/context.ts#L124)
