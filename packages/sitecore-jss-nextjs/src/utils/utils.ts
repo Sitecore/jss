@@ -12,11 +12,11 @@ import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/u
  */
 export const getPublicUrl = (): string => {
   let url = process.env.PUBLIC_URL;
-  if (url === '') return url;
-  if (process.env.NETLIFY && process.env.DEPLOY_URL) return process.env.DEPLOY_URL;
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
 
   if (url === undefined) {
+    if (process.env.NETLIFY && process.env.DEPLOY_URL) return process.env.DEPLOY_URL;
+    if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+
     console.warn(
       `${chalk.yellow.bold(
         'Warning:'
@@ -24,6 +24,8 @@ export const getPublicUrl = (): string => {
     );
     url = 'http://localhost:3000';
   } else {
+    if (url === '') return url;
+
     try {
       new URL(url);
     } catch (error) {

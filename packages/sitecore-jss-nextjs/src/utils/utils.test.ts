@@ -4,7 +4,7 @@ import { getPublicUrl, getJssEditingSecret } from './utils';
 
 describe('utils', () => {
   describe('getPublicUrl', () => {
-    after(() => {
+    afterEach(() => {
       delete process.env.PUBLIC_URL;
       delete process.env.VERCEL_URL;
     });
@@ -39,11 +39,11 @@ describe('utils', () => {
       expect(result).to.equal('https://jss.uniqueid.vercel.com');
     });
 
-    it('should use VERCEL_URL if PUBLIC_URL is not an empty string', () => {
+    it('should use PUBLIC_URL if PUBLIC_URL and VERCEL_URL are defined', () => {
       process.env.VERCEL_URL = 'jss.uniqueid.vercel.com';
       process.env.PUBLIC_URL = 'http://test.com';
       const result = getPublicUrl();
-      expect(result).to.equal('https://jss.uniqueid.vercel.com');
+      expect(result).to.equal('http://test.com');
     });
 
     it('should use PUBLIC_URL if it is an empty string and VERCEL_URL is defined', () => {
