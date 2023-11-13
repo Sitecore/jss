@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import { JssConfig } from 'lib/config';
 import { ConfigPlugin } from '..';
+import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 
 /**
  * This config will set fallback values for properties that were left empty
@@ -24,6 +25,7 @@ class FallbackPlugin implements ConfigPlugin {
       sitecoreApiKey: config.sitecoreApiKey || 'no-api-key-set',
       layoutServiceConfigurationName: config.layoutServiceConfigurationName || 'default',
       sitecoreEdgeUrl: config.sitecoreEdgeUrl || 'https://edge-platform.sitecorecloud.io',
+      publicUrl: config.publicUrl || getPublicUrl(),
     });
   }
 }

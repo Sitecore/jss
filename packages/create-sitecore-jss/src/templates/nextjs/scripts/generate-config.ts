@@ -4,7 +4,6 @@ import path from 'path';
 import { constantCase } from 'constant-case';
 import { JssConfig } from 'lib/config';
 import { jssConfigFactory } from './config';
-import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 
 /*
   CONFIG GENERATION
@@ -23,6 +22,7 @@ const defaultConfig: JssConfig = {
   defaultLanguage: process.env[`${constantCase('defaultLanguage')}`],
   graphQLEndpoint: process.env[`${constantCase('graphQLEndpoint')}`],
   layoutServiceConfigurationName: process.env[`${constantCase('layoutServiceConfigurationName')}`],
+  publicUrl: process.env[`${constantCase('publicUrl')}`],
 };
 
 generateConfig(defaultConfig);
@@ -59,9 +59,6 @@ const config = {};\n`;
   Object.keys(config).forEach(prop => {
     configText += `config.${prop} = process.env.${constantCase(prop)} || '${config[prop]}',\n`;
   });
-
-  const publicUrl = getPublicUrl();
-  configText += `config.publicUrl = '${publicUrl}',\n`;
 
   configText += `module.exports = config;`;
 
