@@ -8,7 +8,7 @@ import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/u
  * VERCEL_URL is provided by Vercel in case if we are in Preview deployment (deployment based on the custom branch),
  * preview deployment has unique url, we don't know exact url.
  * Similarly, DEPLOY_URL is provided by Netlify and would give us the deploy URL
- * In production non-editing environments it is desirable to use relative urls, so setting PUBLIC_URL = '' will take precendece
+ * In production non-editing environments it is desirable to use relative urls, so in that case set PUBLIC_URL = ''
  */
 export const getPublicUrl = (): string => {
   let url = process.env.PUBLIC_URL;
