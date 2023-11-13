@@ -10,6 +10,7 @@ const sdkModule: SDK<typeof Events> = {
 
     await Events.init({
       siteName: props.siteName,
+      sitecoreEdgeUrl: props.sitecoreEdgeUrl,
       sitecoreEdgeContextId: props.sitecoreEdgeContextId,
       // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
       cookieDomain: window.location.hostname.replace(/^www\./, ''),
