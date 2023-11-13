@@ -50,6 +50,18 @@ describe('Context', () => {
       expect(context.sitecoreEdgeContextId).to.equal(props.sitecoreEdgeContextId);
       expect(context.siteName).to.equal(props.siteName);
     });
+
+    it('should provide all the properties when context instance is merged as an object', () => {
+      const context = new Context<typeof sdks>(props);
+
+      const merged = { ...context };
+
+      expect(merged.sitecoreEdgeUrl).to.equal(props.sitecoreEdgeUrl);
+      expect(merged.sitecoreEdgeContextId).to.equal(props.sitecoreEdgeContextId);
+      expect(merged.siteName).to.equal(props.siteName);
+      expect(merged.getSDK).to.equal(context.getSDK);
+      expect(merged.isInitialized).to.equal(context.isInitialized);
+    });
   });
 
   describe('init', () => {
