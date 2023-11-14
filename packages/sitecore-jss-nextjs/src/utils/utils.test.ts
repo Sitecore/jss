@@ -28,11 +28,6 @@ describe('utils', () => {
       expect(result).to.equal('http://test.com/foo');
     });
 
-    it('should throw for invalid URL', () => {
-      process.env.PUBLIC_URL = 'nope';
-      expect(() => getPublicUrl()).to.throw();
-    });
-
     it('should use VERCEL_URL if PUBLIC_URL is not defined', () => {
       process.env.VERCEL_URL = 'jss.uniqueid.vercel.com';
       const result = getPublicUrl();

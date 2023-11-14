@@ -1,4 +1,3 @@
-import chalk from 'chalk';
 import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
 
 /**
@@ -17,23 +16,11 @@ export const getPublicUrl = (): string => {
     if (process.env.NETLIFY && process.env.DEPLOY_URL) return process.env.DEPLOY_URL;
     if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
 
-    console.warn(
-      `${chalk.yellow.bold(
-        'Warning:'
-      )} An PUBLIC_URL environment variable is not defined. Falling back to http://localhost:3000.`
-    );
     url = 'http://localhost:3000';
-  } else {
-    if (url === '') return url;
-
-    try {
-      new URL(url);
-    } catch (error) {
-      throw new Error(`The PUBLIC_URL environment variable '${url}' is not a valid URL.`);
-    }
   }
+
   // Ensure no trailing slash
-  return url.toString().replace(/\/$/, '');
+  return url.replace(/\/$/, '');
 };
 
 /**
