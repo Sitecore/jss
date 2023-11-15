@@ -10,13 +10,13 @@ const server = express();
 const layoutService = new GraphQLLayoutService({
   endpoint: config.endpoint,
   apiKey: config.apiKey,
-  siteName: config.appName,
+  siteName: config.siteName,
 });
 
 const dictionaryService = new GraphQLDictionaryService({
   endpoint: config.endpoint,
   apiKey: config.apiKey,
-  siteName: config.appName,
+  siteName: config.siteName,
   /*
     The Dictionary Service needs a root item ID in order to fetch dictionary phrases for the current
     app. If your Sitecore instance only has 1 JSS App, you can specify the root item ID here;

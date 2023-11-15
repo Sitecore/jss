@@ -15,7 +15,7 @@ export {
 
 // we will remove the root exports for these later
 // we cannot mark exports as deprected directly, so we're using this hack instead
-import { GraphQLRequestClient as GraphQLRequestClientDep } from './graphql-client';
+import { GraphQLRequestClient as GraphQLRequestClientDep } from './graphql';
 import {
   isEditorActive as isEditorActiveDep,
   resetEditorChromes as resetEditorChromesDep,
@@ -43,7 +43,7 @@ const {
   handleEditorFastRefreshDep,
   getPublicUrlDep,
 };
-/** @deprecated use import from '@sitecore-jss/sitecore-jss-nextjs/graphql-client' instead */
+/** @deprecated use import from '@sitecore-jss/sitecore-jss-nextjs/graphql' instead */
 const { GraphQLRequestClientDep: GraphQLRequestClient } = {
   GraphQLRequestClientDep,
 };
@@ -101,7 +101,6 @@ export {
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
   CdpHelper,
-  PosResolver,
 } from '@sitecore-jss/sitecore-jss/personalize';
 
 export {
@@ -165,6 +164,8 @@ export { FEaaSWrapper };
 export { BYOCWrapper };
 
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
+
+export { Context, ContextConfig, SDK } from './context';
 
 export {
   ComponentFactory,

@@ -44,7 +44,7 @@ export function getFEAASLibraryStylesheetLinks(
 
   return [...ids].map((id) => ({
     href: getStylesheetUrl(id, layoutData.sitecore.context.pageState, sitecoreEdgeUrl),
-    rel: 'style',
+    rel: 'stylesheet',
   }));
 }
 

@@ -352,13 +352,16 @@ describe('RedirectsMiddleware', () => {
           url: 'http://localhost:3000/found',
           status: 301,
           setCookies,
+          headers: new Headers({}),
         });
-        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, init) => {
+          const status = typeof init === 'number' ? init : init?.status || 307;
+          const headers = typeof init === 'object' ? init?.headers : {};
           return ({
             url,
             status,
             cookies: { set: setCookies },
-            headers: res.headers,
+            headers: new Headers(headers),
           } as unknown) as NextResponse;
         });
         const req = createRequest({
@@ -411,7 +414,8 @@ describe('RedirectsMiddleware', () => {
           status: 301,
           setCookies,
         });
-        const nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url, _init) => {
           return ({
             url,
             status: 301,
@@ -526,7 +530,8 @@ describe('RedirectsMiddleware', () => {
           status: 301,
           setCookies,
         });
-        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, init) => {
+          const status = typeof init === 'number' ? init : init?.status || 307;
           return ({
             url,
             status,
@@ -610,7 +615,6 @@ describe('RedirectsMiddleware', () => {
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {
-            'set-cookie': 'sc_site=nextjs-app; Path=/',
             'x-middleware-next': '1',
           },
           redirected: false,
@@ -687,7 +691,8 @@ describe('RedirectsMiddleware', () => {
           status: 302,
           setCookies,
         });
-        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, init) => {
+          const status = typeof init === 'number' ? init : init?.status || 307;
           return ({
             url,
             status,
@@ -746,7 +751,8 @@ describe('RedirectsMiddleware', () => {
           status: 301,
           setCookies,
         });
-        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, init) => {
+          const status = typeof init === 'number' ? init : init?.status || 307;
           return ({
             url,
             status,
@@ -857,7 +863,8 @@ describe('RedirectsMiddleware', () => {
           url: 'http://localhost:3000/found',
           setCookies,
         });
-        const nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url, _init) => {
           return ({
             url,
             cookies: { set: setCookies },
@@ -908,7 +915,7 @@ describe('RedirectsMiddleware', () => {
 
       it('should use sc_site cookie', async () => {
         const siteName = 'foo';
-        const res = NextResponse.redirect('http://localhost:3000/found', 301);
+        const res = NextResponse.rewrite('http://localhost:3000/found');
         res.cookies.set('sc_site', siteName);
         const req = createRequest({
           nextUrl: {
@@ -929,6 +936,11 @@ describe('RedirectsMiddleware', () => {
           locale: 'en',
         });
 
+        const expected = NextResponse.redirect('http://localhost:3000/found', {
+          status: 301,
+          headers: res.headers,
+        });
+
         const finalRes = await middleware.getHandler()(req, res);
 
         validateDebugLog('redirects middleware start: %o', {
@@ -941,6 +953,7 @@ describe('RedirectsMiddleware', () => {
           headers: {
             location: 'http://localhost:3000/found',
             'set-cookie': 'sc_site=foo; Path=/',
+            'x-middleware-rewrite': 'http://localhost:3000/found',
           },
           redirected: false,
           status: 301,
@@ -950,8 +963,8 @@ describe('RedirectsMiddleware', () => {
         expect(siteResolver.getByHost).not.called.to.equal(true);
         expect(siteResolver.getByName).to.be.calledWith(siteName);
         expect(fetchRedirects).to.be.calledWith(siteName);
-        expect(finalRes).to.deep.equal(res);
-        expect(finalRes.status).to.equal(res.status);
+        expect(finalRes).to.deep.equal(expected);
+        expect(finalRes.status).to.equal(expected.status);
       });
 
       it('should preserve site name from response data when provided, if no redirect type defined', async () => {
@@ -1058,7 +1071,8 @@ describe('RedirectsMiddleware', () => {
           status: 301,
           setCookies,
         });
-        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, init) => {
+          const status = typeof init === 'number' ? init : init?.status || 307;
           return ({
             url,
             status,
@@ -1119,7 +1133,8 @@ describe('RedirectsMiddleware', () => {
           status: 301,
           setCookies,
         });
-        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, init) => {
+          const status = typeof init === 'number' ? init : init?.status || 307;
           return ({
             url,
             status,

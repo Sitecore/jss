@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "21.6.0-canary.17",
+  "version": "21.7.0-canary.12",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -11,7 +11,7 @@
     "test": "mocha --require ./test/setup.js \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\" --exit",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
-    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-nextjs --entryPoints src/index.ts --entryPoints src/monitoring/index.ts --entryPoints src/editing/index.ts --entryPoints src/middleware/index.ts --githubPages false"
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-nextjs --entryPoints src/index.ts --entryPoints src/monitoring/index.ts --entryPoints src/editing/index.ts --entryPoints src/middleware/index.ts --entryPoints src/context/index.ts --entryPoints src/utils/index.ts --entryPoints src/site/index.ts --entryPoints src/graphql/index.ts --githubPages false"
   },
   "engines": {
     "node": ">=12",
@@ -30,7 +30,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "@sitecore/engage": "^1.4.1",
+    "@sitecore-cloudsdk/personalize": "^0.1.1",
     "@types/chai": "^4.3.4",
     "@types/chai-as-promised": "^7.1.5",
     "@types/chai-string": "^1.4.2",
@@ -66,15 +66,16 @@
     "typescript": "~4.9.4"
   },
   "peerDependencies": {
-    "@sitecore/engage": "^1.4.1",
+    "@sitecore-cloudsdk/events": "^0.1.1",
+    "@sitecore-cloudsdk/personalize": "^0.1.1",
     "next": "^13.4.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "21.6.0-canary.17",
-    "@sitecore-jss/sitecore-jss-dev-tools": "21.6.0-canary.17",
-    "@sitecore-jss/sitecore-jss-react": "21.6.0-canary.17",
+    "@sitecore-jss/sitecore-jss": "21.7.0-canary.12",
+    "@sitecore-jss/sitecore-jss-dev-tools": "21.7.0-canary.12",
+    "@sitecore-jss/sitecore-jss-react": "21.7.0-canary.12",
     "@vercel/kv": "^0.2.1",
     "node-html-parser": "^6.1.4",
     "prop-types": "^15.8.1",

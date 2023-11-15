@@ -35,10 +35,10 @@ export default class NextjsStyleguideInitializer implements Initializer {
     }
 
     if (
-      args.templates.includes('nextjs-personalize') ||
-      pkg.config?.templates?.includes('nextjs-personalize')
+      args.templates.includes('nextjs-xmcloud') ||
+      pkg.config?.templates?.includes('nextjs-xmcloud')
     ) {
-      console.log(incompatibleAddonsMsg('nextjs-styleguide-tracking', 'nextjs-personalize'));
+      console.log(incompatibleAddonsMsg('nextjs-styleguide-tracking', 'nextjs-xmcloud'));
     }
 
     const response = {
