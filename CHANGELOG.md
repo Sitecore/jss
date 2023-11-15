@@ -36,7 +36,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Changes
 
-* `[templates/nextjs]` `[sitecore-jss-nextjs]` Allow setting an empty string in PUBLIC_URL environment variable; PUBLIC_URL is commented out by default in .env; ([#1656](https://github.com/Sitecore/jss/pull/1656))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` The behavior of getPublicUrl() function has been changed - empty string is now considered valid value for PUBLIC_URL environment variable and, if defined, PUBLIC_URL will take precedence over the Vercel/Netlify env variables; the values of these variables should be adjusted as needed; PUBLIC_URL is commented out by default in .env; ([#1656](https://github.com/Sitecore/jss/pull/1656));
 
 ## 21.5.0
 
