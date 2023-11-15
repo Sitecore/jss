@@ -3,20 +3,15 @@
  */
 import React from 'react';
 import Head from 'next/head';
-import {
-  Placeholder,
-  LayoutServiceData,
-  Field,
-  HTMLLink,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs/utils';
+import { Placeholder, LayoutServiceData, Field, HTMLLink } from '@sitecore-jss/sitecore-jss-nextjs';
+import config from 'temp/config';
 import Scripts from 'src/Scripts';
 // The bundle imports external (BYOC) components into the app and makes sure they are ready to be used.
 import BYOC from 'src/byoc';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
-const publicUrl = getPublicUrl();
+const publicUrl = config.publicUrl;
 
 interface LayoutProps {
   layoutData: LayoutServiceData;

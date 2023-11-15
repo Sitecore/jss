@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { useI18n } from 'next-localization';
-import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs/utils';
+import config from 'temp/config';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
-const publicUrl = getPublicUrl();
+const publicUrl = config.publicUrl;
 
 const Navigation = (): JSX.Element => {
   const { t } = useI18n();
