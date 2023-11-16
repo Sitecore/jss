@@ -229,7 +229,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
 
     const params = this.getExperienceParams(req);
 
-    debug.personalize('executing experience for %s %s %o', personalizeInfo.contentId, params);
+    debug.personalize('executing experience for %s %o', personalizeInfo.contentId, params);
 
     let variantId;
 
