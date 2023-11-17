@@ -103,18 +103,6 @@ export abstract class MiddlewareBase {
   }
 
   /**
-   * Sitecore instances can have multiple sites, even if nextjs app only uses one
-   * We ensure sc_site cookie is present regardless of whether multisite is enabled to avoid site conflicts
-   * @param {NextResponse} res middleware response
-   * @param {string} siteName current site name
-   */
-  protected ensureSiteCookie(res: NextResponse, siteName: string) {
-    if (!res?.cookies.get(this.SITE_SYMBOL)?.value) {
-      res.cookies.set(this.SITE_SYMBOL, siteName);
-    }
-  }
-
-  /**
    * Create a rewrite response
    * @param {string} rewritePath the destionation path
    * @param {NextRequest} req the current request

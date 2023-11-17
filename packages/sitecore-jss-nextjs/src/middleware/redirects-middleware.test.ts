@@ -615,6 +615,7 @@ describe('RedirectsMiddleware', () => {
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {
+            'set-cookie': 'sc_site=nextjs-app; Path=/',
             'x-middleware-next': '1',
           },
           redirected: false,
@@ -940,6 +941,7 @@ describe('RedirectsMiddleware', () => {
           status: 301,
           headers: res.headers,
         });
+        expected.cookies.set('sc_site', siteName);
 
         const finalRes = await middleware.getHandler()(req, res);
 
@@ -963,6 +965,11 @@ describe('RedirectsMiddleware', () => {
         expect(siteResolver.getByHost).not.called.to.equal(true);
         expect(siteResolver.getByName).to.be.calledWith(siteName);
         expect(fetchRedirects).to.be.calledWith(siteName);
+
+        console.log('TEEEEST');
+        console.log(JSON.stringify(finalRes));
+        console.log(JSON.stringify(expected));
+
         expect(finalRes).to.deep.equal(expected);
         expect(finalRes.status).to.equal(expected.status);
       });

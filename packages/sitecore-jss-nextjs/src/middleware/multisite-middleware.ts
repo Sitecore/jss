@@ -78,7 +78,7 @@ export class MultisiteMiddleware extends MiddlewareBase {
     response = this.rewrite(rewritePath, req, response);
 
     // Share site name with the following executed middlewares
-    this.ensureSiteCookie(response, siteName);
+    response.cookies.set(this.SITE_SYMBOL, siteName);
 
     debug.multisite('multisite middleware end in %dms: %o', Date.now() - startTimestamp, {
       rewritePath,

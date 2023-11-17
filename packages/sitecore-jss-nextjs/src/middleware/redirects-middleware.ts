@@ -149,7 +149,9 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
     const response = await createResponse();
 
-    site && this.ensureSiteCookie(response, site.name);
+    // Share site name with the following executed middlewares
+    // Don't need to set when middleware is disabled
+    response.cookies.set(this.SITE_SYMBOL, site.name);
 
     debug.redirects('redirects middleware end in %dms: %o', Date.now() - startTimestamp, {
       redirected: response.redirected,
