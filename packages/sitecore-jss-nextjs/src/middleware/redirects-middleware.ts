@@ -149,6 +149,8 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
     const response = await createResponse();
 
+    site && this.ensureSiteCookie(response, site.name);
+
     debug.redirects('redirects middleware end in %dms: %o', Date.now() - startTimestamp, {
       redirected: response.redirected,
       status: response.status,
