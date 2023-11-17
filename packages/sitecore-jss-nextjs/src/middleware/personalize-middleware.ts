@@ -262,9 +262,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     const rewritePath = getPersonalizedRewrite(basePath, { variantId });
     response = this.rewrite(rewritePath, req, response);
     // preserve site on rewrite
-    if (!res?.cookies.get(this.SITE_SYMBOL)?.value) {
-      response.cookies.set(this.SITE_SYMBOL, site.name);
-    }
+    response.cookies.set(this.SITE_SYMBOL, site.name);
 
     // Disable preflight caching to force revalidation on client-side navigation (personalization may be influenced)
     // See https://github.com/vercel/next.js/issues/32727
