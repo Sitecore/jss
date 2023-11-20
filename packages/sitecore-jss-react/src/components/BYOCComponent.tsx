@@ -131,32 +131,31 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
 
     const ErrorComponent = this.props.errorComponent;
 
-    const isNull = props.fetchedData && Object.keys(props.fetchedData).length === 0;
+    let componentProps: { [key: string]: any } = null;
 
-    let componentProps: { [key: string]: any } = isNull ? null : props.fetchedData;
-
-    if (!componentProps) {
-      if (props.params?.ComponentProps) {
-        try {
-          componentProps = JSON.parse(props.params.ComponentProps) ?? {};
-        } catch (e) {
-          console.error(
-            `Parsing props for ${componentName} component from rendering params failed. Error: ${e}`
-          );
-          return ErrorComponent ? (
-            <ErrorComponent error={e as Error} />
-          ) : (
-            <DefaultErrorComponent error={e as Error} />
-          );
-        }
-      } else {
-        componentProps = props.fields ? getDataFromFields(props.fields) : {};
+    if (props.params?.ComponentProps) {
+      try {
+        componentProps = JSON.parse(props.params.ComponentProps) ?? {};
+      } catch (e) {
+        console.error(
+          `Parsing props for ${componentName} component from rendering params failed. Error: ${e}`
+        );
+        return ErrorComponent ? (
+          <ErrorComponent error={e as Error} />
+        ) : (
+          <DefaultErrorComponent error={e as Error} />
+        );
       }
+    } else {
+      componentProps = props.fields ? getDataFromFields(props.fields) : {};
     }
+
+    // we render fallback on client to avoid problems with client-only components
     return (
       <FEAAS.ExternalComponent
         componentName={componentName}
-        fallback={fallbackComponent}
+        clientFallback={fallbackComponent}
+        datasources={props.fetchedData}
         {...componentProps}
       />
     );

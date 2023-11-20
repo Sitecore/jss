@@ -31,9 +31,9 @@ describe('BYOCComponent', () => {
     expect(fooComponent.find('#foo-content')).to.have.length(1);
   });
 
-  it('should render when props are prefetched', () => {
+  it('should render with static and fetched props when props are prefetched', () => {
     const fetchedData = {
-      prop1: 'prefetched_value1',
+      prop2: 'prefetched_value1',
     };
     const mockProps = {
       params: {
@@ -49,12 +49,16 @@ describe('BYOCComponent', () => {
         prop1: {
           type: 'string',
         },
+        prop2: {
+          type: 'string',
+        },
       },
     });
     const wrapper = mount(<BYOCComponent {...mockProps} />);
     const fooComponent = wrapper.find('feaas-external');
     expect(fooComponent).to.have.lengthOf(1);
-    expect(fooComponent.prop('prop1')).to.equal('prefetched_value1');
+    expect(fooComponent.prop('prop1')).to.equal('value1');
+    expect(fooComponent.prop('datasources')).to.equal('{"prop2":"prefetched_value1"}');
     expect(fooComponent.prop('data-external-id')).to.equal('Foo');
     expect(fooComponent.find('#foo-content')).to.have.length(1);
   });
