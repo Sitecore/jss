@@ -26,6 +26,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss]` Support for both 'published' and 'staged' revisions of FEAAS stylesheets/themes based on Sitecore Edge Platform and Context ([#1644](https://github.com/Sitecore/jss/pull/1644)) ([#1645](https://github.com/Sitecore/jss/pull/1645)) ([#1666](https://github.com/Sitecore/jss/pull/1666))
 * `[sitecore-jss-nextjs]` The _GraphQLRequestClient_ import from _@sitecore-jss/sitecore-jss-nextjs_ is deprecated, use import from _@sitecore-jss/sitecore-jss-nextjs/graphql_ submodule instead ([#1650](https://github.com/Sitecore/jss/pull/1650) [#1648](https://github.com/Sitecore/jss/pull/1648))
 * `[create-sitecore-jss]` Introduced `nextjs-xmcloud` initializer template. This will include all base XM Cloud features, including Personalize, FEaaS, BYOC, Sitecore Edge Platform and Context support. ([#1653](https://github.com/Sitecore/jss/pull/1653)) ([#1657](https://github.com/Sitecore/jss/pull/1657)) ([#1658](https://github.com/Sitecore/jss/pull/1658))
+* `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` Static (rendering params and datasource) and dynamic (fetched) props are now both passed into BYOC components. Previously dynamic fetched props would completely override data from Sitecore items ([#1667](https://github.com/Sitecore/jss/pull/1667))
 
 ### 🐛 Bug Fixes
 
