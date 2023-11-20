@@ -15,6 +15,10 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss]` `[templates/nextjs]` Load the content styles for the RichText component [#1678](https://github.com/Sitecore/jss/pull/1678)
 
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` Static (rendering params and datasource) and dynamic (fetched) props are now both passed into BYOC components. Previously dynamic fetched props would completely override data from Sitecore items ([#1667](https://github.com/Sitecore/jss/pull/1667))
+
 ## 21.5.1
 
 ### 🐛 Bug Fixes
