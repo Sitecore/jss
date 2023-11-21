@@ -54,7 +54,9 @@ export const traversePlaceholder = (
 export const traverseField = (field: Field | Item | Item[] | undefined, config: Config) => {
   if (!field || config.loadStyles) return;
 
-  if ('value' in field && typeof field.value === 'string') {
+  if ('editable' in field && field.editable) {
+    config.loadStyles = CLASS_REGEXP.test(field.editable);
+  } else if ('value' in field && typeof field.value === 'string') {
     config.loadStyles = CLASS_REGEXP.test(field.value);
   } else if ('fields' in field) {
     Object.values(field.fields).forEach((field) => {
@@ -73,9 +75,9 @@ export const traverseComponent = (
 ) => {
   if (config.loadStyles) return;
 
-  if ('contents' in component && component.contents) {
-    config.loadStyles = CLASS_REGEXP.test(component.contents);
-  } else if ('fields' in component && component.fields) {
+  console.log(component);
+
+  if ('fields' in component && component.fields) {
     Object.values(component.fields).forEach((field) => {
       traverseField(field, config);
     });

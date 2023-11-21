@@ -160,6 +160,32 @@ describe('content-styles', () => {
       });
     });
 
+    describe('editing', () => {
+      it('should set "loadStyles: false" when field does not have a ck-content class', () => {
+        const config = { loadStyles: false };
+        const field: Field = {
+          value: '',
+          editable: falsyValue.value,
+        };
+
+        traverseField(field, config);
+
+        expect(config.loadStyles).to.be.false;
+      });
+
+      it('should set "loadStyles: true" when field has a ck-content class', () => {
+        const config = { loadStyles: false };
+        const field: Field = {
+          value: '',
+          editable: truthyValue.value,
+        };
+
+        traverseField(field, config);
+
+        expect(config.loadStyles).to.be.true;
+      });
+    });
+
     it('should skip when field is undefined', () => {
       const config = { loadStyles: false };
       const field = undefined;
@@ -226,32 +252,6 @@ describe('content-styles', () => {
       traverseComponent(component, config);
 
       expect(config.loadStyles).to.be.true;
-    });
-
-    describe('editing', () => {
-      it('should set "loadStyles: false" when component does not have a ck-content class', () => {
-        const config = { loadStyles: false };
-        const component = {
-          componentName: 'ContentBlock',
-          contents: falsyValue.value,
-        };
-
-        traverseComponent(component, config);
-
-        expect(config.loadStyles).to.be.false;
-      });
-
-      it('should set "loadStyles: true" when component has a ck-content class', () => {
-        const config = { loadStyles: false };
-        const component = {
-          componentName: 'ContentBlock',
-          contents: truthyValue.value,
-        };
-
-        traverseComponent(component, config);
-
-        expect(config.loadStyles).to.be.true;
-      });
     });
   });
 
