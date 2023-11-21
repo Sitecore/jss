@@ -13,13 +13,13 @@ const packageConfig = require('../package.json');
  * NOTE! Any configs returned here will be written into the client-side JS bundle. DO NOT PUT SECRETS HERE.
  * @param {object} configOverrides Keys in this object will override any equivalent global config keys.
  */
-// VUE_APP_JSS_APP_NAME env variable has been deprecated since v.21.6, VUE_APP_SITE_NAME should be used instead
+// VUE_APP_JSS_APP_NAME env variable has been deprecated since v.21.6, VUE_APP_SITECORE_SITE_NAME should be used instead
 module.exports = function generateConfig(configOverrides) {
   const defaultConfig = {
     sitecoreApiKey: 'no-api-key-set',
     sitecoreApiHost: '',
     jssAppName: process.env.VUE_APP_JSS_APP_NAME,
-    siteName: process.env.VUE_APP_SITE_NAME,
+    sitecoreSiteName: process.env.VUE_APP_SITECORE_SITE_NAME,
     layoutServiceConfigurationName: 'default',
   };
 
@@ -36,7 +36,7 @@ module.exports = function generateConfig(configOverrides) {
   const config = Object.assign(defaultConfig, scjssConfig, packageJson, configOverrides);
 
   // for the sake of backwards compatibility - make sure to initialize siteName
-  config.siteName = config.siteName || config.jssAppName;
+  config.sitecoreSiteName = config.sitecoreSiteName || config.jssAppName;
 
   // The GraphQL endpoint is an example of making a _computed_ config setting
   // based on other config settings.
@@ -90,7 +90,7 @@ function transformPackageConfig() {
   if (!packageConfig.config) return {};
 
   return {
-    siteName: packageConfig.config.appName,
+    sitecoreSiteName: packageConfig.config.appName,
     defaultLanguage: packageConfig.config.language || 'en',
     graphQLEndpointPath: packageConfig.config.graphQLEndpointPath || null,
   };

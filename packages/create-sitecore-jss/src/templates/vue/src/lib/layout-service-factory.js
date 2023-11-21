@@ -7,12 +7,12 @@ export class LayoutServiceFactory {
       ? new GraphQLLayoutService({
           endpoint: config.graphQLEndpoint,
           apiKey: config.sitecoreApiKey,
-          siteName: config.siteName,
+          siteName: config.sitecoreSiteName,
         })
       : new RestLayoutService({
           apiHost: config.sitecoreApiHost,
           apiKey: config.sitecoreApiKey,
-          siteName: config.siteName,
+          siteName: config.sitecoreSiteName,
           configurationName: config.layoutServiceConfigurationName,
         });
   }

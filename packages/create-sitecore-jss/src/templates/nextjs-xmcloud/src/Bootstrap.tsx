@@ -12,7 +12,7 @@ const Bootstrap = (props: SitecorePageProps): JSX.Element | null => {
    * This function is the entry point for setting up the application's context and any SDKs that are required for its proper functioning.
    * It prepares the resources needed to interact with various services and features within the application.
    */
-  context.init({ siteName: props.site?.name || config.siteName });
+  context.init({ siteName: props.site?.name || config.sitecoreSiteName });
 
   return null;
 };
