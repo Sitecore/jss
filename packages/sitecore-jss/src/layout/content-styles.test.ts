@@ -76,7 +76,7 @@ describe('content-styles', () => {
         expect(config.loadStyles).to.be.false;
       });
 
-      it('should set "loadStyles: false" when field has a ck-content class', () => {
+      it('should set "loadStyles: true" when field has a ck-content class', () => {
         const config = { loadStyles: false };
         const field: Field = {
           value: '<div class="test bar"><p class="foo ck-content">bar</p></div>',
@@ -105,7 +105,7 @@ describe('content-styles', () => {
         expect(config.loadStyles).to.be.false;
       });
 
-      it('should set "loadStyles: false" when field has a ck-content class', () => {
+      it('should set "loadStyles: true" when field has a ck-content class', () => {
         const config = { loadStyles: false };
         const field: Item = {
           name: 'test',
@@ -141,7 +141,7 @@ describe('content-styles', () => {
         expect(config.loadStyles).to.be.false;
       });
 
-      it('should set "loadStyles: false" when field has a ck-content class', () => {
+      it('should set "loadStyles: true" when field has a ck-content class', () => {
         const config = { loadStyles: false };
         const field: Item[] = [
           {
@@ -229,7 +229,7 @@ describe('content-styles', () => {
     });
 
     describe('editing', () => {
-      it('should set "loadStyles: true" when component does not have a ck-content class', () => {
+      it('should set "loadStyles: false" when component does not have a ck-content class', () => {
         const config = { loadStyles: false };
         const component = {
           componentName: 'ContentBlock',
