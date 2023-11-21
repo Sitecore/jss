@@ -50,14 +50,16 @@ const sitemapApi = async (
   if (!sitemaps.length) {
     return res.redirect('/404');
   }
-
+  
+  const reqtHost = req.headers.host;
+  const reqProtocol = req.headers['x-forwarded-proto'] || 'https';
   const SitemapLinks = sitemaps
     .map((item) => {
       const parseUrl = item.split('/');
       const lastSegment = parseUrl[parseUrl.length - 1];
 
       return `<sitemap>
-        <loc>${config.publicUrl}/${lastSegment}</loc>
+        <loc>${reqProtocol}://${reqtHost}/${lastSegment}</loc>
       </sitemap>`;
     })
     .join('');
