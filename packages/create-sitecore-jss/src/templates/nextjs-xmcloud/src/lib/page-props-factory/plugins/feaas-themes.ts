@@ -8,8 +8,13 @@ class FEeaSThemesPlugin implements Plugin {
 
   async exec(props: SitecorePageProps) {
     // Collect FEAAS themes
-    props.headLinks.push(...getFEAASLibraryStylesheetLinks(props.layoutData, config.sitecoreEdgeUrl));
-
+    props.headLinks.push(
+      ...getFEAASLibraryStylesheetLinks(
+        props.layoutData,
+        config.sitecoreEdgeContextId,
+        config.sitecoreEdgeUrl
+      )
+    );
     return props;
   }
 }
