@@ -11,7 +11,7 @@ class SitePlugin implements Plugin {
     if (context.preview) return props;
 
     // Resolve site by name
-    props.site = siteResolver.getByName(config.siteName);
+    props.site = siteResolver.getByName(config.sitecoreSiteName);
 
     return props;
   }

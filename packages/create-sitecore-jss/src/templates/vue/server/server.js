@@ -39,8 +39,8 @@ export const setUpDefaultAgents = (httpAgent, httpsAgent) => {
 /** Export the API key. This will be used by default in Headless mode, removing the need to manually configure the API key on the proxy. */
 export const apiKey = config.sitecoreApiKey;
 
-/** Export the app name. This will be used by default in Headless mode, removing the need to manually configure the app name on the proxy. */
-export const siteName = config.siteName;
+/** Export the site name. This will be used by default in Headless mode, removing the need to manually configure the site name on the proxy. */
+export const siteName = config.sitecoreSiteName;
 
 /**
  * Main entry point to the application when run via Server-Side Rendering,

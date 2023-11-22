@@ -13,7 +13,7 @@ class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
 
   constructor() {
     this._graphqlSitemapService = new GraphQLSitemapService({
-      siteName: config.siteName,
+      siteName: config.sitecoreSiteName,
       clientFactory,
     });
   }

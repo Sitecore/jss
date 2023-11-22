@@ -98,6 +98,6 @@ function parseRouteUrl(url: string) {
 }
 
 const apiKey = environment.sitecoreApiKey;
-const siteName = environment.siteName;
+const siteName = environment.sitecoreSiteName;
 
 export { renderView, parseRouteUrl, setUpDefaultAgents, apiKey, siteName };

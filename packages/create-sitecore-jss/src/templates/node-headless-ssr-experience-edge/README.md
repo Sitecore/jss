@@ -24,7 +24,7 @@ This is a sample setup showing one of how you can configure rendering server on 
 
    > You can use JSS sample apps which support server side rendering (JSS integrated mode) to operate with this project.
 
-1. Deploy the build artifacts from your app (`/dist` or `/build` within the app) to the `sitecoreDistPath` set in your app's `package.json` under the SSR sample root path. Most apps use `/dist/${siteName}`, for example `$ssrSampleRoot/dist/${siteName}`.
+1. Deploy the build artifacts from your app (`/dist` or `/build` within the app) to the `sitecoreDistPath` set in your app's `package.json` under the SSR sample root path. Most apps use `/dist/${jssAppName}`, for example `$ssrSampleRoot/dist/${jssAppName}`.
 
    > Another way to deploy the artifacts to the SSR sample is to change the `instancePath` in your app's `scjssconfig.json` to the SSR sample root path, and then use `jss deploy files` within the app to complete the deployment to the SSR sample.
 
@@ -38,7 +38,8 @@ The following environment variables can be set to configure the SSR sample inste
 
 | Parameter                           | Description                                                                                                                                                       |
 | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `SITECORE_SITE_NAME`                | The sitecore site's name. Used when request layout data and dictionary using graphql query and the default value of `SITECORE_JSS_SERVER_BUNDLE` if it's not set. |
+| `SITECORE_JSS_APP_NAME`             | The JSS app's name. Used in the default value of `SITECORE_JSS_SERVER_BUNDLE` if it's not set. Used as the `SITECORE_SITE_NAME` if it's not set. |
+| `SITECORE_SITE_NAME`                | The Sitecore site name. Used for layout and dictionary data requests. |
 | `SITECORE_API_KEY`                  | The API key provisioned on Sitecore Experience Edge.                                                                                                              |
 | `SITECORE_JSS_SERVER_BUNDLE`        | Path to the JSS app's `server.bundle.js` file.                                                                                                                    |
 | `SITECORE_EXPERIENCE_EDGE_ENDPOINT` | Sitecore Experience Edge endpoint.                                                                                                                                |
