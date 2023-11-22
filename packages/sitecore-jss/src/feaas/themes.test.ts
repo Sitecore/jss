@@ -1,25 +1,16 @@
 import { expect } from 'chai';
-import {
-  FEAAS_SERVER_URL_STAGING,
-  FEAAS_SERVER_URL_BETA,
-  FEAAS_SERVER_URL_PROD,
-  getFEAASLibraryStylesheetLinks,
-  getStylesheetUrl,
-} from './themes';
+import { getFEAASLibraryStylesheetLinks, getStylesheetUrl } from './themes';
 import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
-import { ComponentRendering, HtmlElementRendering, LayoutServicePageState } from '../layout';
+import { ComponentRendering, HtmlElementRendering } from '../layout';
 
 describe('themes', () => {
+  const sitecoreEdgeContextId = 'test';
+
   describe('getFEAASLibraryStylesheetLinks', () => {
-    const setBasicLayoutData = (
-      component: ComponentRendering | HtmlElementRendering,
-      pageState?: LayoutServicePageState
-    ) => {
+    const setBasicLayoutData = (component: ComponentRendering | HtmlElementRendering) => {
       return {
         sitecore: {
-          context: {
-            pageState,
-          },
+          context: {},
           route: {
             name: 'home',
             placeholders: {
@@ -32,162 +23,187 @@ describe('themes', () => {
 
     it('should return empty array route data is not provided', () => {
       expect(
-        getFEAASLibraryStylesheetLinks({
-          sitecore: {
-            context: {},
-            route: null,
+        getFEAASLibraryStylesheetLinks(
+          {
+            sitecore: {
+              context: {},
+              route: null,
+            },
           },
-        })
+          sitecoreEdgeContextId
+        )
       ).to.deep.equal([]);
     });
 
-    describe('normal mode', () => {
-      it('should return links using CSSStyles field', () => {
-        expect(
-          getFEAASLibraryStylesheetLinks(
-            setBasicLayoutData({
-              componentName: 'test',
-              fields: {
-                CSSStyles: {
-                  value: '-library--foo',
-                },
-                LibraryId: {
-                  value: 'bar',
-                },
+    it('should return links using CSSStyles field', () => {
+      expect(
+        getFEAASLibraryStylesheetLinks(
+          setBasicLayoutData({
+            componentName: 'test',
+            fields: {
+              CSSStyles: {
+                value: '-library--foo',
               },
-            })
-          )
-        ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'stylesheet' }]);
-      });
+              LibraryId: {
+                value: 'bar',
+              },
+            },
+          }),
+          sitecoreEdgeContextId
+        )
+      ).to.deep.equal([
+        { href: getStylesheetUrl('foo', sitecoreEdgeContextId), rel: 'stylesheet' },
+      ]);
+    });
 
-      it('should return links using LibraryId field', () => {
-        expect(
-          getFEAASLibraryStylesheetLinks(
-            setBasicLayoutData({
-              componentName: 'test',
-              fields: {
-                LibraryId: {
-                  value: 'bar',
-                },
+    it('should return links using LibraryId field', () => {
+      expect(
+        getFEAASLibraryStylesheetLinks(
+          setBasicLayoutData({
+            componentName: 'test',
+            fields: {
+              LibraryId: {
+                value: 'bar',
               },
-            })
-          )
-        ).to.deep.equal([{ href: getStylesheetUrl('bar'), rel: 'stylesheet' }]);
-      });
+            },
+          }),
+          sitecoreEdgeContextId
+        )
+      ).to.deep.equal([
+        { href: getStylesheetUrl('bar', sitecoreEdgeContextId), rel: 'stylesheet' },
+      ]);
+    });
 
-      it('should return links using CSSStyles param', () => {
-        expect(
-          getFEAASLibraryStylesheetLinks(
-            setBasicLayoutData({
-              componentName: 'styled',
-              params: {
-                CSSStyles: '-library--foo',
-              },
-            })
-          )
-        ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'stylesheet' }]);
-      });
+    it('should return links using CSSStyles param', () => {
+      expect(
+        getFEAASLibraryStylesheetLinks(
+          setBasicLayoutData({
+            componentName: 'styled',
+            params: {
+              CSSStyles: '-library--foo',
+            },
+          }),
+          sitecoreEdgeContextId
+        )
+      ).to.deep.equal([
+        { href: getStylesheetUrl('foo', sitecoreEdgeContextId), rel: 'stylesheet' },
+      ]);
+    });
 
-      it('should return links using LibraryId param', () => {
-        expect(
-          getFEAASLibraryStylesheetLinks(
-            setBasicLayoutData({
-              componentName: 'styled',
-              params: {
-                LibraryId: 'bar',
-              },
-            })
-          )
-        ).to.deep.equal([{ href: getStylesheetUrl('bar'), rel: 'stylesheet' }]);
-      });
+    it('should return links using LibraryId param', () => {
+      expect(
+        getFEAASLibraryStylesheetLinks(
+          setBasicLayoutData({
+            componentName: 'styled',
+            params: {
+              LibraryId: 'bar',
+            },
+          }),
+          sitecoreEdgeContextId
+        )
+      ).to.deep.equal([
+        { href: getStylesheetUrl('bar', sitecoreEdgeContextId), rel: 'stylesheet' },
+      ]);
+    });
 
-      it('should return prefer params over fields', () => {
-        expect(
-          getFEAASLibraryStylesheetLinks(
-            setBasicLayoutData({
-              componentName: 'styled',
-              params: {
-                CSSStyles: '-library--foo',
+    it('should return prefer params over fields', () => {
+      expect(
+        getFEAASLibraryStylesheetLinks(
+          setBasicLayoutData({
+            componentName: 'styled',
+            params: {
+              CSSStyles: '-library--foo',
+            },
+            fields: {
+              CSSStyles: {
+                value: '-library--not-foo',
               },
-              fields: {
-                CSSStyles: {
-                  value: '-library--not-foo',
-                },
-              },
-            })
-          )
-        ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'stylesheet' }]);
+            },
+          }),
+          sitecoreEdgeContextId
+        )
+      ).to.deep.equal([
+        { href: getStylesheetUrl('foo', sitecoreEdgeContextId), rel: 'stylesheet' },
+      ]);
 
-        expect(
-          getFEAASLibraryStylesheetLinks(
-            setBasicLayoutData({
-              componentName: 'styled',
-              params: {
-                LibraryId: 'bar',
+      expect(
+        getFEAASLibraryStylesheetLinks(
+          setBasicLayoutData({
+            componentName: 'styled',
+            params: {
+              LibraryId: 'bar',
+            },
+            fields: {
+              LibraryId: {
+                value: 'not-bar',
               },
-              fields: {
-                LibraryId: {
-                  value: 'not-bar',
-                },
-              },
-            })
-          )
-        ).to.deep.equal([{ href: getStylesheetUrl('bar'), rel: 'stylesheet' }]);
-      });
+            },
+          }),
+          sitecoreEdgeContextId
+        )
+      ).to.deep.equal([
+        { href: getStylesheetUrl('bar', sitecoreEdgeContextId), rel: 'stylesheet' },
+      ]);
+    });
 
-      it('should read LibraryId from class when matching param or field is not found', () => {
-        expect(
-          getFEAASLibraryStylesheetLinks(
-            setBasicLayoutData({
-              componentName: 'styled',
-              params: {
-                NotCSSStyles: '-library--not-foo',
-                NotLibraryId: 'not-foo',
+    it('should read LibraryId from class when matching param or field is not found', () => {
+      expect(
+        getFEAASLibraryStylesheetLinks(
+          setBasicLayoutData({
+            componentName: 'styled',
+            params: {
+              NotCSSStyles: '-library--not-foo',
+              NotLibraryId: 'not-foo',
+            },
+            fields: {
+              NotCSSStyles: {
+                value: '-library--not-foo',
               },
-              fields: {
-                NotCSSStyles: {
-                  value: '-library--not-foo',
-                },
-                NotLibraryId: {
-                  value: 'not-foo',
-                },
+              NotLibraryId: {
+                value: 'not-foo',
               },
-              attributes: {
-                class: '-library--foo',
-              },
-            })
-          )
-        ).to.deep.equal([{ href: getStylesheetUrl('foo'), rel: 'stylesheet' }]);
-      });
+            },
+            attributes: {
+              class: '-library--foo',
+            },
+          }),
+          sitecoreEdgeContextId
+        )
+      ).to.deep.equal([
+        { href: getStylesheetUrl('foo', sitecoreEdgeContextId), rel: 'stylesheet' },
+      ]);
+    });
 
-      it('should return links using non-prod server url', () => {
-        expect(
-          getFEAASLibraryStylesheetLinks(
-            setBasicLayoutData({
-              componentName: 'test',
-              fields: {
-                LibraryId: {
-                  value: 'bar',
-                },
+    it('should return links using non-prod edge url', () => {
+      expect(
+        getFEAASLibraryStylesheetLinks(
+          setBasicLayoutData({
+            componentName: 'test',
+            fields: {
+              LibraryId: {
+                value: 'bar',
               },
-            }),
+            },
+          }),
+          sitecoreEdgeContextId,
+          'https://edge-platform-dev.sitecorecloud.io'
+        )
+      ).to.deep.equal([
+        {
+          href: getStylesheetUrl(
+            'bar',
+            sitecoreEdgeContextId,
             'https://edge-platform-dev.sitecorecloud.io'
-          )
-        ).to.deep.equal([
-          {
-            href: getStylesheetUrl(
-              'bar',
-              LayoutServicePageState.Normal,
-              'https://edge-platform-dev.sitecorecloud.io'
-            ),
-            rel: 'stylesheet',
-          },
-        ]);
-      });
+          ),
+          rel: 'stylesheet',
+        },
+      ]);
+    });
 
-      it('should return empty links array when required fields are not provided', () => {
-        expect(
-          getFEAASLibraryStylesheetLinks({
+    it('should return empty links array when required fields are not provided', () => {
+      expect(
+        getFEAASLibraryStylesheetLinks(
+          {
             sitecore: {
               context: {},
               route: {
@@ -196,24 +212,28 @@ describe('themes', () => {
                 placeholders: {},
               },
             },
-          })
-        ).to.deep.equal([]);
-      });
+          },
+          sitecoreEdgeContextId
+        )
+      ).to.deep.equal([]);
+    });
 
-      it('should return empty links array when required params are not provided', () => {
-        expect(
-          getFEAASLibraryStylesheetLinks(
-            setBasicLayoutData({
-              componentName: 'styled',
-              params: {},
-            })
-          )
-        ).to.deep.equal([]);
-      });
+    it('should return empty links array when required params are not provided', () => {
+      expect(
+        getFEAASLibraryStylesheetLinks(
+          setBasicLayoutData({
+            componentName: 'styled',
+            params: {},
+          }),
+          sitecoreEdgeContextId
+        )
+      ).to.deep.equal([]);
+    });
 
-      it('should traverse nested nodes and return only unique links', () => {
-        expect(
-          getFEAASLibraryStylesheetLinks({
+    it('should traverse nested nodes and return only unique links', () => {
+      expect(
+        getFEAASLibraryStylesheetLinks(
+          {
             sitecore: {
               context: {},
               route: {
@@ -326,202 +346,62 @@ describe('themes', () => {
                 },
               },
             },
-          })
-        ).to.deep.equal(
-          ['foo', 'x11', 'x12', 'x21', 'y1', 'y2', 'z1', 'z11', 'z21'].map((id) => ({
-            href: getStylesheetUrl(id),
-            rel: 'stylesheet',
-          }))
-        );
-      });
-    });
-
-    describe('editing mode', () => {
-      it('should return links using class attribute', () => {
-        expect(
-          getFEAASLibraryStylesheetLinks(
-            setBasicLayoutData(
-              {
-                name: 'foo-component',
-                contents: null,
-                attributes: {
-                  class: '-library--bar',
-                },
-              },
-              LayoutServicePageState.Edit
-            )
-          )
-        ).to.deep.equal([
-          { href: getStylesheetUrl('bar', LayoutServicePageState.Edit), rel: 'stylesheet' },
-        ]);
-      });
-
-      it('should return links using non-prod server url', () => {
-        expect(
-          getFEAASLibraryStylesheetLinks(
-            setBasicLayoutData(
-              {
-                name: 'foo-component',
-                contents: null,
-                attributes: {
-                  class: '-library--bar',
-                },
-              },
-              LayoutServicePageState.Edit
-            ),
-            'https://edge-platform-dev.sitecorecloud.io'
-          )
-        ).to.deep.equal([
-          {
-            rel: 'stylesheet',
-            href: getStylesheetUrl(
-              'bar',
-              LayoutServicePageState.Edit,
-              'https://edge-platform-dev.sitecorecloud.io'
-            ),
           },
-        ]);
-      });
-
-      it('should not return id when class does not match pattern', () => {
-        expect(
-          getFEAASLibraryStylesheetLinks(
-            setBasicLayoutData(
-              {
-                name: 'foo-component',
-                contents: null,
-                attributes: {
-                  class: 'bar',
-                },
-              },
-              LayoutServicePageState.Edit
-            )
-          )
-        ).to.deep.equal([]);
-      });
-
-      it('should return only unique links', () => {
-        expect(
-          getFEAASLibraryStylesheetLinks({
-            sitecore: {
-              context: {
-                pageState: LayoutServicePageState.Edit,
-              },
-              route: {
-                name: 'home',
-                placeholders: {
-                  x: [
-                    {
-                      name: 'x1-component',
-                      contents: null,
-                      attributes: {
-                        class: '-library--x1',
-                      },
-                    },
-                  ],
-                  y: [
-                    {
-                      name: 'x2-component',
-                      contents: null,
-                      attributes: {
-                        class: '-library--x1',
-                      },
-                    },
-                    {
-                      name: 'y1-component',
-                      contents: null,
-                      attributes: {
-                        class: '-library--y1',
-                      },
-                    },
-                  ],
-                  z: [
-                    {
-                      name: 'z-component',
-                      contents: null,
-                      attributes: {
-                        class: '-library--z1',
-                      },
-                    },
-                    {
-                      name: 'z-component',
-                      contents: null,
-                      attributes: {
-                        class: '-library--z2',
-                      },
-                    },
-                  ],
-                },
-              },
-            },
-          })
-        ).to.deep.equal(
-          ['x1', 'y1', 'z1', 'z2'].map((id) => ({
-            rel: 'stylesheet',
-            href: getStylesheetUrl(id, LayoutServicePageState.Edit),
-          }))
-        );
-      });
+          sitecoreEdgeContextId
+        )
+      ).to.deep.equal(
+        ['foo', 'x11', 'x12', 'x21', 'y1', 'y2', 'z1', 'z11', 'z21'].map((id) => ({
+          href: getStylesheetUrl(id, sitecoreEdgeContextId),
+          rel: 'stylesheet',
+        }))
+      );
     });
 
-    describe('getStylesheetUrl', () => {
-      it('should use published css url in Normal mode', () => {
-        const pageState = LayoutServicePageState.Normal;
+    it('should return links using class attribute', () => {
+      expect(
+        getFEAASLibraryStylesheetLinks(
+          setBasicLayoutData({
+            name: 'foo-component',
+            contents: null,
+            attributes: {
+              class: '-library--bar',
+            },
+          }),
+          sitecoreEdgeContextId
+        )
+      ).to.deep.equal([
+        { href: getStylesheetUrl('bar', sitecoreEdgeContextId), rel: 'stylesheet' },
+      ]);
+    });
 
-        expect(getStylesheetUrl('foo', pageState)).to.equal(
-          `${FEAAS_SERVER_URL_PROD}/styles/foo/published.css`
-        );
-      });
+    it('should not return id when class does not match pattern', () => {
+      expect(
+        getFEAASLibraryStylesheetLinks(
+          setBasicLayoutData({
+            name: 'foo-component',
+            contents: null,
+            attributes: {
+              class: 'bar',
+            },
+          }),
+          sitecoreEdgeContextId
+        )
+      ).to.deep.equal([]);
+    });
+  });
 
-      it('should use staged css url in Edit mode', () => {
-        const pageState = LayoutServicePageState.Edit;
+  describe('getStylesheetUrl', () => {
+    it('should use prod edge url by default', () => {
+      expect(getStylesheetUrl('foo', sitecoreEdgeContextId)).to.equal(
+        `${SITECORE_EDGE_URL_DEFAULT}/v1/files/components/styles/foo.css?sitecoreContextId=${sitecoreEdgeContextId}`
+      );
+    });
 
-        expect(getStylesheetUrl('foo', pageState)).to.equal(
-          `${FEAAS_SERVER_URL_PROD}/styles/foo/staged.css`
-        );
-      });
-
-      it('should use staged css url in Preview mode', () => {
-        const pageState = LayoutServicePageState.Preview;
-
-        expect(getStylesheetUrl('foo', pageState)).to.equal(
-          `${FEAAS_SERVER_URL_PROD}/styles/foo/staged.css`
-        );
-      });
-
-      ['dev', 'qa', 'staging'].map((env) => {
-        it(`should use staging server url for edge ${env} url`, () => {
-          const pageState = LayoutServicePageState.Normal;
-
-          expect(
-            getStylesheetUrl(
-              'foo',
-              pageState,
-              `https://edge-platform-${env}.sitecore-staging.cloud`
-            )
-          ).to.equal(`${FEAAS_SERVER_URL_STAGING}/styles/foo/published.css`);
-        });
-      });
-
-      it('should use beta server url for edge preprod url', () => {
-        const pageState = LayoutServicePageState.Normal;
-
-        expect(
-          getStylesheetUrl(
-            'foo',
-            pageState,
-            'https://edge-platform-pre-production.sitecorecloud.io'
-          )
-        ).to.equal(`${FEAAS_SERVER_URL_BETA}/styles/foo/published.css`);
-      });
-
-      it('should use prod server url for edge prod url', () => {
-        const pageState = LayoutServicePageState.Normal;
-
-        expect(getStylesheetUrl('foo', pageState, SITECORE_EDGE_URL_DEFAULT)).to.equal(
-          `${FEAAS_SERVER_URL_PROD}/styles/foo/published.css`
-        );
-      });
+    it('should use non-prod edge url', () => {
+      const nonProdUrl = 'https://edge-platform-pre-production.sitecorecloud.io';
+      expect(getStylesheetUrl('foo', sitecoreEdgeContextId, nonProdUrl)).to.equal(
+        `${nonProdUrl}/v1/files/components/styles/foo.css?sitecoreContextId=${sitecoreEdgeContextId}`
+      );
     });
   });
 });

@@ -10,14 +10,13 @@ const packageConfig = require('../package.json');
  * settings as variables into the JSS app.
  * NOTE! Any configs returned here will be written into the client-side JS bundle. DO NOT PUT SECRETS HERE.
  */
-// JSS_APP_NAME env variable has been deprecated since v.21.6, SITE_NAME should be used instead
+// JSS_APP_NAME env variable has been deprecated since v.21.6, SITECORE_SITE_NAME should be used instead
 export function generateConfig(configOverrides?: { [key: string]: unknown }, outputPath?: string) {
   const defaultConfig = {
     production: false,
     sitecoreApiHost: '',
     sitecoreApiKey: 'no-api-key-set',
-    jssAppName: process.env.JSS_APP_NAME,
-    siteName: process.env.SITE_NAME,
+    sitecoreSiteName: process.env.SITECORE_SITE_NAME || process.env.JSS_APP_NAME,
     sitecoreLayoutServiceConfig: 'jss',
     defaultLanguage: 'en',
     defaultServerRoute: '/',
@@ -39,9 +38,6 @@ export function generateConfig(configOverrides?: { [key: string]: unknown }, out
   // scjssconfig.json overrides it,
   // and finally config passed in the configOverrides param wins.
   const config = Object.assign(defaultConfig, scjssConfig, packageJson, configOverrides);
-
-  // for the sake of backwards compatibility - make sure to initialize siteName
-  config.siteName = config.siteName || config.jssAppName;
 
   // The GraphQL endpoint is an example of making a _computed_ config setting
   // based on other config settings.
@@ -98,7 +94,7 @@ function transformPackageConfig() {
   }
 
   return {
-    siteName: packageAny.config.appName,
+    sitecoreSiteName: packageAny.config.appName,
     defaultLanguage: packageAny.config.language || 'en',
     graphQLEndpointPath: packageAny.config.graphQLEndpointPath || null,
   };
