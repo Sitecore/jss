@@ -1,4 +1,5 @@
 import * as FEAAS from '@sitecore-feaas/clientside/react';
+import '@sitecore/components/context';
 import dynamic from 'next/dynamic';
 import { context } from 'lib/context';
 /**

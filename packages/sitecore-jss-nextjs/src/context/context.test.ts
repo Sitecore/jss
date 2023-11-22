@@ -77,13 +77,13 @@ describe('Context', () => {
       expect(context.sdks.Foo).to.equal(undefined);
 
       Promise.all([
-        context.getSDK('Foo')?.then((sdk) => {
+        context.getSDK('Foo').then((sdk) => {
           expect(fooInitSpy.calledOnce).to.be.true;
           expect(sdk).to.deep.equal(sdks.Foo.sdk);
 
           return;
         }),
-        context.getSDK('Bar')?.then((sdk) => {
+        context.getSDK('Bar').then((sdk) => {
           expect(barInitSpy.calledOnce).to.be.true;
           expect(sdk).to.deep.equal(sdks.Bar.sdk);
 
@@ -109,13 +109,13 @@ describe('Context', () => {
       expect(context.sdks.Foo).to.equal(undefined);
 
       Promise.all([
-        context.getSDK('Foo')?.then((sdk) => {
+        context.getSDK('Foo').then((sdk) => {
           expect(fooInitSpy.calledOnce).to.be.true;
           expect(sdk).to.deep.equal(sdks.Foo.sdk);
 
           return;
         }),
-        context.getSDK('Bar')?.then((sdk) => {
+        context.getSDK('Bar').then((sdk) => {
           expect(barInitSpy.calledOnce).to.be.true;
           expect(sdk).to.deep.equal(sdks.Bar.sdk);
 
@@ -152,13 +152,13 @@ describe('Context', () => {
       expect(context.sdks.Foo).to.equal(undefined);
 
       Promise.all([
-        context.getSDK('Foo')?.then((sdk) => {
+        context.getSDK('Foo').then((sdk) => {
           expect(fooInitSpy.calledOnce).to.be.true;
           expect(sdk).to.deep.equal(sdks.Foo.sdk);
 
           return;
         }),
-        context.getSDK('Bar')?.then((sdk) => {
+        context.getSDK('Bar').then((sdk) => {
           expect(barInitSpy.calledOnce).to.be.true;
           expect(sdk).to.deep.equal(sdks.Bar.sdk);
 
@@ -170,6 +170,22 @@ describe('Context', () => {
 
         done();
       });
+    });
+
+    it('should reject unknown SDK', async () => {
+      const context = new Context<typeof sdks>(props);
+      const sdk = 'Baz';
+
+      context.init();
+
+      return context
+        .getSDK(sdk)
+        .then(() => {
+          throw new Error('should not resolve');
+        })
+        .catch((e) => {
+          expect(e).to.equal(`Unknown SDK '${sdk}'`);
+        });
     });
   });
 });

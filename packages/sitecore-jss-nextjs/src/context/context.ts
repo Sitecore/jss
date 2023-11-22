@@ -111,10 +111,8 @@ export class Context<SDKModules extends SDKModulesType> {
    * @param {string} name SDK name
    * @returns initialized SDK
    */
-  public getSDK = <T extends keyof SDKModules>(
-    name: T
-  ): Promise<SDKModules[T]['sdk']> | undefined => {
-    return this.sdkPromises[name];
+  public getSDK = <T extends keyof SDKModules>(name: T): Promise<SDKModules[T]['sdk']> => {
+    return this.sdkPromises[name] || Promise.reject(`Unknown SDK '${String(name)}'`);
   };
 
   /**
