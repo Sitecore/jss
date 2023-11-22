@@ -47,7 +47,7 @@ const CdpPageView = (): JSX.Element => {
       scope
     );
 
-    context.getSDK('Events')?.then((Events) =>
+    context.getSDK('Events').then((Events) =>
       Events.pageView({
         channel: 'WEB',
         currency: 'USD',
