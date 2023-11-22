@@ -18,7 +18,7 @@ import { environment } from '../src/environments/environment';
 
 const config = environment as {
   [key: string]: unknown;
-  siteName: string;
+  sitecoreSiteName: string;
   defaultLanguage: string;
 };
 
@@ -26,7 +26,7 @@ const touchToReloadFilePath = 'src/environments/environment.js';
 
 const proxyOptions: DisconnectedServerOptions = {
   appRoot: join(__dirname, '..'),
-  appName: config.siteName,
+  appName: config.sitecoreSiteName,
   watchPaths: ['./data'],
   language: config.defaultLanguage,
   // Additional transpilation is not needed

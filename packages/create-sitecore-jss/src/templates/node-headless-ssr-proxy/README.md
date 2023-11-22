@@ -20,7 +20,7 @@ You can use this as a starting point to unlock deployment of your JSS apps to an
 
     > You can use any of the JSS sample apps. Other apps must support server side rendering (JSS integrated mode) to operate with this project.
 
-1.  Deploy the build artifacts from your app (`/dist` or `/build` within the app) to the `sitecoreDistPath` set in your app's `package.json` under the proxy root path. Most apps use `/dist/${siteName}`, for example `$proxyRoot/dist/${siteName}`.
+1.  Deploy the build artifacts from your app (`/dist` or `/build` within the app) to the `sitecoreDistPath` set in your app's `package.json` under the proxy root path. Most apps use `/dist/${jssAppName}`, for example `$proxyRoot/dist/${jssAppName}`.
 
 > Another way to deploy the artifacts to the proxy is to change the `instancePath` in your app's `scjssconfig.json` to the proxy root path, and then use `jss deploy files` within the app to complete the deployment to the proxy.
 
@@ -34,7 +34,8 @@ The following environment variables can be set to configure the proxy instead of
 
 | Parameter                              | Description                                                                                                                                |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `SITECORE_JSS_APP_NAME`                | The JSS app's name. Used in dictionary service URL, and the default value of `SITECORE_JSS_SERVER_BUNDLE` if it's not set.                 |
+| `SITECORE_JSS_APP_NAME`             | The JSS app's name. Used in the default value of `SITECORE_JSS_SERVER_BUNDLE` if it's not set. Used as the `SITECORE_SITE_NAME` if it's not set. |
+| `SITECORE_SITE_NAME`                | The Sitecore site name. Used for layout and dictionary data requests. |
 | `SITECORE_JSS_SERVER_BUNDLE`           | Path to the JSS app's `server.bundle.js` file.                                                                                             |
 | `SITECORE_API_HOST`                    | Sitecore instance host name. Should be HTTPS in production.                                                                                |
 | `SITECORE_LAYOUT_SERVICE_ROUTE`        | Optional. The path to layout service for the JSS application. Defaults to `/sitecore/api/layout/render/jss`.                               |

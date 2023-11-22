@@ -3,19 +3,15 @@ import fs from 'fs';
 import { RestDictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
 import { httpAgentsConfig } from './httpAgents';
 
-/**
- * The sitecore site name defaults to providing part of the bundle path as well as the dictionary service endpoint.
- * If not passed as an environment variable or set here, any application name exported from the bundle will be used instead.
- */
-// SITECORE_JSS_APP_NAME env variable has been deprecated since v.21.6, SITECORE_SITE_NAME should be used instead
-let siteName =
-  process.env.SITECORE_SITE_NAME || process.env.SITECORE_JSS_APP_NAME || 'YOUR SITE NAME';
+const appName = process.env.SITECORE_JSS_APP_NAME || 'YOUR APP NAME';
+
+let siteName = process.env.SITECORE_SITE_NAME || appName;
 
 /**
  * The server.bundle.js file from your pre-built JSS app
  */
 
-const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `../dist/${siteName}/server.bundle`;
+const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `../dist/${appName}/server.bundle`;
 
 const serverBundle = require(bundlePath) as ServerBundle;
 

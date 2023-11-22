@@ -10,7 +10,7 @@ class PackageJsonPlugin {
     if (!packageConfig.config) return config;
 
     return Object.assign({}, config, {
-      siteName: config.siteName || packageConfig.config.appName,
+      sitecoreSiteName: config.sitecoreSiteName || packageConfig.config.appName,
       defaultLanguage: config.defaultLanguage || packageConfig.config.language,
       graphQLEndpointPath: config.graphQLEndpointPath || packageConfig.config.graphQLEndpointPath,
     });
