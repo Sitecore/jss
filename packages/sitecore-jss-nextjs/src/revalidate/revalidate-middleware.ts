@@ -2,6 +2,9 @@
 import { GraphQLPersonalizeService } from '@sitecore-jss/sitecore-jss/personalize';
 import { GraphQLRequestClientFactory } from '@sitecore-jss/sitecore-jss/graphql';
 
+/**
+ * Object model of each updated entity returned from the webhook payload
+ */
 export type Entity = {
   identifier: string;
   entity_definition: string;
@@ -9,19 +12,37 @@ export type Entity = {
   entity_culture: string;
 };
 
+/**
+ * Object model for updated paths returned from the webhook payload
+ */
 export type UpdatedPaths = {
   path: string;
   language: string;
 };
 
+/**
+ *  Object model for personalized results from GraphqlPersonalizeService
+ */
 export type PersonalizedResult = {
   path: string;
   variantId: string;
 };
 
 export type RevalidateConfig = {
+  /**
+   * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
+   * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
+   */
   clientFactory: GraphQLRequestClientFactory;
+  /**
+   * Whether multisite is configured
+   * Default is false
+   */
   multiSite?: boolean;
+  /**
+   * Whether personalization is configured
+   * Default is false
+   */
   personalize?: boolean;
 };
 
@@ -52,10 +73,20 @@ export class RevalidateMiddleware {
     return data.length === 0;
   }
 
+  /**
+   * Extracts the paths from the updated paths
+   * @param {UpdatedPaths[]} filteredUpdates Updated paths
+   * @returns {string[]} paths
+   */
   protected extractPaths(filteredUpdates: UpdatedPaths[]) {
     return filteredUpdates.map((update) => update.path);
   }
 
+  /**
+   * Gets the site name from the path name
+   * @param {string} pathname Path name
+   * @returns {string} site name
+   */
   protected getSiteName(pathname: string) {
     let siteName = '';
 
@@ -69,6 +100,11 @@ export class RevalidateMiddleware {
     return siteName;
   }
 
+  /**
+   * Gets the path name from the full path
+   * @param {string} fullPath Full path
+   * @returns {string} path name
+   */
   protected getPathName(fullPath: string) {
     const pathParts = fullPath.split('/').filter((part) => part !== '');
 
@@ -81,6 +117,11 @@ export class RevalidateMiddleware {
     return '/';
   }
 
+  /**
+   * Filters out the updated paths and language from the request body
+   * @param {NextApiRequest} req Next.js API request
+   * @returns {UpdatedPaths[]} updated paths
+   */
   protected getFilteredUpdates(req: NextApiRequest): UpdatedPaths[] {
     if (!req.body?.updates || this.isEmpty(req.body.updates)) {
       return [];
@@ -98,6 +139,12 @@ export class RevalidateMiddleware {
       });
   }
 
+  /**
+   * Gets the rewrite paths for the updated paths
+   * @param {PersonalizedResult[]} personalizeInfo Personalized results
+   * @param {boolean} multiSite Whether multisite is configured
+   * @returns {string[]} rewrite paths
+   */
   protected getRewritePaths(
     personalizeInfo: (PersonalizedResult | { path: string })[],
     multiSite?: boolean
@@ -119,7 +166,6 @@ export class RevalidateMiddleware {
   /**
    * Gets personalized results for the updated paths
    * @param {UpdatedPaths[]} filteredUpdates Updated paths
-   * @returns {Promise<{ personalized: PersonalizedResult[]; nonPersonalized: { path: string }[] }>} personalized results
    */
   protected async getPersonalizedResults(filteredUpdates: UpdatedPaths[]) {
     const personalizedResults: PersonalizedResult[] = [];
@@ -157,12 +203,6 @@ export class RevalidateMiddleware {
     };
   }
 
-  /**
-   * Handler for the Next.js API route
-   * @param {NextApiRequest}  req   Next.js API request
-   * @param {NextApiResponse} res Next.js API response
-   * @returns Promise
-   */
   private handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
     // filter out updated paths and language from request.body
     const filteredUpdates = this.getFilteredUpdates(req);
@@ -172,6 +212,7 @@ export class RevalidateMiddleware {
       return res.status(204).json({});
     }
 
+    // extract only paths from filtered updates object
     const paths = this.extractPaths(filteredUpdates);
 
     const pathsToRevalidate: string[] = [];
@@ -203,6 +244,7 @@ export class RevalidateMiddleware {
     }
 
     try {
+      // revalidate all the collected paths
       await Promise.all(pathsToRevalidate.map((path: string) => res.revalidate(path)));
       console.log(`[api/revalidate] revalidate: ${pathsToRevalidate.join(', ')}`);
       return res.status(200).json({ revalidated: true });
