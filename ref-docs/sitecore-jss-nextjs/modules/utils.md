@@ -32,7 +32,7 @@ Similarly, DEPLOY_URL is provided by Netlify and would give us the deploy URL
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/1150cca52/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
+[sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/44427ed6d/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
 
 ___
 
@@ -60,7 +60,7 @@ forceReload false
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:42](https://github.com/Sitecore/jss/blob/1150cca52/packages/sitecore-jss-nextjs/src/utils/utils.ts#L42)
+[sitecore-jss-nextjs/src/utils/utils.ts:42](https://github.com/Sitecore/jss/blob/44427ed6d/packages/sitecore-jss-nextjs/src/utils/utils.ts#L42)
 
 ___
 
