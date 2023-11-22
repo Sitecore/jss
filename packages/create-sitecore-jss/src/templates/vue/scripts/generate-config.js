@@ -18,8 +18,7 @@ module.exports = function generateConfig(configOverrides) {
   const defaultConfig = {
     sitecoreApiKey: 'no-api-key-set',
     sitecoreApiHost: '',
-    jssAppName: process.env.VUE_APP_JSS_APP_NAME,
-    sitecoreSiteName: process.env.VUE_APP_SITECORE_SITE_NAME,
+    sitecoreSiteName: process.env.VUE_APP_SITECORE_SITE_NAME || process.env.VUE_APP_JSS_APP_NAME,
     layoutServiceConfigurationName: 'default',
   };
 
@@ -34,9 +33,6 @@ module.exports = function generateConfig(configOverrides) {
   // scjssconfig.json overrides it,
   // and finally config passed in the configOverrides param wins.
   const config = Object.assign(defaultConfig, scjssConfig, packageJson, configOverrides);
-
-  // for the sake of backwards compatibility - make sure to initialize siteName
-  config.sitecoreSiteName = config.sitecoreSiteName || config.jssAppName;
 
   // The GraphQL endpoint is an example of making a _computed_ config setting
   // based on other config settings.

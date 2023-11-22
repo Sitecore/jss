@@ -16,8 +16,7 @@ export function generateConfig(configOverrides?: { [key: string]: unknown }, out
     production: false,
     sitecoreApiHost: '',
     sitecoreApiKey: 'no-api-key-set',
-    jssAppName: process.env.JSS_APP_NAME,
-    sitecoreSiteName: process.env.SITECORE_SITE_NAME,
+    sitecoreSiteName: process.env.SITECORE_SITE_NAME || process.env.JSS_APP_NAME,
     sitecoreLayoutServiceConfig: 'jss',
     defaultLanguage: 'en',
     defaultServerRoute: '/',
@@ -39,9 +38,6 @@ export function generateConfig(configOverrides?: { [key: string]: unknown }, out
   // scjssconfig.json overrides it,
   // and finally config passed in the configOverrides param wins.
   const config = Object.assign(defaultConfig, scjssConfig, packageJson, configOverrides);
-
-  // for the sake of backwards compatibility - make sure to initialize sitecoreSiteName
-  config.sitecoreSiteName = config.sitecoreSiteName || config.jssAppName;
 
   // The GraphQL endpoint is an example of making a _computed_ config setting
   // based on other config settings.
