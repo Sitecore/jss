@@ -20,6 +20,8 @@ export {
 
 export { getFieldValue, getChildPlaceholder } from './utils';
 
+export { getContentStylesheetLink } from './content-styles';
+
 export { LayoutService } from './layout-service';
 
 export {

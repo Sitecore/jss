@@ -11,7 +11,9 @@ Our versioning strategy is as follows:
 
 ## 21.5.1
 
-### 🎉 New Features & Improvements
+### 🎉 New Features & 
+
+* `[sitecore-jss]` `[templates/nextjs-xmcloud]` Load the content styles for the RichText component [#1670](https://github.com/Sitecore/jss/pull/1670)
 
 ### 🐛 Bug Fixes
 
