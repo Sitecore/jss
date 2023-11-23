@@ -4,7 +4,7 @@ import { getPublicUrl, getJssEditingSecret } from './utils';
 
 describe('utils', () => {
   describe('getPublicUrl', () => {
-    after(() => {
+    afterEach(() => {
       delete process.env.PUBLIC_URL;
       delete process.env.VERCEL_URL;
     });
@@ -28,15 +28,32 @@ describe('utils', () => {
       expect(result).to.equal('http://test.com/foo');
     });
 
-    it('should throw for invalid URL', () => {
-      process.env.PUBLIC_URL = 'nope';
-      expect(() => getPublicUrl()).to.throw();
-    });
-
-    it('should use VERCEL_URL', () => {
+    it('should use VERCEL_URL if PUBLIC_URL is not defined', () => {
       process.env.VERCEL_URL = 'jss.uniqueid.vercel.com';
       const result = getPublicUrl();
       expect(result).to.equal('https://jss.uniqueid.vercel.com');
+    });
+
+    it('should use PUBLIC_URL if PUBLIC_URL and VERCEL_URL are defined', () => {
+      process.env.VERCEL_URL = 'jss.uniqueid.vercel.com';
+      process.env.PUBLIC_URL = 'http://test.com';
+      const result = getPublicUrl();
+      expect(result).to.equal('http://test.com');
+    });
+
+    it('should use PUBLIC_URL if it is an empty string and VERCEL_URL is defined', () => {
+      process.env.VERCEL_URL = 'jss.uniqueid.vercel.com';
+      const publicUrl = '';
+      process.env.PUBLIC_URL = publicUrl;
+      const result = getPublicUrl();
+      expect(result).to.equal(publicUrl);
+    });
+
+    it('should use PUBLIC_URL if it is defined and is empty string', () => {
+      const publicUrl = '';
+      process.env.PUBLIC_URL = publicUrl;
+      const result = getPublicUrl();
+      expect(result).to.equal(publicUrl);
     });
   });
   describe('getJssEditingSecret', () => {
