@@ -75,8 +75,6 @@ export const traverseComponent = (
 ) => {
   if (config.loadStyles) return;
 
-  console.log(component);
-
   if ('fields' in component && component.fields) {
     Object.values(component.fields).forEach((field) => {
       traverseField(field, config);
