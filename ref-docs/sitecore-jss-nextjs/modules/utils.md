@@ -25,6 +25,7 @@ This is set to http://localhost:3000 by default.
 VERCEL_URL is provided by Vercel in case if we are in Preview deployment (deployment based on the custom branch),
 preview deployment has unique url, we don't know exact url.
 Similarly, DEPLOY_URL is provided by Netlify and would give us the deploy URL
+In production non-editing environments it is desirable to use relative urls, so in that case set PUBLIC_URL = ''
 
 #### Returns
 
@@ -32,7 +33,7 @@ Similarly, DEPLOY_URL is provided by Netlify and would give us the deploy URL
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/417cf381b/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
+[sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/7b26ef9ac/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
 
 ___
 
@@ -60,7 +61,7 @@ forceReload false
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:42](https://github.com/Sitecore/jss/blob/417cf381b/packages/sitecore-jss-nextjs/src/utils/utils.ts#L42)
+[sitecore-jss-nextjs/src/utils/utils.ts:33](https://github.com/Sitecore/jss/blob/7b26ef9ac/packages/sitecore-jss-nextjs/src/utils/utils.ts#L33)
 
 ___
 
