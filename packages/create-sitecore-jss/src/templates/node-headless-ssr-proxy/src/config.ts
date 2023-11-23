@@ -3,11 +3,9 @@ import fs from 'fs';
 import { RestDictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
 import { httpAgentsConfig } from './httpAgents';
 
-/**
- * The JSS application name defaults to providing part of the bundle path as well as the dictionary service endpoint.
- * If not passed as an environment variable or set here, any application name exported from the bundle will be used instead.
- */
-let appName = process.env.SITECORE_JSS_APP_NAME || 'YOUR APP NAME';
+const appName = process.env.SITECORE_JSS_APP_NAME || 'YOUR APP NAME';
+
+let siteName = process.env.SITECORE_SITE_NAME || appName;
 
 /**
  * The server.bundle.js file from your pre-built JSS app
@@ -21,13 +19,13 @@ httpAgentsConfig.setUpDefaultAgents(serverBundle);
 
 const apiHost = process.env.SITECORE_API_HOST || 'http://my.sitecore.host';
 
-appName = appName || serverBundle.appName;
+siteName = siteName || serverBundle.siteName;
 
 const apiKey = process.env.SITECORE_API_KEY || serverBundle.apiKey || '{YOUR API KEY HERE}';
 
 const dictionaryService = new RestDictionaryService({
   apiHost,
-  siteName: appName,
+  siteName: siteName,
   apiKey,
   cacheTimeout: 60,
 });
@@ -113,6 +111,10 @@ export const config: ProxyConfig = {
   setHeaders: (_req, _serverRes, proxyRes) => {
     delete proxyRes.headers['content-security-policy'];
   },
+  /**
+   * Query string parameters to add to Layout Service requests.
+   */
+  qsParams: `sc_site=${siteName}`,
   /**
    * Custom error handling in case our app fails to render.
    * Return null to pass through server response, or { content, statusCode }

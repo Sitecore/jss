@@ -4,8 +4,6 @@ import { Placeholder, LayoutServiceData, Field, HTMLLink } from '@sitecore-jss/s
 import config from 'temp/config';
 import Navigation from 'src/Navigation';
 import Scripts from 'src/Scripts';
-// The bundle imports external (BYOC) components into the app and makes sure they are ready to be used.
-import BYOC from 'src/byoc';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore editors.
 // If you're not supporting Sitecore editors, you can remove this.
@@ -29,7 +27,6 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
   return (
     <>
       <Scripts />
-      <BYOC />
       <Head>
         <title>{fields.pageTitle.value.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />

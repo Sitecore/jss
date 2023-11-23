@@ -2,7 +2,6 @@ import {
   ComponentRendering,
   HtmlElementRendering,
   LayoutServiceData,
-  LayoutServicePageState,
   RouteData,
   getFieldValue,
 } from '../layout';
@@ -10,30 +9,21 @@ import { HTMLLink } from '../models';
 import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
 
 /**
- * Stylesheets revision type
- * 'staged': Editing/Preview mode
- * 'published': Normal mode
- */
-type RevisionType = 'staged' | 'published';
-
-/**
  * Pattern for library ids
  * @example -library--foo
  */
 const FEAAS_LIBRARY_ID_REGEX = /-library--([^\s]+)/;
 
-export const FEAAS_SERVER_URL_STAGING = 'https://feaasstaging.blob.core.windows.net';
-export const FEAAS_SERVER_URL_BETA = 'https://feaasbeta.blob.core.windows.net';
-export const FEAAS_SERVER_URL_PROD = 'https://feaas.blob.core.windows.net';
-
 /**
  * Walks through rendering tree and returns list of links of all FEAAS Component Library Stylesheets that are used
  * @param {LayoutServiceData} layoutData Layout service data
+ * @param {string} sitecoreEdgeContextId Sitecore Edge Context ID
  * @param {string} [sitecoreEdgeUrl] Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io
  * @returns {HTMLLink[]} library stylesheet links
  */
 export function getFEAASLibraryStylesheetLinks(
   layoutData: LayoutServiceData,
+  sitecoreEdgeContextId: string,
   sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT
 ): HTMLLink[] {
   const ids = new Set<string>();
@@ -43,30 +33,17 @@ export function getFEAASLibraryStylesheetLinks(
   traverseComponent(layoutData.sitecore.route, ids);
 
   return [...ids].map((id) => ({
-    href: getStylesheetUrl(id, layoutData.sitecore.context.pageState, sitecoreEdgeUrl),
-    rel: 'style',
+    href: getStylesheetUrl(id, sitecoreEdgeContextId, sitecoreEdgeUrl),
+    rel: 'stylesheet',
   }));
 }
 
 export const getStylesheetUrl = (
   id: string,
-  pageState?: LayoutServicePageState,
+  sitecoreEdgeContextId: string,
   sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT
 ) => {
-  const revision: RevisionType =
-    pageState && pageState !== LayoutServicePageState.Normal ? 'staged' : 'published';
-
-  let serverUrl = FEAAS_SERVER_URL_PROD;
-  if (
-    sitecoreEdgeUrl.toLowerCase().includes('edge-platform-dev') ||
-    sitecoreEdgeUrl.toLowerCase().includes('edge-platform-qa') ||
-    sitecoreEdgeUrl.toLowerCase().includes('edge-platform-staging')
-  ) {
-    serverUrl = FEAAS_SERVER_URL_STAGING;
-  } else if (sitecoreEdgeUrl.toLowerCase().includes('edge-platform-pre-production')) {
-    serverUrl = FEAAS_SERVER_URL_BETA;
-  }
-  return `${serverUrl}/styles/${id}/${revision}.css`;
+  return `${sitecoreEdgeUrl}/v1/files/components/styles/${id}.css?sitecoreContextId=${sitecoreEdgeContextId}`;
 };
 
 /**

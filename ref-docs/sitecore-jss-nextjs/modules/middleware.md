@@ -34,17 +34,17 @@ Re-exports [debug](index.md#debug)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:6](https://github.com/Sitecore/jss/blob/9e5ca529b/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L6)
+[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:6](https://github.com/Sitecore/jss/blob/417cf381b/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L6)
 
 ___
 
 ### PersonalizeMiddlewareConfig
 
-Ƭ **PersonalizeMiddlewareConfig**: `MiddlewareBaseConfig` & { `cdpConfig`: `CdpServiceConfig` ; `edgeConfig`: `Omit`<`GraphQLPersonalizeServiceConfig`, ``"fetch"``\> ; `getPointOfSale?`: (`site`: [`SiteInfo`](index.md#siteinfo), `language`: `string`) => `string`  }
+Ƭ **PersonalizeMiddlewareConfig**: `MiddlewareBaseConfig` & { `cdpConfig`: `CdpServiceConfig` ; `edgeConfig`: `Omit`<`GraphQLPersonalizeServiceConfig`, ``"fetch"``\>  }
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:36](https://github.com/Sitecore/jss/blob/9e5ca529b/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L36)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:36](https://github.com/Sitecore/jss/blob/417cf381b/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L36)
 
 ___
 
@@ -56,4 +56,4 @@ extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:20](https://github.com/Sitecore/jss/blob/9e5ca529b/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L20)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:20](https://github.com/Sitecore/jss/blob/417cf381b/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L20)

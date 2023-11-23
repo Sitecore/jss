@@ -75,18 +75,10 @@ export class MultisiteMiddleware extends MiddlewareBase {
     const rewritePath = getSiteRewrite(pathname, {
       siteName,
     });
-
-    // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
-    const rewriteUrl = req.nextUrl.clone();
-
-    rewriteUrl.pathname = rewritePath;
-
-    response = NextResponse.rewrite(rewriteUrl);
+    response = this.rewrite(rewritePath, req, response);
 
     // Share site name with the following executed middlewares
     response.cookies.set(this.SITE_SYMBOL, siteName);
-    // Share rewrite path with following executed middlewares
-    response.headers.set('x-sc-rewrite', rewritePath);
 
     debug.multisite('multisite middleware end in %dms: %o', Date.now() - startTimestamp, {
       rewritePath,

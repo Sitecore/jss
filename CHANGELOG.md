@@ -11,18 +11,26 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🐛 Bug Fixes
+
+* `[templates/node-headless-ssr-proxy]` [node-headless-ssr-proxy] Add sc_site qs parameter to Layout Service requests by default ([#1660](https://github.com/Sitecore/jss/pull/1660))
+
+## 21.6.0
+
 ### 🎉 New Features & Improvements
 
-* `[sitecore-jss]` Support for both 'published' and 'staged' revisions of FEAAS stylesheets/themes ([#1644](https://github.com/Sitecore/jss/pull/1644))
-* `[templates/nextjs]` `[sitecore-jss-nextjs]` `[sitecore-jss]` ([#1640](https://github.com/Sitecore/jss/pull/1640)) Sitecore Edge Platform and Context support:
+* `[templates/react]` `[templates/angular]` `[templates/vue]` `[templates/node-headless-ssr-proxy]` `[templates/node-headless-ssr-experience-edge]` ([#1647](https://github.com/Sitecore/jss/pull/1647)) ([#1672](https://github.com/Sitecore/jss/pull/1672)) Switch from using JSS_APP_NAME to SITECORE_SITE_NAME - environment and config variables in React, Vue, Angular templates as well as ssr node proxy apps templates have been renamed. 
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` `[sitecore-jss]` ([#1640](https://github.com/Sitecore/jss/pull/1640)) ([#1662](https://github.com/Sitecore/jss/pull/1662))([#1661](https://github.com/Sitecore/jss/pull/1661)) ([#1672](https://github.com/Sitecore/jss/pull/1672)) ([#1675](https://github.com/Sitecore/jss/pull/1675)) Sitecore Edge Platform and Context support:
   * Introducing the _clientFactory_ property. This property can be utilized by GraphQL-based services, the previously used _endpoint_ and _apiKey_ properties are deprecated. The _clientFactory_ serves as the central hub for executing GraphQL requests within the application.
   * New SITECORE_EDGE_CONTEXT_ID environment variable has been added.
-  * The JSS_APP_NAME environment variable has been updated and is now referred to as SITE_NAME.
+  * The JSS_APP_NAME environment variable has been updated and is now referred to as SITECORE_SITE_NAME.
 * `[templates/nextjs]` Enable client-only BYOC component imports. Client-only components can be imported through src/byoc/index.client.ts. Hybrid (server render with client hydration) components can be imported through src/byoc/index.hybrid.ts. BYOC scaffold logic is also moved from nextjs-sxa addon into base template ([#1628](https://github.com/Sitecore/jss/pull/1628)[#1636](https://github.com/Sitecore/jss/pull/1636))
 * `[templates/nextjs]` Import SitecoreForm component into sample nextjs app ([#1628](https://github.com/Sitecore/jss/pull/1628))
 * `[sitecore-jss-nextjs]` (Vercel/Sitecore) Deployment Protection Bypass support for editing integration. ([#1634](https://github.com/Sitecore/jss/pull/1634))
-* `[sitecore-jss]` `[templates/nextjs]` Load environment-specific FEAAS theme stylesheets based on Sitecore Edge Platform URL ([#1645](https://github.com/Sitecore/jss/pull/1645))
+* `[sitecore-jss]` Support for both 'published' and 'staged' revisions of FEAAS stylesheets/themes based on Sitecore Edge Platform and Context ([#1644](https://github.com/Sitecore/jss/pull/1644)) ([#1645](https://github.com/Sitecore/jss/pull/1645)) ([#1666](https://github.com/Sitecore/jss/pull/1666))
 * `[sitecore-jss-nextjs]` The _GraphQLRequestClient_ import from _@sitecore-jss/sitecore-jss-nextjs_ is deprecated, use import from _@sitecore-jss/sitecore-jss-nextjs/graphql_ submodule instead ([#1650](https://github.com/Sitecore/jss/pull/1650) [#1648](https://github.com/Sitecore/jss/pull/1648))
+* `[create-sitecore-jss]` Introduced `nextjs-xmcloud` initializer template. This will include all base XM Cloud features, including Personalize, FEaaS, BYOC, Sitecore Edge Platform and Context support. ([#1653](https://github.com/Sitecore/jss/pull/1653)) ([#1657](https://github.com/Sitecore/jss/pull/1657)) ([#1658](https://github.com/Sitecore/jss/pull/1658))
+* `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` Static (rendering params and datasource) and dynamic (fetched) props are now both passed into BYOC components. Previously dynamic fetched props would completely override data from Sitecore items ([#1667](https://github.com/Sitecore/jss/pull/1667))
 
 ### 🐛 Bug Fixes
 
@@ -31,11 +39,17 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Fix issue when redirects works each every other times. ([#1629](https://github.com/Sitecore/jss/pull/1629))
 * `[templates/nextjs]` Fix custom headers. Now in cors-header plugin extends custom headers from next.config.js file. ([#1637](https://github.com/Sitecore/jss/pull/1637))
 * `[sitecore-jss-react]` Fix PlaceholderCommon with using two and more dynamic placeholders. ([#1641](https://github.com/Sitecore/jss/pull/1641))
-* `[templates/nextjs-multisite]` Fix site info fetch errors (now skipped) on XM Cloud rendering/editing host builds. ([#1649](https://github.com/Sitecore/jss/pull/1649))
+* `[templates/nextjs-multisite]` Fix site info fetch errors (now skipped) on XM Cloud rendering/editing host builds. ([#1649](https://github.com/Sitecore/jss/pull/1649)), ([#1653](https://github.com/Sitecore/jss/pull/1653))
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Fix making a fetch to a nextjs api route in an editing environment, by adding additional variable publicUrl in runtime config ([#1656](https://github.com/Sitecore/jss/pull/1656))
-
+* 
 ### 🛠 Breaking Changes
 
+* `[create-sitecore-jss]` The `nextjs-personalize` initializer add-on template has been removed and is replaced by the `nextjs-xmcloud` initializer template. You can use the interactive prompts or the `--xmcloud` argument to include this template. ([#1653](https://github.com/Sitecore/jss/pull/1653))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` CloudSDK Integration ([#1652](https://github.com/Sitecore/jss/pull/1652)) ([#1659](https://github.com/Sitecore/jss/pull/1659)):
+  * Removed the following properties from _PersonalizeMiddleware_: _getPointOfSale_, _clientKey_, _endpoint_. You now need to provide _sitecoreEdgeContextId_ as a replacement.
+  * _PersonalizeMiddleware_ has transitioned to utilizing the _CloudSDK_ package, replacing the previous dependency on _Engage_.
+  * Introduced _Context_ class, that is used to initialize the application Context and shared Software Development Kits (SDKs). Accessible within the _@sitecore-jss/sitecore-jss-nextjs/context_ submodule.
+  * Point of Sale resolution is fully removed, now it's handled by Sitecore Edge Proxy
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` The behavior of getPublicUrl() function has been changed - empty string is now considered valid value for PUBLIC_URL environment variable and, if defined, PUBLIC_URL will take precedence over the Vercel/Netlify env variables; the values of these variables should be adjusted as needed; PUBLIC_URL is commented out by default in .env; ([#1656](https://github.com/Sitecore/jss/pull/1656));
 
 ## 21.5.0
