@@ -76,6 +76,7 @@ export {
   RenderingType,
   EDITING_COMPONENT_PLACEHOLDER,
   EDITING_COMPONENT_ID,
+  getContentStylesheetLink,
 } from '@sitecore-jss/sitecore-jss/layout';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
