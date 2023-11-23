@@ -11,8 +11,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     personalize: body.personalize || false, // override this value through your webhook payload if personalization is configured
   }).getHandler();
 
-  // It is highly recommended to add a secret to  to your revalidate endpoint before going to production.
-  // This prevents unauthorized users from triggering revalidation requests.
+  /**
+   NOTE: It is highly recommended to add a secret to your revalidate endpoint before going to production.
+   This prevents unauthorized users from triggering revalidation requests.
+   */
   if (secret && secret !== process.env.ISR_REVALIDATE_SECRET) {
     console.log('Invalid secret provided. Authentication failed.');
     res.status(401).end('Invalid secret');

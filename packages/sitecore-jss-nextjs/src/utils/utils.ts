@@ -1,4 +1,3 @@
-import chalk from 'chalk';
 import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
 
 /**
@@ -8,28 +7,20 @@ import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/u
  * VERCEL_URL is provided by Vercel in case if we are in Preview deployment (deployment based on the custom branch),
  * preview deployment has unique url, we don't know exact url.
  * Similarly, DEPLOY_URL is provided by Netlify and would give us the deploy URL
+ * In production non-editing environments it is desirable to use relative urls, so in that case set PUBLIC_URL = ''
  */
 export const getPublicUrl = (): string => {
-  if (process.env.NETLIFY && process.env.DEPLOY_URL) return process.env.DEPLOY_URL;
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
-
   let url = process.env.PUBLIC_URL;
+
   if (url === undefined) {
-    console.warn(
-      `${chalk.yellow.bold(
-        'Warning:'
-      )} An PUBLIC_URL environment variable is not defined. Falling back to http://localhost:3000.`
-    );
+    if (process.env.NETLIFY && process.env.DEPLOY_URL) return process.env.DEPLOY_URL;
+    if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+
     url = 'http://localhost:3000';
-  } else {
-    try {
-      new URL(url);
-    } catch (error) {
-      throw new Error(`The PUBLIC_URL environment variable '${url}' is not a valid URL.`);
-    }
   }
+
   // Ensure no trailing slash
-  return url.toString().replace(/\/$/, '');
+  return url.replace(/\/$/, '');
 };
 
 /**

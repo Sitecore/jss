@@ -13,7 +13,8 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[nextjs/template]``[sitecore-jss-nextjs]` On demand ISR [#1674](https://github.com/Sitecore/jss/pull/1672))
+* `[sitecore-jss]` `[templates/nextjs-xmcloud]` Load the content styles for the RichText component [#1670](https://github.com/Sitecore/jss/pull/1670)
+* `[nextjs/template]``[sitecore-jss-nextjs]` On-demand ISR [#1674](https://github.com/Sitecore/jss/pull/1672))
 
 ### 🐛 Bug Fixes
 
@@ -44,7 +45,8 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` Fix custom headers. Now in cors-header plugin extends custom headers from next.config.js file. ([#1637](https://github.com/Sitecore/jss/pull/1637))
 * `[sitecore-jss-react]` Fix PlaceholderCommon with using two and more dynamic placeholders. ([#1641](https://github.com/Sitecore/jss/pull/1641))
 * `[templates/nextjs-multisite]` Fix site info fetch errors (now skipped) on XM Cloud rendering/editing host builds. ([#1649](https://github.com/Sitecore/jss/pull/1649)), ([#1653](https://github.com/Sitecore/jss/pull/1653))
-
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Fix making a fetch to a nextjs api route in an editing environment, by adding additional variable publicUrl in runtime config ([#1656](https://github.com/Sitecore/jss/pull/1656))
+* 
 ### 🛠 Breaking Changes
 
 * `[create-sitecore-jss]` The `nextjs-personalize` initializer add-on template has been removed and is replaced by the `nextjs-xmcloud` initializer template. You can use the interactive prompts or the `--xmcloud` argument to include this template. ([#1653](https://github.com/Sitecore/jss/pull/1653))
@@ -53,6 +55,7 @@ Our versioning strategy is as follows:
   * _PersonalizeMiddleware_ has transitioned to utilizing the _CloudSDK_ package, replacing the previous dependency on _Engage_.
   * Introduced _Context_ class, that is used to initialize the application Context and shared Software Development Kits (SDKs). Accessible within the _@sitecore-jss/sitecore-jss-nextjs/context_ submodule.
   * Point of Sale resolution is fully removed, now it's handled by Sitecore Edge Proxy
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` The behavior of getPublicUrl() function has been changed - empty string is now considered valid value for PUBLIC_URL environment variable and, if defined, PUBLIC_URL will take precedence over the Vercel/Netlify env variables; the values of these variables should be adjusted as needed; PUBLIC_URL is commented out by default in .env; ([#1656](https://github.com/Sitecore/jss/pull/1656));
 
 ## 21.5.0
 
