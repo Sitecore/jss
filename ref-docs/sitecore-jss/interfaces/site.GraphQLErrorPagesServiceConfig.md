@@ -30,7 +30,7 @@ The API key to use for authentication
 
 #### Defined in
 
-[src/site/graphql-error-pages-service.ts:35](https://github.com/Sitecore/jss/blob/878424c53/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L35)
+[src/site/graphql-error-pages-service.ts:35](https://github.com/Sitecore/jss/blob/aebc39389/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L35)
 
 ___
 
@@ -42,7 +42,7 @@ Your Graphql endpoint
 
 #### Defined in
 
-[src/site/graphql-error-pages-service.ts:31](https://github.com/Sitecore/jss/blob/878424c53/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L31)
+[src/site/graphql-error-pages-service.ts:31](https://github.com/Sitecore/jss/blob/aebc39389/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L31)
 
 ___
 
@@ -54,7 +54,7 @@ The language
 
 #### Defined in
 
-[src/site/graphql-error-pages-service.ts:43](https://github.com/Sitecore/jss/blob/878424c53/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L43)
+[src/site/graphql-error-pages-service.ts:43](https://github.com/Sitecore/jss/blob/aebc39389/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L43)
 
 ___
 
@@ -70,7 +70,7 @@ Pick.retries
 
 #### Defined in
 
-[src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/878424c53/packages/sitecore-jss/src/graphql-request-client.ts#L42)
+[src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/aebc39389/packages/sitecore-jss/src/graphql-request-client.ts#L42)
 
 ___
 
@@ -82,4 +82,4 @@ The JSS application name
 
 #### Defined in
 
-[src/site/graphql-error-pages-service.ts:39](https://github.com/Sitecore/jss/blob/878424c53/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L39)
+[src/site/graphql-error-pages-service.ts:39](https://github.com/Sitecore/jss/blob/aebc39389/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L39)
