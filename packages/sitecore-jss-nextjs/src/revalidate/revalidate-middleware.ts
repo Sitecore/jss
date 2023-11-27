@@ -1,13 +1,20 @@
 ﻿import { NextApiResponse, NextApiRequest } from 'next';
 import { GraphQLPersonalizeService } from '@sitecore-jss/sitecore-jss/personalize';
 import { GraphQLRequestClientFactory } from '@sitecore-jss/sitecore-jss/graphql';
+import { debug } from '@sitecore-jss/sitecore-jss';
+
+enum EntityDefinition {
+  LayoutData = 'LayoutData',
+  Item = 'Item',
+  // Add other entity definitions as needed
+}
 
 /**
  * Object model of each updated entity returned from the webhook payload
  */
 export type Entity = {
   identifier: string;
-  entity_definition: string;
+  entity_definition: EntityDefinition;
   operation: string;
   entity_culture: string;
 };
@@ -129,7 +136,8 @@ export class RevalidateMiddleware {
 
     return req.body?.updates
       .filter(
-        (update: Entity) => update.entity_definition === 'LayoutData' && update.entity_culture
+        (update: Entity) =>
+          update.entity_definition === EntityDefinition.LayoutData && update.entity_culture
       )
       .map((update: Entity) => {
         return {
@@ -182,7 +190,7 @@ export class RevalidateMiddleware {
         );
 
         if (personalizeInfo && personalizeInfo.variantIds.length > 0) {
-          personalizeInfo.variantIds.forEach((variantId) => {
+          personalizeInfo.variantIds.forEach((variantId: string) => {
             personalizedResults.push({
               path: update.path,
               variantId,
@@ -209,7 +217,7 @@ export class RevalidateMiddleware {
 
     if (this.isEmpty(filteredUpdates)) {
       // nothing to revalidate
-      return res.status(204).json({});
+      return res.status(204).json({ message: 'No updates to revalidate' });
     }
 
     // extract only paths from filtered updates object
@@ -246,11 +254,11 @@ export class RevalidateMiddleware {
     try {
       // revalidate all the collected paths
       await Promise.all(pathsToRevalidate.map((path: string) => res.revalidate(path)));
-      console.log(`[api/revalidate] revalidate: ${pathsToRevalidate.join(', ')}`);
+      debug.revalidate(`revalidated paths: ${pathsToRevalidate.join(', ')}`);
       return res.status(200).json({ revalidated: true });
     } catch (error) {
-      console.error(`[api/revalidate] error: ${error}`);
-      return res.status(500).json({ message: 'Error revalidating' });
+      debug.revalidate(`error: ${error}`);
+      return res.status(500).json({ message: error });
     }
   };
 }
