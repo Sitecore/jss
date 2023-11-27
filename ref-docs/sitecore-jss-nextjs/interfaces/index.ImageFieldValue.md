@@ -22,4 +22,4 @@
 
 #### Defined in
 
-sitecore-jss-react/types/components/Image.d.ts:4
+sitecore-jss-react/types/components/Image.d.ts:5
