@@ -1,5 +1,9 @@
 ﻿import { NextApiResponse, NextApiRequest } from 'next';
-import { GraphQLPersonalizeService } from '@sitecore-jss/sitecore-jss/personalize';
+import {
+  GraphQLPersonalizeService,
+  getPersonalizedRewrite,
+} from '@sitecore-jss/sitecore-jss/personalize';
+import { getSiteRewrite } from '@sitecore-jss/sitecore-jss/site';
 import { GraphQLRequestClientFactory } from '@sitecore-jss/sitecore-jss/graphql';
 import { debug } from '@sitecore-jss/sitecore-jss';
 
@@ -124,6 +128,11 @@ export class RevalidateMiddleware {
     return '/';
   }
 
+  protected extractSiteName(path: string): string {
+    const siteName: string = path.split('/')[0];
+    return siteName;
+  }
+
   /**
    * Filters out the updated paths and language from the request body
    * @param {NextApiRequest} req Next.js API request
@@ -150,25 +159,57 @@ export class RevalidateMiddleware {
   /**
    * Gets the rewrite paths for the updated paths
    * @param {PersonalizedResult[]} personalizeInfo Personalized results
-   * @param {boolean} multiSite Whether multisite is configured
    * @returns {string[]} rewrite paths
    */
-  protected getRewritePaths(
-    personalizeInfo: (PersonalizedResult | { path: string })[],
-    multiSite?: boolean
-  ): string[] {
-    return personalizeInfo.flatMap((info) => {
-      const sitePrefix = multiSite ? SITE_PREFIX : '';
-      let pathWithPrefix = '';
+  protected getMultiSitePersonalizeRewrite(personalizeInfo: PersonalizedResult): string {
+    return `/${PERSONALIZE_PREFIX}${personalizeInfo.variantId}/${SITE_PREFIX}${personalizeInfo.path}`;
+  }
 
-      if ('variantId' in info && info.variantId) {
-        pathWithPrefix = `/${PERSONALIZE_PREFIX}${info.variantId}/${sitePrefix}${info.path}`;
-      } else {
-        pathWithPrefix = `/${sitePrefix}${info.path}`;
-      }
-
-      return pathWithPrefix;
+  protected handleMultiSitePersonalization(
+    personalizeInfo: {
+      personalized: PersonalizedResult[];
+      nonPersonalized: {
+        path: string;
+      }[];
+    },
+    pathsToRevalidate: string[],
+    context: RevalidateMiddleware
+  ) {
+    const personalizedRewrite = personalizeInfo.personalized.map((info) => {
+      return context.getMultiSitePersonalizeRewrite(info);
     });
+
+    const nonPersonalizedRewrite = personalizeInfo.nonPersonalized.map((info) => {
+      return getSiteRewrite(context.getPathName(info.path), {
+        siteName: context.getSiteName(info.path),
+      });
+    });
+
+    pathsToRevalidate.push(...personalizedRewrite, ...nonPersonalizedRewrite);
+  }
+
+  protected handleNonMultiSitePersonalization(
+    personalizeInfo: {
+      personalized: PersonalizedResult[];
+      nonPersonalized: {
+        path: string;
+      }[];
+    },
+    pathsToRevalidate: string[],
+    context: RevalidateMiddleware
+  ) {
+    const nonMultiSitePersonalizedRewrite = personalizeInfo.personalized.map((info) => {
+      return getPersonalizedRewrite(context.getPathName(info.path), { variantId: info.variantId });
+    });
+
+    const nonMultiSiteNonPersonalizedRewrite = personalizeInfo.nonPersonalized.map((info) => {
+      return this.getPathName(info.path);
+    });
+
+    pathsToRevalidate.push(
+      ...nonMultiSitePersonalizedRewrite,
+      ...nonMultiSiteNonPersonalizedRewrite
+    );
   }
 
   /**
@@ -228,20 +269,19 @@ export class RevalidateMiddleware {
     // when multiSite and personalization both are configured or only personalization is configured
     if (this.config.personalize) {
       const personalizeInfo = await this.getPersonalizedResults(filteredUpdates);
-      const personalizedRewritePaths = this.getRewritePaths(
-        personalizeInfo.personalized,
-        this.config.multiSite
-      );
-      const nonPersonalizedRewritePaths = this.getRewritePaths(
-        personalizeInfo.nonPersonalized,
-        this.config.multiSite
-      );
-      pathsToRevalidate.push(...personalizedRewritePaths, ...nonPersonalizedRewritePaths);
+
+      if (this.config.multiSite) {
+        this.handleMultiSitePersonalization(personalizeInfo, pathsToRevalidate, this);
+      } else {
+        this.handleNonMultiSitePersonalization(personalizeInfo, pathsToRevalidate, this);
+      }
     }
 
     // when only multiSite is configured but personalization is not
     if (this.config.multiSite && !this.config.personalize) {
-      const multiSitePaths = paths.map((path: string) => `/${SITE_PREFIX}${path}`);
+      const multiSitePaths = paths.map((path: string) =>
+        getSiteRewrite(this.getPathName(path), { siteName: this.getSiteName(path) })
+      );
       pathsToRevalidate.push(...multiSitePaths);
     }
 
@@ -258,7 +298,7 @@ export class RevalidateMiddleware {
       return res.status(200).json({ revalidated: true });
     } catch (error) {
       debug.revalidate(`error: ${error}`);
-      return res.status(500).json({ message: error });
+      return res.status(500).json({});
     }
   };
 }

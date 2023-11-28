@@ -14,12 +14,12 @@ const version = '1';
 const contentId = `${id}_en_${version}`.toLowerCase();
 
 const mockRequest = (body?: any, query?: Query, method?: string, host?: string) => {
-  return {
+  return ({
     body: body ?? {},
     method: method ?? 'POST',
     query: query ?? {},
     headers: { host: host ?? 'localhost:3000' },
-  } as NextApiRequest;
+  } as unknown) as NextApiRequest;
 };
 
 const mockResponse = () => {
@@ -87,7 +87,7 @@ describe('RevalidateMiddleware', () => {
     await middleware.getHandler()(req, res);
 
     expect(res.status).to.be.calledWith(204);
-    expect(res.json).to.be.calledWith({});
+    expect(res.json).to.be.calledWith({ message: 'No updates to revalidate' });
   });
 
   it('should return proper paths when personalize is true', async () => {
@@ -102,7 +102,7 @@ describe('RevalidateMiddleware', () => {
     expect(getPersonalizeInfoStub.callCount).to.equal(2);
     expect(res.status).to.be.calledWith(200);
     expect(res.json).to.be.calledWith({ revalidated: true });
-    expect(res.revalidate).to.be.calledWith(`/_variantId_${variantId_1}/my-site/About`);
+    expect(res.revalidate).to.be.calledWith(`/_variantId_${variantId_1}/About`);
   });
 
   it('should revalidate when a site has some personalized and others non-personalized pages', async () => {
@@ -116,7 +116,7 @@ describe('RevalidateMiddleware', () => {
 
     expect(res.status).to.be.calledWith(200);
     expect(res.json).to.be.calledWith({ revalidated: true });
-    expect(res.revalidate).to.be.calledWith('/my-site/About');
+    expect(res.revalidate).to.be.calledWith('/About');
   });
 
   it('should revalidate when a site some personalized and some non-personalized pages with multiSite add-on', async () => {
@@ -184,7 +184,7 @@ describe('RevalidateMiddleware', () => {
 
       // Ensure that res.status is called with 500 in the catch block
       expect(res.status).to.be.calledWith(500);
-      expect(res.json).calledWith({ message: 'Error revalidating' });
+      expect(res.json).calledWith({});
     }
   });
 });
