@@ -19,6 +19,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[templates/node-headless-ssr-proxy]` Add sc_site qs parameter to Layout Service requests by default ([#1660](https://github.com/Sitecore/jss/pull/1660))
+* `[sitecore-jss-nextjs]` Fix redirect middleware to match pattern when uses param trailingSlash in next.config.js ([#1676](https://github.com/Sitecore/jss/pull/1676))
 
 ## 21.6.0
 

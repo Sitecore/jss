@@ -180,7 +180,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
             .replace(/^\/|\/$/g, '')
             .replace(/^\^\/|\/\$$/g, '')
             .replace(/^\^|\$$/g, '')
-            .replace(/\$\/gi$/g, '')}$/gi`;
+            .replace(/\$\/gi$/g, '')}[\/]?$/gi`;
 
           return (
             (regexParser(redirect.pattern).test(tragetURL) ||

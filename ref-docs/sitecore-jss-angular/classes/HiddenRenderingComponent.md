@@ -30,4 +30,4 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/hidden-rendering.component.ts:7](https://github.com/Sitecore/jss/blob/7b26ef9ac/packages/sitecore-jss-angular/src/components/hidden-rendering.component.ts#L7)
+[sitecore-jss-angular/src/components/hidden-rendering.component.ts:7](https://github.com/Sitecore/jss/blob/be6bf8bf9/packages/sitecore-jss-angular/src/components/hidden-rendering.component.ts#L7)
