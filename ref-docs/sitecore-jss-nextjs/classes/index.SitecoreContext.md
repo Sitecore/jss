@@ -64,7 +64,7 @@ React.Component&lt;SitecoreContextProps, SitecoreContextState\&gt;.constructor
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:32
+sitecore-jss-react/types/components/SitecoreContext.d.ts:33
 
 ## Properties
 
@@ -156,7 +156,7 @@ Update context state. Value can be
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:40
+sitecore-jss-react/types/components/SitecoreContext.d.ts:41
 
 ___
 
@@ -215,7 +215,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:31
+sitecore-jss-react/types/components/SitecoreContext.d.ts:32
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:21
+sitecore-jss-react/types/components/SitecoreContext.d.ts:22
 
 ## Methods
 
@@ -429,7 +429,7 @@ React.Component.componentDidUpdate
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:34
+sitecore-jss-react/types/components/SitecoreContext.d.ts:35
 
 ___
 
@@ -588,7 +588,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:33
+sitecore-jss-react/types/components/SitecoreContext.d.ts:34
 
 ___
 
@@ -662,7 +662,7 @@ React.Component.render
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:41
+sitecore-jss-react/types/components/SitecoreContext.d.ts:42
 
 ___
 
