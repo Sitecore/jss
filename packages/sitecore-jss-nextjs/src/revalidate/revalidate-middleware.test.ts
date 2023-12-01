@@ -9,6 +9,7 @@ type Query = {
   [key: string]: string;
 };
 const variantId_1 = 'variantId-1';
+const variantId_2 = 'variantId-2';
 const id = 'item-id';
 const version = '1';
 const contentId = `${id}_en_${version}`.toLowerCase();
@@ -76,6 +77,92 @@ describe('RevalidateMiddleware', () => {
   });
 
   const getPersonalizeInfoStub = stub(GraphQLPersonalizeService.prototype, 'getPersonalizeInfo');
+  const getPersonalizedResultsStub = stub(RevalidateMiddleware.prototype, 'getPersonalizedResults');
+
+  describe('when personalize is true', () => {
+    it('should return proper paths when all pages are personalized', async () => {
+      const res = mockResponse();
+      const req = mockRequest({ ...mockUpdatedPaths });
+
+      getPersonalizeInfoStub.resolves({
+        contentId: contentId,
+        variantIds: [variantId_1, variantId_2],
+      });
+
+      getPersonalizedResultsStub.resolves({
+        personalized: [
+          { path: 'my-site/', variantId: variantId_1 },
+          { path: 'my-site/About', variantId: variantId_2 },
+        ],
+        nonPersonalized: [],
+      });
+
+      const middleware = new RevalidateMiddleware({ clientFactory, personalize: true });
+      await middleware.getHandler()(req, res);
+      const pathsToRevalidate = [/_variantId_variantId-1/, '_variantId_variantId-2/About'];
+
+      expect(res.status).to.be.calledWith(200);
+      expect(res.json).to.be.calledWith({ revalidated: true });
+      expect(res.revalidate.callCount).to.equal(pathsToRevalidate.length);
+      expect(res.revalidate).to.be.calledWith(`/_variantId_${variantId_1}/`);
+      expect(res.revalidate).to.be.calledWith(`/_variantId_${variantId_2}/About`);
+    });
+
+    it('should return proper paths when one page is personalized and other is not', async () => {
+      const res = mockResponse();
+      const req = mockRequest({ ...mockUpdatedPaths });
+
+      getPersonalizeInfoStub.resolves({
+        contentId: contentId,
+        variantIds: [variantId_1],
+      });
+
+      getPersonalizedResultsStub.resolves({
+        personalized: [{ path: 'my-site/', variantId: variantId_1 }],
+        nonPersonalized: [{ path: 'my-site/About' }],
+      });
+
+      const middleware = new RevalidateMiddleware({ clientFactory, personalize: true });
+      await middleware.getHandler()(req, res);
+      const pathsToRevalidate = [/_variantId_variantId-1/, '/About'];
+
+      expect(res.status).to.be.calledWith(200);
+      expect(res.json).to.be.calledWith({ revalidated: true });
+      expect(res.revalidate.callCount).to.equal(pathsToRevalidate.length);
+      expect(res.revalidate).to.be.calledWith(`/_variantId_${variantId_1}/`);
+      expect(res.revalidate).to.be.calledWith('/About');
+    });
+
+    it('should return proper paths when one page is personalized and other is non-personalized with multiSite add-on', async () => {
+      const res = mockResponse();
+      const req = mockRequest({ ...mockUpdatedPaths });
+
+      getPersonalizeInfoStub.resolves({ contentId: contentId, variantIds: [variantId_1] });
+
+      getPersonalizedResultsStub.resolves({
+        personalized: [{ path: 'my-site/', variantId: variantId_1 }],
+        nonPersonalized: [{ path: 'my-site/About' }],
+      });
+
+      const middleware = new RevalidateMiddleware({
+        clientFactory,
+        personalize: true,
+        multiSite: true,
+      });
+      await middleware.getHandler()(req, res);
+
+      const pathsToRevalidate = [
+        `/_variantId_${variantId_1}/_site_my-site/`,
+        '/_site_my-site/About',
+      ];
+
+      expect(res.status).to.be.calledWith(200);
+      expect(res.json).to.be.calledWith({ revalidated: true });
+      expect(res.revalidate.callCount).to.equal(pathsToRevalidate.length);
+      expect(res.revalidate).to.be.calledWith(`/_variantId_${variantId_1}/_site_my-site/`);
+      expect(res.revalidate).to.be.calledWith('/_site_my-site/About');
+    });
+  });
 
   it('should return 204 when there is nothing to revalidate ', async () => {
     const res = mockResponse();
@@ -90,56 +177,7 @@ describe('RevalidateMiddleware', () => {
     expect(res.json).to.be.calledWith({ message: 'No updates to revalidate' });
   });
 
-  it('should return proper paths when personalize is true', async () => {
-    const res = mockResponse();
-    const req = mockRequest({ ...mockUpdatedPaths });
-
-    getPersonalizeInfoStub.resolves({ contentId: contentId, variantIds: [variantId_1] });
-
-    const middleware = new RevalidateMiddleware({ clientFactory, personalize: true });
-    await middleware.getHandler()(req, res);
-
-    expect(getPersonalizeInfoStub.callCount).to.equal(2);
-    expect(res.status).to.be.calledWith(200);
-    expect(res.json).to.be.calledWith({ revalidated: true });
-    expect(res.revalidate).to.be.calledWith(`/_variantId_${variantId_1}/About`);
-  });
-
-  it('should revalidate when a site has some personalized and others non-personalized pages', async () => {
-    const res = mockResponse();
-    const req = mockRequest({ ...mockUpdatedPaths });
-
-    getPersonalizeInfoStub.resolves(undefined);
-
-    const middleware = new RevalidateMiddleware({ clientFactory, personalize: true });
-    await middleware.getHandler()(req, res);
-
-    expect(res.status).to.be.calledWith(200);
-    expect(res.json).to.be.calledWith({ revalidated: true });
-    expect(res.revalidate).to.be.calledWith('/About');
-  });
-
-  it('should revalidate when a site some personalized and some non-personalized pages with multiSite add-on', async () => {
-    const res = mockResponse();
-    const req = mockRequest({ ...mockUpdatedPaths });
-
-    const middleware = new RevalidateMiddleware({
-      clientFactory,
-      personalize: true,
-      multiSite: true,
-    });
-    getPersonalizeInfoStub.resolves({ contentId: contentId, variantIds: [variantId_1] });
-
-    await middleware.getHandler()(req, res);
-
-    expect(res.status).to.be.calledWith(200);
-    expect(res.json).to.be.calledWith({ revalidated: true });
-    expect(res.revalidate).to.be.calledWithExactly(
-      `/_variantId_${variantId_1}/_site_my-site/About`
-    );
-  });
-
-  it('should return proper paths when multiSite is true and personalize is false', async () => {
+  it('should return proper paths when only multiSite is true', async () => {
     const res = mockResponse();
     const req = mockRequest({ ...mockUpdatedPaths });
 

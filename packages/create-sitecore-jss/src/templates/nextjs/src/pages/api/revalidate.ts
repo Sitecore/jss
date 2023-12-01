@@ -23,13 +23,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
    NOTE: It is highly recommended to add a secret to your revalidate endpoint before going to production.
    This prevents unauthorized users from triggering revalidation requests.
    */
-  if (secret && secret !== process.env.ISR_REVALIDATE_SECRET) {
-    console.log('Invalid secret provided. Authentication failed.');
-    res.status(401).end('Invalid secret');
-  }
-
-  if (secret === undefined) {
-    console.log('Secret not provided. Proceeding without authentication.');
+  if (process.env.ISR_REVALIDATE_SECRET) {
+    if (secret && secret !== process.env.ISR_REVALIDATE_SECRET) {
+      console.log('Invalid secret provided. Authentication failed.');
+      res.status(401).end('Invalid secret');
+    }
+  } else {
+    console.log('Secret not configured. Proceeding without authentication.');
   }
 
   await revalidateHandler(req, res);

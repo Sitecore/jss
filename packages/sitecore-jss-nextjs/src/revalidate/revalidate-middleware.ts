@@ -57,9 +57,6 @@ export type RevalidateConfig = {
   personalize?: boolean;
 };
 
-const SITE_PREFIX = '_site_';
-const PERSONALIZE_PREFIX = '_variantId_';
-
 /**
  * Middleware / handler for on-demand ISR (e.g. '/api/revalidate').
  */
@@ -78,6 +75,46 @@ export class RevalidateMiddleware {
    */
   public getHandler(): (req: NextApiRequest, res: NextApiResponse) => Promise<void> {
     return this.handler;
+  }
+
+  /**
+   * Gets personalized results for the updated paths
+   * @param {UpdatedPaths[]} filteredUpdates Updated paths
+   */
+  public async getPersonalizedResults(filteredUpdates: UpdatedPaths[]) {
+    const personalizedResults: PersonalizedResult[] = [];
+    const nonPersonalizedResults: { path: string }[] = [];
+
+    await Promise.all(
+      filteredUpdates.map(async (update) => {
+        const siteName = this.getSiteName(update.path);
+        const pathName = this.getPathName(update.path);
+        const personalizeInfo = await this.personalizeService.getPersonalizeInfo(
+          pathName,
+          update.language,
+          siteName
+        );
+
+        if (personalizeInfo && personalizeInfo.variantIds.length > 0) {
+          personalizeInfo.variantIds.forEach((variantId: string) => {
+            personalizedResults.push({
+              path: update.path,
+              variantId,
+            });
+          });
+        } else {
+          // Collect paths without personalized info
+          nonPersonalizedResults.push({
+            path: update.path,
+          });
+        }
+      })
+    );
+
+    return {
+      personalized: personalizedResults,
+      nonPersonalized: nonPersonalizedResults,
+    };
   }
 
   protected isEmpty(data: UpdatedPaths[]) {
@@ -156,15 +193,6 @@ export class RevalidateMiddleware {
       });
   }
 
-  /**
-   * Gets the rewrite paths for the updated paths
-   * @param {PersonalizedResult[]} personalizeInfo Personalized results
-   * @returns {string[]} rewrite paths
-   */
-  protected getMultiSitePersonalizeRewrite(personalizeInfo: PersonalizedResult): string {
-    return `/${PERSONALIZE_PREFIX}${personalizeInfo.variantId}/${SITE_PREFIX}${personalizeInfo.path}`;
-  }
-
   protected handleMultiSitePersonalization(
     personalizeInfo: {
       personalized: PersonalizedResult[];
@@ -173,15 +201,21 @@ export class RevalidateMiddleware {
       }[];
     },
     pathsToRevalidate: string[],
-    context: RevalidateMiddleware
+    getPathName: (x: string) => string,
+    getSiteName: (x: string) => string
   ) {
     const personalizedRewrite = personalizeInfo.personalized.map((info) => {
-      return context.getMultiSitePersonalizeRewrite(info);
+      return getPersonalizedRewrite(
+        getSiteRewrite(getPathName(info.path), { siteName: getSiteName(info.path) }),
+        {
+          variantId: info.variantId,
+        }
+      );
     });
 
     const nonPersonalizedRewrite = personalizeInfo.nonPersonalized.map((info) => {
-      return getSiteRewrite(context.getPathName(info.path), {
-        siteName: context.getSiteName(info.path),
+      return getSiteRewrite(getPathName(info.path), {
+        siteName: getSiteName(info.path),
       });
     });
 
@@ -196,10 +230,10 @@ export class RevalidateMiddleware {
       }[];
     },
     pathsToRevalidate: string[],
-    context: RevalidateMiddleware
+    getPathName: (x: string) => string
   ) {
     const nonMultiSitePersonalizedRewrite = personalizeInfo.personalized.map((info) => {
-      return getPersonalizedRewrite(context.getPathName(info.path), { variantId: info.variantId });
+      return getPersonalizedRewrite(getPathName(info.path), { variantId: info.variantId });
     });
 
     const nonMultiSiteNonPersonalizedRewrite = personalizeInfo.nonPersonalized.map((info) => {
@@ -210,46 +244,6 @@ export class RevalidateMiddleware {
       ...nonMultiSitePersonalizedRewrite,
       ...nonMultiSiteNonPersonalizedRewrite
     );
-  }
-
-  /**
-   * Gets personalized results for the updated paths
-   * @param {UpdatedPaths[]} filteredUpdates Updated paths
-   */
-  protected async getPersonalizedResults(filteredUpdates: UpdatedPaths[]) {
-    const personalizedResults: PersonalizedResult[] = [];
-    const nonPersonalizedResults: { path: string }[] = [];
-
-    await Promise.all(
-      filteredUpdates.map(async (update) => {
-        const siteName = this.getSiteName(update.path);
-        const pathName = this.getPathName(update.path);
-        const personalizeInfo = await this.personalizeService.getPersonalizeInfo(
-          pathName,
-          update.language,
-          siteName
-        );
-
-        if (personalizeInfo && personalizeInfo.variantIds.length > 0) {
-          personalizeInfo.variantIds.forEach((variantId: string) => {
-            personalizedResults.push({
-              path: update.path,
-              variantId,
-            });
-          });
-        } else {
-          // Collect paths without personalized info
-          nonPersonalizedResults.push({
-            path: update.path,
-          });
-        }
-      })
-    );
-
-    return {
-      personalized: personalizedResults,
-      nonPersonalized: nonPersonalizedResults,
-    };
   }
 
   private handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
@@ -271,9 +265,18 @@ export class RevalidateMiddleware {
       const personalizeInfo = await this.getPersonalizedResults(filteredUpdates);
 
       if (this.config.multiSite) {
-        this.handleMultiSitePersonalization(personalizeInfo, pathsToRevalidate, this);
+        this.handleMultiSitePersonalization(
+          personalizeInfo,
+          pathsToRevalidate,
+          this.getPathName,
+          this.getSiteName
+        );
       } else {
-        this.handleNonMultiSitePersonalization(personalizeInfo, pathsToRevalidate, this);
+        this.handleNonMultiSitePersonalization(
+          personalizeInfo,
+          pathsToRevalidate,
+          this.getPathName
+        );
       }
     }
 
