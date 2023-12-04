@@ -146,7 +146,6 @@
 - [enableDebug](index.md#enabledebug)
 - [fetchFEaaSComponentServerProps](index.md#fetchfeaascomponentserverprops)
 - [getChildPlaceholder](index.md#getchildplaceholder)
-- [getContentStylesheetLink](index.md#getcontentstylesheetlink)
 - [getFEAASLibraryStylesheetLinks](index.md#getfeaaslibrarystylesheetlinks)
 - [getFieldValue](index.md#getfieldvalue)
 - [getPersonalizedRewrite](index.md#getpersonalizedrewrite)
@@ -198,7 +197,7 @@ Data from rendering params on Sitecore's BYOC rendering
 
 #### Defined in
 
-sitecore-jss-react/types/components/BYOCComponent.d.ts:19
+sitecore-jss-react/types/components/BYOCComponent.d.ts:18
 
 ___
 
@@ -208,7 +207,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/BYOCComponent.d.ts:56
+sitecore-jss-react/types/components/BYOCComponent.d.ts:55
 
 ___
 
@@ -232,7 +231,7 @@ Configuration for ComponentBuilder
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/ComponentBuilder.ts:21](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L21)
+[sitecore-jss-nextjs/src/ComponentBuilder.ts:21](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L21)
 
 ___
 
@@ -257,7 +256,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/sharedTypes.d.ts:7
+sitecore-jss-react/types/components/sharedTypes.d.ts:6
 
 ___
 
@@ -273,7 +272,7 @@ Shape of component props storage
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:9](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L9)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:9](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L9)
 
 ___
 
@@ -290,7 +289,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
 
 ___
 
@@ -307,7 +306,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:4](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L4)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:4](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L4)
 
 ___
 
@@ -379,7 +378,7 @@ Shape of getServerSideProps function on component level
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:25](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L25)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:25](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L25)
 
 ___
 
@@ -391,7 +390,7 @@ Shape of getStaticProps function on component level
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:30](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L30)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:30](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L30)
 
 ___
 
@@ -498,7 +497,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/components/Link.tsx#L12)
+[sitecore-jss-nextjs/src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/components/Link.tsx#L12)
 
 ___
 
@@ -510,7 +509,7 @@ Represents a module (file)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:7](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L7)
+[sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:7](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L7)
 
 ___
 
@@ -536,7 +535,7 @@ Represents a module factory
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:34](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L34)
+[sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:34](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L34)
 
 ___
 
@@ -606,7 +605,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)
+[sitecore-jss-nextjs/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)
 
 ___
 
@@ -659,7 +658,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:17
+sitecore-jss-react/types/components/SitecoreContext.d.ts:16
 
 ___
 
@@ -679,7 +678,7 @@ Object model of a site page item.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:31](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L31)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:31](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L31)
 
 ## Variables
 
@@ -691,7 +690,7 @@ Component props context which we are using in order to store data fetched on com
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
 
 ___
 
@@ -725,7 +724,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:15
+sitecore-jss-react/types/components/SitecoreContext.d.ts:14
 
 ___
 
@@ -771,7 +770,7 @@ sitecore-jss/types/debug.d.ts:8
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:31](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L31)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:31](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L31)
 
 ___
 
@@ -834,7 +833,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/EditingComponentPlaceholder.tsx:9](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/components/EditingComponentPlaceholder.tsx#L9)
+[sitecore-jss-nextjs/src/components/EditingComponentPlaceholder.tsx:9](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/components/EditingComponentPlaceholder.tsx#L9)
 
 ___
 
@@ -959,7 +958,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/Placeholder.tsx:8](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/components/Placeholder.tsx#L8)
+[sitecore-jss-nextjs/src/components/Placeholder.tsx:8](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/components/Placeholder.tsx#L8)
 
 ___
 
@@ -979,7 +978,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:27](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L27)
+[sitecore-jss-nextjs/src/components/RichText.tsx:27](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L27)
 
 ___
 
@@ -1094,31 +1093,6 @@ child placeholder
 #### Defined in
 
 sitecore-jss/types/layout/utils.d.ts:17
-
-___
-
-### getContentStylesheetLink
-
-▸ **getContentStylesheetLink**(`layoutData`, `pagesServerUrl?`): ``null`` \| [`HTMLLink`](index.md#htmllink)
-
-Get the content styles link to be loaded from the Pages assets server
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) | Layout service data |
-| `pagesServerUrl?` | `string` | Sitecore Pages assets server URL. Default is https://pages-assets.sitecorecloud.io |
-
-#### Returns
-
-``null`` \| [`HTMLLink`](index.md#htmllink)
-
-content styles link, null if no styles are used in layout
-
-#### Defined in
-
-sitecore-jss/types/layout/content-styles.d.ts:13
 
 ___
 
@@ -1273,7 +1247,7 @@ Similarly, DEPLOY_URL is provided by Netlify and would give us the deploy URL
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
+[sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
 
 ___
 
@@ -1351,7 +1325,7 @@ forceReload false
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:42](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/utils/utils.ts#L42)
+[sitecore-jss-nextjs/src/utils/utils.ts:42](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/utils/utils.ts#L42)
 
 ___
 
@@ -1552,7 +1526,7 @@ component props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
 
 ___
 
@@ -1608,7 +1582,7 @@ const EditMode = () => {
 
 #### Defined in
 
-sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:44
+sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:43
 
 ___
 
@@ -1663,7 +1637,7 @@ The wrapped component, if a datasource is present.
 
 #### Defined in
 
-sitecore-jss-react/types/enhancers/withDatasourceCheck.d.ts:22
+sitecore-jss-react/types/enhancers/withDatasourceCheck.d.ts:21
 
 ___
 
@@ -1683,7 +1657,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/enhancers/withEditorChromes.d.ts:3
+sitecore-jss-react/types/enhancers/withEditorChromes.d.ts:2
 
 ___
 
@@ -1782,4 +1756,4 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:18
+sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:17

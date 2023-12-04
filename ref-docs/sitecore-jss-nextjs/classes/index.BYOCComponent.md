@@ -68,7 +68,7 @@ React.Component&lt;BYOCComponentProps\&gt;.constructor
 
 #### Defined in
 
-sitecore-jss-react/types/components/BYOCComponent.d.ts:71
+sitecore-jss-react/types/components/BYOCComponent.d.ts:70
 
 ## Properties
 
@@ -148,7 +148,7 @@ React.Component.state
 
 #### Defined in
 
-sitecore-jss-react/types/components/BYOCComponent.d.ts:68
+sitecore-jss-react/types/components/BYOCComponent.d.ts:67
 
 ___
 
@@ -331,7 +331,7 @@ React.Component.componentDidCatch
 
 #### Defined in
 
-sitecore-jss-react/types/components/BYOCComponent.d.ts:75
+sitecore-jss-react/types/components/BYOCComponent.d.ts:74
 
 ___
 
@@ -594,7 +594,7 @@ React.Component.render
 
 #### Defined in
 
-sitecore-jss-react/types/components/BYOCComponent.d.ts:76
+sitecore-jss-react/types/components/BYOCComponent.d.ts:75
 
 ___
 
@@ -684,4 +684,4 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/BYOCComponent.d.ts:72
+sitecore-jss-react/types/components/BYOCComponent.d.ts:71

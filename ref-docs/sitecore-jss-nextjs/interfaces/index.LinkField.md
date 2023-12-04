@@ -20,7 +20,7 @@
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:18
+sitecore-jss-react/types/components/Link.d.ts:17
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:19
+sitecore-jss-react/types/components/Link.d.ts:18
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:17
+sitecore-jss-react/types/components/Link.d.ts:16
