@@ -57,7 +57,7 @@ describe('content-styles', () => {
       };
 
       expect(getContentStylesheetLink(layoutData)).to.deep.equal({
-        href: `${SITECORE_EDGE_URL_DEFAULT}/pages/styles/content-styles.min.css`,
+        href: `${SITECORE_EDGE_URL_DEFAULT}/v1/files/pages/styles/content-styles.css`,
         rel: 'stylesheet',
       });
     });
@@ -332,13 +332,13 @@ describe('content-styles', () => {
   describe('getContentStylesheetUrl', () => {
     it('should return the default url', () => {
       expect(getContentStylesheetUrl()).to.equal(
-        `${SITECORE_EDGE_URL_DEFAULT}/pages/styles/content-styles.min.css`
+        `${SITECORE_EDGE_URL_DEFAULT}/v1/files/pages/styles/content-styles.css`
       );
     });
 
     it('should return the custom url', () => {
       expect(getContentStylesheetUrl('https://foo.bar')).to.equal(
-        'https://foo.bar/pages/styles/content-styles.min.css'
+        'https://foo.bar/v1/files/pages/styles/content-styles.css'
       );
     });
   });

@@ -38,7 +38,7 @@ export const getContentStylesheetLink = (
 };
 
 export const getContentStylesheetUrl = (sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT): string =>
-  `${sitecoreEdgeUrl}/pages/styles/content-styles.min.css`;
+  `${sitecoreEdgeUrl}/v1/files/pages/styles/content-styles.css`;
 
 export const traversePlaceholder = (
   components: Array<ComponentRendering | HtmlElementRendering>,
