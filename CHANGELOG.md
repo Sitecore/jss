@@ -17,7 +17,7 @@ Our versioning strategy is as follows:
 
 ### 🧹 Chores
 
-* Upgrade to Node.js 20.x ([#1679](https://github.com/Sitecore/jss/pull/1679))([#1680](https://github.com/Sitecore/jss/pull/1680))
+* Upgrade to Node.js 20.x ([#1679](https://github.com/Sitecore/jss/pull/1679))([#1681](https://github.com/Sitecore/jss/pull/1681))
 
 ### 🐛 Bug Fixes
 
