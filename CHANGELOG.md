@@ -16,7 +16,6 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` Fix PlaceholderCommon with using two and more dynamic placeholders. ([#1641](https://github.com/Sitecore/jss/pull/1641))
 * [templates/nextjs] Fix custom headers. Now in cors-header plugin extends custom headers from next.config.js file. (#1637)
 * `[templates/node-headless-ssr-proxy]` [node-headless-ssr-proxy] Add sc_site qs parameter to Layout Service requests by default ([#1660](https://github.com/Sitecore/jss/pull/1660))
-* `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` Static (rendering params and datasource) and dynamic (fetched) props are now both passed into BYOC components. Previously dynamic fetched props would completely override data from Sitecore items ([#1667](https://github.com/Sitecore/jss/pull/1667))
 * `[sitecore-jss-nextjs]` Fix redirect middleware to match pattern when uses param trailingSlash in next.config.js ([#1676](https://github.com/Sitecore/jss/pull/1676))
 
 ## 21.5.0

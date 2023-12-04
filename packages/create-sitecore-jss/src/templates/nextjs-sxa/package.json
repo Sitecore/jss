@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@sitecore-feaas/clientside": "^0.5.2",
+    "@sitecore-feaas/clientside": "^0.3.17",
     "bootstrap": "^5.1.3",
     "font-awesome": "^4.7.0",
     "sass": "^1.52.3",
