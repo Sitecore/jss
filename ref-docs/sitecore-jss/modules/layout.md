@@ -44,7 +44,6 @@
 ### Functions
 
 - [getChildPlaceholder](layout.md#getchildplaceholder)
-- [getContentStylesheetLink](layout.md#getcontentstylesheetlink)
 - [getFieldValue](layout.md#getfieldvalue)
 
 ## Type Aliases
@@ -78,7 +77,7 @@ Data fetcher resolver in order to provide custom data fetcher
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
 
 ___
 
@@ -97,7 +96,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-[src/layout/models.ts:80](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss/src/layout/models.ts#L80)
+[src/layout/models.ts:80](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss/src/layout/models.ts#L80)
 
 ___
 
@@ -118,7 +117,7 @@ ___
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+[src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
 
 ## Variables
 
@@ -130,7 +129,7 @@ Id of wrapper for component rendering
 
 #### Defined in
 
-[src/layout/models.ts:9](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss/src/layout/models.ts#L9)
+[src/layout/models.ts:9](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss/src/layout/models.ts#L9)
 
 ___
 
@@ -142,7 +141,7 @@ Static placeholder name used for component rendering
 
 #### Defined in
 
-[src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss/src/layout/models.ts#L4)
+[src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss/src/layout/models.ts#L4)
 
 ## Functions
 
@@ -167,32 +166,7 @@ child placeholder
 
 #### Defined in
 
-[src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss/src/layout/utils.ts#L60)
-
-___
-
-### getContentStylesheetLink
-
-▸ **getContentStylesheetLink**(`layoutData`, `pagesServerUrl?`): ``null`` \| [`HTMLLink`](index.md#htmllink)
-
-Get the content styles link to be loaded from the Pages assets server
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `layoutData` | [`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md) | `undefined` | Layout service data |
-| `pagesServerUrl?` | `string` | `PAGES_SERVER_URL` | Sitecore Pages assets server URL. Default is https://pages-assets.sitecorecloud.io |
-
-#### Returns
-
-``null`` \| [`HTMLLink`](index.md#htmllink)
-
-content styles link, null if no styles are used in layout
-
-#### Defined in
-
-[src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss/src/layout/content-styles.ts#L26)
+[src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss/src/layout/utils.ts#L60)
 
 ___
 
@@ -224,7 +198,7 @@ the field value or null if the field is not defined
 
 #### Defined in
 
-[src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss/src/layout/utils.ts#L10)
+[src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss/src/layout/utils.ts#L10)
 
 ▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -250,4 +224,4 @@ the field value or the default value if the field is not defined
 
 #### Defined in
 
-[src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/1778f46ac/packages/sitecore-jss/src/layout/utils.ts#L15)
+[src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/89d327424/packages/sitecore-jss/src/layout/utils.ts#L15)
