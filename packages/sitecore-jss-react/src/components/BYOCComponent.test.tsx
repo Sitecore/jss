@@ -6,11 +6,11 @@ import { BYOCComponent } from './BYOCComponent';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 
 describe('BYOCComponent', () => {
-  it('should render with props when ComponentProps is provided', () => {
+  it('should render with props when ComponentDataOverride is provided', () => {
     const mockProps = {
       params: {
         ComponentName: 'Foo',
-        ComponentProps: JSON.stringify({ prop1: 'value1' }),
+        ComponentDataOverride: JSON.stringify({ prop1: 'value1' }),
       },
       fetchedData: {},
     };
@@ -38,7 +38,7 @@ describe('BYOCComponent', () => {
     const mockProps = {
       params: {
         ComponentName: 'Foo',
-        ComponentProps: JSON.stringify({ prop1: 'value1' }),
+        ComponentDataOverride: JSON.stringify({ prop1: 'value1' }),
       },
       fetchedData,
     };
@@ -67,7 +67,7 @@ describe('BYOCComponent', () => {
     const mockProps = {
       params: {
         ComponentName: 'Foo',
-        ComponentProps: JSON.stringify({ prop1: 'value1' }),
+        ComponentDataOverride: JSON.stringify({ prop1: 'value1' }),
       },
     };
     const Foo = () => <p id="foo-content">Test</p>;
@@ -93,7 +93,7 @@ describe('Error handling', () => {
     const props = {
       params: {
         ComponentName: 'ExampleComponent',
-        ComponentProps: 'invalid-json',
+        ComponentDataOverride: 'invalid-json',
       },
       fetchedData: {},
     };
@@ -108,7 +108,7 @@ describe('Error handling', () => {
       errorComponent: customErrorComponent,
       params: {
         ComponentName: 'ExampleComponent',
-        ComponentProps: 'invalid-json',
+        ComponentDataOverride: 'invalid-json',
       },
       fetchedData: {},
     };
@@ -122,7 +122,7 @@ describe('Error handling', () => {
     const props = {
       params: {
         ComponentName: '',
-        ComponentProps: JSON.stringify({ text: 'this is a BYOC component' }),
+        ComponentDataOverride: JSON.stringify({ text: 'this is a BYOC component' }),
       },
     };
     const wrapper = mount(<BYOCComponent {...props} />);
