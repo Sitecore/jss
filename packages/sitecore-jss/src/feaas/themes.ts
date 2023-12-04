@@ -31,7 +31,7 @@ export function getFEAASLibraryStylesheetLinks(
 
   traverseComponent(layoutData.sitecore.route, ids);
 
-  return [...ids].map((id) => ({ href: getStylesheetUrl(id, serverUrl), rel: 'style' }));
+  return [...ids].map((id) => ({ href: getStylesheetUrl(id, serverUrl), rel: 'stylesheet' }));
 }
 
 export const getStylesheetUrl = (id: string, serverUrl?: string) =>
