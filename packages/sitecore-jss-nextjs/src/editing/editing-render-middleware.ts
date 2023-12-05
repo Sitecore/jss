@@ -78,7 +78,7 @@ export class EditingRenderMiddleware {
 
   /**
    * Gets query parameters that should be passed along to subsequent requests
-   * @param query Object of query parameters from incoming URL
+   * @param {Object} query Object of query parameters from incoming URL
    * @returns Object of approved query parameters
    */
   protected getQueryParamsForPropagation = (

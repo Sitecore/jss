@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react-native",
-  "version": "21.7.0-canary.21",
+  "version": "21.7.0-canary.24",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "clean": "del-cli dist types",
     "typecheck": "tsc",
     "fixcrlf": "eslint --rule 'linebreak-style: [\"error\", \"unix\"]' --ext .ts --no-eslintrc --fix ./dist",
-    "lint": "eslint ./src/**/*.tsx ./src/**/*.ts",
+    "lint": "eslint \"./src/**/*.tsx\" \"./src/**/*.ts\"",
     "test": "jest",
     "prepublishOnly": "npm test && npm run build",
     "coverage": "jest --config ./jest.config.coverage.js",
@@ -28,7 +28,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "21.7.0-canary.21",
+    "@sitecore-jss/sitecore-jss": "21.7.0-canary.24",
     "prop-types": "^15.7.2",
     "react-native-htmlview": "^0.15.0",
     "react-native-svg": "^5.3.0",
