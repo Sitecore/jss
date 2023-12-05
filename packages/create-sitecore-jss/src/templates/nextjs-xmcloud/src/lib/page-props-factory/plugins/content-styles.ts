@@ -8,7 +8,11 @@ class ContentStylesPlugin implements Plugin {
 
   async exec(props: SitecorePageProps) {
     // Get content stylessheet link, empty if styles are not used on the page
-    const contentStyles = getContentStylesheetLink(props.layoutData, config.sitecoreEdgeUrl);
+    const contentStyles = getContentStylesheetLink(
+      props.layoutData,
+      config.sitecoreEdgeContextId,
+      config.sitecoreEdgeUrl
+    );
 
     contentStyles && props.headLinks.push(contentStyles);
 
