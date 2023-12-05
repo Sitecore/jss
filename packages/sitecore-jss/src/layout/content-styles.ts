@@ -19,11 +19,13 @@ type Config = { loadStyles: boolean };
 /**
  * Get the content styles link to be loaded from the Sitecore Edge Platform
  * @param {LayoutServiceData} layoutData Layout service data
+ * @param {string} sitecoreEdgeContextId Sitecore Edge Context ID
  * @param {string} [sitecoreEdgeUrl] Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io
  * @returns {HTMLLink | null} content styles link, null if no styles are used in layout
  */
 export const getContentStylesheetLink = (
   layoutData: LayoutServiceData,
+  sitecoreEdgeContextId: string,
   sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT
 ): HTMLLink | null => {
   if (!layoutData.sitecore.route) return null;
@@ -34,11 +36,17 @@ export const getContentStylesheetLink = (
 
   if (!config.loadStyles) return null;
 
-  return { href: getContentStylesheetUrl(sitecoreEdgeUrl), rel: 'stylesheet' };
+  return {
+    href: getContentStylesheetUrl(sitecoreEdgeContextId, sitecoreEdgeUrl),
+    rel: 'stylesheet',
+  };
 };
 
-export const getContentStylesheetUrl = (sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT): string =>
-  `${sitecoreEdgeUrl}/v1/files/pages/styles/content-styles.css`;
+export const getContentStylesheetUrl = (
+  sitecoreEdgeContextId: string,
+  sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT
+): string =>
+  `${sitecoreEdgeUrl}/v1/files/pages/styles/content-styles.css?sitecoreContextId=${sitecoreEdgeContextId}`;
 
 export const traversePlaceholder = (
   components: Array<ComponentRendering | HtmlElementRendering>,
