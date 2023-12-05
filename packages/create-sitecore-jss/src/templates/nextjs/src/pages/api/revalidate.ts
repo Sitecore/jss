@@ -24,7 +24,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
    This prevents unauthorized users from triggering revalidation requests.
    */
   if (process.env.ISR_REVALIDATE_SECRET) {
-    if (secret && secret !== process.env.ISR_REVALIDATE_SECRET) {
+    if (!secret || secret !== process.env.ISR_REVALIDATE_SECRET) {
       console.log('Invalid secret provided. Authentication failed.');
       res.status(401).end('Invalid secret');
     }
