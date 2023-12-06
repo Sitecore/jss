@@ -5335,7 +5335,7 @@ __metadata:
     "@angular/router": ~15.2.9
     "@sitecore-jss/sitecore-jss": 21.7.0-canary.20
     "@types/jasmine": ^3.4.1
-    "@types/node": ^14.14.35
+    "@types/node": ^16.11.6
     codelyzer: ^6.0.1
     eslint: ~8.3.0
     eslint-plugin-deprecation: ^1.5.0
@@ -6445,13 +6445,6 @@ __metadata:
   version: 12.20.55
   resolution: "@types/node@npm:12.20.55"
   checksum: e4f86785f4092706e0d3b0edff8dca5a13b45627e4b36700acd8dfe6ad53db71928c8dee914d4276c7fd3b6ccd829aa919811c9eb708a2c8e4c6eb3701178c37
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^14.14.35":
-  version: 14.18.63
-  resolution: "@types/node@npm:14.18.63"
-  checksum: be909061a54931778c71c49dc562586c32f909c4b6197e3d71e6dac726d8bd9fccb9f599c0df99f52742b68153712b5097c0f00cac4e279fa894b0ea6719a8fd
   languageName: node
   linkType: hard
 
