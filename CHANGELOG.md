@@ -19,6 +19,10 @@ Our versioning strategy is as follows:
 
 * `[templates/node-headless-ssr-proxy]` [node-headless-ssr-proxy] Add sc_site qs parameter to Layout Service requests by default ([#1660](https://github.com/Sitecore/jss/pull/1660))
 
+### 🧹 Chores
+
+* Fix vulnerabilities ([#1685](https://github.com/Sitecore/jss/pull/1685))
+
 ## 21.6.0
 
 ### 🎉 New Features & Improvements
