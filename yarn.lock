@@ -6906,7 +6906,6 @@ __metadata:
     ng-packagr: ^16.2.3
     reflect-metadata: ^0.1.13
     rxjs: ~7.8.1
-    tsickle: ^0.46.3
     tslib: ^2.3.1
     typescript: ~4.9.5
     zone.js: ~0.13.3
@@ -8045,7 +8044,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/minimist@npm:^1.2.0, @types/minimist@npm:^1.2.1, @types/minimist@npm:^1.2.2":
+"@types/minimist@npm:^1.2.0, @types/minimist@npm:^1.2.2":
   version: 1.2.2
   resolution: "@types/minimist@npm:1.2.2"
   checksum: b8da83c66eb4aac0440e64674b19564d9d86c80ae273144db9681e5eeff66f238ade9515f5006ffbfa955ceff8b89ad2bd8ec577d7caee74ba101431fb07045d
@@ -28465,17 +28464,6 @@ __metadata:
     strip-bom: ^3.0.0
     strip-json-comments: ^2.0.0
   checksum: 8bce05e93c673defd56d93d83d4055e49651d3947c076339c4bc15d47b7eb5029bed194087e568764213a2e4bf45c477ba9f4da16adfd92cd901af7c09e4517e
-  languageName: node
-  linkType: hard
-
-"tsickle@npm:^0.46.3":
-  version: 0.46.3
-  resolution: "tsickle@npm:0.46.3"
-  dependencies:
-    "@types/minimist": ^1.2.1
-  peerDependencies:
-    typescript: ~4.7.2
-  checksum: dce86d5f50291ba0dfbd64a0811eb9303739488b347d04e05e56852dc2d77bd55dae311032b4b4b968e4a4562ef46bc7d5eb023611098767b2956d4a354add46
   languageName: node
   linkType: hard
 
