@@ -27,6 +27,10 @@ export type BYOCComponentParams = {
   /**
    * JSON props to pass into rendered component
    */
+  ComponentProps?: string;
+  /**
+   * A JSON object with data sources to be fetched and passed to the component
+   */
   ComponentDataOverride?: string;
   /**
    * A string with classes that can be used to apply themes, via SXA functionality
@@ -133,9 +137,9 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
 
     let componentProps: { [key: string]: any } = null;
 
-    if (props.params?.ComponentDataOverride) {
+    if (props.params?.ComponentProps) {
       try {
-        componentProps = JSON.parse(props.params.ComponentDataOverride) ?? {};
+        componentProps = JSON.parse(props.params.ComponentProps) ?? {};
       } catch (e) {
         console.error(
           `Parsing props for ${componentName} component from rendering params failed. Error: ${e}`
