@@ -1,6 +1,7 @@
 ﻿import { RevalidateMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/revalidate';
 import { NextApiResponse, NextApiRequest } from 'next';
 import clientFactory from 'lib/graphql-client-factory';
+import nextConfig from '../../../next.config';
 
 /**
  * Nextjs API route /api/revalidate
@@ -13,10 +14,15 @@ import clientFactory from 'lib/graphql-client-factory';
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { query, body } = req;
   const secret = query['secret'];
+
   const revalidateHandler = new RevalidateMiddleware({
     clientFactory,
-    multiSite: body.multiSite || false, // override this value through your webhook payload if using multi-site add-on
-    personalize: body.personalize || false, // override this value through your webhook payload if personalization is configured
+    // override this value through your webhook payload if using multi-site add-on
+    multiSite: body.multiSite || false,
+    // override this value through your webhook payload if personalization is configured
+    personalize: body.personalize || false,
+    // takes the locales configured in next.config
+    languages: nextConfig().i18n,
   }).getHandler();
 
   /**

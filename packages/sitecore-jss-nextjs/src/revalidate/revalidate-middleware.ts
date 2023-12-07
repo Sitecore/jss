@@ -1,4 +1,5 @@
 ﻿import { NextApiResponse, NextApiRequest } from 'next';
+import { I18NConfig } from 'next/dist/server/config-shared';
 import {
   GraphQLPersonalizeService,
   getPersonalizedRewrite,
@@ -10,7 +11,6 @@ import { debug } from '@sitecore-jss/sitecore-jss';
 enum EntityDefinition {
   LayoutData = 'LayoutData',
   Item = 'Item',
-  // Add other entity definitions as needed
 }
 
 /**
@@ -55,6 +55,10 @@ export type RevalidateConfig = {
    * Default is false
    */
   personalize?: boolean;
+  /**
+   * configured locales in next.config
+   */
+  languages?: I18NConfig | null | undefined;
 };
 
 /**
@@ -204,22 +208,26 @@ export class RevalidateMiddleware {
     getPathName: (x: string) => string,
     getSiteName: (x: string) => string
   ) {
-    const personalizedRewrite = personalizeInfo.personalized.map((info) => {
-      return getPersonalizedRewrite(
-        getSiteRewrite(getPathName(info.path), { siteName: getSiteName(info.path) }),
-        {
-          variantId: info.variantId,
-        }
-      );
-    });
-
-    const nonPersonalizedRewrite = personalizeInfo.nonPersonalized.map((info) => {
-      return getSiteRewrite(getPathName(info.path), {
-        siteName: getSiteName(info.path),
+    if (personalizeInfo.personalized.length > 0) {
+      const personalizedRewrite = personalizeInfo.personalized.map((info) => {
+        return getPersonalizedRewrite(
+          getSiteRewrite(getPathName(info.path), { siteName: getSiteName(info.path) }),
+          {
+            variantId: info.variantId,
+          }
+        );
       });
-    });
+      pathsToRevalidate.push(...personalizedRewrite);
+    }
 
-    pathsToRevalidate.push(...personalizedRewrite, ...nonPersonalizedRewrite);
+    if (personalizeInfo.nonPersonalized.length > 0) {
+      const nonPersonalizedRewrite = personalizeInfo.nonPersonalized.map((info) => {
+        return getSiteRewrite(getPathName(info.path), {
+          siteName: getSiteName(info.path),
+        });
+      });
+      pathsToRevalidate.push(...nonPersonalizedRewrite);
+    }
   }
 
   protected handleNonMultiSitePersonalization(
@@ -260,7 +268,7 @@ export class RevalidateMiddleware {
 
     const pathsToRevalidate: string[] = [];
 
-    // when multiSite and personalization both are configured or only personalization is configured
+    // when personalization is configured and when both multiSite and personalization are configured
     if (this.config.personalize) {
       const personalizeInfo = await this.getPersonalizedResults(filteredUpdates);
 
@@ -280,7 +288,7 @@ export class RevalidateMiddleware {
       }
     }
 
-    // when only multiSite is configured but personalization is not
+    // when only multiSite is configured
     if (this.config.multiSite && !this.config.personalize) {
       const multiSitePaths = paths.map((path: string) =>
         getSiteRewrite(this.getPathName(path), { siteName: this.getSiteName(path) })
@@ -288,15 +296,31 @@ export class RevalidateMiddleware {
       pathsToRevalidate.push(...multiSitePaths);
     }
 
-    // when both multisite and personalization are not configured
+    // when both multiSite and personalization are not configured
     if (!this.config.multiSite && !this.config.personalize) {
       const defaultPaths = paths.map((path: string) => this.getPathName(path));
       pathsToRevalidate.push(...defaultPaths);
     }
 
     try {
-      // revalidate all the collected paths
-      await Promise.all(pathsToRevalidate.map((path: string) => res.revalidate(path)));
+      // when multiple locales are configured
+      if (this.config.languages && this.config.languages.locales.length > 1) {
+        const defaultLocale = this.config.languages.defaultLocale;
+        // removing default language from locales
+        const otherLocales = this.config.languages.locales.filter(
+          (locale) => locale !== defaultLocale
+        );
+
+        if (otherLocales.length !== 0) {
+          const localeRewritePaths = otherLocales.map((locale) => `/${locale}`);
+
+          for await (const locale of localeRewritePaths) {
+            await Promise.all(pathsToRevalidate.map((path) => res.revalidate(locale + path)));
+          }
+        }
+      }
+
+      await Promise.all(pathsToRevalidate.map((path) => res.revalidate(path)));
       debug.revalidate(`revalidated paths: ${pathsToRevalidate.join(', ')}`);
       return res.status(200).json({ revalidated: true });
     } catch (error) {
