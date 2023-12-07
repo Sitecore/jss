@@ -29,6 +29,10 @@ export type BYOCComponentParams = {
    */
   ComponentProps?: string;
   /**
+   * A JSON object with data sources to be fetched and passed to the component
+   */
+  ComponentDataOverride?: string;
+  /**
    * A string with classes that can be used to apply themes, via SXA functionality
    */
   styles?: string;
@@ -169,8 +173,8 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
 export async function fetchBYOCComponentServerProps(
   params: BYOCComponentParams
 ): Promise<BYOCComponentProps> {
-  const fetchDataOptions: FEAAS.DataOptions = params.ComponentProps
-    ? JSON.parse(params.ComponentProps)
+  const fetchDataOptions: FEAAS.DataOptions = params.ComponentDataOverride
+    ? JSON.parse(params.ComponentDataOverride)
     : {};
 
   const fetchedData: FEAAS.DataScopes = await FEAAS.DataSettings.fetch(fetchDataOptions || {});

@@ -122,7 +122,7 @@ describe('Error handling', () => {
     const props = {
       params: {
         ComponentName: '',
-        ComponentProps: JSON.stringify({ text: 'this is a BYOC component' }),
+        ComponentDataOverride: JSON.stringify({ text: 'this is a BYOC component' }),
       },
     };
     const wrapper = mount(<BYOCComponent {...props} />);
