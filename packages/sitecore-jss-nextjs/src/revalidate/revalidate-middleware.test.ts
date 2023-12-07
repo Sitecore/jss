@@ -164,19 +164,6 @@ describe('RevalidateMiddleware', () => {
     });
   });
 
-  it('should return 204 when there is nothing to revalidate ', async () => {
-    const res = mockResponse();
-    const req = mockRequest({
-      updates: [],
-    });
-
-    const middleware = new RevalidateMiddleware({ clientFactory });
-    await middleware.getHandler()(req, res);
-
-    expect(res.status).to.be.calledWith(204);
-    expect(res.json).to.be.calledWith({ message: 'No updates to revalidate' });
-  });
-
   it('should return proper paths when only multiSite is true', async () => {
     const res = mockResponse();
     const req = mockRequest({ ...mockUpdatedPaths });
@@ -204,11 +191,42 @@ describe('RevalidateMiddleware', () => {
     expect(res.revalidate).to.have.been.calledWithExactly('/About');
   });
 
+  it('should return proper paths when other locales are configured besides defaultLocale', async () => {
+    const res = mockResponse();
+    const req = mockRequest({ ...mockUpdatedPaths });
+
+    const middleware = new RevalidateMiddleware({
+      clientFactory,
+      languages: { locales: ['en', 'fr-FR'], defaultLocale: 'en' },
+    });
+    await middleware.getHandler()(req, res);
+
+    expect(res.status).to.be.calledWith(200);
+    expect(res.json).to.be.calledWith({ revalidated: true });
+    expect(res.revalidate).to.have.been.calledWithExactly('/fr-FR/');
+    expect(res.revalidate).to.have.been.calledWithExactly('/fr-FR/About');
+  });
+
+  it('should return 204 when there is nothing to revalidate ', async () => {
+    const res = mockResponse();
+    const req = mockRequest({
+      updates: [],
+    });
+
+    const middleware = new RevalidateMiddleware({ clientFactory });
+    await middleware.getHandler()(req, res);
+
+    expect(res.status).to.be.calledWith(204);
+    expect(res.json).to.be.calledWith({ message: 'No updates to revalidate' });
+  });
+
   it('should throw 500 if revalidation fails', async () => {
     const res = mockResponse();
     const req = mockRequest({ ...mockUpdatedPaths });
 
-    const middleware = new RevalidateMiddleware({ clientFactory });
+    const middleware = new RevalidateMiddleware({
+      clientFactory,
+    });
 
     await middleware.getHandler()(req, res);
 
