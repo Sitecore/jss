@@ -17,8 +17,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-* `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` Static (rendering params and datasource) and dynamic (fetched) props are now both passed into BYOC components. Previously dynamic fetched props would completely override data from Sitecore items ([#1667](https://github.com/Sitecore/jss/pull/1667))
-([#1682](https://github.com/Sitecore/jss/pull/1682))
+* `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` Static (rendering params and datasource) and dynamic (fetched) props are now both passed into BYOC components. Previously dynamic fetched props would completely override data from Sitecore items ([#1667](https://github.com/Sitecore/jss/pull/1667))([#1682](https://github.com/Sitecore/jss/pull/1682))([#1688](https://github.com/Sitecore/jss/pull/1688))
 
 ## 21.5.1
 
