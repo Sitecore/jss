@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[disconnected-server/default-document.ts:8](https://github.com/Sitecore/jss/blob/402425e9c/packages/sitecore-jss-dev-tools/src/disconnected-server/default-document.ts#L8)
+[disconnected-server/default-document.ts:8](https://github.com/Sitecore/jss/blob/6aed76ced/packages/sitecore-jss-dev-tools/src/disconnected-server/default-document.ts#L8)
