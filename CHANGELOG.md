@@ -9,7 +9,7 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
-## Unreleased
+## 21.5.2
 
 ### 🎉 New Features & Improvements
 
