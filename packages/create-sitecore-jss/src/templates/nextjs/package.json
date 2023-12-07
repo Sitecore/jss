@@ -29,7 +29,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-feaas/clientside": "^0.5.4",
+    "@sitecore-feaas/clientside": "^0.5.5",
     "@sitecore-jss/sitecore-jss-nextjs": "~21.5.2-canary",
     "graphql": "~15.8.0",
     "graphql-tag": "^2.12.6",
