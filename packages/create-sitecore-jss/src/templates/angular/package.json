@@ -52,15 +52,15 @@
   "homepage": "https://jss.sitecore.com",
   "license": "Apache-2.0",
   "dependencies": {
-    "@angular/animations": "~15.2.9",
-    "@angular/common": "~15.2.9",
-    "@angular/compiler": "~15.2.9",
-    "@angular/core": "~15.2.9",
-    "@angular/forms": "~15.2.9",
-    "@angular/platform-browser": "~15.2.9",
-    "@angular/platform-browser-dynamic": "~15.2.9",
-    "@angular/platform-server": "~15.2.9",
-    "@angular/router": "~15.2.9",
+    "@angular/animations": "~16.2.10",
+    "@angular/common": "~16.2.10",
+    "@angular/compiler": "~16.2.10",
+    "@angular/core": "~16.2.10",
+    "@angular/forms": "~16.2.10",
+    "@angular/platform-browser": "~16.2.10",
+    "@angular/platform-browser-dynamic": "~16.2.10",
+    "@angular/platform-server": "~16.2.10",
+    "@angular/router": "~16.2.10",
     "@apollo/client": "^3.3.12",
     "@ngx-translate/core": "~14.0.0",
     "@ngx-translate/http-loader": "~7.0.0",
@@ -76,16 +76,16 @@
     "zone.js": "~0.13.1"
   },
   "devDependencies": {
-    "@angular-builders/custom-webpack": "^15.0.0",
-    "@angular-devkit/build-angular": "^15.2.9",
-    "@angular-eslint/builder": "^15.2.1",
-    "@angular-eslint/eslint-plugin": "15.2.1",
-    "@angular-eslint/eslint-plugin-template": "^15.2.1",
-    "@angular-eslint/schematics": "^15.2.1",
-    "@angular-eslint/template-parser": "^15.2.1",
-    "@angular/cli": "~15.2.9",
-    "@angular/compiler-cli": "~15.2.9",
-    "@angular/language-service": "~15.2.9",
+    "@angular-builders/custom-webpack": "^16.0.1",
+    "@angular-devkit/build-angular": "^16.2.10",
+    "@angular-eslint/builder": "^16.3.1",
+    "@angular-eslint/eslint-plugin": "^16.3.1",
+    "@angular-eslint/eslint-plugin-template": "^16.3.1",
+    "@angular-eslint/schematics": "^16.3.1",
+    "@angular-eslint/template-parser": "^16.3.1",
+    "@angular/cli": "~16.2.10",
+    "@angular/compiler-cli": "~16.2.10",
+    "@angular/language-service": "~16.2.10",
     "@sitecore-jss/sitecore-jss-angular-schematics": "~21.7.0-canary",
     "@sitecore-jss/sitecore-jss-cli": "~21.7.0-canary",
     "@sitecore-jss/sitecore-jss-dev-tools": "~21.7.0-canary",
@@ -125,22 +125,8 @@
     "npm-run-all": "~4.1.5",
     "protractor": "^7.0.0",
     "ts-node": "~10.9.0",
-    "typescript": "~4.8.4",
+    "typescript": "~4.9.5",
     "yaml-lint": "^1.2.4"
-  },
-  "//": [
-    "overrides (for npm) and resolutions (for yarn) used to work around the bug in critters that affect bootstrap: https://github.com/GoogleChromeLabs/critters/issues/103",
-    "both sections can be removed once critters and css-select versions are updated in build-angular",
-    "for webpack, we use lower version to fix the angular/webpack bug: https://github.com/webpack/webpack/issues/16981 that prevents project from building",
-    "remove webpack override when upgrading Angular to v16"
-  ],
-  "overrides": {
-    "@angular-devkit/build-angular": {
-      "critters": {
-        "css-select": "4.2.1"
-      },
-      "webpack": "5.78.0"
-    }
   },
   "resolutions": {
     "css-select": "4.2.1"

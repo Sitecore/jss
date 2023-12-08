@@ -30,7 +30,10 @@
             "scripts": [],
             "allowedCommonJsDependencies": [
               "zen-observable",
-              "js-sha256"
+              "js-sha256",
+              "url-parse",
+              "graphql-request",
+              "debug"
             ],
             "customWebpackConfig": {
               "path": "./webpack.config.js"

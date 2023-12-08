@@ -1,5 +1,4 @@
-import { BrowserModule, TransferState } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_ID, NgModule, TransferState } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RoutingModule } from './routing/routing.module';
@@ -16,8 +15,6 @@ import { JssMetaService } from './jss-meta.service';
 
 @NgModule({
   imports: [
-    // withServerTransition is needed to enable universal rendering
-    BrowserModule.withServerTransition({ appId: 'my-app' }),
     HttpClientModule,
     GraphQLModule,
     RoutingModule,
@@ -25,12 +22,14 @@ import { JssMetaService } from './jss-meta.service';
       loader: {
         provide: TranslateLoader,
         useFactory: () => new JssTranslationClientLoaderService(new JssTranslationLoaderService()),
-        deps: [HttpClient, TransferState]
-      }
+        deps: [HttpClient, TransferState],
+      },
     }),
     AppComponentsModule,
   ],
   providers: [
+    // The token is needed in cases when multiple applications are bootstrapped on a page
+    { provide: APP_ID, useValue: 'my-app' },
     JssContextService,
     JssDataFetcherService,
     JssLayoutService,
@@ -39,11 +38,7 @@ import { JssMetaService } from './jss-meta.service';
     // the Sitecore Experience Editor will not work correctly when a base tag is used.
     { provide: APP_BASE_HREF, useValue: '/' },
   ],
-  declarations: [
-    AppComponent
-  ],
-  bootstrap: [
-    AppComponent
-  ]
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

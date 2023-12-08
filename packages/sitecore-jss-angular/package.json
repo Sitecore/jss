@@ -61,16 +61,16 @@
   "dependencies": {
     "@sitecore-jss/sitecore-jss": "21.7.0-canary.25"
   },
-  "main": "dist/esm2020/sitecore-jss-sitecore-jss-angular.mjs",
-  "module": "dist/esm2020/sitecore-jss-sitecore-jss-angular.js",
-  "es2015": "dist/esm2015/sitecore-jss-sitecore-jss-angular.js",
+  "main": "dist/esm2022/sitecore-jss-sitecore-jss-angular.mjs",
+  "module": "dist/esm2022/sitecore-jss-sitecore-jss-angular.js",
+  "es2022": "dist/esm2022/sitecore-jss-sitecore-jss-angular.js",
   "typings": "dist/index.d.ts",
   "metadata": "dist/sitecore-jss-sitecore-jss-angular.metadata.json",
-  "esm2015": "dist/esm2015/sitecore-jss-sitecore-jss-angular.js",
-  "fesm2015": "dist/fesm2015/sitecore-jss-sitecore-jss-angular.js",
-  "module_ivy_ngcc": "dist/__ivy_ngcc__/fesm2015/sitecore-jss-sitecore-jss-angular.js",
-  "es2015_ivy_ngcc": "dist/__ivy_ngcc__/fesm2015/sitecore-jss-sitecore-jss-angular.js",
-  "fesm2015_ivy_ngcc": "dist/__ivy_ngcc__/fesm2015/sitecore-jss-sitecore-jss-angular.js",
+  "esm2022": "dist/esm2022/sitecore-jss-sitecore-jss-angular.js",
+  "fesm2022": "dist/fesm2022/sitecore-jss-sitecore-jss-angular.js",
+  "module_ivy_ngcc": "dist/__ivy_ngcc__/fesm2022/sitecore-jss-sitecore-jss-angular.js",
+  "es2022_ivy_ngcc": "dist/__ivy_ngcc__/fesm2022/sitecore-jss-sitecore-jss-angular.js",
+  "fesm2022_ivy_ngcc": "dist/__ivy_ngcc__/fesm2022/sitecore-jss-sitecore-jss-angular.js",
   "sideEffects": false,
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
   "files": [
@@ -79,8 +79,8 @@
     "/*.json",
     "/*.d.ts",
     "/*.js",
-    "/fesm2015",
-    "/esm2015",
+    "/fesm2022",
+    "/esm2022",
     "/bundles",
     "/components"
   ]
