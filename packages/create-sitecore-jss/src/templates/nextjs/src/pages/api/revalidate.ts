@@ -22,7 +22,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     multiSite: body.multiSite || false,
     // override this value through your webhook payload if personalization is configured
     personalize: body.personalize || false,
-    // returns locale configured in next.config
+    // pass the following function to handle additional locales configured in next.config
+    // if i18n isn't available or the language matches the defaultLocale, it returns an empty string,
+    // otherwise, it returns the language itself as the prefix based on the other language configured in next.config.
     languagePrefix: (language: string) => {
       if (!i18n) {
         return '';
