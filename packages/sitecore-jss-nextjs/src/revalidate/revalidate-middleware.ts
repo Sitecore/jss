@@ -1,5 +1,5 @@
 ﻿import { NextApiResponse, NextApiRequest } from 'next';
-import { I18NConfig } from 'next/dist/server/config-shared';
+// import { I18NConfig } from 'next/dist/server/config-shared';
 import {
   GraphQLPersonalizeService,
   getPersonalizedRewrite,
@@ -56,9 +56,9 @@ export type RevalidateConfig = {
    */
   personalize?: boolean;
   /**
-   * configured locales in next.config
+   * configured locales from next.config
    */
-  languages?: I18NConfig | null | undefined;
+  languagePrefix?: (language: string) => string | null;
 };
 
 /**
@@ -130,7 +130,7 @@ export class RevalidateMiddleware {
    * @param {UpdatedPaths[]} filteredUpdates Updated paths
    * @returns {string[]} paths
    */
-  protected extractPaths(filteredUpdates: UpdatedPaths[]) {
+  protected extractPaths(filteredUpdates: UpdatedPaths[]): string[] {
     return filteredUpdates.map((update) => update.path);
   }
 
@@ -139,7 +139,7 @@ export class RevalidateMiddleware {
    * @param {string} pathname Path name
    * @returns {string} site name
    */
-  protected getSiteName(pathname: string) {
+  protected getSiteName(pathname: string): string {
     let siteName = '';
 
     const path = pathname.endsWith('/') ? pathname : pathname + '/';
@@ -157,7 +157,7 @@ export class RevalidateMiddleware {
    * @param {string} fullPath Full path
    * @returns {string} path name
    */
-  protected getPathName(fullPath: string) {
+  protected getPathName(fullPath: string): string {
     const pathParts = fullPath.split('/').filter((part) => part !== '');
 
     if (pathParts.length >= 2) {
@@ -190,11 +190,16 @@ export class RevalidateMiddleware {
           update.entity_definition === EntityDefinition.LayoutData && update.entity_culture
       )
       .map((update: Entity) => {
+        if (update.identifier === 'website/') {
+          return null;
+        }
+
         return {
           path: update.identifier,
           language: update.entity_culture,
         };
-      });
+      })
+      .filter(Boolean);
   }
 
   protected handleMultiSitePersonalization(
@@ -303,19 +308,17 @@ export class RevalidateMiddleware {
     }
 
     try {
-      // when multiple locales are configured
-      if (this.config.languages && this.config.languages.locales.length > 1) {
-        const defaultLocale = this.config.languages.defaultLocale;
-        // removing default language from locales
-        const otherLocales = this.config.languages.locales.filter(
-          (locale) => locale !== defaultLocale
+      // revalidate for any configured locales
+      if (!this.isEmpty(filteredUpdates)) {
+        const filteredLanguage = [...new Set(filteredUpdates.map(({ language }) => language))].join(
+          ','
         );
-
-        if (otherLocales.length !== 0) {
-          const localeRewritePaths = otherLocales.map((locale) => `/${locale}`);
-
-          for await (const locale of localeRewritePaths) {
-            await Promise.all(pathsToRevalidate.map((path) => res.revalidate(locale + path)));
+        if (this.config.languagePrefix) {
+          const language = this.config.languagePrefix(filteredLanguage);
+          if (language) {
+            await Promise.all(
+              pathsToRevalidate.map((path) => res.revalidate(`/${language}` + path))
+            );
           }
         }
       }

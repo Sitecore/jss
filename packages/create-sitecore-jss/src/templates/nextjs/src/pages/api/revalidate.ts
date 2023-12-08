@@ -14,6 +14,7 @@ import nextConfig from '../../../next.config';
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { query, body } = req;
   const secret = query['secret'];
+  const i18n = nextConfig().i18n;
 
   const revalidateHandler = new RevalidateMiddleware({
     clientFactory,
@@ -21,8 +22,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     multiSite: body.multiSite || false,
     // override this value through your webhook payload if personalization is configured
     personalize: body.personalize || false,
-    // takes the locales configured in next.config
-    languages: nextConfig().i18n,
+    // returns locale configured in next.config
+    languagePrefix: (language: string) => {
+      if (!i18n) {
+        return '';
+      } else if (language === i18n.defaultLocale) {
+        return '';
+      } else {
+        return language;
+      }
+    },
   }).getHandler();
 
   /**

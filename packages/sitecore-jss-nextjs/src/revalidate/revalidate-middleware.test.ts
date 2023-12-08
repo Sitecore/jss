@@ -191,20 +191,52 @@ describe('RevalidateMiddleware', () => {
     expect(res.revalidate).to.have.been.calledWithExactly('/About');
   });
 
-  it('should return proper paths when other locales are configured besides defaultLocale', async () => {
+  it('should return proper paths when other locales are configured besides defaultLocale and got updated', async () => {
+    const res = mockResponse();
+    const req = mockRequest({
+      updates: [
+        {
+          identifier: 'my-site/About',
+          entity_definition: 'LayoutData',
+          operation: 'Update',
+          entity_culture: 'fr-CA',
+        },
+        {
+          identifier: 'my-site/',
+          entity_definition: 'LayoutData',
+          operation: 'Update',
+          entity_culture: 'fr-CA',
+        },
+      ],
+    });
+
+    const middleware = new RevalidateMiddleware({
+      clientFactory,
+      languagePrefix: () => 'fr-CA',
+    });
+
+    await middleware.getHandler()(req, res);
+
+    expect(res.status).to.be.calledWith(200);
+    expect(res.json).to.be.calledWith({ revalidated: true });
+    expect(res.revalidate).to.have.been.calledWithExactly('/fr-CA/');
+    expect(res.revalidate).to.have.been.calledWithExactly('/fr-CA/About');
+  });
+
+  it('should return proper paths when only defaultLanguage is configured', async () => {
     const res = mockResponse();
     const req = mockRequest({ ...mockUpdatedPaths });
 
     const middleware = new RevalidateMiddleware({
       clientFactory,
-      languages: { locales: ['en', 'fr-FR'], defaultLocale: 'en' },
+      languagePrefix: () => '',
     });
     await middleware.getHandler()(req, res);
 
     expect(res.status).to.be.calledWith(200);
     expect(res.json).to.be.calledWith({ revalidated: true });
-    expect(res.revalidate).to.have.been.calledWithExactly('/fr-FR/');
-    expect(res.revalidate).to.have.been.calledWithExactly('/fr-FR/About');
+    expect(res.revalidate).to.have.been.calledWithExactly('/');
+    expect(res.revalidate).to.have.been.calledWithExactly('/About');
   });
 
   it('should return 204 when there is nothing to revalidate ', async () => {
