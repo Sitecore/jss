@@ -308,7 +308,7 @@ export class RevalidateMiddleware {
     }
 
     try {
-      // revalidate for any configured locales
+      // when other locales are configured besides defaultLocale
       if (!this.isEmpty(filteredUpdates)) {
         const filteredLanguage = [...new Set(filteredUpdates.map(({ language }) => language))].join(
           ','
