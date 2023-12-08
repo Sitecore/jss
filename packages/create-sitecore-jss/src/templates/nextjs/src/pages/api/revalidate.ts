@@ -26,9 +26,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     // if i18n isn't available or the language matches the defaultLocale, it returns an empty string,
     // otherwise, it returns the language itself as the prefix based on the other language configured in next.config.
     languagePrefix: (language: string) => {
-      if (!i18n) {
-        return '';
-      } else if (language === i18n.defaultLocale) {
+      if (!i18n || language === i18n.defaultLocale) {
         return '';
       } else {
         return language;
