@@ -25,9 +25,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     // Function to generate language prefix based on i18n configurations
     // it returns the language itself as the prefix based on the other languages configured in next.config.
     localePrefix: (language: string) => {
-      if (!i18n) {
-        return '';
-      } else if (language === i18n.defaultLocale) {
+      if (!i18n || language === i18n.defaultLocale) {
         return '';
       } else {
         return language;
