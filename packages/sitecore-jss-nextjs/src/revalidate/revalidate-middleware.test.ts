@@ -212,7 +212,7 @@ describe('RevalidateMiddleware', () => {
 
     const middleware = new RevalidateMiddleware({
       clientFactory,
-      languagePrefix: () => 'fr-CA',
+      localePrefix: () => 'fr-CA',
     });
 
     await middleware.getHandler()(req, res);
@@ -229,7 +229,7 @@ describe('RevalidateMiddleware', () => {
 
     const middleware = new RevalidateMiddleware({
       clientFactory,
-      languagePrefix: () => '',
+      localePrefix: () => '',
     });
     await middleware.getHandler()(req, res);
 
@@ -272,7 +272,7 @@ describe('RevalidateMiddleware', () => {
 
       // Ensure that res.status is called with 500 in the catch block
       expect(res.status).to.be.calledWith(500);
-      expect(res.json).calledWith({});
+      expect(res.json).calledWith({ revalidated: false });
     }
   });
 });

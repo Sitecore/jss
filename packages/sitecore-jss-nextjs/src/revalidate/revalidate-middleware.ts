@@ -46,19 +46,21 @@ export type RevalidateConfig = {
    */
   clientFactory: GraphQLRequestClientFactory;
   /**
-   * Whether multisite is configured
+   * Indicates whether multisite functionality is enabled.
    * Default is false
    */
   multiSite?: boolean;
   /**
-   * Whether personalization is configured
+   * Indicates whether personalization is enabled.
    * Default is false
    */
   personalize?: boolean;
   /**
-   * configured locales from next.config
+   * Function to handle language prefixes for different locales.
+   * @param language - The language to generate the prefix for.
+   * @returns The language prefix or null.
    */
-  languagePrefix?: (language: string) => string | null;
+  localePrefix?: (language: string) => string | null;
 };
 
 /**
@@ -74,11 +76,20 @@ export class RevalidateMiddleware {
   }
 
   /**
-   * Gets the Next.js API route handler
-   * @returns route handler
+   * Generates a Next.js API route handler that executes a revalidation process.
+   * @returns The route handler function for handling Next.js API requests.
    */
   public getHandler(): (req: NextApiRequest, res: NextApiResponse) => Promise<void> {
-    return this.handler;
+    return async (req, res) => {
+      try {
+        await this.handler(req, res);
+        return res.status(200).json({ revalidated: true });
+      } catch (error) {
+        console.log('Error Revalidating:');
+        console.log(error);
+        return res.status(500).json({ revalidated: false });
+      }
+    };
   }
 
   /**
@@ -307,28 +318,20 @@ export class RevalidateMiddleware {
       pathsToRevalidate.push(...defaultPaths);
     }
 
-    try {
-      // when other locales are configured besides defaultLocale
-      if (!this.isEmpty(filteredUpdates)) {
-        const filteredLanguage = [...new Set(filteredUpdates.map(({ language }) => language))].join(
-          ','
-        );
-        if (this.config.languagePrefix) {
-          const language = this.config.languagePrefix(filteredLanguage);
-          if (language) {
-            await Promise.all(
-              pathsToRevalidate.map((path) => res.revalidate(`/${language}` + path))
-            );
-          }
+    // when other locales are configured besides defaultLocale
+    if (!this.isEmpty(filteredUpdates)) {
+      const filteredLanguage = [...new Set(filteredUpdates.map(({ language }) => language))].join(
+        ','
+      );
+      if (this.config.localePrefix) {
+        const language = this.config.localePrefix(filteredLanguage);
+        if (language) {
+          await Promise.all(pathsToRevalidate.map((path) => res.revalidate(`/${language}` + path)));
         }
       }
-
-      await Promise.all(pathsToRevalidate.map((path) => res.revalidate(path)));
-      debug.revalidate(`revalidated paths: ${pathsToRevalidate.join(', ')}`);
-      return res.status(200).json({ revalidated: true });
-    } catch (error) {
-      debug.revalidate(`error: ${error}`);
-      return res.status(500).json({});
     }
+
+    await Promise.all(pathsToRevalidate.map((path) => res.revalidate(path)));
+    debug.revalidate(`revalidated paths: ${pathsToRevalidate.join(', ')}`);
   };
 }

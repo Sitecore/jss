@@ -5,9 +5,9 @@ import nextConfig from '../../../next.config';
 
 /**
  * Nextjs API route /api/revalidate
- * This is a revalidate endpoint that can be used to trigger Incremental Static Regeneration (ISR).
- * of Next.js pages on-Demand.This endpoint is called by Sitecore when content is published,
- * and can also be called manually to trigger revalidation of pages.
+ * This revalidate endpoint is triggered by the configured Sitecore Experience Edge Webhooks
+ * whenever new content is published on Sitecore which initiates On-demand Incremental
+ * Static Regeneration (ISR) of the updated page.
  * @param req  The Next.js API request object
  * @param res  The Next.js API response object
  */
@@ -22,10 +22,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     multiSite: body.multiSite || false,
     // override this value through your webhook payload if personalization is configured
     personalize: body.personalize || false,
-    // pass the following function to handle additional locales configured in next.config
-    // if i18n isn't available or the language matches the defaultLocale, it returns an empty string,
-    // otherwise, it returns the language itself as the prefix based on the other language configured in next.config.
-    languagePrefix: (language: string) => {
+    // Function to generate language prefix based on i18n configurations
+    // it returns the language itself as the prefix based on the other languages configured in next.config.
+    localePrefix: (language: string) => {
       if (!i18n) {
         return '';
       } else if (language === i18n.defaultLocale) {
