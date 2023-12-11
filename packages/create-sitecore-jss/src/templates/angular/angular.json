@@ -118,9 +118,10 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/server",
             "main": "server.bundle.ts",
-            "tsConfig": "src/tsconfig.server.json"
+            "tsConfig": "src/tsconfig.server.json",
+            "deleteOutputPath": false,
+            "outputHashing": "none"
           },
           "configurations": {
             "production": {
