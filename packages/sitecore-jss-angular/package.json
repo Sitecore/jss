@@ -68,9 +68,6 @@
   "metadata": "dist/sitecore-jss-sitecore-jss-angular.metadata.json",
   "esm2022": "dist/esm2022/sitecore-jss-sitecore-jss-angular.js",
   "fesm2022": "dist/fesm2022/sitecore-jss-sitecore-jss-angular.js",
-  "module_ivy_ngcc": "dist/__ivy_ngcc__/fesm2022/sitecore-jss-sitecore-jss-angular.js",
-  "es2022_ivy_ngcc": "dist/__ivy_ngcc__/fesm2022/sitecore-jss-sitecore-jss-angular.js",
-  "fesm2022_ivy_ngcc": "dist/__ivy_ngcc__/fesm2022/sitecore-jss-sitecore-jss-angular.js",
   "sideEffects": false,
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
   "files": [
