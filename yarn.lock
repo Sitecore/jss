@@ -6825,7 +6825,7 @@ __metadata:
     "@angular-devkit/schematics": ~16.2.10
     "@schematics/angular": ~16.2.10
     "@types/jasmine": ^2.8.0
-    "@types/node": ^12.7.8
+    "@types/node": ^18.19.0
     chalk: ^2.4.2
     jasmine: ^2.99.0
     nyc: ^15.1.0
@@ -6849,7 +6849,7 @@ __metadata:
     "@angular/router": ~16.2.10
     "@sitecore-jss/sitecore-jss": 21.7.0-canary.30
     "@types/jasmine": ^3.4.1
-    "@types/node": ^14.14.35
+    "@types/node": ^18.19.0
     codelyzer: ^6.0.1
     eslint: ~8.3.0
     eslint-plugin-deprecation: ^1.5.0
@@ -8044,20 +8044,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^12.7.8":
-  version: 12.20.37
-  resolution: "@types/node@npm:12.20.37"
-  checksum: 8c8b12f802678b3b87c5344b6c84082be08561dda81dc161d42be8cd327330d1a5227cef039c45a5e63a6d4a01ef5ef215dccc42d06100f59f6a8814b4f91cdd
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^14.14.35":
-  version: 14.17.33
-  resolution: "@types/node@npm:14.17.33"
-  checksum: 47ee8d5a398f84b376023f03b83e43a71f1bf617d1014d34c0af24b0332b42e7b392c967c20bfb907fb37971993035e3b25c47a1678c745c5d122d8205ba5a19
-  languageName: node
-  linkType: hard
-
 "@types/node@npm:^18.11.18, @types/node@npm:~18.11.18":
   version: 18.11.18
   resolution: "@types/node@npm:18.11.18"
@@ -8069,6 +8055,15 @@ __metadata:
   version: 18.14.4
   resolution: "@types/node@npm:18.14.4"
   checksum: 3f2f625777747b9f87e793eea5a8bbf1ac2c828846bda5811d07a457d55cfe6762239779759de61e7b7e917632b9ceee3f7ffd2a024117e7ec364dc1b4eb8d55
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.19.0":
+  version: 18.19.3
+  resolution: "@types/node@npm:18.19.3"
+  dependencies:
+    undici-types: ~5.26.4
+  checksum: 58c4fa45a78fcec75c78182a4b266395905957633654eb0311c5f9c30ac15c179ea2287ab1af034e46c2db7bb0589ef0000ee64c1de8f568a0aad29eaadb100c
   languageName: node
   linkType: hard
 
@@ -28701,6 +28696,13 @@ __metadata:
     has-symbols: ^1.0.3
     which-boxed-primitive: ^1.0.2
   checksum: b7a1cf5862b5e4b5deb091672ffa579aa274f648410009c81cca63fed3b62b610c4f3b773f912ce545bb4e31edc3138975b5bc777fc6e4817dca51affb6380e9
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~5.26.4":
+  version: 5.26.5
+  resolution: "undici-types@npm:5.26.5"
+  checksum: 3192ef6f3fd5df652f2dc1cd782b49d6ff14dc98e5dced492aa8a8c65425227da5da6aafe22523c67f035a272c599bb89cfe803c1db6311e44bed3042fc25487
   languageName: node
   linkType: hard
 
