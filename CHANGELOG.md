@@ -24,6 +24,25 @@ Our versioning strategy is as follows:
 * `[templates/node-headless-ssr-proxy]` `[node-headless-ssr-proxy]` Add sc_site qs parameter to Layout Service requests by default ([#1660](https://github.com/Sitecore/jss/pull/1660))
 * `[sitecore-jss-nextjs]` Fix redirect middleware to match pattern when uses param trailingSlash in next.config.js ([#1676](https://github.com/Sitecore/jss/pull/1676))
 
+### 🛠 Breaking Changes
+
+* `[templates/angular]` `[sitecore-jss-angular]` Update Angular to version 16 ([#1690](https://github.com/Sitecore/jss/pull/1690)):
+  * Updated Angular to ~16.2.10
+  * Updated Typescript to ~4.9.5
+  * _@angular-eslint/ng-cli-compat_ eslint rules are deprecated. Use _@angular-eslint/recommended_ rules instead.
+  * _outputPath_ is not needed in _angular.json_ for the _build_ target since we provide it via CLI.
+  * Added more properties to server buld angular.json:
+    * _deleteOutputPath_: false,
+    * _outputHashing_: none
+    To don't provide them via CLI.
+  * Replaced deprecated _--deploy-url_ with _--base-href_ ng build option.
+  * Output server build to _dist_ instead of _dist/server_, in order  to don't move artifacts to the root folder (JSS convention requires to keep all the server artifacts in the _dist_ folder and have _server.bundle.js_ file as an entrypoint)
+  * _TransferState_, _makeStateKey_ now imported from _@angular/core_ instead of _@angular/platform-browser_.
+  * _BrowserModule.withServerTransition_ is deprecated, *APP_ID* is used instead.
+  * Removed deprecated lib _entryComponents_ property.
+  * Exported _ImageFieldValue_ and _LinkFieldValue_ interfaces.
+  * See more information about the upgrade in the [Angular 16 Migration Guide](https://update.angular.io/?l=3&v=15.0-16.0)
+
 ## 21.6.0
 
 ### 🎉 New Features & Improvements
