@@ -23,6 +23,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[templates/node-headless-ssr-proxy]` `[node-headless-ssr-proxy]` Add sc_site qs parameter to Layout Service requests by default ([#1660](https://github.com/Sitecore/jss/pull/1660))
+* `[templates/nextjs-sxa]` Fixed Image component when there is using Banner variant which set property background-image when image is empty. ([#1689](https://github.com/Sitecore/jss/pull/1689))
 
 ## 21.6.0
 
