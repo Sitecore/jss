@@ -35,7 +35,7 @@ export const Banner = (props: ImageProps): JSX.Element => {
     isPageEditing && props.fields?.Image?.value?.class === 'scEmptyImage'
       ? 'hero-banner-empty'
       : '';
-  const backgroundStyle = { backgroundImage: `url('${props?.fields?.Image?.value?.src}')` };
+  const backgroundStyle = props?.fields?.Image?.value?.src && { backgroundImage: `url('${props?.fields?.Image?.value?.src}')` };
   const modifyImageProps = {
     ...props.fields.Image,
     editable: props?.fields?.Image?.editable
