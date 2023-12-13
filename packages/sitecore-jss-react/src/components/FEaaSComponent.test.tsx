@@ -153,19 +153,76 @@ describe('<FEaaSComponent />', () => {
           value: 'Welcome to Sitecore JSS',
         },
       };
-      const override = JSON.stringify({ sampleText: { value: 'Welcome to FEAAS' } });
+      const override = JSON.stringify({ sampleText: 'Welcome to FEAAS' });
       const props: FEaaSComponentProps = {
         params: {
           ...requiredParams,
           ComponentDataOverride: override,
         },
         fields,
-        template: '<h1 data-path="sampleText.value"></h1>',
+        template: '<h1 data-path="sampleText"></h1>',
       };
 
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
       expect(wrapper.html()).to.contain('Welcome to FEAAS');
+    });
+
+    it('should combine override data with datasource fields', () => {
+      const fields: ComponentFields = {
+        sampleText: {
+          value: 'Welcome to Sitecore JSS',
+        },
+      };
+      const override = JSON.stringify({ otherText: 'Welcome to FEAAS' });
+      const props: FEaaSComponentProps = {
+        params: {
+          ...requiredParams,
+          ComponentDataOverride: override,
+        },
+        fields,
+        template: '<h1 data-path="sampleText"></h1><h1 data-path="otherText"></h1>',
+      };
+
+      const wrapper = shallow(<FEaaSComponent {...props} />);
+      expect(wrapper).to.have.length(1);
+      console.log('DEBUG');
+      console.log(wrapper.html());
+      expect(wrapper.html()).to.contain('Welcome to FEAAS');
+      expect(wrapper.html()).to.contain('Welcome to Sitecore JSS');
+    });
+
+    it('should prefer fetched data and combine it with override data and datasource fields', () => {
+      const fields: ComponentFields = {
+        sampleText: {
+          value: 'Welcome to Sitecore JSS',
+        },
+        description: {
+          value: 'This may be ovewritten',
+        },
+      };
+      const fetchedData = {
+        sampleText: 'Welcome to fetched data',
+      };
+      const override = JSON.stringify({ otherText: 'Welcome to FEAAS' });
+      const props: FEaaSComponentProps = {
+        params: {
+          ...requiredParams,
+          ComponentDataOverride: override,
+        },
+        fields,
+        fetchedData,
+        template:
+          '<h1 data-path="sampleText"></h1><h1 data-path="otherText"></h1><p data-path="description"></p>',
+      };
+
+      const wrapper = shallow(<FEaaSComponent {...props} />);
+      expect(wrapper).to.have.length(1);
+      console.log('DEBUG');
+      console.log(wrapper.html());
+      expect(wrapper.html()).to.contain('Welcome to FEAAS');
+      expect(wrapper.html()).to.contain(fetchedData.sampleText);
+      expect(wrapper.html()).to.contain('This may be ovewritten');
     });
 
     it('should send prefetched data', () => {

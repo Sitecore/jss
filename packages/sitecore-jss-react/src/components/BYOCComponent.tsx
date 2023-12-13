@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
-import { getDataFromFields } from '../utils';
+import { concatData, getDataFromFields } from '../utils';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 
@@ -135,7 +135,7 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
 
     const ErrorComponent = this.props.errorComponent;
 
-    let componentProps: { [key: string]: any } = null;
+    let componentProps: { [key: string]: any } = {};
 
     if (props.params?.ComponentProps) {
       try {
@@ -150,9 +150,11 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
           <DefaultErrorComponent error={e as Error} />
         );
       }
-    } else {
-      componentProps = props.fields ? getDataFromFields(props.fields) : {};
     }
+    // apply props from item datasource
+    componentProps = props.fields
+      ? concatData(componentProps, getDataFromFields(props.fields))
+      : componentProps;
 
     // we render fallback on client to avoid problems with client-only components
     return (

@@ -113,3 +113,20 @@ export const getDataFromFields = (fields: ComponentFields): { [key: string]: unk
   }, data);
   return data;
 };
+
+/**
+ * Used to combine props data in BYOC and FEAAS components
+ */
+export const concatData = (
+  base: { [key: string]: unknown },
+  appendix: { [key: string]: unknown }
+): { [key: string]: unknown } => {
+  const data = base;
+  appendix &&
+    Object.keys(appendix).forEach((key) => {
+      if (Object.keys(base).indexOf(key) === -1) {
+        data[key] = appendix[key];
+      }
+    });
+  return data;
+};

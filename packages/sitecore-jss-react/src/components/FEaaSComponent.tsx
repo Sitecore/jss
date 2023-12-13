@@ -1,7 +1,7 @@
 import React from 'react';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 import { ComponentFields, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
-import { getDataFromFields } from '../utils';
+import { concatData, getDataFromFields } from '../utils';
 
 export const FEAAS_COMPONENT_RENDERING_NAME = 'FEaaSComponent';
 
@@ -76,20 +76,19 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
     return null;
   }
 
-  let data: { [key: string]: unknown } = null;
-  if (props.fetchedData === null || props.fetchedData === undefined) {
-    if (props.params?.ComponentDataOverride) {
-      // Use override data if provided
-      try {
-        data = JSON.parse(props.params.ComponentDataOverride);
-      } catch (e) {
-        data = null;
-      }
-    } else if (props.fields) {
-      // Otherwise use datasource data (provided in fields)
-      data = getDataFromFields(props.fields);
+  let data = (props.fetchedData as { [key: string]: unknown }) ?? {};
+  if (props.params?.ComponentDataOverride) {
+    // Use override data if provided
+    try {
+      data = concatData(data, JSON.parse(props.params.ComponentDataOverride));
+    } catch (e) {
+      console.error(
+        `ComponentDataOverride param could not be parsed and will be ignored. Error: ${e}`
+      );
     }
   }
+  // also apply item datasource data if present
+  data = props.fields ? concatData(data, getDataFromFields(props.fields)) : data;
 
   // FEaaS control would still be hydrated by client
   // we pass all the props as a workaround to avoid hydration error, until we convert all JSS components to server side
@@ -97,7 +96,7 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
   // FEAAS should not fetch anything, since JSS does the fetching - so we pass empty array into fetch param
   return (
     <FEAAS.Component
-      data={props.fetchedData || data}
+      data={data}
       template={props.template}
       cdn={props.params?.ComponentHostName}
       library={props.params?.LibraryId}
