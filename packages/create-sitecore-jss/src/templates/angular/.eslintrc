@@ -16,8 +16,7 @@
         "createDefaultProgram": true
       },
       "extends": [
-        "plugin:@angular-eslint/ng-cli-compat",
-        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+        "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
@@ -37,19 +36,6 @@
             "style": "camelCase"
           }
         ],
-        "@typescript-eslint/naming-convention": [
-          "error",
-          {
-            "format": ["PascalCase"],
-            "selector": "typeLike",
-            "custom": {
-              "regex": "^I[A-Z]",
-              "match": false
-            }
-          }
-        ],
-        "prefer-arrow/prefer-arrow-functions": "off",
-        "@typescript-eslint/consistent-type-definitions": "error",
         "@typescript-eslint/dot-notation": "off",
         "@typescript-eslint/explicit-member-accessibility": [
           "off",
