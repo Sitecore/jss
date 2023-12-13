@@ -23,7 +23,7 @@ Fetch layout data for an item.
 | `itemPath` | `string` |  |
 | `language?` | `string` |  |
 | `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse` | Response instance |
+| `res?` | `ServerResponse`<`IncomingMessage`\> | Response instance |
 
 #### Returns
 

@@ -55,7 +55,7 @@ sitecore-jss/types/layout/rest-layout-service.d.ts:57
 
 ### getDefaultFetcher
 
-• `Protected` **getDefaultFetcher**: <T\>(`req?`: `IncomingMessage`, `res?`: `ServerResponse`) => (`url`: `string`, `data?`: `unknown`) => `Promise`<`AxiosResponse`<`T`\>\>
+• `Protected` **getDefaultFetcher**: <T\>(`req?`: `IncomingMessage`, `res?`: `ServerResponse`<`IncomingMessage`\>) => (`url`: `string`, `data?`: `unknown`) => `Promise`<`AxiosResponse`<`T`\>\>
 
 #### Type declaration
 
@@ -78,7 +78,7 @@ AxiosDataFetcher data fetcher
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse` | Response instance |
+| `res?` | `ServerResponse`<`IncomingMessage`\> | Response instance |
 
 ##### Returns
 
@@ -160,7 +160,7 @@ the item with the specified path is not found
 | `itemPath` | `string` | item path to fetch layout data for. |
 | `language?` | `string` | the language to fetch layout data for. |
 | `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse` | Response instance |
+| `res?` | `ServerResponse`<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
@@ -194,7 +194,7 @@ a specific route item. Allows you to retrieve rendered data for individual place
 | `itemPath` | `string` | the path to the item to fetch layout data for. |
 | `language?` | `string` | the language to fetch data for. |
 | `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse` | Response instance |
+| `res?` | `ServerResponse`<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
@@ -282,7 +282,7 @@ Setup response headers based on response from layout service
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `res` | `ServerResponse` | Response instance |
+| `res` | `ServerResponse`<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
