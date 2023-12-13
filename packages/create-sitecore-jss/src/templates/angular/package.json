@@ -127,8 +127,5 @@
     "ts-node": "~10.9.0",
     "typescript": "~4.9.5",
     "yaml-lint": "^1.2.4"
-  },
-  "resolutions": {
-    "css-select": "4.2.1"
   }
 }
