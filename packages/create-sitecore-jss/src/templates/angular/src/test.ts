@@ -13,7 +13,6 @@ import {
 } from '@angular/platform-browser-dynamic/testing';
 
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
-// eslint-disable-next-line @typescript-eslint/naming-convention
 declare const __karma__: { [key: string]: unknown; start: () => void };
 declare const require: {
   [key: string]: unknown;
@@ -31,7 +30,6 @@ declare const require: {
 };
 
 // Prevent Karma from running prematurely.
-// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 __karma__.loaded = function() {};
 
 // First, initialize the Angular testing environment.

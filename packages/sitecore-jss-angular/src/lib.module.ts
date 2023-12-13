@@ -71,7 +71,6 @@ import { JssComponentFactoryService } from './jss-component-factory.service';
     TextDirective,
     EditFrameComponent,
   ],
-  entryComponents: [RawComponent, MissingComponentComponent],
 })
 export class JssModule {
   /**

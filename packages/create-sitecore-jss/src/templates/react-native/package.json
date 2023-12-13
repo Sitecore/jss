@@ -11,8 +11,8 @@
     "language": "en"
   },
   "engines": {
-    "node": ">=12",
-    "npm": ">=6"
+    "node": ">=18",
+    "npm": ">=10"
   },
   "scripts": {
     "jss": "jss",

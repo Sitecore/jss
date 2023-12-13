@@ -24,7 +24,9 @@ export { isRawRendering } from './components/rendering';
 export {
   FileField,
   ImageField,
+  ImageFieldValue,
   LinkField,
+  LinkFieldValue,
   RenderingField,
   RichTextField,
   TextField,

@@ -1,10 +1,9 @@
-import { NgModule, PLATFORM_ID, Inject } from '@angular/core';
+import { makeStateKey, TransferState, NgModule, PLATFORM_ID, Inject } from '@angular/core';
 import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { InMemoryCache, NormalizedCacheObject, PossibleTypesMap } from '@apollo/client/core';
 import { Apollo, ApolloModule } from 'apollo-angular';
 import { HttpBatchLink } from 'apollo-angular/http';
 import { isPlatformServer } from '@angular/common';
-import { TransferState, makeStateKey } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
 import { JssGraphQLService } from './jss-graphql.service';
 
