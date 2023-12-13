@@ -14,7 +14,7 @@ Our versioning strategy is as follows:
 ### 🎉 New Features & Improvements
 
 * `[nextjs/template]` `[sitecore-jss-nextjs]` On-demand ISR [#1674](https://github.com/Sitecore/jss/pull/1672))
-* `[sitecore-jss]` `[templates/nextjs-xmcloud]` Load the content styles for the RichText component ([#1670](https://github.com/Sitecore/jss/pull/1670))([#1683](https://github.com/Sitecore/jss/pull/1683))([#1684](https://github.com/Sitecore/jss/pull/1684))
+* `[sitecore-jss]` `[templates/nextjs-xmcloud]` Load the content styles for the RichText component ([#1670](https://github.com/Sitecore/jss/pull/1670))([#1683](https://github.com/Sitecore/jss/pull/1683)) ([#1684](https://github.com/Sitecore/jss/pull/1684)) ([#1693](https://github.com/Sitecore/jss/pull/1693))
 
 ### 🧹 Chores
 
