@@ -58,8 +58,8 @@ describe('<FEaaSComponent />', () => {
     };
     const wrapper = shallow(<FEaaSComponent {...props} />);
     expect(wrapper).to.have.length(1);
-    expect(wrapper.html()).to.equal(
-      '<feaas-component class="-feaas" cdn="host123" library="library123" version="version123" component="component123" revision="staged"></feaas-component>'
+    expect(wrapper.html()).to.contain(
+      '<feaas-component class="-feaas" cdn="host123" library="library123" version="version123" component="component123" revision="staged"'
     );
   });
 
@@ -68,7 +68,7 @@ describe('<FEaaSComponent />', () => {
     const wrapper = shallow(<FEaaSComponent template={template} />);
     expect(wrapper).to.have.length(1);
     expect(wrapper.html()).to.equal(
-      `<feaas-component class="-feaas">${template}</feaas-component>`
+      `<feaas-component class="-feaas" data="{&quot;_&quot;:{}}">${template}</feaas-component>`
     );
   });
 
@@ -79,28 +79,28 @@ describe('<FEaaSComponent />', () => {
     const wrapper = shallow(<FEaaSComponent {...props} />);
     expect(wrapper).to.have.length(1);
     expect(wrapper.html()).to.equal(
-      '<feaas-component class="-feaas" cdn="host123" library="library123" version="version123" component="component123" revision="staged"></feaas-component>'
+      '<feaas-component class="-feaas" cdn="host123" library="library123" version="version123" component="component123" revision="staged" data="{&quot;_&quot;:{}}"></feaas-component>'
     );
   });
 
   describe('data', () => {
-    it('should send override data', () => {
+    it('should send fetched data', () => {
       const props: FEaaSComponentProps = {
         params: {
           ...requiredParams,
-          ComponentDataOverride: '{ "foo": "bar", "baz": 1 }',
         },
-        fetchedData: undefined,
+        fetchedData: { foo: 'bar', baz: 1 },
+        template: '<h1 data-path="foo"></h1><h2 data-path="baz"></h2>',
       };
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
-      expect(wrapper.html()).to.contain(
-        `data="${props.params?.ComponentDataOverride!.replace(/"/g, '&quot;').replace(/\s/g, '')}"`
-      );
+      const output = wrapper.html();
+      expect(output).to.contain('<h1 data-path="foo">bar</h1>');
+      expect(output).to.contain('<h2 data-path="baz">1</h2>');
     });
 
     it('should send datasource fields', () => {
-      const fields: ComponentFields = {
+      const fields = {
         sampleText: {
           value: 'Welcome-to-Sitecore-JSS',
         },
@@ -121,76 +121,52 @@ describe('<FEaaSComponent />', () => {
           },
         },
       };
+      const template = `
+      <h1 data-path="xm.sampleText"></h1>
+      <img data-path-src="xm.sampleImage.src" data-path-alt="xm.sampleImage.alt"></img>
+      <p data-path="xm.sampleNumber"></p>
+      <a data-path-href="xm.sampleLink.href" data-path-id="xm.sampleLink.id"></a>`;
       const props: FEaaSComponentProps = {
         params: {
           ...requiredParams,
         },
         fields,
-      };
-      const expectedData = {
-        sampleText: 'Welcome-to-Sitecore-JSS',
-        sampleImage: {
-          src: '/-/media/sc_logo.png',
-          alt: 'Sitecore-Logo',
-        },
-        sampleNumber: 1.21,
-        sampleLink: {
-          href: '/',
-          id: '{54C8E9B5-0B2C-5363-8FA6-D32A3A302F51}',
-          linktype: 'internal',
-        },
+        template,
       };
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
-      expect(wrapper.html()).to.contain(
-        `data="${JSON.stringify(expectedData)
-          .replace(/"/g, '&quot;')
-          .replace(/\s/g, '')}"`
+      const output = wrapper.html();
+      expect(output).to.contain(`<h1 data-path="xm.sampleText">${fields.sampleText.value}</h1>`);
+      expect(output).to.contain(
+        `<img data-path-src="xm.sampleImage.src" data-path-alt="xm.sampleImage.alt" src="${fields.sampleImage.value.src}" alt="${fields.sampleImage.value.alt}"/>`
+      );
+      expect(output).to.contain(`<p data-path="xm.sampleNumber">${fields.sampleNumber.value}</p>`);
+      expect(output).to.contain(
+        `<a data-path-href="xm.sampleLink.href" data-path-id="xm.sampleLink.id" href="${fields.sampleLink.value.href}" id="${fields.sampleLink.value.id}"></a>`
       );
     });
 
-    it('should prefer override data over datasource fields', () => {
+    it('should combine fetched data with datasource fields', () => {
       const fields: ComponentFields = {
-        sampleText: {
+        fieldText: {
           value: 'Welcome to Sitecore JSS',
         },
       };
+      const fetched = { customDatasourceId: { fetchedText: 'Welcome to FEAAS' } };
       const props: FEaaSComponentProps = {
         params: {
           ...requiredParams,
-          ComponentDataOverride: '{ "foo": "bar", "baz": 1 }',
         },
+        fetchedData: fetched,
         fields,
+        template:
+          '<h1 data-path="xm.fieldText"></h1><h1 data-path="customDatasourceId.fetchedText"></h1>',
       };
 
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
-      expect(wrapper.html()).to.contain(
-        `data="${props.params?.ComponentDataOverride!.replace(/"/g, '&quot;').replace(/\s/g, '')}"`
-      );
-    });
-
-    it('should send prefetched data', () => {
-      const fetchedData = {
-        foo: 'bar',
-        baz: 42,
-      };
-
-      const props: FEaaSComponentProps = {
-        params: {
-          ...requiredParams,
-          ComponentDataOverride: '{ "foo": "test", "baz": 22 }',
-        },
-        fetchedData,
-      };
-
-      const wrapper = shallow(<FEaaSComponent {...props} />);
-
-      expect(wrapper).to.have.length(1);
-      const expectedData = JSON.stringify(fetchedData)
-        .replace(/"/g, '&quot;')
-        .replace(/\s/g, '');
-      expect(wrapper.html()).to.contain(`data="${expectedData}"`);
+      expect(wrapper.html()).to.contain('Welcome to FEAAS');
+      expect(wrapper.html()).to.contain('Welcome to Sitecore JSS');
     });
   });
 });

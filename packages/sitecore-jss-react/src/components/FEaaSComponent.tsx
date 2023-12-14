@@ -75,28 +75,15 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
     // Missing FEaaS component required props
     return null;
   }
-
-  let data: { [key: string]: unknown } = null;
-  if (props.fetchedData === null || props.fetchedData === undefined) {
-    if (props.params?.ComponentDataOverride) {
-      // Use override data if provided
-      try {
-        data = JSON.parse(props.params.ComponentDataOverride);
-      } catch (e) {
-        data = null;
-      }
-    } else if (props.fields) {
-      // Otherwise use datasource data (provided in fields)
-      data = getDataFromFields(props.fields);
-    }
-  }
+  // combine fetchedData from server with datasource data (if present)
+  const data = { ...props.fetchedData, _: getDataFromFields(props.fields ?? {}) };
 
   // FEaaS control would still be hydrated by client
   // we pass all the props as a workaround to avoid hydration error, until we convert all JSS components to server side
   // this also allows component to fall back to full client-side rendering when template or src is empty
   return (
     <FEAAS.Component
-      data={props.fetchedData || data}
+      data={data}
       template={props.template}
       cdn={props.params?.ComponentHostName}
       library={props.params?.LibraryId}
@@ -124,7 +111,7 @@ export async function fetchFEaaSComponentServerProps(
     pageState && pageState !== LayoutServicePageState.Normal ? 'staged' : 'published';
   const src = endpointOverride || composeComponentEndpoint(params, revisionFallback);
   let template = '';
-  let fetchedData: FEAAS.DataScopes = null;
+  let fetchedData: FEAAS.DataScopes = {};
   const fetchDataOptions: FEAAS.DataOptions = params.ComponentDataOverride
     ? JSON.parse(params.ComponentDataOverride)
     : {};
