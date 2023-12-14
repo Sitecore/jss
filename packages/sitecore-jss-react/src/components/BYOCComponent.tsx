@@ -135,7 +135,7 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
 
     const ErrorComponent = this.props.errorComponent;
 
-    let componentProps: { [key: string]: any } = null;
+    let componentProps: { [key: string]: any } = {};
 
     if (props.params?.ComponentProps) {
       try {
@@ -150,16 +150,16 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
           <DefaultErrorComponent error={e as Error} />
         );
       }
-    } else {
-      componentProps = props.fields ? getDataFromFields(props.fields) : {};
     }
+    // apply props from item datasource
+    const dataSourcesData = { ...props.fetchedData, _: getDataFromFields(props.fields ?? {}) };
 
     // we render fallback on client to avoid problems with client-only components
     return (
       <FEAAS.ExternalComponent
         componentName={componentName}
         clientFallback={fallbackComponent}
-        datasources={props.fetchedData}
+        datasources={dataSourcesData}
         {...componentProps}
       />
     );
