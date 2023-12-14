@@ -1,7 +1,7 @@
 import React from 'react';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 import { ComponentFields, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
-import { concatData, getDataFromFields } from '../utils';
+import { getDataFromFields } from '../utils';
 
 export const FEAAS_COMPONENT_RENDERING_NAME = 'FEaaSComponent';
 
@@ -76,19 +76,9 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
     return null;
   }
 
-  let data = (props.fetchedData as { [key: string]: unknown }) ?? {};
-  if (props.params?.ComponentDataOverride) {
-    // Use override data if provided
-    try {
-      data = concatData(data, JSON.parse(props.params.ComponentDataOverride));
-    } catch (e) {
-      console.error(
-        `ComponentDataOverride param could not be parsed and will be ignored. Error: ${e}`
-      );
-    }
-  }
+  const data = { ...props.fetchedData, _: getDataFromFields(props.fields ?? {}) }; // props.fetchedData as { [key: string]: unknown } ?? {};
   // also apply item datasource data if present
-  data = props.fields ? concatData(data, getDataFromFields(props.fields)) : data;
+  // data._ = props.fields ? getDataFromFields(props.fields) : {};
 
   // FEaaS control would still be hydrated by client
   // we pass all the props as a workaround to avoid hydration error, until we convert all JSS components to server side
@@ -125,7 +115,7 @@ export async function fetchFEaaSComponentServerProps(
     pageState && pageState !== LayoutServicePageState.Normal ? 'staged' : 'published';
   const src = endpointOverride || composeComponentEndpoint(params, revisionFallback);
   let template = '';
-  let fetchedData: FEAAS.DataScopes = null;
+  let fetchedData: FEAAS.DataScopes = {};
   const fetchDataOptions: FEAAS.DataOptions = params.ComponentDataOverride
     ? JSON.parse(params.ComponentDataOverride)
     : {};

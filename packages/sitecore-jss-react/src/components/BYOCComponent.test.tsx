@@ -151,7 +151,7 @@ describe('BYOCComponent', () => {
     const fooComponent = wrapper.find('feaas-external');
     expect(fooComponent).to.have.lengthOf(1);
     expect(fooComponent.prop('prop1')).to.equal('value1');
-    expect(fooComponent.prop('datasources')).to.equal('{"prop2":"prefetched_value1"}');
+    expect(fooComponent.prop('datasources')).to.equal('{"prop2":"prefetched_value1","_":{}}');
     expect(fooComponent.prop('data-external-id')).to.equal('Foo');
     expect(fooComponent.find('#foo-content')).to.have.length(1);
   });

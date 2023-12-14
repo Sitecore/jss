@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
-import { concatData, getDataFromFields } from '../utils';
+import { getDataFromFields } from '../utils';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 
@@ -152,16 +152,14 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
       }
     }
     // apply props from item datasource
-    componentProps = props.fields
-      ? concatData(componentProps, getDataFromFields(props.fields))
-      : componentProps;
+    const dataSourcesData = { ...props.fetchedData, _: getDataFromFields(props.fields ?? {}) };
 
     // we render fallback on client to avoid problems with client-only components
     return (
       <FEAAS.ExternalComponent
         componentName={componentName}
         clientFallback={fallbackComponent}
-        datasources={props.fetchedData}
+        datasources={dataSourcesData}
         {...componentProps}
       />
     );

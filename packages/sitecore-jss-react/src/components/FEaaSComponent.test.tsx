@@ -84,13 +84,12 @@ describe('<FEaaSComponent />', () => {
   });
 
   describe('data', () => {
-    it('should send override data', () => {
+    it('should send fetched data', () => {
       const props: FEaaSComponentProps = {
         params: {
           ...requiredParams,
-          ComponentDataOverride: '{ "foo": "bar", "baz": 1 }',
         },
-        fetchedData: undefined,
+        fetchedData: { foo: 'bar', baz: 1 },
         template: '<h1 data-path="foo"></h1><h2 data-path="baz"></h2>',
       };
       const wrapper = shallow(<FEaaSComponent {...props} />);
@@ -123,10 +122,10 @@ describe('<FEaaSComponent />', () => {
         },
       };
       const template = `
-      <h1 data-path="sampleText"></h1>
-      <img data-path-src="sampleImage.src" data-path-alt="sampleImage.alt"></img>
-      <p data-path="sampleNumber"></p>
-      <a data-path-href="sampleLink.href" data-path-id="sampleLink.id"></a>`;
+      <h1 data-path="_.sampleText"></h1>
+      <img data-path-src="_.sampleImage.src" data-path-alt="_.sampleImage.alt"></img>
+      <p data-path="_.sampleNumber"></p>
+      <a data-path-href="_.sampleLink.href" data-path-id="_.sampleLink.id"></a>`;
       const props: FEaaSComponentProps = {
         params: {
           ...requiredParams,
@@ -137,51 +136,30 @@ describe('<FEaaSComponent />', () => {
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
       const output = wrapper.html();
-      expect(output).to.contain(`<h1 data-path="sampleText">${fields.sampleText.value}</h1>`);
+      expect(output).to.contain(`<h1 data-path="_.sampleText">${fields.sampleText.value}</h1>`);
       expect(output).to.contain(
-        `<img data-path-src="sampleImage.src" data-path-alt="sampleImage.alt" src="${fields.sampleImage.value.src}" alt="${fields.sampleImage.value.alt}"/>`
+        `<img data-path-src="_.sampleImage.src" data-path-alt="_.sampleImage.alt" src="${fields.sampleImage.value.src}" alt="${fields.sampleImage.value.alt}"/>`
       );
-      expect(output).to.contain(`<p data-path="sampleNumber">${fields.sampleNumber.value}</p>`);
+      expect(output).to.contain(`<p data-path="_.sampleNumber">${fields.sampleNumber.value}</p>`);
       expect(output).to.contain(
-        `<a data-path-href="sampleLink.href" data-path-id="sampleLink.id" href="${fields.sampleLink.value.href}" id="${fields.sampleLink.value.id}"></a>`
+        `<a data-path-href="_.sampleLink.href" data-path-id="_.sampleLink.id" href="${fields.sampleLink.value.href}" id="${fields.sampleLink.value.id}"></a>`
       );
     });
 
-    it('should prefer override data over datasource fields', () => {
+    it('should combine fetched data with datasource fields', () => {
       const fields: ComponentFields = {
-        sampleText: {
+        fieldText: {
           value: 'Welcome to Sitecore JSS',
         },
       };
-      const override = JSON.stringify({ sampleText: 'Welcome to FEAAS' });
+      const fetched = { fetchedText: 'Welcome to FEAAS' };
       const props: FEaaSComponentProps = {
         params: {
           ...requiredParams,
-          ComponentDataOverride: override,
         },
+        fetchedData: fetched,
         fields,
-        template: '<h1 data-path="sampleText"></h1>',
-      };
-
-      const wrapper = shallow(<FEaaSComponent {...props} />);
-      expect(wrapper).to.have.length(1);
-      expect(wrapper.html()).to.contain('Welcome to FEAAS');
-    });
-
-    it('should combine override data with datasource fields', () => {
-      const fields: ComponentFields = {
-        sampleText: {
-          value: 'Welcome to Sitecore JSS',
-        },
-      };
-      const override = JSON.stringify({ otherText: 'Welcome to FEAAS' });
-      const props: FEaaSComponentProps = {
-        params: {
-          ...requiredParams,
-          ComponentDataOverride: override,
-        },
-        fields,
-        template: '<h1 data-path="sampleText"></h1><h1 data-path="otherText"></h1>',
+        template: '<h1 data-path="_.fieldText"></h1><h1 data-path="fetchedText"></h1>',
       };
 
       const wrapper = shallow(<FEaaSComponent {...props} />);
@@ -190,39 +168,6 @@ describe('<FEaaSComponent />', () => {
       console.log(wrapper.html());
       expect(wrapper.html()).to.contain('Welcome to FEAAS');
       expect(wrapper.html()).to.contain('Welcome to Sitecore JSS');
-    });
-
-    it('should prefer fetched data and combine it with override data and datasource fields', () => {
-      const fields: ComponentFields = {
-        sampleText: {
-          value: 'Welcome to Sitecore JSS',
-        },
-        description: {
-          value: 'This may be ovewritten',
-        },
-      };
-      const fetchedData = {
-        sampleText: 'Welcome to fetched data',
-      };
-      const override = JSON.stringify({ otherText: 'Welcome to FEAAS' });
-      const props: FEaaSComponentProps = {
-        params: {
-          ...requiredParams,
-          ComponentDataOverride: override,
-        },
-        fields,
-        fetchedData,
-        template:
-          '<h1 data-path="sampleText"></h1><h1 data-path="otherText"></h1><p data-path="description"></p>',
-      };
-
-      const wrapper = shallow(<FEaaSComponent {...props} />);
-      expect(wrapper).to.have.length(1);
-      console.log('DEBUG');
-      console.log(wrapper.html());
-      expect(wrapper.html()).to.contain('Welcome to FEAAS');
-      expect(wrapper.html()).to.contain(fetchedData.sampleText);
-      expect(wrapper.html()).to.contain('This may be ovewritten');
     });
 
     it('should send prefetched data', () => {
@@ -234,7 +179,6 @@ describe('<FEaaSComponent />', () => {
       const props: FEaaSComponentProps = {
         params: {
           ...requiredParams,
-          ComponentDataOverride: '{ "foo": "test", "baz": 22 }',
         },
         fetchedData,
         template: '<h1 data-path="foo"></h1> <h2 data-path="baz"></h2>',
