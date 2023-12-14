@@ -51,8 +51,8 @@ function convertToItems(
   rootItemName: string,
   language: string
 ): ItemDefinition {
-  const itemPath = convertPhsyicalPathToItemRelativePath(data.path, basePath);
-  const name = itemPath.substr(itemPath.lastIndexOf('/') + 1);
+  const itemPath = convertPhysicalPathToItemRelativePath(data.path, basePath);
+  const name = itemPath.substring(itemPath.lastIndexOf('/') + 1);
 
   let result;
 
