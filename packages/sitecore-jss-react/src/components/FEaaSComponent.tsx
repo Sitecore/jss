@@ -76,7 +76,7 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
     return null;
   }
   // combine fetchedData from server with datasource data (if present)
-  const data = { ...props.fetchedData, _: getDataFromFields(props.fields ?? {}) }; // props.fetchedData as { [key: string]: unknown } ?? {};
+  const data = { ...props.fetchedData, _: getDataFromFields(props.fields ?? {}) };
 
   // FEaaS control would still be hydrated by client
   // we pass all the props as a workaround to avoid hydration error, until we convert all JSS components to server side

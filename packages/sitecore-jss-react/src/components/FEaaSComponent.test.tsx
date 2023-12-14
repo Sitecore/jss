@@ -165,8 +165,6 @@ describe('<FEaaSComponent />', () => {
 
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
-      console.log('DEBUG');
-      console.log(wrapper.html());
       expect(wrapper.html()).to.contain('Welcome to FEAAS');
       expect(wrapper.html()).to.contain('Welcome to Sitecore JSS');
     });
