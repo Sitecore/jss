@@ -122,10 +122,10 @@ describe('<FEaaSComponent />', () => {
         },
       };
       const template = `
-      <h1 data-path="_.sampleText"></h1>
-      <img data-path-src="_.sampleImage.src" data-path-alt="_.sampleImage.alt"></img>
-      <p data-path="_.sampleNumber"></p>
-      <a data-path-href="_.sampleLink.href" data-path-id="_.sampleLink.id"></a>`;
+      <h1 data-path="xm.sampleText"></h1>
+      <img data-path-src="xm.sampleImage.src" data-path-alt="xm.sampleImage.alt"></img>
+      <p data-path="xm.sampleNumber"></p>
+      <a data-path-href="xm.sampleLink.href" data-path-id="xm.sampleLink.id"></a>`;
       const props: FEaaSComponentProps = {
         params: {
           ...requiredParams,
@@ -136,13 +136,13 @@ describe('<FEaaSComponent />', () => {
       const wrapper = shallow(<FEaaSComponent {...props} />);
       expect(wrapper).to.have.length(1);
       const output = wrapper.html();
-      expect(output).to.contain(`<h1 data-path="_.sampleText">${fields.sampleText.value}</h1>`);
+      expect(output).to.contain(`<h1 data-path="xm.sampleText">${fields.sampleText.value}</h1>`);
       expect(output).to.contain(
-        `<img data-path-src="_.sampleImage.src" data-path-alt="_.sampleImage.alt" src="${fields.sampleImage.value.src}" alt="${fields.sampleImage.value.alt}"/>`
+        `<img data-path-src="xm.sampleImage.src" data-path-alt="xm.sampleImage.alt" src="${fields.sampleImage.value.src}" alt="${fields.sampleImage.value.alt}"/>`
       );
-      expect(output).to.contain(`<p data-path="_.sampleNumber">${fields.sampleNumber.value}</p>`);
+      expect(output).to.contain(`<p data-path="xm.sampleNumber">${fields.sampleNumber.value}</p>`);
       expect(output).to.contain(
-        `<a data-path-href="_.sampleLink.href" data-path-id="_.sampleLink.id" href="${fields.sampleLink.value.href}" id="${fields.sampleLink.value.id}"></a>`
+        `<a data-path-href="xm.sampleLink.href" data-path-id="xm.sampleLink.id" href="${fields.sampleLink.value.href}" id="${fields.sampleLink.value.id}"></a>`
       );
     });
 
@@ -152,14 +152,15 @@ describe('<FEaaSComponent />', () => {
           value: 'Welcome to Sitecore JSS',
         },
       };
-      const fetched = { fetchedText: 'Welcome to FEAAS' };
+      const fetched = { customDatasourceId: { fetchedText: 'Welcome to FEAAS' } };
       const props: FEaaSComponentProps = {
         params: {
           ...requiredParams,
         },
         fetchedData: fetched,
         fields,
-        template: '<h1 data-path="_.fieldText"></h1><h1 data-path="fetchedText"></h1>',
+        template:
+          '<h1 data-path="xm.fieldText"></h1><h1 data-path="customDatasourceId.fetchedText"></h1>',
       };
 
       const wrapper = shallow(<FEaaSComponent {...props} />);
@@ -168,28 +169,6 @@ describe('<FEaaSComponent />', () => {
       console.log(wrapper.html());
       expect(wrapper.html()).to.contain('Welcome to FEAAS');
       expect(wrapper.html()).to.contain('Welcome to Sitecore JSS');
-    });
-
-    it('should send prefetched data', () => {
-      const fetchedData = {
-        foo: 'bar',
-        baz: 42,
-      };
-
-      const props: FEaaSComponentProps = {
-        params: {
-          ...requiredParams,
-        },
-        fetchedData,
-        template: '<h1 data-path="foo"></h1> <h2 data-path="baz"></h2>',
-      };
-
-      const wrapper = shallow(<FEaaSComponent {...props} />);
-
-      expect(wrapper).to.have.length(1);
-      const output = wrapper.html();
-      expect(output).to.contain(`<h1 data-path=\"foo\">${fetchedData.foo}</h1>`);
-      expect(output).to.contain(`<h2 data-path=\"baz\">${fetchedData.baz}</h2>`);
     });
   });
 });
