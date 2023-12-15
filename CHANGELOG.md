@@ -61,6 +61,7 @@ Our versioning strategy is as follows:
 ### 🧹 Chores
 
 * Security vulnerability audit ([#1685](https://github.com/Sitecore/jss/pull/1685))
+* Removed "npm" field from "engines" property ([#1698](https://github.com/Sitecore/jss/pull/1698))
 
 ## 21.5.3
 
