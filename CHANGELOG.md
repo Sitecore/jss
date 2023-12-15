@@ -21,7 +21,7 @@ Our versioning strategy is as follows:
 
 ### 🧹 Chores
 
-* Fix vulnerabilities ([#1685](https://github.com/Sitecore/jss/pull/1685))
+* Security vulnerability audit ([#1685](https://github.com/Sitecore/jss/pull/1685))
 
 ## 21.6.0
 
