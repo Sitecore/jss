@@ -28,7 +28,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Changes
 
-* `[templates/angular]` `[sitecore-jss-angular]` Update Angular to version 16 ([#1690](https://github.com/Sitecore/jss/pull/1690)):
+* `[templates/angular]` `[sitecore-jss-angular]` Update Angular to version 16 ([#1690](https://github.com/Sitecore/jss/pull/1690))([#1697](https://github.com/Sitecore/jss/pull/1697)):
   * Updated Angular to ~16.2.10
   * Updated Typescript to ~4.9.5
   * _@angular-eslint/ng-cli-compat_ eslint rules are deprecated. Use _@angular-eslint/recommended_ rules instead.
