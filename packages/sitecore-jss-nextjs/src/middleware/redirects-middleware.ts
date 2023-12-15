@@ -177,7 +177,10 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
     return redirects.length
       ? redirects.find((redirect: RedirectInfo) => {
-          redirect.pattern_modify = redirect.pattern.replace(RegExp(`^[^]?/${language}/`, 'gi'), '');
+          redirect.pattern_modify = redirect.pattern.replace(
+            RegExp(`^[^]?/${language}/`, 'gi'),
+            ''
+          );
           redirect.pattern = `/^\/${redirect.pattern_modify
             .replace(/^\/|\/$/g, '')
             .replace(/^\^\/|\/\$$/g, '')
