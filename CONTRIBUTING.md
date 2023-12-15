@@ -5,7 +5,7 @@ Want to contribute to Sitecore JavaScript Services? There are a few things you n
 ## Pre-requisites:
 
 - `node.js` (Use version `>= 18` or [Active LTS](https://nodejs.org/en/about/releases/)) installed (cmd `node -v` to test).
-- `npm` (`>= 10`) installed (cmd `npm -v` to test).
+- `npm` (`>= 9`) installed (cmd `npm -v` to test).
 
 Install yarn globally:
 
