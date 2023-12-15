@@ -120,7 +120,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
         }
 
         url.pathname = url.pathname
-          .replace(regexParser(existsRedirect.pattern_modify), existsRedirect.target)
+          .replace(regexParser(existsRedirect.pattern), existsRedirect.target)
           .replace(/^\/\//, '/');
       }
 
@@ -174,24 +174,22 @@ export class RedirectsMiddleware extends MiddlewareBase {
     const tragetURL = req.nextUrl.pathname;
     const targetQS = req.nextUrl.search || '';
     const language = this.getLanguage(req);
+    const modifyRedirects = structuredClone(redirects);
 
-    return redirects.length
-      ? redirects.find((redirect: RedirectInfo) => {
-          redirect.pattern_modify = redirect.pattern.replace(
-            RegExp(`^[^]?/${language}/`, 'gi'),
-            ''
-          );
-          redirect.pattern = `/^\/${redirect.pattern_modify
+    return modifyRedirects.length
+      ? modifyRedirects.find((redirect: RedirectInfo) => {
+          redirect.pattern = redirect.pattern.replace(RegExp(`^[^]?/${language}/`, 'gi'), '');
+          redirect.pattern = `/^\/${redirect.pattern
             .replace(/^\/|\/$/g, '')
             .replace(/^\^\/|\/\$$/g, '')
             .replace(/^\^|\$$/g, '')
             .replace(/\$\/gi$/g, '')}[\/]?$/gi`;
 
           return (
-            (regexParser(redirect.pattern_modify).test(tragetURL) ||
-              regexParser(redirect.pattern_modify).test(`${tragetURL}${targetQS}`) ||
-              regexParser(redirect.pattern_modify).test(`/${req.nextUrl.locale}${tragetURL}`) ||
-              regexParser(redirect.pattern_modify).test(
+            (regexParser(redirect.pattern).test(tragetURL) ||
+              regexParser(redirect.pattern).test(`${tragetURL}${targetQS}`) ||
+              regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${tragetURL}`) ||
+              regexParser(redirect.pattern).test(
                 `/${req.nextUrl.locale}${tragetURL}${targetQS}`
               )) &&
             (redirect.locale
