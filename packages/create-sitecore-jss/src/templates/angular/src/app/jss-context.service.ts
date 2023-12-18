@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import { TransferState, makeStateKey } from '@angular/platform-browser';
+import { Injectable, TransferState, makeStateKey } from '@angular/core';
 import { LayoutServiceData } from '@sitecore-jss/sitecore-jss-angular';
 import { map, shareReplay, catchError } from 'rxjs/operators';
 import { Observable, of as observableOf, BehaviorSubject } from 'rxjs';

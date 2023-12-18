@@ -36,7 +36,7 @@ Defines an editing data cache implementation
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/e7fc6927e/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L12)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L12)
 
 ___
 
@@ -57,4 +57,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:11](https://github.com/Sitecore/jss/blob/e7fc6927e/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L11)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:11](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L11)

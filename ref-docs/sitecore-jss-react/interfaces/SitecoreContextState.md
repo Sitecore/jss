@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/e7fc6927e/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L16)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L16)
 
 ___
 
@@ -41,4 +41,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/e7fc6927e/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L15)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L15)

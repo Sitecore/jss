@@ -1,5 +1,4 @@
-import { Injectable, Inject } from '@angular/core';
-import { TransferState } from '@angular/platform-browser';
+import { Injectable, Inject, TransferState } from '@angular/core';
 import { JssContextService, jssKey } from './jss-context.service';
 import { JssState } from './JssState';
 import { Observable, of as observableOf } from 'rxjs';

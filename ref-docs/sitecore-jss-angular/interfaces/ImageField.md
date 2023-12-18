@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-- `ImageFieldValue`
+- [`ImageFieldValue`](ImageFieldValue.md)
 
 - [`RenderingField`](RenderingField.md)
 
@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering-field.ts:4](https://github.com/Sitecore/jss/blob/e7fc6927e/packages/sitecore-jss-angular/src/components/rendering-field.ts#L4)
+[sitecore-jss-angular/src/components/rendering-field.ts:4](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L4)
 
 ___
 
@@ -41,11 +41,11 @@ ___
 
 #### Inherited from
 
-ImageFieldValue.src
+[ImageFieldValue](ImageFieldValue.md).[src](ImageFieldValue.md#src)
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering-field.ts:24](https://github.com/Sitecore/jss/blob/e7fc6927e/packages/sitecore-jss-angular/src/components/rendering-field.ts#L24)
+[sitecore-jss-angular/src/components/rendering-field.ts:24](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L24)
 
 ___
 
@@ -55,17 +55,17 @@ ___
 
 #### Inherited from
 
-ImageFieldValue.srcSet
+[ImageFieldValue](ImageFieldValue.md).[srcSet](ImageFieldValue.md#srcset)
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering-field.ts:25](https://github.com/Sitecore/jss/blob/e7fc6927e/packages/sitecore-jss-angular/src/components/rendering-field.ts#L25)
+[sitecore-jss-angular/src/components/rendering-field.ts:25](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L25)
 
 ___
 
 ### value
 
-• `Optional` **value**: `ImageFieldValue`
+• `Optional` **value**: [`ImageFieldValue`](ImageFieldValue.md)
 
 #### Overrides
 
@@ -73,4 +73,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering-field.ts:31](https://github.com/Sitecore/jss/blob/e7fc6927e/packages/sitecore-jss-angular/src/components/rendering-field.ts#L31)
+[sitecore-jss-angular/src/components/rendering-field.ts:31](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L31)

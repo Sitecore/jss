@@ -43,7 +43,7 @@ variables:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '16.x'
+    versionSpec: '20.x'
 - script: |
     yarn cache clean --all && yarn install --immutable
   displayName: 'yarn install - initial'
@@ -118,7 +118,7 @@ steps:
   # * Only run for 'dev' and 'release' branches
   #
 - script: |
-    $(npm bin)/lerna version prerelease --exact --preid canary --force-publish --message "version %s [skip ci]" --yes
+    npm exec -- lerna version prerelease --exact --preid canary --force-publish --message "version %s [skip ci]" --yes
   displayName: 'pre-release version update'
   condition: and(succeeded(), eq(variables.shouldPublish, true))
   env:
@@ -133,7 +133,7 @@ steps:
   #
 - script: |
     echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-    $(npm bin)/lerna publish from-git --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
+    npm exec -- lerna publish from-git --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
     yarn install --no-immutable --mode=update-lockfile
     git add yarn.lock
     git commit -m "update yarn.lock [skip ci]"

@@ -1188,6 +1188,65 @@ describe('RedirectsMiddleware', () => {
 
         nextRedirectStub.restore();
       });
+
+      it('should redirect, when next.config uses params trailingSlash is true', async () => {
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/found/',
+          status: 301,
+          setCookies,
+        });
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, init) => {
+          const status = typeof init === 'number' ? init : init?.status || 307;
+          return ({
+            url,
+            status,
+            cookies: { set: setCookies },
+            headers: res.headers,
+          } as unknown) as NextResponse;
+        });
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found/',
+            href: 'http://localhost:3000/not-found/',
+            locale: 'en',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+        });
+
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
+          pattern: '/not-found/',
+          target: 'http://localhost:3000/found/',
+          redirectType: REDIRECT_TYPE_301,
+          isQueryStringPreserved: true,
+          locale: 'en',
+        });
+
+        const finalRes = await middleware.getHandler()(req);
+
+        validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
+          pathname: '/not-found/',
+        });
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url: 'http://localhost:3000/found/',
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+
+        nextRedirectStub.restore();
+      });
     });
   });
 });
