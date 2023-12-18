@@ -31,9 +31,102 @@ describe('BYOCComponent', () => {
     expect(fooComponent.find('#foo-content')).to.have.length(1);
   });
 
-  it('should render when props are prefetched', () => {
+  it('should use datasource fields when provided', () => {
+    const fields = {
+      prop1: {
+        value: 'value2',
+      },
+    };
+    const mockProps = {
+      params: {
+        ComponentName: 'Foo',
+      },
+      fetchedData: {},
+      fields,
+    };
+    const Foo = () => <p id="foo-content">Test</p>;
+    FEAAS.External.registerComponent(Foo, {
+      name: 'Foo',
+      properties: {
+        prop1: {
+          type: 'string',
+        },
+      },
+    });
+    const wrapper = mount(<BYOCComponent {...mockProps} />);
+    const fooComponent = wrapper.find('feaas-external');
+    expect(fooComponent).to.have.lengthOf(1);
+    expect(fooComponent.prop('prop1')).to.equal('value2');
+    expect(fooComponent.prop('data-external-id')).to.equal('Foo');
+    expect(fooComponent.find('#foo-content')).to.have.length(1);
+  });
+
+  it('should prefer ComponentProps over datasource fields', () => {
+    const fields = {
+      prop1: {
+        value: 'value2',
+      },
+    };
+    const mockProps = {
+      params: {
+        ComponentName: 'Foo',
+        ComponentProps: JSON.stringify({ prop1: 'value1' }),
+      },
+      fetchedData: {},
+      fields,
+    };
+    const Foo = () => <p id="foo-content">Test</p>;
+    FEAAS.External.registerComponent(Foo, {
+      name: 'Foo',
+      properties: {
+        prop1: {
+          type: 'string',
+        },
+      },
+    });
+    const wrapper = mount(<BYOCComponent {...mockProps} />);
+    const fooComponent = wrapper.find('feaas-external');
+    expect(fooComponent).to.have.lengthOf(1);
+    expect(fooComponent.prop('prop1')).to.equal('value1');
+    expect(fooComponent.prop('data-external-id')).to.equal('Foo');
+    expect(fooComponent.find('#foo-content')).to.have.length(1);
+  });
+
+  it('should combine ComponentProps and datasource fields', () => {
+    const fields = {
+      prop2: {
+        value: 'value2',
+      },
+    };
+    const mockProps = {
+      params: {
+        ComponentName: 'Foo',
+        ComponentProps: JSON.stringify({ prop1: 'value1' }),
+      },
+      fetchedData: {},
+      fields,
+    };
+    const Foo = () => <p id="foo-content">Test</p>;
+    FEAAS.External.registerComponent(Foo, {
+      name: 'Foo',
+      properties: {
+        prop1: {
+          type: 'string',
+        },
+      },
+    });
+    const wrapper = mount(<BYOCComponent {...mockProps} />);
+    const fooComponent = wrapper.find('feaas-external');
+    expect(fooComponent).to.have.lengthOf(1);
+    expect(fooComponent.prop('prop1')).to.equal('value1');
+    expect(fooComponent.prop('prop2')).to.equal('value2');
+    expect(fooComponent.prop('data-external-id')).to.equal('Foo');
+    expect(fooComponent.find('#foo-content')).to.have.length(1);
+  });
+
+  it('should render with static and fetched props when props are prefetched', () => {
     const fetchedData = {
-      prop1: 'prefetched_value1',
+      prop2: 'prefetched_value1',
     };
     const mockProps = {
       params: {
@@ -54,7 +147,8 @@ describe('BYOCComponent', () => {
     const wrapper = mount(<BYOCComponent {...mockProps} />);
     const fooComponent = wrapper.find('feaas-external');
     expect(fooComponent).to.have.lengthOf(1);
-    expect(fooComponent.prop('prop1')).to.equal('prefetched_value1');
+    expect(fooComponent.prop('prop1')).to.equal('value1');
+    expect(fooComponent.prop('datasources')).to.equal('{"prop2":"prefetched_value1","_":{}}');
     expect(fooComponent.prop('data-external-id')).to.equal('Foo');
     expect(fooComponent.find('#foo-content')).to.have.length(1);
   });
