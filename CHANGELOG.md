@@ -47,6 +47,10 @@ Our versioning strategy is as follows:
   * Exported _ImageFieldValue_ and _LinkFieldValue_ interfaces.
   * See more information about the upgrade in the [Angular 16 Migration Guide](https://update.angular.io/?l=3&v=15.0-16.0)
 
+### 🧹 Chores
+
+* Security vulnerability audit ([#1685](https://github.com/Sitecore/jss/pull/1685))
+
 ## 21.6.0
 
 ### 🎉 New Features & Improvements
