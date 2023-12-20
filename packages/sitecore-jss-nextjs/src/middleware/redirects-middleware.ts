@@ -170,7 +170,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
     const tragetURL = req.nextUrl.pathname;
     const targetQS = req.nextUrl.search || '';
     const language = this.getLanguage(req);
-    const modifyRedirects = structuredClone(redirects);
+    const modifyRedirects = JSON.parse(JSON.stringify(redirects));
 
     return modifyRedirects.length
       ? modifyRedirects.find((redirect: RedirectInfo) => {
