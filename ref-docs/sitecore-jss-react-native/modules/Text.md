@@ -17,14 +17,14 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Text.tsx:31](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react-native/src/components/Text.tsx#L31)
+[sitecore-jss-react-native/src/components/Text.tsx:31](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react-native/src/components/Text.tsx#L31)
 
 ___
 
 ### propTypes
 
-• **propTypes**: `WeakValidationMap`<`TextProps`\>
+• **propTypes**: `WeakValidationMap`\<`TextProps`\>
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Text.tsx:24](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react-native/src/components/Text.tsx#L24)
+[sitecore-jss-react-native/src/components/Text.tsx:24](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react-native/src/components/Text.tsx#L24)

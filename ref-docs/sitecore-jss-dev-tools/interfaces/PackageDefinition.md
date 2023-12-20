@@ -15,11 +15,11 @@ Describes a package and components to be imported
 
 ### components
 
-• **components**: { `componentName`: `string` ; `moduleName`: `string`  }[]
+• **components**: \{ `componentName`: `string` ; `moduleName`: `string`  }[]
 
 #### Defined in
 
-[templating/components.ts:17](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-dev-tools/src/templating/components.ts#L17)
+[templating/components.ts:17](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-dev-tools/src/templating/components.ts#L17)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[templating/components.ts:16](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-dev-tools/src/templating/components.ts#L16)
+[templating/components.ts:16](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-dev-tools/src/templating/components.ts#L16)

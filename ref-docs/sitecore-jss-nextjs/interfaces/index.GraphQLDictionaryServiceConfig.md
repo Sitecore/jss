@@ -16,7 +16,7 @@ GraphQLDictionaryService instances
 
 - `CacheOptions`
 
-- `Pick`<`GraphQLRequestClientConfig`, ``"retries"``\>
+- `Pick`\<`GraphQLRequestClientConfig`, ``"retries"``\>
 
   ↳ **`GraphQLDictionaryServiceConfig`**
 
@@ -67,7 +67,9 @@ Enable/disable caching mechanism
 
 **`Default`**
 
+```ts
 true
+```
 
 #### Inherited from
 
@@ -87,7 +89,9 @@ Cache timeout (sec)
 
 **`Default`**
 
+```ts
 60
+```
 
 #### Inherited from
 
@@ -120,7 +124,9 @@ Optional. The template ID to use when searching for dictionary entries.
 
 **`Default`**
 
+```ts
 '6d1cd89719364a3aa511289a94c2a7b1' (/sitecore/templates/System/Dictionary/Dictionary entry)
+```
 
 #### Defined in
 
@@ -156,7 +162,9 @@ Optional. The template ID of a JSS App to use when searching for the appRootId.
 
 **`Default`**
 
+```ts
 '061cba1554744b918a0617903b102b82' (/sitecore/templates/Foundation/JavaScript Services/App)
+```
 
 #### Defined in
 
@@ -174,7 +182,9 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 
 **`Default`**
 
+```ts
 10
+```
 
 #### Inherited from
 

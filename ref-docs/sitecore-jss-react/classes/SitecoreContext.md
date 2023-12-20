@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-- `Component`<`SitecoreContextProps`, [`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>
+- `Component`\<`SitecoreContextProps`, [`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>
 
   ↳ **`SitecoreContext`**
 
@@ -58,11 +58,11 @@
 
 #### Overrides
 
-React.Component&lt;SitecoreContextProps, SitecoreContextState\&gt;.constructor
+React.Component\&lt;SitecoreContextProps, SitecoreContextState\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:45](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L45)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:45](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L45)
 
 ## Properties
 
@@ -92,13 +92,13 @@ React.Component.context
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:482
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:518
 
 ___
 
 ### props
 
-• `Readonly` **props**: `Readonly`<`SitecoreContextProps`\>
+• `Readonly` **props**: `Readonly`\<`SitecoreContextProps`\>
 
 #### Inherited from
 
@@ -106,7 +106,7 @@ React.Component.props
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:502
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:538
 
 ___
 
@@ -128,13 +128,13 @@ React.Component.refs
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:508
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:544
 
 ___
 
 ### state
 
-• **state**: `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>
+• **state**: `Readonly`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>
 
 #### Inherited from
 
@@ -142,13 +142,13 @@ React.Component.state
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:503
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:539
 
 ___
 
 ### contextType
 
-▪ `Static` `Optional` **contextType**: `Context`<`any`\>
+▪ `Static` `Optional` **contextType**: `Context`\<`any`\>
 
 If set, `this.context` will be set at runtime to the current value of the given Context.
 
@@ -177,7 +177,7 @@ React.Component.contextType
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:465
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:501
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:43](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L43)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:43](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L43)
 
 ___
 
@@ -199,13 +199,13 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `children` | `Validator`<`any`\> |
-| `componentFactory` | `Requireable`<(...`args`: `any`[]) => `any`\> |
-| `layoutData` | `Requireable`<`InferProps`<{ `sitecore`: `Requireable`<`InferProps`<{ `context`: `Requireable`<`any`\> = PropTypes.any; `route`: `Requireable`<`any`\> = PropTypes.any }\>\>  }\>\> |
+| `children` | `Validator`\<`any`\> |
+| `componentFactory` | `Requireable`\<(...`args`: `any`[]) => `any`\> |
+| `layoutData` | `Requireable`\<`InferProps`\<\{ `sitecore`: `Requireable`\<`InferProps`\<\{ `context`: `Requireable`\<`any`\> = PropTypes.any; `route`: `Requireable`\<`any`\> = PropTypes.any }\>\>  }\>\> |
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:32](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L32)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:32](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L32)
 
 ## Methods
 
@@ -221,6 +221,10 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
+#### Returns
+
+`void`
+
 **`Deprecated`**
 
 16.3, use componentDidMount or the constructor instead
@@ -230,17 +234,13 @@ prevents this from being invoked.
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
-#### Returns
-
-`void`
-
 #### Inherited from
 
 React.Component.UNSAFE\_componentWillMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:699
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:735
 
 ___
 
@@ -259,6 +259,17 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextContext` | `any` |
+
+#### Returns
+
+`void`
+
 **`Deprecated`**
 
 16.3, use static getDerivedStateFromProps instead
@@ -268,24 +279,13 @@ prevents this from being invoked.
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextContext` | `any` |
-
-#### Returns
-
-`void`
-
 #### Inherited from
 
 React.Component.UNSAFE\_componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:731
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:767
 
 ___
 
@@ -302,6 +302,18 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextState` | `Readonly`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
+| `nextContext` | `any` |
+
+#### Returns
+
+`void`
+
 **`Deprecated`**
 
 16.3, use getSnapshotBeforeUpdate instead
@@ -311,25 +323,13 @@ prevents this from being invoked.
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextState` | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
-| `nextContext` | `any` |
-
-#### Returns
-
-`void`
-
 #### Inherited from
 
 React.Component.UNSAFE\_componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:759
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:795
 
 ___
 
@@ -357,7 +357,7 @@ React.Component.componentDidCatch
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:628
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:664
 
 ___
 
@@ -377,7 +377,7 @@ React.Component.componentDidMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:607
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:643
 
 ___
 
@@ -401,7 +401,7 @@ React.Component.componentDidUpdate
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L70)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L70)
 
 ___
 
@@ -415,6 +415,10 @@ Avoid introducing any side-effects or subscriptions in this method.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
+#### Returns
+
+`void`
+
 **`Deprecated`**
 
 16.3, use componentDidMount or the constructor instead; will stop working in React 17
@@ -424,17 +428,13 @@ prevents this from being invoked.
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
-#### Returns
-
-`void`
-
 #### Inherited from
 
 React.Component.componentWillMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:685
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:721
 
 ___
 
@@ -451,6 +451,17 @@ Calling `Component#setState` generally does not trigger this method.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextContext` | `any` |
+
+#### Returns
+
+`void`
+
 **`Deprecated`**
 
 16.3, use static getDerivedStateFromProps instead; will stop working in React 17
@@ -460,24 +471,13 @@ prevents this from being invoked.
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextContext` | `any` |
-
-#### Returns
-
-`void`
-
 #### Inherited from
 
 React.Component.componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:714
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:750
 
 ___
 
@@ -498,7 +498,7 @@ React.Component.componentWillUnmount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:623
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:659
 
 ___
 
@@ -513,6 +513,18 @@ Note: You cannot call `Component#setState` here.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextState` | `Readonly`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
+| `nextContext` | `any` |
+
+#### Returns
+
+`void`
+
 **`Deprecated`**
 
 16.3, use getSnapshotBeforeUpdate instead; will stop working in React 17
@@ -522,25 +534,13 @@ prevents this from being invoked.
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextState` | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
-| `nextContext` | `any` |
-
-#### Returns
-
-`void`
-
 #### Inherited from
 
 React.Component.componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:744
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:780
 
 ___
 
@@ -560,7 +560,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:56](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L56)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:56](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L56)
 
 ___
 
@@ -584,7 +584,7 @@ React.Component.forceUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:499
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:535
 
 ___
 
@@ -603,8 +603,8 @@ lifecycle events from running.
 
 | Name | Type |
 | :------ | :------ |
-| `prevProps` | `Readonly`<`SitecoreContextProps`\> |
-| `prevState` | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
+| `prevProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `prevState` | `Readonly`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
 
 #### Returns
 
@@ -616,7 +616,7 @@ React.Component.getSnapshotBeforeUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:664
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:700
 
 ___
 
@@ -634,7 +634,7 @@ React.Component.render
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:93](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L93)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:93](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L93)
 
 ___
 
@@ -656,13 +656,13 @@ Update context state. Value can be
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:85](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L85)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:85](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L85)
 
 ___
 
 ### setState
 
-▸ **setState**<`K`\>(`state`, `callback?`): `void`
+▸ **setState**\<`K`\>(`state`, `callback?`): `void`
 
 #### Type parameters
 
@@ -674,7 +674,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `state` | [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| (`prevState`: `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>, `props`: `Readonly`<`SitecoreContextProps`\>) => [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| `Pick`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> \| `Pick`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> |
+| `state` | [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| (`prevState`: `Readonly`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>, `props`: `Readonly`\<`SitecoreContextProps`\>) => [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| `Pick`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> \| `Pick`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> |
 | `callback?` | () => `void` |
 
 #### Returns
@@ -687,7 +687,7 @@ React.Component.setState
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:494
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:530
 
 ___
 
@@ -708,8 +708,8 @@ and `componentDidUpdate` will not be called.
 
 | Name | Type |
 | :------ | :------ |
-| `nextProps` | `Readonly`<`SitecoreContextProps`\> |
-| `nextState` | `Readonly`<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextState` | `Readonly`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -722,4 +722,4 @@ React.Component.shouldComponentUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:618
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:654

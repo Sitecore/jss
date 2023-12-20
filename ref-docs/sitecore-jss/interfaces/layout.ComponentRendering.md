@@ -25,7 +25,7 @@ Definition of a component instance within a placeholder on a route
 
 #### Defined in
 
-[src/layout/models.ts:102](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/layout/models.ts#L102)
+[src/layout/models.ts:102](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/layout/models.ts#L102)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-[src/layout/models.ts:103](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/layout/models.ts#L103)
+[src/layout/models.ts:103](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/layout/models.ts#L103)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[src/layout/models.ts:106](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/layout/models.ts#L106)
+[src/layout/models.ts:106](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/layout/models.ts#L106)
 
 ___
 
@@ -55,17 +55,17 @@ ___
 
 #### Defined in
 
-[src/layout/models.ts:107](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/layout/models.ts#L107)
+[src/layout/models.ts:107](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/layout/models.ts#L107)
 
 ___
 
 ### placeholders
 
-• `Optional` **placeholders**: [`PlaceholdersData`](../modules/layout.md#placeholdersdata)<`string`\>
+• `Optional` **placeholders**: [`PlaceholdersData`](../modules/layout.md#placeholdersdata)\<`string`\>
 
 #### Defined in
 
-[src/layout/models.ts:105](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/layout/models.ts#L105)
+[src/layout/models.ts:105](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/layout/models.ts#L105)
 
 ___
 
@@ -75,4 +75,4 @@ ___
 
 #### Defined in
 
-[src/layout/models.ts:104](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/layout/models.ts#L104)
+[src/layout/models.ts:104](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/layout/models.ts#L104)

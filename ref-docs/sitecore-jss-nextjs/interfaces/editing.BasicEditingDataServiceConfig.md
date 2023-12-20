@@ -21,7 +21,9 @@ By default, this is `editingDataDiskCache` (an `EditingDataDiskCache` singleton)
 
 **`Default`**
 
+```ts
 editingDataDiskCache
+```
 
 **`See`**
 
@@ -30,4 +32,4 @@ editingDataDiskCache
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:63](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L63)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:63](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L63)

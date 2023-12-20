@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `Pick`<`GraphQLRequestClientConfig`, ``"retries"``\>
+- `Pick`\<`GraphQLRequestClientConfig`, ``"retries"``\>
 
   ↳ **`GraphQLLayoutServiceConfig`**
 
@@ -86,11 +86,6 @@ ___
 
 Override default layout query
 
-**`Default`**
-
-Layout query
-layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
-
 ##### Parameters
 
 | Name | Type |
@@ -104,6 +99,13 @@ layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
 `string`
 
 custom layout query
+
+**`Default`**
+
+```ts
+Layout query
+layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
+```
 
 #### Defined in
 

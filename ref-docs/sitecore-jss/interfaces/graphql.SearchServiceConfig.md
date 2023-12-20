@@ -17,7 +17,7 @@ except 'language' are consistent across languages so they are passed to construc
 
 ## Hierarchy
 
-- `Omit`<[`SearchQueryVariables`](graphql.SearchQueryVariables.md), ``"language"``\>
+- `Omit`\<[`SearchQueryVariables`](graphql.SearchQueryVariables.md), ``"language"``\>
 
   ↳ **`SearchServiceConfig`**
 
@@ -44,7 +44,9 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 
 **`Default`**
 
+```ts
 10
+```
 
 #### Inherited from
 
@@ -52,7 +54,7 @@ Omit.pageSize
 
 #### Defined in
 
-[src/graphql/search-service.ts:60](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/graphql/search-service.ts#L60)
+[src/graphql/search-service.ts:60](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/graphql/search-service.ts#L60)
 
 ___
 
@@ -68,7 +70,7 @@ Omit.rootItemId
 
 #### Defined in
 
-[src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/graphql/search-service.ts#L48)
+[src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/graphql/search-service.ts#L48)
 
 ___
 
@@ -81,7 +83,7 @@ in cases where one is not specified by the caller.
 
 #### Defined in
 
-[src/graphql/search-service.ts:75](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/graphql/search-service.ts#L75)
+[src/graphql/search-service.ts:75](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/graphql/search-service.ts#L75)
 
 ___
 
@@ -97,4 +99,4 @@ Omit.templates
 
 #### Defined in
 
-[src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/graphql/search-service.ts#L53)
+[src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/graphql/search-service.ts#L53)

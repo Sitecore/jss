@@ -1,6 +1,6 @@
 [@sitecore-jss/sitecore-jss-nextjs](../README.md) / [index](../modules/index.md) / ContextConfig
 
-# Interface: ContextConfig<SDKModules\>
+# Interface: ContextConfig\<SDKModules\>
 
 [index](../modules/index.md).ContextConfig
 
@@ -25,13 +25,13 @@ Configuration that is passed to the Context.
 
 ### sdks
 
-• **sdks**: { [module in string \| number \| symbol]: SDKModules[module] }
+• **sdks**: \{ [module in string \| number \| symbol]: SDKModules[module] }
 
 Software Development Kits (SDKs) to be initialized
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:49](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/context/context.ts#L49)
+[sitecore-jss-nextjs/src/context/context.ts:49](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/context/context.ts#L49)
 
 ___
 
@@ -43,7 +43,7 @@ Your Sitecore site name
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:45](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/context/context.ts#L45)
+[sitecore-jss-nextjs/src/context/context.ts:45](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/context/context.ts#L45)
 
 ___
 
@@ -55,7 +55,7 @@ Your Sitecore Edge Context ID
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:41](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/context/context.ts#L41)
+[sitecore-jss-nextjs/src/context/context.ts:41](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/context/context.ts#L41)
 
 ___
 
@@ -67,4 +67,4 @@ Your Sitecore Edge URL
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/context/context.ts:37](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/context/context.ts#L37)
+[sitecore-jss-nextjs/src/context/context.ts:37](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/context/context.ts#L37)

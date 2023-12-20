@@ -1,6 +1,6 @@
 [@sitecore-jss/sitecore-jss-angular](../README.md) / RenderingField
 
-# Interface: RenderingField<V\>
+# Interface: RenderingField\<V\>
 
 ## Type parameters
 
@@ -37,7 +37,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering-field.ts:4](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L4)
+[sitecore-jss-angular/src/components/rendering-field.ts:4](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-angular/src/components/rendering-field.ts#L4)
 
 ___
 
@@ -47,4 +47,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering-field.ts:3](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L3)
+[sitecore-jss-angular/src/components/rendering-field.ts:3](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-angular/src/components/rendering-field.ts#L3)

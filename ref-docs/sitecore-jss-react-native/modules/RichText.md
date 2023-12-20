@@ -17,14 +17,14 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/RichText.tsx:31](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react-native/src/components/RichText.tsx#L31)
+[sitecore-jss-react-native/src/components/RichText.tsx:31](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react-native/src/components/RichText.tsx#L31)
 
 ___
 
 ### propTypes
 
-• **propTypes**: `WeakValidationMap`<`RichTextProps`\>
+• **propTypes**: `WeakValidationMap`\<`RichTextProps`\>
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/RichText.tsx:24](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react-native/src/components/RichText.tsx#L24)
+[sitecore-jss-react-native/src/components/RichText.tsx:24](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react-native/src/components/RichText.tsx#L24)

@@ -14,7 +14,7 @@
 
 ### fetchLayoutData
 
-▸ **fetchLayoutData**(`itemPath`, `language?`, `req?`, `res?`): `Promise`<[`LayoutServiceData`](layout.LayoutServiceData.md)\>
+▸ **fetchLayoutData**(`itemPath`, `language?`, `req?`, `res?`): `Promise`\<[`LayoutServiceData`](layout.LayoutServiceData.md)\>
 
 Fetch layout data for an item.
 
@@ -25,14 +25,14 @@ Fetch layout data for an item.
 | `itemPath` | `string` |  |
 | `language?` | `string` |  |
 | `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse` | Response instance |
+| `res?` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
-`Promise`<[`LayoutServiceData`](layout.LayoutServiceData.md)\>
+`Promise`\<[`LayoutServiceData`](layout.LayoutServiceData.md)\>
 
 layout data
 
 #### Defined in
 
-[src/layout/layout-service.ts:13](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/layout/layout-service.ts#L13)
+[src/layout/layout-service.ts:13](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/layout/layout-service.ts#L13)

@@ -125,7 +125,7 @@ sitecore-jss/types/graphql-request-client.d.ts:66
 
 ### request
 
-▸ **request**<`T`\>(`query`, `variables?`): `Promise`<`T`\>
+▸ **request**\<`T`\>(`query`, `variables?`): `Promise`\<`T`\>
 
 Execute graphql request
 
@@ -144,7 +144,7 @@ Execute graphql request
 
 #### Returns
 
-`Promise`<`T`\>
+`Promise`\<`T`\>
 
 #### Implementation of
 

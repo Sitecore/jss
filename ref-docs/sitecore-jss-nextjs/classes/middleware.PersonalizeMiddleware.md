@@ -59,7 +59,7 @@ MiddlewareBase.constructor
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:70](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L70)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:70](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L70)
 
 ## Properties
 
@@ -73,7 +73,7 @@ MiddlewareBase.REWRITE\_HEADER\_NAME
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:32](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L32)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:32](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L32)
 
 ___
 
@@ -87,7 +87,7 @@ MiddlewareBase.SITE\_SYMBOL
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:31](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L31)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:31](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L31)
 
 ___
 
@@ -103,7 +103,7 @@ MiddlewareBase.config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:70](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L70)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:70](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L70)
 
 ___
 
@@ -117,7 +117,7 @@ MiddlewareBase.defaultHostname
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:33](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L33)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:33](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L33)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:65](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L65)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:65](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L65)
 
 ## Methods
 
@@ -151,7 +151,7 @@ MiddlewareBase.excludeRoute
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:165](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L165)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:165](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L165)
 
 ___
 
@@ -180,7 +180,7 @@ MiddlewareBase.extractDebugHeaders
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:65](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L65)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:65](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L65)
 
 ___
 
@@ -200,13 +200,13 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:148](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L148)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:148](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L148)
 
 ___
 
 ### getHandler
 
-▸ **getHandler**(): (`req`: `NextRequest`, `res?`: `NextResponse`<`unknown`\>) => `Promise`<`NextResponse`<`unknown`\>\>
+▸ **getHandler**(): (`req`: `NextRequest`, `res?`: `NextResponse`\<`unknown`\>) => `Promise`\<`NextResponse`\<`unknown`\>\>
 
 Gets the Next.js middleware handler with error handling
 
@@ -216,7 +216,7 @@ Gets the Next.js middleware handler with error handling
 
 middleware handler
 
-▸ (`req`, `res?`): `Promise`<`NextResponse`<`unknown`\>\>
+▸ (`req`, `res?`): `Promise`\<`NextResponse`\<`unknown`\>\>
 
 Gets the Next.js middleware handler with error handling
 
@@ -225,17 +225,17 @@ Gets the Next.js middleware handler with error handling
 | Name | Type |
 | :------ | :------ |
 | `req` | `NextRequest` |
-| `res?` | `NextResponse`<`unknown`\> |
+| `res?` | `NextResponse`\<`unknown`\> |
 
 ##### Returns
 
-`Promise`<`NextResponse`<`unknown`\>\>
+`Promise`\<`NextResponse`\<`unknown`\>\>
 
 middleware handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:85](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L85)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:85](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L85)
 
 ___
 
@@ -261,7 +261,7 @@ MiddlewareBase.getHostHeader
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:84](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L84)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:84](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L84)
 
 ___
 
@@ -289,7 +289,7 @@ MiddlewareBase.getLanguage
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:76](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L76)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:76](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L76)
 
 ___
 
@@ -305,7 +305,7 @@ Can not be used in **Preview** mode, since site will not be resolved
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `req` | `NextRequest` | request |
-| `res?` | `NextResponse`<`unknown`\> | response |
+| `res?` | `NextResponse`\<`unknown`\> | response |
 
 #### Returns
 
@@ -319,34 +319,34 @@ MiddlewareBase.getSite
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:95](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L95)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:95](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L95)
 
 ___
 
 ### handler
 
-▸ `Private` **handler**(`req`, `res?`): `Promise`<`NextResponse`<`unknown`\>\>
+▸ `Private` **handler**(`req`, `res?`): `Promise`\<`NextResponse`\<`unknown`\>\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `req` | `NextRequest` |
-| `res?` | `NextResponse`<`unknown`\> |
+| `res?` | `NextResponse`\<`unknown`\> |
 
 #### Returns
 
-`Promise`<`NextResponse`<`unknown`\>\>
+`Promise`\<`NextResponse`\<`unknown`\>\>
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:170](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L170)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:170](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L170)
 
 ___
 
 ### initPersonalizeServer
 
-▸ `Protected` **initPersonalizeServer**(`«destructured»`): `Promise`<`void`\>
+▸ `Protected` **initPersonalizeServer**(`«destructured»`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -355,16 +355,16 @@ ___
 | `«destructured»` | `Object` |
 | › `hostname` | `string` |
 | › `request` | `NextRequest` |
-| › `response` | `NextResponse`<`unknown`\> |
+| › `response` | `NextResponse`\<`unknown`\> |
 | › `siteName` | `string` |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:97](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L97)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:97](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L97)
 
 ___
 
@@ -392,13 +392,13 @@ MiddlewareBase.isPreview
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:44](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L44)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:44](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L44)
 
 ___
 
 ### personalize
 
-▸ `Protected` **personalize**(`«destructured»`, `request`): `Promise`<{ `variantId`: `string`  }\>
+▸ `Protected` **personalize**(`«destructured»`, `request`): `Promise`\<\{ `variantId`: `string`  }\>
 
 #### Parameters
 
@@ -413,17 +413,17 @@ ___
 
 #### Returns
 
-`Promise`<{ `variantId`: `string`  }\>
+`Promise`\<\{ `variantId`: `string`  }\>
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:121](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L121)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:121](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L121)
 
 ___
 
 ### rewrite
 
-▸ `Protected` **rewrite**(`rewritePath`, `req`, `res`): `NextResponse`<`unknown`\>
+▸ `Protected` **rewrite**(`rewritePath`, `req`, `res`): `NextResponse`\<`unknown`\>
 
 Create a rewrite response
 
@@ -433,11 +433,11 @@ Create a rewrite response
 | :------ | :------ | :------ |
 | `rewritePath` | `string` | the destionation path |
 | `req` | `NextRequest` | the current request |
-| `res` | `NextResponse`<`unknown`\> | the current response |
+| `res` | `NextResponse`\<`unknown`\> | the current response |
 
 #### Returns
 
-`NextResponse`<`unknown`\>
+`NextResponse`\<`unknown`\>
 
 #### Inherited from
 
@@ -445,4 +445,4 @@ MiddlewareBase.rewrite
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:111](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L111)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:111](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L111)

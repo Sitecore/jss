@@ -54,7 +54,7 @@
 
 #### Defined in
 
-[src/utils/edit-frame.ts:2](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/edit-frame.ts#L2)
+[src/utils/edit-frame.ts:2](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/edit-frame.ts#L2)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/utils/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/edit-frame.ts#L73)
+[src/utils/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/edit-frame.ts#L73)
 
 ___
 
@@ -82,27 +82,27 @@ ___
 
 #### Defined in
 
-[src/utils/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/edit-frame.ts#L49)
+[src/utils/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/edit-frame.ts#L49)
 
 ___
 
 ### FieldEditButton
 
-Ƭ **FieldEditButton**: `BaseEditButton` & { `fields`: `string`[]  }
+Ƭ **FieldEditButton**: `BaseEditButton` & \{ `fields`: `string`[]  }
 
 #### Defined in
 
-[src/utils/edit-frame.ts:62](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/edit-frame.ts#L62)
+[src/utils/edit-frame.ts:62](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/edit-frame.ts#L62)
 
 ___
 
 ### WebEditButton
 
-Ƭ **WebEditButton**: `BaseEditButton` & { `click`: `string` ; `parameters?`: `Record`<`string`, `string` \| `number` \| `boolean` \| `undefined` \| ``null``\> ; `type?`: `string`  }
+Ƭ **WebEditButton**: `BaseEditButton` & \{ `click`: `string` ; `parameters?`: `Record`\<`string`, `string` \| `number` \| `boolean` \| `undefined` \| ``null``\> ; `type?`: `string`  }
 
 #### Defined in
 
-[src/utils/edit-frame.ts:66](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/edit-frame.ts#L66)
+[src/utils/edit-frame.ts:66](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/edit-frame.ts#L66)
 
 ## Variables
 
@@ -114,17 +114,17 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `edit` | { `fields`: `string`[] ; `header`: `string` = 'Edit Item'; `icon`: `string` = '/~/icon/people/16x16/cubes\_blue.png'; `tooltip`: `string` = 'Edit the item fields.' } |
+| `edit` | \{ `fields`: `string`[] ; `header`: `string` = 'Edit Item'; `icon`: `string` = '/~/icon/people/16x16/cubes\_blue.png'; `tooltip`: `string` = 'Edit the item fields.' } |
 | `edit.fields` | `string`[] |
 | `edit.header` | `string` |
 | `edit.icon` | `string` |
 | `edit.tooltip` | `string` |
-| `editRelatedItem` | { `click`: `string` = 'webedit:open'; `header`: `string` = 'Edit the related item'; `icon`: `string` = '/~/icon/Office/16x16/cubes.png'; `tooltip`: `string` = 'Edit the related item in the Content Editor.' } |
+| `editRelatedItem` | \{ `click`: `string` = 'webedit:open'; `header`: `string` = 'Edit the related item'; `icon`: `string` = '/~/icon/Office/16x16/cubes.png'; `tooltip`: `string` = 'Edit the related item in the Content Editor.' } |
 | `editRelatedItem.click` | `string` |
 | `editRelatedItem.header` | `string` |
 | `editRelatedItem.icon` | `string` |
 | `editRelatedItem.tooltip` | `string` |
-| `insert` | { `click`: `string` = 'webedit:new'; `header`: `string` = 'Insert New'; `icon`: `string` = '/~/icon/Office/16x16/insert\_from\_template.png'; `tooltip`: `string` = 'Insert a new item' } |
+| `insert` | \{ `click`: `string` = 'webedit:new'; `header`: `string` = 'Insert New'; `icon`: `string` = '/~/icon/Office/16x16/insert\_from\_template.png'; `tooltip`: `string` = 'Insert a new item' } |
 | `insert.click` | `string` |
 | `insert.header` | `string` |
 | `insert.icon` | `string` |
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[src/utils/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/edit-frame.ts#L15)
+[src/utils/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/edit-frame.ts#L15)
 
 ___
 
@@ -148,23 +148,27 @@ ___
 
 #### Defined in
 
-[src/utils/edit-frame.ts:11](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/edit-frame.ts#L11)
+[src/utils/edit-frame.ts:11](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/edit-frame.ts#L11)
 
 ___
 
 ### DefaultEditFrameButtons
 
-• `Const` **DefaultEditFrameButtons**: ({ `click`: `string` = 'webedit:new'; `header`: `string` = 'Insert New'; `icon`: `string` = '/~/icon/Office/16x16/insert\_from\_template.png'; `tooltip`: `string` = 'Insert a new item' } \| { `fields`: `string`[] ; `header`: `string` = 'Edit Item'; `icon`: `string` = '/~/icon/people/16x16/cubes\_blue.png'; `tooltip`: `string` = 'Edit the item fields.' })[]
+• `Const` **DefaultEditFrameButtons**: (\{ `click`: `string` = 'webedit:new'; `header`: `string` = 'Insert New'; `icon`: `string` = '/~/icon/Office/16x16/insert\_from\_template.png'; `tooltip`: `string` = 'Insert a new item' } \| \{ `fields`: `string`[] ; `header`: `string` = 'Edit Item'; `icon`: `string` = '/~/icon/people/16x16/cubes\_blue.png'; `tooltip`: `string` = 'Edit the item fields.' })[]
 
 #### Defined in
 
-[src/utils/edit-frame.ts:36](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/edit-frame.ts#L36)
+[src/utils/edit-frame.ts:36](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/edit-frame.ts#L36)
 
 ## Functions
 
 ### handleEditorAnchors
 
 ▸ **handleEditorAnchors**(): `void`
+
+#### Returns
+
+`void`
 
 **`Description`**
 
@@ -179,13 +183,9 @@ and replaces the # value with javascript:void(0); which prevents the anchor tag 
 
 Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/MutationObserver
 
-#### Returns
-
-`void`
-
 #### Defined in
 
-[src/utils/editing.ts:102](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/editing.ts#L102)
+[src/utils/editing.ts:102](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/editing.ts#L102)
 
 ___
 
@@ -205,7 +205,7 @@ ___
 
 #### Defined in
 
-[src/utils/utils.ts:52](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/utils.ts#L52)
+[src/utils/utils.ts:52](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/utils.ts#L52)
 
 ___
 
@@ -224,7 +224,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-[src/utils/editing.ts:78](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/editing.ts#L78)
+[src/utils/editing.ts:78](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/editing.ts#L78)
 
 ___
 
@@ -242,7 +242,7 @@ true if executing server-side
 
 #### Defined in
 
-[src/utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/is-server.ts#L5)
+[src/utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/is-server.ts#L5)
 
 ___
 
@@ -266,7 +266,7 @@ is timeout error
 
 #### Defined in
 
-[src/utils/utils.ts:69](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/utils.ts#L69)
+[src/utils/utils.ts:69](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/utils.ts#L69)
 
 ___
 
@@ -282,7 +282,7 @@ Map the edit button types to chrome data
 | :------ | :------ | :------ |
 | `button` | [`EditButtonTypes`](utils.md#editbuttontypes) | the edit button to build a ChromeCommand for |
 | `itemId?` | `string` | the ID of the item the EditFrame is associated with |
-| `frameParameters?` | `Record`<`string`, `undefined` \| ``null`` \| `string` \| `number` \| `boolean`\> | additional parameters passed to the EditFrame |
+| `frameParameters?` | `Record`\<`string`, `undefined` \| ``null`` \| `string` \| `number` \| `boolean`\> | additional parameters passed to the EditFrame |
 
 #### Returns
 
@@ -290,7 +290,7 @@ Map the edit button types to chrome data
 
 #### Defined in
 
-[src/utils/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/edit-frame.ts#L81)
+[src/utils/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/edit-frame.ts#L81)
 
 ___
 
@@ -306,7 +306,7 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-[src/utils/editing.ts:85](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/editing.ts#L85)
+[src/utils/editing.ts:85](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/editing.ts#L85)
 
 ___
 
@@ -316,10 +316,6 @@ ___
 
 Resolves a base URL that may contain query string parameters and an additional set of query
 string parameters into a unified string representation.
-
-**`Throws`**
-
-if the provided url is an empty string
 
 #### Parameters
 
@@ -334,15 +330,19 @@ if the provided url is an empty string
 
 a URL string
 
+**`Throws`**
+
+if the provided url is an empty string
+
 #### Defined in
 
-[src/utils/utils.ts:27](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/utils.ts#L27)
+[src/utils/utils.ts:27](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/utils.ts#L27)
 
 ___
 
 ### tryParseEnvValue
 
-▸ **tryParseEnvValue**<`T`\>(`envValue`, `defaultValue`): `T`
+▸ **tryParseEnvValue**\<`T`\>(`envValue`, `defaultValue`): `T`
 
 Method to parse JSON-formatted environment variables
 
@@ -367,4 +367,4 @@ parsed value
 
 #### Defined in
 
-[src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/utils/env.ts#L7)
+[src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/utils/env.ts#L7)

@@ -12,7 +12,7 @@
 
 ### default
 
-▸ **default**(`options`): (`host`: `Tree`) => `Promise`<`Rule`\>
+▸ **default**(`options`): (`host`: `Tree`) => `Promise`\<`Rule`\>
 
 #### Parameters
 
@@ -24,7 +24,7 @@
 
 `fn`
 
-▸ (`host`): `Promise`<`Rule`\>
+▸ (`host`): `Promise`\<`Rule`\>
 
 ##### Parameters
 
@@ -34,8 +34,8 @@
 
 ##### Returns
 
-`Promise`<`Rule`\>
+`Promise`\<`Rule`\>
 
 #### Defined in
 
-[index.ts:41](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-angular-schematics/src/jss-component/index.ts#L41)
+[index.ts:41](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-angular-schematics/src/jss-component/index.ts#L41)

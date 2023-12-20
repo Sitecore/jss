@@ -27,7 +27,7 @@ Middleware / handler for use in healthcheck Next.js API route (e.g. '/api/health
 
 ### getHandler
 
-▸ **getHandler**(): (`req`: `NextApiRequest`, `res`: `NextApiResponse`<`any`\>) => `Promise`<`void`\>
+▸ **getHandler**(): (`req`: `NextApiRequest`, `res`: `NextApiResponse`\<`any`\>) => `Promise`\<`void`\>
 
 Gets the Next.js API route handler
 
@@ -37,7 +37,7 @@ Gets the Next.js API route handler
 
 route handler
 
-▸ (`req`, `res`): `Promise`<`void`\>
+▸ (`req`, `res`): `Promise`\<`void`\>
 
 Gets the Next.js API route handler
 
@@ -46,35 +46,35 @@ Gets the Next.js API route handler
 | Name | Type |
 | :------ | :------ |
 | `req` | `NextApiRequest` |
-| `res` | `NextApiResponse`<`any`\> |
+| `res` | `NextApiResponse`\<`any`\> |
 
 ##### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:11](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L11)
+[sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:11](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L11)
 
 ___
 
 ### handler
 
-▸ `Private` **handler**(`_req`, `res`): `Promise`<`void`\>
+▸ `Private` **handler**(`_req`, `res`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `_req` | `NextApiRequest` |
-| `res` | `NextApiResponse`<`any`\> |
+| `res` | `NextApiResponse`\<`any`\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:15](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L15)
+[sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:15](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L15)

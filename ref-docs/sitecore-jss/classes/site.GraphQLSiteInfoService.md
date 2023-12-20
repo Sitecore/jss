@@ -43,17 +43,17 @@ Creates an instance of graphQL service to retrieve site configuration list from 
 
 #### Defined in
 
-[src/site/graphql-siteinfo-service.ts:116](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L116)
+[src/site/graphql-siteinfo-service.ts:116](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L116)
 
 ## Properties
 
 ### cache
 
-• `Private` **cache**: `CacheClient`<[`SiteInfo`](../modules/site.md#siteinfo)[]\>
+• `Private` **cache**: `CacheClient`\<[`SiteInfo`](../modules/site.md#siteinfo)[]\>
 
 #### Defined in
 
-[src/site/graphql-siteinfo-service.ts:106](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L106)
+[src/site/graphql-siteinfo-service.ts:106](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L106)
 
 ___
 
@@ -65,7 +65,7 @@ instance
 
 #### Defined in
 
-[src/site/graphql-siteinfo-service.ts:116](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L116)
+[src/site/graphql-siteinfo-service.ts:116](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L116)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[src/site/graphql-siteinfo-service.ts:105](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L105)
+[src/site/graphql-siteinfo-service.ts:105](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L105)
 
 ## Accessors
 
@@ -89,40 +89,40 @@ ___
 
 #### Defined in
 
-[src/site/graphql-siteinfo-service.ts:108](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L108)
+[src/site/graphql-siteinfo-service.ts:108](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L108)
 
 ## Methods
 
 ### fetchSiteInfo
 
-▸ **fetchSiteInfo**(): `Promise`<[`SiteInfo`](../modules/site.md#siteinfo)[]\>
+▸ **fetchSiteInfo**(): `Promise`\<[`SiteInfo`](../modules/site.md#siteinfo)[]\>
 
 #### Returns
 
-`Promise`<[`SiteInfo`](../modules/site.md#siteinfo)[]\>
+`Promise`\<[`SiteInfo`](../modules/site.md#siteinfo)[]\>
 
 #### Defined in
 
-[src/site/graphql-siteinfo-service.ts:121](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L121)
+[src/site/graphql-siteinfo-service.ts:121](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L121)
 
 ___
 
 ### getCacheClient
 
-▸ `Protected` **getCacheClient**(): `CacheClient`<[`SiteInfo`](../modules/site.md#siteinfo)[]\>
+▸ `Protected` **getCacheClient**(): `CacheClient`\<[`SiteInfo`](../modules/site.md#siteinfo)[]\>
 
 Gets cache client implementation
 Override this method if custom cache needs to be used
 
 #### Returns
 
-`CacheClient`<[`SiteInfo`](../modules/site.md#siteinfo)[]\>
+`CacheClient`\<[`SiteInfo`](../modules/site.md#siteinfo)[]\>
 
 CacheClient instance
 
 #### Defined in
 
-[src/site/graphql-siteinfo-service.ts:163](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L163)
+[src/site/graphql-siteinfo-service.ts:163](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L163)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/site/graphql-siteinfo-service.ts:193](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L193)
+[src/site/graphql-siteinfo-service.ts:193](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L193)
 
 ___
 
@@ -156,4 +156,4 @@ implementation
 
 #### Defined in
 
-[src/site/graphql-siteinfo-service.ts:176](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L176)
+[src/site/graphql-siteinfo-service.ts:176](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L176)

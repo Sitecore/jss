@@ -32,7 +32,7 @@ Hostname to proxy to (i.e. Sitecore CD server 'http://siteco.re')
 
 #### Defined in
 
-[ProxyConfig.ts:31](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L31)
+[ProxyConfig.ts:31](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L31)
 
 ___
 
@@ -44,17 +44,17 @@ SSC endpoint to use when sending Layout Service requests to proxy
 
 #### Defined in
 
-[ProxyConfig.ts:35](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L35)
+[ProxyConfig.ts:35](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L35)
 
 ___
 
 ### createViewBag
 
-• `Optional` **createViewBag**: (`request`: `IncomingMessage`, `response`: `ServerResponse`<`IncomingMessage`\>, `proxyResponse`: `IncomingMessage`, `layoutServiceData`: `LayoutServiceData`) => `Promise`<{ `[key: string]`: `unknown`;  }\> \| { `[key: string]`: `unknown`;  }
+• `Optional` **createViewBag**: (`request`: `IncomingMessage`, `response`: `ServerResponse`\<`IncomingMessage`\>, `proxyResponse`: `IncomingMessage`, `layoutServiceData`: `LayoutServiceData`) => `Promise`\<\{ `[key: string]`: `unknown`;  }\> \| \{ `[key: string]`: `unknown`;  }
 
 #### Type declaration
 
-▸ (`request`, `response`, `proxyResponse`, `layoutServiceData`): `Promise`<{ `[key: string]`: `unknown`;  }\> \| { `[key: string]`: `unknown`;  }
+▸ (`request`, `response`, `proxyResponse`, `layoutServiceData`): `Promise`\<\{ `[key: string]`: `unknown`;  }\> \| \{ `[key: string]`: `unknown`;  }
 
 Hook to fill the SSR viewBag object; if you're customizing the viewBag in Sitecore integrated SSR mode, do the same here.
 
@@ -63,17 +63,17 @@ Hook to fill the SSR viewBag object; if you're customizing the viewBag in Siteco
 | Name | Type |
 | :------ | :------ |
 | `request` | `IncomingMessage` |
-| `response` | `ServerResponse`<`IncomingMessage`\> |
+| `response` | `ServerResponse`\<`IncomingMessage`\> |
 | `proxyResponse` | `IncomingMessage` |
 | `layoutServiceData` | `LayoutServiceData` |
 
 ##### Returns
 
-`Promise`<{ `[key: string]`: `unknown`;  }\> \| { `[key: string]`: `unknown`;  }
+`Promise`\<\{ `[key: string]`: `unknown`;  }\> \| \{ `[key: string]`: `unknown`;  }
 
 #### Defined in
 
-[ProxyConfig.ts:79](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L79)
+[ProxyConfig.ts:79](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L79)
 
 ___
 
@@ -85,7 +85,7 @@ Enables or disables proxy diagnostics in console.log (disable for production or 
 
 #### Defined in
 
-[ProxyConfig.ts:56](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L56)
+[ProxyConfig.ts:56](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L56)
 
 ___
 
@@ -97,7 +97,7 @@ Path to layout service endpoint on proxy target server
 
 #### Defined in
 
-[ProxyConfig.ts:33](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L33)
+[ProxyConfig.ts:33](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L33)
 
 ___
 
@@ -109,17 +109,17 @@ Responses from the proxy greater than this size (in bytes) are rejected.
 
 #### Defined in
 
-[ProxyConfig.ts:92](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L92)
+[ProxyConfig.ts:92](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L92)
 
 ___
 
 ### onError
 
-• `Optional` **onError**: (`error`: `Error`, `response`: `IncomingMessage`) => ``null`` \| { `content?`: `string` ; `statusCode?`: `number`  } \| `Promise`<{ `content?`: `string` ; `headers?`: `Record`<`string`, `string` \| `string`[]\> ; `statusCode?`: `number`  }\>
+• `Optional` **onError**: (`error`: `Error`, `response`: `IncomingMessage`) => ``null`` \| \{ `content?`: `string` ; `statusCode?`: `number`  } \| `Promise`\<\{ `content?`: `string` ; `headers?`: `Record`\<`string`, `string` \| `string`[]\> ; `statusCode?`: `number`  }\>
 
 #### Type declaration
 
-▸ (`error`, `response`): ``null`` \| { `content?`: `string` ; `statusCode?`: `number`  } \| `Promise`<{ `content?`: `string` ; `headers?`: `Record`<`string`, `string` \| `string`[]\> ; `statusCode?`: `number`  }\>
+▸ (`error`, `response`): ``null`` \| \{ `content?`: `string` ; `statusCode?`: `number`  } \| `Promise`\<\{ `content?`: `string` ; `headers?`: `Record`\<`string`, `string` \| `string`[]\> ; `statusCode?`: `number`  }\>
 
 Callback when an exception is thrown during SSR; decides what to send back to client (500 errors)
 
@@ -132,11 +132,11 @@ Callback when an exception is thrown during SSR; decides what to send back to cl
 
 ##### Returns
 
-``null`` \| { `content?`: `string` ; `statusCode?`: `number`  } \| `Promise`<{ `content?`: `string` ; `headers?`: `Record`<`string`, `string` \| `string`[]\> ; `statusCode?`: `number`  }\>
+``null`` \| \{ `content?`: `string` ; `statusCode?`: `number`  } \| `Promise`\<\{ `content?`: `string` ; `headers?`: `Record`\<`string`, `string` \| `string`[]\> ; `statusCode?`: `number`  }\>
 
 #### Defined in
 
-[ProxyConfig.ts:58](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L58)
+[ProxyConfig.ts:58](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L58)
 
 ___
 
@@ -163,7 +163,7 @@ Mutually exclusive with pathRewriteExcludeRoutes.
 
 #### Defined in
 
-[ProxyConfig.ts:52](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L52)
+[ProxyConfig.ts:52](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L52)
 
 ___
 
@@ -177,7 +177,7 @@ Mutually exclusive with pathRewriteExcludePredicate.
 
 #### Defined in
 
-[ProxyConfig.ts:43](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L43)
+[ProxyConfig.ts:43](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L43)
 
 ___
 
@@ -189,7 +189,7 @@ Configure `http-proxy-middleware`
 
 #### Defined in
 
-[ProxyConfig.ts:54](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L54)
+[ProxyConfig.ts:54](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L54)
 
 ___
 
@@ -201,7 +201,7 @@ Custom Query String parameters to send to Layout Service, e.g. sc_site=my-site&t
 
 #### Defined in
 
-[ProxyConfig.ts:37](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L37)
+[ProxyConfig.ts:37](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L37)
 
 ___
 
@@ -213,13 +213,13 @@ The require'd server.bundle.js file from your pre-built JSS app
 
 #### Defined in
 
-[ProxyConfig.ts:94](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L94)
+[ProxyConfig.ts:94](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L94)
 
 ___
 
 ### setHeaders
 
-• `Optional` **setHeaders**: (`request`: `IncomingMessage`, `response`: `ServerResponse`<`IncomingMessage`\>, `proxyResponse`: `IncomingMessage`) => `void`
+• `Optional` **setHeaders**: (`request`: `IncomingMessage`, `response`: `ServerResponse`\<`IncomingMessage`\>, `proxyResponse`: `IncomingMessage`) => `void`
 
 #### Type declaration
 
@@ -232,7 +232,7 @@ Hook to alter HTTP headers in a custom way.
 | Name | Type |
 | :------ | :------ |
 | `request` | `IncomingMessage` |
-| `response` | `ServerResponse`<`IncomingMessage`\> |
+| `response` | `ServerResponse`\<`IncomingMessage`\> |
 | `proxyResponse` | `IncomingMessage` |
 
 ##### Returns
@@ -241,17 +241,17 @@ Hook to alter HTTP headers in a custom way.
 
 #### Defined in
 
-[ProxyConfig.ts:86](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L86)
+[ProxyConfig.ts:86](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L86)
 
 ___
 
 ### transformSSRContent
 
-• `Optional` **transformSSRContent**: (`response`: `RenderResponse`, `request`: `IncomingMessage`, `serverResponse`: `ServerResponse`<`IncomingMessage`\>) => `Promise`<`string`\>
+• `Optional` **transformSSRContent**: (`response`: `RenderResponse`, `request`: `IncomingMessage`, `serverResponse`: `ServerResponse`\<`IncomingMessage`\>) => `Promise`\<`string`\>
 
 #### Type declaration
 
-▸ (`response`, `request`, `serverResponse`): `Promise`<`string`\>
+▸ (`response`, `request`, `serverResponse`): `Promise`\<`string`\>
 
 Enables transforming SSR'ed HTML after it is rendered, i.e. to replace paths.
 
@@ -261,15 +261,15 @@ Enables transforming SSR'ed HTML after it is rendered, i.e. to replace paths.
 | :------ | :------ |
 | `response` | `RenderResponse` |
 | `request` | `IncomingMessage` |
-| `serverResponse` | `ServerResponse`<`IncomingMessage`\> |
+| `serverResponse` | `ServerResponse`\<`IncomingMessage`\> |
 
 ##### Returns
 
-`Promise`<`string`\>
+`Promise`\<`string`\>
 
 #### Defined in
 
-[ProxyConfig.ts:73](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L73)
+[ProxyConfig.ts:73](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L73)
 
 ___
 
@@ -281,4 +281,4 @@ Turn WebSocket requests processing on or off
 
 #### Defined in
 
-[ProxyConfig.ts:47](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L47)
+[ProxyConfig.ts:47](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L47)

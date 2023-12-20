@@ -1,6 +1,6 @@
 [@sitecore-jss/sitecore-jss-react-forms](../README.md) / FieldProps
 
-# Interface: FieldProps<TFormField\>
+# Interface: FieldProps\<TFormField\>
 
 ## Type parameters
 
@@ -33,13 +33,13 @@ Form field schema data
 
 #### Defined in
 
-[src/FieldProps.ts:12](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react-forms/src/FieldProps.ts#L12)
+[src/FieldProps.ts:12](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react-forms/src/FieldProps.ts#L12)
 
 ___
 
 ### fieldFactory
 
-• **fieldFactory**: (`field`: `FormField`<`ViewModel`\>) => `ReactNode`
+• **fieldFactory**: (`field`: `FormField`\<`ViewModel`\>) => `ReactNode`
 
 #### Type declaration
 
@@ -51,7 +51,7 @@ Function that can be called to create child form field components (used for sect
 
 | Name | Type |
 | :------ | :------ |
-| `field` | `FormField`<`ViewModel`\> |
+| `field` | `FormField`\<`ViewModel`\> |
 
 ##### Returns
 
@@ -59,7 +59,7 @@ Function that can be called to create child form field components (used for sect
 
 #### Defined in
 
-[src/FieldProps.ts:14](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react-forms/src/FieldProps.ts#L14)
+[src/FieldProps.ts:14](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react-forms/src/FieldProps.ts#L14)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[src/FieldProps.ts:18](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react-forms/src/FieldProps.ts#L18)
+[src/FieldProps.ts:18](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react-forms/src/FieldProps.ts#L18)
 
 ___
 
@@ -95,4 +95,4 @@ Callback for when a submit button is clicked. Tells the parent form which button
 
 #### Defined in
 
-[src/FieldProps.ts:16](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react-forms/src/FieldProps.ts#L16)
+[src/FieldProps.ts:16](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react-forms/src/FieldProps.ts#L16)

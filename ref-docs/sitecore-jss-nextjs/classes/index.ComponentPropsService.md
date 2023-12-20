@@ -29,7 +29,7 @@
 
 ### collectRequests
 
-▸ `Protected` **collectRequests**<`NextContext`\>(`params`): `Promise`<`ComponentPropsRequest`<`NextContext`\>[]\>
+▸ `Protected` **collectRequests**\<`NextContext`\>(`params`): `Promise`\<`ComponentPropsRequest`\<`NextContext`\>[]\>
 
 Go through layout service data, check all renderings using displayName, which should make some side effects.
 Write result in requests variable
@@ -46,26 +46,26 @@ Write result in requests variable
 | :------ | :------ | :------ |
 | `params` | `Object` | params |
 | `params.context` | `NextContext` |  |
-| `params.fetchFunctionFactory` | `FetchFunctionFactory`<`NextContext`\> |  |
+| `params.fetchFunctionFactory` | `FetchFunctionFactory`\<`NextContext`\> |  |
 | `params.layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) |  |
-| `params.placeholders?` | [`PlaceholdersData`](../modules/index.md#placeholdersdata)<`string`\> |  |
-| `params.requests?` | `ComponentPropsRequest`<`NextContext`\>[] |  |
+| `params.placeholders?` | [`PlaceholdersData`](../modules/index.md#placeholdersdata)\<`string`\> |  |
+| `params.requests?` | `ComponentPropsRequest`\<`NextContext`\>[] |  |
 
 #### Returns
 
-`Promise`<`ComponentPropsRequest`<`NextContext`\>[]\>
+`Promise`\<`ComponentPropsRequest`\<`NextContext`\>[]\>
 
 array of requests
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:115](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L115)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:115](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L115)
 
 ___
 
 ### execRequests
 
-▸ `Protected` **execRequests**<`NextContext`\>(`requests`): `Promise`<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
+▸ `Protected` **execRequests**\<`NextContext`\>(`requests`): `Promise`\<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
 
 Execute request for component props
 
@@ -79,23 +79,23 @@ Execute request for component props
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `requests` | `ComponentPropsRequest`<`NextContext`\>[] | requests |
+| `requests` | `ComponentPropsRequest`\<`NextContext`\>[] | requests |
 
 #### Returns
 
-`Promise`<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
+`Promise`\<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
 
 requests result
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:163](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L163)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:163](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L163)
 
 ___
 
 ### fetchComponentProps
 
-▸ `Protected` **fetchComponentProps**<`NextContext`\>(`fetchFunctionFactory`, `layoutData`, `context`): `Promise`<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
+▸ `Protected` **fetchComponentProps**\<`NextContext`\>(`fetchFunctionFactory`, `layoutData`, `context`): `Promise`\<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
 
 Traverse Layout Service data tree and call side effects on component level.
 Side effect function can be: getStaticProps (SSG) or getServerSideProps (SSR)
@@ -110,25 +110,25 @@ Side effect function can be: getStaticProps (SSG) or getServerSideProps (SSR)
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `fetchFunctionFactory` | `FetchFunctionFactory`<`NextContext`\> | fetch function factory |
+| `fetchFunctionFactory` | `FetchFunctionFactory`\<`NextContext`\> | fetch function factory |
 | `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) | layout data |
 | `context` | `NextContext` | next context |
 
 #### Returns
 
-`Promise`<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
+`Promise`\<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
 
 component props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:88](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L88)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:88](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L88)
 
 ___
 
 ### fetchServerSideComponentProps
 
-▸ **fetchServerSideComponentProps**(`params`): `Promise`<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
+▸ **fetchServerSideComponentProps**(`params`): `Promise`\<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
 
 SSR mode
 Fetch component props using getServerSideProps function
@@ -137,23 +137,23 @@ Fetch component props using getServerSideProps function
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `params` | `FetchComponentPropsArguments`<`GetServerSidePropsContext`<`ParsedUrlQuery`, `PreviewData`\>\> | fetch params |
+| `params` | `FetchComponentPropsArguments`\<`GetServerSidePropsContext`\<`ParsedUrlQuery`, `PreviewData`\>\> | fetch params |
 
 #### Returns
 
-`Promise`<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
+`Promise`\<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
 
 props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:38](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L38)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:38](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L38)
 
 ___
 
 ### fetchStaticComponentProps
 
-▸ **fetchStaticComponentProps**(`params`): `Promise`<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
+▸ **fetchStaticComponentProps**(`params`): `Promise`\<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
 
 SSG mode
 Fetch component props using getStaticProps function
@@ -162,17 +162,17 @@ Fetch component props using getStaticProps function
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `params` | `FetchComponentPropsArguments`<`GetStaticPropsContext`<`ParsedUrlQuery`, `PreviewData`\>\> | fetch arguments |
+| `params` | `FetchComponentPropsArguments`\<`GetStaticPropsContext`\<`ParsedUrlQuery`, `PreviewData`\>\> | fetch arguments |
 
 #### Returns
 
-`Promise`<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
+`Promise`\<[`ComponentPropsCollection`](../modules/index.md#componentpropscollection)\>
 
 props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:62](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L62)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:62](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L62)
 
 ___
 
@@ -181,6 +181,18 @@ ___
 ▸ `Protected` **flatRenderings**(`placeholders`): [`ComponentRendering`](../interfaces/index.ComponentRendering.md)[]
 
 Take renderings from all placeholders and returns a flat array of renderings.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `placeholders` | [`PlaceholdersData`](../modules/index.md#placeholdersdata)\<`string`\> | placeholders |
+
+#### Returns
+
+[`ComponentRendering`](../interfaces/index.ComponentRendering.md)[]
+
+renderings
 
 **`Example`**
 
@@ -195,18 +207,6 @@ flatRenderings(placeholders);
 RESULT: [{ uid: 1 }, { uid: 2 }, { uid: 11 }, { uid: 22 }]
 ```
 
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `placeholders` | [`PlaceholdersData`](../modules/index.md#placeholdersdata)<`string`\> | placeholders |
-
-#### Returns
-
-[`ComponentRendering`](../interfaces/index.ComponentRendering.md)[]
-
-renderings
-
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:218](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L218)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:218](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L218)

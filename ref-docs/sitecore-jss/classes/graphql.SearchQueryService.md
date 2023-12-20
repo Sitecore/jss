@@ -1,6 +1,6 @@
 [@sitecore-jss/sitecore-jss](../README.md) / [graphql](../modules/graphql.md) / SearchQueryService
 
-# Class: SearchQueryService<T\>
+# Class: SearchQueryService\<T\>
 
 [graphql](../modules/graphql.md).SearchQueryService
 
@@ -33,7 +33,7 @@ This class is meant to be extended or used as a mixin; it's not meant to be used
 
 ### constructor
 
-• **new SearchQueryService**<`T`\>(`client`)
+• **new SearchQueryService**\<`T`\>(`client`)
 
 Creates an instance of search query service.
 
@@ -51,7 +51,7 @@ Creates an instance of search query service.
 
 #### Defined in
 
-[src/graphql/search-service.ts:89](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/graphql/search-service.ts#L89)
+[src/graphql/search-service.ts:89](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/graphql/search-service.ts#L89)
 
 ## Properties
 
@@ -63,25 +63,17 @@ that fetches data from a GraphQL endpoint.
 
 #### Defined in
 
-[src/graphql/search-service.ts:89](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/graphql/search-service.ts#L89)
+[src/graphql/search-service.ts:89](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/graphql/search-service.ts#L89)
 
 ## Methods
 
 ### fetch
 
-▸ **fetch**(`query`, `args`): `Promise`<`T`[]\>
+▸ **fetch**(`query`, `args`): `Promise`\<`T`[]\>
 
 1. Validates mandatory search query arguments
 2. Executes search query with pagination
 3. Aggregates pagination results into a single result-set.
-
-**`Throws`**
-
-if a valid root item ID is not provided.
-
-**`Throws`**
-
-if the provided language(s) is(are) not valid.
 
 #### Parameters
 
@@ -92,10 +84,18 @@ if the provided language(s) is(are) not valid.
 
 #### Returns
 
-`Promise`<`T`[]\>
+`Promise`\<`T`[]\>
 
 array of result objects.
 
+**`Throws`**
+
+if a valid root item ID is not provided.
+
+**`Throws`**
+
+if the provided language(s) is(are) not valid.
+
 #### Defined in
 
-[src/graphql/search-service.ts:102](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss/src/graphql/search-service.ts#L102)
+[src/graphql/search-service.ts:102](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss/src/graphql/search-service.ts#L102)

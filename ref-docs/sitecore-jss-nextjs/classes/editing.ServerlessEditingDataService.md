@@ -44,7 +44,7 @@ Utilizes another Next.js API route ('/api/editing/data/[key]') for storage and r
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:142](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L142)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:142](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L142)
 
 ## Properties
 
@@ -54,7 +54,7 @@ Utilizes another Next.js API route ('/api/editing/data/[key]') for storage and r
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:136](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L136)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:136](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L136)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:137](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L137)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:137](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L137)
 
 ___
 
@@ -95,13 +95,13 @@ The unique key
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:135](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L135)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:135](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L135)
 
 ## Methods
 
 ### getEditingData
 
-▸ **getEditingData**(`previewData`): `Promise`<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
+▸ **getEditingData**(`previewData`): `Promise`\<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
 
 Retrieves Sitecore editor payload data by key
 
@@ -113,7 +113,7 @@ Retrieves Sitecore editor payload data by key
 
 #### Returns
 
-`Promise`<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
+`Promise`\<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
 
 The [EditingData](../modules/editing.md#editingdata)
 
@@ -123,7 +123,7 @@ The [EditingData](../modules/editing.md#editingdata)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:181](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L181)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:181](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L181)
 
 ___
 
@@ -145,13 +145,13 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:198](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L198)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:198](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L198)
 
 ___
 
 ### setEditingData
 
-▸ **setEditingData**(`data`, `serverUrl`, `params?`): `Promise`<[`EditingPreviewData`](../interfaces/editing.EditingPreviewData.md)\>
+▸ **setEditingData**(`data`, `serverUrl`, `params?`): `Promise`\<[`EditingPreviewData`](../interfaces/editing.EditingPreviewData.md)\>
 
 Stores Sitecore editor payload data for later retrieval by key
 
@@ -165,7 +165,7 @@ Stores Sitecore editor payload data for later retrieval by key
 
 #### Returns
 
-`Promise`<[`EditingPreviewData`](../interfaces/editing.EditingPreviewData.md)\>
+`Promise`\<[`EditingPreviewData`](../interfaces/editing.EditingPreviewData.md)\>
 
 The [EditingPreviewData](../interfaces/editing.EditingPreviewData.md) containing the generated key and serverUrl to use for retrieval
 
@@ -175,4 +175,4 @@ The [EditingPreviewData](../interfaces/editing.EditingPreviewData.md) containing
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:156](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L156)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:156](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L156)

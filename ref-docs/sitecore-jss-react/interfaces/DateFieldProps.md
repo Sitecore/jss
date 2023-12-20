@@ -26,11 +26,13 @@ If true and `field.editable` has a value, then `field.editable` will be processe
 
 **`Default`**
 
+```ts
 true
+```
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Date.tsx:20](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/Date.tsx#L20)
+[sitecore-jss-react/src/components/Date.tsx:20](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react/src/components/Date.tsx#L20)
 
 ___
 
@@ -47,7 +49,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Date.tsx:7](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/Date.tsx#L7)
+[sitecore-jss-react/src/components/Date.tsx:7](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react/src/components/Date.tsx#L7)
 
 ___
 
@@ -71,7 +73,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Date.tsx:21](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/Date.tsx#L21)
+[sitecore-jss-react/src/components/Date.tsx:21](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react/src/components/Date.tsx#L21)
 
 ___
 
@@ -83,4 +85,4 @@ The HTML element that will wrap the contents of the field.
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Date.tsx:14](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/Date.tsx#L14)
+[sitecore-jss-react/src/components/Date.tsx:14](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react/src/components/Date.tsx#L14)

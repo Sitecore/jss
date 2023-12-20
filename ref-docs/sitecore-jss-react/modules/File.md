@@ -17,14 +17,14 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/File.tsx:60](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/File.tsx#L60)
+[sitecore-jss-react/src/components/File.tsx:60](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react/src/components/File.tsx#L60)
 
 ___
 
 ### propTypes
 
-• **propTypes**: `WeakValidationMap`<`FileProps`\>
+• **propTypes**: `WeakValidationMap`\<`FileProps`\>
 
 #### Defined in
 
-[sitecore-jss-react/src/components/File.tsx:49](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react/src/components/File.tsx#L49)
+[sitecore-jss-react/src/components/File.tsx:49](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react/src/components/File.tsx#L49)

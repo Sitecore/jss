@@ -82,19 +82,19 @@ sitecore-jss/types/site/graphql-error-pages-service.d.ts:48
 
 ### fetchErrorPages
 
-▸ **fetchErrorPages**(): `Promise`<``null`` \| [`ErrorPages`](../modules/index.md#errorpages)\>
+▸ **fetchErrorPages**(): `Promise`\<``null`` \| [`ErrorPages`](../modules/index.md#errorpages)\>
 
 Fetch list of error pages for the site
+
+#### Returns
+
+`Promise`\<``null`` \| [`ErrorPages`](../modules/index.md#errorpages)\>
+
+list of url's error pages
 
 **`Throws`**
 
 if the siteName is empty.
-
-#### Returns
-
-`Promise`<``null`` \| [`ErrorPages`](../modules/index.md#errorpages)\>
-
-list of url's error pages
 
 #### Defined in
 

@@ -51,10 +51,6 @@ sitecore-jss/types/site/site-resolver.d.ts:10
 
 Resolve site by host name
 
-**`Throws`**
-
-if a matching site is not found
-
 ##### Parameters
 
 | Name | Type | Description |
@@ -66,6 +62,10 @@ if a matching site is not found
 [`SiteInfo`](../modules/index.md#siteinfo)
 
 the resolved site
+
+**`Throws`**
+
+if a matching site is not found
 
 #### Defined in
 
@@ -83,10 +83,6 @@ ___
 
 Resolve site by site name
 
-**`Throws`**
-
-if a matching site is not found
-
 ##### Parameters
 
 | Name | Type | Description |
@@ -99,6 +95,10 @@ if a matching site is not found
 
 the resolved site
 
+**`Throws`**
+
+if a matching site is not found
+
 #### Defined in
 
 sitecore-jss/types/site/site-resolver.d.ts:24
@@ -107,15 +107,15 @@ ___
 
 ### getHostMap
 
-• `Protected` **getHostMap**: () => `Map`<`string`, [`SiteInfo`](../modules/index.md#siteinfo)\>
+• `Protected` **getHostMap**: () => `Map`\<`string`, [`SiteInfo`](../modules/index.md#siteinfo)\>
 
 #### Type declaration
 
-▸ (): `Map`<`string`, [`SiteInfo`](../modules/index.md#siteinfo)\>
+▸ (): `Map`\<`string`, [`SiteInfo`](../modules/index.md#siteinfo)\>
 
 ##### Returns
 
-`Map`<`string`, [`SiteInfo`](../modules/index.md#siteinfo)\>
+`Map`\<`string`, [`SiteInfo`](../modules/index.md#siteinfo)\>
 
 #### Defined in
 

@@ -47,64 +47,64 @@
 
 ### DateField
 
-▸ **DateField**(`props`, `context?`): `ReactElement`<`any`, `any`\>
+▸ **DateField**(`props`, `context?`): `ReactElement`\<`any`, `any`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `props` | `PropsWithChildren`<`DateFieldProps`\> |
+| `props` | `PropsWithChildren`\<`DateFieldProps`\> |
 | `context?` | `any` |
 
 #### Returns
 
-`ReactElement`<`any`, `any`\>
+`ReactElement`\<`any`, `any`\>
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:544
 
 ___
 
 ### Image
 
-▸ **Image**(`props`, `context?`): `ReactElement`<`any`, `any`\>
+▸ **Image**(`props`, `context?`): `ReactElement`\<`any`, `any`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `props` | `PropsWithChildren`<`ImageProps`\> |
+| `props` | `PropsWithChildren`\<`ImageProps`\> |
 | `context?` | `any` |
 
 #### Returns
 
-`ReactElement`<`any`, `any`\>
+`ReactElement`\<`any`, `any`\>
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:544
 
 ___
 
 ### Link
 
-▸ **Link**(`props`, `context?`): `ReactElement`<`any`, `any`\>
+▸ **Link**(`props`, `context?`): `ReactElement`\<`any`, `any`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `props` | `PropsWithChildren`<`LinkProps`\> |
+| `props` | `PropsWithChildren`\<`LinkProps`\> |
 | `context?` | `any` |
 
 #### Returns
 
-`ReactElement`<`any`, `any`\>
+`ReactElement`\<`any`, `any`\>
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:544
 
 ___
 
@@ -124,49 +124,49 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx:15](https://github.com/Sitecore/jss/blob/d9800fcb2/packages/sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx#L15)
+[sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx:15](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx#L15)
 
 ___
 
 ### RichText
 
-▸ **RichText**(`props`, `context?`): `ReactElement`<`any`, `any`\>
+▸ **RichText**(`props`, `context?`): `ReactElement`\<`any`, `any`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `props` | `PropsWithChildren`<`RichTextProps`\> |
+| `props` | `PropsWithChildren`\<`RichTextProps`\> |
 | `context?` | `any` |
 
 #### Returns
 
-`ReactElement`<`any`, `any`\>
+`ReactElement`\<`any`, `any`\>
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:544
 
 ___
 
 ### Text
 
-▸ **Text**(`props`, `context?`): `ReactElement`<`any`, `any`\>
+▸ **Text**(`props`, `context?`): `ReactElement`\<`any`, `any`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `props` | `PropsWithChildren`<`TextProps`\> |
+| `props` | `PropsWithChildren`\<`TextProps`\> |
 | `context?` | `any` |
 
 #### Returns
 
-`ReactElement`<`any`, `any`\>
+`ReactElement`\<`any`, `any`\>
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:544
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 ### getFieldValue
 
-▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`): `T` \| `undefined`
+▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`): `T` \| `undefined`
 
 Safely extracts a field value from a rendering or fields object.
 Null will be returned if the field is not defined.
@@ -225,7 +225,7 @@ the field value or null if the field is not defined
 
 sitecore-jss/types/layout/utils.d.ts:9
 
-▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
+▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
 #### Type parameters
 
