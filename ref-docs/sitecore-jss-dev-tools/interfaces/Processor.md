@@ -22,7 +22,7 @@ additional arguments that should be passed to the processor when invoked
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:19](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L19)
+[pipelines/pipelineFactory.ts:19](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L19)
 
 ___
 
@@ -34,7 +34,7 @@ optional but must be specified if process is not
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:11](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L11)
+[pipelines/pipelineFactory.ts:11](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L11)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:20](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L20)
+[pipelines/pipelineFactory.ts:20](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L20)
 
 ___
 
@@ -56,7 +56,7 @@ name of the processor
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:7](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L7)
+[pipelines/pipelineFactory.ts:7](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L7)
 
 ___
 
@@ -82,4 +82,4 @@ optional but must be specified if modulePath is not
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:15](https://github.com/Sitecore/jss/blob/d3b172b39/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L15)
+[pipelines/pipelineFactory.ts:15](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L15)
