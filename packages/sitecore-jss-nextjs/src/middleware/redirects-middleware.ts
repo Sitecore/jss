@@ -169,9 +169,12 @@ export class RedirectsMiddleware extends MiddlewareBase {
     const redirects = await this.redirectsService.fetchRedirects(siteName);
     const tragetURL = req.nextUrl.pathname;
     const targetQS = req.nextUrl.search || '';
+    const language = this.getLanguage(req);
+    const modifyRedirects = JSON.parse(JSON.stringify(redirects));
 
-    return redirects.length
-      ? redirects.find((redirect: RedirectInfo) => {
+    return modifyRedirects.length
+      ? modifyRedirects.find((redirect: RedirectInfo) => {
+          redirect.pattern = redirect.pattern.replace(RegExp(`^[^]?/${language}/`, 'gi'), '');
           redirect.pattern = `/^\/${redirect.pattern
             .replace(/^\/|\/$/g, '')
             .replace(/^\^\/|\/\$$/g, '')
