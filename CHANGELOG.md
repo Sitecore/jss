@@ -25,6 +25,22 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` The _GraphQLRequestClient_ import from _@sitecore-jss/sitecore-jss-nextjs_ is deprecated, use import from _@sitecore-jss/sitecore-jss-nextjs/graphql_ submodule instead ([#1650](https://github.com/Sitecore/jss/pull/1650) [#1648](https://github.com/Sitecore/jss/pull/1648))
 * `[create-sitecore-jss]` Introduced `nextjs-xmcloud` initializer template. This will include all base XM Cloud features, including Personalize, FEaaS, BYOC, Sitecore Edge Platform and Context support. ([#1653](https://github.com/Sitecore/jss/pull/1653)) ([#1657](https://github.com/Sitecore/jss/pull/1657)) ([#1658](https://github.com/Sitecore/jss/pull/1658))
 
+### 🐛 Bug Fixes
+
+* `[templates/nextjs-multisite]` Fix site info fetch errors (now skipped) on XM Cloud rendering/editing host builds. ([#1649](https://github.com/Sitecore/jss/pull/1649)), ([#1653](https://github.com/Sitecore/jss/pull/1653))
+
+### 🛠 Breaking Changes
+
+* `[create-sitecore-jss]` The `nextjs-personalize` initializer add-on template has been removed and is replaced by the `nextjs-xmcloud` initializer template. You can use the interactive prompts or the `--xmcloud` argument to include this template. ([#1653](https://github.com/Sitecore/jss/pull/1653))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` CloudSDK Integration ([#1652](https://github.com/Sitecore/jss/pull/1652)) ([#1659](https://github.com/Sitecore/jss/pull/1659)):
+  * Removed the following properties from _PersonalizeMiddleware_: _getPointOfSale_, _clientKey_, _endpoint_. You now need to provide _sitecoreEdgeContextId_ as a replacement.
+  * _PersonalizeMiddleware_ has transitioned to utilizing the _CloudSDK_ package, replacing the previous dependency on _Engage_.
+  * Introduced _Context_ class, that is used to initialize the application Context and shared Software Development Kits (SDKs). Accessible within the _@sitecore-jss/sitecore-jss-nextjs/context_ submodule.
+  * Point of Sale resolution is fully removed, now it's handled by Sitecore Edge Proxy
+
+### 🧹 Chores
+
+* Security vulnerability audit ([#1685](https://github.com/Sitecore/jss/pull/1685))
 
 ## 21.5.3
 
