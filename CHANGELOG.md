@@ -20,6 +20,7 @@ Our versioning strategy is as follows:
 
 * Upgrade to Node.js 20.x ([#1679](https://github.com/Sitecore/jss/pull/1679))([#1681](https://github.com/Sitecore/jss/pull/1681))
 * Removed "npm" field from "engines" property ([#1698](https://github.com/Sitecore/jss/pull/1698))
+* Removed "engines" field for templates ([#1701](https://github.com/Sitecore/jss/pull/1701))
 
 ### 🐛 Bug Fixes
 
