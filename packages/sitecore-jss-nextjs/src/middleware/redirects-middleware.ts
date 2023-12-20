@@ -128,7 +128,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
         const targetQuery = target[1] || '';
         if (targetQuery !== '') {
           const newParams = new URLSearchParams(targetQuery);
-          for (let [key, val] of newParams.entries()) {
+          for (const [key, val] of newParams.entries()) {
             url.searchParams.append(key, val);
           }
         }
