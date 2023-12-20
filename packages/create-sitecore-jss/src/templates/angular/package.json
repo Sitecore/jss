@@ -13,10 +13,6 @@
     "graphQLEndpointPath": "/sitecore/api/graph/edge",
     "language": "en"
   },
-  "engines": {
-    "node": ">=18",
-    "npm": ">=10"
-  },
   "scripts": {
     "ng": "ng",
     "lint:yml": "ts-node ./scripts/lint-yml.ts",

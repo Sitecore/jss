@@ -5,10 +5,6 @@
   "scripts": {
     "start": "ts-node ./src/index.ts"
   },
-  "engines": {
-    "node": ">=18",
-    "npm": ">=10"
-  },
   "author": {
     "name": "Sitecore Corporation",
     "url": "https://jss.sitecore.com"
