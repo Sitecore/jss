@@ -30,7 +30,7 @@ The API key to use for authentication
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:22](https://github.com/Sitecore/jss/blob/67cf19202/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L22)
+[src/layout/graphql-layout-service.ts:22](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L22)
 
 ___
 
@@ -42,7 +42,7 @@ Your Graphql endpoint
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:14](https://github.com/Sitecore/jss/blob/67cf19202/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L14)
+[src/layout/graphql-layout-service.ts:14](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L14)
 
 ___
 
@@ -77,7 +77,7 @@ custom layout query
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:34](https://github.com/Sitecore/jss/blob/67cf19202/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L34)
+[src/layout/graphql-layout-service.ts:34](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L34)
 
 ___
 
@@ -93,7 +93,7 @@ Pick.retries
 
 #### Defined in
 
-[src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/67cf19202/packages/sitecore-jss/src/graphql-request-client.ts#L42)
+[src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss/src/graphql-request-client.ts#L42)
 
 ___
 
@@ -105,4 +105,4 @@ The JSS application name
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:18](https://github.com/Sitecore/jss/blob/67cf19202/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L18)
+[src/layout/graphql-layout-service.ts:18](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L18)
