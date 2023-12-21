@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of } from 'rxjs';
 import { guardResolverFactory } from './guard-resolver-factory';
+import { JssCanActivateError } from './jss-can-activate-error';
 import {
   GUARD_RESOLVER,
   GuardResolver,
@@ -63,6 +64,29 @@ class MockInjectableGuard implements JssCanActivate {
   }
 }
 
+@Injectable()
+class MockUrlTreeGuard implements JssCanActivate {
+  constructor(private readonly router: Router) {}
+
+  canActivate() {
+    return this.router.parseUrl('/404');
+  }
+}
+
+@Injectable()
+class MockUrlGuard implements JssCanActivate {
+  canActivate() {
+    return '/404';
+  }
+}
+
+@Injectable()
+class MockUrlsGuard implements JssCanActivate {
+  canActivate() {
+    return ['404'];
+  }
+}
+
 describe('guardResolverFactory', () => {
   let resolver: GuardResolver;
   beforeEach(
@@ -76,6 +100,9 @@ describe('guardResolverFactory', () => {
           MockAsyncFalseGuard,
           MockService,
           MockInjectableGuard,
+          MockUrlTreeGuard,
+          MockUrlGuard,
+          MockUrlsGuard,
           {
             provide: GUARD_RESOLVER,
             useFactory: guardResolverFactory,
@@ -132,6 +159,42 @@ describe('guardResolverFactory', () => {
     ]);
 
     expect(nonGuarded.length).toBe(1);
+  });
+
+  it('Throws JssCanActivateError when returning UrlTree', () => {
+    return expectAsync(
+      resolver([
+        {
+          canActivate: MockUrlTreeGuard,
+          componentDefinition: {} as any,
+        },
+      ])
+      // eslint-disable-next-line quotes
+    ).toBeRejectedWithError(JssCanActivateError, "Value: '/404' is a redirect value");
+  });
+
+  it('Throws JssCanActivateError when returning string', () => {
+    return expectAsync(
+      resolver([
+        {
+          canActivate: MockUrlGuard,
+          componentDefinition: {} as any,
+        },
+      ])
+      // eslint-disable-next-line quotes
+    ).toBeRejectedWithError(JssCanActivateError, "Value: '/404' is a redirect value");
+  });
+
+  it('Throws JssCanActivateError when returning array with strings', () => {
+    return expectAsync(
+      resolver([
+        {
+          canActivate: MockUrlsGuard,
+          componentDefinition: {} as any,
+        },
+      ])
+      // eslint-disable-next-line quotes
+    ).toBeRejectedWithError(JssCanActivateError, "Value: '404' is a redirect value");
   });
 
   it('Blocks rendering if single async guard returns false', async () => {

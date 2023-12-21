@@ -1,11 +1,12 @@
 import { Injector, Type } from '@angular/core';
 import { ActivatedRoute, Router, UrlTree } from '@angular/router';
-import { take, mergeMap } from 'rxjs/operators';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
+import { lastValueFrom, of } from 'rxjs';
+import { mergeMap, take } from 'rxjs/operators';
 import { ComponentFactoryResult } from '../jss-component-factory.service';
 import { wrapIntoObservable } from '../utils';
+import { JssCanActivateError } from './jss-can-activate-error';
 import { JssCanActivate, JssCanActivateFn } from './placeholder.token';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
-import { throwError, of, lastValueFrom } from 'rxjs';
 
 /**
  * @param {boolean | string | string[] | UrlTree} value
@@ -86,7 +87,10 @@ export function guardResolverFactory(
         take(1),
         mergeMap((value) => {
           if (isRedirectValue(value)) {
-            return throwError(() => new Error(value.toString()));
+            throw new JssCanActivateError(
+              `Value: '${value.toString()}' is a redirect value`,
+              value
+            );
           } else {
             return of(value);
           }
