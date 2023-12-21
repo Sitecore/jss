@@ -22,9 +22,8 @@ const createLiteralGuard = (
   },
 });
 
-const createFunctionGuard = (
-  canActivate: boolean | Promise<boolean> | Observable<boolean>
-): JssCanActivateFn => () => canActivate;
+const createFunctionGuard = (canActivate: ReturnType<JssCanActivateFn>): JssCanActivateFn => () =>
+  canActivate;
 
 class MockSyncTrueGuard implements JssCanActivate {
   canActivate() {

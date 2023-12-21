@@ -1,8 +1,8 @@
 import { Component, DebugElement, EventEmitter, Input, Output } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 
 import { JssModule } from '../lib.module';
 

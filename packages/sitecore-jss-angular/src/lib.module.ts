@@ -1,11 +1,11 @@
 import { CommonModule, DatePipe } from '@angular/common';
 import { Injector, ModuleWithProviders, NgModule, Provider, Type } from '@angular/core';
 import { ActivatedRoute, Router, ROUTES } from '@angular/router';
-import { dataResolverFactory } from './components/data-resolver-factory';
+import { dataResolverFactory } from './services/data-resolver-factory';
 import { DateDirective } from './components/date.directive';
 import { FileDirective } from './components/file.directive';
 import { GenericLinkDirective } from './components/generic-link.directive';
-import { guardResolverFactory } from './components/guard-resolver-factory';
+import { guardResolverFactory } from './services/guard-resolver-factory';
 import { ImageDirective } from './components/image.directive';
 import { LinkDirective } from './components/link.directive';
 import { MissingComponentComponent } from './components/missing-component.component';
@@ -23,7 +23,7 @@ import {
   PLACEHOLDER_LAZY_COMPONENTS,
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
   PLACEHOLDER_HIDDEN_RENDERING_COMPONENT,
-} from './components/placeholder.token';
+} from './services/placeholder.token';
 import { RawComponent } from './components/raw.component';
 import { RenderComponentComponent } from './components/render-component.component';
 import { RenderEachDirective } from './components/render-each.directive';
@@ -31,7 +31,7 @@ import { RenderEmptyDirective } from './components/render-empty.directive';
 import { RichTextDirective } from './components/rich-text.directive';
 import { RouterLinkDirective } from './components/router-link.directive';
 import { TextDirective } from './components/text.directive';
-import { JssComponentFactoryService } from './jss-component-factory.service';
+import { JssComponentFactoryService } from './services/jss-component-factory.service';
 
 @NgModule({
   imports: [CommonModule],

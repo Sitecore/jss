@@ -3,7 +3,7 @@ import { ActivatedRoute, Router, UrlTree } from '@angular/router';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { lastValueFrom, of } from 'rxjs';
 import { mergeMap, take } from 'rxjs/operators';
-import { ComponentFactoryResult } from '../jss-component-factory.service';
+import { ComponentFactoryResult } from './jss-component-factory.service';
 import { wrapIntoObservable } from '../utils';
 import { JssCanActivateError } from './jss-can-activate-error';
 import { JssCanActivate, JssCanActivateFn } from './placeholder.token';

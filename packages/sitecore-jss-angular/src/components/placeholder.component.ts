@@ -22,16 +22,14 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { Data, UrlTree, Router } from '@angular/router';
+import { Data, Router, UrlTree } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { Observable } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
 import {
   ComponentFactoryResult,
   JssComponentFactoryService,
-} from '../jss-component-factory.service';
-import { HIDDEN_RENDERING_NAME } from './hidden-rendering.component';
-import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
+} from '../services/jss-component-factory.service';
 import {
   DataResolver,
   DATA_RESOLVER,
@@ -39,7 +37,9 @@ import {
   GUARD_RESOLVER,
   PLACEHOLDER_HIDDEN_RENDERING_COMPONENT,
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
-} from './placeholder.token';
+} from '../services/placeholder.token';
+import { HIDDEN_RENDERING_NAME } from './hidden-rendering.component';
+import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
 import { RenderEachDirective } from './render-each.directive';
 import { RenderEmptyDirective } from './render-empty.directive';
 import { isRawRendering } from './rendering';
