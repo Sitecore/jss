@@ -79,6 +79,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   @Input() clientOnly = false;
 
   @Output() loaded = new EventEmitter<string | undefined>();
+  @Output() failed = new EventEmitter<Error>();
 
   @ContentChild(RenderEachDirective, { static: true }) renderEachTemplate: RenderEachDirective;
   @ContentChild(RenderEmptyDirective, { static: true }) renderEmptyTemplate: RenderEmptyDirective;
@@ -258,7 +259,13 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
             this.router.navigate(redirectValue);
           }
         } else {
-          throw e;
+          this.failed.emit(e as Error);
+          console.warn(
+            `Placeholder '${this.name}' was not able to render with the current rendering data and error`,
+            JSON.stringify(this.rendering, null, 2),
+            e
+          );
+          return;
         }
       }
     }
