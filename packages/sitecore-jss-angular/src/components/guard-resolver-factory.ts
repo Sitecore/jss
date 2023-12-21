@@ -72,7 +72,7 @@ export function guardResolverFactory(
    * @returns canActivate
    */
   function resolveGuard(guard: JssCanActivate | JssCanActivateFn, factory: ComponentFactoryResult) {
-    const canActivate = 'canActivate' in guard ? guard.canActivate : guard;
+    const canActivate = 'canActivate' in guard ? guard.canActivate.bind(guard) : guard;
     const guardValue = canActivate({
       activatedRoute: activatedRoute.snapshot,
       routerState: router.routerState.snapshot,

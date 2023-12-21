@@ -1,7 +1,7 @@
 // tslint:disable: max-classes-per-file
 
-import { Injector } from '@angular/core';
-import { waitForAsync, TestBed } from '@angular/core/testing';
+import { Injectable, Injector } from '@angular/core';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of } from 'rxjs';
@@ -49,6 +49,20 @@ class MockAsyncFalseGuard implements JssCanActivate {
   }
 }
 
+@Injectable({ providedIn: 'root' })
+class MockService {
+  readonly result = true;
+}
+
+@Injectable()
+class MockInjectableGuard implements JssCanActivate {
+  constructor(private service: MockService) {}
+
+  canActivate() {
+    return this.service.result;
+  }
+}
+
 describe('guardResolverFactory', () => {
   let resolver: GuardResolver;
   beforeEach(
@@ -60,6 +74,8 @@ describe('guardResolverFactory', () => {
           MockSyncFalseGuard,
           MockAsyncTrueGuard,
           MockAsyncFalseGuard,
+          MockService,
+          MockInjectableGuard,
           {
             provide: GUARD_RESOLVER,
             useFactory: guardResolverFactory,
@@ -100,6 +116,17 @@ describe('guardResolverFactory', () => {
     const nonGuarded = await resolver([
       {
         canActivate: MockAsyncTrueGuard,
+        componentDefinition: {} as any,
+      },
+    ]);
+
+    expect(nonGuarded.length).toBe(1);
+  });
+
+  it('Returns rendering if single injectable guard returns true', async () => {
+    const nonGuarded = await resolver([
+      {
+        canActivate: MockInjectableGuard,
         componentDefinition: {} as any,
       },
     ]);
