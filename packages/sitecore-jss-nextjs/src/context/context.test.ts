@@ -3,6 +3,8 @@
 import sinon from 'sinon';
 import { expect } from 'chai';
 import { Context } from './';
+import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss-react';
+import { PageStateType } from './context';
 
 describe('Context', () => {
   const sdks = {
@@ -97,6 +99,15 @@ describe('Context', () => {
       });
     });
 
+    it('should use normal pageMode when context is initialized with empty props', () => {
+      const context = new Context<typeof sdks>(props);
+
+      context.init();
+
+      expect(context.isInitialized).to.be.true;
+      expect(context.pageState).to.equal(LayoutServicePageState.Normal);
+    });
+
     it('should initialize the context with a different site name', (done) => {
       const context = new Context<typeof sdks>(props);
 
@@ -127,6 +138,15 @@ describe('Context', () => {
 
         done();
       });
+    });
+
+    it('should initialize the context with a different page mode', () => {
+      const context = new Context<typeof sdks>(props);
+
+      context.init({ pageState: PageStateType.Edit });
+
+      expect(context.isInitialized).to.be.true;
+      expect(context.pageState).to.equal(PageStateType.Edit);
     });
 
     it('should not initialize the context if it is already initialized', () => {

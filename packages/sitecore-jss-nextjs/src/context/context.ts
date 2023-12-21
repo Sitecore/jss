@@ -1,4 +1,14 @@
 /**
+ * Page state enum
+ * Duplicates LayoutServicePageState to simplify future context migration into CloudSDK
+ */
+export enum PageStateType {
+  Preview = 'preview',
+  Edit = 'edit',
+  Normal = 'normal',
+}
+
+/**
  * Software Development Kit (SDK) instance
  */
 export type SDK<SDKType = unknown> = {
@@ -25,6 +35,10 @@ export interface ContextInitProps {
    * Your Sitecore site name
    */
   siteName?: string;
+  /**
+   * Sitecore page state (normal, preview, edit)
+   */
+  pageState?: PageStateType;
 }
 
 /**
@@ -75,6 +89,10 @@ export class Context<SDKModules extends SDKModulesType> {
    */
   public siteName: string;
   /**
+   * Sitecore page state (normal, preview, edit)
+   */
+  public pageState: PageStateType;
+  /**
    * Software Development Kits (SDKs) to be initialized
    */
   public readonly sdks: { [module in keyof SDKModules]?: SDKModules[module]['sdk'] } = {};
@@ -87,6 +105,7 @@ export class Context<SDKModules extends SDKModulesType> {
     this.sitecoreEdgeUrl = props.sitecoreEdgeUrl;
     this.sitecoreEdgeContextId = props.sitecoreEdgeContextId;
     this.siteName = props.siteName;
+    this.pageState = PageStateType.Normal;
   }
 
   public init(props: ContextInitProps = {}) {
@@ -97,6 +116,10 @@ export class Context<SDKModules extends SDKModulesType> {
 
     if (props.siteName) {
       this.siteName = props.siteName;
+    }
+
+    if (props.pageState) {
+      this.pageState = props.pageState;
     }
 
     // iterate over the SDKs and initialize them
