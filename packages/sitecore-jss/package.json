@@ -55,11 +55,13 @@
     "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "debug": "^4.3.1",
-    "graphql": "^16.5.0",
-    "graphql-request": "^4.2.0",
     "lodash.unescape": "^4.0.1",
     "memory-cache": "^0.2.0",
     "url-parse": "^1.5.9"
+  },
+  "peerDependencies": {
+    "graphql": "^16.5.0",
+    "graphql-request": "^4.2.0"
   },
   "description": "",
   "types": "types/index.d.ts",
