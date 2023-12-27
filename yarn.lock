@@ -5777,6 +5777,10 @@ __metadata:
     tslib: ^1.10.0
     typescript: ~4.3.5
     url-parse: ^1.5.9
+  peerDependencies:
+    axios: ^0.21.1
+    graphql: ^16.5.0
+    graphql-request: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -6051,7 +6055,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/debug@npm:^4.1.5":
+"@types/debug@npm:^4.1.12, @types/debug@npm:^4.1.5":
   version: 4.1.12
   resolution: "@types/debug@npm:4.1.12"
   dependencies:
@@ -23062,6 +23066,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@types/debug": ^4.1.12
     "@typescript-eslint/eslint-plugin": ^4.10.0
     "@typescript-eslint/parser": ^4.10.0
     eslint: ^7.16.0
