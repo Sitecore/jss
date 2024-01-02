@@ -4,7 +4,6 @@ import sinon from 'sinon';
 import { expect } from 'chai';
 import { Context } from './';
 import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss-react';
-import { PageStateType } from './context';
 
 describe('Context', () => {
   const sdks = {
@@ -143,10 +142,10 @@ describe('Context', () => {
     it('should initialize the context with a different page mode', () => {
       const context = new Context<typeof sdks>(props);
 
-      context.init({ pageState: PageStateType.Edit });
+      context.init({ pageState: LayoutServicePageState.Edit });
 
       expect(context.isInitialized).to.be.true;
-      expect(context.pageState).to.equal(PageStateType.Edit);
+      expect(context.pageState).to.equal(LayoutServicePageState.Edit);
     });
 
     it('should not initialize the context if it is already initialized', () => {
