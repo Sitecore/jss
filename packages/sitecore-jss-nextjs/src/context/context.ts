@@ -1,12 +1,4 @@
-/**
- * Page state enum
- * Duplicates LayoutServicePageState to simplify future context migration into CloudSDK
- */
-export enum PageStateType {
-  Preview = 'preview',
-  Edit = 'edit',
-  Normal = 'normal',
-}
+import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss-react';
 
 /**
  * Software Development Kit (SDK) instance
@@ -38,7 +30,7 @@ export interface ContextInitProps {
   /**
    * Sitecore page state (normal, preview, edit)
    */
-  pageState?: PageStateType;
+  pageState?: LayoutServicePageState;
 }
 
 /**
@@ -91,7 +83,7 @@ export class Context<SDKModules extends SDKModulesType> {
   /**
    * Sitecore page state (normal, preview, edit)
    */
-  public pageState: PageStateType;
+  public pageState: LayoutServicePageState;
   /**
    * Software Development Kits (SDKs) to be initialized
    */
@@ -105,7 +97,7 @@ export class Context<SDKModules extends SDKModulesType> {
     this.sitecoreEdgeUrl = props.sitecoreEdgeUrl;
     this.sitecoreEdgeContextId = props.sitecoreEdgeContextId;
     this.siteName = props.siteName;
-    this.pageState = PageStateType.Normal;
+    this.pageState = LayoutServicePageState.Normal;
   }
 
   public init(props: ContextInitProps = {}) {
