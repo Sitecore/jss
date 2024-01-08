@@ -13,8 +13,8 @@ const feaasPlugin = (nextConfig = {}) => {
             '@sitecore-feaas/clientside/react': 'commonjs @sitecore-feaas/clientside/react',
             '@sitecore/byoc': 'commonjs @sitecore/byoc',
             '@sitecore/byoc/react': 'commonjs @sitecore/byoc/react',
-            ...config.externals,
           },
+          ...config.externals,
         ];
       }
 

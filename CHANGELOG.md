@@ -30,7 +30,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` Ensure FEAAS and BYOC components can correctly use item datasources ([#1694](https://github.com/Sitecore/jss/pull/1694))
 * `[sitecore-jss-nextjs]` Fix loop error in redirect middleware when the pattern of redirect has default locale. ([#1696](https://github.com/Sitecore/jss/pull/1696))
 * `[templates/nextjs-sxa]` Fix feature `show Grid column` in Experience Editor. ([#1704](https://github.com/Sitecore/jss/pull/1704))
-* `[templates/nextjs-xmcloud]` Fix double registration of BYOC components ([#1707](https://github.com/Sitecore/jss/pull/1707))
+* `[templates/nextjs-xmcloud]` Fix double registration of BYOC components ([#1707](https://github.com/Sitecore/jss/pull/1707)) ([#1709](https://github.com/Sitecore/jss/pull/1709))
 
 ### 🛠 Breaking Changes
 
