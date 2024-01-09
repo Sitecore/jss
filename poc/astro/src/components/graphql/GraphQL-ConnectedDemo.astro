@@ -1,0 +1,157 @@
+---
+import Link from "@sdk/Link.astro";
+import Text from "@sdk/Text.astro";
+import { SitecoreContextMap } from "@lib/context";
+import StyleguideSpecimen from "../styleguide/Styleguide-Specimen.astro";
+import { GQLConnectedDemoService } from "./gql-service";
+import type { IQueryResult, IResultsItem } from "./gql-service/types";
+
+const query = `
+  query ConnectedDemoQuery($datasource: String!, $contextItem: String!, $language: String!) {
+    # Datasource query
+    # $datasource should be set to the ID of the rendering's datasource item
+    datasource: item(path: $datasource, language: $language) {
+      id
+      name
+      # Strongly-typed querying on known templates is possible!
+      ...on AstroAppGraphQLConnectedDemo {
+        # Single-line text field
+        sample1 {
+          # the 'jsonValue' field is a JSON blob that represents the object that
+          # should be passed to JSS field rendering helpers (i.e. text, image, link)
+          jsonValue
+          value
+        }
+        # General Link field
+        sample2 {
+          jsonValue
+          # Structured querying of the field's values is possible
+          text
+          target
+          url
+          # Access to the template definition is possible
+          definition {
+            type
+            shared
+          }
+        }
+      }
+    }
+  
+    # Context/route item query
+    # $contextItem should be set to the ID of the current context item (the route item)
+    contextItem: item(path: $contextItem, language: $language) {
+      id
+      # Get the page title from the app route template
+      ...on AstroAppAppRoute  {
+        pageTitle {
+          value
+        }
+      }
+  
+      # List the children of the current route
+      children(hasLayout: true) {
+        results {
+          id
+          # typing fragments can be used anywhere!
+          # so in this case, we're grabbing the 'pageTitle'
+          # field on all child route items.
+          ...on AstroAppAppRoute  {
+            pageTitle {
+              jsonValue
+              value
+            }
+          }
+          url{
+            path
+          }
+        }
+      }
+    }
+  }
+  `;
+
+const sitecoreContext = SitecoreContextMap.get("context");
+const service = new GQLConnectedDemoService();
+const { dataSource } = Astro.props.route;
+const queryResult: IQueryResult<IResultsItem> =
+  await service.getContextItemData(
+    sitecoreContext.itemId,
+    dataSource.replace(/[{}]/g, ""),
+    SitecoreContextMap.get("language"),
+    query
+  );
+const loading = queryResult == null;
+
+const { contextItem, datasource } = queryResult;
+---
+
+<StyleguideSpecimen
+  route={Astro.props.route}
+  e2eId="styleguide-fieldusage-text"
+>
+  <div>
+    <div data-e2e-id="graphql-connected">
+      <h2>GraphQL Connected Demo</h2>
+
+      <p>
+        Connected GraphQL executes GraphQL queries directly against the Sitecore
+        GraphQL endpoint. You can review the query execution in the browser
+        devtools network tab.
+      </p>
+
+      {loading && <p class="alert alert-info">GraphQL query is executing...</p>}
+      {
+        datasource && (
+          <div>
+            <h4>Datasource Item (via Connected GraphQL)</h4>
+            id: {datasource.id}
+            <br />
+            name: {datasource.name}
+            <br />
+            sample1: {datasource.sample1?.value}
+            <br />
+            sample1 (editable): <Text field={datasource.sample1?.jsonValue} />
+            <br />
+            sample2:
+            <br />
+            <ul>
+              <li>text: {datasource.sample2?.text}</li>
+              <li>url: {datasource.sample2?.url}</li>
+              <li>target: {datasource.sample2?.target}</li>
+              <li>
+                editable: <Link field={datasource.sample2?.jsonValue} />
+              </li>
+              <li>field type: {datasource.sample2?.definition?.type}</li>
+              <li>
+                field is shared:{" "}
+                {datasource.sample2?.definition.shared.toString()}
+              </li>
+            </ul>
+          </div>
+        )
+      }
+      {
+        contextItem && (
+          <div>
+            <h4>Route Item (via Connected GraphQL)</h4>
+            id: {contextItem?.id}
+            <br />
+            page title: {contextItem.pageTitle?.value}
+            <br />
+            children:
+            <ul>
+              {contextItem?.children?.results?.map((child) => (
+                <li>
+                  <a href={child.url?.path}>{child.pageTitle?.value}</a>
+                  &nbsp; (editable title too!{" "}
+                  <Text field={child.pageTitle.jsonValue} />)
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </div>
+  </div>
+</StyleguideSpecimen>

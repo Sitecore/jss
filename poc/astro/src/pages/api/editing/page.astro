@@ -1,0 +1,18 @@
+---
+import JssLayout from "@layouts/Layout.astro";
+import { SitecoreContextMap } from "@lib/context";
+
+const body = await Astro.request.json();
+const layoutData = JSON.parse(body.args[1]);
+const viewBag = JSON.parse(body.args[2]);
+
+let context = layoutData.sitecore.context;
+context.route = layoutData.sitecore.route;
+context.itemId = layoutData.sitecore.route?.itemId;
+
+SitecoreContextMap.set("context", context);
+SitecoreContextMap.set("dictionary", viewBag.dictionary);
+SitecoreContextMap.set("preview", true);
+SitecoreContextMap.set("language", viewBag.language);
+---
+<JssLayout title="a" layoutData={layoutData} />

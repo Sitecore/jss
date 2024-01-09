@@ -1,0 +1,53 @@
+---
+import type { LinkFieldValue, LinkField } from './LinkField';
+
+export interface Props {
+  field: LinkFieldValue;
+  className?: string;
+  editable?: boolean;
+  showLinkTextWithChildrenPresent?: boolean;
+}
+
+const { field, showLinkTextWithChildrenPresent } = Astro.props;
+const children = await Astro.slots.render("default");
+const dynamicField: LinkField | LinkFieldValue = field;
+
+if (
+  !field ||
+  (!dynamicField.editableFirstPart && !dynamicField.value && !dynamicField.href)
+) {
+  return "";
+}
+
+// handle link directly on field for forgetful devs
+const link = dynamicField.href ? field : dynamicField.value;
+if (!link) {
+  return "";
+}
+
+const linkText =
+  showLinkTextWithChildrenPresent || !children || children.length === 0
+    ? link.text || link.href
+    : "";
+
+const finalChildren = children ? [linkText, ...children] : linkText;
+
+const attrs = (function () {
+  const { field, className, ...attrs } = Astro.props;
+  const { showLinkTextWithChildrenPresent, ...finalAttrs } = attrs;
+  return {
+    ...finalAttrs,
+    class: link.class || className,
+    href: link.querystring ? `${link.href}?${link.querystring}` : link.href,
+    title: link.title,
+    target: link.target,
+  };
+})();
+---
+
+{!field.editableFirstPart && <a {...attrs} set:html={finalChildren} />}
+{field.editableFirstPart && 
+  <Fragment set:html={field.editableFirstPart} />
+  <Fragment set:html={children} />
+  <Fragment set:html={field.editableLastPart} />
+}

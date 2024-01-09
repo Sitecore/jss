@@ -1,0 +1,24 @@
+---
+import RichText from '@sdk/RichText.astro';
+import Text from '@sdk/Text.astro';
+
+export interface Props {
+  route: any,
+  e2eId?: string
+}
+
+const {componentName, fields, uid} = Astro.props.route;
+const renderingId = `i${uid && uid.replace(/[{}]/g, '')}`;
+---
+
+<div class="pt-3" id={renderingId} data-e2e-id={Astro.props.e2eId}>
+  <Text tag="h4" field={fields.heading} />
+  {fields.description && <RichText field={fields.description} />}
+  <p>
+    <small>
+      Implementation: <code>/src/components/styleguide/{componentName}.astro</code>
+      <br />
+    </small>
+  </p>
+  <div class="border p-2"><slot></slot></div>
+</div>

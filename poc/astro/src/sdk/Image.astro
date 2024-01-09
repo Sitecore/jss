@@ -1,0 +1,42 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { prepareImageSource } from "./media/image-api";
+import type { ImageField } from "./ImageField";
+
+
+export interface Props extends Omit<HTMLAttributes<"img">, "src"> {
+  [attributeName: string]: any;
+  field: ImageField;
+  src?: string | null;
+  imageParams?: { [paramName: string]: string | number };
+}
+
+const {
+  field,
+  src,
+  imageParams,
+  ...attrs
+} = Astro.props as Props;
+
+let render = true;
+if (field.editable || (!field.value || !field.value?.src)) {
+  render = false;
+}
+
+const imageSource = prepareImageSource(
+  src ?? field.value?.src ?? "",
+  imageParams
+);
+const altText = attrs.alt ? attrs.alt : field.value?.alt ?? "";
+
+const getAttributes = (): any => {
+  return {
+    ...attrs,
+    src: imageSource,
+    alt: altText,
+  };
+};
+---
+
+{render && <img {...getAttributes()} />}
+{field.editable && <Fragment set:html={field.editable} />}

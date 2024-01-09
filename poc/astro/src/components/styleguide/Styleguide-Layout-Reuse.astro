@@ -1,0 +1,80 @@
+---
+import ComponentFactory from "../../temp/component-factory.astro";
+import StyleguideSpecimen from "../styleguide/Styleguide-Specimen.astro";
+import Placeholder from '@sdk/Placeholder.astro';
+import type { ComponentRendering } from "@sitecore-jss/sitecore-jss/layout";
+
+export interface Props {
+  route: any;
+}
+---
+
+<!--
+  Demonstrates how to reuse content within JSS. See /data/routes/styleguide/en.yml
+  for the reused content definition sample. This component also demonstrates how to use
+  the Placeholder component's scoped slots to wrap all components in the placeholder
+  in a column tag (thus creating a horizontally laid out placeholder)
+-->
+<StyleguideSpecimen route={Astro.props.route} e2eId="styleguide-layout-reuse">
+  <div class="row">
+    <!--
+      This placeholder is using a <slot> to enable customizing the markup for each component within.
+      In this case, it's placing each component in its own column of a flexbox layout - giving an n-up columnar layout.
+      The component itself does not need to know it's living in a columnar layout.
+
+      The default <slot> receives an array of components. These are dynamic components instantiated by
+      the Placeholder component from the layout service data for the placeholder.
+      Note: in Experience Editor (EE), the array of components will contain EE specific components/elements, e.g. <code /> elements.
+      You can conditionally handle those by using the `component.isxEditorComponent` property,
+      which will be true for EE components/elements and undefined for non-EE components.
+
+      If nothing is defined for the default scoped slot, the Placeholder component will iterate and render all child components.
+
+      When you use the scoped slot, you still need to emit a top-level wrapping element, but you are able to customize that element as needed.
+      The code below serves as an example.
+
+      Customized empty placeholder rendering
+      When using the default scoped slot for rendering, in some situations an _empty placeholder_ (with no components in it)
+      may not be editable in the Sitecore Experience Editor. In this example, because of the use
+      of flexbox by the bootstrap columns, adding a bare <div> for the selectable empty placeholder
+      results in it being hidden as it does not have a column class.
+      Using a separate template when the `isEditor` scoped property is true allows us to customize the rendering of an empty placeholder
+      and place it within a column div so that we can select it correctly.
+    -->
+
+    <Placeholder name="AstroApp-jss-reuse-example" rendering={Astro.props.route}>
+      {
+        (components: ComponentRendering[], isEditor: boolean) =>
+          (isEditor && (
+            <div class="col-sm">
+              {components.map((component: ComponentRendering) => (
+                <ComponentFactory
+                  name={component.componentName}
+                  route={component}
+                />
+              ))}
+            </div>
+          )) || (
+            <Fragment>
+              {components.map((component: ComponentRendering) =>
+                component.componentName === undefined ? (
+                  /* Condition for `<code></code>` components. We should not wrap them to avoid EE console errors */
+                  <ComponentFactory
+                    name={component.componentName}
+                    route={component}
+                  />
+                ) : (
+                  <div class="col-sm">
+                    <ComponentFactory
+                      name={component.componentName}
+                      route={component}
+                    />
+                  </div>
+                )
+              )}
+            </Fragment>
+          )
+      }
+    </Placeholder>
+  </div>
+</StyleguideSpecimen>

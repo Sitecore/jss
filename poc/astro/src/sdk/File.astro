@@ -1,0 +1,48 @@
+---
+
+export interface FileFieldValue {
+  src: string,
+  name: string,
+  displayName: string,
+  title: string,
+  keywords: string,
+  description: string,
+  extension: string,
+  mimeType: string,
+  size: string 
+}
+
+export interface FileField {
+  value?: FileFieldValue,
+  src?: string
+}
+
+export interface Props {
+  field: FileField,
+  target?: string,
+}
+
+const { field } = Astro.props;
+
+// File fields cannot be managed via the EE. We never output "editable."
+if (!field || (!field.value && !field.src)) {
+  return ""
+}
+
+// handle link directly on field for forgetful devs
+const file = (field.src ? field : field.value) as FileFieldValue;
+
+if (!file) {
+  return "";
+}
+
+const content = await Astro.slots.render('default');
+const linkText = file?.title || file?.displayName;
+
+const attrs = function () {
+  const { field, ...attrs } = Astro.props;
+  return { ...attrs, href: file.src };
+}();
+---
+{content && <Fragment set:html={content}></Fragment>}
+{!content && <a {...attrs}>{linkText}</a>}

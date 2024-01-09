@@ -1,0 +1,1 @@
+export const SitecoreContextMap: any = new Map();

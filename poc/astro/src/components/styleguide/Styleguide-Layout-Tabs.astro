@@ -1,0 +1,103 @@
+---
+import type { ComponentRendering } from "@sitecore-jss/sitecore-jss/layout";
+import StyleguideSpecimen from "../styleguide/Styleguide-Specimen.astro";
+import { SitecoreContextMap } from '@lib/context';
+import Text from '@sdk/Text.astro';
+import Placeholder from '@sdk/Placeholder.astro';
+import ComponentFactory from "../../temp/component-factory.astro";
+
+export interface Props {
+  route: any;
+  value?: string | number;
+  editable?: string;
+}
+
+const { placeholders } = Astro.props.route;
+const sitecoreContext = SitecoreContextMap.get("context");
+const isEditing = sitecoreContext.pageEditing;
+const activeTabIndex = 0;
+const tabsPlaceholder = placeholders && placeholders["AstroApp-jss-tabs"];
+---
+
+<!--
+  Demonstrates advanced component techniques in JSS.
+  This example implements a simple-looking tabs component.
+  Each tab is itself a child component added to a placeholder defined on the tabs component.
+  The tab component introspects its child components to render the tab headings (i.e. the tab children render partial content in two places).
+  When this component is edited in Sitecore Experience Editor, the tabbing behavior is turned off and each tab stacks on top of each other
+  for easy inline editing.
+-->
+<StyleguideSpecimen route={Astro.props.route} e2eId="styleguide-layout-tabs">
+  <ul class="nav nav-tabs">
+    <!--
+          When the page is editing, we hide the tab headings, because they are not updated when xEditor adds or removes a tab rendering.
+          Instead, we show the tab header inline with the tab contents (see Styleguide-Layout-Tabs-Tab).
+
+          Also, while editing, we make sure that <code> components are not rendered in the wrappers: `component.componentName === undefined`
+        -->
+    {
+      !isEditing &&
+        tabsPlaceholder.map(async (tab: any, index: number) => {
+          return (
+            <li class="nav-item">
+              <button
+                class:list={[
+                  "nav-link",
+                  index === activeTabIndex ? "active" : "",
+                ]}
+                data-id={tab.uid}
+              >
+                <Text field={tab.fields.title} />
+              </button>
+            </li>
+          );
+        })
+    }
+  </ul>
+  <div class="p-3 border-left border-right border-bottom">
+    <Placeholder name="AstroApp-jss-tabs" rendering={Astro.props.route}>
+      {
+        (components: ComponentRendering[]) => (
+          <Fragment>
+            {components.map((component: ComponentRendering, index) =>
+              component.componentName === undefined ? (
+                /* Condition for `<code></code>` components. We should not wrap them to avoid EE console errors */
+                <ComponentFactory
+                  name={component.componentName}
+                  route={component}
+                />
+              ) : (
+                <div
+                  class:list={[
+                    "panel",
+                    index !== activeTabIndex && !isEditing ? "d-none" : "",
+                  ]}
+                >
+                  <ComponentFactory
+                    name={component.componentName}
+                    route={component}
+                  />
+                </div>
+              )
+            )}
+          </Fragment>
+        )
+      }
+    </Placeholder>
+  </div>
+</StyleguideSpecimen>
+
+<script>
+  const buttons = document.querySelectorAll(".nav-tabs .nav-item .nav-link");
+  const panels = document.querySelectorAll(".nav-tabs  + div .panel");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const panel = document.getElementById(`i${(button as HTMLButtonElement).dataset?.id}`);
+      buttons.forEach((button) => button.classList.remove("active"));
+      panels.forEach((panels) => panels.classList.add("d-none"));
+      button.classList.add("active");
+      panel && panel.parentElement?.classList.remove("d-none");
+    });
+  });
+</script>

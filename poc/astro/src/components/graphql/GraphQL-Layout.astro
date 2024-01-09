@@ -1,0 +1,11 @@
+---
+import Placeholder from '@sdk/Placeholder.astro';
+
+const { uid } = Astro.props.route;
+const renderingId = `i${uid && uid.replace(/[{}]/g, '')}`;
+
+---
+
+<div class="pt-3" id={renderingId}>  
+  <Placeholder rendering={Astro.props.route} name="AstroApp-jss-graphql-layout" />
+</div>

@@ -1,0 +1,26 @@
+---
+import "bootstrap/dist/css/bootstrap.css";
+import "../assets/app.css";
+import Navigation from "@layouts/Navigation.astro";
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Integrations</title>
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <Navigation />
+    <div class="container">
+      <h2>Integrations</h2>
+      <ul>
+        <li>
+          <a class="h5 text-dark" href="/integrations/react/graphql">React</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

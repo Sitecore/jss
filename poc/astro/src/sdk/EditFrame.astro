@@ -1,0 +1,78 @@
+---
+import { SitecoreContextMap } from '@lib/context';
+import type {
+  EditButtonTypes,
+  EditFrameDataSource,
+  ChromeCommand,
+} from '@sitecore-jss/sitecore-jss/utils';
+import { mapButtonToCommand } from './import/edit-frame';
+
+/*
+Unable to import mapButtonToCommand from @sitecore-jss/sitecore-jss/utils
+`import { mapButtonToCommand } from '@sitecore-jss/sitecore-jss/utils';``
+That is why copy of edit-frame.ts file is require
+
+ error   Named export 'mapButtonToCommand' not found. The requested module '@sitecore-jss/sitecore-jss/utils.js' is a CommonJS module, which may not support all module.exports as named exports.
+  CommonJS modules can always be imported via the default export, for example using:
+
+  import pkg from '@sitecore-jss/sitecore-jss/utils.js';
+  const { mapButtonToCommand } = pkg;
+
+file:///C:/source/jss-astro-public/astro-sitecore-jss/packages/astro-sitecore-jss-sample/dist/server/chunks/pages/page.astro.c4738bd2.mjs:14
+import { mapButtonToCommand } from '@sitecore-jss/sitecore-jss/utils.js';
+         ^^^^^^^^^^^^^^^^^^
+SyntaxError: Named export 'mapButtonToCommand' not found. The requested module '@sitecore-jss/sitecore-jss/utils.js' is a CommonJS module, which may not support all module.exports as named exports.
+CommonJS modules can always be imported via the default export, for example using:
+*/
+
+
+export interface EditFrameProps {
+  dataSource?: EditFrameDataSource;
+  buttons?: EditButtonTypes[];
+  title?: string;
+  tooltip?: string;
+  cssClass?: string;
+  parameters?: Record<string, string | number | boolean | undefined | null>;
+}
+
+const sitecoreContext = SitecoreContextMap.get('context');
+const isEditing = sitecoreContext.pageEditing;
+
+const chromeData: Record<string, unknown> = {
+  displayName: Astro.props.title,
+  expandedDisplayName: Astro.props.expandedDisplayName,
+};
+
+const frameProps: Record<string, unknown> = {};
+frameProps.className = 'scLooseFrameZone';
+if (Astro.props.cssClass) {
+  frameProps.className = `${frameProps.className} ${Astro.props.cssClass}`;
+}
+
+// item uri for edit frame target
+if (Astro.props.dataSource) {
+  const databaseName =
+    Astro.props.dataSource.databaseName || sitecoreContext.route?.databaseName;
+  const language = Astro.props.dataSource.language || sitecoreContext.language;
+  frameProps.sc_item = `sitecore://${databaseName}/${Astro.props.dataSource.itemId}?lang=${language}`;
+  chromeData.contextItemUri = frameProps.sc_item;
+}
+
+chromeData.commands = Astro.props.buttons?.map((value: any): ChromeCommand => {
+  return mapButtonToCommand(
+    value,
+    Astro.props.dataSource?.itemId,
+    Astro.props.parameters
+  );
+});
+---
+
+{!isEditing && <slot />}
+{
+  isEditing && (
+    <div class="scLooseFrameZone" {...frameProps}>
+      <span class="scChromeData">{JSON.stringify(chromeData)}</span>
+      <slot />
+    </div>
+  )
+}

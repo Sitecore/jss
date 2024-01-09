@@ -1,0 +1,33 @@
+---
+import StyleguideSpecimen from '../styleguide/Styleguide-Specimen.astro';
+import Link from '@sdk/Link.astro';
+
+const {fields} = Astro.props.route
+---
+<!--
+  Demonstrates usage of a General Link (hyperlink) content field within JSS.
+-->
+<StyleguideSpecimen route={Astro.props.route} e2eId="styleguide-fieldusage-link">
+    External link:&nbsp;
+    <Link field={fields.externalLink} />
+    <br />
+    Internal link:&nbsp;
+    <Link field={fields.internalLink} >
+      <em>HTML</em> or other components can be used within link renderers, for example links to
+      images.
+    </Link>
+    <br />
+    Email link:&nbsp;
+    <Link field={fields.emailLink} />
+    <br />
+    All possible content params link:&nbsp;
+    <Link field={fields.paramsLink} />
+    <br />
+    The link component accepts params of its own:&nbsp;
+    <Link
+      field={fields.externalLink}
+      showLinkTextWithChildrenPresent={true}
+      className="fw-bold"
+      data-otherattributes="pass-through-to-anchor-tag"
+    />
+</StyleguideSpecimen>

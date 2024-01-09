@@ -1,0 +1,42 @@
+---
+import "bootstrap/dist/css/bootstrap.css";
+import "../assets/app.css";
+import type {
+  LayoutServiceData,
+  Field,
+} from "@sitecore-jss/sitecore-jss/layout";
+import Placeholder from "@sdk/Placeholder.astro";
+import Navigation from "./Navigation.astro";
+
+export interface Props {
+  title: string;
+  layoutData: LayoutServiceData;
+}
+
+interface RouteFields {
+  [key: string]: unknown;
+  pageTitle?: Field;
+  Title?: Field;
+}
+
+const { route } = Astro.props.layoutData.sitecore;
+
+const fields = route?.fields as RouteFields;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fields?.Title?.value || fields?.pageTitle?.value.toString() || "Page"}</title>
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <Navigation />
+    <div class="container">
+      {route && <Placeholder name="AstroApp-jss-main" rendering={route} />}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+---
+import Text from '@sdk/Text.astro';
+import type { LinkFieldValue } from '@sdk/LinkField';
+import { SitecoreContextMap } from '@lib/context';
+import StyleguideSpecimen from "./Styleguide-Specimen.astro";
+import Link from '@sdk/Link.astro';
+import type { Field } from "@sitecore-jss/sitecore-jss/layout";
+
+export interface Props {
+    route: any;
+}
+
+type StyleguideRouteFields = {
+    pageTitle: Field<string>;
+};
+
+const sitecoreContext = SitecoreContextMap.get("context");
+const fields = sitecoreContext.route?.fields as StyleguideRouteFields;
+
+const customRouteLink = {
+    href: "/styleguide/custom-route-type",
+} as LinkFieldValue;
+---
+
+<StyleguideSpecimen route={Astro.props.route} e2eId="styleguide-route-fields">
+    <p>
+        Route level <code>pageTitle</code> field: {
+            sitecoreContext.route && <Text field={fields.pageTitle} />
+        }
+    </p>
+    <p>
+        <Link field={customRouteLink}>Sample of using a custom route type</Link>
+    </p>
+</StyleguideSpecimen>

@@ -1,0 +1,31 @@
+---
+import StyleguideSpecimen from '../styleguide/Styleguide-Specimen.astro';
+import jss from '@sitecore-jss/sitecore-jss/layout';
+import Text from '@sdk/Text.astro';
+
+const { getFieldValue } = jss;
+
+export interface Props {
+  route: any;
+}
+
+const { fields } = Astro.props.route;
+
+const fieldValue = getFieldValue(fields, 'sample');
+---
+
+<!--
+  Demonstrates usage of a Number (decimal) content field within JSS.
+-->
+<StyleguideSpecimen route={Astro.props.route} e2eId="styleguide-fieldusage-number">
+    <!-- Basic emission of a number field for editing can be done with the <Text> component. -->
+    <Text field={fields.sample} />
+
+    <!-- Direct access to the value, which is a JS number, is also supported. -->
+
+    <p>
+        JS value type: {typeof fieldValue }
+        <br />
+        JS value: { fieldValue }
+    </p>
+  </StyleguideSpecimen>

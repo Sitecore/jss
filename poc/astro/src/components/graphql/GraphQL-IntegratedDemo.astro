@@ -1,0 +1,140 @@
+---
+import Link from "@sdk/Link.astro";
+import Text from "@sdk/Text.astro";
+import StyleguideSpecimen from "../styleguide/Styleguide-Specimen.astro";
+
+type DataSource = {
+  sample1: {
+    jsonValue: {
+      value: string;
+    };
+    value: string;
+  };
+  sample2: {
+    definition: {
+      type: string;
+      shared: boolean;
+    };
+    jsonValue: {
+      value: {
+        href: string;
+        linktype: string;
+        target: string;
+        text: string;
+        url: string;
+      };
+    };
+    target: string;
+    text: string;
+    url: string;
+  };
+  name: string;
+  id: string;
+};
+
+type Item = {
+  id: string;
+  url: {
+    path: string;
+  };
+  pageTitle: {
+    value: string;
+    jsonValue: {
+      value: string;
+    };
+  };
+};
+
+type ItemSearchResults = {
+  results: Item[];
+};
+
+export interface Props {
+  route: {
+    fields: {
+      data: {
+        datasource: DataSource;
+        contextItem: {
+          id: string;
+          children: ItemSearchResults;
+          pageTitle: {
+            value: string;
+          };
+        };
+      };
+    };
+  };
+}
+
+const { datasource, contextItem } = Astro.props.route.fields.data;
+---
+
+<StyleguideSpecimen
+  route={Astro.props.route}
+  e2eId="styleguide-fieldusage-text"
+>
+  <div>
+    <div data-e2e-id="graphql-integrated">
+      <h2>GraphQL Integrated Demo</h2>
+
+      <p>
+        Integrated GraphQL executes GraphQL queries within the Layout Service
+        endpoint, and merges the query results into the Layout Service result
+        JSON. The query results can be seen by inspecting the Layout Service
+        response in the browser devtools network tab.
+      </p>
+
+      {
+        datasource && (
+          <div>
+            <h4>Datasource Item (via Integrated GraphQL)</h4>
+            id: {datasource.id}
+            <br />
+            name: {datasource.name}
+            <br />
+            sample1: {datasource.sample1?.value}
+            <br />
+            sample1 (editable): <Text field={datasource.sample1?.jsonValue} />
+            <br />
+            sample2:
+            <br />
+            <ul>
+              <li>text: {datasource.sample2?.text}</li>
+              <li>url: {datasource.sample2?.url}</li>
+              <li>target: {datasource.sample2?.target}</li>
+              <li>
+                editable: <Link field={datasource.sample2?.jsonValue} />
+              </li>
+              <li>field type: {datasource.sample2?.definition.type}</li>
+              <li>
+                field is shared?:{" "}
+                {datasource.sample2?.definition.shared.toString()}
+              </li>
+            </ul>
+          </div>
+        )
+      }
+      {
+        contextItem && (
+          <div>
+            <h4>Route Item (via Integrated GraphQL)</h4>
+            id: {contextItem.id}
+            <br />
+            page title: {contextItem.pageTitle?.value}
+            <br />
+            children:
+            <ul>
+              {contextItem?.children?.results.map((child) => (
+                <li>
+                  <a href={child.url?.path}>{child.pageTitle?.value}</a>&nbsp;
+                  (editable title too!{" "}
+                  <Text field={child.pageTitle?.jsonValue} />)
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </div>
+  </div>
+</StyleguideSpecimen>

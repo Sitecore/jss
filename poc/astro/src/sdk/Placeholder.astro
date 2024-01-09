@@ -1,0 +1,72 @@
+---
+//Placeholder.astro belongs to library rather than application itself.
+//But there are limitation on how Astro works with components.
+//We can't call component as function: https://docs.astro.build/en/reference/errors/invalid-component-args/
+//It causes dependency between Placeholder.astro and ComponentFactory.astro
+//And as ComponentFactory is dynamic and could not be moved out of application, we need to keep Placeholder.astro here as well.
+import ComponentFactory from "@temp/component-factory.astro";
+import type {
+  ComponentRendering,
+  RouteData,
+  HtmlElementRendering,
+  Field,
+  Item,
+} from "@sitecore-jss/sitecore-jss/layout";
+export type JssDynamicComponent = ComponentRendering & {
+  isxEditorComponent?: boolean;
+};
+
+export interface Props {
+  [key: string]: unknown;
+  name: string;
+  rendering: ComponentRendering | RouteData;
+  componentFactory?: typeof ComponentFactory;
+  fields?: {
+    [name: string]: Field | Item[];
+  };
+  params?: {
+    [name: string]: string;
+  };
+  missingComponentComponent?: any;
+  hiddenRenderingComponent?: any;
+  errorComponent?: any;
+}
+
+export function convertToDynamicComponents(
+  components: (ComponentRendering | HtmlElementRendering)[] | undefined
+) {
+  return (
+    components &&
+    components.map((component) => {
+      const jssComponent = {
+        ...component,
+        //TODO: isxEditorComponent depend on experiense editor element name or type
+        isxEditorComponent: false,
+      } as JssDynamicComponent;
+
+      return jssComponent;
+    })
+  );
+}
+
+const { rendering } = Astro.props;
+
+const components = convertToDynamicComponents(
+  rendering.placeholders && rendering.placeholders[Astro.props.name]
+);
+const isEditor =
+  components &&
+  components.every((component) =>
+    component.isxEditorComponent ? true : false
+  );
+const hasChildren = Astro.slots.has("default");
+const children = await Astro.slots.render("default", [components, isEditor]);
+---
+
+{
+  (hasChildren && <Fragment set:html={children} />) ||
+    (components &&
+      components.map((component) => (
+        <ComponentFactory name={component.componentName} route={component} />
+      )))
+}

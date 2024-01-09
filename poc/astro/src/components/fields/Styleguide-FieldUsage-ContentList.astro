@@ -1,0 +1,39 @@
+---
+import StyleguideSpecimen from '../styleguide/Styleguide-Specimen.astro';
+import Text from '@sdk/Text.astro';
+
+export interface Props  {
+  route: any;
+  value?: string | number;
+  editable?: string;
+}
+
+const {fields} = Astro.props.route;
+---
+
+<!--
+  Demonstrates usage of a Content List field type within JSS.
+  Content Lists are references to 0..n other content items.
+  In Sitecore terms, this maps by default to a Treelist field.
+-->
+<StyleguideSpecimen route={Astro.props.route} e2eId="styleguide-fieldusage-content-list">
+    <h5>Shared Content List</h5>
+    <!--
+      Content list fields are returned with their value as an array of the referenced items.
+      So we can use the .map() array function to traverse them. Ensure a `key` attribute is set
+      on each element to make React's DOM updating happy:
+    -->
+
+    {fields.sharedContentList && fields.sharedContentList.map((listItem: any) =>
+        <div>
+            <p>Field: <Text field={listItem.fields.textField} /></p>
+        </div>
+    )}
+
+    <h5>Local Content List</h5>
+    {fields.localContentList && fields.localContentList.map((listItem: any) => 
+        <div>
+            <p>Field: <Text field={listItem.fields.textField} /></p>
+        </div>
+    )}
+</StyleguideSpecimen>

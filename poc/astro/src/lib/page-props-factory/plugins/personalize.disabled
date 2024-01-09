@@ -1,0 +1,19 @@
+﻿import personalize from '@sitecore-jss/sitecore-jss/personalize';
+import type { Plugin, SitecorePageProps } from "..";
+import type { PagePropsFactoryConfig } from "..";
+
+const { personalizeLayout } = personalize;
+
+class PersonalizePlugin implements Plugin {
+  order = 3;
+
+  async exec(props: SitecorePageProps, config: PagePropsFactoryConfig) {
+    // Modify layoutData to use specific variant instead of default
+    // This will also set the variantId on the Sitecore context so that it is accessible here
+    personalizeLayout(props.layoutData, config.variantId);
+
+    return props;
+  }
+}
+
+export const personalizePlugin = new PersonalizePlugin();

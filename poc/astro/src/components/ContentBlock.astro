@@ -1,0 +1,16 @@
+---
+import RichText from '@sdk/RichText.astro';
+import Text from '@sdk/Text.astro';
+
+export interface Props {
+  route: any;
+}
+
+const { fields } = Astro.props.route;
+---
+<div class="contentBlock">
+  <Text tag="h2" class="contentTitle" field={fields.heading} />
+  <RichText class="contentDescription" field={fields.content} />
+</div>
+
+

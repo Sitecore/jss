@@ -1,0 +1,50 @@
+---
+import type {
+  LayoutServiceContext,
+  RouteData,
+} from "@sitecore-jss/sitecore-jss/layout";
+import Layout from "@layouts/Layout.astro";
+import { getRoutePath, getLocales } from "@lib/i18n/utils";
+import { sitemapFetcher } from "@lib/sitemap-fetcher";
+import { SitecorePagePropsFactory } from "@lib/page-props-factory";
+import { SitecoreContextMap } from "@lib/context";
+import type { PagePropsFactoryConfig } from "@lib/page-props-factory";
+import config from "@temp/config";
+
+export async function getStaticPaths() {
+  const staticPaths = await sitemapFetcher.fetch();
+
+  return staticPaths;
+}
+
+const language =
+  Astro.currentLocale || Astro.preferredLocale || config.defaultLanguage;
+
+const locales = getLocales();
+
+export type SitecoreContextValue = LayoutServiceContext & {
+  itemId?: string;
+  route?: RouteData | null;
+};
+
+let sitecorePagePropsFactory = new SitecorePagePropsFactory();
+
+const pagePropsFactoryConfig: PagePropsFactoryConfig = {
+  path: getRoutePath(Astro.url.pathname, language),
+  locales,
+  language,
+  ...Astro.locals,
+};
+
+const pageProps = await sitecorePagePropsFactory.create(pagePropsFactoryConfig);
+
+let context = pageProps.layoutData.sitecore.context as SitecoreContextValue;
+context.route = pageProps.layoutData.sitecore.route;
+context.itemId = pageProps.layoutData.sitecore.route?.itemId;
+
+SitecoreContextMap.set("context", context);
+SitecoreContextMap.set("dictionary", pageProps.dictionary);
+SitecoreContextMap.set("language", language);
+---
+
+<Layout title="a" layoutData={pageProps.layoutData} />

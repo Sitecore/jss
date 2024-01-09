@@ -1,0 +1,28 @@
+---
+import AstroImage from '@sdk/AstroImage.astro';
+import StyleguideSpecimen from '../styleguide/Styleguide-Specimen.astro';
+
+export interface Props {
+  route: any;
+}
+
+const { route } = Astro.props;
+---
+
+<StyleguideSpecimen route={route} e2eId="styleguide-fieldusage-astro-image">
+  <p>Plain image</p>
+  <AstroImage field={route.fields.sample1} height={51} width={204} />
+
+  <p>Advanced image</p>
+  <AstroImage
+    field={route.fields.sample2}
+    height={50}
+    width={100}
+    imageParams={{ mw: 100, mh: 50 }}
+    aspectRatio={4 / 2}
+    data-sample="other-attributes-pass-through"
+  />
+
+  <p>Responsive image</p>
+  <AstroImage field={route.fields.sample2} fit={'fill'} />
+</StyleguideSpecimen>

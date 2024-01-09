@@ -1,0 +1,20 @@
+---
+import StyleguideSpecimen from '../styleguide/Styleguide-Specimen.astro';
+import RichText from '@sdk/RichText.astro';
+import Text from '@sdk/Text.astro';
+import { SitecoreContextMap } from '@lib/context';
+
+export interface Props  {
+  route: any;
+}
+
+const { fields } = Astro.props.route
+
+const sitecoreContext = SitecoreContextMap.get('context');
+const isEditing = sitecoreContext.pageEditing;
+---
+
+<StyleguideSpecimen route={Astro.props.route} e2eId="styleguide-layout-tabs-tab">
+    { isEditing && <Text tag="h5" field={fields.title} /> }
+    <RichText field={fields.content} />
+</StyleguideSpecimen>

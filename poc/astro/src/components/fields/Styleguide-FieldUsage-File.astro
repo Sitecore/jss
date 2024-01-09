@@ -1,0 +1,35 @@
+---
+import StyleguideSpecimen from '../styleguide/Styleguide-Specimen.astro';
+import File, { FileField } from '@sdk/File.astro';
+
+export interface Props  {
+  route: any
+}
+
+const { fields } = Astro.props.route
+const file: FileField = fields.file;
+---
+
+<!--
+  Demonstrates usage of a File content field within JSS.
+  File types are stored within Sitecore's Media Library data, and can be edited.
+-->
+<StyleguideSpecimen route={Astro.props.route} e2eId="styleguide-fieldusage-file">
+  <!--
+      Renders a file link
+      Note: the rendered link element text will be the file field `title` or `displayName` if title is not defined.
+    -->
+  <File field={file} />
+  <br />
+  
+  <!--
+    File helper exposes a scoped slot that allows more granular control over the rendered output.
+    For instance, you may wish to render a button (<button />) instead of a link (<a />).
+    -->
+    
+    <File field={file} target="_blank">
+        <slot>
+            <a target="_blank" href={fields.file.value?.src}>Custom link body ({ fields.file.value?.title || fields.file.value?.displayName })</a>
+        </slot>
+    </File>
+</StyleguideSpecimen>

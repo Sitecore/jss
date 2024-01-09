@@ -1,0 +1,38 @@
+---
+export interface Props {
+  /** The text field data. */
+  field: {
+    value?: string | number;
+    editable?: string;
+    required?: true;
+  };
+  /**
+   * The HTML element that will wrap the contents of the field.
+   */
+  tag?: string;
+  /**
+   * Can be used to explicitly disable inline editing.
+   * If true and `field.editable` has a value, then `field.editable` will
+   * be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
+   */
+  editable?: boolean;
+  class?: string;
+}
+
+const { field, tag = "div", editable = true } = Astro.props;
+
+const Tag = tag;
+const data = field.editable && editable ? field.editable : field.value;
+
+if (!field || (!field.editable && !field.value)) {
+  return "";
+}
+
+const attrs = (function () {
+  const { field, ...attrs } = Astro.props;
+  const { tag, ...finalAttrs } = attrs;
+  return finalAttrs;
+})();
+---
+
+<Tag {...attrs} set:html={data} />

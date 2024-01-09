@@ -1,0 +1,2547 @@
+{
+  "templates": [
+    {
+      "name": "AstroApp-ExampleCustomRouteType",
+      "fields": [
+        {
+          "name": "headline",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "author",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "content",
+          "type": "Rich Text"
+        }
+      ],
+      "route": true,
+      "defaultRoute": false,
+      "allFields": [
+        {
+          "name": "headline",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "author",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "content",
+          "type": "Rich Text"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-App Route",
+      "displayName": "App Route",
+      "fields": [
+        {
+          "name": "pageTitle",
+          "displayName": "Page Title",
+          "section": "Page Metadata",
+          "type": "Single-Line Text"
+        }
+      ],
+      "insertOptions": [
+        "AstroApp-App Route"
+      ],
+      "route": false,
+      "defaultRoute": true
+    },
+    {
+      "name": "AstroApp-Styleguide-ContentList-Item-Template",
+      "fields": [
+        {
+          "name": "textField",
+          "type": "Single-Line Text"
+        }
+      ],
+      "route": false,
+      "defaultRoute": false,
+      "allFields": [
+        {
+          "name": "textField",
+          "type": "Single-Line Text"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-EditFrame-ListItem-Template",
+      "fields": [
+        {
+          "name": "title",
+          "type": "Single-Line Text"
+        }
+      ],
+      "route": false,
+      "defaultRoute": false,
+      "allFields": [
+        {
+          "name": "title",
+          "type": "Single-Line Text"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-Explanatory-Component",
+      "id": "AstroApp-styleguide-explanatory-component-template",
+      "fields": [
+        {
+          "name": "heading",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "description",
+          "type": "Rich Text"
+        }
+      ],
+      "route": false,
+      "defaultRoute": false
+    },
+    {
+      "name": "AstroApp-Styleguide-ItemLink-Item-Template",
+      "fields": [
+        {
+          "name": "textField",
+          "type": "Single-Line Text"
+        }
+      ],
+      "route": false,
+      "defaultRoute": false,
+      "allFields": [
+        {
+          "name": "textField",
+          "type": "Single-Line Text"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-ContentBlock",
+      "icon": "Office/16x16/document_tag.png",
+      "fields": [
+        {
+          "name": "heading",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "content",
+          "type": "Rich Text"
+        }
+      ],
+      "allFields": [
+        {
+          "name": "heading",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "content",
+          "type": "Rich Text"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-FieldUsage-Checkbox",
+      "icon": "Office/16x16/checkbox_selected.png",
+      "fields": [
+        {
+          "name": "checkbox",
+          "type": "Checkbox"
+        },
+        {
+          "name": "checkbox2",
+          "type": "Checkbox"
+        }
+      ],
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "checkbox",
+          "type": "Checkbox"
+        },
+        {
+          "name": "checkbox2",
+          "type": "Checkbox"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-FieldUsage-ContentList",
+      "icon": "Office/16x16/list_style_numbered.png",
+      "fields": [
+        {
+          "name": "sharedContentList",
+          "type": "Treelist",
+          "source": "dataSource=/sitecore/content/AstroApp/Content/Styleguide/ContentListField"
+        },
+        {
+          "name": "localContentList",
+          "type": "Treelist"
+        }
+      ],
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "sharedContentList",
+          "type": "Treelist",
+          "source": "dataSource=/sitecore/content/AstroApp/Content/Styleguide/ContentListField"
+        },
+        {
+          "name": "localContentList",
+          "type": "Treelist"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-FieldUsage-Custom",
+      "icon": "Office/16x16/gearwheel.png",
+      "fields": [
+        {
+          "name": "customIntField",
+          "type": "Integer"
+        }
+      ],
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "customIntField",
+          "type": "Integer"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-FieldUsage-Date",
+      "icon": "Office/16x16/clock.png",
+      "fields": [
+        {
+          "name": "date",
+          "type": "Date"
+        },
+        {
+          "name": "dateTime",
+          "type": "Datetime"
+        }
+      ],
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "date",
+          "type": "Date"
+        },
+        {
+          "name": "dateTime",
+          "type": "Datetime"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-FieldUsage-File",
+      "icon": "Office/16x16/floppy_disk.png",
+      "fields": [
+        {
+          "name": "file",
+          "type": "File"
+        }
+      ],
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "file",
+          "type": "File"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-FieldUsage-Image",
+      "icon": "Office/16x16/photo_portrait.png",
+      "fields": [
+        {
+          "name": "sample1",
+          "type": "Image"
+        },
+        {
+          "name": "sample2",
+          "type": "Image"
+        }
+      ],
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "sample1",
+          "type": "Image"
+        },
+        {
+          "name": "sample2",
+          "type": "Image"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-FieldUsage-ItemLink",
+      "icon": "Office/16x16/link.png",
+      "fields": [
+        {
+          "name": "sharedItemLink",
+          "type": "Droptree",
+          "source": "dataSource=/sitecore/content/AstroApp/Content/Styleguide/ItemLinkField"
+        },
+        {
+          "name": "localItemLink",
+          "type": "Droptree"
+        }
+      ],
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "sharedItemLink",
+          "type": "Droptree",
+          "source": "dataSource=/sitecore/content/AstroApp/Content/Styleguide/ItemLinkField"
+        },
+        {
+          "name": "localItemLink",
+          "type": "Droptree"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-FieldUsage-Link",
+      "icon": "Office/16x16/link.png",
+      "fields": [
+        {
+          "name": "externalLink",
+          "type": "General Link"
+        },
+        {
+          "name": "internalLink",
+          "type": "General Link"
+        },
+        {
+          "name": "emailLink",
+          "type": "General Link"
+        },
+        {
+          "name": "paramsLink",
+          "type": "General Link"
+        }
+      ],
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "externalLink",
+          "type": "General Link"
+        },
+        {
+          "name": "internalLink",
+          "type": "General Link"
+        },
+        {
+          "name": "emailLink",
+          "type": "General Link"
+        },
+        {
+          "name": "paramsLink",
+          "type": "General Link"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-FieldUsage-Number",
+      "icon": "Office/16x16/numbers_field.png",
+      "fields": [
+        {
+          "name": "sample",
+          "type": "Number"
+        }
+      ],
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "sample",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-FieldUsage-RichText",
+      "icon": "Office/16x16/text_field.png",
+      "fields": [
+        {
+          "name": "sample",
+          "type": "Rich Text"
+        },
+        {
+          "name": "sample2",
+          "displayName": "Customize Name Shown in Sitecore",
+          "required": true,
+          "type": "Rich Text"
+        }
+      ],
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "sample",
+          "type": "Rich Text"
+        },
+        {
+          "name": "sample2",
+          "displayName": "Customize Name Shown in Sitecore",
+          "required": true,
+          "type": "Rich Text"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-FieldUsage-Text",
+      "icon": "Office/16x16/text.png",
+      "fields": [
+        {
+          "name": "sample",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "sample2",
+          "displayName": "Customize Name Shown in Sitecore",
+          "required": true,
+          "type": "Single-Line Text"
+        }
+      ],
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "sample",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "sample2",
+          "displayName": "Customize Name Shown in Sitecore",
+          "required": true,
+          "type": "Single-Line Text"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-GraphQL-ConnectedDemo",
+      "icon": "Office/16x16/graph_connection_directed.png",
+      "fields": [
+        {
+          "name": "sample1",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "sample2",
+          "type": "General Link"
+        }
+      ],
+      "allFields": [
+        {
+          "name": "sample1",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "sample2",
+          "type": "General Link"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-GraphQL-IntegratedDemo",
+      "icon": "Office/16x16/graph_connection_directed.png",
+      "fields": [
+        {
+          "name": "sample1",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "sample2",
+          "type": "General Link"
+        }
+      ],
+      "allFields": [
+        {
+          "name": "sample1",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "sample2",
+          "type": "General Link"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-React-ContentBlock",
+      "icon": "Office/16x16/document_tag.png",
+      "fields": [
+        {
+          "name": "heading",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "content",
+          "type": "Rich Text"
+        }
+      ],
+      "allFields": [
+        {
+          "name": "heading",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "content",
+          "type": "Rich Text"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-React-GraphQL-ConnectedDemo",
+      "icon": "Office/16x16/graph_connection_directed.png",
+      "fields": [
+        {
+          "name": "sample1",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "sample2",
+          "type": "General Link"
+        }
+      ],
+      "allFields": [
+        {
+          "name": "sample1",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "sample2",
+          "type": "General Link"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-React-GraphQL-IntegratedDemo",
+      "icon": "Office/16x16/graph_connection_directed.png",
+      "fields": [
+        {
+          "name": "sample1",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "sample2",
+          "type": "General Link"
+        }
+      ],
+      "allFields": [
+        {
+          "name": "sample1",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "sample2",
+          "type": "General Link"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-ComponentParams",
+      "icon": "Office/16x16/window_dialog.png",
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": []
+    },
+    {
+      "name": "AstroApp-Styleguide-EditFrame",
+      "icon": "Office/16x16/document_tag.png",
+      "fields": [
+        {
+          "name": "heading",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "description",
+          "type": "Rich Text"
+        },
+        {
+          "name": "applyRedToText",
+          "type": "Checkbox"
+        },
+        {
+          "name": "sampleList",
+          "type": "Treelist"
+        }
+      ],
+      "allFields": [
+        {
+          "name": "heading",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "description",
+          "type": "Rich Text"
+        },
+        {
+          "name": "applyRedToText",
+          "type": "Checkbox"
+        },
+        {
+          "name": "sampleList",
+          "type": "Treelist"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-Layout-Reuse",
+      "icon": "Office/16x16/documents_exchange.png",
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": []
+    },
+    {
+      "name": "AstroApp-Styleguide-Layout-Tabs-Tab",
+      "icon": "Office/16x16/tab_pane.png",
+      "fields": [
+        {
+          "name": "title",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "content",
+          "type": "Rich Text"
+        }
+      ],
+      "allFields": [
+        {
+          "name": "title",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "content",
+          "type": "Rich Text"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-Layout-Tabs",
+      "icon": "Office/16x16/document_tag.png",
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": []
+    },
+    {
+      "name": "AstroApp-Styleguide-Multilingual",
+      "icon": "Office/16x16/flag_generic.png",
+      "fields": [
+        {
+          "name": "sample",
+          "type": "Single-Line Text",
+          "displayName": "This field has a translated value"
+        }
+      ],
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "sample",
+          "type": "Single-Line Text",
+          "displayName": "This field has a translated value"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-RouteFields",
+      "icon": "Office/16x16/text_field.png",
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": []
+    },
+    {
+      "name": "AstroApp-Styleguide-Section",
+      "icon": "Office/16x16/document_tag.png",
+      "fields": [
+        {
+          "name": "heading",
+          "type": "Single-Line Text"
+        }
+      ],
+      "allFields": [
+        {
+          "name": "heading",
+          "type": "Single-Line Text"
+        }
+      ]
+    },
+    {
+      "name": "AstroApp-Styleguide-SitecoreContext",
+      "icon": "Office/16x16/control_panel.png",
+      "inherits": [
+        "AstroApp-styleguide-explanatory-component-template"
+      ],
+      "allFields": []
+    }
+  ],
+  "placeholders": [
+    {
+      "name": "AstroApp-jss-main",
+      "displayName": "Main"
+    },
+    {
+      "name": "AstroApp-jss-tabs",
+      "displayName": "Tabs",
+      "id": "tabs-placeholder"
+    },
+    {
+      "name": "AstroApp-jss-graphql-layout"
+    },
+    {
+      "name": "AstroApp-jss-styleguide-layout"
+    },
+    {
+      "name": "AstroApp-jss-styleguide-section"
+    },
+    {
+      "name": "AstroApp-jss-header"
+    },
+    {
+      "name": "AstroApp-jss-reuse-example"
+    }
+  ],
+  "appName": "AstroApp",
+  "language": "en",
+  "renderings": [
+    {
+      "name": "ContentBlock",
+      "icon": "Office/16x16/document_tag.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-ContentBlock"
+    },
+    {
+      "name": "Styleguide-FieldUsage-Checkbox",
+      "icon": "Office/16x16/checkbox_selected.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-FieldUsage-Checkbox"
+    },
+    {
+      "name": "Styleguide-FieldUsage-ContentList",
+      "icon": "Office/16x16/list_style_numbered.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-FieldUsage-ContentList"
+    },
+    {
+      "name": "Styleguide-FieldUsage-Custom",
+      "icon": "Office/16x16/gearwheel.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-FieldUsage-Custom"
+    },
+    {
+      "name": "Styleguide-FieldUsage-Date",
+      "icon": "Office/16x16/clock.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-FieldUsage-Date"
+    },
+    {
+      "name": "Styleguide-FieldUsage-File",
+      "icon": "Office/16x16/floppy_disk.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-FieldUsage-File"
+    },
+    {
+      "name": "Styleguide-FieldUsage-Image",
+      "icon": "Office/16x16/photo_portrait.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-FieldUsage-Image"
+    },
+    {
+      "name": "Styleguide-FieldUsage-ItemLink",
+      "icon": "Office/16x16/link.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-FieldUsage-ItemLink"
+    },
+    {
+      "name": "Styleguide-FieldUsage-Link",
+      "icon": "Office/16x16/link.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-FieldUsage-Link"
+    },
+    {
+      "name": "Styleguide-FieldUsage-Number",
+      "icon": "Office/16x16/numbers_field.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-FieldUsage-Number"
+    },
+    {
+      "name": "Styleguide-FieldUsage-RichText",
+      "icon": "Office/16x16/text_field.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-FieldUsage-RichText"
+    },
+    {
+      "name": "Styleguide-FieldUsage-Text",
+      "icon": "Office/16x16/text.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-FieldUsage-Text"
+    },
+    {
+      "name": "GraphQL-ConnectedDemo",
+      "icon": "Office/16x16/graph_connection_directed.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-GraphQL-ConnectedDemo"
+    },
+    {
+      "name": "GraphQL-IntegratedDemo",
+      "icon": "Office/16x16/graph_connection_directed.png",
+      "graphQLQuery": "# This file contains a GraphQL query that will be executed and the result provided to\n# your JSS component. You can run this query in GraphiQL ($endpoint/ui) for a nice editing experience.\n\n# Note that we're executing _two queries_ (datasource and contextItem)\n# within the context of the IntegratedDemoQuery _operation_. This makes it\n# very efficient at gathering data from multiple sources.\n\nquery IntegratedDemoQuery($datasource: String!, $contextItem: String!, $language: String!) {\n  # Datasource query\n  # $datasource will always be set to the ID of the rendering's datasource item\n  # (as long as the GraphQLData helper is used)\n  datasource: item(path: $datasource, language: $language) {\n    id\n    name\n    # Strongly-typed querying on known templates is possible!\n    ...on AstroAppGraphQLIntegratedDemo {\n      # Single-line text field\n      sample1 {\n        # the 'jsonValue' field is a JSON blob that represents the object that\n        # should be passed to JSS field rendering helpers (i.e. text, image, link)\n        jsonValue\n        value\n      }\n      # General Link field\n      sample2 {\n        jsonValue\n        # Structured querying of the field's values is possible\n        text\n        target\n        url\n        # Access to the template definition is possible\n        definition {\n          type\n          shared\n        }\n      }\n    }\n  }\n\n  # Context/route item query\n  # $contextItem will always be set to the ID of the current context item (the route item)\n  # (as long as the GraphQLData helper is used)\n  contextItem: item(path: $contextItem, language: $language) {\n    id\n    # Get the page title from the app route template\n    ...on AstroAppAppRoute {\n      pageTitle {\n        value\n      }\n    }\n\n    # List the children of the current route\n    children(hasLayout: true) {\n      results {\n        id\n        # typing fragments can be used anywhere!\n        # so in this case, we're grabbing the 'pageTitle'\n        # field on all child route items.\n        ...on AstroAppAppRoute {\n          pageTitle {\n            jsonValue\n            value\n          }\n        }\n        url{\n          path\n        }\n      }\n    }\n  }\n}\n",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-GraphQL-IntegratedDemo"
+    },
+    {
+      "name": "GraphQL-Layout",
+      "icon": "Office/16x16/layout.png",
+      "exposedPlaceholders": [
+        "AstroApp-jss-graphql-layout"
+      ],
+      "dataSourceTemplate": ""
+    },
+    {
+      "name": "React-ContentBlock",
+      "icon": "Office/16x16/document_tag.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-React-ContentBlock"
+    },
+    {
+      "name": "React-GraphQL-ConnectedDemo",
+      "icon": "Office/16x16/graph_connection_directed.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-React-GraphQL-ConnectedDemo"
+    },
+    {
+      "name": "React-GraphQL-IntegratedDemo",
+      "icon": "Office/16x16/graph_connection_directed.png",
+      "graphQLQuery": "# This file contains a GraphQL query that will be executed and the result provided to\n# your JSS component. You can run this query in GraphiQL ($endpoint/ui) for a nice editing experience.\n\n# Note that we're executing _two queries_ (datasource and contextItem)\n# within the context of the IntegratedDemoQuery _operation_. This makes it\n# very efficient at gathering data from multiple sources.\n\nquery IntegratedDemoQuery($datasource: String!, $contextItem: String!, $language: String!) {\n  # Datasource query\n  # $datasource will always be set to the ID of the rendering's datasource item\n  # (as long as the GraphQLData helper is used)\n  datasource: item(path: $datasource, language: $language) {\n    id\n    name\n    # Strongly-typed querying on known templates is possible!\n    ...on AstroAppGraphQLIntegratedDemo {\n      # Single-line text field\n      sample1 {\n        # the 'jsonValue' field is a JSON blob that represents the object that\n        # should be passed to JSS field rendering helpers (i.e. text, image, link)\n        jsonValue\n        value\n      }\n      # General Link field\n      sample2 {\n        jsonValue\n        # Structured querying of the field's values is possible\n        text\n        target\n        url\n        # Access to the template definition is possible\n        definition {\n          type\n          shared\n        }\n      }\n    }\n  }\n\n  # Context/route item query\n  # $contextItem will always be set to the ID of the current context item (the route item)\n  # (as long as the GraphQLData helper is used)\n  contextItem: item(path: $contextItem, language: $language) {\n    id\n    # Get the page title from the app route template\n    ...on AstroAppAppRoute {\n      pageTitle {\n        value\n      }\n    }\n\n    # List the children of the current route\n    children(hasLayout: true) {\n      results {\n        id\n        # typing fragments can be used anywhere!\n        # so in this case, we're grabbing the 'pageTitle'\n        # field on all child route items.\n        ...on AstroAppAppRoute {\n          pageTitle {\n            jsonValue\n            value\n          }\n        }\n        url{\n          path\n        }\n      }\n    }\n  }\n}\n",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-React-GraphQL-IntegratedDemo"
+    },
+    {
+      "name": "React-GraphQL-Layout",
+      "icon": "Office/16x16/layout.png",
+      "exposedPlaceholders": [
+        "AstroApp-jss-graphql-layout"
+      ],
+      "dataSourceTemplate": ""
+    },
+    {
+      "name": "Styleguide-ComponentParams",
+      "icon": "Office/16x16/window_dialog.png",
+      "params": [
+        {
+          "name": "cssClass",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "columns",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "useCallToAction",
+          "type": "Single-Line Text"
+        }
+      ],
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-ComponentParams"
+    },
+    {
+      "name": "Styleguide-CustomRouteType",
+      "icon": "Office/16x16/document_tag.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": ""
+    },
+    {
+      "name": "Styleguide-EditFrame",
+      "icon": "Office/16x16/document_tag.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-EditFrame"
+    },
+    {
+      "name": "Styleguide-Layout-Reuse",
+      "icon": "Office/16x16/documents_exchange.png",
+      "exposedPlaceholders": [
+        "AstroApp-jss-reuse-example"
+      ],
+      "dataSourceTemplate": "AstroApp-Styleguide-Layout-Reuse"
+    },
+    {
+      "name": "Styleguide-Layout-Tabs-Tab",
+      "icon": "Office/16x16/tab_pane.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-Layout-Tabs-Tab"
+    },
+    {
+      "name": "Styleguide-Layout-Tabs",
+      "icon": "Office/16x16/document_tag.png",
+      "exposedPlaceholders": [
+        "AstroApp-jss-tabs"
+      ],
+      "dataSourceTemplate": "AstroApp-Styleguide-Layout-Tabs"
+    },
+    {
+      "name": "Styleguide-Layout",
+      "icon": "Office/16x16/layout.png",
+      "exposedPlaceholders": [
+        "AstroApp-jss-styleguide-layout"
+      ],
+      "dataSourceTemplate": ""
+    },
+    {
+      "name": "Styleguide-Multilingual",
+      "icon": "Office/16x16/flag_generic.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-Multilingual"
+    },
+    {
+      "name": "Styleguide-RouteFields",
+      "icon": "Office/16x16/text_field.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-RouteFields"
+    },
+    {
+      "name": "Styleguide-Section",
+      "icon": "Office/16x16/document_tag.png",
+      "exposedPlaceholders": [
+        "AstroApp-jss-styleguide-section"
+      ],
+      "dataSourceTemplate": "AstroApp-Styleguide-Section"
+    },
+    {
+      "name": "Styleguide-SitecoreContext",
+      "icon": "Office/16x16/control_panel.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "AstroApp-Styleguide-SitecoreContext"
+    }
+  ],
+  "wipeExisting": false,
+  "rootPlaceholders": [
+    "AstroApp-jss-main"
+  ],
+  "items": {
+    "routes": [
+      {
+        "id": "home-page",
+        "name": "home",
+        "layout": {
+          "renderings": [
+            {
+              "renderingName": "ContentBlock",
+              "placeholderKey": "/AstroApp-jss-main",
+              "placeholderName": "AstroApp-jss-main",
+              "dataSource": {
+                "name": "home-AstroApp-jss-main-ContentBlock-1",
+                "displayName": "ContentBlock-1",
+                "template": "AstroApp-ContentBlock",
+                "fields": [
+                  {
+                    "name": "heading",
+                    "value": "Welcome to Sitecore JSS"
+                  },
+                  {
+                    "name": "content",
+                    "value": "<p>Thanks for using JSS!! Here are some resources to get you started:</p>\n\n<h3><a href=\"https://jss.sitecore.com\" rel=\"noopener noreferrer\">Documentation</a></h3>\n<p>The official JSS documentation can help you with any JSS task from getting started to advanced techniques.</p>\n\n<h3><a href=\"/styleguide\">Styleguide</a></h3>\n<p>The JSS styleguide is a living example of how to use JSS, hosted right in this app.\nIt demonstrates most of the common patterns that JSS implementations may need to use,\nas well as useful architectural patterns.</p>\n\n<h3><a href=\"/graphql\">GraphQL</a></h3>\n<p>JSS features integration with the Sitecore GraphQL API to enable fetching non-route data from Sitecore - or from other internal backends as an API aggregator or proxy.\nThis route is a living example of how to use an integrate with GraphQL data in a JSS app.</p>\n\n<div class=\"alert alert-dark\">\n  <h4>This app is a boilerplate</h4>\n  <p>The JSS samples are a boilerplate, not a library. That means that any code in this app is meant for you to own and customize to your own requirements.</p>\n  <p>Want to change the lint settings? Do it. Want to read manifest data from a MongoDB database? Go for it. This app is yours.</p>\n</div>\n\n<div class=\"alert alert-dark\">\n  <h4>How to start with an empty app</h4>\n  <p>To start with a fresh app with no boilerplate, run <code>npx create-sitecore-jss</code> and don't select any add-ons. Note, disconnected mode is not supported this way</p>\n  <p>To remove all of the default sample content (the Styleguide and GraphQL routes) and start out with an empty JSS app:</p>\n  <ol>\n    <li>Delete <code>/data/dictionary/*.yml</code></li>\n    <li>Delete <code>/data/routes/styleguide</code> and <code>/data/routes/graphql</code></li>\n    <li>Delete <code>/data/content/Styleguide</code></li>\n    <li>Delete <code>/data/component-content/Styleguide</code></li>\n    <li>Delete <code>/sitecore/definitions/components/Styleguide*</code>, <code>/sitecore/definitions/templates/Styleguide*</code>, and <code>/sitecore/definitions/components/GraphQL*</code></li>\n    <li>Delete <code>graphql-let</code> command from <code>bootstrap</code> npm command in <code>package.json</code> until you create <code>.graphql</code> files</li>\n    <li>Delete <code>/src/components/*</code></li>\n  </ol>\n</div>\n"
+                  }
+                ]
+              },
+              "renderingParams": [],
+              "uid": "{3E1C7ED0-C20A-5E2C-A95A-7DB0B02C8A7F}"
+            }
+          ],
+          "placeholders": [
+            "AstroApp-jss-main"
+          ]
+        },
+        "fields": [
+          {
+            "name": "pageTitle",
+            "value": "Welcome to Sitecore JSS"
+          }
+        ],
+        "children": [
+          {
+            "name": "graphql",
+            "layout": {
+              "renderings": [
+                {
+                  "renderingName": "ContentBlock",
+                  "placeholderKey": "/AstroApp-jss-main",
+                  "placeholderName": "AstroApp-jss-main",
+                  "dataSource": {
+                    "name": "graphql-AstroApp-jss-main-ContentBlock-1",
+                    "displayName": "ContentBlock-1",
+                    "template": "AstroApp-ContentBlock",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Using GraphQL with JSS"
+                      },
+                      {
+                        "name": "content",
+                        "value": "<p>This is a live example of using Integrated GraphQL and Connected GraphQL with a JSS app.\nFor more information on GraphQL use in JSS, please see <a href=\"https://jss.sitecore.com\" target=\"_blank\" rel=\"noopener noreferrer\">the documentation</a>.</p>\n"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{73690A89-BE6A-51B2-8A1D-AFC18041E039}"
+                },
+                {
+                  "renderingName": "GraphQL-Layout",
+                  "placeholderKey": "/AstroApp-jss-main",
+                  "placeholderName": "AstroApp-jss-main",
+                  "dataSource": {
+                    "name": "graphql-AstroApp-jss-main-GraphQL-Layout-2",
+                    "displayName": "GraphQL-Layout-2",
+                    "template": "AstroApp-GraphQL-Layout",
+                    "fields": []
+                  },
+                  "renderingParams": [],
+                  "uid": "{B6EE6BDF-8271-5313-8391-2F5D07F625F4}"
+                },
+                {
+                  "renderingName": "GraphQL-IntegratedDemo",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-graphql-layout-{B6EE6BDF-8271-5313-8391-2F5D07F625F4}-0",
+                  "placeholderName": "AstroApp-jss-graphql-layout",
+                  "dataSource": {
+                    "name": "graphql-AstroApp-jss-graphql-layout-B6EE6BDF-8271-5313-8391-2F5D07F625F4-0-GraphQL-IntegratedDemo-1",
+                    "displayName": "GraphQL-IntegratedDemo-1",
+                    "template": "AstroApp-GraphQL-IntegratedDemo",
+                    "fields": [
+                      {
+                        "name": "sample1",
+                        "value": "Hello integrated GraphQL world!"
+                      },
+                      {
+                        "name": "sample2",
+                        "value": {
+                          "href": "https://www.sitecore.com",
+                          "target": "_blank",
+                          "text": "GraphQL lets you get structured field data too"
+                        }
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{7CE4F034-1B4B-5B4A-98C2-85D311B6966C}"
+                },
+                {
+                  "renderingName": "GraphQL-ConnectedDemo",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-graphql-layout-{B6EE6BDF-8271-5313-8391-2F5D07F625F4}-0",
+                  "placeholderName": "AstroApp-jss-graphql-layout",
+                  "dataSource": {
+                    "name": "graphql-AstroApp-jss-graphql-layout-B6EE6BDF-8271-5313-8391-2F5D07F625F4-0-GraphQL-ConnectedDemo-2",
+                    "displayName": "GraphQL-ConnectedDemo-2",
+                    "template": "AstroApp-GraphQL-ConnectedDemo",
+                    "fields": [
+                      {
+                        "name": "sample1",
+                        "value": "Hello connected GraphQL world!"
+                      },
+                      {
+                        "name": "sample2",
+                        "value": {
+                          "href": "https://www.sitecore.com",
+                          "target": "_blank",
+                          "text": "GraphQL lets you get structured field data too"
+                        }
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{3C829CEF-4FB3-54DE-91FD-D894AB796431}"
+                }
+              ],
+              "placeholders": [
+                "AstroApp-jss-main",
+                "AstroApp-jss-graphql-layout"
+              ]
+            },
+            "fields": [
+              {
+                "name": "pageTitle",
+                "value": "GraphQL | Sitecore JSS"
+              }
+            ],
+            "children": [
+              {
+                "name": "sample-1",
+                "layout": {
+                  "renderings": [
+                    {
+                      "renderingName": "ContentBlock",
+                      "placeholderKey": "/AstroApp-jss-main",
+                      "placeholderName": "AstroApp-jss-main",
+                      "dataSource": {
+                        "name": "sample-1-AstroApp-jss-main-ContentBlock-1",
+                        "displayName": "ContentBlock-1",
+                        "template": "AstroApp-ContentBlock",
+                        "fields": [
+                          {
+                            "name": "heading",
+                            "value": "GraphQL Sample 1"
+                          },
+                          {
+                            "name": "content",
+                            "value": "<p>A child route here to illustrate the power of GraphQL queries. <a href=\"/graphql\">Back to GraphQL route</a></p>\n"
+                          }
+                        ]
+                      },
+                      "renderingParams": [],
+                      "uid": "{07C62444-7E47-5E51-BADC-6E65B81141BC}"
+                    }
+                  ],
+                  "placeholders": [
+                    "AstroApp-jss-main"
+                  ]
+                },
+                "fields": [
+                  {
+                    "name": "pageTitle",
+                    "value": "Sample 1 Page Title"
+                  }
+                ]
+              },
+              {
+                "name": "sample-2",
+                "layout": {
+                  "renderings": [
+                    {
+                      "renderingName": "ContentBlock",
+                      "placeholderKey": "/AstroApp-jss-main",
+                      "placeholderName": "AstroApp-jss-main",
+                      "dataSource": {
+                        "name": "sample-2-AstroApp-jss-main-ContentBlock-1",
+                        "displayName": "ContentBlock-1",
+                        "template": "AstroApp-ContentBlock",
+                        "fields": [
+                          {
+                            "name": "heading",
+                            "value": "GraphQL Sample 2"
+                          },
+                          {
+                            "name": "content",
+                            "value": "<p>A child route here to illustrate the power of GraphQL queries. <a href=\"/graphql\">Back to GraphQL route</a></p>\n"
+                          }
+                        ]
+                      },
+                      "renderingParams": [],
+                      "uid": "{7AFB69A2-B372-5A09-99F7-39CD29B898EB}"
+                    }
+                  ],
+                  "placeholders": [
+                    "AstroApp-jss-main"
+                  ]
+                },
+                "fields": [
+                  {
+                    "name": "pageTitle",
+                    "value": "Sample 2 Page Title"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "integrations",
+            "layout": {
+              "renderings": [],
+              "placeholders": [
+                "AstroApp-jss-main"
+              ]
+            },
+            "fields": [
+              {
+                "name": "pageTitle",
+                "value": "Integrations"
+              }
+            ],
+            "children": [
+              {
+                "name": "react",
+                "layout": {
+                  "renderings": [],
+                  "placeholders": [
+                    "AstroApp-jss-main"
+                  ]
+                },
+                "fields": [
+                  {
+                    "name": "pageTitle",
+                    "value": "React"
+                  }
+                ],
+                "children": [
+                  {
+                    "name": "graphql",
+                    "layout": {
+                      "renderings": [
+                        {
+                          "renderingName": "React-ContentBlock",
+                          "placeholderKey": "/AstroApp-jss-main",
+                          "placeholderName": "AstroApp-jss-main",
+                          "dataSource": {
+                            "name": "graphql-AstroApp-jss-main-React-ContentBlock-1",
+                            "displayName": "React-ContentBlock-1",
+                            "template": "AstroApp-React-ContentBlock",
+                            "fields": [
+                              {
+                                "name": "heading",
+                                "value": "Using GraphQL with JSS"
+                              },
+                              {
+                                "name": "content",
+                                "value": "<p>This is a live example of using Integrated GraphQL and Connected GraphQL with a JSS app.\nFor more information on GraphQL use in JSS, please see <a href=\"https://jss.sitecore.com\" target=\"_blank\" rel=\"noopener noreferrer\">the documentation</a>.</p>\n"
+                              }
+                            ]
+                          },
+                          "renderingParams": [],
+                          "uid": "{60D2A50A-C5E1-5A19-8E5E-B9C4E9360A3C}"
+                        },
+                        {
+                          "renderingName": "React-GraphQL-Layout",
+                          "placeholderKey": "/AstroApp-jss-main",
+                          "placeholderName": "AstroApp-jss-main",
+                          "dataSource": {
+                            "name": "graphql-AstroApp-jss-main-React-GraphQL-Layout-2",
+                            "displayName": "React-GraphQL-Layout-2",
+                            "template": "AstroApp-React-GraphQL-Layout",
+                            "fields": []
+                          },
+                          "renderingParams": [],
+                          "uid": "{35091A70-82E1-580C-8C05-AC17E0D62A38}"
+                        },
+                        {
+                          "renderingName": "React-GraphQL-IntegratedDemo",
+                          "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-graphql-layout-{35091A70-82E1-580C-8C05-AC17E0D62A38}-0",
+                          "placeholderName": "AstroApp-jss-graphql-layout",
+                          "dataSource": {
+                            "name": "graphql-AstroApp-jss-graphql-layout-35091A70-82E1-580C-8C05-AC17E0D62A38-0-React-GraphQL-IntegratedDemo-1",
+                            "displayName": "React-GraphQL-IntegratedDemo-1",
+                            "template": "AstroApp-React-GraphQL-IntegratedDemo",
+                            "fields": [
+                              {
+                                "name": "sample1",
+                                "value": "Hello integrated GraphQL world!"
+                              },
+                              {
+                                "name": "sample2",
+                                "value": {
+                                  "href": "https://www.sitecore.com",
+                                  "target": "_blank",
+                                  "text": "GraphQL lets you get structured field data too"
+                                }
+                              }
+                            ]
+                          },
+                          "renderingParams": [],
+                          "uid": "{8B651986-52AB-5D59-9347-8541619215FE}"
+                        },
+                        {
+                          "renderingName": "React-GraphQL-ConnectedDemo",
+                          "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-graphql-layout-{35091A70-82E1-580C-8C05-AC17E0D62A38}-0",
+                          "placeholderName": "AstroApp-jss-graphql-layout",
+                          "dataSource": {
+                            "name": "graphql-AstroApp-jss-graphql-layout-35091A70-82E1-580C-8C05-AC17E0D62A38-0-React-GraphQL-ConnectedDemo-2",
+                            "displayName": "React-GraphQL-ConnectedDemo-2",
+                            "template": "AstroApp-React-GraphQL-ConnectedDemo",
+                            "fields": [
+                              {
+                                "name": "sample1",
+                                "value": "Hello connected GraphQL world!"
+                              },
+                              {
+                                "name": "sample2",
+                                "value": {
+                                  "href": "https://www.sitecore.com",
+                                  "target": "_blank",
+                                  "text": "GraphQL lets you get structured field data too"
+                                }
+                              }
+                            ]
+                          },
+                          "renderingParams": [],
+                          "uid": "{7218F790-4CD0-54B0-B118-41903BAF0D33}"
+                        }
+                      ],
+                      "placeholders": [
+                        "AstroApp-jss-main",
+                        "AstroApp-jss-graphql-layout"
+                      ]
+                    },
+                    "fields": [
+                      {
+                        "name": "pageTitle",
+                        "value": "GraphQL | Sitecore JSS"
+                      }
+                    ],
+                    "children": [
+                      {
+                        "name": "sample-1",
+                        "layout": {
+                          "renderings": [
+                            {
+                              "renderingName": "React-ContentBlock",
+                              "placeholderKey": "/AstroApp-jss-main",
+                              "placeholderName": "AstroApp-jss-main",
+                              "dataSource": {
+                                "name": "sample-1-AstroApp-jss-main-React-ContentBlock-1",
+                                "displayName": "React-ContentBlock-1",
+                                "template": "AstroApp-React-ContentBlock",
+                                "fields": [
+                                  {
+                                    "name": "heading",
+                                    "value": "GraphQL Sample 1"
+                                  },
+                                  {
+                                    "name": "content",
+                                    "value": "<p>A child route here to illustrate the power of GraphQL queries. <a href=\"/graphql\">Back to GraphQL route</a></p>\n"
+                                  }
+                                ]
+                              },
+                              "renderingParams": [],
+                              "uid": "{19626284-7FCE-52FE-9D96-E080D43191BE}"
+                            }
+                          ],
+                          "placeholders": [
+                            "AstroApp-jss-main"
+                          ]
+                        },
+                        "fields": [
+                          {
+                            "name": "pageTitle",
+                            "value": "Sample 1 Page Title"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "sample-2",
+                        "layout": {
+                          "renderings": [
+                            {
+                              "renderingName": "React-ContentBlock",
+                              "placeholderKey": "/AstroApp-jss-main",
+                              "placeholderName": "AstroApp-jss-main",
+                              "dataSource": {
+                                "name": "sample-2-AstroApp-jss-main-React-ContentBlock-1",
+                                "displayName": "React-ContentBlock-1",
+                                "template": "AstroApp-React-ContentBlock",
+                                "fields": [
+                                  {
+                                    "name": "heading",
+                                    "value": "GraphQL Sample 2"
+                                  },
+                                  {
+                                    "name": "content",
+                                    "value": "<p>A child route here to illustrate the power of GraphQL queries. <a href=\"/graphql\">Back to GraphQL route</a></p>\n"
+                                  }
+                                ]
+                              },
+                              "renderingParams": [],
+                              "uid": "{B054C6F6-748E-50A7-8705-B88B2EB22BA9}"
+                            }
+                          ],
+                          "placeholders": [
+                            "AstroApp-jss-main"
+                          ]
+                        },
+                        "fields": [
+                          {
+                            "name": "pageTitle",
+                            "value": "Sample 2 Page Title"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "styleguide",
+            "layout": {
+              "renderings": [
+                {
+                  "renderingName": "ContentBlock",
+                  "placeholderKey": "/AstroApp-jss-main",
+                  "placeholderName": "AstroApp-jss-main",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-main-ContentBlock-1",
+                    "displayName": "ContentBlock-1",
+                    "template": "AstroApp-ContentBlock",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "JSS Styleguide"
+                      },
+                      {
+                        "name": "content",
+                        "value": "<p>This is a live set of examples of how to use JSS. For more information on using JSS, please see <a href=\"https://jss.sitecore.com\" target=\"_blank\" rel=\"noopener noreferrer\">the documentation</a>.</p>\n<p>The content and layout of this page is defined in <code>/data/routes/styleguide/en.yml</code></p>\n"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{C7AE1C09-60EF-5A26-BD8E-42C8B2C4D24A}"
+                },
+                {
+                  "renderingName": "Styleguide-Layout",
+                  "placeholderKey": "/AstroApp-jss-main",
+                  "placeholderName": "AstroApp-jss-main",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-main-Styleguide-Layout-2",
+                    "displayName": "Styleguide-Layout-2",
+                    "template": "AstroApp-Styleguide-Layout",
+                    "fields": []
+                  },
+                  "renderingParams": [],
+                  "uid": "{EE7483F6-B863-5639-991C-FF161B2C1763}"
+                },
+                {
+                  "renderingName": "Styleguide-Section",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-layout",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-layout-EE7483F6-B863-5639-991C-FF161B2C1763-0-Styleguide-Section-1",
+                    "displayName": "Styleguide-Section-1",
+                    "template": "AstroApp-Styleguide-Section",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Content Data"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{0A4D9285-DE55-526C-8C29-19A0A60F8B1E}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Text",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{0A4D9285-DE55-526C-8C29-19A0A60F8B1E}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-Text-1",
+                    "displayName": "Styleguide-FieldUsage-Text-1",
+                    "template": "AstroApp-Styleguide-FieldUsage-Text",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Single-Line Text"
+                      },
+                      {
+                        "name": "sample",
+                        "value": "This is a sample text field. <mark>HTML is encoded.</mark> In Sitecore, editors will see a <input type=\"text\">."
+                      },
+                      {
+                        "name": "sample2",
+                        "value": "This is another sample text field using rendering options. <mark>HTML supported with encode=false.</mark> Cannot edit because editable=false."
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{9B5F9A50-0FBE-5A1F-A16E-A74D7FE93CCE}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Text",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{0A4D9285-DE55-526C-8C29-19A0A60F8B1E}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-Text-2",
+                    "displayName": "Styleguide-FieldUsage-Text-2",
+                    "template": "AstroApp-Styleguide-FieldUsage-Text",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Multi-Line Text"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<small>Multi-line text tells Sitecore to use a <code>textarea</code> for editing; consumption in JSS is the same as single-line text.</small>"
+                      },
+                      {
+                        "name": "sample",
+                        "value": "This is a sample multi-line text field. <mark>HTML is encoded.</mark> In Sitecore, editors will see a textarea."
+                      },
+                      {
+                        "name": "sample2",
+                        "value": "This is another sample multi-line text field using rendering options. <mark>HTML supported with encode=false.</mark>"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{ED97429F-D6CD-5BC8-BBA7-BDE5299F9705}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-RichText",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{0A4D9285-DE55-526C-8C29-19A0A60F8B1E}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-RichText-3",
+                    "displayName": "Styleguide-FieldUsage-RichText-3",
+                    "template": "AstroApp-Styleguide-FieldUsage-RichText",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Rich Text"
+                      },
+                      {
+                        "name": "sample",
+                        "value": "<p>This is a sample rich text field. <mark>HTML is always supported.</mark> In Sitecore, editors will see a WYSIWYG editor for these fields.</p>"
+                      },
+                      {
+                        "name": "sample2",
+                        "value": "<p>Another sample rich text field, using options. Keep markup entered in rich text fields as simple as possible - ideally bare tags only (no classes). Adding a wrapping class can help with styling within rich text blocks.</p>\n<marquee>But you can use any valid HTML in a rich text field!</marquee>\n"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{70C777DA-A13A-5E6C-91F6-BD360BFC0A0D}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Image",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{0A4D9285-DE55-526C-8C29-19A0A60F8B1E}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-Image-4",
+                    "displayName": "Styleguide-FieldUsage-Image-4",
+                    "template": "AstroApp-Styleguide-FieldUsage-Image",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Image"
+                      },
+                      {
+                        "name": "sample1",
+                        "value": {
+                          "src": "/data/media/img/sc_logo.png",
+                          "alt": "Sitecore Logo"
+                        }
+                      },
+                      {
+                        "name": "sample2",
+                        "value": {
+                          "src": "/data/media/img/jss_logo.png",
+                          "alt": "Sitecore JSS Logo"
+                        }
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{FBA38EA5-EE3B-56D2-996B-7562D60B68C9}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-File",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{0A4D9285-DE55-526C-8C29-19A0A60F8B1E}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-File-5",
+                    "displayName": "Styleguide-FieldUsage-File-5",
+                    "template": "AstroApp-Styleguide-FieldUsage-File",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "File"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<small>Note: Sitecore does not support inline editing of File fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.</small>\n"
+                      },
+                      {
+                        "name": "file",
+                        "value": {
+                          "src": "/data/media/files/jss.pdf",
+                          "title": "Example File",
+                          "description": "This data will be added to the Sitecore Media Library on import"
+                        }
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{2FAFE952-39BC-5ED7-9023-09D45A397F0F}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Number",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{0A4D9285-DE55-526C-8C29-19A0A60F8B1E}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-Number-6",
+                    "displayName": "Styleguide-FieldUsage-Number-6",
+                    "template": "AstroApp-Styleguide-FieldUsage-Number",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Number"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<small>Number tells Sitecore to use a number entry for editing.</small>"
+                      },
+                      {
+                        "name": "sample",
+                        "value": 1.21
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{C45F5000-255F-5F6F-B78B-866D3B4C9A4F}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Checkbox",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{0A4D9285-DE55-526C-8C29-19A0A60F8B1E}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-Checkbox-7",
+                    "displayName": "Styleguide-FieldUsage-Checkbox-7",
+                    "template": "AstroApp-Styleguide-FieldUsage-Checkbox",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Checkbox"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<small>Note: Sitecore does not support inline editing of Checkbox fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.</small>\n"
+                      },
+                      {
+                        "name": "checkbox",
+                        "value": true
+                      },
+                      {
+                        "name": "checkbox2",
+                        "value": false
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{AF5740C6-FD3E-5E9A-8AC2-1ECF9B089E90}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Date",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{0A4D9285-DE55-526C-8C29-19A0A60F8B1E}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-Date-8",
+                    "displayName": "Styleguide-FieldUsage-Date-8",
+                    "template": "AstroApp-Styleguide-FieldUsage-Date",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Date"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<p><small>Both <code>Date</code> and <code>DateTime</code> field types are available. Choosing <code>DateTime</code> will make Sitecore show editing UI for time; both types store complete date and time values internally. Date values in JSS are formatted using <a href=\"https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations\" target=\"_blank\">ISO 8601 formatted strings</a>, for example <code>2012-04-23T18:25:43.511Z</code>.</small></p>\n<div class=\"alert alert-warning\"><small>Note: this is a JavaScript date format (e.g. <code>new Date().toISOString()</code>), and is different from how Sitecore stores date field values internally. Sitecore-formatted dates will not work.</small></div>\n"
+                      },
+                      {
+                        "name": "date",
+                        "value": "2012-05-04T00:00:00Z"
+                      },
+                      {
+                        "name": "dateTime",
+                        "value": "2018-03-14T15:00:00Z"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{2EDB8916-59B7-5C24-A195-3022AC9F83B5}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Link",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{0A4D9285-DE55-526C-8C29-19A0A60F8B1E}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-Link-9",
+                    "displayName": "Styleguide-FieldUsage-Link-9",
+                    "template": "AstroApp-Styleguide-FieldUsage-Link",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "General Link"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<p>A <em>General Link</em> is a field that represents an <code>&lt;a&gt;</code> tag.</p>"
+                      },
+                      {
+                        "name": "externalLink",
+                        "value": {
+                          "href": "https://www.sitecore.com",
+                          "text": "Link to Sitecore"
+                        }
+                      },
+                      {
+                        "name": "internalLink",
+                        "value": {
+                          "href": "/"
+                        }
+                      },
+                      {
+                        "name": "mediaLink",
+                        "value": {
+                          "href": "/data/media/files/jss.pdf",
+                          "text": "Link to PDF"
+                        }
+                      },
+                      {
+                        "name": "emailLink",
+                        "value": {
+                          "href": "mailto:foo@bar.com",
+                          "text": "Send an Email"
+                        }
+                      },
+                      {
+                        "name": "paramsLink",
+                        "value": {
+                          "href": "https://dev.sitecore.net",
+                          "text": "Sitecore Dev Site",
+                          "target": "_blank",
+                          "class": "fw-bold",
+                          "title": "<a> title attribute"
+                        }
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{5A029029-8D87-5DCC-8111-33A8F28B56D6}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-ItemLink",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{0A4D9285-DE55-526C-8C29-19A0A60F8B1E}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-ItemLink-10",
+                    "displayName": "Styleguide-FieldUsage-ItemLink-10",
+                    "template": "AstroApp-Styleguide-FieldUsage-ItemLink",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Item Link"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<p>\n  <small>\n    Item Links are a way to reference another content item to use data from it.\n    Referenced items may be shared.\n    To reference multiple content items, use a <em>Content List</em> field.<br />\n    <strong>Note:</strong> Sitecore does not support inline editing of Item Link fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.\n  </small>\n</p>\n"
+                      },
+                      {
+                        "name": "sharedItemLink",
+                        "value": {
+                          "resolvedFromItemId": "styleguide-item-link-field-shared-1",
+                          "displayName": "Styleguide Item Link Item 1 (Shared)",
+                          "template": "AstroApp-Styleguide-ItemLink-Item-Template",
+                          "fields": [
+                            {
+                              "name": "textField",
+                              "value": "ItemLink Demo (Shared) Item 1 Text Field"
+                            }
+                          ],
+                          "name": "Item1"
+                        }
+                      },
+                      {
+                        "name": "localItemLink",
+                        "value": {
+                          "template": "AstroApp-Styleguide-ItemLink-Item-Template",
+                          "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-ItemLink-10-item-0",
+                          "displayName": "Styleguide-FieldUsage-ItemLink-10-item-0",
+                          "fields": [
+                            {
+                              "name": "textField",
+                              "value": "Referenced item textField"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{0A8CB0C2-4C16-5A2D-907D-793138CD9664}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-ContentList",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{0A4D9285-DE55-526C-8C29-19A0A60F8B1E}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-ContentList-11",
+                    "displayName": "Styleguide-FieldUsage-ContentList-11",
+                    "template": "AstroApp-Styleguide-FieldUsage-ContentList",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Content List"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<p>\n  <small>\n    Content Lists are a way to reference zero or more other content items.\n    Referenced items may be shared.\n    To reference a single content item, use an <em>Item Link</em> field.<br />\n    <strong>Note:</strong> Sitecore does not support inline editing of Content List fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.\n  </small>\n</p>\n"
+                      },
+                      {
+                        "name": "sharedContentList",
+                        "value": [
+                          {
+                            "resolvedFromItemId": "styleguide-content-list-field-shared-1",
+                            "displayName": "Styleguide Content List Item 1 (Shared)",
+                            "template": "AstroApp-Styleguide-ContentList-Item-Template",
+                            "fields": [
+                              {
+                                "name": "textField",
+                                "value": "ContentList Demo (Shared) Item 1 Text Field"
+                              }
+                            ],
+                            "name": "Item1"
+                          },
+                          {
+                            "resolvedFromItemId": "styleguide-content-list-field-shared-2",
+                            "displayName": "Styleguide Content List Item 2 (Shared)",
+                            "template": "AstroApp-Styleguide-ContentList-Item-Template",
+                            "fields": [
+                              {
+                                "name": "textField",
+                                "value": "ContentList Demo (Shared) Item 2 Text Field"
+                              }
+                            ],
+                            "name": "Item2"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "localContentList",
+                        "value": [
+                          {
+                            "template": "AstroApp-Styleguide-ContentList-Item-Template",
+                            "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-ContentList-11-item-0",
+                            "displayName": "Styleguide-FieldUsage-ContentList-11-item-0",
+                            "fields": [
+                              {
+                                "name": "textField",
+                                "value": "Hello World Item 1"
+                              }
+                            ]
+                          },
+                          {
+                            "template": "AstroApp-Styleguide-ContentList-Item-Template",
+                            "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-ContentList-11-item-1",
+                            "displayName": "Styleguide-FieldUsage-ContentList-11-item-1",
+                            "fields": [
+                              {
+                                "name": "textField",
+                                "value": "Hello World Item 2"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{D308EB94-4D50-583F-9509-5F006F3BF054}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Custom",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{0A4D9285-DE55-526C-8C29-19A0A60F8B1E}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-0A4D9285-DE55-526C-8C29-19A0A60F8B1E-0-Styleguide-FieldUsage-Custom-12",
+                    "displayName": "Styleguide-FieldUsage-Custom-12",
+                    "template": "AstroApp-Styleguide-FieldUsage-Custom",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Custom Fields"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<p>\n  <small>\n    Any Sitecore field type can be consumed by JSS.\n    In this sample we consume the <em>Integer</em> field type.<br />\n    <strong>Note:</strong> For field types with complex data, custom <code>FieldSerializer</code>s may need to be implemented on the Sitecore side.\n  </small>\n</p>\n"
+                      },
+                      {
+                        "name": "customIntField",
+                        "value": 31337
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{10C8CF7B-E3AD-5EEC-ADF6-AF74552596FC}"
+                },
+                {
+                  "renderingName": "Styleguide-Section",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-layout",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-layout-EE7483F6-B863-5639-991C-FF161B2C1763-0-Styleguide-Section-2",
+                    "displayName": "Styleguide-Section-2",
+                    "template": "AstroApp-Styleguide-Section",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Layout Patterns"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{282E57EC-8A36-5938-9A46-E4A4C676617F}"
+                },
+                {
+                  "renderingName": "Styleguide-Layout-Reuse",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-header-{282E57EC-8A36-5938-9A46-E4A4C676617F}-0",
+                  "placeholderName": "AstroApp-jss-header",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-header-282E57EC-8A36-5938-9A46-E4A4C676617F-0-Styleguide-Layout-Reuse-1",
+                    "displayName": "Styleguide-Layout-Reuse-1",
+                    "template": "AstroApp-Styleguide-Layout-Reuse",
+                    "fields": []
+                  },
+                  "renderingParams": [],
+                  "uid": "{12B7AC75-09EA-5185-8609-B0602B77F922}"
+                },
+                {
+                  "renderingName": "Styleguide-Layout-Reuse",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{282E57EC-8A36-5938-9A46-E4A4C676617F}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-282E57EC-8A36-5938-9A46-E4A4C676617F-0-Styleguide-Layout-Reuse-1",
+                    "displayName": "Styleguide-Layout-Reuse-1",
+                    "template": "AstroApp-Styleguide-Layout-Reuse",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Reusing Content"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<p>JSS provides powerful options to reuse content, whether it's sharing a common piece of text across pages or sketching out a site with repeating <em>lorem ipsum</em> content.</p>"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{F00849C9-460F-532B-A6D8-60F9F5B6A061}"
+                },
+                {
+                  "renderingName": "ContentBlock",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{282E57EC-8A36-5938-9A46-E4A4C676617F}-0/AstroApp-jss-reuse-example-{F00849C9-460F-532B-A6D8-60F9F5B6A061}-0",
+                  "placeholderName": "AstroApp-jss-reuse-example",
+                  "dataSource": {
+                    "template": "AstroApp-ContentBlock",
+                    "fields": [
+                      {
+                        "name": "content",
+                        "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque felis mauris, pretium id neque vitae, vulputate pellentesque tortor. Mauris hendrerit dolor et ipsum lobortis bibendum non finibus neque. Morbi volutpat aliquam magna id posuere. Duis commodo cursus dui, nec interdum velit congue nec. Aliquam erat volutpat. Aliquam facilisis, sapien quis fringilla tincidunt, magna nulla feugiat neque, a consectetur arcu orci eu augue.</p>"
+                      }
+                    ],
+                    "name": "LoremIpsumContentBlock",
+                    "displayName": "Lorem Ipsum Dolor Sit Amet",
+                    "resolvedFromItemId": "lorem-ipsum-content-block"
+                  },
+                  "renderingParams": [],
+                  "uid": "{7E3CCE9C-71EB-52EB-80B9-9CE3014C531E}"
+                },
+                {
+                  "renderingName": "ContentBlock",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{282E57EC-8A36-5938-9A46-E4A4C676617F}-0/AstroApp-jss-reuse-example-{F00849C9-460F-532B-A6D8-60F9F5B6A061}-0",
+                  "placeholderName": "AstroApp-jss-reuse-example",
+                  "dataSource": {
+                    "template": "AstroApp-ContentBlock",
+                    "fields": [
+                      {
+                        "name": "content",
+                        "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque felis mauris, pretium id neque vitae, vulputate pellentesque tortor. Mauris hendrerit dolor et ipsum lobortis bibendum non finibus neque. Morbi volutpat aliquam magna id posuere. Duis commodo cursus dui, nec interdum velit congue nec. Aliquam erat volutpat. Aliquam facilisis, sapien quis fringilla tincidunt, magna nulla feugiat neque, a consectetur arcu orci eu augue.</p>"
+                      }
+                    ],
+                    "name": "LoremIpsumContentBlock",
+                    "displayName": "Lorem Ipsum Dolor Sit Amet",
+                    "resolvedFromItemId": "lorem-ipsum-content-block"
+                  },
+                  "renderingParams": [],
+                  "uid": "{9932FAE2-BE2D-59FE-BDC8-ED1BF7D39627}"
+                },
+                {
+                  "renderingName": "ContentBlock",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{282E57EC-8A36-5938-9A46-E4A4C676617F}-0/AstroApp-jss-reuse-example-{F00849C9-460F-532B-A6D8-60F9F5B6A061}-0",
+                  "placeholderName": "AstroApp-jss-reuse-example",
+                  "dataSource": {
+                    "template": "AstroApp-ContentBlock",
+                    "name": "styleguide-AstroApp-jss-reuse-example-F00849C9-460F-532B-A6D8-60F9F5B6A061-0-AstroApp-ContentBlock-3",
+                    "displayName": "AstroApp-ContentBlock-3",
+                    "fields": [
+                      {
+                        "name": "content",
+                        "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque felis mauris, pretium id neque vitae, vulputate pellentesque tortor. Mauris hendrerit dolor et ipsum lobortis bibendum non finibus neque. Morbi volutpat aliquam magna id posuere. Duis commodo cursus dui, nec interdum velit congue nec. Aliquam erat volutpat. Aliquam facilisis, sapien quis fringilla tincidunt, magna nulla feugiat neque, a consectetur arcu orci eu augue.</p>"
+                      }
+                    ],
+                    "resolvedFromItemId": "lorem-ipsum-content-block",
+                    "copy": true
+                  },
+                  "renderingParams": [],
+                  "uid": "{A11296EB-1DD5-510C-83F0-746A0A835B91}",
+                  "displayName": "Lorem Ipsum Dolor Sit Amet",
+                  "name": "LoremIpsumContentBlock"
+                },
+                {
+                  "renderingName": "ContentBlock",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{282E57EC-8A36-5938-9A46-E4A4C676617F}-0/AstroApp-jss-reuse-example-{F00849C9-460F-532B-A6D8-60F9F5B6A061}-0",
+                  "placeholderName": "AstroApp-jss-reuse-example",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-reuse-example-F00849C9-460F-532B-A6D8-60F9F5B6A061-0-ContentBlock-4",
+                    "displayName": "ContentBlock-4",
+                    "template": "AstroApp-ContentBlock",
+                    "fields": [
+                      {
+                        "name": "content",
+                        "value": "<p>Mix and match reused and local content. Check out <code>/data/routes/styleguide/en.yml</code> to see how.</p>"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{75A80302-69E2-564D-864B-AB94F29807C6}"
+                },
+                {
+                  "renderingName": "Styleguide-Layout-Tabs",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{282E57EC-8A36-5938-9A46-E4A4C676617F}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-282E57EC-8A36-5938-9A46-E4A4C676617F-0-Styleguide-Layout-Tabs-2",
+                    "displayName": "Styleguide-Layout-Tabs-2",
+                    "template": "AstroApp-Styleguide-Layout-Tabs",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Tabs"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<p>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{6D323E98-F82A-5E28-91B9-2BE00816F2CC}"
+                },
+                {
+                  "renderingName": "Styleguide-Layout-Tabs-Tab",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{282E57EC-8A36-5938-9A46-E4A4C676617F}-0/AstroApp-jss-tabs-{6D323E98-F82A-5E28-91B9-2BE00816F2CC}-0",
+                  "placeholderName": "AstroApp-jss-tabs",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-tabs-6D323E98-F82A-5E28-91B9-2BE00816F2CC-0-Styleguide-Layout-Tabs-Tab-1",
+                    "displayName": "Styleguide-Layout-Tabs-Tab-1",
+                    "template": "AstroApp-Styleguide-Layout-Tabs-Tab",
+                    "fields": [
+                      {
+                        "name": "title",
+                        "value": "Tab 1"
+                      },
+                      {
+                        "name": "content",
+                        "value": "<p>Tab 1 contents!</p>"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{A0DE1344-7FC0-55E2-9648-AC7D18AC008A}"
+                },
+                {
+                  "renderingName": "Styleguide-Layout-Tabs-Tab",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{282E57EC-8A36-5938-9A46-E4A4C676617F}-0/AstroApp-jss-tabs-{6D323E98-F82A-5E28-91B9-2BE00816F2CC}-0",
+                  "placeholderName": "AstroApp-jss-tabs",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-tabs-6D323E98-F82A-5E28-91B9-2BE00816F2CC-0-Styleguide-Layout-Tabs-Tab-2",
+                    "displayName": "Styleguide-Layout-Tabs-Tab-2",
+                    "template": "AstroApp-Styleguide-Layout-Tabs-Tab",
+                    "fields": [
+                      {
+                        "name": "title",
+                        "value": "Tab 2"
+                      },
+                      {
+                        "name": "content",
+                        "value": "<p>Tab 2 contents!</p>"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{68BC8EE6-9D7E-50A4-9929-0957E5E0D4F7}"
+                },
+                {
+                  "renderingName": "Styleguide-Layout-Tabs-Tab",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{282E57EC-8A36-5938-9A46-E4A4C676617F}-0/AstroApp-jss-tabs-{6D323E98-F82A-5E28-91B9-2BE00816F2CC}-0",
+                  "placeholderName": "AstroApp-jss-tabs",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-tabs-6D323E98-F82A-5E28-91B9-2BE00816F2CC-0-Styleguide-Layout-Tabs-Tab-3",
+                    "displayName": "Styleguide-Layout-Tabs-Tab-3",
+                    "template": "AstroApp-Styleguide-Layout-Tabs-Tab",
+                    "fields": [
+                      {
+                        "name": "title",
+                        "value": "Tab 3"
+                      },
+                      {
+                        "name": "content",
+                        "value": "<p>Tab 3 contents!</p>"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{DAA5A7F8-A6B0-5C03-AB34-E5A38E9EF40E}"
+                },
+                {
+                  "renderingName": "Styleguide-Section",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-layout",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-layout-EE7483F6-B863-5639-991C-FF161B2C1763-0-Styleguide-Section-3",
+                    "displayName": "Styleguide-Section-3",
+                    "template": "AstroApp-Styleguide-Section",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Sitecore Patterns"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{BD0B5B5C-DAE9-5351-9847-CDC031EECBB2}"
+                },
+                {
+                  "renderingName": "Styleguide-SitecoreContext",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{BD0B5B5C-DAE9-5351-9847-CDC031EECBB2}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-BD0B5B5C-DAE9-5351-9847-CDC031EECBB2-0-Styleguide-SitecoreContext-1",
+                    "displayName": "Styleguide-SitecoreContext-1",
+                    "template": "AstroApp-Styleguide-SitecoreContext",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Sitecore Context"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<p><small>The Sitecore Context contains route-level data about the current context - for example, <code>pageState</code> enables conditionally executing code based on whether Sitecore is in Experience Editor or not.</small></p>"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{EB3C29F0-D169-5DAD-B53F-24899DA59D80}"
+                },
+                {
+                  "renderingName": "Styleguide-RouteFields",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{BD0B5B5C-DAE9-5351-9847-CDC031EECBB2}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-BD0B5B5C-DAE9-5351-9847-CDC031EECBB2-0-Styleguide-RouteFields-2",
+                    "displayName": "Styleguide-RouteFields-2",
+                    "template": "AstroApp-Styleguide-RouteFields",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Route-level Fields"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<p><small>Route-level content fields are defined on the <em>route</em> instead of on a <em>component</em>. This allows multiple components to share the field data on the same route - and querying is much easier on route level fields, making <em>custom route types</em> ideal for filterable/queryable data such as articles.</small></p>"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{36FBDB66-3CF7-5B77-994D-907ABBF91CAA}"
+                },
+                {
+                  "renderingName": "Styleguide-ComponentParams",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{BD0B5B5C-DAE9-5351-9847-CDC031EECBB2}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-BD0B5B5C-DAE9-5351-9847-CDC031EECBB2-0-Styleguide-ComponentParams-3",
+                    "displayName": "Styleguide-ComponentParams-3",
+                    "template": "AstroApp-Styleguide-ComponentParams",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Component Params"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<p><small>Component params (also called Rendering Parameters) allow storing non-content parameters for a component. These params should be used for more technical options such as CSS class names or structural settings.</small></p>"
+                      }
+                    ]
+                  },
+                  "renderingParams": [
+                    {
+                      "name": "cssClass",
+                      "value": "alert alert-success"
+                    },
+                    {
+                      "name": "columns",
+                      "value": 5
+                    },
+                    {
+                      "name": "useCallToAction",
+                      "value": true
+                    }
+                  ],
+                  "uid": "{F6FA4BCC-CDF4-50B4-BA48-ACDA4422AF1B}"
+                },
+                {
+                  "renderingName": "Styleguide-Section",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-layout",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-layout-EE7483F6-B863-5639-991C-FF161B2C1763-0-Styleguide-Section-4",
+                    "displayName": "Styleguide-Section-4",
+                    "template": "AstroApp-Styleguide-Section",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Multilingual Patterns"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{7C2823BA-9DCE-5650-B942-1CB8B689BBB6}"
+                },
+                {
+                  "renderingName": "Styleguide-Multilingual",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{7C2823BA-9DCE-5650-B942-1CB8B689BBB6}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-7C2823BA-9DCE-5650-B942-1CB8B689BBB6-0-Styleguide-Multilingual-1",
+                    "displayName": "Styleguide-Multilingual-1",
+                    "template": "AstroApp-Styleguide-Multilingual",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Translation Patterns"
+                      },
+                      {
+                        "name": "sample",
+                        "value": "This text can be translated in en.yml"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{6EA3F451-54CF-5207-BF87-2A88B28F1140}"
+                },
+                {
+                  "renderingName": "Styleguide-Section",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-layout",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-layout-EE7483F6-B863-5639-991C-FF161B2C1763-0-Styleguide-Section-5",
+                    "displayName": "Styleguide-Section-5",
+                    "template": "AstroApp-Styleguide-Section",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Editing"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{45DB11BB-056F-5F71-A276-4FB38E11B72C}"
+                },
+                {
+                  "renderingName": "Styleguide-EditFrame",
+                  "placeholderKey": "/AstroApp-jss-main/AstroApp-jss-styleguide-layout-{EE7483F6-B863-5639-991C-FF161B2C1763}-0/AstroApp-jss-styleguide-section-{45DB11BB-056F-5F71-A276-4FB38E11B72C}-0",
+                  "placeholderName": "AstroApp-jss-styleguide-section",
+                  "dataSource": {
+                    "name": "styleguide-AstroApp-jss-styleguide-section-45DB11BB-056F-5F71-A276-4FB38E11B72C-0-Styleguide-EditFrame-1",
+                    "displayName": "Styleguide-EditFrame-1",
+                    "template": "AstroApp-Styleguide-EditFrame",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Edit Frame"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<p>Who framed Roger Rabbit? Hard to say. <br /> But JSS now allows to edit frame any piece of content on a page in editing mode. <br /> You can add web edit or field edit buttons, modify edit frame style through CSS class and put the frame wherever you need it. </p>"
+                      },
+                      {
+                        "name": "applyRedToText",
+                        "value": 0
+                      },
+                      {
+                        "name": "sampleList",
+                        "value": [
+                          {
+                            "resolvedFromItemId": "styleguide-edit-frame-list-item-1",
+                            "displayName": "EditFrame Demo List Item 1",
+                            "template": "AstroApp-Styleguide-EditFrame-ListItem-Template",
+                            "fields": [
+                              {
+                                "name": "title",
+                                "value": "Edit Frame Demo List Item 1"
+                              }
+                            ],
+                            "name": "Item1"
+                          },
+                          {
+                            "resolvedFromItemId": "styleguide-edit-frame-list-item-2",
+                            "displayName": "EditFrame Demo List Item 2",
+                            "template": "AstroApp-Styleguide-EditFrame-ListItem-Template",
+                            "fields": [
+                              {
+                                "name": "title",
+                                "value": "Edit Frame Demo List Item 2"
+                              }
+                            ],
+                            "name": "Item2"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{C3795C25-2E06-5046-9425-76C7C075D230}"
+                }
+              ],
+              "placeholders": [
+                "AstroApp-jss-main",
+                "AstroApp-jss-styleguide-layout",
+                "AstroApp-jss-styleguide-section",
+                "AstroApp-jss-header",
+                "AstroApp-jss-styleguide-section",
+                "AstroApp-jss-reuse-example",
+                "AstroApp-jss-tabs",
+                "AstroApp-jss-styleguide-section",
+                "AstroApp-jss-styleguide-section",
+                "AstroApp-jss-styleguide-section"
+              ]
+            },
+            "fields": [
+              {
+                "name": "pageTitle",
+                "value": "Styleguide | Sitecore JSS"
+              }
+            ],
+            "children": [
+              {
+                "template": "AstroApp-ExampleCustomRouteType",
+                "name": "custom-route-type",
+                "layout": {
+                  "renderings": [
+                    {
+                      "renderingName": "Styleguide-CustomRouteType",
+                      "placeholderKey": "/AstroApp-jss-main",
+                      "placeholderName": "AstroApp-jss-main",
+                      "dataSource": {
+                        "name": "custom-route-type-AstroApp-jss-main-Styleguide-CustomRouteType-1",
+                        "displayName": "Styleguide-CustomRouteType-1",
+                        "template": "AstroApp-Styleguide-CustomRouteType",
+                        "fields": []
+                      },
+                      "renderingParams": [],
+                      "uid": "{84A02438-358D-5337-9F1F-AC9B9AFAA604}"
+                    }
+                  ],
+                  "placeholders": [
+                    "AstroApp-jss-main"
+                  ]
+                },
+                "fields": [
+                  {
+                    "name": "pageTitle",
+                    "value": "Custom Route Type | Sitecore JSS"
+                  },
+                  {
+                    "name": "headline",
+                    "value": "A Treatise on Route-Level Fields in JSS"
+                  },
+                  {
+                    "name": "author",
+                    "value": "Myrtle"
+                  },
+                  {
+                    "name": "content",
+                    "value": "<p>Custom route type fields are good for things like articles, where you may wish to have a filter UI on content fields, such as author or category. Route level fields are easy to query against, whereas component-level fields are not because it's possible to remove a component from a route. Note that route level fields <em>cannot be personalized</em> because you cannot conditionally swap out the route item for a different content item.</p>"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nonRoutes": [
+      {
+        "name": "Components",
+        "displayName": "Components",
+        "template": "Folder",
+        "children": [
+          {
+            "name": "Styleguide",
+            "displayName": "Styleguide",
+            "template": "Folder",
+            "children": [
+              {
+                "name": "ContentReuse",
+                "displayName": "ContentReuse",
+                "template": "Folder",
+                "children": [
+                  {
+                    "id": "lorem-ipsum-content-block",
+                    "displayName": "Lorem Ipsum Dolor Sit Amet",
+                    "fields": [
+                      {
+                        "name": "content",
+                        "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque felis mauris, pretium id neque vitae, vulputate pellentesque tortor. Mauris hendrerit dolor et ipsum lobortis bibendum non finibus neque. Morbi volutpat aliquam magna id posuere. Duis commodo cursus dui, nec interdum velit congue nec. Aliquam erat volutpat. Aliquam facilisis, sapien quis fringilla tincidunt, magna nulla feugiat neque, a consectetur arcu orci eu augue.</p>"
+                      }
+                    ],
+                    "name": "LoremIpsumContentBlock",
+                    "template": "AstroApp-ContentBlock"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Content",
+        "displayName": "Content",
+        "template": "Folder",
+        "children": [
+          {
+            "name": "Styleguide",
+            "displayName": "Styleguide",
+            "template": "Folder",
+            "children": [
+              {
+                "name": "ContentListField",
+                "displayName": "ContentListField",
+                "template": "Folder",
+                "children": [
+                  {
+                    "id": "styleguide-content-list-field-shared-1",
+                    "displayName": "Styleguide Content List Item 1 (Shared)",
+                    "template": "AstroApp-Styleguide-ContentList-Item-Template",
+                    "fields": [
+                      {
+                        "name": "textField",
+                        "value": "ContentList Demo (Shared) Item 1 Text Field"
+                      }
+                    ],
+                    "name": "Item1"
+                  },
+                  {
+                    "id": "styleguide-content-list-field-shared-2",
+                    "displayName": "Styleguide Content List Item 2 (Shared)",
+                    "template": "AstroApp-Styleguide-ContentList-Item-Template",
+                    "fields": [
+                      {
+                        "name": "textField",
+                        "value": "ContentList Demo (Shared) Item 2 Text Field"
+                      }
+                    ],
+                    "name": "Item2"
+                  }
+                ]
+              },
+              {
+                "name": "EditFrameDemo",
+                "displayName": "EditFrameDemo",
+                "template": "Folder",
+                "children": [
+                  {
+                    "id": "styleguide-edit-frame-list-item-1",
+                    "displayName": "EditFrame Demo List Item 1",
+                    "template": "AstroApp-Styleguide-EditFrame-ListItem-Template",
+                    "fields": [
+                      {
+                        "name": "title",
+                        "value": "Edit Frame Demo List Item 1"
+                      }
+                    ],
+                    "name": "Item1"
+                  },
+                  {
+                    "id": "styleguide-edit-frame-list-item-2",
+                    "displayName": "EditFrame Demo List Item 2",
+                    "template": "AstroApp-Styleguide-EditFrame-ListItem-Template",
+                    "fields": [
+                      {
+                        "name": "title",
+                        "value": "Edit Frame Demo List Item 2"
+                      }
+                    ],
+                    "name": "Item2"
+                  }
+                ]
+              },
+              {
+                "name": "ItemLinkField",
+                "displayName": "ItemLinkField",
+                "template": "Folder",
+                "children": [
+                  {
+                    "id": "styleguide-item-link-field-shared-1",
+                    "displayName": "Styleguide Item Link Item 1 (Shared)",
+                    "template": "AstroApp-Styleguide-ItemLink-Item-Template",
+                    "fields": [
+                      {
+                        "name": "textField",
+                        "value": "ItemLink Demo (Shared) Item 1 Text Field"
+                      }
+                    ],
+                    "name": "Item1"
+                  },
+                  {
+                    "id": "styleguide-item-link-field-shared-2",
+                    "displayName": "Styleguide Item Link Item 2 (Shared)",
+                    "template": "AstroApp-Styleguide-ItemLink-Item-Template",
+                    "fields": [
+                      {
+                        "name": "textField",
+                        "value": "ItemLink Demo (Shared) Item 2 Text Field"
+                      }
+                    ],
+                    "name": "Item2"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "dictionary": [
+    {
+      "key": "styleguide-sample",
+      "value": "This is a dictionary entry in English as a demonstration"
+    },
+    {
+      "key": "Documentation",
+      "value": "Documentation"
+    },
+    {
+      "key": "Styleguide",
+      "value": "Styleguide"
+    },
+    {
+      "key": "GraphQL",
+      "value": "GraphQL"
+    }
+  ]
+}

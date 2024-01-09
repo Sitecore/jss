@@ -1,0 +1,61 @@
+---
+import a from "@sitecore-jss/sitecore-jss/layout";
+import type { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
+import Placeholder from '@sdk/Placeholder.astro';
+
+const { getChildPlaceholder, getFieldValue } = a;
+
+export interface Props  {
+  route: any;
+}
+
+const props: Props = Astro.props as Props;
+
+const convertUID = (uid?: string) => {
+  if (!uid) return '';
+  
+  return uid.replace(/[{}]/g, '');
+};
+
+const getRendering = (section: ComponentRendering | HtmlElementRendering) => section as ComponentRendering;
+
+const sections = getChildPlaceholder(props.route, 'AstroApp-jss-styleguide-layout')
+  .filter((section) => getFieldValue(getRendering(section), 'heading'))
+  .map((section) => ({
+    heading: getFieldValue<string>(getRendering(section), 'heading'),
+    id: `i${convertUID(getRendering(section).uid)}`,
+    children: getChildPlaceholder(getRendering(section), 'AstroApp-jss-styleguide-section')
+      .filter((component) => getFieldValue(getRendering(component), 'heading'))
+      .map((component) => ({
+        heading: getFieldValue<string>(getRendering(component), 'heading'),
+        id: `i${convertUID(getRendering(component).uid)}`,
+      })),
+  }));
+---
+
+<div class="row">
+  <div class="col-sm-8 col-lg-10">
+    <Placeholder name="AstroApp-jss-styleguide-layout" rendering={Astro.props.route} />
+  </div>
+  <div class="col-sm-4 col-lg-2 order-sm-first pt-2">
+    {sections.map((section) => (
+      <nav class="nav flex-column pt-2">
+        <a href={`#${section.id}`} class="nav-item fw-bold">
+          {section.heading}
+        </a>
+        {section.children && (
+          <nav class="nav flex-column">
+            {section.children.map(
+              (child) =>
+                child.heading && (
+                  <a href={`#${child.id}`}>
+                    {child.heading}
+                  </a>
+                )
+            )}
+          </nav>
+        )}
+      </nav>
+    ))}
+  </div>
+</div>

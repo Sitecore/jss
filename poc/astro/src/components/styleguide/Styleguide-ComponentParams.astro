@@ -1,0 +1,39 @@
+---
+import StyleguideSpecimen from './Styleguide-Specimen.astro';
+
+export interface Props  {
+  route: {
+    params: {
+      cssClass: string;
+      columns?: string;
+      useCallToAction: 'false' | 'true';
+    }
+  }
+}
+
+const { cssClass, columns, useCallToAction } = Astro.props.route.params;
+const columnsArray = columns && [...Array(parseInt(columns))];
+---
+<StyleguideSpecimen route={Astro.props.route} e2eId="styleguide-componentparams">
+    <p class={cssClass}>
+      The CSS class of this paragraph (<code>{cssClass}</code>) is set using a param
+    </p>
+    <div>
+      {/* Note that all params come in as string values, like this boolean-like param here: */}
+      useCallToAction param: <code>{useCallToAction}</code>
+      <br />
+      param type: <code>{typeof useCallToAction}</code>
+      {useCallToAction === 'true' && (
+        <div class="alert alert-info">the call to action is shown</div>
+      )}
+    </div>
+    <p>columns param: {columns}</p>
+    <div class="row">
+      {columnsArray &&
+        columnsArray.map((_, index) => (
+          <div class="col-sm">
+            Column {index}
+          </div>
+        ))}
+    </div>
+  </StyleguideSpecimen>

@@ -1,0 +1,305 @@
+import personalizePackage from "@sitecore-jss/sitecore-jss/personalize";
+import jssPackage from "@sitecore-jss/sitecore-jss";
+import {
+  MiddlewareBase,
+  MiddlewareBaseConfig,
+  MiddlewareContext,
+} from "./base";
+// import personalizeServerPackage from "@sitecore-cloudsdk/personalize/dist/cjs/src/server";
+import personalizeServerPackage from "@sitecore-cloudsdk/personalize/server";
+
+import type { APIContext } from "astro";
+
+const { debug } = jssPackage;
+
+const { init, personalize } = personalizeServerPackage;
+
+export type CdpServiceConfig = {
+  /**
+   * Your Sitecore Edge Platform endpoint
+   * Default is https://edge-platform.sitecorecloud.io
+   */
+  sitecoreEdgeUrl?: string;
+  /**
+   * Your unified Sitecore Edge Context Id
+   */
+  sitecoreEdgeContextId: string;
+  /**
+   * The Sitecore CDP channel to use for events. Uses 'WEB' by default.
+   */
+  channel?: string;
+  /**
+   * Currency for CDP request. Uses 'USA' as default.
+   */
+  currency?: string;
+  /**
+   * Timeout (ms) for CDP request. Default is 400.
+   */
+  timeout?: number;
+};
+
+export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
+  /**
+   * Configuration for your Sitecore Experience Edge endpoint
+   */
+  edgeConfig: Omit<personalizePackage.GraphQLPersonalizeServiceConfig, "fetch">;
+  /**
+   * Configuration for your Sitecore CDP endpoint
+   */
+  cdpConfig: CdpServiceConfig;
+};
+
+/**
+ * Object model of Experience Context data
+ */
+export type ExperienceParams = {
+  referrer: string;
+  utm: {
+    [key: string]: string | undefined;
+    campaign: string | undefined;
+    source: string | undefined;
+    medium: string | undefined;
+    content: string | undefined;
+  };
+};
+
+/**
+ * Middleware / handler to support Sitecore Personalize
+ */
+export class PersonalizeMiddleware extends MiddlewareBase {
+  private personalizeService: personalizePackage.GraphQLPersonalizeService;
+
+  /**
+   * @param {PersonalizeMiddlewareConfig} [config] Personalize middleware config
+   */
+  constructor(protected config: PersonalizeMiddlewareConfig) {
+    super(config);
+
+    // NOTE: we provide native fetch for compatibility on Astro Edge Runtime
+    // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
+    this.personalizeService = new personalizePackage.GraphQLPersonalizeService({
+      ...config.edgeConfig,
+      fetch: fetch,
+    });
+  }
+
+  /**
+   * Gets the Astro middleware handler with error handling
+   * @returns middleware handler
+   */
+  public getHandler(): (ctx: MiddlewareContext) => Promise<MiddlewareContext> {
+    return async (ctx: MiddlewareContext) => {
+      try {
+        return await this.handler(ctx);
+      } catch (error) {
+        console.log("Personalize middleware failed:");
+        console.log(error);
+        return ctx;
+      }
+    };
+  }
+
+  protected async initPersonalizeServer({
+    hostname,
+    siteName,
+    ctx,
+    response,
+  }: {
+    hostname: string;
+    siteName: string;
+    ctx: APIContext;
+    response: Response;
+  }): Promise<void> {
+    const customRes = {
+      // ...response,
+      setHeader(name: string, value: string) {
+        response.headers.set(name, value);
+      },
+    };
+
+    await init(
+      {
+        sitecoreEdgeUrl: this.config.cdpConfig.sitecoreEdgeUrl,
+        sitecoreEdgeContextId: this.config.cdpConfig.sitecoreEdgeContextId,
+        siteName,
+        cookieDomain: hostname,
+        enableServerCookie: true,
+      },
+      {
+        // ...ctx.request,
+        headers: ctx.request.headers,
+        cookies: {
+          set: ctx.cookies.set,
+          get(key: string) {
+            return { name: key, value: ctx.cookies.get(key)?.value || "" };
+          },
+        },
+      },
+      customRes
+    );
+  }
+
+  protected async personalize(
+    {
+      params,
+      personalizeInfo,
+      language,
+      timeout,
+    }: {
+      personalizeInfo: personalizePackage.PersonalizeInfo;
+      params: ExperienceParams;
+      language: string;
+      timeout?: number;
+    },
+    ctx: MiddlewareContext
+  ) {
+    const personalizationData = {
+      channel: this.config.cdpConfig.channel || "WEB",
+      currency: this.config.cdpConfig.currency ?? "USD",
+      friendlyId: personalizeInfo.contentId,
+      params,
+      language,
+    };
+
+    return (await personalize(
+      personalizationData,
+      {
+        ...ctx.context.request,
+        cookies: {
+          set: ctx.context.cookies.set,
+          get(key: string) {
+            return {
+              name: key,
+              value: ctx.context.cookies.get(key)?.value || "",
+            };
+          },
+        },
+      },
+      timeout
+    )) as {
+      variantId: string;
+    };
+  }
+
+  protected getExperienceParams(ctx: MiddlewareContext): ExperienceParams {
+    const utm = {
+      campaign: ctx.context.url.searchParams.get("utm_campaign") || undefined,
+      content: ctx.context.url.searchParams.get("utm_content") || undefined,
+      medium: ctx.context.url.searchParams.get("utm_medium") || undefined,
+      source: ctx.context.url.searchParams.get("utm_source") || undefined,
+    };
+
+    return {
+      // It's expected that the header name "referer" is actually a misspelling of the word "referrer"
+      // req.referrer is used during fetching to determine the value of the Referer header of the request being made,
+      // used as a fallback
+      referrer:
+        ctx.context.request.headers.get("referer") ||
+        ctx.context.request.referrer,
+      utm,
+    };
+  }
+
+  protected excludeRoute(pathname: string): boolean | undefined {
+    // ignore files
+    return pathname.includes(".") || super.excludeRoute(pathname);
+  }
+
+  private handler = async (
+    ctx: MiddlewareContext
+  ): Promise<MiddlewareContext> => {
+    const pathname = ctx.context.url.pathname;
+    const language = this.getLanguage(ctx.context);
+    const hostname = this.getHostHeader(ctx.context) || this.defaultHostname;
+    const startTimestamp = Date.now();
+    const timeout = this.config.cdpConfig.timeout;
+
+    debug.personalize("personalize middleware start: %o", {
+      pathname,
+      language,
+      hostname,
+      headers: this.extractDebugHeaders(ctx.context.request.headers),
+    });
+
+    if (this.config.disabled && this.config.disabled(ctx.context)) {
+      debug.personalize("skipped (personalize middleware is disabled)");
+      return ctx;
+    }
+
+    if (this.excludeRoute(pathname)) {
+      debug.personalize("skipped (%s)", "route excluded");
+      return ctx;
+    }
+
+    const site = this.getSite(ctx.context);
+
+    // Get personalization info from Experience Edge
+    const personalizeInfo = await this.personalizeService.getPersonalizeInfo(
+      pathname,
+      language,
+      site.name
+    );
+    if (!personalizeInfo) {
+      // Likely an invalid route / language
+      debug.personalize("skipped (personalize info not found)");
+      return ctx;
+    }
+
+    if (personalizeInfo.variantIds.length === 0) {
+      debug.personalize("skipped (no personalization configured)");
+      return ctx;
+    }
+
+    await this.initPersonalizeServer({
+      hostname,
+      siteName: site.name,
+      ctx: ctx.context,
+      response: ctx.response,
+    });
+
+    const params = this.getExperienceParams(ctx);
+
+    debug.personalize(
+      "executing experience for %s %o",
+      personalizeInfo.contentId,
+      params
+    );
+
+    let variantId;
+
+    // Execute targeted experience in Personalize SDK
+    // eslint-disable-next-line no-useless-catch
+    try {
+      const personalization = await this.personalize(
+        { personalizeInfo, params, language, timeout },
+        ctx
+      );
+      variantId = personalization.variantId;
+    } catch (error) {
+      throw error;
+    }
+
+    if (!variantId) {
+      debug.personalize("skipped (no variant identified)");
+      return ctx;
+    }
+
+    if (!personalizeInfo.variantIds.includes(variantId)) {
+      debug.personalize("skipped (invalid variant)");
+      return ctx;
+    }
+
+    ctx.context.locals.variantId = variantId;
+
+    debug.personalize(
+      "personalize middleware end in %dms: %o",
+      Date.now() - startTimestamp,
+      {
+        variantId,
+        headers: this.extractDebugHeaders(ctx.response.headers),
+      }
+    );
+
+    return ctx;
+  };
+}

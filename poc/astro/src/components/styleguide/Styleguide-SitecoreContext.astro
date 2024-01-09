@@ -1,0 +1,15 @@
+---
+import { SitecoreContextMap } from '@lib/context';
+import StyleguideSpecimen from './Styleguide-Specimen.astro';
+
+export interface Props  {
+  route: any
+}
+
+const sitecoreContext = SitecoreContextMap.get('context');
+---
+
+<StyleguideSpecimen route={Astro.props.route} e2eId="styleguide-sitecore-context">
+    <p>The current Sitecore Context is...</p>
+    <pre style={{ maxHeight: '400px', overflow: 'scroll' }}>{JSON.stringify(sitecoreContext, null, 2)}</pre>
+</StyleguideSpecimen>

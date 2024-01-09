@@ -1,0 +1,25 @@
+---
+import StyleguideSpecimen from '../styleguide/Styleguide-Specimen.astro';
+import Text from '@sdk/Text.astro';
+
+export interface Props  {
+  route: any
+}
+
+const {fields} = Astro.props.route;
+---
+
+<!--
+  Demonstrates usage of a Content Link content field within JSS.
+  Content links are a reference to a single other piece of content.
+-->
+<StyleguideSpecimen route={Astro.props.route} e2eId="styleguide-fieldusage-itemlink">
+    <h5>Shared Item Link</h5>
+    <!--
+        Item link fields are returned with their value as the referenced item value.
+      -->
+    {fields.sharedItemLink && <p>Field: <Text field={ fields.sharedItemLink.fields.textField } /></p>}
+
+    <h5>Local Item Link</h5>
+    {fields.localItemLink && <p>Field: <Text field={ fields.localItemLink.fields.textField } /></p>}
+</StyleguideSpecimen>

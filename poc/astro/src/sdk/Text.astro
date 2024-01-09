@@ -1,0 +1,65 @@
+---
+export interface Props   {
+    /** The text field data. */
+  field: {
+    value?: string | number,
+    editable?: string,
+    required?: true
+  },
+      /**
+     * The HTML element that will wrap the contents of the field.
+     */
+  tag?: string,
+    /**
+     * Can be used to explicitly disable inline editing.
+     * If true and `field.editable` has a value, then `field.editable` will
+     * be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
+     */
+  editable?: boolean,
+    /**
+     * If false, HTML-encoding of the field value is disabled and the value is rendered as-is.
+     */
+  encode?: boolean,
+  class?: string,
+}
+
+const { field, tag = "span", editable = true, encode = true} = Astro.props;
+
+const Tag = tag;
+
+if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
+  return "";
+}
+
+// can't use editable value if we want to output unencoded
+const isEditable = !encode ? false : editable;
+
+const output = field.editable && isEditable ? field.editable : field.value;
+
+const attrs = function () {
+  const { field, ...attrs } = Astro.props;
+  const { tag, ...finalAttrs } = attrs;
+  return finalAttrs;
+}();
+
+---
+
+{(field.editable && !encode) &&
+  <Tag {...attrs} set:html={output}>
+  </Tag>
+}
+
+{(field.editable && encode) &&
+  <Tag {...attrs} set:html={output}>
+  </Tag>
+}
+
+{!field.editable && isEditable  &&
+  <Tag {...attrs} set:text={output}>
+  </Tag>
+}
+
+{!field.editable && !isEditable  &&
+  <Tag {...attrs} set:html={output}>
+  </Tag>
+}

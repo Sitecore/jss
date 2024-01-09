@@ -1,0 +1,38 @@
+---
+import StyleguideSpecimen from '../styleguide/Styleguide-Specimen.astro';
+import jss from '@sitecore-jss/sitecore-jss/layout';
+import Text from '@sdk/Text.astro'
+
+const {getFieldValue} = jss;
+
+export interface Props  {
+  route: any;
+  value?: string | number;
+  editable?: string;
+}
+
+const {fields} = Astro.props.route
+const fieldValue = getFieldValue(fields, 'sample');
+---
+<StyleguideSpecimen route={Astro.props.route} e2eId="styleguide-fieldusage-text">
+  <!-- Basic use of a text field. No wrapper. -->
+  <Text field={fields.sample} encode={true} />
+
+  <!-- Advanced usage of text field. Specifies a wrapper tag, turns off Sitecore editing, supports raw HTML, and has a CSS class on the wrapper -->
+  <Text
+    field={fields.sample2}
+    tag="section"
+    editable={false}
+    encode={false}
+    class="fw-bold"
+    data-sample="other-attributes-pass-through"
+  />
+
+  <!--
+    Use this API when you need direct programmatic access to a field as a variable.
+    Note: editing such a value in Experience Editor is not possible, and direct field
+    editing must be used to edit a value emitted like this (the pencil icon when the rendering
+    is selected in xEditor)
+  -->
+  <div>Raw value (not editable): {fieldValue}</div>
+</StyleguideSpecimen>

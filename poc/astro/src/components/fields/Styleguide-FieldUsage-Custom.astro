@@ -1,0 +1,19 @@
+---
+import StyleguideSpecimen from '../styleguide/Styleguide-Specimen.astro';
+import Text from '@sdk/Text.astro';
+
+export interface Props  {
+  route: any;
+}
+
+const { fields } = Astro.props.route
+---
+
+<!--
+  Demonstrates usage of a custom content field type within JSS.
+  See /sitecore/definitions/components/Styleguide-FieldUsage-Custom.sitecore.js
+  for the definition of the structure of the custom field. This code is just for display.
+-->
+<StyleguideSpecimen route={Astro.props.route} e2eId="styleguide-fieldusage-custom">
+    <Text field={fields.customIntField} />
+</StyleguideSpecimen>

@@ -1,0 +1,19 @@
+---
+
+export interface Props {
+  field: {
+    value?: string;
+  };
+
+  render?: (date: Date | null) => string | null;
+}
+
+const { field, render } = Astro.props;
+
+const date =
+  render && field.value
+    ? render(new global.Date(field.value))
+    : field.value;
+---
+
+<Fragment set:html={date} />

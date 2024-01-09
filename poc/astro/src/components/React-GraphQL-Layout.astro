@@ -1,0 +1,10 @@
+---
+import componentFactory from "./integrations/react/componentFactory";
+export interface Props {
+  route: any;
+}
+
+const Component = componentFactory("React-GraphQL-Layout");
+---
+
+<Component rendering={Astro.props.route} />

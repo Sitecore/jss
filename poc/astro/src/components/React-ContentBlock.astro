@@ -1,0 +1,12 @@
+---
+import componentFactory from "./integrations/react/componentFactory";
+
+export interface Props {
+  route: any;
+}
+
+const Component = componentFactory("React-ContentBlock");
+
+const { fields } = Astro.props.route;
+---
+<Component fields={fields} />

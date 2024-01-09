@@ -1,0 +1,29 @@
+---
+import StyleguideSpecimen from '../styleguide/Styleguide-Specimen.astro';
+import RichText from '@sdk/RichText.astro';
+
+export interface Props {
+  route: any;
+  value?: string | number;
+  editable?: string;
+}
+
+const { fields } = Astro.props.route;
+---
+
+<StyleguideSpecimen
+  route={Astro.props.route}
+  e2eId="styleguide-fieldusage-richtext"
+>
+  <!-- Basic use of a rich text field. Wraps in a <div>. -->
+  <RichText field={fields.sample} />
+
+  <!-- Advanced usage of rich text field. Specifies a custom wrapper tag, turns off Sitecore editing, and has a CSS class on the wrapper -->
+  <RichText
+    field={fields.sample2}
+    tag="section"
+    editable={false}
+    class="text-center"
+    data-sample="other-attributes-pass-through"
+  />
+</StyleguideSpecimen>

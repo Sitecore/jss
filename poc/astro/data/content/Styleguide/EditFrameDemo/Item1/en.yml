@@ -1,0 +1,6 @@
+id: styleguide-edit-frame-list-item-1
+displayName: EditFrame Demo List Item 1
+# Template defines the available fields. See /sitecore/definitions/templates/Styleguide-EditFrame-ListItem-Template.ts
+template: AstroApp-Styleguide-EditFrame-ListItem-Template
+fields:
+  title: Edit Frame Demo List Item 1

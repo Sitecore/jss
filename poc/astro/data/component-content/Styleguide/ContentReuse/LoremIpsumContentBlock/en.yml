@@ -1,0 +1,9 @@
+# We can reuse this content definition in multiple places because it:
+# - has an ID
+# - is under component-content (normally) or content
+# Reuse is accomplished by referencing the content by ID in a route definition.
+id: lorem-ipsum-content-block
+componentName: ContentBlock
+displayName: Lorem Ipsum Dolor Sit Amet
+fields:
+  content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque felis mauris, pretium id neque vitae, vulputate pellentesque tortor. Mauris hendrerit dolor et ipsum lobortis bibendum non finibus neque. Morbi volutpat aliquam magna id posuere. Duis commodo cursus dui, nec interdum velit congue nec. Aliquam erat volutpat. Aliquam facilisis, sapien quis fringilla tincidunt, magna nulla feugiat neque, a consectetur arcu orci eu augue.</p>
