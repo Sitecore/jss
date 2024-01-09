@@ -125,9 +125,8 @@ export class RedirectsMiddleware extends MiddlewareBase {
           .replace(/^\/\//, '/')
           .split('?');
         url.pathname = target[0];
-        const targetQuery = target[1] || '';
-        if (targetQuery !== '') {
-          const newParams = new URLSearchParams(targetQuery);
+        if (target[1]) {
+          const newParams = new URLSearchParams(target[1]);
           for (const [key, val] of newParams.entries()) {
             url.searchParams.append(key, val);
           }
