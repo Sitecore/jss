@@ -29,6 +29,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Fixed Image component when there is using Banner variant which set property background-image when image is empty. ([#1689](https://github.com/Sitecore/jss/pull/1689)) ([#1692](https://github.com/Sitecore/jss/pull/1692))
 * `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` Ensure FEAAS and BYOC components can correctly use item datasources ([#1694](https://github.com/Sitecore/jss/pull/1694))
 * `[sitecore-jss-nextjs]` Fix loop error in redirect middleware when the pattern of redirect has default locale. ([#1696](https://github.com/Sitecore/jss/pull/1696))
+* `[sitecore-jss-nextjs]` Fix redirects middleware when source URL contains query string. ([#1696](https://github.com/Sitecore/jss/pull/1702))
 * `[templates/nextjs-sxa]` Fix feature `show Grid column` in Experience Editor. ([#1704](https://github.com/Sitecore/jss/pull/1704))
 * `[templates/nextjs-xmcloud]` Fix double registration of BYOC components ([#1707](https://github.com/Sitecore/jss/pull/1707)) ([#1709](https://github.com/Sitecore/jss/pull/1709))
 
