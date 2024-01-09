@@ -15,6 +15,7 @@
 ### Properties
 
 - [apiKey](index.GraphQLErrorPagesServiceConfig.md#apikey)
+- [clientFactory](index.GraphQLErrorPagesServiceConfig.md#clientfactory)
 - [endpoint](index.GraphQLErrorPagesServiceConfig.md#endpoint)
 - [language](index.GraphQLErrorPagesServiceConfig.md#language)
 - [retries](index.GraphQLErrorPagesServiceConfig.md#retries)
@@ -24,25 +25,54 @@
 
 ### apiKey
 
-• **apiKey**: `string`
+• `Optional` **apiKey**: `string`
 
 The API key to use for authentication
 
+**`Deprecated`**
+
+use
+
+**`Param`**
+
+property instead
+
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:11
+sitecore-jss/types/site/graphql-error-pages-service.d.ts:14
+
+___
+
+### clientFactory
+
+• `Optional` **clientFactory**: [`GraphQLRequestClientFactory`](../modules/graphql.md#graphqlrequestclientfactory)
+
+A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
+This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
+
+#### Defined in
+
+sitecore-jss/types/site/graphql-error-pages-service.d.ts:27
 
 ___
 
 ### endpoint
 
-• **endpoint**: `string`
+• `Optional` **endpoint**: `string`
 
 Your Graphql endpoint
 
+**`Deprecated`**
+
+use
+
+**`Param`**
+
+property instead
+
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:7
+sitecore-jss/types/site/graphql-error-pages-service.d.ts:9
 
 ___
 
@@ -54,7 +84,7 @@ The language
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:19
+sitecore-jss/types/site/graphql-error-pages-service.d.ts:22
 
 ___
 
@@ -82,4 +112,4 @@ The JSS application name
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:15
+sitecore-jss/types/site/graphql-error-pages-service.d.ts:18

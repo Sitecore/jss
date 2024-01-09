@@ -1,4 +1,5 @@
-import { ConfigPlugin, JssConfig } from '..';
+import { JssConfig } from 'lib/config';
+import { ConfigPlugin } from '..';
 
 /**
  * This config will set fallback values for properties that were left empty

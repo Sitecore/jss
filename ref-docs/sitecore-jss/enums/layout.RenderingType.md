@@ -16,8 +16,8 @@ Editing rendering type
 
 ### Component
 
-• **Component** = ``"component"``
+• **Component** = `"component"`
 
 #### Defined in
 
-[src/layout/models.ts:33](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss/src/layout/models.ts#L33)
+[src/layout/models.ts:33](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/layout/models.ts#L33)

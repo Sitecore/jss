@@ -81,6 +81,7 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
   // FEaaS control would still be hydrated by client
   // we pass all the props as a workaround to avoid hydration error, until we convert all JSS components to server side
   // this also allows component to fall back to full client-side rendering when template or src is empty
+  // FEAAS should not fetch anything, since JSS does the fetching - so we pass empty array into fetch param
   return (
     <FEAAS.Component
       data={data}
@@ -91,6 +92,7 @@ export const FEaaSComponent = (props: FEaaSComponentProps): JSX.Element => {
       component={props.params?.ComponentId}
       instance={props.params?.ComponentInstanceId}
       revision={computedRevision}
+      fetch={[]}
     />
   );
 };

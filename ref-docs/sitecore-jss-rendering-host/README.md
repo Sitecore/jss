@@ -29,8 +29,8 @@ By default, the resolver assumes a folder structure of:
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name           | Type     | Description                                            |
+| :------------- | :------- | :----------------------------------------------------- |
 | `baseAppPath?` | `Object` | The base path to your JSS app(s), defaults to `./dist` |
 
 #### Returns
@@ -41,9 +41,9 @@ resolver
 
 #### Defined in
 
-[defaultAppInvocationInfoResolver.ts:19](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L19)
+[defaultAppInvocationInfoResolver.ts:19](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L19)
 
-___
+---
 
 ### ssrMiddleware
 
@@ -51,8 +51,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type                   |
+| :-------- | :--------------------- |
 | `options` | `SSRMiddlewareOptions` |
 
 #### Returns
@@ -61,9 +61,9 @@ ___
 
 #### Defined in
 
-[ssrMiddleware.ts:41](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-rendering-host/src/ssrMiddleware.ts#L41)
+[ssrMiddleware.ts:41](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-rendering-host/src/ssrMiddleware.ts#L41)
 
-___
+---
 
 ### startRenderHostTunnel
 
@@ -71,10 +71,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `renderHostname` | `string` |
-| `options` | `Options` |
+| Name             | Type      |
+| :--------------- | :-------- |
+| `renderHostname` | `string`  |
+| `options`        | `Options` |
 
 #### Returns
 
@@ -82,9 +82,9 @@ ___
 
 #### Defined in
 
-[tunnel.ts:12](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-rendering-host/src/tunnel.ts#L12)
+[tunnel.ts:12](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-rendering-host/src/tunnel.ts#L12)
 
-___
+---
 
 ### startRenderingHostServer
 
@@ -92,8 +92,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type                         |
+| :------- | :--------------------------- |
 | `config` | `RenderingHostServerOptions` |
 
 #### Returns
@@ -102,4 +102,4 @@ ___
 
 #### Defined in
 
-[renderingHostServer.ts:47](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-rendering-host/src/renderingHostServer.ts#L47)
+[renderingHostServer.ts:47](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-rendering-host/src/renderingHostServer.ts#L47)

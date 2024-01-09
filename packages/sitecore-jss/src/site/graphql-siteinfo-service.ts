@@ -1,7 +1,7 @@
-import { URLSearchParams } from 'url';
 import { GraphQLClient, GraphQLRequestClient, PageInfo } from '../graphql';
 import debug from '../debug';
 import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
+import { GraphQLRequestClientFactory } from '../graphql-request-client';
 
 const headlessSiteGroupingTemplate = 'E46F3AF2-39FA-4866-A157-7017C4B2A40C';
 const sitecoreContentRootItem = '0DE95AE4-41AB-4D01-9EB0-67441B7C2450';
@@ -33,9 +33,6 @@ const defaultQuery = /* GraphQL */ `
           language: field(name: "Language") {
             value
           }
-          pointOfSale: field(name: "POS") {
-            value
-          }
         }
       }
     }
@@ -59,27 +56,30 @@ export type SiteInfo = {
    * Site default language
    */
   language: string;
-  /**
-   * Site point of sale
-   */
-  pointOfSale?: Record<string, string>;
 };
 
 export type GraphQLSiteInfoServiceConfig = CacheOptions & {
   /**
    * Your Graphql endpoint
+   * @deprecated use @param clientFactory property instead
    */
-  endpoint: string;
+  endpoint?: string;
   /**
    * The API key to use for authentication
+   * @deprecated use @param clientFactory property instead
    */
-  apiKey: string;
+  apiKey?: string;
   /** common variable for all GraphQL queries
    * it will be used for every type of query to regulate result batch size
    * Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
    * @default 10
    */
   pageSize?: number;
+  /**
+   * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
+   * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
+   */
+  clientFactory?: GraphQLRequestClientFactory;
 };
 
 type GraphQLSiteInfoResponse = {
@@ -97,9 +97,6 @@ export type GraphQLSiteInfoResult = {
     value: string;
   };
   language: {
-    value: string;
-  };
-  pointOfSale?: {
     value: string;
   };
 };
@@ -126,6 +123,10 @@ export class GraphQLSiteInfoService {
     if (cachedResult) {
       return cachedResult;
     }
+    if (process.env.SITECORE) {
+      debug.multisite('Skipping site information fetch (building on XM Cloud)');
+      return [];
+    }
 
     const results: SiteInfo[] = [];
     let hasNext = true;
@@ -138,9 +139,6 @@ export class GraphQLSiteInfoService {
       });
       const result = response?.search?.results?.reduce<SiteInfo[]>((result, current) => {
         result.push({
-          pointOfSale: current.pointOfSale?.value
-            ? Object.fromEntries(new URLSearchParams(current.pointOfSale.value))
-            : undefined,
           name: current.name.value,
           hostName: current.hostName.value,
           language: current.language.value,
@@ -176,6 +174,16 @@ export class GraphQLSiteInfoService {
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(): GraphQLClient {
+    if (!this.config.endpoint) {
+      if (!this.config.clientFactory) {
+        throw new Error('You should provide either an endpoint and apiKey, or a clientFactory.');
+      }
+
+      return this.config.clientFactory({
+        debugger: debug.multisite,
+      });
+    }
+
     return new GraphQLRequestClient(this.config.endpoint, {
       apiKey: this.config.apiKey,
       debugger: debug.multisite,

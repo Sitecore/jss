@@ -87,7 +87,10 @@ function renderView(
 
 function parseRouteUrl(url: string) {
   const routeParser = new JssRouteBuilderService();
-  const jssRoute = routeParser.parseRouteUrl(url.split('/').filter((segment) => segment), true);
+  const jssRoute = routeParser.parseRouteUrl(
+    url.split('/').filter((segment) => segment),
+    true
+  );
   return {
     lang: jssRoute.language,
     sitecoreRoute: jssRoute.serverRoute,
@@ -95,12 +98,6 @@ function parseRouteUrl(url: string) {
 }
 
 const apiKey = environment.sitecoreApiKey;
-const appName = environment.jssAppName;
+const siteName = environment.sitecoreSiteName;
 
-export {
-  renderView,
-  parseRouteUrl,
-  setUpDefaultAgents,
-  apiKey,
-  appName,
-};
+export { renderView, parseRouteUrl, setUpDefaultAgents, apiKey, siteName };

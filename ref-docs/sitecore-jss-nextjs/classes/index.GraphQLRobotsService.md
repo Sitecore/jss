@@ -42,7 +42,7 @@ Creates an instance of graphQL robots.txt service with the provided options
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-robots-service.d.ts:37
+sitecore-jss/types/site/graphql-robots-service.d.ts:45
 
 ## Properties
 
@@ -52,7 +52,7 @@ sitecore-jss/types/site/graphql-robots-service.d.ts:37
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-robots-service.d.ts:31
+sitecore-jss/types/site/graphql-robots-service.d.ts:39
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-robots-service.d.ts:30
+sitecore-jss/types/site/graphql-robots-service.d.ts:38
 
 ## Accessors
 
@@ -76,7 +76,7 @@ sitecore-jss/types/site/graphql-robots-service.d.ts:30
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-robots-service.d.ts:32
+sitecore-jss/types/site/graphql-robots-service.d.ts:40
 
 ## Methods
 
@@ -98,7 +98,7 @@ text of robots.txt
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-robots-service.d.ts:43
+sitecore-jss/types/site/graphql-robots-service.d.ts:51
 
 ___
 
@@ -118,4 +118,4 @@ implementation
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-robots-service.d.ts:50
+sitecore-jss/types/site/graphql-robots-service.d.ts:58

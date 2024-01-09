@@ -2,6 +2,7 @@ import { QuestionCollection } from 'inquirer';
 import CheckboxPrompt from 'inquirer/lib/prompts/checkbox';
 
 import { clientAppPrompts, ClientAppAnswer, incompatibleAddonsMsg } from '../../common';
+import { NextjsArgs } from './args';
 
 export enum Prerender {
   SSG = 'SSG',
@@ -10,6 +11,7 @@ export enum Prerender {
 
 export type NextjsAnswer = ClientAppAnswer & {
   prerender: Prerender;
+  xmcloud: boolean;
 };
 
 const DEFAULT_PRERENDER = Prerender.SSG;
@@ -29,6 +31,22 @@ export const prompts: QuestionCollection<NextjsAnswer> = [
       return !answers.prerender;
     },
   },
+  {
+    type: 'confirm',
+    name: 'xmcloud',
+    message: 'Are you building for Sitecore XM Cloud?',
+    default: false,
+    when: (answers: NextjsAnswer & NextjsArgs): boolean => {
+      // don't prompt if --yes or nextjs-xmcloud template was specified
+      if (answers.yes) {
+        return false;
+      } else if (answers.templates.includes('nextjs-xmcloud')) {
+        answers.xmcloud = true;
+        return false;
+      }
+      return true;
+    },
+  },
 ];
 
 /**
@@ -44,15 +62,6 @@ export class NextjsCheckbox extends CheckboxPrompt {
 
         return value === initializer && checked;
       });
-
-    const isPersonalizeSelected = isSelected('nextjs-personalize');
-    const isTrackingSelected = isSelected('nextjs-styleguide-tracking');
-
-    if (isPersonalizeSelected && isTrackingSelected) {
-      this.onError({
-        isValid: incompatibleAddonsMsg('nextjs-styleguide-tracking', 'nextjs-personalize'),
-      });
-    }
 
     const isSxaSelected = isSelected('nextjs-sxa');
     const isStyleguideSelected = isSelected('nextjs-styleguide');

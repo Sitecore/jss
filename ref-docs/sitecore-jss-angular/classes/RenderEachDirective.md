@@ -20,13 +20,13 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name          | Type                      |
+| :------------ | :------------------------ |
 | `templateRef` | `TemplateRef`<`unknown`\> |
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)
+[sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)
 
 ## Properties
 
@@ -36,4 +36,4 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)
+[sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)

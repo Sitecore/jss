@@ -29,13 +29,13 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type                                                                     |
+| :------- | :----------------------------------------------------------------------- |
 | `config` | [`NativeDataFetcherConfig`](../modules/index.md#nativedatafetcherconfig) |
 
 #### Defined in
 
-[src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 ## Properties
 
@@ -45,9 +45,9 @@
 
 #### Defined in
 
-[src/native-fetcher.ts:23](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss/src/native-fetcher.ts#L23)
+[src/native-fetcher.ts:23](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/native-fetcher.ts#L23)
 
-___
+---
 
 ### config
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 ## Methods
 
@@ -67,8 +67,8 @@ Safely extract all headers for debug logging
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name              | Type          | Description      |
+| :---------------- | :------------ | :--------------- |
 | `incomingHeaders` | `HeadersInit` | Incoming headers |
 
 #### Returns
@@ -79,9 +79,9 @@ Object with headers as key/value pairs
 
 #### Defined in
 
-[src/native-fetcher.ts:115](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss/src/native-fetcher.ts#L115)
+[src/native-fetcher.ts:115](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/native-fetcher.ts#L115)
 
-___
+---
 
 ### fetch
 
@@ -96,15 +96,15 @@ HttpDataFetcher<T> type for implementation details/notes.
 #### Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `url` | `string` | The URL to request; may include query string |
-| `data?` | `unknown` | Optional data to POST with the request. |
+| Name    | Type      | Description                                  |
+| :------ | :-------- | :------------------------------------------- |
+| `url`   | `string`  | The URL to request; may include query string |
+| `data?` | `unknown` | Optional data to POST with the request.      |
 
 #### Returns
 
@@ -114,9 +114,9 @@ response
 
 #### Defined in
 
-[src/native-fetcher.ts:33](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss/src/native-fetcher.ts#L33)
+[src/native-fetcher.ts:33](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/native-fetcher.ts#L33)
 
-___
+---
 
 ### getRequestInit
 
@@ -126,10 +126,10 @@ Determines settings for the request
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `init` | `RequestInit` | Custom settings for request |
-| `data?` | `unknown` | Optional data to POST with the request |
+| Name    | Type          | Description                            |
+| :------ | :------------ | :------------------------------------- |
+| `init`  | `RequestInit` | Custom settings for request            |
+| `data?` | `unknown`     | Optional data to POST with the request |
 
 #### Returns
 
@@ -139,4 +139,4 @@ The final request settings
 
 #### Defined in
 
-[src/native-fetcher.ts:97](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss/src/native-fetcher.ts#L97)
+[src/native-fetcher.ts:97](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/native-fetcher.ts#L97)

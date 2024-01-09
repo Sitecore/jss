@@ -30,13 +30,13 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name             | Type                                                                |
+| :--------------- | :------------------------------------------------------------------ |
 | `«destructured»` | [`ManifestManagerOptions`](../interfaces/ManifestManagerOptions.md) |
 
 #### Defined in
 
-[manifest/manifest-manager.ts:30](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L30)
+[manifest/manifest-manager.ts:30](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L30)
 
 ## Properties
 
@@ -46,9 +46,9 @@
 
 #### Defined in
 
-[manifest/manifest-manager.ts:23](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L23)
+[manifest/manifest-manager.ts:23](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L23)
 
-___
+---
 
 ### manifestArgs
 
@@ -56,9 +56,9 @@ ___
 
 #### Defined in
 
-[manifest/manifest-manager.ts:28](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L28)
+[manifest/manifest-manager.ts:28](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L28)
 
-___
+---
 
 ### rootPath
 
@@ -66,9 +66,9 @@ ___
 
 #### Defined in
 
-[manifest/manifest-manager.ts:24](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L24)
+[manifest/manifest-manager.ts:24](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L24)
 
-___
+---
 
 ### watcher
 
@@ -76,9 +76,9 @@ ___
 
 #### Defined in
 
-[manifest/manifest-manager.ts:25](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L25)
+[manifest/manifest-manager.ts:25](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L25)
 
-___
+---
 
 ### watcherSourcePaths
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[manifest/manifest-manager.ts:26](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L26)
+[manifest/manifest-manager.ts:26](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L26)
 
 ## Methods
 
@@ -96,8 +96,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type     |
+| :--------- | :------- |
 | `language` | `string` |
 
 #### Returns
@@ -106,9 +106,9 @@ ___
 
 #### Defined in
 
-[manifest/manifest-manager.ts:113](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L113)
+[manifest/manifest-manager.ts:113](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L113)
 
-___
+---
 
 ### getManifestPath
 
@@ -120,9 +120,9 @@ ___
 
 #### Defined in
 
-[manifest/manifest-manager.ts:109](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L109)
+[manifest/manifest-manager.ts:109](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L109)
 
-___
+---
 
 ### setManifestUpdatedCallback
 
@@ -130,8 +130,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type                                                                               |
+| :--------- | :--------------------------------------------------------------------------------- |
 | `callback` | (`newManifest`: [`ManifestInstance`](../interfaces/ManifestInstance.md)) => `void` |
 
 #### Returns
@@ -140,4 +140,4 @@ ___
 
 #### Defined in
 
-[manifest/manifest-manager.ts:81](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L81)
+[manifest/manifest-manager.ts:81](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L81)

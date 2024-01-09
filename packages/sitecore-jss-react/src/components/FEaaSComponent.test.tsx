@@ -68,7 +68,7 @@ describe('<FEaaSComponent />', () => {
     const wrapper = shallow(<FEaaSComponent template={template} />);
     expect(wrapper).to.have.length(1);
     expect(wrapper.html()).to.equal(
-      `<feaas-component class="-feaas" data="{&quot;_&quot;:{}}">${template}</feaas-component>`
+      `<feaas-component class="-feaas" fetch="">${template}</feaas-component>`
     );
   });
 
@@ -79,7 +79,7 @@ describe('<FEaaSComponent />', () => {
     const wrapper = shallow(<FEaaSComponent {...props} />);
     expect(wrapper).to.have.length(1);
     expect(wrapper.html()).to.equal(
-      '<feaas-component class="-feaas" cdn="host123" library="library123" version="version123" component="component123" revision="staged" data="{&quot;_&quot;:{}}"></feaas-component>'
+      '<feaas-component class="-feaas" cdn="host123" library="library123" version="version123" component="component123" revision="staged" fetch=""></feaas-component>'
     );
   });
 

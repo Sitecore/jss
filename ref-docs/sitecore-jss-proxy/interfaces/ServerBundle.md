@@ -17,6 +17,7 @@ Interface for the server.bundle.js file
 - [parseRouteUrl](ServerBundle.md#parserouteurl)
 - [renderView](ServerBundle.md#renderview)
 - [setUpDefaultAgents](ServerBundle.md#setupdefaultagents)
+- [siteName](ServerBundle.md#sitename)
 
 ## Properties
 
@@ -26,9 +27,9 @@ Interface for the server.bundle.js file
 
 #### Defined in
 
-[src/ProxyConfig.ts:23](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L23)
+[ProxyConfig.ts:24](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L24)
 
-___
+---
 
 ### appName
 
@@ -36,9 +37,9 @@ ___
 
 #### Defined in
 
-[src/ProxyConfig.ts:22](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L22)
+[ProxyConfig.ts:22](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L22)
 
-___
+---
 
 ### parseRouteUrl
 
@@ -46,9 +47,9 @@ ___
 
 #### Defined in
 
-[src/ProxyConfig.ts:25](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L25)
+[ProxyConfig.ts:26](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L26)
 
-___
+---
 
 ### renderView
 
@@ -56,9 +57,9 @@ ___
 
 #### Defined in
 
-[src/ProxyConfig.ts:24](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L24)
+[ProxyConfig.ts:25](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L25)
 
-___
+---
 
 ### setUpDefaultAgents
 
@@ -70,9 +71,9 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `httpAgent` | `Agent` |
+| Name         | Type    |
+| :----------- | :------ |
+| `httpAgent`  | `Agent` |
 | `httpsAgent` | `Agent` |
 
 ##### Returns
@@ -81,4 +82,14 @@ ___
 
 #### Defined in
 
-[src/ProxyConfig.ts:26](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L26)
+[ProxyConfig.ts:27](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L27)
+
+---
+
+### siteName
+
+• **siteName**: `string`
+
+#### Defined in
+
+[ProxyConfig.ts:23](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L23)

@@ -3,6 +3,7 @@ import nock from 'nock';
 import { ErrorPages, GraphQLErrorPagesService } from './graphql-error-pages-service';
 import { siteNameError } from '../constants';
 import { LayoutServiceData } from '../layout';
+import { GraphQLRequestClient } from '../graphql-request-client';
 
 const errorQueryResultNull = {
   site: {
@@ -73,6 +74,27 @@ describe('GraphQLErrorPagesService', () => {
         siteName,
         language,
       });
+      const errorPages = await service.fetchErrorPages();
+
+      expect(errorPages).to.deep.equal(mockErrorPages);
+
+      return expect(nock.isDone()).to.be.true;
+    });
+
+    it('should fetch error pages using clientFactory', async () => {
+      mockErrorPagesRequest(mockErrorPages);
+
+      const clientFactory = GraphQLRequestClient.createClientFactory({
+        endpoint,
+        apiKey,
+      });
+
+      const service = new GraphQLErrorPagesService({
+        siteName,
+        language,
+        clientFactory,
+      });
+
       const errorPages = await service.fetchErrorPages();
 
       expect(errorPages).to.deep.equal(mockErrorPages);

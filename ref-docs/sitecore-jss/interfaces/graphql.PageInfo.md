@@ -23,9 +23,9 @@ string token that can be used to fetch the next page of results
 
 #### Defined in
 
-[src/graphql/search-service.ts:11](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss/src/graphql/search-service.ts#L11)
+[src/graphql/search-service.ts:11](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/graphql/search-service.ts#L11)
 
-___
+---
 
 ### hasNext
 
@@ -35,4 +35,4 @@ a value that indicates whether more pages of results are available
 
 #### Defined in
 
-[src/graphql/search-service.ts:15](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss/src/graphql/search-service.ts#L15)
+[src/graphql/search-service.ts:15](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/graphql/search-service.ts#L15)

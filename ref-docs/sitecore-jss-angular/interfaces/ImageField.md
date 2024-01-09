@@ -31,9 +31,9 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering-field.ts:4](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-angular/src/components/rendering-field.ts#L4)
+[sitecore-jss-angular/src/components/rendering-field.ts:4](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/rendering-field.ts#L4)
 
-___
+---
 
 ### src
 
@@ -45,13 +45,13 @@ ImageFieldValue.src
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering-field.ts:24](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-angular/src/components/rendering-field.ts#L24)
+[sitecore-jss-angular/src/components/rendering-field.ts:24](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/rendering-field.ts#L24)
 
-___
+---
 
 ### srcSet
 
-• `Optional` **srcSet**: { `[key: string]`: `string` \| `number` \| `undefined`;  }[]
+• `Optional` **srcSet**: { `[key: string]`: `string` \| `number` \| `undefined`; }[]
 
 #### Inherited from
 
@@ -59,9 +59,9 @@ ImageFieldValue.srcSet
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering-field.ts:25](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-angular/src/components/rendering-field.ts#L25)
+[sitecore-jss-angular/src/components/rendering-field.ts:25](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/rendering-field.ts#L25)
 
-___
+---
 
 ### value
 
@@ -73,4 +73,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering-field.ts:31](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-angular/src/components/rendering-field.ts#L31)
+[sitecore-jss-angular/src/components/rendering-field.ts:31](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/rendering-field.ts#L31)

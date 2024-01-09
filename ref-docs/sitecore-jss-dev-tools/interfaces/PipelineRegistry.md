@@ -24,8 +24,8 @@
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type                      |
+| :--------- | :------------------------ |
 | `pipeline` | [`Pipeline`](Pipeline.md) |
 
 ##### Returns
@@ -34,9 +34,9 @@
 
 #### Defined in
 
-[pipelines/pipelinesRegistry.ts:4](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L4)
+[pipelines/pipelinesRegistry.ts:4](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L4)
 
-___
+---
 
 ### deletePipeline
 
@@ -48,8 +48,8 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name           | Type     |
+| :------------- | :------- |
 | `pipelineName` | `string` |
 
 ##### Returns
@@ -58,9 +58,9 @@ ___
 
 #### Defined in
 
-[pipelines/pipelinesRegistry.ts:6](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L6)
+[pipelines/pipelinesRegistry.ts:6](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L6)
 
-___
+---
 
 ### getPipeline
 
@@ -72,8 +72,8 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name           | Type     |
+| :------------- | :------- |
 | `pipelineName` | `string` |
 
 ##### Returns
@@ -82,13 +82,13 @@ ___
 
 #### Defined in
 
-[pipelines/pipelinesRegistry.ts:7](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L7)
+[pipelines/pipelinesRegistry.ts:7](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L7)
 
-___
+---
 
 ### getPipelines
 
-• **getPipelines**: () => { `[key: string]`: [`Pipeline`](Pipeline.md);  }
+• **getPipelines**: () => { `[key: string]`: [`Pipeline`](Pipeline.md); }
 
 #### Type declaration
 
@@ -100,9 +100,9 @@ ___
 
 #### Defined in
 
-[pipelines/pipelinesRegistry.ts:8](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L8)
+[pipelines/pipelinesRegistry.ts:8](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L8)
 
-___
+---
 
 ### updatePipeline
 
@@ -114,10 +114,10 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `pipeline` | [`Pipeline`](Pipeline.md) |
-| `pipelineName?` | `string` |
+| Name            | Type                      |
+| :-------------- | :------------------------ |
+| `pipeline`      | [`Pipeline`](Pipeline.md) |
+| `pipelineName?` | `string`                  |
 
 ##### Returns
 
@@ -125,4 +125,4 @@ ___
 
 #### Defined in
 
-[pipelines/pipelinesRegistry.ts:5](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L5)
+[pipelines/pipelinesRegistry.ts:5](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L5)

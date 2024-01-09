@@ -13,11 +13,12 @@ const packageConfig = require('../package.json');
  * NOTE! Any configs returned here will be written into the client-side JS bundle. DO NOT PUT SECRETS HERE.
  * @param {object} configOverrides Keys in this object will override any equivalent global config keys.
  */
+// VUE_APP_JSS_APP_NAME env variable has been deprecated since v.21.6, VUE_APP_SITECORE_SITE_NAME should be used instead
 module.exports = function generateConfig(configOverrides) {
   const defaultConfig = {
     sitecoreApiKey: 'no-api-key-set',
     sitecoreApiHost: '',
-    jssAppName: 'Unknown',
+    sitecoreSiteName: process.env.VUE_APP_SITECORE_SITE_NAME || process.env.VUE_APP_JSS_APP_NAME,
     layoutServiceConfigurationName: 'default',
   };
 
@@ -45,7 +46,9 @@ const config = {};\n`;
 
   // Set base configuration values, allowing override with environment variables
   Object.keys(config).forEach((prop) => {
-    configText += `config.${prop} = process.env.VUE_APP_${constantCase(prop)} || "${config[prop]}",\n`;
+    configText += `config.${prop} = process.env.VUE_APP_${constantCase(prop)} || "${
+      config[prop]
+    }",\n`;
   });
   // Set computed values, allowing override with environment variables
   Object.keys(computedConfig).forEach((prop) => {
@@ -83,7 +86,7 @@ function transformPackageConfig() {
   if (!packageConfig.config) return {};
 
   return {
-    jssAppName: packageConfig.config.appName,
+    sitecoreSiteName: packageConfig.config.appName,
     defaultLanguage: packageConfig.config.language || 'en',
     graphQLEndpointPath: packageConfig.config.graphQLEndpointPath || null,
   };

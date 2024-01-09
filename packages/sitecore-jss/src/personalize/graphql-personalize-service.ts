@@ -1,4 +1,8 @@
-import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
+import {
+  GraphQLClient,
+  GraphQLRequestClient,
+  GraphQLRequestClientFactory,
+} from '../graphql-request-client';
 import debug from '../debug';
 import { isTimeoutError } from '../utils';
 import { CdpHelper } from './utils';
@@ -7,12 +11,14 @@ import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
 export type GraphQLPersonalizeServiceConfig = CacheOptions & {
   /**
    * Your Graphql endpoint
+   * @deprecated use @param clientFactory property instead
    */
-  endpoint: string;
+  endpoint?: string;
   /**
    * The API key to use for authentication
+   * @deprecated use @param clientFactory property instead
    */
-  apiKey: string;
+  apiKey?: string;
   /**
    * Timeout (ms) for the Personalize request. Default is 400.
    */
@@ -25,6 +31,11 @@ export type GraphQLPersonalizeServiceConfig = CacheOptions & {
    * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
    */
   fetch?: typeof fetch;
+  /**
+   * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
+   * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
+   */
+  clientFactory?: GraphQLRequestClientFactory;
 };
 
 /**
@@ -138,6 +149,18 @@ export class GraphQLPersonalizeService {
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(): GraphQLClient {
+    if (!this.config.endpoint) {
+      if (!this.config.clientFactory) {
+        throw new Error('You should provide either an endpoint and apiKey, or a clientFactory.');
+      }
+
+      return this.config.clientFactory({
+        debugger: debug.personalize,
+        fetch: this.config.fetch,
+        timeout: this.config.timeout,
+      });
+    }
+
     return new GraphQLRequestClient(this.config.endpoint, {
       apiKey: this.config.apiKey,
       debugger: debug.personalize,

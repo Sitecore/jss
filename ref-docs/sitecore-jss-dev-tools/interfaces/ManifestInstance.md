@@ -24,9 +24,9 @@
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:56](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L56)
+[manifest/generator/manifest.types.ts:56](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L56)
 
-___
+---
 
 ### dictionary
 
@@ -34,9 +34,9 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:64](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L64)
+[manifest/generator/manifest.types.ts:64](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L64)
 
-___
+---
 
 ### items
 
@@ -44,16 +44,16 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `nonRoutes` | [`ItemDefinition`](ItemDefinition.md)[] |
-| `routes` | [`RouteDefinition`](RouteDefinition.md)[] |
+| Name        | Type                                      |
+| :---------- | :---------------------------------------- |
+| `nonRoutes` | [`ItemDefinition`](ItemDefinition.md)[]   |
+| `routes`    | [`RouteDefinition`](RouteDefinition.md)[] |
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:58](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L58)
+[manifest/generator/manifest.types.ts:58](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L58)
 
-___
+---
 
 ### language
 
@@ -61,9 +61,9 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:65](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L65)
+[manifest/generator/manifest.types.ts:65](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L65)
 
-___
+---
 
 ### media
 
@@ -71,9 +71,9 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:63](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L63)
+[manifest/generator/manifest.types.ts:63](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L63)
 
-___
+---
 
 ### placeholders
 
@@ -81,9 +81,9 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:62](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L62)
+[manifest/generator/manifest.types.ts:62](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L62)
 
-___
+---
 
 ### rootPlaceholders
 
@@ -91,9 +91,9 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:67](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L67)
+[manifest/generator/manifest.types.ts:67](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L67)
 
-___
+---
 
 ### templates
 
@@ -101,9 +101,9 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:57](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L57)
+[manifest/generator/manifest.types.ts:57](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L57)
 
-___
+---
 
 ### wipeExisting
 
@@ -111,4 +111,4 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:66](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L66)
+[manifest/generator/manifest.types.ts:66](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L66)

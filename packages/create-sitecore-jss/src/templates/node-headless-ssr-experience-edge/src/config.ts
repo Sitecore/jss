@@ -1,5 +1,8 @@
 import { Config, ServerBundle } from './types';
-const appName = process.env.SITECORE_JSS_APP_NAME;
+
+const appName = process.env.SITECORE_JSS_APP_NAME || 'YOUR APP NAME';
+
+const siteName = process.env.SITECORE_SITE_NAME || appName;
 
 /**
  * The server.bundle.js file from your pre-built JSS app
@@ -26,10 +29,10 @@ export const config: Config = {
    */
   apiKey: process.env.SITECORE_API_KEY || serverBundle.apiKey || '{YOUR API KEY HERE}',
   /**
-   * The JSS application name defaults to providing part of the bundle path.
-   * If not passed as an environment variable or set here, any application name exported from the bundle will be used instead.
+   * The Sitecore site name.
+   * Required.
    */
-  appName: appName || serverBundle.appName,
+  siteName: siteName || serverBundle.siteName,
   /**
    * Port which will be used when start sample
    */

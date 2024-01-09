@@ -6,6 +6,7 @@ import {
   getFieldValue,
 } from '../layout';
 import { HTMLLink } from '../models';
+import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
 
 /**
  * Pattern for library ids
@@ -13,17 +14,17 @@ import { HTMLLink } from '../models';
  */
 const FEAAS_LIBRARY_ID_REGEX = /-library--([^\s]+)/;
 
-export const FEAAS_SERVER_URL = 'https://feaas.blob.core.windows.net';
-
 /**
  * Walks through rendering tree and returns list of links of all FEAAS Component Library Stylesheets that are used
  * @param {LayoutServiceData} layoutData Layout service data
- * @param {string} [serverUrl] server URL, default is @see {FEAAS_SERVER_URL} url
+ * @param {string} sitecoreEdgeContextId Sitecore Edge Context ID
+ * @param {string} [sitecoreEdgeUrl] Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io
  * @returns {HTMLLink[]} library stylesheet links
  */
 export function getFEAASLibraryStylesheetLinks(
   layoutData: LayoutServiceData,
-  serverUrl?: string
+  sitecoreEdgeContextId: string,
+  sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT
 ): HTMLLink[] {
   const ids = new Set<string>();
 
@@ -31,11 +32,19 @@ export function getFEAASLibraryStylesheetLinks(
 
   traverseComponent(layoutData.sitecore.route, ids);
 
-  return [...ids].map((id) => ({ href: getStylesheetUrl(id, serverUrl), rel: 'stylesheet' }));
+  return [...ids].map((id) => ({
+    href: getStylesheetUrl(id, sitecoreEdgeContextId, sitecoreEdgeUrl),
+    rel: 'stylesheet',
+  }));
 }
 
-export const getStylesheetUrl = (id: string, serverUrl?: string) =>
-  `${serverUrl || FEAAS_SERVER_URL}/styles/${id}/published.css`;
+export const getStylesheetUrl = (
+  id: string,
+  sitecoreEdgeContextId: string,
+  sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT
+) => {
+  return `${sitecoreEdgeUrl}/v1/files/components/styles/${id}.css?sitecoreContextId=${sitecoreEdgeContextId}`;
+};
 
 /**
  * Traverse placeholder and components to add library ids

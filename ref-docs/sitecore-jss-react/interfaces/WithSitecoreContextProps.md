@@ -23,14 +23,14 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:9](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L9)
+[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:9](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L9)
 
-___
+---
 
 ### updateSitecoreContext
 
-• `Optional` **updateSitecoreContext**: ``false`` \| (`value`: [`SitecoreContextValue`](../README.md#sitecorecontextvalue)) => `void`
+• `Optional` **updateSitecoreContext**: `false` \| (`value`: [`SitecoreContextValue`](../README.md#sitecorecontextvalue)) => `void`
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:10](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L10)
+[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:10](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L10)

@@ -250,7 +250,7 @@ describe('Error handling', () => {
   // Disabling these two tests until we have AppRouter and can switch back from clientFallback to fallback
   // Components does some workarounds to support client BYOC and client fallback without error frame flickering during component load
   // This results in fallback frame being rendered post-hydration, and not being findable in test context.
-  xit('should render missing component frame when component is not registered', () => {
+  xit('should render missing component frame when component is not registered', async () => {
     const props = {
       params: { ComponentName: 'NonExistentComponent' },
       components: {},

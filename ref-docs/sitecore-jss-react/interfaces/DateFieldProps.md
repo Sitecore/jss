@@ -30,9 +30,9 @@ true
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Date.tsx:20](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-react/src/components/Date.tsx#L20)
+[sitecore-jss-react/src/components/Date.tsx:20](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-react/src/components/Date.tsx#L20)
 
-___
+---
 
 ### field
 
@@ -40,16 +40,16 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type     |
+| :---------- | :------- |
 | `editable?` | `string` |
-| `value?` | `string` |
+| `value?`    | `string` |
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Date.tsx:7](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-react/src/components/Date.tsx#L7)
+[sitecore-jss-react/src/components/Date.tsx:7](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-react/src/components/Date.tsx#L7)
 
-___
+---
 
 ### render
 
@@ -61,8 +61,8 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type   |
+| :----- | :----- |
 | `date` | `Date` |
 
 ##### Returns
@@ -71,9 +71,9 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Date.tsx:21](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-react/src/components/Date.tsx#L21)
+[sitecore-jss-react/src/components/Date.tsx:21](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-react/src/components/Date.tsx#L21)
 
-___
+---
 
 ### tag
 
@@ -83,4 +83,4 @@ The HTML element that will wrap the contents of the field.
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Date.tsx:14](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-react/src/components/Date.tsx#L14)
+[sitecore-jss-react/src/components/Date.tsx:14](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-react/src/components/Date.tsx#L14)

@@ -26,9 +26,9 @@ For Sitecore developers only.
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:203](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L203)
+[manifest/generator/manifest.types.ts:203](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L203)
 
-___
+---
 
 ### displayName
 
@@ -36,9 +36,9 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:179](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L179)
+[manifest/generator/manifest.types.ts:179](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L179)
 
-___
+---
 
 ### fields
 
@@ -48,9 +48,9 @@ The data fields that provide content data to the component
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:183](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L183)
+[manifest/generator/manifest.types.ts:183](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L183)
 
-___
+---
 
 ### icon
 
@@ -61,9 +61,9 @@ Example: 'People/16x16/alarmclock.png'
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:188](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L188)
+[manifest/generator/manifest.types.ts:188](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L188)
 
-___
+---
 
 ### id
 
@@ -75,9 +75,9 @@ For Sitecore developers only.
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:198](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L198)
+[manifest/generator/manifest.types.ts:198](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L198)
 
-___
+---
 
 ### inherits
 
@@ -87,9 +87,9 @@ Names of other templates to inherit from. Inheritance inherits fields, but not o
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:192](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L192)
+[manifest/generator/manifest.types.ts:192](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L192)
 
-___
+---
 
 ### insertOptions
 
@@ -99,9 +99,9 @@ Template names to allow as insert options under this template
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:205](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L205)
+[manifest/generator/manifest.types.ts:205](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L205)
 
-___
+---
 
 ### name
 
@@ -109,4 +109,4 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:178](https://github.com/Sitecore/jss/blob/acacbac49/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L178)
+[manifest/generator/manifest.types.ts:178](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L178)
