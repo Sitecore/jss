@@ -5,17 +5,10 @@ import type {
 } from "@sitecore-jss/sitecore-jss/layout";
 import Layout from "@layouts/Layout.astro";
 import { getRoutePath, getLocales } from "@lib/i18n/utils";
-import { sitemapFetcher } from "@lib/sitemap-fetcher";
 import { SitecorePagePropsFactory } from "@lib/page-props-factory";
 import { SitecoreContextMap } from "@lib/context";
 import type { PagePropsFactoryConfig } from "@lib/page-props-factory";
 import config from "@temp/config";
-
-export async function getStaticPaths() {
-  const staticPaths = await sitemapFetcher.fetch();
-
-  return staticPaths;
-}
 
 const language =
   Astro.currentLocale || Astro.preferredLocale || config.defaultLanguage;
@@ -48,3 +41,4 @@ SitecoreContextMap.set("language", language);
 ---
 
 <Layout title="a" layoutData={pageProps.layoutData} />
+<h2>Hybrid page</h2>
