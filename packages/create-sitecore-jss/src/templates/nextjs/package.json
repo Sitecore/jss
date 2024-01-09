@@ -12,10 +12,6 @@
     "graphQLEndpointPath": "/sitecore/api/graph/edge",
     "language": "en"
   },
-  "engines": {
-    "node": ">=18",
-    "npm": ">=10"
-  },
   "author": {
     "name": "Sitecore Corporation",
     "url": "https://jss.sitecore.com"

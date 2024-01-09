@@ -15,11 +15,13 @@ Our versioning strategy is as follows:
 
 * `[nextjs/template]` `[sitecore-jss-nextjs]` On-demand ISR [#1674](https://github.com/Sitecore/jss/pull/1672))
 * `[sitecore-jss]` `[templates/nextjs-xmcloud]` Load the content styles for the RichText component ([#1670](https://github.com/Sitecore/jss/pull/1670))([#1683](https://github.com/Sitecore/jss/pull/1683)) ([#1684](https://github.com/Sitecore/jss/pull/1684)) ([#1693](https://github.com/Sitecore/jss/pull/1693))
+* `[sitecore-jss-nextjs]` `[templates/nextjs-xmcloud]` Page state (preview, edit, normal) is available through shared context. This allows access to the state for integrations such as CloudSDK and FEAAS. ([#1703](https://github.com/Sitecore/jss/pull/1703))
 
 ### 🧹 Chores
 
 * Upgrade to Node.js 20.x ([#1679](https://github.com/Sitecore/jss/pull/1679))([#1681](https://github.com/Sitecore/jss/pull/1681))
 * Removed "npm" field from "engines" property ([#1698](https://github.com/Sitecore/jss/pull/1698))
+* Removed "engines" field for templates ([#1701](https://github.com/Sitecore/jss/pull/1701))
 
 ### 🐛 Bug Fixes
 
@@ -28,6 +30,8 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` Ensure FEAAS and BYOC components can correctly use item datasources ([#1694](https://github.com/Sitecore/jss/pull/1694))
 * `[sitecore-jss-nextjs]` Fix loop error in redirect middleware when the pattern of redirect has default locale. ([#1696](https://github.com/Sitecore/jss/pull/1696))
 * `[sitecore-jss-nextjs]` Fix redirects middleware when source URL contains query string. ([#1696](https://github.com/Sitecore/jss/pull/1702))
+* `[templates/nextjs-sxa]` Fix feature `show Grid column` in Experience Editor. ([#1704](https://github.com/Sitecore/jss/pull/1704))
+* `[templates/nextjs-xmcloud]` Fix double registration of BYOC components ([#1707](https://github.com/Sitecore/jss/pull/1707)) ([#1709](https://github.com/Sitecore/jss/pull/1709))
 
 ### 🛠 Breaking Changes
 
@@ -57,7 +61,7 @@ Our versioning strategy is as follows:
 ### 🎉 New Features & Improvements
 
 * `[templates/react]` `[templates/angular]` `[templates/vue]` `[templates/node-headless-ssr-proxy]` `[templates/node-headless-ssr-experience-edge]` ([#1647](https://github.com/Sitecore/jss/pull/1647)) ([#1672](https://github.com/Sitecore/jss/pull/1672)) Switch from using JSS_APP_NAME to SITECORE_SITE_NAME - environment and config variables in React, Vue, Angular templates as well as ssr node proxy apps templates have been renamed. 
-* `[templates/nextjs]` `[sitecore-jss-nextjs]` `[sitecore-jss]` ([#1640](https://github.com/Sitecore/jss/pull/1640)) ([#1662](https://github.com/Sitecore/jss/pull/1662))([#1661](https://github.com/Sitecore/jss/pull/1661)) ([#1672](https://github.com/Sitecore/jss/pull/1672)) ([#1675](https://github.com/Sitecore/jss/pull/1675)) Sitecore Edge Platform and Context support:
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` `[sitecore-jss]` ([#1640](https://github.com/Sitecore/jss/pull/1640)) ([#1662](https://github.com/Sitecore/jss/pull/1662))([#1661](https://github.com/Sitecore/jss/pull/1661)) ([#1672](https://github.com/Sitecore/jss/pull/1672)) ([#1675](https://github.com/Sitecore/jss/pull/1675)) ([#1710](https://github.com/Sitecore/jss/pull/1710)) Sitecore Edge Platform and Context support:
   * Introducing the _clientFactory_ property. This property can be utilized by GraphQL-based services, the previously used _endpoint_ and _apiKey_ properties are deprecated. The _clientFactory_ serves as the central hub for executing GraphQL requests within the application.
   * New SITECORE_EDGE_CONTEXT_ID environment variable has been added.
   * The JSS_APP_NAME environment variable has been updated and is now referred to as SITECORE_SITE_NAME.

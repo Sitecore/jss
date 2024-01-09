@@ -14,10 +14,6 @@
     "language": "en",
     "tunnelUrl": "http://jss.ngrok.io"
   },
-  "engines": {
-    "node": ">=18",
-    "npm": ">=10"
-  },
   "author": {
     "name": "Sitecore Corporation",
     "url": "https://jss.sitecore.com"
