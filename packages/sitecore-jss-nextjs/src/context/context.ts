@@ -138,13 +138,16 @@ export class Context<SDKModules extends SDKModulesType> {
    */
   protected initSDK<T extends keyof SDKModules>(name: T): void {
     this.sdkPromises[name] = new Promise((resolve, reject) => {
-      this.props.sdks[name].init(this).then(() => {
-        this.sdks[name] = this.props.sdks[name].sdk;
-        resolve(this.sdks[name]);
-      }).catch((e) => {
-        console.log(`Initialization for SDK ${name.toString()} skipped. Reason: \n ${e}`);
-        reject(e);
-      });
+      this.props.sdks[name]
+        .init(this)
+        .then(() => {
+          this.sdks[name] = this.props.sdks[name].sdk;
+          resolve(this.sdks[name]);
+        })
+        .catch((e) => {
+          console.log(`Initialization for SDK ${name.toString()} skipped. Reason: \n ${e}`);
+          reject(e);
+        });
     });
   }
 }
