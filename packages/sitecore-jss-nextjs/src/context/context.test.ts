@@ -28,6 +28,17 @@ describe('Context', () => {
     },
   };
 
+  const errorSdk = {
+    Error: {
+      sdk: { error: 'yes' },
+      init: () => {
+        return new Promise<void>((_, reject) => {
+          reject('Cannot init Error');
+        });        
+      }
+    },
+  }
+
   const fooInitSpy = sinon.spy(sdks.Foo, 'init');
   const barInitSpy = sinon.spy(sdks.Bar, 'init');
 
@@ -158,6 +169,29 @@ describe('Context', () => {
       context.init({ siteName: 'website-2' });
 
       expect(context.siteName).to.equal('website-1');
+    });
+
+    
+    it('should catch and log when SDK initialization rejects', () => {
+      const consoleSpy = sinon.spy(console, 'log');
+      const localProps = {...props, sdks: errorSdk};
+      const context = new Context<typeof errorSdk>(localProps);
+      context.init();
+      expect(consoleSpy.calledWith('Initialization for SDK Error skipped. Reason: \n Cannot init Error'));
+      consoleSpy.restore();
+    });
+
+    it('should reject when getting SDK that rejected initialization', (done) => {
+      const localProps = {...props, sdks: errorSdk};
+      const context = new Context<typeof errorSdk>(localProps);
+      context.init();
+      context.getSDK('Error').then(()=> {
+        throw new Error('should not resolve');       
+      })
+      .catch((e) => {
+        expect(e).to.be.equal('Cannot init Error');
+        done();
+      });
     });
   });
 
