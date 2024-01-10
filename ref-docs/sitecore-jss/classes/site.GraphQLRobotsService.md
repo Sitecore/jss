@@ -36,13 +36,13 @@ Creates an instance of graphQL robots.txt service with the provided options
 
 #### Parameters
 
-| Name      | Type                                                                          | Description |
-| :-------- | :---------------------------------------------------------------------------- | :---------- |
-| `options` | [`GraphQLRobotsServiceConfig`](../modules/site.md#graphqlrobotsserviceconfig) | instance    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | [`GraphQLRobotsServiceConfig`](../modules/site.md#graphqlrobotsserviceconfig) | instance |
 
 #### Defined in
 
-[src/site/graphql-robots-service.ts:50](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/site/graphql-robots-service.ts#L50)
+[src/site/graphql-robots-service.ts:58](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/site/graphql-robots-service.ts#L58)
 
 ## Properties
 
@@ -52,9 +52,9 @@ Creates an instance of graphQL robots.txt service with the provided options
 
 #### Defined in
 
-[src/site/graphql-robots-service.ts:40](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/site/graphql-robots-service.ts#L40)
+[src/site/graphql-robots-service.ts:48](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/site/graphql-robots-service.ts#L48)
 
----
+___
 
 ### options
 
@@ -64,7 +64,7 @@ instance
 
 #### Defined in
 
-[src/site/graphql-robots-service.ts:50](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/site/graphql-robots-service.ts#L50)
+[src/site/graphql-robots-service.ts:58](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/site/graphql-robots-service.ts#L58)
 
 ## Accessors
 
@@ -78,31 +78,31 @@ instance
 
 #### Defined in
 
-[src/site/graphql-robots-service.ts:42](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/site/graphql-robots-service.ts#L42)
+[src/site/graphql-robots-service.ts:50](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/site/graphql-robots-service.ts#L50)
 
 ## Methods
 
 ### fetchRobots
 
-▸ **fetchRobots**(): `Promise`<`string`\>
+▸ **fetchRobots**(): `Promise`\<`string`\>
 
 Fetch a data of robots.txt from API
+
+#### Returns
+
+`Promise`\<`string`\>
+
+text of robots.txt
 
 **`Throws`**
 
 if the siteName is empty.
 
-#### Returns
-
-`Promise`<`string`\>
-
-text of robots.txt
-
 #### Defined in
 
-[src/site/graphql-robots-service.ts:59](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/site/graphql-robots-service.ts#L59)
+[src/site/graphql-robots-service.ts:67](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/site/graphql-robots-service.ts#L67)
 
----
+___
 
 ### getGraphQLClient
 
@@ -120,4 +120,4 @@ implementation
 
 #### Defined in
 
-[src/site/graphql-robots-service.ts:84](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/site/graphql-robots-service.ts#L84)
+[src/site/graphql-robots-service.ts:92](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/site/graphql-robots-service.ts#L92)

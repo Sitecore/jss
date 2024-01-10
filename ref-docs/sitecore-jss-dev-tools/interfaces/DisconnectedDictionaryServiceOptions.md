@@ -22,13 +22,13 @@
 
 ##### Parameters
 
-| Name              | Type                                      |
-| :---------------- | :---------------------------------------- |
-| `finalDictionary` | `DictionaryServiceOutput`                 |
-| `rawDictionary`   | `any`                                     |
+| Name | Type |
+| :------ | :------ |
+| `finalDictionary` | `DictionaryServiceOutput` |
+| `rawDictionary` | `any` |
 | `currentManifest` | [`ManifestInstance`](ManifestInstance.md) |
-| `request?`        | `any`                                     |
-| `response?`       | `any`                                     |
+| `request?` | `any` |
+| `response?` | `any` |
 
 ##### Returns
 
@@ -36,9 +36,9 @@
 
 #### Defined in
 
-[disconnected-server/dictionary-service.ts:33](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L33)
+[disconnected-server/dictionary-service.ts:33](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L33)
 
----
+___
 
 ### manifest
 
@@ -46,28 +46,28 @@
 
 #### Defined in
 
-[disconnected-server/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L32)
+[disconnected-server/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L32)
 
----
+___
 
 ### manifestLanguageChangeCallback
 
-• `Optional` **manifestLanguageChangeCallback**: (`language`: `string`) => `Promise`<[`ManifestInstance`](ManifestInstance.md)\>
+• `Optional` **manifestLanguageChangeCallback**: (`language`: `string`) => `Promise`\<[`ManifestInstance`](ManifestInstance.md)\>
 
 #### Type declaration
 
-▸ (`language`): `Promise`<[`ManifestInstance`](ManifestInstance.md)\>
+▸ (`language`): `Promise`\<[`ManifestInstance`](ManifestInstance.md)\>
 
 ##### Parameters
 
-| Name       | Type     |
-| :--------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `language` | `string` |
 
 ##### Returns
 
-`Promise`<[`ManifestInstance`](ManifestInstance.md)\>
+`Promise`\<[`ManifestInstance`](ManifestInstance.md)\>
 
 #### Defined in
 
-[disconnected-server/dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L39)
+[disconnected-server/dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L39)

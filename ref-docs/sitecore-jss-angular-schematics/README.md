@@ -12,30 +12,30 @@
 
 ### default
 
-▸ **default**(`options`): (`host`: `Tree`) => `Promise`<`Rule`\>
+▸ **default**(`options`): (`host`: `Tree`) => `Promise`\<`Rule`\>
 
 #### Parameters
 
-| Name      | Type     |
-| :-------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `options` | `Schema` |
 
 #### Returns
 
 `fn`
 
-▸ (`host`): `Promise`<`Rule`\>
+▸ (`host`): `Promise`\<`Rule`\>
 
 ##### Parameters
 
-| Name   | Type   |
-| :----- | :----- |
+| Name | Type |
+| :------ | :------ |
 | `host` | `Tree` |
 
 ##### Returns
 
-`Promise`<`Rule`\>
+`Promise`\<`Rule`\>
 
 #### Defined in
 
-[index.ts:41](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular-schematics/src/jss-component/index.ts#L41)
+[index.ts:41](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular-schematics/src/jss-component/index.ts#L41)

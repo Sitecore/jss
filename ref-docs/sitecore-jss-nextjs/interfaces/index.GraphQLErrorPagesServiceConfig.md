@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `Pick`<`GraphQLRequestClientConfig`, ``"retries"``\>
+- `Pick`\<`GraphQLRequestClientConfig`, ``"retries"``\>
 
   ↳ **`GraphQLErrorPagesServiceConfig`**
 

@@ -37,15 +37,15 @@
 
 #### Parameters
 
-| Name            | Type                      |
-| :-------------- | :------------------------ |
-| `viewContainer` | `ViewContainerRef`        |
-| `templateRef`   | `TemplateRef`<`unknown`\> |
-| `datePipe`      | `DatePipe`                |
+| Name | Type |
+| :------ | :------ |
+| `viewContainer` | `ViewContainerRef` |
+| `templateRef` | `TemplateRef`\<`unknown`\> |
+| `datePipe` | `DatePipe` |
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/date.directive.ts:29](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/date.directive.ts#L29)
+[sitecore-jss-angular/src/components/date.directive.ts:29](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/date.directive.ts#L29)
 
 ## Properties
 
@@ -55,9 +55,9 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/date.directive.ts:32](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/date.directive.ts#L32)
+[sitecore-jss-angular/src/components/date.directive.ts:32](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/date.directive.ts#L32)
 
----
+___
 
 ### editable
 
@@ -65,9 +65,9 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/date.directive.ts:23](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/date.directive.ts#L23)
+[sitecore-jss-angular/src/components/date.directive.ts:23](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/date.directive.ts#L23)
 
----
+___
 
 ### field
 
@@ -75,9 +75,9 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/date.directive.ts:25](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/date.directive.ts#L25)
+[sitecore-jss-angular/src/components/date.directive.ts:25](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/date.directive.ts#L25)
 
----
+___
 
 ### format
 
@@ -85,9 +85,9 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/date.directive.ts:17](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/date.directive.ts#L17)
+[sitecore-jss-angular/src/components/date.directive.ts:17](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/date.directive.ts#L17)
 
----
+___
 
 ### locale
 
@@ -95,19 +95,19 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/date.directive.ts:21](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/date.directive.ts#L21)
+[sitecore-jss-angular/src/components/date.directive.ts:21](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/date.directive.ts#L21)
 
----
+___
 
 ### templateRef
 
-• `Private` **templateRef**: `TemplateRef`<`unknown`\>
+• `Private` **templateRef**: `TemplateRef`\<`unknown`\>
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/date.directive.ts:31](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/date.directive.ts#L31)
+[sitecore-jss-angular/src/components/date.directive.ts:31](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/date.directive.ts#L31)
 
----
+___
 
 ### timezone
 
@@ -115,9 +115,9 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/date.directive.ts:19](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/date.directive.ts#L19)
+[sitecore-jss-angular/src/components/date.directive.ts:19](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/date.directive.ts#L19)
 
----
+___
 
 ### viewContainer
 
@@ -125,17 +125,17 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/date.directive.ts:30](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/date.directive.ts#L30)
+[sitecore-jss-angular/src/components/date.directive.ts:30](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/date.directive.ts#L30)
 
----
+___
 
 ### viewRef
 
-• `Private` **viewRef**: `EmbeddedViewRef`<`unknown`\>
+• `Private` **viewRef**: `EmbeddedViewRef`\<`unknown`\>
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/date.directive.ts:27](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/date.directive.ts#L27)
+[sitecore-jss-angular/src/components/date.directive.ts:27](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/date.directive.ts#L27)
 
 ## Methods
 
@@ -145,8 +145,8 @@
 
 #### Parameters
 
-| Name      | Type            |
-| :-------- | :-------------- |
+| Name | Type |
+| :------ | :------ |
 | `changes` | `SimpleChanges` |
 
 #### Returns
@@ -159,9 +159,9 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/date.directive.ts:35](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/date.directive.ts#L35)
+[sitecore-jss-angular/src/components/date.directive.ts:35](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/date.directive.ts#L35)
 
----
+___
 
 ### updateView
 
@@ -173,4 +173,4 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/date.directive.ts:46](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/date.directive.ts#L46)
+[sitecore-jss-angular/src/components/date.directive.ts:46](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/date.directive.ts#L46)

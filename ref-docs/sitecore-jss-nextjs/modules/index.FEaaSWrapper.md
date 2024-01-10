@@ -20,8 +20,8 @@
 
 #### Parameters
 
-| Name    | Type                                                  |
-| :------ | :---------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `props` | [`FEaaSComponentProps`](index.md#feaascomponentprops) |
 
 #### Returns
@@ -32,54 +32,54 @@
 
 sitecore-jss-react/types/components/FEaaSWrapper.d.ts:3
 
----
+___
 
 ### getServerSideProps
 
-▸ **getServerSideProps**(`rendering`, `layoutData`, `context`): `Promise`<`unknown`\>
+▸ **getServerSideProps**(`rendering`, `layoutData`, `context`): `Promise`\<`unknown`\>
 
 Will be called during SSR
 
 #### Parameters
 
-| Name         | Type                                                              |
-| :----------- | :---------------------------------------------------------------- |
-| `rendering`  | [`ComponentRendering`](../interfaces/index.ComponentRendering.md) |
-| `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md)   |
-| `context`    | `GetServerSidePropsContext`<`ParsedUrlQuery`, `PreviewData`\>     |
+| Name | Type |
+| :------ | :------ |
+| `rendering` | [`ComponentRendering`](../interfaces/index.ComponentRendering.md) |
+| `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) |
+| `context` | `GetServerSidePropsContext`\<`ParsedUrlQuery`, `PreviewData`\> |
 
 #### Returns
 
-`Promise`<`unknown`\>
+`Promise`\<`unknown`\>
 
 context
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
 
----
+___
 
 ### getStaticProps
 
-▸ **getStaticProps**(`rendering`, `layoutData`, `context`): `Promise`<`unknown`\>
+▸ **getStaticProps**(`rendering`, `layoutData`, `context`): `Promise`\<`unknown`\>
 
 Will be called during SSG
 
 #### Parameters
 
-| Name         | Type                                                              |
-| :----------- | :---------------------------------------------------------------- |
-| `rendering`  | [`ComponentRendering`](../interfaces/index.ComponentRendering.md) |
-| `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md)   |
-| `context`    | `GetStaticPropsContext`<`ParsedUrlQuery`, `PreviewData`\>         |
+| Name | Type |
+| :------ | :------ |
+| `rendering` | [`ComponentRendering`](../interfaces/index.ComponentRendering.md) |
+| `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) |
+| `context` | `GetStaticPropsContext`\<`ParsedUrlQuery`, `PreviewData`\> |
 
 #### Returns
 
-`Promise`<`unknown`\>
+`Promise`\<`unknown`\>
 
 context
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)

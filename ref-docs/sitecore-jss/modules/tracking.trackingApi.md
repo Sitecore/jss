@@ -15,51 +15,51 @@
 
 ### checkStatus
 
-▸ **checkStatus**<`T`\>(`response`): [`HttpResponse`](../interfaces/index.HttpResponse.md)<`T`\>
+▸ **checkStatus**\<`T`\>(`response`): [`HttpResponse`](../interfaces/index.HttpResponse.md)\<`T`\>
 
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Parameters
 
-| Name       | Type                                                        | Description         |
-| :--------- | :---------------------------------------------------------- | :------------------ |
-| `response` | [`HttpResponse`](../interfaces/index.HttpResponse.md)<`T`\> | response from fetch |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `response` | [`HttpResponse`](../interfaces/index.HttpResponse.md)\<`T`\> | response from fetch |
 
 #### Returns
 
-[`HttpResponse`](../interfaces/index.HttpResponse.md)<`T`\>
+[`HttpResponse`](../interfaces/index.HttpResponse.md)\<`T`\>
 
 response
 
 #### Defined in
 
-[src/tracking/trackingApi.ts:28](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/tracking/trackingApi.ts#L28)
+[src/tracking/trackingApi.ts:28](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/tracking/trackingApi.ts#L28)
 
----
+___
 
 ### trackEvent
 
-▸ **trackEvent**(`events`, `options`): `Promise`<`void`\>
+▸ **trackEvent**(`events`, `options`): `Promise`\<`void`\>
 
 Makes a request to Sitecore Layout Service for the specified route item path.
 
 #### Parameters
 
-| Name      | Type                                                                                                                                                                                                                                                                                                                                 | Description                      |
-| :-------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------- |
-| `events`  | ([`CampaignInstance`](../interfaces/tracking.CampaignInstance.md) \| [`GoalInstance`](../interfaces/tracking.GoalInstance.md) \| [`EventInstance`](../interfaces/tracking.EventInstance.md) \| [`OutcomeInstance`](../interfaces/tracking.OutcomeInstance.md) \| [`PageViewInstance`](../interfaces/tracking.PageViewInstance.md))[] | events to send                   |
-| `options` | [`TrackingRequestOptions`](../interfaces/tracking.TrackingRequestOptions.md)                                                                                                                                                                                                                                                         | options for the tracking service |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `events` | ([`CampaignInstance`](../interfaces/tracking.CampaignInstance.md) \| [`GoalInstance`](../interfaces/tracking.GoalInstance.md) \| [`EventInstance`](../interfaces/tracking.EventInstance.md) \| [`OutcomeInstance`](../interfaces/tracking.OutcomeInstance.md) \| [`PageViewInstance`](../interfaces/tracking.PageViewInstance.md))[] | events to send |
+| `options` | [`TrackingRequestOptions`](../interfaces/tracking.TrackingRequestOptions.md) | options for the tracking service |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 void
 
 #### Defined in
 
-[src/tracking/trackingApi.ts:76](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/tracking/trackingApi.ts#L76)
+[src/tracking/trackingApi.ts:76](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/tracking/trackingApi.ts#L76)

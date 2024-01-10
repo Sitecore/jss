@@ -21,7 +21,7 @@
 
 ### GraphQLRequestClientFactory
 
-Ƭ **GraphQLRequestClientFactory**: (`config`: `Omit`<`GraphQLRequestClientConfig`, ``"apiKey"``\>) => [`GraphQLRequestClient`](../classes/graphql.GraphQLRequestClient.md)
+Ƭ **GraphQLRequestClientFactory**: (`config`: `Omit`\<`GraphQLRequestClientConfig`, ``"apiKey"``\>) => [`GraphQLRequestClient`](../classes/graphql.GraphQLRequestClient.md)
 
 #### Type declaration
 
@@ -34,7 +34,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `config` | `Omit`<`GraphQLRequestClientConfig`, ``"apiKey"``\> | The configuration object that specifies how the GraphQL client should be set up. |
+| `config` | `Omit`\<`GraphQLRequestClientConfig`, ``"apiKey"``\> | The configuration object that specifies how the GraphQL client should be set up. |
 
 ##### Returns
 

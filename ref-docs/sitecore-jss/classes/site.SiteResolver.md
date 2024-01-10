@@ -31,13 +31,13 @@ Resolves site based on the provided host or site name
 
 #### Parameters
 
-| Name    | Type                                        | Description                             |
-| :------ | :------------------------------------------ | :-------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `sites` | [`SiteInfo`](../modules/site.md#siteinfo)[] | Array of sites to be used in resolution |
 
 #### Defined in
 
-[src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/site/site-resolver.ts#L13)
+[src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/site/site-resolver.ts#L13)
 
 ## Properties
 
@@ -49,7 +49,7 @@ Array of sites to be used in resolution
 
 #### Defined in
 
-[src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/site/site-resolver.ts#L13)
+[src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/site/site-resolver.ts#L13)
 
 ## Methods
 
@@ -59,14 +59,10 @@ Array of sites to be used in resolution
 
 Resolve site by host name
 
-**`Throws`**
-
-if a matching site is not found
-
 #### Parameters
 
-| Name       | Type     | Description   |
-| :--------- | :------- | :------------ |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `hostName` | `string` | the host name |
 
 #### Returns
@@ -75,11 +71,15 @@ if a matching site is not found
 
 the resolved site
 
+**`Throws`**
+
+if a matching site is not found
+
 #### Defined in
 
-[src/site/site-resolver.ts:21](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/site/site-resolver.ts#L21)
+[src/site/site-resolver.ts:21](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/site/site-resolver.ts#L21)
 
----
+___
 
 ### getByName
 
@@ -87,14 +87,10 @@ the resolved site
 
 Resolve site by site name
 
-**`Throws`**
-
-if a matching site is not found
-
 #### Parameters
 
-| Name       | Type     | Description   |
-| :--------- | :------- | :------------ |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `siteName` | `string` | the site name |
 
 #### Returns
@@ -103,25 +99,29 @@ if a matching site is not found
 
 the resolved site
 
+**`Throws`**
+
+if a matching site is not found
+
 #### Defined in
 
-[src/site/site-resolver.ts:36](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/site/site-resolver.ts#L36)
+[src/site/site-resolver.ts:36](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/site/site-resolver.ts#L36)
 
----
+___
 
 ### getHostMap
 
-▸ `Protected` **getHostMap**(): `Map`<`string`, [`SiteInfo`](../modules/site.md#siteinfo)\>
+▸ `Protected` **getHostMap**(): `Map`\<`string`, [`SiteInfo`](../modules/site.md#siteinfo)\>
 
 #### Returns
 
-`Map`<`string`, [`SiteInfo`](../modules/site.md#siteinfo)\>
+`Map`\<`string`, [`SiteInfo`](../modules/site.md#siteinfo)\>
 
 #### Defined in
 
-[src/site/site-resolver.ts:48](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/site/site-resolver.ts#L48)
+[src/site/site-resolver.ts:48](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/site/site-resolver.ts#L48)
 
----
+___
 
 ### matchesPattern
 
@@ -129,10 +129,10 @@ the resolved site
 
 #### Parameters
 
-| Name       | Type     |
-| :--------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `hostname` | `string` |
-| `pattern`  | `string` |
+| `pattern` | `string` |
 
 #### Returns
 
@@ -140,4 +140,4 @@ the resolved site
 
 #### Defined in
 
-[src/site/site-resolver.ts:80](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/site/site-resolver.ts#L80)
+[src/site/site-resolver.ts:80](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/site/site-resolver.ts#L80)

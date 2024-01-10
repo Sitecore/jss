@@ -14,13 +14,13 @@
 
 ### defaultProps
 
-• **defaultProps**: `Partial`<[`ImageProps`](../interfaces/ImageProps.md)\>
+• **defaultProps**: `Partial`\<[`ImageProps`](../interfaces/ImageProps.md)\>
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Image.tsx:221](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/Image.tsx#L221)
+[sitecore-jss-react/src/components/Image.tsx:221](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/Image.tsx#L221)
 
----
+___
 
 ### displayName
 
@@ -28,14 +28,14 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Image.tsx:225](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/Image.tsx#L225)
+[sitecore-jss-react/src/components/Image.tsx:225](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/Image.tsx#L225)
 
----
+___
 
 ### propTypes
 
-• **propTypes**: `WeakValidationMap`<[`ImageProps`](../interfaces/ImageProps.md)\>
+• **propTypes**: `WeakValidationMap`\<[`ImageProps`](../interfaces/ImageProps.md)\>
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Image.tsx:195](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/Image.tsx#L195)
+[sitecore-jss-react/src/components/Image.tsx:195](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/Image.tsx#L195)

@@ -57,17 +57,13 @@ sitecore-jss/types/layout/rest-layout-service.d.ts:57
 
 ### getDefaultFetcher
 
-• `Protected` **getDefaultFetcher**: <T\>(`req?`: `IncomingMessage`, `res?`: `ServerResponse`<`IncomingMessage`\>) => (`url`: `string`, `data?`: `unknown`) => `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
+• `Protected` **getDefaultFetcher**: \<T\>(`req?`: `IncomingMessage`, `res?`: `ServerResponse`\<`IncomingMessage`\>) => (`url`: `string`, `data?`: `unknown`) => `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
 
 #### Type declaration
 
-▸ <`T`\>(`req?`, `res?`): (`url`: `string`, `data?`: `unknown`) => `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
+▸ \<`T`\>(`req?`, `res?`): (`url`: `string`, `data?`: `unknown`) => `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
 
 Provides default
-
-**`See`**
-
-AxiosDataFetcher data fetcher
 
 ##### Type parameters
 
@@ -80,7 +76,7 @@ AxiosDataFetcher data fetcher
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse`<`IncomingMessage`\> | Response instance |
+| `res?` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 ##### Returns
 
@@ -88,7 +84,7 @@ AxiosDataFetcher data fetcher
 
 default fetcher
 
-▸ (`url`, `data?`): `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
+▸ (`url`, `data?`): `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
 
 ##### Parameters
 
@@ -99,7 +95,11 @@ default fetcher
 
 ##### Returns
 
-`Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
+`Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
+
+**`See`**
+
+AxiosDataFetcher data fetcher
 
 #### Defined in
 
@@ -147,13 +147,9 @@ sitecore-jss/types/layout/rest-layout-service.d.ts:56
 
 ### fetchLayoutData
 
-▸ **fetchLayoutData**(`itemPath`, `language?`, `req?`, `res?`): `Promise`<[`LayoutServiceData`](../interfaces/index.LayoutServiceData.md)\>
+▸ **fetchLayoutData**(`itemPath`, `language?`, `req?`, `res?`): `Promise`\<[`LayoutServiceData`](../interfaces/index.LayoutServiceData.md)\>
 
 Fetch layout data for an item.
-
-**`Throws`**
-
-the item with the specified path is not found
 
 #### Parameters
 
@@ -162,13 +158,17 @@ the item with the specified path is not found
 | `itemPath` | `string` | item path to fetch layout data for. |
 | `language?` | `string` | the language to fetch layout data for. |
 | `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse`<`IncomingMessage`\> | Response instance |
+| `res?` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
-`Promise`<[`LayoutServiceData`](../interfaces/index.LayoutServiceData.md)\>
+`Promise`\<[`LayoutServiceData`](../interfaces/index.LayoutServiceData.md)\>
 
 layout service data
+
+**`Throws`**
+
+the item with the specified path is not found
 
 #### Overrides
 
@@ -182,7 +182,7 @@ ___
 
 ### fetchPlaceholderData
 
-▸ **fetchPlaceholderData**(`placeholderName`, `itemPath`, `language?`, `req?`, `res?`): `Promise`<[`PlaceholderData`](../interfaces/index.PlaceholderData.md)\>
+▸ **fetchPlaceholderData**(`placeholderName`, `itemPath`, `language?`, `req?`, `res?`): `Promise`\<[`PlaceholderData`](../interfaces/index.PlaceholderData.md)\>
 
 Fetch layout data for a particular placeholder.
 Makes a request to Sitecore Layout Service for the specified placeholder in
@@ -196,11 +196,11 @@ a specific route item. Allows you to retrieve rendered data for individual place
 | `itemPath` | `string` | the path to the item to fetch layout data for. |
 | `language?` | `string` | the language to fetch data for. |
 | `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse`<`IncomingMessage`\> | Response instance |
+| `res?` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
-`Promise`<[`PlaceholderData`](../interfaces/index.PlaceholderData.md)\>
+`Promise`\<[`PlaceholderData`](../interfaces/index.PlaceholderData.md)\>
 
 placeholder data
 
@@ -220,7 +220,7 @@ Resolves layout service url
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `apiType` | ``"placeholder"`` \| ``"render"`` | which layout service API to call ('render' or 'placeholder') |
+| `apiType` | ``"render"`` \| ``"placeholder"`` | which layout service API to call ('render' or 'placeholder') |
 
 #### Returns
 
@@ -276,7 +276,7 @@ ___
 
 ### setupResHeaders
 
-▸ `Protected` **setupResHeaders**(`res`): (`serverRes`: [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>) => [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>
+▸ `Protected` **setupResHeaders**(`res`): (`serverRes`: [`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>) => [`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>
 
 Setup response headers based on response from layout service
 
@@ -284,7 +284,7 @@ Setup response headers based on response from layout service
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `res` | `ServerResponse`<`IncomingMessage`\> | Response instance |
+| `res` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
@@ -292,7 +292,7 @@ Setup response headers based on response from layout service
 
 response
 
-▸ (`serverRes`): [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>
+▸ (`serverRes`): [`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>
 
 Setup response headers based on response from layout service
 
@@ -300,11 +300,11 @@ Setup response headers based on response from layout service
 
 | Name | Type |
 | :------ | :------ |
-| `serverRes` | [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\> |
+| `serverRes` | [`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\> |
 
 ##### Returns
 
-[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>
+[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>
 
 response
 

@@ -55,7 +55,7 @@ sitecore-jss/types/axios-fetcher.d.ts:38
 
 ### delete
 
-▸ **delete**(`url`, `config?`): `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>\>
+▸ **delete**(`url`, `config?`): `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 Perform a DELETE request
 
@@ -68,7 +68,7 @@ Perform a DELETE request
 
 #### Returns
 
-`Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>\>
+`Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 response
 
@@ -80,13 +80,9 @@ ___
 
 ### fetch
 
-▸ **fetch**<`T`\>(`url`, `data?`): `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
+▸ **fetch**\<`T`\>(`url`, `data?`): `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
 
 Implements a data fetcher.
-
-**`See`**
-
-HttpDataFetcher<T> type for implementation details/notes.
 
 #### Type parameters
 
@@ -103,9 +99,13 @@ HttpDataFetcher<T> type for implementation details/notes.
 
 #### Returns
 
-`Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
+`Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
 
 response
+
+**`See`**
+
+HttpDataFetcher<T> type for implementation details/notes.
 
 #### Defined in
 
@@ -115,7 +115,7 @@ ___
 
 ### get
 
-▸ **get**<`T`\>(`url`, `config?`): `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
+▸ **get**\<`T`\>(`url`, `config?`): `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
 
 Perform a GET request
 
@@ -134,7 +134,7 @@ Perform a GET request
 
 #### Returns
 
-`Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
+`Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
 
 response
 
@@ -146,7 +146,7 @@ ___
 
 ### head
 
-▸ **head**(`url`, `config?`): `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>\>
+▸ **head**(`url`, `config?`): `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 Perform a HEAD request
 
@@ -159,7 +159,7 @@ Perform a HEAD request
 
 #### Returns
 
-`Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>\>
+`Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 response
 
@@ -171,7 +171,7 @@ ___
 
 ### post
 
-▸ **post**(`url`, `data?`, `config?`): `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>\>
+▸ **post**(`url`, `data?`, `config?`): `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 Perform a POST request
 
@@ -185,7 +185,7 @@ Perform a POST request
 
 #### Returns
 
-`Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>\>
+`Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 response
 
@@ -197,7 +197,7 @@ ___
 
 ### put
 
-▸ **put**(`url`, `data?`, `config?`): `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>\>
+▸ **put**(`url`, `data?`, `config?`): `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 Perform a PUT request
 
@@ -211,7 +211,7 @@ Perform a PUT request
 
 #### Returns
 
-`Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>\>
+`Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 response
 

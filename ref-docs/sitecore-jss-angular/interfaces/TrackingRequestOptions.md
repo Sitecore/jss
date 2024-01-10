@@ -29,7 +29,7 @@ ___
 
 ### fetcher
 
-• **fetcher**: [`HttpDataFetcher`](../README.md#httpdatafetcher)<`void`\>
+• **fetcher**: [`HttpDataFetcher`](../README.md#httpdatafetcher)\<`void`\>
 
 The fetcher that performs the HTTP request and returns a promise to JSON
 

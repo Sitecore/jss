@@ -21,9 +21,9 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/EditFrame.tsx:12](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/EditFrame.tsx#L12)
+[sitecore-jss-react/src/components/EditFrame.tsx:12](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/EditFrame.tsx#L12)
 
----
+___
 
 ### cssClass
 
@@ -31,9 +31,9 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/EditFrame.tsx:15](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/EditFrame.tsx#L15)
+[sitecore-jss-react/src/components/EditFrame.tsx:15](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/EditFrame.tsx#L15)
 
----
+___
 
 ### dataSource
 
@@ -41,19 +41,19 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/EditFrame.tsx:11](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/EditFrame.tsx#L11)
+[sitecore-jss-react/src/components/EditFrame.tsx:11](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/EditFrame.tsx#L11)
 
----
+___
 
 ### parameters
 
-• `Optional` **parameters**: `Record`<`string`, `string` \| `number` \| `boolean`\>
+• `Optional` **parameters**: `Record`\<`string`, `string` \| `number` \| `boolean`\>
 
 #### Defined in
 
-[sitecore-jss-react/src/components/EditFrame.tsx:16](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/EditFrame.tsx#L16)
+[sitecore-jss-react/src/components/EditFrame.tsx:16](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/EditFrame.tsx#L16)
 
----
+___
 
 ### title
 
@@ -61,9 +61,9 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/EditFrame.tsx:13](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/EditFrame.tsx#L13)
+[sitecore-jss-react/src/components/EditFrame.tsx:13](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/EditFrame.tsx#L13)
 
----
+___
 
 ### tooltip
 
@@ -71,4 +71,4 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/EditFrame.tsx:14](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/EditFrame.tsx#L14)
+[sitecore-jss-react/src/components/EditFrame.tsx:14](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/EditFrame.tsx#L14)

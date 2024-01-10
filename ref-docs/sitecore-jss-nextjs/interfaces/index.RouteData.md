@@ -1,6 +1,6 @@
 [@sitecore-jss/sitecore-jss-nextjs](../README.md) / [index](../modules/index.md) / RouteData
 
-# Interface: RouteData<Fields\>
+# Interface: RouteData\<Fields\>
 
 [index](../modules/index.md).RouteData
 
@@ -10,7 +10,7 @@ Shape of route data returned from Sitecore Layout Service
 
 | Name | Type |
 | :------ | :------ |
-| `Fields` | `Record`<`string`, [`Field`](index.Field.md) \| [`Item`](index.Item.md) \| [`Item`](index.Item.md)[]\> |
+| `Fields` | `Record`\<`string`, [`Field`](index.Field.md) \| [`Item`](index.Item.md) \| [`Item`](index.Item.md)[]\> |
 
 ## Table of contents
 
@@ -123,7 +123,7 @@ ___
 
 ### placeholders
 
-• **placeholders**: [`PlaceholdersData`](../modules/index.md#placeholdersdata)<`string`\>
+• **placeholders**: [`PlaceholdersData`](../modules/index.md#placeholdersdata)\<`string`\>
 
 #### Defined in
 

@@ -14,25 +14,25 @@
 
 ### fetchLayoutData
 
-▸ **fetchLayoutData**(`itemPath`, `language?`, `req?`, `res?`): `Promise`<[`LayoutServiceData`](layout.LayoutServiceData.md)\>
+▸ **fetchLayoutData**(`itemPath`, `language?`, `req?`, `res?`): `Promise`\<[`LayoutServiceData`](layout.LayoutServiceData.md)\>
 
 Fetch layout data for an item.
 
 #### Parameters
 
-| Name        | Type              | Description       |
-| :---------- | :---------------- | :---------------- |
-| `itemPath`  | `string`          |                   |
-| `language?` | `string`          |                   |
-| `req?`      | `IncomingMessage` | Request instance  |
-| `res?`      | `ServerResponse`  | Response instance |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `itemPath` | `string` |  |
+| `language?` | `string` |  |
+| `req?` | `IncomingMessage` | Request instance |
+| `res?` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
-`Promise`<[`LayoutServiceData`](layout.LayoutServiceData.md)\>
+`Promise`\<[`LayoutServiceData`](layout.LayoutServiceData.md)\>
 
 layout data
 
 #### Defined in
 
-[src/layout/layout-service.ts:13](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/layout-service.ts#L13)
+[src/layout/layout-service.ts:13](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/layout/layout-service.ts#L13)

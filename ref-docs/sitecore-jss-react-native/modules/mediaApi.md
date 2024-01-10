@@ -34,7 +34,7 @@ found image tag; null in case if not found
 
 | Name | Type |
 | :------ | :------ |
-| `attrs` | { `[key: string]`: `string`;  } |
+| `attrs` | \{ `[key: string]`: `string`;  } |
 | `imgTag` | `string` |
 
 #### Defined in
@@ -82,24 +82,12 @@ ___
 Receives an array of `srcSet` parameters that are iterated and used as parameters to generate
 a corresponding set of updated Sitecore media URLs via
 
-**`See`**
-
-updateImageUrl. The result is a comma-delimited
-list of media URLs with respective dimension parameters.
-
-**`Example`**
-
-// returns '/ipsum.jpg?h=1000&w=1000 1000w, /ipsum.jpg?mh=250&mw=250 250w'
-getSrcSet('/ipsum.jpg', [{ h: 1000, w: 1000 }, { mh: 250, mw: 250 } ])
-
-More information about `srcSet`: [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
-
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `url` | `string` | The URL to prepare |
-| `srcSet` | { `[key: string]`: `string` \| `number` \| `undefined`;  }[] | The array of parameters to use |
+| `srcSet` | \{ `[key: string]`: `string` \| `number` \| `undefined`;  }[] | The array of parameters to use |
 | `imageParams?` | `Object` | The querystring parameters to use |
 | `mediaUrlPrefix?` | `RegExp` | The regex to match the media URL prefix |
 
@@ -108,6 +96,20 @@ More information about `srcSet`: [https://developer.mozilla.org/en-US/docs/Web/H
 `string`
 
 The prepared URL
+
+**`See`**
+
+updateImageUrl. The result is a comma-delimited
+list of media URLs with respective dimension parameters.
+
+**`Example`**
+
+```ts
+// returns '/ipsum.jpg?h=1000&w=1000 1000w, /ipsum.jpg?mh=250&mw=250 250w'
+getSrcSet('/ipsum.jpg', [{ h: 1000, w: 1000 }, { mh: 250, mw: 250 } ])
+
+More information about `srcSet`: {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img}
+```
 
 #### Defined in
 

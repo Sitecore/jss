@@ -36,14 +36,14 @@ Set TTL for cache data in constructor (default: 60 seconds)
 
 #### Parameters
 
-| Name         | Type                    | Description                                                        |
-| :----------- | :---------------------- | :----------------------------------------------------------------- |
-| `redisUrl`   | `undefined` \| `string` | KV endpoint URL. Usually stored in process.env.KV_REST_API_URL     |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `redisUrl` | `undefined` \| `string` | KV endpoint URL. Usually stored in process.env.KV_REST_API_URL |
 | `redisToken` | `undefined` \| `string` | KV endpoint tokem. Usually stored in process.env.KV_REST_API_TOKEN |
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:19](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L19)
+[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:19](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L19)
 
 ## Properties
 
@@ -53,9 +53,9 @@ Set TTL for cache data in constructor (default: 60 seconds)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:13](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L13)
+[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:13](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L13)
 
----
+___
 
 ### redisCache
 
@@ -63,23 +63,23 @@ Set TTL for cache data in constructor (default: 60 seconds)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L12)
+[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L12)
 
 ## Methods
 
 ### get
 
-▸ **get**(`key`): `Promise`<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
+▸ **get**(`key`): `Promise`\<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
 
 #### Parameters
 
-| Name  | Type     |
-| :---- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `key` | `string` |
 
 #### Returns
 
-`Promise`<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
+`Promise`\<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
 
 #### Implementation of
 
@@ -87,24 +87,24 @@ Set TTL for cache data in constructor (default: 60 seconds)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L41)
+[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L41)
 
----
+___
 
 ### set
 
-▸ **set**(`key`, `editingData`): `Promise`<`void`\>
+▸ **set**(`key`, `editingData`): `Promise`\<`void`\>
 
 #### Parameters
 
-| Name          | Type                                               |
-| :------------ | :------------------------------------------------- |
-| `key`         | `string`                                           |
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` |
 | `editingData` | [`EditingData`](../modules/editing.md#editingdata) |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Implementation of
 
@@ -112,4 +112,4 @@ Set TTL for cache data in constructor (default: 60 seconds)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:31](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L31)
+[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:31](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L31)

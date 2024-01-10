@@ -23,7 +23,9 @@ This endpoint should run the `EditingDataMiddleware`.
 
 **`Default`**
 
+```ts
 '/api/editing/data/[key]'
+```
 
 **`See`**
 
@@ -31,9 +33,9 @@ EditingDataMiddleware
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:116](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L116)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:120](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L120)
 
----
+___
 
 ### dataFetcher
 
@@ -43,7 +45,9 @@ The `AxiosDataFetcher` instance to use for API requests.
 
 **`Default`**
 
+```ts
 new AxiosDataFetcher()
+```
 
 **`See`**
 
@@ -51,4 +55,4 @@ AxiosDataFetcher
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:122](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L122)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:126](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L126)

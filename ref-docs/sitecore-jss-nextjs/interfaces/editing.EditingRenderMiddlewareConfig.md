@@ -23,7 +23,9 @@ The `AxiosDataFetcher` instance to use for API requests.
 
 **`Default`**
 
+```ts
 new AxiosDataFetcher()
+```
 
 **`See`**
 
@@ -31,9 +33,9 @@ AxiosDataFetcher
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:20](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L20)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:21](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L21)
 
----
+___
 
 ### editingDataService
 
@@ -46,7 +48,9 @@ This will be `ServerlessEditingDataService` on Vercel, `BasicEditingDataService`
 
 **`Default`**
 
+```ts
 editingDataService
+```
 
 **`See`**
 
@@ -54,9 +58,9 @@ EditingDataService
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:29](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L29)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:30](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L30)
 
----
+___
 
 ### resolvePageUrl
 
@@ -69,6 +73,19 @@ EditingDataService
 Function used to determine route/page URL to render.
 This may be necessary for certain custom Next.js routing configurations.
 
+##### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `serverUrl` | `string` | The root server URL e.g. 'http://localhost:3000' |
+| `itemPath` | `string` | The Sitecore relative item path e.g. '/styleguide' |
+
+##### Returns
+
+`string`
+
+The URL to render
+
 **`Default`**
 
 `${serverUrl}${itemPath}`
@@ -77,24 +94,11 @@ This may be necessary for certain custom Next.js routing configurations.
 
 resolveServerUrl
 
-##### Parameters
-
-| Name        | Type     | Description                                        |
-| :---------- | :------- | :------------------------------------------------- |
-| `serverUrl` | `string` | The root server URL e.g. 'http://localhost:3000'   |
-| `itemPath`  | `string` | The Sitecore relative item path e.g. '/styleguide' |
-
-##### Returns
-
-`string`
-
-The URL to render
-
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:39](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L39)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:40](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L40)
 
----
+___
 
 ### resolveServerUrl
 
@@ -107,6 +111,16 @@ The URL to render
 Function used to determine the root server URL. This is used for the route/page and subsequent data API requests.
 By default, the host header is used, with https protocol on Vercel (due to serverless function architecture) and http protocol elsewhere.
 
+##### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `req` | `NextApiRequest` | The current request. |
+
+##### Returns
+
+`string`
+
 **`Default`**
 
 `${process.env.VERCEL ? 'https' : 'http'}://${req.headers.host}`;
@@ -115,16 +129,6 @@ By default, the host header is used, with https protocol on Vercel (due to serve
 
 resolvePageUrl
 
-##### Parameters
-
-| Name  | Type             | Description          |
-| :---- | :--------------- | :------------------- |
-| `req` | `NextApiRequest` | The current request. |
-
-##### Returns
-
-`string`
-
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:47](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L47)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:48](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L48)

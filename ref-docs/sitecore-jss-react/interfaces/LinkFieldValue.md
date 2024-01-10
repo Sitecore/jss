@@ -28,9 +28,9 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/Link.tsx#L12)
+[sitecore-jss-react/src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/Link.tsx#L12)
 
----
+___
 
 ### class
 
@@ -38,9 +38,9 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:8](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/Link.tsx#L8)
+[sitecore-jss-react/src/components/Link.tsx:8](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/Link.tsx#L8)
 
----
+___
 
 ### className
 
@@ -48,9 +48,9 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:7](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/Link.tsx#L7)
+[sitecore-jss-react/src/components/Link.tsx:7](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/Link.tsx#L7)
 
----
+___
 
 ### href
 
@@ -58,9 +58,9 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:6](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/Link.tsx#L6)
+[sitecore-jss-react/src/components/Link.tsx:6](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/Link.tsx#L6)
 
----
+___
 
 ### linktype
 
@@ -68,9 +68,9 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:14](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/Link.tsx#L14)
+[sitecore-jss-react/src/components/Link.tsx:14](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/Link.tsx#L14)
 
----
+___
 
 ### querystring
 
@@ -78,9 +78,9 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:13](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/Link.tsx#L13)
+[sitecore-jss-react/src/components/Link.tsx:13](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/Link.tsx#L13)
 
----
+___
 
 ### target
 
@@ -88,9 +88,9 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:10](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/Link.tsx#L10)
+[sitecore-jss-react/src/components/Link.tsx:10](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/Link.tsx#L10)
 
----
+___
 
 ### text
 
@@ -98,9 +98,9 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:11](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/Link.tsx#L11)
+[sitecore-jss-react/src/components/Link.tsx:11](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/Link.tsx#L11)
 
----
+___
 
 ### title
 
@@ -108,4 +108,4 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:9](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/components/Link.tsx#L9)
+[sitecore-jss-react/src/components/Link.tsx:9](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/components/Link.tsx#L9)
