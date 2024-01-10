@@ -1,6 +1,6 @@
 [@sitecore-jss/sitecore-jss-react-native](../README.md) / Field
 
-# Interface: Field<T\>
+# Interface: Field\<T\>
 
 ## Type parameters
 

@@ -59,7 +59,7 @@ ___
 
 ### placeholders
 
-• `Optional` **placeholders**: `PlaceholdersData`<`string`\>
+• `Optional` **placeholders**: `PlaceholdersData`\<`string`\>
 
 #### Defined in
 

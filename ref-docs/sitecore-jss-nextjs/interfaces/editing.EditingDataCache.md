@@ -22,39 +22,39 @@ Defines an editing data cache implementation
 
 ### get
 
-▸ **get**(`key`): `Promise`<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
+▸ **get**(`key`): `Promise`\<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
 
 #### Parameters
 
-| Name  | Type     |
-| :---- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `key` | `string` |
 
 #### Returns
 
-`Promise`<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
+`Promise`\<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L12)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L12)
 
----
+___
 
 ### set
 
-▸ **set**(`key`, `editingData`): `Promise`<`void`\>
+▸ **set**(`key`, `editingData`): `Promise`\<`void`\>
 
 #### Parameters
 
-| Name          | Type                                               |
-| :------------ | :------------------------------------------------- |
-| `key`         | `string`                                           |
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` |
 | `editingData` | [`EditingData`](../modules/editing.md#editingdata) |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:11](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L11)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:11](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L11)

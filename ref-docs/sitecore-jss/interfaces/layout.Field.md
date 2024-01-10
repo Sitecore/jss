@@ -1,14 +1,14 @@
 [@sitecore-jss/sitecore-jss](../README.md) / [layout](../modules/layout.md) / Field
 
-# Interface: Field<T\>
+# Interface: Field\<T\>
 
 [layout](../modules/layout.md).Field
 
 ## Type parameters
 
-| Name | Type                |
-| :--- | :------------------ |
-| `T`  | `GenericFieldValue` |
+| Name | Type |
+| :------ | :------ |
+| `T` | `GenericFieldValue` |
 
 ## Table of contents
 
@@ -25,9 +25,9 @@
 
 #### Defined in
 
-[src/layout/models.ts:134](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/models.ts#L134)
+[src/layout/models.ts:134](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/layout/models.ts#L134)
 
----
+___
 
 ### value
 
@@ -35,4 +35,4 @@
 
 #### Defined in
 
-[src/layout/models.ts:133](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/models.ts#L133)
+[src/layout/models.ts:133](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/layout/models.ts#L133)

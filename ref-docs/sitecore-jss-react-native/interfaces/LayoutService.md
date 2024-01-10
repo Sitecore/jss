@@ -12,7 +12,7 @@
 
 ### fetchLayoutData
 
-▸ **fetchLayoutData**(`itemPath`, `language?`, `req?`, `res?`): `Promise`<[`LayoutServiceData`](LayoutServiceData.md)\>
+▸ **fetchLayoutData**(`itemPath`, `language?`, `req?`, `res?`): `Promise`\<[`LayoutServiceData`](LayoutServiceData.md)\>
 
 Fetch layout data for an item.
 
@@ -23,11 +23,11 @@ Fetch layout data for an item.
 | `itemPath` | `string` |  |
 | `language?` | `string` |  |
 | `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse` | Response instance |
+| `res?` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
-`Promise`<[`LayoutServiceData`](LayoutServiceData.md)\>
+`Promise`\<[`LayoutServiceData`](LayoutServiceData.md)\>
 
 layout data
 

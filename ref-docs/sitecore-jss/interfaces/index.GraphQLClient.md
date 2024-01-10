@@ -20,27 +20,27 @@ An interface for GraphQL clients for Sitecore APIs
 
 ### request
 
-▸ **request**<`T`\>(`query`, `variables?`): `Promise`<`T`\>
+▸ **request**\<`T`\>(`query`, `variables?`): `Promise`\<`T`\>
 
 Execute graphql request
 
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Parameters
 
-| Name         | Type                       | Description       |
-| :----------- | :------------------------- | :---------------- |
-| `query`      | `string` \| `DocumentNode` | graphql query     |
-| `variables?` | `Object`                   | graphql variables |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `query` | `string` \| `DocumentNode` | graphql query |
+| `variables?` | `Object` | graphql variables |
 
 #### Returns
 
-`Promise`<`T`\>
+`Promise`\<`T`\>
 
 #### Defined in
 
-[src/graphql-request-client.ts:16](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/graphql-request-client.ts#L16)
+[src/graphql-request-client.ts:16](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/graphql-request-client.ts#L16)

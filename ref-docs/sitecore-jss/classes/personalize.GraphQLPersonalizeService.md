@@ -37,25 +37,25 @@ Fetch personalize data using the Sitecore GraphQL endpoint.
 
 #### Parameters
 
-| Name     | Type                                                                                           |
-| :------- | :--------------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `config` | [`GraphQLPersonalizeServiceConfig`](../modules/personalize.md#graphqlpersonalizeserviceconfig) |
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:70](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L70)
+[src/personalize/graphql-personalize-service.ts:81](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L81)
 
 ## Properties
 
 ### cache
 
-• `Private` **cache**: `CacheClient`<`PersonalizeQueryResult`\>
+• `Private` **cache**: `CacheClient`\<`PersonalizeQueryResult`\>
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:50](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L50)
+[src/personalize/graphql-personalize-service.ts:61](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L61)
 
----
+___
 
 ### config
 
@@ -63,9 +63,9 @@ Fetch personalize data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:70](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L70)
+[src/personalize/graphql-personalize-service.ts:81](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L81)
 
----
+___
 
 ### graphQLClient
 
@@ -73,7 +73,7 @@ Fetch personalize data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:49](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L49)
+[src/personalize/graphql-personalize-service.ts:60](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L60)
 
 ## Accessors
 
@@ -87,28 +87,28 @@ Fetch personalize data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:51](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L51)
+[src/personalize/graphql-personalize-service.ts:62](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L62)
 
 ## Methods
 
 ### getCacheClient
 
-▸ `Protected` **getCacheClient**(): `CacheClient`<`PersonalizeQueryResult`\>
+▸ `Protected` **getCacheClient**(): `CacheClient`\<`PersonalizeQueryResult`\>
 
 Gets cache client implementation
 Override this method if custom cache needs to be used
 
 #### Returns
 
-`CacheClient`<`PersonalizeQueryResult`\>
+`CacheClient`\<`PersonalizeQueryResult`\>
 
 CacheClient instance
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:123](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L123)
+[src/personalize/graphql-personalize-service.ts:134](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L134)
 
----
+___
 
 ### getCacheKey
 
@@ -116,8 +116,8 @@ CacheClient instance
 
 #### Parameters
 
-| Name       | Type     |
-| :--------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `itemPath` | `string` |
 | `language` | `string` |
 | `siteName` | `string` |
@@ -128,9 +128,9 @@ CacheClient instance
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:130](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L130)
+[src/personalize/graphql-personalize-service.ts:141](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L141)
 
----
+___
 
 ### getGraphQLClient
 
@@ -148,30 +148,30 @@ implementation
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:140](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L140)
+[src/personalize/graphql-personalize-service.ts:151](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L151)
 
----
+___
 
 ### getPersonalizeInfo
 
-▸ **getPersonalizeInfo**(`itemPath`, `language`, `siteName`): `Promise`<`undefined` \| [`PersonalizeInfo`](../modules/personalize.md#personalizeinfo)\>
+▸ **getPersonalizeInfo**(`itemPath`, `language`, `siteName`): `Promise`\<`undefined` \| [`PersonalizeInfo`](../modules/personalize.md#personalizeinfo)\>
 
 Get personalize information for a route
 
 #### Parameters
 
-| Name       | Type     | Description |
-| :--------- | :------- | :---------- |
-| `itemPath` | `string` | page route  |
-| `language` | `string` | language    |
-| `siteName` | `string` | site name   |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `itemPath` | `string` | page route |
+| `language` | `string` | language |
+| `siteName` | `string` | site name |
 
 #### Returns
 
-`Promise`<`undefined` \| [`PersonalizeInfo`](../modules/personalize.md#personalizeinfo)\>
+`Promise`\<`undefined` \| [`PersonalizeInfo`](../modules/personalize.md#personalizeinfo)\>
 
 the personalize information or undefined (if itemPath / language not found)
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:83](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L83)
+[src/personalize/graphql-personalize-service.ts:94](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L94)

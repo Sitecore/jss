@@ -22,21 +22,21 @@ additional arguments that should be passed to the processor when invoked
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:19](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L19)
+[pipelines/pipelineFactory.ts:19](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L19)
 
----
+___
 
 ### modulePath
 
-• `Optional` **modulePath**: `string` \| { `filePath`: `string` ; `workingDirectory`: `string` }
+• `Optional` **modulePath**: `string` \| \{ `filePath`: `string` ; `workingDirectory`: `string`  }
 
 optional but must be specified if process is not
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:11](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L11)
+[pipelines/pipelineFactory.ts:11](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L11)
 
----
+___
 
 ### moduleWrapper
 
@@ -44,9 +44,9 @@ optional but must be specified if process is not
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:20](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L20)
+[pipelines/pipelineFactory.ts:20](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L20)
 
----
+___
 
 ### name
 
@@ -56,9 +56,9 @@ name of the processor
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:7](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L7)
+[pipelines/pipelineFactory.ts:7](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L7)
 
----
+___
 
 ### process
 
@@ -72,8 +72,8 @@ optional but must be specified if modulePath is not
 
 ##### Parameters
 
-| Name   | Type  |
-| :----- | :---- |
+| Name | Type |
+| :------ | :------ |
 | `args` | `any` |
 
 ##### Returns
@@ -82,4 +82,4 @@ optional but must be specified if modulePath is not
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:15](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L15)
+[pipelines/pipelineFactory.ts:15](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L15)

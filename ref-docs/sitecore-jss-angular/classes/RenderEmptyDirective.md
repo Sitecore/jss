@@ -20,20 +20,20 @@
 
 #### Parameters
 
-| Name          | Type                      |
-| :------------ | :------------------------ |
-| `templateRef` | `TemplateRef`<`unknown`\> |
+| Name | Type |
+| :------ | :------ |
+| `templateRef` | `TemplateRef`\<`unknown`\> |
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/render-empty.directive.ts:7](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/render-empty.directive.ts#L7)
+[sitecore-jss-angular/src/components/render-empty.directive.ts:7](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/render-empty.directive.ts#L7)
 
 ## Properties
 
 ### templateRef
 
-• **templateRef**: `TemplateRef`<`unknown`\>
+• **templateRef**: `TemplateRef`\<`unknown`\>
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/render-empty.directive.ts:7](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/render-empty.directive.ts#L7)
+[sitecore-jss-angular/src/components/render-empty.directive.ts:7](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/render-empty.directive.ts#L7)

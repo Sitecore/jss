@@ -50,6 +50,7 @@
 - [HtmlElementRendering](interfaces/HtmlElementRendering.md)
 - [HttpResponse](interfaces/HttpResponse.md)
 - [ImageField](interfaces/ImageField.md)
+- [ImageFieldValue](interfaces/ImageFieldValue.md)
 - [JssCanActivate](interfaces/JssCanActivate.md)
 - [JssCanActivateFn](interfaces/JssCanActivateFn.md)
 - [JssResolve](interfaces/JssResolve.md)
@@ -57,6 +58,7 @@
 - [LayoutServiceContextData](interfaces/LayoutServiceContextData.md)
 - [LayoutServiceData](interfaces/LayoutServiceData.md)
 - [LinkField](interfaces/LinkField.md)
+- [LinkFieldValue](interfaces/LinkFieldValue.md)
 - [OutcomeInstance](interfaces/OutcomeInstance.md)
 - [PageViewInstance](interfaces/PageViewInstance.md)
 - [RenderingField](interfaces/RenderingField.md)
@@ -75,7 +77,7 @@
 
 ### Variables
 
-- [DYNAMIC_COMPONENT](README.md#dynamic_component)
+- [DYNAMIC\_COMPONENT](README.md#dynamic_component)
 - [DefaultEditFrameButton](README.md#defaulteditframebutton)
 - [DefaultEditFrameButtons](README.md#defaulteditframebuttons)
 
@@ -98,90 +100,89 @@
 
 #### Type declaration
 
-| Name            | Type     |
-| :-------------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `databaseName?` | `string` |
-| `itemId`        | `string` |
-| `language?`     | `string` |
+| `itemId` | `string` |
+| `language?` | `string` |
 
 #### Defined in
 
 sitecore-jss/types/utils/edit-frame.d.ts:43
 
----
+___
 
 ### FieldEditButton
 
-Ƭ **FieldEditButton**: `BaseEditButton` & { `fields`: `string`[] }
+Ƭ **FieldEditButton**: `BaseEditButton` & \{ `fields`: `string`[]  }
 
 #### Defined in
 
 sitecore-jss/types/utils/edit-frame.d.ts:54
 
----
+___
 
 ### HttpDataFetcher
 
-Ƭ **HttpDataFetcher**<`T`\>: (`url`: `string`, `data?`: `unknown`) => `Promise`<[`HttpResponse`](interfaces/HttpResponse.md)<`T`\>\>
+Ƭ **HttpDataFetcher**\<`T`\>: (`url`: `string`, `data?`: `unknown`) => `Promise`\<[`HttpResponse`](interfaces/HttpResponse.md)\<`T`\>\>
 
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Type declaration
 
-▸ (`url`, `data?`): `Promise`<[`HttpResponse`](interfaces/HttpResponse.md)<`T`\>\>
+▸ (`url`, `data?`): `Promise`\<[`HttpResponse`](interfaces/HttpResponse.md)\<`T`\>\>
 
 Describes functions that fetch data asynchronously (i.e. from an API endpoint).
 This interface conforms to Axios' public API, but is adaptable to other HTTP libraries and
 fetch polyfills.
 The interface implementation must:
-
 - Support SSR
 - Comply with the rules of REST by returning appropriate response status codes when there is an error instead of throwing exceptions.
 - Send HTTP POST requests if `data` param is specified; GET is suggested but not required for data-less requests
 
 ##### Parameters
 
-| Name    | Type      |
-| :------ | :-------- |
-| `url`   | `string`  |
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
 | `data?` | `unknown` |
 
 ##### Returns
 
-`Promise`<[`HttpResponse`](interfaces/HttpResponse.md)<`T`\>\>
+`Promise`\<[`HttpResponse`](interfaces/HttpResponse.md)\<`T`\>\>
 
 #### Defined in
 
 sitecore-jss/types/data-fetcher.d.ts:24
 
----
+___
 
 ### PlaceholdersData
 
-Ƭ **PlaceholdersData**<`TYPEDNAME`\>: { [P in TYPEDNAME]: (ComponentRendering \| HtmlElementRendering)[] }
+Ƭ **PlaceholdersData**\<`TYPEDNAME`\>: \{ [P in TYPEDNAME]: (ComponentRendering \| HtmlElementRendering)[] }
 
 Placeholder contents data (name: placeholder name, then array of components within that placeholder name)
 Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Type parameters
 
-| Name        | Type                        |
-| :---------- | :-------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `TYPEDNAME` | extends `string` = `string` |
 
 #### Defined in
 
 sitecore-jss/types/layout/models.d.ts:72
 
----
+___
 
 ### WebEditButton
 
-Ƭ **WebEditButton**: `BaseEditButton` & { `click`: `string` ; `parameters?`: `Record`<`string`, `string` \| `number` \| `boolean` \| `undefined` \| `null`\> ; `type?`: `string` }
+Ƭ **WebEditButton**: `BaseEditButton` & \{ `click`: `string` ; `parameters?`: `Record`\<`string`, `string` \| `number` \| `boolean` \| `undefined` \| ``null``\> ; `type?`: `string`  }
 
 #### Defined in
 
@@ -189,15 +190,15 @@ sitecore-jss/types/utils/edit-frame.d.ts:57
 
 ## Variables
 
-### DYNAMIC_COMPONENT
+### DYNAMIC\_COMPONENT
 
-• `Const` **DYNAMIC_COMPONENT**: `InjectionToken`<`Type`<`unknown`\> \| { `[s: string]`: `unknown`; }\>
+• `Const` **DYNAMIC\_COMPONENT**: `InjectionToken`\<`Type`\<`unknown`\> \| \{ `[s: string]`: `unknown`;  }\>
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L65)
+[sitecore-jss-angular/src/components/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L65)
 
----
+___
 
 ### DefaultEditFrameButton
 
@@ -205,33 +206,33 @@ sitecore-jss/types/utils/edit-frame.d.ts:57
 
 #### Type declaration
 
-| Name                      | Type                                                                                   |
-| :------------------------ | :------------------------------------------------------------------------------------- |
-| `edit`                    | { `fields`: `string`[] ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string` } |
-| `edit.fields`             | `string`[]                                                                             |
-| `edit.header`             | `string`                                                                               |
-| `edit.icon`               | `string`                                                                               |
-| `edit.tooltip`            | `string`                                                                               |
-| `editRelatedItem`         | { `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string` }    |
-| `editRelatedItem.click`   | `string`                                                                               |
-| `editRelatedItem.header`  | `string`                                                                               |
-| `editRelatedItem.icon`    | `string`                                                                               |
-| `editRelatedItem.tooltip` | `string`                                                                               |
-| `insert`                  | { `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string` }    |
-| `insert.click`            | `string`                                                                               |
-| `insert.header`           | `string`                                                                               |
-| `insert.icon`             | `string`                                                                               |
-| `insert.tooltip`          | `string`                                                                               |
+| Name | Type |
+| :------ | :------ |
+| `edit` | \{ `fields`: `string`[] ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
+| `edit.fields` | `string`[] |
+| `edit.header` | `string` |
+| `edit.icon` | `string` |
+| `edit.tooltip` | `string` |
+| `editRelatedItem` | \{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
+| `editRelatedItem.click` | `string` |
+| `editRelatedItem.header` | `string` |
+| `editRelatedItem.icon` | `string` |
+| `editRelatedItem.tooltip` | `string` |
+| `insert` | \{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
+| `insert.click` | `string` |
+| `insert.header` | `string` |
+| `insert.icon` | `string` |
+| `insert.tooltip` | `string` |
 
 #### Defined in
 
 sitecore-jss/types/utils/edit-frame.d.ts:12
 
----
+___
 
 ### DefaultEditFrameButtons
 
-• `Const` **DefaultEditFrameButtons**: ({ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string` } \| { `fields`: `string`[] ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string` })[]
+• `Const` **DefaultEditFrameButtons**: (\{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } \| \{ `fields`: `string`[] ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  })[]
 
 #### Defined in
 
@@ -247,8 +248,8 @@ Enable debug logging dynamically
 
 #### Parameters
 
-| Name         | Type     | Description                                  |
-| :----------- | :------- | :------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `namespaces` | `string` | space-separated list of namespaces to enable |
 
 #### Returns
@@ -259,7 +260,7 @@ Enable debug logging dynamically
 
 sitecore-jss/types/debug.d.ts:7
 
----
+___
 
 ### getChildPlaceholder
 
@@ -269,10 +270,10 @@ Gets rendering definitions in a given child placeholder under a current renderin
 
 #### Parameters
 
-| Name              | Type                                                     |
-| :---------------- | :------------------------------------------------------- |
-| `rendering`       | [`ComponentRendering`](interfaces/ComponentRendering.md) |
-| `placeholderName` | `string`                                                 |
+| Name | Type |
+| :------ | :------ |
+| `rendering` | [`ComponentRendering`](interfaces/ComponentRendering.md) |
+| `placeholderName` | `string` |
 
 #### Returns
 
@@ -284,11 +285,11 @@ child placeholder
 
 sitecore-jss/types/layout/utils.d.ts:17
 
----
+___
 
 ### getFieldValue
 
-▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`): `T` \| `undefined`
+▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`): `T` \| `undefined`
 
 Safely extracts a field value from a rendering or fields object.
 Null will be returned if the field is not defined.
@@ -296,15 +297,15 @@ Null will be returned if the field is not defined.
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Parameters
 
-| Name                | Type                                                                                                           | Description                                              |
-| :------------------ | :------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`ComponentFields`](interfaces/ComponentFields.md) | the rendering or fields object to extract the field from |
-| `fieldName`         | `string`                                                                                                       | the name of the field to extract                         |
+| `fieldName` | `string` | the name of the field to extract |
 
 #### Returns
 
@@ -316,21 +317,21 @@ the field value or null if the field is not defined
 
 sitecore-jss/types/layout/utils.d.ts:9
 
-▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
+▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Parameters
 
-| Name                | Type                                                                                                           |
-| :------------------ | :------------------------------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`ComponentFields`](interfaces/ComponentFields.md) |
-| `fieldName`         | `string`                                                                                                       |
-| `defaultValue`      | `T`                                                                                                            |
+| `fieldName` | `string` |
+| `defaultValue` | `T` |
 
 #### Returns
 
@@ -340,11 +341,15 @@ sitecore-jss/types/layout/utils.d.ts:9
 
 sitecore-jss/types/layout/utils.d.ts:10
 
----
+___
 
 ### handleEditorAnchors
 
 ▸ **handleEditorAnchors**(): `void`
+
+#### Returns
+
+`void`
 
 **`Description`**
 
@@ -359,15 +364,11 @@ and replaces the # value with javascript:void(0); which prevents the anchor tag 
 
 Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/MutationObserver
 
-#### Returns
-
-`void`
-
 #### Defined in
 
 sitecore-jss/types/utils/editing.d.ts:50
 
----
+___
 
 ### isEditorActive
 
@@ -386,7 +387,7 @@ true if executing within a Sitecore editor
 
 sitecore-jss/types/utils/editing.d.ts:36
 
----
+___
 
 ### isRawRendering
 
@@ -394,8 +395,8 @@ sitecore-jss/types/utils/editing.d.ts:36
 
 #### Parameters
 
-| Name        | Type                                                                                                                     |
-| :---------- | :----------------------------------------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `rendering` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`HtmlElementRendering`](interfaces/HtmlElementRendering.md) |
 
 #### Returns
@@ -404,9 +405,9 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
----
+___
 
 ### isServer
 
@@ -424,7 +425,7 @@ true if executing server-side
 
 sitecore-jss/types/utils/is-server.d.ts:5
 
----
+___
 
 ### resetEditorChromes
 

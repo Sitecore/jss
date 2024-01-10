@@ -83,19 +83,19 @@ sitecore-jss/types/site/graphql-sitemap-service.d.ts:40
 
 ### fetchSitemaps
 
-▸ **fetchSitemaps**(): `Promise`<`string`[]\>
+▸ **fetchSitemaps**(): `Promise`\<`string`[]\>
 
 Fetch list of sitemaps for the site
+
+#### Returns
+
+`Promise`\<`string`[]\>
+
+list of sitemap paths
 
 **`Throws`**
 
 if the siteName is empty.
-
-#### Returns
-
-`Promise`<`string`[]\>
-
-list of sitemap paths
 
 #### Defined in
 
@@ -125,7 +125,7 @@ ___
 
 ### getSitemap
 
-▸ **getSitemap**(`id`): `Promise`<`undefined` \| `string`\>
+▸ **getSitemap**(`id`): `Promise`\<`undefined` \| `string`\>
 
 Get sitemap file path for sitemap id
 
@@ -137,7 +137,7 @@ Get sitemap file path for sitemap id
 
 #### Returns
 
-`Promise`<`undefined` \| `string`\>
+`Promise`\<`undefined` \| `string`\>
 
 the sitemap file path or undefined if one doesn't exist
 

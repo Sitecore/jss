@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-- [`RenderingField`](RenderingField.md)<`string`\>
+- [`RenderingField`](RenderingField.md)\<`string`\>
 
   ↳ **`RichTextField`**
 
@@ -27,9 +27,9 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering-field.ts:4](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/rendering-field.ts#L4)
+[sitecore-jss-angular/src/components/rendering-field.ts:4](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/rendering-field.ts#L4)
 
----
+___
 
 ### value
 
@@ -41,4 +41,4 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering-field.ts:3](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/rendering-field.ts#L3)
+[sitecore-jss-angular/src/components/rendering-field.ts:3](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-angular/src/components/rendering-field.ts#L3)

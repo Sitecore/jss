@@ -77,7 +77,7 @@ sitecore-jss/types/layout/graphql-layout-service.d.ts:43
 
 ### fetchLayoutData
 
-▸ **fetchLayoutData**(`itemPath`, `language?`): `Promise`<[`LayoutServiceData`](../interfaces/LayoutServiceData.md)\>
+▸ **fetchLayoutData**(`itemPath`, `language?`): `Promise`\<[`LayoutServiceData`](../interfaces/LayoutServiceData.md)\>
 
 Fetch layout data for an item.
 
@@ -90,7 +90,7 @@ Fetch layout data for an item.
 
 #### Returns
 
-`Promise`<[`LayoutServiceData`](../interfaces/LayoutServiceData.md)\>
+`Promise`\<[`LayoutServiceData`](../interfaces/LayoutServiceData.md)\>
 
 layout service data
 

@@ -14,7 +14,7 @@ Service that fetches dictionary data using Sitecore's GraphQL API.
 
 ### fetchDictionaryData
 
-▸ **fetchDictionaryData**(`language`): `Promise`<`DictionaryPhrases`\>
+▸ **fetchDictionaryData**(`language`): `Promise`\<`DictionaryPhrases`\>
 
 Fetch dictionary data for a language.
 
@@ -26,7 +26,7 @@ Fetch dictionary data for a language.
 
 #### Returns
 
-`Promise`<`DictionaryPhrases`\>
+`Promise`\<`DictionaryPhrases`\>
 
 #### Defined in
 

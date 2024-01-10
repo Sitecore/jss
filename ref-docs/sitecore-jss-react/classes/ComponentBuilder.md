@@ -27,35 +27,35 @@ React implementation of component builder class for building components based on
 
 #### Parameters
 
-| Name     | Type                                                                                   |
-| :------- | :------------------------------------------------------------------------------------- |
-| `config` | [`ComponentBuilderConfig`](../README.md#componentbuilderconfig)<`ComponentType`<{}\>\> |
+| Name | Type |
+| :------ | :------ |
+| `config` | [`ComponentBuilderConfig`](../README.md#componentbuilderconfig)\<`ComponentType`\<{}\>\> |
 
 #### Defined in
 
-[sitecore-jss-react/src/ComponentBuilder.ts:23](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/ComponentBuilder.ts#L23)
+[sitecore-jss-react/src/ComponentBuilder.ts:23](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/ComponentBuilder.ts#L23)
 
 ## Properties
 
 ### components
 
-• `Protected` **components**: `Map`<`string`, `ComponentType`<{}\>\>
+• `Protected` **components**: `Map`\<`string`, `ComponentType`\<{}\>\>
 
 List of components to be stored
 
 #### Defined in
 
-[sitecore-jss-react/src/ComponentBuilder.ts:21](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/ComponentBuilder.ts#L21)
+[sitecore-jss-react/src/ComponentBuilder.ts:21](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/ComponentBuilder.ts#L21)
 
----
+___
 
 ### config
 
-• `Protected` **config**: [`ComponentBuilderConfig`](../README.md#componentbuilderconfig)<`ComponentType`<{}\>\>
+• `Protected` **config**: [`ComponentBuilderConfig`](../README.md#componentbuilderconfig)\<`ComponentType`\<{}\>\>
 
 #### Defined in
 
-[sitecore-jss-react/src/ComponentBuilder.ts:23](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/ComponentBuilder.ts#L23)
+[sitecore-jss-react/src/ComponentBuilder.ts:23](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/ComponentBuilder.ts#L23)
 
 ## Methods
 
@@ -73,4 +73,4 @@ Component factory implementation
 
 #### Defined in
 
-[sitecore-jss-react/src/ComponentBuilder.ts:31](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react/src/ComponentBuilder.ts#L31)
+[sitecore-jss-react/src/ComponentBuilder.ts:31](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react/src/ComponentBuilder.ts#L31)

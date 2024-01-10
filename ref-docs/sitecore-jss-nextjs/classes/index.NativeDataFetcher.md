@@ -85,13 +85,9 @@ ___
 
 ### fetch
 
-▸ **fetch**<`T`\>(`url`, `data?`): `Promise`<[`HttpResponse`](../interfaces/index.HttpResponse.md)<`T`\>\>
+▸ **fetch**\<`T`\>(`url`, `data?`): `Promise`\<[`HttpResponse`](../interfaces/index.HttpResponse.md)\<`T`\>\>
 
 Implements a data fetcher.
-
-**`See`**
-
-HttpDataFetcher<T> type for implementation details/notes.
 
 #### Type parameters
 
@@ -108,9 +104,13 @@ HttpDataFetcher<T> type for implementation details/notes.
 
 #### Returns
 
-`Promise`<[`HttpResponse`](../interfaces/index.HttpResponse.md)<`T`\>\>
+`Promise`\<[`HttpResponse`](../interfaces/index.HttpResponse.md)\<`T`\>\>
 
 response
+
+**`See`**
+
+HttpDataFetcher<T> type for implementation details/notes.
 
 #### Defined in
 

@@ -14,13 +14,13 @@
 
 ### defaultProps
 
-• **defaultProps**: `Partial`<`LinkProps`\>
+• **defaultProps**: `Partial`\<`LinkProps`\>
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Link.tsx:121](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react-native/src/components/Link.tsx#L121)
+[sitecore-jss-react-native/src/components/Link.tsx:121](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react-native/src/components/Link.tsx#L121)
 
----
+___
 
 ### displayName
 
@@ -28,14 +28,14 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Link.tsx:125](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react-native/src/components/Link.tsx#L125)
+[sitecore-jss-react-native/src/components/Link.tsx:125](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react-native/src/components/Link.tsx#L125)
 
----
+___
 
 ### propTypes
 
-• **propTypes**: `WeakValidationMap`<`LinkProps`\>
+• **propTypes**: `WeakValidationMap`\<`LinkProps`\>
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Link.tsx:107](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react-native/src/components/Link.tsx#L107)
+[sitecore-jss-react-native/src/components/Link.tsx:107](https://github.com/Sitecore/jss/blob/8abc6a355/packages/sitecore-jss-react-native/src/components/Link.tsx#L107)

@@ -16,7 +16,7 @@ A reply from the Sitecore Layout Service
 
 ### sitecore
 
-• **sitecore**: [`LayoutServiceContextData`](index.LayoutServiceContextData.md) & { `route`: ``null`` \| [`RouteData`](index.RouteData.md)<`Record`<`string`, [`Field`](index.Field.md)<`GenericFieldValue`\> \| [`Item`](index.Item.md) \| [`Item`](index.Item.md)[]\>\>  }
+• **sitecore**: [`LayoutServiceContextData`](index.LayoutServiceContextData.md) & \{ `route`: ``null`` \| [`RouteData`](index.RouteData.md)\<`Record`\<`string`, [`Field`](index.Field.md)\<`GenericFieldValue`\> \| [`Item`](index.Item.md) \| [`Item`](index.Item.md)[]\>\>  }
 
 #### Defined in
 
