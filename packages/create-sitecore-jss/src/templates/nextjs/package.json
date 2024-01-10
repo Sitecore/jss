@@ -34,12 +34,13 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.21.8",
+    "@graphql-codegen/cli": "^5.0.0",
     "@graphql-codegen/import-types-preset": "^2.2.6",
-    "@graphql-codegen/plugin-helpers": "^3.1.2",
+    "@graphql-codegen/plugin-helpers": "^5.0.2",
     "@graphql-codegen/typed-document-node": "^2.3.12",
     "@graphql-codegen/typescript": "^2.8.7",
     "@graphql-codegen/typescript-operations": "^2.5.12",
+    "@graphql-codegen/typescript-react-query": "^6.0.0",
     "@graphql-codegen/typescript-resolvers": "^2.7.12",
     "@graphql-typed-document-node/core": "^3.1.1",
     "@sitecore-jss/sitecore-jss-cli": "~21.7.0-canary",
@@ -49,6 +50,7 @@
     "@types/react-dom": "^18.0.5",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
+    "@tanstack/react-query": "^5.17.9",
     "chalk": "~4.1.2",
     "chokidar": "~3.5.3",
     "constant-case": "^3.0.4",
@@ -60,7 +62,6 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.1",
     "eslint-plugin-yaml": "^0.5.0",
-    "graphql-let": "^0.18.6",
     "npm-run-all": "~4.1.5",
     "prettier": "^2.8.3",
     "ts-node": "^10.9.1",
@@ -71,7 +72,7 @@
   "scripts": {
     "jss": "jss",
     "lint": "eslint ./src/**/*.tsx ./src/**/*.ts ./scripts/**/*.ts",
-    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts && graphql-let",
+    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts && jss graphql-codegen",
     "build": "npm-run-all --serial bootstrap next:build",
     "graphql:update": "ts-node --project tsconfig.scripts.json ./scripts/fetch-graphql-introspection-data.ts",
     "next:build": "next build",
@@ -81,6 +82,7 @@
     "start:connected": "npm-run-all --serial bootstrap --parallel next:dev start:watch-components",
     "start:production": "npm-run-all --serial bootstrap next:build next:start",
     "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-builder/index.ts --watch",
-    "install-pre-push-hook": "ts-node --project tsconfig.scripts.json ./scripts/install-pre-push-hook.ts"
+    "install-pre-push-hook": "ts-node --project tsconfig.scripts.json ./scripts/install-pre-push-hook.ts",
+    "graphql-codegen": "graphql-codegen --config graphql-codegen.yml"
   }
 }

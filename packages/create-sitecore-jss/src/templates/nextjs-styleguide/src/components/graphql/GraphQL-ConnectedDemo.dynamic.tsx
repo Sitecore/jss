@@ -12,7 +12,7 @@ import {
   resetEditorChromes
 } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 import NextLink from 'next/link';
-import { ConnectedDemoQueryDocument } from './GraphQL-ConnectedDemo.dynamic.graphql';
+import { ConnectedDemoQueryDocument } from 'graphql-types';
 import {
   <%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute as AppRoute,
   Item,
