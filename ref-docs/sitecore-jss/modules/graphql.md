@@ -80,7 +80,7 @@ The schema of data returned in response to an app root query request
 
 #### Defined in
 
-[src/graphql/app-root-query.ts:27](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/graphql/app-root-query.ts#L27)
+[src/graphql/app-root-query.ts:27](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/graphql/app-root-query.ts#L27)
 
 ---
 
@@ -106,7 +106,7 @@ Schema of data returned in response to a "search" query request
 
 #### Defined in
 
-[src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/graphql/search-service.ts#L22)
+[src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/graphql/search-service.ts#L22)
 
 ## Functions
 
@@ -146,29 +146,4 @@ the root item ID of the JSS App in Sitecore. Returns null if the app root item i
 
 #### Defined in
 
-[src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
-
----
-
-### getEdgeProxyContentUrl
-
-▸ **getEdgeProxyContentUrl**(`sitecoreEdgeContextId`, `sitecoreEdgeUrl?`): `string`
-
-Generates a URL for accessing Sitecore Edge Platform Content using the provided endpoint and context ID.
-
-#### Parameters
-
-| Name                    | Type     | Default value               | Description                                                                                    |
-| :---------------------- | :------- | :-------------------------- | :--------------------------------------------------------------------------------------------- |
-| `sitecoreEdgeContextId` | `string` | `undefined`                 | The unique context id.                                                                         |
-| `sitecoreEdgeUrl?`      | `string` | `SITECORE_EDGE_URL_DEFAULT` | The base endpoint URL for the Edge Platform. Default is https://edge-platform.sitecorecloud.io |
-
-#### Returns
-
-`string`
-
-The complete URL for accessing content through the Edge Platform.
-
-#### Defined in
-
-[src/graphql/graphql-edge-proxy.ts:9](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L9)
+[src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)

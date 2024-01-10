@@ -20,7 +20,7 @@ Describes a file that represents a component definition
 
 #### Defined in
 
-[templating/components.ts:9](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/templating/components.ts#L9)
+[templating/components.ts:9](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-dev-tools/src/templating/components.ts#L9)
 
 ---
 
@@ -30,7 +30,7 @@ Describes a file that represents a component definition
 
 #### Defined in
 
-[templating/components.ts:8](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/templating/components.ts#L8)
+[templating/components.ts:8](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-dev-tools/src/templating/components.ts#L8)
 
 ---
 
@@ -40,4 +40,4 @@ Describes a file that represents a component definition
 
 #### Defined in
 
-[templating/components.ts:7](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-dev-tools/src/templating/components.ts#L7)
+[templating/components.ts:7](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-dev-tools/src/templating/components.ts#L7)

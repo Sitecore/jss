@@ -51,7 +51,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:65](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/layout/rest-layout-service.ts#L65)
+[src/layout/rest-layout-service.ts:65](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L65)
 
 ## Properties
 
@@ -61,7 +61,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:65](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/layout/rest-layout-service.ts#L65)
+[src/layout/rest-layout-service.ts:65](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L65)
 
 ## Methods
 
@@ -96,7 +96,7 @@ LayoutServiceBase.fetchLayoutData
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:78](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/layout/rest-layout-service.ts#L78)
+[src/layout/rest-layout-service.ts:78](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L78)
 
 ---
 
@@ -126,7 +126,7 @@ placeholder data
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:133](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/layout/rest-layout-service.ts#L133)
+[src/layout/rest-layout-service.ts:133](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L133)
 
 ---
 
@@ -174,7 +174,7 @@ default fetcher
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:193](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/layout/rest-layout-service.ts#L193)
+[src/layout/rest-layout-service.ts:193](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L193)
 
 ---
 
@@ -198,7 +198,7 @@ fetch options
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:167](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/layout/rest-layout-service.ts#L167)
+[src/layout/rest-layout-service.ts:167](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L167)
 
 ---
 
@@ -222,7 +222,7 @@ the layout service url
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:181](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/layout/rest-layout-service.ts#L181)
+[src/layout/rest-layout-service.ts:181](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L181)
 
 ---
 
@@ -258,7 +258,7 @@ axios request config
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:215](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/layout/rest-layout-service.ts#L215)
+[src/layout/rest-layout-service.ts:215](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L215)
 
 ---
 
@@ -294,4 +294,4 @@ response
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:234](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/layout/rest-layout-service.ts#L234)
+[src/layout/rest-layout-service.ts:234](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L234)

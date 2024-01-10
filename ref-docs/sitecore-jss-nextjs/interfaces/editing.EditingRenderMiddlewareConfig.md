@@ -31,7 +31,7 @@ AxiosDataFetcher
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:21](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L21)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:20](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L20)
 
 ---
 
@@ -54,7 +54,7 @@ EditingDataService
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:30](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L30)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:29](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L29)
 
 ---
 
@@ -92,7 +92,7 @@ The URL to render
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:40](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L40)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:39](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L39)
 
 ---
 
@@ -127,4 +127,4 @@ resolvePageUrl
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:48](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L48)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:47](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L47)

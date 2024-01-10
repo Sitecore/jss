@@ -26,32 +26,13 @@
 
 ### GraphQLPersonalizeServiceConfig
 
-Ƭ **GraphQLPersonalizeServiceConfig**: `CacheOptions` & { `apiKey?`: `string` ; `clientFactory?`: [`GraphQLRequestClientFactory`](index.md#graphqlrequestclientfactory) ; `endpoint?`: `string` ; `fetch?`: typeof `fetch` ; `scope?`: `string` ; `timeout?`: `number`  }
+Ƭ **GraphQLPersonalizeServiceConfig**: `CacheOptions` & { `apiKey?`: `string` ; `clientFactory?`: [`GraphQLRequestClientFactory`](index.md#graphqlrequestclientfactory) ; `endpoint?`: `string` ; `fetch?`: typeof `fetch` ; `scope?`: `string` ; `timeout?`: `number` }
 
 #### Defined in
 
-[src/personalize/graphql-personalize-service.ts:11](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L11)
+[src/personalize/graphql-personalize-service.ts:7](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L7)
 
-___
-
-### PersonalizeInfo
-
-Ƭ **PersonalizeInfo**: `Object`
-
-Object model of personlize info
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `contentId` | `string` | The (CDP-friendly) content id |
-| `variantIds` | `string`[] | The configured variant ids |
-
-#### Defined in
-
-[src/personalize/graphql-personalize-service.ts:44](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L44)
-
-___
+---
 
 ### PersonalizedRewriteData
 
@@ -59,13 +40,13 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type     |
+| :---------- | :------- |
 | `variantId` | `string` |
 
 #### Defined in
 
-[src/personalize/utils.ts:4](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/personalize/utils.ts#L4)
+[src/personalize/utils.ts:4](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/utils.ts#L4)
 
 ## Functions
 
@@ -77,10 +58,10 @@ Get a personalized rewrite path for given pathname
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `pathname` | `string` | the pathname |
-| `data` | [`PersonalizedRewriteData`](personalize.md#personalizedrewritedata) | the personalize data to include in the rewrite |
+| Name       | Type                                                                | Description                                    |
+| :--------- | :------------------------------------------------------------------ | :--------------------------------------------- |
+| `pathname` | `string`                                                            | the pathname                                   |
+| `data`     | [`PersonalizedRewriteData`](personalize.md#personalizedrewritedata) | the personalize data to include in the rewrite |
 
 #### Returns
 
@@ -90,9 +71,9 @@ the rewrite path
 
 #### Defined in
 
-[src/personalize/utils.ts:14](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/personalize/utils.ts#L14)
+[src/personalize/utils.ts:14](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/utils.ts#L14)
 
-___
+---
 
 ### getPersonalizedRewriteData
 
@@ -102,8 +83,8 @@ Get personalize data from the rewrite path
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type     | Description  |
+| :--------- | :------- | :----------- |
 | `pathname` | `string` | the pathname |
 
 #### Returns
@@ -114,9 +95,9 @@ the personalize data from the rewrite
 
 #### Defined in
 
-[src/personalize/utils.ts:24](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/personalize/utils.ts#L24)
+[src/personalize/utils.ts:24](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/utils.ts#L24)
 
-___
+---
 
 ### normalizePersonalizedRewrite
 
@@ -126,8 +107,8 @@ Normalize a personalized rewrite path (remove personalize data)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type     | Description  |
+| :--------- | :------- | :----------- |
 | `pathname` | `string` | the pathname |
 
 #### Returns
@@ -138,9 +119,9 @@ the pathname with personalize data removed
 
 #### Defined in
 
-[src/personalize/utils.ts:41](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/personalize/utils.ts#L41)
+[src/personalize/utils.ts:41](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/utils.ts#L41)
 
-___
+---
 
 ### personalizeLayout
 
@@ -150,10 +131,10 @@ Apply personalization to layout data. This will recursively go through all place
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `layout` | [`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md) | Layout data |
-| `variantId` | `string` | variant id |
+| Name        | Type                                                             | Description |
+| :---------- | :--------------------------------------------------------------- | :---------- |
+| `layout`    | [`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md) | Layout data |
+| `variantId` | `string`                                                         | variant id  |
 
 #### Returns
 
@@ -161,4 +142,4 @@ Apply personalization to layout data. This will recursively go through all place
 
 #### Defined in
 
-[src/personalize/layout-personalizer.ts:17](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/personalize/layout-personalizer.ts#L17)
+[src/personalize/layout-personalizer.ts:17](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/personalize/layout-personalizer.ts#L17)

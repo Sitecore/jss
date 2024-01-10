@@ -42,7 +42,7 @@ which is required for Sitecore editing support.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:64](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L64)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:63](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L63)
 
 ## Properties
 
@@ -52,7 +52,7 @@ which is required for Sitecore editing support.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:57](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L57)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:56](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L56)
 
 ---
 
@@ -62,7 +62,7 @@ which is required for Sitecore editing support.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:56](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L56)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:55](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L55)
 
 ---
 
@@ -87,7 +87,7 @@ which is required for Sitecore editing support.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:58](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L58)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:57](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L57)
 
 ---
 
@@ -111,7 +111,7 @@ which is required for Sitecore editing support.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:59](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L59)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:58](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L58)
 
 ## Methods
 
@@ -134,7 +134,7 @@ Default page URL resolution.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:240](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L240)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:205](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L205)
 
 ---
 
@@ -162,7 +162,7 @@ https://vercel.com/docs/environment-variables#system-environment-variables
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:254](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L254)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:219](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L219)
 
 ---
 
@@ -197,31 +197,7 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:75](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L75)
-
----
-
-### getQueryParamsForPropagation
-
-▸ `Protected` **getQueryParamsForPropagation**(`query`): `Object`
-
-Gets query parameters that should be passed along to subsequent requests
-
-#### Parameters
-
-| Name    | Type                                                     | Description                                  |
-| :------ | :------------------------------------------------------- | :------------------------------------------- |
-| `query` | `Partial`<{ `[key: string]`: `string` \| `string`[]; }\> | Object of query parameters from incoming URL |
-
-#### Returns
-
-`Object`
-
-Object of approved query parameters
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:84](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L84)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:74](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L74)
 
 ---
 
@@ -242,4 +218,4 @@ Object of approved query parameters
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:101](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L101)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:78](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L78)

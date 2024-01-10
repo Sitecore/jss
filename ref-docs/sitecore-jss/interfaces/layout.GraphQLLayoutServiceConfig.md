@@ -39,7 +39,7 @@ property instead
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:25](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L25)
+[src/layout/graphql-layout-service.ts:22](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L22)
 
 ---
 
@@ -72,7 +72,7 @@ property instead
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:16](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L16)
+[src/layout/graphql-layout-service.ts:14](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L14)
 
 ---
 
@@ -107,7 +107,7 @@ custom layout query
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:42](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L42)
+[src/layout/graphql-layout-service.ts:34](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L34)
 
 ---
 
@@ -123,7 +123,7 @@ Pick.retries
 
 #### Defined in
 
-[src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/graphql-request-client.ts#L42)
+[src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/graphql-request-client.ts#L42)
 
 ---
 
@@ -135,4 +135,4 @@ The JSS application name
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:20](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L20)
+[src/layout/graphql-layout-service.ts:18](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L18)

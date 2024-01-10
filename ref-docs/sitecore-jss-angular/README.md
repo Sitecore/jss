@@ -195,7 +195,7 @@ sitecore-jss/types/utils/edit-frame.d.ts:57
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L65)
+[sitecore-jss-angular/src/components/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L65)
 
 ---
 
@@ -404,7 +404,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ---
 

@@ -25,9 +25,9 @@ editingDataDiskCache
 
 **`See`**
 
- - EditingDataCache
- - EditingDataDiskCache
+- EditingDataCache
+- EditingDataDiskCache
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:63](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L63)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:59](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L59)

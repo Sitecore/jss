@@ -43,9 +43,9 @@ Gets the Next.js API route handler
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `req` | `NextApiRequest` |
+| Name  | Type                      |
+| :---- | :------------------------ |
+| `req` | `NextApiRequest`          |
 | `res` | `NextApiResponse`<`any`\> |
 
 ##### Returns
@@ -56,9 +56,9 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:11](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L11)
+[sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:11](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L11)
 
-___
+---
 
 ### handler
 
@@ -66,10 +66,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `_req` | `NextApiRequest` |
-| `res` | `NextApiResponse`<`any`\> |
+| Name   | Type                      |
+| :----- | :------------------------ |
+| `_req` | `NextApiRequest`          |
+| `res`  | `NextApiResponse`<`any`\> |
 
 #### Returns
 
@@ -77,4 +77,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:15](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L15)
+[sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:15](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L15)

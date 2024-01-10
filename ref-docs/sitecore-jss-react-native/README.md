@@ -124,7 +124,7 @@ sitecore-jss-react-native/node_modules/@types/react/index.d.ts:543
 
 #### Defined in
 
-[sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx:15](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx#L15)
+[sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx:15](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx#L15)
 
 ---
 

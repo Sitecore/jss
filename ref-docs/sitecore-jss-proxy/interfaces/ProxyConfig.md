@@ -32,7 +32,7 @@ Hostname to proxy to (i.e. Sitecore CD server 'http://siteco.re')
 
 #### Defined in
 
-[ProxyConfig.ts:31](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L31)
+[src/ProxyConfig.ts:30](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L30)
 
 ---
 
@@ -44,7 +44,7 @@ SSC endpoint to use when sending Layout Service requests to proxy
 
 #### Defined in
 
-[ProxyConfig.ts:35](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L35)
+[src/ProxyConfig.ts:34](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L34)
 
 ---
 
@@ -73,7 +73,7 @@ Hook to fill the SSR viewBag object; if you're customizing the viewBag in Siteco
 
 #### Defined in
 
-[ProxyConfig.ts:79](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L79)
+[src/ProxyConfig.ts:78](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L78)
 
 ---
 
@@ -85,7 +85,7 @@ Enables or disables proxy diagnostics in console.log (disable for production or 
 
 #### Defined in
 
-[ProxyConfig.ts:56](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L56)
+[src/ProxyConfig.ts:55](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L55)
 
 ---
 
@@ -97,7 +97,7 @@ Path to layout service endpoint on proxy target server
 
 #### Defined in
 
-[ProxyConfig.ts:33](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L33)
+[src/ProxyConfig.ts:32](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L32)
 
 ---
 
@@ -109,7 +109,7 @@ Responses from the proxy greater than this size (in bytes) are rejected.
 
 #### Defined in
 
-[ProxyConfig.ts:92](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L92)
+[src/ProxyConfig.ts:91](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L91)
 
 ---
 
@@ -136,7 +136,7 @@ Callback when an exception is thrown during SSR; decides what to send back to cl
 
 #### Defined in
 
-[ProxyConfig.ts:58](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L58)
+[src/ProxyConfig.ts:57](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L57)
 
 ---
 
@@ -163,7 +163,7 @@ Mutually exclusive with pathRewriteExcludeRoutes.
 
 #### Defined in
 
-[ProxyConfig.ts:52](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L52)
+[src/ProxyConfig.ts:51](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L51)
 
 ---
 
@@ -177,7 +177,7 @@ Mutually exclusive with pathRewriteExcludePredicate.
 
 #### Defined in
 
-[ProxyConfig.ts:43](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L43)
+[src/ProxyConfig.ts:42](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L42)
 
 ---
 
@@ -189,7 +189,7 @@ Configure `http-proxy-middleware`
 
 #### Defined in
 
-[ProxyConfig.ts:54](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L54)
+[src/ProxyConfig.ts:53](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L53)
 
 ---
 
@@ -201,7 +201,7 @@ Custom Query String parameters to send to Layout Service, e.g. sc_site=my-site&t
 
 #### Defined in
 
-[ProxyConfig.ts:37](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L37)
+[src/ProxyConfig.ts:36](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L36)
 
 ---
 
@@ -213,7 +213,7 @@ The require'd server.bundle.js file from your pre-built JSS app
 
 #### Defined in
 
-[ProxyConfig.ts:94](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L94)
+[src/ProxyConfig.ts:93](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L93)
 
 ---
 
@@ -241,7 +241,7 @@ Hook to alter HTTP headers in a custom way.
 
 #### Defined in
 
-[ProxyConfig.ts:86](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L86)
+[src/ProxyConfig.ts:85](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L85)
 
 ---
 
@@ -269,7 +269,7 @@ Enables transforming SSR'ed HTML after it is rendered, i.e. to replace paths.
 
 #### Defined in
 
-[ProxyConfig.ts:73](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L73)
+[src/ProxyConfig.ts:72](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L72)
 
 ---
 
@@ -281,4 +281,4 @@ Turn WebSocket requests processing on or off
 
 #### Defined in
 
-[ProxyConfig.ts:47](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L47)
+[src/ProxyConfig.ts:46](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-proxy/src/ProxyConfig.ts#L46)

@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:35](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L35)
+[sitecore-jss-angular/src/components/image.directive.ts:35](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L35)
 
 ## Properties
 
@@ -65,7 +65,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:31](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L31)
+[sitecore-jss-angular/src/components/image.directive.ts:31](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L31)
 
 ---
 
@@ -75,7 +75,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:18](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L18)
+[sitecore-jss-angular/src/components/image.directive.ts:18](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L18)
 
 ---
 
@@ -85,7 +85,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:39](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L39)
+[sitecore-jss-angular/src/components/image.directive.ts:39](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L39)
 
 ---
 
@@ -95,7 +95,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:16](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L16)
+[sitecore-jss-angular/src/components/image.directive.ts:16](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L16)
 
 ---
 
@@ -105,7 +105,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:33](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L33)
+[sitecore-jss-angular/src/components/image.directive.ts:33](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L33)
 
 ---
 
@@ -125,7 +125,7 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:27](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L27)
+[sitecore-jss-angular/src/components/image.directive.ts:27](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L27)
 
 ---
 
@@ -135,7 +135,7 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:38](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L38)
+[sitecore-jss-angular/src/components/image.directive.ts:38](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L38)
 
 ---
 
@@ -145,7 +145,7 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:37](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L37)
+[sitecore-jss-angular/src/components/image.directive.ts:37](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L37)
 
 ---
 
@@ -159,7 +159,7 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:29](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L29)
+[sitecore-jss-angular/src/components/image.directive.ts:29](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L29)
 
 ---
 
@@ -169,7 +169,7 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:36](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L36)
+[sitecore-jss-angular/src/components/image.directive.ts:36](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L36)
 
 ## Methods
 
@@ -183,7 +183,7 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:134](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L134)
+[sitecore-jss-angular/src/components/image.directive.ts:134](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L134)
 
 ---
 
@@ -205,7 +205,7 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:97](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L97)
+[sitecore-jss-angular/src/components/image.directive.ts:97](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L97)
 
 ---
 
@@ -229,7 +229,7 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:42](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L42)
+[sitecore-jss-angular/src/components/image.directive.ts:42](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L42)
 
 ---
 
@@ -249,7 +249,7 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:152](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L152)
+[sitecore-jss-angular/src/components/image.directive.ts:152](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L152)
 
 ---
 
@@ -269,7 +269,7 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:125](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L125)
+[sitecore-jss-angular/src/components/image.directive.ts:125](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L125)
 
 ---
 
@@ -283,4 +283,4 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/image.directive.ts:54](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/image.directive.ts#L54)
+[sitecore-jss-angular/src/components/image.directive.ts:54](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/image.directive.ts#L54)

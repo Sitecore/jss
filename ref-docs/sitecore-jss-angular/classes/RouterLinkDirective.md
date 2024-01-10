@@ -52,7 +52,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/router-link.directive.ts:21](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L21)
+[sitecore-jss-angular/src/components/router-link.directive.ts:21](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L21)
 
 ## Properties
 
@@ -70,7 +70,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/router-link.directive.ts:17](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L17)
+[sitecore-jss-angular/src/components/router-link.directive.ts:17](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L17)
 
 ---
 
@@ -84,7 +84,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/router-link.directive.ts:15](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L15)
+[sitecore-jss-angular/src/components/router-link.directive.ts:15](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L15)
 
 ---
 
@@ -98,7 +98,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/router-link.directive.ts:19](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L19)
+[sitecore-jss-angular/src/components/router-link.directive.ts:19](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L19)
 
 ---
 
@@ -112,7 +112,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/link.directive.ts:26](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/link.directive.ts#L26)
+[sitecore-jss-angular/src/components/link.directive.ts:26](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/link.directive.ts#L26)
 
 ---
 
@@ -122,7 +122,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/router-link.directive.ts:26](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L26)
+[sitecore-jss-angular/src/components/router-link.directive.ts:26](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L26)
 
 ---
 
@@ -136,7 +136,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/link.directive.ts:25](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/link.directive.ts#L25)
+[sitecore-jss-angular/src/components/link.directive.ts:25](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/link.directive.ts#L25)
 
 ---
 
@@ -150,7 +150,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/link.directive.ts:24](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/link.directive.ts#L24)
+[sitecore-jss-angular/src/components/link.directive.ts:24](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/link.directive.ts#L24)
 
 ## Methods
 
@@ -174,7 +174,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/link.directive.ts:30](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/link.directive.ts#L30)
+[sitecore-jss-angular/src/components/link.directive.ts:30](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/link.directive.ts#L30)
 
 ---
 
@@ -199,7 +199,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/router-link.directive.ts:31](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L31)
+[sitecore-jss-angular/src/components/router-link.directive.ts:31](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L31)
 
 ---
 
@@ -225,4 +225,4 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/link.directive.ts:56](https://github.com/Sitecore/jss/blob/876dae504/packages/sitecore-jss-angular/src/components/link.directive.ts#L56)
+[sitecore-jss-angular/src/components/link.directive.ts:56](https://github.com/Sitecore/jss/blob/cf1ffc37b/packages/sitecore-jss-angular/src/components/link.directive.ts#L56)
