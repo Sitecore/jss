@@ -5492,17 +5492,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
-<<<<<<< HEAD
     "@sitecore-cloudsdk/personalize": ^0.1.1
-    "@sitecore-jss/sitecore-jss": 21.6.0-canary.37
-    "@sitecore-jss/sitecore-jss-dev-tools": 21.6.0-canary.37
-    "@sitecore-jss/sitecore-jss-react": 21.6.0-canary.37
-=======
     "@sitecore-jss/sitecore-jss": 21.6.0-canary.38
     "@sitecore-jss/sitecore-jss-dev-tools": 21.6.0-canary.38
     "@sitecore-jss/sitecore-jss-react": 21.6.0-canary.38
-    "@sitecore/engage": ^1.4.1
->>>>>>> 51a9556fdfd9c3db0dc5988b46a4c61cef3cde20
     "@types/chai": ^4.3.4
     "@types/chai-as-promised": ^7.1.5
     "@types/chai-string": ^1.4.2
