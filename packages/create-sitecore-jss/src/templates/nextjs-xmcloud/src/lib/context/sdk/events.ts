@@ -7,9 +7,9 @@ const sdkModule: SDK<typeof Events> = {
     // Events module can't be initialized on the server side
     // We also don't want to initialize it in development mode
     if (typeof window === 'undefined') 
-      throw "Events SDK can't be initialized in server context";
+      throw 'Browser Events SDK is not initialized in server context';
     if (process.env.NODE_ENV === 'development')
-      throw 'Events SDK is not initialized in development environment';
+      throw 'Browser Events SDK is not initialized in development environment';
     
     await Events.init({
       siteName: props.siteName,

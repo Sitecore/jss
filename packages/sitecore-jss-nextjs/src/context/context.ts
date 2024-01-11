@@ -145,7 +145,7 @@ export class Context<SDKModules extends SDKModulesType> {
           resolve(this.sdks[name]);
         })
         .catch((e) => {
-          console.log(`Initialization for SDK ${name.toString()} skipped. Reason: \n ${e}`);
+          // if init rejects, getSDK will reject too now
           reject(e);
         });
     });
