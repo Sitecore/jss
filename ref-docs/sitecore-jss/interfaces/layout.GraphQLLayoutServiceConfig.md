@@ -39,7 +39,7 @@ property instead
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:25](https://github.com/Sitecore/jss/blob/3508b8f95/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L25)
+[src/layout/graphql-layout-service.ts:25](https://github.com/Sitecore/jss/blob/e5351a6c8/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L25)
 
 ___
 
@@ -52,7 +52,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:30](https://github.com/Sitecore/jss/blob/3508b8f95/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L30)
+[src/layout/graphql-layout-service.ts:30](https://github.com/Sitecore/jss/blob/e5351a6c8/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L30)
 
 ___
 
@@ -72,7 +72,7 @@ property instead
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:16](https://github.com/Sitecore/jss/blob/3508b8f95/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L16)
+[src/layout/graphql-layout-service.ts:16](https://github.com/Sitecore/jss/blob/e5351a6c8/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L16)
 
 ___
 
@@ -109,7 +109,7 @@ layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:42](https://github.com/Sitecore/jss/blob/3508b8f95/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L42)
+[src/layout/graphql-layout-service.ts:42](https://github.com/Sitecore/jss/blob/e5351a6c8/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L42)
 
 ___
 
@@ -125,7 +125,7 @@ Pick.retries
 
 #### Defined in
 
-[src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/3508b8f95/packages/sitecore-jss/src/graphql-request-client.ts#L42)
+[src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/e5351a6c8/packages/sitecore-jss/src/graphql-request-client.ts#L42)
 
 ___
 
@@ -137,4 +137,4 @@ The JSS application name
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:20](https://github.com/Sitecore/jss/blob/3508b8f95/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L20)
+[src/layout/graphql-layout-service.ts:20](https://github.com/Sitecore/jss/blob/e5351a6c8/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L20)
