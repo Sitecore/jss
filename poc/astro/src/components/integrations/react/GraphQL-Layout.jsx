@@ -1,4 +1,4 @@
-import { Placeholder, useSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
+import { Placeholder } from '@sitecore-jss/sitecore-jss-react';
 import { SitecoreContextMap } from '@lib/context';
 import componentFactory from './componentFactory';
 

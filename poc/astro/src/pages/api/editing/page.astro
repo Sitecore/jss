@@ -1,6 +1,11 @@
 ---
 import JssLayout from "@layouts/Layout.astro";
+import jss from '@sitecore-jss/sitecore-jss';
 import { SitecoreContextMap } from "@lib/context";
+
+jss.debug.common('/api/editing/page executing...')
+
+export const prerender = false;
 
 const body = await Astro.request.json();
 const layoutData = JSON.parse(body.args[1]);

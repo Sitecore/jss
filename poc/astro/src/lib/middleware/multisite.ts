@@ -1,9 +1,12 @@
 import type { APIContext } from "astro";
 import * as jss from "@sitecore-jss/sitecore-jss";
+import * as siteJss from "@sitecore-jss/sitecore-jss/site";
 import { MiddlewareBase, MiddlewareBaseConfig, MiddlewareContext } from "./base";
 
 const { debug } =
   (jss as any).default || jss;
+
+const { getSiteRewrite } = siteJss;
 
 export type MultisiteMiddlewareConfig = Omit<
   MiddlewareBaseConfig,
@@ -78,6 +81,10 @@ export class MultisiteMiddleware extends MiddlewareBase {
       this.config.siteResolver.getByHost(hostname).name;
 
     ctx.context.locals.siteName = siteName;
+
+    ctx.context.locals.rewritePath = getSiteRewrite(ctx.context.locals.rewritePath, {
+      siteName,
+    });
 
     debug.multisite(
       "multisite middleware end in %dms: %o",

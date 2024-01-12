@@ -31,6 +31,11 @@ const pluginDefinitions: PluginDefinition[] = [
     rootPath: "src/lib/sitemap-fetcher/plugins",
     moduleType: ModuleType.ESM,
   },
+  {
+    distPath: 'src/temp/extract-path-plugins.ts',
+    rootPath: 'src/lib/extract-path/plugins',
+    moduleType: ModuleType.ESM,
+  },
   // {
   //   distPath: "src/temp/middleware-plugins.ts",
   //   rootPath: "src/lib/middleware/plugins",

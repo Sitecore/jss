@@ -1,10 +1,14 @@
 import { defineMiddleware } from "astro/middleware";
 import jss from "@sitecore-jss/sitecore-jss";
+import jssSite from "@sitecore-jss/sitecore-jss/site";
+import jssPersonalize from "@sitecore-jss/sitecore-jss/personalize";
 import { MultisiteMiddleware } from "@lib/middleware/multisite";
+import { siteResolver } from "./lib/site-resolver";
 // import { PersonalizeMiddleware } from "@lib/middleware/personalize";
-import { siteResolver } from "@lib/site-resolver";
 // import clientFactory from "@lib/graphql-client-factory";
-// import config from "@temp/config";
+import config from "@temp/config";
+import { pathExtractor } from "@lib/extract-path";
+import test from '@lib/test';
 import type { MiddlewareContext } from "@lib/middleware/base";
 
 const { enableDebug, debug } = jss;
@@ -14,12 +18,32 @@ if (import.meta.env.DEBUG) {
 }
 
 export const onRequest = defineMiddleware(async (context, next) => {
-  debug.common('middleware start %s', context.url.pathname);
+  debug.common('middleware start %s', context.url.pathname, test, jssSite.normalizeSiteRewrite, jssPersonalize.normalizePersonalizedRewrite);
 
-  if (context.url.pathname.match(/^(\/api\/)/g)) {
-    debug.common('middleware (skipped) %s', context.url.pathname);
+  if (context.url.pathname.match(/\/_site_|\/_variantId_/g)) {
+    debug.common('middleware (start rewrite) %s', context.url.pathname);
+    context.locals.siteName = jssSite.getSiteRewriteData(context.url.pathname, config.sitecoreSiteName).siteName;
+    context.locals.variantId = jssPersonalize.getPersonalizedRewriteData(context.url.pathname).variantId;
+    context.locals.path = pathExtractor.extract(context.params);
+
+    debug.common('middleware (end rewrite) %s', context.url.pathname, context.locals);
     return next();
   }
+
+  // Render API endpoints
+  if (context.url.pathname.match(/^\/api\//g)) {
+    debug.common('middleware (skipped editing endpoint) %s', context.url.pathname);
+
+    return next();
+  }
+
+  // Proxy Sitecore API requests
+  if (context.url.pathname.match(/^(\/-\/)/g)) {
+    debug.common('middleware (skipped request to Sitecore endpoint) %s %s', context.url.pathname, `${config.sitecoreApiHost}${context.url.pathname}`);
+    return fetch(`${config.sitecoreApiHost}${context.url.pathname}`);
+  }
+
+  context.locals.rewritePath = context.url.pathname;
 
   // const personalizeMiddleware = new PersonalizeMiddleware({
   //   // Configuration for your Sitecore Experience Edge endpoint
@@ -74,18 +98,29 @@ export const onRequest = defineMiddleware(async (context, next) => {
   await multisiteMiddleware.getHandler()(middlewareContext);
 
   // await personalizeMiddleware.getHandler()(middlewareContext);
-
+  
+  const rewriteResponse = await fetch(`${context.url.origin}${context.locals.rewritePath}`, {
+    ...context.request,
+    headers: {
+      ...context.request.headers,
+    },
+  });
+  
+  const finalResponse = new Response(rewriteResponse.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers: new Headers(response.headers)
+  });
+  
+  response.headers.forEach((value, key) => {
+    finalResponse.headers.set(key, value);
+  });
+  
+  response.headers.getSetCookie().forEach((value) => {
+    finalResponse.headers.append('Set-Cookie', value);
+  });
+  
   debug.common('middleware end %s', context.url.pathname);
 
-  const astroRes = await next();
-
-  response.headers.forEach((value, key) => {
-    astroRes.headers.set(key, value);
-  });
-
-  response.headers.getSetCookie().forEach((value) => {
-    astroRes.headers.append('Set-Cookie', value);
-  });
-
-  return astroRes;
+  return finalResponse;
 });

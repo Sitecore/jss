@@ -46,6 +46,6 @@
     "noUnusedParameters": true,
     "incremental": true
   },
-  "include": ["env.d.ts", "**/*.d.ts", "**/*.ts", "**/*.astro"],
+  "include": ["env.d.ts", "**/*.d.ts", "**/*.ts", "**/*.astro", "**/*.js"],
   // "exclude": ["node_modules"]
 }

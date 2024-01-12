@@ -1,4 +1,9 @@
 fields:
   pageTitle: Integrations
 placeholders:
-  AstroApp-jss-main: []
+  AstroApp-jss-main:
+    - componentName: ContentBlock
+      fields:
+        heading: Integrations
+        content: |
+          <h3><a href="/integrations/react/graphql">React</a></h3>

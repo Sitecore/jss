@@ -5,11 +5,11 @@ import type {
 } from "@sitecore-jss/sitecore-jss/layout";
 import Layout from "@layouts/Layout.astro";
 import { getRoutePath, getLocales } from "@lib/i18n/utils";
-import { sitemapFetcher } from "@lib/sitemap-fetcher";
 import { SitecorePagePropsFactory } from "@lib/page-props-factory";
 import { SitecoreContextMap } from "@lib/context";
 import type { PagePropsFactoryConfig } from '@lib/page-props-factory';
 import config from "@temp/config";
+import { sitemapFetcher } from "@lib/sitemap-fetcher";
 
 export const prerender = true;
 
@@ -31,10 +31,10 @@ export type SitecoreContextValue = LayoutServiceContext & {
 let sitecorePagePropsFactory = new SitecorePagePropsFactory();
 
 const pagePropsFactoryConfig: PagePropsFactoryConfig = {
-  path: getRoutePath(Astro.url.pathname, language),
+  ...Astro.locals,
+  path: getRoutePath(Astro.locals.path, language),
   locales,
   language,
-  ...Astro.locals
 }
 
 const pageProps = await sitecorePagePropsFactory.create(pagePropsFactoryConfig);

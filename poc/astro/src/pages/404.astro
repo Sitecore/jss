@@ -1,5 +1,13 @@
 ---
 import NotFound from "../layouts/NotFound.astro";
+import { siteResolver as _v1, siteResolver } from '@lib/site-resolver';
+import { pathExtractor as _v2, pathExtractor } from "@lib/extract-path";
 
+// Functionality to be bundled for the middleware
+// See related issue: https://github.com/withastro/astro/issues/9688
+siteResolver
+pathExtractor
+
+export const prerender = true;
 ---
 <NotFound />
