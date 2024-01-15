@@ -80,7 +80,7 @@ The schema of data returned in response to an app root query request
 
 #### Defined in
 
-[src/graphql/app-root-query.ts:27](https://github.com/Sitecore/jss/blob/7850583a8/packages/sitecore-jss/src/graphql/app-root-query.ts#L27)
+[src/graphql/app-root-query.ts:27](https://github.com/Sitecore/jss/blob/f89a83100/packages/sitecore-jss/src/graphql/app-root-query.ts#L27)
 
 ___
 
@@ -106,7 +106,7 @@ Schema of data returned in response to a "search" query request
 
 #### Defined in
 
-[src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/7850583a8/packages/sitecore-jss/src/graphql/search-service.ts#L22)
+[src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/f89a83100/packages/sitecore-jss/src/graphql/search-service.ts#L22)
 
 ## Functions
 
@@ -146,7 +146,7 @@ leaving that decision up to implementations.
 
 #### Defined in
 
-[src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/7850583a8/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
+[src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/f89a83100/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
 
 ___
 
@@ -171,4 +171,4 @@ The complete URL for accessing content through the Edge Platform.
 
 #### Defined in
 
-[src/graphql/graphql-edge-proxy.ts:9](https://github.com/Sitecore/jss/blob/7850583a8/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L9)
+[src/graphql/graphql-edge-proxy.ts:9](https://github.com/Sitecore/jss/blob/f89a83100/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L9)
