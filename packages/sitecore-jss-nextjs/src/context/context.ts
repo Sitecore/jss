@@ -137,12 +137,17 @@ export class Context<SDKModules extends SDKModulesType> {
    * @returns {void}
    */
   protected initSDK<T extends keyof SDKModules>(name: T): void {
-    this.sdkPromises[name] = new Promise((resolve) => {
-      this.props.sdks[name].init(this).then(() => {
-        this.sdks[name] = this.props.sdks[name].sdk;
-
-        resolve(this.sdks[name]);
-      });
+    this.sdkPromises[name] = new Promise((resolve, reject) => {
+      this.props.sdks[name]
+        .init(this)
+        .then(() => {
+          this.sdks[name] = this.props.sdks[name].sdk;
+          resolve(this.sdks[name]);
+        })
+        .catch((e) => {
+          // if init rejects, getSDK will reject too now
+          reject(e);
+        });
     });
   }
 }
