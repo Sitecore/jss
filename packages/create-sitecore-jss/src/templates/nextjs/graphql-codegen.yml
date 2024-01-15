@@ -1,5 +1,5 @@
 overwrite: true
-documents: 'src/**/*.graphql'
+# documents: 'src/**/*.graphql'
 schema: 'src/temp/GraphQLIntrospectionResult.json'
 generates:
   src/temp/graphql-types.ts:
