@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Link.tsx:121](https://github.com/Sitecore/jss/blob/f89a83100/packages/sitecore-jss-react-native/src/components/Link.tsx#L121)
+[sitecore-jss-react-native/src/components/Link.tsx:121](https://github.com/Sitecore/jss/blob/a0e4634de/packages/sitecore-jss-react-native/src/components/Link.tsx#L121)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Link.tsx:125](https://github.com/Sitecore/jss/blob/f89a83100/packages/sitecore-jss-react-native/src/components/Link.tsx#L125)
+[sitecore-jss-react-native/src/components/Link.tsx:125](https://github.com/Sitecore/jss/blob/a0e4634de/packages/sitecore-jss-react-native/src/components/Link.tsx#L125)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Link.tsx:107](https://github.com/Sitecore/jss/blob/f89a83100/packages/sitecore-jss-react-native/src/components/Link.tsx#L107)
+[sitecore-jss-react-native/src/components/Link.tsx:107](https://github.com/Sitecore/jss/blob/a0e4634de/packages/sitecore-jss-react-native/src/components/Link.tsx#L107)
