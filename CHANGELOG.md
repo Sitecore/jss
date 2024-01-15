@@ -27,6 +27,10 @@ Our versioning strategy is as follows:
 * Upgrade to Node.js 20.x ([#1679](https://github.com/Sitecore/jss/pull/1679))([#1681](https://github.com/Sitecore/jss/pull/1681))
 * `[nextjs/template]` Upgrade graphql-codegen packages to latest ([#1711](https://github.com/Sitecore/jss/pull/1711))
 
+### 🛠 Breaking Changes
+
+* `[templates/nextjs]` `[templates/nextjs-styleguide]` Remove graphql-let and rely directly on graphql-codegen for graphql code generation. ([#1713](https://github.com/Sitecore/jss/pull/1713))
+
 ## 21.6.0
 
 ### 🎉 New Features & Improvements
