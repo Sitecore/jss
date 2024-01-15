@@ -58,7 +58,7 @@ Our versioning strategy is as follows:
   * Introduced _Context_ class, that is used to initialize the application Context and shared Software Development Kits (SDKs). Accessible within the _@sitecore-jss/sitecore-jss-nextjs/context_ submodule.
   * Point of Sale resolution is fully removed, now it's handled by Sitecore Edge Proxy
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` The behavior of getPublicUrl() function has been changed - empty string is now considered valid value for PUBLIC_URL environment variable and, if defined, PUBLIC_URL will take precedence over the Vercel/Netlify env variables; the values of these variables should be adjusted as needed; PUBLIC_URL is commented out by default in .env; ([#1656](https://github.com/Sitecore/jss/pull/1656));
-* `[templates/angular]` `[sitecore-jss-angular]` Update Angular to version 16 ([#1690](https://github.com/Sitecore/jss/pull/1690)):
+* `[templates/angular]` `[sitecore-jss-angular]` Update Angular to version 16 ([#1690](https://github.com/Sitecore/jss/pull/1690)) ([#1697](https://github.com/Sitecore/jss/pull/1697)):
   * Updated Angular to ~16.2.10
   * Updated Typescript to ~4.9.5
   * _@angular-eslint/ng-cli-compat_ eslint rules are deprecated. Use _@angular-eslint/recommended_ rules instead.
