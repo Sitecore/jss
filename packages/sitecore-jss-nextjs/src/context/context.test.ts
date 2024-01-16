@@ -171,15 +171,16 @@ describe('Context', () => {
       expect(context.siteName).to.equal('website-1');
     });
 
-    it('should catch and log when SDK initialization rejects', () => {
-      const consoleSpy = sinon.spy(console, 'log');
+    it('should not fail context init when an SDK init throws', (done) => {
       const localProps = { ...props, sdks: errorSdk };
       const context = new Context<typeof errorSdk>(localProps);
-      context.init();
-      expect(
-        consoleSpy.calledWith('Initialization for SDK Error skipped. Reason: \n Cannot init Error')
-      );
-      consoleSpy.restore();
+      try {
+        context.init();
+      } catch (e) {
+        throw('Should not throw');
+      } finally {
+        done();
+      }      
     });
 
     it('should reject when getting SDK that rejected initialization', (done) => {

@@ -93,6 +93,8 @@ export class Context<SDKModules extends SDKModulesType> {
    */
   protected sdkPromises: { [module in keyof SDKModules]?: Promise<SDKModules[module]['sdk']> } = {};
 
+  protected failedSdks: { [module in keyof SDKModules]?: string } = {};
+
   constructor(protected props: ContextConfig<SDKModules>) {
     this.sitecoreEdgeUrl = props.sitecoreEdgeUrl;
     this.sitecoreEdgeContextId = props.sitecoreEdgeContextId;
@@ -127,7 +129,16 @@ export class Context<SDKModules extends SDKModulesType> {
    * @returns initialized SDK
    */
   public getSDK = <T extends keyof SDKModules>(name: T): Promise<SDKModules[T]['sdk']> => {
-    return this.sdkPromises[name] || Promise.reject(`Unknown SDK '${String(name)}'`);
+    if (!this.sdkPromises[name]) {
+      return Promise.reject(`Unknown SDK '${String(name)}'`);
+    } else {
+      return this.sdkPromises[name]!.then((result) => {
+        return (
+          (this.failedSdks[name] && Promise.reject(this.failedSdks[name])) ||
+          Promise.resolve(result)
+        );
+      });
+    }
   };
 
   /**
@@ -137,7 +148,7 @@ export class Context<SDKModules extends SDKModulesType> {
    * @returns {void}
    */
   protected initSDK<T extends keyof SDKModules>(name: T): void {
-    this.sdkPromises[name] = new Promise((resolve, reject) => {
+    this.sdkPromises[name] = new Promise((resolve) => {
       this.props.sdks[name]
         .init(this)
         .then(() => {
@@ -145,8 +156,9 @@ export class Context<SDKModules extends SDKModulesType> {
           resolve(this.sdks[name]);
         })
         .catch((e) => {
-          // if init rejects, getSDK will reject too now
-          reject(e);
+          // if init rejects, we mark SDK as failed - so getSDK cal would reject with a reason
+          this.failedSdks[name] = e;
+          resolve(undefined);
         });
     });
   }
