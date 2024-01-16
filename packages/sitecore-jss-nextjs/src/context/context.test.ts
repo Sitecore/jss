@@ -177,10 +177,10 @@ describe('Context', () => {
       try {
         context.init();
       } catch (e) {
-        throw('Should not throw');
+        throw 'Should not throw';
       } finally {
         done();
-      }      
+      }
     });
 
     it('should reject when getting SDK that rejected initialization', (done) => {
