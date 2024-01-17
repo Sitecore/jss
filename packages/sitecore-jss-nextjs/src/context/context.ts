@@ -93,7 +93,7 @@ export class Context<SDKModules extends SDKModulesType> {
    */
   protected sdkPromises: { [module in keyof SDKModules]?: Promise<SDKModules[module]['sdk']> } = {};
 
-  protected failedSdks: { [module in keyof SDKModules]?: string } = {};
+  protected sdkErrors: { [module in keyof SDKModules]?: string } = {};
 
   constructor(protected props: ContextConfig<SDKModules>) {
     this.sitecoreEdgeUrl = props.sitecoreEdgeUrl;
@@ -134,7 +134,7 @@ export class Context<SDKModules extends SDKModulesType> {
     } else {
       return this.sdkPromises[name]!.then((result) => {
         return (
-          (this.failedSdks[name] && Promise.reject(this.failedSdks[name])) ||
+          (this.sdkErrors[name] && Promise.reject(this.sdkErrors[name])) ||
           Promise.resolve(result)
         );
       });
@@ -157,7 +157,7 @@ export class Context<SDKModules extends SDKModulesType> {
         })
         .catch((e) => {
           // if init rejects, we mark SDK as failed - so getSDK cal would reject with a reason
-          this.failedSdks[name] = e;
+          this.sdkErrors[name] = e;
           resolve(undefined);
         });
     });

@@ -177,7 +177,7 @@ describe('Context', () => {
       try {
         context.init();
       } catch (e) {
-        throw 'Should not throw';
+        done(e);
       } finally {
         done();
       }
@@ -190,7 +190,7 @@ describe('Context', () => {
       context
         .getSDK('Error')
         .then(() => {
-          throw new Error('should not resolve');
+          done('should not resolve');
         })
         .catch((e) => {
           expect(e).to.be.equal('Cannot init Error');
