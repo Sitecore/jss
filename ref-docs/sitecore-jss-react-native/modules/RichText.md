@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/RichText.tsx:31](https://github.com/Sitecore/jss/blob/f89a83100/packages/sitecore-jss-react-native/src/components/RichText.tsx#L31)
+[sitecore-jss-react-native/src/components/RichText.tsx:31](https://github.com/Sitecore/jss/blob/a0e4634de/packages/sitecore-jss-react-native/src/components/RichText.tsx#L31)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/RichText.tsx:24](https://github.com/Sitecore/jss/blob/f89a83100/packages/sitecore-jss-react-native/src/components/RichText.tsx#L24)
+[sitecore-jss-react-native/src/components/RichText.tsx:24](https://github.com/Sitecore/jss/blob/a0e4634de/packages/sitecore-jss-react-native/src/components/RichText.tsx#L24)
