@@ -134,8 +134,7 @@ export class Context<SDKModules extends SDKModulesType> {
     } else {
       return this.sdkPromises[name]!.then((result) => {
         return (
-          (this.sdkErrors[name] && Promise.reject(this.sdkErrors[name])) ||
-          Promise.resolve(result)
+          (this.sdkErrors[name] && Promise.reject(this.sdkErrors[name])) || Promise.resolve(result)
         );
       });
     }
