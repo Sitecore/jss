@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/a0e4634de/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)
+[sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/45966ad23/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)
 
 ## Properties
 
@@ -36,4 +36,4 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/a0e4634de/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)
+[sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/45966ad23/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)
