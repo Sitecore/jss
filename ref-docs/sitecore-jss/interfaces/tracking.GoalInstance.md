@@ -24,4 +24,4 @@ GUID or alias (name) of goal to trigger
 
 #### Defined in
 
-[src/tracking/dataModels.ts:10](https://github.com/Sitecore/jss/blob/45966ad23/packages/sitecore-jss/src/tracking/dataModels.ts#L10)
+[src/tracking/dataModels.ts:10](https://github.com/Sitecore/jss/blob/9753f94a3/packages/sitecore-jss/src/tracking/dataModels.ts#L10)

@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx:15](https://github.com/Sitecore/jss/blob/45966ad23/packages/sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx#L15)
+[sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx:15](https://github.com/Sitecore/jss/blob/9753f94a3/packages/sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx#L15)
 
 ___
 
