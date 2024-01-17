@@ -155,7 +155,7 @@ export class Context<SDKModules extends SDKModulesType> {
           resolve(this.sdks[name]);
         })
         .catch((e) => {
-          // if init rejects, we mark SDK as failed - so getSDK cal would reject with a reason
+          // if init rejects, we mark SDK as failed - so getSDK call would reject with a reason
           this.sdkErrors[name] = e;
           resolve(undefined);
         });
