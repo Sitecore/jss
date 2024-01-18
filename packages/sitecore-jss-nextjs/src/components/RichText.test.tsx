@@ -100,9 +100,9 @@ describe('RichText', () => {
     innerMarkup?.click();
 
     expect(router.push).callCount(4);
-    expect(router.push.getCall(3).calledWith(
-      'https://example.com/contains-children',
-    )).to.equal(true);
+    expect(router.push.getCall(3).calledWith('https://example.com/contains-children')).to.equal(
+      true
+    );
 
     expect(c.find(ReactRichText).length).to.equal(1);
 
