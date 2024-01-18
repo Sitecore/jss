@@ -40,11 +40,11 @@ export const RichText = (props: RichTextProps): JSX.Element => {
   }, [hasText]);
 
   const routeHandler = (ev: MouseEvent) => {
-    if (!ev.target) return;
+    if (!ev.currentTarget) return;
 
     ev.preventDefault();
 
-    const pathname = (ev.target as HTMLAnchorElement).href;
+    const pathname = (ev.currentTarget as HTMLAnchorElement).href;
 
     router.push(pathname, pathname, { locale: false });
   };
