@@ -39,12 +39,12 @@ export const Link = (props: LinkProps): JSX.Element => {
     // determine if a link is a route or not.
     if (internalLinkMatcher.test(href)) {
       return (
-        <NextLink href={{ pathname: href, query: querystring, hash: anchor }} key="link" locale={false}>
-          <a 
-            title={value.title}
-            target={value.target}
-            className={value.class}
-            {...htmlLinkProps}>
+        <NextLink
+          href={{ pathname: href, query: querystring, hash: anchor }}
+          key="link"
+          locale={false}
+        >
+          <a title={value.title} target={value.target} className={value.class} {...htmlLinkProps}>
             {text}
             {children}
           </a>
