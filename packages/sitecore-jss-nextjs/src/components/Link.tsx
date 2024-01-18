@@ -27,11 +27,11 @@ export const Link = (props: LinkProps): JSX.Element => {
     ...htmlLinkProps
   } = props;
 
-    const value = ((field as LinkFieldValue).href
-      ? field
-      : (field as LinkField).value) as LinkFieldValue;
-    const { href, querystring, anchor } = value;
-    const isEditing = editable && (field as LinkFieldValue).editable;
+  const value = ((field as LinkFieldValue).href
+    ? field
+    : (field as LinkField).value) as LinkFieldValue;
+  const { href, querystring, anchor } = value;
+  const isEditing = editable && (field as LinkFieldValue).editable;
 
   if (href && !isEditing) {
     const text = showLinkTextWithChildrenPresent || !children ? value.text || value.href : null;
