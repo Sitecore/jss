@@ -15,6 +15,7 @@ Our versioning strategy is as follows:
 
 * `[nextjs/template]` `[sitecore-jss-nextjs]` On-demand ISR [#1674](https://github.com/Sitecore/jss/pull/1674))
 * `[sitecore-jss]` `[templates/nextjs-xmcloud]` Load the content styles for the RichText component ([#1670](https://github.com/Sitecore/jss/pull/1670))([#1683](https://github.com/Sitecore/jss/pull/1683)) ([#1684](https://github.com/Sitecore/jss/pull/1684)) ([#1693](https://github.com/Sitecore/jss/pull/1693))
+* `[templates/react] [sitecore-jss-react] ` Replace package 'deep-equal' with 'fast-deep-equal'; no functionality change only performance improvement ([#1719](https://github.com/Sitecore/jss/pull/1719) [#1665](https://github.com/Sitecore/jss/pull/1665))
 
 ### 🐛 Bug Fixes
 
@@ -22,7 +23,6 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Fixed Image component when there is using Banner variant which set property background-image when image is empty. ([#1689](https://github.com/Sitecore/jss/pull/1689)) ([#1692](https://github.com/Sitecore/jss/pull/1692))
 * `[templates/nextjs-sxa]` Fix feature `show Grid column` in Experience Editor. ([#1704](https://github.com/Sitecore/jss/pull/1704))
 * `[sitecore-jss-nextjs] [templates/nextjs-xmcloud]` SDK initialization rejections are now correctly handled. Errors should no longer occur after getSDK() promises resolve when they shouldn't (for example, getting Events SDK in development environment) ([#1712](https://github.com/Sitecore/jss/pull/1712) [#1715](https://github.com/Sitecore/jss/pull/1715) [#1716](https://github.com/Sitecore/jss/pull/1716))
-* `[templates/react] [sitecore-jss-react] ` Replace package 'deep-equal' with 'fast-deep-equal'; no functionality change only performance improvement ([#1719](https://github.com/Sitecore/jss/pull/1719) [#1665](https://github.com/Sitecore/jss/pull/1665)
 
 ### 🧹 Chores
 
