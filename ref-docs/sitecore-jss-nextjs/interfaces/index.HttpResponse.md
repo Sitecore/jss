@@ -1,6 +1,6 @@
 [@sitecore-jss/sitecore-jss-nextjs](../README.md) / [index](../modules/index.md) / HttpResponse
 
-# Interface: HttpResponse<T\>
+# Interface: HttpResponse\<T\>
 
 [index](../modules/index.md).HttpResponse
 

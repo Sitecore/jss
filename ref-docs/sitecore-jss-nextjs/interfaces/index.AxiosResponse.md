@@ -1,6 +1,6 @@
 [@sitecore-jss/sitecore-jss-nextjs](../README.md) / [index](../modules/index.md) / AxiosResponse
 
-# Interface: AxiosResponse<T\>
+# Interface: AxiosResponse\<T\>
 
 [index](../modules/index.md).AxiosResponse
 

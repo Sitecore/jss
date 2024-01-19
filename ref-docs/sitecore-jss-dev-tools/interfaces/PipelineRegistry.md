@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[pipelines/pipelinesRegistry.ts:4](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L4)
+[pipelines/pipelinesRegistry.ts:4](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L4)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[pipelines/pipelinesRegistry.ts:6](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L6)
+[pipelines/pipelinesRegistry.ts:6](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L6)
 
 ___
 
@@ -82,13 +82,13 @@ ___
 
 #### Defined in
 
-[pipelines/pipelinesRegistry.ts:7](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L7)
+[pipelines/pipelinesRegistry.ts:7](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L7)
 
 ___
 
 ### getPipelines
 
-• **getPipelines**: () => { `[key: string]`: [`Pipeline`](Pipeline.md);  }
+• **getPipelines**: () => \{ `[key: string]`: [`Pipeline`](Pipeline.md);  }
 
 #### Type declaration
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[pipelines/pipelinesRegistry.ts:8](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L8)
+[pipelines/pipelinesRegistry.ts:8](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L8)
 
 ___
 
@@ -125,4 +125,4 @@ ___
 
 #### Defined in
 
-[pipelines/pipelinesRegistry.ts:5](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L5)
+[pipelines/pipelinesRegistry.ts:5](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L5)

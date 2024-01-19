@@ -15,7 +15,7 @@
 
 ### checkStatus
 
-▸ **checkStatus**<`T`\>(`response`): [`HttpResponse`](../interfaces/index.HttpResponse.md)<`T`\>
+▸ **checkStatus**\<`T`\>(`response`): [`HttpResponse`](../interfaces/index.HttpResponse.md)\<`T`\>
 
 #### Type parameters
 
@@ -27,23 +27,23 @@
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `response` | [`HttpResponse`](../interfaces/index.HttpResponse.md)<`T`\> | response from fetch |
+| `response` | [`HttpResponse`](../interfaces/index.HttpResponse.md)\<`T`\> | response from fetch |
 
 #### Returns
 
-[`HttpResponse`](../interfaces/index.HttpResponse.md)<`T`\>
+[`HttpResponse`](../interfaces/index.HttpResponse.md)\<`T`\>
 
 response
 
 #### Defined in
 
-[src/tracking/trackingApi.ts:28](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/tracking/trackingApi.ts#L28)
+[src/tracking/trackingApi.ts:28](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/tracking/trackingApi.ts#L28)
 
 ___
 
 ### trackEvent
 
-▸ **trackEvent**(`events`, `options`): `Promise`<`void`\>
+▸ **trackEvent**(`events`, `options`): `Promise`\<`void`\>
 
 Makes a request to Sitecore Layout Service for the specified route item path.
 
@@ -56,10 +56,10 @@ Makes a request to Sitecore Layout Service for the specified route item path.
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 void
 
 #### Defined in
 
-[src/tracking/trackingApi.ts:76](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/tracking/trackingApi.ts#L76)
+[src/tracking/trackingApi.ts:76](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/tracking/trackingApi.ts#L76)

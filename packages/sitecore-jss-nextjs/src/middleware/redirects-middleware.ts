@@ -112,6 +112,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
         url.href = existsRedirect.target;
         url.locale = req.nextUrl.locale;
       } else {
+        const source = `${url.pathname}${url.search}`;
         url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
         const urlFirstPart = existsRedirect.target.split('/')[1];
         if (this.locales.includes(urlFirstPart)) {
@@ -119,9 +120,17 @@ export class RedirectsMiddleware extends MiddlewareBase {
           existsRedirect.target = existsRedirect.target.replace(`/${urlFirstPart}`, '');
         }
 
-        url.pathname = url.pathname
+        const target = source
           .replace(regexParser(existsRedirect.pattern), existsRedirect.target)
-          .replace(/^\/\//, '/');
+          .replace(/^\/\//, '/')
+          .split('?');
+        url.pathname = target[0];
+        if (target[1]) {
+          const newParams = new URLSearchParams(target[1]);
+          for (const [key, val] of newParams.entries()) {
+            url.searchParams.append(key, val);
+          }
+        }
       }
 
       const redirectUrl = decodeURIComponent(url.href);
@@ -173,14 +182,18 @@ export class RedirectsMiddleware extends MiddlewareBase {
     const redirects = await this.redirectsService.fetchRedirects(siteName);
     const tragetURL = req.nextUrl.pathname;
     const targetQS = req.nextUrl.search || '';
+    const language = this.getLanguage(req);
+    const modifyRedirects = structuredClone(redirects);
 
-    return redirects.length
-      ? redirects.find((redirect: RedirectInfo) => {
+    return modifyRedirects.length
+      ? modifyRedirects.find((redirect: RedirectInfo) => {
+          redirect.pattern = redirect.pattern.replace(RegExp(`^[^]?/${language}/`, 'gi'), '');
           redirect.pattern = `/^\/${redirect.pattern
             .replace(/^\/|\/$/g, '')
             .replace(/^\^\/|\/\$$/g, '')
             .replace(/^\^|\$$/g, '')
-            .replace(/\$\/gi$/g, '')}$/gi`;
+            .replace(/(?<!\\)\?/g, '\\?')
+            .replace(/\$\/gi$/g, '')}[\/]?$/gi`;
 
           return (
             (regexParser(redirect.pattern).test(tragetURL) ||

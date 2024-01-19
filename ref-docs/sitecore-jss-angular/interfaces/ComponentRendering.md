@@ -59,7 +59,7 @@ ___
 
 ### placeholders
 
-• `Optional` **placeholders**: [`PlaceholdersData`](../README.md#placeholdersdata)<`string`\>
+• `Optional` **placeholders**: [`PlaceholdersData`](../README.md#placeholdersdata)\<`string`\>
 
 #### Defined in
 

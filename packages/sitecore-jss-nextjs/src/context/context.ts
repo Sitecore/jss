@@ -1,3 +1,5 @@
+import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss-react';
+
 /**
  * Software Development Kit (SDK) instance
  */
@@ -25,6 +27,10 @@ export interface ContextInitProps {
    * Your Sitecore site name
    */
   siteName?: string;
+  /**
+   * Sitecore page state (normal, preview, edit)
+   */
+  pageState?: LayoutServicePageState;
 }
 
 /**
@@ -75,6 +81,10 @@ export class Context<SDKModules extends SDKModulesType> {
    */
   public siteName: string;
   /**
+   * Sitecore page state (normal, preview, edit)
+   */
+  public pageState: LayoutServicePageState;
+  /**
    * Software Development Kits (SDKs) to be initialized
    */
   public readonly sdks: { [module in keyof SDKModules]?: SDKModules[module]['sdk'] } = {};
@@ -83,10 +93,13 @@ export class Context<SDKModules extends SDKModulesType> {
    */
   protected sdkPromises: { [module in keyof SDKModules]?: Promise<SDKModules[module]['sdk']> } = {};
 
+  protected sdkErrors: { [module in keyof SDKModules]?: string } = {};
+
   constructor(protected props: ContextConfig<SDKModules>) {
     this.sitecoreEdgeUrl = props.sitecoreEdgeUrl;
     this.sitecoreEdgeContextId = props.sitecoreEdgeContextId;
     this.siteName = props.siteName;
+    this.pageState = LayoutServicePageState.Normal;
   }
 
   public init(props: ContextInitProps = {}) {
@@ -97,6 +110,10 @@ export class Context<SDKModules extends SDKModulesType> {
 
     if (props.siteName) {
       this.siteName = props.siteName;
+    }
+
+    if (props.pageState) {
+      this.pageState = props.pageState;
     }
 
     // iterate over the SDKs and initialize them
@@ -111,10 +128,16 @@ export class Context<SDKModules extends SDKModulesType> {
    * @param {string} name SDK name
    * @returns initialized SDK
    */
-  public getSDK = <T extends keyof SDKModules>(
-    name: T
-  ): Promise<SDKModules[T]['sdk']> | undefined => {
-    return this.sdkPromises[name];
+  public getSDK = <T extends keyof SDKModules>(name: T): Promise<SDKModules[T]['sdk']> => {
+    if (!this.sdkPromises[name]) {
+      return Promise.reject(`Unknown SDK '${String(name)}'`);
+    } else {
+      return this.sdkPromises[name]!.then((result) => {
+        return (
+          (this.sdkErrors[name] && Promise.reject(this.sdkErrors[name])) || Promise.resolve(result)
+        );
+      });
+    }
   };
 
   /**
@@ -125,11 +148,17 @@ export class Context<SDKModules extends SDKModulesType> {
    */
   protected initSDK<T extends keyof SDKModules>(name: T): void {
     this.sdkPromises[name] = new Promise((resolve) => {
-      this.props.sdks[name].init(this).then(() => {
-        this.sdks[name] = this.props.sdks[name].sdk;
-
-        resolve(this.sdks[name]);
-      });
+      this.props.sdks[name]
+        .init(this)
+        .then(() => {
+          this.sdks[name] = this.props.sdks[name].sdk;
+          resolve(this.sdks[name]);
+        })
+        .catch((e) => {
+          // if init rejects, we mark SDK as failed - so getSDK call would reject with a reason
+          this.sdkErrors[name] = e;
+          resolve(undefined);
+        });
     });
   }
 }

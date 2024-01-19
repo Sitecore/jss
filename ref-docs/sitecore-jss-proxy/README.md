@@ -19,7 +19,7 @@
 
 ### default
 
-▸ **default**(`renderer`, `config`, `parseRouteUrl`): `RequestHandler`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\>[]
+▸ **default**(`renderer`, `config`, `parseRouteUrl`): `RequestHandler`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\>[]
 
 #### Parameters
 
@@ -31,11 +31,11 @@
 
 #### Returns
 
-`RequestHandler`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\>[]
+`RequestHandler`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\>[]
 
 #### Defined in
 
-[index.ts:580](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-proxy/src/index.ts#L580)
+[index.ts:580](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-proxy/src/index.ts#L580)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[index.ts:24](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-proxy/src/index.ts#L24)
+[index.ts:24](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-proxy/src/index.ts#L24)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `reqPath` | `string` |
-| `req` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
+| `req` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
 | `config` | [`ProxyConfig`](interfaces/ProxyConfig.md) |
 | `parseRouteUrl?` | `RouteUrlParser` |
 
@@ -78,4 +78,4 @@ ___
 
 #### Defined in
 
-[index.ts:350](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-proxy/src/index.ts#L350)
+[index.ts:350](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-proxy/src/index.ts#L350)

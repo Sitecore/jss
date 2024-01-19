@@ -10,6 +10,7 @@ export {
   EditButtonTypes,
 } from '@sitecore-jss/sitecore-jss/utils';
 export {
+  getContentStylesheetLink,
   LayoutService,
   LayoutServiceData,
   LayoutServicePageState,

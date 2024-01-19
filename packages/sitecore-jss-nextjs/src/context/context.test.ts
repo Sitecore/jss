@@ -3,6 +3,7 @@
 import sinon from 'sinon';
 import { expect } from 'chai';
 import { Context } from './';
+import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss-react';
 
 describe('Context', () => {
   const sdks = {
@@ -22,6 +23,17 @@ describe('Context', () => {
           setTimeout(() => {
             resolve();
           }, 500);
+        });
+      },
+    },
+  };
+
+  const errorSdk = {
+    Error: {
+      sdk: { error: 'yes' },
+      init: () => {
+        return new Promise<void>((_, reject) => {
+          reject('Cannot init Error');
         });
       },
     },
@@ -77,13 +89,13 @@ describe('Context', () => {
       expect(context.sdks.Foo).to.equal(undefined);
 
       Promise.all([
-        context.getSDK('Foo')?.then((sdk) => {
+        context.getSDK('Foo').then((sdk) => {
           expect(fooInitSpy.calledOnce).to.be.true;
           expect(sdk).to.deep.equal(sdks.Foo.sdk);
 
           return;
         }),
-        context.getSDK('Bar')?.then((sdk) => {
+        context.getSDK('Bar').then((sdk) => {
           expect(barInitSpy.calledOnce).to.be.true;
           expect(sdk).to.deep.equal(sdks.Bar.sdk);
 
@@ -95,6 +107,15 @@ describe('Context', () => {
 
         done();
       });
+    });
+
+    it('should use normal pageMode when context is initialized with empty props', () => {
+      const context = new Context<typeof sdks>(props);
+
+      context.init();
+
+      expect(context.isInitialized).to.be.true;
+      expect(context.pageState).to.equal(LayoutServicePageState.Normal);
     });
 
     it('should initialize the context with a different site name', (done) => {
@@ -109,13 +130,13 @@ describe('Context', () => {
       expect(context.sdks.Foo).to.equal(undefined);
 
       Promise.all([
-        context.getSDK('Foo')?.then((sdk) => {
+        context.getSDK('Foo').then((sdk) => {
           expect(fooInitSpy.calledOnce).to.be.true;
           expect(sdk).to.deep.equal(sdks.Foo.sdk);
 
           return;
         }),
-        context.getSDK('Bar')?.then((sdk) => {
+        context.getSDK('Bar').then((sdk) => {
           expect(barInitSpy.calledOnce).to.be.true;
           expect(sdk).to.deep.equal(sdks.Bar.sdk);
 
@@ -127,6 +148,15 @@ describe('Context', () => {
 
         done();
       });
+    });
+
+    it('should initialize the context with a different page mode', () => {
+      const context = new Context<typeof sdks>(props);
+
+      context.init({ pageState: LayoutServicePageState.Edit });
+
+      expect(context.isInitialized).to.be.true;
+      expect(context.pageState).to.equal(LayoutServicePageState.Edit);
     });
 
     it('should not initialize the context if it is already initialized', () => {
@@ -140,6 +170,33 @@ describe('Context', () => {
 
       expect(context.siteName).to.equal('website-1');
     });
+
+    it('should not fail context init when an SDK init throws', (done) => {
+      const localProps = { ...props, sdks: errorSdk };
+      const context = new Context<typeof errorSdk>(localProps);
+      try {
+        context.init();
+      } catch (e) {
+        done(e);
+      } finally {
+        done();
+      }
+    });
+
+    it('should reject when getting SDK that rejected initialization', (done) => {
+      const localProps = { ...props, sdks: errorSdk };
+      const context = new Context<typeof errorSdk>(localProps);
+      context.init();
+      context
+        .getSDK('Error')
+        .then(() => {
+          done('should not resolve');
+        })
+        .catch((e) => {
+          expect(e).to.be.equal('Cannot init Error');
+          done();
+        });
+    });
   });
 
   describe('getSDK', () => {
@@ -152,13 +209,13 @@ describe('Context', () => {
       expect(context.sdks.Foo).to.equal(undefined);
 
       Promise.all([
-        context.getSDK('Foo')?.then((sdk) => {
+        context.getSDK('Foo').then((sdk) => {
           expect(fooInitSpy.calledOnce).to.be.true;
           expect(sdk).to.deep.equal(sdks.Foo.sdk);
 
           return;
         }),
-        context.getSDK('Bar')?.then((sdk) => {
+        context.getSDK('Bar').then((sdk) => {
           expect(barInitSpy.calledOnce).to.be.true;
           expect(sdk).to.deep.equal(sdks.Bar.sdk);
 
@@ -170,6 +227,22 @@ describe('Context', () => {
 
         done();
       });
+    });
+
+    it('should reject unknown SDK', async () => {
+      const context = new Context<typeof sdks>(props);
+      const sdk = 'Baz';
+
+      context.init();
+
+      return context
+        .getSDK(sdk)
+        .then(() => {
+          throw new Error('should not resolve');
+        })
+        .catch((e) => {
+          expect(e).to.equal(`Unknown SDK '${sdk}'`);
+        });
     });
   });
 });

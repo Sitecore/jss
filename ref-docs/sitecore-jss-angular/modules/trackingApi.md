@@ -13,7 +13,7 @@
 
 ### checkStatus
 
-▸ **checkStatus**<`T`\>(`response`): [`HttpResponse`](../interfaces/HttpResponse.md)<`T`\>
+▸ **checkStatus**\<`T`\>(`response`): [`HttpResponse`](../interfaces/HttpResponse.md)\<`T`\>
 
 #### Type parameters
 
@@ -25,11 +25,11 @@
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `response` | [`HttpResponse`](../interfaces/HttpResponse.md)<`T`\> | response from fetch |
+| `response` | [`HttpResponse`](../interfaces/HttpResponse.md)\<`T`\> | response from fetch |
 
 #### Returns
 
-[`HttpResponse`](../interfaces/HttpResponse.md)<`T`\>
+[`HttpResponse`](../interfaces/HttpResponse.md)\<`T`\>
 
 response
 
@@ -41,7 +41,7 @@ ___
 
 ### trackEvent
 
-▸ **trackEvent**(`events`, `options`): `Promise`<`void`\>
+▸ **trackEvent**(`events`, `options`): `Promise`\<`void`\>
 
 Makes a request to Sitecore Layout Service for the specified route item path.
 
@@ -54,7 +54,7 @@ Makes a request to Sitecore Layout Service for the specified route item path.
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 void
 

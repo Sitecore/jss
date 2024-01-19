@@ -1,6 +1,6 @@
 [@sitecore-jss/sitecore-jss-vue](../README.md) / RouteData
 
-# Interface: RouteData<Fields\>
+# Interface: RouteData\<Fields\>
 
 Shape of route data returned from Sitecore Layout Service
 
@@ -8,7 +8,7 @@ Shape of route data returned from Sitecore Layout Service
 
 | Name | Type |
 | :------ | :------ |
-| `Fields` | `Record`<`string`, [`Field`](Field.md) \| `Item` \| `Item`[]\> |
+| `Fields` | `Record`\<`string`, [`Field`](Field.md) \| `Item` \| `Item`[]\> |
 
 ## Table of contents
 
@@ -121,7 +121,7 @@ ___
 
 ### placeholders
 
-• **placeholders**: `PlaceholdersData`<`string`\>
+• **placeholders**: `PlaceholdersData`\<`string`\>
 
 #### Defined in
 

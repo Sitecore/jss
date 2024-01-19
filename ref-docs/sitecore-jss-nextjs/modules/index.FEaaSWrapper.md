@@ -36,7 +36,7 @@ ___
 
 ### getServerSideProps
 
-▸ **getServerSideProps**(`rendering`, `layoutData`, `context`): `Promise`<`unknown`\>
+▸ **getServerSideProps**(`rendering`, `layoutData`, `context`): `Promise`\<`unknown`\>
 
 Will be called during SSR
 
@@ -46,23 +46,23 @@ Will be called during SSR
 | :------ | :------ |
 | `rendering` | [`ComponentRendering`](../interfaces/index.ComponentRendering.md) |
 | `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) |
-| `context` | `GetServerSidePropsContext`<`ParsedUrlQuery`, `PreviewData`\> |
+| `context` | `GetServerSidePropsContext`\<`ParsedUrlQuery`, `PreviewData`\> |
 
 #### Returns
 
-`Promise`<`unknown`\>
+`Promise`\<`unknown`\>
 
 context
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
 
 ___
 
 ### getStaticProps
 
-▸ **getStaticProps**(`rendering`, `layoutData`, `context`): `Promise`<`unknown`\>
+▸ **getStaticProps**(`rendering`, `layoutData`, `context`): `Promise`\<`unknown`\>
 
 Will be called during SSG
 
@@ -72,14 +72,14 @@ Will be called during SSG
 | :------ | :------ |
 | `rendering` | [`ComponentRendering`](../interfaces/index.ComponentRendering.md) |
 | `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) |
-| `context` | `GetStaticPropsContext`<`ParsedUrlQuery`, `PreviewData`\> |
+| `context` | `GetStaticPropsContext`\<`ParsedUrlQuery`, `PreviewData`\> |
 
 #### Returns
 
-`Promise`<`unknown`\>
+`Promise`\<`unknown`\>
 
 context
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)

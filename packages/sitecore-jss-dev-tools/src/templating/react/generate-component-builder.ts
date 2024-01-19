@@ -36,9 +36,10 @@ export function generateComponentBuilder({
 
 /**
  * Watch for changes to component builder sources
- * @param {string} componentRootPath root path to components
- * @param {PackageDefinition[]} packages packages to include in component builder
- * @param {ComponentFile[]} components components to include in component builder
+ * @param {object} config configuration for component builder watcher
+ * @param {string} config.componentRootPath root path to components
+ * @param {PackageDefinition[]} config.packages packages to include in component builder
+ * @param {ComponentFile[]} config.components components to include in component builder
  */
 export function watchComponentBuilder({
   componentRootPath,

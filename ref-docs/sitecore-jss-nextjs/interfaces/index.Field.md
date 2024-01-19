@@ -1,6 +1,6 @@
 [@sitecore-jss/sitecore-jss-nextjs](../README.md) / [index](../modules/index.md) / Field
 
-# Interface: Field<T\>
+# Interface: Field\<T\>
 
 [index](../modules/index.md).Field
 

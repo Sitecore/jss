@@ -6,7 +6,7 @@
 
 ### JssCanActivateFn
 
-▸ **JssCanActivateFn**(`input`): `string` \| `boolean` \| `string`[] \| `UrlTree` \| `Observable`<`string` \| `boolean` \| `string`[] \| `UrlTree`\> \| `Promise`<`string` \| `boolean` \| `string`[] \| `UrlTree`\>
+▸ **JssCanActivateFn**(`input`): `string` \| `boolean` \| `string`[] \| `UrlTree` \| `Observable`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\> \| `Promise`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\>
 
 #### Parameters
 
@@ -16,8 +16,8 @@
 
 #### Returns
 
-`string` \| `boolean` \| `string`[] \| `UrlTree` \| `Observable`<`string` \| `boolean` \| `string`[] \| `UrlTree`\> \| `Promise`<`string` \| `boolean` \| `string`[] \| `UrlTree`\>
+`string` \| `boolean` \| `string`[] \| `UrlTree` \| `Observable`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\> \| `Promise`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\>
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:86](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L86)
+[sitecore-jss-angular/src/components/placeholder.token.ts:86](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L86)

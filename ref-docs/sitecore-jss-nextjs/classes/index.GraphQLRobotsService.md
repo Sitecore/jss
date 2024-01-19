@@ -82,19 +82,19 @@ sitecore-jss/types/site/graphql-robots-service.d.ts:40
 
 ### fetchRobots
 
-▸ **fetchRobots**(): `Promise`<`string`\>
+▸ **fetchRobots**(): `Promise`\<`string`\>
 
 Fetch a data of robots.txt from API
+
+#### Returns
+
+`Promise`\<`string`\>
+
+text of robots.txt
 
 **`Throws`**
 
 if the siteName is empty.
-
-#### Returns
-
-`Promise`<`string`\>
-
-text of robots.txt
 
 #### Defined in
 

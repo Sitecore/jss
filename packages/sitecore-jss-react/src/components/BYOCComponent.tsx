@@ -29,6 +29,10 @@ export type BYOCComponentParams = {
    */
   ComponentProps?: string;
   /**
+   * A JSON object with data sources to be fetched and passed to the component
+   */
+  ComponentDataOverride?: string;
+  /**
    * A string with classes that can be used to apply themes, via SXA functionality
    */
   styles?: string;
@@ -131,33 +135,31 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
 
     const ErrorComponent = this.props.errorComponent;
 
-    const isNull = props.fetchedData && Object.keys(props.fetchedData).length === 0;
+    let componentProps: { [key: string]: any } = {};
 
-    let componentProps: { [key: string]: any } = isNull ? null : props.fetchedData;
-
-    if (!componentProps) {
-      if (props.params?.ComponentProps) {
-        try {
-          componentProps = JSON.parse(props.params.ComponentProps) ?? {};
-        } catch (e) {
-          console.error(
-            `Parsing props for ${componentName} component from rendering params failed. Error: ${e}`
-          );
-          return ErrorComponent ? (
-            <ErrorComponent error={e as Error} />
-          ) : (
-            <DefaultErrorComponent error={e as Error} />
-          );
-        }
-      } else {
-        componentProps = props.fields ? getDataFromFields(props.fields) : {};
+    if (props.params?.ComponentProps) {
+      try {
+        componentProps = JSON.parse(props.params.ComponentProps) ?? {};
+      } catch (e) {
+        console.error(
+          `Parsing props for ${componentName} component from rendering params failed. Error: ${e}`
+        );
+        return ErrorComponent ? (
+          <ErrorComponent error={e as Error} />
+        ) : (
+          <DefaultErrorComponent error={e as Error} />
+        );
       }
     }
+    // apply props from item datasource
+    const dataSourcesData = { ...props.fetchedData, _: getDataFromFields(props.fields ?? {}) };
+
     // we render fallback on client to avoid problems with client-only components
     return (
       <FEAAS.ExternalComponent
         componentName={componentName}
         clientFallback={fallbackComponent}
+        datasources={dataSourcesData}
         {...componentProps}
       />
     );
@@ -171,8 +173,8 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
 export async function fetchBYOCComponentServerProps(
   params: BYOCComponentParams
 ): Promise<BYOCComponentProps> {
-  const fetchDataOptions: FEAAS.DataOptions = params.ComponentProps
-    ? JSON.parse(params.ComponentProps)
+  const fetchDataOptions: FEAAS.DataOptions = params.ComponentDataOverride
+    ? JSON.parse(params.ComponentDataOverride)
     : {};
 
   const fetchedData: FEAAS.DataScopes = await FEAAS.DataSettings.fetch(fetchDataOptions || {});

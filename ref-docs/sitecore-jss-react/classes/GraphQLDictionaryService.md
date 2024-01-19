@@ -94,17 +94,9 @@ sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:56
 
 ### fetchDictionaryData
 
-▸ **fetchDictionaryData**(`language`): `Promise`<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
+▸ **fetchDictionaryData**(`language`): `Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
 Fetches dictionary data for internalization.
-
-**`Default`**
-
-query (@see query)
-
-**`Throws`**
-
-if the app root was not found for the specified site and language.
 
 #### Parameters
 
@@ -114,9 +106,19 @@ if the app root was not found for the specified site and language.
 
 #### Returns
 
-`Promise`<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
+`Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
 dictionary phrases
+
+**`Default`**
+
+```ts
+query (@see query)
+```
+
+**`Throws`**
+
+if the app root was not found for the specified site and language.
 
 #### Overrides
 
@@ -130,7 +132,7 @@ ___
 
 ### getCacheClient
 
-▸ `Protected` **getCacheClient**(): `CacheClient`<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
+▸ `Protected` **getCacheClient**(): `CacheClient`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
 Gets a cache client that can cache data. Uses memory-cache as the default
 library for caching (@see MemoryCacheClient). Override this method if you
@@ -138,7 +140,7 @@ want to use something else.
 
 #### Returns
 
-`CacheClient`<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
+`CacheClient`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
 implementation
 
@@ -158,11 +160,6 @@ ___
 
 Retrieves a
 
-**`See`**
-
- - DictionaryPhrases value from the cache.
- - DictionaryPhrases value, or null if the specified key is not found in the cache.
-
 #### Parameters
 
 | Name | Type | Description |
@@ -174,6 +171,11 @@ Retrieves a
 [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
 
 The
+
+**`See`**
+
+ - DictionaryPhrases value from the cache.
+ - DictionaryPhrases value, or null if the specified key is not found in the cache.
 
 #### Inherited from
 
@@ -211,14 +213,6 @@ ___
 
 Caches a
 
-**`See`**
-
-DictionaryPhrases value for the specified cache key.
-
-**`Mixes`**
-
-CacheClient<DictionaryPhrases>
-
 #### Parameters
 
 | Name | Type | Description |
@@ -231,6 +225,14 @@ CacheClient<DictionaryPhrases>
 [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
 
 The value added to the cache.
+
+**`See`**
+
+DictionaryPhrases value for the specified cache key.
+
+**`Mixes`**
+
+CacheClient<DictionaryPhrases>
 
 #### Inherited from
 

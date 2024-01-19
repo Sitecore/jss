@@ -46,16 +46,19 @@ const CdpPageView = (): JSX.Element => {
       variantId as string,
       scope
     );
-
-    context.getSDK('Events')?.then((Events) =>
-      Events.pageView({
-        channel: 'WEB',
-        currency: 'USD',
-        page: route.name,
-        pageVariantId,
-        language,
-      })
-    );
+    // there are cases where Events SDK will be absent which are expected to reject
+    context
+      .getSDK('Events')
+      .then((Events) =>
+        Events.pageView({
+          channel: 'WEB',
+          currency: 'USD',
+          page: route.name,
+          pageVariantId,
+          language,
+        })
+      )
+      .catch((e) => console.debug(e));
   }, [pageState, route, variantId, site]);
 
   return <></>;

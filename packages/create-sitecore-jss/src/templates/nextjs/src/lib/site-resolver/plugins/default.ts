@@ -6,7 +6,7 @@ class DefaultPlugin implements SiteResolverPlugin {
   exec(sites: SiteInfo[]): SiteInfo[] {
     // Add default/configured site
     sites.unshift({
-      name: config.siteName,
+      name: config.sitecoreSiteName,
       language: config.defaultLanguage,
       hostName: '*',
     });

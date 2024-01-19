@@ -1,13 +1,11 @@
-import { ɵisObservable as isObservable, ɵisPromise as isPromise } from '@angular/core';
-import { from, Observable, of } from 'rxjs';
-
-export type InnerType<T> = T extends Promise<infer P> ? P : T extends Observable<infer O> ? O : T;
+import { ɵisPromise as isPromise } from '@angular/core';
+import { from, Observable, isObservable, of } from 'rxjs';
 
 /**
  * @param {T} value
  * @returns {Promise | Observable | any} resolved value
  */
-export function wrapIntoObservable<T>(value: T): Observable<InnerType<T>> {
+export function wrapIntoObservable<T>(value: T | Promise<T> | Observable<T>): Observable<T> {
   if (isObservable(value)) {
     return value;
   }

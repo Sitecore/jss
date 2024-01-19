@@ -4,9 +4,10 @@
 export interface JssConfig extends Record<string, string | undefined> {
   sitecoreApiKey?: string;
   sitecoreApiHost?: string;
-  siteName?: string;
+  sitecoreSiteName?: string;
   graphQLEndpointPath?: string;
   defaultLanguage?: string;
   graphQLEndpoint?: string;
   layoutServiceConfigurationName?: string;
+  publicUrl?: string;
 }

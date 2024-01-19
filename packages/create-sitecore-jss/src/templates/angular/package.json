@@ -13,10 +13,6 @@
     "graphQLEndpointPath": "/sitecore/api/graph/edge",
     "language": "en"
   },
-  "engines": {
-    "node": ">=12",
-    "npm": ">=6"
-  },
   "scripts": {
     "ng": "ng",
     "lint:yml": "ts-node ./scripts/lint-yml.ts",
@@ -30,9 +26,9 @@
     "start:angular": "ng serve -o",
     "start:proxy": "ts-node --project src/tsconfig.webpack-server.json scripts/disconnected-mode-proxy.ts",
     "start:watch-components": "ts-node --project src/tsconfig.webpack-server.json scripts/generate-component-factory.ts --watch",
-    "build:client": "cross-env-shell ng build --deploy-url $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/",
-    "build:server": "cross-env-shell ng run <%- appName %>:server:production --output-path=$npm_package_config_buildArtifactsPath/server --output-hashing=none",
-    "postbuild:server": "move-cli ./dist/server/main.js ./dist/server.bundle.js && del-cli ./dist/server",
+    "build:client": "cross-env-shell ng build --base-href $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/",
+    "build:server": "cross-env-shell ng run <%- appName %>:server:production --output-path=$npm_package_config_buildArtifactsPath",
+    "postbuild:server": "move-cli ./dist/main.js ./dist/server.bundle.js",
     "bootstrap": "ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts",
     "graphql:update": "ts-node --project src/tsconfig.webpack-server.json ./scripts/update-graphql-fragment-data.ts",
     "install-pre-push-hook": "ts-node --project src/tsconfig.webpack-server.json ./scripts/install-pre-push-hook.ts"
@@ -52,20 +48,20 @@
   "homepage": "https://jss.sitecore.com",
   "license": "Apache-2.0",
   "dependencies": {
-    "@angular/animations": "~15.2.9",
-    "@angular/common": "~15.2.9",
-    "@angular/compiler": "~15.2.9",
-    "@angular/core": "~15.2.9",
-    "@angular/forms": "~15.2.9",
-    "@angular/platform-browser": "~15.2.9",
-    "@angular/platform-browser-dynamic": "~15.2.9",
-    "@angular/platform-server": "~15.2.9",
-    "@angular/router": "~15.2.9",
+    "@angular/animations": "~16.2.10",
+    "@angular/common": "~16.2.10",
+    "@angular/compiler": "~16.2.10",
+    "@angular/core": "~16.2.10",
+    "@angular/forms": "~16.2.10",
+    "@angular/platform-browser": "~16.2.10",
+    "@angular/platform-browser-dynamic": "~16.2.10",
+    "@angular/platform-server": "~16.2.10",
+    "@angular/router": "~16.2.10",
     "@apollo/client": "^3.3.12",
     "@ngx-translate/core": "~14.0.0",
     "@ngx-translate/http-loader": "~7.0.0",
     "@sitecore-jss/sitecore-jss-angular": "~21.7.0-canary",
-    "apollo-angular": "~4.2.1",
+    "apollo-angular": "~5.0.2",
     "bootstrap": "^5.3.1",
     "core-js": "~3.32.1",
     "graphql": "15.5.0",
@@ -76,16 +72,16 @@
     "zone.js": "~0.13.1"
   },
   "devDependencies": {
-    "@angular-builders/custom-webpack": "^15.0.0",
-    "@angular-devkit/build-angular": "^15.2.9",
-    "@angular-eslint/builder": "^15.2.1",
-    "@angular-eslint/eslint-plugin": "15.2.1",
-    "@angular-eslint/eslint-plugin-template": "^15.2.1",
-    "@angular-eslint/schematics": "^15.2.1",
-    "@angular-eslint/template-parser": "^15.2.1",
-    "@angular/cli": "~15.2.9",
-    "@angular/compiler-cli": "~15.2.9",
-    "@angular/language-service": "~15.2.9",
+    "@angular-builders/custom-webpack": "^16.0.1",
+    "@angular-devkit/build-angular": "^16.2.10",
+    "@angular-eslint/builder": "^16.3.1",
+    "@angular-eslint/eslint-plugin": "^16.3.1",
+    "@angular-eslint/eslint-plugin-template": "^16.3.1",
+    "@angular-eslint/schematics": "^16.3.1",
+    "@angular-eslint/template-parser": "^16.3.1",
+    "@angular/cli": "~16.2.10",
+    "@angular/compiler-cli": "~16.2.10",
+    "@angular/language-service": "~16.2.10",
     "@sitecore-jss/sitecore-jss-angular-schematics": "~21.7.0-canary",
     "@sitecore-jss/sitecore-jss-cli": "~21.7.0-canary",
     "@sitecore-jss/sitecore-jss-dev-tools": "~21.7.0-canary",
@@ -93,8 +89,8 @@
     "@types/jasmine": "~3.6.7",
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "~12.7.9",
-    "@typescript-eslint/eslint-plugin": "5.43.0",
-    "@typescript-eslint/parser": "5.43.0",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
     "body-parser": "~1.19.0",
     "chalk": "~4.1.0",
     "chokidar": "^3.5.2",
@@ -121,28 +117,11 @@
     "karma-coverage-istanbul-reporter": "~3.0.3",
     "karma-jasmine": "~4.0.1",
     "karma-jasmine-html-reporter": "~1.5.4",
-    "move-cli": "^1.2.1",
+    "move-cli": "^2.0.0",
     "npm-run-all": "~4.1.5",
     "protractor": "^7.0.0",
     "ts-node": "~10.9.0",
-    "typescript": "~4.8.4",
+    "typescript": "~4.9.5",
     "yaml-lint": "^1.2.4"
-  },
-  "//": [
-    "overrides (for npm) and resolutions (for yarn) used to work around the bug in critters that affect bootstrap: https://github.com/GoogleChromeLabs/critters/issues/103",
-    "both sections can be removed once critters and css-select versions are updated in build-angular",
-    "for webpack, we use lower version to fix the angular/webpack bug: https://github.com/webpack/webpack/issues/16981 that prevents project from building",
-    "remove webpack override when upgrading Angular to v16"
-  ],
-  "overrides": {
-    "@angular-devkit/build-angular": {
-      "critters": {
-        "css-select": "4.2.1"
-      },
-      "webpack": "5.78.0"
-    }
-  },
-  "resolutions": {
-    "css-select": "4.2.1"
   }
 }

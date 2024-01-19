@@ -1,19 +1,18 @@
 {
   "name": "create-sitecore-jss",
-  "version": "21.7.0-canary.13",
+  "version": "21.7.0-canary.50",
   "description": "Sitecore JSS initializer",
   "bin": "./dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc && ts-node ./scripts/build-templates.ts",
     "clean": "del-cli dist types",
-    "lint": "eslint --no-eslintrc -c .eslintrc ./src/**/*.ts",
+    "lint": "eslint \"./src/**/*.ts\"",
     "watch": "ts-node ./scripts/watch-templates.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "coverage": "nyc npm test"
   },
   "engines": {
-    "node": ">=12",
-    "npm": ">=6"
+    "node": ">=18"
   },
   "repository": {
     "type": "git",

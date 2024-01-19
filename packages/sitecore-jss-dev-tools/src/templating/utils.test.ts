@@ -40,6 +40,7 @@ describe('utils', () => {
         return false;
       },
       name: '',
+      path: '',
     };
 
     const setupFolderTest = (path: string) => {

@@ -50,6 +50,7 @@
 - [HtmlElementRendering](interfaces/HtmlElementRendering.md)
 - [HttpResponse](interfaces/HttpResponse.md)
 - [ImageField](interfaces/ImageField.md)
+- [ImageFieldValue](interfaces/ImageFieldValue.md)
 - [JssCanActivate](interfaces/JssCanActivate.md)
 - [JssCanActivateFn](interfaces/JssCanActivateFn.md)
 - [JssResolve](interfaces/JssResolve.md)
@@ -57,6 +58,7 @@
 - [LayoutServiceContextData](interfaces/LayoutServiceContextData.md)
 - [LayoutServiceData](interfaces/LayoutServiceData.md)
 - [LinkField](interfaces/LinkField.md)
+- [LinkFieldValue](interfaces/LinkFieldValue.md)
 - [OutcomeInstance](interfaces/OutcomeInstance.md)
 - [PageViewInstance](interfaces/PageViewInstance.md)
 - [RenderingField](interfaces/RenderingField.md)
@@ -112,7 +114,7 @@ ___
 
 ### FieldEditButton
 
-Ƭ **FieldEditButton**: `BaseEditButton` & { `fields`: `string`[]  }
+Ƭ **FieldEditButton**: `BaseEditButton` & \{ `fields`: `string`[]  }
 
 #### Defined in
 
@@ -122,7 +124,7 @@ ___
 
 ### HttpDataFetcher
 
-Ƭ **HttpDataFetcher**<`T`\>: (`url`: `string`, `data?`: `unknown`) => `Promise`<[`HttpResponse`](interfaces/HttpResponse.md)<`T`\>\>
+Ƭ **HttpDataFetcher**\<`T`\>: (`url`: `string`, `data?`: `unknown`) => `Promise`\<[`HttpResponse`](interfaces/HttpResponse.md)\<`T`\>\>
 
 #### Type parameters
 
@@ -132,7 +134,7 @@ ___
 
 #### Type declaration
 
-▸ (`url`, `data?`): `Promise`<[`HttpResponse`](interfaces/HttpResponse.md)<`T`\>\>
+▸ (`url`, `data?`): `Promise`\<[`HttpResponse`](interfaces/HttpResponse.md)\<`T`\>\>
 
 Describes functions that fetch data asynchronously (i.e. from an API endpoint).
 This interface conforms to Axios' public API, but is adaptable to other HTTP libraries and
@@ -151,7 +153,7 @@ The interface implementation must:
 
 ##### Returns
 
-`Promise`<[`HttpResponse`](interfaces/HttpResponse.md)<`T`\>\>
+`Promise`\<[`HttpResponse`](interfaces/HttpResponse.md)\<`T`\>\>
 
 #### Defined in
 
@@ -161,7 +163,7 @@ ___
 
 ### PlaceholdersData
 
-Ƭ **PlaceholdersData**<`TYPEDNAME`\>: { [P in TYPEDNAME]: (ComponentRendering \| HtmlElementRendering)[] }
+Ƭ **PlaceholdersData**\<`TYPEDNAME`\>: \{ [P in TYPEDNAME]: (ComponentRendering \| HtmlElementRendering)[] }
 
 Placeholder contents data (name: placeholder name, then array of components within that placeholder name)
 Note: HtmlElementRendering is used by Sitecore Experience Editor
@@ -180,7 +182,7 @@ ___
 
 ### WebEditButton
 
-Ƭ **WebEditButton**: `BaseEditButton` & { `click`: `string` ; `parameters?`: `Record`<`string`, `string` \| `number` \| `boolean` \| `undefined` \| ``null``\> ; `type?`: `string`  }
+Ƭ **WebEditButton**: `BaseEditButton` & \{ `click`: `string` ; `parameters?`: `Record`\<`string`, `string` \| `number` \| `boolean` \| `undefined` \| ``null``\> ; `type?`: `string`  }
 
 #### Defined in
 
@@ -190,11 +192,11 @@ sitecore-jss/types/utils/edit-frame.d.ts:57
 
 ### DYNAMIC\_COMPONENT
 
-• `Const` **DYNAMIC\_COMPONENT**: `InjectionToken`<`Type`<`unknown`\> \| { `[s: string]`: `unknown`;  }\>
+• `Const` **DYNAMIC\_COMPONENT**: `InjectionToken`\<`Type`\<`unknown`\> \| \{ `[s: string]`: `unknown`;  }\>
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L65)
+[sitecore-jss-angular/src/components/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L65)
 
 ___
 
@@ -206,17 +208,17 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `edit` | { `fields`: `string`[] ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
+| `edit` | \{ `fields`: `string`[] ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
 | `edit.fields` | `string`[] |
 | `edit.header` | `string` |
 | `edit.icon` | `string` |
 | `edit.tooltip` | `string` |
-| `editRelatedItem` | { `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
+| `editRelatedItem` | \{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
 | `editRelatedItem.click` | `string` |
 | `editRelatedItem.header` | `string` |
 | `editRelatedItem.icon` | `string` |
 | `editRelatedItem.tooltip` | `string` |
-| `insert` | { `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
+| `insert` | \{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
 | `insert.click` | `string` |
 | `insert.header` | `string` |
 | `insert.icon` | `string` |
@@ -230,7 +232,7 @@ ___
 
 ### DefaultEditFrameButtons
 
-• `Const` **DefaultEditFrameButtons**: ({ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } \| { `fields`: `string`[] ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  })[]
+• `Const` **DefaultEditFrameButtons**: (\{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } \| \{ `fields`: `string`[] ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  })[]
 
 #### Defined in
 
@@ -287,7 +289,7 @@ ___
 
 ### getFieldValue
 
-▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`): `T` \| `undefined`
+▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`): `T` \| `undefined`
 
 Safely extracts a field value from a rendering or fields object.
 Null will be returned if the field is not defined.
@@ -315,7 +317,7 @@ the field value or null if the field is not defined
 
 sitecore-jss/types/layout/utils.d.ts:9
 
-▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
+▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
 #### Type parameters
 
@@ -345,6 +347,10 @@ ___
 
 ▸ **handleEditorAnchors**(): `void`
 
+#### Returns
+
+`void`
+
 **`Description`**
 
 in Experience Editor, anchor tags
@@ -357,10 +363,6 @@ and replaces the # value with javascript:void(0); which prevents the anchor tag 
 **`See`**
 
 Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/MutationObserver
-
-#### Returns
-
-`void`
 
 #### Defined in
 
@@ -403,7 +405,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 

@@ -48,7 +48,7 @@ ___
 
 ### errorComponent
 
-• `Optional` **errorComponent**: `ComponentClass`<`ErrorComponentProps`, `any`\> \| `FC`<`ErrorComponentProps`\>
+• `Optional` **errorComponent**: `ComponentClass`\<`ErrorComponentProps`, `any`\> \| `FC`\<`ErrorComponentProps`\>
 
 A component that is rendered in place of the placeholder when an error occurs rendering
 the placeholder
@@ -86,7 +86,7 @@ ___
 
 ### hiddenRenderingComponent
 
-• `Optional` **hiddenRenderingComponent**: `ComponentClass`<`unknown`, `any`\> \| `FC`<`unknown`\>
+• `Optional` **hiddenRenderingComponent**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
 
 A component that is rendered in place of any components that are hidden
 
@@ -102,7 +102,7 @@ ___
 
 ### missingComponentComponent
 
-• `Optional` **missingComponentComponent**: `ComponentClass`<`unknown`, `any`\> \| `FC`<`unknown`\>
+• `Optional` **missingComponentComponent**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
 
 A component that is rendered in place of any components that are in this placeholder,
 but do not have a definition in the componentFactory (i.e. don't have a React implementation)
@@ -273,7 +273,7 @@ ___
 
 ### rendering
 
-• **rendering**: [`ComponentRendering`](index.ComponentRendering.md) \| [`RouteData`](index.RouteData.md)<`Record`<`string`, [`Field`](index.Field.md)<`GenericFieldValue`\> \| [`Item`](index.Item.md) \| [`Item`](index.Item.md)[]\>\>
+• **rendering**: [`ComponentRendering`](index.ComponentRendering.md) \| [`RouteData`](index.RouteData.md)\<`Record`\<`string`, [`Field`](index.Field.md)\<`GenericFieldValue`\> \| [`Item`](index.Item.md) \| [`Item`](index.Item.md)[]\>\>
 
 Rendering data to be used when rendering the placeholder.
 

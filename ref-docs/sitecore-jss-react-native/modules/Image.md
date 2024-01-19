@@ -17,14 +17,14 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Image.tsx:145](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-react-native/src/components/Image.tsx#L145)
+[sitecore-jss-react-native/src/components/Image.tsx:145](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-react-native/src/components/Image.tsx#L145)
 
 ___
 
 ### propTypes
 
-• **propTypes**: `WeakValidationMap`<`ImageProps`\>
+• **propTypes**: `WeakValidationMap`\<`ImageProps`\>
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Image.tsx:133](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-react-native/src/components/Image.tsx#L133)
+[sitecore-jss-react-native/src/components/Image.tsx:133](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-react-native/src/components/Image.tsx#L133)

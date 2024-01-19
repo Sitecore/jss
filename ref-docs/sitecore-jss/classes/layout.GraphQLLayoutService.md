@@ -53,7 +53,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:57](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L57)
+[src/layout/graphql-layout-service.ts:57](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L57)
 
 ## Properties
 
@@ -63,7 +63,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:51](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L51)
+[src/layout/graphql-layout-service.ts:51](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L51)
 
 ___
 
@@ -75,13 +75,13 @@ configuration
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:57](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L57)
+[src/layout/graphql-layout-service.ts:57](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L57)
 
 ## Methods
 
 ### fetchLayoutData
 
-▸ **fetchLayoutData**(`itemPath`, `language?`): `Promise`<[`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md)\>
+▸ **fetchLayoutData**(`itemPath`, `language?`): `Promise`\<[`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md)\>
 
 Fetch layout data for an item.
 
@@ -94,7 +94,7 @@ Fetch layout data for an item.
 
 #### Returns
 
-`Promise`<[`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md)\>
+`Promise`\<[`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md)\>
 
 layout service data
 
@@ -104,7 +104,7 @@ LayoutServiceBase.fetchLayoutData
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:68](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L68)
+[src/layout/graphql-layout-service.ts:68](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L68)
 
 ___
 
@@ -124,7 +124,7 @@ implementation
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:95](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L95)
+[src/layout/graphql-layout-service.ts:95](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L95)
 
 ___
 
@@ -149,4 +149,4 @@ GraphQL query
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:120](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L120)
+[src/layout/graphql-layout-service.ts:120](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L120)

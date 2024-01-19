@@ -61,7 +61,7 @@ ___
 
 ### placeholders
 
-• `Optional` **placeholders**: [`PlaceholdersData`](../modules/index.md#placeholdersdata)<`string`\>
+• `Optional` **placeholders**: [`PlaceholdersData`](../modules/index.md#placeholdersdata)\<`string`\>
 
 #### Defined in
 

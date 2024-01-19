@@ -51,7 +51,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:65](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L65)
+[src/layout/rest-layout-service.ts:65](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L65)
 
 ## Properties
 
@@ -61,19 +61,15 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:65](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L65)
+[src/layout/rest-layout-service.ts:65](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L65)
 
 ## Methods
 
 ### fetchLayoutData
 
-▸ **fetchLayoutData**(`itemPath`, `language?`, `req?`, `res?`): `Promise`<[`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md)\>
+▸ **fetchLayoutData**(`itemPath`, `language?`, `req?`, `res?`): `Promise`\<[`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md)\>
 
 Fetch layout data for an item.
-
-**`Throws`**
-
-the item with the specified path is not found
 
 #### Parameters
 
@@ -82,13 +78,17 @@ the item with the specified path is not found
 | `itemPath` | `string` | item path to fetch layout data for. |
 | `language?` | `string` | the language to fetch layout data for. |
 | `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse` | Response instance |
+| `res?` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
-`Promise`<[`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md)\>
+`Promise`\<[`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md)\>
 
 layout service data
+
+**`Throws`**
+
+the item with the specified path is not found
 
 #### Overrides
 
@@ -96,13 +96,13 @@ LayoutServiceBase.fetchLayoutData
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:78](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L78)
+[src/layout/rest-layout-service.ts:78](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L78)
 
 ___
 
 ### fetchPlaceholderData
 
-▸ **fetchPlaceholderData**(`placeholderName`, `itemPath`, `language?`, `req?`, `res?`): `Promise`<[`PlaceholderData`](../interfaces/layout.PlaceholderData.md)\>
+▸ **fetchPlaceholderData**(`placeholderName`, `itemPath`, `language?`, `req?`, `res?`): `Promise`\<[`PlaceholderData`](../interfaces/layout.PlaceholderData.md)\>
 
 Fetch layout data for a particular placeholder.
 Makes a request to Sitecore Layout Service for the specified placeholder in
@@ -116,29 +116,25 @@ a specific route item. Allows you to retrieve rendered data for individual place
 | `itemPath` | `string` | the path to the item to fetch layout data for. |
 | `language?` | `string` | the language to fetch data for. |
 | `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse` | Response instance |
+| `res?` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
-`Promise`<[`PlaceholderData`](../interfaces/layout.PlaceholderData.md)\>
+`Promise`\<[`PlaceholderData`](../interfaces/layout.PlaceholderData.md)\>
 
 placeholder data
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:133](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L133)
+[src/layout/rest-layout-service.ts:133](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L133)
 
 ___
 
 ### getDefaultFetcher
 
-▸ `Protected` **getDefaultFetcher**<`T`\>(`req?`, `res?`): (`url`: `string`, `data?`: `unknown`) => `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
+▸ `Protected` **getDefaultFetcher**\<`T`\>(`req?`, `res?`): (`url`: `string`, `data?`: `unknown`) => `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
 
 Provides default
-
-**`See`**
-
-AxiosDataFetcher data fetcher
 
 #### Type parameters
 
@@ -151,7 +147,7 @@ AxiosDataFetcher data fetcher
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse` | Response instance |
+| `res?` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
@@ -159,7 +155,7 @@ AxiosDataFetcher data fetcher
 
 default fetcher
 
-▸ (`url`, `data?`): `Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
+▸ (`url`, `data?`): `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
 
 ##### Parameters
 
@@ -170,11 +166,15 @@ default fetcher
 
 ##### Returns
 
-`Promise`<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`T`\>\>
+`Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
+
+**`See`**
+
+AxiosDataFetcher data fetcher
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:193](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L193)
+[src/layout/rest-layout-service.ts:193](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L193)
 
 ___
 
@@ -198,7 +198,7 @@ fetch options
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:167](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L167)
+[src/layout/rest-layout-service.ts:167](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L167)
 
 ___
 
@@ -222,7 +222,7 @@ the layout service url
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:181](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L181)
+[src/layout/rest-layout-service.ts:181](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L181)
 
 ___
 
@@ -258,13 +258,13 @@ axios request config
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:215](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L215)
+[src/layout/rest-layout-service.ts:215](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L215)
 
 ___
 
 ### setupResHeaders
 
-▸ `Protected` **setupResHeaders**(`res`): (`serverRes`: [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>) => [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>
+▸ `Protected` **setupResHeaders**(`res`): (`serverRes`: [`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>) => [`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>
 
 Setup response headers based on response from layout service
 
@@ -272,7 +272,7 @@ Setup response headers based on response from layout service
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `res` | `ServerResponse` | Response instance |
+| `res` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
@@ -280,18 +280,18 @@ Setup response headers based on response from layout service
 
 response
 
-▸ (`serverRes`): [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>
+▸ (`serverRes`): [`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `serverRes` | [`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\> |
+| `serverRes` | [`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\> |
 
 ##### Returns
 
-[`AxiosResponse`](../interfaces/index.AxiosResponse.md)<`any`\>
+[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:234](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L234)
+[src/layout/rest-layout-service.ts:234](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L234)

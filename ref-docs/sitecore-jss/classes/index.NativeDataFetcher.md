@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 ## Properties
 
@@ -45,7 +45,7 @@
 
 #### Defined in
 
-[src/native-fetcher.ts:23](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/native-fetcher.ts#L23)
+[src/native-fetcher.ts:23](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/native-fetcher.ts#L23)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 ## Methods
 
@@ -79,19 +79,15 @@ Object with headers as key/value pairs
 
 #### Defined in
 
-[src/native-fetcher.ts:115](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/native-fetcher.ts#L115)
+[src/native-fetcher.ts:115](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/native-fetcher.ts#L115)
 
 ___
 
 ### fetch
 
-▸ **fetch**<`T`\>(`url`, `data?`): `Promise`<[`HttpResponse`](../interfaces/index.HttpResponse.md)<`T`\>\>
+▸ **fetch**\<`T`\>(`url`, `data?`): `Promise`\<[`HttpResponse`](../interfaces/index.HttpResponse.md)\<`T`\>\>
 
 Implements a data fetcher.
-
-**`See`**
-
-HttpDataFetcher<T> type for implementation details/notes.
 
 #### Type parameters
 
@@ -108,13 +104,17 @@ HttpDataFetcher<T> type for implementation details/notes.
 
 #### Returns
 
-`Promise`<[`HttpResponse`](../interfaces/index.HttpResponse.md)<`T`\>\>
+`Promise`\<[`HttpResponse`](../interfaces/index.HttpResponse.md)\<`T`\>\>
 
 response
 
+**`See`**
+
+HttpDataFetcher<T> type for implementation details/notes.
+
 #### Defined in
 
-[src/native-fetcher.ts:33](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/native-fetcher.ts#L33)
+[src/native-fetcher.ts:33](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/native-fetcher.ts#L33)
 
 ___
 
@@ -139,4 +139,4 @@ The final request settings
 
 #### Defined in
 
-[src/native-fetcher.ts:97](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/native-fetcher.ts#L97)
+[src/native-fetcher.ts:97](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/native-fetcher.ts#L97)

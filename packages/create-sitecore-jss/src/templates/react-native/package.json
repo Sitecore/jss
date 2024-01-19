@@ -10,10 +10,6 @@
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "language": "en"
   },
-  "engines": {
-    "node": ">=12",
-    "npm": ">=6"
-  },
   "scripts": {
     "jss": "jss",
     "clean:android": "cd ./android && gradlew clean && cd ..",

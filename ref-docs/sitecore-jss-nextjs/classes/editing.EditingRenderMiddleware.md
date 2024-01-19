@@ -42,7 +42,7 @@ which is required for Sitecore editing support.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:64](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L64)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:64](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L64)
 
 ## Properties
 
@@ -52,7 +52,7 @@ which is required for Sitecore editing support.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:57](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L57)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:57](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L57)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:56](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L56)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:56](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L56)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:58](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L58)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:58](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L58)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:59](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L59)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:59](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L59)
 
 ## Methods
 
@@ -134,7 +134,7 @@ Default page URL resolution.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:240](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L240)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:240](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L240)
 
 ___
 
@@ -162,13 +162,13 @@ https://vercel.com/docs/environment-variables#system-environment-variables
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:254](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L254)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:254](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L254)
 
 ___
 
 ### getHandler
 
-▸ **getHandler**(): (`req`: `NextApiRequest`, `res`: `NextApiResponse`<`any`\>) => `Promise`<`void`\>
+▸ **getHandler**(): (`req`: `NextApiRequest`, `res`: `NextApiResponse`\<`any`\>) => `Promise`\<`void`\>
 
 Gets the Next.js API route handler
 
@@ -178,7 +178,7 @@ Gets the Next.js API route handler
 
 route handler
 
-▸ (`req`, `res`): `Promise`<`void`\>
+▸ (`req`, `res`): `Promise`\<`void`\>
 
 Gets the Next.js API route handler
 
@@ -187,17 +187,17 @@ Gets the Next.js API route handler
 | Name | Type |
 | :------ | :------ |
 | `req` | `NextApiRequest` |
-| `res` | `NextApiResponse`<`any`\> |
+| `res` | `NextApiResponse`\<`any`\> |
 
 ##### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:75](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L75)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:75](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L75)
 
 ___
 
@@ -211,7 +211,7 @@ Gets query parameters that should be passed along to subsequent requests
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `query` | `Partial`<{ `[key: string]`: `string` \| `string`[];  }\> | Object of query parameters from incoming URL |
+| `query` | `Partial`\<\{ `[key: string]`: `string` \| `string`[];  }\> | Object of query parameters from incoming URL |
 
 #### Returns
 
@@ -221,25 +221,25 @@ Object of approved query parameters
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:84](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L84)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:84](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L84)
 
 ___
 
 ### handler
 
-▸ `Private` **handler**(`req`, `res`): `Promise`<`void`\>
+▸ `Private` **handler**(`req`, `res`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `req` | `NextApiRequest` |
-| `res` | `NextApiResponse`<`any`\> |
+| `res` | `NextApiResponse`\<`any`\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:101](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L101)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:101](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L101)

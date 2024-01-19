@@ -20,7 +20,7 @@ An interface for GraphQL clients for Sitecore APIs
 
 ### request
 
-▸ **request**<`T`\>(`query`, `variables?`): `Promise`<`T`\>
+▸ **request**\<`T`\>(`query`, `variables?`): `Promise`\<`T`\>
 
 Execute graphql request
 
@@ -39,8 +39,8 @@ Execute graphql request
 
 #### Returns
 
-`Promise`<`T`\>
+`Promise`\<`T`\>
 
 #### Defined in
 
-[src/graphql-request-client.ts:16](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/graphql-request-client.ts#L16)
+[src/graphql-request-client.ts:16](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/graphql-request-client.ts#L16)

@@ -18,7 +18,7 @@ const touchToReloadFilePath = 'src/temp/config.js';
 
 const proxyOptions = {
   appRoot: path.join(__dirname, '..'),
-  appName: config.siteName,
+  appName: config.sitecoreSiteName,
   watchPaths: ['./data'],
   language: config.defaultLanguage,
   port: process.env.PROXY_PORT || 3042,

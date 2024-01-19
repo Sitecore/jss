@@ -22,18 +22,18 @@
 
 | Name | Type |
 | :------ | :------ |
-| `templateRef` | `TemplateRef`<`unknown`\> |
+| `templateRef` | `TemplateRef`\<`unknown`\> |
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)
+[sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)
 
 ## Properties
 
 ### templateRef
 
-• **templateRef**: `TemplateRef`<`unknown`\>
+• **templateRef**: `TemplateRef`\<`unknown`\>
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)
+[sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)

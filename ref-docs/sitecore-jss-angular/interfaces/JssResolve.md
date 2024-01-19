@@ -1,6 +1,6 @@
 [@sitecore-jss/sitecore-jss-angular](../README.md) / JssResolve
 
-# Interface: JssResolve<T\>
+# Interface: JssResolve\<T\>
 
 ## Type parameters
 
@@ -18,7 +18,7 @@
 
 ### resolve
 
-▸ **resolve**(`input`): `T` \| `Observable`<`T`\> \| `Promise`<`T`\>
+▸ **resolve**(`input`): `T` \| `Observable`\<`T`\> \| `Promise`\<`T`\>
 
 #### Parameters
 
@@ -28,8 +28,8 @@
 
 #### Returns
 
-`T` \| `Observable`<`T`\> \| `Promise`<`T`\>
+`T` \| `Observable`\<`T`\> \| `Promise`\<`T`\>
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:100](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L100)
+[sitecore-jss-angular/src/components/placeholder.token.ts:100](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L100)

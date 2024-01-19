@@ -43,7 +43,7 @@ EditingDataCache
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:25](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L25)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:25](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L25)
 
 ## Properties
 
@@ -53,13 +53,13 @@ EditingDataCache
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:20](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L20)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:20](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L20)
 
 ## Methods
 
 ### get
 
-▸ **get**(`key`): `Promise`<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
+▸ **get**(`key`): `Promise`\<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
 
 #### Parameters
 
@@ -69,7 +69,7 @@ EditingDataCache
 
 #### Returns
 
-`Promise`<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
+`Promise`\<`undefined` \| [`EditingData`](../modules/editing.md#editingdata)\>
 
 #### Implementation of
 
@@ -77,13 +77,13 @@ EditingDataCache
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L41)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L41)
 
 ___
 
 ### set
 
-▸ **set**(`key`, `editingData`): `Promise`<`void`\>
+▸ **set**(`key`, `editingData`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -94,7 +94,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Implementation of
 
@@ -102,4 +102,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:30](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L30)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:30](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L30)

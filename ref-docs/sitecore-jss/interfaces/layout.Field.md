@@ -1,6 +1,6 @@
 [@sitecore-jss/sitecore-jss](../README.md) / [layout](../modules/layout.md) / Field
 
-# Interface: Field<T\>
+# Interface: Field\<T\>
 
 [layout](../modules/layout.md).Field
 
@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[src/layout/models.ts:134](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/models.ts#L134)
+[src/layout/models.ts:134](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/models.ts#L134)
 
 ___
 
@@ -35,4 +35,4 @@ ___
 
 #### Defined in
 
-[src/layout/models.ts:133](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/models.ts#L133)
+[src/layout/models.ts:133](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/models.ts#L133)

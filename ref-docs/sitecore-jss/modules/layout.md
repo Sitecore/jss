@@ -44,17 +44,18 @@
 ### Functions
 
 - [getChildPlaceholder](layout.md#getchildplaceholder)
+- [getContentStylesheetLink](layout.md#getcontentstylesheetlink)
 - [getFieldValue](layout.md#getfieldvalue)
 
 ## Type Aliases
 
 ### DataFetcherResolver
 
-Ƭ **DataFetcherResolver**: <T\>(`req?`: `IncomingMessage`, `res?`: `ServerResponse`) => [`HttpDataFetcher`](index.md#httpdatafetcher)<`T`\>
+Ƭ **DataFetcherResolver**: \<T\>(`req?`: `IncomingMessage`, `res?`: `ServerResponse`) => [`HttpDataFetcher`](index.md#httpdatafetcher)\<`T`\>
 
 #### Type declaration
 
-▸ <`T`\>(`req?`, `res?`): [`HttpDataFetcher`](index.md#httpdatafetcher)<`T`\>
+▸ \<`T`\>(`req?`, `res?`): [`HttpDataFetcher`](index.md#httpdatafetcher)\<`T`\>
 
 Data fetcher resolver in order to provide custom data fetcher
 
@@ -73,17 +74,17 @@ Data fetcher resolver in order to provide custom data fetcher
 
 ##### Returns
 
-[`HttpDataFetcher`](index.md#httpdatafetcher)<`T`\>
+[`HttpDataFetcher`](index.md#httpdatafetcher)\<`T`\>
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
 
 ___
 
 ### PlaceholdersData
 
-Ƭ **PlaceholdersData**<`TYPEDNAME`\>: { [P in TYPEDNAME]: (ComponentRendering \| HtmlElementRendering)[] }
+Ƭ **PlaceholdersData**\<`TYPEDNAME`\>: \{ [P in TYPEDNAME]: (ComponentRendering \| HtmlElementRendering)[] }
 
 Placeholder contents data (name: placeholder name, then array of components within that placeholder name)
 Note: HtmlElementRendering is used by Sitecore Experience Editor
@@ -96,7 +97,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-[src/layout/models.ts:80](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/models.ts#L80)
+[src/layout/models.ts:80](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/models.ts#L80)
 
 ___
 
@@ -113,11 +114,11 @@ ___
 | `configurationName?` | `string` | Layout Service "named" configuration |
 | `dataFetcherResolver?` | [`DataFetcherResolver`](layout.md#datafetcherresolver) | Function that handles fetching API data |
 | `siteName` | `string` | The JSS application name |
-| `tracking?` | `boolean` | Enables/disables analytics tracking for the Layout Service invocation (default is true). More than likely, this would be set to false for SSG/hybrid implementations, and the JSS tracker would instead be used on the client-side: [https://jss.sitecore.com/docs/fundamentals/services/tracking](https://jss.sitecore.com/docs/fundamentals/services/tracking) **`Default`** true |
+| `tracking?` | `boolean` | Enables/disables analytics tracking for the Layout Service invocation (default is true). More than likely, this would be set to false for SSG/hybrid implementations, and the JSS tracker would instead be used on the client-side: [https://jss.sitecore.com/docs/fundamentals/services/tracking](https://jss.sitecore.com/docs/fundamentals/services/tracking) **`Default`** ```ts true ``` |
 
 #### Defined in
 
-[src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+[src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
 
 ## Variables
 
@@ -129,7 +130,7 @@ Id of wrapper for component rendering
 
 #### Defined in
 
-[src/layout/models.ts:9](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/models.ts#L9)
+[src/layout/models.ts:9](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/models.ts#L9)
 
 ___
 
@@ -141,7 +142,7 @@ Static placeholder name used for component rendering
 
 #### Defined in
 
-[src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/models.ts#L4)
+[src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/models.ts#L4)
 
 ## Functions
 
@@ -166,13 +167,39 @@ child placeholder
 
 #### Defined in
 
-[src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/utils.ts#L60)
+[src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/utils.ts#L60)
+
+___
+
+### getContentStylesheetLink
+
+▸ **getContentStylesheetLink**(`layoutData`, `sitecoreEdgeContextId`, `sitecoreEdgeUrl?`): ``null`` \| [`HTMLLink`](index.md#htmllink)
+
+Get the content styles link to be loaded from the Sitecore Edge Platform
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `layoutData` | [`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md) | `undefined` | Layout service data |
+| `sitecoreEdgeContextId` | `string` | `undefined` | Sitecore Edge Context ID |
+| `sitecoreEdgeUrl?` | `string` | `SITECORE_EDGE_URL_DEFAULT` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
+
+#### Returns
+
+``null`` \| [`HTMLLink`](index.md#htmllink)
+
+content styles link, null if no styles are used in layout
+
+#### Defined in
+
+[src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/content-styles.ts#L26)
 
 ___
 
 ### getFieldValue
 
-▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`): `T` \| `undefined`
+▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`): `T` \| `undefined`
 
 Safely extracts a field value from a rendering or fields object.
 Null will be returned if the field is not defined.
@@ -198,9 +225,9 @@ the field value or null if the field is not defined
 
 #### Defined in
 
-[src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/utils.ts#L10)
+[src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/utils.ts#L10)
 
-▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
+▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
 #### Type parameters
 
@@ -224,4 +251,4 @@ the field value or the default value if the field is not defined
 
 #### Defined in
 
-[src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss/src/layout/utils.ts#L15)
+[src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss/src/layout/utils.ts#L15)

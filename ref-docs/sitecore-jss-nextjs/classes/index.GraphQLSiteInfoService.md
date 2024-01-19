@@ -103,11 +103,11 @@ sitecore-jss/types/site/graphql-siteinfo-service.d.ts:60
 
 ### fetchSiteInfo
 
-▸ **fetchSiteInfo**(): `Promise`<[`SiteInfo`](../modules/index.md#siteinfo)[]\>
+▸ **fetchSiteInfo**(): `Promise`\<[`SiteInfo`](../modules/index.md#siteinfo)[]\>
 
 #### Returns
 
-`Promise`<[`SiteInfo`](../modules/index.md#siteinfo)[]\>
+`Promise`\<[`SiteInfo`](../modules/index.md#siteinfo)[]\>
 
 #### Defined in
 
@@ -117,14 +117,14 @@ ___
 
 ### getCacheClient
 
-▸ `Protected` **getCacheClient**(): `CacheClient`<[`SiteInfo`](../modules/index.md#siteinfo)[]\>
+▸ `Protected` **getCacheClient**(): `CacheClient`\<[`SiteInfo`](../modules/index.md#siteinfo)[]\>
 
 Gets cache client implementation
 Override this method if custom cache needs to be used
 
 #### Returns
 
-`CacheClient`<[`SiteInfo`](../modules/index.md#siteinfo)[]\>
+`CacheClient`\<[`SiteInfo`](../modules/index.md#siteinfo)[]\>
 
 CacheClient instance
 

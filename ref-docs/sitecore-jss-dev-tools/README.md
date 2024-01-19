@@ -128,7 +128,7 @@
 
 #### Defined in
 
-[disconnected-server/DisconnectedLayoutServiceOptions.ts:13](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L13)
+[disconnected-server/DisconnectedLayoutServiceOptions.ts:13](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L13)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-[disconnected-server/DisconnectedLayoutServiceOptions.ts:5](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L5)
+[disconnected-server/DisconnectedLayoutServiceOptions.ts:5](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L5)
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-[disconnected-server/DisconnectedLayoutServiceOptions.ts:21](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L21)
+[disconnected-server/DisconnectedLayoutServiceOptions.ts:21](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L21)
 
 ___
 
@@ -197,7 +197,7 @@ Parameters are more developer-focused options than fields, such as configurable 
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:159](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L159)
+[manifest/generator/manifest.types.ts:159](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L159)
 
 ## Variables
 
@@ -213,7 +213,7 @@ Parameters are more developer-focused options than fields, such as configurable 
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:74](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L74)
+[pipelines/pipelineFactory.ts:74](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L74)
 
 ___
 
@@ -229,7 +229,7 @@ ___
 
 #### Defined in
 
-[pipelines/pipelineFactory.ts:23](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L23)
+[pipelines/pipelineFactory.ts:23](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L23)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[setup/setup.ts:13](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/setup/setup.ts#L13)
+[setup/setup.ts:13](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/setup/setup.ts#L13)
 
 ## Functions
 
@@ -260,7 +260,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.babel-shim.ts:16](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L16)
+[manifest/generator/manifest.babel-shim.ts:16](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L16)
 
 ___
 
@@ -281,7 +281,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.babel-shim.ts:64](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L64)
+[manifest/generator/manifest.babel-shim.ts:64](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L64)
 
 ___
 
@@ -294,7 +294,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `manifest` | [`Manifest`](interfaces/Manifest.md) |
-| `...entries` | { `key`: `string` ; `value`: `string`  }[] |
+| `...entries` | \{ `key`: `string` ; `value`: `string`  }[] |
 
 #### Returns
 
@@ -302,7 +302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.babel-shim.ts:72](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L72)
+[manifest/generator/manifest.babel-shim.ts:72](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L72)
 
 ___
 
@@ -323,7 +323,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.babel-shim.ts:35](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L35)
+[manifest/generator/manifest.babel-shim.ts:35](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L35)
 
 ___
 
@@ -344,7 +344,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.babel-shim.ts:56](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L56)
+[manifest/generator/manifest.babel-shim.ts:56](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L56)
 
 ___
 
@@ -365,7 +365,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.babel-shim.ts:45](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L45)
+[manifest/generator/manifest.babel-shim.ts:45](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L45)
 
 ___
 
@@ -386,7 +386,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.babel-shim.ts:27](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L27)
+[manifest/generator/manifest.babel-shim.ts:27](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L27)
 
 ___
 
@@ -406,13 +406,13 @@ ___
 
 #### Defined in
 
-[clean.ts:12](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/clean.ts#L12)
+[clean.ts:12](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/clean.ts#L12)
 
 ___
 
 ### configLoader
 
-▸ **configLoader**(`«destructured»`): `Promise`<`any`\>
+▸ **configLoader**(`«destructured»`): `Promise`\<`any`\>
 
 #### Parameters
 
@@ -423,22 +423,22 @@ ___
 | › `createPipelinesRegistryImplementation?` | (`existingConfig`: `any`) => `any` |
 | › `existingConfig?` | `any` |
 | › `fileGlobs` | `string`[] |
-| › `importModulesImplementation?` | (`options`: { `allowEmptyGlobs`: `boolean` ; `fileGlobs`: `string`[] ; `workingDirectory`: `string`  }) => `any` |
+| › `importModulesImplementation?` | (`options`: \{ `allowEmptyGlobs`: `boolean` ; `fileGlobs`: `string`[] ; `workingDirectory`: `string`  }) => `any` |
 | › `workingDirectory?` | `string` |
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`\<`any`\>
 
 #### Defined in
 
-[pipelines/configLoader.ts:5](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/pipelines/configLoader.ts#L5)
+[pipelines/configLoader.ts:5](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/pipelines/configLoader.ts#L5)
 
 ___
 
 ### createDefaultDisconnectedServer
 
-▸ **createDefaultDisconnectedServer**(`options`): `Promise`<`void`\>
+▸ **createDefaultDisconnectedServer**(`options`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -448,17 +448,17 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[disconnected-server/create-default-disconnected-server.ts:99](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L99)
+[disconnected-server/create-default-disconnected-server.ts:99](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L99)
 
 ___
 
 ### createDefaultDocumentMiddleware
 
-▸ **createDefaultDocumentMiddleware**(`config`): (`req`: `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\>, `res`: `Response`<`any`, `Record`<`string`, `any`\>\>, `next`: `NextFunction`) => `void`
+▸ **createDefaultDocumentMiddleware**(`config`): (`req`: `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\>, `res`: `Response`\<`any`, `Record`\<`string`, `any`\>\>, `next`: `NextFunction`) => `void`
 
 #### Parameters
 
@@ -476,8 +476,8 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `req` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `res` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `req` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `res` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 | `next` | `NextFunction` |
 
 ##### Returns
@@ -486,13 +486,13 @@ ___
 
 #### Defined in
 
-[disconnected-server/default-document.ts:14](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/disconnected-server/default-document.ts#L14)
+[disconnected-server/default-document.ts:14](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/disconnected-server/default-document.ts#L14)
 
 ___
 
 ### createDisconnectedAssetMiddleware
 
-▸ **createDisconnectedAssetMiddleware**(`config`): (`request`: `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\>, `response`: `Response`<`any`, `Record`<`string`, `any`\>\>) => `void`
+▸ **createDisconnectedAssetMiddleware**(`config`): (`request`: `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\>, `response`: `Response`\<`any`, `Record`\<`string`, `any`\>\>) => `void`
 
 #### Parameters
 
@@ -510,8 +510,8 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 ##### Returns
 
@@ -519,7 +519,7 @@ ___
 
 #### Defined in
 
-[disconnected-server/media-service.ts:17](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L17)
+[disconnected-server/media-service.ts:17](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L17)
 
 ___
 
@@ -539,12 +539,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `middleware` | (`request`: `any`, `response`: `any`) => `Promise`<`void`\> |
+| `middleware` | (`request`: `any`, `response`: `any`) => `Promise`\<`void`\> |
 | `updateManifest` | (`newManifest`: [`ManifestInstance`](interfaces/ManifestInstance.md)) => `void` |
 
 #### Defined in
 
-[disconnected-server/dictionary-service.ts:42](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L42)
+[disconnected-server/dictionary-service.ts:42](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L42)
 
 ___
 
@@ -564,12 +564,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `middleware` | (`request`: `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\>, `response`: `Response`<`any`, `Record`<`string`, `any`\>\>) => `Promise`<`void`\> |
+| `middleware` | (`request`: `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\>, `response`: `Response`\<`any`, `Record`\<`string`, `any`\>\>) => `Promise`\<`void`\> |
 | `updateManifest` | (`newManifest`: [`ManifestInstance`](interfaces/ManifestInstance.md)) => `void` |
 
 #### Defined in
 
-[disconnected-server/layout-service.ts:362](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts#L362)
+[disconnected-server/layout-service.ts:362](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts#L362)
 
 ___
 
@@ -591,7 +591,7 @@ ___
 
 #### Defined in
 
-[update/index.ts:39](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/update/index.ts#L39)
+[update/index.ts:39](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/update/index.ts#L39)
 
 ___
 
@@ -611,7 +611,7 @@ ___
 
 #### Defined in
 
-[deploy.ts:18](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/deploy.ts#L18)
+[deploy.ts:18](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/deploy.ts#L18)
 
 ___
 
@@ -622,6 +622,16 @@ ___
 Generates the plugins file and saves it to the filesystem.
 By convention, we expect to find plugins under {pluginName}/plugins/** (subfolders are searched recursively).
 generated file will be saved to
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `definition` | [`PluginDefinition`](interfaces/PluginDefinition.md) | plugin definition |
+
+#### Returns
+
+`void`
 
 **`Var`**
 
@@ -635,25 +645,15 @@ ESM: export { fooPlugin } from '{pluginPath}';
 generatePlugins({ distPath: 'src/temp/foo-plugins.js', rootPath: 'src/foo/plugins', moduleType: ModuleType.CJS })
 ```
 
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `definition` | [`PluginDefinition`](interfaces/PluginDefinition.md) | plugin definition |
-
-#### Returns
-
-`void`
-
 #### Defined in
 
-[templating/plugins.ts:90](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L90)
+[templating/plugins.ts:90](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L90)
 
 ___
 
 ### generateToFile
 
-▸ **generateToFile**(`config`): `Promise`<[`ManifestInstance`](interfaces/ManifestInstance.md)\>
+▸ **generateToFile**(`config`): `Promise`\<[`ManifestInstance`](interfaces/ManifestInstance.md)\>
 
 generates a JSON manifest and writes its contents to a directory. Media referenced in the manifest
 is also copied to the directory.
@@ -666,17 +666,17 @@ is also copied to the directory.
 
 #### Returns
 
-`Promise`<[`ManifestInstance`](interfaces/ManifestInstance.md)\>
+`Promise`\<[`ManifestInstance`](interfaces/ManifestInstance.md)\>
 
 #### Defined in
 
-[manifest/generator/generate.ts:217](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/manifest/generator/generate.ts#L217)
+[manifest/generator/generate.ts:217](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/manifest/generator/generate.ts#L217)
 
 ___
 
 ### generateToVariable
 
-▸ **generateToVariable**(`config`): `Promise`<[`ManifestInstance`](interfaces/ManifestInstance.md)\>
+▸ **generateToVariable**(`config`): `Promise`\<[`ManifestInstance`](interfaces/ManifestInstance.md)\>
 
 generates the JSON manifest and returns it as a variable
 NOTE: media is not copied into the manifest when using this method,
@@ -691,11 +691,11 @@ that is designed to get packaged/imported.
 
 #### Returns
 
-`Promise`<[`ManifestInstance`](interfaces/ManifestInstance.md)\>
+`Promise`\<[`ManifestInstance`](interfaces/ManifestInstance.md)\>
 
 #### Defined in
 
-[manifest/generator/generate.ts:174](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/manifest/generator/generate.ts#L174)
+[manifest/generator/generate.ts:174](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/manifest/generator/generate.ts#L174)
 
 ___
 
@@ -704,16 +704,6 @@ ___
 ▸ **getComponentList**(`path`): [`ComponentFile`](interfaces/ComponentFile.md)[]
 
 Get list of components from
-
-**`Var`**
-
-path
-Returns a list of components in the following format:
-{
- path: 'path/to/component',
- componentName: 'ComponentName',
- moduleName: 'ComponentName'
-}
 
 #### Parameters
 
@@ -725,9 +715,19 @@ Returns a list of components in the following format:
 
 [`ComponentFile`](interfaces/ComponentFile.md)[]
 
+**`Var`**
+
+path
+Returns a list of components in the following format:
+{
+ path: 'path/to/component',
+ componentName: 'ComponentName',
+ moduleName: 'ComponentName'
+}
+
 #### Defined in
 
-[templating/components.ts:33](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/templating/components.ts#L33)
+[templating/components.ts:33](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/templating/components.ts#L33)
 
 ___
 
@@ -747,13 +747,13 @@ obj is ItemDefinition
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:369](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L369)
+[manifest/generator/manifest.types.ts:369](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L369)
 
 ___
 
 ### mergeFs
 
-▸ **mergeFs**(`rootPath`, `parseFileContents?`): `Promise`<[`MergeFsResult`](interfaces/MergeFsResult.md)\>
+▸ **mergeFs**(`rootPath`, `parseFileContents?`): `Promise`\<[`MergeFsResult`](interfaces/MergeFsResult.md)\>
 
 #### Parameters
 
@@ -764,17 +764,17 @@ ___
 
 #### Returns
 
-`Promise`<[`MergeFsResult`](interfaces/MergeFsResult.md)\>
+`Promise`\<[`MergeFsResult`](interfaces/MergeFsResult.md)\>
 
 #### Defined in
 
-[mergeFs.ts:125](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L125)
+[mergeFs.ts:125](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L125)
 
 ___
 
 ### packageDeploy
 
-▸ **packageDeploy**(`options`): `Promise`<`unknown`\>
+▸ **packageDeploy**(`options`): `Promise`\<`unknown`\>
 
 #### Parameters
 
@@ -784,17 +784,17 @@ ___
 
 #### Returns
 
-`Promise`<`unknown`\>
+`Promise`\<`unknown`\>
 
 #### Defined in
 
-[package-deploy.ts:270](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L270)
+[package-deploy.ts:270](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L270)
 
 ___
 
 ### packageGenerate
 
-▸ **packageGenerate**(`options`): `Promise`<`unknown`\>
+▸ **packageGenerate**(`options`): `Promise`\<`unknown`\>
 
 #### Parameters
 
@@ -804,11 +804,11 @@ ___
 
 #### Returns
 
-`Promise`<`unknown`\>
+`Promise`\<`unknown`\>
 
 #### Defined in
 
-[package-generate.ts:14](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/package-generate.ts#L14)
+[package-generate.ts:14](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/package-generate.ts#L14)
 
 ___
 
@@ -828,13 +828,13 @@ ___
 
 #### Defined in
 
-[setup/jss-config.ts:4](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/setup/jss-config.ts#L4)
+[setup/jss-config.ts:4](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/setup/jss-config.ts#L4)
 
 ___
 
 ### resolveScJssConfig
 
-▸ **resolveScJssConfig**(`config?`): `Promise`<[`ScJssConfig`](interfaces/ScJssConfig.md)\>
+▸ **resolveScJssConfig**(`config?`): `Promise`\<[`ScJssConfig`](interfaces/ScJssConfig.md)\>
 
 #### Parameters
 
@@ -847,17 +847,17 @@ ___
 
 #### Returns
 
-`Promise`<[`ScJssConfig`](interfaces/ScJssConfig.md)\>
+`Promise`\<[`ScJssConfig`](interfaces/ScJssConfig.md)\>
 
 #### Defined in
 
-[resolve-scjssconfig.ts:20](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L20)
+[resolve-scjssconfig.ts:20](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L20)
 
 ___
 
 ### runPipeline
 
-▸ **runPipeline**(`pipeline`): `Promise`<`any`\>
+▸ **runPipeline**(`pipeline`): `Promise`\<`any`\>
 
 #### Parameters
 
@@ -867,17 +867,17 @@ ___
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`\<`any`\>
 
 #### Defined in
 
-[pipelines/pipeline.ts:90](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L90)
+[pipelines/pipeline.ts:90](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L90)
 
 ___
 
 ### runPipelineWithCompilers
 
-▸ **runPipelineWithCompilers**(`compilers`): (`pipeline`: `any`) => `Promise`<`any`\>
+▸ **runPipelineWithCompilers**(`compilers`): (`pipeline`: `any`) => `Promise`\<`any`\>
 
 Run a pipeline, loading specified compilers first
 
@@ -893,7 +893,7 @@ Run a pipeline, loading specified compilers first
 
 pipeline result
 
-▸ (`pipeline`): `Promise`<`any`\>
+▸ (`pipeline`): `Promise`\<`any`\>
 
 ##### Parameters
 
@@ -903,11 +903,11 @@ pipeline result
 
 ##### Returns
 
-`Promise`<`any`\>
+`Promise`\<`any`\>
 
 #### Defined in
 
-[pipelines/pipeline.ts:118](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L118)
+[pipelines/pipeline.ts:118](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L118)
 
 ___
 
@@ -934,7 +934,7 @@ the file path if the file was created, otherwise null
 
 #### Defined in
 
-[templating/scaffold.ts:22](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/templating/scaffold.ts#L22)
+[templating/scaffold.ts:22](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/templating/scaffold.ts#L22)
 
 ___
 
@@ -957,7 +957,7 @@ ___
 
 #### Defined in
 
-[setup/setup.ts:69](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/setup/setup.ts#L69)
+[setup/setup.ts:69](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/setup/setup.ts#L69)
 
 ___
 
@@ -980,7 +980,7 @@ Compiles each not excluded file starting from current directory (or `settings.so
 
 #### Defined in
 
-[templating/strip.ts:87](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/templating/strip.ts#L87)
+[templating/strip.ts:87](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/templating/strip.ts#L87)
 
 ___
 
@@ -994,4 +994,4 @@ ___
 
 #### Defined in
 
-[setup/verify-setup.ts:6](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-dev-tools/src/setup/verify-setup.ts#L6)
+[setup/verify-setup.ts:6](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-dev-tools/src/setup/verify-setup.ts#L6)

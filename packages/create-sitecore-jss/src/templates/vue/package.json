@@ -14,10 +14,6 @@
     "buildArtifactsPath": "./dist",
     "language": "en"
   },
-  "engines": {
-    "node": ">= 12",
-    "npm": ">= 6"
-  },
   "author": {
     "name": "Sitecore Corporation",
     "url": "https://jss.sitecore.com"

@@ -11,7 +11,7 @@ component props
 
 ## Hierarchy
 
-- `Component`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\>
+- `Component`\<[`BYOCComponentProps`](../README.md#byoccomponentprops)\>
 
   ↳ **`BYOCComponent`**
 
@@ -62,11 +62,11 @@ component props
 
 #### Overrides
 
-React.Component&lt;BYOCComponentProps\&gt;.constructor
+React.Component\&lt;BYOCComponentProps\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:83](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L83)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:87](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L87)
 
 ## Properties
 
@@ -96,13 +96,13 @@ React.Component.context
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:482
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:518
 
 ___
 
 ### props
 
-• `Readonly` **props**: `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\>
+• `Readonly` **props**: `Readonly`\<[`BYOCComponentProps`](../README.md#byoccomponentprops)\>
 
 #### Inherited from
 
@@ -110,7 +110,7 @@ React.Component.props
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:502
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:538
 
 ___
 
@@ -132,13 +132,13 @@ React.Component.refs
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:508
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:544
 
 ___
 
 ### state
 
-• **state**: `Readonly`<{ `error?`: `Error`  }\>
+• **state**: `Readonly`\<\{ `error?`: `Error`  }\>
 
 #### Overrides
 
@@ -146,13 +146,13 @@ React.Component.state
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:81](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L81)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:85](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L85)
 
 ___
 
 ### contextType
 
-▪ `Static` `Optional` **contextType**: `Context`<`any`\>
+▪ `Static` `Optional` **contextType**: `Context`\<`any`\>
 
 If set, `this.context` will be set at runtime to the current value of the given Context.
 
@@ -181,7 +181,7 @@ React.Component.contextType
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:465
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:501
 
 ## Methods
 
@@ -197,6 +197,10 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
+#### Returns
+
+`void`
+
 **`Deprecated`**
 
 16.3, use componentDidMount or the constructor instead
@@ -206,17 +210,13 @@ prevents this from being invoked.
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
-#### Returns
-
-`void`
-
 #### Inherited from
 
 React.Component.UNSAFE\_componentWillMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:699
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:735
 
 ___
 
@@ -235,6 +235,17 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
+| `nextContext` | `any` |
+
+#### Returns
+
+`void`
+
 **`Deprecated`**
 
 16.3, use static getDerivedStateFromProps instead
@@ -244,24 +255,13 @@ prevents this from being invoked.
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
-| `nextContext` | `any` |
-
-#### Returns
-
-`void`
-
 #### Inherited from
 
 React.Component.UNSAFE\_componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:731
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:767
 
 ___
 
@@ -278,6 +278,18 @@ This method will not stop working in React 17.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
+| `nextState` | `Readonly`\<{}\> |
+| `nextContext` | `any` |
+
+#### Returns
+
+`void`
+
 **`Deprecated`**
 
 16.3, use getSnapshotBeforeUpdate instead
@@ -287,25 +299,13 @@ prevents this from being invoked.
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
-| `nextState` | `Readonly`<{}\> |
-| `nextContext` | `any` |
-
-#### Returns
-
-`void`
-
 #### Inherited from
 
 React.Component.UNSAFE\_componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:759
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:795
 
 ___
 
@@ -329,7 +329,7 @@ React.Component.componentDidCatch
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:93](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L93)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:97](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L97)
 
 ___
 
@@ -349,7 +349,7 @@ React.Component.componentDidMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:607
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:643
 
 ___
 
@@ -365,8 +365,8 @@ The snapshot is only present if getSnapshotBeforeUpdate is present and returns n
 
 | Name | Type |
 | :------ | :------ |
-| `prevProps` | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
-| `prevState` | `Readonly`<{}\> |
+| `prevProps` | `Readonly`\<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
+| `prevState` | `Readonly`\<{}\> |
 | `snapshot?` | `any` |
 
 #### Returns
@@ -379,7 +379,7 @@ React.Component.componentDidUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:670
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:706
 
 ___
 
@@ -393,6 +393,10 @@ Avoid introducing any side-effects or subscriptions in this method.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
+#### Returns
+
+`void`
+
 **`Deprecated`**
 
 16.3, use componentDidMount or the constructor instead; will stop working in React 17
@@ -402,17 +406,13 @@ prevents this from being invoked.
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
-#### Returns
-
-`void`
-
 #### Inherited from
 
 React.Component.componentWillMount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:685
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:721
 
 ___
 
@@ -429,6 +429,17 @@ Calling `Component#setState` generally does not trigger this method.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
+| `nextContext` | `any` |
+
+#### Returns
+
+`void`
+
 **`Deprecated`**
 
 16.3, use static getDerivedStateFromProps instead; will stop working in React 17
@@ -438,24 +449,13 @@ prevents this from being invoked.
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
-| `nextContext` | `any` |
-
-#### Returns
-
-`void`
-
 #### Inherited from
 
 React.Component.componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:714
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:750
 
 ___
 
@@ -476,7 +476,7 @@ React.Component.componentWillUnmount
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:623
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:659
 
 ___
 
@@ -491,6 +491,18 @@ Note: You cannot call `Component#setState` here.
 Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
 prevents this from being invoked.
 
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
+| `nextState` | `Readonly`\<{}\> |
+| `nextContext` | `any` |
+
+#### Returns
+
+`void`
+
 **`Deprecated`**
 
 16.3, use getSnapshotBeforeUpdate instead; will stop working in React 17
@@ -500,25 +512,13 @@ prevents this from being invoked.
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
  - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
-| `nextState` | `Readonly`<{}\> |
-| `nextContext` | `any` |
-
-#### Returns
-
-`void`
-
 #### Inherited from
 
 React.Component.componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:744
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:780
 
 ___
 
@@ -542,7 +542,7 @@ React.Component.forceUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:499
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:535
 
 ___
 
@@ -561,8 +561,8 @@ lifecycle events from running.
 
 | Name | Type |
 | :------ | :------ |
-| `prevProps` | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
-| `prevState` | `Readonly`<{}\> |
+| `prevProps` | `Readonly`\<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
+| `prevState` | `Readonly`\<{}\> |
 
 #### Returns
 
@@ -574,7 +574,7 @@ React.Component.getSnapshotBeforeUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:664
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:700
 
 ___
 
@@ -592,13 +592,13 @@ React.Component.render
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:97](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L97)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:101](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L101)
 
 ___
 
 ### setState
 
-▸ **setState**<`K`\>(`state`, `callback?`): `void`
+▸ **setState**\<`K`\>(`state`, `callback?`): `void`
 
 #### Type parameters
 
@@ -610,7 +610,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `state` | {} \| (`prevState`: `Readonly`<{}\>, `props`: `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\>) => {} \| `Pick`<{}, `K`\> \| `Pick`<{}, `K`\> |
+| `state` | {} \| (`prevState`: `Readonly`\<{}\>, `props`: `Readonly`\<[`BYOCComponentProps`](../README.md#byoccomponentprops)\>) => {} \| `Pick`\<{}, `K`\> \| `Pick`\<{}, `K`\> |
 | `callback?` | () => `void` |
 
 #### Returns
@@ -623,7 +623,7 @@ React.Component.setState
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:494
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:530
 
 ___
 
@@ -644,8 +644,8 @@ and `componentDidUpdate` will not be called.
 
 | Name | Type |
 | :------ | :------ |
-| `nextProps` | `Readonly`<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
-| `nextState` | `Readonly`<{}\> |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../README.md#byoccomponentprops)\> |
+| `nextState` | `Readonly`\<{}\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -658,7 +658,7 @@ React.Component.shouldComponentUpdate
 
 #### Defined in
 
-sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:618
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:654
 
 ___
 
@@ -682,4 +682,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/BYOCComponent.tsx:88](https://github.com/Sitecore/jss/blob/98223e4aa/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L88)
+[sitecore-jss-react/src/components/BYOCComponent.tsx:92](https://github.com/Sitecore/jss/blob/7b37f0baa/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L92)
