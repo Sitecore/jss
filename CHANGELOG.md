@@ -7,7 +7,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ### 🐛 Bug Fixes
 
-* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Link component does not add anchor to the internal links
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Link component does not add anchor to the internal links ([#1226](https://github.com/Sitecore/jss/pull/1226))
 
 ## 20.2.2
 
