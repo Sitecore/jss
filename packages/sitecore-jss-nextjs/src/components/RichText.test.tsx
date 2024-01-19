@@ -6,12 +6,12 @@ import { NextRouter } from 'next/router';
 import { mount } from 'enzyme';
 import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
 import { RichText } from './RichText';
-import { spy } from 'sinon';
+import { SinonSpy, spy } from 'sinon';
 import sinonChai from 'sinon-chai';
 
 use(sinonChai);
 
-const Router = (): NextRouter => ({
+const Router = (): { push: SinonSpy } & Omit<NextRouter, 'push'> => ({
   pathname: '/',
   route: '/',
   query: {},
@@ -47,7 +47,13 @@ describe('RichText', () => {
 
     const props = {
       field: {
-        value: '<div id="test"><h1>Hello!</h1><a href="/t10">1</a><a href="/t10">2</a></div>',
+        value: `
+        <div id="test">
+          <h1>Hello!</h1>
+          <a href="/t10">1</a>
+          <a href="/t10">2</a>
+          <a href="/contains-children"><span id="child">Title</span></a>
+        </div>`,
       },
     };
 
@@ -62,8 +68,9 @@ describe('RichText', () => {
     expect(c.html()).contains('<h1>Hello!</h1>');
     expect(c.html()).contains('<a href="/t10">1</a>');
     expect(c.html()).contains('<a href="/t10">2</a>');
+    expect(c.html()).contains('<a href="/contains-children"><span id="child">Title</span></a>');
 
-    expect(router.prefetch).callCount(1);
+    expect(router.prefetch).callCount(2);
 
     const main = document.querySelector('main');
 
@@ -71,17 +78,31 @@ describe('RichText', () => {
 
     const link1 = links && links[0];
     const link2 = links && links[1];
+    const link3 = links && links[2];
+    const innerMarkup = document.querySelector('#child') as HTMLSpanElement;
 
     expect(link1!.pathname).to.equal('/t10');
     expect(link2!.pathname).to.equal('/t10');
 
-    link1 && link1.click();
+    link1?.click();
 
     expect(router.push).callCount(1);
 
-    link2 && link2.click();
+    link2?.click();
 
     expect(router.push).callCount(2);
+
+    link3?.click();
+
+    expect(router.push).callCount(3);
+
+    // Check that when we click on link with children "router push" is called with expected pathname
+    innerMarkup?.click();
+
+    expect(router.push).callCount(4);
+    expect(router.push.getCall(3).calledWith('https://example.com/contains-children')).to.equal(
+      true
+    );
 
     expect(c.find(ReactRichText).length).to.equal(1);
 
