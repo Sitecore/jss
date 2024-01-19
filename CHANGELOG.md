@@ -599,6 +599,12 @@ Our versioning strategy is as follows:
     * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
     * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
 
+## 20.2.3
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Link component does not add anchor to the internal links ([#1226](https://github.com/Sitecore/jss/pull/1226))
+
 ## 20.2.2
 
 ### 🧹 Chores
