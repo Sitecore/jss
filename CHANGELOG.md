@@ -26,7 +26,7 @@ Our versioning strategy is as follows:
 ### 🛠 Breaking Changes
 
 * `[sitecore-jss-nextjs]` `[templates/nextjs]` Upgrade to Next 14
-  * While this upgrade doesn't break existing functionality, due to changes in our peer dependencies, you'll need to update to version 14
+  * Due to changes in peer dependencies, please ensure your app uses Next version 14
 
 ### 🧹 Chores
 
