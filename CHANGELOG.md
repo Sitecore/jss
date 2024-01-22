@@ -25,6 +25,11 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Fix feature `show Grid column` in Experience Editor. ([#1704](https://github.com/Sitecore/jss/pull/1704))
 * `[sitecore-jss-nextjs] [templates/nextjs-xmcloud]` SDK initialization rejections are now correctly handled. Errors should no longer occur after getSDK() promises resolve when they shouldn't (for example, getting Events SDK in development environment) ([#1712](https://github.com/Sitecore/jss/pull/1712) [#1715](https://github.com/Sitecore/jss/pull/1715) [#1716](https://github.com/Sitecore/jss/pull/1716))
 
+### 🛠 Breaking Changes
+
+* `[sitecore-jss-nextjs]` `[templates/nextjs]` Upgrade to Next 14
+  * Due to changes in peer dependencies, please ensure your app uses Next version 14
+
 ### 🧹 Chores
 
 * Upgrade to Node.js 20.x ([#1679](https://github.com/Sitecore/jss/pull/1679))([#1681](https://github.com/Sitecore/jss/pull/1681))
