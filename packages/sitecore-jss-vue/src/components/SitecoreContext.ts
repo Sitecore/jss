@@ -6,6 +6,11 @@ export interface SitecoreContextProps {
 }
 
 export const SitecoreContext = defineComponent({
+  provide() {
+    return {
+      injectedComponentFactory: this.componentFactory,
+    };
+  },
   props: {
     componentFactory: {
       type: Function as PropType<ComponentFactory>,
@@ -16,10 +21,4 @@ export const SitecoreContext = defineComponent({
   setup(_props, context) {
     return () => context.slots && context.slots.default();
   },
-
-  provide() {
-    return {
-      injectedComponentFactory: this.componentFactory
-    }
-  }
 });
