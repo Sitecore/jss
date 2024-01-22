@@ -13,12 +13,19 @@ export type RichTextProps = ReactRichTextProps & {
    * @default 'a[href^="/"]'
    */
   internalLinksSelector?: string;
+
+  /**
+   * Controls the prefetch of internal links. This can be beneficial if you have RichText fields
+   * with large numbers of internal links in them.
+   * @default true
+   */
+  prefetchLinks?: boolean;
 };
 
 const prefetched: { [cacheKey: string]: boolean } = {};
 
 export const RichText = (props: RichTextProps): JSX.Element => {
-  const { internalLinksSelector = 'a[href^="/"]', ...rest } = props;
+  const { internalLinksSelector = 'a[href^="/"]', prefetchLinks = true, ...rest } = props;
   const hasText = props.field && props.field.value;
   const isEditing = props.editable && props.field && props.field.editable;
 
@@ -30,14 +37,14 @@ export const RichText = (props: RichTextProps): JSX.Element => {
     if (hasText && !isEditing) {
       initializeLinks();
     }
-  }, []);
+  }, [hasText]);
 
   const routeHandler = (ev: MouseEvent) => {
     if (!ev.target) return;
 
     ev.preventDefault();
 
-    const pathname = (ev.target as HTMLAnchorElement).pathname;
+    const pathname = (ev.target as HTMLAnchorElement).href;
 
     router.push(pathname, pathname, { locale: false });
   };
@@ -51,7 +58,9 @@ export const RichText = (props: RichTextProps): JSX.Element => {
     if (!internalLinks || !internalLinks.length) return;
 
     internalLinks.forEach((link) => {
-      if (!prefetched[link.pathname]) {
+      if (link.target === '_blank') return;
+
+      if (prefetchLinks && !prefetched[link.pathname]) {
         router.prefetch(link.pathname, undefined, { locale: false });
         prefetched[link.pathname] = true;
       }

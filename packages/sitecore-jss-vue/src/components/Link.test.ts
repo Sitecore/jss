@@ -11,9 +11,12 @@ describe('<Link />', () => {
     // that is marked as required.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
     const rendered = mount(Link);
     expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
+    warnSpy.mockRestore();
   });
 
   it('should render nothing with missing editable and value', () => {
@@ -24,9 +27,12 @@ describe('<Link />', () => {
     // that is marked as an Object.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
     const rendered = mount(Link, { props });
     expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
+    warnSpy.mockRestore();
   });
 
   it('should render editable with an editable value', () => {
@@ -70,6 +76,43 @@ describe('<Link />', () => {
     expect(rendered.text()).toBe(props.field.text);
   });
 
+  it('should render with provided children', () => {
+    const props = {
+      field: {
+        href: '/lorem',
+        text: '[ipsum]',
+      },
+    };
+    const rendered = mount(Link, {
+      props,
+      slots: {
+        default: ['<p>Custom description</p>'],
+      },
+    }).find('a');
+
+    expect(rendered.attributes().href).toBe(props.field.href);
+    expect(rendered.text()).toBe('Custom description');
+  });
+
+  it('should render link text with provided children', () => {
+    const props = {
+      field: {
+        href: '/lorem',
+        text: '[ipsum]',
+      },
+      showLinkTextWithChildrenPresent: true,
+    };
+    const rendered = mount(Link, {
+      props,
+      slots: {
+        default: ['<p>Custom description</p>'],
+      },
+    }).find('a');
+
+    expect(rendered.attributes().href).toBe(props.field.href);
+    expect(rendered.text()).toBe('[ipsum]Custom description');
+  });
+
   it('should render ee HTML', () => {
     const props = {
       field: {
@@ -91,13 +134,18 @@ describe('<Link />', () => {
           class: 'my-link',
           title: 'My Link',
           target: '_blank',
+          querystring: 'foo=bar',
+          anchor: 'sample-anchor',
         },
       },
     };
     const rendered = mount(Link, { props }).find('a');
-    const renderedAttrs = rendered.attributes();
-    // note: order of comparison is important for `toMatchObject` as renderedAttrs won't fully match props.field.value
-    expect(props.field.value).toMatchObject(renderedAttrs);
+    expect(rendered.html()).toContain(
+      `href="${props.field.value.href}?${props.field.value.querystring}#${props.field.value.anchor}"`
+    );
+    expect(rendered.html()).toContain(`class="${props.field.value.class}"`);
+    expect(rendered.html()).toContain(`title="${props.field.value.title}"`);
+    expect(rendered.html()).toContain(`target="${props.field.value.target}"`);
   });
 
   it('should render other attributes with other props provided', () => {

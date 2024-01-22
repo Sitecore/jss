@@ -5,13 +5,13 @@
   "exclude": [
     "**/*.d.ts",
     "**/*.test.ts",
-    "src/testData",
+    "src/test-data",
     "dist",
     "src/test.ts"
   ],
   "all": true,
   "reporter": [
-    "json-summary",
+    "cobertura",
     "text"
   ]
 }

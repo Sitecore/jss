@@ -1,44 +1,15 @@
 import chalk from 'chalk';
 import fs from 'fs';
-import path from 'path';
+import path, { sep } from 'path';
 import { InitializerFactory } from '../../InitializerFactory';
-import { JsonObjectType } from '../steps/transform';
+import { JsonObjectType } from '../processes/transform';
 
-export const isJssApp = (
-  template: string,
-  pkg: {
-    config?: {
-      sitecoreConfigPath: string;
-    };
-  }
-): boolean => {
-  if (pkg?.config?.sitecoreConfigPath === undefined) {
-    console.log(
-      chalk.red(
-        `Error: Could not add ${chalk.yellow(
-          template
-        )} to the current project because it is not a JSS app.`
-      )
-    );
-    console.log(
-      chalk.magenta(
-        `${chalk.yellow('*')} Make sure the path to your JSS app is passed in with the ${chalk.cyan(
-          '--destination flag'
-        )}, or is the cwd.`
-      )
-    );
-    console.log(
-      chalk.magenta(
-        `${chalk.yellow('*')} Check that the ${chalk.cyan(
-          'sitecoreConfigPath'
-        )} property exists in the ${chalk.cyan('package.json')}`
-      )
-    );
-    return false;
-  }
-  return true;
-};
-
+/**
+ * Determines whether you are in a dev environment.
+ * It's `true` if you are inside the monorepo
+ * @param {string} [cwd] path to the current working directory
+ * @returns {boolean} is a development environment
+ */
 export const isDevEnvironment = (cwd?: string): boolean => {
   const currentPath = path.resolve(cwd || process.cwd());
   // TODO: is there a better way to detect this?
@@ -54,8 +25,13 @@ export const getPascalCaseName = (name: string): string => {
   return name;
 };
 
+/**
+ * Provides `package.json` data
+ * @param {string} [pkgPath] path to `package.json`. Default is './package.json'.
+ * @returns `package.json` data
+ */
 export const openPackageJson = (pkgPath?: string) => {
-  const filePath = path.resolve(pkgPath ?? './package.json');
+  const filePath = path.resolve(pkgPath ?? `.${sep}package.json`);
   try {
     const data = fs.readFileSync(filePath, 'utf8');
     return data ? JSON.parse(data) : undefined;
@@ -65,14 +41,30 @@ export const openPackageJson = (pkgPath?: string) => {
   }
 };
 
-export const writePackageJson = (object: unknown, pkgPath?: string) => {
-  const filePath = path.resolve(pkgPath ?? './package.json');
+/**
+ * Creates `package.json` file and inserts provided data
+ * @param {Object} data data to be written into package.json
+ * @param {string} [pkgPath] a path to a file. Default is './package.json'.
+ */
+export const writePackageJson = (data: { [key: string]: unknown }, pkgPath?: string) => {
+  const filePath = path.resolve(pkgPath ?? `.${sep}package.json`);
   try {
-    fs.writeFileSync(filePath, JSON.stringify(object, null, 2), { encoding: 'utf8' });
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), { encoding: 'utf8' });
   } catch (error) {
     console.log(chalk.red(`The following error occurred while trying to write ${filePath}:`));
     console.log(chalk.red(error));
   }
+};
+
+/**
+ * Save configuration params to the package.json
+ * @param {string[]} templates templates applied to the sample
+ * @param {string} [pkgPath] path to the package.json
+ */
+export const saveConfiguration = (templates: string[], pkgPath?: string) => {
+  const pkg = openPackageJson(pkgPath);
+
+  writePackageJson({ ...pkg, config: { ...pkg.config, templates } }, pkgPath);
 };
 
 export const sortKeys = (obj: JsonObjectType) => {
@@ -84,6 +76,20 @@ export const sortKeys = (obj: JsonObjectType) => {
   return sorted;
 };
 
+/**
+ * Returns all templates
+ * @param {string} templatePath path to the templates
+ * @returns {string[]} templates
+ */
+export const getAllTemplates = (templatePath: string): string[] => {
+  return fs.readdirSync(templatePath, 'utf8');
+};
+
+/**
+ * Returns subset of base templates
+ * @param {string} templatePath path to the templates
+ * @returns {string[]} base templates
+ */
 export const getBaseTemplates = async (templatePath: string): Promise<string[]> => {
   const templates = fs.readdirSync(templatePath, 'utf8');
   const initFactory = new InitializerFactory();
@@ -101,4 +107,8 @@ export const getAppPrefix = (appPrefix: boolean, appName: string, includeHyphen 
 
 export const writeFileToPath = (destinationPath: string, content: string) => {
   fs.writeFileSync(destinationPath, content, 'utf8');
+};
+
+export const removeFile = (filePath: string) => {
+  fs.unlinkSync(filePath);
 };

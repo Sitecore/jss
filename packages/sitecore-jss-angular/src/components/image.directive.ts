@@ -13,8 +13,6 @@ import { ImageField, ImageFieldValue } from './rendering-field';
 
 @Directive({ selector: '[scImage]' })
 export class ImageDirective implements OnChanges {
-  private inlineRef: HTMLSpanElement | null = null;
-
   @Input('scImage') field: ImageField | '';
 
   @Input('scImageEditable') editable = true;
@@ -31,6 +29,8 @@ export class ImageDirective implements OnChanges {
   @Input('scImageUrlParams') urlParams: { [param: string]: string | number } = {};
 
   @Input('scImageAttrs') attrs: { [param: string]: unknown } = {};
+
+  private inlineRef: HTMLSpanElement | null = null;
 
   constructor(
     private viewContainer: ViewContainerRef,
@@ -135,6 +135,7 @@ export class ImageDirective implements OnChanges {
     const view = this.templateRef.createEmbeddedView(null);
     const element: Element = view.rootNodes[0];
     if (!element) {
+      view.destroy();
       return {};
     }
     const attrs: { [key: string]: string } = {};
@@ -144,6 +145,7 @@ export class ImageDirective implements OnChanges {
         attrs[attr.name] = attr.value;
       }
     }
+    view.destroy();
     return attrs;
   }
 

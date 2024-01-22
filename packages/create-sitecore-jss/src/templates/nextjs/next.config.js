@@ -1,10 +1,11 @@
 const jssConfig = require('./src/temp/config');
-const packageConfig = require('./package.json').config;
-const { getPublicUrl } = require('@sitecore-jss/sitecore-jss-nextjs');
 const plugins = require('./src/temp/next-config-plugins') || {};
 
-const publicUrl = getPublicUrl();
+const publicUrl = jssConfig.publicUrl;
 
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
   // Set assetPrefix to our public URL
   assetPrefix: publicUrl,
@@ -23,28 +24,34 @@ const nextConfig = {
     locales: ['en'],
     // This is the locale that will be used when visiting a non-locale
     // prefixed path e.g. `/styleguide`.
-    defaultLocale: packageConfig.language,
+    defaultLocale: jssConfig.defaultLanguage,
   },
-  
+
   // Enable React Strict Mode
   reactStrictMode: true,
 
   async rewrites() {
     // When in connected mode we want to proxy Sitecore paths off to Sitecore
     return [
+      // API endpoints
       {
-        source: '/sitecore/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/sitecore/:path*`,
+        source: '/sitecore/api/:path*',
+        destination: `${jssConfig.sitecoreApiHost}/sitecore/api/:path*`,
       },
       // media items
       {
         source: '/-/:path*',
         destination: `${jssConfig.sitecoreApiHost}/-/:path*`,
       },
-      // visitor identification
+      // healthz check
       {
-        source: '/layouts/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/layouts/:path*`,
+        source: '/healthz',
+        destination: '/api/healthz',
+      },
+      // rewrite for Sitecore service pages
+      {
+        source: '/sitecore/service/:path*',
+        destination: `${jssConfig.sitecoreApiHost}/sitecore/service/:path*`,
       },
     ];
   },
@@ -53,4 +60,4 @@ const nextConfig = {
 module.exports = () => {
   // Run the base config through any configured plugins
   return Object.values(plugins).reduce((acc, plugin) => plugin(acc), nextConfig);
-}
+};

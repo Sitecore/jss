@@ -39,7 +39,7 @@ export class JssLayoutService {
 
   private getLayoutServiceError(error: { [key: string]: unknown }): Observable<LayoutServiceError> {
     if (error instanceof LayoutServiceError) {
-      return observableThrow(error);
+      return observableThrow(() => error);
     }
     const layoutServiceError = new LayoutServiceError();
     const response = error.response as { status: number; statusText: string; data: unknown };
@@ -49,6 +49,6 @@ export class JssLayoutService {
       layoutServiceError.data = response.data;
     }
 
-    return observableThrow(layoutServiceError);
+    return observableThrow(() => layoutServiceError);
   }
 }

@@ -40,8 +40,7 @@ export type WebServerMiddleware = (
 
 export type SSRMiddleware = (options: SSRMiddlewareOptions) => WebServerMiddleware;
 
-// don't assume this middleware will always be used by WebpackDevServer
-// it may also be used by a "standalone" JSS rendering host / express server.
+// may be used by a "standalone" JSS rendering host / express server.
 export const ssrMiddleware: SSRMiddleware = ({
   appInvocationInfoResolver,
 }: SSRMiddlewareOptions) => {
@@ -81,7 +80,7 @@ export function getDefaultAppRendererCallback(res: ServerResponse) {
         successValueJson = JSON.stringify(successValue);
       } catch (ex) {
         // JSON serialization error - pass it back to http caller.
-        respondWithError(res, ex);
+        respondWithError(res, ex as Error);
         return;
       }
       res.setHeader('Content-Type', 'application/json');

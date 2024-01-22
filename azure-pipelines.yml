@@ -33,57 +33,107 @@ variables:
     branchName: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
     branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
+    lernaSinceFlag: "--since=origin/dev"
+# disable `PublishCodeCoverageResults` report generation, as `reportgenerator` provides custom report
+  disable.coverage.autogenerate: 'true'
+# Some steps here scaffold jss apps and check if they build and lint correctly
+# build apps step currently excluded: RAV apps have issues with yarn build, nextjs has some with all builds without Sitecore connection
+# TODO: add step for lerna run build --scope sample-* when RAV and nextjs yarn build issues are resolved
 
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '16.x'
+    versionSpec: '20.x'
 - script: |
     yarn cache clean --all && yarn install --immutable
-  displayName: 'yarn install'
+  displayName: 'yarn install - initial'
 - script: |
-    yarn build
-  displayName: 'building packages'
+    yarn lint-packages ${{ variables.lernaSinceFlag }}
+  displayName: 'lint packages'
 - script: |
-    yarn lint-packages
-  displayName: 'linting packages'
+    npm run build
+  displayName: 'build packages'
 - script: |
     yarn coverage-packages
   displayName: 'running tests'
   env: {
     testEnv: 'ci'
   }
-  #
-  # LERNA VERSION
+- task: reportgenerator@5
+  displayName: 'generate code coverage report'
+  inputs:
+    reports: '$(System.DefaultWorkingDirectory)/**/cobertura-coverage.xml'
+    targetdir: '$(Build.SourcesDirectory)/coverlet'
+    reporttypes: 'HtmlInline_AzurePipelines;Cobertura'
+    verbosity: 'Verbose'
+- task: PublishCodeCoverageResults@1
+  displayName: 'publish code coverage report'
+  inputs: 
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(Build.SourcesDirectory)/coverlet/Cobertura.xml'
+    reportDirectory: '$(Build.SourcesDirectory)/coverlet'
+- script: |
+    yarn scaffold-samples
+  displayName: 'scaffold samples'
+  condition: and(succeeded(), ne(variables.shouldPublish, true))
+- script: |
+    yarn install
+  displayName: 'yarn install - refresh'
+  condition: and(succeeded(), ne(variables.shouldPublish, true))
+  env:
+    YARN_ENABLE_IMMUTABLE_INSTALLS: false
+- script: |
+    yarn lint-samples ${{ variables.lernaSinceFlag }}
+  displayName: 'lint samples'
+  condition: and(succeeded(), ne(variables.shouldPublish, true))
+
   # * Configure git with a commit user
   # * Update git remote to include a Personal Access Token, so lerna can push
   # * Explicitly check out the current branch since Pipelines will use disconnected HEAD by default
-  # * Increment pre-release version
-  #     * Force version update even if lerna doesn't detect changes
-  #     * Include [skip ci] in commit message to stop pipeline from triggering again when lerna pushes
-  # * Only run for 'dev' branch
-  #
+  # * Only run for 'dev' and 'release' branches
 - script: |
     git config user.email builds@sitecore.com
     git config user.name "Automated Build"
     git remote set-url origin https://$GITHUB_PAT_ENV@github.com/Sitecore/jss.git
     git checkout $(branchName)
-    $(npm bin)/lerna version prerelease --preid canary --force-publish --message "version %s [skip ci]" --yes
-  displayName: 'pre-release version update'
+  displayName: 'apply git configuration'
   condition: and(succeeded(), eq(variables.shouldPublish, true))
   env:
     GITHUB_PAT_ENV: $(GITHUB-PAT)
+
+  # Only run for 'dev' and 'release' branches
+  # in order to don't produce extra changes in the Pull Request
+- script: |
+    yarn generate-docs
+    git add ./ref-docs/**/*
+    git commit -m "Update API docs [skip ci]"
+  displayName: 'generate API docs'
+  condition: and(succeeded(), eq(variables.shouldPublish, true))
+
+  #
+  # LERNA VERSION
+  # * Increment pre-release version
+  #     * Force version update even if lerna doesn't detect changes
+  #     * Include [skip ci] in commit message to stop pipeline from triggering again when lerna pushes
+  # * Only run for 'dev' and 'release' branches
+  #
+- script: |
+    npm exec -- lerna version prerelease --exact --preid canary --force-publish --message "version %s [skip ci]" --yes
+  displayName: 'pre-release version update'
+  condition: and(succeeded(), eq(variables.shouldPublish, true))
+  env:
+    YARN_ENABLE_IMMUTABLE_INSTALLS: false
   #
   # LERNA PUBLISH
   # * Configure npm to use the provided access token, so lerna can publish
   # * Do a lerna canary publish of the version we've already updated and pushed
   # * Disable access verification (no-verify-access) as this doesn't seem to work behind Azure DevOps' npm proxy
   #     * https://github.com/lerna/lerna/issues/1685
-  # * Only run for 'dev' branch
+  # * Only run for 'dev' and 'release' branches
   #
 - script: |
     echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-    $(npm bin)/lerna publish from-git --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
+    npm exec -- lerna publish from-git --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
     yarn install --no-immutable --mode=update-lockfile
     git add yarn.lock
     git commit -m "update yarn.lock [skip ci]"

@@ -1,11 +1,13 @@
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import { ComponentRendering, LayoutServiceData } from '@sitecore-jss/sitecore-jss/layout';
 
+export type ComponentPropsError = { error: string; componentName: string };
+
 /**
  * Shape of component props storage
  */
 export type ComponentPropsCollection = {
-  [componentUid: string]: unknown;
+  [componentUid: string]: unknown | ComponentPropsError;
 };
 
 /**

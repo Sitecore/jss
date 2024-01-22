@@ -1,27 +1,19 @@
 import { IncomingMessage, ServerResponse, ClientRequest, IncomingHttpHeaders } from 'http';
-import proxy from 'http-proxy-middleware';
+import { Request, RequestHandler, Response } from 'express';
+import { ServerOptions } from 'http-proxy';
+import { createProxyMiddleware, Options } from 'http-proxy-middleware';
 import HttpStatus from 'http-status-codes';
 import setCookieParser, { Cookie } from 'set-cookie-parser';
 import zlib from 'zlib'; // node.js standard lib
 import { AppRenderer } from './AppRenderer';
-import { ProxyConfig } from './ProxyConfig';
+import { ProxyConfig, LayoutServiceData, ServerBundle } from './ProxyConfig';
 import { RenderResponse } from './RenderResponse';
 import { RouteUrlParser } from './RouteUrlParser';
 import { buildQueryString, tryParseJson } from './util';
 
-/**
- * Extends IncomingMessage as it should contain these properties but they are not provided in types
- */
-export interface ProxyIncomingMessage extends IncomingMessage {
-  originalUrl: string;
-  query: { [key: string]: string | number | boolean };
-}
-
-/**
- * Extends ClientRequest as it should contain `method` but it's not provided in types
- */
-interface ExtendedClientRequest extends ClientRequest {
-  method: string;
+interface ExtendedRequest extends Request {
+  // Custom property we set to keep an original method when we swap 'HEAD' with 'GET'
+  originalMethod?: string;
 }
 
 // For some reason, every other response returned by Sitecore contains the 'set-cookie' header with the SC_ANALYTICS_GLOBAL_COOKIE value as an empty string.
@@ -152,12 +144,13 @@ async function renderAppToResponse(
    * function replies with HTTP 500 when an error occurs
    * @param {Error} error
    */
-  async function replyWithError(error: Error) {
+  async function replyWithError(error: Error): Promise<void> {
     console.error(error);
 
     let errorResponse = {
       statusCode: proxyResponse.statusCode || HttpStatus.INTERNAL_SERVER_ERROR,
       content: proxyResponse.statusMessage || 'Internal Server Error',
+      headers: {},
     };
 
     if (config.onError) {
@@ -165,7 +158,11 @@ async function renderAppToResponse(
       errorResponse = { ...errorResponse, ...onError };
     }
 
-    completeProxyResponse(Buffer.from(errorResponse.content), errorResponse.statusCode, {});
+    completeProxyResponse(
+      Buffer.from(errorResponse.content),
+      errorResponse.statusCode,
+      errorResponse.headers
+    );
   }
 
   // callback handles the result of server-side rendering
@@ -257,7 +254,7 @@ async function renderAppToResponse(
   /**
    * @param {object} layoutServiceData
    */
-  async function createViewBag(layoutServiceData: { [key: string]: unknown }) {
+  async function createViewBag(layoutServiceData: LayoutServiceData) {
     let viewBag = {
       statusCode: proxyResponse.statusCode,
       dictionary: {},
@@ -279,6 +276,8 @@ async function renderAppToResponse(
 
   // as the response is ending, we parse the current response body which is JSON, then
   // render the app using that JSON, but return HTML to the final response.
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   serverResponse.end = async () => {
     try {
       const layoutServiceData = await extractLayoutServiceDataFromProxyResponse();
@@ -298,22 +297,22 @@ async function renderAppToResponse(
         viewBag
       );
     } catch (error) {
-      return replyWithError(error);
+      return replyWithError(error as Error);
     }
   };
 }
 
 /**
  * @param {IncomingMessage} proxyResponse
- * @param {IncomingMessage} request
- * @param {ServerResponse} serverResponse
+ * @param {Request} request
+ * @param {Response} serverResponse
  * @param {AppRenderer} renderer
  * @param {ProxyConfig} config
  */
 function handleProxyResponse(
   proxyResponse: IncomingMessage,
-  request: IncomingMessage,
-  serverResponse: ServerResponse,
+  request: Request,
+  serverResponse: Response,
   renderer: AppRenderer,
   config: ProxyConfig
 ) {
@@ -321,8 +320,8 @@ function handleProxyResponse(
 
   if (config.debug) {
     console.log('DEBUG: request url', request.url);
-    console.log('DEBUG: request query', (request as ProxyIncomingMessage).query);
-    console.log('DEBUG: request original url', (request as ProxyIncomingMessage).originalUrl);
+    console.log('DEBUG: request query', request.query);
+    console.log('DEBUG: request original url', request.originalUrl);
     console.log('DEBUG: proxied request response code', proxyResponse.statusCode);
     console.log('DEBUG: RAW request headers', JSON.stringify(request.headers, null, 2));
     console.log(
@@ -333,7 +332,7 @@ function handleProxyResponse(
 
   // if the request URL contains any of the excluded rewrite routes, we assume the response does not need to be server rendered.
   // instead, the response should just be relayed as usual.
-  if (isUrlIgnored((request as ProxyIncomingMessage).originalUrl, config, true)) {
+  if (isUrlIgnored(request.originalUrl, config, true)) {
     return Promise.resolve(undefined);
   }
 
@@ -344,13 +343,13 @@ function handleProxyResponse(
 
 /**
  * @param {string} reqPath
- * @param {IncomingMessage} req
+ * @param {Request} req
  * @param {ProxyConfig} config
  * @param {RouteUrlParser} parseRouteUrl
  */
 export function rewriteRequestPath(
   reqPath: string,
-  req: IncomingMessage,
+  req: Request,
   config: ProxyConfig,
   parseRouteUrl?: RouteUrlParser
 ) {
@@ -375,9 +374,10 @@ export function rewriteRequestPath(
   let finalReqPath = decodedReqPath;
   const qsIndex = finalReqPath.indexOf('?');
   let qs = '';
-  if (qsIndex > -1) {
-    qs = buildQueryString((req as ProxyIncomingMessage).query);
-    finalReqPath = finalReqPath.slice(0, qsIndex);
+  if (qsIndex > -1 || Object.keys(req.query).length) {
+    qs = buildQueryString(req.query as { [key: string]: string | number | boolean });
+    // Splice qs part when url contains that
+    if (qsIndex > -1) finalReqPath = finalReqPath.slice(0, qsIndex);
   }
 
   if (config.qsParams) {
@@ -491,33 +491,45 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug = false)
 
 /**
  * @param {ClientRequest} proxyReq
- * @param {IncomingMessage} req
- * @param {ServerResponse} res
+ * @param {Request} req
+ * @param {Response} res
+ * @param {ServerOptions} options
  * @param {ProxyConfig} config
  * @param {Function} customOnProxyReq
  */
 function handleProxyRequest(
   proxyReq: ClientRequest,
-  req: IncomingMessage,
-  res: ServerResponse,
+  req: ExtendedRequest,
+  res: Response,
+  options: ServerOptions,
   config: ProxyConfig,
   customOnProxyReq:
-    | ((proxyReq: ClientRequest, req: IncomingMessage, res: ServerResponse) => void)
+    | ((proxyReq: ClientRequest, req: Request, res: Response, options: ServerOptions) => void)
     | undefined
 ) {
-  // if a HEAD request, we still need to issue a GET so we can return accurate headers
-  if (
-    (proxyReq as ExtendedClientRequest).method === 'HEAD' &&
-    !isUrlIgnored((req as ProxyIncomingMessage).originalUrl, config, true)
-  ) {
-    if (config.debug) {
-      console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
+  if (!isUrlIgnored(req.originalUrl, config, true)) {
+    // In case 'followRedirects' is enabled, and before the proxy was initialized we had set 'originalMethod'
+    // now we need to set req.method back to original one, since proxyReq is already initialized.
+    // See more info in 'preProxyHandler'
+    if (options.followRedirects && req.originalMethod === 'HEAD') {
+      req.method = req.originalMethod;
+      delete req.originalMethod;
+
+      if (config.debug) {
+        console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
+      }
+    } else if (proxyReq.method === 'HEAD') {
+      if (config.debug) {
+        console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
+      }
+      // if a HEAD request, we still need to issue a GET so we can return accurate headers
+      proxyReq.method = 'GET';
     }
-    (proxyReq as ExtendedClientRequest).method = 'GET';
   }
+
   // invoke custom onProxyReq
   if (customOnProxyReq) {
-    customOnProxyReq(proxyReq, req, res);
+    customOnProxyReq(proxyReq, req, res, options);
   }
 }
 
@@ -530,7 +542,7 @@ function createOptions(
   renderer: AppRenderer,
   config: ProxyConfig,
   parseRouteUrl: RouteUrlParser
-): proxy.Config {
+): Options {
   if (!config.maxResponseSizeBytes) {
     config.maxResponseSizeBytes = 10 * 1024 * 1024;
   }
@@ -551,11 +563,11 @@ function createOptions(
     ...config.proxyOptions,
     target: config.apiHost,
     changeOrigin: true, // required otherwise need to include CORS headers
-    ws: true,
+    ws: config.ws || false,
     pathRewrite: (reqPath, req) => rewriteRequestPath(reqPath, req, config, parseRouteUrl),
     logLevel: config.debug ? 'debug' : 'info',
-    onProxyReq: (proxyReq, req, res) =>
-      handleProxyRequest(proxyReq, req, res, config, customOnProxyReq),
+    onProxyReq: (proxyReq, req, res, options) =>
+      handleProxyRequest(proxyReq, req, res, options, config, customOnProxyReq),
     onProxyRes: (proxyRes, req, res) => handleProxyResponse(proxyRes, req, res, renderer, config),
   };
 }
@@ -571,5 +583,26 @@ export default function scProxy(
   parseRouteUrl: RouteUrlParser
 ) {
   const options = createOptions(renderer, config, parseRouteUrl);
-  return proxy(options);
+
+  const preProxyHandler: RequestHandler = (req, _res, next) => {
+    // When 'followRedirects' is enabled, 'onProxyReq' is executed after 'proxyReq' is initialized based on original 'req'
+    // and there are no public properties/methods to modify Redirectable 'proxyReq'.
+    // so, we need to set 'HEAD' req as 'GET' before the proxy is initialized.
+    // During the 'onProxyReq' event we will set 'req.method' back as 'HEAD'.
+    // if a HEAD request, we need to issue a GET so we can return accurate headers
+    if (
+      req.method === 'HEAD' &&
+      options.followRedirects &&
+      !isUrlIgnored(req.originalUrl, config, true)
+    ) {
+      req.method = 'GET';
+      (req as ExtendedRequest).originalMethod = 'HEAD';
+    }
+
+    next();
+  };
+
+  return [preProxyHandler, createProxyMiddleware(options)];
 }
+
+export { ProxyConfig, ServerBundle };

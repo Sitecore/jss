@@ -14,7 +14,11 @@
 
 ### defaultProps
 
-• **defaultProps**: `Partial`<`ImageProps`\>
+• **defaultProps**: `Partial`\<[`ImageProps`](../interfaces/ImageProps.md)\>
+
+#### Defined in
+
+[sitecore-jss-react/src/components/Image.tsx:221](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-react/src/components/Image.tsx#L221)
 
 ___
 
@@ -22,8 +26,16 @@ ___
 
 • **displayName**: `string`
 
+#### Defined in
+
+[sitecore-jss-react/src/components/Image.tsx:225](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-react/src/components/Image.tsx#L225)
+
 ___
 
 ### propTypes
 
-• **propTypes**: `WeakValidationMap`<`ImageProps`\>
+• **propTypes**: `WeakValidationMap`\<[`ImageProps`](../interfaces/ImageProps.md)\>
+
+#### Defined in
+
+[sitecore-jss-react/src/components/Image.tsx:195](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-react/src/components/Image.tsx#L195)

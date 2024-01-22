@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
-import { trackingApi, TrackingRequestOptions } from '@sitecore-jss/sitecore-jss/tracking';
+import {
+  ComponentRendering,
+  trackingApi,
+  TrackingRequestOptions,
+} from '@sitecore-jss/sitecore-jss-angular';
 import { environment } from '../../../environments/environment';
 import { JssDataFetcherService } from '../../jss-data-fetcher.service';
 
@@ -42,14 +45,14 @@ export class StyleguideTrackingComponent implements OnInit {
     trackingApi
       .trackEvent([{ eventId: this.event }], this.trackingApiOptions)
       .then(() => alert('Page event pushed'))
-      .catch((error) => alert(error));
+      .catch((error: unknown) => alert(error));
   }
 
   submitGoal() {
     trackingApi
       .trackEvent([{ goalId: this.goal }], this.trackingApiOptions)
       .then(() => alert('Goal pushed'))
-      .catch((error) => alert(error));
+      .catch((error: unknown) => alert(error));
   }
 
   submitOutcome() {
@@ -65,14 +68,14 @@ export class StyleguideTrackingComponent implements OnInit {
         this.trackingApiOptions
       )
       .then(() => alert('Outcome pushed'))
-      .catch((error) => alert(error));
+      .catch((error: unknown) => alert(error));
   }
 
   triggerCampaign() {
     trackingApi
       .trackEvent([{ campaignId: this.campaign }], this.trackingApiOptions)
       .then(() => alert('Campaign set'))
-      .catch((error) => alert(error));
+      .catch((error: unknown) => alert(error));
   }
 
   submitPageView() {
@@ -82,7 +85,7 @@ export class StyleguideTrackingComponent implements OnInit {
         this.trackingApiOptions
       )
       .then(() => alert('Page view pushed'))
-      .catch((error) => alert(error));
+      .catch((error: unknown) => alert(error));
   }
 
   abandonSession() {
@@ -94,7 +97,7 @@ export class StyleguideTrackingComponent implements OnInit {
     trackingApi
       .trackEvent([], abandonOptions)
       .then(() => alert('Interaction has been terminated and its data pushed to xConnect.'))
-      .catch((error) => alert(error));
+      .catch((error: unknown) => alert(error));
   }
 
   submitBatching() {
@@ -111,6 +114,6 @@ export class StyleguideTrackingComponent implements OnInit {
         this.trackingApiOptions
       )
       .then(() => alert('Batch of events pushed'))
-      .catch((error) => alert(error));
+      .catch((error: unknown) => alert(error));
   }
 }

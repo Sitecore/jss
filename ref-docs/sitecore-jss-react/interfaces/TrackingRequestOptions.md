@@ -29,7 +29,7 @@ ___
 
 ### fetcher
 
-• **fetcher**: `HttpDataFetcher`<`void`\>
+• **fetcher**: `HttpDataFetcher`\<`void`\>
 
 The fetcher that performs the HTTP request and returns a promise to JSON
 

@@ -9,11 +9,12 @@ import {
   openPackageJson,
   writePackageJson,
   sortKeys,
-  isJssApp,
+  getAllTemplates,
   getBaseTemplates,
   getAppPrefix,
+  saveConfiguration,
 } from './helpers';
-import { JsonObjectType } from '../steps/transform';
+import { JsonObjectType } from '../processes/transform';
 import testPackage from '../test-data/test.package.json';
 import rootPackage from '../../../package.json';
 import { Initializer } from '../Initializer';
@@ -141,6 +142,30 @@ describe('helpers', () => {
     });
   });
 
+  describe('saveConfiguration', () => {
+    let log: SinonStub;
+    let writeFileSync: SinonStub;
+
+    afterEach(() => {
+      log?.restore();
+      writeFileSync?.restore();
+    });
+
+    it('should save configuration', () => {
+      writeFileSync = sinon.stub(fs, 'writeFileSync');
+      const pkgPath = path.resolve('src', 'common', 'test-data', 'test.package.json');
+      const pkg = openPackageJson(pkgPath);
+      const templates = ['nextjs', 'nextjs-styleguide'];
+
+      saveConfiguration(templates, pkgPath);
+
+      expect(writeFileSync.calledOnce).to.equal(true);
+      expect(writeFileSync.getCall(0).args[1]).to.equal(
+        JSON.stringify({ ...pkg, config: { ...pkg.config, templates } }, null, 2)
+      );
+    });
+  });
+
   describe('sortKeys', () => {
     it('should sort the keys of an object alphabetically', () => {
       const obj: JsonObjectType = {
@@ -182,59 +207,22 @@ describe('helpers', () => {
     });
   });
 
-  describe('isJssApp', () => {
-    let log: SinonStub;
-    let exit: SinonStub;
+  describe('getAllTemplates', () => {
+    let readdirSync: SinonStub;
 
     afterEach(() => {
-      log?.restore();
-      exit?.restore();
+      readdirSync?.restore();
     });
 
-    it('should return true when sitecoreConfigPath is provided', () => {
-      log = sinon.stub(console, 'log');
-      const result = isJssApp('nextjs', {
-        config: {
-          sitecoreConfigPath: 'test',
-        },
-      });
+    it('should return templates', () => {
+      readdirSync = sinon.stub(fs, 'readdirSync');
+      readdirSync.returns(['foo', 'bar', 'baz']);
 
-      expect(log.getCalls().length).to.equal(0);
+      const templates = getAllTemplates('./mock/path');
 
-      expect(result).to.equal(true);
-    });
-
-    it('should return false when sitecoreConfigPath is not provided', () => {
-      log = sinon.stub(console, 'log');
-      const result = isJssApp('nextjs', {});
-
-      expect(log.getCalls().length).to.equal(3);
-
-      expect(log.getCall(0).args[0]).to.equal(
-        chalk.red(
-          `Error: Could not add ${chalk.yellow(
-            'nextjs'
-          )} to the current project because it is not a JSS app.`
-        )
-      );
-      expect(log.getCall(1).args[0]).to.equal(
-        chalk.magenta(
-          `${chalk.yellow(
-            '*'
-          )} Make sure the path to your JSS app is passed in with the ${chalk.cyan(
-            '--destination flag'
-          )}, or is the cwd.`
-        )
-      );
-      expect(log.getCall(2).args[0]).to.equal(
-        chalk.magenta(
-          `${chalk.yellow('*')} Check that the ${chalk.cyan(
-            'sitecoreConfigPath'
-          )} property exists in the ${chalk.cyan('package.json')}`
-        )
-      );
-
-      expect(result).to.equal(false);
+      expect(readdirSync.calledOnce).to.equal(true);
+      expect(readdirSync.getCall(0).args[0]).to.equal('./mock/path');
+      expect(templates).to.deep.equal(['foo', 'bar', 'baz']);
     });
   });
 

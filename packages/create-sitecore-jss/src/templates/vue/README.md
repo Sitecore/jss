@@ -1,4 +1,9 @@
-# vue
+# Sitecore JSS Vue.js Sample Application
+
+<!---
+@TODO: Update to next version docs before release
+-->
+[Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/21/sitecore-headless-development/sitecore-javascript-rendering-sdk--jss--for-vue-js.html)
 
 ## Project setup
 ```

@@ -51,7 +51,7 @@ DictionaryServiceBase.constructor
 
 #### Defined in
 
-sitecore-jss/types/i18n/rest-dictionary-service.d.ts:39
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:40
 
 ## Properties
 
@@ -65,41 +65,47 @@ DictionaryServiceBase.options
 
 #### Defined in
 
-sitecore-jss/types/i18n/rest-dictionary-service.d.ts:34
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:35
 
 ## Accessors
 
 ### defaultFetcher
 
-• `get` **defaultFetcher**(): `HttpDataFetcher`<`RestDictionaryServiceData`\>
+• `get` **defaultFetcher**(): `HttpDataFetcher`\<`RestDictionaryServiceData`\>
 
-Provides default @see AxiosDataFetcher data fetcher
+Provides default
 
 #### Returns
 
-`HttpDataFetcher`<`RestDictionaryServiceData`\>
+`HttpDataFetcher`\<`RestDictionaryServiceData`\>
+
+**`See`**
+
+AxiosDataFetcher data fetcher
 
 #### Defined in
 
-sitecore-jss/types/i18n/rest-dictionary-service.d.ts:38
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:39
 
 ## Methods
 
 ### fetchDictionaryData
 
-▸ **fetchDictionaryData**(`language`): `Promise`<`DictionaryPhrases`\>
+▸ **fetchDictionaryData**(`language`): `Promise`\<`DictionaryPhrases`\>
 
 Fetch dictionary data for a language.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `language` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `language` | `string` | the language to be used to fetch the dictionary |
 
 #### Returns
 
-`Promise`<`DictionaryPhrases`\>
+`Promise`\<`DictionaryPhrases`\>
+
+dictionary phrases
 
 #### Overrides
 
@@ -107,13 +113,13 @@ DictionaryServiceBase.fetchDictionaryData
 
 #### Defined in
 
-sitecore-jss/types/i18n/rest-dictionary-service.d.ts:44
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:46
 
 ___
 
 ### getCacheClient
 
-▸ `Protected` **getCacheClient**(): `CacheClient`<`DictionaryPhrases`\>
+▸ `Protected` **getCacheClient**(): `CacheClient`\<`DictionaryPhrases`\>
 
 Gets a cache client that can cache data. Uses memory-cache as the default
 library for caching (@see MemoryCacheClient). Override this method if you
@@ -121,7 +127,7 @@ want to use something else.
 
 #### Returns
 
-`CacheClient`<`DictionaryPhrases`\>
+`CacheClient`\<`DictionaryPhrases`\>
 
 implementation
 
@@ -139,7 +145,7 @@ ___
 
 ▸ **getCacheValue**(`key`): `DictionaryPhrases`
 
-Retrieves a @see DictionaryPhrases value from the cache.
+Retrieves a
 
 #### Parameters
 
@@ -151,7 +157,12 @@ Retrieves a @see DictionaryPhrases value from the cache.
 
 `DictionaryPhrases`
 
-The @see DictionaryPhrases value, or null if the specified key is not found in the cache.
+The
+
+**`See`**
+
+ - DictionaryPhrases value from the cache.
+ - DictionaryPhrases value, or null if the specified key is not found in the cache.
 
 #### Inherited from
 
@@ -171,17 +182,19 @@ Generate dictionary service url
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `language` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `language` | `string` | the language to be used to fetch the dictionary |
 
 #### Returns
 
 `string`
 
+dictionary service url
+
 #### Defined in
 
-sitecore-jss/types/i18n/rest-dictionary-service.d.ts:49
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:52
 
 ___
 
@@ -189,9 +202,7 @@ ___
 
 ▸ **setCacheValue**(`key`, `value`): `DictionaryPhrases`
 
-Caches a @see DictionaryPhrases value for the specified cache key.
-
-**`mixes`** CacheClient<DictionaryPhrases>
+Caches a
 
 #### Parameters
 
@@ -205,6 +216,14 @@ Caches a @see DictionaryPhrases value for the specified cache key.
 `DictionaryPhrases`
 
 The value added to the cache.
+
+**`See`**
+
+DictionaryPhrases value for the specified cache key.
+
+**`Mixes`**
+
+CacheClient<DictionaryPhrases>
 
 #### Inherited from
 

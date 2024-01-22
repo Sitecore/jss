@@ -1,6 +1,5 @@
 import { GraphQLClient } from './../graphql-request-client';
 import { SitecoreTemplateId } from '../constants';
-import debug from '../debug';
 
 /** @private */
 export const siteNameError = 'The site name must be a non-empty string';
@@ -40,13 +39,13 @@ export type AppRootQueryResult = {
  * @param {GraphQLClient} client that fetches data from a GraphQL endpoint.
  * @param {string} siteName the name of the Sitecore site.
  * @param {string} language the item language version.
- * @param {string} jssAppTemplateId optional template ID of the app root item. If not
+ * @param {string} [jssAppTemplateId] optional template ID of the app root item. If not
  * specified, the ID of the "/sitecore/templates/Foundation/JavaScript Services/App"
  * item is used.
  * @returns the root item ID of the JSS App in Sitecore. Returns null if the app root item is not found.
  * @throws {RangeError} if a valid site name value is not provided.
  * @throws {RangeError} if a valid language value is not provided.
- * This function intentionally avoids throwing an error if a root item is not found,
+ * @summary This function intentionally avoids throwing an error if a root item is not found,
  * leaving that decision up to implementations.
  */
 export async function getAppRootId(
@@ -62,14 +61,19 @@ export async function getAppRootId(
   if (!language) {
     throw new RangeError(languageError);
   }
-
-  debug.dictionary('fetching site root for %s %s', language, siteName);
-
-  const fetchResponse = await client.request<AppRootQueryResult>(appRootQuery, {
+  let fetchResponse = await client.request<AppRootQueryResult>(appRootQuery, {
     jssAppTemplateId: jssAppTemplateId || SitecoreTemplateId.JssApp,
     siteName,
     language,
   });
+
+  if (!fetchResponse?.layout?.homePage?.rootItem?.length && language !== 'en') {
+    fetchResponse = await client.request<AppRootQueryResult>(appRootQuery, {
+      jssAppTemplateId: jssAppTemplateId || SitecoreTemplateId.JssApp,
+      siteName,
+      language: 'en',
+    });
+  }
 
   if (!fetchResponse?.layout?.homePage?.rootItem?.length) {
     return null;

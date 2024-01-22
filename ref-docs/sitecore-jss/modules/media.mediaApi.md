@@ -11,37 +11,38 @@
 - [findEditorImageTag](media.mediaApi.md#findeditorimagetag)
 - [getRequiredParams](media.mediaApi.md#getrequiredparams)
 - [getSrcSet](media.mediaApi.md#getsrcset)
+- [replaceMediaUrlPrefix](media.mediaApi.md#replacemediaurlprefix)
 - [updateImageUrl](media.mediaApi.md#updateimageurl)
 
 ## Functions
 
 ### findEditorImageTag
 
-▸ `Const` **findEditorImageTag**(`editorMarkup`): ``null`` \| { `attrs`: { [key: string]: `string`;  } ; `imgTag`: `string`  }
+▸ **findEditorImageTag**(`editorMarkup`): ``null`` \| \{ `attrs`: \{ `[key: string]`: `string`;  } ; `imgTag`: `string`  }
 
 Makes a request to Sitecore Content Service for the specified item path.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `editorMarkup` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `editorMarkup` | `string` | the markup to parse |
 
 #### Returns
 
-``null`` \| { `attrs`: { [key: string]: `string`;  } ; `imgTag`: `string`  }
+``null`` \| \{ `attrs`: \{ `[key: string]`: `string`;  } ; `imgTag`: `string`  }
 
-found image tag
+found image tag; null in case if not found
 
 #### Defined in
 
-[media/media-api.ts:18](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/media/media-api.ts#L18)
+[src/media/media-api.ts:18](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/media/media-api.ts#L18)
 
 ___
 
 ### getRequiredParams
 
-▸ `Const` **getRequiredParams**(`qs`): `Object`
+▸ **getRequiredParams**(`qs`): `Object`
 
 Get required query string params which should be merged with user params
 
@@ -67,48 +68,81 @@ requiredParams
 
 #### Defined in
 
-[media/media-api.ts:44](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/media/media-api.ts#L44)
+[src/media/media-api.ts:44](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/media/media-api.ts#L44)
 
 ___
 
 ### getSrcSet
 
-▸ `Const` **getSrcSet**(`url`, `srcSet`, `imageParams?`, `mediaUrlPrefix?`): `string`
+▸ **getSrcSet**(`url`, `srcSet`, `imageParams?`, `mediaUrlPrefix?`): `string`
 
 Receives an array of `srcSet` parameters that are iterated and used as parameters to generate
-a corresponding set of updated Sitecore media URLs via @see updateImageUrl. The result is a comma-delimited
-list of media URLs with respective dimension parameters.
-
-**`example`**
-// returns '/ipsum.jpg?h=1000&w=1000 1000w, /ipsum.jpg?mh=250&mw=250 250w'
-getSrcSet('/ipsum.jpg', [{ h: 1000, w: 1000 }, { mh: 250, mw: 250 } ])
-
-More information about `srcSet`: [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
+a corresponding set of updated Sitecore media URLs via
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `srcSet` | { [key: string]: `string` \| `number` \| `undefined`;  }[] |
-| `imageParams?` | `Object` |
-| `mediaUrlPrefix?` | `RegExp` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | The URL to prepare |
+| `srcSet` | \{ `[key: string]`: `string` \| `number` \| `undefined`;  }[] | The array of parameters to use |
+| `imageParams?` | `Object` | The querystring parameters to use |
+| `mediaUrlPrefix?` | `RegExp` | The regex to match the media URL prefix |
 
 #### Returns
 
 `string`
 
-src set
+The prepared URL
+
+**`See`**
+
+updateImageUrl. The result is a comma-delimited
+list of media URLs with respective dimension parameters.
+
+**`Example`**
+
+```ts
+// returns '/ipsum.jpg?h=1000&w=1000 1000w, /ipsum.jpg?mh=250&mw=250 250w'
+getSrcSet('/ipsum.jpg', [{ h: 1000, w: 1000 }, { mh: 250, mw: 250 } ])
+
+More information about `srcSet`: {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img}
+```
 
 #### Defined in
 
-[media/media-api.ts:113](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/media/media-api.ts#L113)
+[src/media/media-api.ts:131](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/media/media-api.ts#L131)
+
+___
+
+### replaceMediaUrlPrefix
+
+▸ **replaceMediaUrlPrefix**(`url`, `mediaUrlPrefix?`): `string`
+
+Replace `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
+Can use `mediaUrlPrefix` in order to use a custom prefix.
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `url` | `string` | `undefined` | The URL to replace the media URL prefix in |
+| `mediaUrlPrefix?` | `RegExp` | `mediaUrlPrefixRegex` | The regex to match the media URL prefix |
+
+#### Returns
+
+`string`
+
+The URL with the media URL prefix replaced
+
+#### Defined in
+
+[src/media/media-api.ts:57](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/media/media-api.ts#L57)
 
 ___
 
 ### updateImageUrl
 
-▸ `Const` **updateImageUrl**(`url`, `params?`, `mediaUrlPrefix?`): `string`
+▸ **updateImageUrl**(`url`, `params?`, `mediaUrlPrefix?`): `string`
 
 Prepares a Sitecore media URL with `params` for use by the JSS media handler.
 This is done by replacing `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
@@ -118,18 +152,18 @@ If no `params` are sent, the original media URL is returned.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `params?` | ``null`` \| { [key: string]: `string` \| `number` \| `undefined`;  } |
-| `mediaUrlPrefix` | `RegExp` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `url` | `string` | `undefined` | The URL to prepare |
+| `params?` | ``null`` \| \{ `[key: string]`: `string` \| `number` \| `undefined`;  } | `undefined` | The querystring parameters to use |
+| `mediaUrlPrefix?` | `RegExp` | `mediaUrlPrefixRegex` | The regex to match the media URL prefix |
 
 #### Returns
 
 `string`
 
-url
+The prepared URL
 
 #### Defined in
 
-[media/media-api.ts:61](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/media/media-api.ts#L61)
+[src/media/media-api.ts:83](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/media/media-api.ts#L83)

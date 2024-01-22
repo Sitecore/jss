@@ -22,9 +22,10 @@ class ResponseError extends Error {
 }
 
 /**
- * @param {HttpResponse<unknown>} response
+ * @param {HttpResponse<T>} response response from fetch
+ * @returns {HttpResponse<T>} response
  */
-function checkStatus<T>(response: HttpResponse<T>) {
+export function checkStatus<T>(response: HttpResponse<T>) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -36,10 +37,10 @@ function checkStatus<T>(response: HttpResponse<T>) {
 /**
  * Note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
  * which is necessary for analytics and such
- * @param {string} url
- * @param {unknown[]} data
- * @param {HttpDataFetcher<T>} fetcher
- * @param {Object} params
+ * @param {string} url url to fetch
+ * @param {unknown[]} data data to send
+ * @param {HttpDataFetcher<T>} fetcher data fetcher
+ * @param {querystring.ParsedUrlQueryInput} params additional params to send
  */
 function fetchData<T>(
   url: string,
@@ -56,7 +57,9 @@ function fetchData<T>(
 }
 
 /**
- * @param {TrackingRequestOptions} options
+ * Resolve tracking endpoint url
+ * @param {TrackingRequestOptions} options options for the tracking service
+ * @returns {string} tracking api url
  */
 function resolveTrackingUrl(options: TrackingRequestOptions) {
   const { host = '', serviceUrl = '/sitecore/api/jss/track', action = 'event' } = options;
@@ -66,8 +69,8 @@ function resolveTrackingUrl(options: TrackingRequestOptions) {
 
 /**
  * Makes a request to Sitecore Layout Service for the specified route item path.
- * @param {Array<EventInstance | GoalInstance | OutcomeInstance | CampaignInstance | PageViewInstance>} events
- * @param {TrackingRequestOptions} options
+ * @param {Array<EventInstance | GoalInstance | OutcomeInstance | CampaignInstance | PageViewInstance>} events events to send
+ * @param {TrackingRequestOptions} options options for the tracking service
  * @returns {Promise<void>} void
  */
 export function trackEvent(

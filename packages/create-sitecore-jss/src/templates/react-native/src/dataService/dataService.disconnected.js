@@ -5,9 +5,7 @@
 // eslint-disable-next-line
 import { images } from 'static-assets';
 import styleguideEnData from '../../data/routes/styleguide/en.json';
-<% if (language) { -%>
 import styleguide<%- language.replace('-', '') %>Data from '../../data/routes/styleguide/<%- language %>.json';
-<% } -%>
 import homeDataEn from '../../data/routes/en.json';
 import { mapNestedJson } from './util';
 
@@ -16,12 +14,10 @@ const data = {
     '/': homeDataEn,
     '/styleguide': styleguideEnData,
   },
-<% if (language) { -%>
   '<%- language %>': {
     '/': null,
     '/styleguide': styleguide<%- language.replace('-', '') %>Data,
   },
-<% } -%>
 };
 
 // In react-native, you need to "import" static assets via `require` statements

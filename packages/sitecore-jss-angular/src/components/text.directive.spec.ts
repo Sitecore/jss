@@ -2,7 +2,7 @@ import { Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { textField as eeTextData } from '../testData/ee-data';
+import { textField as eeTextData } from '../test-data/ee-data';
 import { TextField } from './rendering-field';
 import { TextDirective } from './text.directive';
 

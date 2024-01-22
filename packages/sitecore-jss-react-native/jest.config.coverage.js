@@ -7,13 +7,13 @@ const coverageConfig = {
   coveragePathIgnorePatterns: [
     '/node_modules/',
     '/dist/',
-    '/testData/',
+    '/test-data/',
     '/types/',
     '.snap',
     '.test.js',
     'jest.config.',
   ],
-  coverageReporters: ['json-summary', 'text'],
+  coverageReporters: ['cobertura', 'text'],
 };
 
 module.exports = Object.assign({}, baseConfig, coverageConfig);

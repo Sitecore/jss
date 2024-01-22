@@ -14,7 +14,11 @@
 
 ### defaultProps
 
-• **defaultProps**: `Partial`<`TextProps`\>
+• **defaultProps**: `Partial`\<`TextProps`\>
+
+#### Defined in
+
+[sitecore-jss-react/src/components/Text.tsx:110](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-react/src/components/Text.tsx#L110)
 
 ___
 
@@ -22,8 +26,16 @@ ___
 
 • **displayName**: `string`
 
+#### Defined in
+
+[sitecore-jss-react/src/components/Text.tsx:115](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-react/src/components/Text.tsx#L115)
+
 ___
 
 ### propTypes
 
-• **propTypes**: `WeakValidationMap`<`TextProps`\>
+• **propTypes**: `WeakValidationMap`\<`TextProps`\>
+
+#### Defined in
+
+[sitecore-jss-react/src/components/Text.tsx:100](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-react/src/components/Text.tsx#L100)

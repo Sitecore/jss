@@ -12,28 +12,35 @@
 
 - [AxiosDataFetcher](../classes/index.AxiosDataFetcher.md)
 - [GraphQLRequestClient](../classes/index.GraphQLRequestClient.md)
+- [NativeDataFetcher](../classes/index.NativeDataFetcher.md)
 
 ### Interfaces
 
+- [AxiosResponse](../interfaces/index.AxiosResponse.md)
 - [GraphQLClient](../interfaces/index.GraphQLClient.md)
 - [HttpResponse](../interfaces/index.HttpResponse.md)
 
-### Type aliases
+### Type Aliases
 
 - [AxiosDataFetcherConfig](index.md#axiosdatafetcherconfig)
 - [Debugger](index.md#debugger)
 - [GraphQLRequestClientConfig](index.md#graphqlrequestclientconfig)
+- [GraphQLRequestClientFactory](index.md#graphqlrequestclientfactory)
+- [GraphQLRequestClientFactoryConfig](index.md#graphqlrequestclientfactoryconfig)
+- [HTMLLink](index.md#htmllink)
 - [HttpDataFetcher](index.md#httpdatafetcher)
+- [NativeDataFetcherConfig](index.md#nativedatafetcherconfig)
 
-### Properties
+### Variables
 
 - [debug](index.md#debug)
 
 ### Functions
 
+- [enableDebug](index.md#enabledebug)
 - [fetchData](index.md#fetchdata)
 
-## Type aliases
+## Type Aliases
 
 ### AxiosDataFetcherConfig
 
@@ -41,7 +48,7 @@
 
 #### Defined in
 
-[axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/axios-fetcher.ts#L35)
+[src/axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/axios-fetcher.ts#L35)
 
 ___
 
@@ -51,7 +58,7 @@ ___
 
 #### Defined in
 
-[debug.ts:6](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/debug.ts#L6)
+[src/debug.ts:6](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/debug.ts#L6)
 
 ___
 
@@ -59,7 +66,11 @@ ___
 
 Ƭ **GraphQLRequestClientConfig**: `Object`
 
-Minimum configuration options for classes that implement @see GraphQLClient
+Minimum configuration options for classes that implement
+
+**`See`**
+
+GraphQLClient
 
 #### Type declaration
 
@@ -67,16 +78,79 @@ Minimum configuration options for classes that implement @see GraphQLClient
 | :------ | :------ | :------ |
 | `apiKey?` | `string` | The API key to use for authentication. This will be added as an 'sc_apikey' header. |
 | `debugger?` | [`Debugger`](index.md#debugger) | Override debugger for logging. Uses 'sitecore-jss:http' by default. |
+| `fetch?` | typeof `fetch` | Override fetch method. Uses 'graphql-request' library default otherwise ('cross-fetch'). |
+| `retries?` | `number` | Number of retries for client. Will be used if endpoint responds with 429 (rate limit reached) error |
+| `timeout?` | `number` | GraphQLClient request timeout |
 
 #### Defined in
 
-[graphql-request-client.ts:21](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/graphql-request-client.ts#L21)
+[src/graphql-request-client.ts:22](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql-request-client.ts#L22)
+
+___
+
+### GraphQLRequestClientFactory
+
+Ƭ **GraphQLRequestClientFactory**: (`config`: `Omit`\<[`GraphQLRequestClientConfig`](index.md#graphqlrequestclientconfig), ``"apiKey"``\>) => [`GraphQLRequestClient`](../classes/index.GraphQLRequestClient.md)
+
+#### Type declaration
+
+▸ (`config`): [`GraphQLRequestClient`](../classes/index.GraphQLRequestClient.md)
+
+A GraphQL Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
+This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
+
+##### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `config` | `Omit`\<[`GraphQLRequestClientConfig`](index.md#graphqlrequestclientconfig), ``"apiKey"``\> | The configuration object that specifies how the GraphQL client should be set up. |
+
+##### Returns
+
+[`GraphQLRequestClient`](../classes/index.GraphQLRequestClient.md)
+
+An instance of a GraphQL Request Client ready to send GraphQL requests.
+
+#### Defined in
+
+[src/graphql-request-client.ts:51](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql-request-client.ts#L51)
+
+___
+
+### GraphQLRequestClientFactoryConfig
+
+Ƭ **GraphQLRequestClientFactoryConfig**: `Object`
+
+Configuration type for
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `apiKey?` | `string` |
+| `endpoint` | `string` |
+
+#### Defined in
+
+[src/graphql-request-client.ts:58](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql-request-client.ts#L58)
+
+___
+
+### HTMLLink
+
+Ƭ **HTMLLink**: \{ `[key: string]`: `unknown`;  } & `Pick`\<`HTMLLinkElement`, ``"rel"`` \| ``"href"``\>
+
+Html <link> tag data model
+
+#### Defined in
+
+[src/models.ts:4](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/models.ts#L4)
 
 ___
 
 ### HttpDataFetcher
 
-Ƭ **HttpDataFetcher**<`T`\>: (`url`: `string`, `data?`: `unknown`) => `Promise`<[`HttpResponse`](../interfaces/index.HttpResponse.md)<`T`\>\>
+Ƭ **HttpDataFetcher**\<`T`\>: (`url`: `string`, `data?`: `unknown`) => `Promise`\<[`HttpResponse`](../interfaces/index.HttpResponse.md)\<`T`\>\>
 
 #### Type parameters
 
@@ -86,7 +160,7 @@ ___
 
 #### Type declaration
 
-▸ (`url`, `data?`): `Promise`<[`HttpResponse`](../interfaces/index.HttpResponse.md)<`T`\>\>
+▸ (`url`, `data?`): `Promise`\<[`HttpResponse`](../interfaces/index.HttpResponse.md)\<`T`\>\>
 
 Describes functions that fetch data asynchronously (i.e. from an API endpoint).
 This interface conforms to Axios' public API, but is adaptable to other HTTP libraries and
@@ -105,23 +179,79 @@ The interface implementation must:
 
 ##### Returns
 
-`Promise`<[`HttpResponse`](../interfaces/index.HttpResponse.md)<`T`\>\>
+`Promise`\<[`HttpResponse`](../interfaces/index.HttpResponse.md)\<`T`\>\>
 
 #### Defined in
 
-[data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/data-fetcher.ts#L26)
+[src/data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/data-fetcher.ts#L26)
 
-## Properties
+___
+
+### NativeDataFetcherConfig
+
+Ƭ **NativeDataFetcherConfig**: `NativeDataFetcherOptions` & `RequestInit`
+
+#### Defined in
+
+[src/native-fetcher.ts:20](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/native-fetcher.ts#L20)
+
+## Variables
 
 ### debug
 
-• **debug**: `Readonly`<`Object`\>
+• **debug**: `Object`
+
+Default Sitecore JSS 'debug' module debuggers. Uses namespace prefix 'sitecore-jss:'.
+See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) for details.
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `common` | `Debugger` |
+| `dictionary` | `Debugger` |
+| `editing` | `Debugger` |
+| `errorpages` | `Debugger` |
+| `http` | `Debugger` |
+| `layout` | `Debugger` |
+| `multisite` | `Debugger` |
+| `personalize` | `Debugger` |
+| `redirects` | `Debugger` |
+| `revalidate` | `Debugger` |
+| `robots` | `Debugger` |
+| `sitemap` | `Debugger` |
+
+#### Defined in
+
+[src/debug.ts:30](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/debug.ts#L30)
 
 ## Functions
 
+### enableDebug
+
+▸ **enableDebug**(`namespaces`): `void`
+
+Enable debug logging dynamically
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `namespaces` | `string` | space-separated list of namespaces to enable |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/debug.ts:24](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/debug.ts#L24)
+
+___
+
 ### fetchData
 
-▸ **fetchData**<`T`\>(`url`, `fetcher`, `params?`): `Promise`<`T`\>
+▸ **fetchData**\<`T`\>(`url`, `fetcher`, `params?`): `Promise`\<`T`\>
 
 #### Type parameters
 
@@ -131,16 +261,16 @@ The interface implementation must:
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `fetcher` | [`HttpDataFetcher`](index.md#httpdatafetcher)<`T`\> |
-| `params` | `ParsedUrlQueryInput` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | the URL to request; may include query string |
+| `fetcher` | [`HttpDataFetcher`](index.md#httpdatafetcher)\<`T`\> | the fetcher to use to perform the request |
+| `params` | `ParsedUrlQueryInput` | the query string parameters to send with the request |
 
 #### Returns
 
-`Promise`<`T`\>
+`Promise`\<`T`\>
 
 #### Defined in
 
-[data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/data-fetcher.ts#L57)
+[src/data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/data-fetcher.ts#L57)

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { openPackageJson, writePackageJson } from '../../common/utils/helpers';
+import { openPackageJson, writePackageJson } from '../../common';
 
 export const removeDevDependencies = (projectPath: string) => {
   // remove `next-transpile-modules` dependency

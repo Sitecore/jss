@@ -2,7 +2,7 @@ import { Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { generalLinkField as eeLinkData } from '../testData/ee-data';
+import { generalLinkField as eeLinkData } from '../test-data/ee-data';
 import { GenericLinkDirective } from './generic-link.directive';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
@@ -11,7 +11,11 @@ import { LinkField } from './rendering-field';
 @Component({
   selector: 'test-router-link',
   template: `
-    <a *scGenericLink="field; editable: editable; attrs: attrs; extras: extras" id="my-link"></a>
+    <a
+      *scGenericLink="field; editable: editable; attrs: attrs; extras: extras"
+      class="external-css-class"
+      id="my-link"
+    ></a>
   `,
 })
 class TestComponent {
@@ -59,7 +63,7 @@ describe('<a *scGenericLink />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    expect(de.query(By.css('span')).nativeElement.innerHTML).toContain(field.editableFirstPart);
+    expect(de.nativeElement.querySelector('span').innerHTML).toContain(field.editableFirstPart);
   });
 
   it('should render value with editing explicitly disabled', () => {
@@ -98,15 +102,16 @@ describe('<a *scGenericLink />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = de.query(By.css('span'));
+    const rendered = de.nativeElement.querySelector('span');
     expect(rendered).not.toBeNull();
-    expect(rendered.nativeElement.innerHTML).toContain('<input');
-    expect(rendered.nativeElement.innerHTML).toContain('chrometype="field"');
+    expect(rendered.innerHTML).toContain('<input');
+    expect(rendered.innerHTML).toContain('chrometype="field"');
   });
 
   it('should render all value attributes', () => {
     const field = {
       value: {
+        anchor: 'sample-anchor',
         href: '/lorem',
         text: 'ipsum',
         class: 'my-link',
@@ -118,7 +123,8 @@ describe('<a *scGenericLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
-    expect(rendered.nativeElement.className).toContain(field.value.class);
+    expect(rendered.nativeElement.href).toContain(`${field.value.href}#${field.value.anchor}`);
+    expect(rendered.nativeElement.className).toBe('external-css-class my-link');
     expect(rendered.nativeElement.title).toContain(field.value.title);
     expect(rendered.nativeElement.target).toContain(field.value.target);
   });
@@ -131,8 +137,8 @@ describe('<a *scGenericLink />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = de.query(By.css('span'));
-    expect(rendered.nativeElement.id).toBe('my-link');
+    const rendered = de.nativeElement.querySelector('span');
+    expect(rendered.id).toBe('my-link');
   });
 
   it('should apply attributes from attrs on wrapper span when rendering in editable mode', () => {
@@ -144,8 +150,8 @@ describe('<a *scGenericLink />', () => {
     comp.attrs = { title: 'footip' };
     fixture.detectChanges();
 
-    const rendered = de.query(By.css('span'));
-    expect(rendered.nativeElement.title).toBe('footip');
+    const rendered = de.nativeElement.querySelector('span');
+    expect(rendered.title).toBe('footip');
   });
 
   it('should merge attributes from attrs on link when rendering standard (non-editable mode) field', () => {
@@ -165,6 +171,7 @@ describe('<a *scGenericLink />', () => {
     const rendered = de.query(By.css('a'));
     expect(rendered.nativeElement.target).toBe('_blank');
     expect(rendered.nativeElement.title).toBe('footip');
+    expect(rendered.nativeElement.className).toBe('external-css-class my-link');
   });
 });
 
@@ -237,7 +244,7 @@ describe('<a *scGenericLink></a>', () => {
       imports: [RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }])],
     });
 
-    router = TestBed.get(Router);
+    router = TestBed.inject(Router);
     spyOn(router, 'navigate');
     fixture = TestBed.createComponent(TestComponent);
     de = fixture.debugElement;
@@ -259,7 +266,10 @@ describe('<a *scGenericLink></a>', () => {
     renderedLink.click();
     fixture.detectChanges();
     expect(comp.extras).toEqual({});
-    expect(router.navigate).toHaveBeenCalledWith(['lorem'], comp.extras);
+    expect(router.navigate).toHaveBeenCalledWith(['lorem'], {
+      ...comp.extras,
+      fragment: undefined,
+    });
   });
 
   it('should navigate to an internal link with query parameters using routerlink', () => {
@@ -276,7 +286,10 @@ describe('<a *scGenericLink></a>', () => {
     expect(renderedLink.getAttribute('href')).toBe(`/${field.href}?foo=bar`);
     renderedLink.click();
     fixture.detectChanges();
-    expect(router.navigate).toHaveBeenCalledWith(['lorem'], queryParams);
+    expect(router.navigate).toHaveBeenCalledWith(['lorem'], {
+      ...queryParams,
+      fragment: undefined,
+    });
   });
 
   it('should navigate to an external link using routerlink', () => {

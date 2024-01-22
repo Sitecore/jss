@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import NextLink from 'next/link';
 import {
@@ -17,43 +17,60 @@ export type LinkProps = ReactLinkProps & {
   internalLinkMatcher?: RegExp;
 };
 
-export const Link = (props: LinkProps): JSX.Element => {
-  const {
-    editable,
-    internalLinkMatcher = /^\//g,
-    showLinkTextWithChildrenPresent,
-    ...htmlLinkProps
-  } = props;
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
+  (props: LinkProps, ref): JSX.Element | null => {
+    const {
+      field,
+      editable,
+      children,
+      internalLinkMatcher = /^\//g,
+      showLinkTextWithChildrenPresent,
+      ...htmlLinkProps
+    } = props;
 
-  const value = ((props.field as LinkFieldValue).href
-    ? props.field
-    : (props.field as LinkField).value) as LinkFieldValue;
-  const { href } = value;
-  const isEditing = editable && (props.field as LinkFieldValue).editable;
-
-  if (href && !isEditing) {
-    const text =
-      showLinkTextWithChildrenPresent || !props.children ? value.text || value.href : null;
-
-    // determine if a link is a route or not.
-    if (internalLinkMatcher.test(href)) {
-      return (
-        <NextLink href={href} key="link" locale={false}>
-          <a title={value.title} target={value.target} className={value.class} {...htmlLinkProps}>
-            {text}
-            {props.children}
-          </a>
-        </NextLink>
-      );
+    if (
+      !field ||
+      (!(field as LinkFieldValue).editable && !field.value && !(field as LinkFieldValue).href)
+    ) {
+      return null;
     }
+
+    const value = ((field as LinkFieldValue).href
+      ? field
+      : (field as LinkField).value) as LinkFieldValue;
+    const { href, querystring, anchor } = value;
+    const isEditing = editable && (field as LinkFieldValue).editable;
+
+    if (href && !isEditing) {
+      const text = showLinkTextWithChildrenPresent || !children ? value.text || value.href : null;
+
+      // determine if a link is a route or not.
+      if (internalLinkMatcher.test(href)) {
+        return (
+          <NextLink
+            href={{ pathname: href, query: querystring, hash: anchor }}
+            key="link"
+            locale={false}
+            title={value.title}
+            target={value.target}
+            className={value.class}
+            {...htmlLinkProps}
+            ref={ref}
+          >
+            {text}
+            {children}
+          </NextLink>
+        );
+      }
+    }
+
+    // prevent passing internalLinkMatcher as it is an invalid DOM element prop
+    const reactLinkProps = { ...props };
+    delete reactLinkProps.internalLinkMatcher;
+
+    return <ReactLink {...reactLinkProps} ref={ref} />;
   }
-
-  // prevent passing internalLinkMatcher as it is an invalid DOM element prop
-  const reactLinkProps = { ...props };
-  delete reactLinkProps.internalLinkMatcher;
-
-  return <ReactLink {...reactLinkProps} />;
-};
+);
 
 Link.defaultProps = {
   editable: true,

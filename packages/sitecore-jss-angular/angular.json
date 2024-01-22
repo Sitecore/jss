@@ -1,0 +1,48 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+      "sitecore-jss-angular": {
+        "projectType": "library",
+        "root": ".",
+        "sourceRoot": "./src",
+        "prefix": "lib",
+        "architect": {
+          "build": {            
+            "builder": "@angular-devkit/build-angular:ng-packagr",
+            "options": {
+              "main": "./src/public_api.ts",
+              "project": "./ng-package.json"
+            },
+            "configurations": {
+              "production": {
+                "tsConfig": "./tsconfig.json"
+              },
+              "development": {
+                "tsConfig": "./tsconfig.json"
+              }
+            },
+            "defaultConfiguration": "production"
+          },
+          "test": {            
+            "builder": "@angular-devkit/build-angular:karma",
+            "options": {
+              "main": "src/test.ts",
+              "karmaConfig": "karma.conf.js",
+              "codeCoverage": true,
+              "tsConfig": "tsconfig.spec.json",
+              "assets": [
+                "src/favicon.ico",
+                "src/assets"
+              ],              
+              "scripts": []
+            }
+          }
+        }
+      }   
+    },
+    "cli": {
+      "analytics": false
+    }
+}

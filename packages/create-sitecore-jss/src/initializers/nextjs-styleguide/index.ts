@@ -1,14 +1,18 @@
 import chalk from 'chalk';
-import path from 'path';
-import { prompt } from 'inquirer';
-import { Initializer } from '../../common/Initializer';
-import { isJssApp, openPackageJson } from '../../common/utils/helpers';
-import { transform } from '../../common/steps/index';
-import { styleguidePrompts, StyleguideAnswer } from '../../common/prompts/styleguide';
-import { StyleguideArgs } from '../../common/args/styleguide';
-import { ClientAppArgs } from '../../common/args/base';
+import path, { sep } from 'path';
+import inquirer from 'inquirer';
+import {
+  Initializer,
+  openPackageJson,
+  transform,
+  DEFAULT_APPNAME,
+  styleguidePrompts,
+  StyleguideAnswer,
+  StyleguideArgs,
+  ClientAppArgs,
+} from '../../common';
 
-interface NextjsStyleguideArgs extends ClientAppArgs, StyleguideArgs {}
+type NextjsStyleguideArgs = ClientAppArgs & StyleguideArgs;
 
 export default class NextjsStyleguideInitializer implements Initializer {
   get isBase(): boolean {
@@ -16,33 +20,20 @@ export default class NextjsStyleguideInitializer implements Initializer {
   }
 
   async init(args: NextjsStyleguideArgs) {
-    const pkg = openPackageJson(`${args.destination}\\package.json`);
+    const pkg = openPackageJson(`${args.destination}${sep}package.json`);
 
-    if (!args.force && !isJssApp('nextjs-styleguide', pkg)) {
-      process.exit(1);
-    }
-
-    const defaults = args.yes ? { language: '' } : {};
-
-    const answers = await prompt<StyleguideAnswer>(styleguidePrompts, {
-      ...defaults,
-      ...args,
-    });
+    const answers = await inquirer.prompt<StyleguideAnswer>(styleguidePrompts, args);
 
     const mergedArgs = {
       ...args,
-      appName: args.appName || pkg?.config?.appName || 'default',
+      appName: args.appName || pkg?.config?.appName || DEFAULT_APPNAME,
       appPrefix: args.appPrefix || pkg?.config?.prefix || false,
       ...answers,
     };
 
     const templatePath = path.resolve(__dirname, '../../templates/nextjs-styleguide');
 
-    await transform(templatePath, mergedArgs, {
-      filter: (filePath) => {
-        return !!mergedArgs.language || !filePath.endsWith('{{language}}.yml');
-      },
-    });
+    await transform(templatePath, mergedArgs);
 
     const response = {
       nextSteps: [`* Try out your application with ${chalk.green('jss start')}`],

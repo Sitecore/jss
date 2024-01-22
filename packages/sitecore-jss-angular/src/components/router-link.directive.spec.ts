@@ -2,7 +2,7 @@ import { Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { generalLinkField as eeLinkData } from '../testData/ee-data';
+import { generalLinkField as eeLinkData } from '../test-data/ee-data';
 import { RouterLinkDirective } from './router-link.directive';
 import { RouterTestingModule } from '@angular/router/testing';
 import { LinkField } from './rendering-field';
@@ -10,7 +10,11 @@ import { LinkField } from './rendering-field';
 @Component({
   selector: 'test-router-link',
   template: `
-    <a *scRouterLink="field; editable: editable; attrs: attrs" id="my-link"></a>
+    <a
+      *scRouterLink="field; editable: editable; attrs: attrs"
+      class="external-css-class"
+      id="my-link"
+    ></a>
   `,
 })
 class TestComponent {
@@ -57,7 +61,7 @@ describe('<a *scRouterLink />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    expect(de.query(By.css('span')).nativeElement.innerHTML).toContain(field.editableFirstPart);
+    expect(de.nativeElement.querySelector('span').innerHTML).toContain(field.editableFirstPart);
   });
 
   it('should render value with editing explicitly disabled', () => {
@@ -73,6 +77,7 @@ describe('<a *scRouterLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
+    expect(rendered.nativeElement.href).toContain(field.value.href);
     expect(rendered.nativeElement.innerHTML).toBe(field.value.text);
   });
 
@@ -85,6 +90,7 @@ describe('<a *scRouterLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
+    expect(rendered.nativeElement.href).toContain(field.href);
     expect(rendered.nativeElement.innerHTML).toBe(field.text);
   });
 
@@ -96,15 +102,16 @@ describe('<a *scRouterLink />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = de.query(By.css('span'));
+    const rendered = de.nativeElement.querySelector('span');
     expect(rendered).not.toBeNull();
-    expect(rendered.nativeElement.innerHTML).toContain('<input');
-    expect(rendered.nativeElement.innerHTML).toContain('chrometype="field"');
+    expect(rendered.innerHTML).toContain('<input');
+    expect(rendered.innerHTML).toContain('chrometype="field"');
   });
 
   it('should render all value attributes', () => {
     const field = {
       value: {
+        anchor: 'sample-anchor',
         href: '/lorem',
         text: 'ipsum',
         class: 'my-link',
@@ -116,8 +123,8 @@ describe('<a *scRouterLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
-    expect(rendered.nativeElement.href).toContain(field.value.href);
-    expect(rendered.nativeElement.className).toContain(field.value.class);
+    expect(rendered.nativeElement.href).toContain(`${field.value.href}#${field.value.anchor}`);
+    expect(rendered.nativeElement.className).toBe('external-css-class my-link');
     expect(rendered.nativeElement.title).toContain(field.value.title);
     expect(rendered.nativeElement.target).toContain(field.value.target);
   });
@@ -130,8 +137,8 @@ describe('<a *scRouterLink />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = de.query(By.css('span'));
-    expect(rendered.nativeElement.id).toBe('my-link');
+    const rendered = de.nativeElement.querySelector('span');
+    expect(rendered.id).toBe('my-link');
   });
 
   it('should apply attributes from attrs on wrapper span when rendering in editable mode', () => {
@@ -143,8 +150,8 @@ describe('<a *scRouterLink />', () => {
     comp.attrs = { title: 'footip' };
     fixture.detectChanges();
 
-    const rendered = de.query(By.css('span'));
-    expect(rendered.nativeElement.title).toBe('footip');
+    const rendered = de.nativeElement.querySelector('span');
+    expect(rendered.title).toBe('footip');
   });
 
   it('should merge attributes from attrs on link when rendering standard (non-editable mode) field', () => {
@@ -164,6 +171,7 @@ describe('<a *scRouterLink />', () => {
     const rendered = de.query(By.css('a'));
     expect(rendered.nativeElement.target).toBe('_blank');
     expect(rendered.nativeElement.title).toBe('footip');
+    expect(rendered.nativeElement.className).toBe('external-css-class my-link');
   });
 });
 

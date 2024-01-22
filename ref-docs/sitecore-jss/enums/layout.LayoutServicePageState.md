@@ -8,38 +8,38 @@ Layout Service page state enum
 
 ## Table of contents
 
-### Enumeration members
+### Enumeration Members
 
 - [Edit](layout.LayoutServicePageState.md#edit)
 - [Normal](layout.LayoutServicePageState.md#normal)
 - [Preview](layout.LayoutServicePageState.md#preview)
 
-## Enumeration members
+## Enumeration Members
 
 ### Edit
 
-• **Edit** = `"edit"`
+• **Edit** = ``"edit"``
 
 #### Defined in
 
-[layout/models.ts:15](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/layout/models.ts#L15)
+[src/layout/models.ts:25](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/layout/models.ts#L25)
 
 ___
 
 ### Normal
 
-• **Normal** = `"normal"`
+• **Normal** = ``"normal"``
 
 #### Defined in
 
-[layout/models.ts:16](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/layout/models.ts#L16)
+[src/layout/models.ts:26](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/layout/models.ts#L26)
 
 ___
 
 ### Preview
 
-• **Preview** = `"preview"`
+• **Preview** = ``"preview"``
 
 #### Defined in
 
-[layout/models.ts:14](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/layout/models.ts#L14)
+[src/layout/models.ts:24](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/layout/models.ts#L24)

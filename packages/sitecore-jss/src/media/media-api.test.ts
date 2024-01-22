@@ -4,7 +4,13 @@
 import chai = require('chai');
 import chaiString = require('chai-string');
 import URL = require('url-parse');
-import { findEditorImageTag, getSrcSet, updateImageUrl, getRequiredParams } from './media-api';
+import {
+  replaceMediaUrlPrefix,
+  findEditorImageTag,
+  getSrcSet,
+  updateImageUrl,
+  getRequiredParams,
+} from './media-api';
 
 // chai.should();
 const expect = chai.use(chaiString).expect;
@@ -36,6 +42,12 @@ describe('findEditorImageTag', () => {
     const editableField = '<input><code><img lorem="&amp;&gt;&lt;" /></code></input>';
     const imgMatch = findEditorImageTag(editableField);
     expect(imgMatch?.attrs.lorem).to.equal('&><');
+  });
+
+  it('should return null if no img tag is found', () => {
+    const editableField = '<input><code>no img tag</code></input>';
+    const imgMatch = findEditorImageTag(editableField);
+    expect(imgMatch).to.be.null;
   });
 });
 
@@ -235,6 +247,22 @@ describe('getSrcSet', () => {
       const mediaUrlPrefix = /\/([-~]{1})\/assets\//i;
       const srcSet = getSrcSet(original, params, undefined, mediaUrlPrefix);
       expect(srcSet).to.equal(expected);
+    });
+  });
+
+  describe('replaceMediaUrlPrefix', () => {
+    it('should replace /-/media/ with /-/jssmedia/', () => {
+      const original = 'http://sitecore/-/media/lorem/ipsum.jpg';
+      const updated = replaceMediaUrlPrefix(original);
+      const url = URL(updated);
+      expect(url.pathname).to.startsWith('/-/jssmedia/');
+    });
+
+    it('should replace /~/media/ with /~/jssmedia/', () => {
+      const original = 'http://sitecore/~/media/lorem/ipsum.jpg';
+      const updated = replaceMediaUrlPrefix(original);
+      const url = URL(updated);
+      expect(url.pathname).to.startsWith('/~/jssmedia/');
     });
   });
 });

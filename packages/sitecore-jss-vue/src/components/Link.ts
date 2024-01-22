@@ -2,10 +2,12 @@ import { defineComponent, h, PropType } from 'vue';
 
 export interface LinkFieldValue {
   [attributeName: string]: any;
+  anchor?: string;
   href?: string;
   className?: string;
   title?: string;
   target?: string;
+  querystring?: string;
 }
 
 export interface LinkField {
@@ -92,11 +94,14 @@ export const Link = defineComponent({
     }
 
     const linkText =
-      showLinkTextWithChildrenPresent || !children || children.length === 0
+      showLinkTextWithChildrenPresent || !children || children().length === 0
         ? link.text || link.href
         : null;
 
     const finalChildren = children ? [linkText, ...children()] : linkText;
+
+    const qs = link.querystring ? `?${link.querystring}` : '';
+    const anchor = link.anchor ? `#${link.anchor}` : '';
 
     // this.$data should be passed along to the
     // `createElement` function in order to retain attributes and events
@@ -105,7 +110,7 @@ export const Link = defineComponent({
       ...this.$data,
       class: link.class,
       ...this.$attrs,
-      href: link.href,
+      href: `${link.href}${qs}${anchor}`,
       title: link.title,
       target: link.target,
     };

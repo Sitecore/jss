@@ -16,6 +16,10 @@
 
 - [editable](RichTextDirective.md#editable)
 - [field](RichTextDirective.md#field)
+- [renderer](RichTextDirective.md#renderer)
+- [router](RichTextDirective.md#router)
+- [templateRef](RichTextDirective.md#templateref)
+- [viewContainer](RichTextDirective.md#viewcontainer)
 - [viewRef](RichTextDirective.md#viewref)
 
 ### Methods
@@ -27,18 +31,20 @@
 
 ### constructor
 
-• **new RichTextDirective**(`viewContainer`, `templateRef`)
+• **new RichTextDirective**(`viewContainer`, `templateRef`, `renderer`, `router`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `viewContainer` | `ViewContainerRef` |
-| `templateRef` | `TemplateRef`<`unknown`\> |
+| `templateRef` | `TemplateRef`\<`unknown`\> |
+| `renderer` | `Renderer2` |
+| `router` | `Router` |
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rich-text.directive.ts:22](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L22)
+[sitecore-jss-angular/src/components/rich-text.directive.ts:25](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L25)
 
 ## Properties
 
@@ -48,7 +54,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rich-text.directive.ts:18](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L18)
+[sitecore-jss-angular/src/components/rich-text.directive.ts:19](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L19)
 
 ___
 
@@ -58,17 +64,57 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rich-text.directive.ts:20](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L20)
+[sitecore-jss-angular/src/components/rich-text.directive.ts:21](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L21)
+
+___
+
+### renderer
+
+• `Private` **renderer**: `Renderer2`
+
+#### Defined in
+
+[sitecore-jss-angular/src/components/rich-text.directive.ts:28](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L28)
+
+___
+
+### router
+
+• `Private` **router**: `Router`
+
+#### Defined in
+
+[sitecore-jss-angular/src/components/rich-text.directive.ts:29](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L29)
+
+___
+
+### templateRef
+
+• `Private` **templateRef**: `TemplateRef`\<`unknown`\>
+
+#### Defined in
+
+[sitecore-jss-angular/src/components/rich-text.directive.ts:27](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L27)
+
+___
+
+### viewContainer
+
+• `Private` **viewContainer**: `ViewContainerRef`
+
+#### Defined in
+
+[sitecore-jss-angular/src/components/rich-text.directive.ts:26](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L26)
 
 ___
 
 ### viewRef
 
-• `Private` **viewRef**: `EmbeddedViewRef`<`unknown`\>
+• `Private` **viewRef**: `EmbeddedViewRef`\<`unknown`\>
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rich-text.directive.ts:16](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L16)
+[sitecore-jss-angular/src/components/rich-text.directive.ts:23](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L23)
 
 ## Methods
 
@@ -92,7 +138,7 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rich-text.directive.ts:24](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L24)
+[sitecore-jss-angular/src/components/rich-text.directive.ts:32](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L32)
 
 ___
 
@@ -106,4 +152,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rich-text.directive.ts:35](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L35)
+[sitecore-jss-angular/src/components/rich-text.directive.ts:43](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L43)

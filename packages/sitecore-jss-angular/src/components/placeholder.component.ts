@@ -1,8 +1,8 @@
 /* eslint-disable @angular-eslint/no-conflicting-lifecycle */
+import { isPlatformServer } from '@angular/common';
 import {
   ChangeDetectorRef,
   Component,
-  ComponentFactoryResolver,
   ContentChild,
   DoCheck,
   ElementRef,
@@ -15,12 +15,14 @@ import {
   OnDestroy,
   OnInit,
   Output,
+  PLATFORM_ID,
   Renderer2,
   SimpleChanges,
   Type,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
+import { Data, UrlTree, Router } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { Observable } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
@@ -31,6 +33,10 @@ import {
 import { HIDDEN_RENDERING_NAME } from './hidden-rendering.component';
 import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
 import {
+  DataResolver,
+  DATA_RESOLVER,
+  GuardResolver,
+  GUARD_RESOLVER,
   PLACEHOLDER_HIDDEN_RENDERING_COMPONENT,
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
 } from './placeholder.token';
@@ -49,6 +55,11 @@ function getPlaceholder(rendering: ComponentRendering, name: string) {
   return null;
 }
 
+export interface FactoryWithData {
+  factory: ComponentFactoryResult;
+  data?: Data;
+}
+
 @Component({
   selector: 'sc-placeholder,[sc-placeholder]',
   template: `
@@ -60,26 +71,44 @@ function getPlaceholder(rendering: ComponentRendering, name: string) {
   `,
 })
 export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
+  @Input() name?: string;
+  @Input() rendering: ComponentRendering;
+  @Input() renderings?: Array<ComponentRendering | HtmlElementRendering>;
+  @Input() outputs: { [k: string]: (eventType: unknown) => void };
+  @Input() clientOnly = false;
+
+  @Output() loaded = new EventEmitter<string | undefined>();
+
+  @ContentChild(RenderEachDirective, { static: true }) renderEachTemplate: RenderEachDirective;
+  @ContentChild(RenderEmptyDirective, { static: true }) renderEmptyTemplate: RenderEmptyDirective;
+  @ContentChild(PlaceholderLoadingDirective, { static: true })
+  placeholderLoading?: PlaceholderLoadingDirective;
+
+  @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
+
+  public isLoading = true;
+
   private _inputs: { [key: string]: unknown };
   private _differ: KeyValueDiffer<string, unknown>;
   private _componentInstances: { [prop: string]: unknown }[] = [];
   private destroyed = false;
   private parentStyleAttribute = '';
-  public isLoading = true;
 
-  @Input() name?: string;
-  @Input() rendering: ComponentRendering;
-  @Input() renderings?: Array<ComponentRendering | HtmlElementRendering>;
-  @Input() outputs: { [k: string]: (eventType: unknown) => void };
-
-  @Output()
-  loaded = new EventEmitter<string | undefined>();
-
-  @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
-  @ContentChild(RenderEachDirective, { static: true }) renderEachTemplate: RenderEachDirective;
-  @ContentChild(RenderEmptyDirective, { static: true }) renderEmptyTemplate: RenderEmptyDirective;
-  @ContentChild(PlaceholderLoadingDirective, { static: true })
-  placeholderLoading?: PlaceholderLoadingDirective;
+  constructor(
+    private differs: KeyValueDiffers,
+    private componentFactory: JssComponentFactoryService,
+    private changeDetectorRef: ChangeDetectorRef,
+    private elementRef: ElementRef,
+    private renderer: Renderer2,
+    private router: Router,
+    @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT)
+    private missingComponentComponent: Type<unknown>,
+    @Inject(PLACEHOLDER_HIDDEN_RENDERING_COMPONENT) private hiddenRenderingComponent: Type<unknown>,
+    @Inject(GUARD_RESOLVER) private guardResolver: GuardResolver,
+    @Inject(DATA_RESOLVER) private dataResolver: DataResolver,
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   @Input()
   set inputs(value: { [key: string]: unknown }) {
@@ -88,19 +117,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
       this._differ = this.differs.find(value).create();
     }
   }
-
-  constructor(
-    private componentFactoryResolver: ComponentFactoryResolver,
-    private differs: KeyValueDiffers,
-    private componentFactory: JssComponentFactoryService,
-    private changeDetectorRef: ChangeDetectorRef,
-    private elementRef: ElementRef,
-    private renderer: Renderer2,
-    @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT)
-    private missingComponentComponent: Type<unknown>,
-    @Inject(PLACEHOLDER_HIDDEN_RENDERING_COMPONENT)
-    private hiddenRenderingComponent: Type<unknown>
-  ) {}
 
   ngOnInit() {
     // just to ensure the element exists
@@ -170,7 +186,11 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
       );
   }
 
-  private _render() {
+  private async _render() {
+    if (this.clientOnly && isPlatformServer(this.platformId)) {
+      return;
+    }
+
     this._componentInstances = [];
     this.view.clear();
 
@@ -208,22 +228,35 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
       });
       this.isLoading = false;
     } else {
-      this.componentFactory
-        .getComponents(placeholder)
-        .then((components) =>
-          components.forEach((rendering, index) => {
-            if (this.renderEachTemplate && !isRawRendering(rendering.componentDefinition)) {
-              this._renderTemplatedComponent(rendering.componentDefinition, index);
-            } else {
-              this._renderEmbeddedComponent(rendering, index);
-            }
-            this.isLoading = false;
-          })
-        )
-        .then(() => {
-          this.changeDetectorRef.markForCheck();
-          this.loaded.emit(this.name);
+      const factories = await this.componentFactory.getComponents(placeholder);
+
+      try {
+        const nonGuarded = await this.guardResolver(factories);
+        const withData = await this.dataResolver(nonGuarded);
+
+        withData.forEach((rendering, index) => {
+          if (this.renderEachTemplate && !isRawRendering(rendering.factory.componentDefinition)) {
+            this._renderTemplatedComponent(rendering.factory.componentDefinition, index);
+          } else {
+            this._renderEmbeddedComponent(rendering.factory, rendering.data, index);
+          }
         });
+
+        this.isLoading = false;
+        this.changeDetectorRef.markForCheck();
+        this.loaded.emit(this.name);
+      } catch (e) {
+        this.isLoading = false;
+        if (e instanceof UrlTree) {
+          this.router.navigateByUrl(e);
+        } else if (typeof e === 'string') {
+          this.router.navigate([e]);
+        } else if (Array.isArray(e)) {
+          this.router.navigate(e);
+        } else {
+          throw e;
+        }
+      }
     }
   }
 
@@ -240,7 +273,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     });
   }
 
-  private _renderEmbeddedComponent(rendering: ComponentFactoryResult, index: number) {
+  private _renderEmbeddedComponent(rendering: ComponentFactoryResult, data: Data, index: number) {
     if (
       (rendering.componentDefinition as ComponentRendering).componentName === HIDDEN_RENDERING_NAME
     ) {
@@ -259,14 +292,11 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
       rendering.componentImplementation = this.missingComponentComponent;
     }
-
-    const componentFactory =
-      rendering.componentFactory ||
-      this.componentFactoryResolver.resolveComponentFactory(rendering.componentImplementation);
-
     // apply the parent style attribute _ngcontent
     // work-around for https://github.com/angular/angular/issues/12215
-    const createdComponentRef = this.view.createComponent(componentFactory, index);
+    const createdComponentRef = this.view.createComponent(rendering.componentImplementation, {
+      index: index,
+    });
     if (this.parentStyleAttribute) {
       this.renderer.setAttribute(
         createdComponentRef.location.nativeElement,
@@ -277,6 +307,8 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
     const componentInstance = createdComponentRef.instance;
     componentInstance.rendering = rendering.componentDefinition;
+    componentInstance.data = data;
+
     if (this._inputs) {
       this._setComponentInputs(componentInstance, this._inputs);
     }

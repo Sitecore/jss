@@ -4,6 +4,8 @@
 
 [index](../modules/index.md).AxiosDataFetcher
 
+AxisoDataFetcher is a wrapper for axios library.
+
 ## Table of contents
 
 ### Constructors
@@ -37,7 +39,7 @@
 
 #### Defined in
 
-[axios-fetcher.ts:53](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/axios-fetcher.ts#L53)
+[src/axios-fetcher.ts:56](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/axios-fetcher.ts#L56)
 
 ## Properties
 
@@ -47,13 +49,13 @@
 
 #### Defined in
 
-[axios-fetcher.ts:46](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/axios-fetcher.ts#L46)
+[src/axios-fetcher.ts:49](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/axios-fetcher.ts#L49)
 
 ## Methods
 
 ### delete
 
-▸ **delete**(`url`, `config?`): `Promise`<`AxiosResponse`<`any`\>\>
+▸ **delete**(`url`, `config?`): `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 Perform a DELETE request
 
@@ -62,25 +64,25 @@ Perform a DELETE request
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `url` | `string` | The URL to request; may include query string |
-| `config?` | `AxiosRequestConfig` | - |
+| `config?` | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 
-`Promise`<`AxiosResponse`<`any`\>\>
+`Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 response
 
 #### Defined in
 
-[axios-fetcher.ts:163](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/axios-fetcher.ts#L163)
+[src/axios-fetcher.ts:177](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/axios-fetcher.ts#L177)
 
 ___
 
 ### fetch
 
-▸ **fetch**<`T`\>(`url`, `data?`): `Promise`<`AxiosResponse`<`T`\>\>
+▸ **fetch**\<`T`\>(`url`, `data?`): `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
 
-Implements a data fetcher. @see HttpDataFetcher<T> type for implementation details/notes.
+Implements a data fetcher.
 
 #### Type parameters
 
@@ -93,23 +95,27 @@ Implements a data fetcher. @see HttpDataFetcher<T> type for implementation detai
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `url` | `string` | The URL to request; may include query string |
-| `data?` | `unknown` | - |
+| `data?` | `unknown` | Optional data to POST with the request. |
 
 #### Returns
 
-`Promise`<`AxiosResponse`<`T`\>\>
+`Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
 
 response
 
+**`See`**
+
+HttpDataFetcher<T> type for implementation details/notes.
+
 #### Defined in
 
-[axios-fetcher.ts:107](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/axios-fetcher.ts#L107)
+[src/axios-fetcher.ts:121](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/axios-fetcher.ts#L121)
 
 ___
 
 ### get
 
-▸ **get**<`T`\>(`url`, `config?`): `Promise`<`AxiosResponse`<`T`\>\>
+▸ **get**\<`T`\>(`url`, `config?`): `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
 
 Perform a GET request
 
@@ -124,23 +130,23 @@ Perform a GET request
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `url` | `string` | The URL to request; may include query string |
-| `config?` | `AxiosRequestConfig` | - |
+| `config?` | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 
-`Promise`<`AxiosResponse`<`T`\>\>
+`Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`T`\>\>
 
 response
 
 #### Defined in
 
-[axios-fetcher.ts:121](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/axios-fetcher.ts#L121)
+[src/axios-fetcher.ts:135](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/axios-fetcher.ts#L135)
 
 ___
 
 ### head
 
-▸ **head**(`url`, `config?`): `Promise`<`AxiosResponse`<`any`\>\>
+▸ **head**(`url`, `config?`): `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 Perform a HEAD request
 
@@ -149,23 +155,23 @@ Perform a HEAD request
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `url` | `string` | The URL to request; may include query string |
-| `config?` | `AxiosRequestConfig` | - |
+| `config?` | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 
-`Promise`<`AxiosResponse`<`any`\>\>
+`Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 response
 
 #### Defined in
 
-[axios-fetcher.ts:131](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/axios-fetcher.ts#L131)
+[src/axios-fetcher.ts:145](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/axios-fetcher.ts#L145)
 
 ___
 
 ### post
 
-▸ **post**(`url`, `data?`, `config?`): `Promise`<`AxiosResponse`<`any`\>\>
+▸ **post**(`url`, `data?`, `config?`): `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 Perform a POST request
 
@@ -174,24 +180,24 @@ Perform a POST request
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `url` | `string` | The URL to request; may include query string |
-| `data?` | `unknown` | - |
-| `config?` | `AxiosRequestConfig` | - |
+| `data?` | `unknown` | Data to POST with the request. |
+| `config?` | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 
-`Promise`<`AxiosResponse`<`any`\>\>
+`Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 response
 
 #### Defined in
 
-[axios-fetcher.ts:142](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/axios-fetcher.ts#L142)
+[src/axios-fetcher.ts:156](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/axios-fetcher.ts#L156)
 
 ___
 
 ### put
 
-▸ **put**(`url`, `data?`, `config?`): `Promise`<`AxiosResponse`<`any`\>\>
+▸ **put**(`url`, `data?`, `config?`): `Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 Perform a PUT request
 
@@ -200,15 +206,15 @@ Perform a PUT request
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `url` | `string` | The URL to request; may include query string |
-| `data?` | `unknown` | - |
-| `config?` | `AxiosRequestConfig` | - |
+| `data?` | `unknown` | Data to PUT with the request. |
+| `config?` | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 
-`Promise`<`AxiosResponse`<`any`\>\>
+`Promise`\<[`AxiosResponse`](../interfaces/index.AxiosResponse.md)\<`any`\>\>
 
 response
 
 #### Defined in
 
-[axios-fetcher.ts:153](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/axios-fetcher.ts#L153)
+[src/axios-fetcher.ts:167](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/axios-fetcher.ts#L167)

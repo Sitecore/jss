@@ -4,6 +4,12 @@ This is a sample setup showing one one of how you can configure rendering server
 
 The setup is using `sitecore-jss-proxy` that enables request proxying to Sitecore CD along with the http cookies to enable tracking, personalization and contact identification.
 
+<!---
+@TODO: Update to next version docs before release
+-->
+
+[Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/21/sitecore-headless-development/walkthrough--rendering-a-jss-app-server-side-using-the-headless-jss-proxy.html)
+
 > This is a sample setup that is not officially supported by Sitecore.
 
 You can use this as a starting point to unlock deployment of your JSS apps to any managed node.js hosting environment (Azure App Service, Heroku, IBM BlueMix, you name it).
@@ -28,11 +34,12 @@ Open `config.js` and specify your application bundle and connection settings to 
 
 ### Environment Variables
 
-The following environment variables can be set to configure the proxy instead of modifying `config.js`, for environments where this is more desirable like containers:
+The following environment variables can be set to configure the proxy instead of modifying `config.js`. You can use the `.env` file located in the root of the app or set these directly in the environment (for example, in containers).
 
 | Parameter                              | Description                                                                                                                                |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `SITECORE_JSS_APP_NAME`                | The JSS app's name. Used in dictionary service URL, and the default value of `SITECORE_JSS_SERVER_BUNDLE` if it's not set.                 |
+| `SITECORE_JSS_APP_NAME`             | The JSS app's name. Used in the default value of `SITECORE_JSS_SERVER_BUNDLE` if it's not set. Used as the `SITECORE_SITE_NAME` if it's not set. |
+| `SITECORE_SITE_NAME`                | The Sitecore site name. Used for layout and dictionary data requests. |
 | `SITECORE_JSS_SERVER_BUNDLE`           | Path to the JSS app's `server.bundle.js` file.                                                                                             |
 | `SITECORE_API_HOST`                    | Sitecore instance host name. Should be HTTPS in production.                                                                                |
 | `SITECORE_LAYOUT_SERVICE_ROUTE`        | Optional. The path to layout service for the JSS application. Defaults to `/sitecore/api/layout/render/jss`.                               |
@@ -49,7 +56,7 @@ The following environment variables can be set to configure the proxy instead of
 You should be able to see the following message:
 `server listening on port 3000!` and see all the communication between this server and your Sitecore CD instance in the console.
 
-More info on this setup can be found [here](https://jss.sitecore.com/docs/fundamentals/application-modes#headless-server-side-rendering-mode).
+More info on this setup can be found [here](https://doc.sitecore.com/xp/en/developers/hd/21/sitecore-headless-development/sitecore-headless-services.html).
 
 ## Production Notes
 

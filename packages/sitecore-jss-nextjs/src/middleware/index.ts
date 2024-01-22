@@ -1,6 +1,4 @@
-export { EditingDataCache } from './editing-data-cache';
-export { EditingDataMiddleware, EditingDataMiddlewareConfig } from './editing-data-middleware';
-export {
-  EditingRenderMiddleware,
-  EditingRenderMiddlewareConfig,
-} from './editing-render-middleware';
+export { debug } from '@sitecore-jss/sitecore-jss';
+export { RedirectsMiddleware, RedirectsMiddlewareConfig } from './redirects-middleware';
+export { PersonalizeMiddleware, PersonalizeMiddlewareConfig } from './personalize-middleware';
+export { MultisiteMiddleware, MultisiteMiddlewareConfig } from './multisite-middleware';

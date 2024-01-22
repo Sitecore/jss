@@ -1,7 +1,7 @@
 import React, { ComponentType } from 'react';
 import PropTypes, { Requireable } from 'prop-types';
-import { MissingComponent } from '../components/MissingComponent';
-import { ComponentFactory } from '../components/sharedTypes';
+import { MissingComponent } from './MissingComponent';
+import { ComponentFactory } from './sharedTypes';
 import {
   ComponentRendering,
   RouteData,
@@ -11,13 +11,26 @@ import {
 } from '@sitecore-jss/sitecore-jss/layout';
 import { convertAttributesToReactProps } from '../utils';
 import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
+import { FEaaSComponent, FEAAS_COMPONENT_RENDERING_NAME } from './FEaaSComponent';
+import { FEaaSWrapper, FEAAS_WRAPPER_RENDERING_NAME } from './FEaaSWrapper';
+import { BYOCComponent, BYOC_COMPONENT_RENDERING_NAME } from './BYOCComponent';
+import { BYOCWrapper, BYOC_WRAPPER_RENDERING_NAME } from './BYOCWrapper';
+
+/**
+ * These patterns need for right rendering Dynamic placeholders.
+ * Must be distinguished Splitter components and another placeholders(containers)
+ */
+const EXCLUDE_PLACEHOLDERS_RENDER = [
+  new RegExp(/column-(\d{1})-\{\*\}/i),
+  new RegExp(/row-(\d{1})-\{\*\}/i),
+];
 
 type ErrorComponentProps = {
   [prop: string]: unknown;
 };
 
 /** Provided for the component which represents rendering data */
-type ComponentProps = {
+export type ComponentProps = {
   [key: string]: unknown;
   rendering: ComponentRendering;
 };
@@ -117,6 +130,21 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     name: string
   ) {
     let result;
+    /** [SXA] it needs for deleting dynamics placeholder when we set him number(props.name) of container.
+    from backend side we get common name of placeholder is called 'nameOfContainer-{*}' where '{*}' marker for replacing **/
+    if (rendering?.placeholders) {
+      Object.keys(rendering.placeholders).forEach((placeholder) => {
+        if (
+          placeholder.indexOf('{*}') !== -1 &&
+          !EXCLUDE_PLACEHOLDERS_RENDER.some((pattern) => name.search(pattern) !== -1) &&
+          name.replace(/[^a-zA-Z]*/gi, '') === placeholder.replace(/[^a-zA-Z]*/gi, '')
+        ) {
+          rendering.placeholders[name] = rendering.placeholders[placeholder];
+          delete rendering.placeholders[placeholder];
+        }
+      });
+    }
+
     if (rendering && rendering.placeholders && Object.keys(rendering.placeholders).length > 0) {
       result = rendering.placeholders[name];
     } else {
@@ -145,6 +173,15 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
   componentDidCatch(error: Error) {
     this.setState({ error });
+  }
+
+  getSXAParams(rendering: ComponentRendering) {
+    if (!rendering.params) return {};
+    return (
+      rendering.params.FieldNames && {
+        styles: `${rendering.params.GridParameters || ''} ${rendering.params.Styles || ''}`,
+      }
+    );
   }
 
   getComponentsForRenderingData(placeholderData: (ComponentRendering | HtmlElementRendering)[]) {
@@ -178,8 +215,23 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
         if (componentRendering.componentName === HIDDEN_RENDERING_NAME) {
           component = hiddenRenderingComponent ?? HiddenRendering;
+        } else if (!componentRendering.componentName) {
+          component = () => <></>;
         } else {
           component = this.getComponentForRendering(componentRendering);
+        }
+
+        // Fallback/defaults for Sitecore Component renderings (in case not defined in component factory)
+        if (!component) {
+          if (componentRendering.componentName === FEAAS_COMPONENT_RENDERING_NAME) {
+            component = FEaaSComponent;
+          } else if (componentRendering.componentName === FEAAS_WRAPPER_RENDERING_NAME) {
+            component = FEaaSWrapper;
+          } else if (componentRendering.componentName === BYOC_COMPONENT_RENDERING_NAME) {
+            component = BYOCComponent;
+          } else if (componentRendering.componentName === BYOC_WRAPPER_RENDERING_NAME) {
+            component = BYOCWrapper;
+          }
         }
 
         if (!component) {
@@ -197,7 +249,12 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
             fields: { ...placeholderFields, ...componentRendering.fields },
           }),
           ...((placeholderParams || componentRendering.params) && {
-            params: { ...placeholderParams, ...componentRendering.params },
+            params: {
+              ...placeholderParams,
+              ...componentRendering.params,
+              // Provide SXA styles
+              ...this.getSXAParams(componentRendering),
+            },
           }),
           rendering: componentRendering,
         };
@@ -210,7 +267,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       .filter((element) => element); // remove nulls
   }
 
-  getComponentForRendering(renderingDefinition: { componentName: string }): ComponentType | null {
+  getComponentForRendering(renderingDefinition: ComponentRendering): ComponentType | null {
     const componentFactory = this.props.componentFactory;
 
     if (!componentFactory || typeof componentFactory !== 'function') {
@@ -218,6 +275,14 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         `No componentFactory was available to service request for component ${renderingDefinition}`
       );
       return null;
+    }
+
+    // Render SXA Rendering Variant
+    if (renderingDefinition.params?.FieldNames) {
+      return componentFactory(
+        renderingDefinition.componentName,
+        renderingDefinition.params.FieldNames
+      );
     }
 
     return componentFactory(renderingDefinition.componentName);

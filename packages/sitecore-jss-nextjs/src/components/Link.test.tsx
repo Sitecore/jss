@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, { createRef, ReactNode } from 'react';
 import { NextRouter } from 'next/router';
 import NextLink from 'next/link';
-import { Link as ReactLink } from '@sitecore-jss/sitecore-jss-react';
+import { Link as ReactLink, LinkField } from '@sitecore-jss/sitecore-jss-react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { RouterContext } from 'next/dist/shared/lib/router-context';
+import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
 import { Link } from './Link';
 import { spy } from 'sinon';
 
@@ -41,6 +41,8 @@ describe('<Link />', () => {
         class: 'my-link',
         title: 'My Link',
         target: '_blank',
+        querystring: 'foo=bar',
+        anchor: 'foo',
       },
     };
 
@@ -52,7 +54,9 @@ describe('<Link />', () => {
 
     const link = c.find('a');
 
-    expect(link.html()).to.contain(`href="${field.value.href}"`);
+    expect(link.html()).to.contain(
+      `href="${field.value.href}?${field.value.querystring}#${field.value.anchor}"`
+    );
     expect(link.html()).to.contain(`class="${field.value.class}"`);
     expect(link.html()).to.contain(`title="${field.value.title}"`);
     expect(link.html()).to.contain(`target="${field.value.target}"`);
@@ -183,6 +187,22 @@ describe('<Link />', () => {
     expect(c.find(ReactLink).length).to.equal(0);
   });
 
+  it('should not add extra hash when linktype is anchor', () => {
+    const field = {
+      linktype: 'anchor',
+      href: '#anchor',
+      text: 'anchor link',
+      anchor: 'anchor',
+    };
+    const rendered = mount(
+      <Page>
+        <Link field={field} />
+      </Page>
+    ).find('a');
+    expect(rendered.html()).to.contain(`href="${field.href}"`);
+    expect(rendered.text()).to.equal(field.text);
+  });
+
   it('should render NextLink using internalLinkMatcher', () => {
     const field = {
       value: {
@@ -276,5 +296,68 @@ describe('<Link />', () => {
     );
     expect(rendered.find(NextLink).length).to.equal(0);
     expect(rendered.find(ReactLink).length).to.equal(1);
+  });
+
+  it('should render with a ref to the anchor', () => {
+    const field = {
+      href: '/lorem',
+      text: 'ipsum',
+    };
+    const ref = createRef<HTMLAnchorElement>();
+
+    const c = mount(
+      <Page>
+        <Link field={field} ref={ref} id="my-link" />
+      </Page>
+    );
+
+    const link = c.find('a');
+    expect(ref.current.id).to.equal(link.props().id);
+  });
+
+  it('should render ReactLink if editable', () => {
+    const field = {
+      value: {
+        href: '/lorem',
+        text: 'ipsum',
+      },
+      editable: '<a href="/lorem">Lorem</a>',
+    };
+    const rendered = mount(
+      <Page>
+        <Link field={field} />
+      </Page>
+    );
+    expect(rendered.find(NextLink).length).to.equal(0);
+    expect(rendered.find(ReactLink).length).to.equal(1);
+  });
+
+  it('should render NextLink with editing explicitly disabled', () => {
+    const field = {
+      value: {
+        href: '/lorem',
+        text: 'ipsum',
+      },
+      editable: '<a href="/lorem">Lorem</a>',
+    };
+    const rendered = mount(
+      <Page>
+        <Link field={field} editable={false} />
+      </Page>
+    );
+    expect(rendered.find(NextLink).length).to.equal(1);
+    expect(rendered.find(ReactLink).length).to.equal(0);
+  });
+
+  it('should render nothing with missing field', () => {
+    const field = (null as unknown) as LinkField;
+    const rendered = mount(<Link field={field} />).children();
+    expect(rendered).to.have.length(0);
+  });
+
+  it('should render nothing with missing editable and value', () => {
+    const field = {};
+    const rendered = mount(<Link field={field} />).children();
+    expect(rendered).to.have.length(0);
   });
 });

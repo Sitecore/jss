@@ -4,7 +4,9 @@
 
 Service that fetch dictionary data using Sitecore's GraphQL API.
 
-**`mixes`** SearchQueryService<DictionaryQueryResult>
+**`Mixes`**
+
+SearchQueryService<DictionaryQueryResult>
 
 ## Hierarchy
 
@@ -52,7 +54,7 @@ DictionaryServiceBase.constructor
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:54
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:61
 
 ## Properties
 
@@ -62,7 +64,7 @@ sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:54
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:48
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:55
 
 ___
 
@@ -76,7 +78,7 @@ DictionaryServiceBase.options
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:47
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:54
 
 ___
 
@@ -86,19 +88,15 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:49
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:56
 
 ## Methods
 
 ### fetchDictionaryData
 
-▸ **fetchDictionaryData**(`language`): `Promise`<`DictionaryPhrases`\>
+▸ **fetchDictionaryData**(`language`): `Promise`\<`DictionaryPhrases`\>
 
 Fetches dictionary data for internalization.
-
-**`default`** query (@see query)
-
-**`throws`** {Error} if the app root was not found for the specified site and language.
 
 #### Parameters
 
@@ -108,9 +106,19 @@ Fetches dictionary data for internalization.
 
 #### Returns
 
-`Promise`<`DictionaryPhrases`\>
+`Promise`\<`DictionaryPhrases`\>
 
 dictionary phrases
+
+**`Default`**
+
+```ts
+query (@see query)
+```
+
+**`Throws`**
+
+if the app root was not found for the specified site and language.
 
 #### Overrides
 
@@ -118,13 +126,13 @@ DictionaryServiceBase.fetchDictionaryData
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:62
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:69
 
 ___
 
 ### getCacheClient
 
-▸ `Protected` **getCacheClient**(): `CacheClient`<`DictionaryPhrases`\>
+▸ `Protected` **getCacheClient**(): `CacheClient`\<`DictionaryPhrases`\>
 
 Gets a cache client that can cache data. Uses memory-cache as the default
 library for caching (@see MemoryCacheClient). Override this method if you
@@ -132,7 +140,7 @@ want to use something else.
 
 #### Returns
 
-`CacheClient`<`DictionaryPhrases`\>
+`CacheClient`\<`DictionaryPhrases`\>
 
 implementation
 
@@ -150,7 +158,7 @@ ___
 
 ▸ **getCacheValue**(`key`): ``null`` \| `DictionaryPhrases`
 
-Retrieves a @see DictionaryPhrases value from the cache.
+Retrieves a
 
 #### Parameters
 
@@ -162,7 +170,12 @@ Retrieves a @see DictionaryPhrases value from the cache.
 
 ``null`` \| `DictionaryPhrases`
 
-The @see DictionaryPhrases value, or null if the specified key is not found in the cache.
+The
+
+**`See`**
+
+ - DictionaryPhrases value from the cache.
+ - DictionaryPhrases value, or null if the specified key is not found in the cache.
 
 #### Inherited from
 
@@ -190,7 +203,7 @@ implementation
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:69
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:76
 
 ___
 
@@ -198,9 +211,7 @@ ___
 
 ▸ **setCacheValue**(`key`, `value`): `DictionaryPhrases`
 
-Caches a @see DictionaryPhrases value for the specified cache key.
-
-**`mixes`** CacheClient<DictionaryPhrases>
+Caches a
 
 #### Parameters
 
@@ -214,6 +225,14 @@ Caches a @see DictionaryPhrases value for the specified cache key.
 `DictionaryPhrases`
 
 The value added to the cache.
+
+**`See`**
+
+DictionaryPhrases value for the specified cache key.
+
+**`Mixes`**
+
+CacheClient<DictionaryPhrases>
 
 #### Inherited from
 

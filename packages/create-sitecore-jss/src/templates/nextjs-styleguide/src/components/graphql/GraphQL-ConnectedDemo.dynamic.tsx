@@ -7,15 +7,17 @@ import {
   constants,
   GraphQLRequestClient,
   withDatasourceCheck,
-  resetEditorChromes,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import NextLink from 'next/link';
 import {
-  ConnectedDemoQueryDocument,
+  resetEditorChromes
+} from '@sitecore-jss/sitecore-jss-nextjs/utils';
+import NextLink from 'next/link';
+import { ConnectedDemoQueryDocument } from './GraphQL-ConnectedDemo.dynamic.graphql';
+import {
   <%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute as AppRoute,
   Item,
   <%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
-} from './GraphQL-ConnectedDemo.dynamic.graphql';
+} from 'graphql-types';
 import { ComponentProps } from 'lib/component-props';
 import config from 'temp/config';
 
@@ -111,11 +113,15 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
     apiKey: config.sitecoreApiKey,
   });
 
-  const result = await graphQLClient.request<GraphQLConnectedDemoData>(ConnectedDemoQueryDocument, {
-    datasource: rendering.dataSource,
-    contextItem: layoutData?.sitecore?.route?.itemId,
-    language: layoutData?.sitecore?.context?.language,
-  });
+  const result = await graphQLClient.request<GraphQLConnectedDemoData>(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ConnectedDemoQueryDocument as any,
+    {
+      datasource: rendering.dataSource,
+      contextItem: layoutData?.sitecore?.route?.itemId,
+      language: layoutData?.sitecore?.context?.language,
+    }
+  );
 
   return result;
 };
@@ -135,11 +141,15 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
     apiKey: config.sitecoreApiKey,
   });
 
-  const result = await graphQLClient.request<GraphQLConnectedDemoData>(ConnectedDemoQueryDocument, {
-    datasource: rendering.dataSource,
-    contextItem: layoutData?.sitecore?.route?.itemId,
-    language: layoutData?.sitecore?.context?.language,
-  });
+  const result = await graphQLClient.request<GraphQLConnectedDemoData>(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ConnectedDemoQueryDocument as any,
+    {
+      datasource: rendering.dataSource,
+      contextItem: layoutData?.sitecore?.route?.itemId,
+      language: layoutData?.sitecore?.context?.language,
+    }
+  );
 
   return result;
 };

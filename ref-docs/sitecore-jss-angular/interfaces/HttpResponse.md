@@ -1,6 +1,6 @@
 [@sitecore-jss/sitecore-jss-angular](../README.md) / HttpResponse
 
-# Interface: HttpResponse<T\>
+# Interface: HttpResponse\<T\>
 
 Response data for an HTTP request sent to an API
 

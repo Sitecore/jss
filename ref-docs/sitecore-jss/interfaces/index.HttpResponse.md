@@ -1,6 +1,6 @@
 [@sitecore-jss/sitecore-jss](../README.md) / [index](../modules/index.md) / HttpResponse
 
-# Interface: HttpResponse<T\>
+# Interface: HttpResponse\<T\>
 
 [index](../modules/index.md).HttpResponse
 
@@ -30,7 +30,7 @@ Response content
 
 #### Defined in
 
-[data-fetcher.ts:14](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/data-fetcher.ts#L14)
+[src/data-fetcher.ts:14](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/data-fetcher.ts#L14)
 
 ___
 
@@ -42,7 +42,7 @@ HTTP status code of the response (i.e. 200, 404)
 
 #### Defined in
 
-[data-fetcher.ts:10](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/data-fetcher.ts#L10)
+[src/data-fetcher.ts:10](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/data-fetcher.ts#L10)
 
 ___
 
@@ -54,4 +54,4 @@ HTTP status text of the response (i.e. 'OK', 'Bad Request')
 
 #### Defined in
 
-[data-fetcher.ts:12](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/data-fetcher.ts#L12)
+[src/data-fetcher.ts:12](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/data-fetcher.ts#L12)

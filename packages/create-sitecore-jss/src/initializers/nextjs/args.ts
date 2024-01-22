@@ -1,4 +1,4 @@
-import { ClientAppArgs } from '../../common/args/base';
+import { ClientAppArgs } from '../../common';
 import { NextjsAnswer } from './prompts';
 
-export interface NextjsArgs extends ClientAppArgs, Partial<NextjsAnswer> {}
+export type NextjsArgs = ClientAppArgs & Partial<NextjsAnswer>;

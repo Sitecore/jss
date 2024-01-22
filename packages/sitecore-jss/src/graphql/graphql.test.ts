@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { getAppRootId, siteNameError, languageError } from './app-root-query';
+import { SearchQueryService } from './search-service';
 import { GraphQLRequestClient } from './../graphql-request-client';
 import appRootQueryResponse from '../test-data/mockAppRootQueryResponse.json';
 import nock from 'nock';
@@ -31,6 +32,64 @@ describe('graphql', () => {
         expect(result).to.equal('GUIDGUIDGUID');
       });
 
+      it('valid root id using fallback language as en', async () => {
+        nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
+          .post('/', (body) => {
+            return body.variables.language === 'language';
+          })
+          .reply(200, {
+            data: {
+              layout: {
+                homePage: {
+                  rootItem: [],
+                },
+              },
+            },
+          });
+
+        nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
+          .post('/', (body) => {
+            return body.variables.language === 'en';
+          })
+          .reply(200, appRootQueryResponse);
+
+        const result = await getAppRootId(client, 'siteName', 'language');
+        expect(result).to.equal('GUIDGUIDGUID');
+      });
+
+      it('null for the passed language and for fallback language en', async () => {
+        nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
+          .post('/', (body) => {
+            return body.variables.language === 'language';
+          })
+          .reply(200, {
+            data: {
+              layout: {
+                homePage: {
+                  rootItem: [],
+                },
+              },
+            },
+          });
+
+        nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
+          .post('/', (body) => {
+            return body.variables.language === 'en';
+          })
+          .reply(200, {
+            data: {
+              layout: {
+                homePage: {
+                  rootItem: [],
+                },
+              },
+            },
+          });
+
+        const result = await getAppRootId(client, 'siteName', 'language');
+        expect(result).to.be.null;
+      });
+
       it('null if no app root found', async () => {
         nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
           .post('/', queryNameFilter)
@@ -44,7 +103,7 @@ describe('graphql', () => {
             },
           });
 
-        const result = await getAppRootId(client, 'siteName', 'language');
+        const result = await getAppRootId(client, 'siteName', 'en');
         expect(result).to.be.null;
       });
     });
@@ -89,6 +148,22 @@ describe('graphql', () => {
 
         await getAppRootId(client, 'siteName', 'language');
         expect(nock.isDone()).to.be.true;
+      });
+    });
+  });
+
+  describe('search-service', () => {
+    const endpoint = 'http://site';
+    const apiKey = 'api-key';
+    const client = new GraphQLRequestClient(endpoint, { apiKey });
+    const searchService = new SearchQueryService(client);
+
+    it('should throw when rootItemId is missing', async () => {
+      const result = searchService.fetch('mockQuery', {
+        language: 'en',
+      });
+      await result.catch((error: RangeError) => {
+        expect(error.message).to.equal('"rootItemId" and "language" must be non-empty strings');
       });
     });
   });

@@ -1,7 +1,31 @@
-import { IncomingMessage, ServerResponse } from 'http';
-import { Config as HttpProxyConfig } from 'http-proxy-middleware';
+import { IncomingMessage, ServerResponse, Agent } from 'http';
+import { Agent as HttpsAgent } from 'https';
+import { Options } from 'http-proxy-middleware';
+import { AppRenderer } from './AppRenderer';
 import { RenderResponse } from './RenderResponse';
-
+import { RouteUrlParser } from './RouteUrlParser';
+/** A reply from the Sitecore Layout Service */
+export interface LayoutServiceData {
+  sitecore: {
+    context: {
+      [key: string]: unknown;
+      language?: string;
+      site?: {
+        name?: string;
+      };
+    };
+  };
+}
+/** Interface for the server.bundle.js file */
+export interface ServerBundle {
+  [key: string]: unknown;
+  appName: string;
+  siteName: string;
+  apiKey: string;
+  renderView: AppRenderer;
+  parseRouteUrl: RouteUrlParser;
+  setUpDefaultAgents?: (httpAgent: Agent, httpsAgent: HttpsAgent) => void;
+}
 export interface ProxyConfig {
   /** Hostname to proxy to (i.e. Sitecore CD server 'http://siteco.re') */
   apiHost: string;
@@ -18,19 +42,33 @@ export interface ProxyConfig {
    */
   pathRewriteExcludeRoutes?: string[];
   /**
+   * Turn WebSocket requests processing on or off
+   */
+  ws?: boolean;
+  /**
    * Function to determine if a given URL should be SSRed (return true), or passed through (return false)
    * Mutually exclusive with pathRewriteExcludeRoutes.
    */
   pathRewriteExcludePredicate?: (originalUrl: string) => boolean;
   /** Configure `http-proxy-middleware` */
-  proxyOptions?: HttpProxyConfig;
+  proxyOptions?: Options;
   /** Enables or disables proxy diagnostics in console.log (disable for production or get bad performance) */
   debug?: boolean;
   /** Callback when an exception is thrown during SSR; decides what to send back to client (500 errors) */
   onError?: (
     error: Error,
     response: IncomingMessage
-  ) => Promise<{ statusCode?: number; content?: string }>;
+  ) =>
+    | null
+    | {
+        statusCode?: number;
+        content?: string;
+      }
+    | Promise<{
+        statusCode?: number;
+        content?: string;
+        headers?: Record<string, string | string[]>;
+      }>;
   /** Enables transforming SSR'ed HTML after it is rendered, i.e. to replace paths. */
   transformSSRContent?: (
     response: RenderResponse,
@@ -42,9 +80,8 @@ export interface ProxyConfig {
     request: IncomingMessage,
     response: ServerResponse,
     proxyResponse: IncomingMessage,
-    layoutServiceData: { [key: string]: unknown }
-  ) => // eslint-disable-next-line @typescript-eslint/ban-types
-  Promise<object>;
+    layoutServiceData: LayoutServiceData
+  ) => Promise<{ [key: string]: unknown }> | { [key: string]: unknown };
   /** Hook to alter HTTP headers in a custom way. */
   setHeaders?: (
     request: IncomingMessage,
@@ -53,4 +90,6 @@ export interface ProxyConfig {
   ) => void;
   /** Responses from the proxy greater than this size (in bytes) are rejected. */
   maxResponseSizeBytes?: number;
+  /** The require'd server.bundle.js file from your pre-built JSS app */
+  serverBundle: ServerBundle;
 }

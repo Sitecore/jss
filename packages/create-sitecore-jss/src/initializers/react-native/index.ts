@@ -1,8 +1,7 @@
 import path from 'path';
-import { prompt } from 'inquirer';
+import inquirer from 'inquirer';
 import { prompts, ReactNativeAnswer } from './prompts';
-import { Initializer } from '../../common/Initializer';
-import { transform } from '../../common/steps';
+import { Initializer, transform } from '../../common';
 import { ReactNativeArgs } from './args';
 
 export default class ReactNativeInitializer implements Initializer {
@@ -11,15 +10,7 @@ export default class ReactNativeInitializer implements Initializer {
   }
 
   async init(args: ReactNativeArgs) {
-    const defaults = args.yes
-      ? {
-          appName: 'sitecore-jss-react-native',
-          hostName: 'sitecore-jss-react-native.dev.local',
-          language: '',
-        }
-      : {};
-
-    const answers = await prompt<ReactNativeAnswer>(prompts, { ...defaults, ...args });
+    const answers = await inquirer.prompt<ReactNativeAnswer>(prompts, args);
 
     const mergedArgs = {
       ...args,
@@ -27,10 +18,7 @@ export default class ReactNativeInitializer implements Initializer {
     };
 
     const templatePath = path.resolve(__dirname, '../../templates/react-native');
-    await transform(templatePath, mergedArgs, {
-      filter: (filePath: string) =>
-        !!mergedArgs.language || !filePath.endsWith('{{language}}.json'),
-    });
+    await transform(templatePath, mergedArgs);
 
     const response = {
       appName: answers.appName,

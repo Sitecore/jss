@@ -52,13 +52,17 @@ function renderView(
 
     if (parsedData) {
       state.sitecore = parsedData.sitecore;
+      state.language = parsedData.sitecore.context.language;
     }
 
     // parse the URL that's being handled by Sitecore so we can pass in the initial state to the app
     const routeParser = new JssRouteBuilderService();
     const jssRoute = routeParser.parseRouteUrl(path.split('/').filter((segment) => segment));
     state.serverRoute = jssRoute.serverRoute;
-    state.language = parsedViewBag.language || jssRoute.language;
+
+    if (!state.language) {
+      state.language = jssRoute.language;
+    }
 
     const transferState = { ...state };
     delete transferState.viewBag;
@@ -83,17 +87,17 @@ function renderView(
 
 function parseRouteUrl(url: string) {
   const routeParser = new JssRouteBuilderService();
-  const jssRoute = routeParser.parseRouteUrl(url.split('/').filter((segment) => segment), true);
+  const jssRoute = routeParser.parseRouteUrl(
+    url.split('/').filter((segment) => segment),
+    true
+  );
   return {
     lang: jssRoute.language,
     sitecoreRoute: jssRoute.serverRoute,
   };
 }
 
-module.exports = {
-  renderView,
-  parseRouteUrl,
-  setUpDefaultAgents,
-  apiKey: environment.sitecoreApiKey,
-  appName: environment.jssAppName,
-};
+const apiKey = environment.sitecoreApiKey;
+const siteName = environment.sitecoreSiteName;
+
+export { renderView, parseRouteUrl, setUpDefaultAgents, apiKey, siteName };

@@ -6,38 +6,38 @@ Layout Service page state enum
 
 ## Table of contents
 
-### Enumeration members
+### Enumeration Members
 
 - [Edit](LayoutServicePageState.md#edit)
 - [Normal](LayoutServicePageState.md#normal)
 - [Preview](LayoutServicePageState.md#preview)
 
-## Enumeration members
+## Enumeration Members
 
 ### Edit
 
-• **Edit** = `"edit"`
+• **Edit** = ``"edit"``
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:14
+sitecore-jss/types/layout/models.d.ts:22
 
 ___
 
 ### Normal
 
-• **Normal** = `"normal"`
+• **Normal** = ``"normal"``
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:15
+sitecore-jss/types/layout/models.d.ts:23
 
 ___
 
 ### Preview
 
-• **Preview** = `"preview"`
+• **Preview** = ``"preview"``
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:13
+sitecore-jss/types/layout/models.d.ts:21

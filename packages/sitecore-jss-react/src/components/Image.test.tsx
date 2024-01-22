@@ -3,7 +3,7 @@ import chai from 'chai';
 import chaiString from 'chai-string';
 import { mount } from 'enzyme';
 import React from 'react';
-import { imageField as eeImageData } from '../testData/ee-data';
+import { imageField as eeImageData } from '../test-data/ee-data';
 import { Image, ImageField } from './Image';
 
 const expect = chai.use(chaiString).expect;
@@ -173,6 +173,22 @@ describe('<Image />', () => {
     });
   });
 
+  describe('with "class" and "className" property set', () => {
+    const props = {
+      media: { editable: eeImageData, value: { src: '/assets/img/test0.png', alt: 'my image' } },
+      editable: false,
+      style: { width: '100%' },
+      className: 'the-dude',
+      class: 'abides',
+    };
+
+    const rendered = mount(<Image {...props} />).find('img');
+
+    it('should attach "class" value at the end of class attribute', () => {
+      expect(rendered.prop('className')).to.eql(`${props.className} ${props.class}`);
+    });
+  });
+
   describe('with "mediaUrlPrefix" property', () => {
     it('should transform url with "value" property value', () => {
       const props = {
@@ -266,5 +282,15 @@ describe('<Image />', () => {
     const img = '' as ImageField;
     const rendered = mount(<Image media={img} />);
     expect(rendered.find('img')).to.have.length(0);
+  });
+
+  it('should render when field prop is used instead of media prop', () => {
+    const imgField = {
+      src: '/assets/img/test0.png',
+      width: 8,
+      height: 10,
+    };
+    const rendered = mount(<Image field={imgField} />);
+    expect(rendered.find('img')).to.have.length(1);
   });
 });

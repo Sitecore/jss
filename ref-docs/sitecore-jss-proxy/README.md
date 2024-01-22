@@ -6,7 +6,8 @@
 
 ### Interfaces
 
-- [ProxyIncomingMessage](interfaces/ProxyIncomingMessage.md)
+- [ProxyConfig](interfaces/ProxyConfig.md)
+- [ServerBundle](interfaces/ServerBundle.md)
 
 ### Functions
 
@@ -18,29 +19,29 @@
 
 ### default
 
-▸ **default**(`renderer`, `config`, `parseRouteUrl`): `NextHandleFunction`
+▸ **default**(`renderer`, `config`, `parseRouteUrl`): `RequestHandler`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\>[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `renderer` | `AppRenderer` |
-| `config` | `ProxyConfig` |
+| `config` | [`ProxyConfig`](interfaces/ProxyConfig.md) |
 | `parseRouteUrl` | `RouteUrlParser` |
 
 #### Returns
 
-`NextHandleFunction`
+`RequestHandler`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\>[]
 
 #### Defined in
 
-[src/index.ts:568](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-proxy/src/index.ts#L568)
+[index.ts:580](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-proxy/src/index.ts#L580)
 
 ___
 
 ### removeEmptyAnalyticsCookie
 
-▸ `Const` **removeEmptyAnalyticsCookie**(`proxyResponse`): `void`
+▸ **removeEmptyAnalyticsCookie**(`proxyResponse`): `void`
 
 #### Parameters
 
@@ -54,7 +55,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:32](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-proxy/src/index.ts#L32)
+[index.ts:24](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-proxy/src/index.ts#L24)
 
 ___
 
@@ -67,8 +68,8 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `reqPath` | `string` |
-| `req` | `IncomingMessage` |
-| `config` | `ProxyConfig` |
+| `req` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `config` | [`ProxyConfig`](interfaces/ProxyConfig.md) |
 | `parseRouteUrl?` | `RouteUrlParser` |
 
 #### Returns
@@ -77,4 +78,4 @@ ___
 
 #### Defined in
 
-[src/index.ts:351](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-proxy/src/index.ts#L351)
+[index.ts:350](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-proxy/src/index.ts#L350)

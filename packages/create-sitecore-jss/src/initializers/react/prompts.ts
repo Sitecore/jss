@@ -1,6 +1,10 @@
-﻿import { ClientAppAnswer, clientAppPrompts } from '../../common/prompts/base';
-import { StyleguideAnswer, styleguidePrompts } from '../../common/prompts/styleguide';
+﻿import {
+  ClientAppAnswer,
+  clientAppPrompts,
+  StyleguideAnswer,
+  styleguidePrompts,
+} from '../../common';
 
-export interface ReactAnswer extends ClientAppAnswer, StyleguideAnswer {}
+export type ReactAnswer = ClientAppAnswer & StyleguideAnswer;
 
 export const prompts = [...clientAppPrompts, ...styleguidePrompts];

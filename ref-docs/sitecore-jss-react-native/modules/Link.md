@@ -14,7 +14,11 @@
 
 ### defaultProps
 
-• **defaultProps**: `Partial`<`LinkProps`\>
+• **defaultProps**: `Partial`\<`LinkProps`\>
+
+#### Defined in
+
+[sitecore-jss-react-native/src/components/Link.tsx:121](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-react-native/src/components/Link.tsx#L121)
 
 ___
 
@@ -22,8 +26,16 @@ ___
 
 • **displayName**: `string`
 
+#### Defined in
+
+[sitecore-jss-react-native/src/components/Link.tsx:125](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-react-native/src/components/Link.tsx#L125)
+
 ___
 
 ### propTypes
 
-• **propTypes**: `WeakValidationMap`<`LinkProps`\>
+• **propTypes**: `WeakValidationMap`\<`LinkProps`\>
+
+#### Defined in
+
+[sitecore-jss-react-native/src/components/Link.tsx:107](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-react-native/src/components/Link.tsx#L107)

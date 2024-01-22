@@ -9,8 +9,7 @@ export class JssTranslationServerLoaderService implements TranslateLoader {
     @Inject('JSS_SERVER_VIEWBAG')
     private serverViewBag: { [key: string]: unknown; dictionary: { [key: string]: string } }
   ) {}
-
-  getTranslation(lang: string) {
+  getTranslation(_lang: string) {
     // read initial dictionary from data injected via server.bundle wrapper
     const dictionary = this.serverViewBag.dictionary;
     if (dictionary) {

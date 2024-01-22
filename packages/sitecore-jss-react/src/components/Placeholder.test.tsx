@@ -4,19 +4,32 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { stub } from 'sinon';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
-import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import { ComponentFactory } from './sharedTypes';
 import { Placeholder } from './Placeholder';
 import { SitecoreContext } from './SitecoreContext';
+import { ComponentProps } from './PlaceholderCommon';
 import {
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
-} from '../testData/non-ee-data';
-import { convertedData as eeData, emptyPlaceholderData } from '../testData/ee-data';
+  sxaRenderingColumnSplitterVariant,
+  sxaRenderingVariantData,
+  sxaRenderingVariantDataWithCommonContainerName as sxaRenderingCommonContainerName,
+  sxaRenderingVariantDataWithoutCommonContainerName as sxaRenderingWithoutContainerName,
+  byocWrapperData,
+  feaasWrapperData,
+} from '../test-data/non-ee-data';
+import { convertedData as eeData, emptyPlaceholderData } from '../test-data/ee-data';
+import * as SxaRichText from '../test-data/sxa-rich-text';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import { HiddenRendering } from './HiddenRendering';
+import * as BYOCComponent from './BYOCComponent';
+import * as BYOCWrapper from './BYOCWrapper';
+import * as FEAASComponent from './FEaaSComponent';
+import * as FEAASWrapper from './FEaaSWrapper';
 
 const componentFactory: ComponentFactory = (componentName: string) => {
   const components = new Map<string, React.FC>();
@@ -197,7 +210,7 @@ describe('<Placeholder />', () => {
             <Placeholder
               name={phKey}
               rendering={route}
-              renderEmpty={(comp) => <span>My name is empty placeholder</span>}
+              renderEmpty={() => <span>My name is empty placeholder</span>}
             />
           </SitecoreContext>
         );
@@ -233,7 +246,7 @@ describe('<Placeholder />', () => {
         const expectedMessage = (component.placeholders.main as any[]).find((c) => c.componentName)
           .fields.message;
 
-        const modifyComponentProps = (props) => {
+        const modifyComponentProps = (props: ComponentProps) => {
           if (props.rendering?.componentName === 'DownloadCallout') {
             return {
               ...props,
@@ -267,6 +280,160 @@ describe('<Placeholder />', () => {
           x: true,
         });
       });
+    });
+  });
+
+  describe('SXA rendering variants', () => {
+    const componentFactory: ComponentFactory = (componentName: string, exportName?: string) => {
+      const components = new Map();
+
+      components.set('RichText', SxaRichText);
+
+      if (exportName) return components.get(componentName)[exportName];
+
+      return components.get(componentName) || null;
+    };
+
+    it('should render', () => {
+      const component = sxaRenderingVariantData.sitecore.route as RouteData;
+      const phKey = 'main';
+
+      const renderedComponent = mount(
+        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      );
+
+      expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
+      expect(renderedComponent.find('.rendering-variant').prop('className')).to.equal(
+        'rendering-variant col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 test-css-class-x'
+      );
+      expect(renderedComponent.find('.title').length).to.equal(1);
+      expect(renderedComponent.find('.title').text()).to.equal('Rich Text Rendering Variant');
+      expect(renderedComponent.find('.text').length).to.equal(1);
+      expect(renderedComponent.find('.text').text()).to.equal('Test RichText');
+    });
+
+    it('should render with container-{*} type dynamic placeholder', () => {
+      const component = sxaRenderingCommonContainerName.sitecore.route as RouteData;
+      const phKey = 'container-1';
+
+      const renderedComponent = mount(
+        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      );
+
+      expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
+      expect(renderedComponent.find('.rendering-variant').prop('className')).to.equal(
+        'rendering-variant col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 test-css-class-x'
+      );
+      expect(renderedComponent.find('.title').length).to.equal(1);
+      expect(renderedComponent.find('.title').text()).to.equal('Rich Text Rendering Variant');
+    });
+
+    it('should not render without container-{*} type dynamic placeholder', () => {
+      const component = sxaRenderingWithoutContainerName.sitecore.route as RouteData;
+      const phKey = 'richText';
+
+      const renderedComponent = mount(
+        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      );
+
+      expect(renderedComponent.find('.rendering-variant').length).to.equal(0);
+      expect(renderedComponent.find('.title').length).to.equal(0);
+    });
+
+    it('should render another rendering variant', () => {
+      const component = sxaRenderingVariantData.sitecore.route as RouteData;
+      const phKey = 'main-second';
+
+      const renderedComponent = mount(
+        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      );
+
+      expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
+      expect(renderedComponent.find('.rendering-variant').prop('className')).to.equal(
+        'rendering-variant col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 test-css-class-y'
+      );
+      expect(renderedComponent.find('.default').length).to.equal(1);
+    });
+
+    it('should render column splitter rendering variant', () => {
+      const component = sxaRenderingColumnSplitterVariant.sitecore.route as RouteData;
+      const phKey = 'column-1-{*}';
+
+      const renderedComponent = mount(
+        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      );
+
+      expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
+      expect(renderedComponent.find('.rendering-variant').prop('className')).to.equal(
+        'rendering-variant col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 test-css-class-y'
+      );
+      expect(renderedComponent.find('.default').length).to.equal(1);
+    });
+  });
+
+  describe('BYOC fallback', () => {
+    let byocComponentStub;
+    let byocWrapperStub;
+
+    const componentFactory: ComponentFactory = (_componentName: string, _exportName?: string) =>
+      null;
+
+    it('should render', () => {
+      const component = byocWrapperData.sitecore.route as RouteData;
+      const phKey = 'main';
+
+      byocComponentStub = stub(BYOCComponent, 'BYOCComponent').callsFake(() => (
+        <p className="byoc-component">Foo</p>
+      ));
+
+      byocWrapperStub = stub(BYOCWrapper, 'BYOCWrapper').callsFake(() => (
+        <div className="byoc-wrapper">
+          <BYOCComponent.BYOCComponent />
+        </div>
+      ));
+
+      const renderedComponent = mount(
+        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      );
+
+      expect(renderedComponent.find('.byoc-component').length).to.equal(2);
+      expect(renderedComponent.find('.byoc-wrapper').length).to.equal(1);
+
+      byocComponentStub.restore();
+      byocWrapperStub.restore();
+    });
+  });
+
+  describe('FEaaS fallback', () => {
+    let feaasComponentStub;
+    let feaasWrapperStub;
+
+    const componentFactory: ComponentFactory = (_componentName: string, _exportName?: string) =>
+      null;
+
+    it('should render', () => {
+      const component = feaasWrapperData.sitecore.route as RouteData;
+      const phKey = 'main';
+
+      feaasComponentStub = stub(FEAASComponent, 'FEaaSComponent').callsFake(() => (
+        <p className="feaas-component">Foo</p>
+      ));
+
+      feaasWrapperStub = stub(FEAASWrapper, 'FEaaSWrapper').callsFake(() => (
+        <div className="feaas-wrapper">
+          <FEAASComponent.FEaaSComponent />
+        </div>
+      ));
+
+      const renderedComponent = mount(
+        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      );
+
+      expect(renderedComponent.find('.feaas-component').length).to.equal(2);
+      expect(renderedComponent.find('.feaas-wrapper').length).to.equal(1);
+
+      feaasComponentStub.restore();
+      feaasWrapperStub.restore();
     });
   });
 
@@ -419,6 +586,40 @@ it('should render MissingComponent for unknown rendering', () => {
     />
   );
   expect(renderedComponent.find('.missing-component').length).to.equal(1);
+});
+
+it('should render nothing for rendering without a name', () => {
+  const componentFactory: ComponentFactory = (componentName: string) => {
+    const components = new Map<string, React.FC<{ [key: string]: unknown }>>();
+
+    const Home: React.FC<{ rendering?: RouteData }> = ({ rendering }) => (
+      <div className="home-mock"></div>
+    );
+
+    components.set('Home', Home);
+    return components.get(componentName) || null;
+  };
+
+  const route: any = {
+    placeholders: {
+      main: [
+        {
+          componentName: 'Home',
+        },
+        {
+          componentName: null,
+        },
+      ],
+    },
+  };
+  const phKey = 'main';
+
+  const renderedComponent = mount(
+    <div className="empty-test">
+      <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
+    </div>
+  );
+  expect(renderedComponent.children().length).to.equal(1);
 });
 
 it('should render HiddenRendering when rendering is hidden', () => {

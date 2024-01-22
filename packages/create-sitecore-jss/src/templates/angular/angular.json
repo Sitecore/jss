@@ -7,12 +7,12 @@
   "newProjectRoot": "projects",
   "projects": {
     "<%- appName %>": {
-      "root": "",
+      "root": ".",
       "sourceRoot": "src",
       "projectType": "application",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/browser/",
             "index": "src/index.html",
@@ -30,8 +30,14 @@
             "scripts": [],
             "allowedCommonJsDependencies": [
               "zen-observable",
-              "js-sha256"
-            ]
+              "js-sha256",
+              "url-parse",
+              "graphql-request",
+              "debug"
+            ],
+            "customWebpackConfig": {
+              "path": "./webpack.config.js"
+            }
           },
           "configurations": {
             "production": {
@@ -43,7 +49,12 @@
               ],
               "baseHref": "/",
               "aot": true,
-              "optimization": true,
+              "//": [
+                "You might want to adjust the optimization entry to workaround a bug with bootstrap warnings caused by Angular",
+                "The warnings may occur during build and when running connected mode. Check below for possible fixes.",
+                "https://github.com/ng-bootstrap/ng-bootstrap/issues/4306"
+              ],
+              "optimization": "true",
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
@@ -52,15 +63,15 @@
               "buildOptimizer": true,
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "src/environments/environment.js",
+                  "with": "src/environments/environment.prod.js"
                 }
               ]
             }
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "<%- appName %>:build",
             "port": 3000,
@@ -107,9 +118,10 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/server",
             "main": "server.bundle.ts",
-            "tsConfig": "src/tsconfig.server.json"
+            "tsConfig": "src/tsconfig.server.json",
+            "deleteOutputPath": false,
+            "outputHashing": "none"
           },
           "configurations": {
             "production": {
@@ -118,8 +130,8 @@
               "optimization": true,
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "src/environments/environment.js",
+                  "with": "src/environments/environment.prod.js"
                 }
               ]
             }
@@ -127,7 +139,7 @@
         }
       }
     },
-    "<%- appName %>-e2e": {
+    "angular-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -140,7 +152,7 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/angular-eslint",
           "options": {
             "tsConfig": [
               "e2e/tsconfig.e2e.json"
@@ -153,11 +165,10 @@
       }
     }
   },
-  "defaultProject": "<%- appName %>",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "styleext": "css"
+      "style": "css"
     },
     "@schematics/angular:directive": {
       "prefix": "app"

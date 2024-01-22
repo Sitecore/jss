@@ -10,13 +10,33 @@
 
 ### Variables
 
+- [FETCH\_WITH](constants.md#fetch_with)
 - [JSS\_MODE](constants.md#jss_mode)
+- [SITECORE\_EDGE\_URL\_DEFAULT](constants.md#sitecore_edge_url_default)
+- [siteNameError](constants.md#sitenameerror)
 
 ## Variables
 
+### FETCH\_WITH
+
+• `Const` **FETCH\_WITH**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `GRAPHQL` | `string` |
+| `REST` | `string` |
+
+#### Defined in
+
+sitecore-jss/types/constants.d.ts:5
+
+___
+
 ### JSS\_MODE
 
-• **JSS\_MODE**: `Object`
+• `Const` **JSS\_MODE**: `Object`
 
 #### Type declaration
 
@@ -27,4 +47,24 @@
 
 #### Defined in
 
-sitecore-jss/types/constants.d.ts:5
+sitecore-jss/types/constants.d.ts:9
+
+___
+
+### SITECORE\_EDGE\_URL\_DEFAULT
+
+• `Const` **SITECORE\_EDGE\_URL\_DEFAULT**: ``"https://edge-platform.sitecorecloud.io"``
+
+#### Defined in
+
+sitecore-jss/types/constants.d.ts:14
+
+___
+
+### siteNameError
+
+• `Const` **siteNameError**: ``"The siteName cannot be empty"``
+
+#### Defined in
+
+sitecore-jss/types/constants.d.ts:13

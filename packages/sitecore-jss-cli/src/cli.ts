@@ -7,7 +7,7 @@ import * as commands from './scripts';
 /**
  * Get package script commands
  */
-async function getPackageScriptCommands() {
+export async function getPackageScriptCommands() {
   const packageJson = await resolvePackage();
   const result: { [key: string]: CommandModule } = {};
 
@@ -20,23 +20,30 @@ async function getPackageScriptCommands() {
       return;
     }
 
-    const command = {
-      command: script,
-      describe: 'package.json script',
-      builder: {},
-      disableStrictArgs: true,
-      handler: (argv: Arguments) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        if ((argv as any)._[0]) {
-          runPackageScript(process.argv.slice(2));
-        }
-      },
-    };
+    const command = makeCommand(script);
 
     result[script] = command;
   });
 
   return result;
+}
+
+/**
+ * @param {string} script script name
+ */
+export function makeCommand(script: string) {
+  return {
+    command: script,
+    describe: 'package.json script',
+    builder: {},
+    disableStrictArgs: true,
+    handler: (argv: Arguments) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      if ((argv as any)._[0]) {
+        runPackageScript(process.argv.slice(2));
+      }
+    },
+  };
 }
 
 /**

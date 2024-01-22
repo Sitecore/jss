@@ -1,13 +1,13 @@
 [@sitecore-jss/sitecore-jss](../README.md) / [graphql](../modules/graphql.md) / SearchQueryService
 
-# Class: SearchQueryService<T\>
+# Class: SearchQueryService\<T\>
 
 [graphql](../modules/graphql.md).SearchQueryService
 
 Provides functionality for performing GraphQL 'search' operations, including handling pagination.
 This class is meant to be extended or used as a mixin; it's not meant to be used directly.
 
-**`mixin`**
+**`Mixin`**
 
 ## Type parameters
 
@@ -33,7 +33,7 @@ This class is meant to be extended or used as a mixin; it's not meant to be used
 
 ### constructor
 
-• **new SearchQueryService**<`T`\>(`client`)
+• **new SearchQueryService**\<`T`\>(`client`)
 
 Creates an instance of search query service.
 
@@ -51,7 +51,7 @@ Creates an instance of search query service.
 
 #### Defined in
 
-[graphql/search-service.ts:83](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/graphql/search-service.ts#L83)
+[src/graphql/search-service.ts:89](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql/search-service.ts#L89)
 
 ## Properties
 
@@ -59,33 +59,43 @@ Creates an instance of search query service.
 
 • `Protected` **client**: [`GraphQLClient`](../interfaces/index.GraphQLClient.md)
 
+that fetches data from a GraphQL endpoint.
+
+#### Defined in
+
+[src/graphql/search-service.ts:89](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql/search-service.ts#L89)
+
 ## Methods
 
 ### fetch
 
-▸ **fetch**(`query`, `args`): `Promise`<`T`[]\>
+▸ **fetch**(`query`, `args`): `Promise`\<`T`[]\>
 
 1. Validates mandatory search query arguments
 2. Executes search query with pagination
 3. Aggregates pagination results into a single result-set.
-
-**`throws`** {RangeError} if a valid root item ID is not provided.
-
-**`throws`** {RangeError} if the provided language(s) is(are) not valid.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `query` | `string` \| `DocumentNode` | the search query. |
-| `args` | [`SearchQueryVariables`](../modules/graphql.md#searchqueryvariables) | search query arguments. |
+| `args` | [`SearchQueryVariables`](../interfaces/graphql.SearchQueryVariables.md) | search query arguments. |
 
 #### Returns
 
-`Promise`<`T`[]\>
+`Promise`\<`T`[]\>
 
 array of result objects.
 
+**`Throws`**
+
+if a valid root item ID is not provided.
+
+**`Throws`**
+
+if the provided language(s) is(are) not valid.
+
 #### Defined in
 
-[graphql/search-service.ts:96](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/graphql/search-service.ts#L96)
+[src/graphql/search-service.ts:102](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql/search-service.ts#L102)

@@ -1,29 +1,31 @@
-import { ComponentRendering, Field, HtmlElementRendering, Item } from './models';
-
-type Fields = { [name: string]: Field | Item[] };
+import { ComponentRendering, ComponentFields, Field, HtmlElementRendering } from './models';
 
 /**
  * Safely extracts a field value from a rendering or fields object.
  * Null will be returned if the field is not defined.
+ * @param {ComponentRendering | Fields} renderingOrFields the rendering or fields object to extract the field from
+ * @param {string} fieldName the name of the field to extract
+ * @returns {T | undefined} the field value or null if the field is not defined
  */
 export function getFieldValue<T>(
-  renderingOrFields: ComponentRendering | Fields,
+  renderingOrFields: ComponentRendering | ComponentFields,
   fieldName: string
 ): T | undefined;
 // eslint-disable-next-line no-redeclare
 export function getFieldValue<T>(
-  renderingOrFields: ComponentRendering | Fields,
+  renderingOrFields: ComponentRendering | ComponentFields,
   fieldName: string,
   defaultValue: T
 ): T;
 /**
- * @param {ComponentRendering | Fields} renderingOrFields
- * @param {string} fieldName
- * @param {T} [defaultValue]
+ * @param {ComponentRendering | Fields} renderingOrFields the rendering or fields object to extract the field from
+ * @param {string} fieldName the name of the field to extract
+ * @param {T} [defaultValue] the default value to return if the field is not defined
+ * @returns {Field | T} the field value or the default value if the field is not defined
  */
 // eslint-disable-next-line no-redeclare
 export function getFieldValue<T>(
-  renderingOrFields: ComponentRendering | Fields,
+  renderingOrFields: ComponentRendering | ComponentFields,
   fieldName: string,
   defaultValue?: T
 ) {
@@ -31,7 +33,7 @@ export function getFieldValue<T>(
     return defaultValue;
   }
 
-  const fields = renderingOrFields as Fields;
+  const fields = renderingOrFields as ComponentFields;
   const field = (fields[fieldName] as unknown) as Field<T>;
   if (field && typeof field.value !== 'undefined') {
     return field.value;

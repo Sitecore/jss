@@ -7,6 +7,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { isAbsoluteUrl } from '@sitecore-jss/sitecore-jss/utils';
 import { LinkDirective } from './link.directive';
 import { LinkField } from './rendering-field';
 
@@ -16,7 +17,7 @@ export class GenericLinkDirective extends LinkDirective {
 
   @Input('scGenericLinkAttrs') attrs: { [key: string]: string } = {};
 
-  @Input('scGenericLink') field: LinkField;
+  @Input('scGenericLink') declare field: LinkField;
 
   @Input('scGenericLinkExtras') extras?: NavigationExtras;
 
@@ -35,15 +36,28 @@ export class GenericLinkDirective extends LinkDirective {
 
     viewRef.rootNodes.forEach((node) => {
       Object.entries(props).forEach(([key, propValue]: [string, string]) => {
-        if (key === 'href' && !this.isAbsoluteUrl(propValue)) {
-          const urlTree = this.router.createUrlTree([propValue], this.extras);
-          this.renderer.setAttribute(node, key, this.router.serializeUrl(urlTree));
+        if (key === 'href' && !isAbsoluteUrl(propValue)) {
+          const fragments = propValue.split('#');
+          const url = fragments[0];
+          const anchor = fragments[1];
+          const urlTree = this.router.createUrlTree([url], {
+            fragment: anchor,
+            ...this.extras,
+          });
+          this.updateAttribute(node, key, this.router.serializeUrl(urlTree));
           this.renderer.listen(node, 'click', (event) => {
-            this.router.navigate([propValue], this.extras);
-            event.preventDefault();
+            this.router.navigate([url], {
+              fragment: anchor,
+              ...this.extras,
+            });
+
+            // shouldn't prevent default if the link includes a fragment
+            if (!anchor) {
+              event.preventDefault();
+            }
           });
         } else {
-          this.renderer.setAttribute(node, key, propValue);
+          this.updateAttribute(node, key, propValue);
         }
       });
 
@@ -51,16 +65,5 @@ export class GenericLinkDirective extends LinkDirective {
         node.textContent = linkText;
       }
     });
-  }
-
-  private isAbsoluteUrl(url?: unknown) {
-    if (url === null) {
-      return false;
-    }
-    if (typeof url !== 'string') {
-      throw new TypeError('Expected a string');
-    }
-
-    return /^[a-z][a-z0-9+.-]*:/.test(url);
   }
 }

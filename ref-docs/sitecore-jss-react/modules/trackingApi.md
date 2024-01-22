@@ -6,29 +6,58 @@
 
 ### Functions
 
+- [checkStatus](trackingApi.md#checkstatus)
 - [trackEvent](trackingApi.md#trackevent)
 
 ## Functions
 
+### checkStatus
+
+▸ **checkStatus**\<`T`\>(`response`): `HttpResponse`\<`T`\>
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `response` | `HttpResponse`\<`T`\> | response from fetch |
+
+#### Returns
+
+`HttpResponse`\<`T`\>
+
+response
+
+#### Defined in
+
+sitecore-jss/types/tracking/trackingApi.d.ts:8
+
+___
+
 ### trackEvent
 
-▸ **trackEvent**(`events`, `options`): `Promise`<`void`\>
+▸ **trackEvent**(`events`, `options`): `Promise`\<`void`\>
 
 Makes a request to Sitecore Layout Service for the specified route item path.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `events` | ([`EventInstance`](../interfaces/EventInstance.md) \| [`GoalInstance`](../interfaces/GoalInstance.md) \| [`OutcomeInstance`](../interfaces/OutcomeInstance.md) \| [`CampaignInstance`](../interfaces/CampaignInstance.md) \| [`PageViewInstance`](../interfaces/PageViewInstance.md))[] |
-| `options` | [`TrackingRequestOptions`](../interfaces/TrackingRequestOptions.md) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `events` | ([`EventInstance`](../interfaces/EventInstance.md) \| [`GoalInstance`](../interfaces/GoalInstance.md) \| [`OutcomeInstance`](../interfaces/OutcomeInstance.md) \| [`CampaignInstance`](../interfaces/CampaignInstance.md) \| [`PageViewInstance`](../interfaces/PageViewInstance.md))[] | events to send |
+| `options` | [`TrackingRequestOptions`](../interfaces/TrackingRequestOptions.md) | options for the tracking service |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 void
 
 #### Defined in
 
-sitecore-jss/types/tracking/trackingApi.d.ts:9
+sitecore-jss/types/tracking/trackingApi.d.ts:15

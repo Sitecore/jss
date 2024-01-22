@@ -1,12 +1,10 @@
 <!--
 -->
 <template>
-  <div id="root">
-    <context-view :visible="contextViewVisible" />
-    <!-- 'router-view' is a "global" component that is injected into the Vue component registry by vue-router. -->
-    <router-view />
-    <div v-if="languageIsChanging" class="alert alert-info">Language is changing...</div>
-  </div>
+  <context-view :visible="contextViewVisible" />
+  <!-- 'router-view' is a "global" component that is injected into the Vue component registry by vue-router. -->
+  <router-view />
+  <div v-if="languageIsChanging" class="alert alert-info">Language is changing...</div>
 </template>
 
 <script>

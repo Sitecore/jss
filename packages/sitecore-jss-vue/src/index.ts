@@ -1,19 +1,15 @@
-// export {
-//   isEditorActive,
-//   resetEditorChromes,
-//   isExperienceEditorActive,
-//   resetExperienceEditorChromes,
-// } from '@sitecore-jss/sitecore-jss/utils';
-export { constants } from '@sitecore-jss/sitecore-jss';
-// export {
-//   trackingApi,
-//   TrackingRequestOptions,
-//   CampaignInstance,
-//   GoalInstance,
-//   OutcomeInstance,
-//   EventInstance,
-//   PageViewInstance,
-// } from '@sitecore-jss/sitecore-jss/tracking';
+export {
+  // isEditorActive,
+  // resetEditorChromes,
+  // handleEditorAnchors,
+  // DefaultEditFrameButton,
+  // DefaultEditFrameButtons,
+  // EditFrameDataSource,
+  // FieldEditButton,
+  // WebEditButton,
+  // EditButtonTypes,
+} from '@sitecore-jss/sitecore-jss/utils';
+export { constants, enableDebug } from '@sitecore-jss/sitecore-jss';
 export {
 //   LayoutService,
 //   LayoutServiceData,
@@ -28,13 +24,14 @@ export {
 //   ComponentRendering,
 //   ComponentFields,
 //   ComponentParams,
-} from '@sitecore-jss/sitecore-jss/dist/esm/layout';
+} from '@sitecore-jss/sitecore-jss/layout';
 export {
 //   DictionaryService,
 //   GraphQLDictionaryService,
   RestDictionaryService,
-} from '@sitecore-jss/sitecore-jss/dist/esm/i18n';
-// export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
+} from '@sitecore-jss/sitecore-jss/i18n';
+//export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
+export { EditFrame } from './components/EditFrame';
 export { Placeholder } from './components/Placeholder';
 export { Image } from './components/Image';
 export { RichText } from './components/RichText';

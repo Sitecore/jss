@@ -4,17 +4,19 @@
     ".tsx"
   ],
   "exclude": [
+    "**/index.ts",
     "**/*.d.ts",
     "**/*.test.tsx",
     "**/*.test.ts",
     "src/tests",
-    "src/testData",
+    "src/test-data",
     "dist",
-    "**/sharedTypes.ts"
+    "**/sharedTypes.ts",
+    "*.js"
   ],
   "all": true,
   "reporter": [
-    "json-summary",
+    "cobertura",
     "text"
   ],
   "require": ["ts-node/register/transpile-only"]

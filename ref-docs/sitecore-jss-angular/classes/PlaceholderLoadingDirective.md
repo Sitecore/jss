@@ -22,14 +22,18 @@
 
 | Name | Type |
 | :------ | :------ |
-| `templateRef` | `TemplateRef`<`unknown`\> |
+| `templateRef` | `TemplateRef`\<`unknown`\> |
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder-loading.directive.ts:7](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-angular/src/components/placeholder-loading.directive.ts#L7)
+[sitecore-jss-angular/src/components/placeholder-loading.directive.ts:7](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-angular/src/components/placeholder-loading.directive.ts#L7)
 
 ## Properties
 
 ### templateRef
 
-• **templateRef**: `TemplateRef`<`unknown`\>
+• **templateRef**: `TemplateRef`\<`unknown`\>
+
+#### Defined in
+
+[sitecore-jss-angular/src/components/placeholder-loading.directive.ts:7](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-angular/src/components/placeholder-loading.directive.ts#L7)

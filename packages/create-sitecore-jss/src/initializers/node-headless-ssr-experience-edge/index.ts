@@ -1,7 +1,5 @@
 import path from 'path';
-import { Initializer } from '../../common/Initializer';
-import { transform } from '../../common/steps/index';
-import { BaseArgs } from '../../common/args/base';
+import { Initializer, transform, BaseArgs } from '../../common';
 
 export default class NodeHeadlessSsrExperienceEdgeInitializer implements Initializer {
   get isBase(): boolean {

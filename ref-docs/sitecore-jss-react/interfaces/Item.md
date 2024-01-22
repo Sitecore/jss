@@ -10,7 +10,9 @@ Content data returned from Content Service
 
 - [displayName](Item.md#displayname)
 - [fields](Item.md#fields)
+- [id](Item.md#id)
 - [name](Item.md#name)
+- [url](Item.md#url)
 
 ## Properties
 
@@ -20,7 +22,7 @@ Content data returned from Content Service
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:113
+sitecore-jss/types/layout/models.d.ts:126
 
 ___
 
@@ -34,7 +36,17 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:114
+sitecore-jss/types/layout/models.d.ts:129
+
+___
+
+### id
+
+• `Optional` **id**: `string`
+
+#### Defined in
+
+sitecore-jss/types/layout/models.d.ts:127
 
 ___
 
@@ -44,4 +56,14 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:112
+sitecore-jss/types/layout/models.d.ts:125
+
+___
+
+### url
+
+• `Optional` **url**: `string`
+
+#### Defined in
+
+sitecore-jss/types/layout/models.d.ts:128

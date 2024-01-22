@@ -16,7 +16,7 @@ export class RouterLinkDirective extends LinkDirective {
 
   @Input('scRouterLinkAttrs') attrs: { [attr: string]: string } = {};
 
-  @Input('scRouterLink') field: LinkField;
+  @Input('scRouterLink') declare field: LinkField;
 
   constructor(
     viewContainer: ViewContainerRef,
@@ -33,12 +33,16 @@ export class RouterLinkDirective extends LinkDirective {
 
     viewRef.rootNodes.forEach((node) => {
       Object.entries(props).forEach(([key, propValue]) => {
-        this.renderer.setAttribute(node, key, propValue);
+        this.updateAttribute(node, key, propValue);
 
         if (key === 'href') {
           this.renderer.listen(node, 'click', (event) => {
             this.router.navigateByUrl(propValue);
-            event.preventDefault();
+
+            // shouldn't prevent default if the link includes a fragment
+            if (!propValue.includes('#')) {
+              event.preventDefault();
+            }
           });
         }
       });

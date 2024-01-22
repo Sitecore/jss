@@ -43,8 +43,11 @@ export const partialPkg = {
     start:
       'cross-env-shell JSS_MODE=disconnected "npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components"',
   },
+  config: {
+    rootPlaceholders: ['jss-main', 'jss-test']
+  },
   foo: {
-    bar: [1, 2, 3],
+    bar: [1, 2, 3, 4],
     x: {
       y: {
         bar: [7, 8, 9],

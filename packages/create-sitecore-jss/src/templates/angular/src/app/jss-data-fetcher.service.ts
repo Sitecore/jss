@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { HttpResponse } from '@sitecore-jss/sitecore-jss';
-import { Observable } from 'rxjs';
+import { HttpResponse } from '@sitecore-jss/sitecore-jss-angular';
+import { Observable, lastValueFrom } from 'rxjs';
 
 @Injectable()
 export class JssDataFetcherService {
@@ -24,7 +24,7 @@ export class JssDataFetcherService {
       result = this.httpClient.get<T>(url, options);
     }
 
-    return result.toPromise()
+    return lastValueFrom(result)
       .then((responseData) => ({
           data: responseData as T,
           status: 200,

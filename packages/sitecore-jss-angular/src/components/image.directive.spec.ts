@@ -2,7 +2,7 @@ import { Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { imageField as eeImageData } from '../testData/ee-data';
+import { imageField as eeImageData } from '../test-data/ee-data';
 import { ImageDirective } from './image.directive';
 import { ImageField } from './rendering-field';
 
@@ -128,7 +128,7 @@ describe('<img *scImage />', () => {
       comp.field = media;
       fixture.detectChanges();
 
-      const img = de.query(By.css('.sc-image-wrapper')).nativeElement;
+      const img = de.nativeElement.querySelector('.sc-image-wrapper');
 
       expect(img.innerHTML).toContain('<img');
       expect(img.innerHTML).toContain('<input');

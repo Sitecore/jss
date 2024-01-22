@@ -6,30 +6,21 @@
 
 ### Properties
 
-- [manifest](DisconnectedDictionaryServiceOptions.md#manifest)
-
-### Methods
-
 - [customizeDictionary](DisconnectedDictionaryServiceOptions.md#customizedictionary)
+- [manifest](DisconnectedDictionaryServiceOptions.md#manifest)
 - [manifestLanguageChangeCallback](DisconnectedDictionaryServiceOptions.md#manifestlanguagechangecallback)
 
 ## Properties
 
-### manifest
-
-• **manifest**: [`ManifestInstance`](ManifestInstance.md)
-
-#### Defined in
-
-[disconnected-server/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L32)
-
-## Methods
-
 ### customizeDictionary
 
-▸ `Optional` **customizeDictionary**(`finalDictionary`, `rawDictionary`, `currentManifest`, `request?`, `response?`): `DictionaryServiceOutput`
+• `Optional` **customizeDictionary**: (`finalDictionary`: `DictionaryServiceOutput`, `rawDictionary`: `any`, `currentManifest`: [`ManifestInstance`](ManifestInstance.md), `request?`: `any`, `response?`: `any`) => `DictionaryServiceOutput`
 
-#### Parameters
+#### Type declaration
+
+▸ (`finalDictionary`, `rawDictionary`, `currentManifest`, `request?`, `response?`): `DictionaryServiceOutput`
+
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -39,30 +30,44 @@
 | `request?` | `any` |
 | `response?` | `any` |
 
-#### Returns
+##### Returns
 
 `DictionaryServiceOutput`
 
 #### Defined in
 
-[disconnected-server/dictionary-service.ts:33](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L33)
+[disconnected-server/dictionary-service.ts:33](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L33)
+
+___
+
+### manifest
+
+• **manifest**: [`ManifestInstance`](ManifestInstance.md)
+
+#### Defined in
+
+[disconnected-server/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L32)
 
 ___
 
 ### manifestLanguageChangeCallback
 
-▸ `Optional` **manifestLanguageChangeCallback**(`language`): `Promise`<[`ManifestInstance`](ManifestInstance.md)\>
+• `Optional` **manifestLanguageChangeCallback**: (`language`: `string`) => `Promise`\<[`ManifestInstance`](ManifestInstance.md)\>
 
-#### Parameters
+#### Type declaration
+
+▸ (`language`): `Promise`\<[`ManifestInstance`](ManifestInstance.md)\>
+
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `language` | `string` |
 
-#### Returns
+##### Returns
 
-`Promise`<[`ManifestInstance`](ManifestInstance.md)\>
+`Promise`\<[`ManifestInstance`](ManifestInstance.md)\>
 
 #### Defined in
 
-[disconnected-server/dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L39)
+[disconnected-server/dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L39)

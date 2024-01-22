@@ -3,7 +3,7 @@ a[target='_blank']:after {
 }
 
 /*
-  Hides Sitecore Experience Editor markup,
+  Hides Sitecore editor markup,
   if you run the app in connected mode while the Sitecore cookies
   are set to edit mode.
 */
@@ -25,4 +25,12 @@ a[target='_blank']:after {
     font-size: 3.5rem;
     font-weight: 300;
     line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }

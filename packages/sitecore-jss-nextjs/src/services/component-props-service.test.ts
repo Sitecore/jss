@@ -3,7 +3,7 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { expect } from 'chai';
 import { IncomingMessage, ServerResponse } from 'http';
 import { ParsedUrlQuery } from 'querystring';
-import { ComponentModule, Module } from '../sharedTypes/component-module';
+import { ModuleFactory, Module } from '../sharedTypes/component-module';
 import {
   GetServerSideComponentProps,
   GetStaticComponentProps,
@@ -94,10 +94,10 @@ describe('ComponentPropsService', () => {
       resolvedUrl: '',
     };
 
-    const ssrComponentModule = (componentName: string) => ssrModules[componentName];
+    const ssrModuleFactory = (componentName: string) => ssrModules[componentName];
 
     const result = await service.fetchServerSideComponentProps({
-      componentModule: ssrComponentModule as ComponentModule,
+      moduleFactory: ssrModuleFactory as ModuleFactory,
       context: ssrContext,
       layoutData,
     });
@@ -105,7 +105,8 @@ describe('ComponentPropsService', () => {
     expect(result).to.deep.equal({
       x11: 'x11SSRData',
       x14: {
-        error: 'Error during preload data for component x14: whoops',
+        error: 'Error during preload data for component namex14 (x14): whoops',
+        componentName: 'namex14',
       },
       x16: 'myCustomComponentSSRData',
       x161: 'myCustomComponentSSRData',
@@ -139,7 +140,7 @@ describe('ComponentPropsService', () => {
       resolvedUrl: '',
     };
 
-    const ssrComponentModule = (componentName: string) => {
+    const ssrModuleFactory = (componentName: string) => {
       return new Promise<Module>((res) => {
         setTimeout(() => {
           res(ssrModules[componentName] as Module);
@@ -148,7 +149,7 @@ describe('ComponentPropsService', () => {
     };
 
     const result = await service.fetchServerSideComponentProps({
-      componentModule: ssrComponentModule,
+      moduleFactory: ssrModuleFactory,
       context: ssrContext,
       layoutData,
     });
@@ -156,7 +157,8 @@ describe('ComponentPropsService', () => {
     expect(result).to.deep.equal({
       x11: 'x11SSRData',
       x14: {
-        error: 'Error during preload data for component x14: whoops',
+        error: 'Error during preload data for component namex14 (x14): whoops',
+        componentName: 'namex14',
       },
       x16: 'myCustomComponentSSRData',
       x161: 'myCustomComponentSSRData',
@@ -181,7 +183,7 @@ describe('ComponentPropsService', () => {
       },
     };
 
-    const ssgComponentModule = (componentName: string) => {
+    const ssgModuleFactory = (componentName: string) => {
       return new Promise<{ getStaticProps: GetStaticComponentProps }>((res) => {
         setTimeout(() => {
           res(ssgModules[componentName]);
@@ -190,7 +192,7 @@ describe('ComponentPropsService', () => {
     };
 
     const result = await service.fetchStaticComponentProps({
-      componentModule: ssgComponentModule as ComponentModule,
+      moduleFactory: ssgModuleFactory as ModuleFactory,
       context,
       layoutData,
     });
@@ -198,7 +200,8 @@ describe('ComponentPropsService', () => {
     expect(result).to.deep.equal({
       x11: 'x11StaticData',
       x14: {
-        error: 'Error during preload data for component x14: whoops',
+        error: 'Error during preload data for component namex14 (x14): whoops',
+        componentName: 'namex14',
       },
       x16: 'myCustomComponentStaticData',
       x161: 'myCustomComponentStaticData',
@@ -223,10 +226,10 @@ describe('ComponentPropsService', () => {
       },
     };
 
-    const ssgComponentModule = (componentName: string) => ssgModules[componentName];
+    const ssgModuleFactory = (componentName: string) => ssgModules[componentName];
 
     const result = await service.fetchStaticComponentProps({
-      componentModule: ssgComponentModule as ComponentModule,
+      moduleFactory: ssgModuleFactory as ModuleFactory,
       context,
       layoutData,
     });
@@ -234,7 +237,8 @@ describe('ComponentPropsService', () => {
     expect(result).to.deep.equal({
       x11: 'x11StaticData',
       x14: {
-        error: 'Error during preload data for component x14: whoops',
+        error: 'Error during preload data for component namex14 (x14): whoops',
+        componentName: 'namex14',
       },
       x16: 'myCustomComponentStaticData',
       x161: 'myCustomComponentStaticData',

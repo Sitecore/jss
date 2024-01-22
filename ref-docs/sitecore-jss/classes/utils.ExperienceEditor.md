@@ -29,13 +29,18 @@ Static utility class for Sitecore Experience Editor
 
 ▸ `Static` **isActive**(): `boolean`
 
+Determines whether the current execution context is within a Experience Editor.
+Experience Editor environment can be identified only in the browser
+
 #### Returns
 
 `boolean`
 
+true if executing within a Experience Editor
+
 #### Defined in
 
-[utils/editing.ts:19](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/editing.ts#L19)
+[src/utils/editing.ts:24](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/utils/editing.ts#L24)
 
 ___
 
@@ -49,4 +54,4 @@ ___
 
 #### Defined in
 
-[utils/editing.ts:27](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/editing.ts#L27)
+[src/utils/editing.ts:32](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/utils/editing.ts#L32)

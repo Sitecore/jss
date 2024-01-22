@@ -15,8 +15,16 @@
 
 • **displayName**: `string`
 
+#### Defined in
+
+[sitecore-jss-react-native/src/components/Image.tsx:145](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-react-native/src/components/Image.tsx#L145)
+
 ___
 
 ### propTypes
 
-• **propTypes**: `WeakValidationMap`<`ImageProps`\>
+• **propTypes**: `WeakValidationMap`\<`ImageProps`\>
+
+#### Defined in
+
+[sitecore-jss-react-native/src/components/Image.tsx:133](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-react-native/src/components/Image.tsx#L133)

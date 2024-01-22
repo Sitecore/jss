@@ -19,13 +19,18 @@ https://github.com/prisma-labs/graphql-request
 
 ### Properties
 
+- [abortTimeout](index.GraphQLRequestClient.md#aborttimeout)
 - [client](index.GraphQLRequestClient.md#client)
 - [debug](index.GraphQLRequestClient.md#debug)
+- [endpoint](index.GraphQLRequestClient.md#endpoint)
 - [headers](index.GraphQLRequestClient.md#headers)
+- [retries](index.GraphQLRequestClient.md#retries)
+- [timeout](index.GraphQLRequestClient.md#timeout)
 
 ### Methods
 
 - [request](index.GraphQLRequestClient.md#request)
+- [createClientFactory](index.GraphQLRequestClient.md#createclientfactory)
 
 ## Constructors
 
@@ -40,13 +45,23 @@ Provides ability to execute graphql query using given `endpoint`
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `endpoint` | `string` | The Graphql endpoint |
-| `clientConfig` | [`GraphQLRequestClientConfig`](../modules/index.md#graphqlrequestclientconfig) | - |
+| `clientConfig?` | [`GraphQLRequestClientConfig`](../modules/index.md#graphqlrequestclientconfig) | GraphQL request client configuration. |
 
 #### Defined in
 
-[graphql-request-client.ts:46](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/graphql-request-client.ts#L46)
+[src/graphql-request-client.ts:77](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql-request-client.ts#L77)
 
 ## Properties
+
+### abortTimeout
+
+• `Private` `Optional` **abortTimeout**: `default`
+
+#### Defined in
+
+[src/graphql-request-client.ts:69](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql-request-client.ts#L69)
+
+___
 
 ### client
 
@@ -54,7 +69,7 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Defined in
 
-[graphql-request-client.ts:37](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/graphql-request-client.ts#L37)
+[src/graphql-request-client.ts:65](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql-request-client.ts#L65)
 
 ___
 
@@ -64,23 +79,55 @@ ___
 
 #### Defined in
 
-[graphql-request-client.ts:39](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/graphql-request-client.ts#L39)
+[src/graphql-request-client.ts:67](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql-request-client.ts#L67)
+
+___
+
+### endpoint
+
+• `Private` **endpoint**: `string`
+
+The Graphql endpoint
+
+#### Defined in
+
+[src/graphql-request-client.ts:77](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql-request-client.ts#L77)
 
 ___
 
 ### headers
 
-• `Private` **headers**: `Record`<`string`, `string`\> = `{}`
+• `Private` **headers**: `Record`\<`string`, `string`\> = `{}`
 
 #### Defined in
 
-[graphql-request-client.ts:38](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/graphql-request-client.ts#L38)
+[src/graphql-request-client.ts:66](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql-request-client.ts#L66)
+
+___
+
+### retries
+
+• `Private` **retries**: `number`
+
+#### Defined in
+
+[src/graphql-request-client.ts:68](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql-request-client.ts#L68)
+
+___
+
+### timeout
+
+• `Private` `Optional` **timeout**: `number`
+
+#### Defined in
+
+[src/graphql-request-client.ts:70](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql-request-client.ts#L70)
 
 ## Methods
 
 ### request
 
-▸ **request**<`T`\>(`query`, `variables?`): `Promise`<`T`\>
+▸ **request**\<`T`\>(`query`, `variables?`): `Promise`\<`T`\>
 
 Execute graphql request
 
@@ -99,7 +146,7 @@ Execute graphql request
 
 #### Returns
 
-`Promise`<`T`\>
+`Promise`\<`T`\>
 
 #### Implementation of
 
@@ -107,4 +154,26 @@ Execute graphql request
 
 #### Defined in
 
-[graphql-request-client.ts:66](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/graphql-request-client.ts#L66)
+[src/graphql-request-client.ts:116](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql-request-client.ts#L116)
+
+___
+
+### createClientFactory
+
+▸ `Static` **createClientFactory**(`config`): [`GraphQLRequestClientFactory`](../modules/index.md#graphqlrequestclientfactory)
+
+Factory method for creating a GraphQLRequestClientFactory.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `config` | [`GraphQLRequestClientFactoryConfig`](../modules/index.md#graphqlrequestclientfactoryconfig) | client configuration options. |
+
+#### Returns
+
+[`GraphQLRequestClientFactory`](../modules/index.md#graphqlrequestclientfactory)
+
+#### Defined in
+
+[src/graphql-request-client.ts:103](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss/src/graphql-request-client.ts#L103)

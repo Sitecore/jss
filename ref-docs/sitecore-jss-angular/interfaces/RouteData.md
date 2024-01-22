@@ -1,8 +1,14 @@
 [@sitecore-jss/sitecore-jss-angular](../README.md) / RouteData
 
-# Interface: RouteData
+# Interface: RouteData\<Fields\>
 
 Shape of route data returned from Sitecore Layout Service
+
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Fields` | `Record`\<`string`, [`Field`](Field.md) \| `Item` \| `Item`[]\> |
 
 ## Table of contents
 
@@ -29,7 +35,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:45
+sitecore-jss/types/layout/models.d.ts:58
 
 ___
 
@@ -39,7 +45,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:46
+sitecore-jss/types/layout/models.d.ts:59
 
 ___
 
@@ -49,21 +55,17 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:41
+sitecore-jss/types/layout/models.d.ts:56
 
 ___
 
 ### fields
 
-• `Optional` **fields**: `Object`
-
-#### Index signature
-
-▪ [name: `string`]: [`Field`](Field.md)
+• `Optional` **fields**: `Fields`
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:42
+sitecore-jss/types/layout/models.d.ts:57
 
 ___
 
@@ -73,7 +75,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:53
+sitecore-jss/types/layout/models.d.ts:66
 
 ___
 
@@ -83,7 +85,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:47
+sitecore-jss/types/layout/models.d.ts:60
 
 ___
 
@@ -93,7 +95,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:48
+sitecore-jss/types/layout/models.d.ts:61
 
 ___
 
@@ -103,7 +105,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:49
+sitecore-jss/types/layout/models.d.ts:62
 
 ___
 
@@ -113,17 +115,17 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:40
+sitecore-jss/types/layout/models.d.ts:55
 
 ___
 
 ### placeholders
 
-• **placeholders**: [`PlaceholdersData`](../README.md#placeholdersdata)<`string`\>
+• **placeholders**: [`PlaceholdersData`](../README.md#placeholdersdata)\<`string`\>
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:52
+sitecore-jss/types/layout/models.d.ts:65
 
 ___
 
@@ -133,7 +135,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:50
+sitecore-jss/types/layout/models.d.ts:63
 
 ___
 
@@ -143,4 +145,4 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:51
+sitecore-jss/types/layout/models.d.ts:64

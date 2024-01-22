@@ -6,26 +6,50 @@
 
 ### Properties
 
+- [afterMiddlewareRegistered](DisconnectedServerOptions.md#aftermiddlewareregistered)
 - [appName](DisconnectedServerOptions.md#appname)
 - [appRoot](DisconnectedServerOptions.md#approot)
 - [customizeContext](DisconnectedServerOptions.md#customizecontext)
 - [customizeRendering](DisconnectedServerOptions.md#customizerendering)
 - [customizeRoute](DisconnectedServerOptions.md#customizeroute)
 - [language](DisconnectedServerOptions.md#language)
+- [onError](DisconnectedServerOptions.md#onerror)
+- [onListening](DisconnectedServerOptions.md#onlistening)
+- [onManifestUpdated](DisconnectedServerOptions.md#onmanifestupdated)
 - [port](DisconnectedServerOptions.md#port)
 - [requireArg](DisconnectedServerOptions.md#requirearg)
 - [server](DisconnectedServerOptions.md#server)
 - [sourceFiles](DisconnectedServerOptions.md#sourcefiles)
 - [watchPaths](DisconnectedServerOptions.md#watchpaths)
 
-### Methods
-
-- [afterMiddlewareRegistered](DisconnectedServerOptions.md#aftermiddlewareregistered)
-- [onError](DisconnectedServerOptions.md#onerror)
-- [onListening](DisconnectedServerOptions.md#onlistening)
-- [onManifestUpdated](DisconnectedServerOptions.md#onmanifestupdated)
-
 ## Properties
+
+### afterMiddlewareRegistered
+
+• `Optional` **afterMiddlewareRegistered**: (`server`: `any`) => `void`
+
+#### Type declaration
+
+▸ (`server`): `void`
+
+Hook function that is called after the disconnected server middleware is registered with the server,
+but before the server starts listening. Useful to add your own middleware after the disconnected middleware.
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `server` | `any` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[disconnected-server/create-default-disconnected-server.ts:58](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L58)
+
+___
 
 ### appName
 
@@ -33,7 +57,7 @@
 
 #### Defined in
 
-[disconnected-server/create-default-disconnected-server.ts:13](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L13)
+[disconnected-server/create-default-disconnected-server.ts:13](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L13)
 
 ___
 
@@ -45,7 +69,7 @@ Root physical path to the app (i.e. where your package.json is)
 
 #### Defined in
 
-[disconnected-server/create-default-disconnected-server.ts:18](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L18)
+[disconnected-server/create-default-disconnected-server.ts:18](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L18)
 
 ___
 
@@ -58,7 +82,7 @@ Useful for faking a customized server-side context in disconnected mode.
 
 #### Defined in
 
-[disconnected-server/create-default-disconnected-server.ts:80](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L80)
+[disconnected-server/create-default-disconnected-server.ts:80](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L80)
 
 ___
 
@@ -72,7 +96,7 @@ use as the final rendering data. Return falsy to use the default object.
 
 #### Defined in
 
-[disconnected-server/create-default-disconnected-server.ts:93](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L93)
+[disconnected-server/create-default-disconnected-server.ts:93](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L93)
 
 ___
 
@@ -85,7 +109,7 @@ The 'route' param is the default route data result.
 
 #### Defined in
 
-[disconnected-server/create-default-disconnected-server.ts:86](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L86)
+[disconnected-server/create-default-disconnected-server.ts:86](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L86)
 
 ___
 
@@ -97,7 +121,80 @@ The language to create the server in initially.
 
 #### Defined in
 
-[disconnected-server/create-default-disconnected-server.ts:29](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L29)
+[disconnected-server/create-default-disconnected-server.ts:29](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L29)
+
+___
+
+### onError
+
+• `Optional` **onError**: (`error`: `Error`) => `void`
+
+#### Type declaration
+
+▸ (`error`): `void`
+
+Hook function invoked when an error occurs in the server.
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `error` | `Error` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[disconnected-server/create-default-disconnected-server.ts:68](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L68)
+
+___
+
+### onListening
+
+• `Optional` **onListening**: () => `void`
+
+#### Type declaration
+
+▸ (): `void`
+
+Hook function invoked when the server starts listening on a port
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[disconnected-server/create-default-disconnected-server.ts:63](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L63)
+
+___
+
+### onManifestUpdated
+
+• `Optional` **onManifestUpdated**: (`manifest`: [`ManifestInstance`](ManifestInstance.md)) => `void`
+
+#### Type declaration
+
+▸ (`manifest`): `void`
+
+Hook function invoked when the manifest updates, either due to file changes or language changes.
+Useful to respond when the data is updated in custom middleware, etc.
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `manifest` | [`ManifestInstance`](ManifestInstance.md) |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[disconnected-server/create-default-disconnected-server.ts:74](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L74)
 
 ___
 
@@ -109,7 +206,7 @@ Specify the port the server should run on. If unspecified, the server will not s
 
 #### Defined in
 
-[disconnected-server/create-default-disconnected-server.ts:46](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L46)
+[disconnected-server/create-default-disconnected-server.ts:46](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L46)
 
 ___
 
@@ -121,7 +218,7 @@ Module to require before starting the disconnected server (i.e. a transpiler, or
 
 #### Defined in
 
-[disconnected-server/create-default-disconnected-server.ts:34](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L34)
+[disconnected-server/create-default-disconnected-server.ts:34](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L34)
 
 ___
 
@@ -134,7 +231,7 @@ Extra middleware, etc can be attached before passing the option.
 
 #### Defined in
 
-[disconnected-server/create-default-disconnected-server.ts:41](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L41)
+[disconnected-server/create-default-disconnected-server.ts:41](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L41)
 
 ___
 
@@ -146,7 +243,7 @@ The source file specifications for the manifest generation.
 
 #### Defined in
 
-[disconnected-server/create-default-disconnected-server.ts:51](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L51)
+[disconnected-server/create-default-disconnected-server.ts:51](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L51)
 
 ___
 
@@ -159,88 +256,4 @@ Paths can be relative (to the app root) or absolute.
 
 #### Defined in
 
-[disconnected-server/create-default-disconnected-server.ts:24](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L24)
-
-## Methods
-
-### afterMiddlewareRegistered
-
-▸ `Optional` **afterMiddlewareRegistered**(`server`): `void`
-
-Hook function that is called after the disconnected server middleware is registered with the server,
-but before the server starts listening. Useful to add your own middleware after the disconnected middleware.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `server` | `any` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[disconnected-server/create-default-disconnected-server.ts:58](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L58)
-
-___
-
-### onError
-
-▸ `Optional` **onError**(`error`): `void`
-
-Hook function invoked when an error occurs in the server.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `error` | `Error` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[disconnected-server/create-default-disconnected-server.ts:68](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L68)
-
-___
-
-### onListening
-
-▸ `Optional` **onListening**(): `void`
-
-Hook function invoked when the server starts listening on a port
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[disconnected-server/create-default-disconnected-server.ts:63](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L63)
-
-___
-
-### onManifestUpdated
-
-▸ `Optional` **onManifestUpdated**(`manifest`): `void`
-
-Hook function invoked when the manifest updates, either due to file changes or language changes.
-Useful to respond when the data is updated in custom middleware, etc.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `manifest` | [`ManifestInstance`](ManifestInstance.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[disconnected-server/create-default-disconnected-server.ts:74](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L74)
+[disconnected-server/create-default-disconnected-server.ts:24](https://github.com/Sitecore/jss/blob/cc3a2c142/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L24)
