@@ -21,6 +21,7 @@ const FEAAS_LIBRARY_ID_REGEX = /-library--([^\s]+)/;
  * @param {string} [sitecoreEdgeUrl] Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io
  * @returns {HTMLLink[]} library stylesheet links
  */
+/** @deprecated use getComponentLibraryStylesheetLinks instead */
 export function getFEAASLibraryStylesheetLinks(
   layoutData: LayoutServiceData,
   sitecoreEdgeContextId: string,
