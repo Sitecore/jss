@@ -20,6 +20,7 @@
     "site.d.ts",
     "personalize.d.ts",
     "feaas.d.ts",
+    "styles.d.ts",
     "src/**/*.test.ts",
     "src/test-data/*"
   ]
