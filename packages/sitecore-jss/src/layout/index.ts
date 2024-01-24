@@ -32,4 +32,4 @@ export {
 
 export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './graphql-layout-service';
 
-export { getComponentLibraryStylesheetLinks } from './styles/themes';
+export { getComponentLibraryStylesheetLinks } from './themes';

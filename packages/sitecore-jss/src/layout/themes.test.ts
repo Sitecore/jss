@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { getComponentLibraryStylesheetLinks, getStylesheetUrl } from './themes';
-import { SITECORE_EDGE_URL_DEFAULT } from '../../constants';
-import { ComponentRendering, HtmlElementRendering } from '..';
+import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
+import { ComponentRendering, HtmlElementRendering } from '.';
 
 describe('themes', () => {
   const sitecoreEdgeContextId = 'test';

@@ -4,9 +4,9 @@ import {
   LayoutServiceData,
   RouteData,
   getFieldValue,
-} from '..';
-import { HTMLLink } from '../../models';
-import { SITECORE_EDGE_URL_DEFAULT } from '../../constants';
+} from '.';
+import { HTMLLink } from '../models';
+import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
 
 /**
  * Pattern for library ids
