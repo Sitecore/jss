@@ -407,7 +407,7 @@ describe('themes', () => {
                           {
                             componentName: 'zx21-component',
                             params: {
-                              Styles: '-library--zx21'
+                              Styles: '-library--zx21',
                             },
                           },
                         ],
