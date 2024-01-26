@@ -188,6 +188,7 @@ export {
   BYOCComponent,
   BYOCComponentProps,
   getFEAASLibraryStylesheetLinks,
+  getComponentLibraryStylesheetLinks,
   File,
   FileField,
   RichTextField,

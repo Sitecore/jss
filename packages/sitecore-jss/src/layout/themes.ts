@@ -4,7 +4,7 @@ import {
   LayoutServiceData,
   RouteData,
   getFieldValue,
-} from '../layout';
+} from '.';
 import { HTMLLink } from '../models';
 import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
 
@@ -12,17 +12,16 @@ import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
  * Pattern for library ids
  * @example -library--foo
  */
-const FEAAS_LIBRARY_ID_REGEX = /-library--([^\s]+)/;
+const STYLES_LIBRARY_ID_REGEX = /-library--([^\s]+)/;
 
 /**
- * Walks through rendering tree and returns list of links of all FEAAS Component Library Stylesheets that are used
+ * Walks through rendering tree and returns list of links of all FEAAS, BYOC or SXA Component Library Stylesheets that are used
  * @param {LayoutServiceData} layoutData Layout service data
  * @param {string} sitecoreEdgeContextId Sitecore Edge Context ID
  * @param {string} [sitecoreEdgeUrl] Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io
  * @returns {HTMLLink[]} library stylesheet links
- * @deprecated use getComponentLibraryStylesheetLinks instead; getFEAASLibraryStylesheetLinks will be removed in v22.0
  */
-export function getFEAASLibraryStylesheetLinks(
+export function getComponentLibraryStylesheetLinks(
   layoutData: LayoutServiceData,
   sitecoreEdgeContextId: string,
   sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT
@@ -76,20 +75,22 @@ const traverseComponent = (
   if ('params' in component && component.params) {
     // LibraryID in css class name takes precedence over LibraryId attribute
     libraryId =
-      component.params.CSSStyles?.match(FEAAS_LIBRARY_ID_REGEX)?.[1] ||
+      component.params.CSSStyles?.match(STYLES_LIBRARY_ID_REGEX)?.[1] ||
+      component.params.Styles?.match(STYLES_LIBRARY_ID_REGEX)?.[1] ||
       component.params.LibraryId ||
       undefined;
   }
   // if params are empty we try to fall back to data source or attributes
   if (!libraryId && 'fields' in component && component.fields) {
     libraryId =
-      getFieldValue(component.fields, 'CSSStyles', '').match(FEAAS_LIBRARY_ID_REGEX)?.[1] ||
+      getFieldValue(component.fields, 'CSSStyles', '').match(STYLES_LIBRARY_ID_REGEX)?.[1] ||
+      getFieldValue(component.fields, 'Styles', '').match(STYLES_LIBRARY_ID_REGEX)?.[1] ||
       getFieldValue(component.fields, 'LibraryId', '') ||
       undefined;
   }
   // HTMLRendering its class attribute
   if (!libraryId && 'attributes' in component && typeof component.attributes.class === 'string') {
-    libraryId = component.attributes.class.match(FEAAS_LIBRARY_ID_REGEX)?.[1];
+    libraryId = component.attributes.class.match(STYLES_LIBRARY_ID_REGEX)?.[1];
   }
   if (libraryId) {
     ids.add(libraryId);

@@ -31,3 +31,5 @@ export {
 } from './rest-layout-service';
 
 export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './graphql-layout-service';
+
+export { getComponentLibraryStylesheetLinks } from './themes';

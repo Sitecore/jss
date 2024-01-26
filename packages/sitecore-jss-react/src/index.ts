@@ -11,6 +11,7 @@ export {
 } from '@sitecore-jss/sitecore-jss/utils';
 export {
   getContentStylesheetLink,
+  getComponentLibraryStylesheetLinks,
   LayoutService,
   LayoutServiceData,
   LayoutServicePageState,
