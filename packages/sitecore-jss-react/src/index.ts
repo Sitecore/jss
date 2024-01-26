@@ -11,6 +11,7 @@ export {
 } from '@sitecore-jss/sitecore-jss/utils';
 export {
   getContentStylesheetLink,
+  getComponentLibraryStylesheetLinks,
   LayoutService,
   LayoutServiceData,
   LayoutServicePageState,
@@ -45,7 +46,6 @@ export {
 } from '@sitecore-jss/sitecore-jss/i18n';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export { getFEAASLibraryStylesheetLinks } from '@sitecore-jss/sitecore-jss/feaas';
-export { getComponentLibraryStylesheetLinks } from '@sitecore-jss/sitecore-jss/layout';
 export { ComponentFactory } from './components/sharedTypes';
 export { Placeholder, PlaceholderComponentProps } from './components/Placeholder';
 export {
