@@ -1,5 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { EditingConfigMiddleware } from '@sitecore-jss/sitecore-jss-nextjs';
+import { EditingConfigMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
 import { components } from 'temp/componentBuilder';
 import metadata from 'temp/metadata.json';
 
