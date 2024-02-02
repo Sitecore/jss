@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { NextApiRequest, NextApiResponse } from 'next';
 import { spy } from 'sinon';
 import { expect } from 'chai';
