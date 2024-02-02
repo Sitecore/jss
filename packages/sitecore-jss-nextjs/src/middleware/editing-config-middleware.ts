@@ -40,9 +40,8 @@ export class EditingConfigMiddleware extends MiddlewareBase {
         secret,
         getJssEditingSecret()
       );
-      return res.status(401).json({
-        html: '<html><body>Missing or invalid editing secret</body></html>',
-      });
+
+      res.status(401).end('Missing or invalid editing secret');
     }
 
     const components = Array.isArray(this.config.components)
