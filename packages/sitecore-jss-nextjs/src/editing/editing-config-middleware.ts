@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest, NextApiResponse } from 'next';
 import { QUERY_PARAM_EDITING_SECRET } from './constants';
 import { getJssEditingSecret } from '../utils/utils';
 import { debug } from '@sitecore-jss/sitecore-jss';
@@ -19,7 +19,7 @@ export type EditingConfigMiddlewareConfig = {
 };
 
 export class EditingConfigMiddleware {
-  constructor(protected config: EditingConfigMiddlewareConfig) { }
+  constructor(protected config: EditingConfigMiddlewareConfig) {}
 
   /**
    * Gets the Next.js API route handler
@@ -40,7 +40,7 @@ export class EditingConfigMiddleware {
 
       res.status(401).end('Missing or invalid editing secret');
     }
-console.log(this.config.components);
+
     const components = Array.isArray(this.config.components)
       ? this.config.components
       : Array.from(this.config.components.keys());
