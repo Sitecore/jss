@@ -1,4 +1,4 @@
-import { EditingConfigMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
+import { EditingConfigMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';
 import { components } from 'temp/componentBuilder';
 import metadata from 'temp/metadata.json';
 

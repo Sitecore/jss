@@ -15,3 +15,7 @@ export {
   editingDataService,
 } from './editing-data-service';
 export { VercelEditingDataCache } from './vercel-editing-data-cache';
+export {
+  EditingConfigMiddleware,
+  EditingConfigMiddlewareConfig,
+} from './editing-config-middleware';

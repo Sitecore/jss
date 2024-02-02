@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
-import { QUERY_PARAM_EDITING_SECRET } from '../editing/constants';
+import { MiddlewareBase, MiddlewareBaseConfig } from '../middleware/middleware';
+import { QUERY_PARAM_EDITING_SECRET } from './constants';
 import { getJssEditingSecret } from '../utils/utils';
 import { debug } from '@sitecore-jss/sitecore-jss';
 
