@@ -18,7 +18,14 @@ export type EditingConfigMiddlewareConfig = {
   metadata: Metadata;
 };
 
+/**
+ * Middleware / handler used in the editing config API route in xmcloud add on (e.g. '/api/editing/config')
+ * provides configuration information to determine feature compatibility on Pages side.
+ */
 export class EditingConfigMiddleware {
+  /**
+   * @param {EditingConfigMiddlewareConfig} [config] Editing configuration middleware config
+   */
   constructor(protected config: EditingConfigMiddlewareConfig) {}
 
   /**
