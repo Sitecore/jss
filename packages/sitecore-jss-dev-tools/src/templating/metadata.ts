@@ -8,10 +8,7 @@ export function getPackagesMetadata() {
 
   dirs.forEach((dir) => {
     if (trackedScopes.includes(dir)) {
-      console.log('dir' + dir);
       const packageNames = fs.readdirSync(path.join('node_modules', dir));
-      console.log(packageNames);
-
       packageNames.forEach((pkg) => {
         try {
           const json = JSON.parse(
