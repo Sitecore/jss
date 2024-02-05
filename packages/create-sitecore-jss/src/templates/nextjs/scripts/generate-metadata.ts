@@ -1,5 +1,7 @@
 import fs from 'fs';
 import path from 'path';
+import { Metadata } from '@sitecore-jss/sitecore-jss-nextjs/editing';
+import { getPackagesMetadata } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /*
   METADATA GENERATION
@@ -8,33 +10,9 @@ import path from 'path';
 */
 generateMetadata();
 
-interface Metadata {
-  packages: { [key: string]: string };
-}
-
 function generateMetadata(): void {
   const metadata: Metadata = { packages: {} };
-  const trackedScopes = ['@sitecore', '@sitecore-cloudsdk', '@sitecore-feaas', '@sitecore-jss'];
-  const dirs = fs.readdirSync('node_modules');
-
-  dirs.forEach(dir => {
-    if (trackedScopes.includes(dir)) {
-      const packages = fs.readdirSync(path.join('node_modules', dir));
-
-      packages.forEach(pkg => {
-        try {
-          const json = JSON.parse(
-            fs.readFileSync(path.join('node_modules', dir, pkg, 'package.json'), 'utf8')
-          );
-
-          metadata.packages[json.name] = json.version;
-        } catch (e) {
-          console.error(`Failed to read/parse package.json for ${pkg}`, e);
-        }
-      });
-    }
-  });
-
+  metadata.packages = getPackagesMetadata();
   writeMetadata(metadata);
 }
 

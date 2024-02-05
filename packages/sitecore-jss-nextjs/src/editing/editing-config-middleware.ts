@@ -3,7 +3,7 @@ import { QUERY_PARAM_EDITING_SECRET } from './constants';
 import { getJssEditingSecret } from '../utils/utils';
 import { debug } from '@sitecore-jss/sitecore-jss';
 
-interface Metadata {
+export interface Metadata {
   packages: { [key: string]: string };
 }
 
