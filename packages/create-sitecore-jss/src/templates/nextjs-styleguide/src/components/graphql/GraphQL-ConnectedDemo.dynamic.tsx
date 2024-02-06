@@ -5,9 +5,9 @@ import {
   GetServerSideComponentProps,
   GetStaticComponentProps,
   constants,
-  GraphQLRequestClient,
   withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql';
 import {
   resetEditorChromes
 } from '@sitecore-jss/sitecore-jss-nextjs/utils';
