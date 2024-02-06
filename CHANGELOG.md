@@ -18,6 +18,7 @@ Our versioning strategy is as follows:
 * `[templates/react]` `[sitecore-jss-react]` Replace package 'deep-equal' with 'fast-deep-equal'. No functionality change only performance improvement ([#1719](https://github.com/Sitecore/jss/pull/1719)) ([#1665](https://github.com/Sitecore/jss/pull/1665))
 * `[templates/nextjs-xmcloud]` `[sitecore-jss]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` Add support for loading appropriate stylesheets whenever a theme is applied to BYOC and SXA components by introducing new function getComponentLibraryStylesheetLinks, which replaces getFEAASLibraryStylesheetLinks (which has been marked as deprecated) ([#1722](https://github.com/Sitecore/jss/pull/1722)) 
 * `[templates/nextjs-xmcloud]` `[sitecore-jss-nextjs]` Add protected endpoint which provides configuration information (the sitecore packages used by the app and all registered components) to be used to determine feature compatibility on Pages side. ([#1724](https://github.com/Sitecore/jss/pull/1724)) 
+* `[templates/nextjs]` `[templates/nextjs-styleguide]` Modify all GraphQLRequestClient import statements so that it gets imported from the /graphql submodule ([#1728](https://github.com/Sitecore/jss/pull/1728)) 
 
 ### 🐛 Bug Fixes
 
@@ -26,6 +27,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Fixed Image component when there is using Banner variant which set property background-image when image is empty. ([#1689](https://github.com/Sitecore/jss/pull/1689)) ([#1692](https://github.com/Sitecore/jss/pull/1692))
 * `[templates/nextjs-sxa]` Fix feature `show Grid column` in Experience Editor. ([#1704](https://github.com/Sitecore/jss/pull/1704))
 * `[sitecore-jss-nextjs] [templates/nextjs-xmcloud]` SDK initialization rejections are now correctly handled. Errors should no longer occur after getSDK() promises resolve when they shouldn't (for example, getting Events SDK in development environment) ([#1712](https://github.com/Sitecore/jss/pull/1712) [#1715](https://github.com/Sitecore/jss/pull/1715) [#1716](https://github.com/Sitecore/jss/pull/1716))
+* `[sitecore-jss-nextjs]` Remove custom loader function i.e. `sitecoreLoader` to enable NextImage to use built-in image optimization from vercel. ([#1726](https://github.com/Sitecore/jss/pull/1726))
 
 ### 🛠 Breaking Changes
 
