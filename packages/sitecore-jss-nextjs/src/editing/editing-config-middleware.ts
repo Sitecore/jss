@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { QUERY_PARAM_EDITING_SECRET } from './constants';
 import { getJssEditingSecret } from '../utils/utils';
 import { debug } from '@sitecore-jss/sitecore-jss';
-import { Metadata } from '@sitecore-jss/sitecore-jss-dev-tools'
+import { Metadata } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 export type EditingConfigMiddlewareConfig = {
   /**

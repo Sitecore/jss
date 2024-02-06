@@ -35,10 +35,10 @@ describe('metadata', () => {
         .returns('{"name": "@sitecore/components","version": "1.1.6"}');
 
       const expected: Metadata = {
-        packages : {
+        packages: {
           '@sitecore/byoc': '0.2.8',
           '@sitecore/components': '1.1.6',
-        }
+        },
       };
 
       const packagesMetadata = getMetadata();
@@ -61,10 +61,10 @@ describe('metadata', () => {
         .returns('{"name": "@sitecore-jss/sitecore-jss-nextjs","version": "21.7.0-canary.55"}');
 
       const expected: Metadata = {
-        packages:{
+        packages: {
           '@sitecore-jss/sitecore-jss-cli': '21.7.0-canary.55',
           '@sitecore-jss/sitecore-jss-nextjs': '21.7.0-canary.55',
-        }
+        },
       };
 
       const packagesMetadata = getMetadata();
@@ -82,9 +82,9 @@ describe('metadata', () => {
         .returns('{"name": "@sitecore-cloudsdk/core","version": "0.1.5"}');
 
       const expected: Metadata = {
-        packages:{
+        packages: {
           '@sitecore-cloudsdk/core': '0.1.5',
-        }
+        },
       };
 
       const packagesMetadata = getMetadata();
@@ -104,7 +104,7 @@ describe('metadata', () => {
       const expected: Metadata = {
         packages: {
           '@sitecore-feaas/clientside': '0.5.12',
-        }
+        },
       };
 
       const packagesMetadata = getMetadata();
@@ -116,7 +116,7 @@ describe('metadata', () => {
       readdirSync = sinon.stub(fs, 'readdirSync');
       readdirSync.withArgs('node_modules').returns([scope]);
 
-      const expected: Metadata = { packages: {}};
+      const expected: Metadata = { packages: {} };
 
       const packagesMetadata = getMetadata();
       expect(packagesMetadata).to.deep.equal(expected);

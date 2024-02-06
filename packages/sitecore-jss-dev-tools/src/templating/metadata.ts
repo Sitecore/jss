@@ -2,12 +2,15 @@ import fs from 'fs';
 import path from 'path';
 import { Metadata } from '@sitecore-jss/sitecore-jss/utils';
 
-export function getMetadata() : Metadata {
-  const metadata : Metadata = { packages: {} };
+/**
+ * Get application metadata
+ */
+export function getMetadata(): Metadata {
+  const metadata: Metadata = { packages: {} };
   const trackedScopes = ['@sitecore', '@sitecore-cloudsdk', '@sitecore-feaas', '@sitecore-jss'];
   const dirs = fs.readdirSync('node_modules');
 
-  dirs.forEach((dir : any) => {
+  dirs.forEach((dir: any) => {
     if (trackedScopes.includes(dir)) {
       const packageNames = fs.readdirSync(path.join('node_modules', dir));
       packageNames.forEach((pkg: any) => {

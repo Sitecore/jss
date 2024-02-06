@@ -12,7 +12,7 @@ type ExtendedWindow = Window &
     };
   };
 
-  /**
+/**
  * Application metadata
  */
 export interface Metadata {

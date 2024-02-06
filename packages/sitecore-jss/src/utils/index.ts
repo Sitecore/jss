@@ -7,7 +7,7 @@ export {
   isEditorActive,
   resetEditorChromes,
   handleEditorAnchors,
-  Metadata
+  Metadata,
 } from './editing';
 export {
   DefaultEditFrameButton,
