@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { Metadata } from '@sitecore-jss/sitecore-jss-nextjs/editing';
-import { getPackagesMetadata } from '@sitecore-jss/sitecore-jss-dev-tools';
+import { Metadata, getMetadata } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /*
   METADATA GENERATION
@@ -11,8 +10,7 @@ import { getPackagesMetadata } from '@sitecore-jss/sitecore-jss-dev-tools';
 generateMetadata();
 
 function generateMetadata(): void {
-  const metadata: Metadata = { packages: {} };
-  metadata.packages = getPackagesMetadata();
+  const metadata: Metadata = getMetadata();
   writeMetadata(metadata);
 }
 

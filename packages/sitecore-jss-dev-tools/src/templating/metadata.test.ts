@@ -3,15 +3,16 @@
 import { expect } from 'chai';
 import fs from 'fs';
 import path from 'path';
-import { getPackagesMetadata } from './metadata';
+import { getMetadata } from './metadata';
 import sinon, { SinonStub } from 'sinon';
+import { Metadata } from '@sitecore-jss/sitecore-jss/utils';
 
 describe('metadata', () => {
   afterEach(() => {
     sinon.restore();
   });
 
-  describe('getPackagesMetadata', () => {
+  describe('getMetadata', () => {
     let readdirSync: SinonStub;
     let readFileSync: SinonStub;
 
@@ -33,12 +34,14 @@ describe('metadata', () => {
         .withArgs(path.join('node_modules', '@sitecore', 'components', 'package.json'))
         .returns('{"name": "@sitecore/components","version": "1.1.6"}');
 
-      const expected: { [key: string]: string } = {
-        '@sitecore/byoc': '0.2.8',
-        '@sitecore/components': '1.1.6',
+      const expected: Metadata = {
+        packages : {
+          '@sitecore/byoc': '0.2.8',
+          '@sitecore/components': '1.1.6',
+        }
       };
 
-      const packagesMetadata = getPackagesMetadata();
+      const packagesMetadata = getMetadata();
       expect(packagesMetadata).to.deep.equal(expected);
     });
 
@@ -57,12 +60,14 @@ describe('metadata', () => {
         .withArgs(path.join('node_modules', '@sitecore-jss', 'sitecore-jss-nextjs', 'package.json'))
         .returns('{"name": "@sitecore-jss/sitecore-jss-nextjs","version": "21.7.0-canary.55"}');
 
-      const expected: { [key: string]: string } = {
-        '@sitecore-jss/sitecore-jss-cli': '21.7.0-canary.55',
-        '@sitecore-jss/sitecore-jss-nextjs': '21.7.0-canary.55',
+      const expected: Metadata = {
+        packages:{
+          '@sitecore-jss/sitecore-jss-cli': '21.7.0-canary.55',
+          '@sitecore-jss/sitecore-jss-nextjs': '21.7.0-canary.55',
+        }
       };
 
-      const packagesMetadata = getPackagesMetadata();
+      const packagesMetadata = getMetadata();
       expect(packagesMetadata).to.deep.equal(expected);
     });
 
@@ -76,11 +81,13 @@ describe('metadata', () => {
         .withArgs(path.join('node_modules', '@sitecore-cloudsdk', 'core', 'package.json'))
         .returns('{"name": "@sitecore-cloudsdk/core","version": "0.1.5"}');
 
-      const expected: { [key: string]: string } = {
-        '@sitecore-cloudsdk/core': '0.1.5',
+      const expected: Metadata = {
+        packages:{
+          '@sitecore-cloudsdk/core': '0.1.5',
+        }
       };
 
-      const packagesMetadata = getPackagesMetadata();
+      const packagesMetadata = getMetadata();
       expect(packagesMetadata).to.deep.equal(expected);
     });
 
@@ -94,11 +101,13 @@ describe('metadata', () => {
         .withArgs(path.join('node_modules', '@sitecore-feaas', 'clientside', 'package.json'))
         .returns('{"name": "@sitecore-feaas/clientside","version": "0.5.12"}');
 
-      const expected: { [key: string]: string } = {
-        '@sitecore-feaas/clientside': '0.5.12',
+      const expected: Metadata = {
+        packages: {
+          '@sitecore-feaas/clientside': '0.5.12',
+        }
       };
 
-      const packagesMetadata = getPackagesMetadata();
+      const packagesMetadata = getMetadata();
       expect(packagesMetadata).to.deep.equal(expected);
     });
 
@@ -107,9 +116,9 @@ describe('metadata', () => {
       readdirSync = sinon.stub(fs, 'readdirSync');
       readdirSync.withArgs('node_modules').returns([scope]);
 
-      const expected: { [key: string]: string } = {};
+      const expected: Metadata = { packages: {}};
 
-      const packagesMetadata = getPackagesMetadata();
+      const packagesMetadata = getMetadata();
       expect(packagesMetadata).to.deep.equal(expected);
     });
 
@@ -123,7 +132,7 @@ describe('metadata', () => {
         .withArgs(path.join('node_modules', '@sitecore-feaas', 'clientside', 'package.json'))
         .returns(null);
 
-      expect(() => getPackagesMetadata()).to.throw;
+      expect(() => getMetadata()).to.throw;
     });
 
     it('should throw if json not valid', () => {
@@ -136,7 +145,7 @@ describe('metadata', () => {
         .withArgs(path.join('node_modules', '@sitecore-feaas', 'clientside', 'package.json'))
         .returns('{"name": "@sitecore-feaas/clientside","version": "0.5.12"');
 
-      expect(() => getPackagesMetadata()).to.throw;
+      expect(() => getMetadata()).to.throw;
     });
   });
 });

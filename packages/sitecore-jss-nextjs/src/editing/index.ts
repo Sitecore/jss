@@ -18,5 +18,4 @@ export { VercelEditingDataCache } from './vercel-editing-data-cache';
 export {
   EditingConfigMiddleware,
   EditingConfigMiddlewareConfig,
-  Metadata,
 } from './editing-config-middleware';

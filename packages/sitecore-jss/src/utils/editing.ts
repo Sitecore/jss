@@ -12,6 +12,13 @@ type ExtendedWindow = Window &
     };
   };
 
+  /**
+ * Application metadata
+ */
+export interface Metadata {
+  packages: { [key: string]: string };
+}
+
 /**
  * Static utility class for Sitecore Experience Editor
  */
