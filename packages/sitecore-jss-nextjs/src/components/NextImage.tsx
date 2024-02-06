@@ -10,18 +10,10 @@ import {
 } from '@sitecore-jss/sitecore-jss-react';
 import Image, {
   ImageLoader,
-  ImageLoaderProps,
   ImageProps as NextImageProperties,
 } from 'next/image';
 
 type NextImageProps = Omit<ImageProps, 'media'> & Partial<NextImageProperties>;
-
-export const sitecoreLoader: ImageLoader = ({ src, width }: ImageLoaderProps): string => {
-  const [root, paramString] = src.split('?');
-  const params = new URLSearchParams(paramString);
-  params.set('mw', width.toString());
-  return `${root}?${params}`;
-};
 
 export const NextImage: React.FC<NextImageProps> = ({
   editable,
@@ -92,7 +84,7 @@ export const NextImage: React.FC<NextImageProps> = ({
     delete imageProps.height;
   }
 
-  const loader = (otherProps.loader ? otherProps.loader : sitecoreLoader) as ImageLoader;
+  const loader = (otherProps.loader ? otherProps.loader : undefined ) as ImageLoader;
 
   if (attrs) {
     return <Image alt="" loader={loader} {...imageProps} />;
