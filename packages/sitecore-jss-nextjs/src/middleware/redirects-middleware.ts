@@ -12,7 +12,7 @@ import {
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
 
-const REGEXP_CONTEXT_SITE_LANG = new RegExp(/\$siteLang/, 'gi');
+const REGEXP_CONTEXT_SITE_LANG = new RegExp(/\$siteLang/, 'i');
 const REGEXP_ABSOLUTE_URL = new RegExp('^(?:[a-z]+:)?//', 'i');
 
 /**
@@ -101,7 +101,10 @@ export class RedirectsMiddleware extends MiddlewareBase {
       // Find context site language and replace token
       if (
         REGEXP_CONTEXT_SITE_LANG.test(existsRedirect.target) &&
-        !REGEXP_ABSOLUTE_URL.test(existsRedirect.target)
+        !(
+          REGEXP_ABSOLUTE_URL.test(existsRedirect.target) &&
+          existsRedirect.target.includes(hostname)
+        )
       ) {
         existsRedirect.target = existsRedirect.target.replace(
           REGEXP_CONTEXT_SITE_LANG,
