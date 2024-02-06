@@ -8,10 +8,7 @@ import {
   ImageField,
   ImageFieldValue,
 } from '@sitecore-jss/sitecore-jss-react';
-import Image, {
-  ImageLoader,
-  ImageProps as NextImageProperties,
-} from 'next/image';
+import Image, { ImageProps as NextImageProperties } from 'next/image';
 
 type NextImageProps = Omit<ImageProps, 'media'> & Partial<NextImageProperties>;
 
@@ -84,10 +81,8 @@ export const NextImage: React.FC<NextImageProps> = ({
     delete imageProps.height;
   }
 
-  const loader = (otherProps.loader ? otherProps.loader : undefined ) as ImageLoader;
-
   if (attrs) {
-    return <Image alt="" loader={loader} {...imageProps} />;
+    return <Image alt="" {...imageProps} />;
   }
 
   return null; // we can't handle the truth
