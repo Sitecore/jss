@@ -143,7 +143,9 @@ export class GraphQLRequestClient implements GraphQLClient {
           this.abortTimeout?.clear();
           this.debug('response error: %o', error.response || error.message || error);
           if (error.response?.status === 429 && retriesLeft > 0) {
-            const rawHeaders = (error as ClientError)?.response?.headers as {[key: string]: string};
+            const rawHeaders = (error as ClientError)?.response?.headers as {
+              [key: string]: string;
+            };
             const delaySeconds =
               rawHeaders && rawHeaders['Retry-After']
                 ? Number.parseInt(rawHeaders['Retry-After'], 10)
