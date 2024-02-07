@@ -24,6 +24,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       feaasSrc: context.query.feaasSrc || null,
     },
+    // Don't show the page if it's not requested by the api route using the preview mode
+    notFound: !context.preview,
   };
 };
 
