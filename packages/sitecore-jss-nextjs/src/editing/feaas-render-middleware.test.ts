@@ -35,9 +35,6 @@ const mockResponse = () => {
   res.send = spy(() => {
     return res;
   });
-  res.end = spy(() => {
-    return res;
-  });
   res.setPreviewData = spy(() => {
     return res;
   });
