@@ -1,6 +1,5 @@
 /* eslint-disable dot-notation */
-import chai, { use } from 'chai';
-import sinonChai from 'sinon-chai';
+import chai from 'chai';
 import chaiString from 'chai-string';
 import { RenderMiddlewareBase } from './render-middleware';
 import {
@@ -9,7 +8,6 @@ import {
   QUERY_PARAM_PROTECTION_BYPASS_VERCEL,
 } from './constants';
 
-use(sinonChai);
 const expect = chai.use(chaiString).expect;
 
 type Query = {
