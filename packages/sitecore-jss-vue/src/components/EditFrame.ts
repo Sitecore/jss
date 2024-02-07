@@ -3,7 +3,7 @@ import {
   EditFrameDataSource,
   ChromeCommand,
   EditButtonTypes,
-  mapButtonToCommand
+  mapButtonToCommand,
 } from '../edit-frame';
 import { RouteData } from '@sitecore-jss/sitecore-jss/layout';
 
