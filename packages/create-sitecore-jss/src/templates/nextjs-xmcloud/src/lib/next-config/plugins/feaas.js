@@ -3,6 +3,19 @@
  */
 const feaasPlugin = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
+    // Enable FEAAS Nextjs Image integration
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: '**',
+        },
+        {
+          protocol: 'http',
+          hostname: '**',
+        },
+      ],
+    },
     webpack: (config, options) => {
       if (options.isServer) {
         // Force use of CommonJS on the server for FEAAS SDK since JSS also uses CommonJS entrypoint to FEAAS SDK.
