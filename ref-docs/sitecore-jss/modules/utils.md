@@ -9,6 +9,10 @@
 - [ExperienceEditor](../classes/utils.ExperienceEditor.md)
 - [HorizonEditor](../classes/utils.HorizonEditor.md)
 
+### Interfaces
+
+- [Metadata](../interfaces/utils.Metadata.md)
+
 ### Type Aliases
 
 - [ChromeCommand](utils.md#chromecommand)
@@ -54,7 +58,7 @@
 
 #### Defined in
 
-[src/utils/edit-frame.ts:2](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/edit-frame.ts#L2)
+[src/utils/edit-frame.ts:2](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/edit-frame.ts#L2)
 
 ___
 
@@ -64,7 +68,7 @@ ___
 
 #### Defined in
 
-[src/utils/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/edit-frame.ts#L73)
+[src/utils/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/edit-frame.ts#L73)
 
 ___
 
@@ -82,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/utils/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/edit-frame.ts#L49)
+[src/utils/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/edit-frame.ts#L49)
 
 ___
 
@@ -92,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/utils/edit-frame.ts:62](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/edit-frame.ts#L62)
+[src/utils/edit-frame.ts:62](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/edit-frame.ts#L62)
 
 ___
 
@@ -102,7 +106,7 @@ ___
 
 #### Defined in
 
-[src/utils/edit-frame.ts:66](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/edit-frame.ts#L66)
+[src/utils/edit-frame.ts:66](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/edit-frame.ts#L66)
 
 ## Variables
 
@@ -132,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/utils/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/edit-frame.ts#L15)
+[src/utils/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/edit-frame.ts#L15)
 
 ___
 
@@ -148,7 +152,7 @@ ___
 
 #### Defined in
 
-[src/utils/edit-frame.ts:11](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/edit-frame.ts#L11)
+[src/utils/edit-frame.ts:11](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/edit-frame.ts#L11)
 
 ___
 
@@ -158,7 +162,7 @@ ___
 
 #### Defined in
 
-[src/utils/edit-frame.ts:36](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/edit-frame.ts#L36)
+[src/utils/edit-frame.ts:36](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/edit-frame.ts#L36)
 
 ## Functions
 
@@ -185,7 +189,7 @@ Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/Mutation
 
 #### Defined in
 
-[src/utils/editing.ts:102](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/editing.ts#L102)
+[src/utils/editing.ts:109](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/editing.ts#L109)
 
 ___
 
@@ -205,7 +209,7 @@ ___
 
 #### Defined in
 
-[src/utils/utils.ts:52](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/utils.ts#L52)
+[src/utils/utils.ts:52](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/utils.ts#L52)
 
 ___
 
@@ -224,7 +228,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-[src/utils/editing.ts:78](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/editing.ts#L78)
+[src/utils/editing.ts:85](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/editing.ts#L85)
 
 ___
 
@@ -242,7 +246,7 @@ true if executing server-side
 
 #### Defined in
 
-[src/utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/is-server.ts#L5)
+[src/utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/is-server.ts#L5)
 
 ___
 
@@ -266,7 +270,7 @@ is timeout error
 
 #### Defined in
 
-[src/utils/utils.ts:69](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/utils.ts#L69)
+[src/utils/utils.ts:69](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/utils.ts#L69)
 
 ___
 
@@ -290,7 +294,7 @@ Map the edit button types to chrome data
 
 #### Defined in
 
-[src/utils/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/edit-frame.ts#L81)
+[src/utils/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/edit-frame.ts#L81)
 
 ___
 
@@ -306,7 +310,7 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-[src/utils/editing.ts:85](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/editing.ts#L85)
+[src/utils/editing.ts:92](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/editing.ts#L92)
 
 ___
 
@@ -336,7 +340,7 @@ if the provided url is an empty string
 
 #### Defined in
 
-[src/utils/utils.ts:27](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/utils.ts#L27)
+[src/utils/utils.ts:27](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/utils.ts#L27)
 
 ___
 
@@ -367,4 +371,4 @@ parsed value
 
 #### Defined in
 
-[src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss/src/utils/env.ts#L7)
+[src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss/src/utils/env.ts#L7)

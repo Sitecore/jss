@@ -196,7 +196,7 @@ sitecore-jss/types/utils/edit-frame.d.ts:57
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L65)
+[sitecore-jss-angular/src/components/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L65)
 
 ___
 
@@ -366,7 +366,7 @@ Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/Mutation
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:50
+sitecore-jss/types/utils/editing.d.ts:58
 
 ___
 
@@ -385,7 +385,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:36
+sitecore-jss/types/utils/editing.d.ts:44
 
 ___
 
@@ -405,7 +405,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/6f1d5dec7/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
@@ -439,4 +439,4 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:40
+sitecore-jss/types/utils/editing.d.ts:48

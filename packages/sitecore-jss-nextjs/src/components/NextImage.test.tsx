@@ -3,7 +3,7 @@ import chai, { use } from 'chai';
 import chaiString from 'chai-string';
 import { mount } from 'enzyme';
 import React from 'react';
-import { NextImage, sitecoreLoader } from './NextImage';
+import { NextImage } from './NextImage';
 import { ImageField } from '@sitecore-jss/sitecore-jss-react';
 import { ImageLoader } from 'next/image';
 import { spy, match } from 'sinon';
@@ -12,50 +12,6 @@ import { SinonSpy } from 'sinon';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
-describe('sitecoreLoader', () => {
-  [
-    {
-      description: 'relative URL',
-      root: '/assets/img/test0.png',
-    },
-    {
-      description: 'absolute URL',
-      root: 'https://cm.jss.localhost/assets/img/test0.png',
-    },
-  ].forEach((value) => {
-    describe(value.description, () => {
-      it('should append mw query string param', () => {
-        const params: Partial<ImageLoaderProps> = {
-          src: value.root,
-          width: 100,
-        };
-        const result = sitecoreLoader(params as ImageLoaderProps);
-        expect(result).to.be.a('string');
-        expect(result).to.equal(`${value.root}?mw=100`);
-      });
-
-      it('should override existing mw query string param', () => {
-        const params: Partial<ImageLoaderProps> = {
-          src: `${value.root}?mw=400`,
-          width: 100,
-        };
-        const result = sitecoreLoader(params as ImageLoaderProps);
-        expect(result).to.be.a('string');
-        expect(result).to.equal(`${value.root}?mw=100`);
-      });
-
-      it('should preserve existing query string params', () => {
-        const params: Partial<ImageLoaderProps> = {
-          src: `${value.root}?mw=400&mh=100&q=50`,
-          width: 100,
-        };
-        const result = sitecoreLoader(params as ImageLoaderProps);
-        expect(result).to.be.a('string');
-        expect(result).to.equal(`${value.root}?mw=100&mh=100&q=50`);
-      });
-    });
-  });
-});
 
 describe('<NextImage />', () => {
   const HOSTNAME = 'https://cm.jss.localhost';
