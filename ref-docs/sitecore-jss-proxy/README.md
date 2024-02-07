@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[index.ts:580](https://github.com/Sitecore/jss/blob/a9a4cb30d/packages/sitecore-jss-proxy/src/index.ts#L580)
+[index.ts:580](https://github.com/Sitecore/jss/blob/4a0370723/packages/sitecore-jss-proxy/src/index.ts#L580)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[index.ts:24](https://github.com/Sitecore/jss/blob/a9a4cb30d/packages/sitecore-jss-proxy/src/index.ts#L24)
+[index.ts:24](https://github.com/Sitecore/jss/blob/4a0370723/packages/sitecore-jss-proxy/src/index.ts#L24)
 
 ___
 
@@ -78,4 +78,4 @@ ___
 
 #### Defined in
 
-[index.ts:350](https://github.com/Sitecore/jss/blob/a9a4cb30d/packages/sitecore-jss-proxy/src/index.ts#L350)
+[index.ts:350](https://github.com/Sitecore/jss/blob/4a0370723/packages/sitecore-jss-proxy/src/index.ts#L350)

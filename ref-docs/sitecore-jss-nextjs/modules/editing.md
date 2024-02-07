@@ -7,6 +7,7 @@
 ### Classes
 
 - [BasicEditingDataService](../classes/editing.BasicEditingDataService.md)
+- [EditingConfigMiddleware](../classes/editing.EditingConfigMiddleware.md)
 - [EditingDataDiskCache](../classes/editing.EditingDataDiskCache.md)
 - [EditingDataMiddleware](../classes/editing.EditingDataMiddleware.md)
 - [EditingRenderMiddleware](../classes/editing.EditingRenderMiddleware.md)
@@ -25,6 +26,7 @@
 
 ### Type Aliases
 
+- [EditingConfigMiddlewareConfig](editing.md#editingconfigmiddlewareconfig)
 - [EditingData](editing.md#editingdata)
 
 ### Variables
@@ -32,6 +34,23 @@
 - [editingDataService](editing.md#editingdataservice)
 
 ## Type Aliases
+
+### EditingConfigMiddlewareConfig
+
+Ƭ **EditingConfigMiddlewareConfig**: `Object`
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `components` | `string`[] \| `Map`\<`string`, `unknown`\> | Components available in the application |
+| `metadata` | `Metadata` | Application metadata |
+
+#### Defined in
+
+[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:7](https://github.com/Sitecore/jss/blob/4a0370723/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L7)
+
+___
 
 ### EditingData
 
@@ -50,7 +69,7 @@ Data sent from Sitecore editors
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/a9a4cb30d/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
+[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/4a0370723/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
 
 ## Variables
 
@@ -66,4 +85,4 @@ https://vercel.com/docs/environment-variables#system-environment-variables
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:222](https://github.com/Sitecore/jss/blob/a9a4cb30d/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L222)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:222](https://github.com/Sitecore/jss/blob/4a0370723/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L222)

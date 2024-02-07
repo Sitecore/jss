@@ -19,7 +19,7 @@ Identifies the format of the module to be compiled
 
 #### Defined in
 
-[templating/plugins.ts:9](https://github.com/Sitecore/jss/blob/a9a4cb30d/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L9)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:9](https://github.com/Sitecore/jss/blob/4a0370723/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L9)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[templating/plugins.ts:10](https://github.com/Sitecore/jss/blob/a9a4cb30d/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L10)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:10](https://github.com/Sitecore/jss/blob/4a0370723/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L10)
