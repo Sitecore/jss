@@ -2,7 +2,6 @@
   "name": "nuxt-app",
   "private": true,
   "scripts": {
-    "lint": "eslint --fix ./**/*.vue ./**/*.ts ./scripts/**/*.ts",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
