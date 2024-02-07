@@ -11,6 +11,7 @@ export interface FEAASRenderMiddlewareConfig {
   /**
    * Defines FEAAS page route to render.
    * This may be necessary for certain custom Next.js routing configurations.
+   * @default /feaas/render
    */
   pageUrl?: string;
 }
