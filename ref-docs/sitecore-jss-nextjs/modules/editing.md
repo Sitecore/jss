@@ -48,7 +48,7 @@
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:7](https://github.com/Sitecore/jss/blob/4a0370723/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L7)
+[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:7](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L7)
 
 ___
 
@@ -69,7 +69,7 @@ Data sent from Sitecore editors
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/4a0370723/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
+[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
 
 ## Variables
 
@@ -85,4 +85,4 @@ https://vercel.com/docs/environment-variables#system-environment-variables
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:222](https://github.com/Sitecore/jss/blob/4a0370723/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L222)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:222](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L222)
