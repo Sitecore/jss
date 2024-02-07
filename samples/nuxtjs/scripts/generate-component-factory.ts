@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import chokidar from 'chokidar'; 
+import chokidar from 'chokidar';
 
 /*
   COMPONENT FACTORY GENERATION
@@ -39,6 +39,9 @@ if (isWatch) {
   writeComponentFactory();
 }
 
+/**
+ *
+ */
 function watchComponentFactory() {
   console.log(`Watching for changes to component factory sources in ${componentRootPath}...`);
 
@@ -48,6 +51,9 @@ function watchComponentFactory() {
     .on('unlink', writeComponentFactory);
 }
 
+/**
+ *
+ */
 function writeComponentFactory() {
   const componentFactory = generateComponentFactory();
 
@@ -56,6 +62,9 @@ function writeComponentFactory() {
   fs.writeFileSync(componentFactoryPath, componentFactory, { encoding: 'utf8' });
 }
 
+/**
+ *
+ */
 function generateComponentFactory() {
   // by convention, we expect to find Vue components
   // * under /src/components
@@ -131,6 +140,7 @@ export default function componentFactory(componentName) {
  *
  * The output would be:
  * ['component0.vue', 'subfolder/component1.vue']
+ * @param folderPath
  */
 function extractVueFiles(folderPath: string) {
   let results: string[] = [];

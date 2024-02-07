@@ -38,7 +38,7 @@
     -->
     <sc-placeholder
       :rendering="rendering"
-      name="Nuxtjs-jss-reuse-example"
+      name="VueApp-jss-reuse-example"
     >
       <template v-slot="{ components, isEmpty }">
         <div class="row">

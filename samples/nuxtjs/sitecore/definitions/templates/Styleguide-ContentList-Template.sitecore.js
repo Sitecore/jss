@@ -7,7 +7,7 @@ import { CommonFieldTypes, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools
  */
 export default function (manifest) {
   manifest.addTemplate({
-    name: 'Nuxtjs-Styleguide-ContentList-Item-Template',
+    name: 'Vue-Styleguide-ContentList-Item-Template',
     fields: [{ name: 'textField', type: CommonFieldTypes.SingleLineText }],
   });
 }

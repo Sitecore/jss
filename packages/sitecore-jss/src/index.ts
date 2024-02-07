@@ -16,3 +16,8 @@ export { AxiosResponse } from 'axios';
 export { NativeDataFetcher, NativeDataFetcherConfig } from './native-fetcher';
 export { HTMLLink } from './models';
 export { constants };
+export { RestLayoutService, GraphQLLayoutService, getChildPlaceholder, getFieldValue } from './layout'
+export { RestDictionaryService, GraphQLDictionaryService } from './i18n';
+import { Cache, CacheClass } from 'memory-cache';
+export { Cache, CacheClass };
+export { trackingApi } from './tracking';

@@ -6,7 +6,7 @@ import {
   Item,
   RouteData,
 } from '@sitecore-jss/sitecore-jss/layout';
-import { resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
+import { resetEditorChromes } from '../utils/editing';
 import { Component, h, VNode, DefineComponent, ref, onMounted } from 'vue';
 import { MissingComponent } from './MissingComponent';
 import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';

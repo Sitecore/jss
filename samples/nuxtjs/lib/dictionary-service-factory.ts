@@ -1,12 +1,12 @@
-import { RestDictionaryService } from '@sitecore-jss/sitecore-jss-vue';
+import { GraphQLDictionaryService } from './services/graphql-dictionary-service';
 import config from '../temp/config';
 
 export class DictionaryServiceFactory {
   create() {
-    return new RestDictionaryService({
-      apiHost: config.sitecoreApiHost,
+    return new GraphQLDictionaryService({
+      endpoint: config.sitecoreApiHost,
       apiKey: config.sitecoreApiKey,
-      siteName: config.jssAppName,
+      siteName: config.sitecoreSiteName,
     });
   }
 }

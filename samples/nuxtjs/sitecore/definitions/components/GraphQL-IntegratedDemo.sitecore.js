@@ -15,7 +15,7 @@ const query = fs.readFileSync(
 export default function (manifest) {
   manifest.addComponent({
     name: 'GraphQL-IntegratedDemo',
-    templateName: 'Nuxtjs-GraphQL-IntegratedDemo',
+    templateName: 'Vue-GraphQL-IntegratedDemo',
     icon: SitecoreIcon.GraphConnection_directed,
     graphQLQuery: query,
     fields: [

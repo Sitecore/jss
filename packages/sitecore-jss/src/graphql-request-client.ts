@@ -1,5 +1,4 @@
 import { GraphQLClient as Client, ClientError } from 'graphql-request';
-import parse from 'url-parse';
 import { DocumentNode } from 'graphql';
 import debuggers, { Debugger } from './debug';
 import TimeoutPromise from './utils/timeout-promise';
@@ -79,7 +78,7 @@ export class GraphQLRequestClient implements GraphQLClient {
       this.headers.sc_apikey = clientConfig.apiKey;
     }
 
-    if (!endpoint || !parse(endpoint).hostname) {
+    if (!endpoint || !new URL(endpoint).hostname) {
       throw new Error(
         `Invalid GraphQL endpoint '${endpoint}'. Verify that 'layoutServiceHost' property in 'scjssconfig.json' file or appropriate environment variable is set`
       );
@@ -135,19 +134,19 @@ export class GraphQLRequestClient implements GraphQLClient {
         fetchWithOptionalTimeout.push(this.abortTimeout.start);
       }
       return Promise.race(fetchWithOptionalTimeout).then(
-        (data: T) => {
+        (data: unknown) => {
           this.abortTimeout?.clear();
           this.debug('response in %dms: %o', Date.now() - startTimestamp, data);
-          return Promise.resolve(data);
+          return Promise.resolve(data as T);
         },
         (error: ClientError) => {
           this.abortTimeout?.clear();
           this.debug('response error: %o', error.response || error.message || error);
           if (error.response?.status === 429 && retriesLeft > 0) {
-            const rawHeaders = (error as ClientError)?.response?.headers;
+            const rawHeaders = (error as ClientError)?.response?.headers as {[key: string]: string};
             const delaySeconds =
-              rawHeaders && rawHeaders.get('Retry-After')
-                ? Number.parseInt(rawHeaders.get('Retry-After'), 10)
+              rawHeaders && rawHeaders['Retry-After']
+                ? Number.parseInt(rawHeaders['Retry-After'], 10)
                 : 1;
             this.debug(
               'Error: Rate limit reached for GraphQL endpoint. Retrying in %ds. Retries left: %d',

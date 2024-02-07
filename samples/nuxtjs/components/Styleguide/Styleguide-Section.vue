@@ -7,7 +7,7 @@
   <div class="pt-3" :id="`i${rendering.uid.replace(/[{}]/g, '')}`">
     <sc-text class="border-bottom" :field="fields.heading" tag="h3" />
     <sc-placeholder
-      name="Nuxtjs-jss-styleguide-section"
+      name="VueApp-jss-styleguide-section"
       :rendering="rendering"
     />
   </div>

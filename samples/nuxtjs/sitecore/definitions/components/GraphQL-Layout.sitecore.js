@@ -9,8 +9,8 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 export default function (manifest) {
   manifest.addComponent({
     name: 'GraphQL-Layout',
-    templateName: 'Nuxtjs-GraphQL-Layout',
+    templateName: 'Vue-GraphQL-Layout',
     icon: SitecoreIcon.Layout,
-    placeholders: ['Nuxtjs-jss-graphql-layout'],
+    placeholders: ['Vue-jss-graphql-layout'],
   });
 }

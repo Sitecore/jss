@@ -2,31 +2,44 @@
   "compilerOptions": {
     "module": "commonjs",
     "baseUrl": ".",
-    "paths": {
-      "components/*": ["src/components/*"],
-      "lib/*": ["src/lib/*"],
-      "temp/*": ["src/temp/*"],
-      "assets/*": ["src/assets/*"]
-    },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "strictFunctionTypes": false,
-    "forceConsistentCasingInFileNames": true,
-    "downlevelIteration": true,
-    "noEmit": true,
-    "esModuleInterop": true,
+    // Enable node-style module resolution, for things like npm package imports
     "moduleResolution": "node",
+    // Enable JSON imports
     "resolveJsonModule": true,
+    // Enable stricter transpilation for better output
     "isolatedModules": true,
+    // Astro directly run TypeScript code, no transpilation needed
+    "noEmit": true,
+    // Report an error when importing a file using a casing different from the casing on disk
+    "forceConsistentCasingInFileNames": true,
+    // Properly support importing CJS modules in ESM
+    "esModuleInterop": true,
+    // Skip typechecking libraries and .d.ts files
+    "skipLibCheck": true,
+    // Enable strict mode
+    "strict": true,
+    // TypeScript 5.0 changed how `isolatedModules` and `importsNotUsedAsValues` works, deprecating the later
+    // Until the majority of users are on TypeScript 5.0, we'll have to supress those deprecation errors
+    "ignoreDeprecations": "5.0",
+    "allowJs": true,
+    "strictFunctionTypes": true,
+    "downlevelIteration": true,
     "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
     "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "ts-node": {
+		"require": [
+			"tsconfig-paths/register"
+		]
+	},
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

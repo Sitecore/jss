@@ -7,20 +7,22 @@
   telling the dev server to proxy requests to the API paths to this express instance.
 */
 
+// these environment variables are necessary for Vue to allow us
+// to process transpiled ES6 that Node can run
+
 import fs from 'fs';
 import path from 'path';
 import { createDefaultDisconnectedServer } from '@sitecore-jss/sitecore-jss-dev-tools';
-import pkg from '../package.json';
+import config from '../temp/config';
 
-const touchToReloadFilePath = 'src/temp/config.js';
+const touchToReloadFilePath = 'temp/config.js';
 
 const proxyOptions = {
   appRoot: path.join(__dirname, '..'),
-  appName: pkg.config.appName,
+  appName: config.sitecoreSiteName,
   watchPaths: ['./data'],
-  language: pkg.config.language,
-  port: Number(process.env.PROXY_PORT) || 3042,
-  compilers: ['@babel/register'],
+  language: config.defaultLanguage,
+  port: (process.env.PROXY_PORT && parseInt(process.env.PROXY_PORT)) || 3042,
   onManifestUpdated: () => {
     // if we can resolve the config file, we can alter it to force reloading the app automatically
     // instead of waiting for a manual reload. We must materially alter the _contents_ of the file to trigger

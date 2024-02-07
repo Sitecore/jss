@@ -9,11 +9,11 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-Layout-Reuse',
-    templateName: 'Nuxtjs-Styleguide-Layout-Reuse',
+    templateName: 'Vue-Styleguide-Layout-Reuse',
     icon: SitecoreIcon.DocumentsExchange,
-    placeholders: ['Nuxtjs-jss-reuse-example'],
+    placeholders: ['Vue-jss-reuse-example'],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['Nuxtjs-styleguide-explanatory-component-template'],
+    inherits: ['Vue-styleguide-explanatory-component-template'],
   });
 }

@@ -15,15 +15,6 @@
         IMPORTANT: imageParams must be whitelisted for resizing to occur. See /sitecore/config/*.config (search for 'allowedMediaParams')
       any other attributes: pass through to img tag
     -->
-    <p>Advanced image (not editable)</p>
-    <sc-image
-      :media="fields.sample2"
-      :editable="false"
-      :imageParams="{ mw: 100, mh: 50 }"
-      height="50"
-      width="94"
-      data-sample="other-attributes-pass-through"
-    />
 
     <!--
       Srcset adaptive image usage example
@@ -33,12 +24,6 @@
       IMPORTANT: srcSet params must be whitelisted for adaptive resizing to occur. See /sitecore/config/*.config (search for 'allowedMediaParams')
     -->
     <p>Srcset responsive image</p>
-    <sc-image
-      :media="fields.sample2"
-      :srcSet="[{ mw: 300 }, { mw: 100 }]"
-      sizes="(min-width: 960px) 300px, 100px"
-      class="img-fluid"
-    />
   </styleguide-specimen>
 </template>
 

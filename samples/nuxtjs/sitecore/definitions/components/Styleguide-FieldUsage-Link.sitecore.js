@@ -9,7 +9,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-FieldUsage-Link',
-    templateName: 'Nuxtjs-Styleguide-FieldUsage-Link',
+    templateName: 'Vue-Styleguide-FieldUsage-Link',
     icon: SitecoreIcon.Link,
     fields: [
       { name: 'externalLink', type: CommonFieldTypes.GeneralLink },
@@ -19,6 +19,6 @@ export default function (manifest) {
     ],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['Nuxtjs-styleguide-explanatory-component-template'],
+    inherits: ['Vue-styleguide-explanatory-component-template'],
   });
 }

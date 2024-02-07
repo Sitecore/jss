@@ -25,9 +25,9 @@
       >
         {{ $t('Documentation') }}
       </a>
-      <a href="/styleguide" class="p-2 text-dark">
+      <NuxtLink to="/styleguide" class="p-2 text-dark">
         {{ $t('Styleguide') }}
-      </a>
+      </NuxtLink>
       <a href="/graphql" class="p-2 text-dark">
         {{ $t('GraphQL') }}
       </a>

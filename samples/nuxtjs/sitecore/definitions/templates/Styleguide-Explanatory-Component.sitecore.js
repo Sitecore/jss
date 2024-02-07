@@ -10,8 +10,8 @@ import { CommonFieldTypes, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools
  */
 export default function (manifest) {
   manifest.addTemplate({
-    name: 'Nuxtjs-Styleguide-Explanatory-Component',
-    id: 'Nuxtjs-styleguide-explanatory-component-template',
+    name: 'Vue-Styleguide-Explanatory-Component',
+    id: 'Vue-styleguide-explanatory-component-template',
     fields: [
       { name: 'heading', type: CommonFieldTypes.SingleLineText },
       { name: 'description', type: CommonFieldTypes.RichText },

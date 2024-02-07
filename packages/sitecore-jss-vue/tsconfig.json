@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
+    "module": "ES2020",
     "strictNullChecks": false,
     "outDir": "dist/cjs",
     "typeRoots": ["node_modules/@types"],

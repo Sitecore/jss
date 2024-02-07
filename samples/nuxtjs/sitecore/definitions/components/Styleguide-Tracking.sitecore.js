@@ -9,10 +9,10 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-Tracking',
-    templateName: 'Nuxtjs-Styleguide-Tracking',
+    templateName: 'Vue-Styleguide-Tracking',
     icon: SitecoreIcon.Compass,
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['Nuxtjs-styleguide-explanatory-component-template'],
+    inherits: ['Vue-styleguide-explanatory-component-template'],
   });
 }

@@ -13,19 +13,20 @@ export {
   //   LayoutService,
   //   LayoutServiceData,
   //   LayoutServiceContextData,
-  //   GraphQLLayoutService,
+  GraphQLLayoutService,
   RestLayoutService,
   //   RouteData,
   //   Field,
   //   HtmlElementRendering,
   getChildPlaceholder,
   getFieldValue, //   ComponentRendering, //   ComponentFields, //   ComponentParams,
-} from '@sitecore-jss/sitecore-jss/layout';
+} from '@sitecore-jss/sitecore-jss';
 export {
   //   DictionaryService,
-  //   GraphQLDictionaryService,
+  GraphQLDictionaryService,
   RestDictionaryService,
-} from '@sitecore-jss/sitecore-jss/i18n';
+} from '@sitecore-jss/sitecore-jss';
+export { trackingApi } from '@sitecore-jss/sitecore-jss';
 // export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export { EditFrame } from './components/EditFrame';
 export { Placeholder } from './components/Placeholder';

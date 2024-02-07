@@ -22,7 +22,7 @@ export default function addRoutesToManifest(manifest) {
   const appTemplateSection = 'Page Metadata';
 
   manifest.setDefaultRouteType({
-    name: 'Nuxtjs-App Route',
+    name: 'Vue-App Route',
     fields: [
       {
         name: 'pageTitle',
@@ -31,7 +31,7 @@ export default function addRoutesToManifest(manifest) {
         type: CommonFieldTypes.SingleLineText,
       },
     ],
-    insertOptions: ['Nuxtjs-App Route'],
+    insertOptions: ['Vue-App Route'],
   });
 
   return mergeFs('./data/routes') // relative to process invocation (i.e. your package.json)

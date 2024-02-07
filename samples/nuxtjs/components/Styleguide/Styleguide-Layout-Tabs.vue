@@ -22,16 +22,15 @@
           :class="`nav-link ${index === activeTabIndex ? 'active' : ''}`"
           v-on:click="activeTabIndex = index"
         >
-          <sc-text :field="tab.$props.fields.title" />
         </button>
       </li>
     </ul>
+    <!-- This part breaks rendering in Experience Editor for some reason -->
+    <!--
     <div className="p-3 border-left border-right border-bottom">
-      <!--
-        We only want to render the _active_ tab when we're not editing.
-      -->
       <component :is="activeTab" />
     </div>
+    -->
   </StyleguideSpecimen>
 </template>
 
@@ -65,7 +64,7 @@ export default {
     return {
       placeholders: [
         {
-          placeholder: 'Nuxtjs-jss-tabs',
+          placeholder: 'VueApp-jss-tabs',
           computedPropName: 'tabsPlaceholder',
         },
       ],
@@ -73,7 +72,6 @@ export default {
   },
   computed: {
     activeTab() {
-      console.log('test, test')
       const tab =
         this.$options.computed.tabsPlaceholder &&
         this.$options.computed.tabsPlaceholder[this.activeTabIndex];

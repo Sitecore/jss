@@ -9,9 +9,9 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-Section',
-    templateName: 'Nuxtjs-Styleguide-Section',
+    templateName: 'Vue-Styleguide-Section',
     icon: SitecoreIcon.DocumentTag,
     fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
-    placeholders: ['Nuxtjs-jss-styleguide-section'],
+    placeholders: ['Vue-jss-styleguide-section'],
   });
 }

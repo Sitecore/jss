@@ -9,11 +9,11 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-Layout-Tabs',
-    templateName: 'Nuxtjs-Styleguide-Layout-Tabs',
+    templateName: 'Vue-Styleguide-Layout-Tabs',
     icon: SitecoreIcon.DocumentTag,
-    placeholders: ['Nuxtjs-jss-tabs'],
+    placeholders: ['Vue-jss-tabs'],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['Nuxtjs-styleguide-explanatory-component-template'],
+    inherits: ['Vue-styleguide-explanatory-component-template'],
   });
 }
