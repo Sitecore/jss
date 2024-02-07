@@ -1,24 +1,15 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
-import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
+import { debug } from '@sitecore-jss/sitecore-jss';
 import { EDITING_COMPONENT_ID, RenderingType } from '@sitecore-jss/sitecore-jss/layout';
 import { parse } from 'node-html-parser';
 import { EditingData } from './editing-data';
 import { EditingDataService, editingDataService } from './editing-data-service';
-import {
-  QUERY_PARAM_EDITING_SECRET,
-  QUERY_PARAM_PROTECTION_BYPASS_SITECORE,
-  QUERY_PARAM_PROTECTION_BYPASS_VERCEL,
-} from './constants';
+import { QUERY_PARAM_EDITING_SECRET } from './constants';
 import { getJssEditingSecret } from '../utils/utils';
+import { RenderMiddlewareBase, RenderMiddlewareBaseConfig } from './render-middleware';
 
-export interface EditingRenderMiddlewareConfig {
-  /**
-   * The `AxiosDataFetcher` instance to use for API requests.
-   * @default new AxiosDataFetcher()
-   * @see AxiosDataFetcher
-   */
-  dataFetcher?: AxiosDataFetcher;
+export type EditingRenderMiddlewareConfig = RenderMiddlewareBaseConfig & {
   /**
    * The `EditingDataService` instance to use.
    * This would typically only be necessary if you've got a custom `EditingDataService` instance (e.g. using a custom API route).
@@ -38,34 +29,23 @@ export interface EditingRenderMiddlewareConfig {
    * @see resolveServerUrl
    */
   resolvePageUrl?: (serverUrl: string, itemPath: string) => string;
-  /**
-   * Function used to determine the root server URL. This is used for the route/page and subsequent data API requests.
-   * By default, the host header is used, with https protocol on Vercel (due to serverless function architecture) and http protocol elsewhere.
-   * @param {NextApiRequest} req The current request.
-   * @default `${process.env.VERCEL ? 'https' : 'http'}://${req.headers.host}`;
-   * @see resolvePageUrl
-   */
-  resolveServerUrl?: (req: NextApiRequest) => string;
-}
+};
 
 /**
  * Middleware / handler for use in the editing render Next.js API route (e.g. '/api/editing/render')
  * which is required for Sitecore editing support.
  */
-export class EditingRenderMiddleware {
+export class EditingRenderMiddleware extends RenderMiddlewareBase {
   private editingDataService: EditingDataService;
-  private dataFetcher: AxiosDataFetcher;
   private resolvePageUrl: (serverUrl: string, itemPath: string) => string;
-  private resolveServerUrl: (req: NextApiRequest) => string;
 
   /**
    * @param {EditingRenderMiddlewareConfig} [config] Editing render middleware config
    */
   constructor(config?: EditingRenderMiddlewareConfig) {
+    super(config);
     this.editingDataService = config?.editingDataService ?? editingDataService;
-    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.editing });
     this.resolvePageUrl = config?.resolvePageUrl ?? this.defaultResolvePageUrl;
-    this.resolveServerUrl = config?.resolveServerUrl ?? this.defaultResolveServerUrl;
   }
 
   /**
@@ -75,28 +55,6 @@ export class EditingRenderMiddleware {
   public getHandler(): (req: NextApiRequest, res: NextApiResponse) => Promise<void> {
     return this.handler;
   }
-
-  /**
-   * Gets query parameters that should be passed along to subsequent requests
-   * @param {Object} query Object of query parameters from incoming URL
-   * @returns Object of approved query parameters
-   */
-  protected getQueryParamsForPropagation = (
-    query: Partial<{ [key: string]: string | string[] }>
-  ): { [key: string]: string } => {
-    const params: { [key: string]: string } = {};
-    if (query[QUERY_PARAM_PROTECTION_BYPASS_SITECORE]) {
-      params[QUERY_PARAM_PROTECTION_BYPASS_SITECORE] = query[
-        QUERY_PARAM_PROTECTION_BYPASS_SITECORE
-      ] as string;
-    }
-    if (query[QUERY_PARAM_PROTECTION_BYPASS_VERCEL]) {
-      params[QUERY_PARAM_PROTECTION_BYPASS_VERCEL] = query[
-        QUERY_PARAM_PROTECTION_BYPASS_VERCEL
-      ] as string;
-    }
-    return params;
-  };
 
   private handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
     const { method, query, body, headers } = req;
@@ -239,20 +197,6 @@ export class EditingRenderMiddleware {
    */
   private defaultResolvePageUrl = (serverUrl: string, itemPath: string) => {
     return `${serverUrl}${itemPath}`;
-  };
-
-  /**
-   * Default server URL resolution.
-   * Note we use https protocol on Vercel due to serverless function architecture.
-   * In all other scenarios, including localhost (with or without a proxy e.g. ngrok)
-   * and within a nodejs container, http protocol should be used.
-   *
-   * For information about the VERCEL environment variable, see
-   * https://vercel.com/docs/environment-variables#system-environment-variables
-   * @param {NextApiRequest} req
-   */
-  private defaultResolveServerUrl = (req: NextApiRequest) => {
-    return `${process.env.VERCEL ? 'https' : 'http'}://${req.headers.host}`;
   };
 }
 
