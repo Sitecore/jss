@@ -2,37 +2,34 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { QUERY_PARAM_EDITING_SECRET } from './constants';
 import { getJssEditingSecret } from '../utils/utils';
-import { RenderMiddlewareBase, RenderMiddlewareBaseConfig } from './render-middleware';
+import { RenderMiddlewareBase } from './render-middleware';
 
 /**
  * Configuration for `FEAASRenderMiddleware`.
  */
-export type FEAASRenderMiddlewareConfig = RenderMiddlewareBaseConfig & {
+export interface FEAASRenderMiddlewareConfig {
   /**
-   * Function used to determine FEAAS page URL to render.
+   * Defines FEAAS page route to render.
    * This may be necessary for certain custom Next.js routing configurations.
-   * @param {string} serverUrl The root server URL e.g. 'http://localhost:3000'
-   * @returns {string} The URL to render
-   * @default `${serverUrl}/feaas/render`
-   * @see resolveServerUrl
    */
-  resolvePageUrl?: (serverUrl: string) => string;
-};
+  pageUrl?: string;
+}
 
 /**
  * Middleware / handler for use in the feaas render Next.js API route (e.g. '/api/editing/feaas/render')
  * which is required for Sitecore editing support.
  */
 export class FEAASRenderMiddleware extends RenderMiddlewareBase {
-  private resolvePageUrl: (serverUrl: string) => string;
+  private pageUrl: string;
+  private defaultPageUrl = '/feaas/render';
 
   /**
    * @param {EditingRenderMiddlewareConfig} [config] Editing render middleware config
    */
   constructor(protected config?: FEAASRenderMiddlewareConfig) {
-    super(config);
+    super();
 
-    this.resolvePageUrl = config?.resolvePageUrl ?? this.defaultResolvePageUrl;
+    this.pageUrl = config?.pageUrl ?? this.defaultPageUrl;
   }
 
   /**
@@ -44,7 +41,7 @@ export class FEAASRenderMiddleware extends RenderMiddlewareBase {
   }
 
   private handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
-    const { method, query, body, headers } = req;
+    const { method, query, headers } = req;
 
     const startTimestamp = Date.now();
 
@@ -52,15 +49,12 @@ export class FEAASRenderMiddleware extends RenderMiddlewareBase {
       method,
       query,
       headers,
-      body,
     });
 
     if (method !== 'GET') {
       debug.editing('invalid method - sent %s expected GET', method);
       res.setHeader('Allow', 'GET');
-      return res.status(405).json({
-        html: `<html><body>Invalid request method '${method}'</body></html>`,
-      });
+      return res.status(405).send(`<html><body>Invalid request method '${method}'</body></html>`);
     }
 
     // Validate secret
@@ -71,82 +65,46 @@ export class FEAASRenderMiddleware extends RenderMiddlewareBase {
         secret,
         getJssEditingSecret()
       );
-      return res.status(401).json({
-        html: '<html><body>Missing or invalid secret</body></html>',
-      });
+      return res.status(401).send('<html><body>Missing or invalid secret</body></html>');
     }
 
     try {
-      // Resolve server URL
-      const serverUrl = this.resolveServerUrl(req);
-
       // Get query string parameters to propagate on subsequent requests (e.g. for deployment protection bypass)
       const params = this.getQueryParamsForPropagation(query);
 
       // Enable Next.js Preview Mode
       res.setPreviewData({});
 
-      // Grab the Next.js preview cookies to send on to the render request
-      const cookies = res.getHeader('Set-Cookie') as string[];
-
-      // Make actual render request for page route, passing on preview cookies as well as any approved query string parameters.
-      // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
-      const requestUrl = new URL(this.resolvePageUrl(serverUrl));
+      const queryParams = new URLSearchParams();
 
       for (const key in params) {
         if ({}.hasOwnProperty.call(params, key)) {
-          requestUrl.searchParams.append(key, params[key]);
+          queryParams.append(key, params[key]);
         }
       }
 
       // Pass "feaasSrc" in case a FEAASComponent is being requested
       if (query.feaasSrc) {
-        requestUrl.searchParams.append('feaasSrc', query.feaasSrc as string);
+        queryParams.append('feaasSrc', query.feaasSrc as string);
       }
 
-      requestUrl.searchParams.append('timestamp', Date.now().toString());
+      const redirectUrl =
+        this.pageUrl + (queryParams.toString() ? `?${queryParams.toString()}` : '');
 
-      debug.editing('fetching page route for %s', requestUrl.toString());
+      debug.editing('redirecting to page route %s', redirectUrl);
 
-      const pageRes = await this.dataFetcher.get<string>(requestUrl.toString(), {
-        headers: {
-          Cookie: cookies.join(';'),
-        },
-      });
+      debug.editing('feaas render middleware end in %dms', Date.now() - startTimestamp);
 
-      const html = pageRes.data;
-
-      if (!html || html.length === 0) {
-        throw new Error('Failed to render html');
-      }
-
-      // Return expected JSON result
-      debug.editing('feaas render middleware end in %dms: %o', Date.now() - startTimestamp, {
-        status: 200,
-        html,
-      });
-      res.status(200).send(html);
+      res.redirect(redirectUrl);
     } catch (err) {
       const error = err as Record<string, unknown>;
 
-      if (error.response || error.request) {
-        // Axios error, which could mean the server or page URL isn't quite right, so provide a more helpful hint
-        console.info(
-          // eslint-disable-next-line quotes
-          "Hint: for non-standard server or Next.js route configurations, you may need to override the 'resolveServerUrl' or 'resolvePageUrl' available on the 'FEAASRenderMiddleware' config."
-        );
-      }
-      res.status(500).json({
-        html: `<html><body>${error}</body></html>`,
-      });
-    }
-  };
+      console.info(
+        // eslint-disable-next-line quotes
+        "Hint: for non-standard server or Next.js route configurations, you may need to override the 'pageUrl' available on the 'FEAASRenderMiddleware' config."
+      );
 
-  /**
-   * Default FEAAS page URL resolution.
-   * @param {string} serverUrl The root server URL e.g. 'http://localhost:3000'
-   */
-  private defaultResolvePageUrl = (serverUrl: string) => {
-    return `${serverUrl}/feaas/render`;
+      res.status(500).send(`<html><body>${error}</body></html>`);
+    }
   };
 }

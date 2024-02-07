@@ -3,9 +3,10 @@
  */
 const feaasPlugin = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
-    // Enable FEAAS Nextjs Image integration
+    // Enable FEAAS Nextjs Image integration by enabling the remotePatterns option.
     images: {
       remotePatterns: [
+        ...(nextConfig.images?.remotePatterns || []),
         {
           protocol: 'https',
           hostname: '**',
