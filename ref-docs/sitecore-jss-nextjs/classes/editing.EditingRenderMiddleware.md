@@ -7,6 +7,12 @@
 Middleware / handler for use in the editing render Next.js API route (e.g. '/api/editing/render')
 which is required for Sitecore editing support.
 
+## Hierarchy
+
+- `RenderMiddlewareBase`
+
+  ↳ **`EditingRenderMiddleware`**
+
 ## Table of contents
 
 ### Constructors
@@ -40,9 +46,13 @@ which is required for Sitecore editing support.
 | :------ | :------ | :------ |
 | `config?` | [`EditingRenderMiddlewareConfig`](../interfaces/editing.EditingRenderMiddlewareConfig.md) | Editing render middleware config |
 
+#### Overrides
+
+RenderMiddlewareBase.constructor
+
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:64](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L64)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:61](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L61)
 
 ## Properties
 
@@ -52,7 +62,7 @@ which is required for Sitecore editing support.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:57](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L57)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:54](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L54)
 
 ___
 
@@ -62,7 +72,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:56](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L56)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:53](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L53)
 
 ___
 
@@ -87,7 +97,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:58](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L58)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:55](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L55)
 
 ___
 
@@ -111,7 +121,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:59](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L59)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:56](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L56)
 
 ## Methods
 
@@ -134,7 +144,7 @@ Default page URL resolution.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:240](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L240)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:217](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L217)
 
 ___
 
@@ -162,7 +172,7 @@ https://vercel.com/docs/environment-variables#system-environment-variables
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:254](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L254)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:231](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L231)
 
 ___
 
@@ -197,7 +207,7 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:75](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L75)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:74](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L74)
 
 ___
 
@@ -205,7 +215,7 @@ ___
 
 ▸ `Protected` **getQueryParamsForPropagation**(`query`): `Object`
 
-Gets query parameters that should be passed along to subsequent requests
+Gets query parameters that should be passed along to subsequent requests (e.g. for deployment protection bypass)
 
 #### Parameters
 
@@ -219,9 +229,13 @@ Gets query parameters that should be passed along to subsequent requests
 
 Object of approved query parameters
 
+#### Inherited from
+
+RenderMiddlewareBase.getQueryParamsForPropagation
+
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:84](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L84)
+[sitecore-jss-nextjs/src/editing/render-middleware.ts:15](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L15)
 
 ___
 
@@ -242,4 +256,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:101](https://github.com/Sitecore/jss/blob/02ab31700/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L101)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:78](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L78)
