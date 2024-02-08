@@ -30,6 +30,7 @@ const props = defineProps({
       return 'da-DK';
     return null;
   }
+
   // We handle Sitecore routes in here
   // Because JSS app routes are defined in Sitecore, traditional static routing isn't enough -
   // we need to load dynamic route data from Sitecore when the client side route changes.
@@ -47,12 +48,14 @@ const props = defineProps({
     };
   };
   // TODO: move all this route resoultion logic into page props factory
-  const updateRouteData = async() => {
-    
     console.log('updateRouteData');
     let sitecoreRoutePath = route.params.slug ? route.params.slug.join('/') : '/';
     if (!sitecoreRoutePath.startsWith('/')) {
       sitecoreRoutePath = `/${sitecoreRoutePath}`;
+    }
+    // rudimentary site prefix rewrite
+    if (sitecoreRoutePath.startsWith('/site_vue-app')) {
+      sitecoreRoutePath = sitecoreRoutePath.replace('/site_vue-app','/');
     }
 
     const lang = extractLanguage(sitecoreRoutePath) || languageState?.value || ssrInitialState.value?.sitecoreContext?.language;
@@ -82,10 +85,6 @@ const props = defineProps({
         sitecoreRouteData = { routePath: sitecoreRoutePath, ...getSitecoreData(routeData) };
       }  
     };
-    return sitecoreRouteData;
-  };
-  
-  await updateRouteData();
   // for whatever reason ssrInitialState.value returns undefined at rendering stage
   // so we use sitecoreRouteData
   //console.log(sitecoreRouteData);

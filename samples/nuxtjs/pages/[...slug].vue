@@ -4,6 +4,7 @@
     <div class="container">
       <Layout :route="route" />    
     </div>
+    <!--We could use <NuxtLayout here, but client routing stops working if we do-->
   </div>
 </template>
 
