@@ -150,7 +150,7 @@ export class GraphQLRequestClient implements GraphQLClient {
               config.retries
             );
             config.retries--;
-            await new Promise((resolve) => setTimeout(resolve, delaySeconds * 1000));
+            await new Promise((resolve) => setTimeout(resolve, delaySeconds));
             return retryer();
           } else {
             return Promise.reject(error);
