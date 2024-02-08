@@ -1,0 +1,18 @@
+import { sitemapFetcher } from "lib/sitemap-fetcher";
+
+export default defineNuxtPlugin({
+    name: 'site-paths',
+    hooks: {
+      async 'nitro:config'(nitroConfig) {
+        // only activate when running npm run generate
+        if (nitroConfig.dev && !process.argv?.includes('generate')) { return }
+        // fetch the routes from fetcher - or statically
+        //const slugs = await sitemapFetcher('vue-app');
+        const slugs = ['/','/styleguide'];
+        nitroConfig.prerender.routes = [];
+        // add the routes to the nitro config a-la getStaticPaths
+        nitroConfig.prerender.routes.push(...slugs);
+      },
+    },
+  })
+  
