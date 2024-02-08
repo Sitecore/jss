@@ -18,10 +18,11 @@ Our versioning strategy is as follows:
 * `[templates/react]` `[sitecore-jss-react]` Replace package 'deep-equal' with 'fast-deep-equal'. No functionality change only performance improvement ([#1719](https://github.com/Sitecore/jss/pull/1719)) ([#1665](https://github.com/Sitecore/jss/pull/1665))
 * `[templates/nextjs-xmcloud]` `[sitecore-jss]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` Add support for loading appropriate stylesheets whenever a theme is applied to BYOC and SXA components by introducing new function getComponentLibraryStylesheetLinks, which replaces getFEAASLibraryStylesheetLinks (which has been marked as deprecated) ([#1722](https://github.com/Sitecore/jss/pull/1722)) 
 * `[templates/nextjs-xmcloud]` `[sitecore-jss-nextjs]` Add protected endpoint which provides configuration information (the sitecore packages used by the app and all registered components) to be used to determine feature compatibility on Pages side. ([#1724](https://github.com/Sitecore/jss/pull/1724)) 
-* `[templates/nextjs]` `[templates/nextjs-styleguide]` Modify all GraphQLRequestClient import statements so that it gets imported from the /graphql submodule ([#1728](https://github.com/Sitecore/jss/pull/1728)) 
+* `[sitecore-jss-nextjs]` `[templates/nextjs]` [BYOC] Component Builder integration endpoint ([#1729](https://github.com/Sitecore/jss/pull/1729))
 
 ### 🐛 Bug Fixes
 
+* `[templates/nextjs]` `[templates/nextjs-styleguide]` Modify all GraphQLRequestClient import statements so that it gets imported from the /graphql submodule ([#1728](https://github.com/Sitecore/jss/pull/1728))
 * `[sitecore-jss-nextjs]` Internal link in RichText is broken when nested tags are added ([#1718](https://github.com/Sitecore/jss/pull/1718))
 * `[templates/node-headless-ssr-proxy]` `[node-headless-ssr-proxy]` Add sc_site qs parameter to Layout Service requests by default ([#1660](https://github.com/Sitecore/jss/pull/1660))
 * `[templates/nextjs-sxa]` Fixed Image component when there is using Banner variant which set property background-image when image is empty. ([#1689](https://github.com/Sitecore/jss/pull/1689)) ([#1692](https://github.com/Sitecore/jss/pull/1692))

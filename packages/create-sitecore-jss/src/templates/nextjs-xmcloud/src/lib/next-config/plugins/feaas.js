@@ -3,6 +3,15 @@
  */
 const feaasPlugin = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
+    async rewrites() {
+      return [
+        ...await nextConfig.rewrites(),
+        {
+          source: '/feaas-render',
+          destination: '/api/editing/feaas/render',
+        },
+      ];
+    },
     webpack: (config, options) => {
       if (options.isServer) {
         // Force use of CommonJS on the server for FEAAS SDK since JSS also uses CommonJS entrypoint to FEAAS SDK.
