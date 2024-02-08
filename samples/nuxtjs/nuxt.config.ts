@@ -1,8 +1,8 @@
 import tsconfigPaths from 'vite-tsconfig-paths';
 import graphqlLoader from 'vite-plugin-graphql-loader';
-import { sitemapFetcher } from 'lib/sitemap-fetcher/index';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  target: 'static',
   app: {
     cdnURL: 'http://localhost:3000',
   },
@@ -37,7 +37,7 @@ export default defineNuxtConfig({
       // enabled by default with nuxt generate, not required
       crawlLinks: false,
       // add any routes to prerender
-      routes: ['/en']
+      routes: ['/', '/styleguide']
     }
   },
   vite: {
