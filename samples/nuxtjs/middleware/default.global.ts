@@ -32,12 +32,9 @@ export default defineNuxtRouteMiddleware( async (to, from) => {
     const resolvedSite = sitesList.find(elem => elem.hostName === host || elem.hostName === '*' || elem.hostName === '')?.name;
     console.log(resolvedSite);
     console.log(to);
+    const querySite = to.query['sc_site'];
     const site = useState('site');
-    site.value = 'othersite';
-    if (to.path.startsWith('/site_vue-app')) {
-      console.log('vue-app get');
-      site.value = 'vue-app';
-    } 
+    site.value = querySite || resolvedSite;
     // multisite end
 
 
