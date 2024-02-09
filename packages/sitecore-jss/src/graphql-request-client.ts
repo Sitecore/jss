@@ -57,7 +57,7 @@ export type GraphQLRequestClientConfig = {
    */
   timeout?: number;
   /**
-   * Number of retries for client. Number of retries for client. Will use the specified `retryStrategy`.
+   * Number of retries for client. Will use the specified `retryStrategy`.
    */
   retries?: number;
   /**
