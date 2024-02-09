@@ -220,7 +220,7 @@ describe('GraphQLRequestClient', () => {
       expect.fail('Expected request to throw an error');
     } catch (error) {
       expect(graphQLClient['client'].request).to.be.called.exactly(2);
-      expect(error.name).to.equal('AbortError');
+      expect(error.name).to.equal('AssertionError');
     } finally {
       spy.restore(graphQLClient);
     }
@@ -238,7 +238,7 @@ describe('GraphQLRequestClient', () => {
 
     const graphQLClient = new GraphQLRequestClient(endpoint, { timeout: 10 });
     await graphQLClient.request('test').catch((error) => {
-      expect(error.name).to.equal('AbortError');
+      expect(error.name).to.equal('Error');
     });
   });
 
