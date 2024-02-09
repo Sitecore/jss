@@ -56,6 +56,7 @@ export {
   ComponentFields,
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss/layout';
+export { RetryStrategy, DefaultRetryStrategy } from '@sitecore-jss/sitecore-jss/graphql';
 export { constants, HttpDataFetcher, HttpResponse, enableDebug } from '@sitecore-jss/sitecore-jss';
 export {
   isServer,

@@ -1,5 +1,7 @@
 export { getAppRootId, AppRootQueryResult } from './app-root-query';
 export {
+  RetryStrategy,
+  DefaultRetryStrategy,
   GraphQLClient,
   GraphQLRequestClient,
   GraphQLRequestClientConfig,

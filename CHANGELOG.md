@@ -15,6 +15,7 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-angular]` Missing ngModuleRef in lazy loaded components ([#1743](https://github.com/Sitecore/jss/pull/1743))
 * `[sitecore-jss-react]` Fix the pattern of detecting dynamic placeholder when user tried to add a new dynamic placeholder with double digit. ([#1745](https://github.com/Sitecore/jss/pull/1745))
+* `[sitecore-jss]` Retry policy to handle transient network errors. Users can pass `retryStrategy` to configure custom retry config to the services. They can customize the error codes and the number of retries. It consist of two functions shouldRetry and getDelay. ([#1731](https://github.com/Sitecore/jss/pull/1731))  ([#1733](https://github.com/Sitecore/jss/pull/1733))
 
 ## 21.6.2
 
@@ -601,6 +602,12 @@ Our versioning strategy is as follows:
   * `[sitecore-jss-nextjs]` All editing-related types have moved to a dedicated `editing` submodule. Imports must be updated to use this submodule. e.g.
     * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
     * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
+
+## 20.3.0
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss]` Retry policy to handle transient network errors. Users can pass `retryStrategy` to configure custom retry config to the services. They can customize the error codes and the number of retries. It consist of two functions shouldRetry and getDelay. ([#1731](https://github.com/Sitecore/jss/pull/1731))
 
 ## 20.2.2
 
