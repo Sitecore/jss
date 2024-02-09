@@ -86,7 +86,12 @@ export class DefaultRetryStrategy implements RetryStrategy {
   }
 
   shouldRetry(error: ClientError, attempt: number, retries: number): boolean {
-    return retries > 0 && attempt <= retries && this.statusCodes.includes(error.response.status);
+    return (
+      retries > 0 &&
+      attempt <= retries &&
+      error.response?.status !== undefined &&
+      this.statusCodes.includes(error.response.status)
+    );
   }
 
   getDelay(error: ClientError, attempt: number): number {
@@ -180,12 +185,7 @@ export class GraphQLRequestClient implements GraphQLClient {
 
           if (shouldRetry) {
             const delayMs = this.retryStrategy.getDelay(error, attempt);
-            this.debug(
-              'Error: %d. Rate limit reached for GraphQL endpoint. Retrying in %dms (attempt %d).',
-              status,
-              delayMs,
-              attempt
-            );
+            this.debug('Error: %d. Retrying in %dms (attempt %d).', status, delayMs, attempt);
 
             attempt++;
             return new Promise((resolve) => setTimeout(resolve, delayMs)).then(retryer);

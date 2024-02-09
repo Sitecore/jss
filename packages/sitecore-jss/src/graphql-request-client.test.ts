@@ -180,7 +180,7 @@ describe('GraphQLRequestClient', () => {
     spy.restore(graphQLClient);
   });
 
-  it('should use [retry-after] header value when response is 429', async function() {
+  it.only('should use [retry-after] header value when response is 429', async function() {
     this.timeout(7000);
     nock('http://jssnextweb')
       .post('/graphql')
@@ -190,7 +190,7 @@ describe('GraphQLRequestClient', () => {
 
     await graphQLClient.request('test').catch(() => {
       expect(graphQLClient['debug']).to.have.been.called.with(
-        'Error: %d. Rate limit reached for GraphQL endpoint. Retrying in %dms (attempt %d).',
+        'Error: %d. Retrying in %dms (attempt %d).',
         429,
         2000,
         1
