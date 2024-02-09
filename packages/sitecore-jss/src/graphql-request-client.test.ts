@@ -156,28 +156,28 @@ describe('GraphQLRequestClient', () => {
     });
   });
 
-  // it('should use retry and resolve if one of the requests resolves', async function() {
-  //   this.timeout(8000);
-  //   nock('http://jssnextweb')
-  //     .post('/graphql')
-  //     .reply(429)
-  //     .post('/graphql')
-  //     .reply(429)
-  //     .post('/graphql')
-  //     .reply(200, {
-  //       data: {
-  //         result: 'Hello world...',
-  //       },
-  //     });
-  //   const graphQLClient = new GraphQLRequestClient(endpoint, { retries: 2 });
-  //   spy.on(graphQLClient['client'], 'request');
+  it('should use retry and resolve if one of the requests resolves', async function() {
+    this.timeout(8000);
+    nock('http://jssnextweb')
+      .post('/graphql')
+      .reply(429)
+      .post('/graphql')
+      .reply(429)
+      .post('/graphql')
+      .reply(200, {
+        data: {
+          result: 'Hello world...',
+        },
+      });
+    const graphQLClient = new GraphQLRequestClient(endpoint, { retries: 2 });
+    spy.on(graphQLClient['client'], 'request');
 
-  //   const data = await graphQLClient.request('test');
+    const data = await graphQLClient.request('test');
 
-  //   expect(data).to.not.be.null;
-  //   expect(graphQLClient['client'].request).to.be.called.exactly(3);
-  //   spy.restore(graphQLClient);
-  // });
+    expect(data).to.not.be.null;
+    expect(graphQLClient['client'].request).to.be.called.exactly(3);
+    spy.restore(graphQLClient);
+  });
 
   // it.only('should use [retry-after] header value when response is 429', async function() {
   //   this.timeout(6000);
@@ -199,6 +199,7 @@ describe('GraphQLRequestClient', () => {
   // });
 
   // it.only('should throw error when request is aborted with default timeout value after retry', async () => {
+  //   this.timeout(5000);
   //   nock('http://jssnextweb')
   //     .post('/graphql')
   //     .reply(429)
@@ -212,11 +213,16 @@ describe('GraphQLRequestClient', () => {
 
   //   const graphQLClient = new GraphQLRequestClient(endpoint, { retries: 2 });
   //   spy.on(graphQLClient['client'], 'request');
-  //   await graphQLClient.request('test').catch((error) => {
+  //   try {
+  //     await graphQLClient.request('test');
+  //     // If the request does not throw an error, fail the test
+  //     expect.fail('Expected request to throw an error');
+  //   } catch (error) {
   //     expect(graphQLClient['client'].request).to.be.called.exactly(3);
   //     expect(error.name).to.equal('AbortError');
+  //   } finally {
   //     spy.restore(graphQLClient);
-  //   });
+  //   }
   // });
 
   it('should throw error upon request timeout using provided timeout value', async () => {
@@ -342,7 +348,6 @@ describe('GraphQLRequestClient', () => {
         retryStrategy: customRetryStrategy,
       });
 
-      // Spy on the client's request method
       spy.on(graphQLClient['client'], 'request');
 
       try {
