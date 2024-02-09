@@ -32,7 +32,8 @@ export class DictionaryServiceFactory {
             GraphQL Dictionary and Layout Services can handle rate limit errors from server and attempt a retry on requests.
             For this, specify the number of retries the GraphQL client will attempt. 
             It will only try the request once by default.
-            retries: 'number' 
+            retries: 'number'
+            Additionally, you can customize the retry strategy by providing your own RetryStrategy object.
           */
           retries:
             (process.env.GRAPH_QL_SERVICE_RETRIES &&

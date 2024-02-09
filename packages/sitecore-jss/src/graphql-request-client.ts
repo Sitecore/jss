@@ -102,7 +102,6 @@ export class GraphQLRequestClient implements GraphQLClient {
       );
     },
     getDelay: (error: ClientError, attempt: number) => {
-      console.log('attmept', attempt);
       const factor = 2;
       const rawHeaders = error.response.headers;
       const delaySeconds = rawHeaders?.get('Retry-After')
