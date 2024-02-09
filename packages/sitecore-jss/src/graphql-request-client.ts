@@ -57,12 +57,12 @@ export type GraphQLRequestClientConfig = {
    */
   timeout?: number;
   /**
-   * Number of retries for client. Number of retries for client. Will use the specified `retryStrategy`.
+   * Number of retries for client. Will use the specified `retryStrategy`.
    */
   retries?: number;
   /**
-   * Retry strategy for the client. Default will use an exponential back-off strategy for
-   * codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
+   * Retry strategy for the client. Uses `DefaultRetryStrategy` by default with exponential
+   * back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
    */
   retryStrategy?: RetryStrategy;
 };
