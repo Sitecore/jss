@@ -1,4 +1,3 @@
-import { RetryStrategy } from './../../sitecore-jss/src/graphql-request-client';
 export { FileDirective } from './components/file.directive';
 export { ImageDirective } from './components/image.directive';
 export { LinkDirective } from './components/link.directive';

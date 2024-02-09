@@ -53,7 +53,7 @@ export type GraphQLRequestClientConfig = {
    */
   fetch?: typeof fetch;
   /**
-   * GraphQLClient request timeout
+   * GraphQLClient request timeout (in milliseconds).
    */
   timeout?: number;
   /**
@@ -200,16 +200,16 @@ export class GraphQLRequestClient implements GraphQLClient {
           const shouldRetry = this.retryStrategy.shouldRetry(error, attempt, this.retries);
 
           if (shouldRetry) {
-            const delaySeconds = this.retryStrategy.getDelay(error, attempt);
+            const delayMs = this.retryStrategy.getDelay(error, attempt);
             this.debug(
-              'Error: %d. Rate limit reached for GraphQL endpoint. Retrying in %ds (attempt %d).',
+              'Error: %d. Rate limit reached for GraphQL endpoint. Retrying in %dms (attempt %d).',
               status,
-              delaySeconds,
+              delayMs,
               attempt
             );
 
             attempt++;
-            return new Promise((resolve) => setTimeout(resolve, delaySeconds)).then(retryer);
+            return new Promise((resolve) => setTimeout(resolve, delayMs)).then(retryer);
           } else {
             return Promise.reject(error);
           }
