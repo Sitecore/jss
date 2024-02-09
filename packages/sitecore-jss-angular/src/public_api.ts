@@ -40,7 +40,8 @@ export {
   ComponentFields,
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss/layout';
-export { constants, HttpDataFetcher, HttpResponse } from '@sitecore-jss/sitecore-jss';
+export { RetryStrategy, DefaultRetryStrategy } from '@sitecore-jss/sitecore-jss/graphql';
+export { constants, HttpDataFetcher, HttpResponse, enableDebug } from '@sitecore-jss/sitecore-jss';
 export {
   isServer,
   isExperienceEditorActive,

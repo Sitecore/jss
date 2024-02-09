@@ -3654,7 +3654,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@sinonjs/fake-timers@npm:^7.0.4, @sinonjs/fake-timers@npm:^7.1.0":
+=======
+"@sinonjs/fake-timers@npm:^11.2.2":
+  version: 11.2.2
+  resolution: "@sinonjs/fake-timers@npm:11.2.2"
+  dependencies:
+    "@sinonjs/commons": ^3.0.0
+  checksum: 68c29b0e1856fdc280df03ddbf57c726420b78e9f943a241b471edc018fb14ff36fdc1daafd6026cba08c3c7f50c976fb7ae11b88ff44cd7f609692ca7d25158
+  languageName: node
+  linkType: hard
+
+"@sinonjs/fake-timers@npm:^7.1.0":
+>>>>>>> 08401372f ([sitecore-jss] Retry policy to handle transient network errors (#1731))
   version: 7.1.2
   resolution: "@sinonjs/fake-timers@npm:7.1.2"
   dependencies:
@@ -3672,6 +3685,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@sinonjs/formatio@npm:^3.2.1":
   version: 3.2.2
   resolution: "@sinonjs/formatio@npm:3.2.2"
@@ -3679,6 +3693,12 @@ __metadata:
     "@sinonjs/commons": ^1
     "@sinonjs/samsam": ^3.1.0
   checksum: ddc30698df9b0aa59204da93ca94fd04bc5672ac03c798c0a487c35d514d7d8e0ce0e4c72386fc80e29f59cb1cc54eeea3b7f804281b3c4e3dd2394de56c6e4a
+=======
+"@sinonjs/text-encoding@npm:^0.7.1, @sinonjs/text-encoding@npm:^0.7.2":
+  version: 0.7.2
+  resolution: "@sinonjs/text-encoding@npm:0.7.2"
+  checksum: fe690002a32ba06906cf87e2e8fe84d1590294586f2a7fd180a65355b53660c155c3273d8011a5f2b77209b819aa7306678ae6e4aea0df014bd7ffd4bbbcf1ab
+>>>>>>> 08401372f ([sitecore-jss] Retry policy to handle transient network errors (#1731))
   languageName: node
   linkType: hard
 
@@ -4151,7 +4171,12 @@ __metadata:
     "@types/memory-cache": ^0.2.1
     "@types/mocha": ^5.2.7
     "@types/node": ^16.11.6
+<<<<<<< HEAD
     "@types/url-parse": 1.4.3
+=======
+    "@types/sinon": ^17.0.3
+    "@types/url-parse": 1.4.8
+>>>>>>> 08401372f ([sitecore-jss] Retry policy to handle transient network errors (#1731))
     axios: ^0.21.1
     chai: ^4.2.0
     chai-spies: ^1.0.0
@@ -4167,6 +4192,7 @@ __metadata:
     mocha: ^8.1.3
     nock: ^13.0.5
     nyc: ^15.1.0
+    sinon: ^17.0.1
     ts-node: ^8.4.1
     tslib: ^1.10.0
     typescript: ~4.3.5
@@ -5085,6 +5111,15 @@ __metadata:
   dependencies:
     "@types/sinonjs__fake-timers": "*"
   checksum: 2074490973012283ec9ccb9f607fa12f36c78d8801f63ec437d3e8351dae161a018836cc02e8b039118ec9fb7680331594716ed0858075a11d381edd27faa75c
+  languageName: node
+  linkType: hard
+
+"@types/sinon@npm:^17.0.3":
+  version: 17.0.3
+  resolution: "@types/sinon@npm:17.0.3"
+  dependencies:
+    "@types/sinonjs__fake-timers": "*"
+  checksum: c8e9956d9c90fe1ec1cc43085ae48897f93f9ea86e909ab47f255ea71f5229651faa070393950fb6923aef426c84e92b375503f9f8886ef44668b82a8ee49e9a
   languageName: node
   linkType: hard
 
@@ -16478,6 +16513,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"just-extend@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "just-extend@npm:6.2.0"
+  checksum: 022024d6f687c807963b97a24728a378799f7e4af7357d1c1f90dedb402943d5c12be99a5136654bed8362c37a358b1793feaad3366896f239a44e17c5032d86
+  languageName: node
+  linkType: hard
+
 "karma-chrome-launcher@npm:^3.1.0":
   version: 3.1.0
   resolution: "karma-chrome-launcher@npm:3.1.0"
@@ -18702,6 +18744,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nise@npm:^5.1.5":
+  version: 5.1.9
+  resolution: "nise@npm:5.1.9"
+  dependencies:
+    "@sinonjs/commons": ^3.0.0
+    "@sinonjs/fake-timers": ^11.2.2
+    "@sinonjs/text-encoding": ^0.7.2
+    just-extend: ^6.2.0
+    path-to-regexp: ^6.2.1
+  checksum: ab9fd6eabc98170f18aef6c9567983145c1dc62c7aef46eda0fea754083316c1f0f9b2c32e9b4bfdd25122276d670293596ed672b54dd1ffa8eb58b56a30ea95
+  languageName: node
+  linkType: hard
+
 "nocache@npm:^2.1.0":
   version: 2.1.0
   resolution: "nocache@npm:2.1.0"
@@ -20045,6 +20100,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "path-type@npm:^1.0.0":
   version: 1.1.0
   resolution: "path-type@npm:1.1.0"
@@ -20053,6 +20109,12 @@ __metadata:
     pify: ^2.0.0
     pinkie-promise: ^2.0.0
   checksum: 59a4b2c0e566baf4db3021a1ed4ec09a8b36fca960a490b54a6bcefdb9987dafe772852982b6011cd09579478a96e57960a01f75fa78a794192853c9d468fc79
+=======
+"path-to-regexp@npm:^6.2.1":
+  version: 6.2.1
+  resolution: "path-to-regexp@npm:6.2.1"
+  checksum: f0227af8284ea13300f4293ba111e3635142f976d4197f14d5ad1f124aebd9118783dd2e5f1fe16f7273743cc3dbeddfb7493f237bb27c10fdae07020cc9b698
+>>>>>>> 08401372f ([sitecore-jss] Retry policy to handle transient network errors (#1731))
   languageName: node
   linkType: hard
 
@@ -22741,6 +22803,20 @@ __metadata:
     nise: ^4.0.4
     supports-color: ^7.1.0
   checksum: 34b881886daa4b491bb9147ccad43d662f58b45a1b6f1e8b26a405ad77041108306fac3648646335f00f702897f0ba12282588ab64de470f48f1a7678e08dc65
+  languageName: node
+  linkType: hard
+
+"sinon@npm:^17.0.1":
+  version: 17.0.1
+  resolution: "sinon@npm:17.0.1"
+  dependencies:
+    "@sinonjs/commons": ^3.0.0
+    "@sinonjs/fake-timers": ^11.2.2
+    "@sinonjs/samsam": ^8.0.0
+    diff: ^5.1.0
+    nise: ^5.1.5
+    supports-color: ^7.2.0
+  checksum: a807c2997d6eabdcaa4409df9fd9816a3e839f96d7e5d76610a33f5e1b60cf37616c6288f0f580262da17ea4ee626c6d1600325bf423e30c5a7f0d9a203e26c0
   languageName: node
   linkType: hard
 

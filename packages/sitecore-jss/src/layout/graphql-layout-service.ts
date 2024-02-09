@@ -7,7 +7,8 @@ import {
 } from '../graphql-request-client';
 import debug from '../debug';
 
-export type GraphQLLayoutServiceConfig = Pick<GraphQLRequestClientConfig, 'retries'> & {
+export interface GraphQLLayoutServiceConfig
+  extends Pick<GraphQLRequestClientConfig, 'retries' | 'retryStrategy'> {
   /**
    * Your Graphql endpoint
    */
@@ -32,7 +33,7 @@ export type GraphQLLayoutServiceConfig = Pick<GraphQLRequestClientConfig, 'retri
    * layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
    */
   formatLayoutQuery?: (siteName: string, itemPath: string, locale?: string) => string;
-};
+}
 
 export class GraphQLLayoutService extends LayoutServiceBase {
   private graphQLClient: GraphQLClient;

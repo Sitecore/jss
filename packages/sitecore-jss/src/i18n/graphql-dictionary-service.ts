@@ -55,7 +55,7 @@ const query = /* GraphQL */ `
 export interface GraphQLDictionaryServiceConfig
   extends SearchServiceConfig,
     CacheOptions,
-    Pick<GraphQLRequestClientConfig, 'retries'> {
+    Pick<GraphQLRequestClientConfig, 'retries' | 'retryStrategy'> {
   /**
    * The URL of the graphQL endpoint.
    */

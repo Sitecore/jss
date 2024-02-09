@@ -38,6 +38,7 @@ export {
   GraphQLDictionaryService,
   RestDictionaryService,
 } from '@sitecore-jss/sitecore-jss/i18n';
+export { RetryStrategy, DefaultRetryStrategy } from '@sitecore-jss/sitecore-jss/graphql';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export { ComponentFactory } from './components/sharedTypes';
 export { Placeholder, PlaceholderComponentProps } from './components/Placeholder';

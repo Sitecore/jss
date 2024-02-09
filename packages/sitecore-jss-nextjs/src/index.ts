@@ -56,6 +56,7 @@ export {
   GraphQLRobotsService,
   GraphQLRobotsServiceConfig,
 } from '@sitecore-jss/sitecore-jss/site';
+export { RetryStrategy, DefaultRetryStrategy } from '@sitecore-jss/sitecore-jss/graphql';
 export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 export {
