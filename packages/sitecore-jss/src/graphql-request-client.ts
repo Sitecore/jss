@@ -82,10 +82,19 @@ export type GraphQLRequestClientFactory = (
  */
 export type GraphQLRequestClientFactoryConfig = { endpoint: string; apiKey?: string };
 
+/**
+ * Represents a default retry strategy for handling retry attempts in case of specific HTTP status codes.
+ * This class implements the RetryStrategy interface and provides methods to determine whether a request
+ * should be retried and calculates the delay before the next retry attempt.
+ */
 export class DefaultRetryStrategy implements RetryStrategy {
   private statusCodes: number[];
   private factor: number;
 
+  /**
+   * @param {number[]} statusCodes HTTP status codes to trigger retries on
+   * @param {number} factor Factor by which the delay increases with each retry attempt
+   */
   constructor(statusCodes?: number[], factor?: number) {
     this.statusCodes = statusCodes || [429];
     this.factor = factor || 2;
