@@ -39,7 +39,7 @@ property instead
 
 #### Defined in
 
-[src/site/graphql-error-pages-service.ts:38](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L38)
+[src/site/graphql-error-pages-service.ts:38](https://github.com/Sitecore/jss/blob/08401372f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L38)
 
 ___
 
@@ -52,7 +52,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-[src/site/graphql-error-pages-service.ts:51](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L51)
+[src/site/graphql-error-pages-service.ts:51](https://github.com/Sitecore/jss/blob/08401372f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L51)
 
 ___
 
@@ -72,7 +72,7 @@ property instead
 
 #### Defined in
 
-[src/site/graphql-error-pages-service.ts:33](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L33)
+[src/site/graphql-error-pages-service.ts:33](https://github.com/Sitecore/jss/blob/08401372f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L33)
 
 ___
 
@@ -84,7 +84,7 @@ The language
 
 #### Defined in
 
-[src/site/graphql-error-pages-service.ts:46](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L46)
+[src/site/graphql-error-pages-service.ts:46](https://github.com/Sitecore/jss/blob/08401372f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L46)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 • `Optional` **retries**: `number`
 
-Number of retries for client. Will be used if endpoint responds with 429 (rate limit reached) error
+Number of retries for client. Will use the specified `retryStrategy`.
 
 #### Inherited from
 
@@ -100,7 +100,7 @@ Pick.retries
 
 #### Defined in
 
-[src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss/src/graphql-request-client.ts#L42)
+[src/graphql-request-client.ts:62](https://github.com/Sitecore/jss/blob/08401372f/packages/sitecore-jss/src/graphql-request-client.ts#L62)
 
 ___
 
@@ -112,4 +112,4 @@ The JSS application name
 
 #### Defined in
 
-[src/site/graphql-error-pages-service.ts:42](https://github.com/Sitecore/jss/blob/c4ccad38b/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L42)
+[src/site/graphql-error-pages-service.ts:42](https://github.com/Sitecore/jss/blob/08401372f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L42)

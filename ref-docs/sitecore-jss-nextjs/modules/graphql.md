@@ -6,7 +6,12 @@
 
 ### Classes
 
+- [DefaultRetryStrategy](../classes/graphql.DefaultRetryStrategy.md)
 - [GraphQLRequestClient](../classes/graphql.GraphQLRequestClient.md)
+
+### Interfaces
+
+- [RetryStrategy](../interfaces/graphql.RetryStrategy.md)
 
 ### Type Aliases
 
@@ -44,7 +49,7 @@ An instance of a GraphQL Request Client ready to send GraphQL requests.
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:47
+sitecore-jss/types/graphql-request-client.d.ts:73
 
 ___
 
@@ -63,7 +68,7 @@ Configuration type for
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:51
+sitecore-jss/types/graphql-request-client.d.ts:77
 
 ## Functions
 
