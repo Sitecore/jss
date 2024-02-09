@@ -1,3 +1,4 @@
+import { RetryStrategy } from './../../sitecore-jss/src/graphql-request-client';
 export { FileDirective } from './components/file.directive';
 export { ImageDirective } from './components/image.directive';
 export { LinkDirective } from './components/link.directive';
@@ -56,6 +57,7 @@ export {
   ComponentFields,
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss/layout';
+export { RetryStrategy, DefaultRetryStrategy } from '@sitecore-jss/sitecore-jss/graphql';
 export { constants, HttpDataFetcher, HttpResponse, enableDebug } from '@sitecore-jss/sitecore-jss';
 export {
   isServer,

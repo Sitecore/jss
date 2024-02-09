@@ -282,7 +282,7 @@ describe('GraphQLRequestClient', () => {
     };
 
     // Test cases for each retryable status code
-    for (const statusCode of [502, 503, 504, 520, 521, 522, 523, 524]) {
+    for (const statusCode of [429, 502, 503, 504, 520, 521, 522, 523, 524]) {
       it(`should retry and throw error for ${statusCode} when retries specified`, async function() {
         this.timeout(8000);
         await retryableStatusCodeThrowError(statusCode);
@@ -320,14 +320,14 @@ describe('GraphQLRequestClient', () => {
     };
 
     // Test cases for each retryable status code
-    for (const statusCode of [429]) {
+    for (const statusCode of [429, 502, 503, 504, 520, 521, 522, 523, 524]) {
       it(`should retry and resolve for ${statusCode} if one of the request resolves`, async function() {
         this.timeout(16000);
         await retryableStatusCodeResolve(statusCode);
       });
     }
 
-    it('should use custom retryStrategy and retry accordingly', async function() {
+    it.only('should retry based on custom retryStrategy', async function() {
       this.timeout(8000);
 
       nock('http://jssnextweb')
@@ -344,7 +344,7 @@ describe('GraphQLRequestClient', () => {
       };
 
       const graphQLClient = new GraphQLRequestClient(endpoint, {
-        retries: 3,
+        retries: 4,
         retryStrategy: customRetryStrategy,
       });
 

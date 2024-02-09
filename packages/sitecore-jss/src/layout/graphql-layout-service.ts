@@ -8,7 +8,8 @@ import {
 } from '../graphql-request-client';
 import debug from '../debug';
 
-export interface GraphQLLayoutServiceConfig extends Pick<GraphQLRequestClientConfig, 'retries'> {
+export interface GraphQLLayoutServiceConfig
+  extends Pick<GraphQLRequestClientConfig, 'retries' | 'retryStrategy'> {
   /**
    * Your Graphql endpoint
    * @deprecated use @param clientFactory property instead
