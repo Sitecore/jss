@@ -5,6 +5,8 @@ import * as constants from './constants';
 export { default as debug, Debugger, enableDebug } from './debug';
 export { HttpDataFetcher, HttpResponse, fetchData } from './data-fetcher';
 export {
+  RetryStrategy,
+  DefaultRetryStrategy,
   GraphQLClient,
   GraphQLRequestClient,
   GraphQLRequestClientConfig,

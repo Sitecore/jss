@@ -1,4 +1,6 @@
 export {
+  RetryStrategy,
+  DefaultRetryStrategy,
   GraphQLRequestClient,
   GraphQLRequestClientFactory,
   GraphQLRequestClientFactoryConfig,

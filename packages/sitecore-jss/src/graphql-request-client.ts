@@ -15,6 +15,26 @@ export interface GraphQLClient {
    */
   request<T>(query: string | DocumentNode, variables?: { [key: string]: unknown }): Promise<T>;
 }
+/**
+ * Defines the strategy for retrying GraphQL requests based on errors and attempts.
+ */
+export interface RetryStrategy {
+  /**
+   * Determines whether a request should be retried based on the given error and attempt count.
+   * @param error - The error received from the GraphQL request.
+   * @param attempt - The current attempt number.
+   * @param retries - The number of retries configured.
+   * @returns A boolean indicating whether to retry the request.
+   */
+  shouldRetry(error: ClientError, attempt: number, retries: number): boolean;
+  /**
+   * Calculates the delay (in milliseconds) before the next retry based on the given error and attempt count.
+   * @param error - The error received from the GraphQL request.
+   * @param attempt - The current attempt number.
+   * @returns The delay in milliseconds before the next retry.
+   */
+  getDelay(error: ClientError, attempt: number): number;
+}
 
 /**
  * Minimum configuration options for classes that implement @see GraphQLClient
@@ -33,13 +53,18 @@ export type GraphQLRequestClientConfig = {
    */
   fetch?: typeof fetch;
   /**
-   * GraphQLClient request timeout
+   * GraphQLClient request timeout (in milliseconds).
    */
   timeout?: number;
   /**
-   * Number of retries for client. Will be used if endpoint responds with 429 (rate limit reached) error
+   * Number of retries for client. Will use the specified `retryStrategy`.
    */
   retries?: number;
+  /**
+   * Retry strategy for the client. Uses `DefaultRetryStrategy` by default with exponential
+   * back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
+   */
+  retryStrategy?: RetryStrategy;
 };
 
 /**
@@ -58,6 +83,38 @@ export type GraphQLRequestClientFactory = (
 export type GraphQLRequestClientFactoryConfig = { endpoint: string; apiKey?: string };
 
 /**
+ * Represents a default retry strategy for handling retry attempts in case of specific HTTP status codes.
+ * This class implements the RetryStrategy interface and provides methods to determine whether a request
+ * should be retried and calculates the delay before the next retry attempt.
+ */
+export class DefaultRetryStrategy implements RetryStrategy {
+  private statusCodes: number[];
+  private factor: number;
+
+  /**
+   * @param {number[]} statusCodes HTTP status codes to trigger retries on
+   * @param {number} factor Factor by which the delay increases with each retry attempt
+   */
+  constructor(statusCodes?: number[], factor?: number) {
+    this.statusCodes = statusCodes || [429];
+    this.factor = factor || 2;
+  }
+
+  shouldRetry(error: ClientError, attempt: number, retries: number): boolean {
+    return retries > 0 && attempt <= retries && this.statusCodes.includes(error.response.status);
+  }
+
+  getDelay(error: ClientError, attempt: number): number {
+    const rawHeaders = error.response.headers;
+    const delaySeconds = rawHeaders?.get('Retry-After')
+      ? Number.parseInt(rawHeaders?.get('Retry-After'), 10)
+      : Math.pow(this.factor, attempt);
+
+    return delaySeconds * 1000;
+  }
+}
+
+/**
  * A GraphQL client for Sitecore APIs that uses the 'graphql-request' library.
  * https://github.com/prisma-labs/graphql-request
  */
@@ -65,9 +122,10 @@ export class GraphQLRequestClient implements GraphQLClient {
   private client: Client;
   private headers: Record<string, string> = {};
   private debug: Debugger;
-  private retries: number;
   private abortTimeout?: TimeoutPromise;
   private timeout?: number;
+  private retries: number;
+  private retryStrategy: RetryStrategy;
 
   /**
    * Provides ability to execute graphql query using given `endpoint`
@@ -87,6 +145,9 @@ export class GraphQLRequestClient implements GraphQLClient {
 
     this.timeout = clientConfig.timeout;
     this.retries = clientConfig.retries || 0;
+    this.retryStrategy =
+      clientConfig.retryStrategy ||
+      new DefaultRetryStrategy([429, 502, 503, 504, 520, 521, 522, 523, 524]);
     this.client = new Client(endpoint, {
       headers: this.headers,
       fetch: clientConfig.fetch,
@@ -117,7 +178,7 @@ export class GraphQLRequestClient implements GraphQLClient {
     query: string | DocumentNode,
     variables?: { [key: string]: unknown }
   ): Promise<T> {
-    let retriesLeft = this.retries;
+    let attempt = 1;
 
     const retryer = async (): Promise<T> => {
       // Note we don't have access to raw request/response with graphql-request
@@ -134,28 +195,30 @@ export class GraphQLRequestClient implements GraphQLClient {
         this.abortTimeout = new TimeoutPromise(this.timeout);
         fetchWithOptionalTimeout.push(this.abortTimeout.start);
       }
+
       return Promise.race(fetchWithOptionalTimeout).then(
         (data: T) => {
           this.abortTimeout?.clear();
           this.debug('response in %dms: %o', Date.now() - startTimestamp, data);
           return Promise.resolve(data);
         },
-        (error: ClientError) => {
+        async (error: ClientError) => {
           this.abortTimeout?.clear();
           this.debug('response error: %o', error.response || error.message || error);
-          if (error.response?.status === 429 && retriesLeft > 0) {
-            const rawHeaders = (error as ClientError)?.response?.headers;
-            const delaySeconds =
-              rawHeaders && rawHeaders.get('Retry-After')
-                ? Number.parseInt(rawHeaders.get('Retry-After'), 10)
-                : 1;
+          const status = error.response?.status;
+          const shouldRetry = this.retryStrategy.shouldRetry(error, attempt, this.retries);
+
+          if (shouldRetry) {
+            const delayMs = this.retryStrategy.getDelay(error, attempt);
             this.debug(
-              'Error: Rate limit reached for GraphQL endpoint. Retrying in %ds. Retries left: %d',
-              delaySeconds,
-              retriesLeft
+              'Error: %d. Rate limit reached for GraphQL endpoint. Retrying in %dms (attempt %d).',
+              status,
+              delayMs,
+              attempt
             );
-            retriesLeft--;
-            return new Promise((resolve) => setTimeout(resolve, delaySeconds * 1000)).then(retryer);
+
+            attempt++;
+            return new Promise((resolve) => setTimeout(resolve, delayMs)).then(retryer);
           } else {
             return Promise.reject(error);
           }

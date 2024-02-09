@@ -612,6 +612,12 @@ Our versioning strategy is as follows:
     * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
     * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
 
+## 20.3.0
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss]` Retry policy to handle transient network errors. Users can pass `retryStrategy` to configure custom retry config to the services. They can customize the error codes and the number of retries. It consist of two functions shouldRetry and getDelay. ([#1731](https://github.com/Sitecore/jss/pull/1731))
+
 ## 20.2.3
 
 ### 🐛 Bug Fixes
