@@ -189,7 +189,7 @@ describe('GraphQLRequestClient', () => {
 
     await graphQLClient.request('test').catch(() => {
       expect(graphQLClient['debug']).to.have.been.called.with(
-        'Error: %d. Rate limit reached for GraphQL endpoint. Retrying in %dms (attempt %d).',
+        'Error: %d. Retrying in %dms (attempt %d).',
         429,
         2000,
         1
