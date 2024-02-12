@@ -37,7 +37,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'edge.**',
+        hostname: 'edge*.**',
         port: '',
       },
     ],
