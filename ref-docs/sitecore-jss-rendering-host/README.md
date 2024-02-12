@@ -41,7 +41,7 @@ resolver
 
 #### Defined in
 
-[defaultAppInvocationInfoResolver.ts:19](https://github.com/Sitecore/jss/blob/08401372f/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L19)
+[defaultAppInvocationInfoResolver.ts:19](https://github.com/Sitecore/jss/blob/dd978d79b/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L19)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[ssrMiddleware.ts:41](https://github.com/Sitecore/jss/blob/08401372f/packages/sitecore-jss-rendering-host/src/ssrMiddleware.ts#L41)
+[ssrMiddleware.ts:41](https://github.com/Sitecore/jss/blob/dd978d79b/packages/sitecore-jss-rendering-host/src/ssrMiddleware.ts#L41)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[tunnel.ts:12](https://github.com/Sitecore/jss/blob/08401372f/packages/sitecore-jss-rendering-host/src/tunnel.ts#L12)
+[tunnel.ts:12](https://github.com/Sitecore/jss/blob/dd978d79b/packages/sitecore-jss-rendering-host/src/tunnel.ts#L12)
 
 ___
 
@@ -102,4 +102,4 @@ ___
 
 #### Defined in
 
-[renderingHostServer.ts:47](https://github.com/Sitecore/jss/blob/08401372f/packages/sitecore-jss-rendering-host/src/renderingHostServer.ts#L47)
+[renderingHostServer.ts:47](https://github.com/Sitecore/jss/blob/dd978d79b/packages/sitecore-jss-rendering-host/src/renderingHostServer.ts#L47)
