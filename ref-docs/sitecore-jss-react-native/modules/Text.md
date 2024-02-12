@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Text.tsx:31](https://github.com/Sitecore/jss/blob/dd978d79b/packages/sitecore-jss-react-native/src/components/Text.tsx#L31)
+[sitecore-jss-react-native/src/components/Text.tsx:31](https://github.com/Sitecore/jss/blob/9dbd8a53e/packages/sitecore-jss-react-native/src/components/Text.tsx#L31)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Text.tsx:24](https://github.com/Sitecore/jss/blob/dd978d79b/packages/sitecore-jss-react-native/src/components/Text.tsx#L24)
+[sitecore-jss-react-native/src/components/Text.tsx:24](https://github.com/Sitecore/jss/blob/9dbd8a53e/packages/sitecore-jss-react-native/src/components/Text.tsx#L24)
