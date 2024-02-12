@@ -113,7 +113,7 @@ export class DefaultRetryStrategy implements RetryStrategy {
     const rawHeaders = error.response?.headers;
     const delaySeconds = rawHeaders?.get('Retry-After')
       ? Number.parseInt(rawHeaders?.get('Retry-After'), 10)
-      : Math.pow(this.factor, attempt);
+      : Math.pow(this.factor, attempt - 1);
 
     return delaySeconds * 1000;
   }
