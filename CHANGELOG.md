@@ -14,7 +14,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-nextjs]` Internal link in RichText is broken when nested tags are added ([#1718](https://github.com/Sitecore/jss/pull/1718))
-* `[sitecore-jss-nextjs]` Remove custom loader function i.e. `sitecoreLoader` to enable NextImage to use built-in image optimization from vercel. ([#1726](https://github.com/Sitecore/jss/pull/1726))
+* `[sitecore-jss-nextjs]` Remove custom loader function i.e. `sitecoreLoader` to enable NextImage to use built-in image optimization from vercel. Also add default image remotePatterns in next.config.js for whitelisting remote image hostnames ([#1726](https://github.com/Sitecore/jss/pull/1726)) ([#1732](https://github.com/Sitecore/jss/pull/1732))
 
 
 ## 21.6.0
