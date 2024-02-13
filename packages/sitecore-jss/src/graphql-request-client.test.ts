@@ -407,7 +407,7 @@ describe('GraphQLRequestClient', () => {
     });
   });
 
-  describe.only('DefaultRetryStrategy', () => {
+  describe('DefaultRetryStrategy', () => {
     const mockClientError = new ClientError(
       {
         data: undefined,
