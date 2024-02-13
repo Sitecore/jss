@@ -607,7 +607,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[sitecore-jss]` Retry policy to handle transient network errors. Users can pass `retryStrategy` to configure custom retry config to the services. They can customize the error codes and the number of retries. It consist of two functions shouldRetry and getDelay. ([#1731](https://github.com/Sitecore/jss/pull/1731))
+* `[sitecore-jss]` Retry policy to handle transient network errors. Users can pass `retryStrategy` to configure custom retry config to the services. They can customize the error codes and the number of retries. It consist of two functions shouldRetry and getDelay. To determine the back-off time, we employ an exponential strategy with a default factor of 2.([#1731](https://github.com/Sitecore/jss/pull/1731)) ([#1733](https://github.com/Sitecore/jss/pull/1733))
 
 ## 20.2.2
 
