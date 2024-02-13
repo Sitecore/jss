@@ -96,7 +96,7 @@ export class DefaultRetryStrategy implements RetryStrategy {
    * @param {number[]} options.statusCodes HTTP status codes to trigger retries on
    * @param {number} options.factor Factor by which the delay increases with each retry attempt
    */
-  constructor(options: { statusCodes?: number[]; factor?: number }) {
+  constructor(options: { statusCodes?: number[]; factor?: number } = {}) {
     this.statusCodes = options.statusCodes || [429];
     this.factor = options.factor || 2;
   }
