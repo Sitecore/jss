@@ -30,18 +30,19 @@ should be retried and calculates the delay before the next retry attempt.
 
 ### constructor
 
-• **new DefaultRetryStrategy**(`statusCodes?`, `factor?`)
+• **new DefaultRetryStrategy**(`options?`)
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `statusCodes?` | `number`[] | HTTP status codes to trigger retries on |
-| `factor?` | `number` | Factor by which the delay increases with each retry attempt |
+| `options?` | `Object` | Configurable options for retry mechanism. |
+| `options.factor?` | `number` | Factor by which the delay increases with each retry attempt |
+| `options.statusCodes?` | `number`[] | HTTP status codes to trigger retries on |
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:93
+sitecore-jss/types/graphql-request-client.d.ts:94
 
 ## Properties
 
@@ -90,7 +91,7 @@ The delay in milliseconds before the next retry.
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:95
+sitecore-jss/types/graphql-request-client.d.ts:99
 
 ___
 
@@ -120,4 +121,4 @@ A boolean indicating whether to retry the request.
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:94
+sitecore-jss/types/graphql-request-client.d.ts:98

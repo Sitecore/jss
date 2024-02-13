@@ -50,7 +50,7 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:115
+sitecore-jss/types/graphql-request-client.d.ts:119
 
 ## Properties
 
@@ -60,7 +60,7 @@ sitecore-jss/types/graphql-request-client.d.ts:115
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:106
+sitecore-jss/types/graphql-request-client.d.ts:110
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:103
+sitecore-jss/types/graphql-request-client.d.ts:107
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:105
+sitecore-jss/types/graphql-request-client.d.ts:109
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:102
+sitecore-jss/types/graphql-request-client.d.ts:106
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:104
+sitecore-jss/types/graphql-request-client.d.ts:108
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:108
+sitecore-jss/types/graphql-request-client.d.ts:112
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:109
+sitecore-jss/types/graphql-request-client.d.ts:113
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:107
+sitecore-jss/types/graphql-request-client.d.ts:111
 
 ## Methods
 
@@ -163,7 +163,7 @@ GraphQLClient.request
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:128
+sitecore-jss/types/graphql-request-client.d.ts:132
 
 ___
 
@@ -185,4 +185,4 @@ Factory method for creating a GraphQLRequestClientFactory.
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:122
+sitecore-jss/types/graphql-request-client.d.ts:126
