@@ -413,14 +413,14 @@ describe('GraphQLRequestClient', () => {
         data: undefined,
         errors: [{ message: 'GaphqlError' }],
         extensions: undefined,
-        status: 502,
+        status: 429,
       },
       {
         query: 'query',
       }
     );
 
-    const retryStrategy = new DefaultRetryStrategy([429, 503]);
+    const retryStrategy = new DefaultRetryStrategy({ statusCodes: [429, 503] });
 
     it('should return true from shouldRetry when conditions are met', () => {
       mockClientError.response.status = 503;
@@ -429,7 +429,7 @@ describe('GraphQLRequestClient', () => {
       expect(shouldRetry).to.equal(true);
     });
 
-    it('should return false from shouldRetry method when conditions are not met', () => {
+    it('should return false when attempt exceeds retries', () => {
       mockClientError.response.status = 503;
 
       const shouldRetry = retryStrategy.shouldRetry(mockClientError, 2, 1);
@@ -439,6 +439,22 @@ describe('GraphQLRequestClient', () => {
     it('should return delay using exponential backoff when Retry-After header is not present', () => {
       const delay = retryStrategy.getDelay(mockClientError, 3);
       const expectedDelay = Math.pow(retryStrategy['factor'], 3 - 1) * 1000;
+      expect(delay).to.equal(expectedDelay);
+    });
+
+    it('should return false when retries is 0', () => {
+      mockClientError.response.status = 503;
+
+      const shouldRetry = retryStrategy.shouldRetry(mockClientError, 1, 0);
+      expect(shouldRetry).to.equal(false);
+    });
+
+    it('should use custom exponential factor', () => {
+      const customFactor = 3;
+      const retryStrategy = new DefaultRetryStrategy({ statusCodes: [429], factor: customFactor });
+
+      const delay = retryStrategy.getDelay(mockClientError, 3);
+      const expectedDelay = Math.pow(customFactor, 3 - 1) * 1000;
       expect(delay).to.equal(expectedDelay);
     });
   });
