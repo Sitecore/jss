@@ -1,0 +1,11 @@
+overwrite: true
+# by default graphql-codegen will throw an error if it does not find any files in the specified path for 'documents'
+# uncomment next line if you have .graphql files under '/src';
+# documents: 'src/**/*.graphql'
+schema: 'src/temp/GraphQLIntrospectionResult.json'
+generates:
+  src/temp/graphql-types.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-query'
