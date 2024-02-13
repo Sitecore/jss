@@ -407,7 +407,7 @@ describe('GraphQLRequestClient', () => {
     });
   });
 
-  describe.only('DefaultRetryStrategy class', () => {
+  describe.only('DefaultRetryStrategy', () => {
     const mockClientError = new ClientError(
       {
         data: undefined,
@@ -422,7 +422,7 @@ describe('GraphQLRequestClient', () => {
 
     const retryStrategy = new DefaultRetryStrategy([429, 503]);
 
-    it('should return false from shouldRetry method when conditions are not met', () => {
+    it('should return true from shouldRetry when conditions are met', () => {
       mockClientError.response.status = 503;
 
       const shouldRetry = retryStrategy.shouldRetry(mockClientError, 1, 3);
