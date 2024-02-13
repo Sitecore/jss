@@ -24,9 +24,6 @@ const mockResponse = () => {
   res.json = spy(() => {
     return res;
   });
-  res.end = spy(() => {
-    return res;
-  });
   return res;
 };
 
