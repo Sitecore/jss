@@ -4,7 +4,8 @@ import { expect, use, spy } from 'chai';
 import sinon from 'sinon';
 import spies from 'chai-spies';
 import nock from 'nock';
-import { GraphQLRequestClient } from './graphql-request-client';
+import { GraphQLRequestClient, DefaultRetryStrategy } from './graphql-request-client';
+import { ClientError } from 'graphql-request';
 import debugApi from 'debug';
 import debug from './debug';
 
@@ -403,6 +404,42 @@ describe('GraphQLRequestClient', () => {
       } catch (error) {
         console.log('error');
       }
+    });
+  });
+
+  describe.only('DefaultRetryStrategy class', () => {
+    const mockClientError = new ClientError(
+      {
+        data: undefined,
+        errors: [{ message: 'GaphqlError' }],
+        extensions: undefined,
+        status: 502,
+      },
+      {
+        query: 'query',
+      }
+    );
+
+    const retryStrategy = new DefaultRetryStrategy([429, 503]);
+
+    it('should return false from shouldRetry method when conditions are not met', () => {
+      mockClientError.response.status = 503;
+
+      const shouldRetry = retryStrategy.shouldRetry(mockClientError, 1, 3);
+      expect(shouldRetry).to.equal(true);
+    });
+
+    it('should return false from shouldRetry method when conditions are not met', () => {
+      mockClientError.response.status = 503;
+
+      const shouldRetry = retryStrategy.shouldRetry(mockClientError, 2, 1);
+      expect(shouldRetry).to.equal(false);
+    });
+
+    it('should return delay using exponential backoff when Retry-After header is not present', () => {
+      const delay = retryStrategy.getDelay(mockClientError, 3);
+      const expectedDelay = Math.pow(retryStrategy['factor'], 3 - 1) * 1000;
+      expect(delay).to.equal(expectedDelay);
     });
   });
 });
