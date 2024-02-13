@@ -92,12 +92,13 @@ export class DefaultRetryStrategy implements RetryStrategy {
   private factor: number;
 
   /**
-   * @param {number[]} statusCodes HTTP status codes to trigger retries on
-   * @param {number} factor Factor by which the delay increases with each retry attempt
+   * @param {Object} options Configurable options for retry mechanism.
+   * @param {number[]} options.statusCodes HTTP status codes to trigger retries on
+   * @param {number} options.factor Factor by which the delay increases with each retry attempt
    */
-  constructor(statusCodes?: number[], factor?: number) {
-    this.statusCodes = statusCodes || [429];
-    this.factor = factor || 2;
+  constructor(options: { statusCodes?: number[]; factor?: number } = {}) {
+    this.statusCodes = options.statusCodes || [429];
+    this.factor = options.factor || 2;
   }
 
   shouldRetry(error: ClientError, attempt: number, retries: number): boolean {
@@ -113,7 +114,7 @@ export class DefaultRetryStrategy implements RetryStrategy {
     const rawHeaders = error.response?.headers;
     const delaySeconds = rawHeaders?.get('Retry-After')
       ? Number.parseInt(rawHeaders?.get('Retry-After'), 10)
-      : Math.pow(this.factor, attempt);
+      : Math.pow(this.factor, attempt - 1);
 
     return delaySeconds * 1000;
   }
@@ -152,7 +153,7 @@ export class GraphQLRequestClient implements GraphQLClient {
     this.retries = clientConfig.retries || 0;
     this.retryStrategy =
       clientConfig.retryStrategy ||
-      new DefaultRetryStrategy([429, 502, 503, 504, 520, 521, 522, 523, 524]);
+      new DefaultRetryStrategy({ statusCodes: [429, 502, 503, 504, 520, 521, 522, 523, 524] });
     this.client = new Client(endpoint, {
       headers: this.headers,
       fetch: clientConfig.fetch,
