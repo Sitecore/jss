@@ -23,14 +23,11 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[templates/nextjs]` `[templates/nextjs-styleguide]` Modify all GraphQLRequestClient import statements so that it gets imported from the /graphql submodule ([#1728](https://github.com/Sitecore/jss/pull/1728))
-* `[sitecore-jss-nextjs]` Internal link in RichText is broken when nested tags are added ([#1718](https://github.com/Sitecore/jss/pull/1718))
 * `[templates/node-headless-ssr-proxy]` `[node-headless-ssr-proxy]` Add sc_site qs parameter to Layout Service requests by default ([#1660](https://github.com/Sitecore/jss/pull/1660))
 * `[templates/nextjs-sxa]` Fixed Image component when there is using Banner variant which set property background-image when image is empty. ([#1689](https://github.com/Sitecore/jss/pull/1689)) ([#1692](https://github.com/Sitecore/jss/pull/1692))
 * `[templates/nextjs-sxa]` Fix feature `show Grid column` in Experience Editor. ([#1704](https://github.com/Sitecore/jss/pull/1704))
 * `[sitecore-jss-nextjs] [templates/nextjs-xmcloud]` SDK initialization rejections are now correctly handled. Errors should no longer occur after getSDK() promises resolve when they shouldn't (for example, getting Events SDK in development environment) ([#1712](https://github.com/Sitecore/jss/pull/1712) [#1715](https://github.com/Sitecore/jss/pull/1715) [#1716](https://github.com/Sitecore/jss/pull/1716))
-* `[sitecore-jss-nextjs]` Remove custom loader function i.e. `sitecoreLoader` to enable NextImage to use built-in image optimization from vercel. ([#1726](https://github.com/Sitecore/jss/pull/1726))
 * `[sitecore-jss-nextjs]` Fix redirects middleware for working with absolute url where is using site language context ([#1727](https://github.com/Sitecore/jss/pull/1727))
-* `[templates/nextjs]` Add default image remotePatterns in next.config.js for whitelisting remote image hostnames so that can be served by the Next.js Image Optimization API ([#1732](https://github.com/Sitecore/jss/pull/1732))
 
 ### 🛠 Breaking Changes
 
@@ -41,6 +38,19 @@ Our versioning strategy is as follows:
 
 * Upgrade to Node.js 20.x ([#1679](https://github.com/Sitecore/jss/pull/1679))([#1681](https://github.com/Sitecore/jss/pull/1681))
 * `[nextjs/template]` Upgrade graphql-codegen packages to latest ([#1711](https://github.com/Sitecore/jss/pull/1711))
+
+## 21.6.2
+
+### 🐛 Bug Fixes
+
+* `[templates/nextjs]` Whitelist additional hostname for feaas component images to use with Next.js Image Optimization API ([#1735](https://github.com/Sitecore/jss/pull/1735))
+
+## 21.6.1
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Internal link in RichText is broken when nested tags are added ([#1718](https://github.com/Sitecore/jss/pull/1718))
+* `[sitecore-jss-nextjs]` Remove custom loader function i.e. `sitecoreLoader` to enable NextImage to use built-in image optimization from vercel. Also add default image remotePatterns in next.config.js for whitelisting remote image hostnames ([#1726](https://github.com/Sitecore/jss/pull/1726)) ([#1732](https://github.com/Sitecore/jss/pull/1732))
 
 ## 21.6.0
 

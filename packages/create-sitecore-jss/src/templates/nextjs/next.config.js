@@ -40,6 +40,11 @@ const nextConfig = {
         hostname: 'edge*.**',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'feaas*.blob.core.windows.net',
+        port: '',
+      },
     ],
   },
 
