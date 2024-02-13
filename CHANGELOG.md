@@ -9,13 +9,18 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 21.6.2
+
+### 🐛 Bug Fixes
+
+* `[templates/nextjs]` Whitelist additional hostname for feaas component images to use with Next.js Image Optimization API ([#1735](https://github.com/Sitecore/jss/pull/1735))
+
 ## 21.6.1
 
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-nextjs]` Internal link in RichText is broken when nested tags are added ([#1718](https://github.com/Sitecore/jss/pull/1718))
 * `[sitecore-jss-nextjs]` Remove custom loader function i.e. `sitecoreLoader` to enable NextImage to use built-in image optimization from vercel. Also add default image remotePatterns in next.config.js for whitelisting remote image hostnames ([#1726](https://github.com/Sitecore/jss/pull/1726)) ([#1732](https://github.com/Sitecore/jss/pull/1732))
-
 
 ## 21.6.0
 
