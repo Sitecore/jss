@@ -30,7 +30,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs] [templates/nextjs-xmcloud]` SDK initialization rejections are now correctly handled. Errors should no longer occur after getSDK() promises resolve when they shouldn't (for example, getting Events SDK in development environment) ([#1712](https://github.com/Sitecore/jss/pull/1712) [#1715](https://github.com/Sitecore/jss/pull/1715) [#1716](https://github.com/Sitecore/jss/pull/1716))
 * `[sitecore-jss-nextjs]` Remove custom loader function i.e. `sitecoreLoader` to enable NextImage to use built-in image optimization from vercel. ([#1726](https://github.com/Sitecore/jss/pull/1726))
 * `[sitecore-jss-nextjs]` Fix redirects middleware for working with absolute url where is using site language context ([#1727](https://github.com/Sitecore/jss/pull/1727))
-* `[templates/nextjs]` Add default image remotePatterns in next.config.js for whitelisting remote image hostnames so that can be served by the Next.js Image Optimization API ([#1732](https://github.com/Sitecore/jss/pull/1732))
+* `[templates/nextjs]` Add default image remotePatterns in next.config.js for whitelisting remote image hostnames so that can be served by the Next.js Image Optimization API ([#1732](https://github.com/Sitecore/jss/pull/1732) [#1735](https://github.com/Sitecore/jss/pull/1735))
 
 ### 🛠 Breaking Changes
 
