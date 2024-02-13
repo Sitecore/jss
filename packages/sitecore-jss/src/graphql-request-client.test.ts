@@ -4,7 +4,8 @@ import { expect, use, spy } from 'chai';
 import sinon from 'sinon';
 import spies from 'chai-spies';
 import nock from 'nock';
-import { GraphQLRequestClient } from './graphql-request-client';
+import { GraphQLRequestClient, DefaultRetryStrategy } from './graphql-request-client';
+import { ClientError } from 'graphql-request';
 import debugApi from 'debug';
 import debug from './debug';
 
@@ -389,6 +390,58 @@ describe('GraphQLRequestClient', () => {
       } catch (error) {
         console.log('error');
       }
+    });
+  });
+
+  describe('DefaultRetryStrategy', () => {
+    const mockClientError = new ClientError(
+      {
+        data: undefined,
+        errors: [{ message: 'GaphqlError' }],
+        extensions: undefined,
+        status: 429,
+      },
+      {
+        query: 'query',
+      }
+    );
+    it('should return true from shouldRetry and use default values from constructor', () => {
+      const retryStrategy = new DefaultRetryStrategy();
+
+      const shouldRetry = retryStrategy.shouldRetry(mockClientError, 1, 3);
+      expect(shouldRetry).to.equal(true);
+    });
+
+    it('should return false when attempt exceeds retries', () => {
+      const retryStrategy = new DefaultRetryStrategy({ statusCodes: [503] });
+      mockClientError.response.status = 503;
+
+      const shouldRetry = retryStrategy.shouldRetry(mockClientError, 2, 1);
+      expect(shouldRetry).to.equal(false);
+    });
+
+    it('should return false when retries is 0', () => {
+      const retryStrategy = new DefaultRetryStrategy({ statusCodes: [503] });
+      mockClientError.response.status = 503;
+
+      const shouldRetry = retryStrategy.shouldRetry(mockClientError, 1, 0);
+      expect(shouldRetry).to.equal(false);
+    });
+
+    it('should return delay using exponential backoff when Retry-After header is not present', () => {
+      const retryStrategy = new DefaultRetryStrategy();
+      const delay = retryStrategy.getDelay(mockClientError, 3);
+      const expectedDelay = Math.pow(retryStrategy['factor'], 3 - 1) * 1000;
+      expect(delay).to.equal(expectedDelay);
+    });
+
+    it('should use custom exponential factor', () => {
+      const customFactor = 3;
+      const retryStrategy = new DefaultRetryStrategy({ statusCodes: [429], factor: customFactor });
+
+      const delay = retryStrategy.getDelay(mockClientError, 3);
+      const expectedDelay = Math.pow(customFactor, 3 - 1) * 1000;
+      expect(delay).to.equal(expectedDelay);
     });
   });
 });
