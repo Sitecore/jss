@@ -181,7 +181,7 @@ describe('GraphQLRequestClient', () => {
     spy.restore(graphQLClient);
   });
 
-  it.only('should use [retry-after] header value when response is 429', async function() {
+  it('should use [retry-after] header value when response is 429', async function() {
     this.timeout(7000);
     nock('http://jssnextweb')
       .post('/graphql')
