@@ -42,7 +42,7 @@ In production non-editing environments it is desirable to use relative urls, so 
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/95a1a627e/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
+[sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/8de6d3f6b/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
 
 ___
 
@@ -72,7 +72,7 @@ forceReload false
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:33](https://github.com/Sitecore/jss/blob/95a1a627e/packages/sitecore-jss-nextjs/src/utils/utils.ts#L33)
+[sitecore-jss-nextjs/src/utils/utils.ts:33](https://github.com/Sitecore/jss/blob/8de6d3f6b/packages/sitecore-jss-nextjs/src/utils/utils.ts#L33)
 
 ___
 
