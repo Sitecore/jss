@@ -24,9 +24,6 @@ const mockResponse = () => {
   res.json = spy(() => {
     return res;
   });
-  res.end = spy(() => {
-    return res;
-  });
   return res;
 };
 
@@ -40,6 +37,7 @@ const expectedResult = {
   components: ['TestComponentOne', 'TestComponentTwo'],
   packages: { testPackageOne: '0.1.1' },
 };
+const expectedResultForbidden = { message: 'Missing or invalid editing secret' };
 
 describe('EditingConfigMiddleware', () => {
   const secret = 'jss-editing-secret-mock';
@@ -64,7 +62,8 @@ describe('EditingConfigMiddleware', () => {
     await handler(req, res);
 
     expect(res.status).to.have.been.calledWith(401);
-    expect(res.end).to.have.been.calledOnce;
+    expect(res.json).to.have.been.calledOnce;
+    expect(res.json).to.have.been.calledWith(expectedResultForbidden);
   });
 
   it('should respond with 401 for invalid secret', async () => {
@@ -80,7 +79,8 @@ describe('EditingConfigMiddleware', () => {
     await handler(req, res);
 
     expect(res.status).to.have.been.calledWith(401);
-    expect(res.end).to.have.been.calledOnce;
+    expect(res.json).to.have.been.calledOnce;
+    expect(res.json).to.have.been.calledWith(expectedResultForbidden);
   });
 
   it('should respond with 200 and return config data with components array as argument', async () => {

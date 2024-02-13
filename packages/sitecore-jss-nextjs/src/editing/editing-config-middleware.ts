@@ -42,7 +42,7 @@ export class EditingConfigMiddleware {
         getJssEditingSecret()
       );
 
-      res.status(401).end('Missing or invalid editing secret');
+      return res.status(401).json({ message: 'Missing or invalid editing secret' });
     }
 
     const components = Array.isArray(this.config.components)
