@@ -116,7 +116,6 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
       if (REGEXP_ABSOLUTE_URL.test(existsRedirect.target)) {
         url.href = existsRedirect.target;
-        url.locale = req.nextUrl.locale;
       } else {
         const source = `${url.pathname}${url.search}`;
         url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
