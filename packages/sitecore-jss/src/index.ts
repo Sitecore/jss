@@ -12,4 +12,5 @@ export {
   GraphQLRequestClientConfig,
 } from './graphql-request-client';
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
+export { ClientError } from 'graphql-request';
 export { constants };

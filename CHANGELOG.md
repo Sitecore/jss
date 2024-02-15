@@ -7,6 +7,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ### 🐛 Bug Fixes
 
+* `[sitecore-jss]` Export _ClientError_ type ([#1738](https://github.com/Sitecore/jss/pull/1738))
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Better error handling for component-level data fetching ([#1586](https://github.com/Sitecore/jss/pull/1586))
 * `[sitecore-jss]` Enable the Layout, dictionary and Error Page service to use custom `retryStrategy`. ([#1749](https://github.com/Sitecore/jss/pull/1749))
 

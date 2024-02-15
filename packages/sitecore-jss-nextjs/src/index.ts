@@ -5,6 +5,7 @@ export {
   HttpResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
+  ClientError,
 } from '@sitecore-jss/sitecore-jss';
 export {
   isEditorActive,
