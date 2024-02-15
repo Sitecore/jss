@@ -39,6 +39,18 @@ const defaultQuery = /* GraphQL */ `
   }
 `;
 
+const xmCloudQuery = /* GraphQL */ `
+  query {
+    site {
+      siteInfoCollection {
+        name
+        hostName: hostname
+        language
+      }
+    }
+  }
+`;
+
 export type SiteInfo = {
   /**
    * Additional user-defined properties
@@ -80,6 +92,10 @@ export type GraphQLSiteInfoServiceConfig = CacheOptions & {
    * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
    */
   clientFactory?: GraphQLRequestClientFactory;
+  /**
+   * Boolean indicating if app is running for xm cloud
+   */
+  xmCloud?: boolean;
 };
 
 type GraphQLSiteInfoResponse = {
@@ -101,12 +117,28 @@ export type GraphQLSiteInfoResult = {
   };
 };
 
+type GraphQLXmCloudSiteInfoResponse = {
+  site: {
+    siteInfoCollection: GraphQLXmCloudSiteInfoResult[];
+  };
+};
+
+export type GraphQLXmCloudSiteInfoResult = {
+  name: string;
+  hostName: string;
+  language: string;
+};
+
 export class GraphQLSiteInfoService {
   private graphQLClient: GraphQLClient;
   private cache: CacheClient<SiteInfo[]>;
 
   protected get query(): string {
     return defaultQuery;
+  }
+
+  protected get xmCloudQuery(): string {
+    return xmCloudQuery;
   }
 
   /**
@@ -128,6 +160,15 @@ export class GraphQLSiteInfoService {
       return [];
     }
 
+    const results: SiteInfo[] = this.config.xmCloud
+      ? await this.fetchWithSiteQuery()
+      : await this.fetchWithDefaultQuery();
+
+    this.cache.setCacheValue(this.getCacheKey(), results);
+    return results;
+  }
+
+  protected async fetchWithDefaultQuery(): Promise<SiteInfo[]> {
     const results: SiteInfo[] = [];
     let hasNext = true;
     let after = '';
@@ -150,8 +191,27 @@ export class GraphQLSiteInfoService {
       hasNext = response.search.pageInfo.hasNext;
       after = response.search.pageInfo.endCursor;
     }
+    return results;
+  }
 
-    this.cache.setCacheValue(this.getCacheKey(), results);
+  protected async fetchWithSiteQuery(): Promise<SiteInfo[]> {
+    const results: SiteInfo[] = [];
+
+    const response = await this.graphQLClient.request<GraphQLXmCloudSiteInfoResponse>(
+      this.xmCloudQuery
+    );
+    const result = response?.site?.siteInfoCollection?.reduce<SiteInfo[]>((result, current) => {
+      // filter out built in website
+      current.name !== 'website' &&
+        result.push({
+          name: current.name,
+          hostName: current.hostName,
+          language: current.language,
+        });
+      return result;
+    }, []);
+
+    results.push(...result);
     return results;
   }
 
