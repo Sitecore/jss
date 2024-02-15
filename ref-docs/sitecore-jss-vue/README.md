@@ -12,6 +12,7 @@
 
 ### Classes
 
+- [ClientError](classes/ClientError.md)
 - [DefaultRetryStrategy](classes/DefaultRetryStrategy.md)
 - [GraphQLDictionaryService](classes/GraphQLDictionaryService.md)
 - [GraphQLLayoutService](classes/GraphQLLayoutService.md)
@@ -78,7 +79,7 @@
 
 #### Defined in
 
-sitecore-jss/types/utils/edit-frame.d.ts:62
+packages/sitecore-jss/types/utils/edit-frame.d.ts:62
 
 ___
 
@@ -96,7 +97,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/utils/edit-frame.d.ts:43
+packages/sitecore-jss/types/utils/edit-frame.d.ts:43
 
 ___
 
@@ -106,7 +107,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/utils/edit-frame.d.ts:54
+packages/sitecore-jss/types/utils/edit-frame.d.ts:54
 
 ___
 
@@ -116,7 +117,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/utils/edit-frame.d.ts:57
+packages/sitecore-jss/types/utils/edit-frame.d.ts:57
 
 ## Variables
 
@@ -126,7 +127,7 @@ sitecore-jss/types/utils/edit-frame.d.ts:57
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/Date.ts:14](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-vue/src/components/Date.ts#L14)
+[packages/sitecore-jss-vue/src/components/Date.ts:14](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-vue/src/components/Date.ts#L14)
 
 ___
 
@@ -156,7 +157,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/utils/edit-frame.d.ts:12
+packages/sitecore-jss/types/utils/edit-frame.d.ts:12
 
 ___
 
@@ -166,7 +167,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/utils/edit-frame.d.ts:32
+packages/sitecore-jss/types/utils/edit-frame.d.ts:32
 
 ___
 
@@ -176,7 +177,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/EditFrame.ts:10](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-vue/src/components/EditFrame.ts#L10)
+[packages/sitecore-jss-vue/src/components/EditFrame.ts:10](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-vue/src/components/EditFrame.ts#L10)
 
 ___
 
@@ -186,7 +187,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/File.ts:14](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-vue/src/components/File.ts#L14)
+[packages/sitecore-jss-vue/src/components/File.ts:14](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-vue/src/components/File.ts#L14)
 
 ___
 
@@ -196,7 +197,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/Image.ts:55](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-vue/src/components/Image.ts#L55)
+[packages/sitecore-jss-vue/src/components/Image.ts:55](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-vue/src/components/Image.ts#L55)
 
 ___
 
@@ -206,7 +207,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/Link.ts:19](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-vue/src/components/Link.ts#L19)
+[packages/sitecore-jss-vue/src/components/Link.ts:19](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-vue/src/components/Link.ts#L19)
 
 ___
 
@@ -216,7 +217,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/Placeholder.ts:13](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-vue/src/components/Placeholder.ts#L13)
+[packages/sitecore-jss-vue/src/components/Placeholder.ts:13](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-vue/src/components/Placeholder.ts#L13)
 
 ___
 
@@ -226,7 +227,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/RichText.ts:3](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-vue/src/components/RichText.ts#L3)
+[packages/sitecore-jss-vue/src/components/RichText.ts:3](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-vue/src/components/RichText.ts#L3)
 
 ___
 
@@ -236,7 +237,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/SitecoreContext.ts:8](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-vue/src/components/SitecoreContext.ts#L8)
+[packages/sitecore-jss-vue/src/components/SitecoreContext.ts:8](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-vue/src/components/SitecoreContext.ts#L8)
 
 ___
 
@@ -246,7 +247,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts:30](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts#L30)
+[packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts:30](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts#L30)
 
 ___
 
@@ -256,7 +257,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/Text.ts:3](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-vue/src/components/Text.ts#L3)
+[packages/sitecore-jss-vue/src/components/Text.ts:3](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-vue/src/components/Text.ts#L3)
 
 ## Functions
 
@@ -278,7 +279,7 @@ Enable debug logging dynamically
 
 #### Defined in
 
-sitecore-jss/types/debug.d.ts:7
+packages/sitecore-jss/types/debug.d.ts:7
 
 ___
 
@@ -303,7 +304,7 @@ child placeholder
 
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:17
+packages/sitecore-jss/types/layout/utils.d.ts:17
 
 ___
 
@@ -335,7 +336,7 @@ the field value or null if the field is not defined
 
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:9
+packages/sitecore-jss/types/layout/utils.d.ts:9
 
 ▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -359,7 +360,7 @@ sitecore-jss/types/layout/utils.d.ts:9
 
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:10
+packages/sitecore-jss/types/layout/utils.d.ts:10
 
 ___
 
@@ -386,7 +387,7 @@ Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/Mutation
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:58
+packages/sitecore-jss/types/utils/editing.d.ts:58
 
 ___
 
@@ -405,7 +406,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:44
+packages/sitecore-jss/types/utils/editing.d.ts:44
 
 ___
 
@@ -426,7 +427,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/enhancers/providePlaceholders.ts:31](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts#L31)
+[packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts:31](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts#L31)
 
 ___
 
@@ -442,4 +443,4 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:48
+packages/sitecore-jss/types/utils/editing.d.ts:48

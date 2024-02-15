@@ -39,7 +39,7 @@ property instead
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:14
+packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:14
 
 ___
 
@@ -52,7 +52,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:27
+packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:27
 
 ___
 
@@ -72,7 +72,7 @@ property instead
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:9
+packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:9
 
 ___
 
@@ -84,7 +84,7 @@ The language
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:22
+packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:22
 
 ___
 
@@ -100,7 +100,7 @@ Pick.retries
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:60
+packages/sitecore-jss/types/graphql-request-client.d.ts:60
 
 ___
 
@@ -112,4 +112,4 @@ The JSS application name
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:18
+packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:18

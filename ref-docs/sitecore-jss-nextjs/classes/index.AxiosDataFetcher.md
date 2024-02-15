@@ -39,7 +39,7 @@ AxisoDataFetcher is a wrapper for axios library.
 
 #### Defined in
 
-sitecore-jss/types/axios-fetcher.d.ts:44
+packages/sitecore-jss/types/axios-fetcher.d.ts:44
 
 ## Properties
 
@@ -49,7 +49,7 @@ sitecore-jss/types/axios-fetcher.d.ts:44
 
 #### Defined in
 
-sitecore-jss/types/axios-fetcher.d.ts:38
+packages/sitecore-jss/types/axios-fetcher.d.ts:38
 
 ## Methods
 
@@ -74,7 +74,7 @@ response
 
 #### Defined in
 
-sitecore-jss/types/axios-fetcher.d.ts:88
+packages/sitecore-jss/types/axios-fetcher.d.ts:88
 
 ___
 
@@ -109,7 +109,7 @@ HttpDataFetcher<T> type for implementation details/notes.
 
 #### Defined in
 
-sitecore-jss/types/axios-fetcher.d.ts:51
+packages/sitecore-jss/types/axios-fetcher.d.ts:51
 
 ___
 
@@ -140,7 +140,7 @@ response
 
 #### Defined in
 
-sitecore-jss/types/axios-fetcher.d.ts:58
+packages/sitecore-jss/types/axios-fetcher.d.ts:58
 
 ___
 
@@ -165,7 +165,7 @@ response
 
 #### Defined in
 
-sitecore-jss/types/axios-fetcher.d.ts:65
+packages/sitecore-jss/types/axios-fetcher.d.ts:65
 
 ___
 
@@ -191,7 +191,7 @@ response
 
 #### Defined in
 
-sitecore-jss/types/axios-fetcher.d.ts:73
+packages/sitecore-jss/types/axios-fetcher.d.ts:73
 
 ___
 
@@ -217,4 +217,4 @@ response
 
 #### Defined in
 
-sitecore-jss/types/axios-fetcher.d.ts:81
+packages/sitecore-jss/types/axios-fetcher.d.ts:81

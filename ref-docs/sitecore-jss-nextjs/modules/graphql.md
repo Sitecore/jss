@@ -49,7 +49,7 @@ An instance of a GraphQL Request Client ready to send GraphQL requests.
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:73
+packages/sitecore-jss/types/graphql-request-client.d.ts:73
 
 ___
 
@@ -68,7 +68,7 @@ Configuration type for
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:77
+packages/sitecore-jss/types/graphql-request-client.d.ts:77
 
 ## Functions
 
@@ -93,4 +93,4 @@ The complete URL for accessing content through the Edge Platform.
 
 #### Defined in
 
-sitecore-jss/types/graphql/graphql-edge-proxy.d.ts:7
+packages/sitecore-jss/types/graphql/graphql-edge-proxy.d.ts:7

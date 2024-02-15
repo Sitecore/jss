@@ -20,4 +20,4 @@ Editing rendering type
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:29
+packages/sitecore-jss/types/layout/models.d.ts:29

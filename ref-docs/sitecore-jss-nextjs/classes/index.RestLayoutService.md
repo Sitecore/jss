@@ -51,7 +51,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:57
+packages/sitecore-jss/types/layout/rest-layout-service.d.ts:57
 
 ## Properties
 
@@ -103,7 +103,7 @@ AxiosDataFetcher data fetcher
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:98
+packages/sitecore-jss/types/layout/rest-layout-service.d.ts:98
 
 ___
 
@@ -131,7 +131,7 @@ fetch options
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:85
+packages/sitecore-jss/types/layout/rest-layout-service.d.ts:85
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:56
+packages/sitecore-jss/types/layout/rest-layout-service.d.ts:56
 
 ## Methods
 
@@ -176,7 +176,7 @@ LayoutServiceBase.fetchLayoutData
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:67
+packages/sitecore-jss/types/layout/rest-layout-service.d.ts:67
 
 ___
 
@@ -206,7 +206,7 @@ placeholder data
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:79
+packages/sitecore-jss/types/layout/rest-layout-service.d.ts:79
 
 ___
 
@@ -230,7 +230,7 @@ the layout service url
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:91
+packages/sitecore-jss/types/layout/rest-layout-service.d.ts:91
 
 ___
 
@@ -270,7 +270,7 @@ axios request config
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:104
+packages/sitecore-jss/types/layout/rest-layout-service.d.ts:104
 
 ___
 
@@ -310,4 +310,4 @@ response
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:110
+packages/sitecore-jss/types/layout/rest-layout-service.d.ts:110

@@ -23,7 +23,7 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:9](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L9)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:9](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L9)
 
 ___
 
@@ -33,4 +33,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:10](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L10)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:10](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L10)

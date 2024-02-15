@@ -42,7 +42,7 @@ In production non-editing environments it is desirable to use relative urls, so 
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
+[packages/sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
 
 ___
 
@@ -72,7 +72,7 @@ forceReload false
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:33](https://github.com/Sitecore/jss/blob/daae2885d/packages/sitecore-jss-nextjs/src/utils/utils.ts#L33)
+[packages/sitecore-jss-nextjs/src/utils/utils.ts:33](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-nextjs/src/utils/utils.ts#L33)
 
 ___
 
@@ -91,7 +91,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:44
+packages/sitecore-jss/types/utils/editing.d.ts:44
 
 ___
 
@@ -107,7 +107,7 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:48
+packages/sitecore-jss/types/utils/editing.d.ts:48
 
 ___
 
@@ -138,4 +138,4 @@ parsed value
 
 #### Defined in
 
-sitecore-jss/types/utils/env.d.ts:7
+packages/sitecore-jss/types/utils/env.d.ts:7
