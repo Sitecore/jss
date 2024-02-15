@@ -9,7 +9,7 @@ export {
   WebEditButton,
   EditButtonTypes,
 } from '@sitecore-jss/sitecore-jss/utils';
-export { constants, enableDebug } from '@sitecore-jss/sitecore-jss';
+export { constants, enableDebug, ClientError } from '@sitecore-jss/sitecore-jss';
 export {
   trackingApi,
   TrackingRequestOptions,

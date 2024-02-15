@@ -6,6 +6,7 @@ export {
   AxiosResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
+  ClientError,
   NativeDataFetcher,
   NativeDataFetcherConfig,
   HTMLLink,
