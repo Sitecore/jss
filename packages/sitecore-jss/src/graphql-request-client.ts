@@ -80,7 +80,10 @@ export type GraphQLRequestClientFactory = (
 /**
  * Configuration type for @type GraphQLRequestClientFactory
  */
-export type GraphQLRequestClientFactoryConfig = { endpoint: string; apiKey?: string };
+export type GraphQLRequestClientFactoryConfig = {
+  endpoint: string;
+  apiKey?: string;
+};
 
 /**
  * Represents a default retry strategy for handling retry attempts in case of specific HTTP status codes.
