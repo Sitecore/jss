@@ -296,6 +296,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     // work-around for https://github.com/angular/angular/issues/12215
     const createdComponentRef = this.view.createComponent(rendering.componentImplementation, {
       index: index,
+      ngModuleRef: rendering.componentModuleRef,
     });
     if (this.parentStyleAttribute) {
       this.renderer.setAttribute(
