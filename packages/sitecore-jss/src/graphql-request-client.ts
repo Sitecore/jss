@@ -83,7 +83,6 @@ export type GraphQLRequestClientFactory = (
 export type GraphQLRequestClientFactoryConfig = {
   endpoint: string;
   apiKey?: string;
-  xmCloud?: boolean;
 };
 
 /**

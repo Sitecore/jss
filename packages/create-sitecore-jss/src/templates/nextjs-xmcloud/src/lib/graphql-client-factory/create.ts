@@ -16,13 +16,11 @@ export const createGraphQLClientFactory = (config: JssConfig) => {
   if (config.sitecoreEdgeContextId) {
     clientConfig = {
       endpoint: getEdgeProxyContentUrl(config.sitecoreEdgeContextId, config.sitecoreEdgeUrl),
-      xmCloud: true,
     };
   } else if (config.graphQLEndpoint && config.sitecoreApiKey) {
     clientConfig = {
       endpoint: config.graphQLEndpoint,
       apiKey: config.sitecoreApiKey,
-      xmCloud: true,
     };
   } else {
     throw new Error(
