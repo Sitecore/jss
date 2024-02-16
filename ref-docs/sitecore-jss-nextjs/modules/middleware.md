@@ -34,7 +34,7 @@ Re-exports [debug](index.md#debug)
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:6](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L6)
+[packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:6](https://github.com/Sitecore/jss/blob/6903eb368/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L6)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:36](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L36)
+[packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:36](https://github.com/Sitecore/jss/blob/6903eb368/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L36)
 
 ___
 
@@ -56,4 +56,4 @@ extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:21](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L21)
+[packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:21](https://github.com/Sitecore/jss/blob/6903eb368/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L21)

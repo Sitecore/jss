@@ -39,7 +39,7 @@ property instead
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:38](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L38)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:38](https://github.com/Sitecore/jss/blob/6903eb368/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L38)
 
 ___
 
@@ -52,7 +52,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:51](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L51)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:51](https://github.com/Sitecore/jss/blob/6903eb368/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L51)
 
 ___
 
@@ -72,7 +72,7 @@ property instead
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:33](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L33)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:33](https://github.com/Sitecore/jss/blob/6903eb368/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L33)
 
 ___
 
@@ -84,7 +84,7 @@ The language
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:46](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L46)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:46](https://github.com/Sitecore/jss/blob/6903eb368/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L46)
 
 ___
 
@@ -100,7 +100,7 @@ Pick.retries
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:62](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss/src/graphql-request-client.ts#L62)
+[packages/sitecore-jss/src/graphql-request-client.ts:62](https://github.com/Sitecore/jss/blob/6903eb368/packages/sitecore-jss/src/graphql-request-client.ts#L62)
 
 ___
 
@@ -112,4 +112,4 @@ The JSS application name
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:42](https://github.com/Sitecore/jss/blob/71482ee0c/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L42)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:42](https://github.com/Sitecore/jss/blob/6903eb368/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L42)
