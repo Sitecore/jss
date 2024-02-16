@@ -39,7 +39,7 @@ const defaultQuery = /* GraphQL */ `
   }
 `;
 
-const xmCloudQuery = /* GraphQL */ `
+const siteQuery = /* GraphQL */ `
   query {
     site {
       siteInfoCollection {
@@ -93,9 +93,9 @@ export type GraphQLSiteInfoServiceConfig = CacheOptions & {
    */
   clientFactory?: GraphQLRequestClientFactory;
   /**
-   * Boolean indicating if app is running for xm cloud
+   * Boolean indicating if service will use site GQL query instead of search
    */
-  xmCloud?: boolean;
+  useSiteQuery?: boolean;
 };
 
 type GraphQLSiteInfoResponse = {
@@ -137,8 +137,11 @@ export class GraphQLSiteInfoService {
     return defaultQuery;
   }
 
-  protected get xmCloudQuery(): string {
-    return xmCloudQuery;
+  /**
+   * site query is available on XM Cloud and XP 10.4+
+   */
+  protected get siteQuery(): string {
+    return siteQuery;
   }
 
   /**
@@ -160,7 +163,7 @@ export class GraphQLSiteInfoService {
       return [];
     }
 
-    const results: SiteInfo[] = this.config.xmCloud
+    const results: SiteInfo[] = this.config.useSiteQuery
       ? await this.fetchWithSiteQuery()
       : await this.fetchWithDefaultQuery();
 
@@ -196,7 +199,7 @@ export class GraphQLSiteInfoService {
 
   protected async fetchWithSiteQuery(): Promise<SiteInfo[]> {
     const response = await this.graphQLClient.request<GraphQLXmCloudSiteInfoResponse>(
-      this.xmCloudQuery
+      this.siteQuery
     );
     const result = response?.site?.siteInfoCollection?.reduce<SiteInfo[]>((result, current) => {
       // filter out built in website

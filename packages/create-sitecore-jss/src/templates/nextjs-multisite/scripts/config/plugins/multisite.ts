@@ -19,7 +19,8 @@ class MultisitePlugin implements ConfigPlugin {
       const siteInfoService = new GraphQLSiteInfoService({
         clientFactory: createGraphQLClientFactory(config),
         <% if (templates.includes("nextjs-xmcloud")) { -%>
-        xmCloud: true,
+        // enable site query for the service. Only works on XMCloud currently
+        useSiteQuery: true,
         <% } -%>
       });
       sites = await siteInfoService.fetchSiteInfo();

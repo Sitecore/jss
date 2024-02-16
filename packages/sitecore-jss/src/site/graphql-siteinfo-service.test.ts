@@ -317,8 +317,8 @@ describe('GraphQLSiteInfoService', () => {
       },
     };
 
-    const getXmCLoudSiteInfoService = (initProps: { [key: string]: unknown }) => {
-      return new GraphQLSiteInfoService({ xmCloud: true, ...initProps });
+    const getSiteQuerySiteInfoService = (initProps: { [key: string]: unknown }) => {
+      return new GraphQLSiteInfoService({ useSiteQuery: true, ...initProps });
     };
 
     it('should return correct result', async () => {
@@ -333,7 +333,7 @@ describe('GraphQLSiteInfoService', () => {
           ],
         })
       );
-      const service = getXmCLoudSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+      const service = getSiteQuerySiteInfoService({ apiKey: apiKey, endpoint: endpoint });
       const result = await service.fetchSiteInfo();
       expect(result).to.be.deep.equal([
         {
@@ -365,7 +365,7 @@ describe('GraphQLSiteInfoService', () => {
         endpoint,
         apiKey,
       });
-      const service = getXmCLoudSiteInfoService({ clientFactory });
+      const service = getSiteQuerySiteInfoService({ clientFactory });
       const result = await service.fetchSiteInfo();
       expect(result).to.be.deep.equal([
         {
@@ -385,7 +385,7 @@ describe('GraphQLSiteInfoService', () => {
       nock(endpoint)
         .post('/')
         .reply(200, emptyResponse);
-      const service = getXmCLoudSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+      const service = getSiteQuerySiteInfoService({ apiKey: apiKey, endpoint: endpoint });
       const result = await service.fetchSiteInfo();
       expect(result).to.deep.equal([]);
     });
@@ -402,7 +402,7 @@ describe('GraphQLSiteInfoService', () => {
           ],
         })
       );
-      const service = getXmCLoudSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+      const service = getSiteQuerySiteInfoService({ apiKey: apiKey, endpoint: endpoint });
       const result = await service.fetchSiteInfo();
       expect(result).to.be.deep.equal([
         {
