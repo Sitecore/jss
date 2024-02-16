@@ -195,8 +195,6 @@ export class GraphQLSiteInfoService {
   }
 
   protected async fetchWithSiteQuery(): Promise<SiteInfo[]> {
-    const results: SiteInfo[] = [];
-
     const response = await this.graphQLClient.request<GraphQLXmCloudSiteInfoResponse>(
       this.xmCloudQuery
     );
@@ -211,8 +209,7 @@ export class GraphQLSiteInfoService {
       return result;
     }, []);
 
-    results.push(...result);
-    return results;
+    return result;
   }
 
   /**
