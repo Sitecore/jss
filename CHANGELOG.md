@@ -20,7 +20,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-xmcloud]` `[sitecore-jss-nextjs]` Add protected endpoint which provides configuration information (the sitecore packages used by the app and all registered components) to be used to determine feature compatibility on Pages side. ([#1724](https://github.com/Sitecore/jss/pull/1724) [#1734](https://github.com/Sitecore/jss/pull/1734)) 
 * `[sitecore-jss-nextjs]` `[templates/nextjs]` [BYOC] Component Builder integration endpoint ([#1729](https://github.com/Sitecore/jss/pull/1729))
 * `[sitecore-jss]` `[templates/nextjs-xmcloud]` Enable site GraphQL query for mutlisite in XMCloud instead of default search one. Site query should take "Valid for environment" SXA site setting into account when returning site list. ([#1739](https://github.com/Sitecore/jss/pull/1739))
-  * To enable this on your existing app, modify  src\lib\graphql-client-factory\create.ts and add "xmCloud: true" to clientConfig
+  * To enable this on your existing app, modify the \scripts\config\plugins\multisite.ts file and add "xmCloud: true" to GraphQLSiteInfoService constructor call
 
 ### 🐛 Bug Fixes
 
