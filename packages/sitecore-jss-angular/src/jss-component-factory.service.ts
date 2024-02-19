@@ -1,4 +1,4 @@
-import { Inject, Injectable, Injector, Type, createNgModule } from '@angular/core';
+import { createNgModule, Inject, Injectable, Injector, NgModuleRef, Type } from '@angular/core';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import {
   ComponentNameAndModule,
@@ -17,6 +17,7 @@ export interface ComponentFactoryResult {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   componentImplementation?: Type<any>;
   componentDefinition: ComponentRendering | HtmlElementRendering;
+  componentModuleRef?: NgModuleRef<unknown>;
   canActivate?:
     | JssCanActivate
     | Type<JssCanActivate>
@@ -86,6 +87,7 @@ export class JssComponentFactoryService {
         return {
           componentDefinition: component,
           componentImplementation: componentType,
+          componentModuleRef: moduleRef,
           canActivate: lazyComponent.canActivate,
           resolve: lazyComponent.resolve,
         };
