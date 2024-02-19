@@ -9,6 +9,12 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 21.6.3
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-angular]` Missing ngModuleRef in lazy loaded components ([#1743](https://github.com/Sitecore/jss/pull/1743))
+
 ## 21.6.2
 
 ### 🐛 Bug Fixes
