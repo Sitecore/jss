@@ -1,7 +1,7 @@
 import { InjectionToken, Type } from '@angular/core';
 import { ActivatedRouteSnapshot, Data, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ComponentFactoryResult } from '../jss-component-factory.service';
+import { ComponentFactoryResult } from './jss-component-factory.service';
 import { ComponentRendering } from '../public_api';
 
 /** Registers a statically loaded component */
