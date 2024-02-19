@@ -54,7 +54,7 @@ Omit.pageSize
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:60](https://github.com/Sitecore/jss/blob/7c905aeb3/packages/sitecore-jss/src/graphql/search-service.ts#L60)
+[packages/sitecore-jss/src/graphql/search-service.ts:60](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss/src/graphql/search-service.ts#L60)
 
 ___
 
@@ -70,7 +70,7 @@ Omit.rootItemId
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/7c905aeb3/packages/sitecore-jss/src/graphql/search-service.ts#L48)
+[packages/sitecore-jss/src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss/src/graphql/search-service.ts#L48)
 
 ___
 
@@ -83,7 +83,7 @@ in cases where one is not specified by the caller.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:75](https://github.com/Sitecore/jss/blob/7c905aeb3/packages/sitecore-jss/src/graphql/search-service.ts#L75)
+[packages/sitecore-jss/src/graphql/search-service.ts:75](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss/src/graphql/search-service.ts#L75)
 
 ___
 
@@ -99,4 +99,4 @@ Omit.templates
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/7c905aeb3/packages/sitecore-jss/src/graphql/search-service.ts#L53)
+[packages/sitecore-jss/src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss/src/graphql/search-service.ts#L53)
