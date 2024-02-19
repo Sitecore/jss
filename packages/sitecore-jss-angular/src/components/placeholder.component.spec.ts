@@ -11,6 +11,7 @@ import {
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
 } from '../test-data/non-ee-data';
+import { LazyComponent } from '../test-data/lazy-component.component';
 
 @Component({
   selector: 'test-placeholder',
@@ -69,11 +70,22 @@ describe('<sc-placeholder />', () => {
         ],
         imports: [
           RouterTestingModule,
-          JssModule.withComponents([
-            { name: 'DownloadCallout', type: TestDownloadCalloutComponent },
-            { name: 'Home', type: TestHomeComponent },
-            { name: 'Jumbotron', type: TestJumbotronComponent },
-          ]),
+          JssModule.withComponents(
+            [
+              { name: 'DownloadCallout', type: TestDownloadCalloutComponent },
+              { name: 'Home', type: TestHomeComponent },
+              { name: 'Jumbotron', type: TestJumbotronComponent },
+            ],
+            [
+              {
+                path: 'LazyComponent',
+                loadChildren: () =>
+                  import('../test-data/lazy-loading.module').then(
+                    (m) => m.AngularLazyLoadingModule
+                  ),
+              },
+            ]
+          ),
         ],
         providers: [],
       }).compileComponents();
@@ -122,6 +134,10 @@ describe('<sc-placeholder />', () => {
           const downloadCallout = de.query(By.directive(TestDownloadCalloutComponent));
           expect(downloadCallout).not.toBeNull();
           expect(downloadCallout.nativeElement.innerHTML).toContain('Download');
+
+          const lazyComponent = de.query(By.directive(LazyComponent));
+          expect(lazyComponent).not.toBeNull();
+          expect(lazyComponent.nativeElement.innerHTML).toContain('Push');
 
           const img = de.nativeElement.getElementsByTagName('img')[0];
           expect(img).not.toBeDefined();
