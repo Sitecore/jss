@@ -26,7 +26,7 @@ import { Data, Router, UrlTree } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { Observable } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
-import { JssCanActivateError } from '../services/jss-can-activate-error';
+import { JssCanActivateRedirectError } from '../services/jss-can-activate-error';
 import {
   ComponentFactoryResult,
   JssComponentFactoryService,
@@ -249,7 +249,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
         this.loaded.emit(this.name);
       } catch (e) {
         this.isLoading = false;
-        if (e instanceof JssCanActivateError) {
+        if (e instanceof JssCanActivateRedirectError) {
           const redirectValue = e.redirectValue;
           if (redirectValue instanceof UrlTree) {
             this.router.navigateByUrl(redirectValue);

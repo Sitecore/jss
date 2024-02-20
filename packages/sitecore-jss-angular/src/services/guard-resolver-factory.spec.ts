@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of } from 'rxjs';
 import { guardResolverFactory } from './guard-resolver-factory';
-import { JssCanActivateError } from './jss-can-activate-error';
+import { JssCanActivateRedirectError } from './jss-can-activate-error';
 import {
   GUARD_RESOLVER,
   GuardResolver,
@@ -160,7 +160,7 @@ describe('guardResolverFactory', () => {
     expect(nonGuarded.length).toBe(1);
   });
 
-  it('Throws JssCanActivateError when returning UrlTree', () => {
+  it('Throws JssCanActivateRedirectError when returning UrlTree', () => {
     return expectAsync(
       resolver([
         {
@@ -169,10 +169,10 @@ describe('guardResolverFactory', () => {
         },
       ])
       // eslint-disable-next-line quotes
-    ).toBeRejectedWithError(JssCanActivateError, "Value: '/404' is a redirect value");
+    ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '/404' is a redirect value");
   });
 
-  it('Throws JssCanActivateError when returning string', () => {
+  it('Throws JssCanActivateRedirectError when returning string', () => {
     return expectAsync(
       resolver([
         {
@@ -181,10 +181,10 @@ describe('guardResolverFactory', () => {
         },
       ])
       // eslint-disable-next-line quotes
-    ).toBeRejectedWithError(JssCanActivateError, "Value: '/404' is a redirect value");
+    ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '/404' is a redirect value");
   });
 
-  it('Throws JssCanActivateError when returning array with strings', () => {
+  it('Throws JssCanActivateRedirectError when returning array with strings', () => {
     return expectAsync(
       resolver([
         {
@@ -193,7 +193,7 @@ describe('guardResolverFactory', () => {
         },
       ])
       // eslint-disable-next-line quotes
-    ).toBeRejectedWithError(JssCanActivateError, "Value: '404' is a redirect value");
+    ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '404' is a redirect value");
   });
 
   it('Blocks rendering if single async guard returns false', async () => {
