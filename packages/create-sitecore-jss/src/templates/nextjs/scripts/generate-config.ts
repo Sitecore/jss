@@ -1,13 +1,8 @@
-import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import { constantCase } from 'constant-case';
 import { JssConfig } from 'lib/config';
 import { jssConfigFactory } from './config';
-import { loadEnvConfig } from '@next/env';
-
-const projectDir = process.cwd();
-loadEnvConfig(projectDir);
 
 /*
   CONFIG GENERATION
