@@ -20,10 +20,7 @@ import { BYOCWrapper, BYOC_WRAPPER_RENDERING_NAME } from './BYOCWrapper';
  * These patterns need for right rendering Dynamic placeholders.
  * Must be distinguished Splitter components and another placeholders(containers)
  */
-const EXCLUDE_PLACEHOLDERS_RENDER = [
-  new RegExp(/column-(\d{1})-\{\*\}/i),
-  new RegExp(/row-(\d{1})-\{\*\}/i),
-];
+const EXCLUDE_PLACEHOLDERS_RENDER = [new RegExp(/(\d{1})-\{\*\}/i)];
 
 type ErrorComponentProps = {
   [prop: string]: unknown;
