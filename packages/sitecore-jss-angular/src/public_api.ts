@@ -19,7 +19,6 @@ export {
   JssCanActivateFn,
   GuardInput,
 } from './services/placeholder.token';
-export { provideLazyLoad } from './services/lazy-load';
 export { JssCanActivateError } from './services/jss-can-activate-error';
 export { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
 export { isRawRendering } from './components/rendering';

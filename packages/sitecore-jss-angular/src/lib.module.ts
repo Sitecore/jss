@@ -99,16 +99,18 @@ export class JssModule {
   }
 
   /**
-   * Instantiates a module for a lazy-loaded JSS component
-   * @param {Type<unknown>} component
+   * Instantiates a module for a lazy-loaded JSS component(s)
+   * @param {Type<unknown> | Record<string, Type<unknown>> } value - component or map of components
    * @returns {ModuleWithProviders<JssModule>} module
    */
-  static forChild(component: Type<unknown>): ModuleWithProviders<JssModule> {
+  static forChild(
+    value: Type<unknown> | { [key: string]: Type<unknown> }
+  ): ModuleWithProviders<JssModule> {
     return {
       ngModule: JssModule,
       providers: [
         { provide: ROUTES, useValue: [], multi: true },
-        { provide: DYNAMIC_COMPONENT, useValue: component },
+        { provide: DYNAMIC_COMPONENT, useValue: value },
       ],
     };
   }
