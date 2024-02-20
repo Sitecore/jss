@@ -3,11 +3,34 @@ import { getSiteRewrite } from '@sitecore-jss/sitecore-jss/site';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
 
+export type SiteCookieAttributes = {
+  /**
+   * the Secure attribute of the site cookie
+   */
+  secure: boolean;
+  /**
+   * the number of days after which the site cookie will expire
+   */
+  expirationDays: number;
+  /**
+   * the HttpOnly attribute of the site cookie
+   */
+  httpOnly: boolean;
+  /**
+   * the SameSite attribute of the site cookie
+   */
+  sameSite?: true | false | 'lax' | 'strict' | 'none' | undefined;
+};
+
 export type MultisiteMiddlewareConfig = Omit<MiddlewareBaseConfig, 'disabled'> & {
   /**
    * Function used to determine if site should be resolved from sc_site cookie when present
    */
   useCookieResolution?: (req: NextRequest) => boolean;
+  /**
+   * Attributes for the sc_site cookie
+   */
+  siteCookieAttributes: SiteCookieAttributes;
 };
 
 /**
@@ -78,7 +101,7 @@ export class MultisiteMiddleware extends MiddlewareBase {
     response = this.rewrite(rewritePath, req, response);
 
     // Share site name with the following executed middlewares
-    response.cookies.set(this.SITE_SYMBOL, siteName);
+    response.cookies.set(this.SITE_SYMBOL, siteName, this.getSiteCookieAttributes());
 
     debug.multisite('multisite middleware end in %dms: %o', Date.now() - startTimestamp, {
       rewritePath,
@@ -89,4 +112,14 @@ export class MultisiteMiddleware extends MiddlewareBase {
 
     return response;
   };
+
+  private getSiteCookieAttributes(): object {
+    var dateNow = new Date();
+    return {
+      secure: this.config.siteCookieAttributes.secure,
+      httpOnly: this.config.siteCookieAttributes.httpOnly,
+      sameSite: this.config.siteCookieAttributes.sameSite,
+      expires: dateNow.setDate(dateNow.getDate() + this.config.siteCookieAttributes.expirationDays),
+    };
+  }
 }
