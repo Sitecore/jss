@@ -17,6 +17,7 @@ Our versioning strategy is as follows:
   * _Placeholder_ component supports _failed_ event that is triggered when the component fails to render.
   * Handle error in the _Placeholder_ component more gracefully by using an appropriate error _JssCanActivateRedirectError_ type for redirects handling.
   * _JssModule.forChild_ now accepts component or component map type as a parameter.
+  * Fixed missing guard _this_ context when calling _canActivate_ guard
 * `[nextjs/template]` `[sitecore-jss-nextjs]` On-demand ISR [#1674](https://github.com/Sitecore/jss/pull/1674))
 * `[sitecore-jss]` `[templates/nextjs-xmcloud]` Load the content styles for the RichText component ([#1670](https://github.com/Sitecore/jss/pull/1670))([#1683](https://github.com/Sitecore/jss/pull/1683)) ([#1684](https://github.com/Sitecore/jss/pull/1684)) ([#1693](https://github.com/Sitecore/jss/pull/1693))
 * `[templates/react]` `[sitecore-jss-react]` Replace package 'deep-equal' with 'fast-deep-equal'. No functionality change only performance improvement ([#1719](https://github.com/Sitecore/jss/pull/1719)) ([#1665](https://github.com/Sitecore/jss/pull/1665))
