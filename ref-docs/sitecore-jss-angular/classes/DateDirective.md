@@ -45,7 +45,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:29](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/components/date.directive.ts#L29)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:29](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/components/date.directive.ts#L29)
 
 ## Properties
 
@@ -55,7 +55,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:32](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/components/date.directive.ts#L32)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:32](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/components/date.directive.ts#L32)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:23](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/components/date.directive.ts#L23)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:23](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/components/date.directive.ts#L23)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:25](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/components/date.directive.ts#L25)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:25](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/components/date.directive.ts#L25)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:17](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/components/date.directive.ts#L17)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:17](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/components/date.directive.ts#L17)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:21](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/components/date.directive.ts#L21)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:21](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/components/date.directive.ts#L21)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:31](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/components/date.directive.ts#L31)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:31](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/components/date.directive.ts#L31)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:19](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/components/date.directive.ts#L19)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:19](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/components/date.directive.ts#L19)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:30](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/components/date.directive.ts#L30)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:30](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/components/date.directive.ts#L30)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:27](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/components/date.directive.ts#L27)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:27](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/components/date.directive.ts#L27)
 
 ## Methods
 
@@ -159,7 +159,7 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:35](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/components/date.directive.ts#L35)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:35](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/components/date.directive.ts#L35)
 
 ___
 
@@ -173,4 +173,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:46](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/components/date.directive.ts#L46)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:46](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/components/date.directive.ts#L46)

@@ -24,15 +24,15 @@
 
 ### forChild
 
-▸ `Static` **forChild**(`component`): `ModuleWithProviders`\<[`JssModule`](JssModule.md)\>
+▸ `Static` **forChild**(`value`): `ModuleWithProviders`\<[`JssModule`](JssModule.md)\>
 
-Instantiates a module for a lazy-loaded JSS component
+Instantiates a module for a lazy-loaded JSS component(s)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `component` | `Type`\<`unknown`\> |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `Type`\<`unknown`\> \| \{ `[key: string]`: `Type`\<`unknown`\>;  } | component or map of components |
 
 #### Returns
 
@@ -42,7 +42,7 @@ module
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/lib.module.ts:106](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/lib.module.ts#L106)
+[packages/sitecore-jss-angular/src/lib.module.ts:106](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/lib.module.ts#L106)
 
 ___
 
@@ -61,7 +61,7 @@ module
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/lib.module.ts:81](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/lib.module.ts#L81)
+[packages/sitecore-jss-angular/src/lib.module.ts:81](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/lib.module.ts#L81)
 
 ___
 
@@ -87,4 +87,4 @@ module
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/lib.module.ts:123](https://github.com/Sitecore/jss/blob/077134273/packages/sitecore-jss-angular/src/lib.module.ts#L123)
+[packages/sitecore-jss-angular/src/lib.module.ts:125](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss-angular/src/lib.module.ts#L125)
