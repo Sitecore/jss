@@ -2,11 +2,14 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { MockService } from './mock.service';
 import { Component, Input } from '@angular/core';
 
+/**
+ * This component is used to test lazy loading functionality.
+ */
 @Component({
   selector: 'lazy-component',
   template: `
     {{ rendering?.fields?.linkText?.value }}
-    {{ getNum() }}
+    {{ getText() }}
   `,
 })
 export class LazyComponent {
@@ -14,7 +17,7 @@ export class LazyComponent {
 
   constructor(private mockService: MockService) {}
 
-  getNum() {
-    return this.mockService.get(10);
+  getText() {
+    return this.mockService.get('Hello world');
   }
 }

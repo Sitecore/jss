@@ -9,9 +9,9 @@ import {
   JssResolve,
   PLACEHOLDER_COMPONENTS,
   PLACEHOLDER_LAZY_COMPONENTS,
-} from './components/placeholder.token';
-import { RawComponent } from './components/raw.component';
-import { isRawRendering } from './components/rendering';
+} from './placeholder.token';
+import { RawComponent } from '../components/raw.component';
+import { isRawRendering } from '../components/rendering';
 
 export interface ComponentFactoryResult {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

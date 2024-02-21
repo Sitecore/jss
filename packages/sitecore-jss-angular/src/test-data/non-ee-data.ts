@@ -6,6 +6,7 @@ export const convertedDevData = {
       pageEditing: false,
     },
     route: {
+      componentName: '',
       name: 'home',
       displayName: 'Home',
       placeholders: {
@@ -78,6 +79,7 @@ export const convertedLayoutServiceData = {
       pageEditing: false,
     },
     route: {
+      componentName: '',
       name: 'home',
       displayName: 'Home',
       placeholders: {
