@@ -9,9 +9,9 @@ export type SiteCookieAttributes = {
    */
   secure: boolean;
   /**
-   * the number of days after which the site cookie will expire
+   * the expiration date of the cookie
    */
-  expirationDays: number;
+  expires: number | Date;
   /**
    * the HttpOnly attribute of the site cookie
    */
@@ -30,7 +30,7 @@ export type MultisiteMiddlewareConfig = Omit<MiddlewareBaseConfig, 'disabled'> &
   /**
    * Attributes for the sc_site cookie
    */
-  siteCookieAttributes: SiteCookieAttributes;
+  siteCookieAttributes?: SiteCookieAttributes;
 };
 
 /**
@@ -101,7 +101,7 @@ export class MultisiteMiddleware extends MiddlewareBase {
     response = this.rewrite(rewritePath, req, response);
 
     // Share site name with the following executed middlewares
-    response.cookies.set(this.SITE_SYMBOL, siteName, this.getSiteCookieAttributes());
+    response.cookies.set(this.SITE_SYMBOL, siteName, this.config.siteCookieAttributes || undefined);
 
     debug.multisite('multisite middleware end in %dms: %o', Date.now() - startTimestamp, {
       rewritePath,
@@ -112,14 +112,4 @@ export class MultisiteMiddleware extends MiddlewareBase {
 
     return response;
   };
-
-  private getSiteCookieAttributes(): object {
-    var dateNow = new Date();
-    return {
-      secure: this.config.siteCookieAttributes.secure,
-      httpOnly: this.config.siteCookieAttributes.httpOnly,
-      sameSite: this.config.siteCookieAttributes.sameSite,
-      expires: dateNow.setDate(dateNow.getDate() + this.config.siteCookieAttributes.expirationDays),
-    };
-  }
 }

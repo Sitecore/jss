@@ -7,7 +7,7 @@ import sinon, { spy } from 'sinon';
 import nextjs, { NextRequest, NextResponse } from 'next/server';
 import { debug } from '@sitecore-jss/sitecore-jss';
 
-import { MultisiteMiddleware } from './multisite-middleware';
+import { MultisiteMiddleware, SiteCookieAttributes } from './multisite-middleware';
 import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 
 use(sinonChai);
@@ -67,8 +67,12 @@ describe('MultisiteMiddleware', () => {
   const createResponse = (props: any = {}) => {
     const res = {
       cookies: {
-        set(key, value) {
-          res.cookies[key] = value;
+        set(key, value, attributes?) {
+          if (attributes) {
+            res.cookies[key] = { value, ...attributes };
+          } else {
+            res.cookies[key] = value;
+          }
         },
       },
       headers: {},
@@ -93,7 +97,13 @@ describe('MultisiteMiddleware', () => {
     return res;
   };
 
-  const createMiddleware = (props: { [key: string]: any; siteResolver?: SiteResolver } = {}) => {
+  const createMiddleware = (
+    props: {
+      [key: string]: any;
+      siteResolver?: SiteResolver;
+      siteCookieAttributes?: SiteCookieAttributes;
+    } = {}
+  ) => {
     class MockSiteResolver extends SiteResolver {
       getByName = sinon.stub().returns({
         name: siteName,
@@ -214,6 +224,9 @@ describe('MultisiteMiddleware', () => {
 
   describe('request passed', () => {
     let nextRewriteStub = sinon.stub();
+    const dateNow = new Date();
+    const expiresAfterDays = 10;
+    const expirationDate = dateNow.setDate(dateNow.getDate() + expiresAfterDays);
 
     afterEach(() => {
       nextRewriteStub.restore();
@@ -507,6 +520,44 @@ describe('MultisiteMiddleware', () => {
       expect(nextRewriteStub).calledWith({
         ...req.nextUrl,
         pathname: '/_site_foo/styleguide',
+      });
+    });
+
+    it('should assign attributes to site cookie', async () => {
+      const req = createRequest({
+        cookieValues: { sc_site: 'foobar' },
+      });
+
+      const res = createResponse();
+
+      nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+
+      const siteCookieAttributes = {
+        expires: expirationDate,
+        secure: true,
+        httpOnly: false,
+        sameSite: true,
+      };
+
+      const { middleware, siteResolver } = createMiddleware({
+        siteCookieAttributes: siteCookieAttributes,
+      });
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateEndMessageDebugLog('multisite middleware end in %dms: %o', {
+        rewritePath: '/_site_foo/styleguide',
+        siteName: 'foo',
+        headers: {
+          'x-sc-rewrite': '/_site_foo/styleguide',
+        },
+        cookies: {
+          ...finalRes.cookies,
+          sc_site: {
+            ...siteCookieAttributes,
+            value: 'foo',
+          },
+        },
       });
     });
   });

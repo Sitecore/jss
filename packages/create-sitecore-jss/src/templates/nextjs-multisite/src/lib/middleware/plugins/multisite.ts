@@ -28,10 +28,10 @@ class MultisitePlugin implements MiddlewarePlugin {
       siteResolver,
       // This function allows resolving site from sc_site cookie, which could be useful in case of Vercel preview URLs. Accepts NextRequest.
       useCookieResolution: () => process.env.VERCEL_ENV === 'preview',
-      // Тhe attributes of the site cookie
+      // Тhe attributes of the site cookie with recommended values
       siteCookieAttributes: {
         secure: true,
-        expirationDays: 10,
+        expires: this.getExpirationDate(10),
         httpOnly: true,
         sameSite: 'lax',
       },
@@ -41,6 +41,11 @@ class MultisitePlugin implements MiddlewarePlugin {
   async exec(req: NextRequest, res?: NextResponse): Promise<NextResponse> {
     return this.multisiteMiddleware.getHandler()(req, res);
   }
+
+  private getExpirationDate = (expiresAfterDays: number) => {
+    const dateNow = new Date();
+    return dateNow.setDate(dateNow.getDate() + expiresAfterDays);
+  };
 }
 
 export const multisitePlugin = new MultisitePlugin();
