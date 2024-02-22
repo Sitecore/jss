@@ -24,7 +24,7 @@ Content data returned from Content Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:142](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss/src/layout/models.ts#L142)
+[packages/sitecore-jss/src/layout/models.ts:142](https://github.com/Sitecore/jss/blob/e455b1ea1/packages/sitecore-jss/src/layout/models.ts#L142)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:145](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss/src/layout/models.ts#L145)
+[packages/sitecore-jss/src/layout/models.ts:145](https://github.com/Sitecore/jss/blob/e455b1ea1/packages/sitecore-jss/src/layout/models.ts#L145)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:143](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss/src/layout/models.ts#L143)
+[packages/sitecore-jss/src/layout/models.ts:143](https://github.com/Sitecore/jss/blob/e455b1ea1/packages/sitecore-jss/src/layout/models.ts#L143)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:141](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss/src/layout/models.ts#L141)
+[packages/sitecore-jss/src/layout/models.ts:141](https://github.com/Sitecore/jss/blob/e455b1ea1/packages/sitecore-jss/src/layout/models.ts#L141)
 
 ___
 
@@ -68,4 +68,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:144](https://github.com/Sitecore/jss/blob/f015de159/packages/sitecore-jss/src/layout/models.ts#L144)
+[packages/sitecore-jss/src/layout/models.ts:144](https://github.com/Sitecore/jss/blob/e455b1ea1/packages/sitecore-jss/src/layout/models.ts#L144)
