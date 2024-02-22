@@ -11,6 +11,7 @@
 ### Classes
 
 - [AxiosDataFetcher](../classes/index.AxiosDataFetcher.md)
+- [DefaultRetryStrategy](../classes/index.DefaultRetryStrategy.md)
 - [GraphQLRequestClient](../classes/index.GraphQLRequestClient.md)
 - [NativeDataFetcher](../classes/index.NativeDataFetcher.md)
 
@@ -19,6 +20,7 @@
 - [AxiosResponse](../interfaces/index.AxiosResponse.md)
 - [GraphQLClient](../interfaces/index.GraphQLClient.md)
 - [HttpResponse](../interfaces/index.HttpResponse.md)
+- [RetryStrategy](../interfaces/index.RetryStrategy.md)
 
 ### Type Aliases
 
@@ -48,7 +50,7 @@
 
 #### Defined in
 
-[src/axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss/src/axios-fetcher.ts#L35)
+[src/axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/2094b8e09/packages/sitecore-jss/src/axios-fetcher.ts#L35)
 
 ___
 
@@ -58,7 +60,7 @@ ___
 
 #### Defined in
 
-[src/debug.ts:6](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss/src/debug.ts#L6)
+[src/debug.ts:6](https://github.com/Sitecore/jss/blob/2094b8e09/packages/sitecore-jss/src/debug.ts#L6)
 
 ___
 
@@ -79,12 +81,13 @@ GraphQLClient
 | `apiKey?` | `string` | The API key to use for authentication. This will be added as an 'sc_apikey' header. |
 | `debugger?` | [`Debugger`](index.md#debugger) | Override debugger for logging. Uses 'sitecore-jss:http' by default. |
 | `fetch?` | typeof `fetch` | Override fetch method. Uses 'graphql-request' library default otherwise ('cross-fetch'). |
-| `retries?` | `number` | Number of retries for client. Will be used if endpoint responds with 429 (rate limit reached) error |
-| `timeout?` | `number` | GraphQLClient request timeout |
+| `retries?` | `number` | Number of retries for client. Will use the specified `retryStrategy`. |
+| `retryStrategy?` | [`RetryStrategy`](../interfaces/index.RetryStrategy.md) | Retry strategy for the client. Uses `DefaultRetryStrategy` by default with exponential back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524. |
+| `timeout?` | `number` | GraphQLClient request timeout (in milliseconds). |
 
 #### Defined in
 
-[src/graphql-request-client.ts:22](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss/src/graphql-request-client.ts#L22)
+[src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/2094b8e09/packages/sitecore-jss/src/graphql-request-client.ts#L42)
 
 ___
 
@@ -113,7 +116,7 @@ An instance of a GraphQL Request Client ready to send GraphQL requests.
 
 #### Defined in
 
-[src/graphql-request-client.ts:51](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss/src/graphql-request-client.ts#L51)
+[src/graphql-request-client.ts:76](https://github.com/Sitecore/jss/blob/2094b8e09/packages/sitecore-jss/src/graphql-request-client.ts#L76)
 
 ___
 
@@ -132,7 +135,7 @@ Configuration type for
 
 #### Defined in
 
-[src/graphql-request-client.ts:58](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss/src/graphql-request-client.ts#L58)
+[src/graphql-request-client.ts:83](https://github.com/Sitecore/jss/blob/2094b8e09/packages/sitecore-jss/src/graphql-request-client.ts#L83)
 
 ___
 
@@ -144,7 +147,7 @@ Html <link> tag data model
 
 #### Defined in
 
-[src/models.ts:4](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss/src/models.ts#L4)
+[src/models.ts:4](https://github.com/Sitecore/jss/blob/2094b8e09/packages/sitecore-jss/src/models.ts#L4)
 
 ___
 
@@ -183,7 +186,7 @@ The interface implementation must:
 
 #### Defined in
 
-[src/data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss/src/data-fetcher.ts#L26)
+[src/data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/2094b8e09/packages/sitecore-jss/src/data-fetcher.ts#L26)
 
 ___
 
@@ -193,7 +196,7 @@ ___
 
 #### Defined in
 
-[src/native-fetcher.ts:20](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss/src/native-fetcher.ts#L20)
+[src/native-fetcher.ts:20](https://github.com/Sitecore/jss/blob/2094b8e09/packages/sitecore-jss/src/native-fetcher.ts#L20)
 
 ## Variables
 
@@ -222,7 +225,7 @@ See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) f
 
 #### Defined in
 
-[src/debug.ts:30](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss/src/debug.ts#L30)
+[src/debug.ts:30](https://github.com/Sitecore/jss/blob/2094b8e09/packages/sitecore-jss/src/debug.ts#L30)
 
 ## Functions
 
@@ -244,7 +247,7 @@ Enable debug logging dynamically
 
 #### Defined in
 
-[src/debug.ts:24](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss/src/debug.ts#L24)
+[src/debug.ts:24](https://github.com/Sitecore/jss/blob/2094b8e09/packages/sitecore-jss/src/debug.ts#L24)
 
 ___
 
@@ -272,4 +275,4 @@ ___
 
 #### Defined in
 
-[src/data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss/src/data-fetcher.ts#L57)
+[src/data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/2094b8e09/packages/sitecore-jss/src/data-fetcher.ts#L57)

@@ -16,7 +16,7 @@ GraphQLDictionaryService instances
 
 - `CacheOptions`
 
-- `Pick`\<`GraphQLRequestClientConfig`, ``"retries"``\>
+- `Pick`\<`GraphQLRequestClientConfig`, ``"retries"`` \| ``"retryStrategy"``\>
 
   ↳ **`GraphQLDictionaryServiceConfig`**
 
@@ -33,6 +33,7 @@ GraphQLDictionaryService instances
 - [jssAppTemplateId](index.GraphQLDictionaryServiceConfig.md#jssapptemplateid)
 - [pageSize](index.GraphQLDictionaryServiceConfig.md#pagesize)
 - [retries](index.GraphQLDictionaryServiceConfig.md#retries)
+- [retryStrategy](index.GraphQLDictionaryServiceConfig.md#retrystrategy)
 - [rootItemId](index.GraphQLDictionaryServiceConfig.md#rootitemid)
 - [siteName](index.GraphQLDictionaryServiceConfig.md#sitename)
 - [templates](index.GraphQLDictionaryServiceConfig.md#templates)
@@ -200,7 +201,7 @@ ___
 
 • `Optional` **retries**: `number`
 
-Number of retries for client. Will be used if endpoint responds with 429 (rate limit reached) error
+Number of retries for client. Will use the specified `retryStrategy`.
 
 #### Inherited from
 
@@ -208,7 +209,24 @@ Pick.retries
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:39
+sitecore-jss/types/graphql-request-client.d.ts:60
+
+___
+
+### retryStrategy
+
+• `Optional` **retryStrategy**: [`RetryStrategy`](graphql.RetryStrategy.md)
+
+Retry strategy for the client. Uses `DefaultRetryStrategy` by default with exponential
+back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
+
+#### Inherited from
+
+Pick.retryStrategy
+
+#### Defined in
+
+sitecore-jss/types/graphql-request-client.d.ts:65
 
 ___
 

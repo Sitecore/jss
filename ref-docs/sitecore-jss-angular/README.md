@@ -14,6 +14,7 @@
 
 - [ComponentNameAndType](classes/ComponentNameAndType.md)
 - [DateDirective](classes/DateDirective.md)
+- [DefaultRetryStrategy](classes/DefaultRetryStrategy.md)
 - [EditFrameComponent](classes/EditFrameComponent.md)
 - [FileDirective](classes/FileDirective.md)
 - [GenericLinkDirective](classes/GenericLinkDirective.md)
@@ -62,6 +63,7 @@
 - [OutcomeInstance](interfaces/OutcomeInstance.md)
 - [PageViewInstance](interfaces/PageViewInstance.md)
 - [RenderingField](interfaces/RenderingField.md)
+- [RetryStrategy](interfaces/RetryStrategy.md)
 - [RichTextField](interfaces/RichTextField.md)
 - [RouteData](interfaces/RouteData.md)
 - [TextField](interfaces/TextField.md)
@@ -196,7 +198,7 @@ sitecore-jss/types/utils/edit-frame.d.ts:57
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L65)
+[sitecore-jss-angular/src/components/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/2094b8e09/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L65)
 
 ___
 
@@ -405,7 +407,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/2094b8e09/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 

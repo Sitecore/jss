@@ -92,7 +92,7 @@ ___
 
 • `Optional` **retries**: `number`
 
-Number of retries for client. Will be used if endpoint responds with 429 (rate limit reached) error
+Number of retries for client. Will use the specified `retryStrategy`.
 
 #### Inherited from
 
@@ -100,7 +100,7 @@ Pick.retries
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:39
+sitecore-jss/types/graphql-request-client.d.ts:60
 
 ___
 

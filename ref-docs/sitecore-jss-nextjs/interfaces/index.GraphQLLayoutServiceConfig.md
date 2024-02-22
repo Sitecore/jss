@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `Pick`\<`GraphQLRequestClientConfig`, ``"retries"``\>
+- `Pick`\<`GraphQLRequestClientConfig`, ``"retries"`` \| ``"retryStrategy"``\>
 
   ↳ **`GraphQLLayoutServiceConfig`**
 
@@ -19,6 +19,7 @@
 - [endpoint](index.GraphQLLayoutServiceConfig.md#endpoint)
 - [formatLayoutQuery](index.GraphQLLayoutServiceConfig.md#formatlayoutquery)
 - [retries](index.GraphQLLayoutServiceConfig.md#retries)
+- [retryStrategy](index.GraphQLLayoutServiceConfig.md#retrystrategy)
 - [siteName](index.GraphQLLayoutServiceConfig.md#sitename)
 
 ## Properties
@@ -117,7 +118,7 @@ ___
 
 • `Optional` **retries**: `number`
 
-Number of retries for client. Will be used if endpoint responds with 429 (rate limit reached) error
+Number of retries for client. Will use the specified `retryStrategy`.
 
 #### Inherited from
 
@@ -125,7 +126,24 @@ Pick.retries
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:39
+sitecore-jss/types/graphql-request-client.d.ts:60
+
+___
+
+### retryStrategy
+
+• `Optional` **retryStrategy**: [`RetryStrategy`](graphql.RetryStrategy.md)
+
+Retry strategy for the client. Uses `DefaultRetryStrategy` by default with exponential
+back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
+
+#### Inherited from
+
+Pick.retryStrategy
+
+#### Defined in
+
+sitecore-jss/types/graphql-request-client.d.ts:65
 
 ___
 
