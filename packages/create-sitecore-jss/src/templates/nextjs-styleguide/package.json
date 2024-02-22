@@ -8,7 +8,7 @@
     "@types/nprogress": "^0.2.0"
   },
   "scripts": {
-    "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
+    "start": "cross-env NODE_ENV=development JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
     "start:disconnected-proxy": "ts-node --project tsconfig.scripts.json ./scripts/disconnected-mode-proxy.ts"
   }
 }
