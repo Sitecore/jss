@@ -5256,18 +5256,6 @@ __metadata:
 "@sinonjs/fake-timers@npm:^11.2.2":
   version: 11.2.2
   resolution: "@sinonjs/fake-timers@npm:11.2.2"
-<<<<<<< HEAD
-=======
-  dependencies:
-    "@sinonjs/commons": ^3.0.0
-  checksum: 68c29b0e1856fdc280df03ddbf57c726420b78e9f943a241b471edc018fb14ff36fdc1daafd6026cba08c3c7f50c976fb7ae11b88ff44cd7f609692ca7d25158
-  languageName: node
-  linkType: hard
-
-"@sinonjs/fake-timers@npm:^7.1.0":
-  version: 7.1.2
-  resolution: "@sinonjs/fake-timers@npm:7.1.2"
->>>>>>> 08401372f ([sitecore-jss] Retry policy to handle transient network errors (#1731))
   dependencies:
     "@sinonjs/commons": ^3.0.0
   checksum: 68c29b0e1856fdc280df03ddbf57c726420b78e9f943a241b471edc018fb14ff36fdc1daafd6026cba08c3c7f50c976fb7ae11b88ff44cd7f609692ca7d25158
@@ -5285,11 +5273,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@sinonjs/text-encoding@npm:^0.7.2":
-=======
-"@sinonjs/text-encoding@npm:^0.7.1, @sinonjs/text-encoding@npm:^0.7.2":
->>>>>>> 08401372f ([sitecore-jss] Retry policy to handle transient network errors (#1731))
   version: 0.7.2
   resolution: "@sinonjs/text-encoding@npm:0.7.2"
   checksum: fe690002a32ba06906cf87e2e8fe84d1590294586f2a7fd180a65355b53660c155c3273d8011a5f2b77209b819aa7306678ae6e4aea0df014bd7ffd4bbbcf1ab
@@ -17892,13 +17876,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"just-extend@npm:^6.2.0":
-  version: 6.2.0
-  resolution: "just-extend@npm:6.2.0"
-  checksum: 022024d6f687c807963b97a24728a378799f7e4af7357d1c1f90dedb402943d5c12be99a5136654bed8362c37a358b1793feaad3366896f239a44e17c5032d86
-  languageName: node
-  linkType: hard
-
 "karma-chrome-launcher@npm:^3.1.0":
   version: 3.2.0
   resolution: "karma-chrome-launcher@npm:3.2.0"
@@ -21382,13 +21359,6 @@ __metadata:
   version: 0.1.7
   resolution: "path-to-regexp@npm:0.1.7"
   checksum: 69a14ea24db543e8b0f4353305c5eac6907917031340e5a8b37df688e52accd09e3cebfe1660b70d76b6bd89152f52183f28c74813dbf454ba1a01c82a38abce
-  languageName: node
-  linkType: hard
-
-"path-to-regexp@npm:^6.2.1":
-  version: 6.2.1
-  resolution: "path-to-regexp@npm:6.2.1"
-  checksum: f0227af8284ea13300f4293ba111e3635142f976d4197f14d5ad1f124aebd9118783dd2e5f1fe16f7273743cc3dbeddfb7493f237bb27c10fdae07020cc9b698
   languageName: node
   linkType: hard
 
