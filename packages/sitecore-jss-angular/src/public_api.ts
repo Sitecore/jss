@@ -18,7 +18,7 @@ export {
   JssCanActivate,
   JssCanActivateFn,
   GuardInput,
-} from './components/placeholder.token';
+} from './services/placeholder.token';
 export { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
 export { isRawRendering } from './components/rendering';
 export {

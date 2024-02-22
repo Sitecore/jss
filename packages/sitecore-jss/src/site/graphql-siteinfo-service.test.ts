@@ -3,7 +3,11 @@
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
-import { GraphQLSiteInfoService, GraphQLSiteInfoResult } from './graphql-siteinfo-service';
+import {
+  GraphQLSiteInfoService,
+  GraphQLSiteInfoResult,
+  GraphQLXmCloudSiteInfoResult,
+} from './graphql-siteinfo-service';
 import { GraphQLRequestClient, PageInfo } from '../graphql';
 import debugApi from 'debug';
 import debug from '../debug';
@@ -265,5 +269,148 @@ describe('GraphQLSiteInfoService', () => {
     expect(result).to.deep.equal([]);
     expect(debug.multisite.log, 'log debug message').to.be.called.once;
     expect(nock.isDone(), 'skip request').to.be.false;
+  });
+
+  describe('Fetch with site query in XM Cloud', () => {
+    const site = ({
+      name,
+      hostName,
+      language,
+    }: {
+      name: string;
+      hostName: string;
+      language: string;
+    }): GraphQLXmCloudSiteInfoResult => ({
+      name,
+      hostName,
+      language,
+    });
+
+    const nonEmptyResponse = ({
+      count = 1,
+      sites = [],
+    }: {
+      count?: number;
+      sites?: GraphQLXmCloudSiteInfoResult[];
+    } = {}) => ({
+      data: {
+        site: {
+          siteInfoCollection: [
+            ...[...Array(count).keys()].map((n) =>
+              site({
+                name: `site ${n}`,
+                hostName: 'restricted.gov',
+                language: 'en',
+              })
+            ),
+            ...sites,
+          ],
+        },
+      },
+    });
+
+    const emptyResponse = {
+      data: {
+        site: {
+          siteInfoCollection: [],
+        },
+      },
+    };
+
+    const getSiteQuerySiteInfoService = (initProps: { [key: string]: unknown }) => {
+      return new GraphQLSiteInfoService({ useSiteQuery: true, ...initProps });
+    };
+
+    it('should return correct result', async () => {
+      mockSiteInfoRequest(
+        nonEmptyResponse({
+          sites: [
+            site({
+              name: 'public 0',
+              hostName: 'pr.showercurtains.org',
+              language: '',
+            }),
+          ],
+        })
+      );
+      const service = getSiteQuerySiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+      const result = await service.fetchSiteInfo();
+      expect(result).to.be.deep.equal([
+        {
+          name: 'site 0',
+          hostName: 'restricted.gov',
+          language: 'en',
+        },
+        {
+          name: 'public 0',
+          hostName: 'pr.showercurtains.org',
+          language: '',
+        },
+      ]);
+    });
+
+    it('should return correct result using clientFactory', async () => {
+      mockSiteInfoRequest(
+        nonEmptyResponse({
+          sites: [
+            site({
+              name: 'public 0',
+              hostName: 'pr.showercurtains.org',
+              language: '',
+            }),
+          ],
+        })
+      );
+      const clientFactory = GraphQLRequestClient.createClientFactory({
+        endpoint,
+        apiKey,
+      });
+      const service = getSiteQuerySiteInfoService({ clientFactory });
+      const result = await service.fetchSiteInfo();
+      expect(result).to.be.deep.equal([
+        {
+          name: 'site 0',
+          hostName: 'restricted.gov',
+          language: 'en',
+        },
+        {
+          name: 'public 0',
+          hostName: 'pr.showercurtains.org',
+          language: '',
+        },
+      ]);
+    });
+
+    it('should return empty array when empty result received', async () => {
+      nock(endpoint)
+        .post('/')
+        .reply(200, emptyResponse);
+      const service = getSiteQuerySiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+      const result = await service.fetchSiteInfo();
+      expect(result).to.deep.equal([]);
+    });
+
+    it('should filter out default website', async () => {
+      mockSiteInfoRequest(
+        nonEmptyResponse({
+          sites: [
+            site({
+              name: 'website',
+              hostName: 'notheadless.org',
+              language: '',
+            }),
+          ],
+        })
+      );
+      const service = getSiteQuerySiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+      const result = await service.fetchSiteInfo();
+      expect(result).to.be.deep.equal([
+        {
+          name: 'site 0',
+          hostName: 'restricted.gov',
+          language: 'en',
+        },
+      ]);
+    });
   });
 });

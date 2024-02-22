@@ -6,6 +6,7 @@ export const convertedDevData = {
       pageEditing: false,
     },
     route: {
+      componentName: '',
       name: 'home',
       displayName: 'Home',
       placeholders: {
@@ -50,6 +51,16 @@ export const convertedDevData = {
                   uid: '6701ac71-845d-4de4-bf8e-1f4feddf8908',
                   params: [],
                 },
+                {
+                  componentName: 'LazyComponent',
+                  fields: {
+                    linkText: {
+                      value: 'Push',
+                    },
+                  },
+                  uid: '6701ac71-845d-4de4-bf8e-1f4feddf8908',
+                  params: [],
+                },
               ],
             },
           },
@@ -68,6 +79,7 @@ export const convertedLayoutServiceData = {
       pageEditing: false,
     },
     route: {
+      componentName: '',
       name: 'home',
       displayName: 'Home',
       placeholders: {
@@ -118,6 +130,17 @@ export const convertedLayoutServiceData = {
                     linkText: {
                       value: 'Download',
                       editable: 'Download',
+                    },
+                  },
+                  uid: '6701ac71-845d-4de4-bf8e-1f4feddf8908',
+                  params: [],
+                },
+                {
+                  componentName: 'LazyComponent',
+                  fields: {
+                    linkText: {
+                      value: 'Push',
+                      editable: 'Push',
                     },
                   },
                   uid: '6701ac71-845d-4de4-bf8e-1f4feddf8908',
