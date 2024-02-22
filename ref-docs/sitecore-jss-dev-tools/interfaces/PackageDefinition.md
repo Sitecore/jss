@@ -19,7 +19,7 @@ Describes a package and components to be imported
 
 #### Defined in
 
-[templating/components.ts:17](https://github.com/Sitecore/jss/blob/af0e5cf02/packages/sitecore-jss-dev-tools/src/templating/components.ts#L17)
+[templating/components.ts:17](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss-dev-tools/src/templating/components.ts#L17)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[templating/components.ts:16](https://github.com/Sitecore/jss/blob/af0e5cf02/packages/sitecore-jss-dev-tools/src/templating/components.ts#L16)
+[templating/components.ts:16](https://github.com/Sitecore/jss/blob/bbc7ec2d5/packages/sitecore-jss-dev-tools/src/templating/components.ts#L16)
