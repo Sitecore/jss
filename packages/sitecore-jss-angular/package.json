@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular",
-  "version": "21.7.0-canary.72",
+  "version": "21.7.0-canary.73",
   "description": "",
   "scripts": {
     "build": "ng-packagr -p ng-package.json",
@@ -58,7 +58,7 @@
     "rxjs": "~7.8.1"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "21.7.0-canary.72"
+    "@sitecore-jss/sitecore-jss": "21.7.0-canary.73"
   },
   "main": "dist/esm2022/sitecore-jss-sitecore-jss-angular.mjs",
   "module": "dist/esm2022/sitecore-jss-sitecore-jss-angular.js",
