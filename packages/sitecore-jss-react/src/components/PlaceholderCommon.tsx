@@ -16,12 +16,6 @@ import { FEaaSWrapper, FEAAS_WRAPPER_RENDERING_NAME } from './FEaaSWrapper';
 import { BYOCComponent, BYOC_COMPONENT_RENDERING_NAME } from './BYOCComponent';
 import { BYOCWrapper, BYOC_WRAPPER_RENDERING_NAME } from './BYOCWrapper';
 
-/**
- * These patterns need for right rendering Dynamic placeholders.
- * Must be distinguished Splitter components and another placeholders(containers)
- */
-const EXCLUDE_PLACEHOLDERS_RENDER = [new RegExp(/(\d{1})-\{\*\}/i)];
-
 type ErrorComponentProps = {
   [prop: string]: unknown;
 };
@@ -131,11 +125,12 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     from backend side we get common name of placeholder is called 'nameOfContainer-{*}' where '{*}' marker for replacing **/
     if (rendering?.placeholders) {
       Object.keys(rendering.placeholders).forEach((placeholder) => {
-        if (
-          placeholder.indexOf('{*}') !== -1 &&
-          !EXCLUDE_PLACEHOLDERS_RENDER.some((pattern) => name.search(pattern) !== -1) &&
-          name.replace(/[^a-zA-Z]*/gi, '') === placeholder.replace(/[^a-zA-Z]*/gi, '')
-        ) {
+        const patternPlaceholder =
+          placeholder.indexOf('{*}') !== -1
+            ? new RegExp(`^${placeholder.replace(/\{\*\}+/i, '\\d+')}$`)
+            : null;
+
+        if (patternPlaceholder && patternPlaceholder.test(name)) {
           rendering.placeholders[name] = rendering.placeholders[placeholder];
           delete rendering.placeholders[placeholder];
         }
