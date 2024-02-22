@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import { constantCase } from 'constant-case';
@@ -15,7 +14,8 @@ const defaultConfig: JssConfig = {
   sitecoreApiKey: process.env[`${constantCase('sitecoreApiKey')}`],
   sitecoreApiHost: process.env[`${constantCase('sitecoreApiHost')}`],
   sitecoreSiteName:
-    process.env[`${constantCase('sitecoreSiteName')}`] || process.env[`${constantCase('jssAppName')}`],
+    process.env[`${constantCase('sitecoreSiteName')}`] ||
+    process.env[`${constantCase('jssAppName')}`],
   graphQLEndpointPath: process.env[`${constantCase('graphQLEndpointPath')}`],
   defaultLanguage: process.env[`${constantCase('defaultLanguage')}`],
   graphQLEndpoint: process.env[`${constantCase('graphQLEndpoint')}`],
