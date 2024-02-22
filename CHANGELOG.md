@@ -14,6 +14,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-angular]` Missing ngModuleRef in lazy loaded components ([#1743](https://github.com/Sitecore/jss/pull/1743))
+* `[sitecore-jss-react]` Fix the pattern of detecting dynamic placeholder when user tried to add a new dynamic placeholder with double digit. ([#1745](https://github.com/Sitecore/jss/pull/1745))
 
 ## 21.6.2
 
