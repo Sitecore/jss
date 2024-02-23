@@ -34,11 +34,6 @@ class MultisitePlugin implements MiddlewarePlugin {
   async exec(req: NextRequest, res?: NextResponse): Promise<NextResponse> {
     return this.multisiteMiddleware.getHandler()(req, res);
   }
-
-  private getExpirationDate = (expiresAfterDays: number) => {
-    const dateNow = new Date();
-    return dateNow.setDate(dateNow.getDate() + expiresAfterDays);
-  };
 }
 
 export const multisitePlugin = new MultisitePlugin();
