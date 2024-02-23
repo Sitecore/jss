@@ -27,6 +27,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` Add support for `.env.*` files during bootstrap process, matching what Next.js supports OOTB for build/runtime. ([#1741](https://github.com/Sitecore/jss/pull/1741))  
 * `[sitecore-jss]` `[templates/nextjs-xmcloud]` Enable site GraphQL query for mutlisite in XMCloud instead of default search one. Site query should take "Valid for environment" SXA site setting into account when returning site list. ([#1739](https://github.com/Sitecore/jss/pull/1739))
   * To enable this on your existing app, modify the \scripts\config\plugins\multisite.ts file and add "useSiteQuery: true" to GraphQLSiteInfoService constructor call
+* `[sitecore-jss-nextjs]` Set `secure`, `httpOnly`, `sameSite` attributes to the `sc_site` cookie by default:  ([#1746](https://github.com/Sitecore/jss/pull/1746))
 
 ### 🐛 Bug Fixes
 

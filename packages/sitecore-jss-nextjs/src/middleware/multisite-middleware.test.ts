@@ -7,7 +7,7 @@ import sinon, { spy } from 'sinon';
 import nextjs, { NextRequest, NextResponse } from 'next/server';
 import { debug } from '@sitecore-jss/sitecore-jss';
 
-import { MultisiteMiddleware } from './multisite-middleware';
+import { MultisiteMiddleware, CookieAttributes } from './multisite-middleware';
 import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 
 use(sinonChai);
@@ -67,8 +67,8 @@ describe('MultisiteMiddleware', () => {
   const createResponse = (props: any = {}) => {
     const res = {
       cookies: {
-        set(key, value) {
-          res.cookies[key] = value;
+        set(key, value, attributes) {
+          res.cookies[key] = { value, ...attributes };
         },
       },
       headers: {},
@@ -93,7 +93,12 @@ describe('MultisiteMiddleware', () => {
     return res;
   };
 
-  const createMiddleware = (props: { [key: string]: any; siteResolver?: SiteResolver } = {}) => {
+  const createMiddleware = (
+    props: {
+      [key: string]: any;
+      siteResolver?: SiteResolver;
+    } = {}
+  ) => {
     class MockSiteResolver extends SiteResolver {
       getByName = sinon.stub().returns({
         name: siteName,
@@ -214,6 +219,11 @@ describe('MultisiteMiddleware', () => {
 
   describe('request passed', () => {
     let nextRewriteStub = sinon.stub();
+    const defaultSiteCookieAttributes = {
+      secure: true,
+      httpOnly: true,
+      sameSite: 'none',
+    };
 
     afterEach(() => {
       nextRewriteStub.restore();
@@ -248,7 +258,10 @@ describe('MultisiteMiddleware', () => {
         },
         cookies: {
           ...res.cookies,
-          sc_site: 'foo',
+          sc_site: {
+            ...defaultSiteCookieAttributes,
+            value: 'foo',
+          },
         },
       });
 
@@ -289,7 +302,10 @@ describe('MultisiteMiddleware', () => {
         },
         cookies: {
           ...res.cookies,
-          sc_site: 'foo',
+          sc_site: {
+            ...defaultSiteCookieAttributes,
+            value: 'foo',
+          },
         },
       });
 
@@ -328,7 +344,10 @@ describe('MultisiteMiddleware', () => {
         },
         cookies: {
           ...res.cookies,
-          sc_site: 'foo',
+          sc_site: {
+            ...defaultSiteCookieAttributes,
+            value: 'foo',
+          },
         },
       });
 
@@ -367,7 +386,10 @@ describe('MultisiteMiddleware', () => {
         },
         cookies: {
           ...res.cookies,
-          sc_site: 'foo',
+          sc_site: {
+            ...defaultSiteCookieAttributes,
+            value: 'foo',
+          },
         },
       });
 
@@ -410,7 +432,10 @@ describe('MultisiteMiddleware', () => {
         },
         cookies: {
           ...res.cookies,
-          sc_site: 'qsFoo',
+          sc_site: {
+            ...defaultSiteCookieAttributes,
+            value: 'qsFoo',
+          },
         },
       });
 
@@ -454,7 +479,10 @@ describe('MultisiteMiddleware', () => {
         },
         cookies: {
           ...res.cookies,
-          sc_site: 'foobar',
+          sc_site: {
+            ...defaultSiteCookieAttributes,
+            value: 'foobar',
+          },
         },
       });
 
@@ -496,7 +524,10 @@ describe('MultisiteMiddleware', () => {
         },
         cookies: {
           ...res.cookies,
-          sc_site: 'foo',
+          sc_site: {
+            ...defaultSiteCookieAttributes,
+            value: 'foo',
+          },
         },
       });
 
