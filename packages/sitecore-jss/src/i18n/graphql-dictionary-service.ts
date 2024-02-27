@@ -178,6 +178,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
       return this.options.clientFactory({
         debugger: debug.dictionary,
         retries: this.options.retries,
+        retryStrategy: this.options.retryStrategy,
       });
     }
 
@@ -185,6 +186,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
       apiKey: this.options.apiKey,
       debugger: debug.dictionary,
       retries: this.options.retries,
+      retryStrategy: this.options.retryStrategy,
     });
   }
 }

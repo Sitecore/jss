@@ -102,6 +102,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
       return this.serviceConfig.clientFactory({
         debugger: debug.layout,
         retries: this.serviceConfig.retries,
+        retryStrategy: this.serviceConfig.retryStrategy,
       });
     }
 
@@ -109,6 +110,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
       apiKey: this.serviceConfig.apiKey,
       debugger: debug.layout,
       retries: this.serviceConfig.retries,
+      retryStrategy: this.serviceConfig.retryStrategy,
     });
   }
 
