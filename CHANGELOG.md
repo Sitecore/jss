@@ -39,7 +39,6 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Fix redirects middleware for working with absolute url where is using site language context ([#1727](https://github.com/Sitecore/jss/pull/1727)) ([#1737](https://github.com/Sitecore/jss/pull/1737))
 * `[sitecore-jss]` Enable the Layout and dictionary service to use custom `retryStrategy`. ([#1749](https://github.com/Sitecore/jss/pull/1749))
 
-
 ### 🛠 Breaking Changes
 
 * `[sitecore-jss-nextjs]` `[templates/nextjs]` Upgrade to Next 14 ([#1720](https://github.com/Sitecore/jss/pull/1720))([#1723](https://github.com/Sitecore/jss/pull/1723))
