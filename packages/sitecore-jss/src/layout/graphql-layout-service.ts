@@ -1,3 +1,4 @@
+import { RetryStrategy } from './../graphql-request-client';
 import { LayoutServiceBase } from './layout-service';
 import { LayoutServiceData } from './models';
 import {
@@ -109,6 +110,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
       apiKey: this.serviceConfig.apiKey,
       debugger: debug.layout,
       retries: this.serviceConfig.retries,
+      retryStrategy: this.serviceConfig.retryStrategy,
     });
   }
 
