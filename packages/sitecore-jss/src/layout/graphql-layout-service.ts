@@ -1,4 +1,3 @@
-import { RetryStrategy } from './../graphql-request-client';
 import { LayoutServiceBase } from './layout-service';
 import { LayoutServiceData } from './models';
 import {
