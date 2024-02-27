@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `Pick`\<`GraphQLRequestClientConfig`, ``"retries"``\>
+- `Pick`\<`GraphQLRequestClientConfig`, ``"retries"`` \| ``"retryStrategy"``\>
 
   ↳ **`GraphQLErrorPagesServiceConfig`**
 
@@ -19,6 +19,7 @@
 - [endpoint](index.GraphQLErrorPagesServiceConfig.md#endpoint)
 - [language](index.GraphQLErrorPagesServiceConfig.md#language)
 - [retries](index.GraphQLErrorPagesServiceConfig.md#retries)
+- [retryStrategy](index.GraphQLErrorPagesServiceConfig.md#retrystrategy)
 - [siteName](index.GraphQLErrorPagesServiceConfig.md#sitename)
 
 ## Properties
@@ -101,6 +102,23 @@ Pick.retries
 #### Defined in
 
 packages/sitecore-jss/types/graphql-request-client.d.ts:60
+
+___
+
+### retryStrategy
+
+• `Optional` **retryStrategy**: [`RetryStrategy`](graphql.RetryStrategy.md)
+
+Retry strategy for the client. Uses `DefaultRetryStrategy` by default with exponential
+back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
+
+#### Inherited from
+
+Pick.retryStrategy
+
+#### Defined in
+
+packages/sitecore-jss/types/graphql-request-client.d.ts:65
 
 ___
 
