@@ -14,6 +14,7 @@ Our versioning strategy is as follows:
 ### 🎉 New Features & Improvements
 * `[templates/nextjs]` Add support for `.env.*` files during bootstrap process, matching what Next.js supports OOTB for build/runtime. ([#1741](https://github.com/Sitecore/jss/pull/1741))
 * `[sitecore-jss]` Export `ClientError`. ([#1738](https://github.com/Sitecore/jss/pull/1738))
+* `[sitecore-jss]` Enable the Layout, dictionary and ErrorPages service to use custom `retryStrategy`. ([#1749](https://github.com/Sitecore/jss/pull/1749))
 
 ### 🐛 Bug Fixes
 
