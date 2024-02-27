@@ -163,6 +163,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
       apiKey: this.options.apiKey,
       debugger: debug.dictionary,
       retries: this.options.retries,
+      retryStrategy: this.options.retryStrategy,
     });
   }
 }

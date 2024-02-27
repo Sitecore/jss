@@ -85,6 +85,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
       apiKey: this.serviceConfig.apiKey,
       debugger: debug.layout,
       retries: this.serviceConfig.retries,
+      retryStrategy: this.serviceConfig.retryStrategy,
     });
   }
 

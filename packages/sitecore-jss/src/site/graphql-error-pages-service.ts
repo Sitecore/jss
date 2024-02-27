@@ -16,7 +16,8 @@ const defaultQuery = /* GraphQL */ `
   }
 `;
 
-export type GraphQLErrorPagesServiceConfig = Pick<GraphQLRequestClientConfig, 'retries'> & {
+export interface GraphQLErrorPagesServiceConfig
+  extends Pick<GraphQLRequestClientConfig, 'retries' | 'retryStrategy'> {
   /**
    * Your Graphql endpoint
    */
@@ -33,7 +34,7 @@ export type GraphQLErrorPagesServiceConfig = Pick<GraphQLRequestClientConfig, 'r
    * The language
    */
   language: string;
-};
+}
 
 /**
  * Object model of Error Pages result
@@ -99,6 +100,7 @@ export class GraphQLErrorPagesService {
       apiKey: this.options.apiKey,
       debugger: debug.errorpages,
       retries: this.options.retries,
+      retryStrategy: this.options.retryStrategy,
     });
   }
 }
