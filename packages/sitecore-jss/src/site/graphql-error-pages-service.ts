@@ -25,7 +25,7 @@ const defaultQuery = /* GraphQL */ `
 `;
 
 export interface GraphQLErrorPagesServiceConfig
-  extends Pick<GraphQLRequestClientConfig, 'retries'> {
+  extends Pick<GraphQLRequestClientConfig, 'retries' | 'retryStrategy'> {
   /**
    * Your Graphql endpoint
    * @deprecated use @param clientFactory property instead
@@ -124,6 +124,7 @@ export class GraphQLErrorPagesService {
       return this.options.clientFactory({
         debugger: debug.errorpages,
         retries: this.options.retries,
+        retryStrategy: this.options.retryStrategy,
       });
     }
 
@@ -131,6 +132,7 @@ export class GraphQLErrorPagesService {
       apiKey: this.options.apiKey,
       debugger: debug.errorpages,
       retries: this.options.retries,
+      retryStrategy: this.options.retryStrategy,
     });
   }
 }
