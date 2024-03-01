@@ -165,5 +165,29 @@ describe('layout-personalizer', () => {
       );
       expect(personalizedComponentResult).to.equal(null);
     });
+
+    it('should return personalized component without experiences', () => {
+      const variant = 'mountain_bike_audience';
+      const personalizedComponentResult = personalizeComponent(
+        (component as unknown) as ComponentRenderingWithExperiences,
+        variant
+      );
+
+      expect(
+        (personalizedComponentResult as ComponentRenderingWithExperiences).experiences
+      ).to.deep.equal({});
+    });
+
+    it('should empty experiences for default variant', () => {
+      const variant = '_default';
+      const personalizedComponentResult = personalizeComponent(
+        (component as unknown) as ComponentRenderingWithExperiences,
+        variant
+      );
+
+      expect(
+        (personalizedComponentResult as ComponentRenderingWithExperiences).experiences
+      ).to.deep.equal({});
+    });
   });
 });
