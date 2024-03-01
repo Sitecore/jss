@@ -2,6 +2,28 @@ const jssConfig = require('./src/temp/config');
 const plugins = require('./src/temp/next-config-plugins') || {};
 
 const publicUrl = jssConfig.publicUrl;
+// remotePatterns presets used for nextjs image optimization
+// Less secure pattern can be used in development and editing
+const remotePatternsDev = [
+  {
+    protocol: 'https',
+    hostname: '*',
+    port: '',
+  }
+];
+// More secure remotePatternsProd should be used when going live
+const remotePatternsProd = [
+  {
+    protocol: 'https',
+    hostname: 'edge*.**',
+    port: '',
+  },
+  {
+    protocol: 'https',
+    hostname: 'feaas*.blob.core.windows.net',
+    port: '',
+  },
+];
 
 /**
  * @type {import('next').NextConfig}
@@ -32,20 +54,13 @@ const nextConfig = {
 
   // use this configuration to ensure that only images from the whitelisted domains
   // can be served from the Next.js Image Optimization API
+  // uses remotePatterns presets out of the box
   // see https://nextjs.org/docs/app/api-reference/components/image#remotepatterns
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'edge*.**',
-        port: '',
-      },
-      {
-        protocol: 'https',
-        hostname: 'feaas*.blob.core.windows.net',
-        port: '',
-      },
-    ],
+    remotePatterns: 
+      process.env.NODE_ENV === 'development' || process.env.SITECORE ? 
+       remotePatternsDev : 
+       remotePatternsProd
   },
 
   async rewrites() {
