@@ -49,6 +49,12 @@ Our versioning strategy is as follows:
 * Upgrade to Node.js 20.x ([#1679](https://github.com/Sitecore/jss/pull/1679))([#1681](https://github.com/Sitecore/jss/pull/1681))
 * `[nextjs/template]` Upgrade graphql-codegen packages to latest ([#1711](https://github.com/Sitecore/jss/pull/1711))
 
+## 21.6.4
+
+### 🐛 Bug Fixes
+
+* `[templates/nextjs]` Exclude ComponentProps functions from the client bundle ([#1753](https://github.com/Sitecore/jss/pull/1753))
+
 ## 21.6.3
 
 ### 🐛 Bug Fixes
