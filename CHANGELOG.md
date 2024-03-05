@@ -20,6 +20,12 @@ Our versioning strategy is as follows:
 
 * `[templates/nextjs]` Exclude ComponentProps functions from the client bundle ([#1753](https://github.com/Sitecore/jss/pull/1753)) 
 
+## 21.6.4
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss]` Any unused personalized component variants are deleted before sending layout data to the client, thus are completely hidden from the customer. ([#1752](https://github.com/Sitecore/jss/pull/1752))
+
 ## 21.6.3
 
 ### 🐛 Bug Fixes

@@ -130,22 +130,28 @@ describe('layout-personalizer', () => {
   });
 
   describe('personalizeComponent', () => {
-    it('should return personalized component', () => {
+    it('should return personalized component without experiences', () => {
       const variant = 'mountain_bike_audience';
       const personalizedComponentResult = personalizeComponent(
         (component as unknown) as ComponentRenderingWithExperiences,
         variant
       );
       expect(personalizedComponentResult).to.deep.equal(componentWithExperiences);
+      expect(
+        (personalizedComponentResult as ComponentRenderingWithExperiences).experiences
+      ).to.deep.equal(undefined);
     });
 
-    it('should return default component when variant is undefined', () => {
+    it('should return default component without experiences when variant is undefined', () => {
       const variant = '_default';
       const personalizedComponentResult = personalizeComponent(
         (component as unknown) as ComponentRenderingWithExperiences,
         variant
       );
       expect(personalizedComponentResult).to.deep.equal(component);
+      expect(
+        (personalizedComponentResult as ComponentRenderingWithExperiences).experiences
+      ).to.deep.equal({});
     });
 
     it('should return null when variantVariant is hidden', () => {

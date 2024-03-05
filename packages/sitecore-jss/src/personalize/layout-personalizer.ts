@@ -79,6 +79,11 @@ export function personalizeComponent(
     component = variant;
   }
 
+  // remove unused experiences from layout data
+  if (component.experiences) {
+    component.experiences = {};
+  }
+
   if (!component.placeholders) return component;
 
   Object.keys(component?.placeholders).forEach((placeholder) => {
