@@ -12,7 +12,11 @@ Our versioning strategy is as follows:
 ## 21.6.4
 
 ### 🎉 New Features & Improvements
-* `[templates/nextjs]` Add support for `.env.*` files during bootstrap process, matching what Next.js supports OOTB for build/runtime. ([#1741](https://github.com/Sitecore/jss/pull/1741))  
+* `[templates/nextjs]` Add support for `.env.*` files during bootstrap process, matching what Next.js supports OOTB for build/runtime. ([#1741](https://github.com/Sitecore/jss/pull/1741))
+
+### 🐛 Bug Fixes
+
+* `[templates/nextjs]` Exclude ComponentProps functions from the client bundle ([#1753](https://github.com/Sitecore/jss/pull/1753))
 
 ## 21.6.3
 
