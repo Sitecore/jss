@@ -32,6 +32,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
+    "@babel/parser": "^7.24.0",
     "@sitecore-jss/sitecore-jss": "21.7.0-canary.77",
     "axios": "^1.3.2",
     "chalk": "^4.1.2",
@@ -47,6 +48,7 @@
     "jszip": "^3.10.1",
     "module-alias": "^2.2.2",
     "readline-sync": "^1.4.10",
+    "recast": "^0.23.5",
     "resolve": "^1.22.1",
     "ts-node": "^10.9.1",
     "url-join": "^4.0.1",
