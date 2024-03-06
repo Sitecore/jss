@@ -17,6 +17,12 @@ export default function componentPropsLoader(source: string) {
   // List of functions to strip from the AST
   const functionsToStrip = ['getServerSideProps', 'getStaticProps'];
 
+  // Remove the function from the list of functions to strip
+  const updateList = (functionName: string) => {
+    // Remove the function from the list of functions to strip
+    functionsToStrip.splice(functionsToStrip.indexOf(functionName), 1);
+  };
+
   // Traverse the AST and strip the functions
   recast.visit(ast, {
     // Visit the named export function expression
@@ -30,11 +36,10 @@ export default function componentPropsLoader(source: string) {
           typeof declaration.id.name === 'string' &&
           functionsToStrip.includes(declaration.id.name)
         ) {
+          updateList(declaration.id.name);
+
           // Strip the function from the AST
           path.prune();
-
-          // Remove the function from the list of functions to strip
-          functionsToStrip.splice(functionsToStrip.indexOf(declaration.id.name), 1);
         }
       });
 
@@ -55,8 +60,7 @@ export default function componentPropsLoader(source: string) {
         typeof path.node.id.name === 'string' &&
         functionsToStrip.includes(path.node.id.name)
       ) {
-        // Remove the function from the list of functions to strip
-        functionsToStrip.splice(functionsToStrip.indexOf(path.node.id.name), 1);
+        updateList(path.node.id.name);
 
         // Strip the function from the AST
         path.prune();
