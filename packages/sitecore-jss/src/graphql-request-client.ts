@@ -15,6 +15,12 @@ export interface GraphQLClient {
    */
   request<T>(query: string | DocumentNode, variables?: { [key: string]: unknown }): Promise<T>;
 }
+
+export type RetryError = Partial<ClientError> &
+  Partial<Response> & {
+    code?: string;
+  };
+
 /**
  * Defines the strategy for retrying GraphQL requests based on errors and attempts.
  */
@@ -26,14 +32,14 @@ export interface RetryStrategy {
    * @param retries - The number of retries configured.
    * @returns A boolean indicating whether to retry the request.
    */
-  shouldRetry(error: ClientError, attempt: number, retries: number): boolean;
+  shouldRetry(error: RetryError, attempt: number, retries: number): boolean;
   /**
    * Calculates the delay (in milliseconds) before the next retry based on the given error and attempt count.
    * @param error - The error received from the GraphQL request.
    * @param attempt - The current attempt number.
    * @returns The delay in milliseconds before the next retry.
    */
-  getDelay(error: ClientError, attempt: number): number;
+  getDelay(error: RetryError, attempt: number): number;
 }
 
 /**
@@ -92,34 +98,42 @@ export type GraphQLRequestClientFactoryConfig = {
  */
 export class DefaultRetryStrategy implements RetryStrategy {
   private statusCodes: number[];
+  private errorCodes: string[];
   private factor: number;
 
   /**
    * @param {Object} options Configurable options for retry mechanism.
    * @param {number[]} options.statusCodes HTTP status codes to trigger retries on
+   * @param {string[]} options.errorCodes Node error codes to trigger retries
    * @param {number} options.factor Factor by which the delay increases with each retry attempt
    */
-  constructor(options: { statusCodes?: number[]; factor?: number } = {}) {
+  constructor(options: { statusCodes?: number[]; errorCodes?: string[]; factor?: number } = {}) {
     this.statusCodes = options.statusCodes || [429];
+    this.errorCodes = options.errorCodes || ['ECONNRESET', 'ETIMEDOUT', 'EPROTO'];
     this.factor = options.factor || 2;
   }
 
-  shouldRetry(error: ClientError, attempt: number, retries: number): boolean {
-    return (
-      retries > 0 &&
-      attempt <= retries &&
-      error.response?.status !== undefined &&
-      this.statusCodes.includes(error.response.status)
-    );
+  shouldRetry(error: RetryError, attempt: number, retries: number): boolean {
+    const isHttpError =
+      error.response?.status !== undefined && this.statusCodes.includes(error.response.status);
+    const isErrorCode = error.code !== undefined && this.errorCodes.includes(error.code);
+    return retries > 0 && attempt <= retries && (isHttpError || isErrorCode);
   }
 
-  getDelay(error: ClientError, attempt: number): number {
-    const rawHeaders = error.response?.headers;
-    const delaySeconds = rawHeaders?.get('Retry-After')
-      ? Number.parseInt(rawHeaders?.get('Retry-After'), 10)
-      : Math.pow(this.factor, attempt - 1);
+  getDelay(error: RetryError, attempt: number): number {
+    const rawHeaders = error.headers;
+    const retryAfterHeader = rawHeaders?.get('Retry-After');
 
-    return delaySeconds * 1000;
+    if (
+      retryAfterHeader !== null &&
+      retryAfterHeader !== undefined &&
+      retryAfterHeader.trim() !== ''
+    ) {
+      const delaySeconds = Number.parseInt(retryAfterHeader, 10);
+      return delaySeconds * 1000;
+    } else {
+      return Math.pow(this.factor, attempt - 1) * 1000;
+    }
   }
 }
 
@@ -153,7 +167,7 @@ export class GraphQLRequestClient implements GraphQLClient {
     }
 
     this.timeout = clientConfig.timeout;
-    this.retries = clientConfig.retries || 0;
+    this.retries = clientConfig.retries ?? 3;
     this.retryStrategy =
       clientConfig.retryStrategy ||
       new DefaultRetryStrategy({ statusCodes: [429, 502, 503, 504, 520, 521, 522, 523, 524] });
@@ -211,15 +225,15 @@ export class GraphQLRequestClient implements GraphQLClient {
           this.debug('response in %dms: %o', Date.now() - startTimestamp, data);
           return Promise.resolve(data);
         },
-        async (error: ClientError) => {
+        async (error: RetryError) => {
           this.abortTimeout?.clear();
           this.debug('response error: %o', error.response || error.message || error);
-          const status = error.response?.status;
+          const status = error.response?.status || error.code;
           const shouldRetry = this.retryStrategy.shouldRetry(error, attempt, this.retries);
 
           if (shouldRetry) {
             const delayMs = this.retryStrategy.getDelay(error, attempt);
-            this.debug('Error: %d. Retrying in %dms (attempt %d).', status, delayMs, attempt);
+            this.debug('Error: %s. Retrying in %dms (attempt %d).', status, delayMs, attempt);
 
             attempt++;
             return new Promise((resolve) => setTimeout(resolve, delayMs)).then(retryer);

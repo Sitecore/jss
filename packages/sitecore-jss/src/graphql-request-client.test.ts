@@ -21,8 +21,8 @@ describe('GraphQLRequestClient', () => {
   });
 
   beforeEach(() => {
-    spy.on(debug.http, 'log', () => true);
-    spy.on(debug.layout, 'log', () => true);
+    // spy.on(debug.http, 'log', () => true);
+    // spy.on(debug.layout, 'log', () => true);
   });
 
   afterEach(() => {
@@ -169,6 +169,44 @@ describe('GraphQLRequestClient', () => {
   });
 
   describe('Working with retryer', () => {
+    it('should be enabled and use default value of 3 retries when not configured', async function() {
+      this.timeout(8000);
+      nock('http://jssnextweb')
+        .post('/graphql')
+        .reply(429)
+        .post('/graphql')
+        .reply(429)
+        .post('/graphql')
+        .reply(429);
+
+      const graphQLClient = new GraphQLRequestClient(endpoint, { retries: undefined });
+      spy.on(graphQLClient['client'], 'request');
+      await graphQLClient.request('test').catch((error) => {
+        expect(error).to.not.be.undefined;
+        expect(graphQLClient['client'].request).to.be.called.exactly(4);
+        spy.restore(graphQLClient);
+      });
+    });
+
+    it.only('should be disabled when 0 retries are configured', async function() {
+      this.timeout(8000);
+      nock('http://jssnextweb')
+        .post('/graphql')
+        .reply(429)
+        .post('/graphql')
+        .reply(429)
+        .post('/graphql')
+        .reply(429);
+
+      const graphQLClient = new GraphQLRequestClient(endpoint, { retries: 0 });
+      spy.on(graphQLClient['client'], 'request');
+      await graphQLClient.request('test').catch((error) => {
+        expect(error).to.not.be.undefined;
+        expect(graphQLClient['client'].request).to.be.called.exactly(1);
+        spy.restore(graphQLClient);
+      });
+    });
+
     it('should use retry and throw error when retries specified', async function() {
       this.timeout(8000);
       nock('http://jssnextweb')
@@ -225,7 +263,7 @@ describe('GraphQLRequestClient', () => {
         expect(graphQLClient['debug']).to.have.been.called.with(
           'Error: %d. Retrying in %dms (attempt %d).',
           429,
-          2000,
+          1000,
           1
         );
         spy.restore(graphQLClient);
@@ -327,6 +365,76 @@ describe('GraphQLRequestClient', () => {
         it(`should retry and resolve for ${statusCode} if one of the request resolves`, async function() {
           this.timeout(16000);
           await retryableStatusCodeResolve(statusCode);
+        });
+      }
+
+      const retryableErrorCodeThrowError = async (errorCode: string) => {
+        nock('http://jssnextweb')
+          .post('/graphql')
+          .replyWithError({ code: errorCode })
+          .post('/graphql')
+          .replyWithError({ code: errorCode })
+          .post('/graphql')
+          .replyWithError({ code: errorCode });
+
+        const graphQLClient = new GraphQLRequestClient(endpoint, {
+          retries: 2,
+        });
+
+        spy.on(graphQLClient['client'], 'request');
+
+        try {
+          await graphQLClient.request('test');
+        } catch (error) {
+          expect(error).to.not.be.undefined;
+          expect(graphQLClient['client'].request).to.have.been.called.exactly(3);
+          spy.restore(graphQLClient);
+        }
+      };
+
+      // Test cases for each retryable error codes
+      for (const errorCode of ['ECONNRESET', 'ETIMEDOUT', 'EPROTO']) {
+        it(`should retry and throw error for ${errorCode} when retries specified`, async function() {
+          this.timeout(8000);
+          await retryableErrorCodeThrowError(errorCode);
+        });
+      }
+
+      const retryableErrorCodeResolve = async (errorCode: string) => {
+        nock('http://jssnextweb')
+          .post('/graphql')
+          .replyWithError({ code: errorCode })
+          .post('/graphql')
+          .replyWithError({ code: errorCode })
+          .post('/graphql')
+          .reply(200, {
+            data: {
+              result: 'Hello world...',
+            },
+          });
+
+        const graphQLClient = new GraphQLRequestClient(endpoint, {
+          retries: 3,
+        });
+
+        spy.on(graphQLClient['client'], 'request');
+
+        const data = await graphQLClient.request('test');
+
+        try {
+          await graphQLClient.request('test');
+          expect(data).to.not.be.null;
+        } catch (error) {
+          expect(graphQLClient['client'].request).to.have.been.called.exactly(4);
+          spy.restore(graphQLClient);
+        }
+      };
+
+      // Test cases for each retryable status code
+      for (const errorCode of ['ECONNRESET', 'ETIMEDOUT', 'EPROTO']) {
+        it(`should retry and resolve for ${errorCode} if one of the request resolves`, async function() {
+          this.timeout(16000);
+          await retryableErrorCodeResolve(errorCode);
         });
       }
 

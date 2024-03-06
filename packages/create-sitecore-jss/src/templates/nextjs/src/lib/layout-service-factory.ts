@@ -32,8 +32,8 @@ export class LayoutServiceFactory {
           */
           retries:
             (process.env.GRAPH_QL_SERVICE_RETRIES &&
-              parseInt(process.env.GRAPH_QL_SERVICE_RETRIES, 10)) ||
-            0,
+              parseInt(process.env.GRAPH_QL_SERVICE_RETRIES, 10)) ??
+            3,
         })
       : new RestLayoutService({
           apiHost: config.sitecoreApiHost,
