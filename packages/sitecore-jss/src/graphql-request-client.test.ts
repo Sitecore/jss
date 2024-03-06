@@ -21,8 +21,8 @@ describe('GraphQLRequestClient', () => {
   });
 
   beforeEach(() => {
-    // spy.on(debug.http, 'log', () => true);
-    // spy.on(debug.layout, 'log', () => true);
+    spy.on(debug.http, 'log', () => true);
+    spy.on(debug.layout, 'log', () => true);
   });
 
   afterEach(() => {
@@ -169,7 +169,7 @@ describe('GraphQLRequestClient', () => {
   });
 
   describe('Working with retryer', () => {
-    it('should be enabled and use default value of 3 retries when not configured', async function() {
+    it('should be enabled by default and use default value of 3 when retries are not configured', async function() {
       this.timeout(8000);
       nock('http://jssnextweb')
         .post('/graphql')
