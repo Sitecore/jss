@@ -41,8 +41,7 @@ export {
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss/layout';
 export { RetryStrategy, DefaultRetryStrategy } from '@sitecore-jss/sitecore-jss/graphql';
-export { constants, HttpDataFetcher, HttpResponse } from '@sitecore-jss/sitecore-jss';
-export { ClientError } from 'graphql-request';
+export { constants, HttpDataFetcher, HttpResponse, ClientError } from '@sitecore-jss/sitecore-jss';
 export {
   isServer,
   isExperienceEditorActive,
