@@ -188,7 +188,7 @@ describe('GraphQLRequestClient', () => {
       });
     });
 
-    it.only('should be disabled when 0 retries are configured', async function() {
+    it('should be disabled when 0 retries are configured', async function() {
       this.timeout(8000);
       nock('http://jssnextweb')
         .post('/graphql')
@@ -261,7 +261,26 @@ describe('GraphQLRequestClient', () => {
 
       await graphQLClient.request('test').catch(() => {
         expect(graphQLClient['debug']).to.have.been.called.with(
-          'Error: %d. Retrying in %dms (attempt %d).',
+          'Error: %s. Retrying in %dms (attempt %d).',
+          429,
+          2000,
+          1
+        );
+        spy.restore(graphQLClient);
+      });
+    });
+
+    it('should use default delay time when [retry-after] header comes out empty in response of 429', async function() {
+      this.timeout(7000);
+      nock('http://jssnextweb')
+        .post('/graphql')
+        .reply(429, {}, { 'Retry-After': '' });
+      const graphQLClient = new GraphQLRequestClient(endpoint, { retries: 1 });
+      spy.on(graphQLClient, 'debug');
+
+      await graphQLClient.request('test').catch(() => {
+        expect(graphQLClient['debug']).to.have.been.called.with(
+          'Error: %s. Retrying in %dms (attempt %d).',
           429,
           1000,
           1

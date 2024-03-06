@@ -121,7 +121,7 @@ export class DefaultRetryStrategy implements RetryStrategy {
   }
 
   getDelay(error: RetryError, attempt: number): number {
-    const rawHeaders = error.headers;
+    const rawHeaders = error.response?.headers;
     const retryAfterHeader = rawHeaders?.get('Retry-After');
 
     if (
