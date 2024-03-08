@@ -37,10 +37,9 @@ export class DictionaryServiceFactory {
             By default it uses the `DefaultRetryStrategy` with exponential back-off factor of 2 and handles error codes 429,
             502, 503, 504, 520, 521, 522, 523, 524 'ECONNRESET', 'ETIMEDOUT' and 'EPROTO' . You can use this class or your own implementation of `RetryStrategy`.
           */
-          retries:
-            (process.env.GRAPH_QL_SERVICE_RETRIES &&
-              parseInt(process.env.GRAPH_QL_SERVICE_RETRIES, 10)) ??
-            3,
+          retries: ((process.env.GRAPH_QL_SERVICE_RETRIES &&
+            parseInt(process.env.GRAPH_QL_SERVICE_RETRIES, 10)) ??
+            3) as number,
         })
       : new RestDictionaryService({
           apiHost: config.sitecoreApiHost,

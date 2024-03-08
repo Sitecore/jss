@@ -1,4 +1,5 @@
 export { getAppRootId, AppRootQueryResult } from './app-root-query';
+export { ClientError } from 'graphql-request';
 export {
   RetryStrategy,
   DefaultRetryStrategy,

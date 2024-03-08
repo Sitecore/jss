@@ -116,21 +116,19 @@ function isNodeErrException(
  * should be retried and calculates the delay before the next retry attempt.
  */
 export class DefaultRetryStrategy implements RetryStrategy {
-  private clientErrorCodes: number[];
-  private nodeErrorCodes: string[];
+  private statusCodes: number[];
+  private errorCodes: string[];
   private factor: number;
 
   /**
    * @param {Object} options Configurable options for retry mechanism.
-   * @param {number[]} options.clientErrorCodes HTTP status codes to trigger retries on
-   * @param {string[]} options.nodeErrorCodes Node error codes to trigger retries
+   * @param {number[]} options.statusCodes HTTP status codes to trigger retries on
+   * @param {string[]} options.errorCodes Node error codes to trigger retries
    * @param {number} options.factor Factor by which the delay increases with each retry attempt
    */
-  constructor(
-    options: { clientErrorCodes?: number[]; nodeErrorCodes?: string[]; factor?: number } = {}
-  ) {
-    this.clientErrorCodes = options.clientErrorCodes || [429];
-    this.nodeErrorCodes = options.nodeErrorCodes || ['ECONNRESET', 'ETIMEDOUT', 'EPROTO'];
+  constructor(options: { statusCodes?: number[]; errorCodes?: string[]; factor?: number } = {}) {
+    this.statusCodes = options.statusCodes || [429];
+    this.errorCodes = options.errorCodes || ['ECONNRESET', 'ETIMEDOUT', 'EPROTO'];
     this.factor = options.factor || 2;
   }
 
@@ -140,11 +138,9 @@ export class DefaultRetryStrategy implements RetryStrategy {
     retries: number
   ): boolean {
     const isClientErrorCode =
-      isClientError(error) && this.clientErrorCodes.includes(error.response?.status);
+      isClientError(error) && this.statusCodes.includes(error.response?.status);
     const isNodeErrorCode =
-      isNodeErrException(error) &&
-      error.code !== undefined &&
-      this.nodeErrorCodes.includes(error.code);
+      isNodeErrException(error) && error.code !== undefined && this.errorCodes.includes(error.code);
     return retries > 0 && attempt <= retries && (isClientErrorCode || isNodeErrorCode);
   }
 
@@ -198,7 +194,7 @@ export class GraphQLRequestClient implements GraphQLClient {
     this.retries = clientConfig.retries ?? 3;
     this.retryStrategy =
       clientConfig.retryStrategy ||
-      new DefaultRetryStrategy({ clientErrorCodes: [429, 502, 503, 504, 520, 521, 522, 523, 524] });
+      new DefaultRetryStrategy({ statusCodes: [429, 502, 503, 504, 520, 521, 522, 523, 524] });
     this.client = new Client(endpoint, {
       headers: this.headers,
       fetch: clientConfig.fetch,

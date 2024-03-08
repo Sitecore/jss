@@ -1,4 +1,5 @@
 export {
+  ClientError,
   RetryStrategy,
   DefaultRetryStrategy,
   GraphQLRequestClient,
