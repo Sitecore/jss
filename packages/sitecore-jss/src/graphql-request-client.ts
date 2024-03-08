@@ -16,11 +16,6 @@ export interface GraphQLClient {
   request<T>(query: string | DocumentNode, variables?: { [key: string]: unknown }): Promise<T>;
 }
 
-export type RetryError = Partial<ClientError> &
-  Partial<Response> & {
-    code?: string;
-  };
-
 /**
  * Defines the strategy for retrying GraphQL requests based on errors and attempts.
  */
@@ -32,14 +27,18 @@ export interface RetryStrategy {
    * @param retries - The number of retries configured.
    * @returns A boolean indicating whether to retry the request.
    */
-  shouldRetry(error: RetryError, attempt: number, retries: number): boolean;
+  shouldRetry(
+    error: ClientError | NodeJS.ErrnoException,
+    attempt: number,
+    retries: number
+  ): boolean;
   /**
    * Calculates the delay (in milliseconds) before the next retry based on the given error and attempt count.
    * @param error - The error received from the GraphQL request.
    * @param attempt - The current attempt number.
    * @returns The delay in milliseconds before the next retry.
    */
-  getDelay(error: RetryError, attempt: number): number;
+  getDelay(error: ClientError | NodeJS.ErrnoException, attempt: number): number;
 }
 
 /**
@@ -92,36 +91,65 @@ export type GraphQLRequestClientFactoryConfig = {
 };
 
 /**
+ * Checks if the provided error is a ClientError.
+ * @param {RetryError} error - The error to be checked.
+ * @returns {boolean} - True if the error is a ClientError, false otherwise.
+ */
+function isClientError(error: ClientError | NodeJS.ErrnoException): error is ClientError {
+  return error instanceof Error && 'response' in error;
+}
+
+/**
+ * Checks if the provided error is a NodeJS.ErrnoException.
+ * @param {RetryError} error - The error to be checked.
+ * @returns {boolean} - True if the error is a NodeJS.ErrnoException, false otherwise.
+ */
+function isNodeErrException(
+  error: ClientError | NodeJS.ErrnoException
+): error is NodeJS.ErrnoException {
+  return error instanceof Error && 'code' in error;
+}
+
+/**
  * Represents a default retry strategy for handling retry attempts in case of specific HTTP status codes.
  * This class implements the RetryStrategy interface and provides methods to determine whether a request
  * should be retried and calculates the delay before the next retry attempt.
  */
 export class DefaultRetryStrategy implements RetryStrategy {
-  private statusCodes: number[];
-  private errorCodes: string[];
+  private clientErrorCodes: number[];
+  private nodeErrorCodes: string[];
   private factor: number;
 
   /**
    * @param {Object} options Configurable options for retry mechanism.
-   * @param {number[]} options.statusCodes HTTP status codes to trigger retries on
-   * @param {string[]} options.errorCodes Node error codes to trigger retries
+   * @param {number[]} options.clientErrorCodes HTTP status codes to trigger retries on
+   * @param {string[]} options.nodeErrorCodes Node error codes to trigger retries
    * @param {number} options.factor Factor by which the delay increases with each retry attempt
    */
-  constructor(options: { statusCodes?: number[]; errorCodes?: string[]; factor?: number } = {}) {
-    this.statusCodes = options.statusCodes || [429];
-    this.errorCodes = options.errorCodes || ['ECONNRESET', 'ETIMEDOUT', 'EPROTO'];
+  constructor(
+    options: { clientErrorCodes?: number[]; nodeErrorCodes?: string[]; factor?: number } = {}
+  ) {
+    this.clientErrorCodes = options.clientErrorCodes || [429];
+    this.nodeErrorCodes = options.nodeErrorCodes || ['ECONNRESET', 'ETIMEDOUT', 'EPROTO'];
     this.factor = options.factor || 2;
   }
 
-  shouldRetry(error: RetryError, attempt: number, retries: number): boolean {
-    const isHttpError =
-      error.response?.status !== undefined && this.statusCodes.includes(error.response.status);
-    const isErrorCode = error.code !== undefined && this.errorCodes.includes(error.code);
-    return retries > 0 && attempt <= retries && (isHttpError || isErrorCode);
+  shouldRetry(
+    error: ClientError | NodeJS.ErrnoException,
+    attempt: number,
+    retries: number
+  ): boolean {
+    const isClientErrorCode =
+      isClientError(error) && this.clientErrorCodes.includes(error.response?.status);
+    const isNodeErrorCode =
+      isNodeErrException(error) &&
+      error.code !== undefined &&
+      this.nodeErrorCodes.includes(error.code);
+    return retries > 0 && attempt <= retries && (isClientErrorCode || isNodeErrorCode);
   }
 
-  getDelay(error: RetryError, attempt: number): number {
-    const rawHeaders = error.response?.headers;
+  getDelay(error: ClientError | NodeJS.ErrnoException, attempt: number): number {
+    const rawHeaders = isClientError(error) ? (error as ClientError).response?.headers : undefined;
     const retryAfterHeader = rawHeaders?.get('Retry-After');
 
     if (
@@ -170,7 +198,7 @@ export class GraphQLRequestClient implements GraphQLClient {
     this.retries = clientConfig.retries ?? 3;
     this.retryStrategy =
       clientConfig.retryStrategy ||
-      new DefaultRetryStrategy({ statusCodes: [429, 502, 503, 504, 520, 521, 522, 523, 524] });
+      new DefaultRetryStrategy({ clientErrorCodes: [429, 502, 503, 504, 520, 521, 522, 523, 524] });
     this.client = new Client(endpoint, {
       headers: this.headers,
       fetch: clientConfig.fetch,
@@ -225,10 +253,13 @@ export class GraphQLRequestClient implements GraphQLClient {
           this.debug('response in %dms: %o', Date.now() - startTimestamp, data);
           return Promise.resolve(data);
         },
-        async (error: RetryError) => {
+        async (error: ClientError | NodeJS.ErrnoException) => {
           this.abortTimeout?.clear();
-          this.debug('response error: %o', error.response || error.message || error);
-          const status = error.response?.status || error.code;
+          this.debug(
+            'response error: %o',
+            (isClientError(error) && error.response) || error.message || error
+          );
+          const status = isClientError(error) ? error.response?.status : error.code;
           const shouldRetry = this.retryStrategy.shouldRetry(error, attempt, this.retries);
 
           if (shouldRetry) {

@@ -556,7 +556,7 @@ describe('GraphQLRequestClient', () => {
       });
 
       it('should return false when attempt exceeds retries', () => {
-        const retryStrategy = new DefaultRetryStrategy({ statusCodes: [503] });
+        const retryStrategy = new DefaultRetryStrategy({ clientErrorCodes: [503] });
         mockClientError.response.status = 503;
 
         const shouldRetry = retryStrategy.shouldRetry(mockClientError, 2, 1);
@@ -564,7 +564,7 @@ describe('GraphQLRequestClient', () => {
       });
 
       it('should return false when retries is 0', () => {
-        const retryStrategy = new DefaultRetryStrategy({ statusCodes: [503] });
+        const retryStrategy = new DefaultRetryStrategy({ clientErrorCodes: [503] });
         mockClientError.response.status = 503;
 
         const shouldRetry = retryStrategy.shouldRetry(mockClientError, 1, 0);
@@ -581,7 +581,7 @@ describe('GraphQLRequestClient', () => {
       it('should use custom exponential factor', () => {
         const customFactor = 3;
         const retryStrategy = new DefaultRetryStrategy({
-          statusCodes: [429],
+          clientErrorCodes: [429],
           factor: customFactor,
         });
 
