@@ -4,7 +4,11 @@ import { expect, use, spy } from 'chai';
 import sinon from 'sinon';
 import spies from 'chai-spies';
 import nock from 'nock';
-import { GraphQLRequestClient, DefaultRetryStrategy } from './graphql-request-client';
+import {
+  GraphQLRequestClient,
+  DefaultRetryStrategy,
+  GraphQLRequestClientConfig,
+} from './graphql-request-client';
 import { ClientError } from 'graphql-request';
 import debugApi from 'debug';
 import debug from './debug';
@@ -258,6 +262,31 @@ describe('GraphQLRequestClient', () => {
   });
 
   describe('Retrayable status codes', () => {
+    it('should use the clientConfig values configured by the client', () => {
+      const clientConfig: GraphQLRequestClientConfig = {
+        retries: 4,
+        retryStrategy: {
+          getDelay: () => 1000,
+          shouldRetry: () => true,
+        },
+      };
+
+      const graphQLClient = new GraphQLRequestClient(endpoint, clientConfig);
+
+      expect(graphQLClient['retries']).to.equal(clientConfig.retries);
+      expect(graphQLClient['retryStrategy']).to.deep.equal(clientConfig.retryStrategy);
+    });
+
+    it('should fallback to use default values when clientConfig is undefined', () => {
+      const clientConfig = { retries: undefined, retryStrategy: undefined };
+      const graphQLClient = new GraphQLRequestClient(endpoint, clientConfig);
+
+      expect(graphQLClient['retries']).to.equal(0);
+      expect(graphQLClient['retryStrategy']).to.deep.equal(
+        new DefaultRetryStrategy({ statusCodes: [429, 502, 503, 504, 520, 521, 522, 523, 524] })
+      );
+    });
+
     const retryableStatusCodeThrowError = async (statusCode: number) => {
       nock('http://jssnextweb')
         .post('/graphql')
