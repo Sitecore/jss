@@ -13,22 +13,6 @@ body {
   }
 }
 
-/**** START STYLE MAX HEIGHT ****/
-.prod-mode {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-
-  main {
-    flex: 1 0 auto;
-  }
-
-  footer {
-    flex-shrink: 0;
-  }
-}
-/**** END STYLE MAX HEIGHT ****/
-
 main {
   .main-header {
     margin-top: 55px;

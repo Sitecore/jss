@@ -33,11 +33,12 @@ Our versioning strategy is as follows:
 
 * `[templates/nextjs]` `[templates/nextjs-styleguide]` Modify all GraphQLRequestClient import statements so that it gets imported from the /graphql submodule ([#1728](https://github.com/Sitecore/jss/pull/1728))
 * `[templates/node-headless-ssr-proxy]` `[node-headless-ssr-proxy]` Add sc_site qs parameter to Layout Service requests by default ([#1660](https://github.com/Sitecore/jss/pull/1660))
-* `[templates/nextjs-sxa]` Fixed Image component when there is using Banner variant which set property background-image when image is empty. ([#1689](https://github.com/Sitecore/jss/pull/1689)) ([#1692](https://github.com/Sitecore/jss/pull/1692))
+* `[templates/nextjs-sxa]` Fix Image component when there is using Banner variant which set property background-image when image is empty. ([#1689](https://github.com/Sitecore/jss/pull/1689)) ([#1692](https://github.com/Sitecore/jss/pull/1692))
 * `[templates/nextjs-sxa]` Fix feature `show Grid column` in Experience Editor. ([#1704](https://github.com/Sitecore/jss/pull/1704))
 * `[sitecore-jss-nextjs] [templates/nextjs-xmcloud]` SDK initialization rejections are now correctly handled. Errors should no longer occur after getSDK() promises resolve when they shouldn't (for example, getting Events SDK in development environment) ([#1712](https://github.com/Sitecore/jss/pull/1712) [#1715](https://github.com/Sitecore/jss/pull/1715) [#1716](https://github.com/Sitecore/jss/pull/1716))
 * `[sitecore-jss-nextjs]` Fix redirects middleware for working with absolute url where is using site language context ([#1727](https://github.com/Sitecore/jss/pull/1727)) ([#1737](https://github.com/Sitecore/jss/pull/1737))
 * `[sitecore-jss]` Enable the Layout and dictionary service to use custom `retryStrategy`. ([#1749](https://github.com/Sitecore/jss/pull/1749))
+* `[templates/nextjs-sxa]` Fix base styles of SXA components. Remove conflicted styles of BasicSite template. ([#1757](https://github.com/Sitecore/jss/pull/1757))
 
 ### 🛠 Breaking Changes
 
