@@ -29,7 +29,7 @@ Our versioning strategy is as follows:
   * To enable this on your existing app, modify the \scripts\config\plugins\multisite.ts file and add "useSiteQuery: true" to GraphQLSiteInfoService constructor call
 * `[sitecore-jss-nextjs]` Set `secure`, `httpOnly`, `sameSite` attributes to the `sc_site` cookie by default:  ([#1746](https://github.com/Sitecore/jss/pull/1746))
 * `[sitecore-jss]` GraphQL Client Retry Improvements:
-    * Handle additional string error codes like ECONNRESET, ETIMEDOUT, EPROTO. Can configure more using      DefaultRetryStrategy.
+    * Handle additional string error codes like ECONNRESET, ETIMEDOUT, EPROTO. Can configure more using DefaultRetryStrategy.
     * Retries has now been enabled by default with a default value of 3. It can be disabled by configuring it to 0.
     * [Retry-After] header now falls back to the default delay time when it comes out to be empty.
     ([#1755](https://github.com/Sitecore/jss/pull/1755))
