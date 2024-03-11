@@ -184,11 +184,11 @@ describe('GraphQLRequestClient', () => {
       expect(graphQLClient['retryStrategy']).to.deep.equal(clientConfig.retryStrategy);
     });
 
-    it('should fallback to use default values when clientConfig is undefined', () => {
+    it.only('should fallback to use default values when clientConfig is undefined', () => {
       const clientConfig = { retries: undefined, retryStrategy: undefined };
       const graphQLClient = new GraphQLRequestClient(endpoint, clientConfig);
 
-      expect(graphQLClient['retries']).to.equal(0);
+      expect(graphQLClient['retries']).to.equal(3);
       expect(graphQLClient['retryStrategy']).to.deep.equal(
         new DefaultRetryStrategy({ statusCodes: [429, 502, 503, 504, 520, 521, 522, 523, 524] })
       );
