@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
+import sinon, { SinonSpy } from 'sinon';
 import nock from 'nock';
 import { SitecoreTemplateId } from '../constants';
 import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
@@ -273,5 +275,27 @@ describe('GraphQLDictionaryService', () => {
     expect(graphQLClient).to.exist;
     // eslint-disable-next-line no-unused-expressions
     expect(graphQLRequestClient).to.exist;
+  });
+
+  it('should call clientFactory with the correct arguments', () => {
+    const clientFactorySpy: SinonSpy = sinon.spy();
+    const mockServiceConfig = {
+      siteName: 'supersite',
+      clientFactory: clientFactorySpy,
+      retries: 3,
+      retryStrategy: {
+        getDelay: () => 1000,
+        shouldRetry: () => true,
+      },
+    };
+
+    new GraphQLDictionaryService(mockServiceConfig);
+
+    expect(clientFactorySpy.calledOnce).to.be.true;
+
+    const calledWithArgs = clientFactorySpy.firstCall.args[0];
+    expect(calledWithArgs.debugger).to.exist;
+    expect(calledWithArgs.retries).to.equal(mockServiceConfig.retries);
+    expect(calledWithArgs.retryStrategy).to.deep.equal(mockServiceConfig.retryStrategy);
   });
 });
