@@ -101,7 +101,7 @@ function isClientError(error: ClientError | NodeJS.ErrnoException): error is Cli
 
 /**
  * Checks if the provided error is a NodeJS.ErrnoException.
- * @param {RetryError} error - The error to be checked.
+ * @param {ClientError | NodeJS.ErrnoException} error - The error to be checked.
  * @returns {boolean} - True if the error is a NodeJS.ErrnoException, false otherwise.
  */
 function isNodeErrException(
