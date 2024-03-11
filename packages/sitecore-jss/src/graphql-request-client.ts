@@ -92,7 +92,7 @@ export type GraphQLRequestClientFactoryConfig = {
 
 /**
  * Checks if the provided error is a ClientError.
- * @param {RetryError} error - The error to be checked.
+ * @param {ClientError | NodeJS.ErrnoException} error - The error to be checked.
  * @returns {boolean} - True if the error is a ClientError, false otherwise.
  */
 function isClientError(error: ClientError | NodeJS.ErrnoException): error is ClientError {
