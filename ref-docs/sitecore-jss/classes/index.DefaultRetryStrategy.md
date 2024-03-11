@@ -44,7 +44,7 @@ should be retried and calculates the delay before the next retry attempt.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:102](https://github.com/Sitecore/jss/blob/594f73f3f/packages/sitecore-jss/src/graphql-request-client.ts#L102)
+[packages/sitecore-jss/src/graphql-request-client.ts:102](https://github.com/Sitecore/jss/blob/aab003079/packages/sitecore-jss/src/graphql-request-client.ts#L102)
 
 ## Properties
 
@@ -54,7 +54,7 @@ should be retried and calculates the delay before the next retry attempt.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:95](https://github.com/Sitecore/jss/blob/594f73f3f/packages/sitecore-jss/src/graphql-request-client.ts#L95)
+[packages/sitecore-jss/src/graphql-request-client.ts:95](https://github.com/Sitecore/jss/blob/aab003079/packages/sitecore-jss/src/graphql-request-client.ts#L95)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:94](https://github.com/Sitecore/jss/blob/594f73f3f/packages/sitecore-jss/src/graphql-request-client.ts#L94)
+[packages/sitecore-jss/src/graphql-request-client.ts:94](https://github.com/Sitecore/jss/blob/aab003079/packages/sitecore-jss/src/graphql-request-client.ts#L94)
 
 ## Methods
 
@@ -93,7 +93,7 @@ The delay in milliseconds before the next retry.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:116](https://github.com/Sitecore/jss/blob/594f73f3f/packages/sitecore-jss/src/graphql-request-client.ts#L116)
+[packages/sitecore-jss/src/graphql-request-client.ts:116](https://github.com/Sitecore/jss/blob/aab003079/packages/sitecore-jss/src/graphql-request-client.ts#L116)
 
 ___
 
@@ -123,4 +123,4 @@ A boolean indicating whether to retry the request.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:107](https://github.com/Sitecore/jss/blob/594f73f3f/packages/sitecore-jss/src/graphql-request-client.ts#L107)
+[packages/sitecore-jss/src/graphql-request-client.ts:107](https://github.com/Sitecore/jss/blob/aab003079/packages/sitecore-jss/src/graphql-request-client.ts#L107)
