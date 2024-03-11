@@ -51,7 +51,7 @@ BaseGraphQLSitemapServiceConfig.apiKey
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:144](https://github.com/Sitecore/jss/blob/aab003079/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L144)
+[packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:144](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L144)
 
 ___
 
@@ -68,7 +68,7 @@ BaseGraphQLSitemapServiceConfig.clientFactory
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:155](https://github.com/Sitecore/jss/blob/aab003079/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L155)
+[packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:155](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L155)
 
 ___
 
@@ -92,7 +92,7 @@ BaseGraphQLSitemapServiceConfig.endpoint
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:138](https://github.com/Sitecore/jss/blob/aab003079/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L138)
+[packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:138](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L138)
 
 ___
 
@@ -108,7 +108,7 @@ BaseGraphQLSitemapServiceConfig.excludedPaths
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:89](https://github.com/Sitecore/jss/blob/aab003079/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L89)
+[packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:89](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L89)
 
 ___
 
@@ -125,7 +125,7 @@ BaseGraphQLSitemapServiceConfig.includePersonalizedRoutes
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:150](https://github.com/Sitecore/jss/blob/aab003079/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L150)
+[packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:150](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L150)
 
 ___
 
@@ -141,7 +141,7 @@ BaseGraphQLSitemapServiceConfig.includedPaths
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:85](https://github.com/Sitecore/jss/blob/aab003079/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L85)
+[packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:85](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L85)
 
 ___
 
@@ -165,7 +165,7 @@ BaseGraphQLSitemapServiceConfig.pageSize
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:96](https://github.com/Sitecore/jss/blob/aab003079/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L96)
+[packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:96](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L96)
 
 ___
 
@@ -177,4 +177,4 @@ Name of the site to retrieve site paths for
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:25](https://github.com/Sitecore/jss/blob/aab003079/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L25)
+[packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:25](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L25)
