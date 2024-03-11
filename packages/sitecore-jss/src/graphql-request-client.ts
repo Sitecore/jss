@@ -145,7 +145,7 @@ export class DefaultRetryStrategy implements RetryStrategy {
   }
 
   getDelay(error: ClientError | NodeJS.ErrnoException, attempt: number): number {
-    const rawHeaders = isClientError(error) ? (error as ClientError).response?.headers : undefined;
+    const rawHeaders = isClientError(error) ? error.response?.headers : undefined;
     const retryAfterHeader = rawHeaders?.get('Retry-After');
 
     if (
