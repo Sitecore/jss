@@ -173,7 +173,6 @@ describe('GraphQLRequestClient', () => {
   });
 
   describe('Working with retryer', () => {
-<<<<<<< HEAD
     it('should be enabled by default and use default value of 3 when retries are not configured', async function() {
       this.timeout(8000);
       nock('http://jssnextweb')
@@ -210,31 +209,6 @@ describe('GraphQLRequestClient', () => {
         expect(graphQLClient['client'].request).to.be.called.exactly(1);
         spy.restore(graphQLClient);
       });
-=======
-    it('should use the clientConfig values configured by the client', () => {
-      const clientConfig: GraphQLRequestClientConfig = {
-        retries: 4,
-        retryStrategy: {
-          getDelay: () => 1000,
-          shouldRetry: () => true,
-        },
-      };
-
-      const graphQLClient = new GraphQLRequestClient(endpoint, clientConfig);
-
-      expect(graphQLClient['retries']).to.equal(clientConfig.retries);
-      expect(graphQLClient['retryStrategy']).to.deep.equal(clientConfig.retryStrategy);
-    });
-
-    it('should fallback to use default values when clientConfig is undefined', () => {
-      const clientConfig = { retries: undefined, retryStrategy: undefined };
-      const graphQLClient = new GraphQLRequestClient(endpoint, clientConfig);
-
-      expect(graphQLClient['retries']).to.equal(0);
-      expect(graphQLClient['retryStrategy']).to.deep.equal(
-        new DefaultRetryStrategy({ statusCodes: [429, 502, 503, 504, 520, 521, 522, 523, 524] })
-      );
->>>>>>> aa758ab5ed7fee897a8a722c8723380617cccb5d
     });
 
     it('should use retry and throw error when retries specified', async function() {
