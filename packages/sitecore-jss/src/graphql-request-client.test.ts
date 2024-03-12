@@ -184,7 +184,7 @@ describe('GraphQLRequestClient', () => {
       expect(graphQLClient['retryStrategy']).to.deep.equal(clientConfig.retryStrategy);
     });
 
-    it.only('should fallback to use default values when clientConfig is undefined', () => {
+    it('should fallback to use default values when clientConfig is undefined', () => {
       const clientConfig = { retries: undefined, retryStrategy: undefined };
       const graphQLClient = new GraphQLRequestClient(endpoint, clientConfig);
 
