@@ -18,8 +18,7 @@ export interface GraphQLClient {
 
 /**
  * This type represents errors that can occur in a GraphQL client.
- * It handles the ClientError codes which  which includes response status codes such as 429, 402 etc
- * and code is inherited from the NodeJS.ErrnoException type which handle string errors such as 'ECONNRESET', 'ETIMEDOUT' etc
+ * In cases where an error status was sent back from the server (`!response.ok`), the `response` will be populated with details. In cases where a response was never received, the `code` can be populated with the error code (e.g. Node's 'ECONNRESET', 'ETIMEDOUT', etc).
  */
 export type GraphQLClientError = Partial<ClientError> & {
   /**
