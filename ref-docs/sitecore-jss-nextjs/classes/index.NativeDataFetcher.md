@@ -35,7 +35,7 @@
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:21
+packages/sitecore-jss/types/native-fetcher.d.ts:21
 
 ## Properties
 
@@ -45,7 +45,7 @@ sitecore-jss/types/native-fetcher.d.ts:21
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:20
+packages/sitecore-jss/types/native-fetcher.d.ts:20
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:19
+packages/sitecore-jss/types/native-fetcher.d.ts:19
 
 ## Methods
 
@@ -79,7 +79,7 @@ Object with headers as key/value pairs
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:41
+packages/sitecore-jss/types/native-fetcher.d.ts:41
 
 ___
 
@@ -114,7 +114,7 @@ HttpDataFetcher<T> type for implementation details/notes.
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:28
+packages/sitecore-jss/types/native-fetcher.d.ts:28
 
 ___
 
@@ -139,4 +139,4 @@ The final request settings
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:35
+packages/sitecore-jss/types/native-fetcher.d.ts:35

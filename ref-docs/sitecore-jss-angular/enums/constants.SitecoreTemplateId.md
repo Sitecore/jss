@@ -19,7 +19,7 @@
 
 #### Defined in
 
-sitecore-jss/types/constants.d.ts:3
+packages/sitecore-jss/types/constants.d.ts:3
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/constants.d.ts:2
+packages/sitecore-jss/types/constants.d.ts:2

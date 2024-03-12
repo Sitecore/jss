@@ -56,7 +56,7 @@ property instead
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:20
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:20
 
 ___
 
@@ -78,7 +78,7 @@ CacheOptions.cacheEnabled
 
 #### Defined in
 
-sitecore-jss/types/cache-client.d.ts:28
+packages/sitecore-jss/types/cache-client.d.ts:28
 
 ___
 
@@ -100,7 +100,7 @@ CacheOptions.cacheTimeout
 
 #### Defined in
 
-sitecore-jss/types/cache-client.d.ts:33
+packages/sitecore-jss/types/cache-client.d.ts:33
 
 ___
 
@@ -113,7 +113,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:25
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:25
 
 ___
 
@@ -131,7 +131,7 @@ Optional. The template ID to use when searching for dictionary entries.
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:30
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:30
 
 ___
 
@@ -151,7 +151,7 @@ property instead
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:15
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:15
 
 ___
 
@@ -169,7 +169,7 @@ Optional. The template ID of a JSS App to use when searching for the appRootId.
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:35
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:35
 
 ___
 
@@ -193,7 +193,7 @@ SearchServiceConfig.pageSize
 
 #### Defined in
 
-sitecore-jss/types/graphql/search-service.d.ts:51
+packages/sitecore-jss/types/graphql/search-service.d.ts:51
 
 ___
 
@@ -209,7 +209,7 @@ Pick.retries
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:60
+packages/sitecore-jss/types/graphql-request-client.d.ts:60
 
 ___
 
@@ -226,7 +226,7 @@ Pick.retryStrategy
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:65
+packages/sitecore-jss/types/graphql-request-client.d.ts:65
 
 ___
 
@@ -242,7 +242,7 @@ SearchServiceConfig.rootItemId
 
 #### Defined in
 
-sitecore-jss/types/graphql/search-service.d.ts:41
+packages/sitecore-jss/types/graphql/search-service.d.ts:41
 
 ___
 
@@ -259,7 +259,7 @@ SearchServiceConfig.siteName
 
 #### Defined in
 
-sitecore-jss/types/graphql/search-service.d.ts:65
+packages/sitecore-jss/types/graphql/search-service.d.ts:65
 
 ___
 
@@ -275,4 +275,4 @@ SearchServiceConfig.templates
 
 #### Defined in
 
-sitecore-jss/types/graphql/search-service.d.ts:45
+packages/sitecore-jss/types/graphql/search-service.d.ts:45

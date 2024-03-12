@@ -42,7 +42,7 @@ should be retried and calculates the delay before the next retry attempt.
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:94
+packages/sitecore-jss/types/graphql-request-client.d.ts:94
 
 ## Properties
 
@@ -52,7 +52,7 @@ sitecore-jss/types/graphql-request-client.d.ts:94
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:88
+packages/sitecore-jss/types/graphql-request-client.d.ts:88
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:87
+packages/sitecore-jss/types/graphql-request-client.d.ts:87
 
 ## Methods
 
@@ -76,7 +76,7 @@ Calculates the delay (in milliseconds) before the next retry based on the given 
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `error` | `ClientError` | The error received from the GraphQL request. |
+| `error` | [`ClientError`](ClientError.md) | The error received from the GraphQL request. |
 | `attempt` | `number` | The current attempt number. |
 
 #### Returns
@@ -91,7 +91,7 @@ The delay in milliseconds before the next retry.
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:99
+packages/sitecore-jss/types/graphql-request-client.d.ts:99
 
 ___
 
@@ -105,7 +105,7 @@ Determines whether a request should be retried based on the given error and atte
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `error` | `ClientError` | The error received from the GraphQL request. |
+| `error` | [`ClientError`](ClientError.md) | The error received from the GraphQL request. |
 | `attempt` | `number` | The current attempt number. |
 | `retries` | `number` | The number of retries configured. |
 
@@ -121,4 +121,4 @@ A boolean indicating whether to retry the request.
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:98
+packages/sitecore-jss/types/graphql-request-client.d.ts:98

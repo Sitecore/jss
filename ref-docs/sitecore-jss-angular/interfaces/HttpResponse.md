@@ -28,7 +28,7 @@ Response content
 
 #### Defined in
 
-sitecore-jss/types/data-fetcher.d.ts:13
+packages/sitecore-jss/types/data-fetcher.d.ts:13
 
 ___
 
@@ -40,7 +40,7 @@ HTTP status code of the response (i.e. 200, 404)
 
 #### Defined in
 
-sitecore-jss/types/data-fetcher.d.ts:9
+packages/sitecore-jss/types/data-fetcher.d.ts:9
 
 ___
 
@@ -52,4 +52,4 @@ HTTP status text of the response (i.e. 'OK', 'Bad Request')
 
 #### Defined in
 
-sitecore-jss/types/data-fetcher.d.ts:11
+packages/sitecore-jss/types/data-fetcher.d.ts:11

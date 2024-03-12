@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `Pick`\<`GraphQLRequestClientConfig`, ``"retries"``\>
+- `Pick`\<`GraphQLRequestClientConfig`, ``"retries"`` \| ``"retryStrategy"``\>
 
   ↳ **`GraphQLErrorPagesServiceConfig`**
 
@@ -19,6 +19,7 @@
 - [endpoint](index.GraphQLErrorPagesServiceConfig.md#endpoint)
 - [language](index.GraphQLErrorPagesServiceConfig.md#language)
 - [retries](index.GraphQLErrorPagesServiceConfig.md#retries)
+- [retryStrategy](index.GraphQLErrorPagesServiceConfig.md#retrystrategy)
 - [siteName](index.GraphQLErrorPagesServiceConfig.md#sitename)
 
 ## Properties
@@ -39,7 +40,7 @@ property instead
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:14
+packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:14
 
 ___
 
@@ -52,7 +53,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:27
+packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:27
 
 ___
 
@@ -72,7 +73,7 @@ property instead
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:9
+packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:9
 
 ___
 
@@ -84,7 +85,7 @@ The language
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:22
+packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:22
 
 ___
 
@@ -100,7 +101,24 @@ Pick.retries
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:60
+packages/sitecore-jss/types/graphql-request-client.d.ts:60
+
+___
+
+### retryStrategy
+
+• `Optional` **retryStrategy**: [`RetryStrategy`](graphql.RetryStrategy.md)
+
+Retry strategy for the client. Uses `DefaultRetryStrategy` by default with exponential
+back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
+
+#### Inherited from
+
+Pick.retryStrategy
+
+#### Defined in
+
+packages/sitecore-jss/types/graphql-request-client.d.ts:65
 
 ___
 
@@ -112,4 +130,4 @@ The JSS application name
 
 #### Defined in
 
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:18
+packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:18

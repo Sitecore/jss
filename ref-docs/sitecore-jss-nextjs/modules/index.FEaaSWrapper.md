@@ -30,7 +30,7 @@
 
 #### Defined in
 
-sitecore-jss-react/types/components/FEaaSWrapper.d.ts:3
+packages/sitecore-jss-react/types/components/FEaaSWrapper.d.ts:3
 
 ___
 
@@ -56,7 +56,7 @@ context
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/9e5f3ac64/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
+[packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
 
 ___
 
@@ -82,4 +82,4 @@ context
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/9e5f3ac64/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
+[packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)

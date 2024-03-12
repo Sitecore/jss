@@ -12,6 +12,7 @@
 
 ### Classes
 
+- [ClientError](classes/ClientError.md)
 - [ComponentNameAndType](classes/ComponentNameAndType.md)
 - [DateDirective](classes/DateDirective.md)
 - [DefaultRetryStrategy](classes/DefaultRetryStrategy.md)
@@ -110,7 +111,7 @@
 
 #### Defined in
 
-sitecore-jss/types/utils/edit-frame.d.ts:43
+packages/sitecore-jss/types/utils/edit-frame.d.ts:43
 
 ___
 
@@ -120,7 +121,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/utils/edit-frame.d.ts:54
+packages/sitecore-jss/types/utils/edit-frame.d.ts:54
 
 ___
 
@@ -159,7 +160,7 @@ The interface implementation must:
 
 #### Defined in
 
-sitecore-jss/types/data-fetcher.d.ts:24
+packages/sitecore-jss/types/data-fetcher.d.ts:24
 
 ___
 
@@ -178,7 +179,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:72
+packages/sitecore-jss/types/layout/models.d.ts:72
 
 ___
 
@@ -188,7 +189,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/utils/edit-frame.d.ts:57
+packages/sitecore-jss/types/utils/edit-frame.d.ts:57
 
 ## Variables
 
@@ -198,7 +199,7 @@ sitecore-jss/types/utils/edit-frame.d.ts:57
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/9e5f3ac64/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/components/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L65)
 
 ___
 
@@ -228,7 +229,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/utils/edit-frame.d.ts:12
+packages/sitecore-jss/types/utils/edit-frame.d.ts:12
 
 ___
 
@@ -238,7 +239,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/utils/edit-frame.d.ts:32
+packages/sitecore-jss/types/utils/edit-frame.d.ts:32
 
 ## Functions
 
@@ -260,7 +261,7 @@ Enable debug logging dynamically
 
 #### Defined in
 
-sitecore-jss/types/debug.d.ts:7
+packages/sitecore-jss/types/debug.d.ts:7
 
 ___
 
@@ -285,7 +286,7 @@ child placeholder
 
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:17
+packages/sitecore-jss/types/layout/utils.d.ts:17
 
 ___
 
@@ -317,7 +318,7 @@ the field value or null if the field is not defined
 
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:9
+packages/sitecore-jss/types/layout/utils.d.ts:9
 
 ▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -341,7 +342,7 @@ sitecore-jss/types/layout/utils.d.ts:9
 
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:10
+packages/sitecore-jss/types/layout/utils.d.ts:10
 
 ___
 
@@ -368,7 +369,7 @@ Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/Mutation
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:50
+packages/sitecore-jss/types/utils/editing.d.ts:50
 
 ___
 
@@ -387,7 +388,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:36
+packages/sitecore-jss/types/utils/editing.d.ts:36
 
 ___
 
@@ -407,7 +408,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/9e5f3ac64/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
@@ -425,7 +426,7 @@ true if executing server-side
 
 #### Defined in
 
-sitecore-jss/types/utils/is-server.d.ts:5
+packages/sitecore-jss/types/utils/is-server.d.ts:5
 
 ___
 
@@ -441,4 +442,4 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:40
+packages/sitecore-jss/types/utils/editing.d.ts:40

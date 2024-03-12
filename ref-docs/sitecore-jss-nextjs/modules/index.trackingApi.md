@@ -37,7 +37,7 @@ response
 
 #### Defined in
 
-sitecore-jss/types/tracking/trackingApi.d.ts:8
+packages/sitecore-jss/types/tracking/trackingApi.d.ts:8
 
 ___
 
@@ -62,4 +62,4 @@ void
 
 #### Defined in
 
-sitecore-jss/types/tracking/trackingApi.d.ts:15
+packages/sitecore-jss/types/tracking/trackingApi.d.ts:15

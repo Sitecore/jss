@@ -24,7 +24,7 @@ Currency code of outcome monetary value
 
 #### Defined in
 
-sitecore-jss/types/tracking/dataModels.d.ts:21
+packages/sitecore-jss/types/tracking/dataModels.d.ts:21
 
 ___
 
@@ -36,7 +36,7 @@ Revenue from outcome
 
 #### Defined in
 
-sitecore-jss/types/tracking/dataModels.d.ts:23
+packages/sitecore-jss/types/tracking/dataModels.d.ts:23
 
 ___
 
@@ -48,4 +48,4 @@ GUID or alias (name) of outcome to trigger
 
 #### Defined in
 
-sitecore-jss/types/tracking/dataModels.d.ts:19
+packages/sitecore-jss/types/tracking/dataModels.d.ts:19

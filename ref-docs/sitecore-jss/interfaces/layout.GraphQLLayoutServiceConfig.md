@@ -40,7 +40,7 @@ property instead
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:26](https://github.com/Sitecore/jss/blob/9e5f3ac64/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L26)
+[packages/sitecore-jss/src/layout/graphql-layout-service.ts:26](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L26)
 
 ___
 
@@ -53,7 +53,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:31](https://github.com/Sitecore/jss/blob/9e5f3ac64/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L31)
+[packages/sitecore-jss/src/layout/graphql-layout-service.ts:31](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L31)
 
 ___
 
@@ -73,7 +73,7 @@ property instead
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:17](https://github.com/Sitecore/jss/blob/9e5f3ac64/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L17)
+[packages/sitecore-jss/src/layout/graphql-layout-service.ts:17](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L17)
 
 ___
 
@@ -110,7 +110,7 @@ layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:43](https://github.com/Sitecore/jss/blob/9e5f3ac64/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L43)
+[packages/sitecore-jss/src/layout/graphql-layout-service.ts:43](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L43)
 
 ___
 
@@ -126,7 +126,7 @@ Pick.retries
 
 #### Defined in
 
-[src/graphql-request-client.ts:62](https://github.com/Sitecore/jss/blob/9e5f3ac64/packages/sitecore-jss/src/graphql-request-client.ts#L62)
+[packages/sitecore-jss/src/graphql-request-client.ts:62](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/graphql-request-client.ts#L62)
 
 ___
 
@@ -143,7 +143,7 @@ Pick.retryStrategy
 
 #### Defined in
 
-[src/graphql-request-client.ts:67](https://github.com/Sitecore/jss/blob/9e5f3ac64/packages/sitecore-jss/src/graphql-request-client.ts#L67)
+[packages/sitecore-jss/src/graphql-request-client.ts:67](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/graphql-request-client.ts#L67)
 
 ___
 
@@ -155,4 +155,4 @@ The JSS application name
 
 #### Defined in
 
-[src/layout/graphql-layout-service.ts:21](https://github.com/Sitecore/jss/blob/9e5f3ac64/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L21)
+[packages/sitecore-jss/src/layout/graphql-layout-service.ts:21](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L21)

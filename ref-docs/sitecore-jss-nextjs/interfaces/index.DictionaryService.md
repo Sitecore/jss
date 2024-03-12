@@ -32,4 +32,4 @@ Fetch dictionary data for a language.
 
 #### Defined in
 
-sitecore-jss/types/i18n/dictionary-service.d.ts:16
+packages/sitecore-jss/types/i18n/dictionary-service.d.ts:16

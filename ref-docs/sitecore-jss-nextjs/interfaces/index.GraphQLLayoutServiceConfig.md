@@ -40,7 +40,7 @@ property instead
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:18
+packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:18
 
 ___
 
@@ -53,7 +53,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:23
+packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:23
 
 ___
 
@@ -73,7 +73,7 @@ property instead
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:9
+packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:9
 
 ___
 
@@ -110,7 +110,7 @@ layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:35
+packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:35
 
 ___
 
@@ -126,7 +126,7 @@ Pick.retries
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:60
+packages/sitecore-jss/types/graphql-request-client.d.ts:60
 
 ___
 
@@ -143,7 +143,7 @@ Pick.retryStrategy
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:65
+packages/sitecore-jss/types/graphql-request-client.d.ts:65
 
 ___
 
@@ -155,4 +155,4 @@ The JSS application name
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:13
+packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:13

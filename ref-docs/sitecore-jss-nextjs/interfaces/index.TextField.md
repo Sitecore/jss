@@ -19,7 +19,7 @@
 
 #### Defined in
 
-sitecore-jss-react/types/components/Text.d.ts:5
+packages/sitecore-jss-react/types/components/Text.d.ts:5
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/Text.d.ts:4
+packages/sitecore-jss-react/types/components/Text.d.ts:4
