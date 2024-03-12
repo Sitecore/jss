@@ -3,6 +3,7 @@ export { ClientError } from 'graphql-request';
 export {
   RetryStrategy,
   DefaultRetryStrategy,
+  GraphQLClientError,
   GraphQLClient,
   GraphQLRequestClient,
   GraphQLRequestClientConfig,

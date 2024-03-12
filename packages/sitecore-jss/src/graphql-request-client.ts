@@ -17,6 +17,18 @@ export interface GraphQLClient {
 }
 
 /**
+ * This type represents errors that can occur in a GraphQL client.
+ * It handles the ClientError codes which  which includes response status codes such as 429, 402 etc
+ * and code is inherited from the NodeJS.ErrnoException type which handle string errors such as 'ECONNRESET', 'ETIMEDOUT' etc
+ */
+export type GraphQLClientError = Partial<ClientError> & {
+  /**
+   * This property is inherited from the NodeJS.ErrnoException type.
+   */
+  code?: string;
+};
+
+/**
  * Defines the strategy for retrying GraphQL requests based on errors and attempts.
  */
 export interface RetryStrategy {
@@ -27,18 +39,14 @@ export interface RetryStrategy {
    * @param retries - The number of retries configured.
    * @returns A boolean indicating whether to retry the request.
    */
-  shouldRetry(
-    error: ClientError | NodeJS.ErrnoException,
-    attempt: number,
-    retries: number
-  ): boolean;
+  shouldRetry(error: GraphQLClientError, attempt: number, retries: number): boolean;
   /**
    * Calculates the delay (in milliseconds) before the next retry based on the given error and attempt count.
    * @param error - The error received from the GraphQL request.
    * @param attempt - The current attempt number.
    * @returns The delay in milliseconds before the next retry.
    */
-  getDelay(error: ClientError | NodeJS.ErrnoException, attempt: number): number;
+  getDelay(error: GraphQLClientError, attempt: number): number;
 }
 
 /**
@@ -91,26 +99,6 @@ export type GraphQLRequestClientFactoryConfig = {
 };
 
 /**
- * Checks if the provided error is a ClientError.
- * @param {ClientError | NodeJS.ErrnoException} error - The error to be checked.
- * @returns {boolean} - True if the error is a ClientError, false otherwise.
- */
-function isClientError(error: ClientError | NodeJS.ErrnoException): error is ClientError {
-  return error instanceof Error && 'response' in error;
-}
-
-/**
- * Checks if the provided error is a NodeJS.ErrnoException.
- * @param {ClientError | NodeJS.ErrnoException} error - The error to be checked.
- * @returns {boolean} - True if the error is a NodeJS.ErrnoException, false otherwise.
- */
-function isNodeErrException(
-  error: ClientError | NodeJS.ErrnoException
-): error is NodeJS.ErrnoException {
-  return error instanceof Error && 'code' in error;
-}
-
-/**
  * Represents a default retry strategy for handling retry attempts in case of specific HTTP status codes.
  * This class implements the RetryStrategy interface and provides methods to determine whether a request
  * should be retried and calculates the delay before the next retry attempt.
@@ -132,20 +120,15 @@ export class DefaultRetryStrategy implements RetryStrategy {
     this.factor = options.factor || 2;
   }
 
-  shouldRetry(
-    error: ClientError | NodeJS.ErrnoException,
-    attempt: number,
-    retries: number
-  ): boolean {
-    const isClientErrorCode =
-      isClientError(error) && this.statusCodes.includes(error.response?.status);
-    const isNodeErrorCode =
-      isNodeErrException(error) && error.code !== undefined && this.errorCodes.includes(error.code);
-    return retries > 0 && attempt <= retries && (isClientErrorCode || isNodeErrorCode);
+  shouldRetry(error: GraphQLClientError, attempt: number, retries: number): boolean {
+    const isStatusCodeError =
+      error.response?.status !== undefined && this.statusCodes.includes(error.response.status);
+    const isNodeErrorCode = error.code !== undefined && this.errorCodes.includes(error.code);
+    return retries > 0 && attempt <= retries && (isStatusCodeError || isNodeErrorCode);
   }
 
-  getDelay(error: ClientError | NodeJS.ErrnoException, attempt: number): number {
-    const rawHeaders = isClientError(error) ? error.response?.headers : undefined;
+  getDelay(error: GraphQLClientError, attempt: number): number {
+    const rawHeaders = error.response?.headers;
     const retryAfterHeader = rawHeaders?.get('Retry-After');
 
     if (
@@ -249,18 +232,15 @@ export class GraphQLRequestClient implements GraphQLClient {
           this.debug('response in %dms: %o', Date.now() - startTimestamp, data);
           return Promise.resolve(data);
         },
-        async (error: ClientError | NodeJS.ErrnoException) => {
+        async (error: GraphQLClientError) => {
           this.abortTimeout?.clear();
-          this.debug(
-            'response error: %o',
-            (isClientError(error) && error.response) || error.message || error
-          );
-          const status = isClientError(error) ? error.response?.status : error.code;
+          this.debug('response error: %o', error.response || error.message || error);
+          const status = error.response?.status || error.code;
           const shouldRetry = this.retryStrategy.shouldRetry(error, attempt, this.retries);
 
           if (shouldRetry) {
             const delayMs = this.retryStrategy.getDelay(error, attempt);
-            this.debug('Error: %s. Retrying in %dms (attempt %d).', status, delayMs, attempt);
+            this.debug('Error: %d. Retrying in %dms (attempt %d).', status, delayMs, attempt);
 
             attempt++;
             return new Promise((resolve) => setTimeout(resolve, delayMs)).then(retryer);

@@ -1,3 +1,4 @@
+/** ClientError is @deprecated. import 'GraphQLClientError' from '@sitecore-jss/sitecore-jss-nextjs/graphql' instead */
 export {
   constants,
   // generic data access
@@ -6,7 +7,6 @@ export {
   AxiosResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
-  /** @deprecated import 'ClientError' from '@sitecore-jss/sitecore-jss-nextjs/graphql' instead */
   ClientError,
   NativeDataFetcher,
   NativeDataFetcherConfig,
@@ -18,7 +18,6 @@ export {
 // we will remove the root exports for these later
 // we cannot mark exports as deprected directly, so we're using this hack instead
 import { GraphQLRequestClient as GraphQLRequestClientDep } from './graphql';
-import {
   isEditorActive as isEditorActiveDep,
   resetEditorChromes as resetEditorChromesDep,
   resolveUrl as resolveUrlDep,

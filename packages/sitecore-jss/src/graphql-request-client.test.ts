@@ -184,7 +184,7 @@ describe('GraphQLRequestClient', () => {
       expect(graphQLClient['retryStrategy']).to.deep.equal(clientConfig.retryStrategy);
     });
 
-    it.only('should fallback to use default values when clientConfig is undefined', () => {
+    it('should fallback to use default values when clientConfig is undefined', () => {
       const clientConfig = { retries: undefined, retryStrategy: undefined };
       const graphQLClient = new GraphQLRequestClient(endpoint, clientConfig);
 
@@ -286,7 +286,7 @@ describe('GraphQLRequestClient', () => {
 
       await graphQLClient.request('test').catch(() => {
         expect(graphQLClient['debug']).to.have.been.called.with(
-          'Error: %s. Retrying in %dms (attempt %d).',
+          'Error: %d. Retrying in %dms (attempt %d).',
           429,
           2000,
           1
@@ -305,7 +305,7 @@ describe('GraphQLRequestClient', () => {
 
       await graphQLClient.request('test').catch(() => {
         expect(graphQLClient['debug']).to.have.been.called.with(
-          'Error: %s. Retrying in %dms (attempt %d).',
+          'Error: %d. Retrying in %dms (attempt %d).',
           429,
           1000,
           1
