@@ -21,9 +21,6 @@ export interface GraphQLClient {
  * In cases where an error status was sent back from the server (`!response.ok`), the `response` will be populated with details. In cases where a response was never received, the `code` can be populated with the error code (e.g. Node's 'ECONNRESET', 'ETIMEDOUT', etc).
  */
 export type GraphQLClientError = Partial<ClientError> & {
-  /**
-   * This property is inherited from the NodeJS.ErrnoException type.
-   */
   code?: string;
 };
 
@@ -109,9 +106,9 @@ export class DefaultRetryStrategy implements RetryStrategy {
 
   /**
    * @param {Object} options Configurable options for retry mechanism.
-   * @param {number[]} options.statusCodes HTTP status codes to trigger retries on
-   * @param {string[]} options.errorCodes Node error codes to trigger retries
-   * @param {number} options.factor Factor by which the delay increases with each retry attempt
+   * @param {number[]} [options.statusCodes] HTTP status codes to trigger retries on. Default is [429].
+   * @param {string[]} [options.errorCodes] Node error codes to trigger retries. Default is ['ECONNRESET', 'ETIMEDOUT', 'EPROTO'].
+   * @param {number} [options.factor] Factor by which the delay increases with each retry attempt. Default is 2.
    */
   constructor(options: { statusCodes?: number[]; errorCodes?: string[]; factor?: number } = {}) {
     this.statusCodes = options.statusCodes || [429];
