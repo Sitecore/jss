@@ -15,7 +15,6 @@ export {
 } from './graphql-request-client';
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
 export { AxiosResponse } from 'axios';
-export { ClientError } from 'graphql-request';
 export { NativeDataFetcher, NativeDataFetcherConfig } from './native-fetcher';
 export { HTMLLink } from './models';
 export { constants };
