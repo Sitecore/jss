@@ -239,7 +239,7 @@ export class GraphQLRequestClient implements GraphQLClient {
 
           if (shouldRetry) {
             const delayMs = this.retryStrategy.getDelay(error, attempt);
-            this.debug('Error: %d. Retrying in %dms (attempt %d).', status, delayMs, attempt);
+            this.debug('Error: %s. Retrying in %dms (attempt %d).', status, delayMs, attempt);
 
             attempt++;
             return new Promise((resolve) => setTimeout(resolve, delayMs)).then(retryer);

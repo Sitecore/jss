@@ -286,7 +286,7 @@ describe('GraphQLRequestClient', () => {
 
       await graphQLClient.request('test').catch(() => {
         expect(graphQLClient['debug']).to.have.been.called.with(
-          'Error: %d. Retrying in %dms (attempt %d).',
+          'Error: %s. Retrying in %dms (attempt %d).',
           429,
           2000,
           1
@@ -305,7 +305,7 @@ describe('GraphQLRequestClient', () => {
 
       await graphQLClient.request('test').catch(() => {
         expect(graphQLClient['debug']).to.have.been.called.with(
-          'Error: %d. Retrying in %dms (attempt %d).',
+          'Error: %s. Retrying in %dms (attempt %d).',
           429,
           1000,
           1
