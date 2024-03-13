@@ -209,7 +209,7 @@ Pick.retries
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:60
+packages/sitecore-jss/types/graphql-request-client.d.ts:67
 
 ___
 
@@ -226,7 +226,7 @@ Pick.retryStrategy
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:65
+packages/sitecore-jss/types/graphql-request-client.d.ts:72
 
 ___
 

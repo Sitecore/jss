@@ -74,6 +74,7 @@
 
 - [EditFrameDataSource](README.md#editframedatasource)
 - [FieldEditButton](README.md#fieldeditbutton)
+- [GraphQLClientError](README.md#graphqlclienterror)
 - [HttpDataFetcher](README.md#httpdatafetcher)
 - [PlaceholdersData](README.md#placeholdersdata)
 - [WebEditButton](README.md#webeditbutton)
@@ -122,6 +123,19 @@ ___
 #### Defined in
 
 packages/sitecore-jss/types/utils/edit-frame.d.ts:54
+
+___
+
+### GraphQLClientError
+
+Ƭ **GraphQLClientError**: `Partial`\<[`ClientError`](classes/ClientError.md)\> & \{ `code?`: `string`  }
+
+This type represents errors that can occur in a GraphQL client.
+In cases where an error status was sent back from the server (`!response.ok`), the `response` will be populated with details. In cases where a response was never received, the `code` can be populated with the error code (e.g. Node's 'ECONNRESET', 'ETIMEDOUT', etc).
+
+#### Defined in
+
+packages/sitecore-jss/types/graphql-request-client.d.ts:21
 
 ___
 
@@ -199,7 +213,7 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/53b548ace/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -408,7 +422,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/53b548ace/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 

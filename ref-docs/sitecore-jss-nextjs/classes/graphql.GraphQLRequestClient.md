@@ -50,7 +50,7 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:119
+packages/sitecore-jss/types/graphql-request-client.d.ts:129
 
 ## Properties
 
@@ -60,7 +60,7 @@ packages/sitecore-jss/types/graphql-request-client.d.ts:119
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:110
+packages/sitecore-jss/types/graphql-request-client.d.ts:120
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:107
+packages/sitecore-jss/types/graphql-request-client.d.ts:117
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:109
+packages/sitecore-jss/types/graphql-request-client.d.ts:119
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:106
+packages/sitecore-jss/types/graphql-request-client.d.ts:116
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:108
+packages/sitecore-jss/types/graphql-request-client.d.ts:118
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:112
+packages/sitecore-jss/types/graphql-request-client.d.ts:122
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:113
+packages/sitecore-jss/types/graphql-request-client.d.ts:123
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:111
+packages/sitecore-jss/types/graphql-request-client.d.ts:121
 
 ## Methods
 
@@ -163,7 +163,7 @@ GraphQLClient.request
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:132
+packages/sitecore-jss/types/graphql-request-client.d.ts:142
 
 ___
 
@@ -185,4 +185,4 @@ Factory method for creating a GraphQLRequestClientFactory.
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:126
+packages/sitecore-jss/types/graphql-request-client.d.ts:136

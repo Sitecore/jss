@@ -27,6 +27,7 @@
 ### Type Aliases
 
 - [AppRootQueryResult](graphql.md#approotqueryresult)
+- [GraphQLClientError](graphql.md#graphqlclienterror)
 - [SearchQueryResult](graphql.md#searchqueryresult)
 
 ### Functions
@@ -94,7 +95,20 @@ The schema of data returned in response to an app root query request
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/app-root-query.ts:27](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss/src/graphql/app-root-query.ts#L27)
+[packages/sitecore-jss/src/graphql/app-root-query.ts:27](https://github.com/Sitecore/jss/blob/53b548ace/packages/sitecore-jss/src/graphql/app-root-query.ts#L27)
+
+___
+
+### GraphQLClientError
+
+Ƭ **GraphQLClientError**: `Partial`\<[`ClientError`](../classes/index.ClientError.md)\> & \{ `code?`: `string`  }
+
+This type represents errors that can occur in a GraphQL client.
+In cases where an error status was sent back from the server (`!response.ok`), the `response` will be populated with details. In cases where a response was never received, the `code` can be populated with the error code (e.g. Node's 'ECONNRESET', 'ETIMEDOUT', etc).
+
+#### Defined in
+
+[packages/sitecore-jss/src/graphql-request-client.ts:23](https://github.com/Sitecore/jss/blob/53b548ace/packages/sitecore-jss/src/graphql-request-client.ts#L23)
 
 ___
 
@@ -120,7 +134,7 @@ Schema of data returned in response to a "search" query request
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss/src/graphql/search-service.ts#L22)
+[packages/sitecore-jss/src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/53b548ace/packages/sitecore-jss/src/graphql/search-service.ts#L22)
 
 ## Functions
 
@@ -160,7 +174,7 @@ leaving that decision up to implementations.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
+[packages/sitecore-jss/src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/53b548ace/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
 
 ___
 
@@ -185,4 +199,4 @@ The complete URL for accessing content through the Edge Platform.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts:9](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L9)
+[packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts:9](https://github.com/Sitecore/jss/blob/53b548ace/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L9)
