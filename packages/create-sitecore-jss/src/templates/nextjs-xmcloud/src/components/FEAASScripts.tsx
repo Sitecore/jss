@@ -6,13 +6,22 @@ import nextConfig from 'next.config';
 const FEAASScripts = (): JSX.Element => {
   // we cannot use nextjs's logic for remotePatterns matching without extra dependencies
   // so we use a limited approach for now - which will be replaced once nextjs allows to fall back to unoptimized OOB
+  const convertToRegex = (pattern: string) => {
+    return pattern.replace('.', '\\.').replace(/\*/g, '.*');
+  };
+
   const shouldOptimize = (src: string) => {
     if (src.startsWith('http')) {
       const url = new URL(src);
       const domains: string[] = nextConfig().images?.domains || [];
+      const remotePatterns = nextConfig().images?.remotePatterns || [];
       return (
         domains.some((domain) => url.hostname === domain) ||
-        url.hostname.match(/feaas\S*\.blob\.core\.windows\.net/)
+        remotePatterns.some(
+          (pattern) =>
+            pattern.protocol === url.protocol.slice(0, -1) &&
+            new RegExp('^' + convertToRegex(pattern.hostname) + '$').test(url.hostname)
+        )
       );
     }
     return true;
