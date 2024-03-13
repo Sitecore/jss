@@ -11,6 +11,9 @@ import debug from './debug';
 
 use(spies);
 
+const nodeStatusCode = ['ECONNRESET', 'ETIMEDOUT', 'EPROTO'];
+const statusErrorCodes = [429, 502, 503, 504, 520, 521, 522, 523, 524];
+
 describe('GraphQLRequestClient', () => {
   const endpoint = 'http://jssnextweb/graphql';
   let debugNamespaces: string;
@@ -190,7 +193,7 @@ describe('GraphQLRequestClient', () => {
 
       expect(graphQLClient['retries']).to.equal(3);
       expect(graphQLClient['retryStrategy']).to.deep.equal(
-        new DefaultRetryStrategy({ statusCodes: [429, 502, 503, 504, 520, 521, 522, 523, 524] })
+        new DefaultRetryStrategy({ statusCodes: statusErrorCodes })
       );
     });
 
@@ -367,7 +370,7 @@ describe('GraphQLRequestClient', () => {
       };
 
       // Test cases for each retryable status code
-      for (const statusCode of [429, 502, 503, 504, 520, 521, 522, 523, 524]) {
+      for (const statusCode of statusErrorCodes) {
         it(`should retry and throw error for ${statusCode} when retries specified`, async function() {
           this.timeout(8000);
           await retryableStatusCodeThrowError(statusCode);
@@ -405,7 +408,7 @@ describe('GraphQLRequestClient', () => {
       };
 
       // Test cases for each retryable status code
-      for (const statusCode of [429, 502, 503, 504, 520, 521, 522, 523, 524]) {
+      for (const statusCode of statusErrorCodes) {
         it(`should retry and resolve for ${statusCode} if one of the request resolves`, async function() {
           this.timeout(16000);
           await retryableStatusCodeResolve(statusCode);
@@ -437,7 +440,7 @@ describe('GraphQLRequestClient', () => {
       };
 
       // Test cases for each retryable error codes
-      for (const errorCode of ['ECONNRESET', 'ETIMEDOUT', 'EPROTO']) {
+      for (const errorCode of nodeStatusCode) {
         it(`should retry and throw error for ${errorCode} when retries specified`, async function() {
           this.timeout(8000);
           await retryableErrorCodeThrowError(errorCode);
@@ -473,9 +476,8 @@ describe('GraphQLRequestClient', () => {
           spy.restore(graphQLClient);
         }
       };
-
       // Test cases for each retryable status code
-      for (const errorCode of ['ECONNRESET', 'ETIMEDOUT', 'EPROTO']) {
+      for (const errorCode of nodeStatusCode) {
         it(`should retry and resolve for ${errorCode} if one of the request resolves`, async function() {
           this.timeout(16000);
           await retryableErrorCodeResolve(errorCode);
