@@ -18,7 +18,6 @@
     "middleware.d.ts",
     "editing.d.ts",
     "monitoring.d.ts",
-    "revalidate.d.ts",
     "site.d.ts",
     "graphql.d.ts",
     "utils.d.ts",

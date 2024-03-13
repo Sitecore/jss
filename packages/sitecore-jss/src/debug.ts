@@ -39,5 +39,4 @@ export default {
   redirects: debug(`${rootNamespace}:redirects`),
   personalize: debug(`${rootNamespace}:personalize`),
   errorpages: debug(`${rootNamespace}:errorpages`),
-  revalidate: debug(`${rootNamespace}:revalidate`),
 };
