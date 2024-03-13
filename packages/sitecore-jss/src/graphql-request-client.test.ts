@@ -4,16 +4,15 @@ import { expect, use, spy } from 'chai';
 import sinon from 'sinon';
 import spies from 'chai-spies';
 import nock from 'nock';
-import {
-  GraphQLRequestClient,
-  DefaultRetryStrategy,
-  GraphQLRequestClientConfig,
-} from './graphql-request-client';
+import { GraphQLRequestClient, DefaultRetryStrategy } from './graphql-request-client';
 import { ClientError } from 'graphql-request';
 import debugApi from 'debug';
 import debug from './debug';
 
 use(spies);
+
+const nodeStatusCode = ['ECONNRESET', 'ETIMEDOUT', 'EPROTO'];
+const statusErrorCodes = [429, 502, 503, 504, 520, 521, 522, 523, 524];
 
 describe('GraphQLRequestClient', () => {
   const endpoint = 'http://jssnextweb/graphql';
@@ -174,7 +173,7 @@ describe('GraphQLRequestClient', () => {
 
   describe('Working with retryer', () => {
     it('should use the clientConfig values configured by the client', () => {
-      const clientConfig: GraphQLRequestClientConfig = {
+      const clientConfig = {
         retries: 4,
         retryStrategy: {
           getDelay: () => 1000,
@@ -192,10 +191,48 @@ describe('GraphQLRequestClient', () => {
       const clientConfig = { retries: undefined, retryStrategy: undefined };
       const graphQLClient = new GraphQLRequestClient(endpoint, clientConfig);
 
-      expect(graphQLClient['retries']).to.equal(0);
+      expect(graphQLClient['retries']).to.equal(3);
       expect(graphQLClient['retryStrategy']).to.deep.equal(
-        new DefaultRetryStrategy({ statusCodes: [429, 502, 503, 504, 520, 521, 522, 523, 524] })
+        new DefaultRetryStrategy({ statusCodes: statusErrorCodes })
       );
+    });
+
+    it('should be enabled by default and use default value of 3 when retries are not configured', async function() {
+      this.timeout(8000);
+      nock('http://jssnextweb')
+        .post('/graphql')
+        .reply(429)
+        .post('/graphql')
+        .reply(429)
+        .post('/graphql')
+        .reply(429);
+
+      const graphQLClient = new GraphQLRequestClient(endpoint, { retries: undefined });
+      spy.on(graphQLClient['client'], 'request');
+      await graphQLClient.request('test').catch((error) => {
+        expect(error).to.not.be.undefined;
+        expect(graphQLClient['client'].request).to.be.called.exactly(4);
+        spy.restore(graphQLClient);
+      });
+    });
+
+    it('should be disabled when 0 retries are configured', async function() {
+      this.timeout(8000);
+      nock('http://jssnextweb')
+        .post('/graphql')
+        .reply(429)
+        .post('/graphql')
+        .reply(429)
+        .post('/graphql')
+        .reply(429);
+
+      const graphQLClient = new GraphQLRequestClient(endpoint, { retries: 0 });
+      spy.on(graphQLClient['client'], 'request');
+      await graphQLClient.request('test').catch((error) => {
+        expect(error).to.not.be.undefined;
+        expect(graphQLClient['client'].request).to.be.called.exactly(1);
+        spy.restore(graphQLClient);
+      });
     });
 
     it('should use retry and throw error when retries specified', async function() {
@@ -252,9 +289,28 @@ describe('GraphQLRequestClient', () => {
 
       await graphQLClient.request('test').catch(() => {
         expect(graphQLClient['debug']).to.have.been.called.with(
-          'Error: %d. Retrying in %dms (attempt %d).',
+          'Error: %s. Retrying in %dms (attempt %d).',
           429,
           2000,
+          1
+        );
+        spy.restore(graphQLClient);
+      });
+    });
+
+    it('should use default delay time when [retry-after] header comes out empty in response of 429', async function() {
+      this.timeout(7000);
+      nock('http://jssnextweb')
+        .post('/graphql')
+        .reply(429, {}, { 'Retry-After': '' });
+      const graphQLClient = new GraphQLRequestClient(endpoint, { retries: 1 });
+      spy.on(graphQLClient, 'debug');
+
+      await graphQLClient.request('test').catch(() => {
+        expect(graphQLClient['debug']).to.have.been.called.with(
+          'Error: %s. Retrying in %dms (attempt %d).',
+          429,
+          1000,
           1
         );
         spy.restore(graphQLClient);
@@ -314,7 +370,7 @@ describe('GraphQLRequestClient', () => {
       };
 
       // Test cases for each retryable status code
-      for (const statusCode of [429, 502, 503, 504, 520, 521, 522, 523, 524]) {
+      for (const statusCode of statusErrorCodes) {
         it(`should retry and throw error for ${statusCode} when retries specified`, async function() {
           this.timeout(8000);
           await retryableStatusCodeThrowError(statusCode);
@@ -352,10 +408,79 @@ describe('GraphQLRequestClient', () => {
       };
 
       // Test cases for each retryable status code
-      for (const statusCode of [429, 502, 503, 504, 520, 521, 522, 523, 524]) {
+      for (const statusCode of statusErrorCodes) {
         it(`should retry and resolve for ${statusCode} if one of the request resolves`, async function() {
           this.timeout(16000);
           await retryableStatusCodeResolve(statusCode);
+        });
+      }
+
+      const retryableErrorCodeThrowError = async (errorCode: string) => {
+        nock('http://jssnextweb')
+          .post('/graphql')
+          .replyWithError({ code: errorCode })
+          .post('/graphql')
+          .replyWithError({ code: errorCode })
+          .post('/graphql')
+          .replyWithError({ code: errorCode });
+
+        const graphQLClient = new GraphQLRequestClient(endpoint, {
+          retries: 2,
+        });
+
+        spy.on(graphQLClient['client'], 'request');
+
+        try {
+          await graphQLClient.request('test');
+        } catch (error) {
+          expect(error).to.not.be.undefined;
+          expect(graphQLClient['client'].request).to.have.been.called.exactly(3);
+          spy.restore(graphQLClient);
+        }
+      };
+
+      // Test cases for each retryable error codes
+      for (const errorCode of nodeStatusCode) {
+        it(`should retry and throw error for ${errorCode} when retries specified`, async function() {
+          this.timeout(8000);
+          await retryableErrorCodeThrowError(errorCode);
+        });
+      }
+
+      const retryableErrorCodeResolve = async (errorCode: string) => {
+        nock('http://jssnextweb')
+          .post('/graphql')
+          .replyWithError({ code: errorCode })
+          .post('/graphql')
+          .replyWithError({ code: errorCode })
+          .post('/graphql')
+          .reply(200, {
+            data: {
+              result: 'Hello world...',
+            },
+          });
+
+        const graphQLClient = new GraphQLRequestClient(endpoint, {
+          retries: 3,
+        });
+
+        spy.on(graphQLClient['client'], 'request');
+
+        const data = await graphQLClient.request('test');
+
+        try {
+          await graphQLClient.request('test');
+          expect(data).to.not.be.null;
+        } catch (error) {
+          expect(graphQLClient['client'].request).to.have.been.called.exactly(4);
+          spy.restore(graphQLClient);
+        }
+      };
+      // Test cases for each retryable status code
+      for (const errorCode of nodeStatusCode) {
+        it(`should retry and resolve for ${errorCode} if one of the request resolves`, async function() {
+          this.timeout(16000);
+          await retryableErrorCodeResolve(errorCode);
         });
       }
 

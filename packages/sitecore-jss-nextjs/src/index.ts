@@ -6,6 +6,7 @@ export {
   AxiosResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
+  /** @deprecated use import 'GraphQLClientError' from '@sitecore-jss/sitecore-jss-nextjs/graphql' instead */
   ClientError,
   NativeDataFetcher,
   NativeDataFetcherConfig,
