@@ -1,7 +1,7 @@
 {
   "lerna": "3.22.1",
   "packages": ["packages/*", "samples/*"],
-  "version": "21.7.0-canary.80",
+  "version": "21.7.0-canary.81",
   "npmClient": "yarn",
   "useWorkspaces": true
 }
