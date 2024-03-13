@@ -45,7 +45,7 @@ Middleware / handler for on-demand ISR (e.g. '/api/revalidate').
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:72](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L72)
+[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:72](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L72)
 
 ## Properties
 
@@ -55,7 +55,7 @@ Middleware / handler for on-demand ISR (e.g. '/api/revalidate').
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:72](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L72)
+[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:72](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L72)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:70](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L70)
+[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:70](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L70)
 
 ## Methods
 
@@ -89,7 +89,7 @@ paths
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:144](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L144)
+[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:144](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L144)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:183](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L183)
+[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:183](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L183)
 
 ___
 
@@ -133,7 +133,7 @@ updated paths
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:193](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L193)
+[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:193](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L193)
 
 ___
 
@@ -168,7 +168,7 @@ The route handler function for handling Next.js API requests.
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:82](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L82)
+[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:82](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L82)
 
 ___
 
@@ -192,7 +192,7 @@ path name
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:171](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L171)
+[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:171](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L171)
 
 ___
 
@@ -214,7 +214,7 @@ Gets personalized results for the updated paths
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:99](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L99)
+[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:99](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L99)
 
 ___
 
@@ -238,7 +238,7 @@ site name
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:153](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L153)
+[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:153](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L153)
 
 ___
 
@@ -263,7 +263,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:216](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L216)
+[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:216](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L216)
 
 ___
 
@@ -287,7 +287,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:249](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L249)
+[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:249](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L249)
 
 ___
 
@@ -308,7 +308,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:273](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L273)
+[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:273](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L273)
 
 ___
 
@@ -328,4 +328,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:135](https://github.com/Sitecore/jss/blob/c89d0d1b9/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L135)
+[packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts:135](https://github.com/Sitecore/jss/blob/833eb02df/packages/sitecore-jss-nextjs/src/revalidate/revalidate-middleware.ts#L135)
