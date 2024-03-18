@@ -37,7 +37,7 @@ Nextjs implementation of component builder class for building components based o
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/ComponentBuilder.ts:49](https://github.com/Sitecore/jss/blob/76e12f9cf/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L49)
+[packages/sitecore-jss-nextjs/src/ComponentBuilder.ts:49](https://github.com/Sitecore/jss/blob/09e6290ae/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L49)
 
 ## Properties
 
@@ -49,7 +49,7 @@ SXA uses custom default export name
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/ComponentBuilder.ts:47](https://github.com/Sitecore/jss/blob/76e12f9cf/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L47)
+[packages/sitecore-jss-nextjs/src/ComponentBuilder.ts:47](https://github.com/Sitecore/jss/blob/09e6290ae/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L47)
 
 ___
 
@@ -61,7 +61,7 @@ List of components to be stored
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/ComponentBuilder.ts:42](https://github.com/Sitecore/jss/blob/76e12f9cf/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L42)
+[packages/sitecore-jss-nextjs/src/ComponentBuilder.ts:42](https://github.com/Sitecore/jss/blob/09e6290ae/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L42)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/ComponentBuilder.ts:49](https://github.com/Sitecore/jss/blob/76e12f9cf/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L49)
+[packages/sitecore-jss-nextjs/src/ComponentBuilder.ts:49](https://github.com/Sitecore/jss/blob/09e6290ae/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L49)
 
 ## Methods
 
@@ -96,7 +96,7 @@ Component factory implementation
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/ComponentBuilder.ts:81](https://github.com/Sitecore/jss/blob/76e12f9cf/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L81)
+[packages/sitecore-jss-nextjs/src/ComponentBuilder.ts:81](https://github.com/Sitecore/jss/blob/09e6290ae/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L81)
 
 ___
 
@@ -116,4 +116,4 @@ Module factory implementation
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/ComponentBuilder.ts:59](https://github.com/Sitecore/jss/blob/76e12f9cf/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L59)
+[packages/sitecore-jss-nextjs/src/ComponentBuilder.ts:59](https://github.com/Sitecore/jss/blob/09e6290ae/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L59)
