@@ -12,6 +12,5 @@
 - [index](modules/index.md)
 - [middleware](modules/middleware.md)
 - [monitoring](modules/monitoring.md)
-- [revalidate](modules/revalidate.md)
 - [site](modules/site.md)
 - [utils](modules/utils.md)
