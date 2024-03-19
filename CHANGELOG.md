@@ -31,7 +31,7 @@ Our versioning strategy is as follows:
     * Handle additional string error codes like ECONNRESET, ETIMEDOUT, EPROTO. Can configure more using DefaultRetryStrategy.
     * Retries has now been enabled by default with a default value of 3. It can be disabled by configuring it to 0.
     * [Retry-After] header now falls back to the default delay time when it comes out to be empty.
-    ([#1755](https://github.com/Sitecore/jss/pull/1755)) ([#1759](https://github.com/Sitecore/jss/pull/1759))
+    ([#1755](https://github.com/Sitecore/jss/pull/1755)) ([#1759](https://github.com/Sitecore/jss/pull/1759)) ([#1763](https://github.com/Sitecore/jss/pull/1763))
 
 ### 🐛 Bug Fixes
 
