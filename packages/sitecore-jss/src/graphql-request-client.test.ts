@@ -605,6 +605,19 @@ describe('GraphQLRequestClient', () => {
         expect(delay).to.equal(expectedDelay);
       });
 
+      it('should return delay using the value from Retry-After header without rounding off', () => {
+        const retryStrategy = new DefaultRetryStrategy();
+        const mockError = {
+          response: {
+            status: 429,
+            headers: new Map([['Retry-After', '1.5']]),
+          },
+        };
+        const delay = retryStrategy.getDelay(mockError, 3);
+        const expectedDelay = 1.5 * 1000;
+        expect(delay).to.equal(expectedDelay);
+      });
+
       it('should use custom exponential factor', () => {
         const customFactor = 3;
         const retryStrategy = new DefaultRetryStrategy({

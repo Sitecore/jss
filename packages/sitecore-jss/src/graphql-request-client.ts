@@ -132,7 +132,7 @@ export class DefaultRetryStrategy implements RetryStrategy {
       retryAfterHeader !== undefined &&
       retryAfterHeader.trim() !== ''
     ) {
-      const delaySeconds = Number.parseInt(retryAfterHeader, 10);
+      const delaySeconds = Number.parseFloat(retryAfterHeader);
       return delaySeconds * 1000;
     } else {
       return Math.pow(this.factor, attempt - 1) * 1000;
