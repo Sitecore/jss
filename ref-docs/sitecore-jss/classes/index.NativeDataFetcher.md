@@ -29,13 +29,13 @@
 
 #### Parameters
 
-| Name     | Type                                                                     |
-| :------- | :----------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `config` | [`NativeDataFetcherConfig`](../modules/index.md#nativedatafetcherconfig) |
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 ## Properties
 
@@ -45,9 +45,9 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:23](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/native-fetcher.ts#L23)
+[packages/sitecore-jss/src/native-fetcher.ts:23](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/native-fetcher.ts#L23)
 
----
+___
 
 ### config
 
@@ -55,7 +55,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 ## Methods
 
@@ -67,8 +67,8 @@ Safely extract all headers for debug logging
 
 #### Parameters
 
-| Name              | Type          | Description      |
-| :---------------- | :------------ | :--------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `incomingHeaders` | `HeadersInit` | Incoming headers |
 
 #### Returns
@@ -79,9 +79,9 @@ Object with headers as key/value pairs
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:115](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/native-fetcher.ts#L115)
+[packages/sitecore-jss/src/native-fetcher.ts:115](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/native-fetcher.ts#L115)
 
----
+___
 
 ### fetch
 
@@ -92,15 +92,15 @@ Implements a data fetcher.
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Parameters
 
-| Name    | Type      | Description                                  |
-| :------ | :-------- | :------------------------------------------- |
-| `url`   | `string`  | The URL to request; may include query string |
-| `data?` | `unknown` | Optional data to POST with the request.      |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | The URL to request; may include query string |
+| `data?` | `unknown` | Optional data to POST with the request. |
 
 #### Returns
 
@@ -114,9 +114,9 @@ HttpDataFetcher<T> type for implementation details/notes.
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:33](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/native-fetcher.ts#L33)
+[packages/sitecore-jss/src/native-fetcher.ts:33](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/native-fetcher.ts#L33)
 
----
+___
 
 ### getRequestInit
 
@@ -126,10 +126,10 @@ Determines settings for the request
 
 #### Parameters
 
-| Name    | Type          | Description                            |
-| :------ | :------------ | :------------------------------------- |
-| `init`  | `RequestInit` | Custom settings for request            |
-| `data?` | `unknown`     | Optional data to POST with the request |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `init` | `RequestInit` | Custom settings for request |
+| `data?` | `unknown` | Optional data to POST with the request |
 
 #### Returns
 
@@ -139,4 +139,4 @@ The final request settings
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:97](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/native-fetcher.ts#L97)
+[packages/sitecore-jss/src/native-fetcher.ts:97](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/native-fetcher.ts#L97)

@@ -18,9 +18,9 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:221](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Image.tsx#L221)
+[packages/sitecore-jss-react/src/components/Image.tsx:221](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Image.tsx#L221)
 
----
+___
 
 ### displayName
 
@@ -28,9 +28,9 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:225](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Image.tsx#L225)
+[packages/sitecore-jss-react/src/components/Image.tsx:225](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Image.tsx#L225)
 
----
+___
 
 ### propTypes
 
@@ -38,4 +38,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:195](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Image.tsx#L195)
+[packages/sitecore-jss-react/src/components/Image.tsx:195](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Image.tsx#L195)

@@ -30,30 +30,30 @@ Re-exports [debug](index.md#debug)
 
 ### MultisiteMiddlewareConfig
 
-Ƭ **MultisiteMiddlewareConfig**: `Omit`\<`MiddlewareBaseConfig`, `"disabled"`\> & \{ `useCookieResolution?`: (`req`: `NextRequest`) => `boolean` }
+Ƭ **MultisiteMiddlewareConfig**: `Omit`\<`MiddlewareBaseConfig`, ``"disabled"``\> & \{ `useCookieResolution?`: (`req`: `NextRequest`) => `boolean`  }
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:21](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L21)
+[packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:21](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L21)
 
----
+___
 
 ### PersonalizeMiddlewareConfig
 
-Ƭ **PersonalizeMiddlewareConfig**: `MiddlewareBaseConfig` & \{ `cdpConfig`: `CdpServiceConfig` ; `edgeConfig`: `Omit`\<`GraphQLPersonalizeServiceConfig`, `"fetch"`\> }
+Ƭ **PersonalizeMiddlewareConfig**: `MiddlewareBaseConfig` & \{ `cdpConfig`: `CdpServiceConfig` ; `edgeConfig`: `Omit`\<`GraphQLPersonalizeServiceConfig`, ``"fetch"``\>  }
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:36](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L36)
+[packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:36](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L36)
 
----
+___
 
 ### RedirectsMiddlewareConfig
 
-Ƭ **RedirectsMiddlewareConfig**: `Omit`\<`GraphQLRedirectsServiceConfig`, `"fetch"`\> & `MiddlewareBaseConfig` & \{ `locales`: `string`[] }
+Ƭ **RedirectsMiddlewareConfig**: `Omit`\<`GraphQLRedirectsServiceConfig`, ``"fetch"``\> & `MiddlewareBaseConfig` & \{ `locales`: `string`[]  }
 
 extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:21](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L21)
+[packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:21](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L21)

@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `Pick`\<[`GraphQLRequestClientConfig`](../modules/index.md#graphqlrequestclientconfig), `"retries"` \| `"retryStrategy"`\>
+- `Pick`\<[`GraphQLRequestClientConfig`](../modules/index.md#graphqlrequestclientconfig), ``"retries"`` \| ``"retryStrategy"``\>
 
   ↳ **`GraphQLErrorPagesServiceConfig`**
 
@@ -40,9 +40,9 @@ property instead
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:38](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L38)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:38](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L38)
 
----
+___
 
 ### clientFactory
 
@@ -53,9 +53,9 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:51](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L51)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:51](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L51)
 
----
+___
 
 ### endpoint
 
@@ -73,9 +73,9 @@ property instead
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:33](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L33)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:33](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L33)
 
----
+___
 
 ### language
 
@@ -85,9 +85,9 @@ The language
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:46](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L46)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:46](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L46)
 
----
+___
 
 ### retries
 
@@ -101,9 +101,9 @@ Pick.retries
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:71](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/graphql-request-client.ts#L71)
+[packages/sitecore-jss/src/graphql-request-client.ts:91](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/graphql-request-client.ts#L91)
 
----
+___
 
 ### retryStrategy
 
@@ -118,9 +118,9 @@ Pick.retryStrategy
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:76](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/graphql-request-client.ts#L76)
+[packages/sitecore-jss/src/graphql-request-client.ts:96](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/graphql-request-client.ts#L96)
 
----
+___
 
 ### siteName
 
@@ -130,4 +130,4 @@ The JSS application name
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:42](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L42)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:42](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L42)

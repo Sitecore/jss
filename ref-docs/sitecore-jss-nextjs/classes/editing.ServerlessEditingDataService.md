@@ -38,13 +38,13 @@ Utilizes another Next.js API route ('/api/editing/data/[key]') for storage and r
 
 #### Parameters
 
-| Name      | Type                                                                                                | Description                 |
-| :-------- | :-------------------------------------------------------------------------------------------------- | :-------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `config?` | [`ServerlessEditingDataServiceConfig`](../interfaces/editing.ServerlessEditingDataServiceConfig.md) | Editing data service config |
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:142](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L142)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:142](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L142)
 
 ## Properties
 
@@ -54,9 +54,9 @@ Utilizes another Next.js API route ('/api/editing/data/[key]') for storage and r
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:136](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L136)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:136](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L136)
 
----
+___
 
 ### dataFetcher
 
@@ -64,9 +64,9 @@ Utilizes another Next.js API route ('/api/editing/data/[key]') for storage and r
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:137](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L137)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:137](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L137)
 
----
+___
 
 ### generateKey
 
@@ -83,8 +83,8 @@ Example generated key: 52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x
 
 ##### Parameters
 
-| Name   | Type                                               | Description      |
-| :----- | :------------------------------------------------- | :--------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `data` | [`EditingData`](../modules/editing.md#editingdata) | The editing data |
 
 ##### Returns
@@ -95,7 +95,7 @@ The unique key
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:135](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L135)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:135](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L135)
 
 ## Methods
 
@@ -107,8 +107,8 @@ Retrieves Sitecore editor payload data by key
 
 #### Parameters
 
-| Name          | Type          | Description                                                                |
-| :------------ | :------------ | :------------------------------------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `previewData` | `PreviewData` | Editing preview data containing the key and serverUrl to use for retrieval |
 
 #### Returns
@@ -123,9 +123,9 @@ The [EditingData](../modules/editing.md#editingdata)
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:181](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L181)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:181](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L181)
 
----
+___
 
 ### getUrl
 
@@ -133,11 +133,11 @@ The [EditingData](../modules/editing.md#editingdata)
 
 #### Parameters
 
-| Name        | Type     |
-| :---------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `serverUrl` | `string` |
-| `key`       | `string` |
-| `params?`   | `Object` |
+| `key` | `string` |
+| `params?` | `Object` |
 
 #### Returns
 
@@ -145,9 +145,9 @@ The [EditingData](../modules/editing.md#editingdata)
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:198](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L198)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:198](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L198)
 
----
+___
 
 ### setEditingData
 
@@ -157,11 +157,11 @@ Stores Sitecore editor payload data for later retrieval by key
 
 #### Parameters
 
-| Name        | Type                                               | Description                                            |
-| :---------- | :------------------------------------------------- | :----------------------------------------------------- |
-| `data`      | [`EditingData`](../modules/editing.md#editingdata) | Editing data                                           |
-| `serverUrl` | `string`                                           | The server url to use for subsequent data API requests |
-| `params?`   | `Object`                                           | -                                                      |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | [`EditingData`](../modules/editing.md#editingdata) | Editing data |
+| `serverUrl` | `string` | The server url to use for subsequent data API requests |
+| `params?` | `Object` | - |
 
 #### Returns
 
@@ -175,4 +175,4 @@ The [EditingPreviewData](../interfaces/editing.EditingPreviewData.md) containing
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:156](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L156)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:156](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L156)

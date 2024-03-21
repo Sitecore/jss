@@ -18,9 +18,9 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Text.tsx:110](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Text.tsx#L110)
+[packages/sitecore-jss-react/src/components/Text.tsx:110](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Text.tsx#L110)
 
----
+___
 
 ### displayName
 
@@ -28,9 +28,9 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Text.tsx:115](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Text.tsx#L115)
+[packages/sitecore-jss-react/src/components/Text.tsx:115](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Text.tsx#L115)
 
----
+___
 
 ### propTypes
 
@@ -38,4 +38,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Text.tsx:100](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Text.tsx#L100)
+[packages/sitecore-jss-react/src/components/Text.tsx:100](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Text.tsx#L100)

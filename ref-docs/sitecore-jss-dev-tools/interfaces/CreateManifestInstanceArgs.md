@@ -24,9 +24,9 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:72](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L72)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:72](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L72)
 
----
+___
 
 ### debug
 
@@ -34,9 +34,9 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:76](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L76)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:76](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L76)
 
----
+___
 
 ### excludeDictionary
 
@@ -44,9 +44,9 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:74](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L74)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:74](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L74)
 
----
+___
 
 ### excludeItems
 
@@ -54,9 +54,9 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:73](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L73)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:73](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L73)
 
----
+___
 
 ### language
 
@@ -64,9 +64,9 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:75](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L75)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:75](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L75)
 
----
+___
 
 ### pipelines
 
@@ -74,9 +74,9 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:71](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L71)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:71](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L71)
 
----
+___
 
 ### rootPlaceholders
 
@@ -84,9 +84,9 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:78](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L78)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:78](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L78)
 
----
+___
 
 ### skipPlaceholderBlacklist
 
@@ -94,9 +94,9 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:79](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L79)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:79](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L79)
 
----
+___
 
 ### wipe
 
@@ -104,4 +104,4 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:77](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L77)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:77](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L77)

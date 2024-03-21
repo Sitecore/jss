@@ -34,14 +34,14 @@ File fields cannot be managed via the EE. We never output "editable."
 
 #### Parameters
 
-| Name            | Type                       |
-| :-------------- | :------------------------- |
-| `viewContainer` | `ViewContainerRef`         |
-| `templateRef`   | `TemplateRef`\<`unknown`\> |
+| Name | Type |
+| :------ | :------ |
+| `viewContainer` | `ViewContainerRef` |
+| `templateRef` | `TemplateRef`\<`unknown`\> |
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/file.directive.ts:21](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/file.directive.ts#L21)
+[packages/sitecore-jss-angular/src/components/file.directive.ts:21](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/file.directive.ts#L21)
 
 ## Properties
 
@@ -51,9 +51,9 @@ File fields cannot be managed via the EE. We never output "editable."
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/file.directive.ts:17](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/file.directive.ts#L17)
+[packages/sitecore-jss-angular/src/components/file.directive.ts:17](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/file.directive.ts#L17)
 
----
+___
 
 ### templateRef
 
@@ -61,9 +61,9 @@ File fields cannot be managed via the EE. We never output "editable."
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/file.directive.ts:21](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/file.directive.ts#L21)
+[packages/sitecore-jss-angular/src/components/file.directive.ts:21](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/file.directive.ts#L21)
 
----
+___
 
 ### viewContainer
 
@@ -71,9 +71,9 @@ File fields cannot be managed via the EE. We never output "editable."
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/file.directive.ts:21](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/file.directive.ts#L21)
+[packages/sitecore-jss-angular/src/components/file.directive.ts:21](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/file.directive.ts#L21)
 
----
+___
 
 ### viewRef
 
@@ -81,7 +81,7 @@ File fields cannot be managed via the EE. We never output "editable."
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/file.directive.ts:19](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/file.directive.ts#L19)
+[packages/sitecore-jss-angular/src/components/file.directive.ts:19](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/file.directive.ts#L19)
 
 ## Methods
 
@@ -91,8 +91,8 @@ File fields cannot be managed via the EE. We never output "editable."
 
 #### Parameters
 
-| Name      | Type            |
-| :-------- | :-------------- |
+| Name | Type |
+| :------ | :------ |
 | `changes` | `SimpleChanges` |
 
 #### Returns
@@ -105,9 +105,9 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/file.directive.ts:23](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/file.directive.ts#L23)
+[packages/sitecore-jss-angular/src/components/file.directive.ts:23](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/file.directive.ts#L23)
 
----
+___
 
 ### updateView
 
@@ -119,4 +119,4 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/file.directive.ts:34](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/file.directive.ts#L34)
+[packages/sitecore-jss-angular/src/components/file.directive.ts:34](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/file.directive.ts#L34)

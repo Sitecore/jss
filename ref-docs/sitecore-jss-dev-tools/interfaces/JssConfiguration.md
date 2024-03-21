@@ -21,9 +21,9 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:7](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L7)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:7](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L7)
 
----
+___
 
 ### deploySecret
 
@@ -31,9 +31,9 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:5](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L5)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:5](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L5)
 
----
+___
 
 ### deployUrl
 
@@ -41,9 +41,9 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:4](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L4)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:4](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L4)
 
----
+___
 
 ### instancePath
 
@@ -51,9 +51,9 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:6](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L6)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:6](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L6)
 
----
+___
 
 ### layoutServiceHost
 
@@ -61,9 +61,9 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:8](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L8)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:8](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L8)
 
----
+___
 
 ### skipValidation
 
@@ -71,4 +71,4 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:9](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L9)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:9](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L9)

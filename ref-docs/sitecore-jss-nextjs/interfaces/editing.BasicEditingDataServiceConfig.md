@@ -22,14 +22,14 @@ By default, this is `editingDataDiskCache` (an `EditingDataDiskCache` singleton)
 **`Default`**
 
 ```ts
-editingDataDiskCache;
+editingDataDiskCache
 ```
 
 **`See`**
 
-- EditingDataCache
-- EditingDataDiskCache
+ - EditingDataCache
+ - EditingDataDiskCache
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:63](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L63)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:63](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L63)

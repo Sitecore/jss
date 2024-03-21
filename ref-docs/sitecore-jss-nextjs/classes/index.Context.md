@@ -8,8 +8,8 @@ Context instance that is used to initialize the application Context and associat
 
 ## Type parameters
 
-| Name         | Type                     |
-| :----------- | :----------------------- |
+| Name | Type |
+| :------ | :------ |
 | `SDKModules` | extends `SDKModulesType` |
 
 ## Table of contents
@@ -44,19 +44,19 @@ Context instance that is used to initialize the application Context and associat
 
 #### Type parameters
 
-| Name         | Type                     |
-| :----------- | :----------------------- |
+| Name | Type |
+| :------ | :------ |
 | `SDKModules` | extends `SDKModulesType` |
 
 #### Parameters
 
-| Name    | Type                                                                    |
-| :------ | :---------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `props` | [`ContextConfig`](../interfaces/index.ContextConfig.md)\<`SDKModules`\> |
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:98](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L98)
+[packages/sitecore-jss-nextjs/src/context/context.ts:98](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/context/context.ts#L98)
 
 ## Properties
 
@@ -68,9 +68,9 @@ Indicates whether the Context and SDK(s) have been initialized
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:70](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L70)
+[packages/sitecore-jss-nextjs/src/context/context.ts:70](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/context/context.ts#L70)
 
----
+___
 
 ### pageState
 
@@ -80,9 +80,9 @@ Sitecore page state (normal, preview, edit)
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:86](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L86)
+[packages/sitecore-jss-nextjs/src/context/context.ts:86](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/context/context.ts#L86)
 
----
+___
 
 ### props
 
@@ -90,9 +90,9 @@ Sitecore page state (normal, preview, edit)
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:98](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L98)
+[packages/sitecore-jss-nextjs/src/context/context.ts:98](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/context/context.ts#L98)
 
----
+___
 
 ### sdkErrors
 
@@ -100,9 +100,9 @@ Sitecore page state (normal, preview, edit)
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:96](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L96)
+[packages/sitecore-jss-nextjs/src/context/context.ts:96](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/context/context.ts#L96)
 
----
+___
 
 ### sdkPromises
 
@@ -112,9 +112,9 @@ Promises for the SDKs
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:94](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L94)
+[packages/sitecore-jss-nextjs/src/context/context.ts:94](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/context/context.ts#L94)
 
----
+___
 
 ### sdks
 
@@ -124,9 +124,9 @@ Software Development Kits (SDKs) to be initialized
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:90](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L90)
+[packages/sitecore-jss-nextjs/src/context/context.ts:90](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/context/context.ts#L90)
 
----
+___
 
 ### siteName
 
@@ -136,9 +136,9 @@ The Sitecore site name
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:82](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L82)
+[packages/sitecore-jss-nextjs/src/context/context.ts:82](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/context/context.ts#L82)
 
----
+___
 
 ### sitecoreEdgeContextId
 
@@ -148,9 +148,9 @@ The Sitecore Edge Context ID
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:78](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L78)
+[packages/sitecore-jss-nextjs/src/context/context.ts:78](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/context/context.ts#L78)
 
----
+___
 
 ### sitecoreEdgeUrl
 
@@ -160,7 +160,7 @@ The Sitecore Edge URL
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:74](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L74)
+[packages/sitecore-jss-nextjs/src/context/context.ts:74](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/context/context.ts#L74)
 
 ## Methods
 
@@ -172,15 +172,15 @@ Retrieves the Software Development Kit (SDK) instance, ensuring it is initialize
 
 #### Type parameters
 
-| Name | Type                                     |
-| :--- | :--------------------------------------- |
-| `T`  | extends `string` \| `number` \| `symbol` |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name   | Type | Description |
-| :----- | :--- | :---------- |
-| `name` | `T`  | SDK name    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `name` | `T` | SDK name |
 
 #### Returns
 
@@ -190,9 +190,9 @@ initialized SDK
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:131](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L131)
+[packages/sitecore-jss-nextjs/src/context/context.ts:131](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/context/context.ts#L131)
 
----
+___
 
 ### init
 
@@ -200,8 +200,8 @@ initialized SDK
 
 #### Parameters
 
-| Name    | Type               |
-| :------ | :----------------- |
+| Name | Type |
+| :------ | :------ |
 | `props` | `ContextInitProps` |
 
 #### Returns
@@ -210,9 +210,9 @@ initialized SDK
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:105](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L105)
+[packages/sitecore-jss-nextjs/src/context/context.ts:105](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/context/context.ts#L105)
 
----
+___
 
 ### initSDK
 
@@ -222,15 +222,15 @@ Initializes the Software Development Kit (SDK)
 
 #### Type parameters
 
-| Name | Type                                     |
-| :--- | :--------------------------------------- |
-| `T`  | extends `string` \| `number` \| `symbol` |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name   | Type | Description |
-| :----- | :--- | :---------- |
-| `name` | `T`  | SDK name    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `name` | `T` | SDK name |
 
 #### Returns
 
@@ -238,4 +238,4 @@ Initializes the Software Development Kit (SDK)
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:149](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L149)
+[packages/sitecore-jss-nextjs/src/context/context.ts:149](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/context/context.ts#L149)

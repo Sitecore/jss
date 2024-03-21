@@ -46,15 +46,15 @@ Useful inside templated placeholders.
 
 #### Parameters
 
-| Name                        | Type                                       |
-| :-------------------------- | :----------------------------------------- |
-| `differs`                   | `KeyValueDiffers`                          |
-| `componentFactory`          | `JssComponentFactoryService`               |
-| `missingComponentComponent` | `Type`\<\{ `[key: string]`: `unknown`; }\> |
+| Name | Type |
+| :------ | :------ |
+| `differs` | `KeyValueDiffers` |
+| `componentFactory` | `JssComponentFactoryService` |
+| `missingComponentComponent` | `Type`\<\{ `[key: string]`: `unknown`;  }\> |
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:43](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L43)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:43](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L43)
 
 ## Properties
 
@@ -64,9 +64,9 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:40](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L40)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:40](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L40)
 
----
+___
 
 ### \_inputs
 
@@ -78,9 +78,9 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:39](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L39)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:39](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L39)
 
----
+___
 
 ### componentFactory
 
@@ -88,9 +88,9 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:45](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L45)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:45](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L45)
 
----
+___
 
 ### destroyed
 
@@ -98,9 +98,9 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:41](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L41)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:41](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L41)
 
----
+___
 
 ### differs
 
@@ -108,19 +108,19 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:44](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L44)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:44](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L44)
 
----
+___
 
 ### missingComponentComponent
 
-• `Private` **missingComponentComponent**: `Type`\<\{ `[key: string]`: `unknown`; }\>
+• `Private` **missingComponentComponent**: `Type`\<\{ `[key: string]`: `unknown`;  }\>
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:47](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L47)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:47](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L47)
 
----
+___
 
 ### outputs
 
@@ -132,9 +132,9 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:36](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L36)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:36](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L36)
 
----
+___
 
 ### rendering
 
@@ -142,9 +142,9 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:35](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L35)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:35](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L35)
 
----
+___
 
 ### view
 
@@ -152,7 +152,7 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:37](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L37)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:37](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L37)
 
 ## Accessors
 
@@ -162,8 +162,8 @@ Useful inside templated placeholders.
 
 #### Parameters
 
-| Name    | Type     |
-| :------ | :------- |
+| Name | Type |
+| :------ | :------ |
 | `value` | `Object` |
 
 #### Returns
@@ -172,13 +172,13 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:50](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L50)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:50](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L50)
 
 ## Methods
 
 ### \_render
 
-▸ `Private` **\_render**(): `void`
+▸ `Private` **_render**(): `void`
 
 #### Returns
 
@@ -186,20 +186,20 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:89](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L89)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:89](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L89)
 
----
+___
 
 ### \_setComponentInputs
 
-▸ `Private` **\_setComponentInputs**(`componentInstance`, `inputs`): `void`
+▸ `Private` **_setComponentInputs**(`componentInstance`, `inputs`): `void`
 
 #### Parameters
 
-| Name                | Type     |
-| :------------------ | :------- |
+| Name | Type |
+| :------ | :------ |
 | `componentInstance` | `Object` |
-| `inputs`            | `Object` |
+| `inputs` | `Object` |
 
 #### Returns
 
@@ -207,20 +207,20 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:64](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L64)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:64](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L64)
 
----
+___
 
 ### \_subscribeComponentOutputs
 
-▸ `Private` **\_subscribeComponentOutputs**(`componentInstance`, `outputs`): `void`
+▸ `Private` **_subscribeComponentOutputs**(`componentInstance`, `outputs`): `void`
 
 #### Parameters
 
-| Name                | Type     |
-| :------------------ | :------- |
+| Name | Type |
+| :------ | :------ |
 | `componentInstance` | `Object` |
-| `outputs`           | `Object` |
+| `outputs` | `Object` |
 
 #### Returns
 
@@ -228,9 +228,9 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:74](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L74)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:74](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L74)
 
----
+___
 
 ### ngOnChanges
 
@@ -238,8 +238,8 @@ Useful inside templated placeholders.
 
 #### Parameters
 
-| Name      | Type            |
-| :-------- | :-------------- |
+| Name | Type |
+| :------ | :------ |
 | `changes` | `SimpleChanges` |
 
 #### Returns
@@ -252,4 +252,4 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:58](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/render-component.component.ts#L58)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:58](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/render-component.component.ts#L58)

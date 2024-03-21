@@ -29,9 +29,9 @@ and rendered as component output. If false, `media.editable` value will be ignor
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:52](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Image.tsx#L52)
+[packages/sitecore-jss-react/src/components/Image.tsx:52](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Image.tsx#L52)
 
----
+___
 
 ### field
 
@@ -41,9 +41,9 @@ Image field data (consistent with other field types)
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:45](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Image.tsx#L45)
+[packages/sitecore-jss-react/src/components/Image.tsx:45](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Image.tsx#L45)
 
----
+___
 
 ### imageParams
 
@@ -57,9 +57,9 @@ Parameters that will be attached to Sitecore media URLs
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:57](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Image.tsx#L57)
+[packages/sitecore-jss-react/src/components/Image.tsx:57](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Image.tsx#L57)
 
----
+___
 
 ### media
 
@@ -73,9 +73,9 @@ use field property instead
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:42](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Image.tsx#L42)
+[packages/sitecore-jss-react/src/components/Image.tsx:42](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Image.tsx#L42)
 
----
+___
 
 ### mediaUrlPrefix
 
@@ -93,9 +93,9 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:70](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Image.tsx#L70)
+[packages/sitecore-jss-react/src/components/Image.tsx:70](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Image.tsx#L70)
 
----
+___
 
 ### srcSet
 
@@ -103,4 +103,4 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:61](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Image.tsx#L61)
+[packages/sitecore-jss-react/src/components/Image.tsx:61](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Image.tsx#L61)

@@ -30,13 +30,13 @@ You can use `sitecore/manifest/sitecore-import.json` as manifest
 
 #### Parameters
 
-| Name       | Type               | Description       |
-| :--------- | :----------------- | :---------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `manifest` | `ManifestInstance` | manifest instance |
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:11](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L11)
+[packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:11](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L11)
 
 ## Properties
 
@@ -48,7 +48,7 @@ manifest instance
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:11](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L11)
+[packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:11](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L11)
 
 ## Methods
 
@@ -65,4 +65,4 @@ Since i18n is not supported, the output paths will not include a `locale` proper
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:17](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L17)
+[packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:17](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L17)

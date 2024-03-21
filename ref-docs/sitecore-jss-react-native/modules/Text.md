@@ -17,9 +17,9 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Text.tsx:31](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react-native/src/components/Text.tsx#L31)
+[sitecore-jss-react-native/src/components/Text.tsx:31](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react-native/src/components/Text.tsx#L31)
 
----
+___
 
 ### propTypes
 
@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Text.tsx:24](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react-native/src/components/Text.tsx#L24)
+[sitecore-jss-react-native/src/components/Text.tsx:24](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react-native/src/components/Text.tsx#L24)
