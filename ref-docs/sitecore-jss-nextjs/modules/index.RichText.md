@@ -20,16 +20,16 @@
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type      |
+| :--------- | :-------- |
 | `editable` | `boolean` |
-| `tag` | `string` |
+| `tag`      | `string`  |
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/components/RichText.tsx:80](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L80)
+[packages/sitecore-jss-nextjs/src/components/RichText.tsx:80](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L80)
 
-___
+---
 
 ### displayName
 
@@ -37,9 +37,9 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/components/RichText.tsx:85](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L85)
+[packages/sitecore-jss-nextjs/src/components/RichText.tsx:85](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L85)
 
-___
+---
 
 ### propTypes
 
@@ -47,13 +47,13 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `editable` | `Requireable`\<`boolean`\> |
-| `field` | `Requireable`\<`InferProps`\<\{ `editable`: `Requireable`\<`string`\> ; `value`: `Requireable`\<`string`\>  }\>\> |
-| `internalLinksSelector` | `Requireable`\<`string`\> |
-| `tag` | `Requireable`\<`string`\> |
+| Name                    | Type                                                                                                             |
+| :---------------------- | :--------------------------------------------------------------------------------------------------------------- |
+| `editable`              | `Requireable`\<`boolean`\>                                                                                       |
+| `field`                 | `Requireable`\<`InferProps`\<\{ `editable`: `Requireable`\<`string`\> ; `value`: `Requireable`\<`string`\> }\>\> |
+| `internalLinksSelector` | `Requireable`\<`string`\>                                                                                        |
+| `tag`                   | `Requireable`\<`string`\>                                                                                        |
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/components/RichText.tsx:75](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L75)
+[packages/sitecore-jss-nextjs/src/components/RichText.tsx:75](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L75)

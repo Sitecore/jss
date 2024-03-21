@@ -18,27 +18,27 @@
 
 ### findEditorImageTag
 
-▸ **findEditorImageTag**(`editorMarkup`): ``null`` \| \{ `attrs`: \{ `[key: string]`: `string`;  } ; `imgTag`: `string`  }
+▸ **findEditorImageTag**(`editorMarkup`): `null` \| \{ `attrs`: \{ `[key: string]`: `string`; } ; `imgTag`: `string` }
 
 Makes a request to Sitecore Content Service for the specified item path.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name           | Type     | Description         |
+| :------------- | :------- | :------------------ |
 | `editorMarkup` | `string` | the markup to parse |
 
 #### Returns
 
-``null`` \| \{ `attrs`: \{ `[key: string]`: `string`;  } ; `imgTag`: `string`  }
+`null` \| \{ `attrs`: \{ `[key: string]`: `string`; } ; `imgTag`: `string` }
 
 found image tag; null in case if not found
 
 #### Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:18](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/media/media-api.ts#L18)
+[packages/sitecore-jss/src/media/media-api.ts:18](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/media/media-api.ts#L18)
 
-___
+---
 
 ### getRequiredParams
 
@@ -48,8 +48,8 @@ Get required query string params which should be merged with user params
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name | Type     | Description                        |
+| :--- | :------- | :--------------------------------- |
 | `qs` | `Object` | layout service parsed query string |
 
 #### Returns
@@ -58,19 +58,19 @@ Get required query string params which should be merged with user params
 
 requiredParams
 
-| Name | Type |
-| :------ | :------ |
-| `db` | `undefined` \| `string` |
-| `la` | `undefined` \| `string` |
+| Name  | Type                    |
+| :---- | :---------------------- |
+| `db`  | `undefined` \| `string` |
+| `la`  | `undefined` \| `string` |
 | `rev` | `undefined` \| `string` |
-| `ts` | `undefined` \| `string` |
-| `vs` | `undefined` \| `string` |
+| `ts`  | `undefined` \| `string` |
+| `vs`  | `undefined` \| `string` |
 
 #### Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:44](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/media/media-api.ts#L44)
+[packages/sitecore-jss/src/media/media-api.ts:44](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/media/media-api.ts#L44)
 
-___
+---
 
 ### getSrcSet
 
@@ -81,12 +81,12 @@ a corresponding set of updated Sitecore media URLs via
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `url` | `string` | The URL to prepare |
-| `srcSet` | \{ `[key: string]`: `string` \| `number` \| `undefined`;  }[] | The array of parameters to use |
-| `imageParams?` | `Object` | The querystring parameters to use |
-| `mediaUrlPrefix?` | `RegExp` | The regex to match the media URL prefix |
+| Name              | Type                                                         | Description                             |
+| :---------------- | :----------------------------------------------------------- | :-------------------------------------- |
+| `url`             | `string`                                                     | The URL to prepare                      |
+| `srcSet`          | \{ `[key: string]`: `string` \| `number` \| `undefined`; }[] | The array of parameters to use          |
+| `imageParams?`    | `Object`                                                     | The querystring parameters to use       |
+| `mediaUrlPrefix?` | `RegExp`                                                     | The regex to match the media URL prefix |
 
 #### Returns
 
@@ -110,9 +110,9 @@ More information about `srcSet`: {@link https://developer.mozilla.org/en-US/docs
 
 #### Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:131](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/media/media-api.ts#L131)
+[packages/sitecore-jss/src/media/media-api.ts:131](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/media/media-api.ts#L131)
 
-___
+---
 
 ### replaceMediaUrlPrefix
 
@@ -123,10 +123,10 @@ Can use `mediaUrlPrefix` in order to use a custom prefix.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `url` | `string` | `undefined` | The URL to replace the media URL prefix in |
-| `mediaUrlPrefix?` | `RegExp` | `mediaUrlPrefixRegex` | The regex to match the media URL prefix |
+| Name              | Type     | Default value         | Description                                |
+| :---------------- | :------- | :-------------------- | :----------------------------------------- |
+| `url`             | `string` | `undefined`           | The URL to replace the media URL prefix in |
+| `mediaUrlPrefix?` | `RegExp` | `mediaUrlPrefixRegex` | The regex to match the media URL prefix    |
 
 #### Returns
 
@@ -136,9 +136,9 @@ The URL with the media URL prefix replaced
 
 #### Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:57](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/media/media-api.ts#L57)
+[packages/sitecore-jss/src/media/media-api.ts:57](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/media/media-api.ts#L57)
 
-___
+---
 
 ### updateImageUrl
 
@@ -152,11 +152,11 @@ If no `params` are sent, the original media URL is returned.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `url` | `string` | `undefined` | The URL to prepare |
-| `params?` | ``null`` \| \{ `[key: string]`: `string` \| `number` \| `undefined`;  } | `undefined` | The querystring parameters to use |
-| `mediaUrlPrefix?` | `RegExp` | `mediaUrlPrefixRegex` | The regex to match the media URL prefix |
+| Name              | Type                                                                 | Default value         | Description                             |
+| :---------------- | :------------------------------------------------------------------- | :-------------------- | :-------------------------------------- |
+| `url`             | `string`                                                             | `undefined`           | The URL to prepare                      |
+| `params?`         | `null` \| \{ `[key: string]`: `string` \| `number` \| `undefined`; } | `undefined`           | The querystring parameters to use       |
+| `mediaUrlPrefix?` | `RegExp`                                                             | `mediaUrlPrefixRegex` | The regex to match the media URL prefix |
 
 #### Returns
 
@@ -166,4 +166,4 @@ The prepared URL
 
 #### Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:83](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/media/media-api.ts#L83)
+[packages/sitecore-jss/src/media/media-api.ts:83](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/media/media-api.ts#L83)

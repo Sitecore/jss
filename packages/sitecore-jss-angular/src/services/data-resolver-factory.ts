@@ -2,7 +2,7 @@ import { Injector, Type } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { take } from 'rxjs/operators';
-import { ComponentFactoryResult } from '../jss-component-factory.service';
+import { ComponentFactoryResult } from './jss-component-factory.service';
 import { wrapIntoObservable } from '../utils';
 import { JssResolve } from './placeholder.token';
 import { lastValueFrom } from 'rxjs';

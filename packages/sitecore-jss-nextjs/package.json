@@ -1,13 +1,13 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "21.7.0-canary.0",
+  "version": "21.7.0-canary.86",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
   "scripts": {
     "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
-    "lint": "eslint ./src/**/*.tsx ./src/**/*.ts",
+    "lint": "eslint \"./src/**/*.tsx\" \"./src/**/*.ts\"",
     "test": "mocha --require ./test/setup.js \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\" --exit",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
@@ -29,7 +29,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "@sitecore-cloudsdk/personalize": "^0.1.1",
+    "@sitecore-cloudsdk/personalize": "^0.1.5",
     "@types/chai": "^4.3.4",
     "@types/chai-as-promised": "^7.1.5",
     "@types/chai-string": "^1.4.2",
@@ -54,7 +54,7 @@
     "eslint-plugin-react": "^7.32.1",
     "jsdom": "^21.1.0",
     "mocha": "^10.2.0",
-    "next": "^13.4.16",
+    "next": "^14.1.0",
     "nock": "^13.3.0",
     "nyc": "^15.1.0",
     "react": "^18.2.0",
@@ -65,16 +65,16 @@
     "typescript": "~4.9.4"
   },
   "peerDependencies": {
-    "@sitecore-cloudsdk/events": "^0.1.3",
-    "@sitecore-cloudsdk/personalize": "^0.1.3",
-    "next": "^13.4.16",
+    "@sitecore-cloudsdk/events": "^0.2.3",
+    "@sitecore-cloudsdk/personalize": "^0.2.3",
+    "next": "^14.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "21.7.0-canary.0",
-    "@sitecore-jss/sitecore-jss-dev-tools": "21.7.0-canary.0",
-    "@sitecore-jss/sitecore-jss-react": "21.7.0-canary.0",
+    "@sitecore-jss/sitecore-jss": "21.7.0-canary.86",
+    "@sitecore-jss/sitecore-jss-dev-tools": "21.7.0-canary.86",
+    "@sitecore-jss/sitecore-jss-react": "21.7.0-canary.86",
     "@vercel/kv": "^0.2.1",
     "node-html-parser": "^6.1.4",
     "prop-types": "^15.8.1",

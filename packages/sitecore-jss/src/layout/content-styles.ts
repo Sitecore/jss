@@ -1,3 +1,4 @@
+import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
 import {
   ComponentRendering,
   Field,
@@ -13,19 +14,19 @@ import { HTMLLink } from '../models';
  */
 const CLASS_REGEXP = /class=".*(\bck-content\b).*"/g;
 
-export const PAGES_SERVER_URL = 'https://pages-assets.sitecorecloud.io';
-
 type Config = { loadStyles: boolean };
 
 /**
- * Get the content styles link to be loaded from the Pages assets server
+ * Get the content styles link to be loaded from the Sitecore Edge Platform
  * @param {LayoutServiceData} layoutData Layout service data
- * @param {string} [pagesServerUrl] Sitecore Pages assets server URL. Default is https://pages-assets.sitecorecloud.io
+ * @param {string} sitecoreEdgeContextId Sitecore Edge Context ID
+ * @param {string} [sitecoreEdgeUrl] Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io
  * @returns {HTMLLink | null} content styles link, null if no styles are used in layout
  */
 export const getContentStylesheetLink = (
   layoutData: LayoutServiceData,
-  pagesServerUrl = PAGES_SERVER_URL
+  sitecoreEdgeContextId: string,
+  sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT
 ): HTMLLink | null => {
   if (!layoutData.sitecore.route) return null;
 
@@ -35,11 +36,17 @@ export const getContentStylesheetLink = (
 
   if (!config.loadStyles) return null;
 
-  return { href: getContentStylesheetUrl(pagesServerUrl), rel: 'stylesheet' };
+  return {
+    href: getContentStylesheetUrl(sitecoreEdgeContextId, sitecoreEdgeUrl),
+    rel: 'stylesheet',
+  };
 };
 
-export const getContentStylesheetUrl = (pagesServerUrl = PAGES_SERVER_URL): string =>
-  `${pagesServerUrl}/pages/styles/content-styles.min.css`;
+export const getContentStylesheetUrl = (
+  sitecoreEdgeContextId: string,
+  sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT
+): string =>
+  `${sitecoreEdgeUrl}/v1/files/pages/styles/content-styles.css?sitecoreContextId=${sitecoreEdgeContextId}`;
 
 export const traversePlaceholder = (
   components: Array<ComponentRendering | HtmlElementRendering>,

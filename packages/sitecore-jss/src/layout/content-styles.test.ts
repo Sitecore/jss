@@ -8,16 +8,18 @@ import {
   getContentStylesheetLink,
 } from './content-styles';
 import { ComponentRendering, Field, HtmlElementRendering, Item, LayoutServiceData } from './models';
-
-export const PAGES_SERVER_URL = 'https://pages-assets.sitecorecloud.io';
+import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
 
 describe('content-styles', () => {
   const truthyValue = { value: '<div class="test bar"><p class="foo ck-content">bar</p></div>' };
   const falsyValue = { value: '<div class="test bar"><p class="foo">ck-content</p></div>' };
+  const sitecoreEdgeContextId = ' 7qwerty';
 
   describe('getContentStylesheetLink', () => {
     it('should return null when route data is empty', () => {
-      expect(getContentStylesheetLink({ sitecore: { context: {}, route: null } })).to.be.null;
+      expect(
+        getContentStylesheetLink({ sitecore: { context: {}, route: null } }, sitecoreEdgeContextId)
+      ).to.be.null;
     });
 
     it('should set "loadStyles: false" when layout does not have a ck-content class', () => {
@@ -33,7 +35,7 @@ describe('content-styles', () => {
         },
       };
 
-      expect(getContentStylesheetLink(layoutData)).to.be.null;
+      expect(getContentStylesheetLink(layoutData, sitecoreEdgeContextId)).to.be.null;
     });
 
     it('should set "loadStyles: true" when layout has a ck-content class', () => {
@@ -57,8 +59,8 @@ describe('content-styles', () => {
         },
       };
 
-      expect(getContentStylesheetLink(layoutData)).to.deep.equal({
-        href: `${PAGES_SERVER_URL}/pages/styles/content-styles.min.css`,
+      expect(getContentStylesheetLink(layoutData, sitecoreEdgeContextId)).to.deep.equal({
+        href: `${SITECORE_EDGE_URL_DEFAULT}/v1/files/pages/styles/content-styles.css?sitecoreContextId=${sitecoreEdgeContextId}`,
         rel: 'stylesheet',
       });
     });
@@ -332,14 +334,14 @@ describe('content-styles', () => {
 
   describe('getContentStylesheetUrl', () => {
     it('should return the default url', () => {
-      expect(getContentStylesheetUrl()).to.equal(
-        `${PAGES_SERVER_URL}/pages/styles/content-styles.min.css`
+      expect(getContentStylesheetUrl(sitecoreEdgeContextId)).to.equal(
+        `${SITECORE_EDGE_URL_DEFAULT}/v1/files/pages/styles/content-styles.css?sitecoreContextId=${sitecoreEdgeContextId}`
       );
     });
 
     it('should return the custom url', () => {
-      expect(getContentStylesheetUrl('https://foo.bar')).to.equal(
-        'https://foo.bar/pages/styles/content-styles.min.css'
+      expect(getContentStylesheetUrl(sitecoreEdgeContextId, 'https://foo.bar')).to.equal(
+        `https://foo.bar/v1/files/pages/styles/content-styles.css?sitecoreContextId=${sitecoreEdgeContextId}`
       );
     });
   });

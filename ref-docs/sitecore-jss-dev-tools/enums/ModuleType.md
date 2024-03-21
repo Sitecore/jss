@@ -15,18 +15,18 @@ Identifies the format of the module to be compiled
 
 ### CJS
 
-• **CJS** = ``0``
+• **CJS** = `0`
 
 #### Defined in
 
-[templating/plugins.ts:9](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L9)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:9](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L9)
 
-___
+---
 
 ### ESM
 
-• **ESM** = ``1``
+• **ESM** = `1`
 
 #### Defined in
 
-[templating/plugins.ts:10](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L10)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:10](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L10)

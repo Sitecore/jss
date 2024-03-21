@@ -3,6 +3,21 @@ import { getSiteRewrite } from '@sitecore-jss/sitecore-jss/site';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
 
+export type CookieAttributes = {
+  /**
+   * the Secure attribute of the site cookie
+   */
+  secure: boolean;
+  /**
+   * the HttpOnly attribute of the site cookie
+   */
+  httpOnly: boolean;
+  /**
+   * the SameSite attribute of the site cookie
+   */
+  sameSite?: true | false | 'lax' | 'strict' | 'none' | undefined;
+};
+
 export type MultisiteMiddlewareConfig = Omit<MiddlewareBaseConfig, 'disabled'> & {
   /**
    * Function used to determine if site should be resolved from sc_site cookie when present
@@ -75,18 +90,17 @@ export class MultisiteMiddleware extends MiddlewareBase {
     const rewritePath = getSiteRewrite(pathname, {
       siteName,
     });
+    response = this.rewrite(rewritePath, req, response);
 
-    // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
-    const rewriteUrl = req.nextUrl.clone();
-
-    rewriteUrl.pathname = rewritePath;
-
-    response = NextResponse.rewrite(rewriteUrl);
+    // default site cookie attributes
+    const defaultCookieAttributes = {
+      secure: true,
+      httpOnly: true,
+      sameSite: 'none',
+    } as CookieAttributes;
 
     // Share site name with the following executed middlewares
-    response.cookies.set(this.SITE_SYMBOL, siteName);
-    // Share rewrite path with following executed middlewares
-    response.headers.set('x-sc-rewrite', rewritePath);
+    response.cookies.set(this.SITE_SYMBOL, siteName, defaultCookieAttributes);
 
     debug.multisite('multisite middleware end in %dms: %o', Date.now() - startTimestamp, {
       rewritePath,

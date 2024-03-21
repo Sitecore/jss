@@ -40,9 +40,9 @@ true if executing within a Horizon Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/editing.ts:56](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/editing.ts#L56)
+[packages/sitecore-jss/src/utils/editing.ts:63](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/editing.ts#L63)
 
-___
+---
 
 ### resetChromes
 
@@ -54,4 +54,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/editing.ts:63](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/editing.ts#L63)
+[packages/sitecore-jss/src/utils/editing.ts:70](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/editing.ts#L70)

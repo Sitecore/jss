@@ -24,7 +24,7 @@ describe('env', () => {
       try {
         tryParseEnvValue('{ TEST: true }', {});
       } catch (err) {
-        expect(err.message).to.equal('Unexpected token T in JSON at position 2');
+        expect((err as Error).message).to.equal('Unexpected token T in JSON at position 2');
         expect(logSpy)
           .on.nth(1)
           .to.be.called.with('Parsing of multivalue env variable failed');

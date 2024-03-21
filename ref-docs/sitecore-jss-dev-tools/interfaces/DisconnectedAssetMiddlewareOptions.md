@@ -17,9 +17,9 @@
 
 #### Defined in
 
-[disconnected-server/media-service.ts:10](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L10)
+[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:10](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L10)
 
-___
+---
 
 ### staticRootPath
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[disconnected-server/media-service.ts:11](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L11)
+[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:11](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L11)

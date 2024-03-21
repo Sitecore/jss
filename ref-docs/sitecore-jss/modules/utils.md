@@ -9,6 +9,10 @@
 - [ExperienceEditor](../classes/utils.ExperienceEditor.md)
 - [HorizonEditor](../classes/utils.HorizonEditor.md)
 
+### Interfaces
+
+- [Metadata](../interfaces/utils.Metadata.md)
+
 ### Type Aliases
 
 - [ChromeCommand](utils.md#chromecommand)
@@ -43,30 +47,30 @@
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `click` | `string` |
-| `header` | `string` |
-| `icon` | `string` |
-| `isDivider` | `boolean` |
-| `tooltip` | `string` \| ``null`` |
-| `type` | `string` \| ``null`` |
+| Name        | Type               |
+| :---------- | :----------------- |
+| `click`     | `string`           |
+| `header`    | `string`           |
+| `icon`      | `string`           |
+| `isDivider` | `boolean`          |
+| `tooltip`   | `string` \| `null` |
+| `type`      | `string` \| `null` |
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:2](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/edit-frame.ts#L2)
+[packages/sitecore-jss/src/utils/edit-frame.ts:2](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/edit-frame.ts#L2)
 
-___
+---
 
 ### EditButtonTypes
 
-Ƭ **EditButtonTypes**: [`WebEditButton`](utils.md#webeditbutton) \| [`FieldEditButton`](utils.md#fieldeditbutton) \| ``"|"``
+Ƭ **EditButtonTypes**: [`WebEditButton`](utils.md#webeditbutton) \| [`FieldEditButton`](utils.md#fieldeditbutton) \| `"|"`
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/edit-frame.ts#L73)
+[packages/sitecore-jss/src/utils/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/edit-frame.ts#L73)
 
-___
+---
 
 ### EditFrameDataSource
 
@@ -74,35 +78,35 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
+| Name            | Type     |
+| :-------------- | :------- |
 | `databaseName?` | `string` |
-| `itemId` | `string` |
-| `language?` | `string` |
+| `itemId`        | `string` |
+| `language?`     | `string` |
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/edit-frame.ts#L49)
+[packages/sitecore-jss/src/utils/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/edit-frame.ts#L49)
 
-___
+---
 
 ### FieldEditButton
 
-Ƭ **FieldEditButton**: `BaseEditButton` & \{ `fields`: `string`[]  }
+Ƭ **FieldEditButton**: `BaseEditButton` & \{ `fields`: `string`[] }
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:62](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/edit-frame.ts#L62)
+[packages/sitecore-jss/src/utils/edit-frame.ts:62](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/edit-frame.ts#L62)
 
-___
+---
 
 ### WebEditButton
 
-Ƭ **WebEditButton**: `BaseEditButton` & \{ `click`: `string` ; `parameters?`: `Record`\<`string`, `string` \| `number` \| `boolean` \| `undefined` \| ``null``\> ; `type?`: `string`  }
+Ƭ **WebEditButton**: `BaseEditButton` & \{ `click`: `string` ; `parameters?`: `Record`\<`string`, `string` \| `number` \| `boolean` \| `undefined` \| `null`\> ; `type?`: `string` }
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:66](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/edit-frame.ts#L66)
+[packages/sitecore-jss/src/utils/edit-frame.ts:66](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/edit-frame.ts#L66)
 
 ## Variables
 
@@ -112,29 +116,29 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `edit` | \{ `fields`: `string`[] ; `header`: `string` = 'Edit Item'; `icon`: `string` = '/~/icon/people/16x16/cubes\_blue.png'; `tooltip`: `string` = 'Edit the item fields.' } |
-| `edit.fields` | `string`[] |
-| `edit.header` | `string` |
-| `edit.icon` | `string` |
-| `edit.tooltip` | `string` |
-| `editRelatedItem` | \{ `click`: `string` = 'webedit:open'; `header`: `string` = 'Edit the related item'; `icon`: `string` = '/~/icon/Office/16x16/cubes.png'; `tooltip`: `string` = 'Edit the related item in the Content Editor.' } |
-| `editRelatedItem.click` | `string` |
-| `editRelatedItem.header` | `string` |
-| `editRelatedItem.icon` | `string` |
-| `editRelatedItem.tooltip` | `string` |
-| `insert` | \{ `click`: `string` = 'webedit:new'; `header`: `string` = 'Insert New'; `icon`: `string` = '/~/icon/Office/16x16/insert\_from\_template.png'; `tooltip`: `string` = 'Insert a new item' } |
-| `insert.click` | `string` |
-| `insert.header` | `string` |
-| `insert.icon` | `string` |
-| `insert.tooltip` | `string` |
+| Name                      | Type                                                                                                                                                                                                             |
+| :------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `edit`                    | \{ `fields`: `string`[] ; `header`: `string` = 'Edit Item'; `icon`: `string` = '/~/icon/people/16x16/cubes_blue.png'; `tooltip`: `string` = 'Edit the item fields.' }                                            |
+| `edit.fields`             | `string`[]                                                                                                                                                                                                       |
+| `edit.header`             | `string`                                                                                                                                                                                                         |
+| `edit.icon`               | `string`                                                                                                                                                                                                         |
+| `edit.tooltip`            | `string`                                                                                                                                                                                                         |
+| `editRelatedItem`         | \{ `click`: `string` = 'webedit:open'; `header`: `string` = 'Edit the related item'; `icon`: `string` = '/~/icon/Office/16x16/cubes.png'; `tooltip`: `string` = 'Edit the related item in the Content Editor.' } |
+| `editRelatedItem.click`   | `string`                                                                                                                                                                                                         |
+| `editRelatedItem.header`  | `string`                                                                                                                                                                                                         |
+| `editRelatedItem.icon`    | `string`                                                                                                                                                                                                         |
+| `editRelatedItem.tooltip` | `string`                                                                                                                                                                                                         |
+| `insert`                  | \{ `click`: `string` = 'webedit:new'; `header`: `string` = 'Insert New'; `icon`: `string` = '/~/icon/Office/16x16/insert_from_template.png'; `tooltip`: `string` = 'Insert a new item' }                         |
+| `insert.click`            | `string`                                                                                                                                                                                                         |
+| `insert.header`           | `string`                                                                                                                                                                                                         |
+| `insert.icon`             | `string`                                                                                                                                                                                                         |
+| `insert.tooltip`          | `string`                                                                                                                                                                                                         |
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/edit-frame.ts#L15)
+[packages/sitecore-jss/src/utils/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/edit-frame.ts#L15)
 
-___
+---
 
 ### DefaultEditFrameButtonIds
 
@@ -142,23 +146,23 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type     |
+| :----- | :------- |
 | `edit` | `string` |
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:11](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/edit-frame.ts#L11)
+[packages/sitecore-jss/src/utils/edit-frame.ts:11](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/edit-frame.ts#L11)
 
-___
+---
 
 ### DefaultEditFrameButtons
 
-• `Const` **DefaultEditFrameButtons**: (\{ `click`: `string` = 'webedit:new'; `header`: `string` = 'Insert New'; `icon`: `string` = '/~/icon/Office/16x16/insert\_from\_template.png'; `tooltip`: `string` = 'Insert a new item' } \| \{ `fields`: `string`[] ; `header`: `string` = 'Edit Item'; `icon`: `string` = '/~/icon/people/16x16/cubes\_blue.png'; `tooltip`: `string` = 'Edit the item fields.' })[]
+• `Const` **DefaultEditFrameButtons**: (\{ `click`: `string` = 'webedit:new'; `header`: `string` = 'Insert New'; `icon`: `string` = '/~/icon/Office/16x16/insert_from_template.png'; `tooltip`: `string` = 'Insert a new item' } \| \{ `fields`: `string`[] ; `header`: `string` = 'Edit Item'; `icon`: `string` = '/~/icon/people/16x16/cubes_blue.png'; `tooltip`: `string` = 'Edit the item fields.' })[]
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:36](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/edit-frame.ts#L36)
+[packages/sitecore-jss/src/utils/edit-frame.ts:36](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/edit-frame.ts#L36)
 
 ## Functions
 
@@ -185,9 +189,9 @@ Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/Mutation
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/editing.ts:102](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/editing.ts#L102)
+[packages/sitecore-jss/src/utils/editing.ts:109](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/editing.ts#L109)
 
-___
+---
 
 ### isAbsoluteUrl
 
@@ -195,8 +199,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type     |
+| :---- | :------- |
 | `url` | `string` |
 
 #### Returns
@@ -205,9 +209,9 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:52](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/utils.ts#L52)
+[packages/sitecore-jss/src/utils/utils.ts:52](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/utils.ts#L52)
 
-___
+---
 
 ### isEditorActive
 
@@ -224,9 +228,9 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/editing.ts:78](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/editing.ts#L78)
+[packages/sitecore-jss/src/utils/editing.ts:85](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/editing.ts#L85)
 
-___
+---
 
 ### isServer
 
@@ -242,9 +246,9 @@ true if executing server-side
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/is-server.ts#L5)
+[packages/sitecore-jss/src/utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/is-server.ts#L5)
 
-___
+---
 
 ### isTimeoutError
 
@@ -254,9 +258,9 @@ Indicates whether the error is a timeout error
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `error` | `unknown` | error |
+| Name    | Type      | Description |
+| :------ | :-------- | :---------- |
+| `error` | `unknown` | error       |
 
 #### Returns
 
@@ -266,9 +270,9 @@ is timeout error
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:69](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/utils.ts#L69)
+[packages/sitecore-jss/src/utils/utils.ts:69](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/utils.ts#L69)
 
-___
+---
 
 ### mapButtonToCommand
 
@@ -278,11 +282,11 @@ Map the edit button types to chrome data
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `button` | [`EditButtonTypes`](utils.md#editbuttontypes) | the edit button to build a ChromeCommand for |
-| `itemId?` | `string` | the ID of the item the EditFrame is associated with |
-| `frameParameters?` | `Record`\<`string`, `undefined` \| ``null`` \| `string` \| `number` \| `boolean`\> | additional parameters passed to the EditFrame |
+| Name               | Type                                                                             | Description                                         |
+| :----------------- | :------------------------------------------------------------------------------- | :-------------------------------------------------- |
+| `button`           | [`EditButtonTypes`](utils.md#editbuttontypes)                                    | the edit button to build a ChromeCommand for        |
+| `itemId?`          | `string`                                                                         | the ID of the item the EditFrame is associated with |
+| `frameParameters?` | `Record`\<`string`, `undefined` \| `null` \| `string` \| `number` \| `boolean`\> | additional parameters passed to the EditFrame       |
 
 #### Returns
 
@@ -290,9 +294,9 @@ Map the edit button types to chrome data
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/edit-frame.ts#L81)
+[packages/sitecore-jss/src/utils/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/edit-frame.ts#L81)
 
-___
+---
 
 ### resetEditorChromes
 
@@ -306,9 +310,9 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/editing.ts:85](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/editing.ts#L85)
+[packages/sitecore-jss/src/utils/editing.ts:92](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/editing.ts#L92)
 
-___
+---
 
 ### resolveUrl
 
@@ -319,10 +323,10 @@ string parameters into a unified string representation.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `urlBase` | `string` | the base URL that may contain query string parameters |
-| `params` | `ParsedUrlQueryInput` | query string parameters |
+| Name      | Type                  | Description                                           |
+| :-------- | :-------------------- | :---------------------------------------------------- |
+| `urlBase` | `string`              | the base URL that may contain query string parameters |
+| `params`  | `ParsedUrlQueryInput` | query string parameters                               |
 
 #### Returns
 
@@ -336,9 +340,9 @@ if the provided url is an empty string
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:27](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/utils.ts#L27)
+[packages/sitecore-jss/src/utils/utils.ts:27](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/utils.ts#L27)
 
-___
+---
 
 ### tryParseEnvValue
 
@@ -349,15 +353,15 @@ Method to parse JSON-formatted environment variables
 #### Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `envValue` | `undefined` \| `string` | can be undefined when providing values via process.env |
-| `defaultValue` | `T` | default value |
+| Name           | Type                    | Description                                            |
+| :------------- | :---------------------- | :----------------------------------------------------- |
+| `envValue`     | `undefined` \| `string` | can be undefined when providing values via process.env |
+| `defaultValue` | `T`                     | default value                                          |
 
 #### Returns
 
@@ -367,4 +371,4 @@ parsed value
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/env.ts#L7)
+[packages/sitecore-jss/src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/env.ts#L7)

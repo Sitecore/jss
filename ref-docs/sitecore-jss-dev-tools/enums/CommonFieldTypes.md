@@ -23,118 +23,118 @@
 
 ### Checkbox
 
-• **Checkbox** = ``"Checkbox"``
+• **Checkbox** = `"Checkbox"`
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:92](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L92)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:92](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L92)
 
-___
+---
 
 ### ContentList
 
-• **ContentList** = ``"Treelist"``
+• **ContentList** = `"Treelist"`
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:86](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L86)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:86](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L86)
 
-___
+---
 
 ### Date
 
-• **Date** = ``"Date"``
+• **Date** = `"Date"`
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:93](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L93)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:93](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L93)
 
-___
+---
 
 ### DateTime
 
-• **DateTime** = ``"Datetime"``
+• **DateTime** = `"Datetime"`
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:94](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L94)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:94](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L94)
 
-___
+---
 
 ### File
 
-• **File** = ``"File"``
+• **File** = `"File"`
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:90](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L90)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:90](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L90)
 
-___
+---
 
 ### GeneralLink
 
-• **GeneralLink** = ``"General Link"``
+• **GeneralLink** = `"General Link"`
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:88](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L88)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:88](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L88)
 
-___
+---
 
 ### Image
 
-• **Image** = ``"Image"``
+• **Image** = `"Image"`
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:89](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L89)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:89](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L89)
 
-___
+---
 
 ### ItemLink
 
-• **ItemLink** = ``"Droptree"``
+• **ItemLink** = `"Droptree"`
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:87](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L87)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:87](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L87)
 
-___
+---
 
 ### MultiLineText
 
-• **MultiLineText** = ``"Multi-Line Text"``
+• **MultiLineText** = `"Multi-Line Text"`
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:84](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L84)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:84](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L84)
 
-___
+---
 
 ### Number
 
-• **Number** = ``"Number"``
+• **Number** = `"Number"`
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:91](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L91)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:91](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L91)
 
-___
+---
 
 ### RichText
 
-• **RichText** = ``"Rich Text"``
+• **RichText** = `"Rich Text"`
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:85](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L85)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:85](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L85)
 
-___
+---
 
 ### SingleLineText
 
-• **SingleLineText** = ``"Single-Line Text"``
+• **SingleLineText** = `"Single-Line Text"`
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:83](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L83)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:83](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L83)

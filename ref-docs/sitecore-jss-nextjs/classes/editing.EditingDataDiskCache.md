@@ -37,13 +37,13 @@ EditingDataCache
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type     | Description                                                            |
+| :-------- | :------- | :--------------------------------------------------------------------- |
 | `tmpDir?` | `string` | Temp directory to use. Default is the OS temp directory (os.tmpdir()). |
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts:25](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L25)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts:25](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L25)
 
 ## Properties
 
@@ -53,7 +53,7 @@ EditingDataCache
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts:20](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L20)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts:20](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L20)
 
 ## Methods
 
@@ -63,8 +63,8 @@ EditingDataCache
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type     |
+| :---- | :------- |
 | `key` | `string` |
 
 #### Returns
@@ -77,9 +77,9 @@ EditingDataCache
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L41)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L41)
 
-___
+---
 
 ### set
 
@@ -87,9 +87,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `string` |
+| Name          | Type                                               |
+| :------------ | :------------------------------------------------- |
+| `key`         | `string`                                           |
 | `editingData` | [`EditingData`](../modules/editing.md#editingdata) |
 
 #### Returns
@@ -102,4 +102,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts:30](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L30)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts:30](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L30)

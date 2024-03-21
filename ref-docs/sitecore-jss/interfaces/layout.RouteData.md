@@ -8,8 +8,8 @@ Shape of route data returned from Sitecore Layout Service
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type                                                                                                       |
+| :------- | :--------------------------------------------------------------------------------------------------------- |
 | `Fields` | `Record`\<`string`, [`Field`](layout.Field.md) \| [`Item`](layout.Item.md) \| [`Item`](layout.Item.md)[]\> |
 
 ## Table of contents
@@ -37,9 +37,9 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:65](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/models.ts#L65)
+[packages/sitecore-jss/src/layout/models.ts:65](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L65)
 
-___
+---
 
 ### deviceId
 
@@ -47,9 +47,9 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:66](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/models.ts#L66)
+[packages/sitecore-jss/src/layout/models.ts:66](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L66)
 
-___
+---
 
 ### displayName
 
@@ -57,9 +57,9 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:63](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/models.ts#L63)
+[packages/sitecore-jss/src/layout/models.ts:63](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L63)
 
-___
+---
 
 ### fields
 
@@ -67,9 +67,9 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:64](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/models.ts#L64)
+[packages/sitecore-jss/src/layout/models.ts:64](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L64)
 
-___
+---
 
 ### itemId
 
@@ -77,9 +77,9 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:73](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/models.ts#L73)
+[packages/sitecore-jss/src/layout/models.ts:73](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L73)
 
-___
+---
 
 ### itemLanguage
 
@@ -87,9 +87,9 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:67](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/models.ts#L67)
+[packages/sitecore-jss/src/layout/models.ts:67](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L67)
 
-___
+---
 
 ### itemVersion
 
@@ -97,9 +97,9 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:68](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/models.ts#L68)
+[packages/sitecore-jss/src/layout/models.ts:68](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L68)
 
-___
+---
 
 ### layoutId
 
@@ -107,9 +107,9 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:69](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/models.ts#L69)
+[packages/sitecore-jss/src/layout/models.ts:69](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L69)
 
-___
+---
 
 ### name
 
@@ -117,9 +117,9 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:62](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/models.ts#L62)
+[packages/sitecore-jss/src/layout/models.ts:62](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L62)
 
-___
+---
 
 ### placeholders
 
@@ -127,9 +127,9 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:72](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/models.ts#L72)
+[packages/sitecore-jss/src/layout/models.ts:72](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L72)
 
-___
+---
 
 ### templateId
 
@@ -137,9 +137,9 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:70](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/models.ts#L70)
+[packages/sitecore-jss/src/layout/models.ts:70](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L70)
 
-___
+---
 
 ### templateName
 
@@ -147,4 +147,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:71](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/models.ts#L71)
+[packages/sitecore-jss/src/layout/models.ts:71](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L71)

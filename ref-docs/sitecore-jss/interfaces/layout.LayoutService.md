@@ -20,12 +20,12 @@ Fetch layout data for an item.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `itemPath` | `string` |  |
-| `language?` | `string` |  |
-| `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
+| Name        | Type                                  | Description       |
+| :---------- | :------------------------------------ | :---------------- |
+| `itemPath`  | `string`                              |                   |
+| `language?` | `string`                              |                   |
+| `req?`      | `IncomingMessage`                     | Request instance  |
+| `res?`      | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
@@ -35,4 +35,4 @@ layout data
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/layout-service.ts:13](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/layout/layout-service.ts#L13)
+[packages/sitecore-jss/src/layout/layout-service.ts:13](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/layout-service.ts#L13)

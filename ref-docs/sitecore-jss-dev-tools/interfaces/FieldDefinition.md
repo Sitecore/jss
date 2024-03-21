@@ -29,9 +29,9 @@ Represents a field on a JSS component or template
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:112](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L112)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:112](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L112)
 
-___
+---
 
 ### id
 
@@ -41,9 +41,9 @@ Optionally specify an ID used when importing. Can be either a GUID, or a string.
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:116](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L116)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:116](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L116)
 
-___
+---
 
 ### name
 
@@ -51,9 +51,9 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:107](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L107)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:107](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L107)
 
-___
+---
 
 ### required
 
@@ -64,9 +64,9 @@ Default: false
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:133](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L133)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:133](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L133)
 
-___
+---
 
 ### section
 
@@ -76,9 +76,9 @@ Template section name used in Sitecore. Defaults to 'Data'
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:128](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L128)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:128](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L128)
 
-___
+---
 
 ### sortOrder
 
@@ -88,9 +88,9 @@ Specify a sort order for the field to be used when importing. Defaults to the or
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:120](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L120)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:120](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L120)
 
-___
+---
 
 ### source
 
@@ -100,21 +100,21 @@ Sets the field source in Sitecore.
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:146](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L146)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:146](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L146)
 
-___
+---
 
 ### standardValue
 
 • `Optional` **standardValue**: `string`
 
-The value this field will contain when a new item is created with this field on it in Sitecore. '$name' is the name of the item.
+The value this field will contain when a new item is created with this field on it in Sitecore. '\$name' is the name of the item.
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:124](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L124)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:124](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L124)
 
-___
+---
 
 ### storage
 
@@ -126,9 +126,9 @@ Content data loss could occur if altered after import.
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:152](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L152)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:152](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L152)
 
-___
+---
 
 ### type
 
@@ -138,9 +138,9 @@ The data type of the field used when importing. Either a CommonFieldTypes enum v
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:111](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L111)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:111](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L111)
 
-___
+---
 
 ### validationMessage
 
@@ -150,17 +150,17 @@ When used with validationPattern, the message shown when the field fails regex v
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:142](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L142)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:142](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L142)
 
-___
+---
 
 ### validationPattern
 
 • `Optional` **validationPattern**: `string`
 
 A regular expression (evaluated in .NET) to validate the field value in Sitecore.
-Example: '^[A-Za-z ]+$'
+Example: '^[A-Za-z ]+\$'
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:138](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L138)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:138](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L138)

@@ -18,9 +18,9 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Link.tsx:19](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/Link.tsx#L19)
+[packages/sitecore-jss-react/src/components/Link.tsx:19](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Link.tsx#L19)
 
-___
+---
 
 ### editableLastPart
 
@@ -28,9 +28,9 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/Link.tsx#L20)
+[packages/sitecore-jss-react/src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Link.tsx#L20)
 
-___
+---
 
 ### value
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Link.tsx:18](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/Link.tsx#L18)
+[packages/sitecore-jss-react/src/components/Link.tsx:18](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Link.tsx#L18)

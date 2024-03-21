@@ -36,13 +36,13 @@ Creates an instance of graphQL error pages service with the provided options
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `options` | [`GraphQLErrorPagesServiceConfig`](../interfaces/site.GraphQLErrorPagesServiceConfig.md) | instance |
+| Name      | Type                                                                                     | Description |
+| :-------- | :--------------------------------------------------------------------------------------- | :---------- |
+| `options` | [`GraphQLErrorPagesServiceConfig`](../interfaces/site.GraphQLErrorPagesServiceConfig.md) | instance    |
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:85](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L85)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:85](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L85)
 
 ## Properties
 
@@ -52,9 +52,9 @@ Creates an instance of graphQL error pages service with the provided options
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:75](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L75)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:75](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L75)
 
-___
+---
 
 ### options
 
@@ -64,7 +64,7 @@ instance
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:85](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L85)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:85](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L85)
 
 ## Accessors
 
@@ -78,19 +78,19 @@ instance
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:77](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L77)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:77](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L77)
 
 ## Methods
 
 ### fetchErrorPages
 
-▸ **fetchErrorPages**(): `Promise`\<``null`` \| [`ErrorPages`](../modules/site.md#errorpages)\>
+▸ **fetchErrorPages**(): `Promise`\<`null` \| [`ErrorPages`](../modules/site.md#errorpages)\>
 
 Fetch list of error pages for the site
 
 #### Returns
 
-`Promise`\<``null`` \| [`ErrorPages`](../modules/site.md#errorpages)\>
+`Promise`\<`null` \| [`ErrorPages`](../modules/site.md#errorpages)\>
 
 list of url's error pages
 
@@ -100,9 +100,9 @@ if the siteName is empty.
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:94](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L94)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:94](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L94)
 
-___
+---
 
 ### getGraphQLClient
 
@@ -120,4 +120,4 @@ implementation
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:118](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L118)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:118](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L118)

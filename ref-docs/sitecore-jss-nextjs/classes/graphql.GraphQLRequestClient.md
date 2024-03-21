@@ -43,14 +43,14 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `endpoint` | `string` | The Graphql endpoint |
+| Name            | Type                         | Description                           |
+| :-------------- | :--------------------------- | :------------------------------------ |
+| `endpoint`      | `string`                     | The Graphql endpoint                  |
 | `clientConfig?` | `GraphQLRequestClientConfig` | GraphQL request client configuration. |
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:119
+packages/sitecore-jss/types/graphql-request-client.d.ts:129
 
 ## Properties
 
@@ -60,9 +60,9 @@ packages/sitecore-jss/types/graphql-request-client.d.ts:119
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:110
+packages/sitecore-jss/types/graphql-request-client.d.ts:120
 
-___
+---
 
 ### client
 
@@ -70,9 +70,9 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:107
+packages/sitecore-jss/types/graphql-request-client.d.ts:117
 
-___
+---
 
 ### debug
 
@@ -80,9 +80,9 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:109
+packages/sitecore-jss/types/graphql-request-client.d.ts:119
 
-___
+---
 
 ### endpoint
 
@@ -90,9 +90,9 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:106
+packages/sitecore-jss/types/graphql-request-client.d.ts:116
 
-___
+---
 
 ### headers
 
@@ -100,9 +100,9 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:108
+packages/sitecore-jss/types/graphql-request-client.d.ts:118
 
-___
+---
 
 ### retries
 
@@ -110,9 +110,9 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:112
+packages/sitecore-jss/types/graphql-request-client.d.ts:122
 
-___
+---
 
 ### retryStrategy
 
@@ -120,9 +120,9 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:113
+packages/sitecore-jss/types/graphql-request-client.d.ts:123
 
-___
+---
 
 ### timeout
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:111
+packages/sitecore-jss/types/graphql-request-client.d.ts:121
 
 ## Methods
 
@@ -143,15 +143,15 @@ Execute graphql request
 #### Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `query` | `string` \| `DocumentNode` | graphql query |
-| `variables?` | `Object` | graphql variables |
+| Name         | Type                       | Description       |
+| :----------- | :------------------------- | :---------------- |
+| `query`      | `string` \| `DocumentNode` | graphql query     |
+| `variables?` | `Object`                   | graphql variables |
 
 #### Returns
 
@@ -163,9 +163,9 @@ GraphQLClient.request
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:132
+packages/sitecore-jss/types/graphql-request-client.d.ts:142
 
-___
+---
 
 ### createClientFactory
 
@@ -175,8 +175,8 @@ Factory method for creating a GraphQLRequestClientFactory.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name     | Type                                                                                           | Description                   |
+| :------- | :--------------------------------------------------------------------------------------------- | :---------------------------- |
 | `config` | [`GraphQLRequestClientFactoryConfig`](../modules/graphql.md#graphqlrequestclientfactoryconfig) | client configuration options. |
 
 #### Returns
@@ -185,4 +185,4 @@ Factory method for creating a GraphQLRequestClientFactory.
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:126
+packages/sitecore-jss/types/graphql-request-client.d.ts:136

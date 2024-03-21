@@ -112,6 +112,10 @@ export const config: ProxyConfig = {
     delete proxyRes.headers['content-security-policy'];
   },
   /**
+   * Query string parameters to add to Layout Service requests.
+   */
+  qsParams: `sc_site=${siteName}`,
+  /**
    * Custom error handling in case our app fails to render.
    * Return null to pass through server response, or { content, statusCode }
    * to override server response.

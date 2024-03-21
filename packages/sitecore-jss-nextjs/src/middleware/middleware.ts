@@ -29,6 +29,7 @@ export type MiddlewareBaseConfig = {
 
 export abstract class MiddlewareBase {
   protected SITE_SYMBOL = 'sc_site';
+  protected REWRITE_HEADER_NAME = 'x-sc-rewrite';
   protected defaultHostname: string;
 
   constructor(protected config: MiddlewareBaseConfig) {
@@ -99,5 +100,24 @@ export abstract class MiddlewareBase {
     const hostname = this.getHostHeader(req) || this.defaultHostname;
 
     return this.config.siteResolver.getByHost(hostname);
+  }
+
+  /**
+   * Create a rewrite response
+   * @param {string} rewritePath the destionation path
+   * @param {NextRequest} req the current request
+   * @param {NextResponse} res the current response
+   */
+  protected rewrite(rewritePath: string, req: NextRequest, res: NextResponse): NextResponse {
+    // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
+    const rewriteUrl = req.nextUrl.clone();
+    rewriteUrl.pathname = rewritePath;
+
+    const response = NextResponse.rewrite(rewriteUrl, res);
+
+    // Share rewrite path with following executed middlewares
+    response.headers.set(this.REWRITE_HEADER_NAME, rewritePath);
+
+    return response;
   }
 }

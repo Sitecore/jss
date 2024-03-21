@@ -27,14 +27,14 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:24](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L24)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:24](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/rendering-field.ts#L24)
 
-___
+---
 
 ### srcSet
 
-• `Optional` **srcSet**: \{ `[key: string]`: `string` \| `number` \| `undefined`;  }[]
+• `Optional` **srcSet**: \{ `[key: string]`: `string` \| `number` \| `undefined`; }[]
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:25](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L25)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:25](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/rendering-field.ts#L25)

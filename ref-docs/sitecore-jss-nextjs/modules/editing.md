@@ -7,9 +7,11 @@
 ### Classes
 
 - [BasicEditingDataService](../classes/editing.BasicEditingDataService.md)
+- [EditingConfigMiddleware](../classes/editing.EditingConfigMiddleware.md)
 - [EditingDataDiskCache](../classes/editing.EditingDataDiskCache.md)
 - [EditingDataMiddleware](../classes/editing.EditingDataMiddleware.md)
 - [EditingRenderMiddleware](../classes/editing.EditingRenderMiddleware.md)
+- [FEAASRenderMiddleware](../classes/editing.FEAASRenderMiddleware.md)
 - [ServerlessEditingDataService](../classes/editing.ServerlessEditingDataService.md)
 - [VercelEditingDataCache](../classes/editing.VercelEditingDataCache.md)
 
@@ -21,10 +23,12 @@
 - [EditingDataService](../interfaces/editing.EditingDataService.md)
 - [EditingPreviewData](../interfaces/editing.EditingPreviewData.md)
 - [EditingRenderMiddlewareConfig](../interfaces/editing.EditingRenderMiddlewareConfig.md)
+- [FEAASRenderMiddlewareConfig](../interfaces/editing.FEAASRenderMiddlewareConfig.md)
 - [ServerlessEditingDataServiceConfig](../interfaces/editing.ServerlessEditingDataServiceConfig.md)
 
 ### Type Aliases
 
+- [EditingConfigMiddlewareConfig](editing.md#editingconfigmiddlewareconfig)
 - [EditingData](editing.md#editingdata)
 
 ### Variables
@@ -32,6 +36,23 @@
 - [editingDataService](editing.md#editingdataservice)
 
 ## Type Aliases
+
+### EditingConfigMiddlewareConfig
+
+Ƭ **EditingConfigMiddlewareConfig**: `Object`
+
+#### Type declaration
+
+| Name         | Type                                       | Description                             |
+| :----------- | :----------------------------------------- | :-------------------------------------- |
+| `components` | `string`[] \| `Map`\<`string`, `unknown`\> | Components available in the application |
+| `metadata`   | `Metadata`                                 | Application metadata                    |
+
+#### Defined in
+
+[packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:7](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L7)
+
+---
 
 ### EditingData
 
@@ -41,16 +62,16 @@ Data sent from Sitecore editors
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type                                                            |
+| :----------- | :-------------------------------------------------------------- |
 | `dictionary` | [`DictionaryPhrases`](../interfaces/index.DictionaryPhrases.md) |
-| `language` | `string` |
+| `language`   | `string`                                                        |
 | `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) |
-| `path` | `string` |
+| `path`       | `string`                                                        |
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
+[packages/sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
 
 ## Variables
 
@@ -66,4 +87,4 @@ https://vercel.com/docs/environment-variables#system-environment-variables
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:222](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L222)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:222](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L222)

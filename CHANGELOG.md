@@ -9,6 +9,49 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 21.7.0
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-angular]` Enhance Placeholder component error handling ([#1744](https://github.com/Sitecore/jss/pull/1744))
+  * _Placeholder_ component supports _failed_ event that is triggered when the component fails to render.
+  * Handle error in the _Placeholder_ component more gracefully by using an appropriate error _JssCanActivateRedirectError_ type for redirects handling.
+  * _JssModule.forChild_ now accepts component or component map type as a parameter.
+  * Fixed missing guard _this_ context when calling _canActivate_ guard
+* `[sitecore-jss]` `[templates/nextjs-xmcloud]` Load the content styles for the RichText component ([#1670](https://github.com/Sitecore/jss/pull/1670))([#1683](https://github.com/Sitecore/jss/pull/1683)) ([#1684](https://github.com/Sitecore/jss/pull/1684)) ([#1693](https://github.com/Sitecore/jss/pull/1693))
+* `[templates/react]` `[sitecore-jss-react]` Replace package 'deep-equal' with 'fast-deep-equal'. No functionality change only performance improvement ([#1719](https://github.com/Sitecore/jss/pull/1719)) ([#1665](https://github.com/Sitecore/jss/pull/1665))
+* `[templates/nextjs-xmcloud]` `[sitecore-jss]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` Add support for loading appropriate stylesheets whenever a theme is applied to BYOC and SXA components by introducing new function getComponentLibraryStylesheetLinks, which replaces getFEAASLibraryStylesheetLinks (which has been marked as deprecated) ([#1722](https://github.com/Sitecore/jss/pull/1722))
+* `[templates/nextjs-xmcloud]` `[sitecore-jss-nextjs]` Add protected endpoint which provides configuration information (the sitecore packages used by the app and all registered components) to be used to determine feature compatibility on Pages side. ([#1724](https://github.com/Sitecore/jss/pull/1724) [#1734](https://github.com/Sitecore/jss/pull/1734))
+* `[sitecore-jss-nextjs]` `[templates/nextjs]` [BYOC] Component Builder integration endpoint ([#1729](https://github.com/Sitecore/jss/pull/1729))
+* `[sitecore-jss]` `[templates/nextjs-xmcloud]` Enable site GraphQL query for mutlisite in XMCloud instead of default search one. Site query should take "Valid for environment" SXA site setting into account when returning site list. ([#1739](https://github.com/Sitecore/jss/pull/1739))
+  * To enable this on your existing app, modify the \scripts\config\plugins\multisite.ts file and add "useSiteQuery: true" to GraphQLSiteInfoService constructor call
+* `[sitecore-jss-nextjs]` Set `secure`, `httpOnly`, `sameSite` attributes to the `sc_site` cookie by default:  ([#1746](https://github.com/Sitecore/jss/pull/1746))
+* `[sitecore-jss]` GraphQL Client Retry Improvements:
+    * Handle additional string error codes like ECONNRESET, ETIMEDOUT, EPROTO. Can configure more using DefaultRetryStrategy.
+    * Retries has now been enabled by default with a default value of 3. It can be disabled by configuring it to 0.
+    * [Retry-After] header now falls back to the default delay time when it comes out to be empty.
+    ([#1755](https://github.com/Sitecore/jss/pull/1755)) ([#1759](https://github.com/Sitecore/jss/pull/1759)) ([#1763](https://github.com/Sitecore/jss/pull/1763))
+
+### 🐛 Bug Fixes
+
+* `[templates/nextjs]` `[templates/nextjs-styleguide]` Modify all GraphQLRequestClient import statements so that it gets imported from the /graphql submodule ([#1728](https://github.com/Sitecore/jss/pull/1728))
+* `[templates/node-headless-ssr-proxy]` `[node-headless-ssr-proxy]` Add sc_site qs parameter to Layout Service requests by default ([#1660](https://github.com/Sitecore/jss/pull/1660))
+* `[templates/nextjs-sxa]` Fix Image component when there is using Banner variant which set property background-image when image is empty. ([#1689](https://github.com/Sitecore/jss/pull/1689)) ([#1692](https://github.com/Sitecore/jss/pull/1692))
+* `[templates/nextjs-sxa]` Fix feature `show Grid column` in Experience Editor. ([#1704](https://github.com/Sitecore/jss/pull/1704))
+* `[sitecore-jss-nextjs] [templates/nextjs-xmcloud]` SDK initialization rejections are now correctly handled. Errors should no longer occur after getSDK() promises resolve when they shouldn't (for example, getting Events SDK in development environment) ([#1712](https://github.com/Sitecore/jss/pull/1712) [#1715](https://github.com/Sitecore/jss/pull/1715) [#1716](https://github.com/Sitecore/jss/pull/1716))
+* `[sitecore-jss-nextjs]` Fix redirects middleware for working with absolute url where is using site language context ([#1727](https://github.com/Sitecore/jss/pull/1727)) ([#1737](https://github.com/Sitecore/jss/pull/1737))
+* `[templates/nextjs-sxa]` Fix base styles of SXA components. Remove conflicted styles of BasicSite template. ([#1757](https://github.com/Sitecore/jss/pull/1757))
+
+### 🛠 Breaking Changes
+
+* `[sitecore-jss-nextjs]` `[templates/nextjs]` Upgrade to Next 14 ([#1720](https://github.com/Sitecore/jss/pull/1720))([#1723](https://github.com/Sitecore/jss/pull/1723))
+  * Due to changes in peer dependencies, please ensure your app uses Next version 14
+
+### 🧹 Chores
+
+* Upgrade to Node.js 20.x ([#1679](https://github.com/Sitecore/jss/pull/1679))([#1681](https://github.com/Sitecore/jss/pull/1681))
+* `[nextjs/template]` Upgrade graphql-codegen packages to latest ([#1711](https://github.com/Sitecore/jss/pull/1711))
+
 ## 21.6.4
 
 ### 🎉 New Features & Improvements
@@ -58,6 +101,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` The _GraphQLRequestClient_ import from _@sitecore-jss/sitecore-jss-nextjs_ is deprecated, use import from _@sitecore-jss/sitecore-jss-nextjs/graphql_ submodule instead ([#1650](https://github.com/Sitecore/jss/pull/1650) [#1648](https://github.com/Sitecore/jss/pull/1648))
 * `[create-sitecore-jss]` Introduced `nextjs-xmcloud` initializer template. This will include all base XM Cloud features, including Personalize, FEaaS, BYOC, Sitecore Edge Platform and Context support. ([#1653](https://github.com/Sitecore/jss/pull/1653)) ([#1657](https://github.com/Sitecore/jss/pull/1657)) ([#1658](https://github.com/Sitecore/jss/pull/1658))
 * `[sitecore-jss-nextjs]` `[templates/nextjs-xmcloud]` Page state (preview, edit, normal) is available through shared context. This allows access to the state for integrations such as CloudSDK and FEAAS. ([#1703](https://github.com/Sitecore/jss/pull/1703))
+<<<<<<< HEAD
 * `[sitecore-jss-nextjs] [templates/nextjs-xmcloud]` SDK initialization rejections are now correctly handled. Errors should no longer occur after getSDK() promises resolve when they shouldn't (for example, getting Events SDK in development environment) ([#1712](https://github.com/Sitecore/jss/pull/1712) [#1715](https://github.com/Sitecore/jss/pull/1715) [#1716](https://github.com/Sitecore/jss/pull/1716))
 
 ### 🐛 Bug Fixes
@@ -102,6 +146,51 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+=======
+
+### 🐛 Bug Fixes
+
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Fix making a fetch to a nextjs api route in an editing environment, by adding additional variable publicUrl in runtime config ([#1656](https://github.com/Sitecore/jss/pull/1656))
+* `[templates/nextjs-multisite]` Fix site info fetch errors (now skipped) on XM Cloud rendering/editing host builds. ([#1649](https://github.com/Sitecore/jss/pull/1649)) ([#1653](https://github.com/Sitecore/jss/pull/1653))
+* `[templates/nextjs-xmcloud]` Fix double registration of BYOC components ([#1707](https://github.com/Sitecore/jss/pull/1707)) ([#1709](https://github.com/Sitecore/jss/pull/1709))
+
+### 🛠 Breaking Changes
+
+* `[create-sitecore-jss]` The `nextjs-personalize` initializer add-on template has been removed and is replaced by the `nextjs-xmcloud` initializer template. You can use the interactive prompts or the `--xmcloud` argument to include this template. ([#1653](https://github.com/Sitecore/jss/pull/1653))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` CloudSDK Integration ([#1652](https://github.com/Sitecore/jss/pull/1652)) ([#1659](https://github.com/Sitecore/jss/pull/1659)):
+  * Removed the following properties from _PersonalizeMiddleware_: _getPointOfSale_, _clientKey_, _endpoint_. You now need to provide _sitecoreEdgeContextId_ as a replacement.
+  * _PersonalizeMiddleware_ has transitioned to utilizing the _CloudSDK_ package, replacing the previous dependency on _Engage_.
+  * Introduced _Context_ class, that is used to initialize the application Context and shared Software Development Kits (SDKs). Accessible within the _@sitecore-jss/sitecore-jss-nextjs/context_ submodule.
+  * Point of Sale resolution is fully removed, now it's handled by Sitecore Edge Proxy
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` The behavior of getPublicUrl() function has been changed - empty string is now considered valid value for PUBLIC_URL environment variable and, if defined, PUBLIC_URL will take precedence over the Vercel/Netlify env variables; the values of these variables should be adjusted as needed; PUBLIC_URL is commented out by default in .env; ([#1656](https://github.com/Sitecore/jss/pull/1656));
+* `[templates/angular]` `[sitecore-jss-angular]` Update Angular to version 16 ([#1690](https://github.com/Sitecore/jss/pull/1690)) ([#1697](https://github.com/Sitecore/jss/pull/1697)):
+  * Updated Angular to ~16.2.10
+  * Updated Typescript to ~4.9.5
+  * _@angular-eslint/ng-cli-compat_ eslint rules are deprecated. Use _@angular-eslint/recommended_ rules instead.
+  * _outputPath_ is not needed in _angular.json_ for the _build_ target since we provide it via CLI.
+  * Added more properties to server buld angular.json:
+    * _deleteOutputPath_: false,
+    * _outputHashing_: none
+    To don't provide them via CLI.
+  * Replaced deprecated _--deploy-url_ with _--base-href_ ng build option.
+  * Output server build to _dist_ instead of _dist/server_, in order  to don't move artifacts to the root folder (JSS convention requires to keep all the server artifacts in the _dist_ folder and have _server.bundle.js_ file as an entrypoint)
+  * _TransferState_, _makeStateKey_ now imported from _@angular/core_ instead of _@angular/platform-browser_.
+  * _BrowserModule.withServerTransition_ is deprecated, *APP_ID* is used instead.
+  * Removed deprecated lib _entryComponents_ property.
+  * Exported _ImageFieldValue_ and _LinkFieldValue_ interfaces.
+  * See more information about the upgrade in the [Angular 16 Migration Guide](https://update.angular.io/?l=3&v=15.0-16.0)
+
+### 🧹 Chores
+
+* Security vulnerability audit ([#1685](https://github.com/Sitecore/jss/pull/1685))
+* Removed "npm" field from "engines" property ([#1698](https://github.com/Sitecore/jss/pull/1698))
+* Removed "engines" field for templates ([#1701](https://github.com/Sitecore/jss/pull/1701))
+
+## 21.5.3
+
+### 🐛 Bug Fixes
+
+>>>>>>> 9ff9c09d8862989de9f45ef68ee95a7efe633457
 * `[sitecore-jss-nextjs]` Fix loop error in redirect middleware when the pattern of redirect has default locale. ([#1696](https://github.com/Sitecore/jss/pull/1696))
 * `[templates/nextjs-sxa]` Fix shown horizontal scrollbar in EE mode. ([#1625](https://github.com/Sitecore/jss/pull/1625)), ([#1626](https://github.com/Sitecore/jss/pull/1626))
 
@@ -621,6 +710,15 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss]` Retry policy to handle transient network errors. Users can pass `retryStrategy` to configure custom retry config to the services. They can customize the error codes and the number of retries. It consist of two functions shouldRetry and getDelay. To determine the back-off time, we employ an exponential strategy with a default factor of 2.([#1731](https://github.com/Sitecore/jss/pull/1731)) ([#1733](https://github.com/Sitecore/jss/pull/1733))
 
+<<<<<<< HEAD
+=======
+## 20.2.3
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Link component does not add anchor to the internal links ([#1226](https://github.com/Sitecore/jss/pull/1226))
+
+>>>>>>> 9ff9c09d8862989de9f45ef68ee95a7efe633457
 ## 20.2.2
 
 ### 🧹 Chores

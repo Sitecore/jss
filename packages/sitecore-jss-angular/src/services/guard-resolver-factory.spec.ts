@@ -1,11 +1,12 @@
 // tslint:disable: max-classes-per-file
 
-import { Injector } from '@angular/core';
-import { waitForAsync, TestBed } from '@angular/core/testing';
+import { Injectable, Injector } from '@angular/core';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of } from 'rxjs';
 import { guardResolverFactory } from './guard-resolver-factory';
+import { JssCanActivateRedirectError } from './jss-can-activate-error';
 import {
   GUARD_RESOLVER,
   GuardResolver,
@@ -21,9 +22,8 @@ const createLiteralGuard = (
   },
 });
 
-const createFunctionGuard = (
-  canActivate: boolean | Promise<boolean> | Observable<boolean>
-): JssCanActivateFn => () => canActivate;
+const createFunctionGuard = (canActivate: ReturnType<JssCanActivateFn>): JssCanActivateFn => () =>
+  canActivate;
 
 class MockSyncTrueGuard implements JssCanActivate {
   canActivate() {
@@ -49,6 +49,43 @@ class MockAsyncFalseGuard implements JssCanActivate {
   }
 }
 
+@Injectable({ providedIn: 'root' })
+class MockService {
+  readonly result = true;
+}
+
+@Injectable()
+class MockInjectableGuard implements JssCanActivate {
+  constructor(private service: MockService) {}
+
+  canActivate() {
+    return this.service.result;
+  }
+}
+
+@Injectable()
+class MockUrlTreeGuard implements JssCanActivate {
+  constructor(private readonly router: Router) {}
+
+  canActivate() {
+    return this.router.parseUrl('/404');
+  }
+}
+
+@Injectable()
+class MockUrlGuard implements JssCanActivate {
+  canActivate() {
+    return '/404';
+  }
+}
+
+@Injectable()
+class MockUrlsGuard implements JssCanActivate {
+  canActivate() {
+    return ['404'];
+  }
+}
+
 describe('guardResolverFactory', () => {
   let resolver: GuardResolver;
   beforeEach(
@@ -60,6 +97,11 @@ describe('guardResolverFactory', () => {
           MockSyncFalseGuard,
           MockAsyncTrueGuard,
           MockAsyncFalseGuard,
+          MockService,
+          MockInjectableGuard,
+          MockUrlTreeGuard,
+          MockUrlGuard,
+          MockUrlsGuard,
           {
             provide: GUARD_RESOLVER,
             useFactory: guardResolverFactory,
@@ -105,6 +147,53 @@ describe('guardResolverFactory', () => {
     ]);
 
     expect(nonGuarded.length).toBe(1);
+  });
+
+  it('Returns rendering if single injectable guard returns true', async () => {
+    const nonGuarded = await resolver([
+      {
+        canActivate: MockInjectableGuard,
+        componentDefinition: {} as any,
+      },
+    ]);
+
+    expect(nonGuarded.length).toBe(1);
+  });
+
+  it('Throws JssCanActivateRedirectError when returning UrlTree', () => {
+    return expectAsync(
+      resolver([
+        {
+          canActivate: MockUrlTreeGuard,
+          componentDefinition: {} as any,
+        },
+      ])
+      // eslint-disable-next-line quotes
+    ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '/404' is a redirect value");
+  });
+
+  it('Throws JssCanActivateRedirectError when returning string', () => {
+    return expectAsync(
+      resolver([
+        {
+          canActivate: MockUrlGuard,
+          componentDefinition: {} as any,
+        },
+      ])
+      // eslint-disable-next-line quotes
+    ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '/404' is a redirect value");
+  });
+
+  it('Throws JssCanActivateRedirectError when returning array with strings', () => {
+    return expectAsync(
+      resolver([
+        {
+          canActivate: MockUrlsGuard,
+          componentDefinition: {} as any,
+        },
+      ])
+      // eslint-disable-next-line quotes
+    ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '404' is a redirect value");
   });
 
   it('Blocks rendering if single async guard returns false', async () => {

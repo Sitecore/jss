@@ -8,8 +8,8 @@ Configuration that is passed to the Context.
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type                     |
+| :----------- | :----------------------- |
 | `SDKModules` | extends `SDKModulesType` |
 
 ## Table of contents
@@ -31,9 +31,9 @@ Software Development Kits (SDKs) to be initialized
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:55](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/context/context.ts#L55)
+[packages/sitecore-jss-nextjs/src/context/context.ts:55](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L55)
 
-___
+---
 
 ### siteName
 
@@ -43,9 +43,9 @@ Your Sitecore site name
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:51](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/context/context.ts#L51)
+[packages/sitecore-jss-nextjs/src/context/context.ts:51](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L51)
 
-___
+---
 
 ### sitecoreEdgeContextId
 
@@ -55,9 +55,9 @@ Your Sitecore Edge Context ID
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:47](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/context/context.ts#L47)
+[packages/sitecore-jss-nextjs/src/context/context.ts:47](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L47)
 
-___
+---
 
 ### sitecoreEdgeUrl
 
@@ -67,4 +67,4 @@ Your Sitecore Edge URL
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/context/context.ts:43](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/context/context.ts#L43)
+[packages/sitecore-jss-nextjs/src/context/context.ts:43](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/context/context.ts#L43)

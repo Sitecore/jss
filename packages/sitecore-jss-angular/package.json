@@ -1,10 +1,10 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular",
-  "version": "21.7.0-canary.0",
+  "version": "21.7.0-canary.86",
   "description": "",
   "scripts": {
     "build": "ng-packagr -p ng-package.json",
-    "lint": "eslint ./src/**/*.ts",
+    "lint": "eslint \"./src/**/*.ts\"",
     "test": "ng test",
     "test:watch": "ng test --no-single-run --browsers Chrome",
     "coverage": "ng test --code-coverage",
@@ -58,7 +58,7 @@
     "rxjs": "~7.8.1"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "21.7.0-canary.0"
+    "@sitecore-jss/sitecore-jss": "21.7.0-canary.86"
   },
   "main": "dist/esm2022/sitecore-jss-sitecore-jss-angular.mjs",
   "module": "dist/esm2022/sitecore-jss-sitecore-jss-angular.js",

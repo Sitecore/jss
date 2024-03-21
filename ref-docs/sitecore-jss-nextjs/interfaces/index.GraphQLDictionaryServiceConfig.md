@@ -16,7 +16,7 @@ GraphQLDictionaryService instances
 
 - `CacheOptions`
 
-- `Pick`\<`GraphQLRequestClientConfig`, ``"retries"`` \| ``"retryStrategy"``\>
+- `Pick`\<`GraphQLRequestClientConfig`, `"retries"` \| `"retryStrategy"`\>
 
   ↳ **`GraphQLDictionaryServiceConfig`**
 
@@ -58,7 +58,7 @@ property instead
 
 packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:20
 
-___
+---
 
 ### cacheEnabled
 
@@ -69,7 +69,7 @@ Enable/disable caching mechanism
 **`Default`**
 
 ```ts
-true
+true;
 ```
 
 #### Inherited from
@@ -80,7 +80,7 @@ CacheOptions.cacheEnabled
 
 packages/sitecore-jss/types/cache-client.d.ts:28
 
-___
+---
 
 ### cacheTimeout
 
@@ -91,7 +91,7 @@ Cache timeout (sec)
 **`Default`**
 
 ```ts
-60
+60;
 ```
 
 #### Inherited from
@@ -102,7 +102,7 @@ CacheOptions.cacheTimeout
 
 packages/sitecore-jss/types/cache-client.d.ts:33
 
-___
+---
 
 ### clientFactory
 
@@ -115,7 +115,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:25
 
-___
+---
 
 ### dictionaryEntryTemplateId
 
@@ -133,7 +133,7 @@ Optional. The template ID to use when searching for dictionary entries.
 
 packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:30
 
-___
+---
 
 ### endpoint
 
@@ -153,7 +153,7 @@ property instead
 
 packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:15
 
-___
+---
 
 ### jssAppTemplateId
 
@@ -171,7 +171,7 @@ Optional. The template ID of a JSS App to use when searching for the appRootId.
 
 packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:35
 
-___
+---
 
 ### pageSize
 
@@ -184,7 +184,7 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 **`Default`**
 
 ```ts
-10
+10;
 ```
 
 #### Inherited from
@@ -195,7 +195,7 @@ SearchServiceConfig.pageSize
 
 packages/sitecore-jss/types/graphql/search-service.d.ts:51
 
-___
+---
 
 ### retries
 
@@ -209,9 +209,9 @@ Pick.retries
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:60
+packages/sitecore-jss/types/graphql-request-client.d.ts:67
 
-___
+---
 
 ### retryStrategy
 
@@ -226,9 +226,9 @@ Pick.retryStrategy
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:65
+packages/sitecore-jss/types/graphql-request-client.d.ts:72
 
-___
+---
 
 ### rootItemId
 
@@ -244,7 +244,7 @@ SearchServiceConfig.rootItemId
 
 packages/sitecore-jss/types/graphql/search-service.d.ts:41
 
-___
+---
 
 ### siteName
 
@@ -261,7 +261,7 @@ SearchServiceConfig.siteName
 
 packages/sitecore-jss/types/graphql/search-service.d.ts:65
 
-___
+---
 
 ### templates
 

@@ -27,10 +27,10 @@ Calculates the delay (in milliseconds) before the next retry based on the given 
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `error` | [`ClientError`](../classes/index.ClientError.md) | The error received from the GraphQL request. |
-| `attempt` | `number` | The current attempt number. |
+| Name      | Type                                                             | Description                                  |
+| :-------- | :--------------------------------------------------------------- | :------------------------------------------- |
+| `error`   | [`GraphQLClientError`](../modules/graphql.md#graphqlclienterror) | The error received from the GraphQL request. |
+| `attempt` | `number`                                                         | The current attempt number.                  |
 
 #### Returns
 
@@ -40,9 +40,9 @@ The delay in milliseconds before the next retry.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:36](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/graphql-request-client.ts#L36)
+[packages/sitecore-jss/src/graphql-request-client.ts:45](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/graphql-request-client.ts#L45)
 
-___
+---
 
 ### shouldRetry
 
@@ -52,11 +52,11 @@ Determines whether a request should be retried based on the given error and atte
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `error` | [`ClientError`](../classes/index.ClientError.md) | The error received from the GraphQL request. |
-| `attempt` | `number` | The current attempt number. |
-| `retries` | `number` | The number of retries configured. |
+| Name      | Type                                                             | Description                                  |
+| :-------- | :--------------------------------------------------------------- | :------------------------------------------- |
+| `error`   | [`GraphQLClientError`](../modules/graphql.md#graphqlclienterror) | The error received from the GraphQL request. |
+| `attempt` | `number`                                                         | The current attempt number.                  |
+| `retries` | `number`                                                         | The number of retries configured.            |
 
 #### Returns
 
@@ -66,4 +66,4 @@ A boolean indicating whether to retry the request.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:29](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/graphql-request-client.ts#L29)
+[packages/sitecore-jss/src/graphql-request-client.ts:38](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/graphql-request-client.ts#L38)

@@ -22,16 +22,15 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { Data, UrlTree, Router } from '@angular/router';
+import { Data, Router, UrlTree } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { Observable } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
+import { JssCanActivateRedirectError } from '../services/jss-can-activate-error';
 import {
   ComponentFactoryResult,
   JssComponentFactoryService,
-} from '../jss-component-factory.service';
-import { HIDDEN_RENDERING_NAME } from './hidden-rendering.component';
-import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
+} from '../services/jss-component-factory.service';
 import {
   DataResolver,
   DATA_RESOLVER,
@@ -39,7 +38,9 @@ import {
   GUARD_RESOLVER,
   PLACEHOLDER_HIDDEN_RENDERING_COMPONENT,
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
-} from './placeholder.token';
+} from '../services/placeholder.token';
+import { HIDDEN_RENDERING_NAME } from './hidden-rendering.component';
+import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
 import { RenderEachDirective } from './render-each.directive';
 import { RenderEmptyDirective } from './render-empty.directive';
 import { isRawRendering } from './rendering';
@@ -78,6 +79,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   @Input() clientOnly = false;
 
   @Output() loaded = new EventEmitter<string | undefined>();
+  @Output() failed = new EventEmitter<Error>();
 
   @ContentChild(RenderEachDirective, { static: true }) renderEachTemplate: RenderEachDirective;
   @ContentChild(RenderEmptyDirective, { static: true }) renderEmptyTemplate: RenderEmptyDirective;
@@ -247,14 +249,23 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
         this.loaded.emit(this.name);
       } catch (e) {
         this.isLoading = false;
-        if (e instanceof UrlTree) {
-          this.router.navigateByUrl(e);
-        } else if (typeof e === 'string') {
-          this.router.navigate([e]);
-        } else if (Array.isArray(e)) {
-          this.router.navigate(e);
+        if (e instanceof JssCanActivateRedirectError) {
+          const redirectValue = e.redirectValue;
+          if (redirectValue instanceof UrlTree) {
+            this.router.navigateByUrl(redirectValue);
+          } else if (typeof redirectValue === 'string') {
+            this.router.navigate([redirectValue]);
+          } else {
+            this.router.navigate(redirectValue);
+          }
         } else {
-          throw e;
+          this.failed.emit(e as Error);
+          console.warn(
+            `Placeholder '${this.name}' was not able to render with the current rendering data and error`,
+            JSON.stringify(this.rendering, null, 2),
+            e
+          );
+          return;
         }
       }
     }

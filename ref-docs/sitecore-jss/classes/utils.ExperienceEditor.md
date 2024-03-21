@@ -40,9 +40,9 @@ true if executing within a Experience Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/editing.ts:24](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/editing.ts#L24)
+[packages/sitecore-jss/src/utils/editing.ts:31](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/editing.ts#L31)
 
-___
+---
 
 ### resetChromes
 
@@ -54,4 +54,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/editing.ts:32](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss/src/utils/editing.ts#L32)
+[packages/sitecore-jss/src/utils/editing.ts:39](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/utils/editing.ts#L39)

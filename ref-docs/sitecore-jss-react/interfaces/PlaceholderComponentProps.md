@@ -40,9 +40,9 @@ PlaceholderProps.componentFactory
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:39](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L39)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:39](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L39)
 
-___
+---
 
 ### errorComponent
 
@@ -57,9 +57,9 @@ PlaceholderProps.errorComponent
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:76](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L76)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:76](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L76)
 
-___
+---
 
 ### fields
 
@@ -78,9 +78,9 @@ PlaceholderProps.fields
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:44](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L44)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:44](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L44)
 
-___
+---
 
 ### hiddenRenderingComponent
 
@@ -94,9 +94,9 @@ PlaceholderProps.hiddenRenderingComponent
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:70](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L70)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:70](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L70)
 
-___
+---
 
 ### missingComponentComponent
 
@@ -111,9 +111,9 @@ PlaceholderProps.missingComponentComponent
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:65](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L65)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:65](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L65)
 
-___
+---
 
 ### modifyComponentProps
 
@@ -128,8 +128,8 @@ Can be used in case when you need to insert additional data into the component.
 
 ##### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name             | Type             | Description                    |
+| :--------------- | :--------------- | :----------------------------- |
 | `componentProps` | `ComponentProps` | component props to be modified |
 
 ##### Returns
@@ -144,9 +144,9 @@ PlaceholderProps.modifyComponentProps
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:60](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L60)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:60](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L60)
 
-___
+---
 
 ### name
 
@@ -160,9 +160,9 @@ PlaceholderProps.name
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:32](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L32)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:32](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L32)
 
-___
+---
 
 ### params
 
@@ -181,9 +181,9 @@ PlaceholderProps.params
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:51](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L51)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:51](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L51)
 
-___
+---
 
 ### render
 
@@ -198,11 +198,11 @@ Useful for techniques like wrapping each child in a wrapper component.
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `components` | `ReactNode`[] |
-| `data` | ([`ComponentRendering`](ComponentRendering.md) \| [`HtmlElementRendering`](HtmlElementRendering.md))[] |
-| `props` | `PlaceholderProps` |
+| Name         | Type                                                                                                   |
+| :----------- | :----------------------------------------------------------------------------------------------------- |
+| `components` | `ReactNode`[]                                                                                          |
+| `data`       | ([`ComponentRendering`](ComponentRendering.md) \| [`HtmlElementRendering`](HtmlElementRendering.md))[] |
+| `props`      | `PlaceholderProps`                                                                                     |
 
 ##### Returns
 
@@ -210,9 +210,9 @@ Useful for techniques like wrapping each child in a wrapper component.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Placeholder.tsx:17](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/Placeholder.tsx#L17)
+[packages/sitecore-jss-react/src/components/Placeholder.tsx:17](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Placeholder.tsx#L17)
 
-___
+---
 
 ### renderEach
 
@@ -227,10 +227,10 @@ Mutually exclusive with `render`. System components added during Experience Edit
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type        |
+| :---------- | :---------- |
 | `component` | `ReactNode` |
-| `index` | `number` |
+| `index`     | `number`    |
 
 ##### Returns
 
@@ -238,9 +238,9 @@ Mutually exclusive with `render`. System components added during Experience Edit
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Placeholder.tsx:27](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/Placeholder.tsx#L27)
+[packages/sitecore-jss-react/src/components/Placeholder.tsx:27](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Placeholder.tsx#L27)
 
-___
+---
 
 ### renderEmpty
 
@@ -255,8 +255,8 @@ Can be used to wrap the Sitecore EE empty placeholder markup in something that's
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type          |
+| :----------- | :------------ |
 | `components` | `ReactNode`[] |
 
 ##### Returns
@@ -265,9 +265,9 @@ Can be used to wrap the Sitecore EE empty placeholder markup in something that's
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Placeholder.tsx:12](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/Placeholder.tsx#L12)
+[packages/sitecore-jss-react/src/components/Placeholder.tsx:12](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Placeholder.tsx#L12)
 
-___
+---
 
 ### rendering
 
@@ -281,4 +281,4 @@ PlaceholderProps.rendering
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:34](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L34)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:34](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L34)

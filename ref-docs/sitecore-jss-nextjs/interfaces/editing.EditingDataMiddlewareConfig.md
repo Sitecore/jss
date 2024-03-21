@@ -23,14 +23,14 @@ key from the request query parameters. By default this is 'key' (from '/api/edit
 **`Default`**
 
 ```ts
-'key'
+'key';
 ```
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:13](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L13)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:13](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L13)
 
-___
+---
 
 ### editingDataCache
 
@@ -43,14 +43,14 @@ By default, this is `editingDataDiskCache` (an `EditingDataDiskCache` singleton)
 **`Default`**
 
 ```ts
-editingDataDiskCache
+editingDataDiskCache;
 ```
 
 **`See`**
 
- - EditingDataCache
- - EditingDataDiskCache
+- EditingDataCache
+- EditingDataDiskCache
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:22](https://github.com/Sitecore/jss/blob/7b81ae6e2/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L22)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:22](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L22)
