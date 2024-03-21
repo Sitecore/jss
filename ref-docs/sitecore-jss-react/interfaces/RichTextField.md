@@ -17,9 +17,9 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:6](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/RichText.tsx#L6)
+[packages/sitecore-jss-react/src/components/RichText.tsx:6](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/RichText.tsx#L6)
 
----
+___
 
 ### value
 
@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:5](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/RichText.tsx#L5)
+[packages/sitecore-jss-react/src/components/RichText.tsx:5](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/RichText.tsx#L5)

@@ -38,8 +38,8 @@
 
 ### Variables
 
-- [EDITING_COMPONENT_ID](layout.md#editing_component_id)
-- [EDITING_COMPONENT_PLACEHOLDER](layout.md#editing_component_placeholder)
+- [EDITING\_COMPONENT\_ID](layout.md#editing_component_id)
+- [EDITING\_COMPONENT\_PLACEHOLDER](layout.md#editing_component_placeholder)
 
 ### Functions
 
@@ -63,15 +63,15 @@ Data fetcher resolver in order to provide custom data fetcher
 ##### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 ##### Parameters
 
-| Name   | Type              | Description       |
-| :----- | :---------------- | :---------------- |
-| `req?` | `IncomingMessage` | Request instance  |
-| `res?` | `ServerResponse`  | Response instance |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `req?` | `IncomingMessage` | Request instance |
+| `res?` | `ServerResponse` | Response instance |
 
 ##### Returns
 
@@ -79,9 +79,9 @@ Data fetcher resolver in order to provide custom data fetcher
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
 
----
+___
 
 ### PlaceholdersData
 
@@ -92,15 +92,15 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Type parameters
 
-| Name        | Type                        |
-| :---------- | :-------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `TYPEDNAME` | extends `string` = `string` |
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:80](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L80)
+[packages/sitecore-jss/src/layout/models.ts:80](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/models.ts#L80)
 
----
+___
 
 ### RestLayoutServiceConfig
 
@@ -108,42 +108,42 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Type declaration
 
-| Name                   | Type                                                   | Description                                                                                                                                                                                                                                                                                                                                                                              |
-| :--------------------- | :----------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `apiHost`              | `string`                                               | Your Sitecore instance hostname that is the backend for JSS                                                                                                                                                                                                                                                                                                                              |
-| `apiKey`               | `string`                                               | The Sitecore SSC API key your app uses                                                                                                                                                                                                                                                                                                                                                   |
-| `configurationName?`   | `string`                                               | Layout Service "named" configuration                                                                                                                                                                                                                                                                                                                                                     |
-| `dataFetcherResolver?` | [`DataFetcherResolver`](layout.md#datafetcherresolver) | Function that handles fetching API data                                                                                                                                                                                                                                                                                                                                                  |
-| `siteName`             | `string`                                               | The JSS application name                                                                                                                                                                                                                                                                                                                                                                 |
-| `tracking?`            | `boolean`                                              | Enables/disables analytics tracking for the Layout Service invocation (default is true). More than likely, this would be set to false for SSG/hybrid implementations, and the JSS tracker would instead be used on the client-side: [https://jss.sitecore.com/docs/fundamentals/services/tracking](https://jss.sitecore.com/docs/fundamentals/services/tracking) **`Default`** `ts true` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `apiHost` | `string` | Your Sitecore instance hostname that is the backend for JSS |
+| `apiKey` | `string` | The Sitecore SSC API key your app uses |
+| `configurationName?` | `string` | Layout Service "named" configuration |
+| `dataFetcherResolver?` | [`DataFetcherResolver`](layout.md#datafetcherresolver) | Function that handles fetching API data |
+| `siteName` | `string` | The JSS application name |
+| `tracking?` | `boolean` | Enables/disables analytics tracking for the Layout Service invocation (default is true). More than likely, this would be set to false for SSG/hybrid implementations, and the JSS tracker would instead be used on the client-side: [https://jss.sitecore.com/docs/fundamentals/services/tracking](https://jss.sitecore.com/docs/fundamentals/services/tracking) **`Default`** ```ts true ``` |
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
 
 ## Variables
 
-### EDITING_COMPONENT_ID
+### EDITING\_COMPONENT\_ID
 
-• `Const` **EDITING_COMPONENT_ID**: `"editing-component"`
+• `Const` **EDITING\_COMPONENT\_ID**: ``"editing-component"``
 
 Id of wrapper for component rendering
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:9](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L9)
+[packages/sitecore-jss/src/layout/models.ts:9](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/models.ts#L9)
 
----
+___
 
-### EDITING_COMPONENT_PLACEHOLDER
+### EDITING\_COMPONENT\_PLACEHOLDER
 
-• `Const` **EDITING_COMPONENT_PLACEHOLDER**: `"editing-componentmode-placeholder"`
+• `Const` **EDITING\_COMPONENT\_PLACEHOLDER**: ``"editing-componentmode-placeholder"``
 
 Static placeholder name used for component rendering
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L4)
+[packages/sitecore-jss/src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/models.ts#L4)
 
 ## Functions
 
@@ -155,10 +155,10 @@ Gets rendering definitions in a given child placeholder under a current renderin
 
 #### Parameters
 
-| Name              | Type                                                               |
-| :---------------- | :----------------------------------------------------------------- |
-| `rendering`       | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) |
-| `placeholderName` | `string`                                                           |
+| Name | Type |
+| :------ | :------ |
+| `rendering` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) |
+| `placeholderName` | `string` |
 
 #### Returns
 
@@ -168,9 +168,9 @@ child placeholder
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/utils.ts#L60)
+[packages/sitecore-jss/src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/utils.ts#L60)
 
----
+___
 
 ### getComponentLibraryStylesheetLinks
 
@@ -180,11 +180,11 @@ Walks through rendering tree and returns list of links of all FEAAS, BYOC or SXA
 
 #### Parameters
 
-| Name                    | Type                                                             | Default value               | Description                                                                   |
-| :---------------------- | :--------------------------------------------------------------- | :-------------------------- | :---------------------------------------------------------------------------- |
-| `layoutData`            | [`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md) | `undefined`                 | Layout service data                                                           |
-| `sitecoreEdgeContextId` | `string`                                                         | `undefined`                 | Sitecore Edge Context ID                                                      |
-| `sitecoreEdgeUrl?`      | `string`                                                         | `SITECORE_EDGE_URL_DEFAULT` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `layoutData` | [`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md) | `undefined` | Layout service data |
+| `sitecoreEdgeContextId` | `string` | `undefined` | Sitecore Edge Context ID |
+| `sitecoreEdgeUrl?` | `string` | `SITECORE_EDGE_URL_DEFAULT` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
 
 #### Returns
 
@@ -194,35 +194,35 @@ library stylesheet links
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/themes.ts:24](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/themes.ts#L24)
+[packages/sitecore-jss/src/layout/themes.ts:24](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/themes.ts#L24)
 
----
+___
 
 ### getContentStylesheetLink
 
-▸ **getContentStylesheetLink**(`layoutData`, `sitecoreEdgeContextId`, `sitecoreEdgeUrl?`): `null` \| [`HTMLLink`](index.md#htmllink)
+▸ **getContentStylesheetLink**(`layoutData`, `sitecoreEdgeContextId`, `sitecoreEdgeUrl?`): ``null`` \| [`HTMLLink`](index.md#htmllink)
 
 Get the content styles link to be loaded from the Sitecore Edge Platform
 
 #### Parameters
 
-| Name                    | Type                                                             | Default value               | Description                                                                   |
-| :---------------------- | :--------------------------------------------------------------- | :-------------------------- | :---------------------------------------------------------------------------- |
-| `layoutData`            | [`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md) | `undefined`                 | Layout service data                                                           |
-| `sitecoreEdgeContextId` | `string`                                                         | `undefined`                 | Sitecore Edge Context ID                                                      |
-| `sitecoreEdgeUrl?`      | `string`                                                         | `SITECORE_EDGE_URL_DEFAULT` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `layoutData` | [`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md) | `undefined` | Layout service data |
+| `sitecoreEdgeContextId` | `string` | `undefined` | Sitecore Edge Context ID |
+| `sitecoreEdgeUrl?` | `string` | `SITECORE_EDGE_URL_DEFAULT` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
 
 #### Returns
 
-`null` \| [`HTMLLink`](index.md#htmllink)
+``null`` \| [`HTMLLink`](index.md#htmllink)
 
 content styles link, null if no styles are used in layout
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/content-styles.ts#L26)
+[packages/sitecore-jss/src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/content-styles.ts#L26)
 
----
+___
 
 ### getFieldValue
 
@@ -234,15 +234,15 @@ Null will be returned if the field is not defined.
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Parameters
 
-| Name                | Type                                                                                                                               | Description                                              |
-| :------------------ | :--------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| [`ComponentFields`](../interfaces/layout.ComponentFields.md) | the rendering or fields object to extract the field from |
-| `fieldName`         | `string`                                                                                                                           | the name of the field to extract                         |
+| `fieldName` | `string` | the name of the field to extract |
 
 #### Returns
 
@@ -252,23 +252,23 @@ the field value or null if the field is not defined
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/utils.ts#L10)
+[packages/sitecore-jss/src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/utils.ts#L10)
 
 ▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Parameters
 
-| Name                | Type                                                                                                                               | Description                                              |
-| :------------------ | :--------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| [`ComponentFields`](../interfaces/layout.ComponentFields.md) | the rendering or fields object to extract the field from |
-| `fieldName`         | `string`                                                                                                                           | the name of the field to extract                         |
-| `defaultValue`      | `T`                                                                                                                                | the default value to return if the field is not defined  |
+| `fieldName` | `string` | the name of the field to extract |
+| `defaultValue` | `T` | the default value to return if the field is not defined |
 
 #### Returns
 
@@ -278,4 +278,4 @@ the field value or the default value if the field is not defined
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/utils.ts#L15)
+[packages/sitecore-jss/src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/utils.ts#L15)

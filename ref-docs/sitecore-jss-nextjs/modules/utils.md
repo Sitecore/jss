@@ -42,24 +42,23 @@ In production non-editing environments it is desirable to use relative urls, so 
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
+[packages/sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
 
----
+___
 
 ### handleEditorFastRefresh
 
 ▸ **handleEditorFastRefresh**(`forceReload?`): `void`
 
 Since Sitecore editors do not support Fast Refresh:
-
 1. Subscribe on events provided by webpack.
 2. Reset editor chromes when build is finished
 
 #### Parameters
 
-| Name           | Type      | Default value | Description                                |
-| :------------- | :-------- | :------------ | :----------------------------------------- |
-| `forceReload?` | `boolean` | `false`       | force page reload instead of reset chromes |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `forceReload?` | `boolean` | `false` | force page reload instead of reset chromes |
 
 #### Returns
 
@@ -73,9 +72,9 @@ forceReload false
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/utils/utils.ts:33](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/utils/utils.ts#L33)
+[packages/sitecore-jss-nextjs/src/utils/utils.ts:33](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/utils/utils.ts#L33)
 
----
+___
 
 ### isEditorActive
 
@@ -94,7 +93,7 @@ true if executing within a Sitecore editor
 
 packages/sitecore-jss/types/utils/editing.d.ts:44
 
----
+___
 
 ### resetEditorChromes
 
@@ -110,7 +109,7 @@ Resets Sitecore editor "chromes"
 
 packages/sitecore-jss/types/utils/editing.d.ts:48
 
----
+___
 
 ### tryParseEnvValue
 
@@ -121,15 +120,15 @@ Method to parse JSON-formatted environment variables
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Parameters
 
-| Name           | Type                    | Description                                            |
-| :------------- | :---------------------- | :----------------------------------------------------- |
-| `envValue`     | `undefined` \| `string` | can be undefined when providing values via process.env |
-| `defaultValue` | `T`                     | default value                                          |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `envValue` | `undefined` \| `string` | can be undefined when providing values via process.env |
+| `defaultValue` | `T` | default value |
 
 #### Returns
 

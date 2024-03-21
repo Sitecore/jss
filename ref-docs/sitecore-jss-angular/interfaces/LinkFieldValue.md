@@ -28,9 +28,9 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:38](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/rendering-field.ts#L38)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:38](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/rendering-field.ts#L38)
 
----
+___
 
 ### href
 
@@ -38,9 +38,9 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:36](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/rendering-field.ts#L36)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:36](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/rendering-field.ts#L36)
 
----
+___
 
 ### text
 
@@ -48,4 +48,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:37](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/components/rendering-field.ts#L37)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:37](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/components/rendering-field.ts#L37)

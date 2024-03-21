@@ -136,19 +136,19 @@ Data from rendering params on Sitecore's BYOC rendering
 
 #### Type declaration
 
-| Name                     | Type     | Description                                                                   |
-| :----------------------- | :------- | :---------------------------------------------------------------------------- |
-| `ComponentDataOverride?` | `string` | A JSON object with data sources to be fetched and passed to the component     |
-| `ComponentName?`         | `string` | Name of the component to render                                               |
-| `ComponentProps?`        | `string` | JSON props to pass into rendered component                                    |
-| `RenderingIdentifier?`   | `string` | -                                                                             |
-| `styles?`                | `string` | A string with classes that can be used to apply themes, via SXA functionality |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `ComponentDataOverride?` | `string` | A JSON object with data sources to be fetched and passed to the component |
+| `ComponentName?` | `string` | Name of the component to render |
+| `ComponentProps?` | `string` | JSON props to pass into rendered component |
+| `RenderingIdentifier?` | `string` | - |
+| `styles?` | `string` | A string with classes that can be used to apply themes, via SXA functionality |
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:22](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L22)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:22](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L22)
 
----
+___
 
 ### BYOCComponentProps
 
@@ -156,9 +156,9 @@ Data from rendering params on Sitecore's BYOC rendering
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:67](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L67)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:67](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L67)
 
----
+___
 
 ### ComponentBuilderConfig
 
@@ -168,56 +168,56 @@ Configuration for ComponentBuilder
 
 #### Type parameters
 
-| Name            |
-| :-------------- |
+| Name |
+| :------ |
 | `ComponentType` |
 
 #### Type declaration
 
-| Name         | Type                               | Description                     |
-| :----------- | :--------------------------------- | :------------------------------ |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `components` | `Map`\<`string`, `ComponentType`\> | List of components to be stored |
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/ComponentBuilder.ts:7](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/ComponentBuilder.ts#L7)
+[packages/sitecore-jss-react/src/ComponentBuilder.ts:7](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/ComponentBuilder.ts#L7)
 
----
+___
 
 ### ComponentFactory
 
-Ƭ **ComponentFactory**: (`componentName`: `string`, `exportName?`: `string`) => `ComponentType` \| `null`
+Ƭ **ComponentFactory**: (`componentName`: `string`, `exportName?`: `string`) => `ComponentType` \| ``null``
 
 #### Type declaration
 
-▸ (`componentName`, `exportName?`): `ComponentType` \| `null`
+▸ (`componentName`, `exportName?`): `ComponentType` \| ``null``
 
 ##### Parameters
 
-| Name            | Type     | Description                                                                        |
-| :-------------- | :------- | :--------------------------------------------------------------------------------- |
-| `componentName` | `string` | component to be imported from the component factory                                |
-| `exportName?`   | `string` | component to be imported in case you export multiple components from the same file |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `componentName` | `string` | component to be imported from the component factory |
+| `exportName?` | `string` | component to be imported in case you export multiple components from the same file |
 
 ##### Returns
 
-`ComponentType` \| `null`
+`ComponentType` \| ``null``
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/sharedTypes.ts:7](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/sharedTypes.ts#L7)
+[packages/sitecore-jss-react/src/components/sharedTypes.ts:7](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/sharedTypes.ts#L7)
 
----
+___
 
 ### EditButtonTypes
 
-Ƭ **EditButtonTypes**: [`WebEditButton`](README.md#webeditbutton) \| [`FieldEditButton`](README.md#fieldeditbutton) \| `"|"`
+Ƭ **EditButtonTypes**: [`WebEditButton`](README.md#webeditbutton) \| [`FieldEditButton`](README.md#fieldeditbutton) \| ``"|"``
 
 #### Defined in
 
 packages/sitecore-jss/types/utils/edit-frame.d.ts:62
 
----
+___
 
 ### EditFrameDataSource
 
@@ -225,17 +225,17 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:62
 
 #### Type declaration
 
-| Name            | Type     |
-| :-------------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `databaseName?` | `string` |
-| `itemId`        | `string` |
-| `language?`     | `string` |
+| `itemId` | `string` |
+| `language?` | `string` |
 
 #### Defined in
 
 packages/sitecore-jss/types/utils/edit-frame.d.ts:43
 
----
+___
 
 ### FEaaSComponentParams
 
@@ -245,24 +245,24 @@ Params from a Sitecore FEaaS rendering
 
 #### Type declaration
 
-| Name                     | Type           |
-| :----------------------- | :------------- |
-| `ComponentDataOverride?` | `string`       |
-| `ComponentHTMLOverride?` | `string`       |
-| `ComponentHostName?`     | `string`       |
-| `ComponentId?`           | `string`       |
-| `ComponentInstanceId?`   | `string`       |
-| `ComponentRevision?`     | `RevisionType` |
-| `ComponentVersion?`      | `string`       |
-| `LibraryId?`             | `string`       |
-| `RenderingIdentifier?`   | `string`       |
-| `styles?`                | `string`       |
+| Name | Type |
+| :------ | :------ |
+| `ComponentDataOverride?` | `string` |
+| `ComponentHTMLOverride?` | `string` |
+| `ComponentHostName?` | `string` |
+| `ComponentId?` | `string` |
+| `ComponentInstanceId?` | `string` |
+| `ComponentRevision?` | `RevisionType` |
+| `ComponentVersion?` | `string` |
+| `LibraryId?` | `string` |
+| `RenderingIdentifier?` | `string` |
+| `styles?` | `string` |
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:11](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L11)
+[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:11](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L11)
 
----
+___
 
 ### FEaaSComponentProps
 
@@ -270,62 +270,62 @@ Params from a Sitecore FEaaS rendering
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:59](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L59)
+[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:59](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L59)
 
----
+___
 
 ### FieldEditButton
 
-Ƭ **FieldEditButton**: `BaseEditButton` & \{ `fields`: `string`[] }
+Ƭ **FieldEditButton**: `BaseEditButton` & \{ `fields`: `string`[]  }
 
 #### Defined in
 
 packages/sitecore-jss/types/utils/edit-frame.d.ts:54
 
----
+___
 
 ### GraphQLClientError
 
-Ƭ **GraphQLClientError**: `Partial`\<[`ClientError`](classes/ClientError.md)\> & \{ `code?`: `string` }
+Ƭ **GraphQLClientError**: `Partial`\<[`ClientError`](classes/ClientError.md)\> & \{ `code?`: `string`  }
 
 This type represents errors that can occur in a GraphQL client.
 In cases where an error status was sent back from the server (`!response.ok`), the `response` will be populated with details. In cases where a response was never received, the `code` can be populated with the error code (e.g. Node's 'ECONNRESET', 'ETIMEDOUT', etc).
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:21
+packages/sitecore-jss/types/graphql-request-client.d.ts:41
 
----
+___
 
 ### LinkProps
 
-Ƭ **LinkProps**: `React.DetailedHTMLProps`\<`React.AnchorHTMLAttributes`\<`HTMLAnchorElement`\>, `HTMLAnchorElement`\> & \{ `editable?`: `boolean` ; `field`: [`LinkField`](interfaces/LinkField.md) \| [`LinkFieldValue`](interfaces/LinkFieldValue.md) ; `showLinkTextWithChildrenPresent?`: `boolean` }
+Ƭ **LinkProps**: `React.DetailedHTMLProps`\<`React.AnchorHTMLAttributes`\<`HTMLAnchorElement`\>, `HTMLAnchorElement`\> & \{ `editable?`: `boolean` ; `field`: [`LinkField`](interfaces/LinkField.md) \| [`LinkFieldValue`](interfaces/LinkFieldValue.md) ; `showLinkTextWithChildrenPresent?`: `boolean`  }
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Link.tsx:23](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Link.tsx#L23)
+[packages/sitecore-jss-react/src/components/Link.tsx:23](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Link.tsx#L23)
 
----
+___
 
 ### SitecoreContextValue
 
-Ƭ **SitecoreContextValue**: [`LayoutServiceContext`](interfaces/LayoutServiceContext.md) & \{ `itemId?`: `string` ; `route?`: [`RouteData`](interfaces/RouteData.md) }
+Ƭ **SitecoreContextValue**: [`LayoutServiceContext`](interfaces/LayoutServiceContext.md) & \{ `itemId?`: `string` ; `route?`: [`RouteData`](interfaces/RouteData.md)  }
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:26](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L26)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:26](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L26)
 
----
+___
 
 ### WebEditButton
 
-Ƭ **WebEditButton**: `BaseEditButton` & \{ `click`: `string` ; `parameters?`: `Record`\<`string`, `string` \| `number` \| `boolean` \| `undefined` \| `null`\> ; `type?`: `string` }
+Ƭ **WebEditButton**: `BaseEditButton` & \{ `click`: `string` ; `parameters?`: `Record`\<`string`, `string` \| `number` \| `boolean` \| `undefined` \| ``null``\> ; `type?`: `string`  }
 
 #### Defined in
 
 packages/sitecore-jss/types/utils/edit-frame.d.ts:57
 
----
+___
 
 ### WithSitecoreContextHocProps
 
@@ -333,13 +333,13 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:57
 
 #### Type parameters
 
-| Name             |
-| :--------------- |
+| Name |
+| :------ |
 | `ComponentProps` |
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:17](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L17)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:17](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L17)
 
 ## Variables
 
@@ -349,39 +349,39 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:57
 
 #### Type declaration
 
-| Name                      | Type                                                                                    |
-| :------------------------ | :-------------------------------------------------------------------------------------- |
-| `edit`                    | \{ `fields`: `string`[] ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string` } |
-| `edit.fields`             | `string`[]                                                                              |
-| `edit.header`             | `string`                                                                                |
-| `edit.icon`               | `string`                                                                                |
-| `edit.tooltip`            | `string`                                                                                |
-| `editRelatedItem`         | \{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string` }    |
-| `editRelatedItem.click`   | `string`                                                                                |
-| `editRelatedItem.header`  | `string`                                                                                |
-| `editRelatedItem.icon`    | `string`                                                                                |
-| `editRelatedItem.tooltip` | `string`                                                                                |
-| `insert`                  | \{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string` }    |
-| `insert.click`            | `string`                                                                                |
-| `insert.header`           | `string`                                                                                |
-| `insert.icon`             | `string`                                                                                |
-| `insert.tooltip`          | `string`                                                                                |
+| Name | Type |
+| :------ | :------ |
+| `edit` | \{ `fields`: `string`[] ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
+| `edit.fields` | `string`[] |
+| `edit.header` | `string` |
+| `edit.icon` | `string` |
+| `edit.tooltip` | `string` |
+| `editRelatedItem` | \{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
+| `editRelatedItem.click` | `string` |
+| `editRelatedItem.header` | `string` |
+| `editRelatedItem.icon` | `string` |
+| `editRelatedItem.tooltip` | `string` |
+| `insert` | \{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
+| `insert.click` | `string` |
+| `insert.header` | `string` |
+| `insert.icon` | `string` |
+| `insert.tooltip` | `string` |
 
 #### Defined in
 
 packages/sitecore-jss/types/utils/edit-frame.d.ts:12
 
----
+___
 
 ### DefaultEditFrameButtons
 
-• `Const` **DefaultEditFrameButtons**: (\{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string` } \| \{ `fields`: `string`[] ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string` })[]
+• `Const` **DefaultEditFrameButtons**: (\{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } \| \{ `fields`: `string`[] ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  })[]
 
 #### Defined in
 
 packages/sitecore-jss/types/utils/edit-frame.d.ts:32
 
----
+___
 
 ### LinkPropTypes
 
@@ -389,17 +389,17 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:32
 
 #### Type declaration
 
-| Name                              | Type                                                                                                                                                                                                                                                                                  |
-| :-------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `editable`                        | `Requireable`\<`boolean`\>                                                                                                                                                                                                                                                            |
-| `field`                           | `Validator`\<`InferProps`\<\{ `href`: `Requireable`\<`any`\> }\> \| `InferProps`\<\{ `editableFirstPart`: `Requireable`\<`string`\> = PropTypes.string; `editableLastPart`: `Requireable`\<`string`\> = PropTypes.string; `value`: `Requireable`\<`object`\> = PropTypes.object }\>\> |
-| `showLinkTextWithChildrenPresent` | `Requireable`\<`boolean`\>                                                                                                                                                                                                                                                            |
+| Name | Type |
+| :------ | :------ |
+| `editable` | `Requireable`\<`boolean`\> |
+| `field` | `Validator`\<`InferProps`\<\{ `href`: `Requireable`\<`any`\>  }\> \| `InferProps`\<\{ `editableFirstPart`: `Requireable`\<`string`\> = PropTypes.string; `editableLastPart`: `Requireable`\<`string`\> = PropTypes.string; `value`: `Requireable`\<`object`\> = PropTypes.object }\>\> |
+| `showLinkTextWithChildrenPresent` | `Requireable`\<`boolean`\> |
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Link.tsx:129](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Link.tsx#L129)
+[packages/sitecore-jss-react/src/components/Link.tsx:129](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Link.tsx#L129)
 
----
+___
 
 ### RichTextPropTypes
 
@@ -407,17 +407,17 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:32
 
 #### Type declaration
 
-| Name       | Type                                                                                                                                                  |
-| :--------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `editable` | `Requireable`\<`boolean`\>                                                                                                                            |
-| `field`    | `Requireable`\<`InferProps`\<\{ `editable`: `Requireable`\<`string`\> = PropTypes.string; `value`: `Requireable`\<`string`\> = PropTypes.string }\>\> |
-| `tag`      | `Requireable`\<`string`\>                                                                                                                             |
+| Name | Type |
+| :------ | :------ |
+| `editable` | `Requireable`\<`boolean`\> |
+| `field` | `Requireable`\<`InferProps`\<\{ `editable`: `Requireable`\<`string`\> = PropTypes.string; `value`: `Requireable`\<`string`\> = PropTypes.string }\>\> |
+| `tag` | `Requireable`\<`string`\> |
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:44](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/RichText.tsx#L44)
+[packages/sitecore-jss-react/src/components/RichText.tsx:44](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/RichText.tsx#L44)
 
----
+___
 
 ### SitecoreContextReactContext
 
@@ -425,7 +425,7 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:32
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:19](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L19)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:19](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L19)
 
 ## Functions
 
@@ -435,8 +435,8 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:32
 
 #### Parameters
 
-| Name    | Type                                                 |
-| :------ | :--------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `props` | [`BYOCComponentProps`](README.md#byoccomponentprops) |
 
 #### Returns
@@ -445,9 +445,9 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:32
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCWrapper.tsx:6](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/BYOCWrapper.tsx#L6)
+[packages/sitecore-jss-react/src/components/BYOCWrapper.tsx:6](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/BYOCWrapper.tsx#L6)
 
----
+___
 
 ### DateField
 
@@ -455,10 +455,10 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:32
 
 #### Parameters
 
-| Name       | Type                                             |
-| :--------- | :----------------------------------------------- |
-| `props`    | [`DateFieldProps`](interfaces/DateFieldProps.md) |
-| `context?` | `any`                                            |
+| Name | Type |
+| :------ | :------ |
+| `props` | [`DateFieldProps`](interfaces/DateFieldProps.md) |
+| `context?` | `any` |
 
 #### Returns
 
@@ -468,7 +468,7 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:32
 
 packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
----
+___
 
 ### EditFrame
 
@@ -476,10 +476,10 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 #### Parameters
 
-| Name       | Type                                                                    |
-| :--------- | :---------------------------------------------------------------------- |
-| `props`    | `PropsWithChildren`\<[`EditFrameProps`](interfaces/EditFrameProps.md)\> |
-| `context?` | `any`                                                                   |
+| Name | Type |
+| :------ | :------ |
+| `props` | `PropsWithChildren`\<[`EditFrameProps`](interfaces/EditFrameProps.md)\> |
+| `context?` | `any` |
 
 #### Returns
 
@@ -489,7 +489,7 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
----
+___
 
 ### FEaaSComponent
 
@@ -497,8 +497,8 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 #### Parameters
 
-| Name    | Type                                                   | Description     |
-| :------ | :----------------------------------------------------- | :-------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `props` | [`FEaaSComponentProps`](README.md#feaascomponentprops) | component props |
 
 #### Returns
@@ -507,9 +507,9 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:64](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L64)
+[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:64](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L64)
 
----
+___
 
 ### FEaaSWrapper
 
@@ -517,8 +517,8 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 #### Parameters
 
-| Name    | Type                                                   |
-| :------ | :----------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `props` | [`FEaaSComponentProps`](README.md#feaascomponentprops) |
 
 #### Returns
@@ -527,9 +527,9 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/FEaaSWrapper.tsx:6](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/FEaaSWrapper.tsx#L6)
+[packages/sitecore-jss-react/src/components/FEaaSWrapper.tsx:6](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/FEaaSWrapper.tsx#L6)
 
----
+___
 
 ### File
 
@@ -537,10 +537,10 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 #### Parameters
 
-| Name       | Type        |
-| :--------- | :---------- |
-| `props`    | `FileProps` |
-| `context?` | `any`       |
+| Name | Type |
+| :------ | :------ |
+| `props` | `FileProps` |
+| `context?` | `any` |
 
 #### Returns
 
@@ -550,7 +550,7 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
----
+___
 
 ### Image
 
@@ -558,10 +558,10 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 #### Parameters
 
-| Name       | Type                                     |
-| :--------- | :--------------------------------------- |
-| `props`    | [`ImageProps`](interfaces/ImageProps.md) |
-| `context?` | `any`                                    |
+| Name | Type |
+| :------ | :------ |
+| `props` | [`ImageProps`](interfaces/ImageProps.md) |
+| `context?` | `any` |
 
 #### Returns
 
@@ -571,7 +571,7 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
----
+___
 
 ### Link
 
@@ -581,9 +581,9 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 #### Parameters
 
-| Name    | Type                                                                                           |
-| :------ | :--------------------------------------------------------------------------------------------- |
-| `props` | `Omit`\<[`LinkProps`](README.md#linkprops), `"ref"`\> & `RefAttributes`\<`HTMLAnchorElement`\> |
+| Name | Type |
+| :------ | :------ |
+| `props` | `Omit`\<[`LinkProps`](README.md#linkprops), ``"ref"``\> & `RefAttributes`\<`HTMLAnchorElement`\> |
 
 #### Returns
 
@@ -593,7 +593,7 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:396
 
----
+___
 
 ### Placeholder
 
@@ -601,8 +601,8 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:396
 
 #### Parameters
 
-| Name    | Type                                                                   | Description                            |
-| :------ | :--------------------------------------------------------------------- | :------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `props` | [`PlaceholderComponentProps`](interfaces/PlaceholderComponentProps.md) | props to pass to the wrapped component |
 
 #### Returns
@@ -613,9 +613,9 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:396
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withComponentFactory.tsx:20](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/enhancers/withComponentFactory.tsx#L20)
+[packages/sitecore-jss-react/src/enhancers/withComponentFactory.tsx:20](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/enhancers/withComponentFactory.tsx#L20)
 
----
+___
 
 ### RichText
 
@@ -623,10 +623,10 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:396
 
 #### Parameters
 
-| Name       | Type                                           |
-| :--------- | :--------------------------------------------- |
-| `props`    | [`RichTextProps`](interfaces/RichTextProps.md) |
-| `context?` | `any`                                          |
+| Name | Type |
+| :------ | :------ |
+| `props` | [`RichTextProps`](interfaces/RichTextProps.md) |
+| `context?` | `any` |
 
 #### Returns
 
@@ -636,7 +636,7 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:396
 
 packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
----
+___
 
 ### Text
 
@@ -644,10 +644,10 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 #### Parameters
 
-| Name       | Type        |
-| :--------- | :---------- |
-| `props`    | `TextProps` |
-| `context?` | `any`       |
+| Name | Type |
+| :------ | :------ |
+| `props` | `TextProps` |
+| `context?` | `any` |
 
 #### Returns
 
@@ -657,7 +657,7 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
----
+___
 
 ### VisitorIdentification
 
@@ -665,10 +665,10 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 #### Parameters
 
-| Name       | Type                         |
-| :--------- | :--------------------------- |
-| `props`    | `VisitorIdentificationProps` |
-| `context?` | `any`                        |
+| Name | Type |
+| :------ | :------ |
+| `props` | `VisitorIdentificationProps` |
+| `context?` | `any` |
 
 #### Returns
 
@@ -678,7 +678,7 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
----
+___
 
 ### enableDebug
 
@@ -688,8 +688,8 @@ Enable debug logging dynamically
 
 #### Parameters
 
-| Name         | Type     | Description                                  |
-| :----------- | :------- | :------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `namespaces` | `string` | space-separated list of namespaces to enable |
 
 #### Returns
@@ -700,7 +700,7 @@ Enable debug logging dynamically
 
 packages/sitecore-jss/types/debug.d.ts:7
 
----
+___
 
 ### fetchBYOCComponentServerProps
 
@@ -710,8 +710,8 @@ Fetches server component props required for server rendering, based on rendering
 
 #### Parameters
 
-| Name     | Type                                                   | Description      |
-| :------- | :----------------------------------------------------- | :--------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `params` | [`BYOCComponentParams`](README.md#byoccomponentparams) | component params |
 
 #### Returns
@@ -720,9 +720,9 @@ Fetches server component props required for server rendering, based on rendering
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:173](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L173)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:173](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L173)
 
----
+___
 
 ### fetchFEaaSComponentServerProps
 
@@ -733,11 +733,11 @@ Component endpoint will either be retrieved from params or from endpointOverride
 
 #### Parameters
 
-| Name                | Type                                                        | Description                                            |
-| :------------------ | :---------------------------------------------------------- | :----------------------------------------------------- |
-| `params`            | [`FEaaSComponentParams`](README.md#feaascomponentparams)    | component params                                       |
-| `pageState?`        | [`LayoutServicePageState`](enums/LayoutServicePageState.md) | page state to determine which component variant to use |
-| `endpointOverride?` | `string`                                                    | optional override for component endpoint               |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params` | [`FEaaSComponentParams`](README.md#feaascomponentparams) | component params |
+| `pageState?` | [`LayoutServicePageState`](enums/LayoutServicePageState.md) | page state to determine which component variant to use |
+| `endpointOverride?` | `string` | optional override for component endpoint |
 
 #### Returns
 
@@ -745,9 +745,9 @@ Component endpoint will either be retrieved from params or from endpointOverride
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:107](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L107)
+[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:107](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L107)
 
----
+___
 
 ### getChildPlaceholder
 
@@ -757,10 +757,10 @@ Gets rendering definitions in a given child placeholder under a current renderin
 
 #### Parameters
 
-| Name              | Type                                                     |
-| :---------------- | :------------------------------------------------------- |
-| `rendering`       | [`ComponentRendering`](interfaces/ComponentRendering.md) |
-| `placeholderName` | `string`                                                 |
+| Name | Type |
+| :------ | :------ |
+| `rendering` | [`ComponentRendering`](interfaces/ComponentRendering.md) |
+| `placeholderName` | `string` |
 
 #### Returns
 
@@ -772,7 +772,7 @@ child placeholder
 
 packages/sitecore-jss/types/layout/utils.d.ts:17
 
----
+___
 
 ### getComponentLibraryStylesheetLinks
 
@@ -782,11 +782,11 @@ Walks through rendering tree and returns list of links of all FEAAS, BYOC or SXA
 
 #### Parameters
 
-| Name                    | Type                                                   | Description                                                                   |
-| :---------------------- | :----------------------------------------------------- | :---------------------------------------------------------------------------- |
-| `layoutData`            | [`LayoutServiceData`](interfaces/LayoutServiceData.md) | Layout service data                                                           |
-| `sitecoreEdgeContextId` | `string`                                               | Sitecore Edge Context ID                                                      |
-| `sitecoreEdgeUrl?`      | `string`                                               | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `layoutData` | [`LayoutServiceData`](interfaces/LayoutServiceData.md) | Layout service data |
+| `sitecoreEdgeContextId` | `string` | Sitecore Edge Context ID |
+| `sitecoreEdgeUrl?` | `string` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
 
 #### Returns
 
@@ -798,7 +798,7 @@ library stylesheet links
 
 packages/sitecore-jss/types/layout/themes.d.ts:10
 
----
+___
 
 ### getContentStylesheetLink
 
@@ -808,11 +808,11 @@ Get the content styles link to be loaded from the Sitecore Edge Platform
 
 #### Parameters
 
-| Name                    | Type                                                   | Description                                                                   |
-| :---------------------- | :----------------------------------------------------- | :---------------------------------------------------------------------------- |
-| `layoutData`            | [`LayoutServiceData`](interfaces/LayoutServiceData.md) | Layout service data                                                           |
-| `sitecoreEdgeContextId` | `string`                                               | Sitecore Edge Context ID                                                      |
-| `sitecoreEdgeUrl?`      | `string`                                               | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `layoutData` | [`LayoutServiceData`](interfaces/LayoutServiceData.md) | Layout service data |
+| `sitecoreEdgeContextId` | `string` | Sitecore Edge Context ID |
+| `sitecoreEdgeUrl?` | `string` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
 
 #### Returns
 
@@ -824,7 +824,7 @@ content styles link, null if no styles are used in layout
 
 packages/sitecore-jss/types/layout/content-styles.d.ts:13
 
----
+___
 
 ### getEEMarkup
 
@@ -832,12 +832,12 @@ packages/sitecore-jss/types/layout/content-styles.d.ts:13
 
 #### Parameters
 
-| Name              | Type                                     | Description                                                                                      |
-| :---------------- | :--------------------------------------- | :----------------------------------------------------------------------------------------------- |
-| `imageField`      | [`ImageField`](interfaces/ImageField.md) | {ImageField} provides the dynamicMedia which is used to render the image                         |
-| `imageParams?`    | `Object`                                 | {ImageProp['imageParams']}} provides the image parameters that will be attached to the image URL |
-| `mediaUrlPrefix?` | `RegExp`                                 | {RegExp} the url prefix regex used in the mediaApi                                               |
-| `otherProps?`     | [`ImageProps`](interfaces/ImageProps.md) | {ImageProps} all other props included on the image component                                     |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `imageField` | [`ImageField`](interfaces/ImageField.md) | {ImageField} provides the dynamicMedia which is used to render the image |
+| `imageParams?` | `Object` | {ImageProp['imageParams']}} provides the image parameters that will be attached to the image URL |
+| `mediaUrlPrefix?` | `RegExp` | {RegExp} the url prefix regex used in the mediaApi |
+| `otherProps?` | [`ImageProps`](interfaces/ImageProps.md) | {ImageProps} all other props included on the image component |
 
 #### Returns
 
@@ -847,9 +847,9 @@ Experience Editor Markup
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:125](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Image.tsx#L125)
+[packages/sitecore-jss-react/src/components/Image.tsx:125](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Image.tsx#L125)
 
----
+___
 
 ### getFEAASLibraryStylesheetLinks
 
@@ -859,11 +859,11 @@ Walks through rendering tree and returns list of links of all FEAAS Component Li
 
 #### Parameters
 
-| Name                    | Type                                                   | Description                                                                   |
-| :---------------------- | :----------------------------------------------------- | :---------------------------------------------------------------------------- |
-| `layoutData`            | [`LayoutServiceData`](interfaces/LayoutServiceData.md) | Layout service data                                                           |
-| `sitecoreEdgeContextId` | `string`                                               | Sitecore Edge Context ID                                                      |
-| `sitecoreEdgeUrl?`      | `string`                                               | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `layoutData` | [`LayoutServiceData`](interfaces/LayoutServiceData.md) | Layout service data |
+| `sitecoreEdgeContextId` | `string` | Sitecore Edge Context ID |
+| `sitecoreEdgeUrl?` | `string` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
 
 #### Returns
 
@@ -879,7 +879,7 @@ use getComponentLibraryStylesheetLinks instead; getFEAASLibraryStylesheetLinks w
 
 packages/sitecore-jss/types/feaas/themes.d.ts:11
 
----
+___
 
 ### getFieldValue
 
@@ -891,15 +891,15 @@ Null will be returned if the field is not defined.
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Parameters
 
-| Name                | Type                                                                                                           | Description                                              |
-| :------------------ | :------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `renderingOrFields` | [`ComponentFields`](interfaces/ComponentFields.md) \| [`ComponentRendering`](interfaces/ComponentRendering.md) | the rendering or fields object to extract the field from |
-| `fieldName`         | `string`                                                                                                       | the name of the field to extract                         |
+| `fieldName` | `string` | the name of the field to extract |
 
 #### Returns
 
@@ -916,16 +916,16 @@ packages/sitecore-jss/types/layout/utils.d.ts:9
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Parameters
 
-| Name                | Type                                                                                                           |
-| :------------------ | :------------------------------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `renderingOrFields` | [`ComponentFields`](interfaces/ComponentFields.md) \| [`ComponentRendering`](interfaces/ComponentRendering.md) |
-| `fieldName`         | `string`                                                                                                       |
-| `defaultValue`      | `T`                                                                                                            |
+| `fieldName` | `string` |
+| `defaultValue` | `T` |
 
 #### Returns
 
@@ -935,7 +935,7 @@ packages/sitecore-jss/types/layout/utils.d.ts:9
 
 packages/sitecore-jss/types/layout/utils.d.ts:10
 
----
+___
 
 ### isEditorActive
 
@@ -954,7 +954,7 @@ true if executing within a Sitecore editor
 
 packages/sitecore-jss/types/utils/editing.d.ts:44
 
----
+___
 
 ### resetEditorChromes
 
@@ -970,7 +970,7 @@ Resets Sitecore editor "chromes"
 
 packages/sitecore-jss/types/utils/editing.d.ts:48
 
----
+___
 
 ### useSitecoreContext
 
@@ -978,15 +978,14 @@ packages/sitecore-jss/types/utils/editing.d.ts:48
 
 This hook grants acсess to the current Sitecore page context
 by default JSS includes the following properties in this context:
-
 - pageEditing - Provided by Layout Service, a boolean indicating whether the route is being accessed via the Experience Editor.
 - pageState - Like pageEditing, but a string: normal, preview or edit.
 - site - Provided by Layout Service, an object containing the name of the current Sitecore site context.
 
 #### Parameters
 
-| Name       | Type                                                                     | Description  |
-| :--------- | :----------------------------------------------------------------------- | :----------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `options?` | [`WithSitecoreContextOptions`](interfaces/WithSitecoreContextOptions.md) | hook options |
 
 #### Returns
@@ -995,9 +994,9 @@ by default JSS includes the following properties in this context:
 
 { sitecoreContext, updateSitecoreContext }
 
-| Name                    | Type                                                                                                                                    |
-| :---------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
-| `sitecoreContext`       | [`SitecoreContextValue`](README.md#sitecorecontextvalue)                                                                                |
+| Name | Type |
+| :------ | :------ |
+| `sitecoreContext` | [`SitecoreContextValue`](README.md#sitecorecontextvalue) |
 | `updateSitecoreContext` | (`value`: [`LayoutServiceData`](interfaces/LayoutServiceData.md) \| [`SitecoreContextValue`](README.md#sitecorecontextvalue)) => `void` |
 
 **`See`**
@@ -1008,30 +1007,26 @@ https://jss.sitecore.com/docs/techniques/extending-layout-service/layoutservice-
 
 ```ts
 const EditMode = () => {
-  const { sitecoreContext } = useSitecoreContext();
-  return <span>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>;
-};
+   const { sitecoreContext } = useSitecoreContext();
+   return <span>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
+}
 ```
 
 **`Example`**
 
 ```ts
 const EditMode = () => {
-  const { sitecoreContext, updateSitecoreContext } = useSitecoreContext({ updatable: true });
-  const onClick = () => updateSitecoreContext({ pageEditing: true });
-  return (
-    <span onClick={onClick}>
-      Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}
-    </span>
-  );
-};
+   const { sitecoreContext, updateSitecoreContext } = useSitecoreContext({ updatable: true });
+   const onClick = () => updateSitecoreContext({ pageEditing: true });
+   return <span onClick={onClick}>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
+}
 ```
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L70)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L70)
 
----
+___
 
 ### withDatasourceCheck
 
@@ -1041,8 +1036,8 @@ Checks whether a Sitecore datasource is present and renders appropriately depend
 
 #### Parameters
 
-| Name       | Type                         |
-| :--------- | :--------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `options?` | `WithDatasourceCheckOptions` |
 
 #### Returns
@@ -1050,20 +1045,20 @@ Checks whether a Sitecore datasource is present and renders appropriately depend
 `fn`
 
 The wrapped component, if a datasource is present.
-A null component (in normal mode) or an error component (in editing mode), if a datasource is not present.
+ A null component (in normal mode) or an error component (in editing mode), if a datasource is not present.
 
 ▸ \<`ComponentProps`\>(`Component`): (`props`: `ComponentProps`) => `Element`
 
 ##### Type parameters
 
-| Name             | Type                               |
-| :--------------- | :--------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `ComponentProps` | extends `WithDatasourceCheckProps` |
 
 ##### Parameters
 
-| Name        | Type                                |
-| :---------- | :---------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `Component` | `ComponentType`\<`ComponentProps`\> |
 
 ##### Returns
@@ -1074,8 +1069,8 @@ A null component (in normal mode) or an error component (in editing mode), if a 
 
 ##### Parameters
 
-| Name    | Type             |
-| :------ | :--------------- |
+| Name | Type |
+| :------ | :------ |
 | `props` | `ComponentProps` |
 
 ##### Returns
@@ -1084,9 +1079,9 @@ A null component (in normal mode) or an error component (in editing mode), if a 
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx:30](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx#L30)
+[packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx:30](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx#L30)
 
----
+___
 
 ### withEditorChromes
 
@@ -1094,8 +1089,8 @@ A null component (in normal mode) or an error component (in editing mode), if a 
 
 #### Parameters
 
-| Name               | Type                                                      |
-| :----------------- | :-------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `WrappedComponent` | `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\> |
 
 #### Returns
@@ -1104,9 +1099,9 @@ A null component (in normal mode) or an error component (in editing mode), if a 
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx:4](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L4)
+[packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx:4](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L4)
 
----
+___
 
 ### withPlaceholder
 
@@ -1114,10 +1109,10 @@ A null component (in normal mode) or an error component (in editing mode), if a 
 
 #### Parameters
 
-| Name           | Type                     |
-| :------------- | :----------------------- |
-| `placeholders` | `WithPlaceholderSpec`    |
-| `options?`     | `WithPlaceholderOptions` |
+| Name | Type |
+| :------ | :------ |
+| `placeholders` | `WithPlaceholderSpec` |
+| `options?` | `WithPlaceholderOptions` |
 
 #### Returns
 
@@ -1127,8 +1122,8 @@ A null component (in normal mode) or an error component (in editing mode), if a 
 
 ##### Parameters
 
-| Name               | Type                                                                                       |
-| :----------------- | :----------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `WrappedComponent` | `ComponentClass`\<`PlaceholderProps`, `any`\> \| `FunctionComponent`\<`PlaceholderProps`\> |
 
 ##### Returns
@@ -1139,8 +1134,8 @@ A null component (in normal mode) or an error component (in editing mode), if a 
 
 ##### Parameters
 
-| Name    | Type               | Description                            |
-| :------ | :----------------- | :------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `props` | `PlaceholderProps` | props to pass to the wrapped component |
 
 ##### Returns
@@ -1149,15 +1144,15 @@ A null component (in normal mode) or an error component (in editing mode), if a 
 
 - the rendered component
 
-| Name          | Type     |
-| :------------ | :------- |
+| Name | Type |
+| :------ | :------ |
 | `displayName` | `string` |
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx:45](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L45)
+[packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx:45](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L45)
 
----
+___
 
 ### withSitecoreContext
 
@@ -1165,8 +1160,8 @@ A null component (in normal mode) or an error component (in editing mode), if a 
 
 #### Parameters
 
-| Name       | Type                                                                     |
-| :--------- | :----------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `options?` | [`WithSitecoreContextOptions`](interfaces/WithSitecoreContextOptions.md) |
 
 #### Returns
@@ -1177,14 +1172,14 @@ A null component (in normal mode) or an error component (in editing mode), if a 
 
 ##### Type parameters
 
-| Name             | Type                                                                     |
-| :--------------- | :----------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `ComponentProps` | extends [`ComponentConsumerProps`](interfaces/ComponentConsumerProps.md) |
 
 ##### Parameters
 
-| Name        | Type                                |
-| :---------- | :---------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `Component` | `ComponentType`\<`ComponentProps`\> |
 
 ##### Returns
@@ -1195,8 +1190,8 @@ A null component (in normal mode) or an error component (in editing mode), if a 
 
 ##### Parameters
 
-| Name    | Type                                                                                       |
-| :------ | :----------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `props` | [`WithSitecoreContextHocProps`](README.md#withsitecorecontexthocprops)\<`ComponentProps`\> |
 
 ##### Returns
@@ -1205,4 +1200,4 @@ A null component (in normal mode) or an error component (in editing mode), if a 
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:25](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L25)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:25](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L25)

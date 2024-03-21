@@ -16,7 +16,7 @@
 
 ### Properties
 
-- [SIZE_UNITS](FileUpload.md#size_units)
+- [SIZE\_UNITS](FileUpload.md#size_units)
 - [context](FileUpload.md#context)
 - [fileInputRef](FileUpload.md#fileinputref)
 - [props](FileUpload.md#props)
@@ -26,9 +26,9 @@
 
 ### Methods
 
-- [UNSAFE_componentWillMount](FileUpload.md#unsafe_componentwillmount)
-- [UNSAFE_componentWillReceiveProps](FileUpload.md#unsafe_componentwillreceiveprops)
-- [UNSAFE_componentWillUpdate](FileUpload.md#unsafe_componentwillupdate)
+- [UNSAFE\_componentWillMount](FileUpload.md#unsafe_componentwillmount)
+- [UNSAFE\_componentWillReceiveProps](FileUpload.md#unsafe_componentwillreceiveprops)
+- [UNSAFE\_componentWillUpdate](FileUpload.md#unsafe_componentwillupdate)
 - [componentDidCatch](FileUpload.md#componentdidcatch)
 - [componentDidMount](FileUpload.md#componentdidmount)
 - [componentDidUpdate](FileUpload.md#componentdidupdate)
@@ -53,8 +53,8 @@
 
 #### Parameters
 
-| Name    | Type                                                                                                                                                                 |
-| :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `props` | [`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\> \| `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
 
 #### Inherited from
@@ -69,10 +69,10 @@ node_modules/@types/react/ts5.0/index.d.ts:520
 
 #### Parameters
 
-| Name      | Type                                                                      |
-| :-------- | :------------------------------------------------------------------------ |
-| `props`   | [`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\> |
-| `context` | `any`                                                                     |
+| Name | Type |
+| :------ | :------ |
+| `props` | [`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\> |
+| `context` | `any` |
 
 **`Deprecated`**
 
@@ -90,9 +90,9 @@ node_modules/@types/react/ts5.0/index.d.ts:525
 
 ## Properties
 
-### SIZE_UNITS
+### SIZE\_UNITS
 
-• **SIZE_UNITS**: `Object`
+• **SIZE\_UNITS**: `Object`
 
 #### Index signature
 
@@ -100,9 +100,9 @@ node_modules/@types/react/ts5.0/index.d.ts:525
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
+[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
 
----
+___
 
 ### context
 
@@ -132,7 +132,7 @@ Component.context
 
 node_modules/@types/react/ts5.0/index.d.ts:518
 
----
+___
 
 ### fileInputRef
 
@@ -140,9 +140,9 @@ node_modules/@types/react/ts5.0/index.d.ts:518
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
+[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
 
----
+___
 
 ### props
 
@@ -156,7 +156,7 @@ Component.props
 
 node_modules/@types/react/ts5.0/index.d.ts:538
 
----
+___
 
 ### refs
 
@@ -178,7 +178,7 @@ Component.refs
 
 node_modules/@types/react/ts5.0/index.d.ts:544
 
----
+___
 
 ### state
 
@@ -192,7 +192,7 @@ Component.state
 
 node_modules/@types/react/ts5.0/index.d.ts:539
 
----
+___
 
 ### contextType
 
@@ -203,13 +203,13 @@ If set, `this.context` will be set at runtime to the current value of the given 
 Usage:
 
 ```ts
-type MyContext = number;
-const Ctx = React.createContext<MyContext>(0);
+type MyContext = number
+const Ctx = React.createContext<MyContext>(0)
 
 class Foo extends React.Component {
-  static contextType = Ctx;
-  context!: React.ContextType<typeof Ctx>;
-  render() {
+  static contextType = Ctx
+  context!: React.ContextType<typeof Ctx>
+  render () {
     return <>My context's value: {this.context}</>;
   }
 }
@@ -229,7 +229,7 @@ node_modules/@types/react/ts5.0/index.d.ts:501
 
 ## Methods
 
-### UNSAFE_componentWillMount
+### UNSAFE\_componentWillMount
 
 ▸ `Optional` **UNSAFE_componentWillMount**(): `void`
 
@@ -251,20 +251,20 @@ prevents this from being invoked.
 
 **`See`**
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Inherited from
 
-Component.UNSAFE_componentWillMount
+Component.UNSAFE\_componentWillMount
 
 #### Defined in
 
 node_modules/@types/react/ts5.0/index.d.ts:735
 
----
+___
 
-### UNSAFE_componentWillReceiveProps
+### UNSAFE\_componentWillReceiveProps
 
 ▸ `Optional` **UNSAFE_componentWillReceiveProps**(`nextProps`, `nextContext`): `void`
 
@@ -281,10 +281,10 @@ prevents this from being invoked.
 
 #### Parameters
 
-| Name          | Type                                                                                    |
-| :------------ | :-------------------------------------------------------------------------------------- |
-| `nextProps`   | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
-| `nextContext` | `any`                                                                                   |
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -296,20 +296,20 @@ prevents this from being invoked.
 
 **`See`**
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Inherited from
 
-Component.UNSAFE_componentWillReceiveProps
+Component.UNSAFE\_componentWillReceiveProps
 
 #### Defined in
 
 node_modules/@types/react/ts5.0/index.d.ts:767
 
----
+___
 
-### UNSAFE_componentWillUpdate
+### UNSAFE\_componentWillUpdate
 
 ▸ `Optional` **UNSAFE_componentWillUpdate**(`nextProps`, `nextState`, `nextContext`): `void`
 
@@ -324,11 +324,11 @@ prevents this from being invoked.
 
 #### Parameters
 
-| Name          | Type                                                                                    |
-| :------------ | :-------------------------------------------------------------------------------------- |
-| `nextProps`   | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
-| `nextState`   | `Readonly`\<{}\>                                                                        |
-| `nextContext` | `any`                                                                                   |
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
+| `nextState` | `Readonly`\<{}\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -340,18 +340,18 @@ prevents this from being invoked.
 
 **`See`**
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Inherited from
 
-Component.UNSAFE_componentWillUpdate
+Component.UNSAFE\_componentWillUpdate
 
 #### Defined in
 
 node_modules/@types/react/ts5.0/index.d.ts:795
 
----
+___
 
 ### componentDidCatch
 
@@ -362,9 +362,9 @@ the entire component tree to unmount.
 
 #### Parameters
 
-| Name        | Type        |
-| :---------- | :---------- |
-| `error`     | `Error`     |
+| Name | Type |
+| :------ | :------ |
+| `error` | `Error` |
 | `errorInfo` | `ErrorInfo` |
 
 #### Returns
@@ -379,7 +379,7 @@ Component.componentDidCatch
 
 node_modules/@types/react/ts5.0/index.d.ts:664
 
----
+___
 
 ### componentDidMount
 
@@ -399,7 +399,7 @@ Component.componentDidMount
 
 node_modules/@types/react/ts5.0/index.d.ts:643
 
----
+___
 
 ### componentDidUpdate
 
@@ -407,8 +407,8 @@ node_modules/@types/react/ts5.0/index.d.ts:643
 
 #### Parameters
 
-| Name        | Type                                                                      |
-| :---------- | :------------------------------------------------------------------------ |
+| Name | Type |
+| :------ | :------ |
 | `prevProps` | [`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\> |
 
 #### Returns
@@ -421,9 +421,9 @@ Component.componentDidUpdate
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
+[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
 
----
+___
 
 ### componentWillMount
 
@@ -445,8 +445,8 @@ prevents this from being invoked.
 
 **`See`**
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Inherited from
 
@@ -456,7 +456,7 @@ Component.componentWillMount
 
 node_modules/@types/react/ts5.0/index.d.ts:721
 
----
+___
 
 ### componentWillReceiveProps
 
@@ -473,10 +473,10 @@ prevents this from being invoked.
 
 #### Parameters
 
-| Name          | Type                                                                                    |
-| :------------ | :-------------------------------------------------------------------------------------- |
-| `nextProps`   | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
-| `nextContext` | `any`                                                                                   |
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -488,8 +488,8 @@ prevents this from being invoked.
 
 **`See`**
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Inherited from
 
@@ -499,7 +499,7 @@ Component.componentWillReceiveProps
 
 node_modules/@types/react/ts5.0/index.d.ts:750
 
----
+___
 
 ### componentWillUnmount
 
@@ -520,7 +520,7 @@ Component.componentWillUnmount
 
 node_modules/@types/react/ts5.0/index.d.ts:659
 
----
+___
 
 ### componentWillUpdate
 
@@ -535,11 +535,11 @@ prevents this from being invoked.
 
 #### Parameters
 
-| Name          | Type                                                                                    |
-| :------------ | :-------------------------------------------------------------------------------------- |
-| `nextProps`   | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
-| `nextState`   | `Readonly`\<{}\>                                                                        |
-| `nextContext` | `any`                                                                                   |
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
+| `nextState` | `Readonly`\<{}\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -551,8 +551,8 @@ prevents this from being invoked.
 
 **`See`**
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Inherited from
 
@@ -562,7 +562,7 @@ Component.componentWillUpdate
 
 node_modules/@types/react/ts5.0/index.d.ts:780
 
----
+___
 
 ### forceUpdate
 
@@ -570,8 +570,8 @@ node_modules/@types/react/ts5.0/index.d.ts:780
 
 #### Parameters
 
-| Name        | Type         |
-| :---------- | :----------- |
+| Name | Type |
+| :------ | :------ |
 | `callback?` | () => `void` |
 
 #### Returns
@@ -586,7 +586,7 @@ Component.forceUpdate
 
 node_modules/@types/react/ts5.0/index.d.ts:535
 
----
+___
 
 ### getEnabledValidation
 
@@ -594,8 +594,8 @@ node_modules/@types/react/ts5.0/index.d.ts:535
 
 #### Parameters
 
-| Name     | Type     |
-| :------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `itemId` | `string` |
 
 #### Returns
@@ -604,9 +604,9 @@ node_modules/@types/react/ts5.0/index.d.ts:535
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
+[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
 
----
+___
 
 ### getFileSizeUnitName
 
@@ -614,8 +614,8 @@ node_modules/@types/react/ts5.0/index.d.ts:535
 
 #### Parameters
 
-| Name    | Type     |
-| :------ | :------- |
+| Name | Type |
+| :------ | :------ |
 | `value` | `number` |
 
 #### Returns
@@ -624,9 +624,9 @@ node_modules/@types/react/ts5.0/index.d.ts:535
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
+[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
 
----
+___
 
 ### getSnapshotBeforeUpdate
 
@@ -641,10 +641,10 @@ lifecycle events from running.
 
 #### Parameters
 
-| Name        | Type                                                                                    |
-| :---------- | :-------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `prevProps` | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
-| `prevState` | `Readonly`\<{}\>                                                                        |
+| `prevState` | `Readonly`\<{}\> |
 
 #### Returns
 
@@ -658,7 +658,7 @@ Component.getSnapshotBeforeUpdate
 
 node_modules/@types/react/ts5.0/index.d.ts:700
 
----
+___
 
 ### onChangeField
 
@@ -666,11 +666,11 @@ node_modules/@types/react/ts5.0/index.d.ts:700
 
 #### Parameters
 
-| Name    | Type                                                      |
-| :------ | :-------------------------------------------------------- |
-| `files` | `null` \| `FileList`                                      |
-| `field` | `ValueFormField`\<`FileInputViewModel`\>                  |
-| `cb`    | [`FieldChangeCallback`](../README.md#fieldchangecallback) |
+| Name | Type |
+| :------ | :------ |
+| `files` | ``null`` \| `FileList` |
+| `field` | `ValueFormField`\<`FileInputViewModel`\> |
+| `cb` | [`FieldChangeCallback`](../README.md#fieldchangecallback) |
 
 #### Returns
 
@@ -678,9 +678,9 @@ node_modules/@types/react/ts5.0/index.d.ts:700
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
+[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
 
----
+___
 
 ### render
 
@@ -696,9 +696,9 @@ Component.render
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
+[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
 
----
+___
 
 ### setState
 
@@ -706,16 +706,16 @@ Component.render
 
 #### Type parameters
 
-| Name | Type            |
-| :--- | :-------------- |
-| `K`  | extends `never` |
+| Name | Type |
+| :------ | :------ |
+| `K` | extends `never` |
 
 #### Parameters
 
-| Name        | Type                                                                                                                                                                                                        |
-| :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `state`     | `null` \| {} \| (`prevState`: `Readonly`\<{}\>, `props`: `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\>) => `null` \| {} \| `Pick`\<{}, `K`\> \| `Pick`\<{}, `K`\> |
-| `callback?` | () => `void`                                                                                                                                                                                                |
+| Name | Type |
+| :------ | :------ |
+| `state` | ``null`` \| {} \| (`prevState`: `Readonly`\<{}\>, `props`: `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\>) => ``null`` \| {} \| `Pick`\<{}, `K`\> \| `Pick`\<{}, `K`\> |
+| `callback?` | () => `void` |
 
 #### Returns
 
@@ -729,7 +729,7 @@ Component.setState
 
 node_modules/@types/react/ts5.0/index.d.ts:530
 
----
+___
 
 ### shouldComponentUpdate
 
@@ -746,11 +746,11 @@ and `componentDidUpdate` will not be called.
 
 #### Parameters
 
-| Name          | Type                                                                                    |
-| :------------ | :-------------------------------------------------------------------------------------- |
-| `nextProps`   | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
-| `nextState`   | `Readonly`\<{}\>                                                                        |
-| `nextContext` | `any`                                                                                   |
+| Name | Type |
+| :------ | :------ |
+| `nextProps` | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
+| `nextState` | `Readonly`\<{}\> |
+| `nextContext` | `any` |
 
 #### Returns
 

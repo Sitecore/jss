@@ -30,9 +30,9 @@ Instantiates a module for a lazy-loaded JSS component(s)
 
 #### Parameters
 
-| Name    | Type                                                              | Description                    |
-| :------ | :---------------------------------------------------------------- | :----------------------------- |
-| `value` | `Type`\<`unknown`\> \| \{ `[key: string]`: `Type`\<`unknown`\>; } | component or map of components |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `Type`\<`unknown`\> \| \{ `[key: string]`: `Type`\<`unknown`\>;  } | component or map of components |
 
 #### Returns
 
@@ -42,9 +42,9 @@ module
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/lib.module.ts:106](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/lib.module.ts#L106)
+[packages/sitecore-jss-angular/src/lib.module.ts:106](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/lib.module.ts#L106)
 
----
+___
 
 ### forRoot
 
@@ -61,9 +61,9 @@ module
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/lib.module.ts:81](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/lib.module.ts#L81)
+[packages/sitecore-jss-angular/src/lib.module.ts:81](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/lib.module.ts#L81)
 
----
+___
 
 ### withComponents
 
@@ -74,9 +74,9 @@ Appropriate when defining the set of JSS components that your app is aware of.
 
 #### Parameters
 
-| Name              | Type                                                                  |
-| :---------------- | :-------------------------------------------------------------------- |
-| `components`      | [`ComponentNameAndType`](ComponentNameAndType.md)[]                   |
+| Name | Type |
+| :------ | :------ |
+| `components` | [`ComponentNameAndType`](ComponentNameAndType.md)[] |
 | `lazyComponents?` | [`ComponentNameAndModule`](../interfaces/ComponentNameAndModule.md)[] |
 
 #### Returns
@@ -87,4 +87,4 @@ module
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/lib.module.ts:125](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular/src/lib.module.ts#L125)
+[packages/sitecore-jss-angular/src/lib.module.ts:125](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular/src/lib.module.ts#L125)

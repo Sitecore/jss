@@ -27,20 +27,20 @@
 
 ### GraphQLClientError
 
-Ƭ **GraphQLClientError**: `Partial`\<[`ClientError`](../classes/index.ClientError.md)\> & \{ `code?`: `string` }
+Ƭ **GraphQLClientError**: `Partial`\<[`ClientError`](../classes/index.ClientError.md)\> & \{ `code?`: `string`  }
 
 This type represents errors that can occur in a GraphQL client.
 In cases where an error status was sent back from the server (`!response.ok`), the `response` will be populated with details. In cases where a response was never received, the `code` can be populated with the error code (e.g. Node's 'ECONNRESET', 'ETIMEDOUT', etc).
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:21
+packages/sitecore-jss/types/graphql-request-client.d.ts:41
 
----
+___
 
 ### GraphQLRequestClientFactory
 
-Ƭ **GraphQLRequestClientFactory**: (`config`: `Omit`\<`GraphQLRequestClientConfig`, `"apiKey"`\>) => [`GraphQLRequestClient`](../classes/graphql.GraphQLRequestClient.md)
+Ƭ **GraphQLRequestClientFactory**: (`config`: `Omit`\<`GraphQLRequestClientConfig`, ``"apiKey"``\>) => [`GraphQLRequestClient`](../classes/graphql.GraphQLRequestClient.md)
 
 #### Type declaration
 
@@ -51,9 +51,9 @@ This factory function is used to create and configure GraphQL clients for making
 
 ##### Parameters
 
-| Name     | Type                                               | Description                                                                      |
-| :------- | :------------------------------------------------- | :------------------------------------------------------------------------------- |
-| `config` | `Omit`\<`GraphQLRequestClientConfig`, `"apiKey"`\> | The configuration object that specifies how the GraphQL client should be set up. |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `config` | `Omit`\<`GraphQLRequestClientConfig`, ``"apiKey"``\> | The configuration object that specifies how the GraphQL client should be set up. |
 
 ##### Returns
 
@@ -63,9 +63,9 @@ An instance of a GraphQL Request Client ready to send GraphQL requests.
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:80
+packages/sitecore-jss/types/graphql-request-client.d.ts:100
 
----
+___
 
 ### GraphQLRequestClientFactoryConfig
 
@@ -75,14 +75,14 @@ Configuration type for
 
 #### Type declaration
 
-| Name       | Type     |
-| :--------- | :------- |
-| `apiKey?`  | `string` |
+| Name | Type |
+| :------ | :------ |
+| `apiKey?` | `string` |
 | `endpoint` | `string` |
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:84
+packages/sitecore-jss/types/graphql-request-client.d.ts:104
 
 ## Functions
 
@@ -94,10 +94,10 @@ Generates a URL for accessing Sitecore Edge Platform Content using the provided 
 
 #### Parameters
 
-| Name                    | Type     | Description                                                                                    |
-| :---------------------- | :------- | :--------------------------------------------------------------------------------------------- |
-| `sitecoreEdgeContextId` | `string` | The unique context id.                                                                         |
-| `sitecoreEdgeUrl?`      | `string` | The base endpoint URL for the Edge Platform. Default is https://edge-platform.sitecorecloud.io |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `sitecoreEdgeContextId` | `string` | The unique context id. |
+| `sitecoreEdgeUrl?` | `string` | The base endpoint URL for the Edge Platform. Default is https://edge-platform.sitecorecloud.io |
 
 #### Returns
 

@@ -40,9 +40,9 @@ Creates an instance of graphQL service to retrieve site configuration list from 
 
 #### Parameters
 
-| Name     | Type                                                                               | Description |
-| :------- | :--------------------------------------------------------------------------------- | :---------- |
-| `config` | [`GraphQLSiteInfoServiceConfig`](../modules/index.md#graphqlsiteinfoserviceconfig) | instance    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `config` | [`GraphQLSiteInfoServiceConfig`](../modules/index.md#graphqlsiteinfoserviceconfig) | instance |
 
 #### Defined in
 
@@ -58,7 +58,7 @@ packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:78
 
 packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:68
 
----
+___
 
 ### config
 
@@ -68,7 +68,7 @@ packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:68
 
 packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:66
 
----
+___
 
 ### getCacheKey
 
@@ -78,7 +78,7 @@ packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:66
 
 packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:95
 
----
+___
 
 ### graphQLClient
 
@@ -102,7 +102,7 @@ packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:67
 
 packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:69
 
----
+___
 
 ### siteQuery
 
@@ -132,7 +132,7 @@ packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:73
 
 packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:79
 
----
+___
 
 ### fetchWithDefaultQuery
 
@@ -146,7 +146,7 @@ packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:79
 
 packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:80
 
----
+___
 
 ### fetchWithSiteQuery
 
@@ -160,7 +160,7 @@ packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:80
 
 packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:81
 
----
+___
 
 ### getCacheClient
 
@@ -179,7 +179,7 @@ CacheClient instance
 
 packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:87
 
----
+___
 
 ### getGraphQLClient
 

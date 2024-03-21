@@ -43,16 +43,16 @@
 
 #### Type declaration
 
-| Name         | Type                                       | Description                             |
-| :----------- | :----------------------------------------- | :-------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `components` | `string`[] \| `Map`\<`string`, `unknown`\> | Components available in the application |
-| `metadata`   | `Metadata`                                 | Application metadata                    |
+| `metadata` | `Metadata` | Application metadata |
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:7](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L7)
+[packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:7](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L7)
 
----
+___
 
 ### EditingData
 
@@ -62,16 +62,16 @@ Data sent from Sitecore editors
 
 #### Type declaration
 
-| Name         | Type                                                            |
-| :----------- | :-------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `dictionary` | [`DictionaryPhrases`](../interfaces/index.DictionaryPhrases.md) |
-| `language`   | `string`                                                        |
+| `language` | `string` |
 | `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) |
-| `path`       | `string`                                                        |
+| `path` | `string` |
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
+[packages/sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
 
 ## Variables
 
@@ -87,4 +87,4 @@ https://vercel.com/docs/environment-variables#system-environment-variables
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:222](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L222)
+[packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts:222](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L222)

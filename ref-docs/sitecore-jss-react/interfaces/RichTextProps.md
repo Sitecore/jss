@@ -26,14 +26,14 @@ If true and `field.editable` has a value, then `field.editable` will be processe
 **`Default`**
 
 ```ts
-true;
+true
 ```
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:23](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/RichText.tsx#L23)
+[packages/sitecore-jss-react/src/components/RichText.tsx:23](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/RichText.tsx#L23)
 
----
+___
 
 ### field
 
@@ -43,9 +43,9 @@ The rich text field data.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:12](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/RichText.tsx#L12)
+[packages/sitecore-jss-react/src/components/RichText.tsx:12](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/RichText.tsx#L12)
 
----
+___
 
 ### tag
 
@@ -61,4 +61,4 @@ The HTML element that will wrap the contents of the field.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:17](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/RichText.tsx#L17)
+[packages/sitecore-jss-react/src/components/RichText.tsx:17](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/RichText.tsx#L17)

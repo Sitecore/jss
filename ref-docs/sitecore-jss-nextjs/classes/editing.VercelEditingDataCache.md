@@ -36,14 +36,14 @@ Set TTL for cache data in constructor (default: 60 seconds)
 
 #### Parameters
 
-| Name         | Type                    | Description                                                        |
-| :----------- | :---------------------- | :----------------------------------------------------------------- |
-| `redisUrl`   | `undefined` \| `string` | KV endpoint URL. Usually stored in process.env.KV_REST_API_URL     |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `redisUrl` | `undefined` \| `string` | KV endpoint URL. Usually stored in process.env.KV_REST_API_URL |
 | `redisToken` | `undefined` \| `string` | KV endpoint tokem. Usually stored in process.env.KV_REST_API_TOKEN |
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:19](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L19)
+[packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:19](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L19)
 
 ## Properties
 
@@ -53,9 +53,9 @@ Set TTL for cache data in constructor (default: 60 seconds)
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:13](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L13)
+[packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:13](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L13)
 
----
+___
 
 ### redisCache
 
@@ -63,7 +63,7 @@ Set TTL for cache data in constructor (default: 60 seconds)
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L12)
+[packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L12)
 
 ## Methods
 
@@ -73,8 +73,8 @@ Set TTL for cache data in constructor (default: 60 seconds)
 
 #### Parameters
 
-| Name  | Type     |
-| :---- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `key` | `string` |
 
 #### Returns
@@ -87,9 +87,9 @@ Set TTL for cache data in constructor (default: 60 seconds)
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L41)
+[packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L41)
 
----
+___
 
 ### set
 
@@ -97,9 +97,9 @@ Set TTL for cache data in constructor (default: 60 seconds)
 
 #### Parameters
 
-| Name          | Type                                               |
-| :------------ | :------------------------------------------------- |
-| `key`         | `string`                                           |
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` |
 | `editingData` | [`EditingData`](../modules/editing.md#editingdata) |
 
 #### Returns
@@ -112,4 +112,4 @@ Set TTL for cache data in constructor (default: 60 seconds)
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:31](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L31)
+[packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:31](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L31)

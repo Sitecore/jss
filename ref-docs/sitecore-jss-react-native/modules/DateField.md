@@ -18,9 +18,9 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Date.tsx:56](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react-native/src/components/Date.tsx#L56)
+[sitecore-jss-react-native/src/components/Date.tsx:56](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react-native/src/components/Date.tsx#L56)
 
----
+___
 
 ### displayName
 
@@ -28,9 +28,9 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Date.tsx:60](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react-native/src/components/Date.tsx#L60)
+[sitecore-jss-react-native/src/components/Date.tsx:60](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react-native/src/components/Date.tsx#L60)
 
----
+___
 
 ### propTypes
 
@@ -38,4 +38,4 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Date.tsx:47](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react-native/src/components/Date.tsx#L47)
+[sitecore-jss-react-native/src/components/Date.tsx:47](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react-native/src/components/Date.tsx#L47)

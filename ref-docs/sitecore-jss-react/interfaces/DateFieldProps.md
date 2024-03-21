@@ -27,14 +27,14 @@ If true and `field.editable` has a value, then `field.editable` will be processe
 **`Default`**
 
 ```ts
-true;
+true
 ```
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:20](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Date.tsx#L20)
+[packages/sitecore-jss-react/src/components/Date.tsx:20](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Date.tsx#L20)
 
----
+___
 
 ### field
 
@@ -42,16 +42,16 @@ true;
 
 #### Type declaration
 
-| Name        | Type     |
-| :---------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `editable?` | `string` |
-| `value?`    | `string` |
+| `value?` | `string` |
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:7](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Date.tsx#L7)
+[packages/sitecore-jss-react/src/components/Date.tsx:7](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Date.tsx#L7)
 
----
+___
 
 ### render
 
@@ -63,8 +63,8 @@ true;
 
 ##### Parameters
 
-| Name   | Type   |
-| :----- | :----- |
+| Name | Type |
+| :------ | :------ |
 | `date` | `Date` |
 
 ##### Returns
@@ -73,9 +73,9 @@ true;
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:21](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Date.tsx#L21)
+[packages/sitecore-jss-react/src/components/Date.tsx:21](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Date.tsx#L21)
 
----
+___
 
 ### tag
 
@@ -85,4 +85,4 @@ The HTML element that will wrap the contents of the field.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:14](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-react/src/components/Date.tsx#L14)
+[packages/sitecore-jss-react/src/components/Date.tsx:14](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-react/src/components/Date.tsx#L14)

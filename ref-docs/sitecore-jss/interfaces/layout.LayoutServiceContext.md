@@ -29,9 +29,9 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:43](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L43)
+[packages/sitecore-jss/src/layout/models.ts:43](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/models.ts#L43)
 
----
+___
 
 ### pageEditing
 
@@ -39,9 +39,9 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:42](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L42)
+[packages/sitecore-jss/src/layout/models.ts:42](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/models.ts#L42)
 
----
+___
 
 ### pageState
 
@@ -49,9 +49,9 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:44](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L44)
+[packages/sitecore-jss/src/layout/models.ts:44](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/models.ts#L44)
 
----
+___
 
 ### renderingType
 
@@ -59,9 +59,9 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:41](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L41)
+[packages/sitecore-jss/src/layout/models.ts:41](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/models.ts#L41)
 
----
+___
 
 ### site
 
@@ -69,15 +69,15 @@ Shape of context data from the Sitecore Layout Service
 
 #### Type declaration
 
-| Name    | Type     |
-| :------ | :------- |
+| Name | Type |
+| :------ | :------ |
 | `name?` | `string` |
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:46](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L46)
+[packages/sitecore-jss/src/layout/models.ts:46](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/models.ts#L46)
 
----
+___
 
 ### visitorIdentificationTimestamp
 
@@ -85,4 +85,4 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:45](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss/src/layout/models.ts#L45)
+[packages/sitecore-jss/src/layout/models.ts:45](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss/src/layout/models.ts#L45)

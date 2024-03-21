@@ -16,8 +16,8 @@
 
 #### Parameters
 
-| Name      | Type     |
-| :-------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `options` | `Schema` |
 
 #### Returns
@@ -28,8 +28,8 @@
 
 ##### Parameters
 
-| Name   | Type   |
-| :----- | :----- |
+| Name | Type |
+| :------ | :------ |
 | `host` | `Tree` |
 
 ##### Returns
@@ -38,4 +38,4 @@
 
 #### Defined in
 
-[index.ts:41](https://github.com/Sitecore/jss/blob/1e6cbdd9f/packages/sitecore-jss-angular-schematics/src/jss-component/index.ts#L41)
+[index.ts:41](https://github.com/Sitecore/jss/blob/34b9884ba/packages/sitecore-jss-angular-schematics/src/jss-component/index.ts#L41)
