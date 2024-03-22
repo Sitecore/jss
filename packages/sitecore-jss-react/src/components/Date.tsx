@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export interface DateFieldProps {
+export interface DateField {
+  value?: string;
+  editable?: string;
+}
+
+export interface DateProps {
   /** The date field data. */
   [htmlAttributes: string]: unknown;
   field: {
@@ -21,7 +26,7 @@ export interface DateFieldProps {
   render?: (date: Date | null) => React.ReactNode;
 }
 
-export const DateField: React.FC<DateFieldProps> = ({
+export const Date: React.FC<DateProps> = ({
   field,
   tag,
   editable,
@@ -58,7 +63,7 @@ export const DateField: React.FC<DateFieldProps> = ({
   }
 };
 
-DateField.propTypes = {
+Date.propTypes = {
   field: PropTypes.shape({
     value: PropTypes.string,
     editable: PropTypes.string,
@@ -68,8 +73,8 @@ DateField.propTypes = {
   render: PropTypes.func,
 };
 
-DateField.defaultProps = {
+Date.defaultProps = {
   editable: true,
 };
 
-DateField.displayName = 'Date';
+Date.displayName = 'Date';
