@@ -2,6 +2,7 @@
 
 - [ ] This PR follows the [Contribution Guide](https://github.com/Sitecore/jss/blob/dev/CONTRIBUTING.md)
 - [ ] Changelog updated
+- [ ] Upgrade guide entry added
 
 ## Description / Motivation
 <!--- Describe your changes in detail -->
