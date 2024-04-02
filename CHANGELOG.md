@@ -9,6 +9,12 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 21.7.1
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` `[templates/nextjs-xmcloud]` Updated @sitecore-cloudsdk/* dependencies to ^0.2.4
+
 ## 21.7.0
 
 ### 🎉 New Features & Improvements
@@ -31,6 +37,7 @@ Our versioning strategy is as follows:
     * Retries has now been enabled by default with a default value of 3. It can be disabled by configuring it to 0.
     * [Retry-After] header now falls back to the default delay time when it comes out to be empty.
     ([#1755](https://github.com/Sitecore/jss/pull/1755)) ([#1759](https://github.com/Sitecore/jss/pull/1759)) ([#1763](https://github.com/Sitecore/jss/pull/1763))
+* `[sitecore-jss-nextjs]` `[templates/nextjs-xmcloud]` Updated @sitecore-cloudsdk/* dependencies to ^0.2.3
 
 ### 🐛 Bug Fixes
 
