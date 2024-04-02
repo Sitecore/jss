@@ -40,6 +40,7 @@ Our versioning strategy is as follows:
     * [Retry-After] header now falls back to the default delay time when it comes out to be empty.
     ([#1755](https://github.com/Sitecore/jss/pull/1755)) ([#1759](https://github.com/Sitecore/jss/pull/1759)) ([#1763](https://github.com/Sitecore/jss/pull/1763))
 * `[sitecore-jss-nextjs]` `[templates/nextjs-xmcloud]` Updated @sitecore-cloudsdk/* dependencies to ^0.2.3
+* `[templates/nextjs-xmcloud]` Updated @sitecore/components to ^1.1.10
 
 ### 🐛 Bug Fixes
 
