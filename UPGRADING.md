@@ -8,8 +8,3 @@ Work-in-progress items are listed in [Unreleased](./docs/upgrades/unreleased.md)
 ## Upgrade paths for 21.x versions
 - [Upgrade from JSS 21.6 to 21.7](./docs/upgrades/21.x/21.7.md) 
 - [Upgrade from JSS 21.5 to 21.6](./docs/upgrades/21.x/21.6.md)
-
-
-
-
-  
