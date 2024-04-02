@@ -21,7 +21,7 @@ Registers a lazily loaded component by name and module to lazy load when it's ne
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:29](https://github.com/Sitecore/jss/blob/305c0be54/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L29)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:29](https://github.com/Sitecore/jss/blob/f4a52d996/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L29)
 
 ___
 
@@ -42,7 +42,7 @@ e.g. () => import('./path/to/lazyloadedcomponent.module').then(m => m.LazyLoaded
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:28](https://github.com/Sitecore/jss/blob/305c0be54/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L28)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:28](https://github.com/Sitecore/jss/blob/f4a52d996/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L28)
 
 ___
 
@@ -54,7 +54,7 @@ Name of the component
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:23](https://github.com/Sitecore/jss/blob/305c0be54/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L23)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:23](https://github.com/Sitecore/jss/blob/f4a52d996/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L23)
 
 ___
 
@@ -68,4 +68,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:34](https://github.com/Sitecore/jss/blob/305c0be54/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L34)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:34](https://github.com/Sitecore/jss/blob/f4a52d996/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L34)
