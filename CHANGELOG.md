@@ -13,7 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-* `[sitecore-jss-nextjs]` `[templates/nextjs-xmcloud]` Updated @sitecore-cloudsdk/* dependencies to ^0.2.4
+* `[sitecore-jss-nextjs]` `[templates/nextjs-xmcloud]` Updated @sitecore-cloudsdk/* dependencies to ^0.2.4 ([#1769](https://github.com/Sitecore/jss/pull/1769))
 
 ## 21.7.0
 
