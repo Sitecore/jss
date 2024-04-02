@@ -130,7 +130,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:13](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L13)
+[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:13](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L13)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:5](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L5)
+[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:5](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L5)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:21](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L21)
+[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:21](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L21)
 
 ___
 
@@ -199,7 +199,7 @@ Parameters are more developer-focused options than fields, such as configurable 
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:159](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L159)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:159](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L159)
 
 ## Variables
 
@@ -215,7 +215,7 @@ Parameters are more developer-focused options than fields, such as configurable 
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:74](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L74)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:74](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L74)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:23](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L23)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:23](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L23)
 
 ___
 
@@ -241,7 +241,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/setup/setup.ts:13](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/setup/setup.ts#L13)
+[sitecore-jss-dev-tools/src/setup/setup.ts:13](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/setup/setup.ts#L13)
 
 ## Functions
 
@@ -262,7 +262,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:16](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L16)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:16](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L16)
 
 ___
 
@@ -283,7 +283,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:64](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L64)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:64](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L64)
 
 ___
 
@@ -304,7 +304,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:72](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L72)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:72](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L72)
 
 ___
 
@@ -325,7 +325,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:35](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L35)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:35](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L35)
 
 ___
 
@@ -346,7 +346,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:56](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L56)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:56](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L56)
 
 ___
 
@@ -367,7 +367,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:45](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L45)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:45](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L45)
 
 ___
 
@@ -388,7 +388,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:27](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L27)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:27](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L27)
 
 ___
 
@@ -408,7 +408,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/clean.ts:12](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/clean.ts#L12)
+[sitecore-jss-dev-tools/src/clean.ts:12](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/clean.ts#L12)
 
 ___
 
@@ -434,7 +434,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/configLoader.ts:5](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/pipelines/configLoader.ts#L5)
+[sitecore-jss-dev-tools/src/pipelines/configLoader.ts:5](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/pipelines/configLoader.ts#L5)
 
 ___
 
@@ -454,7 +454,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts:99](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L99)
+[sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts:99](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L99)
 
 ___
 
@@ -488,7 +488,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/default-document.ts:14](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/disconnected-server/default-document.ts#L14)
+[sitecore-jss-dev-tools/src/disconnected-server/default-document.ts:14](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/disconnected-server/default-document.ts#L14)
 
 ___
 
@@ -521,7 +521,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:17](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L17)
+[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:17](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L17)
 
 ___
 
@@ -546,7 +546,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:42](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L42)
+[sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:42](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L42)
 
 ___
 
@@ -571,7 +571,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts:362](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts#L362)
+[sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts:362](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts#L362)
 
 ___
 
@@ -593,7 +593,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/update/index.ts:39](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/update/index.ts#L39)
+[sitecore-jss-dev-tools/src/update/index.ts:39](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/update/index.ts#L39)
 
 ___
 
@@ -613,7 +613,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/deploy.ts:18](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/deploy.ts#L18)
+[sitecore-jss-dev-tools/src/deploy.ts:18](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/deploy.ts#L18)
 
 ___
 
@@ -649,7 +649,7 @@ generatePlugins({ distPath: 'src/temp/foo-plugins.js', rootPath: 'src/foo/plugin
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/plugins.ts:90](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L90)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:90](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L90)
 
 ___
 
@@ -672,7 +672,7 @@ is also copied to the directory.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/generate.ts:217](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/manifest/generator/generate.ts#L217)
+[sitecore-jss-dev-tools/src/manifest/generator/generate.ts:217](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/manifest/generator/generate.ts#L217)
 
 ___
 
@@ -697,7 +697,7 @@ that is designed to get packaged/imported.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/generate.ts:174](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/manifest/generator/generate.ts#L174)
+[sitecore-jss-dev-tools/src/manifest/generator/generate.ts:174](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/manifest/generator/generate.ts#L174)
 
 ___
 
@@ -729,7 +729,7 @@ Returns a list of components in the following format:
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/components.ts:33](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/templating/components.ts#L33)
+[sitecore-jss-dev-tools/src/templating/components.ts:33](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/templating/components.ts#L33)
 
 ___
 
@@ -745,7 +745,7 @@ Get application metadata
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/metadata.ts:8](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/templating/metadata.ts#L8)
+[sitecore-jss-dev-tools/src/templating/metadata.ts:8](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/templating/metadata.ts#L8)
 
 ___
 
@@ -765,7 +765,7 @@ obj is ItemDefinition
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:369](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L369)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:369](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L369)
 
 ___
 
@@ -786,7 +786,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/mergeFs.ts:125](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L125)
+[sitecore-jss-dev-tools/src/mergeFs.ts:125](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L125)
 
 ___
 
@@ -806,7 +806,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/package-deploy.ts:270](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L270)
+[sitecore-jss-dev-tools/src/package-deploy.ts:270](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L270)
 
 ___
 
@@ -826,7 +826,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/package-generate.ts:14](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/package-generate.ts#L14)
+[sitecore-jss-dev-tools/src/package-generate.ts:14](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/package-generate.ts#L14)
 
 ___
 
@@ -846,7 +846,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/setup/jss-config.ts:4](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/setup/jss-config.ts#L4)
+[sitecore-jss-dev-tools/src/setup/jss-config.ts:4](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/setup/jss-config.ts#L4)
 
 ___
 
@@ -869,7 +869,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:20](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L20)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:20](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L20)
 
 ___
 
@@ -889,7 +889,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipeline.ts:90](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L90)
+[sitecore-jss-dev-tools/src/pipelines/pipeline.ts:90](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L90)
 
 ___
 
@@ -925,7 +925,7 @@ pipeline result
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipeline.ts:118](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L118)
+[sitecore-jss-dev-tools/src/pipelines/pipeline.ts:118](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L118)
 
 ___
 
@@ -952,7 +952,7 @@ the file path if the file was created, otherwise null
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/scaffold.ts:22](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/templating/scaffold.ts#L22)
+[sitecore-jss-dev-tools/src/templating/scaffold.ts:22](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/templating/scaffold.ts#L22)
 
 ___
 
@@ -975,7 +975,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/setup/setup.ts:69](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/setup/setup.ts#L69)
+[sitecore-jss-dev-tools/src/setup/setup.ts:69](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/setup/setup.ts#L69)
 
 ___
 
@@ -998,7 +998,7 @@ Compiles each not excluded file starting from current directory (or `settings.so
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/strip.ts:87](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/templating/strip.ts#L87)
+[sitecore-jss-dev-tools/src/templating/strip.ts:87](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/templating/strip.ts#L87)
 
 ___
 
@@ -1012,4 +1012,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/setup/verify-setup.ts:6](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-dev-tools/src/setup/verify-setup.ts#L6)
+[sitecore-jss-dev-tools/src/setup/verify-setup.ts:6](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-dev-tools/src/setup/verify-setup.ts#L6)

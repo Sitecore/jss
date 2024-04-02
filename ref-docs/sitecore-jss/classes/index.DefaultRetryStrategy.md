@@ -46,7 +46,7 @@ should be retried and calculates the delay before the next retry attempt.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:133](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss/src/graphql-request-client.ts#L133)
+[packages/sitecore-jss/src/graphql-request-client.ts:133](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss/src/graphql-request-client.ts#L133)
 
 ## Properties
 
@@ -56,7 +56,7 @@ should be retried and calculates the delay before the next retry attempt.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:124](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss/src/graphql-request-client.ts#L124)
+[packages/sitecore-jss/src/graphql-request-client.ts:124](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss/src/graphql-request-client.ts#L124)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:125](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss/src/graphql-request-client.ts#L125)
+[packages/sitecore-jss/src/graphql-request-client.ts:125](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss/src/graphql-request-client.ts#L125)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:123](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss/src/graphql-request-client.ts#L123)
+[packages/sitecore-jss/src/graphql-request-client.ts:123](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss/src/graphql-request-client.ts#L123)
 
 ## Methods
 
@@ -105,7 +105,7 @@ The delay in milliseconds before the next retry.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:146](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss/src/graphql-request-client.ts#L146)
+[packages/sitecore-jss/src/graphql-request-client.ts:146](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss/src/graphql-request-client.ts#L146)
 
 ___
 
@@ -135,4 +135,4 @@ A boolean indicating whether to retry the request.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:139](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss/src/graphql-request-client.ts#L139)
+[packages/sitecore-jss/src/graphql-request-client.ts:139](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss/src/graphql-request-client.ts#L139)

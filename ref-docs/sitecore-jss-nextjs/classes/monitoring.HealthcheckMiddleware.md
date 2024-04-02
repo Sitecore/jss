@@ -56,7 +56,7 @@ route handler
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:11](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L11)
+[packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:11](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L11)
 
 ___
 
@@ -77,4 +77,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:15](https://github.com/Sitecore/jss/blob/f7cd258f4/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L15)
+[packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:15](https://github.com/Sitecore/jss/blob/5f14bc2ea/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L15)
