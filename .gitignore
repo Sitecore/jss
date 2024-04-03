@@ -9,6 +9,9 @@
 scjssconfig.json
 scjssconfig.bak
 
+UPGRADING.md
+docs/upgrades
+
 *.pfx
 *.publishsettings
 node_modules/
