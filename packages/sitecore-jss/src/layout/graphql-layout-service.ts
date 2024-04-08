@@ -68,7 +68,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
 
     // If `rendered` is empty -> not found
     return (
-      data?.layout?.item.rendered || {
+      data?.layout?.item?.rendered || {
         sitecore: { context: { pageEditing: false, language }, route: null },
       }
     );
