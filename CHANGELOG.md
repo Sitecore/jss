@@ -661,6 +661,20 @@ Our versioning strategy is as follows:
     * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
     * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
 
+## 20.3.2
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss]` Handle null items in graphql layout service ([#1771](https://github.com/Sitecore/jss/pull/1771))
+
+## 20.3.1
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss]` Export _ClientError_ type ([#1738](https://github.com/Sitecore/jss/pull/1738))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Better error handling for component-level data fetching ([#1586](https://github.com/Sitecore/jss/pull/1586))
+* `[sitecore-jss]` Enable the Layout, dictionary and Error Page service to use custom `retryStrategy`. ([#1749](https://github.com/Sitecore/jss/pull/1749))
+
 ## 20.3.0
 
 ### 🎉 New Features & Improvements
