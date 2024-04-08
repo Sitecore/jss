@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file. The format 
 
 This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), and major versions of this project denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the [Sitecore modules compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1000576) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for more details on versioning.
 
+## 20.3.2
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss]` Handle null items in graphql layout service ([#1771](https://github.com/Sitecore/jss/pull/1771))
+
 ## 20.3.1
 
 ### 🐛 Bug Fixes
