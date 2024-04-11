@@ -10,7 +10,7 @@ import debug from '../debug';
 
 use(spies);
 
-describe.only('GraphQLSiteInfoService', () => {
+describe('GraphQLSiteInfoService', () => {
   let debugNamespaces: string;
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';

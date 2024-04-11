@@ -11,6 +11,12 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🛠 Breaking Changes
+
+[sitecore-jss] Switch to edge site query for XP.
+  * Previously introduced Boolean `useSiteQuery` switch for XMCloud users has been removed.
+  * Search query usage has been removed.
+
 ## 21.7.1
 
 ### 🐛 Bug Fixes
