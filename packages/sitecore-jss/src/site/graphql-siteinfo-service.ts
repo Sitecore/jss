@@ -1,43 +1,7 @@
-import { GraphQLClient, GraphQLRequestClient, PageInfo } from '../graphql';
+import { GraphQLClient, GraphQLRequestClient } from '../graphql';
 import debug from '../debug';
 import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
 import { GraphQLRequestClientFactory } from '../graphql-request-client';
-
-const headlessSiteGroupingTemplate = 'E46F3AF2-39FA-4866-A157-7017C4B2A40C';
-const sitecoreContentRootItem = '0DE95AE4-41AB-4D01-9EB0-67441B7C2450';
-
-const defaultQuery = /* GraphQL */ `
-  query($pageSize: Int = 10, $after: String) {
-    search(
-      where: {
-        AND: [
-          { name: "_templates", value: "${headlessSiteGroupingTemplate}", operator: CONTAINS }
-          { name: "_path", value: "${sitecoreContentRootItem}", operator: CONTAINS }
-        ]
-      }
-      first: $pageSize
-      after: $after
-    ) {
-      pageInfo {
-        endCursor
-        hasNext
-      }
-      results {
-        ... on Item {
-          name: field(name: "SiteName") {
-            value
-          }
-          hostName: field(name: "Hostname") {
-            value
-          }
-          language: field(name: "Language") {
-            value
-          }
-        }
-      }
-    }
-  }
-`;
 
 const siteQuery = /* GraphQL */ `
   query {
@@ -92,38 +56,15 @@ export type GraphQLSiteInfoServiceConfig = CacheOptions & {
    * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
    */
   clientFactory?: GraphQLRequestClientFactory;
-  /**
-   * Boolean indicating if service will use site GQL query instead of search
-   */
-  useSiteQuery?: boolean;
 };
 
 type GraphQLSiteInfoResponse = {
-  search: {
-    pageInfo: PageInfo;
-    results: GraphQLSiteInfoResult[];
+  site: {
+    siteInfoCollection: GraphQLSiteInfoResult[];
   };
 };
 
 export type GraphQLSiteInfoResult = {
-  name: {
-    value: string;
-  };
-  hostName: {
-    value: string;
-  };
-  language: {
-    value: string;
-  };
-};
-
-type GraphQLXmCloudSiteInfoResponse = {
-  site: {
-    siteInfoCollection: GraphQLXmCloudSiteInfoResult[];
-  };
-};
-
-export type GraphQLXmCloudSiteInfoResult = {
   name: string;
   hostName: string;
   language: string;
@@ -132,10 +73,6 @@ export type GraphQLXmCloudSiteInfoResult = {
 export class GraphQLSiteInfoService {
   private graphQLClient: GraphQLClient;
   private cache: CacheClient<SiteInfo[]>;
-
-  protected get query(): string {
-    return defaultQuery;
-  }
 
   /**
    * site query is available on XM Cloud and XP 10.4+
@@ -163,44 +100,14 @@ export class GraphQLSiteInfoService {
       return [];
     }
 
-    const results: SiteInfo[] = this.config.useSiteQuery
-      ? await this.fetchWithSiteQuery()
-      : await this.fetchWithDefaultQuery();
+    const results: SiteInfo[] = await this.fetchWithSiteQuery();
 
     this.cache.setCacheValue(this.getCacheKey(), results);
     return results;
   }
 
-  protected async fetchWithDefaultQuery(): Promise<SiteInfo[]> {
-    const results: SiteInfo[] = [];
-    let hasNext = true;
-    let after = '';
-
-    while (hasNext) {
-      const response = await this.graphQLClient.request<GraphQLSiteInfoResponse>(this.query, {
-        pageSize: this.config.pageSize,
-        after,
-      });
-      const result = response?.search?.results?.reduce<SiteInfo[]>((result, current) => {
-        result.push({
-          name: current.name.value,
-          hostName: current.hostName.value,
-          language: current.language.value,
-        });
-        return result;
-      }, []);
-
-      results.push(...result);
-      hasNext = response.search.pageInfo.hasNext;
-      after = response.search.pageInfo.endCursor;
-    }
-    return results;
-  }
-
   protected async fetchWithSiteQuery(): Promise<SiteInfo[]> {
-    const response = await this.graphQLClient.request<GraphQLXmCloudSiteInfoResponse>(
-      this.siteQuery
-    );
+    const response = await this.graphQLClient.request<GraphQLSiteInfoResponse>(this.siteQuery);
     const result = response?.site?.siteInfoCollection?.reduce<SiteInfo[]>((result, current) => {
       // filter out built in website
       current.name !== 'website' &&
