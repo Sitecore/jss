@@ -179,4 +179,28 @@ describe('<Text />', () => {
     expect(rendered.html()).to.contain('<h1 class="cssClass" id="lorem">');
     expect(rendered.html()).to.contain('value');
   });
+
+  it('should render metadata', () => {
+    const testMetadata = {
+      contextItem: {
+        id: '{09A07660-6834-476C-B93B-584248D3003B}',
+        language: 'en',
+        revision: 'a0b36ce0a7db49418edf90eb9621e145',
+        version: 1,
+      },
+      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
+      fieldType: 'single-line',
+      rawValue: 'Test1',
+    };
+    const field = {
+      editable: eeTextData,
+    };
+    const rendered = mount(
+      <Text metadata={testMetadata} field={field}>
+        <div>test</div>
+      </Text>
+    );
+
+    console.log(rendered.html());
+  });
 });

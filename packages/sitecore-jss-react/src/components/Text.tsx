@@ -1,4 +1,9 @@
 import React, { ReactElement, FunctionComponent } from 'react';
+import {
+  FieldMetadata,
+  FieldMetadataComponent,
+  FieldMetadataComponentProps,
+} from './FieldMetadataComponent';
 import PropTypes from 'prop-types';
 
 export interface TextField {
@@ -24,17 +29,28 @@ export interface TextProps {
    * If false, HTML-encoding of the field value is disabled and the value is rendered as-is.
    */
   encode?: boolean;
+
+  metadata?: FieldMetadata;
 }
 
 export const Text: FunctionComponent<TextProps> = ({
   field,
   tag,
+  metadata,
   editable,
   encode,
   ...otherProps
 }) => {
   if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
     return null;
+  }
+
+  if (metadata) {
+    const props: FieldMetadataComponentProps = {
+      data: JSON.stringify(metadata),
+    };
+
+    return <FieldMetadataComponent {...props}>{otherProps.children}</FieldMetadataComponent>;
   }
 
   // can't use editable value if we want to output unencoded
@@ -103,6 +119,17 @@ Text.propTypes = {
     editable: PropTypes.string,
   }),
   tag: PropTypes.string,
+  metadata: PropTypes.shape({
+    contextItem: PropTypes.shape({
+      id: PropTypes.string,
+      language: PropTypes.string,
+      revision: PropTypes.string,
+      version: PropTypes.number,
+    }),
+    fieldId: PropTypes.string,
+    fieldType: PropTypes.string,
+    rawValue: PropTypes.string,
+  }),
   editable: PropTypes.bool,
   encode: PropTypes.bool,
 };
