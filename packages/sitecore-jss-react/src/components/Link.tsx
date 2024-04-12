@@ -1,5 +1,10 @@
 import React, { ReactElement, forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import {
+  FieldMetadata,
+  FieldMetadataComponent,
+  FieldMetadataComponentProps,
+} from './FieldMetadata';
 
 export interface LinkFieldValue {
   [attributeName: string]: unknown;
@@ -38,10 +43,14 @@ export type LinkProps = React.DetailedHTMLProps<
    * NOTE: when in Sitecore Experience Editor, this setting is ignored due to technical limitations, and the description is always rendered.
    */
   showLinkTextWithChildrenPresent?: boolean;
+  /**
+   * The field metadata; when present it should be exposed for chrome hydration process when rendering in Pages
+   */
+  metadata?: FieldMetadata;
 };
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ field, editable, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {
+  ({ field, editable, metadata, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {
     const children = otherProps.children as React.ReactNode;
     const dynamicField: LinkField | LinkFieldValue = field;
 
@@ -52,6 +61,15 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         !(dynamicField as LinkFieldValue).href)
     ) {
       return null;
+    }
+
+    // when metadata is present, render it to be used for chrome hydration
+    if (metadata) {
+      const props: FieldMetadataComponentProps = {
+        data: JSON.stringify(metadata),
+      };
+
+      return <FieldMetadataComponent {...props}>{otherProps.children}</FieldMetadataComponent>;
     }
 
     const resultTags: ReactElement<unknown>[] = [];
@@ -137,6 +155,17 @@ export const LinkPropTypes = {
       editableLastPart: PropTypes.string,
     }),
   ]).isRequired,
+  metadata: PropTypes.shape({
+    contextItem: PropTypes.shape({
+      id: PropTypes.string,
+      language: PropTypes.string,
+      revision: PropTypes.string,
+      version: PropTypes.number,
+    }),
+    fieldId: PropTypes.string,
+    fieldType: PropTypes.string,
+    rawValue: PropTypes.string,
+  }),
   editable: PropTypes.bool,
   showLinkTextWithChildrenPresent: PropTypes.bool,
 };

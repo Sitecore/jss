@@ -1,5 +1,10 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import {
+  FieldMetadata,
+  FieldMetadataComponent,
+  FieldMetadataComponentProps,
+} from './FieldMetadata';
 
 export interface RichTextField {
   value?: string;
@@ -21,12 +26,25 @@ export interface RichTextProps {
    * @default true
    */
   editable?: boolean;
+  /**
+   * The field metadata; when present it should be exposed for chrome hydration process when rendering in Pages
+   */
+  metadata?: FieldMetadata;
 }
 
 export const RichText: React.FC<RichTextProps> = forwardRef(
   ({ field, tag, editable, ...otherProps }, ref) => {
     if (!field || (!field.editable && !field.value)) {
       return null;
+    }
+
+    // when metadata is present, render it to be used for chrome hydration
+    if (otherProps.metadata) {
+      const props: FieldMetadataComponentProps = {
+        data: JSON.stringify(otherProps.metadata),
+      };
+
+      return <FieldMetadataComponent {...props}>{otherProps.children}</FieldMetadataComponent>;
     }
 
     const htmlProps = {
@@ -48,6 +66,17 @@ export const RichTextPropTypes = {
   }),
   tag: PropTypes.string,
   editable: PropTypes.bool,
+  metadata: PropTypes.shape({
+    contextItem: PropTypes.shape({
+      id: PropTypes.string,
+      language: PropTypes.string,
+      revision: PropTypes.string,
+      version: PropTypes.number,
+    }),
+    fieldId: PropTypes.string,
+    fieldType: PropTypes.string,
+    rawValue: PropTypes.string,
+  }),
 };
 
 RichText.propTypes = RichTextPropTypes;
