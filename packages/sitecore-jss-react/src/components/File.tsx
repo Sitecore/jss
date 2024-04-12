@@ -1,5 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import {
+  FieldMetadata,
+  FieldMetadataComponent,
+  FieldMetadataComponentProps,
+} from './FieldMetadata';
 
 export interface FileFieldValue {
   [propName: string]: unknown;
@@ -18,9 +23,13 @@ export interface FileProps {
   field: FileFieldValue | FileField;
   /** HTML attributes that will be appended to the rendered <a /> tag. */
   children?: React.ReactNode;
+  /**
+   * The field metadata; when present it should be exposed for chrome hydration process when rendering in Pages
+   */
+  metadata?: FieldMetadata;
 }
 
-export const File: React.FC<FileProps> = ({ field, children, ...otherProps }) => {
+export const File: React.FC<FileProps> = ({ field, children, metadata, ...otherProps }) => {
   /*
     File fields cannot be managed via the EE. We never output "editable."
   */
@@ -29,6 +38,15 @@ export const File: React.FC<FileProps> = ({ field, children, ...otherProps }) =>
 
   if (!field || (!dynamicField.value && !(dynamicField as FileFieldValue).src)) {
     return null;
+  }
+
+  // when metadata is present, render it to be used for chrome hydration
+  if (metadata) {
+    const props: FieldMetadataComponentProps = {
+      data: JSON.stringify(metadata),
+    };
+
+    return <FieldMetadataComponent {...props}>{otherProps.children}</FieldMetadataComponent>;
   }
 
   // handle link directly on field for forgetful devs
@@ -55,6 +73,17 @@ File.propTypes = {
       value: PropTypes.object,
     }),
   ]).isRequired,
+  metadata: PropTypes.shape({
+    contextItem: PropTypes.shape({
+      id: PropTypes.string,
+      language: PropTypes.string,
+      revision: PropTypes.string,
+      version: PropTypes.number,
+    }),
+    fieldId: PropTypes.string,
+    fieldType: PropTypes.string,
+    rawValue: PropTypes.string,
+  }),
 };
 
 File.displayName = 'File';

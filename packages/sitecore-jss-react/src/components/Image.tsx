@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { addClassName, convertAttributesToReactProps } from '../utils';
 import { getAttributesString } from '../utils';
+import {
+  FieldMetadata,
+  FieldMetadataComponent,
+  FieldMetadataComponentProps,
+} from './FieldMetadata';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -50,6 +55,11 @@ export interface ImageProps {
    * and rendered as component output. If false, `media.editable` value will be ignored and not rendered.
    */
   editable?: boolean;
+
+  /**
+   * The field metadata; when present it should be exposed for chrome hydration process when rendering in Pages
+   */
+  metadata?: FieldMetadata;
 
   /**
    * Parameters that will be attached to Sitecore media URLs
@@ -151,6 +161,7 @@ export const getEEMarkup = (
 export const Image: React.FC<ImageProps> = ({
   media,
   editable,
+  metadata,
   imageParams,
   field,
   mediaUrlPrefix,
@@ -168,6 +179,15 @@ export const Image: React.FC<ImageProps> = ({
     (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)
   ) {
     return null;
+  }
+
+  // when metadata is present, render it to be used for chrome hydration
+  if (metadata) {
+    const props: FieldMetadataComponentProps = {
+      data: JSON.stringify(metadata),
+    };
+
+    return <FieldMetadataComponent {...props}>{otherProps.children}</FieldMetadataComponent>;
   }
 
   const imageField = dynamicMedia as ImageField;
@@ -211,6 +231,17 @@ Image.propTypes = {
       editable: PropTypes.string,
     }),
   ]),
+  metadata: PropTypes.shape({
+    contextItem: PropTypes.shape({
+      id: PropTypes.string,
+      language: PropTypes.string,
+      revision: PropTypes.string,
+      version: PropTypes.number,
+    }),
+    fieldId: PropTypes.string,
+    fieldType: PropTypes.string,
+    rawValue: PropTypes.string,
+  }),
   editable: PropTypes.bool,
   mediaUrlPrefix: PropTypes.instanceOf(RegExp),
   imageParams: PropTypes.objectOf(

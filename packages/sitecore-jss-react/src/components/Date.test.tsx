@@ -81,4 +81,28 @@ describe('<DateField />', () => {
 
     expect(c.html()).equal('<span><h1 class="super">11-23-2001</h1></span>');
   });
+
+  it('should render field metadata component when metadata property is present', () => {
+    const props = {
+      field: {
+        value: '23-11-2001',
+      },
+      metadata: {
+        contextItem: {
+          id: '{09A07660-6834-476C-B93B-584248D3003B}',
+          language: 'en',
+          revision: 'a0b36ce0a7db49418edf90eb9621e145',
+          version: 1,
+        },
+        fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
+        fieldType: 'date',
+        rawValue: 'Test1',
+      },
+    };
+
+    const rendered = shallow(<DateField {...props} />);
+
+    expect(rendered.html()).to.contain('kind="open"');
+    expect(rendered.html()).to.contain('kind="close"');
+  });
 });
