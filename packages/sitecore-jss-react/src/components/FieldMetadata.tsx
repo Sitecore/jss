@@ -2,18 +2,18 @@ import React, { FunctionComponent } from 'react';
 
 /** The field metadata */
 export interface FieldMetadata {
-  contextItem?: FieldMetadataContextItem;
-  fieldId?: string;
-  fieldType?: string;
-  rawValue?: string;
+  contextItem?: FieldMetadataContextItem | null | undefined;
+  fieldId?: string | null | undefined;
+  fieldType?: string | null | undefined;
+  rawValue?: string | null | undefined;
 }
 
 /** The field's context item metadata  */
 export interface FieldMetadataContextItem {
-  id?: string;
-  language?: string;
-  revision?: string;
-  version?: number;
+  id?: string | null | undefined;
+  language?: string | null | undefined;
+  revision?: string | null | undefined;
+  version?: number | null | undefined;
 }
 
 export interface FieldMetadataComponentProps {
@@ -38,14 +38,14 @@ export const FieldMetadataComponent: FunctionComponent<FieldMetadataComponentPro
     ...defaultAttributes,
     ...props.htmlAttributes,
   };
+  const codeOpenAttributes = { ...attributes, kind: 'open' };
+  const codeCloseAttributes = { ...attributes, kind: 'close' };
 
   return (
     <React.Fragment>
-      <code {...attributes} kind="open">
-        {props.data}
-      </code>
+      <code {...codeOpenAttributes}>{props.data}</code>
       {props.children}
-      <code {...attributes} kind="close"></code>
+      <code {...codeCloseAttributes}></code>
     </React.Fragment>
   );
 };
