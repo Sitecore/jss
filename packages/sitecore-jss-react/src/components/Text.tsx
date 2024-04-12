@@ -3,7 +3,7 @@ import {
   FieldMetadata,
   FieldMetadataComponent,
   FieldMetadataComponentProps,
-} from './FieldMetadataComponent';
+} from './FieldMetadata';
 import PropTypes from 'prop-types';
 
 export interface TextField {
@@ -29,7 +29,9 @@ export interface TextProps {
    * If false, HTML-encoding of the field value is disabled and the value is rendered as-is.
    */
   encode?: boolean;
-
+  /**
+   * The field metadata; when present it should be exposed for chrome hydration process when rendering in Pages
+   */
   metadata?: FieldMetadata;
 }
 
@@ -45,6 +47,7 @@ export const Text: FunctionComponent<TextProps> = ({
     return null;
   }
 
+  // when metadata is present, render it to be used for chrome hydration
   if (metadata) {
     const props: FieldMetadataComponentProps = {
       data: JSON.stringify(metadata),

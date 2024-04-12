@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
+/** The field metadata */
 export interface FieldMetadata {
   contextItem?: FieldMetadataContextItem;
   fieldId?: string;
@@ -7,6 +8,7 @@ export interface FieldMetadata {
   rawValue?: string;
 }
 
+/** The field's context item metadata  */
 export interface FieldMetadataContextItem {
   id?: string;
   language?: string;
