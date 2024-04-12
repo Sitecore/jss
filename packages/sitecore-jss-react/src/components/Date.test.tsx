@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import React from 'react';
 import { DateField } from './Date';
 
@@ -100,8 +100,9 @@ describe('<DateField />', () => {
       },
     };
 
-    const rendered = shallow(<DateField {...props} />);
+    const rendered = mount(<DateField {...props} />);
 
+    expect(rendered.find('code')).to.have.length(2);
     expect(rendered.html()).to.contain('kind="open"');
     expect(rendered.html()).to.contain('kind="close"');
   });
