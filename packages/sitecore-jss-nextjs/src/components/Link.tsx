@@ -8,6 +8,10 @@ import {
   LinkProps as ReactLinkProps,
   LinkPropTypes,
 } from '@sitecore-jss/sitecore-jss-react';
+import {
+  FieldMetadataComponent,
+  FieldMetadataComponentProps,
+} from '@sitecore-jss/sitecore-jss-react';
 
 export type LinkProps = ReactLinkProps & {
   /**
@@ -22,6 +26,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     const {
       field,
       editable,
+      metadata,
       children,
       internalLinkMatcher = /^\//g,
       showLinkTextWithChildrenPresent,
@@ -33,6 +38,15 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       (!(field as LinkFieldValue).editable && !field.value && !(field as LinkFieldValue).href)
     ) {
       return null;
+    }
+
+    // when metadata is present, render it to be used for chrome hydration
+    if (metadata) {
+      const props: FieldMetadataComponentProps = {
+        data: JSON.stringify(metadata),
+      };
+
+      return <FieldMetadataComponent {...props}>{children}</FieldMetadataComponent>;
     }
 
     const value = ((field as LinkFieldValue).href

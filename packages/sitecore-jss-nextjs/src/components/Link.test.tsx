@@ -360,4 +360,39 @@ describe('<Link />', () => {
     const rendered = mount(<Link field={field} />).children();
     expect(rendered).to.have.length(0);
   });
+
+  it('should render field metadata component when metadata property is present', () => {
+    const field = {
+      value: {
+        href: '/lorem',
+        text: 'ipsum',
+        class: 'my-link',
+      },
+    };
+
+    const testMetadata = {
+      contextItem: {
+        id: '{09A07660-6834-476C-B93B-584248D3003B}',
+        language: 'en',
+        revision: 'a0b36ce0a7db49418edf90eb9621e145',
+        version: 1,
+      },
+      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
+      fieldType: 'single-line',
+      rawValue: 'Test1',
+    };
+
+    const rendered = mount(
+      <Page>
+        <Link field={field} metadata={testMetadata} />
+      </Page>
+    );
+
+    expect(rendered.find('code')).to.have.length(2);
+    expect(rendered.html()).to.contain('kind="open"');
+    expect(rendered.html()).to.contain('kind="close"');
+    expect(rendered.html()).to.not.contain(`href="${field.value.href}"`);
+    expect(rendered.find(NextLink).length).to.equal(0);
+    expect(rendered.find(ReactLink).length).to.equal(0);
+  });
 });
