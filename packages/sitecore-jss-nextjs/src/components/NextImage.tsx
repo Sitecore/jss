@@ -1,12 +1,13 @@
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import PropTypes from 'prop-types';
 import React from 'react';
-
 import {
   getEEMarkup,
   ImageProps,
   ImageField,
   ImageFieldValue,
+  FieldMetadataComponent,
+  FieldMetadataComponentProps,
 } from '@sitecore-jss/sitecore-jss-react';
 import Image, { ImageProps as NextImageProperties } from 'next/image';
 
@@ -16,6 +17,7 @@ export const NextImage: React.FC<NextImageProps> = ({
   editable,
   imageParams,
   field,
+  metadata,
   mediaUrlPrefix,
   fill,
   priority,
@@ -34,6 +36,15 @@ export const NextImage: React.FC<NextImageProps> = ({
     (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)
   ) {
     return null;
+  }
+
+  // when metadata is present, render it to be used for chrome hydration
+  if (metadata) {
+    const props: FieldMetadataComponentProps = {
+      data: JSON.stringify(metadata),
+    };
+
+    return <FieldMetadataComponent {...props}>{otherProps.children}</FieldMetadataComponent>;
   }
 
   const imageField = dynamicMedia as ImageField;

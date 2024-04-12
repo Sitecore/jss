@@ -7,8 +7,6 @@ import {
   LinkField,
   LinkProps as ReactLinkProps,
   LinkPropTypes,
-} from '@sitecore-jss/sitecore-jss-react';
-import {
   FieldMetadataComponent,
   FieldMetadataComponentProps,
 } from '@sitecore-jss/sitecore-jss-react';
