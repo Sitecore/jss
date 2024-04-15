@@ -1,10 +1,6 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import {
-  FieldMetadata,
-  FieldMetadataComponent,
-  FieldMetadataComponentProps,
-} from './FieldMetadata';
+import { FieldMetadata, getFieldMetadataMarkup } from './FieldMetadata';
 
 export interface RichTextField {
   value?: string;
@@ -40,11 +36,7 @@ export const RichText: React.FC<RichTextProps> = forwardRef(
 
     // when metadata is present, render it to be used for chrome hydration
     if (otherProps.metadata) {
-      const props: FieldMetadataComponentProps = {
-        data: JSON.stringify(otherProps.metadata),
-      };
-
-      return <FieldMetadataComponent {...props}>{otherProps.children}</FieldMetadataComponent>;
+      return getFieldMetadataMarkup(otherProps.metadata, otherProps.children);
     }
 
     const htmlProps = {

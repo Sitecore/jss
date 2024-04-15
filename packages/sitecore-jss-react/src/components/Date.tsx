@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  FieldMetadata,
-  FieldMetadataComponent,
-  FieldMetadataComponentProps,
-} from './FieldMetadata';
+import { FieldMetadata, getFieldMetadataMarkup } from './FieldMetadata';
 
 export interface DateFieldProps {
   /** The date field data. */
@@ -44,11 +40,7 @@ export const DateField: React.FC<DateFieldProps> = ({
 
   // when metadata is present, render it to be used for chrome hydration
   if (metadata) {
-    const props: FieldMetadataComponentProps = {
-      data: JSON.stringify(metadata),
-    };
-
-    return <FieldMetadataComponent {...props}>{otherProps.children}</FieldMetadataComponent>;
+    return getFieldMetadataMarkup(metadata, otherProps.children);
   }
 
   let children: React.ReactNode;

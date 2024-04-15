@@ -3,8 +3,13 @@ import React from 'react';
 import { expect } from 'chai';
 import { mount, render } from 'enzyme';
 
-import { FieldMetadataComponent, FieldMetadataComponentProps } from './FieldMetadata';
+import {
+  FieldMetadataComponent,
+  FieldMetadataComponentProps,
+  getFieldMetadataMarkup,
+} from './FieldMetadata';
 import { describe } from 'node:test';
+import { json } from 'stream/consumers';
 
 describe('<FieldMetadataComponent />', () => {
   const testMetadata = {
@@ -80,5 +85,30 @@ describe('<FieldMetadataComponent />', () => {
     expect(rendered.html()).to.contain('type="bar"');
     expect(rendered.html()).to.contain('chrometype="foo"');
     expect(rendered.html()).to.contain('class="far"');
+  });
+});
+
+describe('getFieldMetadataMarkup', () => {
+  it('Should render component with provided metadata and children ', () => {
+    const testMetadata = {
+      contextItem: {
+        id: '{09A07660-6834-476C-B93B-584248D3003B}',
+        language: 'en',
+        revision: 'a0b36ce0a7db49418edf90eb9621e145',
+        version: 1,
+      },
+      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
+      fieldType: 'single-line',
+      rawValue: 'Test1',
+    };
+
+    const div = <div>nested</div>;
+
+    const rendered = mount(getFieldMetadataMarkup(testMetadata, div));
+    expect(rendered.find('code')).to.have.length(2);
+    expect(rendered.html()).to.contain('kind="open"');
+    expect(rendered.html()).to.contain('kind="close"');
+    expect(rendered.html()).to.include(JSON.stringify(testMetadata));
+    expect(rendered.html()).to.include('<div>nested</div>');
   });
 });

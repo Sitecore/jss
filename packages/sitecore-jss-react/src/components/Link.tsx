@@ -1,10 +1,6 @@
 import React, { ReactElement, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import {
-  FieldMetadata,
-  FieldMetadataComponent,
-  FieldMetadataComponentProps,
-} from './FieldMetadata';
+import { FieldMetadata, getFieldMetadataMarkup } from './FieldMetadata';
 
 export interface LinkFieldValue {
   [attributeName: string]: unknown;
@@ -65,11 +61,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
     // when metadata is present, render it to be used for chrome hydration
     if (metadata) {
-      const props: FieldMetadataComponentProps = {
-        data: JSON.stringify(metadata),
-      };
-
-      return <FieldMetadataComponent {...props}>{otherProps.children}</FieldMetadataComponent>;
+      return getFieldMetadataMarkup(metadata, children);
     }
 
     const resultTags: ReactElement<unknown>[] = [];

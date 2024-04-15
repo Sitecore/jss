@@ -1,9 +1,5 @@
 import React, { ReactElement, FunctionComponent } from 'react';
-import {
-  FieldMetadata,
-  FieldMetadataComponent,
-  FieldMetadataComponentProps,
-} from './FieldMetadata';
+import { FieldMetadata, getFieldMetadataMarkup } from './FieldMetadata';
 import PropTypes from 'prop-types';
 
 export interface TextField {
@@ -49,11 +45,7 @@ export const Text: FunctionComponent<TextProps> = ({
 
   // when metadata is present, render it to be used for chrome hydration
   if (metadata) {
-    const props: FieldMetadataComponentProps = {
-      data: JSON.stringify(metadata),
-    };
-
-    return <FieldMetadataComponent {...props}>{otherProps.children}</FieldMetadataComponent>;
+    return getFieldMetadataMarkup(metadata, otherProps.children);
   }
 
   // can't use editable value if we want to output unencoded

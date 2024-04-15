@@ -104,4 +104,5 @@ export {
   FieldMetadata,
   FieldMetadataComponent,
   FieldMetadataComponentProps,
+  getFieldMetadataMarkup,
 } from './components/FieldMetadata';

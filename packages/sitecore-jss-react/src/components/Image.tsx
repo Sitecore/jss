@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { addClassName, convertAttributesToReactProps } from '../utils';
 import { getAttributesString } from '../utils';
-import {
-  FieldMetadata,
-  FieldMetadataComponent,
-  FieldMetadataComponentProps,
-} from './FieldMetadata';
+import { FieldMetadata, getFieldMetadataMarkup } from './FieldMetadata';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -183,11 +179,7 @@ export const Image: React.FC<ImageProps> = ({
 
   // when metadata is present, render it to be used for chrome hydration
   if (metadata) {
-    const props: FieldMetadataComponentProps = {
-      data: JSON.stringify(metadata),
-    };
-
-    return <FieldMetadataComponent {...props}>{otherProps.children}</FieldMetadataComponent>;
+    return getFieldMetadataMarkup(metadata, otherProps.children);
   }
 
   const imageField = dynamicMedia as ImageField;

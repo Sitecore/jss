@@ -49,3 +49,11 @@ export const FieldMetadataComponent: FunctionComponent<FieldMetadataComponentPro
     </React.Fragment>
   );
 };
+
+export const getFieldMetadataMarkup = (metadata: FieldMetadata, children: any) => {
+  const props: FieldMetadataComponentProps = {
+    data: JSON.stringify(metadata),
+  };
+
+  return <FieldMetadataComponent {...props}>{children}</FieldMetadataComponent>;
+};

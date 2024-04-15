@@ -1,10 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {
-  FieldMetadata,
-  FieldMetadataComponent,
-  FieldMetadataComponentProps,
-} from './FieldMetadata';
+import { FieldMetadata, getFieldMetadataMarkup } from './FieldMetadata';
 
 export interface FileFieldValue {
   [propName: string]: unknown;
@@ -42,11 +38,7 @@ export const File: React.FC<FileProps> = ({ field, children, metadata, ...otherP
 
   // when metadata is present, render it to be used for chrome hydration
   if (metadata) {
-    const props: FieldMetadataComponentProps = {
-      data: JSON.stringify(metadata),
-    };
-
-    return <FieldMetadataComponent {...props}>{otherProps.children}</FieldMetadataComponent>;
+    return getFieldMetadataMarkup(metadata, otherProps.children);
   }
 
   // handle link directly on field for forgetful devs
