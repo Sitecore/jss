@@ -252,7 +252,10 @@ describe('<NextImage />', () => {
   describe('error cases', () => {
     const src = '/assets/img/test0.png';
     it('should throw an error if src is present', () => {
-      expect(() => mount(<NextImage src={src} />)).to.throw(
+      const field = {
+        src: '/assets/img/test0.png',
+      };
+      expect(() => mount(<NextImage src={src} field={field} />)).to.throw(
         'Detected src prop. If you wish to use src, use next/image directly.'
       );
     });
@@ -297,13 +300,17 @@ describe('<NextImage />', () => {
       rawValue: 'Test1',
     };
 
-    const field = { value: { src: '/assets/img/test0.png', alt: 'my image' } };
+    const field = {
+      value: { src: '/assets/img/test0.png', alt: 'my image' },
+      metadata: testMetadata,
+    };
 
-    const rendered = mount(<NextImage field={field} metadata={testMetadata} />);
+    const rendered = mount(<NextImage field={field} fill={true} />);
 
     expect(rendered.find('code')).to.have.length(2);
-    expect(rendered.find('img')).to.have.length(0);
+    expect(rendered.find('img')).to.have.length(1);
     expect(rendered.html()).to.contain('kind="open"');
     expect(rendered.html()).to.contain('kind="close"');
+    expect(rendered.html()).to.contain(JSON.stringify(testMetadata));
   });
 });

@@ -355,21 +355,14 @@ describe('<Link />', () => {
     expect(rendered).to.have.length(0);
   });
 
-  it('should render nothing with missing editable and value', () => {
+  it('should render nothing with missing field', () => {
     const field = {};
-    const rendered = mount(<Link field={field} />).children();
-    expect(rendered).to.have.length(0);
+    const rendered = mount(<Link field={field} />);
+    expect(rendered.children()).to.have.length(1);
+    expect(rendered.html()).to.equal('');
   });
 
   it('should render field metadata component when metadata property is present', () => {
-    const field = {
-      value: {
-        href: '/lorem',
-        text: 'ipsum',
-        class: 'my-link',
-      },
-    };
-
     const testMetadata = {
       contextItem: {
         id: '{09A07660-6834-476C-B93B-584248D3003B}',
@@ -382,17 +375,24 @@ describe('<Link />', () => {
       rawValue: 'Test1',
     };
 
+    const field = {
+      value: {
+        href: '/lorem',
+        text: 'ipsum',
+        class: 'my-link',
+      },
+      metadata: testMetadata,
+    };
+
     const rendered = mount(
       <Page>
-        <Link field={field} metadata={testMetadata} />
+        <Link field={field} />
       </Page>
     );
 
     expect(rendered.find('code')).to.have.length(2);
     expect(rendered.html()).to.contain('kind="open"');
     expect(rendered.html()).to.contain('kind="close"');
-    expect(rendered.html()).to.not.contain(`href="${field.value.href}"`);
-    expect(rendered.find(NextLink).length).to.equal(0);
-    expect(rendered.find(ReactLink).length).to.equal(0);
+    expect(rendered.html()).to.contain(JSON.stringify(testMetadata));
   });
 });

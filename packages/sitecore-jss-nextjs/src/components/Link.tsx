@@ -7,7 +7,7 @@ import {
   LinkField,
   LinkProps as ReactLinkProps,
   LinkPropTypes,
-  getFieldMetadataMarkup,
+  withFieldMetadataWrapper,
 } from '@sitecore-jss/sitecore-jss-react';
 
 export type LinkProps = ReactLinkProps & {
@@ -18,12 +18,12 @@ export type LinkProps = ReactLinkProps & {
   internalLinkMatcher?: RegExp;
 };
 
-export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
-  (props: LinkProps, ref): JSX.Element | null => {
+export const Link = withFieldMetadataWrapper(
+  // eslint-disable-next-line react/display-name
+  forwardRef<HTMLAnchorElement, LinkProps>((props: LinkProps, ref): JSX.Element | null => {
     const {
       field,
       editable,
-      metadata,
       children,
       internalLinkMatcher = /^\//g,
       showLinkTextWithChildrenPresent,
@@ -35,11 +35,6 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       (!(field as LinkFieldValue).editable && !field.value && !(field as LinkFieldValue).href)
     ) {
       return null;
-    }
-
-    // when metadata is present, render it to be used for chrome hydration
-    if (metadata) {
-      return getFieldMetadataMarkup(metadata, children);
     }
 
     const value = ((field as LinkFieldValue).href
@@ -75,8 +70,10 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     const reactLinkProps = { ...props };
     delete reactLinkProps.internalLinkMatcher;
 
+    // we've already rendered the metadata wrapper - so set metadata to null to prevent duplicate wrapping
+    reactLinkProps.field.metadata = null;
     return <ReactLink {...reactLinkProps} ref={ref} />;
-  }
+  })
 );
 
 Link.defaultProps = {
