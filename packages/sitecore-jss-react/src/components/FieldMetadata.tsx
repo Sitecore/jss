@@ -2,26 +2,26 @@ import React, { ComponentType, forwardRef } from 'react';
 
 /** The field metadata */
 export interface FieldMetadata {
-  contextItem?: FieldMetadataContextItem | null | undefined;
-  fieldId?: string | null | undefined;
-  fieldType?: string | null | undefined;
-  rawValue?: string | null | undefined;
+  contextItem?: FieldMetadataContextItem;
+  fieldId?: string;
+  fieldType?: string;
+  rawValue?: string;
 }
 
 /** The field's context item metadata  */
 export interface FieldMetadataContextItem {
-  id?: string | null | undefined;
-  language?: string | null | undefined;
-  revision?: string | null | undefined;
-  version?: number | null | undefined;
+  id?: string;
+  language?: string;
+  revision?: string;
+  version?: number;
 }
 
-export interface FieldMetadataWrapperProps {
+interface FieldMetadataWrapperProps {
   metadata: any;
   children: React.ReactNode;
 }
 
-export const FieldMetadataWrapper = (props: FieldMetadataWrapperProps): JSX.Element => {
+const FieldMetadataWrapper = (props: FieldMetadataWrapperProps): JSX.Element => {
   const data = JSON.stringify(props.metadata);
   const defaultAttributes = {
     type: 'text/sitecore',
