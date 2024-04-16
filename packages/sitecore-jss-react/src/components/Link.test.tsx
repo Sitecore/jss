@@ -14,8 +14,8 @@ describe('<Link />', () => {
 
   it('should render nothing with missing editable and value', () => {
     const field = {};
-    const rendered = mount(<Link field={field} />).children();
-    expect(rendered).to.have.length(0);
+    const rendered = mount(<Link field={field} />);
+    expect(rendered.html()).to.equal('');
   });
 
   it('should render editable with an editable value', () => {
@@ -150,5 +150,6 @@ describe('<Link />', () => {
     expect(rendered.find('code')).to.have.length(2);
     expect(rendered.html()).to.contain('kind="open"');
     expect(rendered.html()).to.contain('kind="close"');
+    expect(rendered.html()).to.contain(JSON.stringify(testMetadata));
   });
 });

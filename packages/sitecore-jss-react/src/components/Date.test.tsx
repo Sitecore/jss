@@ -5,14 +5,14 @@ import React from 'react';
 import { DateField } from './Date';
 
 describe('<DateField />', () => {
-  it('should return null if no editable or value', () => {
+  it('should render nothing is field is missing', () => {
     const p = {
       field: {},
     };
 
     const c = shallow(<DateField {...p} />);
-
-    expect(c.type()).to.be.null;
+    console.log(c.type());
+    expect(c.html()).to.equal('');
   });
 
   it('should render value', () => {
@@ -83,20 +83,22 @@ describe('<DateField />', () => {
   });
 
   it('should render field metadata component when metadata property is present', () => {
+    const testMetadata = {
+      contextItem: {
+        id: '{09A07660-6834-476C-B93B-584248D3003B}',
+        language: 'en',
+        revision: 'a0b36ce0a7db49418edf90eb9621e145',
+        version: 1,
+      },
+      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
+      fieldType: 'date',
+      rawValue: 'Test1',
+    };
+
     const props = {
       field: {
         value: '23-11-2001',
-        metadata: {
-          contextItem: {
-            id: '{09A07660-6834-476C-B93B-584248D3003B}',
-            language: 'en',
-            revision: 'a0b36ce0a7db49418edf90eb9621e145',
-            version: 1,
-          },
-          fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
-          fieldType: 'date',
-          rawValue: 'Test1',
-        },
+        metadata: testMetadata,
       },
     };
 
@@ -105,5 +107,6 @@ describe('<DateField />', () => {
     expect(rendered.find('code')).to.have.length(2);
     expect(rendered.html()).to.contain('kind="open"');
     expect(rendered.html()).to.contain('kind="close"');
+    expect(rendered.html()).to.contain(JSON.stringify(testMetadata));
   });
 });

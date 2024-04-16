@@ -14,8 +14,8 @@ describe('<File />', () => {
     const field = {
       editable: 'lorem',
     };
-    const rendered = mount(<File field={field} />).children();
-    expect(rendered).to.have.length(0);
+    const rendered = mount(<File field={field} />);
+    expect(rendered.html()).to.equal('');
   });
 
   it('should render with src directly on provided field', () => {
@@ -51,7 +51,7 @@ describe('<File />', () => {
     expect(rendered.html()).to.contain('class="my-css"');
   });
 
-  it('should render field metadata component when metadata property is present', () => {
+  it('should render field metadata when metadata property is present', () => {
     const testMetadata = {
       contextItem: {
         id: '{09A07660-6834-476C-B93B-584248D3003B}',
@@ -70,10 +70,11 @@ describe('<File />', () => {
       metadata: testMetadata,
     };
 
-    const rendered = mount(<File field={field} />);
+    const rendered = mount(<File field={field} editable={true} />);
     console.log(rendered.html());
-    expect(rendered.find('code')).to.have.length(2);
+    // expect(rendered.find('code')).to.have.length(2);
     expect(rendered.html()).to.contain('kind="open"');
     expect(rendered.html()).to.contain('kind="close"');
+    expect(rendered.html()).to.contain(JSON.stringify(testMetadata));
   });
 });

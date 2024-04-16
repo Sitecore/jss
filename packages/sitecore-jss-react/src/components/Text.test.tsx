@@ -14,20 +14,20 @@ describe('<Text />', () => {
     expect(rendered.html()).to.be.null;
   });
 
-  it('should render nothing with empty value', () => {
+  it('should render nothing with missing field', () => {
     const field = {
       value: '',
     };
     const rendered = mount(<Text field={field} />);
     expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.be.null;
+    expect(rendered.html()).to.equal('');
   });
 
   it('should render nothing with missing editable and value', () => {
     const field = {};
     const rendered = mount(<Text field={field} />);
     expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.be.null;
+    expect(rendered.html()).to.equal('');
   });
 
   it('should render editable with editable value', () => {

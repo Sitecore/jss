@@ -7,11 +7,11 @@ export interface FileFieldValue {
   src?: string;
   title?: string;
   displayName?: string;
-  metadata?: FieldMetadata;
 }
 
 export interface FileField {
   value: FileFieldValue;
+  metadata?: FieldMetadata;
 }
 
 export interface FileProps {
