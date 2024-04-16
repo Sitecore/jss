@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { ComponentType, forwardRef } from 'react';
 
 /** The field metadata */
 export interface FieldMetadata {
@@ -16,44 +16,53 @@ export interface FieldMetadataContextItem {
   version?: number | null | undefined;
 }
 
-export interface FieldMetadataComponentProps {
-  htmlAttributes?: {
-    type: string;
-    chrometype: string;
-    className: string;
-  };
-  data: string;
+export interface FieldMetadataWrapperProps {
+  metadata: any;
+  children: React.ReactNode;
 }
 
-const defaultAttributes = {
-  type: 'text/sitecore',
-  chrometype: 'field',
-  className: 'scpm',
-};
-
-export const FieldMetadataComponent: FunctionComponent<FieldMetadataComponentProps> = (
-  props: React.PropsWithChildren<FieldMetadataComponentProps>
-) => {
-  const attributes = {
-    ...defaultAttributes,
-    ...props.htmlAttributes,
+export const FieldMetadataWrapper = (props: FieldMetadataWrapperProps): JSX.Element => {
+  const data = JSON.stringify(props.metadata);
+  const defaultAttributes = {
+    type: 'text/sitecore',
+    chrometype: 'field',
+    className: 'scpm',
   };
-  const codeOpenAttributes = { ...attributes, kind: 'open' };
-  const codeCloseAttributes = { ...attributes, kind: 'close' };
+  const codeOpenAttributes = { ...defaultAttributes, kind: 'open' };
+  const codeCloseAttributes = { ...defaultAttributes, kind: 'close' };
 
   return (
-    <React.Fragment>
-      <code {...codeOpenAttributes}>{props.data}</code>
+    <>
+      <code {...codeOpenAttributes}>{data}</code>
       {props.children}
       <code {...codeCloseAttributes}></code>
-    </React.Fragment>
+    </>
   );
 };
 
-export const getFieldMetadataMarkup = (metadata: FieldMetadata, children: any) => {
-  const props: FieldMetadataComponentProps = {
-    data: JSON.stringify(metadata),
-  };
+/**
+ * Wraps the field component with metadata markup intended to be used for chromes hydartion
+ * @param {ComponentType<FieldComponentProps>} FieldComponent the field component
+ */
+export function withFieldMetadataWrapper<FieldComponentProps extends Record<string, any>>(
+  FieldComponent: ComponentType<FieldComponentProps>
+) {
+  // eslint-disable-next-line react/display-name
+  return forwardRef(({ ...props }: FieldComponentProps, ref: any) => {
+    const metadata = (props as any)?.field?.metadata;
 
-  return <FieldMetadataComponent {...props}>{children}</FieldMetadataComponent>;
-};
+    if (!props?.field) {
+      return null;
+    }
+
+    if (!metadata || !props.editable) {
+      return <FieldComponent {...props} ref={ref} />;
+    }
+
+    return (
+      <FieldMetadataWrapper metadata={metadata}>
+        <FieldComponent {...props} ref={ref} />
+      </FieldMetadataWrapper>
+    );
+  });
+}

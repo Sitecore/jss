@@ -96,10 +96,6 @@ describe('<RichText />', () => {
   });
 
   it('should render field metadata component when metadata property is present', () => {
-    const field = {
-      value: 'value',
-    };
-
     const testMetadata = {
       contextItem: {
         id: '{09A07660-6834-476C-B93B-584248D3003B}',
@@ -112,10 +108,16 @@ describe('<RichText />', () => {
       rawValue: 'Test1',
     };
 
-    const rendered = mount(<RichText field={field} metadata={testMetadata} />);
+    const field = {
+      value: 'value',
+      metadata: testMetadata,
+    };
+
+    const rendered = mount(<RichText field={field} />);
 
     expect(rendered.find('code')).to.have.length(2);
     expect(rendered.html()).to.contain('kind="open"');
     expect(rendered.html()).to.contain('kind="close"');
+    expect(rendered.html()).to.contain(JSON.stringify(testMetadata));
   });
 });

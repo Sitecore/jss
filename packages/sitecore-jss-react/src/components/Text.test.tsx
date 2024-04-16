@@ -195,10 +195,11 @@ describe('<Text />', () => {
 
     const field = {
       editable: eeTextData,
+      metadata: testMetadata,
     };
 
     const rendered = mount(
-      <Text metadata={testMetadata} field={field}>
+      <Text field={field}>
         <div>test</div>
       </Text>
     );
@@ -206,5 +207,6 @@ describe('<Text />', () => {
     expect(rendered.find('code')).to.have.length(2);
     expect(rendered.html()).to.contain('kind="open"');
     expect(rendered.html()).to.contain('kind="close"');
+    expect(rendered.html()).to.contain(JSON.stringify(testMetadata));
   });
 });

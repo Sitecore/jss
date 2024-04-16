@@ -100,9 +100,4 @@ export { withPlaceholder } from './enhancers/withPlaceholder';
 export { withDatasourceCheck } from './enhancers/withDatasourceCheck';
 export { EditFrameProps, EditFrame } from './components/EditFrame';
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
-export {
-  FieldMetadata,
-  FieldMetadataComponent,
-  FieldMetadataComponentProps,
-  getFieldMetadataMarkup,
-} from './components/FieldMetadata';
+export { FieldMetadata, withFieldMetadataWrapper } from './components/FieldMetadata';

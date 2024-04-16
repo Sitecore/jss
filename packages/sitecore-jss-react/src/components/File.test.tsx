@@ -67,10 +67,11 @@ describe('<File />', () => {
     const field = {
       src: '/lorem',
       title: 'ipsum',
+      metadata: testMetadata,
     };
 
-    const rendered = mount(<File metadata={testMetadata} field={field} />);
-
+    const rendered = mount(<File field={field} />);
+    console.log(rendered.html());
     expect(rendered.find('code')).to.have.length(2);
     expect(rendered.html()).to.contain('kind="open"');
     expect(rendered.html()).to.contain('kind="close"');

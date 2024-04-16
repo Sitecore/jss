@@ -311,8 +311,9 @@ describe('<Image />', () => {
       src: '/assets/img/test0.png',
       width: 8,
       height: 10,
+      metadata: testMetadata,
     };
-    const rendered = mount(<Image field={imgField} metadata={testMetadata} />);
+    const rendered = mount(<Image field={imgField} />);
 
     expect(rendered.find('code')).to.have.length(2);
     expect(rendered.find('img')).to.have.length(0);

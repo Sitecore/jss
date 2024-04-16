@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { addClassName, convertAttributesToReactProps } from '../utils';
 import { getAttributesString } from '../utils';
-import { FieldMetadata, getFieldMetadataMarkup } from './FieldMetadata';
+import { FieldMetadata, withFieldMetadataWrapper } from './FieldMetadata';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -14,6 +14,7 @@ export interface ImageFieldValue {
 export interface ImageField {
   value?: ImageFieldValue;
   editable?: string;
+  metadata?: FieldMetadata;
 }
 
 export interface ImageSizeParameters {
@@ -51,11 +52,6 @@ export interface ImageProps {
    * and rendered as component output. If false, `media.editable` value will be ignored and not rendered.
    */
   editable?: boolean;
-
-  /**
-   * The field metadata; when present it should be exposed for chrome hydration process when rendering in Pages
-   */
-  metadata?: FieldMetadata;
 
   /**
    * Parameters that will be attached to Sitecore media URLs
@@ -154,55 +150,44 @@ export const getEEMarkup = (
   return getEditableWrapper(editableMarkup);
 };
 
-export const Image: React.FC<ImageProps> = ({
-  media,
-  editable,
-  metadata,
-  imageParams,
-  field,
-  mediaUrlPrefix,
-  ...otherProps
-}) => {
-  // allows the mistake of using 'field' prop instead of 'media' (consistent with other helpers)
-  if (field && !media) {
-    media = field;
+export const Image: React.FC<ImageProps> = withFieldMetadataWrapper(
+  ({ media, editable, imageParams, field, mediaUrlPrefix, ...otherProps }) => {
+    // allows the mistake of using 'field' prop instead of 'media' (consistent with other helpers)
+    if (field && !media) {
+      media = field;
+    }
+
+    const dynamicMedia = media as ImageField | ImageFieldValue;
+
+    if (
+      !media ||
+      (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)
+    ) {
+      return null;
+    }
+
+    const imageField = dynamicMedia as ImageField;
+
+    if (editable && imageField.editable) {
+      return getEEMarkup(imageField, imageParams, mediaUrlPrefix, otherProps);
+    }
+
+    // some wise-guy/gal is passing in a 'raw' image object value
+    const img = (dynamicMedia as ImageFieldValue).src
+      ? media
+      : (dynamicMedia.value as ImageFieldValue);
+    if (!img) {
+      return null;
+    }
+
+    const attrs = getImageAttrs({ ...img, ...otherProps }, imageParams, mediaUrlPrefix);
+    if (attrs) {
+      return <img {...attrs} />;
+    }
+
+    return null; // we can't handle the truth
   }
-
-  const dynamicMedia = media as ImageField | ImageFieldValue;
-
-  if (
-    !media ||
-    (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)
-  ) {
-    return null;
-  }
-
-  // when metadata is present, render it to be used for chrome hydration
-  if (metadata) {
-    return getFieldMetadataMarkup(metadata, otherProps.children);
-  }
-
-  const imageField = dynamicMedia as ImageField;
-
-  if (editable && imageField.editable) {
-    return getEEMarkup(imageField, imageParams, mediaUrlPrefix, otherProps);
-  }
-
-  // some wise-guy/gal is passing in a 'raw' image object value
-  const img = (dynamicMedia as ImageFieldValue).src
-    ? media
-    : (dynamicMedia.value as ImageFieldValue);
-  if (!img) {
-    return null;
-  }
-
-  const attrs = getImageAttrs({ ...img, ...otherProps }, imageParams, mediaUrlPrefix);
-  if (attrs) {
-    return <img {...attrs} />;
-  }
-
-  return null; // we can't handle the truth
-};
+);
 
 Image.propTypes = {
   media: PropTypes.oneOfType([
@@ -212,6 +197,17 @@ Image.propTypes = {
     PropTypes.shape({
       value: PropTypes.object,
       editable: PropTypes.string,
+      metadata: PropTypes.shape({
+        contextItem: PropTypes.shape({
+          id: PropTypes.string,
+          language: PropTypes.string,
+          revision: PropTypes.string,
+          version: PropTypes.number,
+        }),
+        fieldId: PropTypes.string,
+        fieldType: PropTypes.string,
+        rawValue: PropTypes.string,
+      }),
     }),
   ]),
   field: PropTypes.oneOfType([
@@ -223,17 +219,6 @@ Image.propTypes = {
       editable: PropTypes.string,
     }),
   ]),
-  metadata: PropTypes.shape({
-    contextItem: PropTypes.shape({
-      id: PropTypes.string,
-      language: PropTypes.string,
-      revision: PropTypes.string,
-      version: PropTypes.number,
-    }),
-    fieldId: PropTypes.string,
-    fieldType: PropTypes.string,
-    rawValue: PropTypes.string,
-  }),
   editable: PropTypes.bool,
   mediaUrlPrefix: PropTypes.instanceOf(RegExp),
   imageParams: PropTypes.objectOf(

@@ -143,8 +143,9 @@ describe('<Link />', () => {
     const field = {
       href: '/lorem',
       text: 'ipsum',
+      metadata: testMetadata,
     };
-    const rendered = mount(<Link field={field} metadata={testMetadata} />);
+    const rendered = mount(<Link field={field} />);
 
     expect(rendered.find('code')).to.have.length(2);
     expect(rendered.html()).to.contain('kind="open"');

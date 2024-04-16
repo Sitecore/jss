@@ -1,10 +1,11 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { FieldMetadata, getFieldMetadataMarkup } from './FieldMetadata';
+import { FieldMetadata, withFieldMetadataWrapper } from './FieldMetadata';
 
 export interface RichTextField {
   value?: string;
   editable?: string;
+  metadata?: FieldMetadata;
 }
 
 export interface RichTextProps {
@@ -22,21 +23,13 @@ export interface RichTextProps {
    * @default true
    */
   editable?: boolean;
-  /**
-   * The field metadata; when present it should be exposed for chrome hydration process when rendering in Pages
-   */
-  metadata?: FieldMetadata;
 }
 
-export const RichText: React.FC<RichTextProps> = forwardRef(
-  ({ field, tag, editable, ...otherProps }, ref) => {
+export const RichText: React.FC<RichTextProps> = withFieldMetadataWrapper(
+  // eslint-disable-next-line react/display-name
+  forwardRef<HTMLAnchorElement, RichTextProps>(({ field, tag, editable, ...otherProps }, ref) => {
     if (!field || (!field.editable && !field.value)) {
       return null;
-    }
-
-    // when metadata is present, render it to be used for chrome hydration
-    if (otherProps.metadata) {
-      return getFieldMetadataMarkup(otherProps.metadata, otherProps.children);
     }
 
     const htmlProps = {
@@ -48,27 +41,27 @@ export const RichText: React.FC<RichTextProps> = forwardRef(
     };
 
     return React.createElement(tag || 'div', htmlProps);
-  }
+  })
 );
 
 export const RichTextPropTypes = {
   field: PropTypes.shape({
     value: PropTypes.string,
     editable: PropTypes.string,
+    metadata: PropTypes.shape({
+      contextItem: PropTypes.shape({
+        id: PropTypes.string,
+        language: PropTypes.string,
+        revision: PropTypes.string,
+        version: PropTypes.number,
+      }),
+      fieldId: PropTypes.string,
+      fieldType: PropTypes.string,
+      rawValue: PropTypes.string,
+    }),
   }),
   tag: PropTypes.string,
   editable: PropTypes.bool,
-  metadata: PropTypes.shape({
-    contextItem: PropTypes.shape({
-      id: PropTypes.string,
-      language: PropTypes.string,
-      revision: PropTypes.string,
-      version: PropTypes.number,
-    }),
-    fieldId: PropTypes.string,
-    fieldType: PropTypes.string,
-    rawValue: PropTypes.string,
-  }),
 };
 
 RichText.propTypes = RichTextPropTypes;
