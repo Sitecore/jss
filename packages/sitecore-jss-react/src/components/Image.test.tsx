@@ -316,8 +316,9 @@ describe('<Image />', () => {
     const rendered = mount(<Image field={imgField} />);
 
     expect(rendered.find('code')).to.have.length(2);
-    expect(rendered.find('img')).to.have.length(0);
     expect(rendered.html()).to.contain('kind="open"');
     expect(rendered.html()).to.contain('kind="close"');
+    expect(rendered.html()).to.contain('src="/assets/img/test0.png"');
+    expect(rendered.html()).to.contain(JSON.stringify(testMetadata));
   });
 });
