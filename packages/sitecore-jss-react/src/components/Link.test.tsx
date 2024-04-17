@@ -8,8 +8,8 @@ import { generalLinkField as eeLinkData } from '../test-data/ee-data';
 describe('<Link />', () => {
   it('should render nothing with missing field', () => {
     const field = (null as unknown) as LinkField;
-    const rendered = mount(<Link field={field} />).children();
-    expect(rendered).to.have.length(0);
+    const rendered = mount(<Link field={field} />);
+    expect(rendered.html()).to.equal('');
   });
 
   it('should render nothing with missing editable and value', () => {

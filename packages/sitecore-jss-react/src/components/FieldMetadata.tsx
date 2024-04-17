@@ -51,11 +51,7 @@ export function withFieldMetadataWrapper<FieldComponentProps extends Record<stri
   return forwardRef(({ ...props }: FieldComponentProps, ref: any) => {
     const metadata = (props as any)?.field?.metadata;
 
-    if (!props?.field && !props?.media) {
-      return null;
-    }
-
-    if (!metadata || !props.editable) {
+    if (!props?.field || !metadata || !props?.editable) {
       return <FieldComponent {...props} ref={ref} />;
     }
 

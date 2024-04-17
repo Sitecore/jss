@@ -1,17 +1,11 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
 import { expect } from 'chai';
-import { mount, render } from 'enzyme';
-
-import {
-  FieldMetadataComponent,
-  FieldMetadataComponentProps,
-  getFieldMetadataMarkup,
-} from './FieldMetadata';
+import { mount } from 'enzyme';
+import { FieldMetadata, withFieldMetadataWrapper } from './FieldMetadata';
 import { describe } from 'node:test';
-import { json } from 'stream/consumers';
 
-describe('<FieldMetadataComponent />', () => {
+describe('withFieldMetadataWrapper', () => {
   const testMetadata = {
     contextItem: {
       id: '{09A07660-6834-476C-B93B-584248D3003B}',
@@ -25,90 +19,83 @@ describe('<FieldMetadataComponent />', () => {
   };
   const stringifiedData = JSON.stringify(testMetadata);
 
-  it('Should render provided metadata', () => {
-    const props: FieldMetadataComponentProps = {
-      data: stringifiedData,
+  const TestComponent: React.FC<FieldMetadata> = (props: any) => {
+    return (
+      <div {...props}>
+        <h2>foo</h2>
+        <p>bar</p>
+      </div>
+    );
+  };
+
+  it('Should return component if field is empty', () => {
+    const props = {
+      editable: true,
     };
 
-    const rendered = mount(<FieldMetadataComponent {...props} />);
+    const WrappedComponent = withFieldMetadataWrapper((props) => {
+      return <TestComponent {...props} />;
+    });
 
-    expect(rendered.find('code')).to.have.length(2);
-    expect(rendered.html()).to.contain('kind="open"');
-    expect(rendered.html()).to.contain('kind="close"');
-    expect(rendered.html()).to.include(stringifiedData);
+    const rendered = mount(<WrappedComponent {...props} />);
+
+    expect(rendered.find('code')).to.have.length(0);
+    expect(rendered.find('div')).to.have.length(1);
+    expect(rendered.html()).to.contain('bar');
   });
 
-  it('Should render with provided children', () => {
-    const props: FieldMetadataComponentProps = {
-      data: stringifiedData,
+  it('Should render unwrapped component if metadata field is not provided', () => {
+    const props = {
+      field: {},
     };
 
-    const rendered = mount(
-      <FieldMetadataComponent {...props}>
-        <div>nested</div>
-      </FieldMetadataComponent>
-    );
+    const WrappedComponent = withFieldMetadataWrapper((props) => {
+      return <TestComponent {...props} />;
+    });
+
+    const rendered = mount(<WrappedComponent {...props} />);
+
+    expect(rendered.find('code')).to.have.length(0);
+    expect(rendered.find('div')).to.have.length(1);
+    expect(rendered.html()).to.contain('bar');
+  });
+
+  it('Should render unwrapped component if metadata is provided but field is not editable', () => {
+    const props = {
+      field: {
+        metadata: testMetadata,
+      },
+      editable: false,
+    };
+
+    const WrappedComponent = withFieldMetadataWrapper((props) => {
+      return <TestComponent {...props} />;
+    });
+
+    const rendered = mount(<WrappedComponent {...props} />);
+
+    expect(rendered.find('code')).to.have.length(0);
+    expect(rendered.find('div')).to.have.length(1);
+    expect(rendered.html()).to.contain('bar');
+  });
+
+  it('Should wrap field with provided metadata', () => {
+    const props = {
+      field: {
+        metadata: testMetadata,
+      },
+      editable: true,
+    };
+
+    const WrappedComponent = withFieldMetadataWrapper((props) => {
+      return <TestComponent {...props} />;
+    });
+
+    const rendered = mount(<WrappedComponent {...props} />);
 
     expect(rendered.find('code')).to.have.length(2);
     expect(rendered.find('div')).to.have.length(1);
-    expect(rendered.html()).to.include('nested');
-  });
-
-  it('Should render with default attributes', () => {
-    const props: FieldMetadataComponentProps = {
-      data: stringifiedData,
-    };
-
-    const rendered = mount(<FieldMetadataComponent {...props} />);
-
-    expect(rendered.html()).to.contain('kind="open"');
-    expect(rendered.html()).to.contain('kind="close"');
-    expect(rendered.html()).to.contain('type="text/sitecore"');
-    expect(rendered.html()).to.contain('chrometype="field"');
-    expect(rendered.html()).to.contain('class="scpm"');
-  });
-
-  it('Should render with provided attributes', () => {
-    const props: FieldMetadataComponentProps = {
-      data: stringifiedData,
-      htmlAttributes: {
-        chrometype: 'foo',
-        type: 'bar',
-        className: 'far',
-      },
-    };
-
-    const rendered = mount(<FieldMetadataComponent {...props} />);
-
-    expect(rendered.html()).to.contain('kind="open"');
-    expect(rendered.html()).to.contain('kind="close"');
-    expect(rendered.html()).to.contain('type="bar"');
-    expect(rendered.html()).to.contain('chrometype="foo"');
-    expect(rendered.html()).to.contain('class="far"');
-  });
-});
-
-describe('getFieldMetadataMarkup', () => {
-  it('Should render component with provided metadata and children ', () => {
-    const testMetadata = {
-      contextItem: {
-        id: '{09A07660-6834-476C-B93B-584248D3003B}',
-        language: 'en',
-        revision: 'a0b36ce0a7db49418edf90eb9621e145',
-        version: 1,
-      },
-      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
-      fieldType: 'single-line',
-      rawValue: 'Test1',
-    };
-
-    const div = <div>nested</div>;
-
-    const rendered = mount(getFieldMetadataMarkup(testMetadata, div));
-    expect(rendered.find('code')).to.have.length(2);
-    expect(rendered.html()).to.contain('kind="open"');
-    expect(rendered.html()).to.contain('kind="close"');
-    expect(rendered.html()).to.include(JSON.stringify(testMetadata));
-    expect(rendered.html()).to.include('<div>nested</div>');
+    expect(rendered.html()).to.contain('bar');
+    expect(rendered.html()).to.contain(stringifiedData);
   });
 });

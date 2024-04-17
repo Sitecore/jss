@@ -197,17 +197,6 @@ Image.propTypes = {
     PropTypes.shape({
       value: PropTypes.object,
       editable: PropTypes.string,
-      metadata: PropTypes.shape({
-        contextItem: PropTypes.shape({
-          id: PropTypes.string,
-          language: PropTypes.string,
-          revision: PropTypes.string,
-          version: PropTypes.number,
-        }),
-        fieldId: PropTypes.string,
-        fieldType: PropTypes.string,
-        rawValue: PropTypes.string,
-      }),
     }),
   ]),
   field: PropTypes.oneOfType([
