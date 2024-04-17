@@ -1,6 +1,6 @@
 import React, { ReactElement, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { withMetadata, FieldMetadataPropTypes } from './FieldMetadata';
+import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
 import { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
 
 export interface LinkFieldValue {
@@ -43,7 +43,7 @@ export type LinkProps = React.DetailedHTMLProps<
   showLinkTextWithChildrenPresent?: boolean;
 };
 
-export const Link = withMetadata(
+export const Link = withFieldMetadata(
   // eslint-disable-next-line react/display-name
   forwardRef<HTMLAnchorElement, LinkProps>(
     ({ field, editable, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {

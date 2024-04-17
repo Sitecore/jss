@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { addClassName, convertAttributesToReactProps } from '../utils';
 import { getAttributesString } from '../utils';
-import { withMetadata, FieldMetadataPropTypes } from './FieldMetadata';
+import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
 import { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
 
 export interface ImageFieldValue {
@@ -151,7 +151,7 @@ export const getEEMarkup = (
   return getEditableWrapper(editableMarkup);
 };
 
-export const Image: React.FC<ImageProps> = withMetadata(
+export const Image: React.FC<ImageProps> = withFieldMetadata(
   ({ media, editable, imageParams, field, mediaUrlPrefix, ...otherProps }) => {
     // allows the mistake of using 'field' prop instead of 'media' (consistent with other helpers)
     if (field && !media) {

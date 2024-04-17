@@ -30,7 +30,7 @@ const MetadataWrapper = (props: MetadataWrapperProps): JSX.Element => {
  * Wraps the field component with metadata markup intended to be used for chromes hydartion
  * @param {ComponentType<FieldComponentProps>} FieldComponent the field component
  */
-export function withMetadata<FieldComponentProps extends Record<string, any>>(
+export function withFieldMetadata<FieldComponentProps extends Record<string, any>>(
   FieldComponent: ComponentType<FieldComponentProps>
 ) {
   // eslint-disable-next-line react/display-name

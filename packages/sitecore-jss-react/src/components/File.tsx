@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { withMetadata, FieldMetadataPropTypes } from './FieldMetadata';
+import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
 import { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
 
 export interface FileFieldValue {
@@ -23,7 +23,7 @@ export interface FileProps {
   children?: React.ReactNode;
 }
 
-export const File: React.FC<FileProps> = withMetadata(({ field, children, ...otherProps }) => {
+export const File: React.FC<FileProps> = withFieldMetadata(({ field, children, ...otherProps }) => {
   /*
     File fields cannot be managed via the EE. We never output "editable."
     */

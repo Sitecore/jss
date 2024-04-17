@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withMetadata, FieldMetadataPropTypes } from './FieldMetadata';
+import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
 import { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
 
 export interface DateFieldProps {
@@ -24,7 +24,7 @@ export interface DateFieldProps {
   render?: (date: Date | null) => React.ReactNode;
 }
 
-export const DateField: React.FC<DateFieldProps> = withMetadata(
+export const DateField: React.FC<DateFieldProps> = withFieldMetadata(
   ({ field, tag, editable, render, ...otherProps }) => {
     if (!field || (!field.editable && !field.value)) {
       return null;

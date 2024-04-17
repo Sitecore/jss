@@ -1,5 +1,5 @@
 import React, { ReactElement, FunctionComponent } from 'react';
-import { withMetadata, FieldMetadataPropTypes } from './FieldMetadata';
+import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
 import { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
 import PropTypes from 'prop-types';
 
@@ -29,7 +29,7 @@ export interface TextProps {
   encode?: boolean;
 }
 
-export const Text: FunctionComponent<TextProps> = withMetadata(
+export const Text: FunctionComponent<TextProps> = withFieldMetadata(
   ({ field, tag, editable, encode, ...otherProps }) => {
     if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
       return null;

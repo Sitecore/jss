@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { withMetadata, FieldMetadataPropTypes } from './FieldMetadata';
+import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
 import { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
 
 export interface RichTextField {
@@ -26,7 +26,7 @@ export interface RichTextProps {
   editable?: boolean;
 }
 
-export const RichText: React.FC<RichTextProps> = withMetadata(
+export const RichText: React.FC<RichTextProps> = withFieldMetadata(
   // eslint-disable-next-line react/display-name
   forwardRef<HTMLAnchorElement, RichTextProps>(({ field, tag, editable, ...otherProps }, ref) => {
     if (!field || (!field.editable && !field.value)) {
