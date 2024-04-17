@@ -419,8 +419,6 @@ describe('RichText', () => {
       { attachTo: app }
     );
 
-    // const rendered = mount(<RichText {...props} />);
-
     expect(rendered.find('code')).to.have.length(2);
     expect(rendered.html()).to.contain('<div id="test">');
     expect(rendered.html()).to.contain('kind="open"');
