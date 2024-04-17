@@ -17,7 +17,7 @@ export interface FieldMetadataContextItem {
 }
 
 interface MetadataWrapperProps {
-  metadata: any;
+  metadata: FieldMetadata;
   children: React.ReactNode;
 }
 
@@ -44,21 +44,23 @@ const MetadataWrapper = (props: MetadataWrapperProps): JSX.Element => {
  * Wraps the field component with metadata markup intended to be used for chromes hydartion
  * @param {ComponentType<FieldComponentProps>} FieldComponent the field component
  */
-export function withMetadata<FieldComponentProps extends Record<string, any>>(
+export function withMetadata<FieldComponentProps extends Record<string, unknown>>(
   FieldComponent: ComponentType<FieldComponentProps>
 ) {
   // eslint-disable-next-line react/display-name
-  return forwardRef(({ ...props }: FieldComponentProps, ref: any) => {
-    const metadata = (props as any)?.field?.metadata;
+  return forwardRef(
+    ({ ...props }: FieldComponentProps, ref: React.ForwardedRef<HTMLAnchorElement>) => {
+      const metadata = (props as any)?.field?.metadata;
 
-    if (!props?.field || !metadata || !props?.editable) {
-      return <FieldComponent {...props} ref={ref} />;
+      if (!props?.field || !metadata || !props?.editable) {
+        return <FieldComponent {...props} ref={ref} />;
+      }
+
+      return (
+        <MetadataWrapper metadata={metadata}>
+          <FieldComponent {...props} ref={ref} />
+        </MetadataWrapper>
+      );
     }
-
-    return (
-      <MetadataWrapper metadata={metadata}>
-        <FieldComponent {...props} ref={ref} />
-      </MetadataWrapper>
-    );
-  });
+  );
 }
