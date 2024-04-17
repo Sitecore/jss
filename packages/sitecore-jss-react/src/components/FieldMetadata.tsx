@@ -41,7 +41,7 @@ const MetadataWrapper = (props: MetadataWrapperProps): JSX.Element => {
 };
 
 /**
- * Wraps the field component with metadata markup intended to be used for chromes hydartion
+ * Wraps the field component with metadata markup intended to be used for chromes hydration in Pages
  * @param {ComponentType<FieldComponentProps>} FieldComponent the field component
  */
 export function withMetadata<FieldComponentProps extends Record<string, any>>(
