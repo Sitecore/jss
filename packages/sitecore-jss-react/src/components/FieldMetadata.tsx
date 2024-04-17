@@ -50,9 +50,9 @@ export function withMetadata<FieldComponentProps extends Record<string, unknown>
   // eslint-disable-next-line react/display-name
   return forwardRef(
     ({ ...props }: FieldComponentProps, ref: React.ForwardedRef<HTMLAnchorElement>) => {
-      const metadata = (props as any)?.field?.metadata;
+      const metadata = (props as any).field?.metadata;
 
-      if (!props?.field || !metadata || !props?.editable) {
+      if (props?.field || !metadata || !props?.editable) {
         return <FieldComponent {...props} ref={ref} />;
       }
 
