@@ -9,13 +9,13 @@ interface MetadataWrapperProps {
 
 const MetadataWrapper = (props: MetadataWrapperProps): JSX.Element => {
   const data = JSON.stringify(props.metadata);
-  const defaultAttributes = {
+  const attributes = {
     type: 'text/sitecore',
     chrometype: 'field',
     className: 'scpm',
   };
-  const codeOpenAttributes = { ...defaultAttributes, kind: 'open' };
-  const codeCloseAttributes = { ...defaultAttributes, kind: 'close' };
+  const codeOpenAttributes = { ...attributes, kind: 'open' };
+  const codeCloseAttributes = { ...attributes, kind: 'close' };
 
   return (
     <>
@@ -27,7 +27,7 @@ const MetadataWrapper = (props: MetadataWrapperProps): JSX.Element => {
 };
 
 /**
- * Wraps the field component with metadata markup intended to be used for chromes hydartion
+ * Wraps the field component with metadata markup intended to be used for chromes hydration in Pages
  * @param {ComponentType<FieldComponentProps>} FieldComponent the field component
  */
 export function withFieldMetadata<FieldComponentProps extends Record<string, any>>(
