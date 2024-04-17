@@ -23,7 +23,7 @@ interface MetadataWrapperProps {
 
 const MetadataWrapper = (props: MetadataWrapperProps): JSX.Element => {
   const data = JSON.stringify(props.metadata);
-  const defaultAttributes = {
+  const attributes = {
     type: 'text/sitecore',
     chrometype: 'field',
     className: 'scpm',
