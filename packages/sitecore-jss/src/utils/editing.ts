@@ -19,7 +19,10 @@ export interface Metadata {
   packages: { [key: string]: string };
 }
 
-/** The field metadata */
+/** The field metadata; should be returned by layout service;
+ * when present, metadata markup is rendered as a wrapper around every field component
+ *  and is used for chromes hydration during editing in pages
+ */
 export interface FieldMetadata {
   contextItem?: FieldMetadataContextItem;
   fieldId?: string;
@@ -27,7 +30,7 @@ export interface FieldMetadata {
   rawValue?: string;
 }
 
-/** The field's context item metadata  */
+/** The field's context item metadata, a property of the FIeldMetadata interface  */
 export interface FieldMetadataContextItem {
   id?: string;
   language?: string;
