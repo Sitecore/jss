@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { FieldMetadata, withFieldMetadataWrapper } from './FieldMetadata';
+import { FieldMetadata, withMetadata } from './FieldMetadata';
 
 export interface RichTextField {
   value?: string;
@@ -25,7 +25,7 @@ export interface RichTextProps {
   editable?: boolean;
 }
 
-export const RichText: React.FC<RichTextProps> = withFieldMetadataWrapper(
+export const RichText: React.FC<RichTextProps> = withMetadata(
   // eslint-disable-next-line react/display-name
   forwardRef<HTMLAnchorElement, RichTextProps>(({ field, tag, editable, ...otherProps }, ref) => {
     if (!field || (!field.editable && !field.value)) {

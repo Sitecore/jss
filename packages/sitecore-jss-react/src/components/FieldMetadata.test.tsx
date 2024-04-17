@@ -2,7 +2,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { FieldMetadata, withFieldMetadataWrapper } from './FieldMetadata';
+import { FieldMetadata, withMetadata } from './FieldMetadata';
 import { describe } from 'node:test';
 
 describe('withFieldMetadataWrapper', () => {
@@ -33,7 +33,7 @@ describe('withFieldMetadataWrapper', () => {
       editable: true,
     };
 
-    const WrappedComponent = withFieldMetadataWrapper((props) => {
+    const WrappedComponent = withMetadata((props) => {
       return <TestComponent {...props} />;
     });
 
@@ -49,7 +49,7 @@ describe('withFieldMetadataWrapper', () => {
       field: {},
     };
 
-    const WrappedComponent = withFieldMetadataWrapper((props) => {
+    const WrappedComponent = withMetadata((props) => {
       return <TestComponent {...props} />;
     });
 
@@ -68,7 +68,7 @@ describe('withFieldMetadataWrapper', () => {
       editable: false,
     };
 
-    const WrappedComponent = withFieldMetadataWrapper((props) => {
+    const WrappedComponent = withMetadata((props) => {
       return <TestComponent {...props} />;
     });
 
@@ -87,7 +87,7 @@ describe('withFieldMetadataWrapper', () => {
       editable: true,
     };
 
-    const WrappedComponent = withFieldMetadataWrapper((props) => {
+    const WrappedComponent = withMetadata((props) => {
       return <TestComponent {...props} />;
     });
 

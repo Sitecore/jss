@@ -6,13 +6,13 @@ import {
   ImageProps,
   ImageField,
   ImageFieldValue,
-  withFieldMetadataWrapper,
+  withMetadata,
 } from '@sitecore-jss/sitecore-jss-react';
 import Image, { ImageProps as NextImageProperties } from 'next/image';
 
 type NextImageProps = Omit<ImageProps, 'media'> & Partial<NextImageProperties>;
 
-export const NextImage: React.FC<NextImageProps> = withFieldMetadataWrapper(
+export const NextImage: React.FC<NextImageProps> = withMetadata(
   ({ editable, imageParams, field, mediaUrlPrefix, fill, priority, ...otherProps }) => {
     // next handles src and we use a custom loader,
     // throw error if these are present

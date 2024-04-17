@@ -16,12 +16,12 @@ export interface FieldMetadataContextItem {
   version?: number;
 }
 
-interface FieldMetadataWrapperProps {
+interface MetadataWrapperProps {
   metadata: any;
   children: React.ReactNode;
 }
 
-const FieldMetadataWrapper = (props: FieldMetadataWrapperProps): JSX.Element => {
+const MetadataWrapper = (props: MetadataWrapperProps): JSX.Element => {
   const data = JSON.stringify(props.metadata);
   const defaultAttributes = {
     type: 'text/sitecore',
@@ -44,7 +44,7 @@ const FieldMetadataWrapper = (props: FieldMetadataWrapperProps): JSX.Element => 
  * Wraps the field component with metadata markup intended to be used for chromes hydartion
  * @param {ComponentType<FieldComponentProps>} FieldComponent the field component
  */
-export function withFieldMetadataWrapper<FieldComponentProps extends Record<string, any>>(
+export function withMetadata<FieldComponentProps extends Record<string, any>>(
   FieldComponent: ComponentType<FieldComponentProps>
 ) {
   // eslint-disable-next-line react/display-name
@@ -56,9 +56,9 @@ export function withFieldMetadataWrapper<FieldComponentProps extends Record<stri
     }
 
     return (
-      <FieldMetadataWrapper metadata={metadata}>
+      <MetadataWrapper metadata={metadata}>
         <FieldComponent {...props} ref={ref} />
-      </FieldMetadataWrapper>
+      </MetadataWrapper>
     );
   });
 }

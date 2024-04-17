@@ -1,6 +1,6 @@
 import React, { ReactElement, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { FieldMetadata, withFieldMetadataWrapper } from './FieldMetadata';
+import { FieldMetadata, withMetadata } from './FieldMetadata';
 
 export interface LinkFieldValue {
   [attributeName: string]: unknown;
@@ -42,7 +42,7 @@ export type LinkProps = React.DetailedHTMLProps<
   showLinkTextWithChildrenPresent?: boolean;
 };
 
-export const Link = withFieldMetadataWrapper(
+export const Link = withMetadata(
   // eslint-disable-next-line react/display-name
   forwardRef<HTMLAnchorElement, LinkProps>(
     ({ field, editable, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {

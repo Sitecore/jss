@@ -1,5 +1,5 @@
 import React, { ReactElement, FunctionComponent } from 'react';
-import { FieldMetadata, withFieldMetadataWrapper } from './FieldMetadata';
+import { FieldMetadata, withMetadata } from './FieldMetadata';
 import PropTypes from 'prop-types';
 
 export interface TextField {
@@ -28,7 +28,7 @@ export interface TextProps {
   encode?: boolean;
 }
 
-export const Text: FunctionComponent<TextProps> = withFieldMetadataWrapper(
+export const Text: FunctionComponent<TextProps> = withMetadata(
   ({ field, tag, editable, encode, ...otherProps }) => {
     if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
       return null;

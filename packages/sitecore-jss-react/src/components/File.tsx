@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { FieldMetadata, withFieldMetadataWrapper } from './FieldMetadata';
+import { FieldMetadata, withMetadata } from './FieldMetadata';
 
 export interface FileFieldValue {
   [propName: string]: unknown;
@@ -22,33 +22,31 @@ export interface FileProps {
   children?: React.ReactNode;
 }
 
-export const File: React.FC<FileProps> = withFieldMetadataWrapper(
-  ({ field, children, ...otherProps }) => {
-    /*
+export const File: React.FC<FileProps> = withMetadata(({ field, children, ...otherProps }) => {
+  /*
     File fields cannot be managed via the EE. We never output "editable."
     */
 
-    const dynamicField: FileField | FileFieldValue = field;
+  const dynamicField: FileField | FileFieldValue = field;
 
-    if (!field || (!dynamicField.value && !(dynamicField as FileFieldValue).src)) {
-      return null;
-    }
-
-    // handle link directly on field for forgetful devs
-    const file = ((dynamicField as FileFieldValue).src
-      ? field
-      : dynamicField.value) as FileFieldValue;
-    if (!file) {
-      return null;
-    }
-
-    const linkText = !children ? file.title || file.displayName : null;
-    const anchorAttrs = {
-      href: file.src,
-    };
-    return React.createElement('a', { ...anchorAttrs, ...otherProps }, linkText, children);
+  if (!field || (!dynamicField.value && !(dynamicField as FileFieldValue).src)) {
+    return null;
   }
-);
+
+  // handle link directly on field for forgetful devs
+  const file = ((dynamicField as FileFieldValue).src
+    ? field
+    : dynamicField.value) as FileFieldValue;
+  if (!file) {
+    return null;
+  }
+
+  const linkText = !children ? file.title || file.displayName : null;
+  const anchorAttrs = {
+    href: file.src,
+  };
+  return React.createElement('a', { ...anchorAttrs, ...otherProps }, linkText, children);
+});
 
 File.propTypes = {
   field: PropTypes.oneOfType([

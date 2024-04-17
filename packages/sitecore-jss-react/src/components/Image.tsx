@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { addClassName, convertAttributesToReactProps } from '../utils';
 import { getAttributesString } from '../utils';
-import { FieldMetadata, withFieldMetadataWrapper } from './FieldMetadata';
+import { FieldMetadata, withMetadata } from './FieldMetadata';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -150,7 +150,7 @@ export const getEEMarkup = (
   return getEditableWrapper(editableMarkup);
 };
 
-export const Image: React.FC<ImageProps> = withFieldMetadataWrapper(
+export const Image: React.FC<ImageProps> = withMetadata(
   ({ media, editable, imageParams, field, mediaUrlPrefix, ...otherProps }) => {
     // allows the mistake of using 'field' prop instead of 'media' (consistent with other helpers)
     if (field && !media) {

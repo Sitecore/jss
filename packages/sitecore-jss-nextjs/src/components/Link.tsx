@@ -7,7 +7,7 @@ import {
   LinkField,
   LinkProps as ReactLinkProps,
   LinkPropTypes,
-  withFieldMetadataWrapper,
+  withMetadata,
 } from '@sitecore-jss/sitecore-jss-react';
 
 export type LinkProps = ReactLinkProps & {
@@ -18,7 +18,7 @@ export type LinkProps = ReactLinkProps & {
   internalLinkMatcher?: RegExp;
 };
 
-export const Link = withFieldMetadataWrapper(
+export const Link = withMetadata(
   // eslint-disable-next-line react/display-name
   forwardRef<HTMLAnchorElement, LinkProps>((props: LinkProps, ref): JSX.Element | null => {
     const {

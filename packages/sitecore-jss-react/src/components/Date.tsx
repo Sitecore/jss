@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FieldMetadata, withFieldMetadataWrapper } from './FieldMetadata';
+import { FieldMetadata, withMetadata } from './FieldMetadata';
 
 export interface DateFieldProps {
   /** The date field data. */
@@ -23,7 +23,7 @@ export interface DateFieldProps {
   render?: (date: Date | null) => React.ReactNode;
 }
 
-export const DateField: React.FC<DateFieldProps> = withFieldMetadataWrapper(
+export const DateField: React.FC<DateFieldProps> = withMetadata(
   ({ field, tag, editable, render, ...otherProps }) => {
     if (!field || (!field.editable && !field.value)) {
       return null;
