@@ -3,6 +3,8 @@ import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { HorizonEditor } from '@sitecore-jss/sitecore-jss/utils';
+import { withSitecoreContext } from '../enhancers/withSitecoreContext';
+import { SitecoreContextValue } from './SitecoreContext';
 
 export interface PlaceholderComponentProps extends PlaceholderProps {
   /**
@@ -27,6 +29,13 @@ export interface PlaceholderComponentProps extends PlaceholderProps {
   renderEach?: (component: React.ReactNode, index: number) => React.ReactNode;
 }
 
+export interface ComponentWithContextProps {
+  sitecoreContext: SitecoreContextValue;
+}
+
+export type PlaceholderComponentContextProps = PlaceholderComponentProps &
+  ComponentWithContextProps;
+
 /**
  * @param {HtmlElementRendering | ComponentRendering} rendering
  */
@@ -39,12 +48,12 @@ function isRawRendering(
   );
 }
 
-class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> {
+class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentContextProps> {
   static propTypes = PlaceholderCommon.propTypes;
 
   isEmpty = false;
 
-  constructor(props: PlaceholderComponentProps) {
+  constructor(props: PlaceholderComponentContextProps) {
     super(props);
   }
 
@@ -84,6 +93,7 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
     }
 
     const renderingData = childProps.rendering;
+    // console.log('renderingData', renderingData);
 
     const placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
       renderingData,
@@ -120,4 +130,8 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
   }
 }
 
-export const Placeholder = withComponentFactory(PlaceholderComponent);
+export const PlaceholderWithComponentFactory = withComponentFactory(PlaceholderComponent);
+
+export const Placeholder = withSitecoreContext()<PlaceholderComponentContextProps>(
+  PlaceholderWithComponentFactory
+);

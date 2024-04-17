@@ -28,6 +28,7 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+  EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
 export {
   trackingApi,

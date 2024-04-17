@@ -4,7 +4,11 @@ import {
   RouteData,
   HtmlElementRendering,
 } from '@sitecore-jss/sitecore-jss/layout';
-import { PlaceholderProps, PlaceholderCommon } from '../components/PlaceholderCommon';
+import {
+  PlaceholderProps,
+  PlaceholderCommon,
+  PlaceholderContextProps,
+} from '../components/PlaceholderCommon';
 import { withComponentFactory } from './withComponentFactory';
 
 export interface WithPlaceholderOptions {
@@ -51,10 +55,10 @@ export function withPlaceholder(
       | React.ComponentClass<PlaceholderProps>
       | React.FunctionComponent<PlaceholderProps>
   ) => {
-    class WithPlaceholder extends PlaceholderCommon<PlaceholderProps> {
+    class WithPlaceholder extends PlaceholderCommon<PlaceholderContextProps> {
       static propTypes = PlaceholderCommon.propTypes;
 
-      constructor(props: PlaceholderProps) {
+      constructor(props: PlaceholderContextProps) {
         super(props);
       }
 

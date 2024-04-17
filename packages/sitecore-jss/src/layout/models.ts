@@ -34,6 +34,14 @@ export enum RenderingType {
 }
 
 /**
+ * Represents the possible modes for rendering content for Experience Editor
+ */
+export enum EditMode {
+  Chromes = 'chromes',
+  Metadata = 'metadata',
+}
+
+/**
  * Shape of context data from the Sitecore Layout Service
  */
 export interface LayoutServiceContext {
@@ -46,6 +54,7 @@ export interface LayoutServiceContext {
   site?: {
     name?: string;
   };
+  editMode?: EditMode;
 }
 
 /**
