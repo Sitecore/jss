@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { addClassName, convertAttributesToReactProps } from '../utils';
 import { getAttributesString } from '../utils';
-import { FieldMetadata, withMetadata } from './FieldMetadata';
+import { withMetadata, FieldMetadataPropTypes } from './FieldMetadata';
+import { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -206,17 +207,7 @@ Image.propTypes = {
     PropTypes.shape({
       value: PropTypes.object,
       editable: PropTypes.string,
-      metadata: PropTypes.shape({
-        contextItem: PropTypes.shape({
-          id: PropTypes.string,
-          language: PropTypes.string,
-          revision: PropTypes.string,
-          version: PropTypes.number,
-        }),
-        fieldId: PropTypes.string,
-        fieldType: PropTypes.string,
-        rawValue: PropTypes.string,
-      }),
+      metadata: FieldMetadataPropTypes,
     }),
   ]),
   editable: PropTypes.bool,

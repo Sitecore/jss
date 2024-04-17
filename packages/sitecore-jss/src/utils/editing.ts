@@ -19,6 +19,22 @@ export interface Metadata {
   packages: { [key: string]: string };
 }
 
+/** The field metadata */
+export interface FieldMetadata {
+  contextItem?: FieldMetadataContextItem;
+  fieldId?: string;
+  fieldType?: string;
+  rawValue?: string;
+}
+
+/** The field's context item metadata  */
+export interface FieldMetadataContextItem {
+  id?: string;
+  language?: string;
+  revision?: string;
+  version?: number;
+}
+
 /**
  * Static utility class for Sitecore Experience Editor
  */

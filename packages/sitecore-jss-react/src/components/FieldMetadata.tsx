@@ -1,20 +1,6 @@
 import React, { ComponentType, forwardRef } from 'react';
-
-/** The field metadata */
-export interface FieldMetadata {
-  contextItem?: FieldMetadataContextItem;
-  fieldId?: string;
-  fieldType?: string;
-  rawValue?: string;
-}
-
-/** The field's context item metadata  */
-export interface FieldMetadataContextItem {
-  id?: string;
-  language?: string;
-  revision?: string;
-  version?: number;
-}
+import { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
+import PropTypes from 'prop-types';
 
 interface MetadataWrapperProps {
   metadata: FieldMetadata;
@@ -44,7 +30,7 @@ const MetadataWrapper = (props: MetadataWrapperProps): JSX.Element => {
  * Wraps the field component with metadata markup intended to be used for chromes hydartion
  * @param {ComponentType<FieldComponentProps>} FieldComponent the field component
  */
-export function withMetadata<FieldComponentProps extends Record<string, unknown>>(
+export function withMetadata<FieldComponentProps extends Record<string, any>>(
   FieldComponent: ComponentType<FieldComponentProps>
 ) {
   // eslint-disable-next-line react/display-name
@@ -52,7 +38,7 @@ export function withMetadata<FieldComponentProps extends Record<string, unknown>
     ({ ...props }: FieldComponentProps, ref: React.ForwardedRef<HTMLAnchorElement>) => {
       const metadata = (props as any).field?.metadata;
 
-      if (props?.field || !metadata || !props?.editable) {
+      if (!metadata || !props?.editable) {
         return <FieldComponent {...props} ref={ref} />;
       }
 
@@ -64,3 +50,15 @@ export function withMetadata<FieldComponentProps extends Record<string, unknown>
     }
   );
 }
+
+export const FieldMetadataPropTypes = PropTypes.shape({
+  contextItem: PropTypes.shape({
+    id: PropTypes.string,
+    language: PropTypes.string,
+    revision: PropTypes.string,
+    version: PropTypes.number,
+  }),
+  fieldId: PropTypes.string,
+  fieldType: PropTypes.string,
+  rawValue: PropTypes.string,
+});

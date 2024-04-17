@@ -1,4 +1,5 @@
 export { constants, enableDebug, ClientError } from '@sitecore-jss/sitecore-jss';
+export { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
 export {
   isEditorActive,
   resetEditorChromes,
@@ -100,4 +101,4 @@ export { withPlaceholder } from './enhancers/withPlaceholder';
 export { withDatasourceCheck } from './enhancers/withDatasourceCheck';
 export { EditFrameProps, EditFrame } from './components/EditFrame';
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
-export { FieldMetadata, withMetadata } from './components/FieldMetadata';
+export { withMetadata } from './components/FieldMetadata';
