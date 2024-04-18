@@ -1,6 +1,4 @@
-﻿// PlaceholderWithMetadata.test.js
-
-import React from 'react';
+﻿import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
