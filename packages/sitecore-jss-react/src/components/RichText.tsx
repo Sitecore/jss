@@ -42,7 +42,8 @@ export const RichText: React.FC<RichTextProps> = withFieldMetadata(
     };
 
     return React.createElement(tag || 'div', htmlProps);
-  })
+  }),
+  true
 );
 
 export const RichTextPropTypes = {

@@ -73,7 +73,8 @@ export const Link = withMetadata(
     // we've already rendered the metadata wrapper - so set metadata to null to prevent duplicate wrapping
     reactLinkProps.field.metadata = null;
     return <ReactLink {...reactLinkProps} ref={ref} />;
-  })
+  }),
+  true
 );
 
 Link.defaultProps = {

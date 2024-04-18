@@ -129,7 +129,8 @@ export const Link = withFieldMetadata(
 
       return <React.Fragment>{resultTags}</React.Fragment>;
     }
-  )
+  ),
+  true
 );
 
 export const LinkPropTypes = {
