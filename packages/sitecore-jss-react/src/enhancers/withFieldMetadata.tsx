@@ -2,12 +2,17 @@ import React, { ComponentType, forwardRef } from 'react';
 import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
 import PropTypes from 'prop-types';
 
-interface MetadataWrapperProps {
+interface FieldMetadataProps {
   metadata: FieldMetadataValue;
   children: React.ReactNode;
 }
 
-const FieldMetadata = (props: MetadataWrapperProps): JSX.Element => {
+/**
+ * The component which renders field metadata markup
+ * @param {FieldMetadataProps} props the props of the component
+ * @returns metadata markup wrapped around children
+ */
+const FieldMetadata = (props: FieldMetadataProps): JSX.Element => {
   const data = JSON.stringify(props.metadata);
   const attributes = {
     type: 'text/sitecore',
