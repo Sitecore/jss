@@ -7,7 +7,7 @@ interface MetadataWrapperProps {
   children: React.ReactNode;
 }
 
-const MetadataWrapper = (props: MetadataWrapperProps): JSX.Element => {
+const FieldMetadata = (props: MetadataWrapperProps): JSX.Element => {
   const data = JSON.stringify(props.metadata);
   const attributes = {
     type: 'text/sitecore',
@@ -43,9 +43,9 @@ export function withFieldMetadata<FieldComponentProps extends Record<string, any
       }
 
       return (
-        <MetadataWrapper metadata={metadata}>
+        <FieldMetadata metadata={metadata}>
           <FieldComponent {...props} ref={ref} />
-        </MetadataWrapper>
+        </FieldMetadata>
       );
     }
   );
