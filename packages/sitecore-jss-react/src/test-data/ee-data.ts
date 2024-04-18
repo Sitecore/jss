@@ -2,6 +2,7 @@ export const convertedData = {
   sitecore: {
     context: {
       pageEditing: true,
+      editMode: 'metadata',
     },
     route: {
       name: 'home',
@@ -264,6 +265,7 @@ export const convertedDataWithoutParams = {
   sitecore: {
     context: {
       pageEditing: true,
+      editMode: 'metadata',
     },
     route: {
       name: 'home',
@@ -522,6 +524,7 @@ export const emptyPlaceholderData = {
   sitecore: {
     context: {
       pageEditing: true,
+      editMode: 'metadata',
     },
     route: {
       name: 'home',

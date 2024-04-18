@@ -101,7 +101,9 @@ describe('<Placeholder />', () => {
         const phKey = 'page-content';
 
         const renderedComponent = mount(
-          <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+          <SitecoreContext componentFactory={componentFactory}>
+            <Placeholder name={phKey} rendering={component} />
+          </SitecoreContext>
         );
 
         expect(renderedComponent.find('.download-callout-mock').length).to.equal(1);
@@ -300,7 +302,9 @@ describe('<Placeholder />', () => {
       const phKey = 'main';
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
@@ -318,7 +322,9 @@ describe('<Placeholder />', () => {
       const phKey = 'container-1';
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
@@ -334,7 +340,9 @@ describe('<Placeholder />', () => {
       const phKey = 'richText';
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.rendering-variant').length).to.equal(0);
@@ -346,7 +354,9 @@ describe('<Placeholder />', () => {
       const phKey = 'dynamic-1-{*}';
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
@@ -362,7 +372,9 @@ describe('<Placeholder />', () => {
       const phKey = 'main-second';
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
@@ -377,7 +389,9 @@ describe('<Placeholder />', () => {
       const phKey = 'column-1-{*}';
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
@@ -410,7 +424,9 @@ describe('<Placeholder />', () => {
       ));
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.byoc-component').length).to.equal(2);
@@ -443,7 +459,9 @@ describe('<Placeholder />', () => {
       ));
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.feaas-component').length).to.equal(2);
@@ -459,7 +477,9 @@ describe('<Placeholder />', () => {
     const phKey = 'main';
 
     const renderedComponent = mount(
-      <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      <SitecoreContext componentFactory={componentFactory}>
+        <Placeholder name={phKey} rendering={component} />
+      </SitecoreContext>
     );
 
     const eeChrome = renderedComponent.find({ chrometype: 'placeholder', kind: 'open', id: phKey });
@@ -473,11 +493,9 @@ describe('<Placeholder />', () => {
     const phKey = 'main';
 
     const renderedComponent = mount(
-      <Placeholder
-        name={phKey}
-        rendering={emptyPlaceholderData.sitecore.route}
-        componentFactory={componentFactory}
-      />
+      <SitecoreContext componentFactory={componentFactory}>
+        <Placeholder name={phKey} rendering={emptyPlaceholderData.sitecore.route} />
+      </SitecoreContext>
     );
     expect(renderedComponent.find('.sc-jss-empty-placeholder').length).to.equal(1);
   });
@@ -495,7 +513,9 @@ describe('<Placeholder />', () => {
     const phKey = 'unknown';
 
     const renderedComponent = mount(
-      <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
+      <SitecoreContext componentFactory={componentFactory}>
+        <Placeholder name={phKey} rendering={route} />
+      </SitecoreContext>
     );
     expect(renderedComponent.html()).to.be.empty;
   });
@@ -529,7 +549,9 @@ describe('<Placeholder />', () => {
     const phKey = 'main';
 
     const renderedComponent = mount(
-      <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
+      <SitecoreContext componentFactory={componentFactory}>
+        <Placeholder name={phKey} rendering={route} />
+      </SitecoreContext>
     );
     expect(renderedComponent.find('.sc-jss-placeholder-error').length).to.equal(1);
   });
@@ -540,7 +562,9 @@ describe('<Placeholder />', () => {
 
       const Home: React.FC<{ rendering?: RouteData }> = ({ rendering }) => (
         <div className="home-mock">
-          <Placeholder name="main" rendering={rendering} />
+          <SitecoreContext componentFactory={componentFactory}>
+            <Placeholder name="main" rendering={rendering} />
+          </SitecoreContext>
         </div>
       );
 
@@ -565,12 +589,9 @@ describe('<Placeholder />', () => {
     const phKey = 'main';
 
     const renderedComponent = mount(
-      <Placeholder
-        name={phKey}
-        rendering={route}
-        componentFactory={componentFactory}
-        errorComponent={CustomError}
-      />
+      <SitecoreContext componentFactory={componentFactory}>
+        <Placeholder name={phKey} rendering={route} errorComponent={CustomError} />
+      </SitecoreContext>
     );
     expect(renderedComponent.find('.custom-error').length).to.equal(1);
   });
@@ -595,12 +616,13 @@ it('should render MissingComponent for unknown rendering', () => {
   );
 
   const renderedComponent = mount(
-    <Placeholder
-      name={phKey}
-      rendering={route}
-      componentFactory={componentFactory}
-      missingComponentComponent={CustomMissingComponent}
-    />
+    <SitecoreContext componentFactory={componentFactory}>
+      <Placeholder
+        name={phKey}
+        rendering={route}
+        missingComponentComponent={CustomMissingComponent}
+      />
+    </SitecoreContext>
   );
   expect(renderedComponent.find('.missing-component').length).to.equal(1);
 });
@@ -633,7 +655,9 @@ it('should render nothing for rendering without a name', () => {
 
   const renderedComponent = mount(
     <div className="empty-test">
-      <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
+      <SitecoreContext componentFactory={componentFactory}>
+        <Placeholder name={phKey} rendering={route} />
+      </SitecoreContext>
     </div>
   );
   expect(renderedComponent.children().length).to.equal(1);
@@ -652,7 +676,9 @@ it('should render HiddenRendering when rendering is hidden', () => {
   const phKey = 'main';
 
   const renderedComponent = mount(
-    <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
+    <SitecoreContext componentFactory={componentFactory}>
+      <Placeholder name={phKey} rendering={route} />
+    </SitecoreContext>
   );
   expect(renderedComponent.find(HiddenRendering).length).to.equal(1);
 });
@@ -677,12 +703,13 @@ it('should render custom HiddenRendering when rendering is hidden', () => {
   );
 
   const renderedComponent = mount(
-    <Placeholder
-      name={phKey}
-      rendering={route}
-      componentFactory={componentFactory}
-      hiddenRenderingComponent={CustomHiddenRendering}
-    />
+    <SitecoreContext componentFactory={componentFactory}>
+      <Placeholder
+        name={phKey}
+        rendering={route}
+        hiddenRenderingComponent={CustomHiddenRendering}
+      />
+    </SitecoreContext>
   );
   expect(renderedComponent.find('.hidden-rendering').length).to.equal(1);
   expect(renderedComponent.find(HiddenRendering).length).to.equal(1);

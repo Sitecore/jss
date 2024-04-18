@@ -2,6 +2,7 @@ export const convertedDevData = {
   sitecore: {
     context: {
       pageEditing: false,
+      editMode: 'chromes',
     },
     route: {
       name: 'home',
@@ -64,6 +65,7 @@ export const convertedDevDataWithoutParams = {
   sitecore: {
     context: {
       pageEditing: false,
+      editMode: 'chromes',
     },
     route: {
       name: 'home',
@@ -125,6 +127,7 @@ export const convertedLayoutServiceData = {
   sitecore: {
     context: {
       pageEditing: false,
+      editMode: 'chromes',
     },
     route: {
       name: 'home',
@@ -198,6 +201,7 @@ export const sxaRenderingVariantData = {
   sitecore: {
     context: {
       pageEditing: false,
+      editMode: 'chromes',
     },
     route: {
       name: 'Home',
@@ -257,6 +261,7 @@ export const sxaRenderingVariantDataWithCommonContainerName = {
   sitecore: {
     context: {
       pageEditing: false,
+      editMode: 'chromes',
     },
     route: {
       name: 'Home',
@@ -296,6 +301,7 @@ export const sxaRenderingVariantDoubleDigitDynamicPlaceholder = {
   sitecore: {
     context: {
       pageEditing: false,
+      editMode: 'chromes',
     },
     route: {
       name: 'Home',
@@ -335,6 +341,7 @@ export const sxaRenderingVariantDataWithoutCommonContainerName = {
   sitecore: {
     context: {
       pageEditing: false,
+      editMode: 'chromes',
     },
     route: {
       name: 'Home',
@@ -374,6 +381,7 @@ export const sxaRenderingColumnSplitterVariant = {
   sitecore: {
     context: {
       pageEditing: false,
+      editMode: 'chromes',
     },
     route: {
       name: 'Home',
@@ -413,6 +421,7 @@ export const byocWrapperData = {
   sitecore: {
     context: {
       pageEditing: false,
+      editMode: 'chromes',
     },
     route: {
       name: 'Home',
@@ -458,6 +467,7 @@ export const feaasWrapperData = {
   sitecore: {
     context: {
       pageEditing: false,
+      editMode: 'chromes',
     },
     route: {
       name: 'Home',

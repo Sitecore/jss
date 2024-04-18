@@ -8,7 +8,7 @@ import {
   Field,
   Item,
   HtmlElementRendering,
-  // EditMode,
+  EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
 import { convertAttributesToReactProps } from '../utils';
 import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
@@ -16,7 +16,8 @@ import { FEaaSComponent, FEAAS_COMPONENT_RENDERING_NAME } from './FEaaSComponent
 import { FEaaSWrapper, FEAAS_WRAPPER_RENDERING_NAME } from './FEaaSWrapper';
 import { BYOCComponent, BYOC_COMPONENT_RENDERING_NAME } from './BYOCComponent';
 import { BYOCWrapper, BYOC_WRAPPER_RENDERING_NAME } from './BYOCWrapper';
-// import { PlaceholderWithMetadata } from './PlaceholderWithMetadata';
+import { SitecoreContextValue } from './SitecoreContext';
+import { PlaceholderMetadata } from './PlaceholderMetadata';
 
 type ErrorComponentProps = {
   [prop: string]: unknown;
@@ -76,6 +77,10 @@ export interface PlaceholderProps {
    * the placeholder
    */
   errorComponent?: React.ComponentClass<ErrorComponentProps> | React.FC<ErrorComponentProps>;
+  /**
+   *  Context data from the Sitecore Layout Service
+   */
+  sitecoreContext: SitecoreContextValue;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
@@ -104,6 +109,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       PropTypes.func as Requireable<React.FC<unknown>>,
     ]),
     modifyComponentProps: PropTypes.func,
+    sitecoreContext: PropTypes.object as Requireable<SitecoreContextValue>,
   };
 
   nodeRefs: Element[];
@@ -195,10 +201,9 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           : `component-${index}`;
         const commonProps = { key };
 
-        /* TODO **/
-        // if (this.props.sitecoreContext.editMode === EditMode.Metadata) {
-        //   return <PlaceholderWithMetadata key={key} component={rendering as ComponentRendering} />;
-        // }
+        if (this.props.sitecoreContext.editMode === EditMode.Metadata) {
+          return <PlaceholderMetadata key={key} component={rendering as ComponentRendering} />;
+        }
 
         // if the element is not a 'component rendering', render it 'raw'
         if (

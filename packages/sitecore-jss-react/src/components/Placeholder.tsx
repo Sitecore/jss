@@ -4,7 +4,6 @@ import { withComponentFactory } from '../enhancers/withComponentFactory';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { HorizonEditor } from '@sitecore-jss/sitecore-jss/utils';
 import { withSitecoreContext } from '../enhancers/withSitecoreContext';
-import { SitecoreContextValue } from './SitecoreContext';
 
 export interface PlaceholderComponentProps extends PlaceholderProps {
   /**
@@ -29,13 +28,6 @@ export interface PlaceholderComponentProps extends PlaceholderProps {
   renderEach?: (component: React.ReactNode, index: number) => React.ReactNode;
 }
 
-export interface ComponentWithContextProps {
-  sitecoreContext: SitecoreContextValue;
-}
-
-export type PlaceholderComponentContextProps = PlaceholderComponentProps &
-  ComponentWithContextProps;
-
 /**
  * @param {HtmlElementRendering | ComponentRendering} rendering
  */
@@ -48,12 +40,12 @@ function isRawRendering(
   );
 }
 
-class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentContextProps> {
+class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> {
   static propTypes = PlaceholderCommon.propTypes;
 
   isEmpty = false;
 
-  constructor(props: PlaceholderComponentContextProps) {
+  constructor(props: PlaceholderComponentProps) {
     super(props);
   }
 
@@ -93,7 +85,6 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentContext
     }
 
     const renderingData = childProps.rendering;
-    // console.log('renderingData', renderingData);
 
     const placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
       renderingData,
@@ -132,6 +123,6 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentContext
 
 export const PlaceholderWithComponentFactory = withComponentFactory(PlaceholderComponent);
 
-export const Placeholder = withSitecoreContext()<PlaceholderComponentContextProps>(
+export const Placeholder = withSitecoreContext()<PlaceholderComponentProps>(
   PlaceholderWithComponentFactory
 );
