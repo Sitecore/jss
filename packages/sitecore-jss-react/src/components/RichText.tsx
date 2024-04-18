@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
-import { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
+import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface RichTextField {
   value?: string;
   editable?: string;
-  metadata?: FieldMetadata;
+  metadata?: FieldMetadataValue;
 }
 
 export interface RichTextProps {

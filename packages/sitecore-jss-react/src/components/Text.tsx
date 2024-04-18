@@ -1,12 +1,12 @@
 import React, { ReactElement, FunctionComponent } from 'react';
 import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
-import { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
+import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
 import PropTypes from 'prop-types';
 
 export interface TextField {
   value?: string | number;
   editable?: string;
-  metadata?: FieldMetadata;
+  metadata?: FieldMetadataValue;
 }
 
 export interface TextProps {

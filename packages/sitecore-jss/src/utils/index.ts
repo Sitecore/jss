@@ -8,8 +8,6 @@ export {
   resetEditorChromes,
   handleEditorAnchors,
   Metadata,
-  FieldMetadata,
-  FieldMetadataContextItem,
 } from './editing';
 export {
   DefaultEditFrameButton,

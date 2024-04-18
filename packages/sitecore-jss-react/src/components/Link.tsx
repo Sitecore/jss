@@ -1,7 +1,7 @@
 import React, { ReactElement, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
-import { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
+import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface LinkFieldValue {
   [attributeName: string]: unknown;
@@ -20,7 +20,7 @@ export interface LinkField {
   value: LinkFieldValue;
   editableFirstPart?: string;
   editableLastPart?: string;
-  metadata?: FieldMetadata;
+  metadata?: FieldMetadataValue;
 }
 
 export type LinkProps = React.DetailedHTMLProps<

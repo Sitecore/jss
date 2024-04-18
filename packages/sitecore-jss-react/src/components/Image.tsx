@@ -4,7 +4,7 @@ import React from 'react';
 import { addClassName, convertAttributesToReactProps } from '../utils';
 import { getAttributesString } from '../utils';
 import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
-import { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
+import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -15,7 +15,7 @@ export interface ImageFieldValue {
 export interface ImageField {
   value?: ImageFieldValue;
   editable?: string;
-  metadata?: FieldMetadata;
+  metadata?: FieldMetadataValue;
 }
 
 export interface ImageSizeParameters {

@@ -1,9 +1,9 @@
 import React, { ComponentType, forwardRef } from 'react';
-import { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
+import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
 import PropTypes from 'prop-types';
 
 interface MetadataWrapperProps {
-  metadata: FieldMetadata;
+  metadata: FieldMetadataValue;
   children: React.ReactNode;
 }
 

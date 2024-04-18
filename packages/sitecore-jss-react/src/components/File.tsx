@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
-import { FieldMetadata } from '@sitecore-jss/sitecore-jss/utils';
+import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface FileFieldValue {
   [propName: string]: unknown;
@@ -12,7 +12,7 @@ export interface FileFieldValue {
 
 export interface FileField {
   value: FileFieldValue;
-  metadata?: FieldMetadata;
+  metadata?: FieldMetadataValue;
 }
 
 export interface FileProps {
