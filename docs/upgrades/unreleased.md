@@ -1,24 +1,23 @@
 ## Unreleased
 
-### nextjs
-
-### nextjs-xmcloud
-
-### nextjs-sxa
-
 ### nextjs-multisite
 
-* **Update** packages\create-sitecore-jss\src\templates\nextjs-multisite\scripts\config\plugins\multisite.ts
+* **Update** 
 
-```
-//Remove
-useSiteQuery: true,
-```
+    * packages\create-sitecore-jss\src\templates\nextjs-multisite\scripts\config\plugins\multisite.ts
 
-### nextjs-styleguide
+    ```
+    //Remove
+    useSiteQuery: true,
+    ```
 
-### react
+**Note for SXP users**
 
-### angular
+JSS now uses `site` query to retrieve site info.
+ When multisite addon is installed, `site` query retrieves both the SXA Headless and the configuration sites. JSS will filter out "website", but any other MVC or non-nextjs sites defined in configuration will be considered for resolution by the JSS app.
+ In case your setup is like this and you wish to avoid that, and just use the headless sites for your setup, you can add a filter in `\scripts\config\plugins\multisite.ts` file. For example:
 
-### vue
+ ```
+    sites = sites.filter((site) => !['not-headless', 'headful', 'mvc'].includes(site.name));
+ ```
+
