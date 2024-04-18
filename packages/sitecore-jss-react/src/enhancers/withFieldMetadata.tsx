@@ -34,30 +34,10 @@ const FieldMetadata = (props: FieldMetadataProps): JSX.Element => {
 /**
  * Wraps the field component with metadata markup intended to be used for chromes hydration in Pages
  * @param {ComponentType<FieldComponentProps>} FieldComponent the field component
- * @param {boolean} isForwardRef set to 'true' if forward reference is needed
  */
 export function withFieldMetadata<FieldComponentProps extends Record<string, any>>(
-  FieldComponent: ComponentType<FieldComponentProps>,
-  isForwardRef = false
+  FieldComponent: ComponentType<FieldComponentProps>
 ) {
-  if (isForwardRef) {
-    // eslint-disable-next-line react/display-name
-    return forwardRef(
-      ({ ...props }: FieldComponentProps, ref: React.ForwardedRef<HTMLAnchorElement>) => {
-        const metadata = (props as any).field?.metadata;
-
-        if (!metadata || !props?.editable) {
-          return <FieldComponent {...props} ref={ref} />;
-        }
-
-        return (
-          <FieldMetadata metadata={metadata}>
-            <FieldComponent {...props} ref={ref} />
-          </FieldMetadata>
-        );
-      }
-    );
-  }
   // eslint-disable-next-line react/display-name
   return ({ ...props }: FieldComponentProps) => {
     const metadata = (props as any).field?.metadata;
@@ -72,6 +52,31 @@ export function withFieldMetadata<FieldComponentProps extends Record<string, any
       </FieldMetadata>
     );
   };
+}
+
+/**
+ * Wraps the field component with metadata markup intended to be used for chromes hydration in Pages
+ * @param {ComponentType<FieldComponentProps>} FieldComponent the field component
+ */
+export function withFieldMetadataForwardRef<FieldComponentProps extends Record<string, any>>(
+  FieldComponent: ComponentType<FieldComponentProps>
+) {
+  // eslint-disable-next-line react/display-name
+  return forwardRef(
+    ({ ...props }: FieldComponentProps, ref: React.ForwardedRef<HTMLAnchorElement>) => {
+      const metadata = (props as any).field?.metadata;
+
+      if (!metadata || !props?.editable) {
+        return <FieldComponent {...props} ref={ref} />;
+      }
+
+      return (
+        <FieldMetadata metadata={metadata}>
+          <FieldComponent {...props} ref={ref} />
+        </FieldMetadata>
+      );
+    }
+  );
 }
 
 export const FieldMetadataPropTypes = PropTypes.shape({

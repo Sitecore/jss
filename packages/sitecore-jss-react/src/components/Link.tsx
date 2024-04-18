@@ -1,6 +1,9 @@
 import React, { ReactElement, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
+import {
+  withFieldMetadataForwardRef,
+  FieldMetadataPropTypes,
+} from '../enhancers/withFieldMetadata';
 import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface LinkFieldValue {
@@ -43,7 +46,7 @@ export type LinkProps = React.DetailedHTMLProps<
   showLinkTextWithChildrenPresent?: boolean;
 };
 
-export const Link = withFieldMetadata(
+export const Link = withFieldMetadataForwardRef(
   // eslint-disable-next-line react/display-name
   forwardRef<HTMLAnchorElement, LinkProps>(
     ({ field, editable, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {
@@ -129,8 +132,7 @@ export const Link = withFieldMetadata(
 
       return <React.Fragment>{resultTags}</React.Fragment>;
     }
-  ),
-  true
+  )
 );
 
 export const LinkPropTypes = {
