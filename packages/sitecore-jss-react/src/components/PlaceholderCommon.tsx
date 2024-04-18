@@ -201,7 +201,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           : `component-${index}`;
         const commonProps = { key };
 
-        if (this.props.sitecoreContext.editMode === EditMode.Metadata) {
+        if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
           return <PlaceholderMetadata key={key} component={rendering as ComponentRendering} />;
         }
 

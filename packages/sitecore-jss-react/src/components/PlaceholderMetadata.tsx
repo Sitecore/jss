@@ -1,10 +1,21 @@
 ﻿import React from 'react';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 
+/**
+ *  Props containing the component data to render.
+ */
 export interface PlaceholderMetadataProps {
   component: ComponentRendering;
 }
 
+/**
+ * This component supports the chrome's hydration process in Pages by rendering the required metadata.
+ * This component handles recursive rendering of components and their placeholders, encapsulating
+ * each part within specific code tags to outline their structure and metadata attributes.
+ *
+ * @param {PlaceholderMetadataProps} props - The props containing the component data to render.
+ * @returns {JSX.Element} - The rendered component with all nested components and placeholders.
+ */
 export const PlaceholderMetadata: React.FC<PlaceholderMetadataProps> = ({ component }) => {
   const defaultAttributes = {
     type: 'text/sitecore',
