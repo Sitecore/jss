@@ -16,7 +16,7 @@ export const PlaceholderWithMetadata: React.FC<PlaceholderWithMetadataProps> = (
   const codeCloseAttributes = { ...defaultAttributes, kind: 'close' };
 
   const renderComponent = (component: ComponentRendering): JSX.Element => {
-    const Tag = component.componentName;
+    const Tag = component.componentName as React.ElementType;
     return (
       <>
         <code {...codeOpenAttributes}>{`{uid: "${component.uid}"}`}</code>
@@ -26,38 +26,43 @@ export const PlaceholderWithMetadata: React.FC<PlaceholderWithMetadataProps> = (
     );
   };
 
-  const renderNestedComponents = (components: ComponentRendering[]): JSX.Element[] => {
-    return components.flatMap((component) => {
-      const rendered = [renderComponent(component)];
-      if (
-        'placeholders' in component &&
-        component.placeholders &&
-        Object.keys(component.placeholders).length > 0
-      ) {
-        // Additionally render any nested components inside the placeholders
-        const nested = renderComponentsInPlaceholder(
-          component.placeholders as { [key: string]: ComponentRendering[] },
-          component.uid
-        );
-        return [...rendered, ...nested];
-      }
-      return rendered;
-    });
+  const renderNestedComponents = (components: ComponentRendering[]): JSX.Element => {
+    return (
+      <>
+        {components.map((nestedComponent) => {
+          if (
+            'placeholders' in nestedComponent &&
+            nestedComponent.placeholders &&
+            Object.keys(nestedComponent.placeholders).length > 0
+          ) {
+            return renderComponentsInPlaceholder(
+              nestedComponent.placeholders as { [key: string]: ComponentRendering[] },
+              nestedComponent.uid
+            );
+          }
+          return renderComponent(nestedComponent);
+        })}
+      </>
+    );
   };
 
   const renderComponentsInPlaceholder = (
     placeholders: { [key: string]: ComponentRendering[] },
     parentUid: string
-  ): JSX.Element[] => {
-    return Object.entries(placeholders).map(([key, nestedComponents]) => (
+  ): JSX.Element => {
+    return (
       <>
-        <code
-          {...codeOpenAttributes}
-        >{`{placeholderName: "${key}", parentRendering: "${parentUid}"}`}</code>
-        {renderNestedComponents(nestedComponents)}
-        <code {...codeCloseAttributes}></code>
+        {Object.entries(placeholders).map(([key, nestedComponents]) => (
+          <>
+            <code
+              {...codeOpenAttributes}
+            >{`{placeholderName: "${key}", parentRendering: "${parentUid}"}`}</code>
+            {renderNestedComponents(nestedComponents)}
+            <code {...codeCloseAttributes} />
+          </>
+        ))}
       </>
-    ));
+    );
   };
 
   // check if the component has nested placeholders
