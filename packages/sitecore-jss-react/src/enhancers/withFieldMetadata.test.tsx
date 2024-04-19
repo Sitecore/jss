@@ -92,10 +92,23 @@ describe('withFieldMetadataWrapper', () => {
     });
 
     const rendered = mount(<WrappedComponent {...props} />);
+    const codeTags = rendered.find('code');
 
-    expect(rendered.find('code')).to.have.length(2);
+    expect(codeTags).to.have.length(2);
+    expect(codeTags.at(0).text()).to.equal(stringifiedData);
+    expect(codeTags.at(0).html()).to.include('<code ');
+    expect(codeTags.at(0).html()).to.include('</code>');
+    expect(codeTags.at(0).html()).to.include('type="text/sitecore"');
+    expect(codeTags.at(0).html()).to.include('chrometype="field"');
+    expect(codeTags.at(0).html()).to.include('class="scpm"');
+    expect(codeTags.at(0).html()).to.include('kind="open"');
     expect(rendered.find('div')).to.have.length(1);
     expect(rendered.html()).to.contain('bar');
-    expect(rendered.html()).to.contain(stringifiedData);
+    expect(codeTags.at(1).html()).to.include('<code ');
+    expect(codeTags.at(1).html()).to.include('</code>');
+    expect(codeTags.at(1).html()).to.include('type="text/sitecore"');
+    expect(codeTags.at(1).html()).to.include('chrometype="field"');
+    expect(codeTags.at(1).html()).to.include('class="scpm"');
+    expect(codeTags.at(1).html()).to.include('kind="close"');
   });
 });
