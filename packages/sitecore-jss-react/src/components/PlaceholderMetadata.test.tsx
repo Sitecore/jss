@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
 
-describe.only('PlaceholderWithMetadata', () => {
+describe('PlaceholderWithMetadata', () => {
   it('renders a single component without placeholders', () => {
     const component = {
       uid: '123',
