@@ -1,15 +1,30 @@
 ## Unreleased
 
+### nextjs-xmcloud
+
+* **Update** 
+
+    * package.json
+
+        remove:
+        ```
+        ~"@sitecore-cloudsdk/events": "^0.2.4",~
+        ```
+        add:
+        ```
+        "@sitecore-cloudsdk/events": "^0.3.0",
+        ```
+
 ### nextjs-multisite
 
 * **Update** 
 
     * packages\create-sitecore-jss\src\templates\nextjs-multisite\scripts\config\plugins\multisite.ts
 
-    ```
-    //Remove
-    useSiteQuery: true,
-    ```
+        ```
+        //Remove
+        useSiteQuery: true,
+        ```
 
 **Note for SXP users**
 
