@@ -2,6 +2,13 @@ import React, { ComponentType, forwardRef } from 'react';
 import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
 import PropTypes from 'prop-types';
 
+interface WithMetadataProps<FieldType> {
+  field: FieldType & {
+    metadata: FieldMetadataValue;
+  };
+  editable: boolean;
+}
+
 interface FieldMetadataProps {
   metadata: FieldMetadataValue;
   children: React.ReactNode;
@@ -36,7 +43,7 @@ const FieldMetadata = (props: FieldMetadataProps): JSX.Element => {
  * @param {ComponentType<FieldComponentProps>} FieldComponent the field component
  * @param {boolean} isForwardRef set to 'true' if forward reference is needed
  */
-export function withFieldMetadata<FieldComponentProps extends Record<string, any>>(
+export function withFieldMetadata<FieldComponentProps extends WithMetadataProps<FieldType>>(
   FieldComponent: ComponentType<FieldComponentProps>,
   isForwardRef = false
 ) {
@@ -44,7 +51,7 @@ export function withFieldMetadata<FieldComponentProps extends Record<string, any
     // eslint-disable-next-line react/display-name
     return forwardRef(
       ({ ...props }: FieldComponentProps, ref: React.ForwardedRef<HTMLAnchorElement>) => {
-        const metadata = props.field?.metadata;
+        const metadata = props.field?.metadata as FieldMetadataValue;
 
         if (!metadata || !props?.editable) {
           return <FieldComponent {...props} ref={ref} />;
@@ -61,7 +68,7 @@ export function withFieldMetadata<FieldComponentProps extends Record<string, any
 
   // eslint-disable-next-line react/display-name
   return (({ ...props }: FieldComponentProps) => {
-    const metadata = props.field?.metadata;
+    const metadata = props.field?.metadata as FieldMetadataValue;
 
     if (!metadata || !props?.editable) {
       return <FieldComponent {...props} />;
