@@ -2,11 +2,11 @@ import React, { ComponentType, forwardRef } from 'react';
 import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
 import PropTypes from 'prop-types';
 
-interface WithMetadataProps<FieldType> {
-  field: FieldType & {
-    metadata: FieldMetadataValue;
+interface WithMetadataProps {
+  field?: {
+    metadata?: FieldMetadataValue;
   };
-  editable: boolean;
+  editable?: boolean;
 }
 
 interface FieldMetadataProps {
@@ -43,7 +43,7 @@ const FieldMetadata = (props: FieldMetadataProps): JSX.Element => {
  * @param {ComponentType<FieldComponentProps>} FieldComponent the field component
  * @param {boolean} isForwardRef set to 'true' if forward reference is needed
  */
-export function withFieldMetadata<FieldComponentProps extends WithMetadataProps<FieldType>>(
+export function withFieldMetadata<FieldComponentProps extends WithMetadataProps>(
   FieldComponent: ComponentType<FieldComponentProps>,
   isForwardRef = false
 ) {
@@ -51,7 +51,7 @@ export function withFieldMetadata<FieldComponentProps extends WithMetadataProps<
     // eslint-disable-next-line react/display-name
     return forwardRef(
       ({ ...props }: FieldComponentProps, ref: React.ForwardedRef<HTMLAnchorElement>) => {
-        const metadata = props.field?.metadata as FieldMetadataValue;
+        const metadata = props.field?.metadata;
 
         if (!metadata || !props?.editable) {
           return <FieldComponent {...props} ref={ref} />;
@@ -67,8 +67,8 @@ export function withFieldMetadata<FieldComponentProps extends WithMetadataProps<
   }
 
   // eslint-disable-next-line react/display-name
-  return (({ ...props }: FieldComponentProps) => {
-    const metadata = props.field?.metadata as FieldMetadataValue;
+  return ({ ...props }: FieldComponentProps) => {
+    const metadata = props.field?.metadata;
 
     if (!metadata || !props?.editable) {
       return <FieldComponent {...props} />;
@@ -79,7 +79,7 @@ export function withFieldMetadata<FieldComponentProps extends WithMetadataProps<
         <FieldComponent {...props} />
       </FieldMetadata>
     );
-  }) as React.FC;
+  };
 }
 
 export const FieldMetadataPropTypes = PropTypes.shape({

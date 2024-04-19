@@ -26,7 +26,7 @@ export interface RichTextProps {
   editable?: boolean;
 }
 
-export const RichText: React.FC<RichTextProps> = withFieldMetadata(
+export const RichText: React.FC<RichTextProps> = withFieldMetadata<RichTextProps>(
   // eslint-disable-next-line react/display-name
   forwardRef<HTMLAnchorElement, RichTextProps>(({ field, tag, editable, ...otherProps }, ref) => {
     if (!field || (!field.editable && !field.value)) {

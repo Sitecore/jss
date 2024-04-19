@@ -20,7 +20,6 @@ export interface LinkField {
   value: LinkFieldValue;
   editableFirstPart?: string;
   editableLastPart?: string;
-  metadata?: FieldMetadataValue;
 }
 
 export type LinkProps = React.DetailedHTMLProps<
@@ -28,7 +27,9 @@ export type LinkProps = React.DetailedHTMLProps<
   HTMLAnchorElement
 > & {
   /** The link field data. */
-  field: LinkField | LinkFieldValue;
+  field: (LinkField | LinkFieldValue) & {
+    metadata?: FieldMetadataValue;
+  };
   /**
    * Can be used to explicitly disable inline editing.
    * If true and `field.editable` has a value, then `field.editable` will be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
@@ -43,7 +44,7 @@ export type LinkProps = React.DetailedHTMLProps<
   showLinkTextWithChildrenPresent?: boolean;
 };
 
-export const Link = withFieldMetadata(
+export const Link: React.FC<LinkProps> = withFieldMetadata<LinkProps>(
   // eslint-disable-next-line react/display-name
   forwardRef<HTMLAnchorElement, LinkProps>(
     ({ field, editable, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {

@@ -29,7 +29,7 @@ export interface TextProps {
   encode?: boolean;
 }
 
-export const Text: FunctionComponent<TextProps> = withFieldMetadata(
+export const Text: FunctionComponent<TextProps> = withFieldMetadata<TextProps>(
   ({ field, tag, editable, encode, ...otherProps }) => {
     if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
       return null;
