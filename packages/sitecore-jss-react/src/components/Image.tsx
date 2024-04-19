@@ -35,12 +35,6 @@ export interface ImageSizeParameters {
 
 export interface ImageProps {
   [attributeName: string]: unknown;
-  /**
-   * The image field data.
-   * @deprecated use field property instead
-   */
-  media?: ImageField | ImageFieldValue;
-
   /** Image field data (consistent with other field types) */
   field?: ImageField | ImageFieldValue;
 
@@ -149,7 +143,6 @@ export const getEEMarkup = (
 };
 
 export const Image: React.FC<ImageProps> = ({
-  media,
   editable,
   imageParams,
   field,
@@ -157,9 +150,7 @@ export const Image: React.FC<ImageProps> = ({
   ...otherProps
 }) => {
   // allows the mistake of using 'field' prop instead of 'media' (consistent with other helpers)
-  if (field && !media) {
-    media = field;
-  }
+  const media = field;
 
   const dynamicMedia = media as ImageField | ImageFieldValue;
 

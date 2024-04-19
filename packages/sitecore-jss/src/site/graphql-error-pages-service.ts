@@ -1,4 +1,4 @@
-import { GraphQLClient, GraphQLRequestClient, GraphQLRequestClientConfig } from '../graphql';
+import { GraphQLClient, GraphQLRequestClientConfig } from '../graphql';
 import { siteNameError } from '../constants';
 import debug from '../debug';
 import { LayoutServiceData } from '../layout';
@@ -26,16 +26,6 @@ const defaultQuery = /* GraphQL */ `
 
 export interface GraphQLErrorPagesServiceConfig
   extends Pick<GraphQLRequestClientConfig, 'retries' | 'retryStrategy'> {
-  /**
-   * Your Graphql endpoint
-   * @deprecated use @param clientFactory property instead
-   */
-  endpoint?: string;
-  /**
-   * The API key to use for authentication
-   * @deprecated use @param clientFactory property instead
-   */
-  apiKey?: string;
   /**
    * The JSS application name
    */
@@ -116,20 +106,11 @@ export class GraphQLErrorPagesService {
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(): GraphQLClient {
-    if (!this.options.endpoint) {
-      if (!this.options.clientFactory) {
-        throw new Error('You should provide either an endpoint and apiKey, or a clientFactory.');
-      }
-
-      return this.options.clientFactory({
-        debugger: debug.errorpages,
-        retries: this.options.retries,
-        retryStrategy: this.options.retryStrategy,
-      });
+    if (!this.options.clientFactory) {
+      throw new Error('clientFactory needs to be provided when initializing GraphQL client.');
     }
 
-    return new GraphQLRequestClient(this.options.endpoint, {
-      apiKey: this.options.apiKey,
+    return this.options.clientFactory({
       debugger: debug.errorpages,
       retries: this.options.retries,
       retryStrategy: this.options.retryStrategy,

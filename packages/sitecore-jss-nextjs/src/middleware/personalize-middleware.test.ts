@@ -5,7 +5,7 @@ import chaiString from 'chai-string';
 import sinonChai from 'sinon-chai';
 import sinon, { spy } from 'sinon';
 import nextjs, { NextRequest, NextResponse } from 'next/server';
-import { debug } from '@sitecore-jss/sitecore-jss';
+import { GraphQLRequestClient, debug } from '@sitecore-jss/sitecore-jss';
 import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { PersonalizeMiddleware } from './personalize-middleware';
 
@@ -157,9 +157,12 @@ describe('PersonalizeMiddleware', () => {
       sitecoreEdgeUrl: 'https://foo.bar',
       ...(props?.cdpConfig || {}),
     };
-    const edgeConfig = {
+    const clientFactory = GraphQLRequestClient.createClientFactory({
       apiKey: 'edge-api-key',
       endpoint: 'http://edge-endpoint/api/graph/edge',
+    });
+    const edgeConfig = {
+      clientFactory,
       ...(props?.edgeConfig || {}),
     };
 

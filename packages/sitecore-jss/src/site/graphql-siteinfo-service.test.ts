@@ -14,6 +14,10 @@ describe('GraphQLSiteInfoService', () => {
   let debugNamespaces: string;
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';
+  const clientFactory = GraphQLRequestClient.createClientFactory({
+    endpoint,
+    apiKey,
+  });
 
   const site = ({
     name,
@@ -97,7 +101,7 @@ describe('GraphQLSiteInfoService', () => {
         ],
       })
     );
-    const service = new GraphQLSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+    const service = new GraphQLSiteInfoService({ clientFactory });
     const result = await service.fetchSiteInfo();
     expect(result).to.be.deep.equal([
       {
@@ -148,14 +152,14 @@ describe('GraphQLSiteInfoService', () => {
     nock(endpoint)
       .post('/')
       .reply(200, emptyResponse);
-    const service = new GraphQLSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+    const service = new GraphQLSiteInfoService({ clientFactory });
     const result = await service.fetchSiteInfo();
     expect(result).to.deep.equal([]);
   });
 
   it('should use caching by default', async () => {
     mockSiteInfoRequest(nonEmptyResponse());
-    const service = new GraphQLSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+    const service = new GraphQLSiteInfoService({ clientFactory });
     const result = await service.fetchSiteInfo();
     nock.cleanAll();
     nock(endpoint)
@@ -178,8 +182,7 @@ describe('GraphQLSiteInfoService', () => {
       })
     );
     const service = new GraphQLSiteInfoService({
-      apiKey: apiKey,
-      endpoint: endpoint,
+      clientFactory,
       cacheEnabled: false,
     });
     const result = await service.fetchSiteInfo();
@@ -208,7 +211,7 @@ describe('GraphQLSiteInfoService', () => {
     nock(endpoint)
       .post('/')
       .reply(200, emptyResponse);
-    const service = new GraphQLSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+    const service = new GraphQLSiteInfoService({ clientFactory });
     const result = await service.fetchSiteInfo();
     expect(result).to.deep.equal([]);
     expect(debug.multisite.log, 'log debug message').to.be.called.once;
@@ -227,7 +230,7 @@ describe('GraphQLSiteInfoService', () => {
         ],
       })
     );
-    const service = new GraphQLSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+    const service = new GraphQLSiteInfoService({ clientFactory });
     const result = await service.fetchSiteInfo();
     expect(result).to.be.deep.equal([
       {

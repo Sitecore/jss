@@ -52,6 +52,10 @@ describe('GraphQLSitemapService', () => {
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';
   const siteName = 'site-name';
+  const clientFactory = GraphQLRequestClient.createClientFactory({
+    endpoint,
+    apiKey,
+  });
 
   afterEach(() => {
     nock.cleanAll();
@@ -86,7 +90,7 @@ describe('GraphQLSitemapService', () => {
     it('should work when 1 language is requested', async () => {
       mockPathsRequest();
 
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      const service = new GraphQLSitemapService({ clientFactory, siteName });
       const sitemap = await service.fetchSSGSitemap(['ua']);
       expect(sitemap).to.deep.equal(sitemapServiceSinglesiteResult);
 
@@ -153,8 +157,7 @@ describe('GraphQLSitemapService', () => {
         });
 
       const service = new GraphQLSitemapService({
-        endpoint,
-        apiKey,
+        clientFactory,
         siteName,
         includedPaths,
         excludedPaths,
@@ -175,7 +178,7 @@ describe('GraphQLSitemapService', () => {
       it('should work when 1 language is requested', async () => {
         mockPathsRequest();
 
-        const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+        const service = new GraphQLSitemapService({ clientFactory, siteName });
         const sitemap = await service.fetchSSGSitemap(['ua']);
         expect(sitemap).to.deep.equal(sitemapServiceSinglesiteResult);
 
@@ -185,7 +188,7 @@ describe('GraphQLSitemapService', () => {
       it('should work for single site when 1 language is requested', async () => {
         mockPathsRequest();
 
-        const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+        const service = new GraphQLSitemapService({ clientFactory, siteName });
         const sitemap = await service.fetchSSGSitemap(['ua']);
         expect(sitemap).to.deep.equal(sitemapServiceSinglesiteResult);
 
@@ -252,8 +255,7 @@ describe('GraphQLSitemapService', () => {
           });
 
         const service = new GraphQLSitemapService({
-          endpoint,
-          apiKey,
+          clientFactory,
           siteName,
           includedPaths,
           excludedPaths,
@@ -278,8 +280,7 @@ describe('GraphQLSitemapService', () => {
           .reply(200, sitemapPersonalizeQueryResult);
 
         const service = new GraphQLSitemapService({
-          endpoint,
-          apiKey,
+          clientFactory,
           siteName,
           includePersonalizedRoutes: true,
         });
@@ -358,7 +359,7 @@ describe('GraphQLSitemapService', () => {
             },
           });
 
-        const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+        const service = new GraphQLSitemapService({ clientFactory, siteName });
         const sitemap = await service.fetchSSGSitemap([lang]);
 
         expect(sitemap).to.deep.equal([
@@ -380,14 +381,14 @@ describe('GraphQLSitemapService', () => {
       });
 
       it('should throw error if valid language is not provided', async () => {
-        const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+        const service = new GraphQLSitemapService({ clientFactory, siteName });
         await service.fetchSSGSitemap([]).catch((error: RangeError) => {
           expect(error.message).to.equal(languageError);
         });
       });
 
       it('should throw error if query returns nothing for a provided site name', async () => {
-        const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+        const service = new GraphQLSitemapService({ clientFactory, siteName });
         nock(endpoint)
           .post('/', (body) => {
             return body.variables.siteName === siteName;
@@ -407,7 +408,7 @@ describe('GraphQLSitemapService', () => {
       it('should throw error if empty language is provided', async () => {
         mockPathsRequest();
 
-        const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+        const service = new GraphQLSitemapService({ clientFactory, siteName });
         await service.fetchExportSitemap('').catch((error: RangeError) => {
           expect(error.message).to.equal('The language must be a non-empty string');
         });
@@ -423,8 +424,7 @@ describe('GraphQLSitemapService', () => {
           .reply(200, sitemapDefaultQueryResult);
 
         const service = new GraphQLSitemapService({
-          endpoint,
-          apiKey,
+          clientFactory,
           siteName,
           pageSize: customPageSize,
         });
@@ -445,8 +445,7 @@ describe('GraphQLSitemapService', () => {
           .reply(200, sitemapDefaultQueryResult);
 
         const service = new GraphQLSitemapService({
-          endpoint,
-          apiKey,
+          clientFactory,
           siteName,
           pageSize: undefined,
         });
@@ -459,7 +458,7 @@ describe('GraphQLSitemapService', () => {
       it('should work if sitemap has 0 pages', async () => {
         mockPathsRequest([]);
 
-        const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+        const service = new GraphQLSitemapService({ clientFactory, siteName });
         const sitemap = await service.fetchSSGSitemap(['ua']);
         expect(sitemap).to.deep.equal([]);
         return expect(nock.isDone()).to.be.true;
@@ -470,7 +469,7 @@ describe('GraphQLSitemapService', () => {
           .post('/', /DefaultSitemapQuery/gi)
           .reply(500, 'Error 😥');
 
-        const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+        const service = new GraphQLSitemapService({ clientFactory, siteName });
         await service.fetchSSGSitemap(['ua']).catch((error: RangeError) => {
           expect(error.message).to.contain('SitemapQuery');
           expect(error.message).to.contain('Error 😥');
@@ -506,14 +505,14 @@ describe('GraphQLSitemapService', () => {
   describe('Fetch sitemap in export mode', () => {
     it('should fetch singlesite sitemap', async () => {
       mockPathsRequest();
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      const service = new GraphQLSitemapService({ clientFactory, siteName });
       const sitemap = await service.fetchExportSitemap('ua');
       expect(sitemap).to.deep.equal(expectedSinglesiteExportSitemap);
       return expect(nock.isDone()).to.be.true;
     });
     it('should work if endpoint returns 0 pages', async () => {
       mockPathsRequest([]);
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      const service = new GraphQLSitemapService({ clientFactory, siteName });
       const sitemap = await service.fetchExportSitemap('ua');
       expect(sitemap).to.deep.equal([]);
       return expect(nock.isDone()).to.be.true;
@@ -522,7 +521,7 @@ describe('GraphQLSitemapService', () => {
       nock(endpoint)
         .post('/', /DefaultSitemapQuery/gi)
         .reply(500, 'Error 😥');
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      const service = new GraphQLSitemapService({ clientFactory, siteName });
       await service.fetchExportSitemap('ua').catch((error: RangeError) => {
         expect(error.message).to.contain('SitemapQuery');
         expect(error.message).to.contain('Error 😥');
@@ -531,7 +530,7 @@ describe('GraphQLSitemapService', () => {
     });
     it('should throw error if language is not provided', async () => {
       mockPathsRequest();
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      const service = new GraphQLSitemapService({ clientFactory, siteName });
       await service.fetchExportSitemap('').catch((error: RangeError) => {
         expect(error.message).to.equal('The language must be a non-empty string');
       });
@@ -539,7 +538,7 @@ describe('GraphQLSitemapService', () => {
     });
   });
   it('should throw error if query returns nothing for a provided site name', async () => {
-    const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+    const service = new GraphQLSitemapService({ clientFactory, siteName });
     nock(endpoint)
       .post('/', (body) => {
         return body.variables.siteName === siteName;
@@ -557,8 +556,7 @@ describe('GraphQLSitemapService', () => {
   });
   it('should provide a default GraphQL client', () => {
     const service = new TestService({
-      endpoint,
-      apiKey,
+      clientFactory,
       siteName,
     });
     const graphQLClient = service.client as GraphQLClient;

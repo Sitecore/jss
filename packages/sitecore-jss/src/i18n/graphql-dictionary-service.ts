@@ -1,6 +1,5 @@
 import {
   GraphQLClient,
-  GraphQLRequestClient,
   GraphQLRequestClientConfig,
   GraphQLRequestClientFactory,
 } from '../graphql-request-client';
@@ -57,18 +56,6 @@ export interface GraphQLDictionaryServiceConfig
   extends SearchServiceConfig,
     CacheOptions,
     Pick<GraphQLRequestClientConfig, 'retries' | 'retryStrategy'> {
-  /**
-   * The URL of the graphQL endpoint.
-   * @deprecated use @param clientFactory property instead
-   */
-  endpoint?: string;
-
-  /**
-   * The API key to use for authentication.
-   * @deprecated use @param clientFactory property instead
-   */
-  apiKey?: string;
-
   /**
    * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
    * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
@@ -170,20 +157,10 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(): GraphQLClient {
-    if (!this.options.endpoint) {
-      if (!this.options.clientFactory) {
-        throw new Error('You should provide either an endpoint and apiKey, or a clientFactory.');
-      }
-
-      return this.options.clientFactory({
-        debugger: debug.dictionary,
-        retries: this.options.retries,
-        retryStrategy: this.options.retryStrategy,
-      });
+    if (!this.options.clientFactory) {
+      throw new Error('You should provide either a clientFactory.');
     }
-
-    return new GraphQLRequestClient(this.options.endpoint, {
-      apiKey: this.options.apiKey,
+    return this.options.clientFactory({
       debugger: debug.dictionary,
       retries: this.options.retries,
       retryStrategy: this.options.retryStrategy,
