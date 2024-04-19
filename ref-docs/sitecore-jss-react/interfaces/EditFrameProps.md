@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/EditFrame.tsx:12](https://github.com/Sitecore/jss/blob/3e2d07cc7/packages/sitecore-jss-react/src/components/EditFrame.tsx#L12)
+[packages/sitecore-jss-react/src/components/EditFrame.tsx:12](https://github.com/Sitecore/jss/blob/5b411c1f2/packages/sitecore-jss-react/src/components/EditFrame.tsx#L12)
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/EditFrame.tsx:15](https://github.com/Sitecore/jss/blob/3e2d07cc7/packages/sitecore-jss-react/src/components/EditFrame.tsx#L15)
+[packages/sitecore-jss-react/src/components/EditFrame.tsx:15](https://github.com/Sitecore/jss/blob/5b411c1f2/packages/sitecore-jss-react/src/components/EditFrame.tsx#L15)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/EditFrame.tsx:11](https://github.com/Sitecore/jss/blob/3e2d07cc7/packages/sitecore-jss-react/src/components/EditFrame.tsx#L11)
+[packages/sitecore-jss-react/src/components/EditFrame.tsx:11](https://github.com/Sitecore/jss/blob/5b411c1f2/packages/sitecore-jss-react/src/components/EditFrame.tsx#L11)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/EditFrame.tsx:16](https://github.com/Sitecore/jss/blob/3e2d07cc7/packages/sitecore-jss-react/src/components/EditFrame.tsx#L16)
+[packages/sitecore-jss-react/src/components/EditFrame.tsx:16](https://github.com/Sitecore/jss/blob/5b411c1f2/packages/sitecore-jss-react/src/components/EditFrame.tsx#L16)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/EditFrame.tsx:13](https://github.com/Sitecore/jss/blob/3e2d07cc7/packages/sitecore-jss-react/src/components/EditFrame.tsx#L13)
+[packages/sitecore-jss-react/src/components/EditFrame.tsx:13](https://github.com/Sitecore/jss/blob/5b411c1f2/packages/sitecore-jss-react/src/components/EditFrame.tsx#L13)
 
 ___
 
@@ -71,4 +71,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/EditFrame.tsx:14](https://github.com/Sitecore/jss/blob/3e2d07cc7/packages/sitecore-jss-react/src/components/EditFrame.tsx#L14)
+[packages/sitecore-jss-react/src/components/EditFrame.tsx:14](https://github.com/Sitecore/jss/blob/5b411c1f2/packages/sitecore-jss-react/src/components/EditFrame.tsx#L14)
