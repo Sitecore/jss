@@ -16,23 +16,23 @@ export interface PlaceholderMetadataProps {
  * @param {PlaceholderMetadataProps} props - The props containing the component data to render.
  * @returns {JSX.Element} - The rendered component with all nested components and placeholders.
  */
-export const PlaceholderMetadata: React.FC<PlaceholderMetadataProps> = ({ component }) => {
-  const defaultAttributes = {
-    type: 'text/sitecore',
-    chrometype: 'field',
-    className: 'scpm',
+export const PlaceholderMetadata = ({ component }: PlaceholderMetadataProps): JSX.Element => {
+  const codeAttributes = (chromeType: string, kind: string) => {
+    return {
+      type: 'text/sitecore',
+      chrometype: `${chromeType}`,
+      className: 'scpm',
+      kind: `${kind}`,
+    };
   };
-
-  const codeOpenAttributes = { ...defaultAttributes, kind: 'open' };
-  const codeCloseAttributes = { ...defaultAttributes, kind: 'close' };
 
   const renderComponent = (component: ComponentRendering): JSX.Element => {
     const ComponentName = component.componentName as React.ElementType;
     return (
       <>
-        <code {...codeOpenAttributes}>{`{uid: "${component.uid}"}`}</code>
+        <code {...codeAttributes('rendering', 'open')}>{`{uid: "${component.uid}"}`}</code>
         <ComponentName />
-        <code {...codeCloseAttributes}></code>
+        <code {...codeAttributes('rendering', 'close')}></code>
       </>
     );
   };
@@ -63,10 +63,10 @@ export const PlaceholderMetadata: React.FC<PlaceholderMetadataProps> = ({ compon
     return Object.entries(placeholders).flatMap(([key, nestedComponents]) => [
       <React.Fragment key={`${parentUid}-${key}`}>
         <code
-          {...codeOpenAttributes}
+          {...codeAttributes('placeholder', 'open')}
         >{`{placeholderName: "${key}", parentRendering: "${parentUid}"}`}</code>
         {renderNestedComponents(nestedComponents)}
-        <code {...codeCloseAttributes} />
+        <code {...codeAttributes('placeholder', 'close')} />
       </React.Fragment>,
     ]);
   };

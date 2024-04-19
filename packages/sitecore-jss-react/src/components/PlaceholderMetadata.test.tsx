@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
 
-describe('PlaceholderWithMetadata', () => {
+describe.only('PlaceholderWithMetadata', () => {
   it('renders a single component without placeholders', () => {
     const component = {
       uid: '123',
@@ -15,8 +15,12 @@ describe('PlaceholderWithMetadata', () => {
 
     expect(wrapper.find('code').length).to.equal(2);
     expect(wrapper.find('RichText').length).to.equal(1);
+    expect(codeTags.at(0).props().chrometype).to.equal('rendering');
     expect(codeTags.at(0).text()).to.equal('{uid: "123"}');
+    expect(codeTags.at(0).props().kind).to.equal('open');
     expect(codeTags.at(1).html()).to.include('</code>');
+    expect(codeTags.at(1).props().chrometype).to.equal('rendering');
+    expect(codeTags.at(1).props().kind).to.equal('close');
   });
 
   it('renders a component with nested placeholders', () => {
@@ -40,9 +44,17 @@ describe('PlaceholderWithMetadata', () => {
     expect(wrapper.find('RichText').length).to.equal(1);
 
     expect(codeTags.at(0).text()).to.equal('{placeholderName: "main", parentRendering: "123"}');
+    expect(codeTags.at(0).props().chrometype).to.equal('placeholder');
+    expect(codeTags.at(0).props().kind).to.equal('open');
     expect(codeTags.at(1).text()).to.equal('{uid: "456"}');
+    expect(codeTags.at(1).props().chrometype).to.equal('rendering');
+    expect(codeTags.at(1).props().kind).to.equal('open');
     expect(codeTags.at(2).html()).to.include('</code>');
+    expect(codeTags.at(2).props().chrometype).to.equal('rendering');
+    expect(codeTags.at(2).props().kind).to.equal('close');
     expect(codeTags.at(3).html()).to.include('</code>');
+    expect(codeTags.at(3).props().chrometype).to.equal('placeholder');
+    expect(codeTags.at(3).props().kind).to.equal('close');
   });
 
   it('renders deeply nested components correctly', () => {
@@ -77,13 +89,46 @@ describe('PlaceholderWithMetadata', () => {
     expect(codeTags.at(0).text()).to.equal(
       '{placeholderName: "header", parentRendering: "root123"}'
     );
+    expect(codeTags.at(0).props().chrometype).to.equal('placeholder');
+    expect(codeTags.at(0).props().kind).to.equal('open');
     expect(codeTags.at(1).text()).to.equal('{uid: "nested123"}');
+    expect(codeTags.at(1).props().chrometype).to.equal('rendering');
+    expect(codeTags.at(1).props().kind).to.equal('open');
     expect(codeTags.at(2).html()).to.include('</code>');
+    expect(codeTags.at(2).props().chrometype).to.equal('rendering');
+    expect(codeTags.at(2).props().kind).to.equal('close');
     expect(codeTags.at(3).text()).to.equal(
       '{placeholderName: "logo", parentRendering: "nested123"}'
     );
+    expect(codeTags.at(3).props().chrometype).to.equal('placeholder');
+    expect(codeTags.at(3).props().kind).to.equal('open');
     expect(codeTags.at(4).text()).to.equal('{uid: "deep123"}');
+    expect(codeTags.at(4).props().chrometype).to.equal('rendering');
+    expect(codeTags.at(4).props().kind).to.equal('open');
     expect(codeTags.at(5).html()).to.include('</code>');
+    expect(codeTags.at(5).props().chrometype).to.equal('rendering');
+    expect(codeTags.at(5).props().kind).to.equal('close');
     expect(codeTags.at(6).html()).to.include('</code>');
+    expect(codeTags.at(6).props().chrometype).to.equal('placeholder');
+    expect(codeTags.at(6).props().kind).to.equal('close');
+  });
+
+  it('should render component if nested placeholder is empty', () => {
+    const component = {
+      uid: '123',
+      componentName: 'Layout',
+      placeholders: {},
+    };
+
+    const wrapper = mount(<PlaceholderMetadata component={component} />);
+    const codeTags = wrapper.find('code');
+
+    expect(codeTags.length).to.equal(2);
+    expect(codeTags.at(0).text()).to.include('{uid: "123"}');
+    expect(codeTags.at(0).props().chrometype).to.equal('rendering');
+    expect(codeTags.at(0).props().kind).to.equal('open');
+    expect(codeTags.at(1).html()).to.include('</code>');
+    expect(codeTags.at(1).props().chrometype).to.equal('rendering');
+    expect(codeTags.at(1).props().kind).to.equal('close');
   });
 });
