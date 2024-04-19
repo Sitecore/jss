@@ -18,7 +18,7 @@ Our versioning strategy is as follows:
   * Search query usage has been removed.
   * If you have any non-nextjs sites they should filter them out in multisite config plugin
 
-* `[sitecore-jss-nextjs]` `[templates/nextjs-xmcloud]` CloudSDK dependencies are updated to version ^0.3.0.
+* `[sitecore-jss-nextjs]` `[templates/nextjs-xmcloud]` CloudSDK dependencies are updated to version ^0.3.0 ([#1779](https://github.com/Sitecore/jss/pull/1779))
   * Please ensure `@sitecore-cloudsdk/events` dependency is updated
 
 ### 🧹 Chores
