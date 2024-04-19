@@ -15,7 +15,7 @@ export function generateConfig(configOverrides?: { [key: string]: unknown }, out
     production: false,
     sitecoreApiHost: '',
     sitecoreApiKey: 'no-api-key-set',
-    sitecoreSiteName: process.env.SITECORE_SITE_NAME || process.env.JSS_APP_NAME,
+    sitecoreSiteName: process.env.SITECORE_SITE_NAME,
     sitecoreLayoutServiceConfig: 'jss',
     defaultLanguage: 'en',
     defaultServerRoute: '/',
