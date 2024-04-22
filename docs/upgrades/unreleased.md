@@ -46,11 +46,22 @@ Most of this re-iterates the instructions already provided in 21.6 and 21.7 upgr
 
 * If you're importing `isEditorActive`, `resetEditorChormes`, `resolveUrl`, `handleEditorFastRefresh`, `getPublicUrl` functions in your custom code, ensure they are imported from `sitecore-jss-nextjs/utils` and not `sitecore-jss-nextjs`.
 
-* 
-
 ### nextjs-xmcloud
 
-* Update edgeConfig in PersonalizeMiddleware at `/src/lib/middleware/plugins/personalize.ts` to use clientFactory if it wasn't as part of ([JSS 21.6 upgrade guide](https://doc.sitecore.com/xmc/en/developers/jss/217/jss-xmc/upgrade-jss-21-5-next-js-apps-to-version-21-6.html)).
+* **Update** 
+
+    * package.json
+
+        remove:
+        ```
+        ~"@sitecore-cloudsdk/events": "^0.2.4",~
+        ```
+        add:
+        ```
+        "@sitecore-cloudsdk/events": "^0.3.0",
+        ```
+
+    * Update edgeConfig in PersonalizeMiddleware at `/src/lib/middleware/plugins/personalize.ts` to use clientFactory if it wasn't as part of ([JSS 21.6 upgrade guide](https://doc.sitecore.com/xmc/en/developers/jss/217/jss-xmc/upgrade-jss-21-5-next-js-apps-to-version-21-6.html)).
 
 ### nextjs-sxa
 
@@ -58,16 +69,17 @@ Most of this re-iterates the instructions already provided in 21.6 and 21.7 upgr
 
 * Update RedirectsMiddleware at `/src/lib/middleware/plugins/redirects.ts` to use clientFactory if it wasn't as part of ([JSS 21.6 upgrade guide](https://doc.sitecore.com/xmc/en/developers/jss/217/jss-xmc/upgrade-jss-21-5-next-js-apps-to-version-21-6.html)).
 
+
 ### nextjs-multisite
 
 * **Update** 
 
     * packages\create-sitecore-jss\src\templates\nextjs-multisite\scripts\config\plugins\multisite.ts
 
-    ```
-    //Remove
-    useSiteQuery: true,
-    ```
+        ```
+        //Remove
+        useSiteQuery: true,
+        ```
 
     * Update MultisiteGraphQLSitemapService at `/src/lib/sitemap-fetcher/plugins/graphql-sitemap-service.ts` to use clientFactory if it wasn't as part of ([JSS 21.6 upgrade guide](https://doc.sitecore.com/xmc/en/developers/jss/217/jss-xmc/upgrade-jss-21-5-next-js-apps-to-version-21-6.html)).
     

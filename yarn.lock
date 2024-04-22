@@ -5461,30 +5461,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/core@npm:^0.2.4":
-  version: 0.2.4
-  resolution: "@sitecore-cloudsdk/core@npm:0.2.4"
+"@sitecore-cloudsdk/core@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@sitecore-cloudsdk/core@npm:0.3.0"
   dependencies:
-    "@sitecore-cloudsdk/utils": ^0.2.4
+    "@sitecore-cloudsdk/utils": ^0.3.0
     debug: ^4.3.4
-  checksum: 0612dab597cffaa8f150d30029c1c45904662c63f981fb781b794c2fc9f8821e9ea247cc58fd86e5f02e1daae7fb4323a7e6d3979f7836b34a5e87079f638c35
+  checksum: f494bd1d779204cc4ad9c5ae0692a5897ba1b391637a4b40e888363ad00c94feb0a9c5e57c4f67977aacd1905da29edf0fef35d1e8f7e61f7cac7385b08dc029
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/personalize@npm:^0.2.4":
-  version: 0.2.4
-  resolution: "@sitecore-cloudsdk/personalize@npm:0.2.4"
+"@sitecore-cloudsdk/personalize@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@sitecore-cloudsdk/personalize@npm:0.3.0"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.2.4
-    "@sitecore-cloudsdk/utils": ^0.2.4
-  checksum: 788dd09f4d70fc037f0151ee4945e28072be4b2c33f22c2388ac09570e18c77ebb04008b055fe5ff471084bd83cd87ddb5b78a288668e616c3af151758795d9a
+    "@sitecore-cloudsdk/core": ^0.3.0
+    "@sitecore-cloudsdk/utils": ^0.3.0
+  checksum: d7132692a896198b25603db6fb8d3e7813b55389b276c9433e67033f990c06ed818a0979f52a8d0af2492de42d09c1b4fe28c4d4c18a8eca6fa0d82fe7e99d43
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/utils@npm:^0.2.4":
-  version: 0.2.4
-  resolution: "@sitecore-cloudsdk/utils@npm:0.2.4"
-  checksum: 0f816558840da5b978d9d9c585e9edab0de5437bf9ae5a5a773782b870192f635b173fa1f15177581a55f4560769674f7a42606d523e8ed739db095e2a863571
+"@sitecore-cloudsdk/utils@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@sitecore-cloudsdk/utils@npm:0.3.0"
+  checksum: 4ee3224d4623d7a60b3b48178581b61498fceaa9cc6e0396f7d664537e3a37f41faeaaf3c9503d1e4e95fa9862892f407ef84ea0925458d68af94232598ade54
   languageName: node
   linkType: hard
 
@@ -5677,7 +5677,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
-    "@sitecore-cloudsdk/personalize": ^0.2.4
+    "@sitecore-cloudsdk/personalize": ^0.3.0
     "@sitecore-jss/sitecore-jss": 21.8.0-canary.7
     "@sitecore-jss/sitecore-jss-dev-tools": 21.8.0-canary.7
     "@sitecore-jss/sitecore-jss-react": 21.8.0-canary.7
@@ -5720,8 +5720,8 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.4
   peerDependencies:
-    "@sitecore-cloudsdk/events": ^0.2.4
-    "@sitecore-cloudsdk/personalize": ^0.2.4
+    "@sitecore-cloudsdk/events": ^0.3.0
+    "@sitecore-cloudsdk/personalize": ^0.3.0
     next: ^14.1.0
     react: ^18.2.0
     react-dom: ^18.2.0
