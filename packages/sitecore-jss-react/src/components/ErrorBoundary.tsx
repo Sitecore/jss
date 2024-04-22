@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, Suspense } from 'react';
 
 export type ErrorBoundaryProps = {
   children: ReactNode;
@@ -31,7 +31,15 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
       );
     }
 
-    return this.props.children;
+    return (
+      <Suspense
+        fallback={
+          <h4 style={{ color: 'blue', fontWeight: 'bold' }}>Component is still loading...</h4>
+        }
+      >
+        {this.props.children}
+      </Suspense>
+    );
   }
 }
 
