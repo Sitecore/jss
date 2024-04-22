@@ -49,25 +49,23 @@ export function withFieldMetadata<FieldComponentProps extends WithMetadataProps>
 ) {
   if (isForwardRef) {
     // eslint-disable-next-line react/display-name
-    return forwardRef(
-      ({ ...props }: FieldComponentProps, ref: React.ForwardedRef<HTMLAnchorElement>) => {
-        const metadata = props.field?.metadata;
+    return forwardRef(({ ...props }: FieldComponentProps, ref: React.ForwardedRef<HTMLElement>) => {
+      const metadata = props.field?.metadata;
 
-        if (!metadata || !props?.editable) {
-          return <FieldComponent {...props} ref={ref} />;
-        }
-
-        return (
-          <FieldMetadata metadata={metadata}>
-            <FieldComponent {...props} ref={ref} />
-          </FieldMetadata>
-        );
+      if (!metadata || !props?.editable) {
+        return <FieldComponent {...props} ref={ref} />;
       }
-    );
+
+      return (
+        <FieldMetadata metadata={metadata}>
+          <FieldComponent {...props} ref={ref} />
+        </FieldMetadata>
+      );
+    });
   }
 
   // eslint-disable-next-line react/display-name
-  return ({ ...props }: FieldComponentProps) => {
+  return (({ ...props }: FieldComponentProps) => {
     const metadata = props.field?.metadata;
 
     if (!metadata || !props?.editable) {
@@ -79,7 +77,7 @@ export function withFieldMetadata<FieldComponentProps extends WithMetadataProps>
         <FieldComponent {...props} />
       </FieldMetadata>
     );
-  };
+  }) as React.FC<FieldComponentProps>;
 }
 
 export const FieldMetadataPropTypes = PropTypes.shape({

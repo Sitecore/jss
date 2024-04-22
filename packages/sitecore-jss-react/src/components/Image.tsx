@@ -15,7 +15,6 @@ export interface ImageFieldValue {
 export interface ImageField {
   value?: ImageFieldValue;
   editable?: string;
-  metadata?: FieldMetadataValue;
 }
 
 export interface ImageSizeParameters {
@@ -45,7 +44,7 @@ export interface ImageProps {
   media?: ImageField | ImageFieldValue;
 
   /** Image field data (consistent with other field types) */
-  field?: ImageField | ImageFieldValue;
+  field?: (ImageField | ImageFieldValue) & { metadata?: FieldMetadataValue };
 
   /**
    * Can be used to explicitly disable inline editing.
@@ -151,7 +150,7 @@ export const getEEMarkup = (
   return getEditableWrapper(editableMarkup);
 };
 
-export const Image: React.FC<ImageProps> = withFieldMetadata(
+export const Image: React.FC<ImageProps> = withFieldMetadata<ImageProps>(
   ({ media, editable, imageParams, field, mediaUrlPrefix, ...otherProps }) => {
     // allows the mistake of using 'field' prop instead of 'media' (consistent with other helpers)
     if (field && !media) {

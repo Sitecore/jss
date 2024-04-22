@@ -44,7 +44,7 @@ export type LinkProps = React.DetailedHTMLProps<
   showLinkTextWithChildrenPresent?: boolean;
 };
 
-export const Link: React.FC<LinkProps> = withFieldMetadata<LinkProps>(
+export const Link = withFieldMetadata(
   // eslint-disable-next-line react/display-name
   forwardRef<HTMLAnchorElement, LinkProps>(
     ({ field, editable, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {
