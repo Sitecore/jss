@@ -13,7 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 * `[sitecore-jss-react]` `[sitecore-jss]` Editing Integration Support:
-  * Introduces `PlaceholderMetadata` component which supports the hydration of chromes on Pages by rendering  the components and placeholders with required metadata.  ([#1776](https://github.com/Sitecore/jss/pull/1776))
+  * Introduces `PlaceholderMetadata` component which supports the hydration of chromes on Pages by rendering  the components and placeholders with required metadata. ([#1776](https://github.com/Sitecore/jss/pull/1776))
 
 ## 21.7.1
 
