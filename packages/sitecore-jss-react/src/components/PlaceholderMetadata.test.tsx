@@ -18,7 +18,7 @@ describe('PlaceholderWithMetadata', () => {
       componentName: 'RichText',
     };
 
-    const wrapper = shallow(<PlaceholderMetadata component={component} />);
+    const wrapper = shallow(<PlaceholderMetadata rendering={component} />);
 
     const expectedOutput =
       '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="123"></code><RichText></RichText><code type="text/sitecore" chrometype="rendering" class="scpm" kind="close" id="123"></code>';
@@ -43,7 +43,7 @@ describe('PlaceholderWithMetadata', () => {
       },
     };
 
-    const wrapper = mount(<PlaceholderMetadata component={component} />);
+    const wrapper = mount(<PlaceholderMetadata rendering={component} />);
 
     const expectedOutput =
       '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_123"></code><code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="456"></code><richtext></richtext><code type="text/sitecore" chrometype="rendering" class="scpm" kind="close" id="456"></code><code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="main_123"></code>';
@@ -76,7 +76,7 @@ describe('PlaceholderWithMetadata', () => {
       },
     };
 
-    const wrapper = mount(<PlaceholderMetadata component={component} />);
+    const wrapper = mount(<PlaceholderMetadata rendering={component} />);
 
     const expectedOutput =
       '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="header_root123"></code><code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="nested123"></code><header><code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="logo_nested123"></code><code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="deep123"></code><logo></logo><code type="text/sitecore" chrometype="rendering" class="scpm" kind="close" id="deep123"></code><code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="logo_nested123"></code></header><code type="text/sitecore" chrometype="rendering" class="scpm" kind="close" id="nested123"></code><code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="header_root123"></code>';
@@ -96,7 +96,7 @@ describe('PlaceholderWithMetadata', () => {
       },
     };
 
-    const wrapper = mount(<PlaceholderMetadata component={component} />);
+    const wrapper = mount(<PlaceholderMetadata rendering={component} />);
 
     const expectedOutput =
       '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_123"></code><code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="main_123"></code>';

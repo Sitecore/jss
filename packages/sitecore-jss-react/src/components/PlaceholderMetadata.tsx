@@ -8,7 +8,7 @@ export interface PlaceholderMetadataProps {
   rendering: ComponentRendering;
 }
 
-export type CodeAttributesType = {
+export type CodeBlockAttributes = {
   type: string;
   chrometype: string;
   className: string;
@@ -24,13 +24,13 @@ export type CodeAttributesType = {
  * @param {PlaceholderMetadataProps} props - The props containing the rendering data to render.
  * @returns {JSX.Element} - The rendered component with all nested components and placeholders.
  */
-export const PlaceholderMetadata = ({ component }: PlaceholderMetadataProps): JSX.Element => {
-  const codeAttributes = (
+export const PlaceholderMetadata = ({ rendering }: PlaceholderMetadataProps): JSX.Element => {
+  const getCodeBlockAttributes = (
     chromeType: string,
     kind: string,
     id: string,
     placeholderName?: string
-  ): CodeAttributesType => {
+  ): CodeBlockAttributes => {
     return {
       type: 'text/sitecore',
       chrometype: chromeType,
@@ -40,19 +40,19 @@ export const PlaceholderMetadata = ({ component }: PlaceholderMetadataProps): JS
     };
   };
 
-  const renderRendering = (rendering: ComponentRendering): JSX.Element => {
-    const ComponentName = component.componentName as React.ElementType;
+  const renderComponent = (rendering: ComponentRendering): JSX.Element => {
+    const ComponentName = rendering.componentName as React.ElementType;
     return (
       <>
-        <code {...codeAttributes('rendering', 'open', component.uid)}></code>
+        <code {...getCodeBlockAttributes('rendering', 'open', rendering.uid)}></code>
         <ComponentName>
-          {component.placeholders &&
+          {rendering.placeholders &&
             renderComponentsInPlaceholders(
-              component.placeholders as { [key: string]: ComponentRendering[] },
-              component.uid
+              rendering.placeholders as { [key: string]: ComponentRendering[] },
+              rendering.uid
             )}
         </ComponentName>
-        <code {...codeAttributes('rendering', 'close', component.uid)}></code>
+        <code {...getCodeBlockAttributes('rendering', 'close', rendering.uid)}></code>
       </>
     );
   };
@@ -61,30 +61,30 @@ export const PlaceholderMetadata = ({ component }: PlaceholderMetadataProps): JS
     placeholders: { [key: string]: ComponentRendering[] },
     parentUid: string
   ): JSX.Element[] => {
-    return Object.entries(placeholders).flatMap(([key, nestedComponents]) => (
+    return Object.entries(placeholders).flatMap(([key, nestedRendering]) => (
       <React.Fragment key={`${parentUid}-${key}`}>
-        <code {...codeAttributes('placeholder', 'open', parentUid, key)}></code>
-        {nestedComponents.map(renderComponent)}
-        <code {...codeAttributes('placeholder', 'close', parentUid, key)}></code>
+        <code {...getCodeBlockAttributes('placeholder', 'open', parentUid, key)}></code>
+        {nestedRendering.map(renderComponent)}
+        <code {...getCodeBlockAttributes('placeholder', 'close', parentUid, key)}></code>
       </React.Fragment>
     ));
   };
 
   // Render based on whether there are any placeholders
-  if (component.placeholders && Object.keys(component.placeholders).length > 0) {
+  if (rendering.placeholders && Object.keys(rendering.placeholders).length > 0) {
     return (
       <>
-        {Object.entries(component.placeholders).map(([placeholderName, nestedComponents]) => (
-          <React.Fragment key={`${component.uid}`}>
+        {Object.entries(rendering.placeholders).map(([placeholderName, nestedRenderings]) => (
+          <React.Fragment key={`${rendering.uid}`}>
             {renderComponentsInPlaceholders(
-              { [placeholderName]: nestedComponents } as { [key: string]: ComponentRendering[] },
-              component.uid
+              { [placeholderName]: nestedRenderings } as { [key: string]: ComponentRendering[] },
+              rendering.uid
             )}
           </React.Fragment>
         ))}
       </>
     );
   } else {
-    return renderComponent(component);
+    return renderComponent(rendering);
   }
 };
