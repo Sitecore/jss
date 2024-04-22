@@ -109,7 +109,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       PropTypes.func as Requireable<React.FC<unknown>>,
     ]),
     modifyComponentProps: PropTypes.func,
-    sitecoreContext: PropTypes.object as Requireable<SitecoreContextValue>,
+    sitecoreContext: PropTypes.object.isRequired,
   };
 
   nodeRefs: Element[];

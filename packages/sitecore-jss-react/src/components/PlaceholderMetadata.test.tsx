@@ -3,6 +3,14 @@ import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
 
+/**
+ * Normalize HTML output for comparison
+ * @param str
+ */
+function normalizeWhitespace(str) {
+  return str.replace(/\s+/g, ' ').trim();
+}
+
 describe('PlaceholderWithMetadata', () => {
   it('renders a single component without placeholders', () => {
     const component = {
@@ -11,20 +19,14 @@ describe('PlaceholderWithMetadata', () => {
     };
 
     const wrapper = shallow(<PlaceholderMetadata component={component} />);
-    const codeTags = wrapper.find('code');
 
-    expect(codeTags.length).to.equal(2);
+    const expectedOutput =
+      '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="123"></code><RichText></RichText><code type="text/sitecore" chrometype="rendering" class="scpm" kind="close" id="123"></code>';
 
-    expect(wrapper.find('RichText').length).to.equal(1);
+    const actualOutput = normalizeWhitespace(wrapper.html());
+    const normalizedExpectedOutput = normalizeWhitespace(expectedOutput);
 
-    expect(codeTags.at(0).props().chrometype).to.equal('rendering');
-    expect(codeTags.at(0).props().kind).to.equal('open');
-    expect(codeTags.at(0).props().id).to.equal('123');
-
-    expect(codeTags.at(1).props().chrometype).to.equal('rendering');
-    expect(codeTags.at(1).props().kind).to.equal('close');
-    expect(codeTags.at(1).props().id).to.equal('123');
-    expect(codeTags.at(1).html()).to.include('</code>');
+    expect(actualOutput).to.equal(normalizedExpectedOutput);
   });
 
   it('renders a component with nested placeholders', () => {
@@ -42,26 +44,14 @@ describe('PlaceholderWithMetadata', () => {
     };
 
     const wrapper = mount(<PlaceholderMetadata component={component} />);
-    const codeTags = wrapper.find('code');
 
-    expect(codeTags.length).to.equal(4);
-    expect(wrapper.find('RichText').length).to.equal(1);
+    const expectedOutput =
+      '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_123"></code><code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="456"></code><richtext></richtext><code type="text/sitecore" chrometype="rendering" class="scpm" kind="close" id="456"></code><code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="main_123"></code>';
 
-    expect(codeTags.at(0).props().chrometype).to.equal('placeholder');
-    expect(codeTags.at(0).props().kind).to.equal('open');
-    expect(codeTags.at(0).props().id).to.equal('main_123');
+    const actualOutput = normalizeWhitespace(wrapper.html());
+    const normalizedExpectedOutput = normalizeWhitespace(expectedOutput);
 
-    expect(codeTags.at(1).props().chrometype).to.equal('rendering');
-    expect(codeTags.at(1).props().kind).to.equal('open');
-    expect(codeTags.at(1).props().id).to.equal('456');
-
-    expect(codeTags.at(2).props().chrometype).to.equal('rendering');
-    expect(codeTags.at(2).props().kind).to.equal('close');
-    expect(codeTags.at(2).props().id).to.equal('456');
-
-    expect(codeTags.at(3).props().chrometype).to.equal('placeholder');
-    expect(codeTags.at(3).props().kind).to.equal('close');
-    expect(codeTags.at(3).props().id).to.equal('main_123');
+    expect(actualOutput).to.equal(normalizedExpectedOutput);
   });
 
   it('renders deeply nested components correctly', () => {
@@ -87,44 +77,14 @@ describe('PlaceholderWithMetadata', () => {
     };
 
     const wrapper = mount(<PlaceholderMetadata component={component} />);
-    const codeTags = wrapper.find('code');
 
-    expect(codeTags.length).to.equal(8);
+    const expectedOutput =
+      '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="header_root123"></code><code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="nested123"></code><header><code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="logo_nested123"></code><code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="deep123"></code><logo></logo><code type="text/sitecore" chrometype="rendering" class="scpm" kind="close" id="deep123"></code><code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="logo_nested123"></code></header><code type="text/sitecore" chrometype="rendering" class="scpm" kind="close" id="nested123"></code><code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="header_root123"></code>';
 
-    expect(wrapper.find('Header').length).to.equal(1);
-    expect(wrapper.find('Logo').length).to.equal(1);
+    const actualOutput = normalizeWhitespace(wrapper.html());
+    const normalizedExpectedOutput = normalizeWhitespace(expectedOutput);
 
-    expect(codeTags.at(0).props().chrometype).to.equal('placeholder');
-    expect(codeTags.at(0).props().kind).to.equal('open');
-    expect(codeTags.at(0).props().id).to.equal('header_root123');
-
-    expect(codeTags.at(1).props().chrometype).to.equal('rendering');
-    expect(codeTags.at(1).props().kind).to.equal('open');
-    expect(codeTags.at(1).props().id).to.equal('nested123');
-
-    expect(codeTags.at(2).props().chrometype).to.equal('placeholder');
-    expect(codeTags.at(2).props().kind).to.equal('open');
-    expect(codeTags.at(2).props().id).to.equal('logo_nested123');
-
-    expect(codeTags.at(3).props().chrometype).to.equal('rendering');
-    expect(codeTags.at(3).props().kind).to.equal('open');
-    expect(codeTags.at(3).props().id).to.equal('deep123');
-
-    expect(codeTags.at(4).props().chrometype).to.equal('rendering');
-    expect(codeTags.at(4).props().kind).to.equal('close');
-    expect(codeTags.at(4).props().id).to.equal('deep123');
-
-    expect(codeTags.at(5).props().chrometype).to.equal('placeholder');
-    expect(codeTags.at(5).props().kind).to.equal('close');
-    expect(codeTags.at(5).props().id).to.equal('logo_nested123');
-
-    expect(codeTags.at(6).props().chrometype).to.equal('rendering');
-    expect(codeTags.at(6).props().kind).to.equal('close');
-    expect(codeTags.at(6).props().id).to.equal('nested123');
-
-    expect(codeTags.at(7).props().chrometype).to.equal('placeholder');
-    expect(codeTags.at(7).props().kind).to.equal('close');
-    expect(codeTags.at(7).props().id).to.equal('header_root123');
+    expect(actualOutput).to.equal(normalizedExpectedOutput);
   });
 
   it('should render component if nested placeholder is empty', () => {
@@ -137,16 +97,13 @@ describe('PlaceholderWithMetadata', () => {
     };
 
     const wrapper = mount(<PlaceholderMetadata component={component} />);
-    const codeTags = wrapper.find('code');
 
-    expect(codeTags.length).to.equal(2);
+    const expectedOutput =
+      '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_123"></code><code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="main_123"></code>';
 
-    expect(codeTags.at(0).props().chrometype).to.equal('placeholder');
-    expect(codeTags.at(0).props().kind).to.equal('open');
-    expect(codeTags.at(0).props().id).to.equal('main_123');
+    const actualOutput = normalizeWhitespace(wrapper.html());
+    const normalizedExpectedOutput = normalizeWhitespace(expectedOutput);
 
-    expect(codeTags.at(1).props().chrometype).to.equal('placeholder');
-    expect(codeTags.at(1).props().kind).to.equal('close');
-    expect(codeTags.at(1).props().id).to.equal('main_123');
+    expect(actualOutput).to.equal(normalizedExpectedOutput);
   });
 });
