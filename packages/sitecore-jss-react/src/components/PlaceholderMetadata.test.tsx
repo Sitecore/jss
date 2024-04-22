@@ -13,14 +13,18 @@ describe('PlaceholderWithMetadata', () => {
     const wrapper = shallow(<PlaceholderMetadata component={component} />);
     const codeTags = wrapper.find('code');
 
-    expect(wrapper.find('code').length).to.equal(2);
+    expect(codeTags.length).to.equal(2);
+
     expect(wrapper.find('RichText').length).to.equal(1);
+
     expect(codeTags.at(0).props().chrometype).to.equal('rendering');
-    expect(codeTags.at(0).text()).to.equal('{uid: "123"}');
     expect(codeTags.at(0).props().kind).to.equal('open');
-    expect(codeTags.at(1).html()).to.include('</code>');
+    expect(codeTags.at(0).props().id).to.equal('123');
+
     expect(codeTags.at(1).props().chrometype).to.equal('rendering');
     expect(codeTags.at(1).props().kind).to.equal('close');
+    expect(codeTags.at(1).props().id).to.equal('123');
+    expect(codeTags.at(1).html()).to.include('</code>');
   });
 
   it('renders a component with nested placeholders', () => {
@@ -43,18 +47,21 @@ describe('PlaceholderWithMetadata', () => {
     expect(codeTags.length).to.equal(4);
     expect(wrapper.find('RichText').length).to.equal(1);
 
-    expect(codeTags.at(0).text()).to.equal('{placeholderName: "main", parentRendering: "123"}');
     expect(codeTags.at(0).props().chrometype).to.equal('placeholder');
     expect(codeTags.at(0).props().kind).to.equal('open');
-    expect(codeTags.at(1).text()).to.equal('{uid: "456"}');
+    expect(codeTags.at(0).props().id).to.equal('main_123');
+
     expect(codeTags.at(1).props().chrometype).to.equal('rendering');
     expect(codeTags.at(1).props().kind).to.equal('open');
-    expect(codeTags.at(2).html()).to.include('</code>');
+    expect(codeTags.at(1).props().id).to.equal('456');
+
     expect(codeTags.at(2).props().chrometype).to.equal('rendering');
     expect(codeTags.at(2).props().kind).to.equal('close');
-    expect(codeTags.at(3).html()).to.include('</code>');
+    expect(codeTags.at(2).props().id).to.equal('456');
+
     expect(codeTags.at(3).props().chrometype).to.equal('placeholder');
     expect(codeTags.at(3).props().kind).to.equal('close');
+    expect(codeTags.at(3).props().id).to.equal('main_123');
   });
 
   it('renders deeply nested components correctly', () => {
@@ -83,52 +90,63 @@ describe('PlaceholderWithMetadata', () => {
     const codeTags = wrapper.find('code');
 
     expect(codeTags.length).to.equal(8);
+
     expect(wrapper.find('Header').length).to.equal(1);
     expect(wrapper.find('Logo').length).to.equal(1);
 
-    expect(codeTags.at(0).text()).to.equal(
-      '{placeholderName: "header", parentRendering: "root123"}'
-    );
     expect(codeTags.at(0).props().chrometype).to.equal('placeholder');
     expect(codeTags.at(0).props().kind).to.equal('open');
-    expect(codeTags.at(1).text()).to.equal('{uid: "nested123"}');
+    expect(codeTags.at(0).props().id).to.equal('header_root123');
+
     expect(codeTags.at(1).props().chrometype).to.equal('rendering');
     expect(codeTags.at(1).props().kind).to.equal('open');
-    expect(codeTags.at(2).html()).to.include('</code>');
-    expect(codeTags.at(2).props().chrometype).to.equal('rendering');
-    expect(codeTags.at(2).props().kind).to.equal('close');
-    expect(codeTags.at(3).text()).to.equal(
-      '{placeholderName: "logo", parentRendering: "nested123"}'
-    );
-    expect(codeTags.at(3).props().chrometype).to.equal('placeholder');
+    expect(codeTags.at(1).props().id).to.equal('nested123');
+
+    expect(codeTags.at(2).props().chrometype).to.equal('placeholder');
+    expect(codeTags.at(2).props().kind).to.equal('open');
+    expect(codeTags.at(2).props().id).to.equal('logo_nested123');
+
+    expect(codeTags.at(3).props().chrometype).to.equal('rendering');
     expect(codeTags.at(3).props().kind).to.equal('open');
-    expect(codeTags.at(4).text()).to.equal('{uid: "deep123"}');
+    expect(codeTags.at(3).props().id).to.equal('deep123');
+
     expect(codeTags.at(4).props().chrometype).to.equal('rendering');
-    expect(codeTags.at(4).props().kind).to.equal('open');
-    expect(codeTags.at(5).html()).to.include('</code>');
-    expect(codeTags.at(5).props().chrometype).to.equal('rendering');
+    expect(codeTags.at(4).props().kind).to.equal('close');
+    expect(codeTags.at(4).props().id).to.equal('deep123');
+
+    expect(codeTags.at(5).props().chrometype).to.equal('placeholder');
     expect(codeTags.at(5).props().kind).to.equal('close');
-    expect(codeTags.at(6).html()).to.include('</code>');
-    expect(codeTags.at(6).props().chrometype).to.equal('placeholder');
+    expect(codeTags.at(5).props().id).to.equal('logo_nested123');
+
+    expect(codeTags.at(6).props().chrometype).to.equal('rendering');
     expect(codeTags.at(6).props().kind).to.equal('close');
+    expect(codeTags.at(6).props().id).to.equal('nested123');
+
+    expect(codeTags.at(7).props().chrometype).to.equal('placeholder');
+    expect(codeTags.at(7).props().kind).to.equal('close');
+    expect(codeTags.at(7).props().id).to.equal('header_root123');
   });
 
   it('should render component if nested placeholder is empty', () => {
     const component = {
       uid: '123',
       componentName: 'Layout',
-      placeholders: {},
+      placeholders: {
+        main: [],
+      },
     };
 
     const wrapper = mount(<PlaceholderMetadata component={component} />);
     const codeTags = wrapper.find('code');
 
     expect(codeTags.length).to.equal(2);
-    expect(codeTags.at(0).text()).to.include('{uid: "123"}');
-    expect(codeTags.at(0).props().chrometype).to.equal('rendering');
+
+    expect(codeTags.at(0).props().chrometype).to.equal('placeholder');
     expect(codeTags.at(0).props().kind).to.equal('open');
-    expect(codeTags.at(1).html()).to.include('</code>');
-    expect(codeTags.at(1).props().chrometype).to.equal('rendering');
+    expect(codeTags.at(0).props().id).to.equal('main_123');
+
+    expect(codeTags.at(1).props().chrometype).to.equal('placeholder');
     expect(codeTags.at(1).props().kind).to.equal('close');
+    expect(codeTags.at(1).props().id).to.equal('main_123');
   });
 });
