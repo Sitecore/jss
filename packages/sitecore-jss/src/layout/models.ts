@@ -34,7 +34,7 @@ export enum RenderingType {
 }
 
 /**
- * Represents the possible modes for rendering content for Experience Editor
+ * Represents the possible modes for rendering content in Pages
  */
 export enum EditMode {
   Chromes = 'chromes',
