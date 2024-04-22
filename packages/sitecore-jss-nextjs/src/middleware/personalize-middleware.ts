@@ -105,17 +105,13 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     request: NextRequest;
     response: NextResponse;
   }): Promise<void> {
-    await init(
-      {
-        sitecoreEdgeUrl: this.config.cdpConfig.sitecoreEdgeUrl,
-        sitecoreEdgeContextId: this.config.cdpConfig.sitecoreEdgeContextId,
-        siteName,
-        cookieDomain: hostname,
-        enableServerCookie: true,
-      },
-      request,
-      response
-    );
+    await init(request, response, {
+      sitecoreEdgeUrl: this.config.cdpConfig.sitecoreEdgeUrl,
+      sitecoreEdgeContextId: this.config.cdpConfig.sitecoreEdgeContextId,
+      siteName,
+      cookieDomain: hostname,
+      enableServerCookie: true,
+    });
   }
 
   protected async personalize(
@@ -140,7 +136,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       language,
     };
 
-    return (await personalize(personalizationData, request, timeout)) as {
+    return (await personalize(request, personalizationData, { timeout })) as {
       variantId: string;
     };
   }
