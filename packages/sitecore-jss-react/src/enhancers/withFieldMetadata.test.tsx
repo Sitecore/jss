@@ -96,19 +96,15 @@ describe('withFieldMetadataWrapper', () => {
 
     expect(codeTags).to.have.length(2);
     expect(codeTags.at(0).text()).to.equal(stringifiedData);
-    expect(codeTags.at(0).html()).to.include('<code ');
-    expect(codeTags.at(0).html()).to.include('</code>');
-    expect(codeTags.at(0).html()).to.include('type="text/sitecore"');
+    expect(codeTags.at(0).props().type).to.equal('text/sitecore');
     expect(codeTags.at(0).html()).to.include('chrometype="field"');
-    expect(codeTags.at(0).html()).to.include('class="scpm"');
-    expect(codeTags.at(0).html()).to.include('kind="open"');
+    expect(codeTags.at(0).props().className).to.equal('scpm');
+    expect(codeTags.at(0).props().kind).to.equal('open');
     expect(rendered.find('div')).to.have.length(1);
     expect(rendered.html()).to.contain('bar');
-    expect(codeTags.at(1).html()).to.include('<code ');
-    expect(codeTags.at(1).html()).to.include('</code>');
-    expect(codeTags.at(1).html()).to.include('type="text/sitecore"');
+    expect(codeTags.at(1).props().type).to.equal('text/sitecore');
     expect(codeTags.at(1).html()).to.include('chrometype="field"');
-    expect(codeTags.at(1).html()).to.include('class="scpm"');
-    expect(codeTags.at(1).html()).to.include('kind="close"');
+    expect(codeTags.at(1).props().className).to.equal('scpm');
+    expect(codeTags.at(1).props().kind).to.equal('close');
   });
 });
