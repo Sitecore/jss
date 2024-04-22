@@ -21,7 +21,7 @@ export type CodeAttributesType = {
  * This component handles recursive rendering of components and their placeholders, encapsulating
  * each part within specific code tags to outline their structure and metadata attributes.
  *
- * @param {PlaceholderMetadataProps} props - The props containing the component data to render.
+ * @param {PlaceholderMetadataProps} props - The props containing the rendering data to render.
  * @returns {JSX.Element} - The rendered component with all nested components and placeholders.
  */
 export const PlaceholderMetadata = ({ component }: PlaceholderMetadataProps): JSX.Element => {
