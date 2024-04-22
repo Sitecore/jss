@@ -5,7 +5,7 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
  *  Props containing the component data to render.
  */
 export interface PlaceholderMetadataProps {
-  component: ComponentRendering;
+  rendering: ComponentRendering;
 }
 
 export type CodeAttributesType = {
