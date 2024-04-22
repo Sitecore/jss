@@ -40,7 +40,7 @@ export const PlaceholderMetadata = ({ component }: PlaceholderMetadataProps): JS
     };
   };
 
-  const renderComponent = (component: ComponentRendering): JSX.Element => {
+  const renderRendering = (rendering: ComponentRendering): JSX.Element => {
     const ComponentName = component.componentName as React.ElementType;
     return (
       <>
