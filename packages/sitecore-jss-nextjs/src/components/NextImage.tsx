@@ -12,7 +12,7 @@ import Image, { ImageProps as NextImageProperties } from 'next/image';
 
 type NextImageProps = Omit<ImageProps, 'media'> & Partial<NextImageProperties>;
 
-export const NextImage: React.FC<NextImageProps> = withFieldMetadata(
+export const NextImage = withFieldMetadata<NextImageProps>(
   ({ editable, imageParams, field, mediaUrlPrefix, fill, priority, ...otherProps }) => {
     // next handles src and we use a custom loader,
     // throw error if these are present

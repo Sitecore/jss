@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
-import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
+import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 
 export interface DateFieldProps {
   /** The date field data. */
@@ -9,7 +8,6 @@ export interface DateFieldProps {
   field: {
     value?: string;
     editable?: string;
-    metadata?: FieldMetadataValue;
   };
   /**
    * The HTML element that will wrap the contents of the field.
@@ -61,7 +59,6 @@ DateField.propTypes = {
   field: PropTypes.shape({
     value: PropTypes.string,
     editable: PropTypes.string,
-    metadata: FieldMetadataPropTypes,
   }).isRequired,
   tag: PropTypes.string,
   editable: PropTypes.bool,

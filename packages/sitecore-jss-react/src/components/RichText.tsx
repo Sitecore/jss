@@ -1,12 +1,10 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
-import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
+import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 
 export interface RichTextField {
   value?: string;
   editable?: string;
-  metadata?: FieldMetadataValue;
 }
 
 export interface RichTextProps {
@@ -50,7 +48,6 @@ export const RichTextPropTypes = {
   field: PropTypes.shape({
     value: PropTypes.string,
     editable: PropTypes.string,
-    metadata: FieldMetadataPropTypes,
   }),
   tag: PropTypes.string,
   editable: PropTypes.bool,

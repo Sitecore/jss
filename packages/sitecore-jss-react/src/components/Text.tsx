@@ -1,12 +1,10 @@
-import React, { ReactElement, FunctionComponent } from 'react';
-import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
-import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
+import React, { ReactElement } from 'react';
+import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import PropTypes from 'prop-types';
 
 export interface TextField {
   value?: string | number;
   editable?: string;
-  metadata?: FieldMetadataValue;
 }
 
 export interface TextProps {
@@ -29,7 +27,7 @@ export interface TextProps {
   encode?: boolean;
 }
 
-export const Text: FunctionComponent<TextProps> = withFieldMetadata<TextProps>(
+export const Text: React.FC<TextProps> = withFieldMetadata<TextProps>(
   ({ field, tag, editable, encode, ...otherProps }) => {
     if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
       return null;
@@ -100,7 +98,6 @@ Text.propTypes = {
   field: PropTypes.shape({
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     editable: PropTypes.string,
-    metadata: FieldMetadataPropTypes,
   }),
   tag: PropTypes.string,
   editable: PropTypes.bool,

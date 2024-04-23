@@ -1,7 +1,6 @@
 import React, { ReactElement, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { FieldMetadataPropTypes, withFieldMetadata } from '../enhancers/withFieldMetadata';
-import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
+import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 
 export interface LinkFieldValue {
   [attributeName: string]: unknown;
@@ -27,9 +26,7 @@ export type LinkProps = React.DetailedHTMLProps<
   HTMLAnchorElement
 > & {
   /** The link field data. */
-  field: (LinkField | LinkFieldValue) & {
-    metadata?: FieldMetadataValue;
-  };
+  field: LinkField | LinkFieldValue;
   /**
    * Can be used to explicitly disable inline editing.
    * If true and `field.editable` has a value, then `field.editable` will be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
@@ -143,7 +140,6 @@ export const LinkPropTypes = {
       value: PropTypes.object,
       editableFirstPart: PropTypes.string,
       editableLastPart: PropTypes.string,
-      metadata: FieldMetadataPropTypes,
     }),
   ]).isRequired,
   editable: PropTypes.bool,

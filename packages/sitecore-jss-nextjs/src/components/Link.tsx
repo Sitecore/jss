@@ -7,7 +7,6 @@ import {
   LinkField,
   LinkProps as ReactLinkProps,
   LinkPropTypes,
-  withFieldMetadata,
 } from '@sitecore-jss/sitecore-jss-react';
 
 export type LinkProps = ReactLinkProps & {
@@ -18,9 +17,8 @@ export type LinkProps = ReactLinkProps & {
   internalLinkMatcher?: RegExp;
 };
 
-export const Link = withFieldMetadata(
-  // eslint-disable-next-line react/display-name
-  forwardRef<HTMLAnchorElement, LinkProps>((props: LinkProps, ref): JSX.Element | null => {
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
+  (props: LinkProps, ref): JSX.Element | null => {
     const {
       field,
       editable,
@@ -41,7 +39,9 @@ export const Link = withFieldMetadata(
       ? field
       : (field as LinkField).value) as LinkFieldValue;
     const { href, querystring, anchor } = value;
-    const isEditing = editable && (field as LinkFieldValue).editable;
+
+    const isEditing =
+      editable && ((field as LinkFieldValue).editable || (field as LinkFieldValue).metadata);
 
     if (href && !isEditing) {
       const text = showLinkTextWithChildrenPresent || !children ? value.text || value.href : null;
@@ -70,11 +70,8 @@ export const Link = withFieldMetadata(
     const reactLinkProps = { ...props };
     delete reactLinkProps.internalLinkMatcher;
 
-    // we've already rendered the metadata wrapper - so set metadata to null to prevent duplicate wrapping
-    reactLinkProps.field.metadata = null;
     return <ReactLink {...reactLinkProps} ref={ref} />;
-  }),
-  true
+  }
 );
 
 Link.defaultProps = {

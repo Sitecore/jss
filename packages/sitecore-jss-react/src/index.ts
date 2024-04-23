@@ -1,5 +1,4 @@
 export { constants, enableDebug, ClientError } from '@sitecore-jss/sitecore-jss';
-export { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
 export {
   isEditorActive,
   resetEditorChromes,

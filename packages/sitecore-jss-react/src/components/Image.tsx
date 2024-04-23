@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { addClassName, convertAttributesToReactProps } from '../utils';
 import { getAttributesString } from '../utils';
-import { withFieldMetadata, FieldMetadataPropTypes } from '../enhancers/withFieldMetadata';
-import { FieldMetadataValue } from '@sitecore-jss/sitecore-jss/layout';
+import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -44,7 +43,7 @@ export interface ImageProps {
   media?: ImageField | ImageFieldValue;
 
   /** Image field data (consistent with other field types) */
-  field?: (ImageField | ImageFieldValue) & { metadata?: FieldMetadataValue };
+  field?: ImageField | ImageFieldValue;
 
   /**
    * Can be used to explicitly disable inline editing.
@@ -150,7 +149,7 @@ export const getEEMarkup = (
   return getEditableWrapper(editableMarkup);
 };
 
-export const Image: React.FC<ImageProps> = withFieldMetadata<ImageProps>(
+export const Image = withFieldMetadata<ImageProps>(
   ({ media, editable, imageParams, field, mediaUrlPrefix, ...otherProps }) => {
     // allows the mistake of using 'field' prop instead of 'media' (consistent with other helpers)
     if (field && !media) {
@@ -206,7 +205,6 @@ Image.propTypes = {
     PropTypes.shape({
       value: PropTypes.object,
       editable: PropTypes.string,
-      metadata: FieldMetadataPropTypes,
     }),
   ]),
   editable: PropTypes.bool,
