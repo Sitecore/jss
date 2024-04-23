@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/765f201a2/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/01d0852f1/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 ## Properties
 
@@ -45,7 +45,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:23](https://github.com/Sitecore/jss/blob/765f201a2/packages/sitecore-jss/src/native-fetcher.ts#L23)
+[packages/sitecore-jss/src/native-fetcher.ts:23](https://github.com/Sitecore/jss/blob/01d0852f1/packages/sitecore-jss/src/native-fetcher.ts#L23)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/765f201a2/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/01d0852f1/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 ## Methods
 
@@ -79,7 +79,7 @@ Object with headers as key/value pairs
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:115](https://github.com/Sitecore/jss/blob/765f201a2/packages/sitecore-jss/src/native-fetcher.ts#L115)
+[packages/sitecore-jss/src/native-fetcher.ts:115](https://github.com/Sitecore/jss/blob/01d0852f1/packages/sitecore-jss/src/native-fetcher.ts#L115)
 
 ___
 
@@ -114,7 +114,7 @@ HttpDataFetcher<T> type for implementation details/notes.
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:33](https://github.com/Sitecore/jss/blob/765f201a2/packages/sitecore-jss/src/native-fetcher.ts#L33)
+[packages/sitecore-jss/src/native-fetcher.ts:33](https://github.com/Sitecore/jss/blob/01d0852f1/packages/sitecore-jss/src/native-fetcher.ts#L33)
 
 ___
 
@@ -139,4 +139,4 @@ The final request settings
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:97](https://github.com/Sitecore/jss/blob/765f201a2/packages/sitecore-jss/src/native-fetcher.ts#L97)
+[packages/sitecore-jss/src/native-fetcher.ts:97](https://github.com/Sitecore/jss/blob/01d0852f1/packages/sitecore-jss/src/native-fetcher.ts#L97)
