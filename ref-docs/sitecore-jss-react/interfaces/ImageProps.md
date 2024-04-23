@@ -28,7 +28,7 @@ and rendered as component output. If false, `media.editable` value will be ignor
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:46](https://github.com/Sitecore/jss/blob/01d0852f1/packages/sitecore-jss-react/src/components/Image.tsx#L46)
+[packages/sitecore-jss-react/src/components/Image.tsx:46](https://github.com/Sitecore/jss/blob/0fdefd685/packages/sitecore-jss-react/src/components/Image.tsx#L46)
 
 ___
 
@@ -40,7 +40,7 @@ Image field data (consistent with other field types)
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:39](https://github.com/Sitecore/jss/blob/01d0852f1/packages/sitecore-jss-react/src/components/Image.tsx#L39)
+[packages/sitecore-jss-react/src/components/Image.tsx:39](https://github.com/Sitecore/jss/blob/0fdefd685/packages/sitecore-jss-react/src/components/Image.tsx#L39)
 
 ___
 
@@ -56,7 +56,7 @@ Parameters that will be attached to Sitecore media URLs
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:51](https://github.com/Sitecore/jss/blob/01d0852f1/packages/sitecore-jss-react/src/components/Image.tsx#L51)
+[packages/sitecore-jss-react/src/components/Image.tsx:51](https://github.com/Sitecore/jss/blob/0fdefd685/packages/sitecore-jss-react/src/components/Image.tsx#L51)
 
 ___
 
@@ -76,7 +76,7 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:64](https://github.com/Sitecore/jss/blob/01d0852f1/packages/sitecore-jss-react/src/components/Image.tsx#L64)
+[packages/sitecore-jss-react/src/components/Image.tsx:64](https://github.com/Sitecore/jss/blob/0fdefd685/packages/sitecore-jss-react/src/components/Image.tsx#L64)
 
 ___
 
@@ -86,4 +86,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:55](https://github.com/Sitecore/jss/blob/01d0852f1/packages/sitecore-jss-react/src/components/Image.tsx#L55)
+[packages/sitecore-jss-react/src/components/Image.tsx:55](https://github.com/Sitecore/jss/blob/0fdefd685/packages/sitecore-jss-react/src/components/Image.tsx#L55)
