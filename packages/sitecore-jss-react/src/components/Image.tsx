@@ -190,6 +190,7 @@ Image.propTypes = {
     PropTypes.shape({
       value: PropTypes.object,
       editable: PropTypes.string,
+      metadata: PropTypes.objectOf(PropTypes.any),
     }),
   ]),
   field: PropTypes.oneOfType([

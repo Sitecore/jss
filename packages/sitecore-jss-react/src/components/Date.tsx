@@ -60,6 +60,7 @@ DateField.propTypes = {
   field: PropTypes.shape({
     value: PropTypes.string,
     editable: PropTypes.string,
+    metadata: PropTypes.objectOf(PropTypes.any),
   }).isRequired,
   tag: PropTypes.string,
   editable: PropTypes.bool,

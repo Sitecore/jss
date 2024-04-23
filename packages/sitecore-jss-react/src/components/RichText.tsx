@@ -49,6 +49,7 @@ export const RichTextPropTypes = {
   field: PropTypes.shape({
     value: PropTypes.string,
     editable: PropTypes.string,
+    metadata: PropTypes.objectOf(PropTypes.any),
   }),
   tag: PropTypes.string,
   editable: PropTypes.bool,

@@ -99,6 +99,7 @@ Text.propTypes = {
   field: PropTypes.shape({
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     editable: PropTypes.string,
+    metadata: PropTypes.objectOf(PropTypes.any),
   }),
   tag: PropTypes.string,
   editable: PropTypes.bool,
