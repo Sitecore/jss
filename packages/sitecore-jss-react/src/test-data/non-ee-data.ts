@@ -1,3 +1,5 @@
+import { EditMode } from '@sitecore-jss/sitecore-jss/layout';
+
 export const convertedDevData = {
   sitecore: {
     context: {
@@ -504,6 +506,53 @@ export const feaasWrapperData = {
               DynamicPlaceholderId: '2',
               FieldNames: 'Default',
             },
+          },
+        ],
+      },
+    },
+  },
+};
+
+export const layoutDataWithMetadata = {
+  sitecore: {
+    context: {
+      pageEditing: false,
+      editMode: EditMode.Metadata,
+    },
+    route: {
+      name: 'home',
+      displayName: 'Home',
+      placeholders: {
+        'sxa-header': [
+          {
+            componentName: 'RichText',
+            dataSource:
+              '/sitecore/content/site1/site1/Presentation/Partial Designs/Header/Data/Title',
+            fields: {
+              Text: {
+                value: '<h1>Skate Park</h1>',
+              },
+            },
+            params: {
+              FieldNames: 'Default',
+              GridParameters: 'col-12 col-lg-6',
+              Styles: 'bs-title',
+            },
+            uid: '386455f2-83a5-4aff-b7a0-38d6a6abb46f',
+          },
+          {
+            componentName: 'Navigation',
+            dataSource: '',
+            params: {
+              AddRoot: '1',
+              FieldNames: 'Default',
+              GridParameters: 'col-12',
+              LevelFrom: '{1BB88840-5FB3-4353-AD8D-81136F6FF75A}',
+              LevelTo: '{1BB88840-5FB3-4353-AD8D-81136F6FF75A}',
+              NavigationRoot: '{9ED8A0DF-0463-42FD-89CB-2B3A559E11AC}',
+              Styles: 'position-right navigation-horizontal',
+            },
+            uid: '434f3f2c-e58f-4d86-ae10-7707601c5a72',
           },
         ],
       },

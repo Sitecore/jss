@@ -2,7 +2,11 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react/prop-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
+import {
+  ComponentRendering,
+  LayoutServiceData,
+  RouteData,
+} from '@sitecore-jss/sitecore-jss/layout';
 import { expect } from 'chai';
 import { mount, shallow } from 'enzyme';
 import PropTypes from 'prop-types';
@@ -12,6 +16,7 @@ import { convertedData as eeData, emptyPlaceholderData } from '../test-data/ee-d
 import {
   byocWrapperData,
   feaasWrapperData,
+  layoutDataWithMetadata,
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
   sxaRenderingColumnSplitterVariant,
@@ -31,6 +36,7 @@ import { Placeholder } from './Placeholder';
 import { ComponentProps } from './PlaceholderCommon';
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
+import { PlaceholderMetadata } from './PlaceholderMetadata';
 
 const componentFactory: ComponentFactory = (componentName: string) => {
   const components = new Map<string, React.FC>();
@@ -105,6 +111,8 @@ describe('<Placeholder />', () => {
             <Placeholder name={phKey} rendering={component} />
           </SitecoreContext>
         );
+
+        console.log(renderedComponent.debug());
 
         expect(renderedComponent.find('.download-callout-mock').length).to.equal(1);
       });
@@ -714,6 +722,33 @@ it('should render custom HiddenRendering when rendering is hidden', () => {
   expect(renderedComponent.find('.hidden-rendering').length).to.equal(1);
   expect(renderedComponent.find(HiddenRendering).length).to.equal(1);
   expect(renderedComponent.find('p').props().children).to.equal('Hidden Rendering');
+});
+
+const testDataWithoutEE = [
+  { label: 'Dev data', data: nonEeDevData },
+  { label: 'LayoutService data - EE off', data: nonEeLsData },
+];
+
+testDataWithoutEE.forEach((dataSet) => {
+  describe(`with ${dataSet.label}`, () => {
+    it('renders <PlaceholderMetadata> when editMode is Metadata', () => {
+      const component = ((dataSet.data.sitecore.route.placeholders.main as unknown) as (
+        | ComponentRendering
+        | RouteData
+      )[]).find((c) => (c as ComponentRendering).componentName);
+      const phKey = 'page-content';
+
+      const mockLayoutData: LayoutServiceData = layoutDataWithMetadata;
+
+      const renderedComponent = mount(
+        <SitecoreContext componentFactory={componentFactory} layoutData={mockLayoutData}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
+      );
+
+      expect(renderedComponent.find(PlaceholderMetadata).length).to.equal(1);
+    });
+  });
 });
 
 after(() => {
