@@ -124,10 +124,5 @@ describe('<RichText />', () => {
         '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
       ].join('')
     );
-
-    expect(rendered.find('code')).to.have.length(2);
-    expect(rendered.html()).to.contain('kind="open"');
-    expect(rendered.html()).to.contain('kind="close"');
-    expect(rendered.html()).to.contain(JSON.stringify(testMetadata));
   });
 });
