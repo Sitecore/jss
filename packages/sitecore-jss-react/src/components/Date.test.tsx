@@ -5,13 +5,12 @@ import React from 'react';
 import { DateField } from './Date';
 
 describe('<DateField />', () => {
-  it('should render nothing is field is missing', () => {
+  it('should return null if no editable or value', () => {
     const p = {
       field: {},
     };
 
     const c = shallow(<DateField {...p} />);
-    console.log(c.type());
     expect(c.html()).to.equal('');
   });
 
