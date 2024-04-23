@@ -149,13 +149,10 @@ export const Image: React.FC<ImageProps> = ({
   mediaUrlPrefix,
   ...otherProps
 }) => {
-  // allows the mistake of using 'field' prop instead of 'media' (consistent with other helpers)
-  const media = field;
-
-  const dynamicMedia = media as ImageField | ImageFieldValue;
+  const dynamicMedia = field as ImageField | ImageFieldValue;
 
   if (
-    !media ||
+    !field ||
     (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)
   ) {
     return null;
@@ -169,7 +166,7 @@ export const Image: React.FC<ImageProps> = ({
 
   // some wise-guy/gal is passing in a 'raw' image object value
   const img = (dynamicMedia as ImageFieldValue).src
-    ? media
+    ? field
     : (dynamicMedia.value as ImageFieldValue);
   if (!img) {
     return null;

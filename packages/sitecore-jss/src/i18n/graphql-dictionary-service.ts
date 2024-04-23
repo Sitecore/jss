@@ -60,7 +60,7 @@ export interface GraphQLDictionaryServiceConfig
    * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
    * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
    */
-  clientFactory?: GraphQLRequestClientFactory;
+  clientFactory: GraphQLRequestClientFactory;
 
   /**
    * Optional. The template ID to use when searching for dictionary entries.
@@ -158,7 +158,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
    */
   protected getGraphQLClient(): GraphQLClient {
     if (!this.options.clientFactory) {
-      throw new Error('You should provide either a clientFactory.');
+      throw new Error('clientFactory needs to be provided when initializing GraphQL client.');
     }
     return this.options.clientFactory({
       debugger: debug.dictionary,
