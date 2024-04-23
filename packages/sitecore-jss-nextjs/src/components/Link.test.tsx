@@ -351,15 +351,14 @@ describe('<Link />', () => {
 
   it('should render nothing with missing field', () => {
     const field = (null as unknown) as LinkField;
-    const rendered = mount(<Link field={field} />);
-    expect(rendered.html()).to.equal('');
+    const rendered = mount(<Link field={field} />).children();
+    expect(rendered).to.have.length(0);
   });
 
   it('should render nothing with missing field', () => {
     const field = {};
-    const rendered = mount(<Link field={field} />);
-    expect(rendered.children()).to.have.length(1);
-    expect(rendered.html()).to.equal('');
+    const rendered = mount(<Link field={field} />).children();
+    expect(rendered).to.have.length(0);
   });
 
   it('should render field metadata component when metadata property is present', () => {
@@ -388,6 +387,16 @@ describe('<Link />', () => {
       <Page>
         <Link field={field} />
       </Page>
+    );
+
+    expect(rendered.html()).to.equal(
+      [
+        `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+          testMetadata
+        )}</code>`,
+        '<a href="/lorem" class="my-link">ipsum</a>',
+        '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+      ].join('')
     );
 
     expect(rendered.find('code')).to.have.length(2);

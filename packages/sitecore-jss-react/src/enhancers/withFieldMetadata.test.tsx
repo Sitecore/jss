@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-expressions */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { FieldMetadata, withFieldMetadata } from './withFieldMetadata';
+import { withFieldMetadata } from './withFieldMetadata';
 import { describe } from 'node:test';
 
-describe('withFieldMetadataWrapper', () => {
+describe('withFieldMetadata', () => {
   const testMetadata = {
     contextItem: {
       id: '{09A07660-6834-476C-B93B-584248D3003B}',
@@ -17,94 +17,196 @@ describe('withFieldMetadataWrapper', () => {
     fieldType: 'single-line',
     rawValue: 'Test1',
   };
-  const stringifiedData = JSON.stringify(testMetadata);
 
-  const TestComponent: React.FC<FieldMetadata> = (props: any) => {
+  type TestComponentProps = {
+    field?: {
+      value?: string;
+      metadata?: { [key: string]: unknown };
+    };
+    editable?: boolean;
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const TestComponent = (props: TestComponentProps) => {
     return (
-      <div {...props}>
+      <div>
+        <h1>{props.field?.value}</h1>
         <h2>foo</h2>
         <p>bar</p>
       </div>
     );
   };
 
-  it('Should return component if field is empty', () => {
+  // eslint-disable-next-line react/display-name
+  const TestComponentWithRef = forwardRef(
+    (props: TestComponentProps, ref: React.ForwardedRef<HTMLDivElement>) => {
+      return (
+        <div>
+          <h1>{props.field?.value}</h1>
+          <h2 ref={ref}>foo</h2>
+          <p>bar</p>
+        </div>
+      );
+    }
+  );
+
+  it('should return component if field is empty', () => {
     const props = {
       editable: true,
     };
 
-    const WrappedComponent = withFieldMetadata((props) => {
-      return <TestComponent {...props} />;
-    });
+    const WrappedComponent = withFieldMetadata<TestComponentProps>(TestComponent);
 
     const rendered = mount(<WrappedComponent {...props} />);
 
-    expect(rendered.find('code')).to.have.length(0);
-    expect(rendered.find('div')).to.have.length(1);
-    expect(rendered.html()).to.contain('bar');
+    expect(rendered.html()).to.equal('<div><h1></h1><h2>foo</h2><p>bar</p></div>');
   });
 
-  it('Should render unwrapped component if metadata field is not provided', () => {
-    const props = {
-      field: {},
-    };
-
-    const WrappedComponent = withFieldMetadata((props) => {
-      return <TestComponent {...props} />;
-    });
-
-    const rendered = mount(<WrappedComponent {...props} />);
-
-    expect(rendered.find('code')).to.have.length(0);
-    expect(rendered.find('div')).to.have.length(1);
-    expect(rendered.html()).to.contain('bar');
-  });
-
-  it('Should render unwrapped component if metadata is provided but field is not editable', () => {
+  it('should render unwrapped component if metadata field is not provided', () => {
     const props = {
       field: {
+        value: 'test',
+      },
+      editable: true,
+    };
+
+    const WrappedComponent = withFieldMetadata<TestComponentProps>(TestComponent);
+
+    const rendered = mount(<WrappedComponent {...props} />);
+
+    expect(rendered.html()).to.equal('<div><h1>test</h1><h2>foo</h2><p>bar</p></div>');
+  });
+
+  it('should render unwrapped component if metadata is provided but field is not editable', () => {
+    const props = {
+      field: {
+        value: 'test',
         metadata: testMetadata,
       },
       editable: false,
     };
 
-    const WrappedComponent = withFieldMetadata((props) => {
-      return <TestComponent {...props} />;
-    });
+    const WrappedComponent = withFieldMetadata<TestComponentProps>(TestComponent);
 
     const rendered = mount(<WrappedComponent {...props} />);
 
-    expect(rendered.find('code')).to.have.length(0);
-    expect(rendered.find('div')).to.have.length(1);
-    expect(rendered.html()).to.contain('bar');
+    expect(rendered.html()).to.equal('<div><h1>test</h1><h2>foo</h2><p>bar</p></div>');
   });
 
-  it('Should wrap field with provided metadata', () => {
+  it('should wrap field with provided metadata', () => {
     const props = {
       field: {
+        value: 'car',
         metadata: testMetadata,
       },
       editable: true,
     };
 
-    const WrappedComponent = withFieldMetadata((props) => {
-      return <TestComponent {...props} />;
-    });
+    const WrappedComponent = withFieldMetadata<TestComponentProps>(TestComponent);
 
     const rendered = mount(<WrappedComponent {...props} />);
-    const codeTags = rendered.find('code');
 
-    expect(codeTags).to.have.length(2);
-    expect(codeTags.at(0).text()).to.equal(stringifiedData);
-    expect(codeTags.at(0).props().type).to.equal('text/sitecore');
-    expect(codeTags.at(0).html()).to.include('chrometype="field"');
-    expect(codeTags.at(0).props().className).to.equal('scpm');
-    expect(codeTags.at(0).props().kind).to.equal('open');
-    expect(rendered.find('div')).to.have.length(1);
-    expect(rendered.html()).to.contain('bar');
-    expect(codeTags.at(1).props().type).to.equal('text/sitecore');
-    expect(codeTags.at(1).html()).to.include('chrometype="field"');
-    expect(codeTags.at(1).props().className).to.equal('scpm');
-    expect(codeTags.at(1).props().kind).to.equal('close');
+    expect(rendered.html()).to.equal(
+      [
+        `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+          testMetadata
+        )}</code>`,
+        '<div>',
+        '<h1>car</h1>',
+        '<h2>foo</h2>',
+        '<p>bar</p>',
+        '</div>',
+        '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+      ].join('')
+    );
+  });
+
+  describe('with forwardRef', () => {
+    it('should return component if field is empty', () => {
+      const props = {
+        editable: true,
+      };
+
+      const ref = React.createRef<HTMLDivElement>();
+
+      const WrappedComponent = withFieldMetadata<TestComponentProps>(TestComponentWithRef, true);
+
+      const rendered = mount(<WrappedComponent {...props} ref={ref} />);
+
+      expect(ref.current?.outerHTML).to.equal('<h2>foo</h2>');
+
+      expect(rendered.html()).to.equal('<div><h1></h1><h2>foo</h2><p>bar</p></div>');
+    });
+
+    it('should render unwrapped component if metadata field is not provided', () => {
+      const props = {
+        field: {
+          value: 'test',
+        },
+        editable: true,
+      };
+
+      const ref = React.createRef<HTMLDivElement>();
+
+      const WrappedComponent = withFieldMetadata<TestComponentProps>(TestComponentWithRef, true);
+
+      const rendered = mount(<WrappedComponent {...props} ref={ref} />);
+
+      expect(ref.current?.outerHTML).to.equal('<h2>foo</h2>');
+
+      expect(rendered.html()).to.equal('<div><h1>test</h1><h2>foo</h2><p>bar</p></div>');
+    });
+
+    it('should render unwrapped component if metadata is provided but field is not editable', () => {
+      const props = {
+        field: {
+          value: 'test',
+          metadata: testMetadata,
+        },
+        editable: false,
+      };
+
+      const ref = React.createRef<HTMLDivElement>();
+
+      const WrappedComponent = withFieldMetadata<TestComponentProps>(TestComponentWithRef, true);
+
+      const rendered = mount(<WrappedComponent {...props} ref={ref} />);
+
+      expect(ref.current?.outerHTML).to.equal('<h2>foo</h2>');
+
+      expect(rendered.html()).to.equal('<div><h1>test</h1><h2>foo</h2><p>bar</p></div>');
+    });
+
+    it('should wrap field with provided metadata', () => {
+      const props = {
+        field: {
+          value: 'car',
+          metadata: testMetadata,
+        },
+        editable: true,
+      };
+
+      const ref = React.createRef<HTMLDivElement>();
+
+      const WrappedComponent = withFieldMetadata<TestComponentProps>(TestComponentWithRef, true);
+
+      const rendered = mount(<WrappedComponent {...props} ref={ref} />);
+
+      expect(ref.current?.outerHTML).to.equal('<h2>foo</h2>');
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<div>',
+          '<h1>car</h1>',
+          '<h2>foo</h2>',
+          '<p>bar</p>',
+          '</div>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
   });
 });

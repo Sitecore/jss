@@ -1,4 +1,4 @@
-import React, { ReactElement, forwardRef } from 'react';
+import React, { ReactElement, RefAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 
@@ -21,27 +21,25 @@ export interface LinkField {
   editableLastPart?: string;
 }
 
-export type LinkProps = React.DetailedHTMLProps<
-  React.AnchorHTMLAttributes<HTMLAnchorElement>,
-  HTMLAnchorElement
-> & {
-  /** The link field data. */
-  field: LinkField | LinkFieldValue;
-  /**
-   * Can be used to explicitly disable inline editing.
-   * If true and `field.editable` has a value, then `field.editable` will be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
-   * @default true
-   */
-  editable?: boolean;
+export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  RefAttributes<HTMLAnchorElement> & {
+    /** The link field data. */
+    field: (LinkField | LinkFieldValue) & { metadata?: { [key: string]: unknown } };
+    /**
+     * Can be used to explicitly disable inline editing.
+     * If true and `field.editable` has a value, then `field.editable` will be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
+     * @default true
+     */
+    editable?: boolean;
 
-  /**
-   * Displays a link text ('description' in Sitecore) even when children exist
-   * NOTE: when in Sitecore Experience Editor, this setting is ignored due to technical limitations, and the description is always rendered.
-   */
-  showLinkTextWithChildrenPresent?: boolean;
-};
+    /**
+     * Displays a link text ('description' in Sitecore) even when children exist
+     * NOTE: when in Sitecore Experience Editor, this setting is ignored due to technical limitations, and the description is always rendered.
+     */
+    showLinkTextWithChildrenPresent?: boolean;
+  };
 
-export const Link = withFieldMetadata(
+export const Link: React.FC<LinkProps> = withFieldMetadata<LinkProps, HTMLAnchorElement>(
   // eslint-disable-next-line react/display-name
   forwardRef<HTMLAnchorElement, LinkProps>(
     ({ field, editable, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {

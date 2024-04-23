@@ -104,9 +104,14 @@ describe('<DateField />', () => {
 
     const rendered = mount(<DateField {...props} />);
 
-    expect(rendered.find('code')).to.have.length(2);
-    expect(rendered.html()).to.contain('kind="open"');
-    expect(rendered.html()).to.contain('kind="close"');
-    expect(rendered.html()).to.contain(JSON.stringify(testMetadata));
+    expect(rendered.html()).to.equal(
+      [
+        `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+          testMetadata
+        )}</code>`,
+        '23-11-2001',
+        '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+      ].join('')
+    );
   });
 });

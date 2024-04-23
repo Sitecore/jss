@@ -8,6 +8,7 @@ export interface DateFieldProps {
   field: {
     value?: string;
     editable?: string;
+    metadata?: { [key: string]: unknown };
   };
   /**
    * The HTML element that will wrap the contents of the field.

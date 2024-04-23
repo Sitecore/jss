@@ -5,6 +5,7 @@ import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 export interface RichTextField {
   value?: string;
   editable?: string;
+  metadata?: { [key: string]: unknown };
 }
 
 export interface RichTextProps {
@@ -26,7 +27,7 @@ export interface RichTextProps {
 
 export const RichText: React.FC<RichTextProps> = withFieldMetadata<RichTextProps>(
   // eslint-disable-next-line react/display-name
-  forwardRef<HTMLAnchorElement, RichTextProps>(({ field, tag, editable, ...otherProps }, ref) => {
+  forwardRef<HTMLElement, RichTextProps>(({ field, tag, editable, ...otherProps }, ref) => {
     if (!field || (!field.editable && !field.value)) {
       return null;
     }

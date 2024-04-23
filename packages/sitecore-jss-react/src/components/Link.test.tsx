@@ -147,9 +147,14 @@ describe('<Link />', () => {
     };
     const rendered = mount(<Link field={field} />);
 
-    expect(rendered.find('code')).to.have.length(2);
-    expect(rendered.html()).to.contain('kind="open"');
-    expect(rendered.html()).to.contain('kind="close"');
-    expect(rendered.html()).to.contain(JSON.stringify(testMetadata));
+    expect(rendered.html()).to.equal(
+      [
+        `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+          testMetadata
+        )}</code>`,
+        '<a href="/lorem">ipsum</a>',
+        '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+      ].join('')
+    );
   });
 });

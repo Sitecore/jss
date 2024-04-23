@@ -307,10 +307,14 @@ describe('<NextImage />', () => {
 
     const rendered = mount(<NextImage field={field} fill={true} />);
 
-    expect(rendered.find('code')).to.have.length(2);
-    expect(rendered.find('img')).to.have.length(1);
-    expect(rendered.html()).to.contain('kind="open"');
-    expect(rendered.html()).to.contain('kind="close"');
-    expect(rendered.html()).to.contain(JSON.stringify(testMetadata));
+    expect(rendered.html()).to.equal(
+      [
+        `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+          testMetadata
+        )}</code>`,
+        '<img alt="my image" loading="lazy" decoding="async" data-nimg="fill" style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;" sizes="100vw" srcset="/_next/image?url=%2Fassets%2Fimg%2Ftest0.png&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Ftest0.png&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Ftest0.png&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Ftest0.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Ftest0.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Ftest0.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Ftest0.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Ftest0.png&amp;w=3840&amp;q=75 3840w" src="/_next/image?url=%2Fassets%2Fimg%2Ftest0.png&amp;w=3840&amp;q=75">',
+        '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+      ].join('')
+    );
   });
 });

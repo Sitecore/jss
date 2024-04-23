@@ -419,6 +419,21 @@ describe('RichText', () => {
       { attachTo: app }
     );
 
+    expect(rendered.html()).to.equal(
+      [
+        `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+          testMetadata
+        )}</code><div>
+        `,
+        `<div id="test">
+          <h1>Hello!</h1>
+          <a href="/t10">1</a>
+          <a href="/t10">2</a>
+          <a href="/contains-children"><span id="child">Title</span></a>
+        </div></div><code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>`,
+      ].join('')
+    );
+
     expect(rendered.find('code')).to.have.length(2);
     expect(rendered.html()).to.contain('<div id="test">');
     expect(rendered.html()).to.contain('kind="open"');

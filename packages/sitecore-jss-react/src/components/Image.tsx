@@ -37,7 +37,7 @@ export interface ImageSizeParameters {
 export interface ImageProps {
   [attributeName: string]: unknown;
   /** Image field data (consistent with other field types) */
-  field?: ImageField | ImageFieldValue;
+  field?: (ImageField | ImageFieldValue) & { metadata?: { [key: string]: unknown } };
 
   /**
    * Can be used to explicitly disable inline editing.
@@ -166,6 +166,11 @@ export const Image: React.FC<ImageProps> = withFieldMetadata<ImageProps>(
       : (dynamicMedia.value as ImageFieldValue);
     if (!img) {
       return null;
+    }
+
+    // prevent metadata from being passed to the img tag
+    if (img.metadata) {
+      delete img.metadata;
     }
 
     const attrs = getImageAttrs({ ...img, ...otherProps }, imageParams, mediaUrlPrefix);

@@ -115,6 +115,16 @@ describe('<RichText />', () => {
 
     const rendered = mount(<RichText field={field} />);
 
+    expect(rendered.html()).to.equal(
+      [
+        `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+          testMetadata
+        )}</code>`,
+        '<div>value</div>',
+        '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+      ].join('')
+    );
+
     expect(rendered.find('code')).to.have.length(2);
     expect(rendered.html()).to.contain('kind="open"');
     expect(rendered.html()).to.contain('kind="close"');

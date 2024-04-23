@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 export interface TextField {
   value?: string | number;
   editable?: string;
+  metadata?: { [key: string]: unknown };
 }
 
 export interface TextProps {

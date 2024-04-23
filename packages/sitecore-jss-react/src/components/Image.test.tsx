@@ -315,10 +315,14 @@ describe('<Image />', () => {
     };
     const rendered = mount(<Image field={imgField} />);
 
-    expect(rendered.find('code')).to.have.length(2);
-    expect(rendered.html()).to.contain('kind="open"');
-    expect(rendered.html()).to.contain('kind="close"');
-    expect(rendered.html()).to.contain('src="/assets/img/test0.png"');
-    expect(rendered.html()).to.contain(JSON.stringify(testMetadata));
+    expect(rendered.html()).to.equal(
+      [
+        `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+          testMetadata
+        )}</code>`,
+        '<img width="8" height="10" src="/assets/img/test0.png">',
+        '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+      ].join('')
+    );
   });
 });

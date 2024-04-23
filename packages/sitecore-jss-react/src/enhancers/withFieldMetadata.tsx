@@ -1,8 +1,8 @@
 import React, { ComponentType, forwardRef } from 'react';
 import { FieldMetadata } from '../components/FieldMetadata';
 
-interface WithMetadataProps<Field> {
-  field?: Field & {
+interface WithMetadataProps {
+  field?: {
     metadata?: { [key: string]: unknown };
   };
   editable?: boolean;
@@ -14,30 +14,33 @@ interface WithMetadataProps<Field> {
  * @param {boolean} isForwardRef set to 'true' if forward reference is needed
  */
 export function withFieldMetadata<
-  FieldComponentProps extends WithMetadataProps<FieldComponentProps['field']>
+  FieldComponentProps extends WithMetadataProps,
+  RefElementType = HTMLElement
 >(FieldComponent: ComponentType<FieldComponentProps>, isForwardRef = false) {
   if (isForwardRef) {
     // eslint-disable-next-line react/display-name
-    return forwardRef(({ ...props }: FieldComponentProps, ref: React.ForwardedRef<HTMLElement>) => {
-      const metadata = props.field?.metadata;
+    return forwardRef(
+      ({ ...props }: FieldComponentProps, ref: React.ForwardedRef<RefElementType>) => {
+        const metadata = props.field?.metadata;
 
-      if (!metadata || !props?.editable) {
-        return <FieldComponent {...props} ref={ref} />;
+        if (!metadata || !props.editable) {
+          return <FieldComponent {...props} ref={ref} />;
+        }
+
+        return (
+          <FieldMetadata metadata={metadata}>
+            <FieldComponent {...props} ref={ref} />
+          </FieldMetadata>
+        );
       }
-
-      return (
-        <FieldMetadata metadata={metadata}>
-          <FieldComponent {...props} ref={ref} />
-        </FieldMetadata>
-      );
-    });
+    );
   }
 
   // eslint-disable-next-line react/display-name
-  return (({ ...props }: FieldComponentProps) => {
+  return ({ ...props }: FieldComponentProps) => {
     const metadata = props.field?.metadata;
 
-    if (!metadata || !props?.editable) {
+    if (!metadata || !props.editable) {
       return <FieldComponent {...props} />;
     }
 
@@ -46,5 +49,5 @@ export function withFieldMetadata<
         <FieldComponent {...props} />
       </FieldMetadata>
     );
-  }) as React.FC<FieldComponentProps>;
+  };
 }
