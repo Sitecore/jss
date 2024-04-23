@@ -23,7 +23,7 @@
     "@sitecore-jss/sitecore-jss-proxy": "~21.8.0-canary",
     "agentkeepalive": "^4.2.1",
     "compression": "~1.7.4",
-    "express": "~4.18.2",
+    "express": "~4.19.2",
     "memory-cache": "^0.2.0",
     "dotenv": "^16.0.3"
   },

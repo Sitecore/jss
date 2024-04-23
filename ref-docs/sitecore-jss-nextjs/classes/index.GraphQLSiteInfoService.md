@@ -19,13 +19,11 @@
 
 ### Accessors
 
-- [query](index.GraphQLSiteInfoService.md#query)
 - [siteQuery](index.GraphQLSiteInfoService.md#sitequery)
 
 ### Methods
 
 - [fetchSiteInfo](index.GraphQLSiteInfoService.md#fetchsiteinfo)
-- [fetchWithDefaultQuery](index.GraphQLSiteInfoService.md#fetchwithdefaultquery)
 - [fetchWithSiteQuery](index.GraphQLSiteInfoService.md#fetchwithsitequery)
 - [getCacheClient](index.GraphQLSiteInfoService.md#getcacheclient)
 - [getGraphQLClient](index.GraphQLSiteInfoService.md#getgraphqlclient)
@@ -46,7 +44,7 @@ Creates an instance of graphQL service to retrieve site configuration list from 
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:78
+packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:62
 
 ## Properties
 
@@ -56,7 +54,7 @@ packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:78
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:68
+packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:53
 
 ___
 
@@ -66,7 +64,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:66
+packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:51
 
 ___
 
@@ -76,7 +74,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:95
+packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:78
 
 ___
 
@@ -86,23 +84,9 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:67
+packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:52
 
 ## Accessors
-
-### query
-
-• `Protected` `get` **query**(): `string`
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:69
-
-___
 
 ### siteQuery
 
@@ -116,7 +100,7 @@ site query is available on XM Cloud and XP 10.4+
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:73
+packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:57
 
 ## Methods
 
@@ -130,21 +114,7 @@ packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:73
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:79
-
-___
-
-### fetchWithDefaultQuery
-
-▸ `Protected` **fetchWithDefaultQuery**(): `Promise`\<[`SiteInfo`](../modules/index.md#siteinfo)[]\>
-
-#### Returns
-
-`Promise`\<[`SiteInfo`](../modules/index.md#siteinfo)[]\>
-
-#### Defined in
-
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:80
+packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:63
 
 ___
 
@@ -158,7 +128,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:81
+packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:64
 
 ___
 
@@ -177,7 +147,7 @@ CacheClient instance
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:87
+packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:70
 
 ___
 
@@ -197,4 +167,4 @@ implementation
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:94
+packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:77

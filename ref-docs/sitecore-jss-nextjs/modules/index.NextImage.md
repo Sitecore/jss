@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/components/NextImage.tsx:108](https://github.com/Sitecore/jss/blob/461b4ee2b/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L108)
+[packages/sitecore-jss-nextjs/src/components/NextImage.tsx:108](https://github.com/Sitecore/jss/blob/d442684a4/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L108)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/components/NextImage.tsx:112](https://github.com/Sitecore/jss/blob/461b4ee2b/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L112)
+[packages/sitecore-jss-nextjs/src/components/NextImage.tsx:112](https://github.com/Sitecore/jss/blob/d442684a4/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L112)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/components/NextImage.tsx:91](https://github.com/Sitecore/jss/blob/461b4ee2b/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L91)
+[packages/sitecore-jss-nextjs/src/components/NextImage.tsx:91](https://github.com/Sitecore/jss/blob/d442684a4/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L91)

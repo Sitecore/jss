@@ -36,9 +36,12 @@ describe('GraphQLRedirectsService', () => {
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';
   const siteName = 'site-name';
-  const config = {
+  const clientFactory = GraphQLRequestClient.createClientFactory({
     endpoint,
     apiKey,
+  });
+  const config = {
+    clientFactory,
   };
 
   afterEach(() => {
@@ -64,7 +67,7 @@ describe('GraphQLRedirectsService', () => {
     it('should get error if redirects has empty siteName', async () => {
       mockRedirectsRequest();
 
-      const service = new GraphQLRedirectsService({ endpoint, apiKey });
+      const service = new GraphQLRedirectsService(config);
       await service.fetchRedirects('').catch((error: Error) => {
         expect(error.message).to.equal(siteNameError);
       });
@@ -75,23 +78,7 @@ describe('GraphQLRedirectsService', () => {
     it('should get redirects', async () => {
       mockRedirectsRequest(siteName);
 
-      const service = new GraphQLRedirectsService({ endpoint, apiKey });
-      const result = await service.fetchRedirects(siteName);
-
-      expect(result).to.deep.equal(redirectsQueryResult.site?.siteInfo?.redirects);
-
-      return expect(nock.isDone()).to.be.true;
-    });
-
-    it('should get redirects using clientFactory', async () => {
-      mockRedirectsRequest(siteName);
-
-      const clientFactory = GraphQLRequestClient.createClientFactory({
-        endpoint,
-        apiKey,
-      });
-
-      const service = new GraphQLRedirectsService({ clientFactory });
+      const service = new GraphQLRedirectsService(config);
       const result = await service.fetchRedirects(siteName);
 
       expect(result).to.deep.equal(redirectsQueryResult.site?.siteInfo?.redirects);
@@ -102,7 +89,7 @@ describe('GraphQLRedirectsService', () => {
     it('should get no redirects', async () => {
       mockRedirectsRequest();
 
-      const service = new GraphQLRedirectsService({ endpoint, apiKey });
+      const service = new GraphQLRedirectsService(config);
       const result = await service.fetchRedirects(siteName);
 
       expect(result).to.deep.equal(redirectsQueryResultNull.site?.siteInfo?.redirects);

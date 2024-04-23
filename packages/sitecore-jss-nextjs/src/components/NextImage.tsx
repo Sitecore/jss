@@ -10,7 +10,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-react';
 import Image, { ImageProps as NextImageProperties } from 'next/image';
 
-type NextImageProps = Omit<ImageProps, 'media'> & Partial<NextImageProperties>;
+type NextImageProps = ImageProps & Partial<NextImageProperties>;
 
 export const NextImage = withFieldMetadata<NextImageProps>(
   ({ editable, imageParams, field, mediaUrlPrefix, fill, priority, ...otherProps }) => {
