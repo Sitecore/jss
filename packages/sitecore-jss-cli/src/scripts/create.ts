@@ -4,9 +4,10 @@ const getDeprecationMessage = (argv: { [key: string]: unknown } = {}) =>
   [
     chalk.red('**DEPRECATED**'),
     'jss create is not supported from JSS CLI version 20.0.0.',
-    // TODO: add (link to docs: https://doc.sitecore.net/<officialLink> ) when article will be created
-    'Please use npm init sitecore-jss instead. For example:',
-    chalk.green(`npm init sitecore-jss ${argv?.template || 'nextjs'}`),
+    'Please use npx create-sitecore-jss instead. For example:',
+    chalk.green(`npx create-sitecore-jss ${argv?.template || 'nextjs'}`),
+    // TODO: keep updating this link for new versions
+    'Read more: https://doc.sitecore.com/xp/en/developers/hd/22/sitecore-headless-development/the-jss-app-initializer.html',
     'Please downgrade to a previous JSS CLI version if you want to install older releases. For example:',
     chalk.green('npm install -g @sitecore-jss/sitecore-jss-cli@19.0.0'),
     chalk.green(

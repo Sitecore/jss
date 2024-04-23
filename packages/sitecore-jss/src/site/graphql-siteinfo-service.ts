@@ -1,4 +1,4 @@
-import { GraphQLClient, GraphQLRequestClient } from '../graphql';
+import { GraphQLClient } from '../graphql';
 import debug from '../debug';
 import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
 import { GraphQLRequestClientFactory } from '../graphql-request-client';
@@ -35,16 +35,6 @@ export type SiteInfo = {
 };
 
 export type GraphQLSiteInfoServiceConfig = CacheOptions & {
-  /**
-   * Your Graphql endpoint
-   * @deprecated use @param clientFactory property instead
-   */
-  endpoint?: string;
-  /**
-   * The API key to use for authentication
-   * @deprecated use @param clientFactory property instead
-   */
-  apiKey?: string;
   /** common variable for all GraphQL queries
    * it will be used for every type of query to regulate result batch size
    * Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
@@ -55,7 +45,7 @@ export type GraphQLSiteInfoServiceConfig = CacheOptions & {
    * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
    * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
    */
-  clientFactory?: GraphQLRequestClientFactory;
+  clientFactory: GraphQLRequestClientFactory;
 };
 
 type GraphQLSiteInfoResponse = {
@@ -141,18 +131,11 @@ export class GraphQLSiteInfoService {
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(): GraphQLClient {
-    if (!this.config.endpoint) {
-      if (!this.config.clientFactory) {
-        throw new Error('You should provide either an endpoint and apiKey, or a clientFactory.');
-      }
-
-      return this.config.clientFactory({
-        debugger: debug.multisite,
-      });
+    if (!this.config.clientFactory) {
+      throw new Error('clientFactory needs to be provided when initializing GraphQL client.');
     }
 
-    return new GraphQLRequestClient(this.config.endpoint, {
-      apiKey: this.config.apiKey,
+    return this.config.clientFactory({
       debugger: debug.multisite,
     });
   }

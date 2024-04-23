@@ -16,6 +16,10 @@ const errorQueryResultNull = {
 describe('GraphQLErrorPagesService', () => {
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';
+  const clientFactory = GraphQLRequestClient.createClientFactory({
+    endpoint,
+    apiKey,
+  });
   const siteName = 'site-name';
   const language = 'en';
   const mockErrorPages = {
@@ -55,8 +59,7 @@ describe('GraphQLErrorPagesService', () => {
       mockErrorPagesRequest();
 
       const service = new GraphQLErrorPagesService({
-        endpoint,
-        apiKey,
+        clientFactory,
         siteName: '',
         language,
       });
@@ -71,8 +74,7 @@ describe('GraphQLErrorPagesService', () => {
       mockErrorPagesRequest(mockErrorPages);
 
       const service = new GraphQLErrorPagesService({
-        endpoint,
-        apiKey,
+        clientFactory,
         siteName,
         language,
       });
@@ -108,8 +110,7 @@ describe('GraphQLErrorPagesService', () => {
       mockErrorPagesRequest();
 
       const service = new GraphQLErrorPagesService({
-        endpoint,
-        apiKey,
+        clientFactory,
         siteName,
         language,
       });

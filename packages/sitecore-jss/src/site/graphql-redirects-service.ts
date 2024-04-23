@@ -1,4 +1,4 @@
-import { GraphQLClient, GraphQLRequestClient } from '../graphql';
+import { GraphQLClient } from '../graphql';
 import { siteNameError } from '../constants';
 import debug from '../debug';
 import { MemoryCacheClient, CacheOptions, CacheClient } from '../cache-client';
@@ -35,16 +35,6 @@ const defaultQuery = /* GraphQL */ `
 
 export type GraphQLRedirectsServiceConfig = CacheOptions & {
   /**
-   * Your Graphql endpoint
-   * @deprecated use @param clientFactory property instead
-   */
-  endpoint?: string;
-  /**
-   * The API key to use for authentication
-   * @deprecated use @param clientFactory property instead
-   */
-  apiKey?: string;
-  /**
    * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
    */
   fetch?: typeof fetch;
@@ -52,7 +42,7 @@ export type GraphQLRedirectsServiceConfig = CacheOptions & {
    * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
    * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
    */
-  clientFactory?: GraphQLRequestClientFactory;
+  clientFactory: GraphQLRequestClientFactory;
 };
 
 /**
@@ -113,19 +103,11 @@ export class GraphQLRedirectsService {
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(): GraphQLClient {
-    if (!this.options.endpoint) {
-      if (!this.options.clientFactory) {
-        throw new Error('You should provide either an endpoint and apiKey, or a clientFactory.');
-      }
-
-      return this.options.clientFactory({
-        debugger: debug.redirects,
-        fetch: this.options.fetch,
-      });
+    if (!this.options.clientFactory) {
+      throw new Error('clientFactory needs to be provided when initializing GraphQL client.');
     }
 
-    return new GraphQLRequestClient(this.options.endpoint, {
-      apiKey: this.options.apiKey,
+    return this.options.clientFactory({
       debugger: debug.redirects,
       fetch: this.options.fetch,
     });

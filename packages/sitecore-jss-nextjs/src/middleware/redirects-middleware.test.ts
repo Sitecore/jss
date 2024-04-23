@@ -14,6 +14,7 @@ import {
   SiteResolver,
 } from '@sitecore-jss/sitecore-jss/site';
 import { RedirectsMiddleware } from './redirects-middleware';
+import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
@@ -124,11 +125,15 @@ describe('RedirectsMiddleware', () => {
 
     const siteResolver = props.siteResolver || new MockSiteResolver([]);
 
+    const clientFactory = GraphQLRequestClient.createClientFactory({
+      apiKey: 'edge-api-key',
+      endpoint: 'http://edge-endpoint/api/graph/edge',
+    });
+
     const middleware = new RedirectsMiddleware({
       siteResolver,
       ...props,
-      apiKey: 'edge-api-key',
-      endpoint: 'http://edge-endpoint/api/graph/edge',
+      clientFactory,
       locales: ['en', 'ua'],
     });
 
