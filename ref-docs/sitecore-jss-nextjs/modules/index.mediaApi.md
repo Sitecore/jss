@@ -36,7 +36,7 @@ found image tag; null in case if not found
 
 #### Defined in
 
-packages/sitecore-jss/types/media/media-api.d.ts:6
+sitecore-jss/types/media/media-api.d.ts:6
 
 ___
 
@@ -68,7 +68,7 @@ requiredParams
 
 #### Defined in
 
-packages/sitecore-jss/types/media/media-api.d.ts:17
+sitecore-jss/types/media/media-api.d.ts:17
 
 ___
 
@@ -110,7 +110,7 @@ More information about `srcSet`: {@link https://developer.mozilla.org/en-US/docs
 
 #### Defined in
 
-packages/sitecore-jss/types/media/media-api.d.ts:65
+sitecore-jss/types/media/media-api.d.ts:65
 
 ___
 
@@ -136,7 +136,7 @@ The URL with the media URL prefix replaced
 
 #### Defined in
 
-packages/sitecore-jss/types/media/media-api.d.ts:33
+sitecore-jss/types/media/media-api.d.ts:33
 
 ___
 
@@ -166,4 +166,4 @@ The prepared URL
 
 #### Defined in
 
-packages/sitecore-jss/types/media/media-api.d.ts:45
+sitecore-jss/types/media/media-api.d.ts:45

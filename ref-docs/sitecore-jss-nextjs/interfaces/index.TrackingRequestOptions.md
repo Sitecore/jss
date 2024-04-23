@@ -25,7 +25,7 @@ Type of tracking request action. Default: 'event'
 
 #### Defined in
 
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:16
+sitecore-jss/types/tracking/trackingRequestOptions.d.ts:16
 
 ___
 
@@ -37,7 +37,7 @@ The fetcher that performs the HTTP request and returns a promise to JSON
 
 #### Defined in
 
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:10
+sitecore-jss/types/tracking/trackingRequestOptions.d.ts:10
 
 ___
 
@@ -49,7 +49,7 @@ Hostname of tracking service; e.g. http://my.site.core
 
 #### Defined in
 
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:6
+sitecore-jss/types/tracking/trackingRequestOptions.d.ts:6
 
 ___
 
@@ -61,7 +61,7 @@ An object of key:value pairs to be stringified and used as querystring parameter
 
 #### Defined in
 
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:14
+sitecore-jss/types/tracking/trackingRequestOptions.d.ts:14
 
 ___
 
@@ -73,7 +73,7 @@ Relative path from host to tracking service. Default: /sitecore/api/jss/track
 
 #### Defined in
 
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:8
+sitecore-jss/types/tracking/trackingRequestOptions.d.ts:8
 
 ___
 
@@ -85,4 +85,4 @@ Internal usage only. Ignores SSR check for unit tests.
 
 #### Defined in
 
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:18
+sitecore-jss/types/tracking/trackingRequestOptions.d.ts:18

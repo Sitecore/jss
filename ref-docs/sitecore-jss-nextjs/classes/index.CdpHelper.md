@@ -48,7 +48,7 @@ the content id
 
 #### Defined in
 
-packages/sitecore-jss/types/personalize/utils.d.ts:45
+sitecore-jss/types/personalize/utils.d.ts:45
 
 ___
 
@@ -75,7 +75,7 @@ the formatted page variant id
 
 #### Defined in
 
-packages/sitecore-jss/types/personalize/utils.d.ts:37
+sitecore-jss/types/personalize/utils.d.ts:37
 
 ___
 
@@ -100,4 +100,4 @@ normalized scope value
 
 #### Defined in
 
-packages/sitecore-jss/types/personalize/utils.d.ts:52
+sitecore-jss/types/personalize/utils.d.ts:52

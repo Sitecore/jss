@@ -4,23 +4,14 @@
 
 ## Table of contents
 
-### References
-
-- [resolveUrl](utils.md#resolveurl)
-
 ### Functions
 
 - [getPublicUrl](utils.md#getpublicurl)
 - [handleEditorFastRefresh](utils.md#handleeditorfastrefresh)
 - [isEditorActive](utils.md#iseditoractive)
 - [resetEditorChromes](utils.md#reseteditorchromes)
+- [resolveUrl](utils.md#resolveurl)
 - [tryParseEnvValue](utils.md#tryparseenvvalue)
-
-## References
-
-### resolveUrl
-
-Re-exports [resolveUrl](undefined)
 
 ## Functions
 
@@ -42,7 +33,7 @@ In production non-editing environments it is desirable to use relative urls, so 
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/d442684a4/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
+[sitecore-jss-nextjs/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/139f50a01/packages/sitecore-jss-nextjs/src/utils/utils.ts#L12)
 
 ___
 
@@ -72,7 +63,7 @@ forceReload false
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/utils/utils.ts:33](https://github.com/Sitecore/jss/blob/d442684a4/packages/sitecore-jss-nextjs/src/utils/utils.ts#L33)
+[sitecore-jss-nextjs/src/utils/utils.ts:33](https://github.com/Sitecore/jss/blob/139f50a01/packages/sitecore-jss-nextjs/src/utils/utils.ts#L33)
 
 ___
 
@@ -91,7 +82,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-packages/sitecore-jss/types/utils/editing.d.ts:44
+sitecore-jss/types/utils/editing.d.ts:44
 
 ___
 
@@ -107,7 +98,37 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-packages/sitecore-jss/types/utils/editing.d.ts:48
+sitecore-jss/types/utils/editing.d.ts:48
+
+___
+
+### resolveUrl
+
+▸ **resolveUrl**(`urlBase`, `params?`): `string`
+
+Resolves a base URL that may contain query string parameters and an additional set of query
+string parameters into a unified string representation.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `urlBase` | `string` | the base URL that may contain query string parameters |
+| `params?` | `ParsedUrlQueryInput` | query string parameters |
+
+#### Returns
+
+`string`
+
+a URL string
+
+**`Throws`**
+
+if the provided url is an empty string
+
+#### Defined in
+
+sitecore-jss/types/utils/utils.d.ts:11
 
 ___
 
@@ -138,4 +159,4 @@ parsed value
 
 #### Defined in
 
-packages/sitecore-jss/types/utils/env.d.ts:7
+sitecore-jss/types/utils/env.d.ts:7

@@ -44,7 +44,7 @@ Creates an instance of graphQL service to retrieve site configuration list from 
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:62
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:52
 
 ## Properties
 
@@ -54,7 +54,7 @@ packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:62
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:53
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:43
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:51
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:41
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:78
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:68
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:52
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:42
 
 ## Accessors
 
@@ -100,7 +100,7 @@ site query is available on XM Cloud and XP 10.4+
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:57
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:47
 
 ## Methods
 
@@ -114,7 +114,7 @@ packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:57
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:63
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:53
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:64
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:54
 
 ___
 
@@ -147,7 +147,7 @@ CacheClient instance
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:70
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:60
 
 ___
 
@@ -167,4 +167,4 @@ implementation
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-siteinfo-service.d.ts:77
+sitecore-jss/types/site/graphql-siteinfo-service.d.ts:67
