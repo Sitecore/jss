@@ -109,7 +109,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       PropTypes.func as Requireable<React.FC<unknown>>,
     ]),
     modifyComponentProps: PropTypes.func,
-    sitecoreContext: PropTypes.object.isRequired,
+    sitecoreContext: PropTypes.object as Requireable<SitecoreContextValue>,
   };
 
   nodeRefs: Element[];
@@ -203,7 +203,15 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
         // if editMode is equal to 'metadata' then emit shallow chromes for hydration in Pages
         if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
-          return <PlaceholderMetadata key={key} rendering={rendering as ComponentRendering} />;
+          return (
+            <PlaceholderMetadata
+              key={key}
+              rendering={rendering as ComponentRendering}
+              placeholderProps={this.props}
+              getComponentForRendering={this.getComponentForRendering}
+              getSXAParams={this.getSXAParams}
+            />
+          );
         }
 
         // if the element is not a 'component rendering', render it 'raw'
