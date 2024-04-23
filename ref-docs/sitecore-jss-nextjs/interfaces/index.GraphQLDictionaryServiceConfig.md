@@ -24,12 +24,10 @@ GraphQLDictionaryService instances
 
 ### Properties
 
-- [apiKey](index.GraphQLDictionaryServiceConfig.md#apikey)
 - [cacheEnabled](index.GraphQLDictionaryServiceConfig.md#cacheenabled)
 - [cacheTimeout](index.GraphQLDictionaryServiceConfig.md#cachetimeout)
 - [clientFactory](index.GraphQLDictionaryServiceConfig.md#clientfactory)
 - [dictionaryEntryTemplateId](index.GraphQLDictionaryServiceConfig.md#dictionaryentrytemplateid)
-- [endpoint](index.GraphQLDictionaryServiceConfig.md#endpoint)
 - [jssAppTemplateId](index.GraphQLDictionaryServiceConfig.md#jssapptemplateid)
 - [pageSize](index.GraphQLDictionaryServiceConfig.md#pagesize)
 - [retries](index.GraphQLDictionaryServiceConfig.md#retries)
@@ -39,26 +37,6 @@ GraphQLDictionaryService instances
 - [templates](index.GraphQLDictionaryServiceConfig.md#templates)
 
 ## Properties
-
-### apiKey
-
-• `Optional` **apiKey**: `string`
-
-The API key to use for authentication.
-
-**`Deprecated`**
-
-use
-
-**`Param`**
-
-property instead
-
-#### Defined in
-
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:20
-
-___
 
 ### cacheEnabled
 
@@ -78,7 +56,7 @@ CacheOptions.cacheEnabled
 
 #### Defined in
 
-packages/sitecore-jss/types/cache-client.d.ts:28
+sitecore-jss/types/cache-client.d.ts:28
 
 ___
 
@@ -100,20 +78,20 @@ CacheOptions.cacheTimeout
 
 #### Defined in
 
-packages/sitecore-jss/types/cache-client.d.ts:33
+sitecore-jss/types/cache-client.d.ts:33
 
 ___
 
 ### clientFactory
 
-• `Optional` **clientFactory**: [`GraphQLRequestClientFactory`](../modules/graphql.md#graphqlrequestclientfactory)
+• **clientFactory**: [`GraphQLRequestClientFactory`](../modules/graphql.md#graphqlrequestclientfactory)
 
 A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
 This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:25
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:15
 
 ___
 
@@ -131,27 +109,7 @@ Optional. The template ID to use when searching for dictionary entries.
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:30
-
-___
-
-### endpoint
-
-• `Optional` **endpoint**: `string`
-
-The URL of the graphQL endpoint.
-
-**`Deprecated`**
-
-use
-
-**`Param`**
-
-property instead
-
-#### Defined in
-
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:15
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:20
 
 ___
 
@@ -169,7 +127,7 @@ Optional. The template ID of a JSS App to use when searching for the appRootId.
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:35
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:25
 
 ___
 
@@ -193,7 +151,7 @@ SearchServiceConfig.pageSize
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql/search-service.d.ts:51
+sitecore-jss/types/graphql/search-service.d.ts:51
 
 ___
 
@@ -209,7 +167,7 @@ Pick.retries
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:67
+sitecore-jss/types/graphql-request-client.d.ts:67
 
 ___
 
@@ -226,7 +184,7 @@ Pick.retryStrategy
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:72
+sitecore-jss/types/graphql-request-client.d.ts:72
 
 ___
 
@@ -242,7 +200,7 @@ SearchServiceConfig.rootItemId
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql/search-service.d.ts:41
+sitecore-jss/types/graphql/search-service.d.ts:41
 
 ___
 
@@ -259,7 +217,7 @@ SearchServiceConfig.siteName
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql/search-service.d.ts:65
+sitecore-jss/types/graphql/search-service.d.ts:65
 
 ___
 
@@ -275,4 +233,4 @@ SearchServiceConfig.templates
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql/search-service.d.ts:45
+sitecore-jss/types/graphql/search-service.d.ts:45

@@ -28,7 +28,7 @@ key from the request query parameters. By default this is 'key' (from '/api/edit
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:13](https://github.com/Sitecore/jss/blob/5b411c1f2/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L13)
+[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:13](https://github.com/Sitecore/jss/blob/139f50a01/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L13)
 
 ___
 
@@ -53,4 +53,4 @@ editingDataDiskCache
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:22](https://github.com/Sitecore/jss/blob/5b411c1f2/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L22)
+[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:22](https://github.com/Sitecore/jss/blob/139f50a01/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L22)

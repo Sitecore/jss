@@ -25,7 +25,7 @@
 
 #### Defined in
 
-packages/sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:8
+sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:8
 
 ___
 
@@ -35,4 +35,4 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:9
+sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:9

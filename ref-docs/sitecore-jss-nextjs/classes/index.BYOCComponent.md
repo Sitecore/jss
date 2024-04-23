@@ -68,7 +68,7 @@ React.Component\&lt;BYOCComponentProps\&gt;.constructor
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/BYOCComponent.d.ts:75
+sitecore-jss-react/types/components/BYOCComponent.d.ts:75
 
 ## Properties
 
@@ -98,7 +98,7 @@ React.Component.context
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:518
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:518
 
 ___
 
@@ -112,7 +112,7 @@ React.Component.props
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:538
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:538
 
 ___
 
@@ -134,7 +134,7 @@ React.Component.refs
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:544
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:544
 
 ___
 
@@ -148,7 +148,7 @@ React.Component.state
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/BYOCComponent.d.ts:72
+sitecore-jss-react/types/components/BYOCComponent.d.ts:72
 
 ___
 
@@ -183,7 +183,7 @@ React.Component.contextType
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:501
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:501
 
 ## Methods
 
@@ -218,7 +218,7 @@ React.Component.UNSAFE\_componentWillMount
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:735
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:735
 
 ___
 
@@ -263,7 +263,7 @@ React.Component.UNSAFE\_componentWillReceiveProps
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:767
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:767
 
 ___
 
@@ -307,7 +307,7 @@ React.Component.UNSAFE\_componentWillUpdate
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:795
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:795
 
 ___
 
@@ -331,7 +331,7 @@ React.Component.componentDidCatch
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/BYOCComponent.d.ts:79
+sitecore-jss-react/types/components/BYOCComponent.d.ts:79
 
 ___
 
@@ -351,7 +351,7 @@ React.Component.componentDidMount
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:643
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:643
 
 ___
 
@@ -381,7 +381,7 @@ React.Component.componentDidUpdate
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:706
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:706
 
 ___
 
@@ -414,7 +414,7 @@ React.Component.componentWillMount
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:721
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:721
 
 ___
 
@@ -457,7 +457,7 @@ React.Component.componentWillReceiveProps
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:750
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:750
 
 ___
 
@@ -478,7 +478,7 @@ React.Component.componentWillUnmount
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:659
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:659
 
 ___
 
@@ -520,7 +520,7 @@ React.Component.componentWillUpdate
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:780
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:780
 
 ___
 
@@ -544,7 +544,7 @@ React.Component.forceUpdate
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:535
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:535
 
 ___
 
@@ -576,7 +576,7 @@ React.Component.getSnapshotBeforeUpdate
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:700
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:700
 
 ___
 
@@ -594,7 +594,7 @@ React.Component.render
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/BYOCComponent.d.ts:80
+sitecore-jss-react/types/components/BYOCComponent.d.ts:80
 
 ___
 
@@ -625,7 +625,7 @@ React.Component.setState
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:530
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:530
 
 ___
 
@@ -660,7 +660,7 @@ React.Component.shouldComponentUpdate
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:654
+sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:654
 
 ___
 
@@ -684,4 +684,4 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/BYOCComponent.d.ts:76
+sitecore-jss-react/types/components/BYOCComponent.d.ts:76

@@ -27,14 +27,14 @@
 
 ### GraphQLClientError
 
-Ƭ **GraphQLClientError**: `Partial`\<[`ClientError`](../classes/index.ClientError.md)\> & \{ `code?`: `string`  }
+Ƭ **GraphQLClientError**: `Partial`\<`ClientError`\> & \{ `code?`: `string`  }
 
 This type represents errors that can occur in a GraphQL client.
 In cases where an error status was sent back from the server (`!response.ok`), the `response` will be populated with details. In cases where a response was never received, the `code` can be populated with the error code (e.g. Node's 'ECONNRESET', 'ETIMEDOUT', etc).
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:21
+sitecore-jss/types/graphql-request-client.d.ts:21
 
 ___
 
@@ -63,7 +63,7 @@ An instance of a GraphQL Request Client ready to send GraphQL requests.
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:80
+sitecore-jss/types/graphql-request-client.d.ts:80
 
 ___
 
@@ -82,7 +82,7 @@ Configuration type for
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:84
+sitecore-jss/types/graphql-request-client.d.ts:84
 
 ## Functions
 
@@ -107,4 +107,4 @@ The complete URL for accessing content through the Edge Platform.
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql/graphql-edge-proxy.d.ts:7
+sitecore-jss/types/graphql/graphql-edge-proxy.d.ts:7

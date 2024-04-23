@@ -53,7 +53,7 @@ DictionaryServiceBase.constructor
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/rest-dictionary-service.d.ts:40
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:40
 
 ## Properties
 
@@ -67,7 +67,7 @@ DictionaryServiceBase.options
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/rest-dictionary-service.d.ts:35
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:35
 
 ## Accessors
 
@@ -87,7 +87,7 @@ AxiosDataFetcher data fetcher
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/rest-dictionary-service.d.ts:39
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:39
 
 ## Methods
 
@@ -115,7 +115,7 @@ DictionaryServiceBase.fetchDictionaryData
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/rest-dictionary-service.d.ts:46
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:46
 
 ___
 
@@ -139,7 +139,7 @@ DictionaryServiceBase.getCacheClient
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/dictionary-service.d.ts:49
+sitecore-jss/types/i18n/dictionary-service.d.ts:49
 
 ___
 
@@ -172,7 +172,7 @@ DictionaryServiceBase.getCacheValue
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/dictionary-service.d.ts:42
+sitecore-jss/types/i18n/dictionary-service.d.ts:42
 
 ___
 
@@ -196,7 +196,7 @@ dictionary service url
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/rest-dictionary-service.d.ts:52
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:52
 
 ___
 
@@ -233,4 +233,4 @@ DictionaryServiceBase.setCacheValue
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/dictionary-service.d.ts:36
+sitecore-jss/types/i18n/dictionary-service.d.ts:36
