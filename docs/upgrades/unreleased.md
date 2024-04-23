@@ -69,6 +69,42 @@ Most of this re-iterates the instructions already provided in 21.6 and 21.7 upgr
 
 * Update RedirectsMiddleware at `/src/lib/middleware/plugins/redirects.ts` to use clientFactory if it wasn't as part of ([JSS 21.6 upgrade guide](https://doc.sitecore.com/xmc/en/developers/jss/217/jss-xmc/upgrade-jss-21-5-next-js-apps-to-version-21-6.html)).
 
+* If you have not customized the `\src\pages\api\sitemap.ts` file, replace it with the 22.0 version. Otherwise, do the following:
+
+    Add the following import statement:
+    ```
+        import clientFactory from 'lib/graphql-client-factory';
+    ```
+
+    Replace the endpoint and apiKey options for the GraphQLSitemapXmlService instantiation with the client factory:
+
+    ```
+        const sitemapXmlService = new GraphQLSitemapXmlService({
+            clientFactory,
+            siteName: site.name,
+        });
+    ```
+
+* If you have not customized the `\src\pages\api\robots.ts` file, replace it with the 22.0 version. Otherwise, do the following:
+
+    Add the following import statement:
+    ```
+        import clientFactory from 'lib/graphql-client-factory';
+    ```
+
+    Remove the `config` import:
+    ```
+        import config from 'temp/config';
+    ```
+
+    Replace the endpoint and apiKey options for the GraphQLRobotsService instantiation with the client factory:
+
+    ```
+        const sitemapXmlService = new GraphQLRobotsService({
+            clientFactory,
+            siteName: site.name,
+        });
+    ```
 
 ### nextjs-multisite
 
