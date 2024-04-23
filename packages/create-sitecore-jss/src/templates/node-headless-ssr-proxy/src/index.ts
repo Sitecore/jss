@@ -24,7 +24,7 @@ server.use(
 
 /**
  * Output caching, can be enabled,
- * Read about restrictions here: {@link https://doc.sitecore.com/xp/en/developers/hd/21/sitecore-headless-development/caching-in-headless-server-side-rendering-mode.html}
+ * Read about restrictions here: {@link https://doc.sitecore.com/xp/en/developers/hd/22/sitecore-headless-development/caching-in-headless-server-side-rendering-mode.html}
  */
 //server.use(cacheMiddleware());
 
