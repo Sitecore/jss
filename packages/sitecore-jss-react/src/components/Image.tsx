@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { addClassName, convertAttributesToReactProps } from '../utils';
 import { getAttributesString } from '../utils';
+import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -36,7 +37,7 @@ export interface ImageSizeParameters {
 export interface ImageProps {
   [attributeName: string]: unknown;
   /** Image field data (consistent with other field types) */
-  field?: ImageField | ImageFieldValue;
+  field?: (ImageField | ImageFieldValue) & { metadata?: { [key: string]: unknown } };
 
   /**
    * Can be used to explicitly disable inline editing.
@@ -142,54 +143,46 @@ export const getEEMarkup = (
   return getEditableWrapper(editableMarkup);
 };
 
-export const Image: React.FC<ImageProps> = ({
-  editable,
-  imageParams,
-  field,
-  mediaUrlPrefix,
-  ...otherProps
-}) => {
-  const dynamicMedia = field as ImageField | ImageFieldValue;
+export const Image: React.FC<ImageProps> = withFieldMetadata<ImageProps>(
+  ({ editable, imageParams, field, mediaUrlPrefix, ...otherProps }) => {
+    const dynamicMedia = field as ImageField | ImageFieldValue;
 
-  if (
-    !field ||
-    (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)
-  ) {
-    return null;
+    if (
+      !field ||
+      (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)
+    ) {
+      return null;
+    }
+
+    const imageField = dynamicMedia as ImageField;
+
+    if (editable && imageField.editable) {
+      return getEEMarkup(imageField, imageParams, mediaUrlPrefix, otherProps);
+    }
+
+    // some wise-guy/gal is passing in a 'raw' image object value
+    const img = (dynamicMedia as ImageFieldValue).src
+      ? field
+      : (dynamicMedia.value as ImageFieldValue);
+    if (!img) {
+      return null;
+    }
+
+    // prevent metadata from being passed to the img tag
+    if (img.metadata) {
+      delete img.metadata;
+    }
+
+    const attrs = getImageAttrs({ ...img, ...otherProps }, imageParams, mediaUrlPrefix);
+    if (attrs) {
+      return <img {...attrs} />;
+    }
+
+    return null; // we can't handle the truth
   }
-
-  const imageField = dynamicMedia as ImageField;
-
-  if (editable && imageField.editable) {
-    return getEEMarkup(imageField, imageParams, mediaUrlPrefix, otherProps);
-  }
-
-  // some wise-guy/gal is passing in a 'raw' image object value
-  const img = (dynamicMedia as ImageFieldValue).src
-    ? field
-    : (dynamicMedia.value as ImageFieldValue);
-  if (!img) {
-    return null;
-  }
-
-  const attrs = getImageAttrs({ ...img, ...otherProps }, imageParams, mediaUrlPrefix);
-  if (attrs) {
-    return <img {...attrs} />;
-  }
-
-  return null; // we can't handle the truth
-};
+);
 
 Image.propTypes = {
-  media: PropTypes.oneOfType([
-    PropTypes.shape({
-      src: PropTypes.string,
-    }),
-    PropTypes.shape({
-      value: PropTypes.object,
-      editable: PropTypes.string,
-    }),
-  ]),
   field: PropTypes.oneOfType([
     PropTypes.shape({
       src: PropTypes.string,

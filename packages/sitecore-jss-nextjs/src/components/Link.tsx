@@ -39,7 +39,9 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       ? field
       : (field as LinkField).value) as LinkFieldValue;
     const { href, querystring, anchor } = value;
-    const isEditing = editable && (field as LinkFieldValue).editable;
+
+    const isEditing =
+      editable && ((field as LinkFieldValue).editable || (field as LinkFieldValue).metadata);
 
     if (href && !isEditing) {
       const text = showLinkTextWithChildrenPresent || !children ? value.text || value.href : null;

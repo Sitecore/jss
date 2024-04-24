@@ -11,6 +11,9 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🎉 New Features & Improvements
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Introduce FieldMetadata component and functionality to render it when metadata field property is provided in the field's layout data. In such case the field component is wrapped with metadata markup to enable chromes hydration when editing in pages. Ability to render metadata has been added to the field rendering components for react and nextjs. ([#1773](https://github.com/Sitecore/jss/pull/1773)) 
+
 ### 🛠 Breaking Changes
 
 * `[sitecore-jss]` Switch to edge site query for XP and gets config sites + sxa sites (ignoring website)

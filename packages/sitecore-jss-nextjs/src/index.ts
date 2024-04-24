@@ -167,4 +167,5 @@ export {
   ComponentConsumerProps,
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
+  withFieldMetadata,
 } from '@sitecore-jss/sitecore-jss-react';
