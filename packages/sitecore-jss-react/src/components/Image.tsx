@@ -183,16 +183,6 @@ export const Image: React.FC<ImageProps> = withFieldMetadata<ImageProps>(
 );
 
 Image.propTypes = {
-  media: PropTypes.oneOfType([
-    PropTypes.shape({
-      src: PropTypes.string,
-    }),
-    PropTypes.shape({
-      value: PropTypes.object,
-      editable: PropTypes.string,
-      metadata: PropTypes.objectOf(PropTypes.any),
-    }),
-  ]),
   field: PropTypes.oneOfType([
     PropTypes.shape({
       src: PropTypes.string,
