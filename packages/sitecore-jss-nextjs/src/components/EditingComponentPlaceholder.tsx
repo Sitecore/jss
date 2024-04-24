@@ -10,10 +10,8 @@ export const EditingComponentPlaceholder = ({
   rendering,
 }: {
   rendering: RouteData;
-}): JSX.Element => {
-  return (
-    <div id={EDITING_COMPONENT_ID}>
-      <Placeholder name={EDITING_COMPONENT_PLACEHOLDER} rendering={rendering} />
-    </div>
-  );
-};
+}): JSX.Element => (
+  <div id={EDITING_COMPONENT_ID}>
+    <Placeholder name={EDITING_COMPONENT_PLACEHOLDER} rendering={rendering} />
+  </div>
+);
