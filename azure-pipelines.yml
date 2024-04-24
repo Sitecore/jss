@@ -33,7 +33,7 @@ variables:
     branchName: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
     branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
-    lernaSinceFlag: "--since=origin/release/dev"
+    lernaSinceFlag: "--since=origin/dev"
 # disable `PublishCodeCoverageResults` report generation, as `reportgenerator` provides custom report
   disable.coverage.autogenerate: 'true'
 # Some steps here scaffold jss apps and check if they build and lint correctly
@@ -133,7 +133,7 @@ steps:
   #
 - script: |
     echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-    npm exec -- lerna publish from-git --canary --pre-dist-tag ver22-canary --preid canary --no-verify-access --yes
+    npm exec -- lerna publish from-git --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
     yarn install --no-immutable --mode=update-lockfile
     git add yarn.lock
     git commit -m "update yarn.lock [skip ci]"
