@@ -11,7 +11,6 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
-
 ## 22.0.0
 
 ### 🛠 Breaking Changes

@@ -33,7 +33,7 @@ variables:
     branchName: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
     branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
-    lernaSinceFlag: "--since=origin/release/22.0.0"
+    lernaSinceFlag: "--since=origin/release/dev"
 # disable `PublishCodeCoverageResults` report generation, as `reportgenerator` provides custom report
   disable.coverage.autogenerate: 'true'
 # Some steps here scaffold jss apps and check if they build and lint correctly
