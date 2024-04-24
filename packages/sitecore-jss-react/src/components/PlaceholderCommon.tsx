@@ -300,8 +300,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       );
     }
 
-    // console.log('real', componentFactory(renderingDefinition.componentName));
-
     return componentFactory(renderingDefinition.componentName);
   }
 
