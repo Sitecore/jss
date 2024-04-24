@@ -1,6 +1,5 @@
 import {
   GraphQLClient,
-  GraphQLRequestClient,
   GraphQLRequestClientFactory,
   PageInfo,
 } from '@sitecore-jss/sitecore-jss/graphql';
@@ -132,18 +131,6 @@ export type RouteListQueryResult = {
 export interface BaseGraphQLSitemapServiceConfig
   extends Omit<SiteRouteQueryVariables, 'language' | 'siteName'> {
   /**
-   * Your Graphql endpoint
-   * @deprecated use @param clientFactory property instead
-   */
-  endpoint?: string;
-
-  /**
-   * The API key to use for authentication.
-   * @deprecated use @param clientFactory property instead
-   */
-  apiKey?: string;
-
-  /**
    * A flag for whether to include personalized routes in service output - only works on XM Cloud
    * turned off by default
    */
@@ -152,7 +139,7 @@ export interface BaseGraphQLSitemapServiceConfig
    * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
    * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
    */
-  clientFactory?: GraphQLRequestClientFactory;
+  clientFactory: GraphQLRequestClientFactory;
 }
 
 /**
@@ -326,18 +313,11 @@ export abstract class BaseGraphQLSitemapService {
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(): GraphQLClient {
-    if (!this.options.endpoint) {
-      if (!this.options.clientFactory) {
-        throw new Error('You should provide either an endpoint and apiKey, or a clientFactory.');
-      }
-
-      return this.options.clientFactory({
-        debugger: debug.sitemap,
-      });
+    if (!this.options.clientFactory) {
+      throw new Error('clientFactory needs to be provided when initializing GraphQL client.');
     }
 
-    return new GraphQLRequestClient(this.options.endpoint, {
-      apiKey: this.options.apiKey,
+    return this.options.clientFactory({
       debugger: debug.sitemap,
     });
   }

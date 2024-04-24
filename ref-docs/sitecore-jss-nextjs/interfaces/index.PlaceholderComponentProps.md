@@ -42,7 +42,7 @@ PlaceholderProps.componentFactory
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:24
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:24
 
 ___
 
@@ -59,7 +59,7 @@ PlaceholderProps.errorComponent
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:59
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:59
 
 ___
 
@@ -80,7 +80,7 @@ PlaceholderProps.fields
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:29
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:29
 
 ___
 
@@ -96,7 +96,7 @@ PlaceholderProps.hiddenRenderingComponent
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:54
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:54
 
 ___
 
@@ -113,7 +113,7 @@ PlaceholderProps.missingComponentComponent
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:50
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:50
 
 ___
 
@@ -146,7 +146,7 @@ PlaceholderProps.modifyComponentProps
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:45
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:45
 
 ___
 
@@ -162,7 +162,7 @@ PlaceholderProps.name
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:17
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:17
 
 ___
 
@@ -183,7 +183,7 @@ PlaceholderProps.params
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:36
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:36
 
 ___
 
@@ -212,7 +212,7 @@ Useful for techniques like wrapping each child in a wrapper component.
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Placeholder.d.ts:15
+sitecore-jss-react/types/components/Placeholder.d.ts:15
 
 ___
 
@@ -240,7 +240,7 @@ Mutually exclusive with `render`. System components added during Experience Edit
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Placeholder.d.ts:20
+sitecore-jss-react/types/components/Placeholder.d.ts:20
 
 ___
 
@@ -267,7 +267,7 @@ Can be used to wrap the Sitecore EE empty placeholder markup in something that's
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Placeholder.d.ts:10
+sitecore-jss-react/types/components/Placeholder.d.ts:10
 
 ___
 
@@ -283,4 +283,4 @@ PlaceholderProps.rendering
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:19
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:19

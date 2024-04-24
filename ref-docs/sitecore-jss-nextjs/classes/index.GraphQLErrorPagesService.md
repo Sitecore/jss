@@ -42,7 +42,7 @@ Creates an instance of graphQL error pages service with the provided options
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:53
+sitecore-jss/types/site/graphql-error-pages-service.d.ts:43
 
 ## Properties
 
@@ -52,7 +52,7 @@ packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:53
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:47
+sitecore-jss/types/site/graphql-error-pages-service.d.ts:37
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:46
+sitecore-jss/types/site/graphql-error-pages-service.d.ts:36
 
 ## Accessors
 
@@ -76,7 +76,7 @@ packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:46
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:48
+sitecore-jss/types/site/graphql-error-pages-service.d.ts:38
 
 ## Methods
 
@@ -98,7 +98,7 @@ if the siteName is empty.
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:59
+sitecore-jss/types/site/graphql-error-pages-service.d.ts:49
 
 ___
 
@@ -118,4 +118,4 @@ implementation
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-error-pages-service.d.ts:66
+sitecore-jss/types/site/graphql-error-pages-service.d.ts:56

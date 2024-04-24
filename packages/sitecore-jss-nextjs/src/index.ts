@@ -6,53 +6,12 @@ export {
   AxiosResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
-  /** @deprecated use import 'GraphQLClientError' from '@sitecore-jss/sitecore-jss-nextjs/graphql' instead */
-  ClientError,
   NativeDataFetcher,
   NativeDataFetcherConfig,
   HTMLLink,
   enableDebug,
   debug,
 } from '@sitecore-jss/sitecore-jss';
-
-// we will remove the root exports for these later
-// we cannot mark exports as deprected directly, so we're using this hack instead
-import { GraphQLRequestClient as GraphQLRequestClientDep } from './graphql';
-import {
-  isEditorActive as isEditorActiveDep,
-  resetEditorChromes as resetEditorChromesDep,
-  resolveUrl as resolveUrlDep,
-  tryParseEnvValue as tryParseEnvValueDep,
-} from '@sitecore-jss/sitecore-jss/utils';
-import {
-  handleEditorFastRefresh as handleEditorFastRefreshDep,
-  getPublicUrl as getPublicUrlDep,
-} from './utils';
-
-/** @deprecated use import from '@sitecore-jss/sitecore-jss-nextjs/utils' instead */
-const {
-  isEditorActiveDep: isEditorActive,
-  resetEditorChromesDep: resetEditorChromes,
-  resolveUrlDep: resolveUrl,
-  tryParseEnvValueDep: tryParseEnvValue,
-  handleEditorFastRefreshDep: handleEditorFastRefresh,
-  getPublicUrlDep: getPublicUrl,
-} = {
-  isEditorActiveDep,
-  resetEditorChromesDep,
-  resolveUrlDep,
-  tryParseEnvValueDep,
-  handleEditorFastRefreshDep,
-  getPublicUrlDep,
-};
-/** @deprecated use import from '@sitecore-jss/sitecore-jss-nextjs/graphql' instead */
-const { GraphQLRequestClientDep: GraphQLRequestClient } = {
-  GraphQLRequestClientDep,
-};
-
-export { GraphQLRequestClient };
-export { handleEditorFastRefresh, getPublicUrl };
-export { isEditorActive, resetEditorChromes, resolveUrl, tryParseEnvValue };
 
 export {
   LayoutService,
@@ -190,7 +149,6 @@ export {
   BYOCComponentParams,
   BYOCComponent,
   BYOCComponentProps,
-  getFEAASLibraryStylesheetLinks,
   getComponentLibraryStylesheetLinks,
   File,
   FileField,

@@ -18,4 +18,4 @@
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/File.d.ts:10
+sitecore-jss-react/types/components/File.d.ts:10

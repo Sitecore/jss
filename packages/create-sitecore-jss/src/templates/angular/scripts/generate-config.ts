@@ -10,13 +10,12 @@ const packageConfig = require('../package.json');
  * settings as variables into the JSS app.
  * NOTE! Any configs returned here will be written into the client-side JS bundle. DO NOT PUT SECRETS HERE.
  */
-// JSS_APP_NAME env variable has been deprecated since v.21.6, SITECORE_SITE_NAME should be used instead
 export function generateConfig(configOverrides?: { [key: string]: unknown }, outputPath?: string) {
   const defaultConfig = {
     production: false,
     sitecoreApiHost: '',
     sitecoreApiKey: 'no-api-key-set',
-    sitecoreSiteName: process.env.SITECORE_SITE_NAME || process.env.JSS_APP_NAME,
+    sitecoreSiteName: process.env.SITECORE_SITE_NAME,
     sitecoreLayoutServiceConfig: 'jss',
     defaultLanguage: 'en',
     defaultServerRoute: '/',

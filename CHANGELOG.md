@@ -15,6 +15,30 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` `[sitecore-jss]` Editing Integration Support:
   * Introduces `PlaceholderMetadata` component which supports the hydration of chromes on Pages by rendering  the components and placeholders with required metadata. ([#1776](https://github.com/Sitecore/jss/pull/1776))
 
+### 🛠 Breaking Changes
+
+* `[sitecore-jss]` Switch to edge site query for XP and gets config sites + sxa sites (ignoring website)
+  * Previously introduced Boolean `useSiteQuery` switch for XMCloud users has been removed.
+  * Search query usage has been removed.
+  * If you have any non-nextjs sites they should filter them out in multisite config plugin
+
+* `[sitecore-jss-nextjs]` `[templates/nextjs-xmcloud]` CloudSDK dependencies are updated to version ^0.3.0 ([#1779](https://github.com/Sitecore/jss/pull/1779))
+  * Please ensure `@sitecore-cloudsdk/events` dependency is updated
+
+* `[sitecore-jss-nextjs]` Deprecated exports have been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)):
+  * `sitecore-jss-nextjs` no longer exports `isEditorActive`, `resetEditorChormes`, `resolveUrl`, `handleEditorFastRefresh`, `getPublicUrl` functions. Use `sitecore-jss-nextjs/utils` instead.
+  * `getFEAASLibraryStylesheetLinks` function has been removed in favor of `getComponentLibraryStylesheetLinks`
+
+* `[sitecore-jss-react]` Deprecated `media` prop is removed from Image component. Use `field` prop instead ([#1780](https://github.com/Sitecore/jss/pull/1780)).
+
+* `[templates/nextjs]` GraphQL-based services can now only be initialized with clientFactory parameter. Previously deprecated option of providing endpoint and apiKey has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
+
+* `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Deprecated JSS_APP_NAME environment variable has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
+
+### 🧹 Chores
+
+* Security vulnerabilities audit ([1778](https://github.com/Sitecore/jss/pull/1778))
+
 ## 21.7.1
 
 ### 🐛 Bug Fixes

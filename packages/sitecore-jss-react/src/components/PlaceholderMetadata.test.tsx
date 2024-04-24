@@ -51,7 +51,7 @@ function setupTest(component) {
   return { component, placeholderProps, mockGetComponentForRendering, mockGetSXAParams };
 }
 
-describe.only('PlaceholderWithMetadata', () => {
+describe('PlaceholderWithMetadata', () => {
   it('renders a single component without placeholders', () => {
     const component = {
       uid: '123',

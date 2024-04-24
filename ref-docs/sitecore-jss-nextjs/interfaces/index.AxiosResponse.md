@@ -29,7 +29,7 @@
 
 #### Defined in
 
-packages/sitecore-jss/node_modules/axios/index.d.ts:88
+sitecore-jss/node_modules/axios/index.d.ts:88
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/node_modules/axios/index.d.ts:84
+sitecore-jss/node_modules/axios/index.d.ts:84
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/node_modules/axios/index.d.ts:87
+sitecore-jss/node_modules/axios/index.d.ts:87
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/node_modules/axios/index.d.ts:89
+sitecore-jss/node_modules/axios/index.d.ts:89
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/node_modules/axios/index.d.ts:85
+sitecore-jss/node_modules/axios/index.d.ts:85
 
 ___
 
@@ -79,4 +79,4 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/node_modules/axios/index.d.ts:86
+sitecore-jss/node_modules/axios/index.d.ts:86
