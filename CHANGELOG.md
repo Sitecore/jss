@@ -16,7 +16,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Changes
 
-* `[sitecore-jss]` Switch to edge site query for XP and gets config sites + sxa sites (ignoring website)
+* `[sitecore-jss]` Switch to edge site query for XP and gets config sites + sxa sites (ignoring website) ([#1772](https://github.com/Sitecore/jss/pull/1772))
   * Previously introduced Boolean `useSiteQuery` switch for XMCloud users has been removed.
   * Search query usage has been removed.
   * If you have any non-nextjs sites they should filter them out in multisite config plugin
