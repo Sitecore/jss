@@ -122,6 +122,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     this.addRef = this.addRef.bind(this);
     this.updateKeyAttributes = this.updateKeyAttributes.bind(this);
     this.createRawElement = this.createRawElement.bind(this);
+    this.getComponentForRendering = this.getComponentForRendering.bind(this);
+    this.getSXAParams = this.getSXAParams.bind(this);
   }
 
   static getPlaceholderDataFromRenderingData(
@@ -297,6 +299,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         renderingDefinition.params.FieldNames
       );
     }
+
+    // console.log('real', componentFactory(renderingDefinition.componentName));
 
     return componentFactory(renderingDefinition.componentName);
   }

@@ -2,6 +2,7 @@
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
+import { ComponentFactory } from './sharedTypes';
 
 /**
  * Normalize HTML output for comparison
@@ -17,6 +18,16 @@ function normalizeWhitespace(str) {
  * @returns {object} An object containing the component, placeholderProps, and mock functions.
  */
 function setupTest(component) {
+  const componentFactory: ComponentFactory = (componentName: string) => {
+    const components = new Map<string, React.FC>();
+
+    components.set('RichText', () => <div className="richtext-mock" />);
+    components.set('Header', () => <div className="header-mock" />);
+    components.set('Logo', () => <div className="Logo-mock" />);
+
+    return components.get(componentName) || null;
+  };
+
   const placeholderProps = {
     name: 'sxa-header',
     rendering: component,
@@ -25,6 +36,7 @@ function setupTest(component) {
         editMode: 'metadata',
       },
     },
+    componentFactory,
   };
 
   const mockGetComponentForRendering = () => {
@@ -39,7 +51,7 @@ function setupTest(component) {
   return { component, placeholderProps, mockGetComponentForRendering, mockGetSXAParams };
 }
 
-describe('PlaceholderWithMetadata', () => {
+describe.only('PlaceholderWithMetadata', () => {
   it('renders a single component without placeholders', () => {
     const component = {
       uid: '123',
@@ -172,6 +184,34 @@ describe('PlaceholderWithMetadata', () => {
 
     const expectedOutput =
       '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_123"></code><code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="main_123"></code>';
+
+    const actualOutput = normalizeWhitespace(wrapper.html());
+    const normalizedExpectedOutput = normalizeWhitespace(expectedOutput);
+
+    expect(actualOutput).to.equal(normalizedExpectedOutput);
+  });
+
+  it('should render missing component with chromes if component is not registered', () => {
+    const component = {
+      uid: '123',
+      componentName: 'Unknown',
+    };
+
+    const { placeholderProps, mockGetComponentForRendering, mockGetSXAParams } = setupTest(
+      component
+    );
+
+    const wrapper = shallow(
+      <PlaceholderMetadata
+        rendering={component}
+        placeholderProps={placeholderProps}
+        getComponentForRendering={mockGetComponentForRendering}
+        getSXAParams={mockGetSXAParams}
+      />
+    );
+
+    const expectedOutput =
+      '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="123"></code><div name="sxa-header" rendering="[object Object]" sitecoreContext="[object Object]"></div><code type="text/sitecore" chrometype="rendering" class="scpm" kind="close" id="123"></code>';
 
     const actualOutput = normalizeWhitespace(wrapper.html());
     const normalizedExpectedOutput = normalizeWhitespace(expectedOutput);

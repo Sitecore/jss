@@ -112,8 +112,6 @@ describe('<Placeholder />', () => {
           </SitecoreContext>
         );
 
-        console.log(renderedComponent.debug());
-
         expect(renderedComponent.find('.download-callout-mock').length).to.equal(1);
       });
 

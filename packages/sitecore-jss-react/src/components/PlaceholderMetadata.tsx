@@ -136,13 +136,12 @@ function getRenderingData(
   getSXAParams: (rendering: ComponentRendering) => { styles?: string }
 ): React.JSX.Element {
   const component = getRendering(
-    rendering as ComponentRendering,
+    rendering,
     getComponentForRendering,
     placeholderProps.hiddenRenderingComponent,
     placeholderProps.missingComponentComponent
   );
-
-  const finalProps = getFinalProps(placeholderProps, rendering as ComponentRendering, getSXAParams);
+  const finalProps = getFinalProps(placeholderProps, rendering, getSXAParams);
 
   return React.createElement<{ [attr: string]: unknown }>(
     component as React.ComponentType,
@@ -188,6 +187,7 @@ export const PlaceholderMetadata = ({
       getComponentForRendering,
       getSXAParams
     );
+
     return (
       <>
         <code {...getCodeBlockAttributes('rendering', 'open', rendering.uid)}></code>
