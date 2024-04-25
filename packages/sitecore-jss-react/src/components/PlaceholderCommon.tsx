@@ -258,7 +258,15 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         );
       })
       .filter((element) => element)
-      .map((element, id) => <ErrorBoundary key={element.type + '-' + id}>{element}</ErrorBoundary>);
+      .map((element, id) => (
+        <ErrorBoundary
+          key={element.type + '-' + id}
+          customErrorComponent={this.props.errorComponent}
+          rendering={element.props.rendering as ComponentRendering}
+        >
+          {element}
+        </ErrorBoundary>
+      ));
   }
 
   getComponentForRendering(renderingDefinition: ComponentRendering): ComponentType | null {
