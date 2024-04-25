@@ -25,9 +25,14 @@ export type RichTextProps = ReactRichTextProps & {
 const prefetched: { [cacheKey: string]: boolean } = {};
 
 export const RichText = (props: RichTextProps): JSX.Element => {
-  const { internalLinksSelector = 'a[href^="/"]', prefetchLinks = true, ...rest } = props;
+  const {
+    internalLinksSelector = 'a[href^="/"]',
+    prefetchLinks = true,
+    editable = true,
+    ...rest
+  } = props;
   const hasText = props.field && props.field.value;
-  const isEditing = props.editable && props.field && props.field.editable;
+  const isEditing = editable && props.field && props.field.editable;
 
   const router = useRouter();
   const richTextRef = useRef<HTMLElement>(null);
@@ -75,11 +80,6 @@ export const RichText = (props: RichTextProps): JSX.Element => {
 RichText.propTypes = {
   internalLinksSelector: PropTypes.string,
   ...RichTextPropTypes,
-};
-
-RichText.defaultProps = {
-  tag: 'div',
-  editable: true,
 };
 
 RichText.displayName = 'NextRichText';
