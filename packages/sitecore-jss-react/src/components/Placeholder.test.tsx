@@ -722,12 +722,12 @@ it('should render custom HiddenRendering when rendering is hidden', () => {
   expect(renderedComponent.find('p').props().children).to.equal('Hidden Rendering');
 });
 
-const testDataWithoutEE = [
+const testDataWithMetadata = [
   { label: 'Dev data', data: nonEeDevData },
   { label: 'LayoutService data - EE off', data: nonEeLsData },
 ];
 
-testDataWithoutEE.forEach((dataSet) => {
+testDataWithMetadata.forEach((dataSet) => {
   describe(`with ${dataSet.label}`, () => {
     it('renders <PlaceholderMetadata> when editMode is Metadata', () => {
       const component = ((dataSet.data.sitecore.route.placeholders.main as unknown) as (

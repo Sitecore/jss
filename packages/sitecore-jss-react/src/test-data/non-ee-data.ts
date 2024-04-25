@@ -516,7 +516,7 @@ export const feaasWrapperData = {
 export const layoutDataWithMetadata = {
   sitecore: {
     context: {
-      pageEditing: false,
+      pageEditing: true,
       editMode: EditMode.Metadata,
     },
     route: {
