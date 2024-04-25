@@ -4,6 +4,8 @@ import {
 } from '@sitecore-jss/sitecore-jss-angular';
 import { environment as env } from '../../environments/environment';
 
+// The GraphQLRequestClientFactory serves as the central hub for executing GraphQL requests within the application
+
 /**
  * Creates a new GraphQLRequestClientFactory instance
  * @returns GraphQLRequestClientFactory instance

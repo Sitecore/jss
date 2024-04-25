@@ -1,8 +1,7 @@
-import {
-  GraphQLRequestClientFactoryConfig,
-  GraphQLRequestClient,
-} from '@sitecore-jss/sitecore-jss-vue';
+import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-vue';
 import config from '../temp/config';
+
+// The GraphQLRequestClientFactory serves as the central hub for executing GraphQL requests within the application
 
 /**
  * Creates a new GraphQLRequestClientFactory instance

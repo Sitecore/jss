@@ -4,6 +4,8 @@ import {
 } from '@sitecore-jss/sitecore-jss';
 import { config } from './config';
 
+// The GraphQLRequestClientFactory serves as the central hub for executing GraphQL requests within the application
+
 /**
  * Creates a new GraphQLRequestClientFactory instance
  * @returns GraphQLRequestClientFactory instance
