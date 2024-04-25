@@ -1,5 +1,7 @@
 import React, { ReactNode, Suspense } from 'react';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
+import { withSitecoreContext } from '../enhancers/withSitecoreContext';
+import { SitecoreContextValue } from './SitecoreContext';
 
 type CustomErrorComponentProps = {
   [prop: string]: unknown;
@@ -11,6 +13,7 @@ export type ErrorBoundaryProps = {
     | React.ComponentClass<CustomErrorComponentProps>
     | React.FC<CustomErrorComponentProps>;
   rendering?: ComponentRendering;
+  sitecoreContext: SitecoreContextValue;
 };
 
 class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
@@ -31,9 +34,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
 
   render() {
     if (this.state.error) {
-      if (this.props.customErrorComponent) {
-        return <this.props.customErrorComponent error={this.state.error} />;
-      } else {
+      if (this.props.sitecoreContext.pageEditing) {
         return (
           <div>
             <div className="sc-jss-placeholder-error">
@@ -43,6 +44,18 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
             </div>
           </div>
         );
+      } else {
+        if (this.props.customErrorComponent) {
+          return <this.props.customErrorComponent error={this.state.error} />;
+        } else {
+          return (
+            <div>
+              <div className="sc-jss-placeholder-error">
+                A rendering error occurred in component <em>{this.state.error.message}</em>
+              </div>
+            </div>
+          );
+        }
       }
     }
 
@@ -52,4 +65,4 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
   }
 }
 
-export default ErrorBoundary;
+export default withSitecoreContext()(ErrorBoundary);
