@@ -14,6 +14,7 @@ export type ErrorBoundaryProps = {
     | React.FC<CustomErrorComponentProps>;
   rendering?: ComponentRendering;
   sitecoreContext: SitecoreContextValue;
+  type: string;
 };
 
 class ErrorBoundary extends React.Component<ErrorBoundaryProps> {

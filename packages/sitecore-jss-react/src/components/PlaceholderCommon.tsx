@@ -258,15 +258,20 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         );
       })
       .filter((element) => element)
-      .map((element, id) => (
-        <ErrorBoundary
-          key={element.type + '-' + id}
-          customErrorComponent={this.props.errorComponent}
-          rendering={element.props.rendering as ComponentRendering}
-        >
-          {element}
-        </ErrorBoundary>
-      ));
+      .map((element, id) => {
+        // assign type based on passed element - type='text/sitecore' should be ignored when renderEach Placeholder prop function is being used
+        const type = element.props.type === 'text/sitecore' ? element.props.type : '';
+        return (
+          <ErrorBoundary
+            key={element.type + '-' + id}
+            customErrorComponent={this.props.errorComponent}
+            rendering={element.props.rendering as ComponentRendering}
+            type={type}
+          >
+            {element}
+          </ErrorBoundary>
+        );
+      });
   }
 
   getComponentForRendering(renderingDefinition: ComponentRendering): ComponentType | null {
