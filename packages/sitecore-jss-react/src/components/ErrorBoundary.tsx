@@ -34,7 +34,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
 
   render() {
     if (this.state.error) {
-      if (this.props.sitecoreContext.pageEditing) {
+      if (this.props.sitecoreContext?.pageEditing) {
         return (
           <div>
             <div className="sc-jss-placeholder-error">
