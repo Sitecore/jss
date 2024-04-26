@@ -13,7 +13,7 @@ import Image, { ImageProps as NextImageProperties } from 'next/image';
 type NextImageProps = ImageProps & Partial<NextImageProperties>;
 
 export const NextImage: React.FC<NextImageProps> = ({
-  editable,
+  editable = true,
   imageParams,
   field,
   mediaUrlPrefix,
@@ -103,10 +103,6 @@ NextImage.propTypes = {
   imageParams: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]).isRequired
   ),
-};
-
-NextImage.defaultProps = {
-  editable: true,
 };
 
 NextImage.displayName = 'NextImage';

@@ -4,13 +4,13 @@ import {
   constants,
 } from '@sitecore-jss/sitecore-jss-react';
 import config from '../temp/config';
+import { clientFactory } from './client-factory';
 
 export class DictionaryServiceFactory {
   create() {
     return process.env.REACT_APP_FETCH_WITH === constants.FETCH_WITH.GRAPHQL
       ? new GraphQLDictionaryService({
-          endpoint: config.graphQLEndpoint,
-          apiKey: config.sitecoreApiKey,
+          clientFactory,
           siteName: config.sitecoreSiteName,
           /*
             The Dictionary Service needs a root item ID in order to fetch dictionary phrases for the current
