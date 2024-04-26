@@ -75,6 +75,11 @@ export interface PlaceholderProps {
    * the placeholder
    */
   errorComponent?: React.ComponentClass<ErrorComponentProps> | React.FC<ErrorComponentProps>;
+
+  /**
+   * The message that gets displayed while component is loading
+   */
+  componentLoadingMessage?: string;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
@@ -266,6 +271,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
             key={element.type + '-' + id}
             customErrorComponent={this.props.errorComponent}
             rendering={element.props.rendering as ComponentRendering}
+            componentLoadingMessage={this.props.componentLoadingMessage}
             type={type}
           >
             {element}

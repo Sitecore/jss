@@ -14,6 +14,7 @@ export type ErrorBoundaryProps = {
     | React.FC<CustomErrorComponentProps>;
   rendering?: ComponentRendering;
   sitecoreContext: SitecoreContextValue;
+  componentLoadingMessage?: string;
   type: string;
 };
 
@@ -30,7 +31,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
   }
 
   componentDidCatch(error: Error, errorInfo: any) {
-    console.log({ error, errorInfo });
+    console.error({ error, errorInfo });
   }
 
   render() {
@@ -61,7 +62,11 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
     }
 
     return (
-      <Suspense fallback={<h4>Component is still loading...</h4>}>{this.props.children}</Suspense>
+      <Suspense
+        fallback={<h4>{this.props.componentLoadingMessage || 'Component is still loading...'}</h4>}
+      >
+        {this.props.children}
+      </Suspense>
     );
   }
 }
