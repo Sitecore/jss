@@ -27,7 +27,7 @@ Our versioning strategy is as follows:
   * `sitecore-jss-nextjs` no longer exports `isEditorActive`, `resetEditorChormes`, `resolveUrl`, `handleEditorFastRefresh`, `getPublicUrl` functions. Use `sitecore-jss-nextjs/utils` instead.
   * `getFEAASLibraryStylesheetLinks` function has been removed in favor of `getComponentLibraryStylesheetLinks`
 
-* `[sitecore-jss-react]` Deprecated `media` prop is removed from Image component. Use `field` prop instead ([#1780](https://github.com/Sitecore/jss/pull/1780)).
+* `[sitecore-jss-react]` `[templates/react]` Deprecated `media` prop is removed from Image component. Use `field` prop instead ([#1780](https://github.com/Sitecore/jss/pull/1780))([#1785](https://github.com/Sitecore/jss/pull/1785)).
 
 * `[templates/react]` `[templates/angular]` `[templates/vue]` `[templates/node-headless-ssr-experience-edge]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` ([#1783](https://github.com/Sitecore/jss/pull/1783)):
   * GraphQL-based services can now only be initialized with clientFactory parameter. Previously deprecated option of providing endpoint and apiKey has been removed
