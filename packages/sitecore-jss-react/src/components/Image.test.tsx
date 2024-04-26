@@ -11,7 +11,7 @@ const expect = chai.use(chaiString).expect;
 describe('<Image />', () => {
   describe('with direct image object, no value/editable', () => {
     const props = {
-      media: {
+      field: {
         src: '/assets/img/test0.png',
         width: 8,
         height: 10,
@@ -27,9 +27,9 @@ describe('<Image />', () => {
 
     it('should render <img /> with url', () => {
       expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.equal(props.media.src);
-      expect(rendered.prop('width')).to.equal(props.media.width);
-      expect(rendered.prop('height')).to.equal(props.media.height);
+      expect(rendered.prop('src')).to.equal(props.field.src);
+      expect(rendered.prop('width')).to.equal(props.field.width);
+      expect(rendered.prop('height')).to.equal(props.field.height);
     });
 
     it('should render <img /> with non-media props', () => {
@@ -44,7 +44,7 @@ describe('<Image />', () => {
 
   describe('with responsive image object', () => {
     const props = {
-      media: {
+      field: {
         src: '/assets/img/test0.png',
       },
       srcSet: [{ mw: 100 }, { mw: 300 }],
@@ -57,7 +57,7 @@ describe('<Image />', () => {
 
     it('should render <img /> with needed img tags', () => {
       expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.equal(props.media.src);
+      expect(rendered.prop('src')).to.equal(props.field.src);
       expect(rendered.prop('srcSet')).to.equal(
         '/assets/img/test0.png?mw=100 100w, /assets/img/test0.png?mw=300 300w'
       );
@@ -75,7 +75,7 @@ describe('<Image />', () => {
 
   describe('with "value" property value', () => {
     const props = {
-      media: { value: { src: '/assets/img/test0.png', alt: 'my image' } },
+      field: { value: { src: '/assets/img/test0.png', alt: 'my image' } },
       id: 'some-id',
       style: { width: '100%' },
       className: 'the-dude-abides',
@@ -84,8 +84,8 @@ describe('<Image />', () => {
 
     it('should render <img /> component with "value" properties', () => {
       expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.eql(props.media.value.src);
-      expect(rendered.prop('alt')).to.eql(props.media.value.alt);
+      expect(rendered.prop('src')).to.eql(props.field.value.src);
+      expect(rendered.prop('alt')).to.eql(props.field.value.alt);
     });
 
     it('should render <img /> with non-media props', () => {
@@ -100,7 +100,7 @@ describe('<Image />', () => {
 
   describe('with "editable" property value', () => {
     const props = {
-      media: { editable: eeImageData },
+      field: { editable: eeImageData },
       style: { width: '100%' },
       className: 'the-dude-abides',
     };
@@ -121,7 +121,7 @@ describe('<Image />', () => {
 
   describe('with enhanced "editable" property value', () => {
     const props = {
-      media: { editable: eeImageData },
+      field: { editable: eeImageData },
       imageParams: { h: '100', w: '150' },
       id: 'some-id',
       height: '100',
@@ -154,7 +154,7 @@ describe('<Image />', () => {
 
   describe('with "editable" property value but editing disabled', () => {
     const props = {
-      media: { editable: eeImageData, value: { src: '/assets/img/test0.png', alt: 'my image' } },
+      field: { editable: eeImageData, value: { src: '/assets/img/test0.png', alt: 'my image' } },
       editable: false,
       style: { width: '100%' },
       className: 'the-dude-abides',
@@ -163,8 +163,8 @@ describe('<Image />', () => {
 
     it('should render <img /> component with "value" properties', () => {
       expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.eql(props.media.value.src);
-      expect(rendered.prop('alt')).to.eql(props.media.value.alt);
+      expect(rendered.prop('src')).to.eql(props.field.value.src);
+      expect(rendered.prop('alt')).to.eql(props.field.value.alt);
     });
 
     it('should render <img /> with style and className props', () => {
@@ -175,7 +175,7 @@ describe('<Image />', () => {
 
   describe('with "class" and "className" property set', () => {
     const props = {
-      media: { editable: eeImageData, value: { src: '/assets/img/test0.png', alt: 'my image' } },
+      field: { editable: eeImageData, value: { src: '/assets/img/test0.png', alt: 'my image' } },
       editable: false,
       style: { width: '100%' },
       className: 'the-dude',
@@ -192,7 +192,7 @@ describe('<Image />', () => {
   describe('with "mediaUrlPrefix" property', () => {
     it('should transform url with "value" property value', () => {
       const props = {
-        media: { value: { src: '/~assets/img/test0.png', alt: 'my image' } },
+        field: { value: { src: '/~assets/img/test0.png', alt: 'my image' } },
         id: 'some-id',
         style: { width: '100%' },
         className: 'the-dude-abides',
@@ -205,7 +205,7 @@ describe('<Image />', () => {
 
       rendered.setProps({
         ...props,
-        media: { value: { src: '/-assets/img/test0.png', alt: 'my image' } },
+        field: { value: { src: '/-assets/img/test0.png', alt: 'my image' } },
       });
 
       expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png?foo=bar');
@@ -213,7 +213,7 @@ describe('<Image />', () => {
 
     it('should transform url with direct image object, no value/editable', () => {
       const props = {
-        media: {
+        field: {
           src: '/~assets/img/test0.png',
           width: 8,
           height: 10,
@@ -232,7 +232,7 @@ describe('<Image />', () => {
 
       rendered.setProps({
         ...props,
-        media: {
+        field: {
           src: '/-assets/img/test0.png',
           width: 8,
           height: 10,
@@ -244,7 +244,7 @@ describe('<Image />', () => {
 
     it('should transform url with responsive image object', () => {
       const props = {
-        media: {
+        field: {
           src: '/~assets/img/test0.png',
         },
         srcSet: [{ mw: 100 }, { mw: 300 }],
@@ -263,7 +263,7 @@ describe('<Image />', () => {
 
       rendered.setProps({
         ...props,
-        media: {
+        field: {
           src: '/-assets/img/test0.png',
           width: 8,
           height: 10,

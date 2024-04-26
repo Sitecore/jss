@@ -56,7 +56,7 @@ DictionaryServiceBase.constructor
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:61
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:51
 
 ## Properties
 
@@ -66,7 +66,7 @@ packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:61
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:55
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:45
 
 ___
 
@@ -80,7 +80,7 @@ DictionaryServiceBase.options
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:54
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:44
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:56
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:46
 
 ## Methods
 
@@ -128,7 +128,7 @@ DictionaryServiceBase.fetchDictionaryData
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:69
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:59
 
 ___
 
@@ -152,7 +152,7 @@ DictionaryServiceBase.getCacheClient
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/dictionary-service.d.ts:49
+sitecore-jss/types/i18n/dictionary-service.d.ts:49
 
 ___
 
@@ -185,7 +185,7 @@ DictionaryServiceBase.getCacheValue
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/dictionary-service.d.ts:42
+sitecore-jss/types/i18n/dictionary-service.d.ts:42
 
 ___
 
@@ -205,7 +205,7 @@ implementation
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:76
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:66
 
 ___
 
@@ -242,4 +242,4 @@ DictionaryServiceBase.setCacheValue
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/dictionary-service.d.ts:36
+sitecore-jss/types/i18n/dictionary-service.d.ts:36

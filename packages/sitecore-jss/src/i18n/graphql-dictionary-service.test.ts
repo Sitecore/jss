@@ -22,37 +22,19 @@ describe('GraphQLDictionaryService', () => {
   const siteName = 'site-name';
   const apiKey = 'api-key';
   const rootItemId = '{GUID}';
+  const clientFactory = GraphQLRequestClient.createClientFactory({
+    endpoint,
+    apiKey,
+  });
 
   afterEach(() => {
     nock.cleanAll();
-  });
-
-  it('should fetch dictionary phrases', async () => {
-    nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
-      .post('/', /DictionarySearch/gi)
-      .reply(200, dictionaryQueryResponse);
-
-    const service = new GraphQLDictionaryService({
-      endpoint,
-      apiKey,
-      siteName,
-      rootItemId,
-      cacheEnabled: false,
-    });
-    const result = await service.fetchDictionaryData('en');
-    expect(result.foo).to.equal('foo');
-    expect(result.bar).to.equal('bar');
   });
 
   it('should fetch dictionary phrases using clientFactory', async () => {
     nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
       .post('/', /DictionarySearch/gi)
       .reply(200, dictionaryQueryResponse);
-
-    const clientFactory = GraphQLRequestClient.createClientFactory({
-      endpoint,
-      apiKey,
-    });
 
     const service = new GraphQLDictionaryService({
       siteName,
@@ -75,8 +57,7 @@ describe('GraphQLDictionaryService', () => {
       .reply(200, dictionaryQueryResponse);
 
     const service = new GraphQLDictionaryService({
-      endpoint,
-      apiKey,
+      clientFactory,
       siteName,
       cacheEnabled: false,
     });
@@ -94,8 +75,7 @@ describe('GraphQLDictionaryService', () => {
       .reply(200, dictionaryQueryResponse);
 
     const service = new GraphQLDictionaryService({
-      endpoint,
-      apiKey,
+      clientFactory,
       siteName,
       cacheEnabled: false,
       rootItemId: customRootId,
@@ -129,8 +109,7 @@ describe('GraphQLDictionaryService', () => {
       .reply(200, dictionaryQueryResponse);
 
     const service = new GraphQLDictionaryService({
-      endpoint,
-      apiKey,
+      clientFactory,
       siteName,
       cacheEnabled: false,
       jssAppTemplateId,
@@ -152,8 +131,7 @@ describe('GraphQLDictionaryService', () => {
       });
 
     const service = new GraphQLDictionaryService({
-      endpoint,
-      apiKey,
+      clientFactory,
       siteName,
       cacheEnabled: false,
     });
@@ -174,8 +152,7 @@ describe('GraphQLDictionaryService', () => {
       .reply(200, dictionaryQueryResponse);
 
     const service = new GraphQLDictionaryService({
-      endpoint,
-      apiKey,
+      clientFactory,
       siteName,
       rootItemId,
       cacheEnabled: false,
@@ -193,8 +170,7 @@ describe('GraphQLDictionaryService', () => {
       .reply(200, dictionaryQueryResponse);
 
     const service = new GraphQLDictionaryService({
-      endpoint,
-      apiKey,
+      clientFactory,
       siteName,
       rootItemId,
       cacheEnabled: false,
@@ -212,8 +188,7 @@ describe('GraphQLDictionaryService', () => {
       .reply(200, dictionaryQueryResponse);
 
     const service = new GraphQLDictionaryService({
-      endpoint,
-      apiKey,
+      clientFactory,
       siteName,
       rootItemId,
       cacheEnabled: false,
@@ -229,8 +204,7 @@ describe('GraphQLDictionaryService', () => {
       .reply(200, dictionaryQueryResponse);
 
     const service = new GraphQLDictionaryService({
-      endpoint,
-      apiKey,
+      clientFactory,
       siteName,
       rootItemId,
       cacheEnabled: false,
@@ -245,8 +219,7 @@ describe('GraphQLDictionaryService', () => {
       .reply(200, dictionaryQueryResponse);
 
     const service = new GraphQLDictionaryService({
-      endpoint,
-      apiKey,
+      clientFactory,
       siteName,
       rootItemId,
       cacheEnabled: true,
@@ -262,8 +235,7 @@ describe('GraphQLDictionaryService', () => {
 
   it('should provide a default GraphQL client', () => {
     const service = new TestService({
-      endpoint,
-      apiKey,
+      clientFactory,
       siteName,
       rootItemId,
       cacheEnabled: false,

@@ -20,4 +20,4 @@ A reply from the Sitecore Layout Service
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:13
+sitecore-jss/types/layout/models.d.ts:13

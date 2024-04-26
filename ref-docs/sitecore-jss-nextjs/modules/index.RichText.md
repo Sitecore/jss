@@ -8,28 +8,10 @@
 
 ### Variables
 
-- [defaultProps](index.RichText.md#defaultprops)
 - [displayName](index.RichText.md#displayname)
 - [propTypes](index.RichText.md#proptypes)
 
 ## Variables
-
-### defaultProps
-
-• **defaultProps**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `editable` | `boolean` |
-| `tag` | `string` |
-
-#### Defined in
-
-[packages/sitecore-jss-nextjs/src/components/RichText.tsx:80](https://github.com/Sitecore/jss/blob/54f01a590/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L80)
-
-___
 
 ### displayName
 
@@ -37,7 +19,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/components/RichText.tsx:85](https://github.com/Sitecore/jss/blob/54f01a590/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L85)
+[sitecore-jss-nextjs/src/components/RichText.tsx:85](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L85)
 
 ___
 
@@ -56,4 +38,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/components/RichText.tsx:75](https://github.com/Sitecore/jss/blob/54f01a590/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L75)
+[sitecore-jss-nextjs/src/components/RichText.tsx:80](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L80)

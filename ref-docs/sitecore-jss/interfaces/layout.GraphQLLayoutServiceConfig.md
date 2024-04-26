@@ -14,9 +14,7 @@
 
 ### Properties
 
-- [apiKey](layout.GraphQLLayoutServiceConfig.md#apikey)
 - [clientFactory](layout.GraphQLLayoutServiceConfig.md#clientfactory)
-- [endpoint](layout.GraphQLLayoutServiceConfig.md#endpoint)
 - [formatLayoutQuery](layout.GraphQLLayoutServiceConfig.md#formatlayoutquery)
 - [retries](layout.GraphQLLayoutServiceConfig.md#retries)
 - [retryStrategy](layout.GraphQLLayoutServiceConfig.md#retrystrategy)
@@ -24,56 +22,16 @@
 
 ## Properties
 
-### apiKey
-
-• `Optional` **apiKey**: `string`
-
-The API key to use for authentication
-
-**`Deprecated`**
-
-use
-
-**`Param`**
-
-property instead
-
-#### Defined in
-
-[packages/sitecore-jss/src/layout/graphql-layout-service.ts:26](https://github.com/Sitecore/jss/blob/54f01a590/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L26)
-
-___
-
 ### clientFactory
 
-• `Optional` **clientFactory**: [`GraphQLRequestClientFactory`](../modules/index.md#graphqlrequestclientfactory)
+• **clientFactory**: [`GraphQLRequestClientFactory`](../modules/index.md#graphqlrequestclientfactory)
 
 A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
 This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/graphql-layout-service.ts:31](https://github.com/Sitecore/jss/blob/54f01a590/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L31)
-
-___
-
-### endpoint
-
-• `Optional` **endpoint**: `string`
-
-Your Graphql endpoint
-
-**`Deprecated`**
-
-use
-
-**`Param`**
-
-property instead
-
-#### Defined in
-
-[packages/sitecore-jss/src/layout/graphql-layout-service.ts:17](https://github.com/Sitecore/jss/blob/54f01a590/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L17)
+[packages/sitecore-jss/src/layout/graphql-layout-service.ts:20](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L20)
 
 ___
 
@@ -110,7 +68,7 @@ layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/graphql-layout-service.ts:43](https://github.com/Sitecore/jss/blob/54f01a590/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L43)
+[packages/sitecore-jss/src/layout/graphql-layout-service.ts:32](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L32)
 
 ___
 
@@ -126,7 +84,7 @@ Pick.retries
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:71](https://github.com/Sitecore/jss/blob/54f01a590/packages/sitecore-jss/src/graphql-request-client.ts#L71)
+[packages/sitecore-jss/src/graphql-request-client.ts:71](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/graphql-request-client.ts#L71)
 
 ___
 
@@ -143,7 +101,7 @@ Pick.retryStrategy
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:76](https://github.com/Sitecore/jss/blob/54f01a590/packages/sitecore-jss/src/graphql-request-client.ts#L76)
+[packages/sitecore-jss/src/graphql-request-client.ts:76](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/graphql-request-client.ts#L76)
 
 ___
 
@@ -155,4 +113,4 @@ The JSS application name
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/graphql-layout-service.ts:21](https://github.com/Sitecore/jss/blob/54f01a590/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L21)
+[packages/sitecore-jss/src/layout/graphql-layout-service.ts:15](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L15)

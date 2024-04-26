@@ -37,7 +37,7 @@ Resolves site based on the provided host or site name
 
 #### Defined in
 
-packages/sitecore-jss/types/site/site-resolver.d.ts:10
+sitecore-jss/types/site/site-resolver.d.ts:10
 
 ## Properties
 
@@ -69,7 +69,7 @@ if a matching site is not found
 
 #### Defined in
 
-packages/sitecore-jss/types/site/site-resolver.d.ts:17
+sitecore-jss/types/site/site-resolver.d.ts:17
 
 ___
 
@@ -101,7 +101,7 @@ if a matching site is not found
 
 #### Defined in
 
-packages/sitecore-jss/types/site/site-resolver.d.ts:24
+sitecore-jss/types/site/site-resolver.d.ts:24
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/site/site-resolver.d.ts:25
+sitecore-jss/types/site/site-resolver.d.ts:25
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/site/site-resolver.d.ts:6
+sitecore-jss/types/site/site-resolver.d.ts:6
 
 ## Methods
 
@@ -150,4 +150,4 @@ packages/sitecore-jss/types/site/site-resolver.d.ts:6
 
 #### Defined in
 
-packages/sitecore-jss/types/site/site-resolver.d.ts:26
+sitecore-jss/types/site/site-resolver.d.ts:26

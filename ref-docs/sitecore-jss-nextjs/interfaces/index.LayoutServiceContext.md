@@ -29,7 +29,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:38
+sitecore-jss/types/layout/models.d.ts:38
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:37
+sitecore-jss/types/layout/models.d.ts:37
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:39
+sitecore-jss/types/layout/models.d.ts:39
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:36
+sitecore-jss/types/layout/models.d.ts:36
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:41
+sitecore-jss/types/layout/models.d.ts:41
 
 ___
 
@@ -85,4 +85,4 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:40
+sitecore-jss/types/layout/models.d.ts:40

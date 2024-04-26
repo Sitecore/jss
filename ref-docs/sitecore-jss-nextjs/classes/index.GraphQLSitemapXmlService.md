@@ -43,7 +43,7 @@ Creates an instance of graphQL sitemaps service with the provided options
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-sitemap-service.d.ts:45
+sitecore-jss/types/site/graphql-sitemap-service.d.ts:35
 
 ## Properties
 
@@ -53,7 +53,7 @@ packages/sitecore-jss/types/site/graphql-sitemap-service.d.ts:45
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-sitemap-service.d.ts:39
+sitecore-jss/types/site/graphql-sitemap-service.d.ts:29
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-sitemap-service.d.ts:38
+sitecore-jss/types/site/graphql-sitemap-service.d.ts:28
 
 ## Accessors
 
@@ -77,7 +77,7 @@ packages/sitecore-jss/types/site/graphql-sitemap-service.d.ts:38
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-sitemap-service.d.ts:40
+sitecore-jss/types/site/graphql-sitemap-service.d.ts:30
 
 ## Methods
 
@@ -99,7 +99,7 @@ if the siteName is empty.
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-sitemap-service.d.ts:51
+sitecore-jss/types/site/graphql-sitemap-service.d.ts:41
 
 ___
 
@@ -119,7 +119,7 @@ implementation
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-sitemap-service.d.ts:64
+sitecore-jss/types/site/graphql-sitemap-service.d.ts:54
 
 ___
 
@@ -143,4 +143,4 @@ the sitemap file path or undefined if one doesn't exist
 
 #### Defined in
 
-packages/sitecore-jss/types/site/graphql-sitemap-service.d.ts:57
+sitecore-jss/types/site/graphql-sitemap-service.d.ts:47

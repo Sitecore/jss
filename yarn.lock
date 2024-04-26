@@ -423,6 +423,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/code-frame@npm:^7.24.1, @babel/code-frame@npm:^7.24.2":
+  version: 7.24.2
+  resolution: "@babel/code-frame@npm:7.24.2"
+  dependencies:
+    "@babel/highlight": ^7.24.2
+    picocolors: ^1.0.0
+  checksum: 70e867340cfe09ca5488b2f36372c45cabf43c79a5b6426e6df5ef0611ff5dfa75a57dda841895693de6008f32c21a7c97027a8c7bcabd63a7d17416cbead6f8
+  languageName: node
+  linkType: hard
+
 "@babel/compat-data@npm:^7.20.5, @babel/compat-data@npm:^7.22.6, @babel/compat-data@npm:^7.22.9, @babel/compat-data@npm:^7.23.3, @babel/compat-data@npm:^7.23.5":
   version: 7.23.5
   resolution: "@babel/compat-data@npm:7.23.5"
@@ -476,7 +486,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.0.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.20.12, @babel/core@npm:^7.6.2, @babel/core@npm:^7.7.5":
+"@babel/core@npm:^7.0.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.6.2, @babel/core@npm:^7.7.5":
   version: 7.23.6
   resolution: "@babel/core@npm:7.23.6"
   dependencies:
@@ -496,6 +506,29 @@ __metadata:
     json5: ^2.2.3
     semver: ^6.3.1
   checksum: 4bddd1b80394a64b2ee33eeb216e8a2a49ad3d74f0ca9ba678c84a37f4502b2540662d72530d78228a2a349fda837fa852eea5cd3ae28465d1188acc6055868e
+  languageName: node
+  linkType: hard
+
+"@babel/core@npm:^7.24.4":
+  version: 7.24.4
+  resolution: "@babel/core@npm:7.24.4"
+  dependencies:
+    "@ampproject/remapping": ^2.2.0
+    "@babel/code-frame": ^7.24.2
+    "@babel/generator": ^7.24.4
+    "@babel/helper-compilation-targets": ^7.23.6
+    "@babel/helper-module-transforms": ^7.23.3
+    "@babel/helpers": ^7.24.4
+    "@babel/parser": ^7.24.4
+    "@babel/template": ^7.24.0
+    "@babel/traverse": ^7.24.1
+    "@babel/types": ^7.24.0
+    convert-source-map: ^2.0.0
+    debug: ^4.1.0
+    gensync: ^1.0.0-beta.2
+    json5: ^2.2.3
+    semver: ^6.3.1
+  checksum: 15ecad7581f3329995956ba461961b1af7bed48901f14fe962ccd3217edca60049e9e6ad4ce48134618397e6c90230168c842e2c28e47ef1f16c97dbbf663c61
   languageName: node
   linkType: hard
 
@@ -520,6 +553,18 @@ __metadata:
     "@jridgewell/trace-mapping": ^0.3.17
     jsesc: ^2.5.1
   checksum: 1a1a1c4eac210f174cd108d479464d053930a812798e09fee069377de39a893422df5b5b146199ead7239ae6d3a04697b45fc9ac6e38e0f6b76374390f91fc6c
+  languageName: node
+  linkType: hard
+
+"@babel/generator@npm:^7.24.1, @babel/generator@npm:^7.24.4":
+  version: 7.24.4
+  resolution: "@babel/generator@npm:7.24.4"
+  dependencies:
+    "@babel/types": ^7.24.0
+    "@jridgewell/gen-mapping": ^0.3.5
+    "@jridgewell/trace-mapping": ^0.3.25
+    jsesc: ^2.5.1
+  checksum: 1b6146c31386c9df3eb594a2c36b5c98da4f67f7c06edb3d68a442b92516b21bb5ba3ad7dbe0058fe76625ed24d66923e15c95b0df75ef1907d4068921a699b8
   languageName: node
   linkType: hard
 
@@ -772,6 +817,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/helpers@npm:^7.24.4":
+  version: 7.24.4
+  resolution: "@babel/helpers@npm:7.24.4"
+  dependencies:
+    "@babel/template": ^7.24.0
+    "@babel/traverse": ^7.24.1
+    "@babel/types": ^7.24.0
+  checksum: ecd2dc0b3b32e24b97fa3bcda432dd3235b77c2be1e16eafc35b8ef8f6c461faa99796a8bc2431a408c98b4aabfd572c160e2b67ecea4c5c9dd3a8314a97994a
+  languageName: node
+  linkType: hard
+
 "@babel/highlight@npm:^7.10.4, @babel/highlight@npm:^7.23.4":
   version: 7.23.4
   resolution: "@babel/highlight@npm:7.23.4"
@@ -780,6 +836,18 @@ __metadata:
     chalk: ^2.4.2
     js-tokens: ^4.0.0
   checksum: 643acecdc235f87d925979a979b539a5d7d1f31ae7db8d89047269082694122d11aa85351304c9c978ceeb6d250591ccadb06c366f358ccee08bb9c122476b89
+  languageName: node
+  linkType: hard
+
+"@babel/highlight@npm:^7.24.2":
+  version: 7.24.2
+  resolution: "@babel/highlight@npm:7.24.2"
+  dependencies:
+    "@babel/helper-validator-identifier": ^7.22.20
+    chalk: ^2.4.2
+    js-tokens: ^4.0.0
+    picocolors: ^1.0.0
+  checksum: 5f17b131cc3ebf3ab285a62cf98a404aef1bd71a6be045e748f8d5bf66d6a6e1aefd62f5972c84369472e8d9f22a614c58a89cd331eb60b7ba965b31b1bbeaf5
   languageName: node
   linkType: hard
 
@@ -798,6 +866,15 @@ __metadata:
   bin:
     parser: ./bin/babel-parser.js
   checksum: 4a6afec49487a212e7a27345b0c090b56905efb62c0b3a1499b0a57a5b3bf43d9d1e99e31b137080eacc24dee659a29699740d0a6289999117c0d8c5a04bd68f
+  languageName: node
+  linkType: hard
+
+"@babel/parser@npm:^7.24.1, @babel/parser@npm:^7.24.4":
+  version: 7.24.4
+  resolution: "@babel/parser@npm:7.24.4"
+  bin:
+    parser: ./bin/babel-parser.js
+  checksum: 94c9e3e592894cd6fc57c519f4e06b65463df9be5f01739bb0d0bfce7ffcf99b3c2fdadd44dc59cc858ba2739ce6e469813a941c2f2dfacf333a3b2c9c5c8465
   languageName: node
   linkType: hard
 
@@ -2162,6 +2239,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/register@npm:^7.23.7":
+  version: 7.23.7
+  resolution: "@babel/register@npm:7.23.7"
+  dependencies:
+    clone-deep: ^4.0.1
+    find-cache-dir: ^2.0.0
+    make-dir: ^2.1.0
+    pirates: ^4.0.6
+    source-map-support: ^0.5.16
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: c72a6d4856ef04f13490370d805854d2d98a77786bfaec7d85e2c585e1217011c4f3df18197a890e14520906c9111bef95551ba1a9b59c88df4dfc2dfe2c8d1b
+  languageName: node
+  linkType: hard
+
 "@babel/regjsgen@npm:^0.8.0":
   version: 0.8.0
   resolution: "@babel/regjsgen@npm:0.8.0"
@@ -2209,6 +2301,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/template@npm:^7.24.0":
+  version: 7.24.0
+  resolution: "@babel/template@npm:7.24.0"
+  dependencies:
+    "@babel/code-frame": ^7.23.5
+    "@babel/parser": ^7.24.0
+    "@babel/types": ^7.24.0
+  checksum: f257b003c071a0cecdbfceca74185f18fe62c055469ab5c1d481aab12abeebed328e67e0a19fd978a2a8de97b28953fa4bc3da6d038a7345fdf37923b9fcdec8
+  languageName: node
+  linkType: hard
+
 "@babel/traverse@npm:^7.0.0, @babel/traverse@npm:^7.1.0, @babel/traverse@npm:^7.22.8, @babel/traverse@npm:^7.23.2, @babel/traverse@npm:^7.23.6, @babel/traverse@npm:^7.4.3, @babel/traverse@npm:^7.7.4":
   version: 7.23.6
   resolution: "@babel/traverse@npm:7.23.6"
@@ -2227,6 +2330,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/traverse@npm:^7.24.1":
+  version: 7.24.1
+  resolution: "@babel/traverse@npm:7.24.1"
+  dependencies:
+    "@babel/code-frame": ^7.24.1
+    "@babel/generator": ^7.24.1
+    "@babel/helper-environment-visitor": ^7.22.20
+    "@babel/helper-function-name": ^7.23.0
+    "@babel/helper-hoist-variables": ^7.22.5
+    "@babel/helper-split-export-declaration": ^7.22.6
+    "@babel/parser": ^7.24.1
+    "@babel/types": ^7.24.0
+    debug: ^4.3.1
+    globals: ^11.1.0
+  checksum: 92a5ca906abfba9df17666d2001ab23f18600035f706a687055a0e392a690ae48d6fec67c8bd4ef19ba18699a77a5b7f85727e36b83f7d110141608fe0c24fe9
+  languageName: node
+  linkType: hard
+
 "@babel/types@npm:^7.0.0, @babel/types@npm:^7.20.7, @babel/types@npm:^7.22.15, @babel/types@npm:^7.22.19, @babel/types@npm:^7.22.5, @babel/types@npm:^7.23.0, @babel/types@npm:^7.23.4, @babel/types@npm:^7.23.6, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.0, @babel/types@npm:^7.4.4, @babel/types@npm:^7.8.3":
   version: 7.23.6
   resolution: "@babel/types@npm:7.23.6"
@@ -2235,6 +2356,17 @@ __metadata:
     "@babel/helper-validator-identifier": ^7.22.20
     to-fast-properties: ^2.0.0
   checksum: 68187dbec0d637f79bc96263ac95ec8b06d424396678e7e225492be866414ce28ebc918a75354d4c28659be6efe30020b4f0f6df81cc418a2d30645b690a8de0
+  languageName: node
+  linkType: hard
+
+"@babel/types@npm:^7.24.0":
+  version: 7.24.0
+  resolution: "@babel/types@npm:7.24.0"
+  dependencies:
+    "@babel/helper-string-parser": ^7.23.4
+    "@babel/helper-validator-identifier": ^7.22.20
+    to-fast-properties: ^2.0.0
+  checksum: 4b574a37d490f621470ff36a5afaac6deca5546edcb9b5e316d39acbb20998e9c2be42f3fc0bf2b55906fc49ff2a5a6a097e8f5a726ee3f708a0b0ca93aed807
   languageName: node
   linkType: hard
 
@@ -3442,6 +3574,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jridgewell/gen-mapping@npm:^0.3.5":
+  version: 0.3.5
+  resolution: "@jridgewell/gen-mapping@npm:0.3.5"
+  dependencies:
+    "@jridgewell/set-array": ^1.2.1
+    "@jridgewell/sourcemap-codec": ^1.4.10
+    "@jridgewell/trace-mapping": ^0.3.24
+  checksum: ff7a1764ebd76a5e129c8890aa3e2f46045109dabde62b0b6c6a250152227647178ff2069ea234753a690d8f3c4ac8b5e7b267bbee272bffb7f3b0a370ab6e52
+  languageName: node
+  linkType: hard
+
 "@jridgewell/resolve-uri@npm:^3.0.3, @jridgewell/resolve-uri@npm:^3.1.0":
   version: 3.1.1
   resolution: "@jridgewell/resolve-uri@npm:3.1.1"
@@ -3453,6 +3596,13 @@ __metadata:
   version: 1.1.2
   resolution: "@jridgewell/set-array@npm:1.1.2"
   checksum: 69a84d5980385f396ff60a175f7177af0b8da4ddb81824cb7016a9ef914eee9806c72b6b65942003c63f7983d4f39a5c6c27185bbca88eb4690b62075602e28e
+  languageName: node
+  linkType: hard
+
+"@jridgewell/set-array@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@jridgewell/set-array@npm:1.2.1"
+  checksum: 832e513a85a588f8ed4f27d1279420d8547743cc37fcad5a5a76fc74bb895b013dfe614d0eed9cb860048e6546b798f8f2652020b4b2ba0561b05caa8c654b10
   languageName: node
   linkType: hard
 
@@ -3490,6 +3640,16 @@ __metadata:
     "@jridgewell/resolve-uri": ^3.1.0
     "@jridgewell/sourcemap-codec": ^1.4.14
   checksum: cd1a7353135f385909468ff0cf20bdd37e59f2ee49a13a966dedf921943e222082c583ade2b579ff6cd0d8faafcb5461f253e1bf2a9f48fec439211fdbe788f5
+  languageName: node
+  linkType: hard
+
+"@jridgewell/trace-mapping@npm:^0.3.24, @jridgewell/trace-mapping@npm:^0.3.25":
+  version: 0.3.25
+  resolution: "@jridgewell/trace-mapping@npm:0.3.25"
+  dependencies:
+    "@jridgewell/resolve-uri": ^3.1.0
+    "@jridgewell/sourcemap-codec": ^1.4.14
+  checksum: 9d3c40d225e139987b50c48988f8717a54a8c994d8a948ee42e1412e08988761d0754d7d10b803061cc3aebf35f92a5dbbab493bd0e1a9ef9e89a2130e83ba34
   languageName: node
   linkType: hard
 
@@ -5301,30 +5461,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/core@npm:^0.2.4":
-  version: 0.2.4
-  resolution: "@sitecore-cloudsdk/core@npm:0.2.4"
+"@sitecore-cloudsdk/core@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@sitecore-cloudsdk/core@npm:0.3.0"
   dependencies:
-    "@sitecore-cloudsdk/utils": ^0.2.4
+    "@sitecore-cloudsdk/utils": ^0.3.0
     debug: ^4.3.4
-  checksum: 0612dab597cffaa8f150d30029c1c45904662c63f981fb781b794c2fc9f8821e9ea247cc58fd86e5f02e1daae7fb4323a7e6d3979f7836b34a5e87079f638c35
+  checksum: f494bd1d779204cc4ad9c5ae0692a5897ba1b391637a4b40e888363ad00c94feb0a9c5e57c4f67977aacd1905da29edf0fef35d1e8f7e61f7cac7385b08dc029
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/personalize@npm:^0.2.4":
-  version: 0.2.4
-  resolution: "@sitecore-cloudsdk/personalize@npm:0.2.4"
+"@sitecore-cloudsdk/personalize@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@sitecore-cloudsdk/personalize@npm:0.3.0"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.2.4
-    "@sitecore-cloudsdk/utils": ^0.2.4
-  checksum: 788dd09f4d70fc037f0151ee4945e28072be4b2c33f22c2388ac09570e18c77ebb04008b055fe5ff471084bd83cd87ddb5b78a288668e616c3af151758795d9a
+    "@sitecore-cloudsdk/core": ^0.3.0
+    "@sitecore-cloudsdk/utils": ^0.3.0
+  checksum: d7132692a896198b25603db6fb8d3e7813b55389b276c9433e67033f990c06ed818a0979f52a8d0af2492de42d09c1b4fe28c4d4c18a8eca6fa0d82fe7e99d43
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/utils@npm:^0.2.4":
-  version: 0.2.4
-  resolution: "@sitecore-cloudsdk/utils@npm:0.2.4"
-  checksum: 0f816558840da5b978d9d9c585e9edab0de5437bf9ae5a5a773782b870192f635b173fa1f15177581a55f4560769674f7a42606d523e8ed739db095e2a863571
+"@sitecore-cloudsdk/utils@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@sitecore-cloudsdk/utils@npm:0.3.0"
+  checksum: 4ee3224d4623d7a60b3b48178581b61498fceaa9cc6e0396f7d664537e3a37f41faeaaf3c9503d1e4e95fa9862892f407ef84ea0925458d68af94232598ade54
   languageName: node
   linkType: hard
 
@@ -5369,7 +5529,7 @@ __metadata:
     "@angular/platform-browser": ~16.2.10
     "@angular/platform-browser-dynamic": ~16.2.10
     "@angular/router": ~16.2.10
-    "@sitecore-jss/sitecore-jss": 21.8.0-canary.5
+    "@sitecore-jss/sitecore-jss": 22.1.0-canary.5
     "@types/jasmine": ^3.4.1
     "@types/node": ^18.19.0
     codelyzer: ^6.0.1
@@ -5399,7 +5559,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-cli@workspace:packages/sitecore-jss-cli"
   dependencies:
-    "@sitecore-jss/sitecore-jss-dev-tools": 21.8.0-canary.5
+    "@sitecore-jss/sitecore-jss-dev-tools": 22.1.0-canary.5
     "@types/chai": ^4.2.4
     "@types/cross-spawn": ^6.0.2
     "@types/mocha": ^10.0.1
@@ -5431,12 +5591,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-dev-tools@21.8.0-canary.5, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
+"@sitecore-jss/sitecore-jss-dev-tools@22.1.0-canary.5, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools"
   dependencies:
+    "@babel/core": ^7.24.4
     "@babel/parser": ^7.24.0
-    "@sitecore-jss/sitecore-jss": 21.8.0-canary.5
+    "@babel/register": ^7.23.7
+    "@sitecore-jss/sitecore-jss": 22.1.0-canary.5
     "@types/chai": ^4.3.4
     "@types/chokidar": ^2.1.3
     "@types/del": ^4.0.0
@@ -5453,7 +5615,6 @@ __metadata:
     "@types/uuid": ^9.0.0
     "@types/yargs": ^17.0.22
     axios: ^1.3.2
-    babel-core: ^6.26.3
     chai: ^4.3.7
     chalk: ^4.1.2
     chokidar: ^3.5.3
@@ -5489,11 +5650,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-forms@21.8.0-canary.5, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
+"@sitecore-jss/sitecore-jss-forms@22.1.0-canary.5, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss": 21.8.0-canary.5
+    "@sitecore-jss/sitecore-jss": 22.1.0-canary.5
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
     "@types/lodash.unescape": ^4.0.7
@@ -5516,10 +5677,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
-    "@sitecore-cloudsdk/personalize": ^0.2.4
-    "@sitecore-jss/sitecore-jss": 21.8.0-canary.5
-    "@sitecore-jss/sitecore-jss-dev-tools": 21.8.0-canary.5
-    "@sitecore-jss/sitecore-jss-react": 21.8.0-canary.5
+    "@sitecore-cloudsdk/personalize": ^0.3.0
+    "@sitecore-jss/sitecore-jss": 22.1.0-canary.5
+    "@sitecore-jss/sitecore-jss-dev-tools": 22.1.0-canary.5
+    "@sitecore-jss/sitecore-jss-react": 22.1.0-canary.5
     "@types/chai": ^4.3.4
     "@types/chai-as-promised": ^7.1.5
     "@types/chai-string": ^1.4.2
@@ -5559,8 +5720,8 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.4
   peerDependencies:
-    "@sitecore-cloudsdk/events": ^0.2.4
-    "@sitecore-cloudsdk/personalize": ^0.2.4
+    "@sitecore-cloudsdk/events": ^0.3.0
+    "@sitecore-cloudsdk/personalize": ^0.3.0
     next: ^14.1.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -5593,7 +5754,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react-forms@workspace:packages/sitecore-jss-react-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss-forms": 21.8.0-canary.5
+    "@sitecore-jss/sitecore-jss-forms": 22.1.0-canary.5
     "@types/chai": ^4.3.4
     "@types/enzyme": ^3.10.12
     "@types/mocha": ^10.0.1
@@ -5633,7 +5794,7 @@ __metadata:
     "@babel/plugin-proposal-export-default-from": ^7.5.2
     "@babel/preset-env": ^7.6.2
     "@babel/preset-typescript": ^7.6.0
-    "@sitecore-jss/sitecore-jss": 21.8.0-canary.5
+    "@sitecore-jss/sitecore-jss": 22.1.0-canary.5
     "@types/jest": ^24.0.18
     "@types/prop-types": ^15.7.3
     "@types/react": ^16.9.5
@@ -5663,12 +5824,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-react@21.8.0-canary.5, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
+"@sitecore-jss/sitecore-jss-react@22.1.0-canary.5, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
     "@sitecore-feaas/clientside": ^0.5.6
-    "@sitecore-jss/sitecore-jss": 21.8.0-canary.5
+    "@sitecore-jss/sitecore-jss": 22.1.0-canary.5
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
     "@types/enzyme": ^3.10.12
@@ -5740,15 +5901,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-vue@workspace:packages/sitecore-jss-vue"
   dependencies:
-    "@babel/core": ^7.20.12
-    "@sitecore-jss/sitecore-jss": 21.8.0-canary.5
+    "@sitecore-jss/sitecore-jss": 22.1.0-canary.5
     "@types/jest": ^29.2.6
     "@types/node": ^18.11.18
     "@vue/compiler-dom": ^3.2.45
     "@vue/compiler-sfc": ^3.0.11
     "@vue/test-utils": 2.2.7
     "@vue/vue3-jest": ^29.2.2
-    babel-core: ^6.26.3
     babel-jest: ^29.5.0
     del-cli: ^5.0.0
     eslint: ^8.32.0
@@ -5765,7 +5924,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss@21.8.0-canary.5, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
+"@sitecore-jss/sitecore-jss@22.1.0-canary.5, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss"
   dependencies:
@@ -8692,7 +8851,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-core@npm:6.26.3, babel-core@npm:^6.26.0, babel-core@npm:^6.26.3":
+"babel-core@npm:6.26.3, babel-core@npm:^6.26.0":
   version: 6.26.3
   resolution: "babel-core@npm:6.26.3"
   dependencies:
@@ -21485,7 +21644,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pirates@npm:^4.0.1, pirates@npm:^4.0.4, pirates@npm:^4.0.5":
+"pirates@npm:^4.0.1, pirates@npm:^4.0.4, pirates@npm:^4.0.5, pirates@npm:^4.0.6":
   version: 4.0.6
   resolution: "pirates@npm:4.0.6"
   checksum: 46a65fefaf19c6f57460388a5af9ab81e3d7fd0e7bc44ca59d753cb5c4d0df97c6c6e583674869762101836d68675f027d60f841c105d72734df9dfca97cbcc6

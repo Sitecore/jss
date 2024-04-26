@@ -54,7 +54,7 @@ DictionaryServiceBase.constructor
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:61
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:51
 
 ## Properties
 
@@ -64,7 +64,7 @@ packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:61
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:55
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:45
 
 ___
 
@@ -78,7 +78,7 @@ DictionaryServiceBase.options
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:54
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:44
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:56
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:46
 
 ## Methods
 
@@ -126,7 +126,7 @@ DictionaryServiceBase.fetchDictionaryData
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:69
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:59
 
 ___
 
@@ -203,7 +203,7 @@ implementation
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:76
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:66
 
 ___
 

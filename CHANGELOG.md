@@ -11,12 +11,35 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 22.0.0
+
 ### 🛠 Breaking Changes
 
-[sitecore-jss] Switch to edge site query for XP and gets config sites + sxa sites (ignoring website)
+* `[sitecore-jss]` Switch to edge site query for XP and gets config sites + sxa sites (ignoring website) ([#1772](https://github.com/Sitecore/jss/pull/1772))
   * Previously introduced Boolean `useSiteQuery` switch for XMCloud users has been removed.
   * Search query usage has been removed.
   * If you have any non-nextjs sites they should filter them out in multisite config plugin
+
+* `[sitecore-jss-nextjs]` `[templates/nextjs-xmcloud]` CloudSDK dependencies are updated to version ^0.3.0 ([#1779](https://github.com/Sitecore/jss/pull/1779))
+  * Please ensure `@sitecore-cloudsdk/events` dependency is updated
+
+* `[sitecore-jss-nextjs]` Deprecated exports have been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)):
+  * `sitecore-jss-nextjs` no longer exports `isEditorActive`, `resetEditorChormes`, `resolveUrl`, `handleEditorFastRefresh`, `getPublicUrl` functions. Use `sitecore-jss-nextjs/utils` instead.
+  * `getFEAASLibraryStylesheetLinks` function has been removed in favor of `getComponentLibraryStylesheetLinks`
+
+* `[sitecore-jss-react]` `[templates/react]` Deprecated `media` prop is removed from Image component. Use `field` prop instead ([#1780](https://github.com/Sitecore/jss/pull/1780))([#1785](https://github.com/Sitecore/jss/pull/1785)).
+
+* `[templates/react]` `[templates/angular]` `[templates/vue]` `[templates/node-headless-ssr-experience-edge]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` ([#1783](https://github.com/Sitecore/jss/pull/1783)):
+  * GraphQL-based services can now only be initialized with clientFactory parameter. Previously deprecated option of providing endpoint and apiKey has been removed
+  * Removed deprecated _defaultProps_ react component property
+
+* `[templates/nextjs]` GraphQL-based services can now only be initialized with clientFactory parameter. Previously deprecated option of providing endpoint and apiKey has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
+
+* `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Deprecated JSS_APP_NAME environment variable has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
+
+### 🧹 Chores
+
+* Security vulnerabilities audit ([1778](https://github.com/Sitecore/jss/pull/1778))
 
 ## 21.7.1
 
@@ -70,6 +93,11 @@ Our versioning strategy is as follows:
 * `[nextjs/template]` Upgrade graphql-codegen packages to latest ([#1711](https://github.com/Sitecore/jss/pull/1711))
 
 ## 21.6.4
+
+### 🎉 New Features & Improvements
+* `[templates/nextjs]` Add support for `.env.*` files during bootstrap process, matching what Next.js supports OOTB for build/runtime. ([#1741](https://github.com/Sitecore/jss/pull/1741))
+* `[sitecore-jss]` Export `ClientError`. ([#1738](https://github.com/Sitecore/jss/pull/1738))
+* `[sitecore-jss]` Enable the Layout, dictionary and ErrorPages service to use custom `retryStrategy`. ([#1749](https://github.com/Sitecore/jss/pull/1749)) ([#1751](https://github.com/Sitecore/jss/pull/1751))
 
 ### 🐛 Bug Fixes
 
