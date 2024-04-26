@@ -60,6 +60,8 @@ export {
   RetryStrategy,
   DefaultRetryStrategy,
   GraphQLClientError,
+  GraphQLRequestClientFactoryConfig,
+  GraphQLRequestClient,
 } from '@sitecore-jss/sitecore-jss/graphql';
 export {
   constants,
