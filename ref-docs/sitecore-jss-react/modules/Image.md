@@ -6,21 +6,10 @@
 
 ### Variables
 
-- [defaultProps](Image.md#defaultprops)
 - [displayName](Image.md#displayname)
 - [propTypes](Image.md#proptypes)
 
 ## Variables
-
-### defaultProps
-
-• **defaultProps**: `Partial`\<[`ImageProps`](../interfaces/ImageProps.md)\>
-
-#### Defined in
-
-[packages/sitecore-jss-react/src/components/Image.tsx:209](https://github.com/Sitecore/jss/blob/c97d93f83/packages/sitecore-jss-react/src/components/Image.tsx#L209)
-
-___
 
 ### displayName
 
@@ -28,7 +17,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:213](https://github.com/Sitecore/jss/blob/c97d93f83/packages/sitecore-jss-react/src/components/Image.tsx#L213)
+[packages/sitecore-jss-react/src/components/Image.tsx:209](https://github.com/Sitecore/jss/blob/6f3dd7056/packages/sitecore-jss-react/src/components/Image.tsx#L209)
 
 ___
 
@@ -38,4 +27,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:183](https://github.com/Sitecore/jss/blob/c97d93f83/packages/sitecore-jss-react/src/components/Image.tsx#L183)
+[packages/sitecore-jss-react/src/components/Image.tsx:183](https://github.com/Sitecore/jss/blob/6f3dd7056/packages/sitecore-jss-react/src/components/Image.tsx#L183)

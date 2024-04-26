@@ -8,21 +8,10 @@
 
 ### Variables
 
-- [defaultProps](index.NextImage.md#defaultprops)
 - [displayName](index.NextImage.md#displayname)
 - [propTypes](index.NextImage.md#proptypes)
 
 ## Variables
-
-### defaultProps
-
-• **defaultProps**: `undefined` \| `Partial`\<`NextImageProps`\>
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/components/NextImage.tsx:108](https://github.com/Sitecore/jss/blob/c97d93f83/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L108)
-
-___
 
 ### displayName
 
@@ -30,7 +19,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/NextImage.tsx:112](https://github.com/Sitecore/jss/blob/c97d93f83/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L112)
+[sitecore-jss-nextjs/src/components/NextImage.tsx:108](https://github.com/Sitecore/jss/blob/6f3dd7056/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L108)
 
 ___
 
@@ -40,4 +29,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/NextImage.tsx:91](https://github.com/Sitecore/jss/blob/c97d93f83/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L91)
+[sitecore-jss-nextjs/src/components/NextImage.tsx:91](https://github.com/Sitecore/jss/blob/6f3dd7056/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L91)
