@@ -19,6 +19,9 @@ export type ErrorBoundaryProps = {
 };
 
 class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
+  defaultErrorMessage =
+    "We're having trouble loading this section. Please try again by refreshing your browser."; // eslint-disable-line
+  defaultLoadingMessage = 'Component is still loading...';
   state: { error: Error };
 
   constructor(props: any) {
@@ -34,27 +37,30 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
     console.error({ error, errorInfo });
   }
 
+  isInDevMode(): boolean {
+    return process.env.NODE_ENV === 'development';
+  }
+
   render() {
     if (this.state.error) {
-      if (this.props.sitecoreContext?.pageEditing) {
-        return (
-          <div>
-            <div className="sc-jss-placeholder-error">
-              A rendering error occurred in component <em>{this.props.rendering?.componentName}</em>
-              <br />
-              Error: <em>{this.state.error.message}</em>
-            </div>
-          </div>
-        );
+      if (this.props.customErrorComponent) {
+        return <this.props.customErrorComponent error={this.state.error} />;
       } else {
-        if (this.props.customErrorComponent) {
-          return <this.props.customErrorComponent error={this.state.error} />;
-        } else {
+        if (this.isInDevMode() || this.props.sitecoreContext?.pageEditing) {
           return (
             <div>
               <div className="sc-jss-placeholder-error">
-                A rendering error occurred in component <em>{this.state.error.message}</em>
+                A rendering error occurred in component{' '}
+                <em>{this.props.rendering?.componentName}</em>
+                <br />
+                Error: <em>{this.state.error.message}</em>
               </div>
+            </div>
+          );
+        } else {
+          return (
+            <div>
+              <div className="sc-jss-placeholder-error">{this.defaultErrorMessage}</div>
             </div>
           );
         }
@@ -63,7 +69,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
 
     return (
       <Suspense
-        fallback={<h4>{this.props.componentLoadingMessage || 'Component is still loading...'}</h4>}
+        fallback={<h4>{this.props.componentLoadingMessage || this.defaultLoadingMessage}</h4>}
       >
         {this.props.children}
       </Suspense>
