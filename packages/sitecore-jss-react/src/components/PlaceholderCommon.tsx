@@ -203,19 +203,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           : `component-${index}`;
         const commonProps = { key };
 
-        // if editMode is equal to 'metadata' then emit shallow chromes for hydration in Pages
-        if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
-          return (
-            <PlaceholderMetadata
-              key={key}
-              rendering={rendering as ComponentRendering}
-              placeholderProps={this.props}
-              getComponentForRendering={this.getComponentForRendering}
-              getSXAParams={this.getSXAParams}
-            />
-          );
-        }
-
         // if the element is not a 'component rendering', render it 'raw'
         if (
           !(rendering as ComponentRendering).componentName &&
@@ -274,10 +261,21 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           rendering: componentRendering,
         };
 
-        return React.createElement<{ [attr: string]: unknown }>(
+        const rendered = React.createElement<{ [attr: string]: unknown }>(
           component as React.ComponentType,
           this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
         );
+
+        // if editMode is equal to 'metadata' then emit shallow chromes for hydration in Pages
+        if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
+          return (
+            <PlaceholderMetadata key={key} rendering={rendering as ComponentRendering}>
+              {rendered}
+            </PlaceholderMetadata>
+          );
+        }
+
+        return rendered;
       })
       .filter((element) => element); // remove nulls
   }
