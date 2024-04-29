@@ -7,6 +7,7 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 export interface PlaceholderMetadataProps {
   rendering: ComponentRendering;
   children?: ReactNode;
+  metadataType?: string;
 }
 
 export type CodeBlockAttributes = {
@@ -28,6 +29,7 @@ export type CodeBlockAttributes = {
 export const PlaceholderMetadata = ({
   rendering,
   children,
+  metadataType,
 }: PlaceholderMetadataProps): JSX.Element => {
   const getCodeBlockAttributes = (
     chromeType: string,
@@ -43,52 +45,27 @@ export const PlaceholderMetadata = ({
     };
   };
 
-  const renderComponent = (rendering: ComponentRendering, parentId = '') => {
+  const renderComponent = (rendering: ComponentRendering, metadataType: string) => {
     const result = [];
-    const currentId = parentId ? `${parentId}_${rendering.uid}` : rendering.uid;
 
-    if (rendering.placeholders && Object.values(rendering.placeholders).length > 0) {
-      Object.entries(rendering.placeholders).forEach(([key, nestedRenderings]) => {
-        const placeholderId = `${key}_${currentId}`;
+    result.push(
+      <code
+        {...getCodeBlockAttributes(metadataType, 'open', rendering.uid)}
+        key={`open-rendering-${rendering.uid}`}
+      ></code>
+    );
 
-        result.push(
-          <code
-            {...getCodeBlockAttributes('placeholder', 'open', placeholderId)}
-            key={`open-placeholder-${placeholderId}`}
-          ></code>
-        );
+    result.push(children);
 
-        nestedRenderings.forEach((nestedRendering) => {
-          result.push(...renderComponent(nestedRendering as ComponentRendering, placeholderId));
-        });
-
-        result.push(
-          <code
-            {...getCodeBlockAttributes('placeholder', 'close', placeholderId)}
-            key={`close-placeholder-${placeholderId}`}
-          ></code>
-        );
-      });
-    } else {
-      result.push(
-        <code
-          {...getCodeBlockAttributes('rendering', 'open', rendering.uid)}
-          key={`open-rendering-${rendering.uid}`}
-        ></code>
-      );
-
-      result.push(children);
-
-      result.push(
-        <code
-          {...getCodeBlockAttributes('rendering', 'close', rendering.uid)}
-          key={`close-rendering-${rendering.uid}`}
-        ></code>
-      );
-    }
+    result.push(
+      <code
+        {...getCodeBlockAttributes(metadataType, 'close', rendering.uid)}
+        key={`close-rendering-${rendering.uid}`}
+      ></code>
+    );
 
     return result;
   };
 
-  return <React.Fragment>{renderComponent(rendering)}</React.Fragment>;
+  return <React.Fragment>{renderComponent(rendering, metadataType)}</React.Fragment>;
 };

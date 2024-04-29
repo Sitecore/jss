@@ -269,7 +269,11 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         // if editMode is equal to 'metadata' then emit shallow chromes for hydration in Pages
         if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
           return (
-            <PlaceholderMetadata key={key} rendering={rendering as ComponentRendering}>
+            <PlaceholderMetadata
+              key={key}
+              rendering={rendering as ComponentRendering}
+              metadataType="rendering"
+            >
               {rendered}
             </PlaceholderMetadata>
           );

@@ -4,6 +4,7 @@ import { withComponentFactory } from '../enhancers/withComponentFactory';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { HorizonEditor } from '@sitecore-jss/sitecore-jss/utils';
 import { withSitecoreContext } from '../enhancers/withSitecoreContext';
+import { PlaceholderMetadata } from './PlaceholderMetadata';
 
 export interface PlaceholderComponentProps extends PlaceholderProps {
   /**
@@ -116,7 +117,20 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
         return renderEach(component, index);
       });
     } else {
-      return components;
+      if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
+        return (
+          <PlaceholderMetadata
+            rendering={
+              { uid: this.props.name + '_' + this.props.rendering.uid } as ComponentRendering
+            }
+            metadataType="placeholder"
+          >
+            {components}
+          </PlaceholderMetadata>
+        );
+
+        return components;
+      }
     }
   }
 }
