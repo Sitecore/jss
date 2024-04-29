@@ -1,11 +1,11 @@
 ﻿import React, { ReactNode } from 'react';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 
 /**
  *  Props containing the component data to render.
  */
 export interface PlaceholderMetadataProps {
-  rendering: ComponentRendering;
+  uid: string;
+  placeholderName?: string;
   children?: ReactNode;
   metadataType?: string;
 }
@@ -27,45 +27,45 @@ export type CodeBlockAttributes = {
  * @returns {JSX.Element} - The rendered component with all nested components and placeholders.
  */
 export const PlaceholderMetadata = ({
-  rendering,
+  uid,
+  placeholderName,
   children,
   metadataType,
 }: PlaceholderMetadataProps): JSX.Element => {
   const getCodeBlockAttributes = (
     chromeType: string,
     kind: string,
-    id: string
+    id: string,
+    placeholderName?: string
   ): CodeBlockAttributes => {
     return {
       type: 'text/sitecore',
       chrometype: chromeType,
       className: 'scpm',
       kind: kind,
-      id,
+      id: placeholderName ? `${placeholderName}_${id}` : id,
     };
   };
 
-  const renderComponent = (rendering: ComponentRendering, metadataType: string) => {
-    const result = [];
-
-    result.push(
-      <code
-        {...getCodeBlockAttributes(metadataType, 'open', rendering.uid)}
-        key={`open-rendering-${rendering.uid}`}
-      ></code>
-    );
-
-    result.push(children);
-
-    result.push(
-      <code
-        {...getCodeBlockAttributes(metadataType, 'close', rendering.uid)}
-        key={`close-rendering-${rendering.uid}`}
-      ></code>
-    );
-
-    return result;
+  const renderComponent = (uid: string, metadataType: string, placeholderName?: string) => {
+    if (metadataType) {
+      return (
+        <>
+          <code
+            {...getCodeBlockAttributes(metadataType, 'open', uid, placeholderName)}
+            key={`open-${placeholderName}-${uid}`}
+          />
+          {children}
+          <code
+            {...getCodeBlockAttributes(metadataType, 'close', uid, placeholderName)}
+            key={`close-${placeholderName}-${uid}`}
+          />
+        </>
+      );
+    } else {
+      return <>{children}</>;
+    }
   };
 
-  return <React.Fragment>{renderComponent(rendering, metadataType)}</React.Fragment>;
+  return <>{renderComponent(uid, metadataType, placeholderName)}</>;
 };

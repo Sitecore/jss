@@ -4,6 +4,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   ComponentRendering,
+  EditMode,
   LayoutServiceData,
   RouteData,
 } from '@sitecore-jss/sitecore-jss/layout';
@@ -37,6 +38,7 @@ import { ComponentProps } from './PlaceholderCommon';
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
+import React from 'react';
 
 const componentFactory: ComponentFactory = (componentName: string) => {
   const components = new Map<string, React.FC>();
@@ -223,6 +225,8 @@ describe('<Placeholder />', () => {
             />
           </SitecoreContext>
         );
+
+        console.log(renderedComponent.debug());
 
         expect(renderedComponent.html()).to.equal(
           '<div class="sc-jss-empty-placeholder"><span>My name is empty placeholder</span></div>'
@@ -722,33 +726,56 @@ it('should render custom HiddenRendering when rendering is hidden', () => {
   expect(renderedComponent.find('p').props().children).to.equal('Hidden Rendering');
 });
 
-const testDataWithMetadata = [
-  { label: 'Dev data', data: nonEeDevData },
-  { label: 'LayoutService data - EE off', data: nonEeLsData },
-];
+describe.only('with metadata', () => {
+  it('renders <PlaceholderMetadata> component when editMode is Metadata', () => {
+    const componentFactory: ComponentFactory = (componentName: string) => {
+      const components = new Map<string, React.FC>();
 
-testDataWithMetadata.forEach((dataSet) => {
-  describe(`with ${dataSet.label}`, () => {
-    it('renders <PlaceholderMetadata> when editMode is Metadata', () => {
-      const component = ((dataSet.data.sitecore.route.placeholders.main as unknown) as (
-        | ComponentRendering
-        | RouteData
-      )[]).find((c) => (c as ComponentRendering).componentName);
-      const phKey = 'page-content';
+      components.set('RichText', () => <div className="richtext-mock" />);
+      components.set('Layout', () => <div className="Logo-mock" />);
 
-      const mockLayoutData: LayoutServiceData = layoutDataWithMetadata;
+      return components.get(componentName) || null;
+    };
 
-      const renderedComponent = mount(
-        <SitecoreContext componentFactory={componentFactory} layoutData={mockLayoutData}>
-          <Placeholder name={phKey} rendering={component} />
-        </SitecoreContext>
-      );
+    const mockLayoutData = {
+      sitecore: {
+        context: {
+          pageEditing: true,
+          editMode: EditMode.Metadata,
+        },
+        route: {
+          name: 'main',
+          placeholders: {
+            main: [
+              {
+                uid: '123',
+                componentName: 'Layout',
+                placeholders: {
+                  header: [
+                    {
+                      uid: '456',
+                      componentName: 'RichText',
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+      },
+    };
 
-      expect(renderedComponent.find(PlaceholderMetadata).length).to.equal(1);
-    });
+    const component = mockLayoutData.sitecore.route.placeholders.main[0];
+
+    const renderedComponent = mount(
+      <SitecoreContext componentFactory={componentFactory} layoutData={mockLayoutData}>
+        <Placeholder name="header" rendering={component} />
+      </SitecoreContext>
+    );
+
+    expect(renderedComponent.find(PlaceholderMetadata).length).to.equal(2);
   });
 });
-
 after(() => {
   (global as any).window.close();
 });

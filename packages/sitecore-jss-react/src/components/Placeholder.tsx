@@ -1,7 +1,11 @@
 import React from 'react';
 import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
-import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
+import {
+  ComponentRendering,
+  EditMode,
+  HtmlElementRendering,
+} from '@sitecore-jss/sitecore-jss/layout';
 import { HorizonEditor } from '@sitecore-jss/sitecore-jss/utils';
 import { withSitecoreContext } from '../enhancers/withSitecoreContext';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
@@ -68,6 +72,24 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
     return <div className="sc-jss-empty-placeholder">{node}</div>;
   }
 
+  componentsWithMetadata(components: React.JSX.Element[]): React.ReactElement[] {
+    const { sitecoreContext, rendering, name } = this.props;
+
+    if (sitecoreContext?.editMode === EditMode.Metadata) {
+      return [
+        <PlaceholderMetadata
+          key={(rendering as ComponentRendering).uid}
+          uid={(rendering as ComponentRendering).uid}
+          placeholderName={name}
+          metadataType="placeholder"
+        >
+          {components}
+        </PlaceholderMetadata>,
+      ];
+    }
+    return components;
+  }
+
   render() {
     const childProps: PlaceholderComponentProps = { ...this.props };
 
@@ -92,7 +114,8 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
       this.props.name
     );
 
-    const components = this.getComponentsForRenderingData(placeholderData);
+    let components = this.getComponentsForRenderingData(placeholderData);
+    components = this.componentsWithMetadata(components);
 
     this.isEmpty = placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>
       isRawRendering(rendering)
@@ -117,20 +140,7 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
         return renderEach(component, index);
       });
     } else {
-      if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
-        return (
-          <PlaceholderMetadata
-            rendering={
-              { uid: this.props.name + '_' + this.props.rendering.uid } as ComponentRendering
-            }
-            metadataType="placeholder"
-          >
-            {components}
-          </PlaceholderMetadata>
-        );
-
-        return components;
-      }
+      return components;
     }
   }
 }

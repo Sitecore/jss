@@ -271,7 +271,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           return (
             <PlaceholderMetadata
               key={key}
-              rendering={rendering as ComponentRendering}
+              uid={(rendering as ComponentRendering).uid}
               metadataType="rendering"
             >
               {rendered}
