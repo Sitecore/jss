@@ -9,7 +9,7 @@ import StyleguideSpecimen from '../styleguide/Styleguide-Specimen';
 const StyleguideFieldUsageImage = (props) => (
   <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-image">
     <p>Plain image</p>
-    <Image media={props.fields.sample1} />
+    <Image field={props.fields.sample1} />
 
     {/*
       Advanced image usage example

@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { AxiosDataFetcher, GraphQLSitemapXmlService, AxiosResponse } from '@sitecore-jss/sitecore-jss-nextjs';
 import { siteResolver } from 'lib/site-resolver';
 import config from 'temp/config';
+import clientFactory from 'lib/graphql-client-factory';
 
 const ABSOLUTE_URL_REGEXP = '^(?:[a-z]+:)?//';
 
@@ -19,8 +20,7 @@ const sitemapApi = async (
 
   // create sitemap graphql service
   const sitemapXmlService = new GraphQLSitemapXmlService({
-    endpoint: config.graphQLEndpoint,
-    apiKey: config.sitecoreApiKey,
+    clientFactory,
     siteName: site.name,
   });
 

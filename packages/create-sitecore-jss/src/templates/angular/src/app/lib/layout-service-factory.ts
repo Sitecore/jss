@@ -5,13 +5,13 @@ import {
   constants,
 } from '@sitecore-jss/sitecore-jss-angular';
 import { environment } from '../../environments/environment';
+import { clientFactory } from './client-factory';
 
 export class LayoutServiceFactory {
   create(): LayoutService {
     return process.env.FETCH_WITH === constants.FETCH_WITH.GRAPHQL
       ? new GraphQLLayoutService({
-          endpoint: environment.graphQLEndpoint,
-          apiKey: environment.sitecoreApiKey,
+          clientFactory,
           siteName: environment.sitecoreSiteName,
         })
       : new RestLayoutService({

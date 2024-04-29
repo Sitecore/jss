@@ -19,7 +19,7 @@
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Image.d.ts:9
+sitecore-jss-react/types/components/Image.d.ts:9
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Image.d.ts:8
+sitecore-jss-react/types/components/Image.d.ts:8

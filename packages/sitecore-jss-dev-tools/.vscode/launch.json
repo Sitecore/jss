@@ -3,13 +3,13 @@
   "configurations": [
     {
       "name": "Run mocha",
-      "type": "node2",
+      "type": "node",
       "request": "launch",
       "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
       "stopOnEntry": false,
       "args": [
-        "--compilers",
-        "js:babel-core/register",
+        "--require",
+        "@babel/register",
         "./src/**/*.test.js",
         "--no-timeouts",
         "./dist/test"

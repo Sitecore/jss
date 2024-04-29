@@ -15,7 +15,6 @@
 - [editable](index.ImageProps.md#editable)
 - [field](index.ImageProps.md#field)
 - [imageParams](index.ImageProps.md#imageparams)
-- [media](index.ImageProps.md#media)
 - [mediaUrlPrefix](index.ImageProps.md#mediaurlprefix)
 - [srcSet](index.ImageProps.md#srcset)
 
@@ -31,7 +30,7 @@ and rendered as component output. If false, `media.editable` value will be ignor
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Image.d.ts:42
+sitecore-jss-react/types/components/Image.d.ts:37
 
 ___
 
@@ -43,7 +42,7 @@ Image field data (consistent with other field types)
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Image.d.ts:36
+sitecore-jss-react/types/components/Image.d.ts:31
 
 ___
 
@@ -59,23 +58,7 @@ Parameters that will be attached to Sitecore media URLs
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Image.d.ts:46
-
-___
-
-### media
-
-• `Optional` **media**: [`ImageField`](index.ImageField.md) \| [`ImageFieldValue`](index.ImageFieldValue.md)
-
-The image field data.
-
-**`Deprecated`**
-
-use field property instead
-
-#### Defined in
-
-packages/sitecore-jss-react/types/components/Image.d.ts:34
+sitecore-jss-react/types/components/Image.d.ts:41
 
 ___
 
@@ -95,7 +78,7 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Image.d.ts:57
+sitecore-jss-react/types/components/Image.d.ts:52
 
 ___
 
@@ -105,4 +88,4 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Image.d.ts:49
+sitecore-jss-react/types/components/Image.d.ts:44

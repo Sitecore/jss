@@ -19,7 +19,7 @@
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/RichText.d.ts:6
+sitecore-jss-react/types/components/RichText.d.ts:6
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/RichText.d.ts:5
+sitecore-jss-react/types/components/RichText.d.ts:5

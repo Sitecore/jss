@@ -4,7 +4,11 @@ This is a sample setup showing one one of how you can configure rendering server
 
 The setup is using `sitecore-jss-proxy` that enables request proxying to Sitecore CD along with the http cookies to enable tracking, personalization and contact identification.
 
-[Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/21/sitecore-headless-development/walkthrough--rendering-a-jss-app-server-side-using-the-headless-jss-proxy.html)
+<!---
+@TODO: Update to next version docs before release
+-->
+
+[Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/22/sitecore-headless-development/walkthrough--rendering-a-jss-app-server-side-using-the-headless-jss-proxy.html)
 
 > This is a sample setup that is not officially supported by Sitecore.
 
@@ -52,7 +56,7 @@ The following environment variables can be set to configure the proxy instead of
 You should be able to see the following message:
 `server listening on port 3000!` and see all the communication between this server and your Sitecore CD instance in the console.
 
-More info on this setup can be found [here](https://doc.sitecore.com/xp/en/developers/hd/21/sitecore-headless-development/sitecore-headless-services.html).
+More info on this setup can be found [here](https://doc.sitecore.com/xp/en/developers/hd/22/sitecore-headless-development/sitecore-headless-services.html).
 
 ## Production Notes
 

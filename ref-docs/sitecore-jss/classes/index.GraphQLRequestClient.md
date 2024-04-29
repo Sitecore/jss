@@ -50,7 +50,7 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:181](https://github.com/Sitecore/jss/blob/ff09e46a0/packages/sitecore-jss/src/graphql-request-client.ts#L181)
+[packages/sitecore-jss/src/graphql-request-client.ts:161](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss/src/graphql-request-client.ts#L161)
 
 ## Properties
 
@@ -60,7 +60,7 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:171](https://github.com/Sitecore/jss/blob/ff09e46a0/packages/sitecore-jss/src/graphql-request-client.ts#L171)
+[packages/sitecore-jss/src/graphql-request-client.ts:151](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss/src/graphql-request-client.ts#L151)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:168](https://github.com/Sitecore/jss/blob/ff09e46a0/packages/sitecore-jss/src/graphql-request-client.ts#L168)
+[packages/sitecore-jss/src/graphql-request-client.ts:148](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss/src/graphql-request-client.ts#L148)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:170](https://github.com/Sitecore/jss/blob/ff09e46a0/packages/sitecore-jss/src/graphql-request-client.ts#L170)
+[packages/sitecore-jss/src/graphql-request-client.ts:150](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss/src/graphql-request-client.ts#L150)
 
 ___
 
@@ -92,7 +92,7 @@ The Graphql endpoint
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:181](https://github.com/Sitecore/jss/blob/ff09e46a0/packages/sitecore-jss/src/graphql-request-client.ts#L181)
+[packages/sitecore-jss/src/graphql-request-client.ts:161](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss/src/graphql-request-client.ts#L161)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:169](https://github.com/Sitecore/jss/blob/ff09e46a0/packages/sitecore-jss/src/graphql-request-client.ts#L169)
+[packages/sitecore-jss/src/graphql-request-client.ts:149](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss/src/graphql-request-client.ts#L149)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:173](https://github.com/Sitecore/jss/blob/ff09e46a0/packages/sitecore-jss/src/graphql-request-client.ts#L173)
+[packages/sitecore-jss/src/graphql-request-client.ts:153](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss/src/graphql-request-client.ts#L153)
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:174](https://github.com/Sitecore/jss/blob/ff09e46a0/packages/sitecore-jss/src/graphql-request-client.ts#L174)
+[packages/sitecore-jss/src/graphql-request-client.ts:154](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss/src/graphql-request-client.ts#L154)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:172](https://github.com/Sitecore/jss/blob/ff09e46a0/packages/sitecore-jss/src/graphql-request-client.ts#L172)
+[packages/sitecore-jss/src/graphql-request-client.ts:152](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss/src/graphql-request-client.ts#L152)
 
 ## Methods
 
@@ -165,7 +165,7 @@ Execute graphql request
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:223](https://github.com/Sitecore/jss/blob/ff09e46a0/packages/sitecore-jss/src/graphql-request-client.ts#L223)
+[packages/sitecore-jss/src/graphql-request-client.ts:203](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss/src/graphql-request-client.ts#L203)
 
 ___
 
@@ -187,4 +187,4 @@ Factory method for creating a GraphQLRequestClientFactory.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:210](https://github.com/Sitecore/jss/blob/ff09e46a0/packages/sitecore-jss/src/graphql-request-client.ts#L210)
+[packages/sitecore-jss/src/graphql-request-client.ts:190](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss/src/graphql-request-client.ts#L190)

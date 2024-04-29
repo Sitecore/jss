@@ -14,7 +14,7 @@ pipeline.addProcessor({
 });
 
 pipeline
-  .runWithCompilers(['babel-core/register'])
+  .runWithCompilers(['@babel/register'])
   .then((result) => {
     console.log(JSON.stringify(result, null, 2));
   })
@@ -23,7 +23,7 @@ pipeline
   });
 
 const runner = async () => {
-  const compilers = ['babel-core/register'];
+  const compilers = ['@babel/register'];
   return initCompilers(compilers)
     .then(() =>
       configLoader({ fileGlobs: ['../test/pipelines/**/*.config.js'], workingDirectory: __dirname })

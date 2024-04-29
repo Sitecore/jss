@@ -30,7 +30,7 @@ Allow stretch
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Image.d.ts:24
+sitecore-jss-react/types/components/Image.d.ts:24
 
 ___
 
@@ -42,7 +42,7 @@ Fixed height of the image
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Image.d.ts:16
+sitecore-jss-react/types/components/Image.d.ts:16
 
 ___
 
@@ -54,7 +54,7 @@ Ignore aspect ratio
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Image.d.ts:22
+sitecore-jss-react/types/components/Image.d.ts:22
 
 ___
 
@@ -66,7 +66,7 @@ Max height of the image
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Image.d.ts:20
+sitecore-jss-react/types/components/Image.d.ts:20
 
 ___
 
@@ -78,7 +78,7 @@ Max width of the image
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Image.d.ts:18
+sitecore-jss-react/types/components/Image.d.ts:18
 
 ___
 
@@ -90,7 +90,7 @@ Image scale. Defaults to 1.0
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Image.d.ts:26
+sitecore-jss-react/types/components/Image.d.ts:26
 
 ___
 
@@ -102,4 +102,4 @@ Fixed width of the image
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/Image.d.ts:14
+sitecore-jss-react/types/components/Image.d.ts:14

@@ -14,9 +14,12 @@ describe('GraphQLPersonalizeService', () => {
   const id = 'itemid';
   const version = '1';
   const variantIds = ['variant-1', 'variant-2'];
-  const config = {
+  const clientFactory = GraphQLRequestClient.createClientFactory({
     endpoint,
     apiKey,
+  });
+  const config = {
+    clientFactory,
   };
   const personalizeQueryResult = {
     layout: {
@@ -64,24 +67,6 @@ describe('GraphQLPersonalizeService', () => {
     mockNonEmptyResponse();
 
     const service = new GraphQLPersonalizeService(config);
-    const personalizeData = await service.getPersonalizeInfo(
-      '/sitecore/content/home',
-      'en',
-      siteName
-    );
-
-    expect(personalizeData).to.deep.equal({
-      contentId: `embedded_${id}_en`.toLowerCase(),
-      variantIds,
-    });
-  });
-
-  it('should return personalize info for a route using clientFactory', async () => {
-    mockNonEmptyResponse();
-
-    const clientFactory = GraphQLRequestClient.createClientFactory(config);
-
-    const service = new GraphQLPersonalizeService({ clientFactory });
     const personalizeData = await service.getPersonalizeInfo(
       '/sitecore/content/home',
       'en',

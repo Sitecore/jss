@@ -21,6 +21,7 @@
 - [GenericLinkDirective](classes/GenericLinkDirective.md)
 - [GraphQLDictionaryService](classes/GraphQLDictionaryService.md)
 - [GraphQLLayoutService](classes/GraphQLLayoutService.md)
+- [GraphQLRequestClient](classes/GraphQLRequestClient.md)
 - [HiddenRenderingComponent](classes/HiddenRenderingComponent.md)
 - [ImageDirective](classes/ImageDirective.md)
 - [JssModule](classes/JssModule.md)
@@ -75,6 +76,7 @@
 - [EditFrameDataSource](README.md#editframedatasource)
 - [FieldEditButton](README.md#fieldeditbutton)
 - [GraphQLClientError](README.md#graphqlclienterror)
+- [GraphQLRequestClientFactoryConfig](README.md#graphqlrequestclientfactoryconfig)
 - [HttpDataFetcher](README.md#httpdatafetcher)
 - [PlaceholdersData](README.md#placeholdersdata)
 - [WebEditButton](README.md#webeditbutton)
@@ -136,6 +138,25 @@ In cases where an error status was sent back from the server (`!response.ok`), t
 #### Defined in
 
 packages/sitecore-jss/types/graphql-request-client.d.ts:41
+
+___
+
+### GraphQLRequestClientFactoryConfig
+
+Ƭ **GraphQLRequestClientFactoryConfig**: `Object`
+
+Configuration type for
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `apiKey?` | `string` |
+| `endpoint` | `string` |
+
+#### Defined in
+
+packages/sitecore-jss/types/graphql-request-client.d.ts:84
 
 ___
 
@@ -213,7 +234,7 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/ff09e46a0/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -422,7 +443,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/ff09e46a0/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
