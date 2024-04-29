@@ -34,7 +34,7 @@ In cases where an error status was sent back from the server (`!response.ok`), t
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:21
+sitecore-jss/types/graphql-request-client.d.ts:41
 
 ___
 
@@ -63,7 +63,7 @@ An instance of a GraphQL Request Client ready to send GraphQL requests.
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:80
+sitecore-jss/types/graphql-request-client.d.ts:100
 
 ___
 
@@ -82,7 +82,7 @@ Configuration type for
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:84
+sitecore-jss/types/graphql-request-client.d.ts:104
 
 ## Functions
 

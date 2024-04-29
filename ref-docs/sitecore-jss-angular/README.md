@@ -156,7 +156,7 @@ Configuration type for
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:84
+packages/sitecore-jss/types/graphql-request-client.d.ts:104
 
 ___
 
@@ -234,7 +234,7 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -443,7 +443,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/9071f53e6/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
