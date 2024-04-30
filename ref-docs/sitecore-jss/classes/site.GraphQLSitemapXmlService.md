@@ -43,7 +43,7 @@ Creates an instance of graphQL sitemaps service with the provided options
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:50](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L50)
+[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:50](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L50)
 
 ## Properties
 
@@ -53,7 +53,7 @@ Creates an instance of graphQL sitemaps service with the provided options
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:40](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L40)
+[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:40](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L40)
 
 ___
 
@@ -65,7 +65,7 @@ instance
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:50](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L50)
+[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:50](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L50)
 
 ## Accessors
 
@@ -79,7 +79,7 @@ instance
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:42](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L42)
+[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:42](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L42)
 
 ## Methods
 
@@ -101,7 +101,7 @@ if the siteName is empty.
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:59](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L59)
+[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:59](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L59)
 
 ___
 
@@ -121,7 +121,7 @@ implementation
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:94](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L94)
+[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:94](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L94)
 
 ___
 
@@ -145,4 +145,4 @@ the sitemap file path or undefined if one doesn't exist
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:81](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L81)
+[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:81](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L81)

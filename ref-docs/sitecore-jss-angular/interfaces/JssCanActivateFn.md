@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:86](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L86)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:86](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L86)

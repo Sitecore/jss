@@ -64,7 +64,7 @@ Object model of Error Pages result
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:47](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L47)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:47](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L47)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:36](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L36)
+[packages/sitecore-jss/src/site/graphql-redirects-service.ts:36](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L36)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-robots-service.ts:17](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-robots-service.ts#L17)
+[packages/sitecore-jss/src/site/graphql-robots-service.ts:17](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-robots-service.ts#L17)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:37](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L37)
+[packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:37](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L37)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:19](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L19)
+[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:19](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L19)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:11](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L11)
+[packages/sitecore-jss/src/site/graphql-redirects-service.ts:11](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L11)
 
 ___
 
@@ -157,7 +157,7 @@ The schema of data returned in response to redirects array request
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:51](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L51)
+[packages/sitecore-jss/src/site/graphql-redirects-service.ts:51](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L51)
 
 ___
 
@@ -177,7 +177,7 @@ The schema of data returned in response to robots.txt request
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-robots-service.ts:32](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-robots-service.ts#L32)
+[packages/sitecore-jss/src/site/graphql-robots-service.ts:32](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-robots-service.ts#L32)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:18](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L18)
+[packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:18](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L18)
 
 ___
 
@@ -215,7 +215,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/utils.ts:3](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/utils.ts#L3)
+[packages/sitecore-jss/src/site/utils.ts:3](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/utils.ts#L3)
 
 ___
 
@@ -235,7 +235,7 @@ The schema of data returned in response to sitemaps request
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:34](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L34)
+[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:34](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L34)
 
 ## Variables
 
@@ -245,7 +245,7 @@ The schema of data returned in response to sitemaps request
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:7](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L7)
+[packages/sitecore-jss/src/site/graphql-redirects-service.ts:7](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L7)
 
 ___
 
@@ -255,7 +255,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:8](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L8)
+[packages/sitecore-jss/src/site/graphql-redirects-service.ts:8](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L8)
 
 ___
 
@@ -265,7 +265,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:9](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L9)
+[packages/sitecore-jss/src/site/graphql-redirects-service.ts:9](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L9)
 
 ## Functions
 
@@ -290,7 +290,7 @@ the rewrite path
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/utils.ts:13](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/utils.ts#L13)
+[packages/sitecore-jss/src/site/utils.ts:13](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/utils.ts#L13)
 
 ___
 
@@ -315,7 +315,7 @@ the site data from the rewrite
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/utils.ts:25](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/utils.ts#L25)
+[packages/sitecore-jss/src/site/utils.ts:25](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/utils.ts#L25)
 
 ___
 
@@ -339,4 +339,4 @@ the pathname with site data removed
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/utils.ts:45](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss/src/site/utils.ts#L45)
+[packages/sitecore-jss/src/site/utils.ts:45](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss/src/site/utils.ts#L45)

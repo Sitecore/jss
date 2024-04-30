@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:209](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss-react/src/components/Image.tsx#L209)
+[packages/sitecore-jss-react/src/components/Image.tsx:209](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss-react/src/components/Image.tsx#L209)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:183](https://github.com/Sitecore/jss/blob/8f4deff75/packages/sitecore-jss-react/src/components/Image.tsx#L183)
+[packages/sitecore-jss-react/src/components/Image.tsx:183](https://github.com/Sitecore/jss/blob/ac3035684/packages/sitecore-jss-react/src/components/Image.tsx#L183)
