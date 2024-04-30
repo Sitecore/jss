@@ -2,12 +2,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react/prop-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  ComponentRendering,
-  EditMode,
-  LayoutServiceData,
-  RouteData,
-} from '@sitecore-jss/sitecore-jss/layout';
+import { ComponentRendering, EditMode, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import { expect } from 'chai';
 import { mount, shallow } from 'enzyme';
 import PropTypes from 'prop-types';
@@ -17,7 +12,6 @@ import { convertedData as eeData, emptyPlaceholderData } from '../test-data/ee-d
 import {
   byocWrapperData,
   feaasWrapperData,
-  layoutDataWithMetadata,
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
   sxaRenderingColumnSplitterVariant,
@@ -38,7 +32,6 @@ import { ComponentProps } from './PlaceholderCommon';
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
-import React from 'react';
 
 const componentFactory: ComponentFactory = (componentName: string) => {
   const components = new Map<string, React.FC>();
