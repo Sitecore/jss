@@ -719,7 +719,7 @@ it('should render custom HiddenRendering when rendering is hidden', () => {
   expect(renderedComponent.find('p').props().children).to.equal('Hidden Rendering');
 });
 
-describe('PlaceholderMetadata', () => {
+describe.only('PlaceholderMetadata', () => {
   const layoutDataForNestedPlaceholder = {
     sitecore: {
       context: {
@@ -761,20 +761,15 @@ describe('PlaceholderMetadata', () => {
 
     components.set('RichText', () => <div className="richtext-mock" />);
     components.set('Header', () => (
-      <SitecoreContext
-        componentFactory={componentFactory}
-        layoutData={layoutDataForNestedPlaceholder}
-      >
-        <div className="header-wrapper">
-          <Placeholder
-            name="logo"
-            rendering={
-              layoutDataForNestedPlaceholder.sitecore.route.placeholders.main[0].placeholders
-                .header[0]
-            }
-          />
-        </div>
-      </SitecoreContext>
+      <div className="header-wrapper">
+        <Placeholder
+          name="logo"
+          rendering={
+            layoutDataForNestedPlaceholder.sitecore.route.placeholders.main[0].placeholders
+              .header[0]
+          }
+        />
+      </div>
     ));
     components.set('Logo', () => <div className="Logo-mock" />);
 

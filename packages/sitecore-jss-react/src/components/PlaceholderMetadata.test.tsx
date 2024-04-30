@@ -5,15 +5,10 @@ import { PlaceholderMetadata } from './PlaceholderMetadata';
 
 describe('PlaceholderWithMetadata', () => {
   it('renders rendering code blocks for metadataType rendering', () => {
-    const component = {
-      uid: '123',
-      componentName: 'RichText',
-    };
-
     const children = <div className="richtext-class"></div>;
 
     const wrapper = shallow(
-      <PlaceholderMetadata uid={component.uid} metadataType={'rendering'}>
+      <PlaceholderMetadata uid={'123'} metadataType={'rendering'}>
         {children}
       </PlaceholderMetadata>
     );
@@ -30,16 +25,16 @@ describe('PlaceholderWithMetadata', () => {
   it('renders placeholder code blocks when metadataType is placeholder', () => {
     const children = <div className="richtext-mock"></div>;
     const wrapper = shallow(
-      <PlaceholderMetadata uid={'xyz'} metadataType={'placeholder'}>
+      <PlaceholderMetadata uid={'123'} placeholderName={'main'} metadataType={'placeholder'}>
         {children}
       </PlaceholderMetadata>
     );
 
     expect(wrapper.html()).to.equal(
       [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="xyz"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_123"></code>',
         '<div class="richtext-mock"></div>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="xyz"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="main_123"></code>',
       ].join('')
     );
   });

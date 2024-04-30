@@ -80,7 +80,7 @@ export interface PlaceholderProps {
   /**
    *  Context data from the Sitecore Layout Service
    */
-  sitecoreContext?: SitecoreContextValue;
+  sitecoreContext: SitecoreContextValue;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
