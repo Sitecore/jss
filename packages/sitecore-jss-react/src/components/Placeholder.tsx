@@ -1,14 +1,9 @@
 import React from 'react';
 import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
-import {
-  ComponentRendering,
-  EditMode,
-  HtmlElementRendering,
-} from '@sitecore-jss/sitecore-jss/layout';
+import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { HorizonEditor } from '@sitecore-jss/sitecore-jss/utils';
 import { withSitecoreContext } from '../enhancers/withSitecoreContext';
-import { PlaceholderMetadata } from './PlaceholderMetadata';
 
 export interface PlaceholderComponentProps extends PlaceholderProps {
   /**
@@ -72,24 +67,6 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
     return <div className="sc-jss-empty-placeholder">{node}</div>;
   }
 
-  componentsWithMetadata(components: React.JSX.Element[]): React.ReactElement[] {
-    const { sitecoreContext, rendering, name } = this.props;
-
-    if (sitecoreContext?.editMode === EditMode.Metadata) {
-      return [
-        <PlaceholderMetadata
-          key={(rendering as ComponentRendering).uid}
-          uid={(rendering as ComponentRendering).uid}
-          placeholderName={name}
-          metadataType="placeholder"
-        >
-          {components}
-        </PlaceholderMetadata>,
-      ];
-    }
-    return components;
-  }
-
   render() {
     const childProps: PlaceholderComponentProps = { ...this.props };
 
@@ -114,8 +91,8 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
       this.props.name
     );
 
-    let components = this.getComponentsForRenderingData(placeholderData);
-    components = this.componentsWithMetadata(components);
+    const components = this.getComponentsForRenderingData(placeholderData);
+    // components = this.componentsWithMetadata(components);
 
     this.isEmpty = placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>
       isRawRendering(rendering)

@@ -80,7 +80,7 @@ export interface PlaceholderProps {
   /**
    *  Context data from the Sitecore Layout Service
    */
-  sitecoreContext: SitecoreContextValue;
+  sitecoreContext?: SitecoreContextValue;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
@@ -196,7 +196,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       ...placeholderProps
     } = this.props;
 
-    return placeholderData
+    const components = placeholderData
       .map((rendering: ComponentRendering | HtmlElementRendering, index: number) => {
         const key = (rendering as ComponentRendering).uid
           ? (rendering as ComponentRendering).uid
@@ -282,6 +282,21 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         return rendered;
       })
       .filter((element) => element); // remove nulls
+
+    if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
+      return [
+        <PlaceholderMetadata
+          key={(this.props.rendering as ComponentRendering).uid}
+          uid={(this.props.rendering as ComponentRendering).uid}
+          placeholderName={name}
+          metadataType="placeholder"
+        >
+          {components}
+        </PlaceholderMetadata>,
+      ];
+    }
+
+    return components;
   }
 
   getComponentForRendering(renderingDefinition: ComponentRendering): ComponentType | null {
