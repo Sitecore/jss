@@ -31,6 +31,10 @@ const layoutDataForNestedPlaceholder = {
                         uid: 'deep123',
                         componentName: 'Logo',
                       },
+                      {
+                        uid: 'richtextuid',
+                        componentName: 'RichText',
+                      },
                     ],
                   },
                 },
@@ -52,12 +56,24 @@ const componentFactory: ComponentFactory = (componentName: string) => {
       componentFactory={componentFactory}
       layoutData={layoutDataForNestedPlaceholder}
     >
-      <Placeholder
-        name="logo"
-        rendering={
-          layoutDataForNestedPlaceholder.sitecore.route.placeholders.main[0].placeholders.header[0]
-        }
-      />
+      <div className="header-wrapper">
+        <h2>This is the heading of the header component</h2>
+        <Placeholder
+          name="logo"
+          rendering={
+            layoutDataForNestedPlaceholder.sitecore.route.placeholders.main[0].placeholders
+              .header[0]
+          }
+        />
+        <Placeholder
+          name="buttons"
+          rendering={
+            layoutDataForNestedPlaceholder.sitecore.route.placeholders.main[0].placeholders
+              .header[0]
+          }
+        />
+        <p>this is the footer of the header component</p>
+      </div>
     </SitecoreContext>
   ));
   components.set('Logo', () => <div className="Logo-mock" />);
