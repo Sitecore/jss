@@ -200,7 +200,7 @@ describe('ErrorBoundary', () => {
       ).to.equal(errorMessage);
     });
   });
-  describe('when not in page editing and not i development mode', () => {
+  describe('when not in page editing and not in development mode', () => {
     it('Should render custom error component when custom error component is provided and error is thrown', () => {
       const errorMessage = 'an error occured';
       const TestErrorComponent: React.FC = () => {
@@ -234,7 +234,7 @@ describe('ErrorBoundary', () => {
       console.log(rendered.html());
       expect(rendered.html()).to.contain('class="sc-jss-placeholder-error"');
       expect(rendered.html()).to.contain(
-        "We're having trouble loading this section. Please try again by refreshing your browser." // eslint-disable-line
+        'There was a problem loading this section. Refresh your browser to try again.' // eslint-disable-line
       );
       expect(rendered.find('em').length).to.equal(0);
       expect(rendered.html()).to.not.contain(errorMessage);
