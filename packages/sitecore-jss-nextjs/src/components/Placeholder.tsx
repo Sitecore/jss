@@ -11,7 +11,7 @@ export const Placeholder = (props: PlaceholderComponentProps) => {
   return (
     <ReactPlaceholder
       {...props}
-      modifyComponentProps={(initialProps) => {
+      modifyComponentProps={(initialProps: { rendering: { uid: string | number } }) => {
         if (!initialProps.rendering.uid) return initialProps;
 
         const data = componentPropsContext[initialProps.rendering.uid] as {
