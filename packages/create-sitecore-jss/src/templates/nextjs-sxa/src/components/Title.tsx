@@ -1,11 +1,11 @@
-import React from 'react';
 import {
   Link,
-  Text,
-  useSitecoreContext,
   LinkField,
+  Text,
   TextField,
+  useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import React from 'react';
 
 interface Fields {
   data: {
@@ -17,7 +17,8 @@ interface Fields {
       field: {
         jsonValue: {
           value: string;
-          editable: string;
+          editable?: string;
+          metadata?: object;
         };
       };
     };
@@ -29,7 +30,8 @@ interface Fields {
       field: {
         jsonValue: {
           value: string;
-          editable: string;
+          editable?: string;
+          metadata?: object;
         };
       };
     };
@@ -61,17 +63,23 @@ const ComponentContent = (props: ComponentContentProps) => {
 export const Default = (props: TitleProps): JSX.Element => {
   const datasource = props.fields?.data?.datasource || props.fields?.data?.contextItem;
   const { sitecoreContext } = useSitecoreContext();
+  const isMetadataMode = sitecoreContext?.editMode === 'metadata';
+  const editingField = {
+    ...(isMetadataMode
+      ? { metadata: datasource?.field?.jsonValue?.metadata }
+      : { editable: datasource?.field?.jsonValue?.editable }),
+  };
 
   const text: TextField = {
     value: datasource?.field?.jsonValue?.value,
-    editable: datasource?.field?.jsonValue?.editable,
+    ...editingField,
   };
   const link: LinkField = {
     value: {
       href: datasource?.url?.path,
       title: datasource?.field?.jsonValue?.value,
-      editable: true,
     },
+    ...editingField,
   };
   if (sitecoreContext.pageState !== 'normal') {
     link.value.querystring = `sc_site=${datasource?.url?.siteName}`;
@@ -84,10 +92,10 @@ export const Default = (props: TitleProps): JSX.Element => {
   return (
     <ComponentContent styles={props.params.styles} id={props.params.RenderingIdentifier}>
       <>
-        {sitecoreContext.pageState === 'edit' ? (
+        {sitecoreContext.pageEditing ? (
           <Text field={text} />
         ) : (
-          <Link field={link}>
+          <Link field={link} editable={true}>
             <Text field={text} />
           </Link>
         )}
