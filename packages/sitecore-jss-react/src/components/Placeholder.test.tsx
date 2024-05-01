@@ -871,8 +871,8 @@ describe.only('PlaceholderMetadata', () => {
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="header_123"></code>',
         '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="456"></code>',
         '<div class="richtext-mock"></div>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close" id="456"></code>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="header_123"></code>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
       ].join('')
     );
   });
@@ -906,11 +906,11 @@ describe.only('PlaceholderMetadata', () => {
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="logo_nested123"></code>',
         '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="deep123"></code>',
         '<div class="Logo-mock"></div>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close" id="deep123"></code>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="logo_nested123"></code>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
         '</div>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close" id="nested123"></code>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="header_root123"></code>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
       ].join('')
     );
   });
@@ -955,7 +955,7 @@ describe.only('PlaceholderMetadata', () => {
       [
         '<div class="sc-jss-empty-placeholder">',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="header_123"></code>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="header_123"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
         '</div>',
       ].join('')
     );
@@ -1007,8 +1007,8 @@ describe.only('PlaceholderMetadata', () => {
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="header_123"></code>',
         '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="456"></code>',
         '<div style="background:darkorange;outline:5px solid orange;padding:10px;color:white;max-width:500px"><h2>Unknown</h2><p>JSS component is missing React implementation. See the developer console for more information.</p></div>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close" id="456"></code>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close" id="header_123"></code>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
       ].join('')
     );
   });

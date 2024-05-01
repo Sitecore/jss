@@ -80,7 +80,7 @@ export interface PlaceholderProps {
   /**
    *  Context data from the Sitecore Layout Service
    */
-  sitecoreContext: SitecoreContextValue;
+  sitecoreContext?: SitecoreContextValue;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
@@ -109,7 +109,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       PropTypes.func as Requireable<React.FC<unknown>>,
     ]),
     modifyComponentProps: PropTypes.func,
-    sitecoreContext: PropTypes.object as Requireable<SitecoreContextValue>,
+    sitecoreContext: PropTypes.object,
   };
 
   nodeRefs: Element[];
@@ -122,8 +122,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     this.addRef = this.addRef.bind(this);
     this.updateKeyAttributes = this.updateKeyAttributes.bind(this);
     this.createRawElement = this.createRawElement.bind(this);
-    this.getComponentForRendering = this.getComponentForRendering.bind(this);
-    this.getSXAParams = this.getSXAParams.bind(this);
   }
 
   static getPlaceholderDataFromRenderingData(
@@ -269,11 +267,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         // if editMode is equal to 'metadata' then emit shallow chromes for hydration in Pages
         if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
           return (
-            <PlaceholderMetadata
-              key={key}
-              uid={(rendering as ComponentRendering).uid}
-              metadataType="rendering"
-            >
+            <PlaceholderMetadata key={key} uid={(rendering as ComponentRendering).uid}>
               {rendered}
             </PlaceholderMetadata>
           );
@@ -289,7 +283,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           key={(this.props.rendering as ComponentRendering).uid}
           uid={(this.props.rendering as ComponentRendering).uid}
           placeholderName={name}
-          metadataType="placeholder"
         >
           {components}
         </PlaceholderMetadata>,

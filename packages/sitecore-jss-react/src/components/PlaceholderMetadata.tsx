@@ -7,7 +7,6 @@ export interface PlaceholderMetadataProps {
   uid: string;
   placeholderName?: string;
   children?: ReactNode;
-  metadataType?: string;
 }
 
 export type CodeBlockAttributes = {
@@ -15,7 +14,7 @@ export type CodeBlockAttributes = {
   chrometype: string;
   className: string;
   kind: string;
-  id: string;
+  id?: string;
 };
 
 /**
@@ -30,42 +29,41 @@ export const PlaceholderMetadata = ({
   uid,
   placeholderName,
   children,
-  metadataType,
 }: PlaceholderMetadataProps): JSX.Element => {
   const getCodeBlockAttributes = (
-    chromeType: string,
     kind: string,
     id: string,
     placeholderName?: string
   ): CodeBlockAttributes => {
-    return {
+    const chrometype = placeholderName ? 'placeholder' : 'rendering';
+
+    const attributes: CodeBlockAttributes = {
       type: 'text/sitecore',
-      chrometype: chromeType,
+      chrometype: chrometype,
       className: 'scpm',
       kind: kind,
-      id: placeholderName ? `${placeholderName}_${id}` : id,
     };
-  };
 
-  const renderComponent = (uid: string, metadataType: string, placeholderName?: string) => {
-    if (metadataType) {
-      return (
-        <>
-          <code
-            {...getCodeBlockAttributes(metadataType, 'open', uid, placeholderName)}
-            key={`open-${placeholderName}-${uid}`}
-          />
-          {children}
-          <code
-            {...getCodeBlockAttributes(metadataType, 'close', uid, placeholderName)}
-            key={`close-${placeholderName}-${uid}`}
-          />
-        </>
-      );
-    } else {
-      return <>{children}</>;
+    if (kind === 'open') {
+      attributes.id =
+        chrometype === 'placeholder' && placeholderName ? `${placeholderName}_${id}` : id;
     }
+    return attributes;
   };
 
-  return <>{renderComponent(uid, metadataType, placeholderName)}</>;
+  const renderComponent = (uid: string, placeholderName?: string) => (
+    <>
+      <code
+        {...getCodeBlockAttributes('open', uid, placeholderName)}
+        key={`open-${placeholderName}-${uid}`}
+      />
+      {children}
+      <code
+        {...getCodeBlockAttributes('close', uid, placeholderName)}
+        key={`close-${placeholderName}-${uid}`}
+      />
+    </>
+  );
+
+  return <>{renderComponent(uid, placeholderName)}</>;
 };

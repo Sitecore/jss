@@ -1,5 +1,3 @@
-import { EditMode } from '@sitecore-jss/sitecore-jss/layout';
-
 export const convertedDevData = {
   sitecore: {
     context: {

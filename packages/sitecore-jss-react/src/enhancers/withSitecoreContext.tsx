@@ -6,7 +6,7 @@ export interface WithSitecoreContextOptions {
 }
 
 export interface WithSitecoreContextProps {
-  sitecoreContext: SitecoreContextValue;
+  sitecoreContext?: SitecoreContextValue;
   updateSitecoreContext?: ((value: SitecoreContextValue) => void) | false;
 }
 
