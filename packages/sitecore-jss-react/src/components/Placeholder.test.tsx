@@ -719,7 +719,7 @@ it('should render custom HiddenRendering when rendering is hidden', () => {
   expect(renderedComponent.find('p').props().children).to.equal('Hidden Rendering');
 });
 
-describe.only('PlaceholderMetadata', () => {
+describe('PlaceholderMetadata', () => {
   const layoutDataForNestedPlaceholder = {
     sitecore: {
       context: {
@@ -854,16 +854,10 @@ describe.only('PlaceholderMetadata', () => {
       },
     };
 
-    const children = (
+    const wrapper = shallow(
       <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
         <Placeholder name="header" rendering={layoutData.sitecore.route.placeholders.main[0]} />
       </SitecoreContext>
-    );
-
-    const wrapper = shallow(
-      <PlaceholderMetadata uid={layoutData.sitecore.route.placeholders.main[0].uid}>
-        {children}
-      </PlaceholderMetadata>
     );
 
     expect(wrapper.html()).to.equal(
@@ -878,7 +872,7 @@ describe.only('PlaceholderMetadata', () => {
   });
 
   it('should render nested placeholder components', () => {
-    const children = (
+    const wrapper = shallow(
       <SitecoreContext
         componentFactory={componentFactory}
         layoutData={layoutDataForNestedPlaceholder}
@@ -888,14 +882,6 @@ describe.only('PlaceholderMetadata', () => {
           rendering={layoutDataForNestedPlaceholder.sitecore.route.placeholders.main[0]}
         />
       </SitecoreContext>
-    );
-
-    const wrapper = shallow(
-      <PlaceholderMetadata
-        uid={layoutDataForNestedPlaceholder.sitecore.route.placeholders.main[0].uid}
-      >
-        {children}
-      </PlaceholderMetadata>
     );
 
     expect(wrapper.html()).to.equal(
@@ -939,16 +925,10 @@ describe.only('PlaceholderMetadata', () => {
       },
     };
 
-    const children = (
+    const wrapper = shallow(
       <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
         <Placeholder name="header" rendering={layoutData.sitecore.route.placeholders.main[0]} />
       </SitecoreContext>
-    );
-
-    const wrapper = shallow(
-      <PlaceholderMetadata uid={layoutData.sitecore.route.placeholders.main[0].uid}>
-        {children}
-      </PlaceholderMetadata>
     );
 
     expect(wrapper.html()).to.equal(
@@ -990,16 +970,10 @@ describe.only('PlaceholderMetadata', () => {
       },
     };
 
-    const children = (
+    const wrapper = shallow(
       <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
         <Placeholder name="header" rendering={layoutData.sitecore.route.placeholders.main[0]} />
       </SitecoreContext>
-    );
-
-    const wrapper = shallow(
-      <PlaceholderMetadata uid={layoutData.sitecore.route.placeholders.main[0].uid}>
-        {children}
-      </PlaceholderMetadata>
     );
 
     expect(wrapper.html()).to.equal(

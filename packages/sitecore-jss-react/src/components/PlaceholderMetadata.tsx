@@ -18,12 +18,15 @@ export type CodeBlockAttributes = {
 };
 
 /**
- * This component supports the chrome's hydration process in Pages by rendering the required metadata.
- * This component handles recursive rendering of components and their placeholders, encapsulating
- * each part within specific code tags to outline their structure and metadata attributes.
+ * A React component to generate metadata blocks for a placeholder or rendering.
+ * It utilizes dynamic attributes based on whether the component acts as a placeholder
+ * or as a rendering to properly render the surrounding code blocks.
  *
- * @param {PlaceholderMetadataProps} props - The props containing the rendering data to render.
- * @returns {JSX.Element} - The rendered component with all nested components and placeholders.
+ * @param {object} props The properties passed to the component.
+ * @param {string} props.uid A unique identifier for the component instance.
+ * @param {string} [props.placeholderName] The name of the placeholder.
+ * @param {JSX.Element} props.children The child components or elements to be wrapped by the metadata code blocks.
+ * @returns {JSX.Element} A React fragment containing open and close code blocks surrounding the children elements.
  */
 export const PlaceholderMetadata = ({
   uid,
