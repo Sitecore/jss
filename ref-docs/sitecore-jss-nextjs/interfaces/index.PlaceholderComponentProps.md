@@ -15,6 +15,7 @@
 ### Properties
 
 - [componentFactory](index.PlaceholderComponentProps.md#componentfactory)
+- [componentLoadingMessage](index.PlaceholderComponentProps.md#componentloadingmessage)
 - [errorComponent](index.PlaceholderComponentProps.md#errorcomponent)
 - [fields](index.PlaceholderComponentProps.md#fields)
 - [hiddenRenderingComponent](index.PlaceholderComponentProps.md#hiddenrenderingcomponent)
@@ -43,6 +44,22 @@ PlaceholderProps.componentFactory
 #### Defined in
 
 sitecore-jss-react/types/components/PlaceholderCommon.d.ts:24
+
+___
+
+### componentLoadingMessage
+
+• `Optional` **componentLoadingMessage**: `string`
+
+The message that gets displayed while component is loading
+
+#### Inherited from
+
+PlaceholderProps.componentLoadingMessage
+
+#### Defined in
+
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:63
 
 ___
 
