@@ -52,7 +52,7 @@ const config = {};\n`;
   Object.keys(config).forEach(prop => {
     configText += `config.${prop} = process.env.REACT_APP_${constantCase(prop)} || "${
       config[prop]
-    }",\n`;
+    }";\n`;
   });
   configText += 'module.exports = config;';
 

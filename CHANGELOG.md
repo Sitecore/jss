@@ -11,6 +11,10 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🐛 Bug Fixes
+
+* `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Changed formatting in temp/config to prevent parse issues in Unix systems ([#1787](https://github.com/Sitecore/jss/pull/1787))
+
 ### 🎉 New Features & Improvements
 
 * `[sitecore-jss-react]`Introduce ErrorBoundary component. All rendered components are wrapped with it and it will catch client or server side errors from any of its children, display appropriate message and prevent the rest of the application from failing. It accepts and can display custom error component and loading message if it is passed as a prop to parent Placeholder. ([#1786](https://github.com/Sitecore/jss/pull/1786))
