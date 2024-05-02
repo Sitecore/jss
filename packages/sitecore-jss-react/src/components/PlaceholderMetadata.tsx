@@ -56,15 +56,9 @@ export const PlaceholderMetadata = ({
 
   const renderComponent = (uid: string, placeholderName?: string) => (
     <>
-      <code
-        {...getCodeBlockAttributes('open', uid, placeholderName)}
-        key={`open-${placeholderName}-${uid}`}
-      />
+      <code {...getCodeBlockAttributes('open', uid, placeholderName)} />
       {children}
-      <code
-        {...getCodeBlockAttributes('close', uid, placeholderName)}
-        key={`close-${placeholderName}-${uid}`}
-      />
+      <code {...getCodeBlockAttributes('close', uid, placeholderName)} />
     </>
   );
 
