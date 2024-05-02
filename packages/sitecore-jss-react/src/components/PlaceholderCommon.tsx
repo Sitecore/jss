@@ -15,6 +15,7 @@ import { FEaaSComponent, FEAAS_COMPONENT_RENDERING_NAME } from './FEaaSComponent
 import { FEaaSWrapper, FEAAS_WRAPPER_RENDERING_NAME } from './FEaaSWrapper';
 import { BYOCComponent, BYOC_COMPONENT_RENDERING_NAME } from './BYOCComponent';
 import { BYOCWrapper, BYOC_WRAPPER_RENDERING_NAME } from './BYOCWrapper';
+import ErrorBoundary from './ErrorBoundary';
 
 type ErrorComponentProps = {
   [prop: string]: unknown;
@@ -74,6 +75,11 @@ export interface PlaceholderProps {
    * the placeholder
    */
   errorComponent?: React.ComponentClass<ErrorComponentProps> | React.FC<ErrorComponentProps>;
+
+  /**
+   * The message that gets displayed while component is loading
+   */
+  componentLoadingMessage?: string;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
@@ -256,7 +262,22 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
         );
       })
-      .filter((element) => element); // remove nulls
+      .filter((element) => element)
+      .map((element, id) => {
+        // assign type based on passed element - type='text/sitecore' should be ignored when renderEach Placeholder prop function is being used
+        const type = element.props.type === 'text/sitecore' ? element.props.type : '';
+        return (
+          <ErrorBoundary
+            key={element.type + '-' + id}
+            customErrorComponent={this.props.errorComponent}
+            rendering={element.props.rendering as ComponentRendering}
+            componentLoadingMessage={this.props.componentLoadingMessage}
+            type={type}
+          >
+            {element}
+          </ErrorBoundary>
+        );
+      });
   }
 
   getComponentForRendering(renderingDefinition: ComponentRendering): ComponentType | null {

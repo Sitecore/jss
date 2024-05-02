@@ -534,6 +534,46 @@ describe('<Placeholder />', () => {
     expect(renderedComponent.find('.sc-jss-placeholder-error').length).to.equal(1);
   });
 
+  it('should render error message on error, only for the errored component', () => {
+    const componentFactory: ComponentFactory = (componentName: string) => {
+      const components = new Map<string, React.FC>();
+
+      const Home: React.FC<{ rendering?: RouteData }> = ({ rendering }) => (
+        <div className="home-mock">
+          <Placeholder name="main" rendering={rendering} />
+        </div>
+      );
+
+      components.set('Home', Home);
+      components.set('ThrowError', () => {
+        throw Error('an error occured');
+      });
+      components.set('Foo', () => <div className="foo-class">foo</div>);
+
+      return components.get(componentName) || null;
+    };
+
+    const route = ({
+      placeholders: {
+        main: [
+          {
+            componentName: 'ThrowError',
+          },
+          {
+            componentName: 'Foo',
+          },
+        ],
+      },
+    } as unknown) as RouteData;
+    const phKey = 'main';
+
+    const renderedComponent = mount(
+      <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
+    );
+    expect(renderedComponent.find('.sc-jss-placeholder-error').length).to.equal(1);
+    expect(renderedComponent.find('div.foo-class').length).to.equal(1);
+  });
+
   it('should render custom errorComponent on error, if provided', () => {
     const componentFactory: ComponentFactory = (componentName: string) => {
       const components = new Map<string, React.FC<{ [key: string]: unknown }>>();
