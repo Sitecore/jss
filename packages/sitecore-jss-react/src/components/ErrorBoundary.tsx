@@ -9,13 +9,13 @@ type CustomErrorComponentProps = {
 
 export type ErrorBoundaryProps = {
   children: ReactNode;
+  sitecoreContext: SitecoreContextValue;
+  type: string;
   customErrorComponent?:
     | React.ComponentClass<CustomErrorComponentProps>
     | React.FC<CustomErrorComponentProps>;
   rendering?: ComponentRendering;
-  sitecoreContext: SitecoreContextValue;
   componentLoadingMessage?: string;
-  type: string;
 };
 
 class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
@@ -24,7 +24,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
   defaultLoadingMessage = 'Loading component...';
   state: { error: Error };
 
-  constructor(props: any) {
+  constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { error: null };
   }
@@ -33,7 +33,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
     return { error: error };
   }
 
-  componentDidCatch(error: Error, errorInfo: any) {
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     console.error({ error, errorInfo });
   }
 
