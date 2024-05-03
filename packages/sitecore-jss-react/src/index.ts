@@ -53,6 +53,7 @@ export {
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export { ComponentFactory } from './components/sharedTypes';
 export { Placeholder, PlaceholderComponentProps } from './components/Placeholder';
+export { ComponentProps } from './components/PlaceholderCommon';
 export {
   Image,
   ImageProps,
@@ -93,6 +94,7 @@ export {
   ComponentConsumerProps,
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
+  /** @deprecated use import { ComponentProps } from '@sitecore-jss/sitecore-jss-react' instead */
   WithSitecoreContextHocProps,
 } from './enhancers/withSitecoreContext';
 export { withEditorChromes } from './enhancers/withEditorChromes';

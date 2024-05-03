@@ -14,10 +14,7 @@ export interface ComponentConsumerProps extends WithSitecoreContextProps {
   children?: ReactNode;
 }
 
-export type WithSitecoreContextHocProps<ComponentProps> = Pick<
-  ComponentProps,
-  Exclude<keyof ComponentProps, keyof WithSitecoreContextProps>
->;
+export type WithSitecoreContextHocProps<ComponentProps> = ComponentProps;
 
 /**
  * @param {WithSitecoreContextOptions} [options]
