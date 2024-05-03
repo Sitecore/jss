@@ -14,7 +14,7 @@ export interface ComponentConsumerProps extends WithSitecoreContextProps {
   children?: ReactNode;
 }
 
-// WithSitecoreContextHocProps has been deprecated, ComponentProps should be used instead
+// WithSitecoreContextHocProps has been deprecated, use your component's type instead
 export type WithSitecoreContextHocProps<ComponentProps> = ComponentProps;
 
 /**
