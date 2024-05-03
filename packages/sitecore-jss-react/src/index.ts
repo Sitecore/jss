@@ -28,6 +28,7 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+  EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
 export {
   trackingApi,
@@ -92,6 +93,7 @@ export {
   ComponentConsumerProps,
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
+  /** @deprecated use your component's props type instead */
   WithSitecoreContextHocProps,
 } from './enhancers/withSitecoreContext';
 export { withEditorChromes } from './enhancers/withEditorChromes';

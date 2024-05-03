@@ -6,7 +6,7 @@ export interface WithSitecoreContextOptions {
 }
 
 export interface WithSitecoreContextProps {
-  sitecoreContext: SitecoreContextValue;
+  sitecoreContext?: SitecoreContextValue;
   updateSitecoreContext?: ((value: SitecoreContextValue) => void) | false;
 }
 
@@ -14,10 +14,8 @@ export interface ComponentConsumerProps extends WithSitecoreContextProps {
   children?: ReactNode;
 }
 
-export type WithSitecoreContextHocProps<ComponentProps> = Pick<
-  ComponentProps,
-  Exclude<keyof ComponentProps, keyof WithSitecoreContextProps>
->;
+// WithSitecoreContextHocProps has been deprecated, use your component's type instead
+export type WithSitecoreContextHocProps<ComponentProps> = ComponentProps;
 
 /**
  * @param {WithSitecoreContextOptions} [options]
