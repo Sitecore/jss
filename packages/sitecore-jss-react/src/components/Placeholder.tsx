@@ -3,6 +3,7 @@ import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { HorizonEditor } from '@sitecore-jss/sitecore-jss/utils';
+import { withSitecoreContext } from '../enhancers/withSitecoreContext';
 
 export interface PlaceholderComponentProps extends PlaceholderProps {
   /**
@@ -120,4 +121,8 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
   }
 }
 
-export const Placeholder = withComponentFactory(PlaceholderComponent);
+const PlaceholderWithComponentFactory = withComponentFactory(PlaceholderComponent);
+
+export const Placeholder = withSitecoreContext()<PlaceholderComponentProps>(
+  PlaceholderWithComponentFactory
+);

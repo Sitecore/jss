@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react/prop-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
+import { ComponentRendering, EditMode, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import { expect } from 'chai';
 import { mount, shallow } from 'enzyme';
 import PropTypes from 'prop-types';
@@ -31,6 +31,7 @@ import { Placeholder } from './Placeholder';
 import { ComponentProps } from './PlaceholderCommon';
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
+import { PlaceholderMetadata } from './PlaceholderMetadata';
 
 const componentFactory: ComponentFactory = (componentName: string) => {
   const components = new Map<string, React.FC>();
@@ -101,7 +102,9 @@ describe('<Placeholder />', () => {
         const phKey = 'page-content';
 
         const renderedComponent = mount(
-          <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+          <SitecoreContext componentFactory={componentFactory}>
+            <Placeholder name={phKey} rendering={component} />
+          </SitecoreContext>
         );
 
         expect(renderedComponent.find('.download-callout-mock').length).to.equal(1);
@@ -216,6 +219,8 @@ describe('<Placeholder />', () => {
           </SitecoreContext>
         );
 
+        console.log(renderedComponent.debug());
+
         expect(renderedComponent.html()).to.equal(
           '<div class="sc-jss-empty-placeholder"><span>My name is empty placeholder</span></div>'
         );
@@ -300,7 +305,9 @@ describe('<Placeholder />', () => {
       const phKey = 'main';
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
@@ -318,7 +325,9 @@ describe('<Placeholder />', () => {
       const phKey = 'container-1';
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
@@ -334,7 +343,9 @@ describe('<Placeholder />', () => {
       const phKey = 'richText';
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.rendering-variant').length).to.equal(0);
@@ -346,7 +357,9 @@ describe('<Placeholder />', () => {
       const phKey = 'dynamic-1-{*}';
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
@@ -362,7 +375,9 @@ describe('<Placeholder />', () => {
       const phKey = 'main-second';
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
@@ -377,7 +392,9 @@ describe('<Placeholder />', () => {
       const phKey = 'column-1-{*}';
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
@@ -410,7 +427,9 @@ describe('<Placeholder />', () => {
       ));
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.byoc-component').length).to.equal(2);
@@ -443,7 +462,9 @@ describe('<Placeholder />', () => {
       ));
 
       const renderedComponent = mount(
-        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
       );
 
       expect(renderedComponent.find('.feaas-component').length).to.equal(2);
@@ -459,7 +480,9 @@ describe('<Placeholder />', () => {
     const phKey = 'main';
 
     const renderedComponent = mount(
-      <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      <SitecoreContext componentFactory={componentFactory}>
+        <Placeholder name={phKey} rendering={component} />
+      </SitecoreContext>
     );
 
     const eeChrome = renderedComponent.find({ chrometype: 'placeholder', kind: 'open', id: phKey });
@@ -473,11 +496,9 @@ describe('<Placeholder />', () => {
     const phKey = 'main';
 
     const renderedComponent = mount(
-      <Placeholder
-        name={phKey}
-        rendering={emptyPlaceholderData.sitecore.route}
-        componentFactory={componentFactory}
-      />
+      <SitecoreContext componentFactory={componentFactory}>
+        <Placeholder name={phKey} rendering={emptyPlaceholderData.sitecore.route} />
+      </SitecoreContext>
     );
     expect(renderedComponent.find('.sc-jss-empty-placeholder').length).to.equal(1);
   });
@@ -495,7 +516,9 @@ describe('<Placeholder />', () => {
     const phKey = 'unknown';
 
     const renderedComponent = mount(
-      <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
+      <SitecoreContext componentFactory={componentFactory}>
+        <Placeholder name={phKey} rendering={route} />
+      </SitecoreContext>
     );
     expect(renderedComponent.html()).to.be.empty;
   });
@@ -529,7 +552,9 @@ describe('<Placeholder />', () => {
     const phKey = 'main';
 
     const renderedComponent = mount(
-      <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
+      <SitecoreContext componentFactory={componentFactory}>
+        <Placeholder name={phKey} rendering={route} />
+      </SitecoreContext>
     );
     expect(renderedComponent.find('.sc-jss-placeholder-error').length).to.equal(1);
   });
@@ -540,7 +565,9 @@ describe('<Placeholder />', () => {
 
       const Home: React.FC<{ rendering?: RouteData }> = ({ rendering }) => (
         <div className="home-mock">
-          <Placeholder name="main" rendering={rendering} />
+          <SitecoreContext componentFactory={componentFactory}>
+            <Placeholder name="main" rendering={rendering} />
+          </SitecoreContext>
         </div>
       );
 
@@ -565,12 +592,9 @@ describe('<Placeholder />', () => {
     const phKey = 'main';
 
     const renderedComponent = mount(
-      <Placeholder
-        name={phKey}
-        rendering={route}
-        componentFactory={componentFactory}
-        errorComponent={CustomError}
-      />
+      <SitecoreContext componentFactory={componentFactory}>
+        <Placeholder name={phKey} rendering={route} errorComponent={CustomError} />
+      </SitecoreContext>
     );
     expect(renderedComponent.find('.custom-error').length).to.equal(1);
   });
@@ -595,12 +619,13 @@ it('should render MissingComponent for unknown rendering', () => {
   );
 
   const renderedComponent = mount(
-    <Placeholder
-      name={phKey}
-      rendering={route}
-      componentFactory={componentFactory}
-      missingComponentComponent={CustomMissingComponent}
-    />
+    <SitecoreContext componentFactory={componentFactory}>
+      <Placeholder
+        name={phKey}
+        rendering={route}
+        missingComponentComponent={CustomMissingComponent}
+      />
+    </SitecoreContext>
   );
   expect(renderedComponent.find('.missing-component').length).to.equal(1);
 });
@@ -633,7 +658,9 @@ it('should render nothing for rendering without a name', () => {
 
   const renderedComponent = mount(
     <div className="empty-test">
-      <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
+      <SitecoreContext componentFactory={componentFactory}>
+        <Placeholder name={phKey} rendering={route} />
+      </SitecoreContext>
     </div>
   );
   expect(renderedComponent.children().length).to.equal(1);
@@ -652,7 +679,9 @@ it('should render HiddenRendering when rendering is hidden', () => {
   const phKey = 'main';
 
   const renderedComponent = mount(
-    <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
+    <SitecoreContext componentFactory={componentFactory}>
+      <Placeholder name={phKey} rendering={route} />
+    </SitecoreContext>
   );
   expect(renderedComponent.find(HiddenRendering).length).to.equal(1);
 });
@@ -677,18 +706,287 @@ it('should render custom HiddenRendering when rendering is hidden', () => {
   );
 
   const renderedComponent = mount(
-    <Placeholder
-      name={phKey}
-      rendering={route}
-      componentFactory={componentFactory}
-      hiddenRenderingComponent={CustomHiddenRendering}
-    />
+    <SitecoreContext componentFactory={componentFactory}>
+      <Placeholder
+        name={phKey}
+        rendering={route}
+        hiddenRenderingComponent={CustomHiddenRendering}
+      />
+    </SitecoreContext>
   );
   expect(renderedComponent.find('.hidden-rendering').length).to.equal(1);
   expect(renderedComponent.find(HiddenRendering).length).to.equal(1);
   expect(renderedComponent.find('p').props().children).to.equal('Hidden Rendering');
 });
 
+describe('PlaceholderMetadata', () => {
+  const layoutDataForNestedPlaceholder = {
+    sitecore: {
+      context: {
+        pageEditing: true,
+        editMode: EditMode.Metadata,
+      },
+      route: {
+        name: 'main',
+        placeholders: {
+          main: [
+            {
+              uid: 'root123',
+              componentName: 'Layout',
+              placeholders: {
+                header: [
+                  {
+                    uid: 'nested123',
+                    componentName: 'Header',
+                    placeholders: {
+                      logo: [
+                        {
+                          uid: 'deep123',
+                          componentName: 'Logo',
+                        },
+                      ],
+                    },
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      },
+    },
+  };
+
+  const componentFactory: ComponentFactory = (componentName: string) => {
+    const components = new Map<string, React.FC>();
+
+    components.set('RichText', () => <div className="richtext-mock" />);
+    components.set('Header', () => (
+      <div className="header-wrapper">
+        <Placeholder
+          name="logo"
+          rendering={
+            layoutDataForNestedPlaceholder.sitecore.route.placeholders.main[0].placeholders
+              .header[0]
+          }
+        />
+      </div>
+    ));
+    components.set('Logo', () => <div className="Logo-mock" />);
+
+    return components.get(componentName) || null;
+  };
+
+  it('Placeholder component renders <PlaceholderMetadata> component when editMode is metadata', () => {
+    const componentFactory: ComponentFactory = (componentName: string) => {
+      const components = new Map<string, React.FC>();
+
+      components.set('RichText', () => <div className="richtext-mock" />);
+      components.set('Layout', () => <div className="Logo-mock" />);
+
+      return components.get(componentName) || null;
+    };
+
+    const mockLayoutData = {
+      sitecore: {
+        context: {
+          pageEditing: true,
+          editMode: EditMode.Metadata,
+        },
+        route: {
+          name: 'main',
+          placeholders: {
+            main: [
+              {
+                uid: '123',
+                componentName: 'Layout',
+                placeholders: {
+                  header: [
+                    {
+                      uid: '456',
+                      componentName: 'RichText',
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+      },
+    };
+
+    const component = mockLayoutData.sitecore.route.placeholders.main[0];
+
+    const renderedComponent = mount(
+      <SitecoreContext componentFactory={componentFactory} layoutData={mockLayoutData}>
+        <Placeholder name="header" rendering={component} />
+      </SitecoreContext>
+    );
+
+    expect(renderedComponent.find(PlaceholderMetadata).length).to.equal(2);
+  });
+
+  it('should render component with placeholders', () => {
+    const layoutData = {
+      sitecore: {
+        context: {
+          pageEditing: true,
+          editMode: EditMode.Metadata,
+        },
+        route: {
+          name: 'main',
+          placeholders: {
+            main: [
+              {
+                uid: '123',
+                componentName: 'Layout',
+                placeholders: {
+                  header: [
+                    {
+                      uid: '456',
+                      componentName: 'RichText',
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+      },
+    };
+
+    const wrapper = shallow(
+      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
+        <Placeholder name="header" rendering={layoutData.sitecore.route.placeholders.main[0]} />
+      </SitecoreContext>
+    );
+
+    expect(wrapper.html()).to.equal(
+      [
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="header_123"></code>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="456"></code>',
+        '<div class="richtext-mock"></div>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
+      ].join('')
+    );
+  });
+
+  it('should render nested placeholder components', () => {
+    const wrapper = shallow(
+      <SitecoreContext
+        componentFactory={componentFactory}
+        layoutData={layoutDataForNestedPlaceholder}
+      >
+        <Placeholder
+          name="header"
+          rendering={layoutDataForNestedPlaceholder.sitecore.route.placeholders.main[0]}
+        />
+      </SitecoreContext>
+    );
+
+    expect(wrapper.html()).to.equal(
+      [
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="header_root123"></code>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="nested123"></code>',
+        '<div class="header-wrapper">',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="logo_nested123"></code>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="deep123"></code>',
+        '<div class="Logo-mock"></div>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
+        '</div>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
+      ].join('')
+    );
+  });
+
+  it('should render code blocks if placeholder is empty', () => {
+    const layoutData = {
+      sitecore: {
+        context: {
+          pageEditing: true,
+          editMode: EditMode.Metadata,
+        },
+        route: {
+          name: 'main',
+          placeholders: {
+            main: [
+              {
+                uid: '123',
+                componentName: 'Layout',
+                placeholders: {
+                  header: [],
+                },
+              },
+            ],
+          },
+        },
+      },
+    };
+
+    const wrapper = shallow(
+      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
+        <Placeholder name="header" rendering={layoutData.sitecore.route.placeholders.main[0]} />
+      </SitecoreContext>
+    );
+
+    expect(wrapper.html()).to.equal(
+      [
+        '<div class="sc-jss-empty-placeholder">',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="header_123"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
+        '</div>',
+      ].join('')
+    );
+  });
+
+  it('should render missing component with chromes if component is not registered', () => {
+    const layoutData = {
+      sitecore: {
+        context: {
+          pageEditing: true,
+          editMode: EditMode.Metadata,
+        },
+        route: {
+          name: 'main',
+          placeholders: {
+            main: [
+              {
+                uid: '123',
+                componentName: 'Layout',
+                placeholders: {
+                  header: [
+                    {
+                      uid: '456',
+                      componentName: 'Unknown',
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+      },
+    };
+
+    const wrapper = shallow(
+      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
+        <Placeholder name="header" rendering={layoutData.sitecore.route.placeholders.main[0]} />
+      </SitecoreContext>
+    );
+
+    expect(wrapper.html()).to.equal(
+      [
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="header_123"></code>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="456"></code>',
+        '<div style="background:darkorange;outline:5px solid orange;padding:10px;color:white;max-width:500px"><h2>Unknown</h2><p>JSS component is missing React implementation. See the developer console for more information.</p></div>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
+      ].join('')
+    );
+  });
+});
 after(() => {
   (global as any).window.close();
 });
