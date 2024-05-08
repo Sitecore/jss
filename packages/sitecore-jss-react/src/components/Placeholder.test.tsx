@@ -904,7 +904,7 @@ describe.only('PlaceholderMetadata', () => {
     );
   });
 
-  it('should render missing component with chromes if component is not registered', () => {
+  it.only('should render missing component with chromes if component is not registered', () => {
     const layoutData = {
       sitecore: {
         context: {
@@ -918,7 +918,7 @@ describe.only('PlaceholderMetadata', () => {
             main: [
               {
                 uid: '123',
-                componentName: 'Layout',
+                componentName: 'Unknown',
               },
             ],
           },
@@ -936,7 +936,7 @@ describe.only('PlaceholderMetadata', () => {
       [
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_root123"></code>',
         '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="123"></code>',
-        '<div style="background:darkorange;outline:5px solid orange;padding:10px;color:white;max-width:500px"><h2>Layout</h2><p>JSS component is missing React implementation. See the developer console for more information.</p></div>',
+        '<div style="background:darkorange;outline:5px solid orange;padding:10px;color:white;max-width:500px"><h2>Unknown</h2><p>JSS component is missing React implementation. See the developer console for more information.</p></div>',
         '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
       ].join('')
