@@ -904,7 +904,7 @@ describe.only('PlaceholderMetadata', () => {
     );
   });
 
-  it.only('should render missing component with chromes if component is not registered', () => {
+  it('should render missing component with chromes if component is not registered', () => {
     const layoutData = {
       sitecore: {
         context: {
