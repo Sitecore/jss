@@ -7,6 +7,7 @@ import {
   LinkField,
   Text,
   useSitecoreContext,
+  EditMode,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
@@ -29,9 +30,10 @@ const ImageDefault = (props: ImageProps): JSX.Element => (
 );
 
 export const Banner = (props: ImageProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
-  const isMetadataMode = sitecoreContext?.editMode === 'metadata';
+  const isMetadataMode = sitecoreContext?.editMode === EditMode.Metadata;
   const classHeroBannerEmpty =
     isPageEditing && props.fields?.Image?.value?.class === 'scEmptyImage'
       ? 'hero-banner-empty'
@@ -47,7 +49,6 @@ export const Banner = (props: ImageProps): JSX.Element => {
           .replace(`height="${props?.fields?.Image?.value?.height}"`, 'height="100%"'),
       }
     : { ...props.fields.Image };
-  const id = props.params.RenderingIdentifier;
 
   return (
     <div

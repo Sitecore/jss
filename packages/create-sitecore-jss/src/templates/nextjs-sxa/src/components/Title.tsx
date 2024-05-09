@@ -18,7 +18,7 @@ interface Fields {
         jsonValue: {
           value: string;
           editable?: string;
-          metadata?: object;
+          metadata?: { [key: string]: unknown };
         };
       };
     };
@@ -31,7 +31,7 @@ interface Fields {
         jsonValue: {
           value: string;
           editable?: string;
-          metadata?: object;
+          metadata?: { [key: string]: unknown };
         };
       };
     };
@@ -63,23 +63,12 @@ const ComponentContent = (props: ComponentContentProps) => {
 export const Default = (props: TitleProps): JSX.Element => {
   const datasource = props.fields?.data?.datasource || props.fields?.data?.contextItem;
   const { sitecoreContext } = useSitecoreContext();
-  const isMetadataMode = sitecoreContext?.editMode === 'metadata';
-  const editingField = {
-    ...(isMetadataMode
-      ? { metadata: datasource?.field?.jsonValue?.metadata }
-      : { editable: datasource?.field?.jsonValue?.editable }),
-  };
-
-  const text: TextField = {
-    value: datasource?.field?.jsonValue?.value,
-    ...editingField,
-  };
+  const text: TextField = datasource?.field?.jsonValue;
   const link: LinkField = {
     value: {
       href: datasource?.url?.path,
       title: datasource?.field?.jsonValue?.value,
     },
-    ...editingField,
   };
   if (sitecoreContext.pageState !== 'normal') {
     link.value.querystring = `sc_site=${datasource?.url?.siteName}`;
@@ -95,7 +84,7 @@ export const Default = (props: TitleProps): JSX.Element => {
         {sitecoreContext.pageEditing ? (
           <Text field={text} />
         ) : (
-          <Link field={link} editable={true}>
+          <Link field={link}>
             <Text field={text} />
           </Link>
         )}
