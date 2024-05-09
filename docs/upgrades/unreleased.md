@@ -35,7 +35,7 @@
 # nextjs
 
 * Replace `scripts/generate-config.ts` if you have not modified it. Otherwise:
-    * Replace comma before a newline (`,`) with semicolon (`;`) in configText prop assignment so it would look like this:
+    * Add a `trim()` call to `config[prop]` and replace comma before a newline (`,`) with semicolon (`;`) in configText prop assignment so it would look like this:
         
         ```
             configText += `config.${prop} = process.env.${constantCase(prop)} || '${config[prop]?.trim()}';\n`;
