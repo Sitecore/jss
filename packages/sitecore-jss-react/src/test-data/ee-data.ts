@@ -588,8 +588,7 @@ export const emptyPlaceholderData = {
           {
             name: 'code',
             type: 'text/sitecore',
-            contents:
-              '{}',
+            contents: '{}',
             attributes: {
               type: 'text/sitecore',
               chrometype: 'placeholder',

@@ -484,7 +484,7 @@ describe('<Placeholder />', () => {
 
   it('should render empty placeholder with no extra markup', () => {
     const phKey = 'mainEmpty';
-    
+
     const renderedComponent = mount(
       <Placeholder
         name={phKey}
@@ -493,16 +493,18 @@ describe('<Placeholder />', () => {
       />
     );
     const emptyPlaceholder = renderedComponent.find('.sc-jss-empty-placeholder');
-    //TODO: change this as needed when merging "simplify editing" feature changes into dev
-    expect(emptyPlaceholder.html()).to.equal([
-      '<div class="sc-jss-empty-placeholder">',
-      '<code type="text/sitecore" chrometype="placeholder" kind="open" id="main" class="scpm" data-selectable="true" phkey="main" key="main">',
-      '{}',
-      '</code>',
-      '<code type="text/sitecore" id="scEnclosingTag_" chrometype="placeholder" kind="close" hintname="main" class="scpm">',
-      '</code>',
-      '</div>'
-    ].join(''));
+    // TODO: change this as needed when merging "simplify editing" feature changes into dev
+    expect(emptyPlaceholder.html()).to.equal(
+      [
+        '<div class="sc-jss-empty-placeholder">',
+        '<code type="text/sitecore" chrometype="placeholder" kind="open" id="main" class="scpm" data-selectable="true" phkey="main" key="main">',
+        '{}',
+        '</code>',
+        '<code type="text/sitecore" id="scEnclosingTag_" chrometype="placeholder" kind="close" hintname="main" class="scpm">',
+        '</code>',
+        '</div>',
+      ].join('')
+    );
   });
 
   it('should render null for unknown placeholder', () => {
