@@ -5,7 +5,6 @@ import { spy } from 'sinon';
 import ErrorBoundary from './ErrorBoundary';
 import { SitecoreContextReactContext } from '../components/SitecoreContext';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
-import { afterEach } from 'node:test';
 
 describe('ErrorBoundary', () => {
   describe('when in page editing mode', () => {
