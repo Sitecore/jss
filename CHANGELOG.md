@@ -13,7 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Change
 *  Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792)) ([#1773](https://github.com/Sitecore/jss/pull/1773))
-  * `[sitecore-jss-react]` `[sitecore-jss]` Introduces `PlaceholderMetadata` component which supports the hydration of chromes on Pages by rendering  the components and placeholders with required metadata.
+  * `[sitecore-jss-react]` Introduces `PlaceholderMetadata` component which supports the hydration of chromes on Pages by rendering  the components and placeholders with required metadata.
   * Chromes are hydrated based on the basis of new `editMode` property derived from LayoutData, which is defined as an enum consisting of `metadata` and `chromes`.
   * `sitecoreContext` property within the `WithSitecoreContextProps` interface has been made optional. Please add safegaurds for scenarios where `sitecoreContext` could be undefined.
   * `WithSitecoreContextHocProps` is now marked as deprecated and will be removed.Please use your own component prop types.
