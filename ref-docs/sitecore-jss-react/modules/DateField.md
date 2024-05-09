@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:71](https://github.com/Sitecore/jss/blob/8ae58c100/packages/sitecore-jss-react/src/components/Date.tsx#L71)
+[packages/sitecore-jss-react/src/components/Date.tsx:71](https://github.com/Sitecore/jss/blob/e2564fe8a/packages/sitecore-jss-react/src/components/Date.tsx#L71)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:61](https://github.com/Sitecore/jss/blob/8ae58c100/packages/sitecore-jss-react/src/components/Date.tsx#L61)
+[packages/sitecore-jss-react/src/components/Date.tsx:61](https://github.com/Sitecore/jss/blob/e2564fe8a/packages/sitecore-jss-react/src/components/Date.tsx#L61)
