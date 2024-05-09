@@ -182,7 +182,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     );
   }
 
-  getComponentsForRenderingData(placeholderData: (ComponentRendering | HtmlElementRendering)[]) {
+  getComponentsForRenderingData(placeholderData: (ComponentRendering | HtmlElementRendering)[], isEmpty?: boolean) {
     const {
       name,
       fields: placeholderFields,
@@ -192,7 +192,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       ...placeholderProps
     } = this.props;
 
-    return placeholderData
+    const transformedComponents = placeholderData
       .map((rendering: ComponentRendering | HtmlElementRendering, index: number) => {
         const key = (rendering as ComponentRendering).uid
           ? (rendering as ComponentRendering).uid
@@ -262,8 +262,11 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
         );
       })
-      .filter((element) => element)
-      .map((element, id) => {
+      .filter((element) => element);
+      if (isEmpty)
+        return transformedComponents;
+      
+      return transformedComponents.map((element, id) => {
         // assign type based on passed element - type='text/sitecore' should be ignored when renderEach Placeholder prop function is being used
         const type = element.props.type === 'text/sitecore' ? element.props.type : '';
         return (

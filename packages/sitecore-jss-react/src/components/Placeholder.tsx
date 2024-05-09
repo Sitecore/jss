@@ -90,11 +90,11 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
       this.props.name
     );
 
-    const components = this.getComponentsForRenderingData(placeholderData);
-
     this.isEmpty = placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>
       isRawRendering(rendering)
     );
+
+    const components = this.getComponentsForRenderingData(placeholderData, this.isEmpty);
 
     if (this.props.renderEmpty && this.isEmpty) {
       const rendered = this.props.renderEmpty(components);
