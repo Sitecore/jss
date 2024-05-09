@@ -93,8 +93,6 @@ export {
   ComponentConsumerProps,
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
-  /** @deprecated use your component's props type instead */
-  WithSitecoreContextHocProps,
 } from './enhancers/withSitecoreContext';
 export { withEditorChromes } from './enhancers/withEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';
