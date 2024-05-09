@@ -532,7 +532,7 @@ export const emptyPlaceholderData = {
             name: 'code',
             type: 'text/sitecore',
             contents:
-              '{"commands":[{"click":"chrome:placeholder:addControl","header":"Add to here","icon":"/temp/iconcache/office/16x16/add.png","disabledIcon":"/temp/add_disabled16x16.png","isDivider":false,"tooltip":"Add a new rendering to the \'{0}\' placeholder.","type":""},{"click":"chrome:placeholder:editSettings","header":"","icon":"/temp/iconcache/office/16x16/window_gear.png","disabledIcon":"/temp/window_gear_disabled16x16.png","isDivider":false,"tooltip":"Edit the placeholder settings.","type":""}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&ver=1","custom":{"allowedRenderings":[],"editable":"true"},"displayName":"main","expandedDisplayName":null}',
+              '{"commands":[],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&ver=1","custom":{"allowedRenderings":[],"editable":"true"},"displayName":"main","expandedDisplayName":null}',
             attributes: {
               type: 'text/sitecore',
               chrometype: 'placeholder',
@@ -568,6 +568,36 @@ export const emptyPlaceholderData = {
               kind: 'close',
               hintkey: 'HomeRendering',
               class: 'scpm',
+            },
+          },
+          {
+            name: 'code',
+            type: 'text/sitecore',
+            contents: '',
+            attributes: {
+              type: 'text/sitecore',
+              id: 'scEnclosingTag_',
+              chrometype: 'placeholder',
+              kind: 'close',
+              hintname: 'main',
+              class: 'scpm',
+            },
+          },
+        ],
+        mainEmpty: [
+          {
+            name: 'code',
+            type: 'text/sitecore',
+            contents:
+              '{}',
+            attributes: {
+              type: 'text/sitecore',
+              chrometype: 'placeholder',
+              kind: 'open',
+              id: 'main',
+              key: 'main',
+              class: 'scpm',
+              'data-selectable': 'true',
             },
           },
           {
