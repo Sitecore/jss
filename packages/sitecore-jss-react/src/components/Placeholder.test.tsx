@@ -493,6 +493,7 @@ describe('<Placeholder />', () => {
       />
     );
     const emptyPlaceholder = renderedComponent.find('.sc-jss-empty-placeholder');
+    //TODO: change this as needed when merging "simplify editing" feature changes into dev
     expect(emptyPlaceholder.html()).to.equal([
       '<div class="sc-jss-empty-placeholder">',
       '<code type="text/sitecore" chrometype="placeholder" kind="open" id="main" class="scpm" data-selectable="true" phkey="main" key="main">',
