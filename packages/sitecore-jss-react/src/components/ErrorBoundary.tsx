@@ -19,8 +19,7 @@ export type ErrorBoundaryProps = {
 };
 
 class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
-  defaultErrorMessage =
-    'There was a problem loading this section. Refresh your browser to try again.'; // eslint-disable-line
+  defaultErrorMessage = 'There was a problem loading this section.'; // eslint-disable-line
   defaultLoadingMessage = 'Loading component...';
   state: { error: Error };
 

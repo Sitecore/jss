@@ -234,7 +234,7 @@ describe('ErrorBoundary', () => {
       console.log(rendered.html());
       expect(rendered.html()).to.contain('class="sc-jss-placeholder-error"');
       expect(rendered.html()).to.contain(
-        'There was a problem loading this section. Refresh your browser to try again.' // eslint-disable-line
+        'There was a problem loading this section.' // eslint-disable-line
       );
       expect(rendered.find('em').length).to.equal(0);
       expect(rendered.html()).to.not.contain(errorMessage);
