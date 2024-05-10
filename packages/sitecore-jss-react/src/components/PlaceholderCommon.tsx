@@ -266,6 +266,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         );
       })
       .filter((element) => element);
+
     if (isEmpty) {
       return transformedComponents;
     }
