@@ -157,7 +157,7 @@ describe('<Placeholder />', () => {
       it('when null passed to render function', () => {
         it('should render empty placeholder', () => {
           const component = dataSet.data.sitecore.route as RouteData;
-          const phKey = 'main';
+          const phKey = 'mainEmpty';
 
           const renderedComponent = mount(
             <SitecoreContext componentFactory={componentFactory}>
@@ -204,7 +204,7 @@ describe('<Placeholder />', () => {
 
       it('should render output based on the renderEmpty function in case of empty placeholder', () => {
         const route = emptyPlaceholderData.sitecore.route as RouteData;
-        const phKey = 'main';
+        const phKey = 'mainEmpty';
 
         const renderedComponent = mount(
           <SitecoreContext componentFactory={componentFactory}>
@@ -470,7 +470,7 @@ describe('<Placeholder />', () => {
   });
 
   it('should render empty placeholder', () => {
-    const phKey = 'main';
+    const phKey = 'mainEmpty';
 
     const renderedComponent = mount(
       <Placeholder
@@ -480,6 +480,31 @@ describe('<Placeholder />', () => {
       />
     );
     expect(renderedComponent.find('.sc-jss-empty-placeholder').length).to.equal(1);
+  });
+
+  it('should render empty placeholder with no extra markup', () => {
+    const phKey = 'mainEmpty';
+
+    const renderedComponent = mount(
+      <Placeholder
+        name={phKey}
+        rendering={emptyPlaceholderData.sitecore.route}
+        componentFactory={componentFactory}
+      />
+    );
+    const emptyPlaceholder = renderedComponent.find('.sc-jss-empty-placeholder');
+    // TODO: change this as needed when merging "simplify editing" feature changes into dev
+    expect(emptyPlaceholder.html()).to.equal(
+      [
+        '<div class="sc-jss-empty-placeholder">',
+        '<code type="text/sitecore" chrometype="placeholder" kind="open" id="main" class="scpm" data-selectable="true" phkey="main" key="main">',
+        '{}',
+        '</code>',
+        '<code type="text/sitecore" id="scEnclosingTag_" chrometype="placeholder" kind="close" hintname="main" class="scpm">',
+        '</code>',
+        '</div>',
+      ].join('')
+    );
   });
 
   it('should render null for unknown placeholder', () => {
