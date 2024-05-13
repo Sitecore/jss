@@ -13,7 +13,7 @@ describe('ErrorBoundary', () => {
 
       const testComponentProps = {
         context: {
-          pageState: LayoutServicePageState.Edit,
+          pageState: LayoutServicePageState.Preview,
         },
         setContext,
       };
