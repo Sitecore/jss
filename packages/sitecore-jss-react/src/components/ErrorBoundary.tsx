@@ -1,5 +1,5 @@
 import React, { ReactNode, Suspense } from 'react';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
+import { ComponentRendering, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
 import { withSitecoreContext } from '../enhancers/withSitecoreContext';
 import { SitecoreContextValue } from './SitecoreContext';
 
@@ -45,7 +45,11 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
       if (this.props.customErrorComponent) {
         return <this.props.customErrorComponent error={this.state.error} />;
       } else {
-        if (this.isInDevMode() || this.props.sitecoreContext?.pageEditing) {
+        if (
+          this.isInDevMode() ||
+          this.props.sitecoreContext?.pageState === LayoutServicePageState.Edit ||
+          this.props.sitecoreContext?.pageState === LayoutServicePageState.Preview
+        ) {
           return (
             <div>
               <div className="sc-jss-placeholder-error">
