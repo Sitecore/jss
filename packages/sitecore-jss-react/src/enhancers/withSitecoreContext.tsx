@@ -14,9 +14,6 @@ export interface ComponentConsumerProps extends WithSitecoreContextProps {
   children?: ReactNode;
 }
 
-// WithSitecoreContextHocProps has been deprecated, use your component's type instead
-export type WithSitecoreContextHocProps<ComponentProps> = ComponentProps;
-
 /**
  * @param {WithSitecoreContextOptions} [options]
  */
@@ -24,7 +21,7 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
   return function withSitecoreContextHoc<ComponentProps extends ComponentConsumerProps>(
     Component: React.ComponentType<ComponentProps>
   ) {
-    return function WithSitecoreContext(props: WithSitecoreContextHocProps<ComponentProps>) {
+    return function WithSitecoreContext(props: ComponentProps) {
       return (
         <SitecoreContextReactContext.Consumer>
           {(context) => (

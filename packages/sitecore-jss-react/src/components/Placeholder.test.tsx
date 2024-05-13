@@ -728,24 +728,17 @@ describe('PlaceholderMetadata', () => {
       },
       route: {
         name: 'main',
+        uid: 'root123',
         placeholders: {
           main: [
             {
-              uid: 'root123',
-              componentName: 'Layout',
+              uid: 'nested123',
+              componentName: 'Header',
               placeholders: {
-                header: [
+                logo: [
                   {
-                    uid: 'nested123',
-                    componentName: 'Header',
-                    placeholders: {
-                      logo: [
-                        {
-                          uid: 'deep123',
-                          componentName: 'Logo',
-                        },
-                      ],
-                    },
+                    uid: 'deep123',
+                    componentName: 'Logo',
                   },
                 ],
               },
@@ -759,15 +752,11 @@ describe('PlaceholderMetadata', () => {
   const componentFactory: ComponentFactory = (componentName: string) => {
     const components = new Map<string, React.FC>();
 
-    components.set('RichText', () => <div className="richtext-mock" />);
     components.set('Header', () => (
       <div className="header-wrapper">
         <Placeholder
           name="logo"
-          rendering={
-            layoutDataForNestedPlaceholder.sitecore.route.placeholders.main[0].placeholders
-              .header[0]
-          }
+          rendering={layoutDataForNestedPlaceholder.sitecore.route.placeholders.main[0]}
         />
       </div>
     ));
@@ -776,117 +765,19 @@ describe('PlaceholderMetadata', () => {
     return components.get(componentName) || null;
   };
 
-  it('Placeholder component renders <PlaceholderMetadata> component when editMode is metadata', () => {
-    const componentFactory: ComponentFactory = (componentName: string) => {
-      const components = new Map<string, React.FC>();
-
-      components.set('RichText', () => <div className="richtext-mock" />);
-      components.set('Layout', () => <div className="Logo-mock" />);
-
-      return components.get(componentName) || null;
-    };
-
-    const mockLayoutData = {
-      sitecore: {
-        context: {
-          pageEditing: true,
-          editMode: EditMode.Metadata,
-        },
-        route: {
-          name: 'main',
-          placeholders: {
-            main: [
-              {
-                uid: '123',
-                componentName: 'Layout',
-                placeholders: {
-                  header: [
-                    {
-                      uid: '456',
-                      componentName: 'RichText',
-                    },
-                  ],
-                },
-              },
-            ],
-          },
-        },
-      },
-    };
-
-    const component = mockLayoutData.sitecore.route.placeholders.main[0];
-
-    const renderedComponent = mount(
-      <SitecoreContext componentFactory={componentFactory} layoutData={mockLayoutData}>
-        <Placeholder name="header" rendering={component} />
-      </SitecoreContext>
-    );
-
-    expect(renderedComponent.find(PlaceholderMetadata).length).to.equal(2);
-  });
-
-  it('should render component with placeholders', () => {
-    const layoutData = {
-      sitecore: {
-        context: {
-          pageEditing: true,
-          editMode: EditMode.Metadata,
-        },
-        route: {
-          name: 'main',
-          placeholders: {
-            main: [
-              {
-                uid: '123',
-                componentName: 'Layout',
-                placeholders: {
-                  header: [
-                    {
-                      uid: '456',
-                      componentName: 'RichText',
-                    },
-                  ],
-                },
-              },
-            ],
-          },
-        },
-      },
-    };
-
-    const wrapper = shallow(
-      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
-        <Placeholder name="header" rendering={layoutData.sitecore.route.placeholders.main[0]} />
-      </SitecoreContext>
-    );
-
-    expect(wrapper.html()).to.equal(
-      [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="header_123"></code>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="456"></code>',
-        '<div class="richtext-mock"></div>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
-      ].join('')
-    );
-  });
-
-  it('should render nested placeholder components', () => {
-    const wrapper = shallow(
+  it('should render <PlaceholderMetadata> with nested placeholder components', () => {
+    const wrapper = mount(
       <SitecoreContext
         componentFactory={componentFactory}
         layoutData={layoutDataForNestedPlaceholder}
       >
-        <Placeholder
-          name="header"
-          rendering={layoutDataForNestedPlaceholder.sitecore.route.placeholders.main[0]}
-        />
+        <Placeholder name="main" rendering={layoutDataForNestedPlaceholder.sitecore.route} />
       </SitecoreContext>
     );
 
     expect(wrapper.html()).to.equal(
       [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="header_root123"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_root123"></code>',
         '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="nested123"></code>',
         '<div class="header-wrapper">',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="logo_nested123"></code>',
@@ -899,9 +790,11 @@ describe('PlaceholderMetadata', () => {
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
       ].join('')
     );
+
+    expect(wrapper.find(PlaceholderMetadata).length).to.equal(4);
   });
 
-  it('should render code blocks if placeholder is empty', () => {
+  it('should render code blocks even if placeholder is empty', () => {
     const layoutData = {
       sitecore: {
         context: {
@@ -910,16 +803,9 @@ describe('PlaceholderMetadata', () => {
         },
         route: {
           name: 'main',
+          uid: 'root123',
           placeholders: {
-            main: [
-              {
-                uid: '123',
-                componentName: 'Layout',
-                placeholders: {
-                  header: [],
-                },
-              },
-            ],
+            main: [],
           },
         },
       },
@@ -927,21 +813,21 @@ describe('PlaceholderMetadata', () => {
 
     const wrapper = shallow(
       <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
-        <Placeholder name="header" rendering={layoutData.sitecore.route.placeholders.main[0]} />
+        <Placeholder name="main" rendering={layoutData.sitecore.route} />
       </SitecoreContext>
     );
 
     expect(wrapper.html()).to.equal(
       [
         '<div class="sc-jss-empty-placeholder">',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="header_123"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_root123"></code>',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
         '</div>',
       ].join('')
     );
   });
 
-  it('should render missing component with chromes if component is not registered', () => {
+  it('should render missing component with code blocks if component is not registered', () => {
     const layoutData = {
       sitecore: {
         context: {
@@ -950,19 +836,12 @@ describe('PlaceholderMetadata', () => {
         },
         route: {
           name: 'main',
+          uid: 'root123',
           placeholders: {
             main: [
               {
                 uid: '123',
-                componentName: 'Layout',
-                placeholders: {
-                  header: [
-                    {
-                      uid: '456',
-                      componentName: 'Unknown',
-                    },
-                  ],
-                },
+                componentName: 'Unknown',
               },
             ],
           },
@@ -972,14 +851,14 @@ describe('PlaceholderMetadata', () => {
 
     const wrapper = shallow(
       <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
-        <Placeholder name="header" rendering={layoutData.sitecore.route.placeholders.main[0]} />
+        <Placeholder name="main" rendering={layoutData.sitecore.route} />
       </SitecoreContext>
     );
 
     expect(wrapper.html()).to.equal(
       [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="header_123"></code>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="456"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_root123"></code>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="123"></code>',
         '<div style="background:darkorange;outline:5px solid orange;padding:10px;color:white;max-width:500px"><h2>Unknown</h2><p>JSS component is missing React implementation. See the developer console for more information.</p></div>',
         '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
