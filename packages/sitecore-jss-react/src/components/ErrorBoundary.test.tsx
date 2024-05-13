@@ -4,16 +4,16 @@ import { mount } from 'enzyme';
 import { spy } from 'sinon';
 import ErrorBoundary from './ErrorBoundary';
 import { SitecoreContextReactContext } from '../components/SitecoreContext';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
+import { ComponentRendering, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
 
 describe('ErrorBoundary', () => {
-  describe('when in page editing mode', () => {
+  describe('when in page editing or preview mode', () => {
     it('Should render custom error component when custom error component is provided and error is thrown', () => {
       const setContext = spy();
 
       const testComponentProps = {
         context: {
-          pageEditing: true,
+          pageState: LayoutServicePageState.Edit,
         },
         setContext,
       };
@@ -42,12 +42,12 @@ describe('ErrorBoundary', () => {
       expect(rendered.find('div').text()).to.equal('This is a custom error component!');
     });
 
-    it('Should render errors message and errored component name when error is thrown', () => {
+    it('Should render errors message and errored component name when error is thrown in edit mode', () => {
       const setContext = spy();
 
       const testComponentProps = {
         context: {
-          pageEditing: true,
+          pageState: LayoutServicePageState.Edit,
         },
         setContext,
       };
@@ -67,7 +67,50 @@ describe('ErrorBoundary', () => {
           </ErrorBoundary>
         </SitecoreContextReactContext.Provider>
       );
+      console.log(rendered.html());
+      expect(rendered.html()).to.contain('class="sc-jss-placeholder-error"');
+      expect(rendered.html()).to.contain('A rendering error occurred in component');
+      expect(rendered.find('em').length).to.equal(2);
+      expect(
+        rendered
+          .find('em')
+          .at(0)
+          .text()
+      ).to.equal(testComponentName);
+      expect(
+        rendered
+          .find('em')
+          .at(1)
+          .text()
+      ).to.equal(errorMessage);
+    });
 
+    it('Should render errors message and errored component name when error is thrown in preview mode', () => {
+      const setContext = spy();
+
+      const testComponentProps = {
+        context: {
+          pageState: LayoutServicePageState.Preview,
+        },
+        setContext,
+      };
+
+      const testComponentName = 'Test component Name';
+      const rendering: ComponentRendering = { componentName: testComponentName };
+
+      const errorMessage = 'an error occured';
+      const TestErrorComponent: React.FC = () => {
+        throw Error(errorMessage);
+      };
+
+      const rendered = mount(
+        <SitecoreContextReactContext.Provider value={testComponentProps}>
+          <ErrorBoundary rendering={rendering}>
+            <TestErrorComponent />
+          </ErrorBoundary>
+        </SitecoreContextReactContext.Provider>
+      );
+      console.log(rendered.html());
       expect(rendered.html()).to.contain('class="sc-jss-placeholder-error"');
       expect(rendered.html()).to.contain('A rendering error occurred in component');
       expect(rendered.find('em').length).to.equal(2);
