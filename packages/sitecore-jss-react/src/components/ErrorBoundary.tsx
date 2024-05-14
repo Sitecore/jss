@@ -35,9 +35,10 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     if (this.showErrorDetails()) {
       console.error(
-        `A rendering error occurred in component ${this.props.rendering?.componentName}; Rendering uid: ${this.props.rendering?.uid}`
+        `An error occurred in component ${this.props.rendering?.componentName} (${this.props.rendering?.uid}): `
       );
     }
+
     console.error({ error, errorInfo });
   }
 
