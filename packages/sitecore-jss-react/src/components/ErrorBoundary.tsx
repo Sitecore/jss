@@ -1,5 +1,5 @@
 import React, { ReactNode, Suspense } from 'react';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
+import { ComponentRendering, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
 import { withSitecoreContext } from '../enhancers/withSitecoreContext';
 import { SitecoreContextValue } from './SitecoreContext';
 
@@ -19,7 +19,7 @@ export type ErrorBoundaryProps = {
 };
 
 class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
-  defaultErrorMessage = 'There was a problem loading this section.'; // eslint-disable-line
+  defaultErrorMessage = 'There was a problem loading this section.';
   defaultLoadingMessage = 'Loading component...';
   state: { error: Error };
 
@@ -33,6 +33,12 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    if (this.showErrorDetails()) {
+      console.error(
+        `An error occurred in component ${this.props.rendering?.componentName} (${this.props.rendering?.uid}): `
+      );
+    }
+
     console.error({ error, errorInfo });
   }
 
@@ -40,12 +46,20 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
     return process.env.NODE_ENV === 'development';
   }
 
+  showErrorDetails(): boolean {
+    return (
+      this.isInDevMode() ||
+      this.props.sitecoreContext?.pageState === LayoutServicePageState.Edit ||
+      this.props.sitecoreContext?.pageState === LayoutServicePageState.Preview
+    );
+  }
+
   render() {
     if (this.state.error) {
       if (this.props.customErrorComponent) {
         return <this.props.customErrorComponent error={this.state.error} />;
       } else {
-        if (this.isInDevMode() || this.props.sitecoreContext?.pageEditing) {
+        if (this.showErrorDetails()) {
           return (
             <div>
               <div className="sc-jss-placeholder-error">
