@@ -67,7 +67,7 @@ describe('ErrorBoundary', () => {
           </ErrorBoundary>
         </SitecoreContextReactContext.Provider>
       );
-      console.log(rendered.html());
+
       expect(rendered.html()).to.contain('class="sc-jss-placeholder-error"');
       expect(rendered.html()).to.contain('A rendering error occurred in component');
       expect(rendered.find('em').length).to.equal(2);
@@ -110,7 +110,7 @@ describe('ErrorBoundary', () => {
           </ErrorBoundary>
         </SitecoreContextReactContext.Provider>
       );
-      console.log(rendered.html());
+
       expect(rendered.html()).to.contain('class="sc-jss-placeholder-error"');
       expect(rendered.html()).to.contain('A rendering error occurred in component');
       expect(rendered.find('em').length).to.equal(2);
@@ -273,7 +273,7 @@ describe('ErrorBoundary', () => {
           <TestErrorComponent />
         </ErrorBoundary>
       );
-      console.log(rendered.html());
+
       expect(rendered.html()).to.contain('class="sc-jss-placeholder-error"');
       expect(rendered.html()).to.contain(
         'There was a problem loading this section.' // eslint-disable-line
