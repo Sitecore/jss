@@ -29,7 +29,7 @@ export interface TextProps {
 }
 
 export const Text: React.FC<TextProps> = withFieldMetadata<TextProps>(
-  ({ field, tag, editable, encode, ...otherProps }) => {
+  ({ field, tag, editable = true, encode = true, ...otherProps }) => {
     if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
       return null;
     }
@@ -104,10 +104,6 @@ Text.propTypes = {
   tag: PropTypes.string,
   editable: PropTypes.bool,
   encode: PropTypes.bool,
-};
-Text.defaultProps = {
-  editable: true,
-  encode: true,
 };
 
 Text.displayName = 'Text';

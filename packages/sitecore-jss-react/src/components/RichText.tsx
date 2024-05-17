@@ -27,21 +27,23 @@ export interface RichTextProps {
 
 export const RichText: React.FC<RichTextProps> = withFieldMetadata<RichTextProps>(
   // eslint-disable-next-line react/display-name
-  forwardRef<HTMLElement, RichTextProps>(({ field, tag, editable, ...otherProps }, ref) => {
-    if (!field || (!field.editable && !field.value)) {
-      return null;
+  forwardRef<HTMLElement, RichTextProps>(
+    ({ field, tag = 'div', editable = true, ...otherProps }, ref) => {
+      if (!field || (!field.editable && !field.value)) {
+        return null;
+      }
+
+      const htmlProps = {
+        dangerouslySetInnerHTML: {
+          __html: field.editable && editable ? field.editable : field.value,
+        },
+        ref,
+        ...otherProps,
+      };
+
+      return React.createElement(tag || 'div', htmlProps);
     }
-
-    const htmlProps = {
-      dangerouslySetInnerHTML: {
-        __html: field.editable && editable ? field.editable : field.value,
-      },
-      ref,
-      ...otherProps,
-    };
-
-    return React.createElement(tag || 'div', htmlProps);
-  }),
+  ),
   true
 );
 
@@ -56,10 +58,5 @@ export const RichTextPropTypes = {
 };
 
 RichText.propTypes = RichTextPropTypes;
-
-RichText.defaultProps = {
-  tag: 'div',
-  editable: true,
-};
 
 RichText.displayName = 'RichText';

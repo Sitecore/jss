@@ -144,7 +144,7 @@ export const getEEMarkup = (
 };
 
 export const Image: React.FC<ImageProps> = withFieldMetadata<ImageProps>(
-  ({ editable, imageParams, field, mediaUrlPrefix, ...otherProps }) => {
+  ({ editable = true, imageParams, field, mediaUrlPrefix, ...otherProps }) => {
     const dynamicMedia = field as ImageField | ImageFieldValue;
 
     if (
@@ -197,10 +197,6 @@ Image.propTypes = {
   imageParams: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]).isRequired
   ),
-};
-
-Image.defaultProps = {
-  editable: true,
 };
 
 Image.displayName = 'Image';

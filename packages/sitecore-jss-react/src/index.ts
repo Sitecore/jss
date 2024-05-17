@@ -49,6 +49,8 @@ export {
   GraphQLClientError,
   RetryStrategy,
   DefaultRetryStrategy,
+  GraphQLRequestClientFactoryConfig,
+  GraphQLRequestClient,
 } from '@sitecore-jss/sitecore-jss/graphql';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export { ComponentFactory } from './components/sharedTypes';

@@ -11,7 +11,16 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🐛 Bug Fixes
+
+* `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Changed formatting in temp/config to prevent parse issues in Unix systems ([#1787](https://github.com/Sitecore/jss/pull/1787) [#1791](https://github.com/Sitecore/jss/pull/1791))
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-react]`Introduce ErrorBoundary component. All rendered components are wrapped with it and it will catch client or server side errors from any of its children, display appropriate message and prevent the rest of the application from failing. It accepts and can display custom error component and loading message if it is passed as a prop to parent Placeholder. ([#1786](https://github.com/Sitecore/jss/pull/1786) [#1790](https://github.com/Sitecore/jss/pull/1790) [#1793](https://github.com/Sitecore/jss/pull/1793) [#1794](https://github.com/Sitecore/jss/pull/1794))
+
 ### 🛠 Breaking Change
+
 *  Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792)) ([#1773](https://github.com/Sitecore/jss/pull/1773))
   * `[sitecore-jss-react]` Introduces `PlaceholderMetadata` component which supports the hydration of chromes on Pages by rendering  the components and placeholders with required metadata.
   * `[sitecore-jss]` Chromes are hydrated based on the basis of new `editMode` property derived from LayoutData, which is defined as an enum consisting of `metadata` and `chromes`.
@@ -35,7 +44,11 @@ Our versioning strategy is as follows:
   * `sitecore-jss-nextjs` no longer exports `isEditorActive`, `resetEditorChormes`, `resolveUrl`, `handleEditorFastRefresh`, `getPublicUrl` functions. Use `sitecore-jss-nextjs/utils` instead.
   * `getFEAASLibraryStylesheetLinks` function has been removed in favor of `getComponentLibraryStylesheetLinks`
 
-* `[sitecore-jss-react]` Deprecated `media` prop is removed from Image component. Use `field` prop instead ([#1780](https://github.com/Sitecore/jss/pull/1780)).
+* `[sitecore-jss-react]` `[templates/react]` Deprecated `media` prop is removed from Image component. Use `field` prop instead ([#1780](https://github.com/Sitecore/jss/pull/1780))([#1785](https://github.com/Sitecore/jss/pull/1785)).
+
+* `[templates/react]` `[templates/angular]` `[templates/vue]` `[templates/node-headless-ssr-experience-edge]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` ([#1783](https://github.com/Sitecore/jss/pull/1783)):
+  * GraphQL-based services can now only be initialized with clientFactory parameter. Previously deprecated option of providing endpoint and apiKey has been removed
+  * Removed deprecated _defaultProps_ react component property
 
 * `[templates/nextjs]` GraphQL-based services can now only be initialized with clientFactory parameter. Previously deprecated option of providing endpoint and apiKey has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
 
@@ -97,6 +110,11 @@ Our versioning strategy is as follows:
 * `[nextjs/template]` Upgrade graphql-codegen packages to latest ([#1711](https://github.com/Sitecore/jss/pull/1711))
 
 ## 21.6.4
+
+### 🎉 New Features & Improvements
+* `[templates/nextjs]` Add support for `.env.*` files during bootstrap process, matching what Next.js supports OOTB for build/runtime. ([#1741](https://github.com/Sitecore/jss/pull/1741))
+* `[sitecore-jss]` Export `ClientError`. ([#1738](https://github.com/Sitecore/jss/pull/1738))
+* `[sitecore-jss]` Enable the Layout, dictionary and ErrorPages service to use custom `retryStrategy`. ([#1749](https://github.com/Sitecore/jss/pull/1749)) ([#1751](https://github.com/Sitecore/jss/pull/1751))
 
 ### 🐛 Bug Fixes
 

@@ -42,7 +42,7 @@ export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
 export const Link: React.FC<LinkProps> = withFieldMetadata<LinkProps, HTMLAnchorElement>(
   // eslint-disable-next-line react/display-name
   forwardRef<HTMLAnchorElement, LinkProps>(
-    ({ field, editable, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {
+    ({ field, editable = true, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {
       const children = otherProps.children as React.ReactNode;
       const dynamicField: LinkField | LinkFieldValue = field;
 
@@ -145,9 +145,5 @@ export const LinkPropTypes = {
 };
 
 Link.propTypes = LinkPropTypes;
-
-Link.defaultProps = {
-  editable: true,
-};
 
 Link.displayName = 'Link';

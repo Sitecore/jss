@@ -6,21 +6,10 @@
 
 ### Variables
 
-- [defaultProps](Text.md#defaultprops)
 - [displayName](Text.md#displayname)
 - [propTypes](Text.md#proptypes)
 
 ## Variables
-
-### defaultProps
-
-• **defaultProps**: `Partial`\<`TextProps`\>
-
-#### Defined in
-
-[packages/sitecore-jss-react/src/components/Text.tsx:110](https://github.com/Sitecore/jss/blob/139f50a01/packages/sitecore-jss-react/src/components/Text.tsx#L110)
-
-___
 
 ### displayName
 
@@ -28,7 +17,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Text.tsx:115](https://github.com/Sitecore/jss/blob/139f50a01/packages/sitecore-jss-react/src/components/Text.tsx#L115)
+[packages/sitecore-jss-react/src/components/Text.tsx:110](https://github.com/Sitecore/jss/blob/dd9bf5264/packages/sitecore-jss-react/src/components/Text.tsx#L110)
 
 ___
 
@@ -38,4 +27,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Text.tsx:100](https://github.com/Sitecore/jss/blob/139f50a01/packages/sitecore-jss-react/src/components/Text.tsx#L100)
+[packages/sitecore-jss-react/src/components/Text.tsx:100](https://github.com/Sitecore/jss/blob/dd9bf5264/packages/sitecore-jss-react/src/components/Text.tsx#L100)

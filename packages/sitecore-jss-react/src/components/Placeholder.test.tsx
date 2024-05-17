@@ -160,7 +160,7 @@ describe('<Placeholder />', () => {
       it('when null passed to render function', () => {
         it('should render empty placeholder', () => {
           const component = dataSet.data.sitecore.route as RouteData;
-          const phKey = 'main';
+          const phKey = 'mainEmpty';
 
           const renderedComponent = mount(
             <SitecoreContext componentFactory={componentFactory}>
@@ -207,7 +207,7 @@ describe('<Placeholder />', () => {
 
       it('should render output based on the renderEmpty function in case of empty placeholder', () => {
         const route = emptyPlaceholderData.sitecore.route as RouteData;
-        const phKey = 'main';
+        const phKey = 'mainEmpty';
 
         const renderedComponent = mount(
           <SitecoreContext componentFactory={componentFactory}>
@@ -493,7 +493,7 @@ describe('<Placeholder />', () => {
   });
 
   it('should render empty placeholder', () => {
-    const phKey = 'main';
+    const phKey = 'mainEmpty';
 
     const renderedComponent = mount(
       <SitecoreContext componentFactory={componentFactory}>
@@ -501,6 +501,31 @@ describe('<Placeholder />', () => {
       </SitecoreContext>
     );
     expect(renderedComponent.find('.sc-jss-empty-placeholder').length).to.equal(1);
+  });
+
+  it('should render empty placeholder with no extra markup', () => {
+    const phKey = 'mainEmpty';
+
+    const renderedComponent = mount(
+      <Placeholder
+        name={phKey}
+        rendering={emptyPlaceholderData.sitecore.route}
+        componentFactory={componentFactory}
+      />
+    );
+    const emptyPlaceholder = renderedComponent.find('.sc-jss-empty-placeholder');
+    // TODO: change this as needed when merging "simplify editing" feature changes into dev
+    expect(emptyPlaceholder.html()).to.equal(
+      [
+        '<div class="sc-jss-empty-placeholder">',
+        '<code type="text/sitecore" chrometype="placeholder" kind="open" id="main" class="scpm" data-selectable="true" phkey="main" key="main">',
+        '{}',
+        '</code>',
+        '<code type="text/sitecore" id="scEnclosingTag_" chrometype="placeholder" kind="close" hintname="main" class="scpm">',
+        '</code>',
+        '</div>',
+      ].join('')
+    );
   });
 
   it('should render null for unknown placeholder', () => {
@@ -557,6 +582,46 @@ describe('<Placeholder />', () => {
       </SitecoreContext>
     );
     expect(renderedComponent.find('.sc-jss-placeholder-error').length).to.equal(1);
+  });
+
+  it('should render error message on error, only for the errored component', () => {
+    const componentFactory: ComponentFactory = (componentName: string) => {
+      const components = new Map<string, React.FC>();
+
+      const Home: React.FC<{ rendering?: RouteData }> = ({ rendering }) => (
+        <div className="home-mock">
+          <Placeholder name="main" rendering={rendering} />
+        </div>
+      );
+
+      components.set('Home', Home);
+      components.set('ThrowError', () => {
+        throw Error('an error occured');
+      });
+      components.set('Foo', () => <div className="foo-class">foo</div>);
+
+      return components.get(componentName) || null;
+    };
+
+    const route = ({
+      placeholders: {
+        main: [
+          {
+            componentName: 'ThrowError',
+          },
+          {
+            componentName: 'Foo',
+          },
+        ],
+      },
+    } as unknown) as RouteData;
+    const phKey = 'main';
+
+    const renderedComponent = mount(
+      <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
+    );
+    expect(renderedComponent.find('.sc-jss-placeholder-error').length).to.equal(1);
+    expect(renderedComponent.find('div.foo-class').length).to.equal(1);
   });
 
   it('should render custom errorComponent on error, if provided', () => {

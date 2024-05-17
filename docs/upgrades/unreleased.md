@@ -1,25 +1,47 @@
 ## Unreleased
 
-Most of this re-iterates the instructions already provided in 21.6 and 21.7 upgrade guides. We need to double ensure these changes are made, as this release removes related deprecations.
+# react
 
 * With the simplification of Editing Support work we have added the following breaking changes to the `sitecore-jss-react` package. Please make the necessary updates.
   - `sitecoreContext` property within the `WithSitecoreContextProps` interface has been made optional.    Please add safegaurds for scenarios where `sitecoreContext` could be undefined.
   - `WithSitecoreContextHocProps` is now deprecated and removed. We suggest that you define and use your own component prop types.
 
-### nextjs
-
-### nextjs-xmcloud
-
-### nextjs-sxa
-
-### nextjs-multisite
-
-### react
-
-### angular
-
-### vue
-
-### headless-ssr-proxy
-
 ### headless-ssr-experience-edge
+* Replace `scripts/generate-config.js` if you have not modified it. Otherwise:
+    * Add a `trim()` call to `config[prop]` and replace comma before a newline (`,`) with semicolon (`;`) in configText prop assignment so it would look like this:
+        
+        ```
+            configText += `config.${prop} = process.env.REACT_APP_${constantCase(prop)} || "${
+                config[prop]?.trim()
+            }";\n`;
+        ```
+
+# angular
+
+* Replace `scripts/generate-config.ts` if you have not modified it. Otherwise:
+    * Add a `trim()` call to `config[prop]` (use toString() to avoid type conflicts) and replace commas before a newline (`,`) with semicolon (`;`) in configText prop assignments so it would look like this:
+        
+        ```
+            configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]?.toString().trim()}";\n`;
+        ```
+
+
+# vue
+
+* Replace `scripts/generate-config.js` if you have not modified it. Otherwise:
+    *  Add a `trim()` call to `config[prop]` and replace commas before a newline (`,`) with semicolon (`;`) in configText prop assignments so it would look like this:
+        
+        ```
+            configText += `config.${prop} = process.env.VUE_APP_${constantCase(prop)} || "${
+                config[prop]?.trim()
+            }";\n`;
+        ```
+
+# nextjs
+
+* Replace `scripts/generate-config.ts` if you have not modified it. Otherwise:
+    * Add a `trim()` call to `config[prop]` and replace comma before a newline (`,`) with semicolon (`;`) in configText prop assignment so it would look like this:
+        
+        ```
+            configText += `config.${prop} = process.env.${constantCase(prop)} || '${config[prop]?.trim()}';\n`;
+        ```

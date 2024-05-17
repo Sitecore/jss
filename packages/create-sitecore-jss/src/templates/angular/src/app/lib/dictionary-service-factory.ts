@@ -5,13 +5,13 @@ import {
   constants,
 } from '@sitecore-jss/sitecore-jss-angular';
 import { environment as env } from '../../environments/environment';
+import { clientFactory } from './client-factory';
 
 export class DictionaryServiceFactory {
   create(): DictionaryService {
     return process.env.FETCH_WITH === constants.FETCH_WITH.GRAPHQL
       ? new GraphQLDictionaryService({
-          endpoint: env.graphQLEndpoint,
-          apiKey: env.sitecoreApiKey,
+          clientFactory,
           siteName: env.sitecoreSiteName,
           /*
             The Dictionary Service needs a root item ID in order to fetch dictionary phrases for the current

@@ -18,6 +18,7 @@ import { BYOCComponent, BYOC_COMPONENT_RENDERING_NAME } from './BYOCComponent';
 import { BYOCWrapper, BYOC_WRAPPER_RENDERING_NAME } from './BYOCWrapper';
 import { SitecoreContextValue } from './SitecoreContext';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
+import ErrorBoundary from './ErrorBoundary';
 
 type ErrorComponentProps = {
   [prop: string]: unknown;
@@ -81,6 +82,11 @@ export interface PlaceholderProps {
    *  Context data from the Sitecore Layout Service
    */
   sitecoreContext?: SitecoreContextValue;
+
+  /**
+   * The message that gets displayed while component is loading
+   */
+  componentLoadingMessage?: string;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
@@ -184,7 +190,10 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     );
   }
 
-  getComponentsForRenderingData(placeholderData: (ComponentRendering | HtmlElementRendering)[]) {
+  getComponentsForRenderingData(
+    placeholderData: (ComponentRendering | HtmlElementRendering)[],
+    isEmpty?: boolean
+  ) {
     const {
       name,
       fields: placeholderFields,
@@ -194,7 +203,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       ...placeholderProps
     } = this.props;
 
-    const components = placeholderData
+    const transformedComponents = placeholderData
       .map((rendering: ComponentRendering | HtmlElementRendering, index: number) => {
         const key = (rendering as ComponentRendering).uid
           ? (rendering as ComponentRendering).uid
@@ -284,12 +293,30 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           uid={(this.props.rendering as ComponentRendering).uid}
           placeholderName={name}
         >
-          {components}
+          {transformedComponents}
         </PlaceholderMetadata>,
       ];
     }
 
-    return components;
+    if (isEmpty) {
+      return transformedComponents;
+    }
+
+    return transformedComponents.map((element, id) => {
+      // assign type based on passed element - type='text/sitecore' should be ignored when renderEach Placeholder prop function is being used
+      const type = element.props.type === 'text/sitecore' ? element.props.type : '';
+      return (
+        <ErrorBoundary
+          key={element.type + '-' + id}
+          customErrorComponent={this.props.errorComponent}
+          rendering={element.props.rendering as ComponentRendering}
+          componentLoadingMessage={this.props.componentLoadingMessage}
+          type={type}
+        >
+          {element}
+        </ErrorBoundary>
+      );
+    });
   }
 
   getComponentForRendering(renderingDefinition: ComponentRendering): ComponentType | null {
