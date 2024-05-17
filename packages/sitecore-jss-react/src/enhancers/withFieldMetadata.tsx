@@ -36,7 +36,7 @@ export function withFieldMetadata<
   }
 
   // eslint-disable-next-line react/display-name
-  return ({ ...props }: FieldComponentProps) => {
+  return (props: FieldComponentProps) => {
     const { editable = true } = props;
     const metadata = props.field?.metadata;
 
