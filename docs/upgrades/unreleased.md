@@ -3,8 +3,7 @@
 # react
 
 * With the simplification of Editing Support work we have added the following breaking changes to the `sitecore-jss-react` package. Please make the necessary updates.
-  - `sitecoreContext` property within the `WithSitecoreContextProps` interface has been made optional.    Please add safegaurds for scenarios where `sitecoreContext` could be undefined.
-  - `WithSitecoreContextHocProps` is now deprecated and removed. We suggest that you define and use your own component prop types.
+  - `ComponentConsumerProps` is removed. You might need to reuse _WithSitecoreContextProps_ type.
 
 ### headless-ssr-experience-edge
 * Replace `scripts/generate-config.js` if you have not modified it. Otherwise:

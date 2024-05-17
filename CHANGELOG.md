@@ -24,8 +24,7 @@ Our versioning strategy is as follows:
 *  Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792)) ([#1773](https://github.com/Sitecore/jss/pull/1773))
   * `[sitecore-jss-react]` Introduces `PlaceholderMetadata` component which supports the hydration of chromes on Pages by rendering  the components and placeholders with required metadata.
   * `[sitecore-jss]` Chromes are hydrated based on the basis of new `editMode` property derived from LayoutData, which is defined as an enum consisting of `metadata` and `chromes`.
-  * `[sitecore-jss-react]` _sitecoreContext_ property within the `WithSitecoreContextProps` interface has been made optional. If you use _withSitecoreContext_ HOC please add safegaurds for scenarios where `sitecoreContext` could be undefined.
-  * `WithSitecoreContextHocProps` is now deprecated and removed. Please use your own component prop types.
+  * `ComponentConsumerProps` is removed. You might need to reuse _WithSitecoreContextProps_ type.
   * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Introduce FieldMetadata component and functionality to render it when metadata field property is provided in the field's layout data. In such case the field component is wrapped with metadata markup to enable chromes hydration when editing in pages. Ability to render metadata has been added to the field rendering components for react and nextjs.
 
 ## 22.0.0
