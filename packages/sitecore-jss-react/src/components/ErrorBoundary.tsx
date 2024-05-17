@@ -3,7 +3,7 @@ import { ComponentRendering, LayoutServicePageState } from '@sitecore-jss/siteco
 import { withSitecoreContext } from '../enhancers/withSitecoreContext';
 import { SitecoreContextValue } from './SitecoreContext';
 
-type CustomErrorComponentProps = {
+type ErrorComponentProps = {
   [prop: string]: unknown;
 };
 
@@ -11,9 +11,7 @@ export type ErrorBoundaryProps = {
   children: ReactNode;
   sitecoreContext: SitecoreContextValue;
   type: string;
-  customErrorComponent?:
-    | React.ComponentClass<CustomErrorComponentProps>
-    | React.FC<CustomErrorComponentProps>;
+  errorComponent?: React.ComponentClass<ErrorComponentProps> | React.FC<ErrorComponentProps>;
   rendering?: ComponentRendering;
   componentLoadingMessage?: string;
 };
@@ -56,8 +54,8 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
 
   render() {
     if (this.state.error) {
-      if (this.props.customErrorComponent) {
-        return <this.props.customErrorComponent error={this.state.error} />;
+      if (this.props.errorComponent) {
+        return <this.props.errorComponent error={this.state.error} />;
       } else {
         if (this.showErrorDetails()) {
           return (
