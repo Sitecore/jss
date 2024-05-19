@@ -77,6 +77,10 @@ export const isTimeoutError = (error: unknown) => {
   );
 };
 
+const convertToRegex = (pattern: string) => {
+  return pattern.replace('.', '\\.').replace(/\*/g, '.*');
+};
+
 export const enforceCors = (
   req: IncomingMessage,
   res: OutgoingMessage,
@@ -87,7 +91,14 @@ export const enforceCors = (
     : [];
   allowedOrigins = defaultAllowedOrigins.concat(allowedOrigins || []);
   const origin = req.headers.origin;
-  if (origin && allowedOrigins.includes(origin)) {
+  if (
+    origin &&
+    allowedOrigins.some(
+      (allowedOrigin) =>
+        origin === allowedOrigin ||
+        new RegExp('^' + convertToRegex(allowedOrigin) + '$').test(origin)
+    )
+  ) {
     res.setHeader('Access-Control-Allow-Origin', origin);
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH');
     return true;

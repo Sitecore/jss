@@ -202,7 +202,7 @@ describe('utils', () => {
       return res;
     };
 
-    it('should return true if origin matches allowedOrigins from API_ALLOWED_ORIGINS env variable', () => {
+    it('should return true if origin is found in allowedOrigins from API_ALLOWED_ORIGINS env variable', () => {
       const req = mockRequest();
       const res = mockResponse();
       process.env.API_ALLOWED_ORIGINS = mockOrigin;
@@ -210,7 +210,7 @@ describe('utils', () => {
       delete process.env.API_ALLOWED_ORIGINS;
     });
 
-    it('should return true if origin matches allowedOrigins passed as argument', () => {
+    it('should return true if origin is found in allowedOrigins passed as argument', () => {
       const req = mockRequest('http://allowed.com');
       const res = mockResponse();
 
@@ -223,6 +223,12 @@ describe('utils', () => {
       process.env.API_ALLOWED_ORIGINS = 'https://strictallowed.com, https://alsoallowed.com';
       expect(enforceCors(req, res, ['https://paramallowed.com'])).to.be.equal(false);
       delete process.env.API_ALLOWED_ORIGINS;
+    });
+
+    it('should return true when origin matches a wildcard value from allowedOrigins', () => {
+      const req = mockRequest('https://veryallowed.com');
+      const res = mockResponse();
+      expect(enforceCors(req, res, ['https://*owed.com'])).to.be.equal(true);
     });
 
     it('should set Access-Control-Allow-Origin header for matching origin', () => {
