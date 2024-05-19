@@ -2,6 +2,7 @@ import isServer from './is-server';
 import { ParsedUrlQueryInput } from 'querystring';
 import { AxiosError } from 'axios';
 import { ResponseError } from '../data-fetcher';
+import { IncomingMessage, OutgoingMessage } from 'http';
 
 /**
  * note: encodeURIComponent is available via browser (window) or natively in node.js
@@ -74,4 +75,22 @@ export const isTimeoutError = (error: unknown) => {
     (error as ResponseError).response?.status === 408 ||
     (error as Error).name === 'AbortError'
   );
+};
+
+export const enforceCors = (
+  req: IncomingMessage,
+  res: OutgoingMessage,
+  allowedOrigins?: string[]
+): boolean => {
+  const defaultAllowedOrigins = process.env.API_ALLOWED_ORIGINS
+    ? process.env.API_ALLOWED_ORIGINS.replace(' ', '').split(',')
+    : [];
+  allowedOrigins = defaultAllowedOrigins.concat(allowedOrigins || []);
+  const origin = req.headers.origin;
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH');
+    return true;
+  }
+  return false;
 };

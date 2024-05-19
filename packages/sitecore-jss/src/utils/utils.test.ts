@@ -2,7 +2,8 @@
 import { expect, spy } from 'chai';
 import { isEditorActive, resetEditorChromes, isServer, resolveUrl } from '.';
 import { ChromeRediscoveryGlobalFunctionName } from './editing';
-import { isAbsoluteUrl, isTimeoutError } from './utils';
+import { enforceCors, isAbsoluteUrl, isTimeoutError } from './utils';
+import { IncomingMessage, OutgoingMessage } from 'http';
 
 // must make TypeScript happy with `global` variable modification
 interface CustomWindow {
@@ -179,6 +180,57 @@ describe('utils', () => {
       expect(isTimeoutError({ code: 'ETIMEDOUT' })).to.be.true;
       expect(isTimeoutError({ response: { status: 408 } })).to.be.true;
       expect(isTimeoutError({ name: 'AbortError' })).to.be.true;
+    });
+  });
+
+  describe('enforceCors', () => {
+    const mockOrigin = 'https://maybeallowed.com';
+    const mockRequest = (origin?: string) => {
+      return {
+        headers: {
+          origin: origin || mockOrigin,
+        },
+      } as IncomingMessage;
+    };
+
+    const mockResponse = () => {
+      const res = {} as OutgoingMessage;
+      res.setHeader = spy(() => {
+        return res;
+      });
+
+      return res;
+    };
+
+    it('should return true if origin matches allowedOrigins from API_ALLOWED_ORIGINS env variable', () => {
+      const req = mockRequest();
+      const res = mockResponse();
+      process.env.API_ALLOWED_ORIGINS = mockOrigin;
+      expect(enforceCors(req, res)).to.be.equal(true);
+      delete process.env.API_ALLOWED_ORIGINS;
+    });
+
+    it('should return true if origin matches allowedOrigins passed as argument', () => {
+      const req = mockRequest('http://allowed.com');
+      const res = mockResponse();
+
+      expect(enforceCors(req, res, ['http://allowed.com'])).to.be.equal(true);
+    });
+
+    it('should return false if origin matches neither allowedOrigins from API_ALLOWED_ORIGINS env variable nor argument', () => {
+      const req = mockRequest('https://notallowed.com');
+      const res = mockResponse();
+      process.env.API_ALLOWED_ORIGINS = 'https://strictallowed.com, https://alsoallowed.com';
+      expect(enforceCors(req, res, ['https://paramallowed.com'])).to.be.equal(false);
+      delete process.env.API_ALLOWED_ORIGINS;
+    });
+
+    it('should set Access-Control-Allow-Origin header for matching origin', () => {
+      const req = mockRequest();
+      const res = mockResponse();
+
+      enforceCors(req, res, [mockOrigin]);
+      expect(res.setHeader).to.have.been.called.with('Access-Control-Allow-Origin', mockOrigin);
     });
   });
 });

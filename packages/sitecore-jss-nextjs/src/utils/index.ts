@@ -4,4 +4,5 @@ export {
   isEditorActive,
   resetEditorChromes,
   resolveUrl,
+  enforceCors,
 } from '@sitecore-jss/sitecore-jss/utils';
