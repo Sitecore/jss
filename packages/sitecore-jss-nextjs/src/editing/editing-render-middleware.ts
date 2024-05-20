@@ -90,7 +90,7 @@ export class EditingRenderMiddleware extends RenderMiddlewareBase {
 
     if (!enforceCors(req, res, EDITING_ALLOWED_ORIGINS)) {
       debug.editing(
-        'invalid origin host - set allowed origins in API_ALLOWED_ORIGINS env property'
+        'invalid origin host - set allowed origins in API_ALLOWED_ORIGINS environment variable'
       );
       return res.status(401).json({
         html: `<html><body>Requests from origin ${req.headers?.origin} not allowed</body></html>`,

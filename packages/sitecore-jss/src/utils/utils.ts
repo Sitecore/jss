@@ -77,10 +77,24 @@ export const isTimeoutError = (error: unknown) => {
   );
 };
 
-const convertToRegex = (pattern: string) => {
-  return pattern.replace('.', '\\.').replace(/\*/g, '.*');
+/**
+ * Converts a string value in a regex pattern allowing wildcard matching
+ * @param {string} pattern input with wildcards i.e. site.*.com
+ * @returns {string} modified string that can be used as regexp input
+ */
+const convertToWildcardRegex = (pattern: string) => {
+  return '^' + pattern.replace('.', '\\.').replace(/\*/g, '.*') + '$';
 };
 
+/**
+ * Tests origin from incoming request against allowed origins list that can be
+ * set in API_ALLOWED_ORIGINS and/or passed via allowedOrigins param.
+ * Applies Access-Control-Allow-Origin and Access-Control-Allow-Methods on match
+ * @param {IncomingMessage} req incoming request
+ * @param {OutgoingMessage} res response to set CORS headers for
+ * @param {string[]} [allowedOrigins] additional list of origins to test against
+ * @returns true if incoming origin matches the allowed lists, false when it does not
+ */
 export const enforceCors = (
   req: IncomingMessage,
   res: OutgoingMessage,
@@ -95,12 +109,11 @@ export const enforceCors = (
     origin &&
     allowedOrigins.some(
       (allowedOrigin) =>
-        origin === allowedOrigin ||
-        new RegExp('^' + convertToRegex(allowedOrigin) + '$').test(origin)
+        origin === allowedOrigin || new RegExp(convertToWildcardRegex(allowedOrigin)).test(origin)
     )
   ) {
     res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE, PUT, PATCH');
     return true;
   }
   return false;

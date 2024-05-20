@@ -231,12 +231,16 @@ describe('utils', () => {
       expect(enforceCors(req, res, ['https://*owed.com'])).to.be.equal(true);
     });
 
-    it('should set Access-Control-Allow-Origin header for matching origin', () => {
+    it('should set Access-Control-Allow-Origin and Access-Control-Allow-Methods headers for matching origin', () => {
       const req = mockRequest();
       const res = mockResponse();
-
+      const allowedMethods = 'GET, POST, OPTIONS, DELETE, PUT, PATCH';
       enforceCors(req, res, [mockOrigin]);
       expect(res.setHeader).to.have.been.called.with('Access-Control-Allow-Origin', mockOrigin);
+      expect(res.setHeader).to.have.been.called.with(
+        'Access-Control-Allow-Methods',
+        allowedMethods
+      );
     });
   });
 });

@@ -55,7 +55,7 @@ export class EditingDataMiddleware {
 
     if (!enforceCors(req, res, EDITING_ALLOWED_ORIGINS)) {
       debug.editing(
-        'invalid origin host - set allowed origins in API_ALLOWED_ORIGINS env property'
+        'invalid origin host - set allowed origins in API_ALLOWED_ORIGINS environment variable'
       );
       return res.status(401).json({ message: 'Invalid origin' });
     }

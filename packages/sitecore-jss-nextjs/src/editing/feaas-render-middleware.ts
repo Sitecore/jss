@@ -54,6 +54,9 @@ export class FEAASRenderMiddleware extends RenderMiddlewareBase {
     });
 
     if (!enforceCors(req, res, EDITING_ALLOWED_ORIGINS)) {
+      debug.editing(
+        'invalid origin host - set allowed origins in API_ALLOWED_ORIGINS environment variable'
+      );
       return res
         .status(401)
         .send(
