@@ -81,8 +81,7 @@ export interface PlaceholderProps {
   /**
    *  Context data from the Sitecore Layout Service
    */
-  sitecoreContext?: SitecoreContextValue;
-
+  sitecoreContext: SitecoreContextValue;
   /**
    * The message that gets displayed while component is loading
    */

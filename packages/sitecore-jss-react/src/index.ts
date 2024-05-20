@@ -8,6 +8,7 @@ export {
   FieldEditButton,
   WebEditButton,
   EditButtonTypes,
+  EnhancedOmit,
 } from '@sitecore-jss/sitecore-jss/utils';
 export {
   getContentStylesheetLink,
@@ -92,9 +93,9 @@ export {
 export {
   withSitecoreContext,
   useSitecoreContext,
-  ComponentConsumerProps,
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
+  WithSitecoreContextHocProps,
 } from './enhancers/withSitecoreContext';
 export { withEditorChromes } from './enhancers/withEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';

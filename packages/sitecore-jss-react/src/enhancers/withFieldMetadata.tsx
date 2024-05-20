@@ -19,28 +19,28 @@ export function withFieldMetadata<
 >(FieldComponent: ComponentType<FieldComponentProps>, isForwardRef = false) {
   if (isForwardRef) {
     // eslint-disable-next-line react/display-name
-    return forwardRef(
-      ({ ...props }: FieldComponentProps, ref: React.ForwardedRef<RefElementType>) => {
-        const metadata = props.field?.metadata;
+    return forwardRef((props: FieldComponentProps, ref: React.ForwardedRef<RefElementType>) => {
+      const { editable = true } = props;
+      const metadata = props.field?.metadata;
 
-        if (!metadata || !props.editable) {
-          return <FieldComponent {...props} ref={ref} />;
-        }
-
-        return (
-          <FieldMetadata metadata={metadata}>
-            <FieldComponent {...props} ref={ref} />
-          </FieldMetadata>
-        );
+      if (!metadata || !editable) {
+        return <FieldComponent {...props} ref={ref} />;
       }
-    );
+
+      return (
+        <FieldMetadata metadata={metadata}>
+          <FieldComponent {...props} ref={ref} />
+        </FieldMetadata>
+      );
+    });
   }
 
   // eslint-disable-next-line react/display-name
-  return ({ ...props }: FieldComponentProps) => {
+  return (props: FieldComponentProps) => {
+    const { editable = true } = props;
     const metadata = props.field?.metadata;
 
-    if (!metadata || !props.editable) {
+    if (!metadata || !editable) {
       return <FieldComponent {...props} />;
     }
 
