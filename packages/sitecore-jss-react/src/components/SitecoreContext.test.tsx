@@ -4,10 +4,10 @@ import { shallow } from 'enzyme';
 
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
-import { withSitecoreContext, ComponentConsumerProps } from '../enhancers/withSitecoreContext';
+import { WithSitecoreContextProps, withSitecoreContext } from '../enhancers/withSitecoreContext';
 import { LayoutServiceData } from '../index';
 
-interface NestedComponentProps extends ComponentConsumerProps {
+interface NestedComponentProps extends WithSitecoreContextProps {
   anotherProperty?: string;
 }
 const NestedComponent: FC<NestedComponentProps> = (props: NestedComponentProps) => (

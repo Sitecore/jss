@@ -1,27 +1,31 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import { EnhancedOmit } from '@sitecore-jss/sitecore-jss/utils';
 import { SitecoreContextReactContext, SitecoreContextValue } from '../components/SitecoreContext';
 
 export interface WithSitecoreContextOptions {
   updatable?: boolean;
 }
 
+// The props that HOC will inject
 export interface WithSitecoreContextProps {
-  sitecoreContext?: SitecoreContextValue;
+  sitecoreContext: SitecoreContextValue;
   updateSitecoreContext?: ((value: SitecoreContextValue) => void) | false;
 }
 
-export interface ComponentConsumerProps extends WithSitecoreContextProps {
-  children?: ReactNode;
-}
+// The props that HOC will receive.
+export type WithSitecoreContextHocProps<ComponentProps> = EnhancedOmit<
+  ComponentProps,
+  keyof WithSitecoreContextProps
+>;
 
 /**
  * @param {WithSitecoreContextOptions} [options]
  */
 export function withSitecoreContext(options?: WithSitecoreContextOptions) {
-  return function withSitecoreContextHoc<ComponentProps extends ComponentConsumerProps>(
+  return function withSitecoreContextHoc<ComponentProps extends WithSitecoreContextProps>(
     Component: React.ComponentType<ComponentProps>
   ) {
-    return function WithSitecoreContext(props: ComponentProps) {
+    return function WithSitecoreContext(props: WithSitecoreContextHocProps<ComponentProps>) {
       return (
         <SitecoreContextReactContext.Consumer>
           {(context) => (

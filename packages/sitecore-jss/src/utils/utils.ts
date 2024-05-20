@@ -4,6 +4,13 @@ import { AxiosError } from 'axios';
 import { ResponseError } from '../data-fetcher';
 
 /**
+ * Omit properties from T that are in K. This is a simplified version of TypeScript's built-in `Omit` utility type.
+ * Since default `Omit` doesn't support indexing types, we had to introduce this custom implementation.
+ */
+// eslint-disable-next-line prettier/prettier
+export type EnhancedOmit<T, K extends PropertyKey> = { [P in keyof T as Exclude<P, K>]: T[P] };
+
+/**
  * note: encodeURIComponent is available via browser (window) or natively in node.js
  * if you use another js engine for server-side rendering you may not have native encodeURIComponent
  * and would then need to install a package for that functionality

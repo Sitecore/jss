@@ -165,8 +165,8 @@ export {
   withPlaceholder,
   withDatasourceCheck,
   ImageSizeParameters,
-  ComponentConsumerProps,
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
+  WithSitecoreContextHocProps,
   withFieldMetadata,
 } from '@sitecore-jss/sitecore-jss-react';
