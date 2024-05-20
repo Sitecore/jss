@@ -55,6 +55,8 @@ export interface LayoutServiceContext {
     name?: string;
   };
   editMode?: EditMode;
+  clientScripts?: string[];
+  clientData?: Record<string, Record<string, unknown>>;
 }
 
 /**
