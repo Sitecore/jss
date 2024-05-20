@@ -37,7 +37,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:65](https://github.com/Sitecore/jss/blob/a3c634085/packages/sitecore-jss/src/layout/models.ts#L65)
+[packages/sitecore-jss/src/layout/models.ts:65](https://github.com/Sitecore/jss/blob/1a8ceb545/packages/sitecore-jss/src/layout/models.ts#L65)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:66](https://github.com/Sitecore/jss/blob/a3c634085/packages/sitecore-jss/src/layout/models.ts#L66)
+[packages/sitecore-jss/src/layout/models.ts:66](https://github.com/Sitecore/jss/blob/1a8ceb545/packages/sitecore-jss/src/layout/models.ts#L66)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:63](https://github.com/Sitecore/jss/blob/a3c634085/packages/sitecore-jss/src/layout/models.ts#L63)
+[packages/sitecore-jss/src/layout/models.ts:63](https://github.com/Sitecore/jss/blob/1a8ceb545/packages/sitecore-jss/src/layout/models.ts#L63)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:64](https://github.com/Sitecore/jss/blob/a3c634085/packages/sitecore-jss/src/layout/models.ts#L64)
+[packages/sitecore-jss/src/layout/models.ts:64](https://github.com/Sitecore/jss/blob/1a8ceb545/packages/sitecore-jss/src/layout/models.ts#L64)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:73](https://github.com/Sitecore/jss/blob/a3c634085/packages/sitecore-jss/src/layout/models.ts#L73)
+[packages/sitecore-jss/src/layout/models.ts:73](https://github.com/Sitecore/jss/blob/1a8ceb545/packages/sitecore-jss/src/layout/models.ts#L73)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:67](https://github.com/Sitecore/jss/blob/a3c634085/packages/sitecore-jss/src/layout/models.ts#L67)
+[packages/sitecore-jss/src/layout/models.ts:67](https://github.com/Sitecore/jss/blob/1a8ceb545/packages/sitecore-jss/src/layout/models.ts#L67)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:68](https://github.com/Sitecore/jss/blob/a3c634085/packages/sitecore-jss/src/layout/models.ts#L68)
+[packages/sitecore-jss/src/layout/models.ts:68](https://github.com/Sitecore/jss/blob/1a8ceb545/packages/sitecore-jss/src/layout/models.ts#L68)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:69](https://github.com/Sitecore/jss/blob/a3c634085/packages/sitecore-jss/src/layout/models.ts#L69)
+[packages/sitecore-jss/src/layout/models.ts:69](https://github.com/Sitecore/jss/blob/1a8ceb545/packages/sitecore-jss/src/layout/models.ts#L69)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:62](https://github.com/Sitecore/jss/blob/a3c634085/packages/sitecore-jss/src/layout/models.ts#L62)
+[packages/sitecore-jss/src/layout/models.ts:62](https://github.com/Sitecore/jss/blob/1a8ceb545/packages/sitecore-jss/src/layout/models.ts#L62)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:72](https://github.com/Sitecore/jss/blob/a3c634085/packages/sitecore-jss/src/layout/models.ts#L72)
+[packages/sitecore-jss/src/layout/models.ts:72](https://github.com/Sitecore/jss/blob/1a8ceb545/packages/sitecore-jss/src/layout/models.ts#L72)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:70](https://github.com/Sitecore/jss/blob/a3c634085/packages/sitecore-jss/src/layout/models.ts#L70)
+[packages/sitecore-jss/src/layout/models.ts:70](https://github.com/Sitecore/jss/blob/1a8ceb545/packages/sitecore-jss/src/layout/models.ts#L70)
 
 ___
 
@@ -147,4 +147,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:71](https://github.com/Sitecore/jss/blob/a3c634085/packages/sitecore-jss/src/layout/models.ts#L71)
+[packages/sitecore-jss/src/layout/models.ts:71](https://github.com/Sitecore/jss/blob/1a8ceb545/packages/sitecore-jss/src/layout/models.ts#L71)
