@@ -2,6 +2,7 @@ import isServer from './is-server';
 import { ParsedUrlQueryInput } from 'querystring';
 import { AxiosError } from 'axios';
 import { ResponseError } from '../data-fetcher';
+import { IncomingMessage, OutgoingMessage } from 'http';
 
 /**
  * note: encodeURIComponent is available via browser (window) or natively in node.js
@@ -74,4 +75,53 @@ export const isTimeoutError = (error: unknown) => {
     (error as ResponseError).response?.status === 408 ||
     (error as Error).name === 'AbortError'
   );
+};
+
+/**
+ * Converts a string value in a regex pattern allowing wildcard matching
+ * @param {string} pattern input with wildcards i.e. site.*.com
+ * @returns {string} modified string that can be used as regexp input
+ */
+const convertToWildcardRegex = (pattern: string) => {
+  return (
+    '^' +
+    pattern
+      .replace(/\//g, '\\/')
+      .replace(/\./g, '\\.')
+      .replace(/\*/g, '.*') +
+    '$'
+  );
+};
+
+/**
+ * Tests origin from incoming request against allowed origins list that can be
+ * set in JSS's JSS_ALLOWED_ORIGINS env variable and/or passed via allowedOrigins param.
+ * Applies Access-Control-Allow-Origin and Access-Control-Allow-Methods on match
+ * @param {IncomingMessage} req incoming request
+ * @param {OutgoingMessage} res response to set CORS headers for
+ * @param {string[]} [allowedOrigins] additional list of origins to test against
+ * @returns true if incoming origin matches the allowed lists, false when it does not
+ */
+export const enforceCors = (
+  req: IncomingMessage,
+  res: OutgoingMessage,
+  allowedOrigins?: string[]
+): boolean => {
+  const defaultAllowedOrigins = process.env.JSS_ALLOWED_ORIGINS
+    ? process.env.JSS_ALLOWED_ORIGINS.replace(' ', '').split(',')
+    : [];
+  allowedOrigins = defaultAllowedOrigins.concat(allowedOrigins || []);
+  const origin = req.headers.origin;
+  if (
+    origin &&
+    allowedOrigins.some(
+      (allowedOrigin) =>
+        origin === allowedOrigin || new RegExp(convertToWildcardRegex(allowedOrigin)).test(origin)
+    )
+  ) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE, PUT, PATCH');
+    return true;
+  }
+  return false;
 };

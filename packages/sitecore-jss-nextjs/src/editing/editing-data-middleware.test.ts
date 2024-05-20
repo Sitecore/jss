@@ -15,11 +15,22 @@ type Query = {
   [key: string]: string;
 };
 
-const mockRequest = (method: string, query?: Query, body?: unknown) => {
+const allowedOrigin = 'https://allowed.com';
+
+const mockRequest = (
+  method: string,
+  query?: Query,
+  body?: unknown,
+  headers?: { [key: string]: string }
+) => {
   return {
     method,
     query: query ?? {},
     body: body ?? {},
+    headers: {
+      origin: allowedOrigin,
+      ...headers,
+    },
   } as NextApiRequest;
 };
 
@@ -34,7 +45,9 @@ const mockResponse = () => {
   res.end = spy(() => {
     return res;
   });
-  res.setHeader = spy();
+  res.setHeader = spy(() => {
+    return res;
+  });
   return res;
 };
 
@@ -59,10 +72,12 @@ describe('EditingDataMiddleware', () => {
 
   beforeEach(() => {
     process.env.JSS_EDITING_SECRET = secret;
+    process.env.JSS_ALLOWED_ORIGINS = allowedOrigin;
   });
 
   after(() => {
     delete process.env.JSS_EDITING_SECRET;
+    delete process.env.JSS_ALLOWED_ORIGINS;
   });
 
   it('should handle PUT request', async () => {
@@ -130,6 +145,21 @@ describe('EditingDataMiddleware', () => {
     expect(res.status).to.have.been.calledWith(200);
     expect(res.json).to.have.been.calledOnce;
     expect(res.json).to.have.been.calledWith(mockEditingData);
+  });
+
+  it('should stop request and return 401 when CORS match is not met', async () => {
+    const req = mockRequest('GET', {}, {}, { origin: 'https://notallowed.com' });
+    const res = mockResponse();
+    const cache = mockCache();
+    const middleware = new EditingDataMiddleware({ editingDataCache: cache });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(401);
+    expect(res.json).to.have.been.calledOnce;
+    expect(res.json).to.have.been.calledWith({ message: 'Invalid origin' });
   });
 
   it('should respond with 400 for invalid editing data', async () => {
