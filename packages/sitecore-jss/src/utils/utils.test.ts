@@ -226,9 +226,9 @@ describe('utils', () => {
     });
 
     it('should return true when origin matches a wildcard value from allowedOrigins', () => {
-      const req = mockRequest('https://veryallowed.com');
+      const req = mockRequest('https://allowed.dev.com');
       const res = mockResponse();
-      expect(enforceCors(req, res, ['https://*owed.com'])).to.be.equal(true);
+      expect(enforceCors(req, res, ['https://allowed.*.com'])).to.be.equal(true);
     });
 
     it('should set Access-Control-Allow-Origin and Access-Control-Allow-Methods headers for matching origin', () => {

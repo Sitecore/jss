@@ -83,7 +83,14 @@ export const isTimeoutError = (error: unknown) => {
  * @returns {string} modified string that can be used as regexp input
  */
 const convertToWildcardRegex = (pattern: string) => {
-  return '^' + pattern.replace('.', '\\.').replace(/\*/g, '.*') + '$';
+  return (
+    '^' +
+    pattern
+      .replace(/\//g, '\\/')
+      .replace(/\./g, '\\.')
+      .replace(/\*/g, '.*') +
+    '$'
+  );
 };
 
 /**
