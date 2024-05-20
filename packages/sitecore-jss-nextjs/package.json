@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "22.1.0-canary.12",
+  "version": "22.1.0-canary.13",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -72,9 +72,9 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "22.1.0-canary.12",
-    "@sitecore-jss/sitecore-jss-dev-tools": "22.1.0-canary.12",
-    "@sitecore-jss/sitecore-jss-react": "22.1.0-canary.12",
+    "@sitecore-jss/sitecore-jss": "22.1.0-canary.13",
+    "@sitecore-jss/sitecore-jss-dev-tools": "22.1.0-canary.13",
+    "@sitecore-jss/sitecore-jss-react": "22.1.0-canary.13",
     "@vercel/kv": "^0.2.1",
     "node-html-parser": "^6.1.4",
     "prop-types": "^15.8.1",
