@@ -193,10 +193,17 @@ describe('utils', () => {
       } as IncomingMessage;
     };
 
-    const mockResponse = () => {
+    const mockResponse = (presetCors?: string) => {
       const res = {} as OutgoingMessage;
       res.setHeader = spy(() => {
         return res;
+      });
+      res.getHeader = spy((headerName: string) => {
+        if (headerName === 'Access-Control-Allow-Origin') {
+          return presetCors;
+        } else {
+          return undefined;
+        }
       });
 
       return res;
@@ -208,6 +215,17 @@ describe('utils', () => {
       process.env.JSS_ALLOWED_ORIGINS = mockOrigin;
       expect(enforceCors(req, res)).to.be.equal(true);
       delete process.env.JSS_ALLOWED_ORIGINS;
+    });
+
+    it('should return true when theres no origin header', () => {
+      const req = {
+        headers: {
+          origin: undefined,
+        },
+      } as IncomingMessage;
+      const res = mockResponse();
+
+      expect(enforceCors(req, res)).to.be.equal(true);
     });
 
     it('should return true if origin is found in allowedOrigins passed as argument', () => {
@@ -241,6 +259,12 @@ describe('utils', () => {
         'Access-Control-Allow-Methods',
         allowedMethods
       );
+    });
+
+    it('should consider existing CORS header when present', () => {
+      const req = mockRequest('https://preallowed.com');
+      const res = mockResponse('https://preallowed.com');
+      expect(enforceCors(req, res)).to.be.equal(true);
     });
   });
 });

@@ -107,10 +107,18 @@ export const enforceCors = (
   res: OutgoingMessage,
   allowedOrigins?: string[]
 ): boolean => {
+  if (!req.headers.origin) {
+    return true;
+  }
+
   const defaultAllowedOrigins = process.env.JSS_ALLOWED_ORIGINS
     ? process.env.JSS_ALLOWED_ORIGINS.replace(' ', '').split(',')
     : [];
   allowedOrigins = defaultAllowedOrigins.concat(allowedOrigins || []);
+  const presetCors = res.getHeader('Access-Control-Allow-Origin');
+  if (presetCors) {
+    allowedOrigins.push(presetCors as string);
+  }
   const origin = req.headers.origin;
   if (
     origin &&
