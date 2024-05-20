@@ -462,7 +462,7 @@ describe('<Placeholder />', () => {
       <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
     );
 
-    const eeChrome = renderedComponent.find({ chrometype: 'placeholder', kind: 'open', id: phKey });
+    const eeChrome = renderedComponent.find(`code#${phKey}[chrometype="placeholder"][kind="open"]`);
     expect(eeChrome.length).to.eq(1);
     const keyAttribute = eeChrome.get(0).key;
     expect(keyAttribute).to.not.be.undefined;

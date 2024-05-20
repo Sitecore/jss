@@ -32,7 +32,7 @@ describe('ErrorBoundary', () => {
 
       const rendered = mount(
         <SitecoreContextReactContext.Provider value={testComponentProps}>
-          <ErrorBoundary rendering={rendering} customErrorComponent={CustomErrorComponent}>
+          <ErrorBoundary rendering={rendering} errorComponent={CustomErrorComponent}>
             <TestErrorComponent />
           </ErrorBoundary>
         </SitecoreContextReactContext.Provider>
@@ -148,7 +148,7 @@ describe('ErrorBoundary', () => {
       };
 
       const rendered = mount(
-        <ErrorBoundary customErrorComponent={CustomErrorComponent}>
+        <ErrorBoundary errorComponent={CustomErrorComponent}>
           <TestErrorComponent />
         </ErrorBoundary>
       );
@@ -254,7 +254,7 @@ describe('ErrorBoundary', () => {
       };
 
       const rendered = mount(
-        <ErrorBoundary customErrorComponent={CustomErrorComponent}>
+        <ErrorBoundary errorComponent={CustomErrorComponent}>
           <TestErrorComponent />
         </ErrorBoundary>
       );
