@@ -88,7 +88,7 @@ const convertToWildcardRegex = (pattern: string) => {
 
 /**
  * Tests origin from incoming request against allowed origins list that can be
- * set in API_ALLOWED_ORIGINS and/or passed via allowedOrigins param.
+ * set in JSS's JSS_ALLOWED_ORIGINS env variable and/or passed via allowedOrigins param.
  * Applies Access-Control-Allow-Origin and Access-Control-Allow-Methods on match
  * @param {IncomingMessage} req incoming request
  * @param {OutgoingMessage} res response to set CORS headers for
@@ -100,8 +100,8 @@ export const enforceCors = (
   res: OutgoingMessage,
   allowedOrigins?: string[]
 ): boolean => {
-  const defaultAllowedOrigins = process.env.API_ALLOWED_ORIGINS
-    ? process.env.API_ALLOWED_ORIGINS.replace(' ', '').split(',')
+  const defaultAllowedOrigins = process.env.JSS_ALLOWED_ORIGINS
+    ? process.env.JSS_ALLOWED_ORIGINS.replace(' ', '').split(',')
     : [];
   allowedOrigins = defaultAllowedOrigins.concat(allowedOrigins || []);
   const origin = req.headers.origin;

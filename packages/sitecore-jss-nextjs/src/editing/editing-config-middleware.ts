@@ -3,7 +3,7 @@ import { EDITING_ALLOWED_ORIGINS, QUERY_PARAM_EDITING_SECRET } from './constants
 import { getJssEditingSecret } from '../utils/utils';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { Metadata } from '@sitecore-jss/sitecore-jss-dev-tools';
-import { enforceCors } from '../utils/index';
+import { enforceCors } from '@sitecore-jss/sitecore-jss/utils';
 
 export type EditingConfigMiddlewareConfig = {
   /**
@@ -38,7 +38,7 @@ export class EditingConfigMiddleware {
     const secret = _req.query[QUERY_PARAM_EDITING_SECRET];
     if (!enforceCors(_req, res, EDITING_ALLOWED_ORIGINS)) {
       debug.editing(
-        'invalid origin host - set allowed origins in API_ALLOWED_ORIGINS environment variable'
+        'invalid origin host - set allowed origins in JSS_ALLOWED_ORIGINS environment variable'
       );
       return res.status(401).json({ message: 'Invalid origin' });
     }

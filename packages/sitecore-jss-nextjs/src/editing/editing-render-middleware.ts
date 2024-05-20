@@ -8,7 +8,7 @@ import { EditingDataService, editingDataService } from './editing-data-service';
 import { EDITING_ALLOWED_ORIGINS, QUERY_PARAM_EDITING_SECRET } from './constants';
 import { getJssEditingSecret } from '../utils/utils';
 import { RenderMiddlewareBase } from './render-middleware';
-import { enforceCors } from '../utils';
+import { enforceCors } from '@sitecore-jss/sitecore-jss/utils';
 
 export interface EditingRenderMiddlewareConfig {
   /**
@@ -90,7 +90,7 @@ export class EditingRenderMiddleware extends RenderMiddlewareBase {
 
     if (!enforceCors(req, res, EDITING_ALLOWED_ORIGINS)) {
       debug.editing(
-        'invalid origin host - set allowed origins in API_ALLOWED_ORIGINS environment variable'
+        'invalid origin host - set allowed origins in JSS_ALLOWED_ORIGINS environment variable'
       );
       return res.status(401).json({
         html: `<html><body>Requests from origin ${req.headers?.origin} not allowed</body></html>`,

@@ -59,12 +59,12 @@ describe('FEAASRenderMiddleware', () => {
 
   beforeEach(() => {
     process.env.JSS_EDITING_SECRET = secret;
-    process.env.API_ALLOWED_ORIGINS = allowedOrigin;
+    process.env.JSS_ALLOWED_ORIGINS = allowedOrigin;
   });
 
   after(() => {
     delete process.env.JSS_EDITING_SECRET;
-    delete process.env.API_ALLOWED_ORIGINS;
+    delete process.env.JSS_ALLOWED_ORIGINS;
   });
 
   it('should handle request', async () => {

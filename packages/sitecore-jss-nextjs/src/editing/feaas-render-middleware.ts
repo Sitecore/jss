@@ -3,7 +3,7 @@ import { debug } from '@sitecore-jss/sitecore-jss';
 import { EDITING_ALLOWED_ORIGINS, QUERY_PARAM_EDITING_SECRET } from './constants';
 import { getJssEditingSecret } from '../utils/utils';
 import { RenderMiddlewareBase } from './render-middleware';
-import { enforceCors } from '../utils';
+import { enforceCors } from '@sitecore-jss/sitecore-jss/utils';
 
 /**
  * Configuration for `FEAASRenderMiddleware`.
@@ -55,7 +55,7 @@ export class FEAASRenderMiddleware extends RenderMiddlewareBase {
 
     if (!enforceCors(req, res, EDITING_ALLOWED_ORIGINS)) {
       debug.editing(
-        'invalid origin host - set allowed origins in API_ALLOWED_ORIGINS environment variable'
+        'invalid origin host - set allowed origins in JSS_ALLOWED_ORIGINS environment variable'
       );
       return res
         .status(401)

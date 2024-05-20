@@ -202,12 +202,12 @@ describe('utils', () => {
       return res;
     };
 
-    it('should return true if origin is found in allowedOrigins from API_ALLOWED_ORIGINS env variable', () => {
+    it('should return true if origin is found in allowedOrigins from JSS_ALLOWED_ORIGINS env variable', () => {
       const req = mockRequest();
       const res = mockResponse();
-      process.env.API_ALLOWED_ORIGINS = mockOrigin;
+      process.env.JSS_ALLOWED_ORIGINS = mockOrigin;
       expect(enforceCors(req, res)).to.be.equal(true);
-      delete process.env.API_ALLOWED_ORIGINS;
+      delete process.env.JSS_ALLOWED_ORIGINS;
     });
 
     it('should return true if origin is found in allowedOrigins passed as argument', () => {
@@ -217,12 +217,12 @@ describe('utils', () => {
       expect(enforceCors(req, res, ['http://allowed.com'])).to.be.equal(true);
     });
 
-    it('should return false if origin matches neither allowedOrigins from API_ALLOWED_ORIGINS env variable nor argument', () => {
+    it('should return false if origin matches neither allowedOrigins from JSS_ALLOWED_ORIGINS env variable nor argument', () => {
       const req = mockRequest('https://notallowed.com');
       const res = mockResponse();
-      process.env.API_ALLOWED_ORIGINS = 'https://strictallowed.com, https://alsoallowed.com';
+      process.env.JSS_ALLOWED_ORIGINS = 'https://strictallowed.com, https://alsoallowed.com';
       expect(enforceCors(req, res, ['https://paramallowed.com'])).to.be.equal(false);
-      delete process.env.API_ALLOWED_ORIGINS;
+      delete process.env.JSS_ALLOWED_ORIGINS;
     });
 
     it('should return true when origin matches a wildcard value from allowedOrigins', () => {

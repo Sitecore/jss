@@ -94,14 +94,14 @@ describe('EditingRenderMiddleware', () => {
 
   beforeEach(() => {
     process.env.JSS_EDITING_SECRET = secret;
-    process.env.API_ALLOWED_ORIGINS = allowedOrigin;
+    process.env.JSS_ALLOWED_ORIGINS = allowedOrigin;
     delete process.env.VERCEL;
   });
 
   after(() => {
     delete process.env.JSS_EDITING_SECRET;
     delete process.env.VERCEL;
-    delete process.env.API_ALLOWED_ORIGINS;
+    delete process.env.JSS_ALLOWED_ORIGINS;
   });
 
   it('should handle request', async () => {
