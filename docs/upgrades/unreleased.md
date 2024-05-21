@@ -44,3 +44,17 @@
         ```
             configText += `config.${prop} = process.env.${constantCase(prop)} || '${config[prop]?.trim()}';\n`;
         ```
+
+# nextjs-xmcloud
+
+* Render a new `EditingScripts` component in your `Scripts.ts` file to support a new Editing Integration feature.
+    ```
+    import { EditingScripts } from '@sitecore-jss/sitecore-jss-nextjs';
+    ...
+    const Scripts = (): JSX.Element | null => {
+        <>
+        <EditingScripts />
+        ...
+        </>
+    );
+    ```

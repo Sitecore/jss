@@ -169,4 +169,5 @@ export {
   WithSitecoreContextProps,
   WithSitecoreContextHocProps,
   withFieldMetadata,
+  EditingScripts,
 } from '@sitecore-jss/sitecore-jss-react';
