@@ -48,6 +48,9 @@ const mockResponse = () => {
   res.setHeader = spy(() => {
     return res;
   });
+  res.getHeader = spy(() => {
+    return undefined;
+  });
   return res;
 };
 

@@ -95,7 +95,8 @@ const convertToWildcardRegex = (pattern: string) => {
 
 /**
  * Tests origin from incoming request against allowed origins list that can be
- * set in JSS's JSS_ALLOWED_ORIGINS env variable and/or passed via allowedOrigins param.
+ * set in JSS's JSS_ALLOWED_ORIGINS env variable, passed via allowedOrigins param and/or
+ * be already set in Access-Control-Allow-Origin by other logic.
  * Applies Access-Control-Allow-Origin and Access-Control-Allow-Methods on match
  * @param {IncomingMessage} req incoming request
  * @param {OutgoingMessage} res response to set CORS headers for
@@ -107,10 +108,22 @@ export const enforceCors = (
   res: OutgoingMessage,
   allowedOrigins?: string[]
 ): boolean => {
+  // origin in not present for non-CORS requests (e.g. server-side) - so we skip the checks
+  if (!req.headers.origin) {
+    return true;
+  }
+  // 3 sources of allowed origins are considered: the env value
   const defaultAllowedOrigins = process.env.JSS_ALLOWED_ORIGINS
     ? process.env.JSS_ALLOWED_ORIGINS.replace(' ', '').split(',')
     : [];
+  // the allowedOrigins prop
   allowedOrigins = defaultAllowedOrigins.concat(allowedOrigins || []);
+  // and the existing CORS header, if present (i.e. set by nextjs config)
+  const presetCors = res.getHeader('Access-Control-Allow-Origin');
+  if (presetCors) {
+    allowedOrigins.push(presetCors as string);
+  }
+
   const origin = req.headers.origin;
   if (
     origin &&

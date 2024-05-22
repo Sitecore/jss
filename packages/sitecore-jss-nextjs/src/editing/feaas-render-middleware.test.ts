@@ -50,6 +50,9 @@ const mockResponse = () => {
   res.redirect = spy(() => {
     return res;
   });
+  res.getHeader = spy(() => {
+    return undefined;
+  });
 
   return res;
 };
