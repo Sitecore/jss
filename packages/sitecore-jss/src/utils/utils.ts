@@ -118,7 +118,7 @@ export const enforceCors = (
     : [];
   // the allowedOrigins prop
   allowedOrigins = defaultAllowedOrigins.concat(allowedOrigins || []);
-  // and the existing CORS header, if present
+  // and the existing CORS header, if present (i.e. set by nextjs config)
   const presetCors = res.getHeader('Access-Control-Allow-Origin');
   if (presetCors) {
     allowedOrigins.push(presetCors as string);
