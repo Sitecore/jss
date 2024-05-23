@@ -93,8 +93,8 @@ describe('EditingConfigMiddleware', () => {
 
   const testEditingConfig = async (
     components: string[] | Map<string, unknown>,
-    enableEditingMetadata: boolean,
-    expectedResult
+    expectedResult,
+    enableEditingMetadata?: boolean
   ) => {
     const key = 'wrongkey';
     const query = { key } as Query;
@@ -113,18 +113,18 @@ describe('EditingConfigMiddleware', () => {
   };
 
   it('should respond with 200 and return config data with components array as argument and editMode as chromes', async () => {
-    await testEditingConfig(componentsArray, false, expectedResultWithChromes);
+    await testEditingConfig(componentsArray, expectedResultWithChromes, false);
   });
 
   it('should respond with 200 and return config data with components map as argument and editMode as chromes', async () => {
-    await testEditingConfig(componentsMap, false, expectedResultWithChromes);
+    await testEditingConfig(componentsMap, expectedResultWithChromes, false);
   });
 
   it('should respond with 200 and return config data with components array as argument and editMode as metadata', async () => {
-    await testEditingConfig(componentsArray, true, expectedResultWithMetadata);
+    await testEditingConfig(componentsArray, expectedResultWithMetadata);
   });
 
   it('should respond with 200 and return config data with components map as argument and editMode as metadata', async () => {
-    await testEditingConfig(componentsMap, true, expectedResultWithMetadata);
+    await testEditingConfig(componentsMap, expectedResultWithMetadata);
   });
 });
