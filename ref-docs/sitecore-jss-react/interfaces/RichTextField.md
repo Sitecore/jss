@@ -7,6 +7,7 @@
 ### Properties
 
 - [editable](RichTextField.md#editable)
+- [metadata](RichTextField.md#metadata)
 - [value](RichTextField.md#value)
 
 ## Properties
@@ -17,7 +18,21 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:6](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/RichText.tsx#L6)
+[packages/sitecore-jss-react/src/components/RichText.tsx:7](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/RichText.tsx#L7)
+
+___
+
+### metadata
+
+• `Optional` **metadata**: `Object`
+
+#### Index signature
+
+▪ [key: `string`]: `unknown`
+
+#### Defined in
+
+[packages/sitecore-jss-react/src/components/RichText.tsx:8](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/RichText.tsx#L8)
 
 ___
 
@@ -27,4 +42,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:5](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/RichText.tsx#L5)
+[packages/sitecore-jss-react/src/components/RichText.tsx:6](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/RichText.tsx#L6)

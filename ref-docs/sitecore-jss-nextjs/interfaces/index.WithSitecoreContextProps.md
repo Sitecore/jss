@@ -4,12 +4,6 @@
 
 [index](../modules/index.md).WithSitecoreContextProps
 
-## Hierarchy
-
-- **`WithSitecoreContextProps`**
-
-  ↳ [`ComponentConsumerProps`](index.ComponentConsumerProps.md)
-
 ## Table of contents
 
 ### Properties
@@ -25,7 +19,7 @@
 
 #### Defined in
 
-sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:8
+sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:9
 
 ___
 
@@ -35,4 +29,4 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:9
+sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:10

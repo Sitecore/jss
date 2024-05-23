@@ -6,16 +6,14 @@
 
 ### Namespaces
 
-- [DateField](modules/DateField.md)
 - [File](modules/File.md)
-- [Image](modules/Image.md)
-- [Text](modules/Text.md)
 - [constants](modules/constants.md)
 - [mediaApi](modules/mediaApi.md)
 - [trackingApi](modules/trackingApi.md)
 
 ### Enumerations
 
+- [EditMode](enums/EditMode.md)
 - [LayoutServicePageState](enums/LayoutServicePageState.md)
 
 ### Classes
@@ -34,7 +32,6 @@
 ### Interfaces
 
 - [CampaignInstance](interfaces/CampaignInstance.md)
-- [ComponentConsumerProps](interfaces/ComponentConsumerProps.md)
 - [ComponentFields](interfaces/ComponentFields.md)
 - [ComponentParams](interfaces/ComponentParams.md)
 - [ComponentRendering](interfaces/ComponentRendering.md)
@@ -79,6 +76,7 @@
 - [ComponentFactory](README.md#componentfactory)
 - [EditButtonTypes](README.md#editbuttontypes)
 - [EditFrameDataSource](README.md#editframedatasource)
+- [EnhancedOmit](README.md#enhancedomit)
 - [FEaaSComponentParams](README.md#feaascomponentparams)
 - [FEaaSComponentProps](README.md#feaascomponentprops)
 - [FieldEditButton](README.md#fieldeditbutton)
@@ -102,6 +100,7 @@
 - [BYOCWrapper](README.md#byocwrapper)
 - [DateField](README.md#datefield)
 - [EditFrame](README.md#editframe)
+- [EditingScripts](README.md#editingscripts)
 - [FEaaSComponent](README.md#feaascomponent)
 - [FEaaSWrapper](README.md#feaaswrapper)
 - [File](README.md#file)
@@ -124,6 +123,7 @@
 - [useSitecoreContext](README.md#usesitecorecontext)
 - [withDatasourceCheck](README.md#withdatasourcecheck)
 - [withEditorChromes](README.md#witheditorchromes)
+- [withFieldMetadata](README.md#withfieldmetadata)
 - [withPlaceholder](README.md#withplaceholder)
 - [withSitecoreContext](README.md#withsitecorecontext)
 
@@ -147,7 +147,7 @@ Data from rendering params on Sitecore's BYOC rendering
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:22](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L22)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:22](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L22)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:67](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L67)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:67](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L67)
 
 ___
 
@@ -181,7 +181,7 @@ Configuration for ComponentBuilder
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/ComponentBuilder.ts:7](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/ComponentBuilder.ts#L7)
+[packages/sitecore-jss-react/src/ComponentBuilder.ts:7](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/ComponentBuilder.ts#L7)
 
 ___
 
@@ -206,7 +206,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/sharedTypes.ts:7](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/sharedTypes.ts#L7)
+[packages/sitecore-jss-react/src/components/sharedTypes.ts:7](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/sharedTypes.ts#L7)
 
 ___
 
@@ -238,6 +238,26 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:43
 
 ___
 
+### EnhancedOmit
+
+Ƭ **EnhancedOmit**\<`T`, `K`\>: \{ [P in keyof T as Exclude\<P, K\>]: T[P] }
+
+Omit properties from T that are in K. This is a simplified version of TypeScript's built-in `Omit` utility type.
+Since default `Omit` doesn't support indexing types, we had to introduce this custom implementation.
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `T` |
+| `K` | extends `PropertyKey` |
+
+#### Defined in
+
+packages/sitecore-jss/types/utils/utils.d.ts:8
+
+___
+
 ### FEaaSComponentParams
 
 Ƭ **FEaaSComponentParams**: `Object`
@@ -261,7 +281,7 @@ Params from a Sitecore FEaaS rendering
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:11](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L11)
+[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:11](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L11)
 
 ___
 
@@ -271,7 +291,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:59](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L59)
+[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:59](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L59)
 
 ___
 
@@ -319,11 +339,11 @@ ___
 
 ### LinkProps
 
-Ƭ **LinkProps**: `React.DetailedHTMLProps`\<`React.AnchorHTMLAttributes`\<`HTMLAnchorElement`\>, `HTMLAnchorElement`\> & \{ `editable?`: `boolean` ; `field`: [`LinkField`](interfaces/LinkField.md) \| [`LinkFieldValue`](interfaces/LinkFieldValue.md) ; `showLinkTextWithChildrenPresent?`: `boolean`  }
+Ƭ **LinkProps**: `React.AnchorHTMLAttributes`\<`HTMLAnchorElement`\> & `RefAttributes`\<`HTMLAnchorElement`\> & \{ `editable?`: `boolean` ; `field`: [`LinkField`](interfaces/LinkField.md) \| [`LinkFieldValue`](interfaces/LinkFieldValue.md) & \{ `metadata?`: \{ `[key: string]`: `unknown`;  }  } ; `showLinkTextWithChildrenPresent?`: `boolean`  }
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Link.tsx:23](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/Link.tsx#L23)
+[packages/sitecore-jss-react/src/components/Link.tsx:24](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/Link.tsx#L24)
 
 ___
 
@@ -333,7 +353,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:26](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L26)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:26](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L26)
 
 ___
 
@@ -349,7 +369,7 @@ ___
 
 ### WithSitecoreContextHocProps
 
-Ƭ **WithSitecoreContextHocProps**\<`ComponentProps`\>: `Pick`\<`ComponentProps`, `Exclude`\<keyof `ComponentProps`, keyof [`WithSitecoreContextProps`](interfaces/WithSitecoreContextProps.md)\>\>
+Ƭ **WithSitecoreContextHocProps**\<`ComponentProps`\>: [`EnhancedOmit`](README.md#enhancedomit)\<`ComponentProps`, keyof [`WithSitecoreContextProps`](interfaces/WithSitecoreContextProps.md)\>
 
 #### Type parameters
 
@@ -359,7 +379,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:17](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L17)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L16)
 
 ## Variables
 
@@ -417,7 +437,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Link.tsx:129](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/Link.tsx#L129)
+[packages/sitecore-jss-react/src/components/Link.tsx:132](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/Link.tsx#L132)
 
 ___
 
@@ -430,12 +450,12 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `editable` | `Requireable`\<`boolean`\> |
-| `field` | `Requireable`\<`InferProps`\<\{ `editable`: `Requireable`\<`string`\> = PropTypes.string; `value`: `Requireable`\<`string`\> = PropTypes.string }\>\> |
+| `field` | `Requireable`\<`InferProps`\<\{ `editable`: `Requireable`\<`string`\> = PropTypes.string; `metadata`: `Requireable`\<{}\> ; `value`: `Requireable`\<`string`\> = PropTypes.string }\>\> |
 | `tag` | `Requireable`\<`string`\> |
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:44](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/RichText.tsx#L44)
+[packages/sitecore-jss-react/src/components/RichText.tsx:50](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/RichText.tsx#L50)
 
 ___
 
@@ -445,7 +465,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:19](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L19)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:19](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L19)
 
 ## Functions
 
@@ -465,7 +485,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCWrapper.tsx:6](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/BYOCWrapper.tsx#L6)
+[packages/sitecore-jss-react/src/components/BYOCWrapper.tsx:6](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/BYOCWrapper.tsx#L6)
 
 ___
 
@@ -511,6 +531,23 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 ___
 
+### EditingScripts
+
+▸ **EditingScripts**(): `Element`
+
+Renders client scripts and data for editing/preview mode in Pages.
+This script is only rendered when EditMode is Metadata, otherwise it renders nothing.
+
+#### Returns
+
+`Element`
+
+#### Defined in
+
+[packages/sitecore-jss-react/src/components/EditingScripts.tsx:9](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/EditingScripts.tsx#L9)
+
+___
+
 ### FEaaSComponent
 
 ▸ **FEaaSComponent**(`props`): `Element`
@@ -527,7 +564,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:64](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L64)
+[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:64](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L64)
 
 ___
 
@@ -547,7 +584,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/FEaaSWrapper.tsx:6](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/FEaaSWrapper.tsx#L6)
+[packages/sitecore-jss-react/src/components/FEaaSWrapper.tsx:6](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/FEaaSWrapper.tsx#L6)
 
 ___
 
@@ -595,45 +632,42 @@ ___
 
 ### Link
 
-▸ **Link**(`props`): `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\>
-
-**NOTE**: Exotic components are not callable.
+▸ **Link**(`props`, `context?`): `ReactElement`\<`any`, `any`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `props` | `Omit`\<[`LinkProps`](README.md#linkprops), ``"ref"``\> & `RefAttributes`\<`HTMLAnchorElement`\> |
+| `props` | [`LinkProps`](README.md#linkprops) |
+| `context?` | `any` |
 
 #### Returns
 
-`ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\>
+`ReactElement`\<`any`, `any`\>
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:396
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:568
 
 ___
 
 ### Placeholder
 
-▸ **Placeholder**(`props`): `JSX.Element`
+▸ **Placeholder**(`props`): `Element`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `props` | [`PlaceholderComponentProps`](interfaces/PlaceholderComponentProps.md) | props to pass to the wrapped component |
+| Name | Type |
+| :------ | :------ |
+| `props` | [`EnhancedOmit`](README.md#enhancedomit)\<[`PlaceholderComponentProps`](interfaces/PlaceholderComponentProps.md), keyof [`WithSitecoreContextProps`](interfaces/WithSitecoreContextProps.md)\> |
 
 #### Returns
 
-`JSX.Element`
-
-- the rendered component
+`Element`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withComponentFactory.tsx:20](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/enhancers/withComponentFactory.tsx#L20)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:28](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L28)
 
 ___
 
@@ -740,7 +774,7 @@ Fetches server component props required for server rendering, based on rendering
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:173](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L173)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:173](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L173)
 
 ___
 
@@ -765,7 +799,7 @@ Component endpoint will either be retrieved from params or from endpointOverride
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:107](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L107)
+[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:107](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L107)
 
 ___
 
@@ -867,7 +901,7 @@ Experience Editor Markup
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:119](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/components/Image.tsx#L119)
+[packages/sitecore-jss-react/src/components/Image.tsx:120](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/components/Image.tsx#L120)
 
 ___
 
@@ -1014,7 +1048,7 @@ const EditMode = () => {
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L70)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:69](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L69)
 
 ___
 
@@ -1069,7 +1103,7 @@ The wrapped component, if a datasource is present.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx:30](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx#L30)
+[packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx:30](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx#L30)
 
 ___
 
@@ -1089,7 +1123,37 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx:4](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L4)
+[packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx:4](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L4)
+
+___
+
+### withFieldMetadata
+
+▸ **withFieldMetadata**\<`FieldComponentProps`, `RefElementType`\>(`FieldComponent`, `isForwardRef?`): `ForwardRefExoticComponent`\<`PropsWithoutRef`\<`FieldComponentProps`\> & `RefAttributes`\<`RefElementType`\>\> \| (`props`: `FieldComponentProps`) => `Element`
+
+Wraps the field component with metadata markup intended to be used for chromes hydration in Pages
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `FieldComponentProps` | extends `WithMetadataProps` |
+| `RefElementType` | `HTMLElement` |
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `FieldComponent` | `ComponentType`\<`FieldComponentProps`\> | `undefined` | the field component |
+| `isForwardRef` | `boolean` | `false` | set to 'true' if forward reference is needed |
+
+#### Returns
+
+`ForwardRefExoticComponent`\<`PropsWithoutRef`\<`FieldComponentProps`\> & `RefAttributes`\<`RefElementType`\>\> \| (`props`: `FieldComponentProps`) => `Element`
+
+#### Defined in
+
+[packages/sitecore-jss-react/src/enhancers/withFieldMetadata.tsx:16](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/enhancers/withFieldMetadata.tsx#L16)
 
 ___
 
@@ -1140,13 +1204,13 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx:45](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L45)
+[packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx:45](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L45)
 
 ___
 
 ### withSitecoreContext
 
-▸ **withSitecoreContext**(`options?`): \<ComponentProps\>(`Component`: `ComponentType`\<`ComponentProps`\>) => (`props`: [`WithSitecoreContextHocProps`](README.md#withsitecorecontexthocprops)\<`ComponentProps`\>) => `Element`
+▸ **withSitecoreContext**(`options?`): \<ComponentProps\>(`Component`: `ComponentType`\<`ComponentProps`\>) => (`props`: [`EnhancedOmit`](README.md#enhancedomit)\<`ComponentProps`, keyof [`WithSitecoreContextProps`](interfaces/WithSitecoreContextProps.md)\>) => `Element`
 
 #### Parameters
 
@@ -1158,13 +1222,13 @@ ___
 
 `fn`
 
-▸ \<`ComponentProps`\>(`Component`): (`props`: [`WithSitecoreContextHocProps`](README.md#withsitecorecontexthocprops)\<`ComponentProps`\>) => `Element`
+▸ \<`ComponentProps`\>(`Component`): (`props`: [`EnhancedOmit`](README.md#enhancedomit)\<`ComponentProps`, keyof [`WithSitecoreContextProps`](interfaces/WithSitecoreContextProps.md)\>) => `Element`
 
 ##### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `ComponentProps` | extends [`ComponentConsumerProps`](interfaces/ComponentConsumerProps.md) |
+| `ComponentProps` | extends [`WithSitecoreContextProps`](interfaces/WithSitecoreContextProps.md) |
 
 ##### Parameters
 
@@ -1182,7 +1246,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `props` | [`WithSitecoreContextHocProps`](README.md#withsitecorecontexthocprops)\<`ComponentProps`\> |
+| `props` | [`EnhancedOmit`](README.md#enhancedomit)\<`ComponentProps`, keyof [`WithSitecoreContextProps`](interfaces/WithSitecoreContextProps.md)\> |
 
 ##### Returns
 
@@ -1190,4 +1254,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:25](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L25)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L24)

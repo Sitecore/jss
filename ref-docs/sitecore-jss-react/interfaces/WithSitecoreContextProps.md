@@ -2,12 +2,6 @@
 
 # Interface: WithSitecoreContextProps
 
-## Hierarchy
-
-- **`WithSitecoreContextProps`**
-
-  ↳ [`ComponentConsumerProps`](ComponentConsumerProps.md)
-
 ## Table of contents
 
 ### Properties
@@ -23,7 +17,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:9](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L9)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:11](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L11)
 
 ___
 
@@ -33,4 +27,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:10](https://github.com/Sitecore/jss/blob/3cc9d032c/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L10)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:12](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L12)

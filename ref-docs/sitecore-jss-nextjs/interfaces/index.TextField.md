@@ -9,6 +9,7 @@
 ### Properties
 
 - [editable](index.TextField.md#editable)
+- [metadata](index.TextField.md#metadata)
 - [value](index.TextField.md#value)
 
 ## Properties
@@ -20,6 +21,20 @@
 #### Defined in
 
 sitecore-jss-react/types/components/Text.d.ts:5
+
+___
+
+### metadata
+
+• `Optional` **metadata**: `Object`
+
+#### Index signature
+
+▪ [key: `string`]: `unknown`
+
+#### Defined in
+
+sitecore-jss-react/types/components/Text.d.ts:6
 
 ___
 

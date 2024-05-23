@@ -14,6 +14,9 @@ Shape of context data from the Sitecore Layout Service
 
 ### Properties
 
+- [clientData](index.LayoutServiceContext.md#clientdata)
+- [clientScripts](index.LayoutServiceContext.md#clientscripts)
+- [editMode](index.LayoutServiceContext.md#editmode)
 - [language](index.LayoutServiceContext.md#language)
 - [pageEditing](index.LayoutServiceContext.md#pageediting)
 - [pageState](index.LayoutServiceContext.md#pagestate)
@@ -23,13 +26,43 @@ Shape of context data from the Sitecore Layout Service
 
 ## Properties
 
+### clientData
+
+• `Optional` **clientData**: `Record`\<`string`, `Record`\<`string`, `unknown`\>\>
+
+#### Defined in
+
+sitecore-jss/types/layout/models.d.ts:53
+
+___
+
+### clientScripts
+
+• `Optional` **clientScripts**: `string`[]
+
+#### Defined in
+
+sitecore-jss/types/layout/models.d.ts:52
+
+___
+
+### editMode
+
+• `Optional` **editMode**: [`EditMode`](../enums/index.EditMode.md)
+
+#### Defined in
+
+sitecore-jss/types/layout/models.d.ts:51
+
+___
+
 ### language
 
 • `Optional` **language**: `string`
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:38
+sitecore-jss/types/layout/models.d.ts:45
 
 ___
 
@@ -39,7 +72,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:37
+sitecore-jss/types/layout/models.d.ts:44
 
 ___
 
@@ -49,7 +82,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:39
+sitecore-jss/types/layout/models.d.ts:46
 
 ___
 
@@ -59,7 +92,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:36
+sitecore-jss/types/layout/models.d.ts:43
 
 ___
 
@@ -75,7 +108,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:41
+sitecore-jss/types/layout/models.d.ts:48
 
 ___
 
@@ -85,4 +118,4 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:40
+sitecore-jss/types/layout/models.d.ts:47
