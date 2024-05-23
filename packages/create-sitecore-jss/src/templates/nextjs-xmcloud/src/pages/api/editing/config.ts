@@ -10,6 +10,7 @@ import metadata from 'temp/metadata.json';
 const handler = new EditingConfigMiddleware({
   components,
   metadata,
+  enableEditingMetadata: true,
 }).getHandler();
 
 export default handler;
