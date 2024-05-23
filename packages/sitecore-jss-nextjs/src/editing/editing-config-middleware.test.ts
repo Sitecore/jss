@@ -9,10 +9,16 @@ type Query = {
   [key: string]: string;
 };
 
-const mockRequest = (method: string, query?: Query) => {
+const allowedOrigin = 'https://allowed.com';
+
+const mockRequest = (method: string, query?: Query, headers?: { [key: string]: string }) => {
   return {
     method,
     query: query ?? {},
+    headers: {
+      origin: allowedOrigin,
+      ...headers,
+    },
   } as NextApiRequest;
 };
 
@@ -23,6 +29,12 @@ const mockResponse = () => {
   });
   res.json = spy(() => {
     return res;
+  });
+  res.setHeader = spy(() => {
+    return res;
+  });
+  res.getHeader = spy(() => {
+    return undefined;
   });
   return res;
 };
@@ -44,10 +56,12 @@ describe('EditingConfigMiddleware', () => {
 
   beforeEach(() => {
     process.env.JSS_EDITING_SECRET = secret;
+    process.env.JSS_ALLOWED_ORIGINS = allowedOrigin;
   });
 
   after(() => {
     delete process.env.JSS_EDITING_SECRET;
+    delete process.env.JSS_ALLOWED_ORIGINS;
   });
 
   it('should respond with 401 for missing secret', async () => {
@@ -64,6 +78,20 @@ describe('EditingConfigMiddleware', () => {
     expect(res.status).to.have.been.calledWith(401);
     expect(res.json).to.have.been.calledOnce;
     expect(res.json).to.have.been.calledWith(expectedResultForbidden);
+  });
+
+  it('should stop request and return 401 when CORS match is not met', async () => {
+    const req = mockRequest('GET', {}, { origin: 'https://notallowed.com' });
+    const res = mockResponse();
+    const middleware = new EditingConfigMiddleware({ components: componentsArray, metadata });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(401);
+    expect(res.json).to.have.been.calledOnce;
+    expect(res.json).to.have.been.calledWith({ message: 'Invalid origin' });
   });
 
   it('should respond with 401 for invalid secret', async () => {

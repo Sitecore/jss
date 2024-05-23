@@ -32,12 +32,23 @@ type Query = {
   [key: string]: string;
 };
 
-const mockRequest = (body?: any, query?: Query, method?: string, host?: string) => {
+const allowedOrigin = 'https://allowed.com';
+
+const mockRequest = (
+  body?: any,
+  query?: Query,
+  method?: string,
+  headers?: { [key: string]: string }
+) => {
   return {
     body: body ?? {},
     method: method ?? 'POST',
     query: query ?? {},
-    headers: { host: host ?? 'localhost:3000' },
+    headers: {
+      host: 'localhost:3000',
+      origin: allowedOrigin,
+      ...headers,
+    },
   } as NextApiRequest;
 };
 
@@ -83,12 +94,14 @@ describe('EditingRenderMiddleware', () => {
 
   beforeEach(() => {
     process.env.JSS_EDITING_SECRET = secret;
+    process.env.JSS_ALLOWED_ORIGINS = allowedOrigin;
     delete process.env.VERCEL;
   });
 
   after(() => {
     delete process.env.JSS_EDITING_SECRET;
     delete process.env.VERCEL;
+    delete process.env.JSS_ALLOWED_ORIGINS;
   });
 
   it('should handle request', async () => {
@@ -312,6 +325,27 @@ describe('EditingRenderMiddleware', () => {
     expect(res.json).to.have.been.calledOnce;
   });
 
+  it('should stop request and return 401 when CORS match is not met', async () => {
+    const req = mockRequest({}, {}, 'POST', { origin: 'https://notallowed.com' });
+    const res = mockResponse();
+    const fetcher = mockFetcher();
+    const dataService = mockDataService();
+    const middleware = new EditingRenderMiddleware({
+      dataFetcher: fetcher,
+      editingDataService: dataService,
+    });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(401);
+    expect(res.json).to.have.been.calledOnce;
+    expect(res.json).to.have.been.calledWith({
+      html: '<html><body>Requests from origin https://notallowed.com not allowed</body></html>',
+    });
+  });
+
   it('should respond with 401 for missing secret', async () => {
     const fetcher = mockFetcher();
     const dataService = mockDataService();
@@ -381,7 +415,7 @@ describe('EditingRenderMiddleware', () => {
     const dataService = mockDataService();
     const query = {} as Query;
     query[QUERY_PARAM_EDITING_SECRET] = secret;
-    const req = mockRequest(EE_BODY, query, undefined, 'testhostheader.com');
+    const req = mockRequest(EE_BODY, query, undefined, { host: 'testhostheader.com' });
     const res = mockResponse();
 
     const middleware = new EditingRenderMiddleware({
@@ -401,7 +435,7 @@ describe('EditingRenderMiddleware', () => {
     const dataService = mockDataService();
     const query = {} as Query;
     query[QUERY_PARAM_EDITING_SECRET] = secret;
-    const req = mockRequest(EE_BODY, query, undefined, 'vercel.com');
+    const req = mockRequest(EE_BODY, query, undefined, { host: 'vercel.com' });
     const res = mockResponse();
     process.env.VERCEL = '1';
 

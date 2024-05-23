@@ -18,12 +18,18 @@ type Query = {
   [key: string]: string;
 };
 
-const mockRequest = (query?: Query, method?: string, host?: string) => {
+const allowedOrigin = 'https://allowed.com';
+
+const mockRequest = (query?: Query, method?: string, headers?: { [key: string]: string }) => {
   return {
     body: {},
     method: method ?? 'GET',
     query: query ?? {},
-    headers: { host: host ?? 'localhost:3000' },
+    headers: {
+      host: 'localhost:3000',
+      origin: allowedOrigin,
+      ...headers,
+    },
   } as NextApiRequest;
 };
 
@@ -44,6 +50,9 @@ const mockResponse = () => {
   res.redirect = spy(() => {
     return res;
   });
+  res.getHeader = spy(() => {
+    return undefined;
+  });
 
   return res;
 };
@@ -53,10 +62,12 @@ describe('FEAASRenderMiddleware', () => {
 
   beforeEach(() => {
     process.env.JSS_EDITING_SECRET = secret;
+    process.env.JSS_ALLOWED_ORIGINS = allowedOrigin;
   });
 
   after(() => {
     delete process.env.JSS_EDITING_SECRET;
+    delete process.env.JSS_ALLOWED_ORIGINS;
   });
 
   it('should handle request', async () => {
@@ -135,6 +146,22 @@ describe('FEAASRenderMiddleware', () => {
     expect(res.send).to.have.been.calledOnce;
     expect(res.send).to.have.been.calledWith(
       "<html><body>Invalid request method 'POST'</body></html>"
+    );
+  });
+
+  it('should stop request and return 401 when CORS match is not met', async () => {
+    const req = mockRequest({}, 'POST', { origin: 'https://notallowed.com' });
+    const res = mockResponse();
+    const middleware = new FEAASRenderMiddleware();
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(401);
+    expect(res.send).to.have.been.calledOnce;
+    expect(res.send).to.have.been.calledWith(
+      '<html><body>Requests from origin https://notallowed.com are not allowed</body></html>'
     );
   });
 
