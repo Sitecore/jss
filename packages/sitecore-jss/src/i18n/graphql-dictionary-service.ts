@@ -49,13 +49,39 @@ const query = /* GraphQL */ `
   }
 `;
 
+const siteQuery = /* GraphQL */ `
+  query DictionarySiteQuery(
+    $siteName: String!
+    $language: String!
+    $pageSize: Int = 10
+    $after: String
+  ) {
+    site {
+      siteInfo(site: $siteName) {
+        dictionary(language: $language, first: $pageSize, after: $after) [
+          {
+            key
+            value
+          }
+        ]
+      }
+    }
+  }
+`;
+
 /**
  * Configuration options for @see GraphQLDictionaryService instances
  */
 export interface GraphQLDictionaryServiceConfig
-  extends SearchServiceConfig,
+  extends Omit<SearchServiceConfig, 'siteName'>,
     CacheOptions,
     Pick<GraphQLRequestClientConfig, 'retries' | 'retryStrategy'> {
+  /**
+   * The name of the current Sitecore site. This is used to to determine the search query root
+   * in cases where one is not specified by the caller.
+   */
+  siteName: string;
+
   /**
    * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
    * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
@@ -73,6 +99,11 @@ export interface GraphQLDictionaryServiceConfig
    * @default '061cba1554744b918a0617903b102b82' (/sitecore/templates/Foundation/JavaScript Services/App)
    */
   jssAppTemplateId?: string;
+
+  /**
+   * Optional. Use site query for dictionary fetch instead of search query (XM Cloud only)
+   */
+  useSiteQuery?: boolean;
 }
 
 /**
@@ -81,6 +112,14 @@ export interface GraphQLDictionaryServiceConfig
 export type DictionaryQueryResult = {
   key: { value: string };
   phrase: { value: string };
+};
+
+export type DistionarySiteQueryResponse = {
+  site: {
+    siteInfo: {
+      dictionary: { key: string; value: string }[];
+    };
+  };
 };
 
 /**
@@ -103,9 +142,8 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
   }
 
   /**
-   * Fetches dictionary data for internalization.
+   * Fetches dictionary data for internalization. Uses search query by default
    * @param {string} language the language to fetch
-   * @default query (@see query)
    * @returns {Promise<DictionaryPhrases>} dictionary phrases
    * @throws {Error} if the app root was not found for the specified site and language.
    */
@@ -117,6 +155,24 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
       return cachedValue;
     }
 
+    debug.dictionary('fetching site root for %s %s', language, this.options.siteName);
+    const phrases = this.options.useSiteQuery
+      ? await this.fetchWithSiteQuery(language)
+      : await this.fetchWithSearchQuery(language);
+
+    this.setCacheValue(cacheKey, phrases);
+    return phrases;
+  }
+
+  /**
+   * Fetches dictionary data with search query
+   * This is the default behavior for non-XMCloud deployments
+   * @param {string} language the language to fetch
+   * @default query (@see query)
+   * @returns {Promise<DictionaryPhrases>} dictionary phrases
+   * @throws {Error} if the app root was not found for the specified site and language.
+   */
+  async fetchWithSearchQuery(language: string): Promise<DictionaryPhrases> {
     debug.dictionary('fetching site root for %s %s', language, this.options.siteName);
 
     // If the caller does not specify a root item ID, then we try to figure it out
@@ -146,7 +202,25 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
         results.forEach((item) => (phrases[item.key.value] = item.phrase.value));
       });
 
-    this.setCacheValue(cacheKey, phrases);
+    return phrases;
+  }
+
+  /**
+   * Fetches dictionary data with site query
+   * This is the default behavior for XMCloud deployments
+   * @param {string} language the language to fetch
+   * @default siteQuery (@see siteQuery)
+   * @returns {Promise<DictionaryPhrases>} dictionary phrases
+   */
+  async fetchWithSiteQuery(language: string): Promise<DictionaryPhrases> {
+    const phrases: DictionaryPhrases = {};
+    debug.dictionary('fetching dictionary data for %s %s', language, this.options.siteName);
+    const results = await this.graphQLClient.request<DistionarySiteQueryResponse>(siteQuery, {
+      siteName: this.options.siteName,
+      language,
+      pageSize: this.options.pageSize,
+    });
+    results.site.siteInfo.dictionary.forEach((item) => (phrases[item.key] = item.value));
     return phrases;
   }
 

@@ -1,0 +1,18 @@
+{
+    "data": {
+        "site": {
+            "siteInfo": {
+              "dictionary": [
+                {
+                  "key": "foo",
+                  "value": "foo"
+                },
+                {
+                  "key": "bar",
+                  "value": "bar"
+                }
+              ]
+            }
+          }
+    }
+  }

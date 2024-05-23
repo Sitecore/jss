@@ -7,6 +7,7 @@ import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
 import { queryError, GraphQLDictionaryServiceConfig } from './graphql-dictionary-service';
 import { GraphQLDictionaryService } from '.';
 import dictionaryQueryResponse from '../test-data/mockDictionaryQueryResponse.json';
+import dictionarySiteQueryResponse from '../test-data/mockDictionarySiteQueryResponse.json';
 import appRootQueryResponse from '../test-data/mockAppRootQueryResponse.json';
 
 class TestService extends GraphQLDictionaryService {
@@ -17,7 +18,7 @@ class TestService extends GraphQLDictionaryService {
   }
 }
 
-describe('GraphQLDictionaryService', () => {
+describe.only('GraphQLDictionaryService', () => {
   const endpoint = 'http://site';
   const siteName = 'site-name';
   const apiKey = 'api-key';
@@ -269,5 +270,61 @@ describe('GraphQLDictionaryService', () => {
     expect(calledWithArgs.debugger).to.exist;
     expect(calledWithArgs.retries).to.equal(mockServiceConfig.retries);
     expect(calledWithArgs.retryStrategy).to.deep.equal(mockServiceConfig.retryStrategy);
+  });
+
+  describe('with site query', () => {
+    it('should fetch dictionary phrases using clientFactory', async () => {
+      nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
+        .post('/', /DictionarySiteQuery/gi)
+        .reply(200, dictionarySiteQueryResponse);
+
+      const service = new GraphQLDictionaryService({
+        siteName,
+        cacheEnabled: false,
+        clientFactory,
+        useSiteQuery: true,
+      });
+      const result = await service.fetchDictionaryData('en');
+      expect(result.foo).to.equal('foo');
+      expect(result.bar).to.equal('bar');
+    });
+
+    it('should use default pageSize, if pageSize not provided', async () => {
+      nock(endpoint)
+        .post(
+          '/',
+          (body) =>
+            body.query.indexOf('$pageSize: Int = 10') > 0 && body.variables.pageSize === undefined
+        )
+        .reply(200, dictionarySiteQueryResponse);
+
+      const service = new GraphQLDictionaryService({
+        clientFactory,
+        siteName,
+        cacheEnabled: false,
+        pageSize: undefined,
+        useSiteQuery: true,
+      });
+      const result = await service.fetchDictionaryData('en');
+      expect(result).to.have.all.keys('foo', 'bar');
+    });
+
+    it('should use a custom pageSize, if provided', async () => {
+      const customPageSize = 2;
+
+      nock(endpoint)
+        .post('/', (body) => body.variables.pageSize === customPageSize)
+        .reply(200, dictionarySiteQueryResponse);
+
+      const service = new GraphQLDictionaryService({
+        clientFactory,
+        siteName,
+        cacheEnabled: false,
+        pageSize: customPageSize,
+        useSiteQuery: true,
+      });
+      const result = await service.fetchDictionaryData('en');
+      expect(result).to.have.all.keys('foo', 'bar');
+    });
   });
 });
