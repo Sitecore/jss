@@ -8,6 +8,7 @@ export {
   FieldEditButton,
   WebEditButton,
   EditButtonTypes,
+  EnhancedOmit,
 } from '@sitecore-jss/sitecore-jss/utils';
 export {
   getContentStylesheetLink,
@@ -28,6 +29,7 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+  EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
 export {
   trackingApi,
@@ -91,7 +93,6 @@ export {
 export {
   withSitecoreContext,
   useSitecoreContext,
-  ComponentConsumerProps,
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
   WithSitecoreContextHocProps,
@@ -101,3 +102,5 @@ export { withPlaceholder } from './enhancers/withPlaceholder';
 export { withDatasourceCheck } from './enhancers/withDatasourceCheck';
 export { EditFrameProps, EditFrame } from './components/EditFrame';
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
+export { withFieldMetadata } from './enhancers/withFieldMetadata';
+export { EditingScripts } from './components/EditingScripts';

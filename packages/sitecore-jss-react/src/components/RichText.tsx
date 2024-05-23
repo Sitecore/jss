@@ -1,9 +1,11 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 
 export interface RichTextField {
   value?: string;
   editable?: string;
+  metadata?: { [key: string]: unknown };
 }
 
 export interface RichTextProps {
@@ -23,28 +25,33 @@ export interface RichTextProps {
   editable?: boolean;
 }
 
-export const RichText: React.FC<RichTextProps> = forwardRef(
-  ({ field, tag = 'div', editable = true, ...otherProps }, ref) => {
-    if (!field || (!field.editable && !field.value)) {
-      return null;
+export const RichText: React.FC<RichTextProps> = withFieldMetadata<RichTextProps>(
+  // eslint-disable-next-line react/display-name
+  forwardRef<HTMLElement, RichTextProps>(
+    ({ field, tag = 'div', editable = true, ...otherProps }, ref) => {
+      if (!field || (!field.editable && !field.value)) {
+        return null;
+      }
+
+      const htmlProps = {
+        dangerouslySetInnerHTML: {
+          __html: field.editable && editable ? field.editable : field.value,
+        },
+        ref,
+        ...otherProps,
+      };
+
+      return React.createElement(tag || 'div', htmlProps);
     }
-
-    const htmlProps = {
-      dangerouslySetInnerHTML: {
-        __html: field.editable && editable ? field.editable : field.value,
-      },
-      ref,
-      ...otherProps,
-    };
-
-    return React.createElement(tag || 'div', htmlProps);
-  }
+  ),
+  true
 );
 
 export const RichTextPropTypes = {
   field: PropTypes.shape({
     value: PropTypes.string,
     editable: PropTypes.string,
+    metadata: PropTypes.objectOf(PropTypes.any),
   }),
   tag: PropTypes.string,
   editable: PropTypes.bool,

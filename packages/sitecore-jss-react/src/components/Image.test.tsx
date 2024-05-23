@@ -293,4 +293,36 @@ describe('<Image />', () => {
     const rendered = mount(<Image field={imgField} />);
     expect(rendered.find('img')).to.have.length(1);
   });
+
+  it('should render field metadata component when metadata property is present', () => {
+    const testMetadata = {
+      contextItem: {
+        id: '{09A07660-6834-476C-B93B-584248D3003B}',
+        language: 'en',
+        revision: 'a0b36ce0a7db49418edf90eb9621e145',
+        version: 1,
+      },
+      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
+      fieldType: 'image',
+      rawValue: 'Test1',
+    };
+
+    const imgField = {
+      src: '/assets/img/test0.png',
+      width: 8,
+      height: 10,
+      metadata: testMetadata,
+    };
+    const rendered = mount(<Image field={imgField} />);
+
+    expect(rendered.html()).to.equal(
+      [
+        `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+          testMetadata
+        )}</code>`,
+        '<img width="8" height="10" src="/assets/img/test0.png">',
+        '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+      ].join('')
+    );
+  });
 });

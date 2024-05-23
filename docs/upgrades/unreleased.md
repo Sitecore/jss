@@ -2,6 +2,10 @@
 
 # react
 
+* With the simplification of Editing Support work we have added the following breaking changes to the `sitecore-jss-react` package. Please make the necessary updates.
+  - `ComponentConsumerProps` is removed. You might need to reuse _WithSitecoreContextProps_ type.
+
+### headless-ssr-experience-edge
 * Replace `scripts/generate-config.js` if you have not modified it. Otherwise:
     * Add a `trim()` call to `config[prop]` and replace comma before a newline (`,`) with semicolon (`;`) in configText prop assignment so it would look like this:
         
@@ -40,3 +44,17 @@
         ```
             configText += `config.${prop} = process.env.${constantCase(prop)} || '${config[prop]?.trim()}';\n`;
         ```
+
+# nextjs-xmcloud
+
+* Render a new `EditingScripts` component in your `Scripts.ts` file to support a new Editing Integration feature.
+    ```
+    import { EditingScripts } from '@sitecore-jss/sitecore-jss-nextjs';
+    ...
+    const Scripts = (): JSX.Element | null => {
+        <>
+        <EditingScripts />
+        ...
+        </>
+    );
+    ```

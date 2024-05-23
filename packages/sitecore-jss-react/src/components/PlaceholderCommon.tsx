@@ -8,6 +8,7 @@ import {
   Field,
   Item,
   HtmlElementRendering,
+  EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
 import { convertAttributesToReactProps } from '../utils';
 import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
@@ -15,6 +16,8 @@ import { FEaaSComponent, FEAAS_COMPONENT_RENDERING_NAME } from './FEaaSComponent
 import { FEaaSWrapper, FEAAS_WRAPPER_RENDERING_NAME } from './FEaaSWrapper';
 import { BYOCComponent, BYOC_COMPONENT_RENDERING_NAME } from './BYOCComponent';
 import { BYOCWrapper, BYOC_WRAPPER_RENDERING_NAME } from './BYOCWrapper';
+import { SitecoreContextValue } from './SitecoreContext';
+import { PlaceholderMetadata } from './PlaceholderMetadata';
 import ErrorBoundary from './ErrorBoundary';
 
 type ErrorComponentProps = {
@@ -75,7 +78,10 @@ export interface PlaceholderProps {
    * the placeholder
    */
   errorComponent?: React.ComponentClass<ErrorComponentProps> | React.FC<ErrorComponentProps>;
-
+  /**
+   *  Context data from the Sitecore Layout Service
+   */
+  sitecoreContext: SitecoreContextValue;
   /**
    * The message that gets displayed while component is loading
    */
@@ -108,6 +114,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       PropTypes.func as Requireable<React.FC<unknown>>,
     ]),
     modifyComponentProps: PropTypes.func,
+    sitecoreContext: PropTypes.object as Requireable<SitecoreContextValue>,
   };
 
   nodeRefs: Element[];
@@ -260,12 +267,35 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           rendering: componentRendering,
         };
 
-        return React.createElement<{ [attr: string]: unknown }>(
+        const rendered = React.createElement<{ [attr: string]: unknown }>(
           component as React.ComponentType,
           this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
         );
+
+        // if editMode is equal to 'metadata' then emit shallow chromes for hydration in Pages
+        if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
+          return (
+            <PlaceholderMetadata key={key} uid={(rendering as ComponentRendering).uid}>
+              {rendered}
+            </PlaceholderMetadata>
+          );
+        }
+
+        return rendered;
       })
-      .filter((element) => element);
+      .filter((element) => element); // remove nulls
+
+    if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
+      return [
+        <PlaceholderMetadata
+          key={(this.props.rendering as ComponentRendering).uid}
+          uid={(this.props.rendering as ComponentRendering).uid}
+          placeholderName={name}
+        >
+          {transformedComponents}
+        </PlaceholderMetadata>,
+      ];
+    }
 
     if (isEmpty) {
       return transformedComponents;
