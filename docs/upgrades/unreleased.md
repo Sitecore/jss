@@ -58,3 +58,13 @@
         </>
     );
     ```
+
+* Add a `useSiteQuery` parameter when `GraphQLDictionaryService` is initialized in `/src/lib/dictionary-service-factory.ts` :
+    ```
+        new GraphQLDictionaryService({
+          siteName,
+          clientFactory,
+          .....
+          useSiteQuery: true,
+        })
+    ```

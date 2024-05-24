@@ -21,6 +21,8 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-nextjs]` Enforce CORS policy that matches Sitecore Pages domains for editing middleware API endpoints ([#1798](https://github.com/Sitecore/jss/pull/1798)[#1801](https://github.com/Sitecore/jss/pull/1801))
 
+* `[nextjs-xmcloud]` DictionaryService will now use a `site` GraphQL query instead of `search` one out of the box to improve performance ([#1804](https://github.com/Sitecore/jss/pull/1804))
+
 ### 🛠 Breaking Change
 
 *  Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792))([#1773](https://github.com/Sitecore/jss/pull/1773))([#1797](https://github.com/Sitecore/jss/pull/1797))([#1800](https://github.com/Sitecore/jss/pull/1800))
