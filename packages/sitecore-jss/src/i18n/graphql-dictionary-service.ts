@@ -6,7 +6,7 @@ import {
 import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase } from './dictionary-service';
 import { CacheOptions } from '../cache-client';
-import { getAppRootId, SearchServiceConfig, SearchQueryService } from '../graphql';
+import { getAppRootId, SearchServiceConfig, SearchQueryService, PageInfo } from '../graphql';
 import debug from '../debug';
 
 /** @private */
@@ -114,10 +114,13 @@ export type DictionaryQueryResult = {
   phrase: { value: string };
 };
 
-export type DistionarySiteQueryResponse = {
+export type DictionarySiteQueryResponse = {
   site: {
     siteInfo: {
-      dictionary: { key: string; value: string }[];
+      dictionary: {
+        entries: { key: string; value: string }[];
+        pageInfo: PageInfo;
+      };
     };
   };
 };
@@ -215,12 +218,27 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
   async fetchWithSiteQuery(language: string): Promise<DictionaryPhrases> {
     const phrases: DictionaryPhrases = {};
     debug.dictionary('fetching dictionary data for %s %s', language, this.options.siteName);
-    const results = await this.graphQLClient.request<DistionarySiteQueryResponse>(siteQuery, {
-      siteName: this.options.siteName,
-      language,
-      pageSize: this.options.pageSize,
-    });
-    results.site.siteInfo.dictionary.forEach((item) => (phrases[item.key] = item.value));
+    let results: { key: string; value: string }[] = [];
+    let hasNext = true;
+    let after = '';
+
+    while (hasNext) {
+      const fetchResponse = await this.graphQLClient.request<DictionarySiteQueryResponse>(
+        siteQuery,
+        {
+          siteName: this.options.siteName,
+          language,
+          pageSize: this.options.pageSize,
+          after,
+        }
+      );
+
+      results = results.concat(fetchResponse?.site.siteInfo.dictionary.entries);
+      hasNext = fetchResponse.site.siteInfo.dictionary.pageInfo.hasNext;
+      after = fetchResponse.site.siteInfo.dictionary.pageInfo.endCursor;
+    }
+    results.forEach((item) => (phrases[item.key] = item.value));
+
     return phrases;
   }
 

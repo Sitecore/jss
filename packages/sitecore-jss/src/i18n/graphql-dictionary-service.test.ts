@@ -18,7 +18,7 @@ class TestService extends GraphQLDictionaryService {
   }
 }
 
-describe.only('GraphQLDictionaryService', () => {
+describe('GraphQLDictionaryService', () => {
   const endpoint = 'http://site';
   const siteName = 'site-name';
   const apiKey = 'api-key';
@@ -275,8 +275,8 @@ describe.only('GraphQLDictionaryService', () => {
   describe('with site query', () => {
     it('should fetch dictionary phrases using clientFactory', async () => {
       nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
-        .post('/', /DictionarySiteQuery/gi)
-        .reply(200, dictionarySiteQueryResponse);
+        .post('/')
+        .reply(200, dictionarySiteQueryResponse.singlepage);
 
       const service = new GraphQLDictionaryService({
         siteName,
@@ -291,12 +291,13 @@ describe.only('GraphQLDictionaryService', () => {
 
     it('should use default pageSize, if pageSize not provided', async () => {
       nock(endpoint)
+        .persist()
         .post(
           '/',
           (body) =>
             body.query.indexOf('$pageSize: Int = 10') > 0 && body.variables.pageSize === undefined
         )
-        .reply(200, dictionarySiteQueryResponse);
+        .reply(200, dictionarySiteQueryResponse.singlepage);
 
       const service = new GraphQLDictionaryService({
         clientFactory,
@@ -310,11 +311,17 @@ describe.only('GraphQLDictionaryService', () => {
     });
 
     it('should use a custom pageSize, if provided', async () => {
-      const customPageSize = 2;
+      const customPageSize = 1;
 
       nock(endpoint)
         .post('/', (body) => body.variables.pageSize === customPageSize)
-        .reply(200, dictionarySiteQueryResponse);
+        .reply(200, dictionarySiteQueryResponse.multipage.page1)
+        .post(
+          '/',
+          (body) =>
+            body.variables.pageSize === customPageSize && body.variables.after === 'nextpage'
+        )
+        .reply(200, dictionarySiteQueryResponse.multipage.page2);
 
       const service = new GraphQLDictionaryService({
         clientFactory,
@@ -324,7 +331,7 @@ describe.only('GraphQLDictionaryService', () => {
         useSiteQuery: true,
       });
       const result = await service.fetchDictionaryData('en');
-      expect(result).to.have.all.keys('foo', 'bar');
+      expect(result).to.have.all.keys('foo', 'bar', 'baz');
     });
   });
 });
