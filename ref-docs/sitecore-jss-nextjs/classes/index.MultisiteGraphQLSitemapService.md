@@ -63,7 +63,7 @@ BaseGraphQLSitemapService.constructor
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:33](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L33)
+[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:33](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L33)
 
 ## Properties
 
@@ -79,7 +79,7 @@ BaseGraphQLSitemapService.options
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:33](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L33)
+[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:33](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L33)
 
 ## Accessors
 
@@ -99,7 +99,7 @@ BaseGraphQLSitemapService.graphQLClient
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:167](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L167)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:167](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L167)
 
 ___
 
@@ -119,7 +119,7 @@ BaseGraphQLSitemapService.query
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:174](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L174)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:174](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L174)
 
 ## Methods
 
@@ -153,7 +153,7 @@ BaseGraphQLSitemapService.fetchExportSitemap
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:193](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L193)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:193](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L193)
 
 ___
 
@@ -182,7 +182,7 @@ BaseGraphQLSitemapService.fetchLanguageSitePaths
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:77](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L77)
+[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:77](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L77)
 
 ___
 
@@ -214,7 +214,7 @@ BaseGraphQLSitemapService.fetchSSGSitemap
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:208](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L208)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:208](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L208)
 
 ___
 
@@ -252,7 +252,7 @@ BaseGraphQLSitemapService.fetchSitemap
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:46](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L46)
+[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:46](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L46)
 
 ___
 
@@ -276,7 +276,7 @@ BaseGraphQLSitemapService.getGraphQLClient
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:315](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L315)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:315](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L315)
 
 ___
 
@@ -302,7 +302,7 @@ BaseGraphQLSitemapService.getTranformedPaths
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:219](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L219)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:219](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L219)
 
 ___
 
@@ -328,4 +328,4 @@ BaseGraphQLSitemapService.transformLanguageSitePaths
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:246](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L246)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:246](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L246)
