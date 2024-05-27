@@ -333,5 +333,25 @@ describe('GraphQLDictionaryService', () => {
       const result = await service.fetchDictionaryData('en');
       expect(result).to.have.all.keys('foo', 'bar', 'baz');
     });
+
+    it('should throw when getting http errors', async () => {
+      nock(endpoint)
+        .post('/')
+        .reply(401, {
+          error: 'whoops',
+        });
+
+      const service = new GraphQLDictionaryService({
+        clientFactory,
+        siteName,
+        cacheEnabled: false,
+        useSiteQuery: true,
+      });
+
+      await service.fetchDictionaryData('en').catch((error) => {
+        expect(error.response.status).to.equal(401);
+        expect(error.response.error).to.equal('whoops');
+      });
+    });
   });
 });

@@ -58,12 +58,17 @@ const siteQuery = /* GraphQL */ `
   ) {
     site {
       siteInfo(site: $siteName) {
-        dictionary(language: $language, first: $pageSize, after: $after) [
-          {
+        dictionary(language: $language, first: $pageSize, after: $after) {
+          total
+          pageInfo {
+            endCursor
+            hasNext
+          }
+          results {
             key
             value
           }
-        ]
+        }
       }
     }
   }
@@ -118,7 +123,7 @@ export type DictionarySiteQueryResponse = {
   site: {
     siteInfo: {
       dictionary: {
-        entries: { key: string; value: string }[];
+        results: { key: string; value: string }[];
         pageInfo: PageInfo;
       };
     };
@@ -158,7 +163,6 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
       return cachedValue;
     }
 
-    debug.dictionary('fetching site root for %s %s', language, this.options.siteName);
     const phrases = this.options.useSiteQuery
       ? await this.fetchWithSiteQuery(language)
       : await this.fetchWithSearchQuery(language);
@@ -233,7 +237,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
         }
       );
 
-      results = results.concat(fetchResponse?.site.siteInfo.dictionary.entries);
+      results = results.concat(fetchResponse?.site.siteInfo.dictionary.results);
       hasNext = fetchResponse.site.siteInfo.dictionary.pageInfo.hasNext;
       after = fetchResponse.site.siteInfo.dictionary.pageInfo.endCursor;
     }

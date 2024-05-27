@@ -21,7 +21,7 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-nextjs]` Enforce CORS policy that matches Sitecore Pages domains for editing middleware API endpoints ([#1798](https://github.com/Sitecore/jss/pull/1798)[#1801](https://github.com/Sitecore/jss/pull/1801))
 
-* `[nextjs-xmcloud]` DictionaryService will now use a `site` GraphQL query instead of `search` one out of the box to improve performance ([#1804](https://github.com/Sitecore/jss/pull/1804))
+* `[nextjs-xmcloud]` DictionaryService can now use a `site` GraphQL query instead of `search` one to improve performance. This is currently only available for XMCloud deployments and is enabled with `nextjs-xmcloud` add-on by default ([#1804](https://github.com/Sitecore/jss/pull/1804))
 
 ### 🛠 Breaking Change
 

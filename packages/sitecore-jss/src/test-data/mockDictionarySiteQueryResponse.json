@@ -4,7 +4,7 @@
       "site": {
         "siteInfo": {
           "dictionary": {
-            "entries": [
+            "results": [
               {
                 "key": "foo",
                 "value": "foo"
@@ -30,7 +30,7 @@
         "site": {
           "siteInfo": {
             "dictionary": {
-              "entries": [
+              "results": [
                 {
                   "key": "foo",
                   "value": "foo"
@@ -55,7 +55,7 @@
         "site": {
           "siteInfo": {
             "dictionary": {
-              "entries": [
+              "results": [
                 {
                   "key": "baz",
                   "value": "baz"
