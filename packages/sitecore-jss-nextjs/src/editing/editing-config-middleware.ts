@@ -16,10 +16,11 @@ export type EditingConfigMiddlewareConfig = {
    */
   metadata: Metadata;
   /**
-   * Flag to enable/disable the new editing experience for Pages.
-   * Enabled by default
+   * Determines which editing mode should be used by Pages.
+   * Can be either 'chromes' or 'metadata'.
+   * By default its 'metadata'
    */
-  enableEditingMetadata?: boolean;
+  pagesEditMode?: EditMode;
 };
 
 /**
@@ -27,13 +28,10 @@ export type EditingConfigMiddlewareConfig = {
  * provides configuration information to determine feature compatibility on Pages side.
  */
 export class EditingConfigMiddleware {
-  private enableEditingMetadata: boolean;
   /**
    * @param {EditingConfigMiddlewareConfig} [config] Editing configuration middleware config
    */
-  constructor(protected config: EditingConfigMiddlewareConfig) {
-    this.enableEditingMetadata = config.enableEditingMetadata ?? true;
-  }
+  constructor(protected config: EditingConfigMiddlewareConfig) {}
 
   /**
    * Gets the Next.js API route handler
@@ -65,7 +63,7 @@ export class EditingConfigMiddleware {
       ? this.config.components
       : Array.from(this.config.components.keys());
 
-    const editMode = this.enableEditingMetadata ? EditMode.Metadata : EditMode.Chromes;
+    const editMode = this.config.pagesEditMode || EditMode.Metadata;
 
     return res.status(200).json({
       components,

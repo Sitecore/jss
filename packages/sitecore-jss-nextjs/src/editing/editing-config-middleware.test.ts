@@ -4,6 +4,7 @@ import { spy } from 'sinon';
 import { expect } from 'chai';
 import { EditingConfigMiddleware } from './editing-config-middleware';
 import { QUERY_PARAM_EDITING_SECRET } from './constants';
+import { EditMode } from '@sitecore-jss/sitecore-jss/layout';
 
 type Query = {
   [key: string]: string;
@@ -122,14 +123,14 @@ describe('EditingConfigMiddleware', () => {
   const testEditingConfig = async (
     components: string[] | Map<string, unknown>,
     expectedResult,
-    enableEditingMetadata?: boolean
+    pagesEditMode?: EditMode
   ) => {
     const key = 'wrongkey';
     const query = { key } as Query;
     query[QUERY_PARAM_EDITING_SECRET] = secret;
     const req = mockRequest('GET', query);
     const res = mockResponse();
-    const middleware = new EditingConfigMiddleware({ components, metadata, enableEditingMetadata });
+    const middleware = new EditingConfigMiddleware({ components, metadata, pagesEditMode });
     const handler = middleware.getHandler();
 
     await handler(req, res);
@@ -141,11 +142,11 @@ describe('EditingConfigMiddleware', () => {
   };
 
   it('should respond with 200 and return config data with components array as argument and editMode as chromes', async () => {
-    await testEditingConfig(componentsArray, expectedResultWithChromes, false);
+    await testEditingConfig(componentsArray, expectedResultWithChromes, EditMode.Chromes);
   });
 
   it('should respond with 200 and return config data with components map as argument and editMode as chromes', async () => {
-    await testEditingConfig(componentsMap, expectedResultWithChromes, false);
+    await testEditingConfig(componentsMap, expectedResultWithChromes, EditMode.Chromes);
   });
 
   it('should respond with 200 and return config data with components array as argument and editMode as metadata', async () => {
