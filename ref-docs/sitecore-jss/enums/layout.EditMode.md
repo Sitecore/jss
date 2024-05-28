@@ -21,7 +21,7 @@ Represents the possible modes for rendering content in Pages
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:40](https://github.com/Sitecore/jss/blob/390e68c29/packages/sitecore-jss/src/layout/models.ts#L40)
+[packages/sitecore-jss/src/layout/models.ts:40](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/layout/models.ts#L40)
 
 ___
 
@@ -31,4 +31,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:41](https://github.com/Sitecore/jss/blob/390e68c29/packages/sitecore-jss/src/layout/models.ts#L41)
+[packages/sitecore-jss/src/layout/models.ts:41](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/layout/models.ts#L41)
