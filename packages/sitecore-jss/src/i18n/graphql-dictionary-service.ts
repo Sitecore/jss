@@ -6,7 +6,7 @@ import {
 import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase } from './dictionary-service';
 import { CacheOptions } from '../cache-client';
-import { getAppRootId, SearchServiceConfig, SearchQueryService, PageInfo } from '../graphql';
+import { getAppRootId, SearchQueryService, PageInfo, SearchQueryVariables } from '../graphql';
 import debug from '../debug';
 
 /** @private */
@@ -59,7 +59,6 @@ const siteQuery = /* GraphQL */ `
     site {
       siteInfo(site: $siteName) {
         dictionary(language: $language, first: $pageSize, after: $after) {
-          total
           pageInfo {
             endCursor
             hasNext
@@ -78,7 +77,7 @@ const siteQuery = /* GraphQL */ `
  * Configuration options for @see GraphQLDictionaryService instances
  */
 export interface GraphQLDictionaryServiceConfig
-  extends Omit<SearchServiceConfig, 'siteName'>,
+  extends Omit<SearchQueryVariables, 'language'>,
     CacheOptions,
     Pick<GraphQLRequestClientConfig, 'retries' | 'retryStrategy'> {
   /**
