@@ -32,7 +32,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:59](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss/src/layout/models.ts#L59)
+[packages/sitecore-jss/src/layout/models.ts:59](https://github.com/Sitecore/jss/blob/390e68c29/packages/sitecore-jss/src/layout/models.ts#L59)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:58](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss/src/layout/models.ts#L58)
+[packages/sitecore-jss/src/layout/models.ts:58](https://github.com/Sitecore/jss/blob/390e68c29/packages/sitecore-jss/src/layout/models.ts#L58)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:57](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss/src/layout/models.ts#L57)
+[packages/sitecore-jss/src/layout/models.ts:57](https://github.com/Sitecore/jss/blob/390e68c29/packages/sitecore-jss/src/layout/models.ts#L57)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:51](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss/src/layout/models.ts#L51)
+[packages/sitecore-jss/src/layout/models.ts:51](https://github.com/Sitecore/jss/blob/390e68c29/packages/sitecore-jss/src/layout/models.ts#L51)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:50](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss/src/layout/models.ts#L50)
+[packages/sitecore-jss/src/layout/models.ts:50](https://github.com/Sitecore/jss/blob/390e68c29/packages/sitecore-jss/src/layout/models.ts#L50)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:52](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss/src/layout/models.ts#L52)
+[packages/sitecore-jss/src/layout/models.ts:52](https://github.com/Sitecore/jss/blob/390e68c29/packages/sitecore-jss/src/layout/models.ts#L52)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:49](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss/src/layout/models.ts#L49)
+[packages/sitecore-jss/src/layout/models.ts:49](https://github.com/Sitecore/jss/blob/390e68c29/packages/sitecore-jss/src/layout/models.ts#L49)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:54](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss/src/layout/models.ts#L54)
+[packages/sitecore-jss/src/layout/models.ts:54](https://github.com/Sitecore/jss/blob/390e68c29/packages/sitecore-jss/src/layout/models.ts#L54)
 
 ___
 
@@ -118,4 +118,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:53](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss/src/layout/models.ts#L53)
+[packages/sitecore-jss/src/layout/models.ts:53](https://github.com/Sitecore/jss/blob/390e68c29/packages/sitecore-jss/src/layout/models.ts#L53)

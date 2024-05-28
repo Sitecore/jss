@@ -47,10 +47,11 @@
 | :------ | :------ | :------ |
 | `components` | `string`[] \| `Map`\<`string`, `unknown`\> | Components available in the application |
 | `metadata` | `Metadata` | Application metadata |
+| `pagesEditMode?` | [`EditMode`](../enums/index.EditMode.md) | Determines which editing mode should be used by Pages. Can be either 'chromes' or 'metadata'. By default its 'metadata' |
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:8](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L8)
+[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:9](https://github.com/Sitecore/jss/blob/390e68c29/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L9)
 
 ___
 
@@ -71,7 +72,7 @@ Data sent from Sitecore editors
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
+[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/390e68c29/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
 
 ## Variables
 
@@ -87,4 +88,4 @@ https://vercel.com/docs/environment-variables#system-environment-variables
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:222](https://github.com/Sitecore/jss/blob/121d7f33b/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L222)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:222](https://github.com/Sitecore/jss/blob/390e68c29/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L222)
