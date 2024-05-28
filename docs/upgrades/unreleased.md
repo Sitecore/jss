@@ -62,6 +62,8 @@
 * We have introduced a new configuration option, `pagesEditMode`, in the `\src\pages\api\editing\config.ts` file to support the new metadata architecture for pages. This option allows you to specify the editing mode used by Pages. It is set to `metadata` by default. However, if you don't prefer use `metadata` and continue using the existing architecture, you can explicitly set the `pagesEditMode` to `chromes`.
 
     ```
+        import { EditMode } from '@sitecore-jss/sitecore-jss/layout';
+
         const handler = new EditingConfigMiddleware({
         ...
         pagesEditMode: EditMode.Chromes,
