@@ -21,13 +21,6 @@ export class DictionaryServiceFactory {
           siteName,
           clientFactory,
           /*
-            The Dictionary Service needs a root item ID in order to fetch dictionary phrases for the current app. 
-            When not provided, the service will attempt to figure out the root item for the current JSS App using GraphQL and app name.
-            For SXA site(s) and multisite setup there's no need to specify it - it will be autoresolved.
-            Otherwise, if your Sitecore instance only has 1 JSS App (i.e. in a Sitecore XP setup), you can specify the root item ID here.
-            rootItemId: '{GUID}'
-          */
-          /*
             GraphQL endpoint may reach its rate limit with the amount of requests it receives and throw a rate limit error.
             GraphQL Dictionary and Layout Services can handle rate limit errors from server and attempt a retry on requests.
             For this, specify the number of 'retries' the GraphQL client will attempt.

@@ -53,7 +53,7 @@ const siteQuery = /* GraphQL */ `
   query DictionarySiteQuery(
     $siteName: String!
     $language: String!
-    $pageSize: Int = 10
+    $pageSize: Int = 500
     $after: String
   ) {
     site {

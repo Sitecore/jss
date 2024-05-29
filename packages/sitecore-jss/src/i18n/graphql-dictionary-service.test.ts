@@ -289,13 +289,13 @@ describe('GraphQLDictionaryService', () => {
       expect(result.bar).to.equal('bar');
     });
 
-    it('should use default pageSize, if pageSize not provided', async () => {
+    it('should use default pageSize of 500, if pageSize not provided in constructor', async () => {
       nock(endpoint)
         .persist()
         .post(
           '/',
           (body) =>
-            body.query.indexOf('$pageSize: Int = 10') > 0 && body.variables.pageSize === undefined
+            body.query.indexOf('$pageSize: Int = 500') > 0 && body.variables.pageSize === undefined
         )
         .reply(200, dictionarySiteQueryResponse.singlepage);
 
