@@ -44,7 +44,7 @@ export type EditingRenderMiddlewareConfig = {
    * Function used to determine route/page URL to render.
    * This may be necessary for certain custom Next.js routing configurations.
    * @param {Object} args Arguments for resolving the page URL
-   * @param {string} args.serverUrl The root server URL e.g. 'http://localhost:3000'. Only present and necessary for Edit Mode Chromes.
+   * @param {string} args.serverUrl The root server URL e.g. 'http://localhost:3000'. In XMCloud Pages only present and necessary for Edit Mode Chromes.
    * @param {string} itemPath The Sitecore relative item path e.g. '/styleguide'
    * @returns {string} The URL to render
    * @default `${serverUrl}${itemPath}` for Edit Mode Chromes
