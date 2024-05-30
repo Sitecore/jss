@@ -7,6 +7,7 @@ import { PreviewData } from 'next';
 
 /**
  * Data for Next.js Preview (Editing) mode
+ * In XMCloud Pages used in Chromes mode
  */
 export interface EditingPreviewData {
   key: string;

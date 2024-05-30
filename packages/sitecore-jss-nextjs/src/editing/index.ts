@@ -1,9 +1,11 @@
+export { GraphQLEditingService } from '@sitecore-jss/sitecore-jss/editing';
 export { EditingData } from './editing-data';
 export { EditingDataCache, EditingDataDiskCache } from './editing-data-cache';
 export { EditingDataMiddleware, EditingDataMiddlewareConfig } from './editing-data-middleware';
 export {
   EditingRenderMiddleware,
   EditingRenderMiddlewareConfig,
+  EditingMetadataPreviewData,
 } from './editing-render-middleware';
 export {
   EditingPreviewData,

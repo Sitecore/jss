@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import { getMetadata } from './metadata';
 import sinon, { SinonStub } from 'sinon';
-import { Metadata } from '@sitecore-jss/sitecore-jss/utils';
+import { Metadata } from '@sitecore-jss/sitecore-jss/editing';
 
 describe('metadata', () => {
   afterEach(() => {

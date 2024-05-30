@@ -4,7 +4,7 @@ import {
   ChromeCommand,
   EditButtonTypes,
   mapButtonToCommand,
-} from '@sitecore-jss/sitecore-jss/utils';
+} from '@sitecore-jss/sitecore-jss/editing';
 import { RouteData } from '@sitecore-jss/sitecore-jss/layout';
 
 export const EditFrame = defineComponent({

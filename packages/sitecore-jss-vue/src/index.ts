@@ -8,7 +8,7 @@ export {
   FieldEditButton,
   WebEditButton,
   EditButtonTypes,
-} from '@sitecore-jss/sitecore-jss/utils';
+} from '@sitecore-jss/sitecore-jss/editing';
 export { constants, enableDebug, ClientError } from '@sitecore-jss/sitecore-jss';
 export {
   trackingApi,

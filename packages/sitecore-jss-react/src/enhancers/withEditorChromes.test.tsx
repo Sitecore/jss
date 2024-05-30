@@ -3,7 +3,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { spy } from 'sinon';
-import { ExperienceEditor } from '@sitecore-jss/sitecore-jss/utils';
+import { ExperienceEditor } from '@sitecore-jss/sitecore-jss/editing';
 
 import { withEditorChromes } from '../enhancers/withEditorChromes';
 

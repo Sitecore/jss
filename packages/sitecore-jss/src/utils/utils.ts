@@ -101,6 +101,15 @@ const convertToWildcardRegex = (pattern: string) => {
 };
 
 /**
+ * Gets allowed origins from JSS_ALLOWED_ORIGINS env variable
+ * @returns {string[]} list of allowed origins from JSS_ALLOWED_ORIGINS env variable
+ */
+export const getAllowedOriginsFromEnv = () =>
+  process.env.JSS_ALLOWED_ORIGINS
+    ? process.env.JSS_ALLOWED_ORIGINS.replace(' ', '').split(',')
+    : [];
+
+/**
  * Tests origin from incoming request against allowed origins list that can be
  * set in JSS's JSS_ALLOWED_ORIGINS env variable, passed via allowedOrigins param and/or
  * be already set in Access-Control-Allow-Origin by other logic.
@@ -119,10 +128,9 @@ export const enforceCors = (
   if (!req.headers.origin) {
     return true;
   }
-  // 3 sources of allowed origins are considered: the env value
-  const defaultAllowedOrigins = process.env.JSS_ALLOWED_ORIGINS
-    ? process.env.JSS_ALLOWED_ORIGINS.replace(' ', '').split(',')
-    : [];
+  // 3 sources of allowed origins are considered:
+  // the env value
+  const defaultAllowedOrigins = getAllowedOriginsFromEnv();
   // the allowedOrigins prop
   allowedOrigins = defaultAllowedOrigins.concat(allowedOrigins || []);
   // and the existing CORS header, if present (i.e. set by nextjs config)
