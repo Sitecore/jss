@@ -40,7 +40,7 @@ export type EditingRenderMiddlewareConfig = {
   editingDataService?: EditingDataService;
   /**
    * -- Edit Mode Chromes / Metadata --
-   *
+   *f
    * Function used to determine route/page URL to render.
    * This may be necessary for certain custom Next.js routing configurations.
    * @param {Object} args Arguments for resolving the page URL
@@ -323,7 +323,7 @@ export class MetadataHandler {
       site: query.sc_site,
       itemId: query.sc_itemid,
       language: query.sc_lang,
-      // variantId is an array in the query params, but we only need the first value
+      // sc_variant is an array in the query params, but we only need the first value
       variantId: query.sc_variant.split(',')[0],
       version: query.sc_version,
       editMode: EditMode.Metadata,
