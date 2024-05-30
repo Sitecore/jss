@@ -50,7 +50,7 @@ class PreviewModePlugin implements Plugin {
       return props;
     }
 
-    // If we're in preview (editing) Chromes mode, use data already sent along with the editing request
+    // If we're in preview (editing) mode, use data already sent along with the editing request
     const data = await editingDataService.getEditingData(context.previewData);
     if (!data) {
       throw new Error(
