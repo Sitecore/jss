@@ -47,8 +47,8 @@ export type EditingRenderMiddlewareConfig = {
    * @param {string} args.serverUrl The root server URL e.g. 'http://localhost:3000'. In XMCloud Pages only present and necessary for Edit Mode Chromes.
    * @param {string} itemPath The Sitecore relative item path e.g. '/styleguide'
    * @returns {string} The URL to render
-   * @default `${serverUrl}${itemPath}` for Edit Mode Chromes
-   * @default `${itemPath}` for Edit Mode Metadata
+   * @default `${serverUrl}${itemPath}`
+   * @default `${itemPath}` In XMCloud Pages for Edit Mode Metadata
    * @see resolveServerUrl
    */
   resolvePageUrl?: (args: { serverUrl?: string; itemPath: string }) => string;
