@@ -30,7 +30,7 @@ export type EditingRenderMiddlewareConfig = {
   /**
    * -- Edit Mode Chromes --
    *
-   * The `EditingDataServic e` instance to use.
+   * The `EditingDataService` instance to use.
    * This would typically only be necessary if you've got a custom `EditingDataService` instance (e.g. using a custom API route).
    * By default, this is `editingDataService` (the `EditingDataService` default instance).
    * This will be `ServerlessEditingDataService` on Vercel, `BasicEditingDataService` otherwise.
