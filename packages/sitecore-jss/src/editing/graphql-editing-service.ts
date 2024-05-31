@@ -85,7 +85,7 @@ export interface GraphQLEditingServiceConfig {
 
 /**
  * Service for fetching editing data from Sitecore using the Sitecore's GraphQL API.
- * Expected to be used in XMCloud Pages preview (editing) Metadata mode.
+ * Expected to be used in XMCloud Pages preview (editing) Metadata Edit Mode.
  */
 export class GraphQLEditingService {
   private graphQLClient: GraphQLClient;

@@ -273,7 +273,7 @@ export type EditingRenderMiddlewareMetadataConfig = Pick<
 
 /**
  * Query parameters appended to the page route URL
- * Appended when XMCloud Pages preview (editing) Metadata Mode is used
+ * Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
  */
 export type MetadataQueryParams = {
   secret: string;
@@ -294,7 +294,7 @@ type MetadataNextApiRequest = NextApiRequest & {
 };
 
 /**
- * Data for Next.js Preview (Editing) Metadata Mode.
+ * Data for Next.js Preview (Editing) Metadata Edit Mode.
  */
 export type EditingMetadataPreviewData = {
   site: string;
