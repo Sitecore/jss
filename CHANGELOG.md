@@ -41,7 +41,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-* `[sitecore-jss]` _GraphQLRequestClientFactory_ type is updated and _config_ parameter is now optional. Since it should match _GraphQLRequestClient.createClientFactory_ method return type ([#1806](https://github.com/Sitecore/jss/pull/1806))
+* `[sitecore-jss]` `GraphQLRequestClientFactory` type is updated and `config` parameter is now optional. Since it should match `GraphQLRequestClient.createClientFactory` method return type ([#1806](https://github.com/Sitecore/jss/pull/1806))
 
 ## 22.0.0
 
