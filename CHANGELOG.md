@@ -27,17 +27,17 @@ Our versioning strategy is as follows:
 * Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792))([#1773](https://github.com/Sitecore/jss/pull/1773))([#1797](https://github.com/Sitecore/jss/pull/1797))([#1800](https://github.com/Sitecore/jss/pull/1800))([#1803](https://github.com/Sitecore/jss/pull/1803))([#1806](https://github.com/Sitecore/jss/pull/1806))
   * `[sitecore-jss-react]` Introduces `PlaceholderMetadata` component which supports the hydration of chromes on Pages by rendering  the components and placeholders with required metadata.
   * `[sitecore-jss]` Chromes are hydrated based on the basis of new `editMode` property derived from LayoutData, which is defined as an enum consisting of `metadata` and `chromes`.
-  * `ComponentConsumerProps` is removed. You might need to reuse _WithSitecoreContextProps_ type.
+  * `ComponentConsumerProps` is removed. You might need to reuse `WithSitecoreContextProps` type.
   * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Introduce FieldMetadata component and functionality to render it when metadata field property is provided in the field's layout data. In such case the field component is wrapped with metadata markup to enable chromes hydration when editing in pages. Ability to render metadata has been added to the field rendering components for react and nextjs.
   * `[sitecore-jss-react]` Introduced `EditingScripts` component to render clientScripts / clientData in editing.
   * `[sitecore-jss-nextjs]` `[template/nextjs-xmlcoud]` Add editMode to /editing/config endpoint response with configurable integration option.
   * `[sitecore-jss-nextjs]` Integrated a new Metadata Edit Mode in /api/editing/render endpoint.
     * Exported new `EditingMetadataPreviewData` type and `isEditingMetadataPreviewData` guard function.
-  * `[sitecore-jss]` Introduced _GraphQLEditingService_ class to fetch editing data in Metadata Edit Mode.
+  * `[sitecore-jss]` Introduced `GraphQLEditingService` class to fetch editing data in Metadata Edit Mode.
   * `[templates/nextjs-xmcloud]` Introduced _/lib/graphql-editing-service_ to fetch editing data in Metadata Edit Mode.
   * `[templates/nextjs-xmcloud]` Added a new _page-props-factory/plugins/preview-mode_ plugin to handle both Chromes and Metadata Edit Mode.
-* `[sitecore-jss]` Introduced `/editing` submodule that contains all editing related functionality. Editing utils are now available in `/editing` submodule. Editing utils exported from `/utils` marked as deprecated. ([#1806](https://github.com/Sitecore/jss/pull/1806))
-* `[sitecore-jss-nextjs]` EditingRenderMiddleware _resolvePageUrl_ function now accepts an object `(args: { serverUrl?: string; itemPath: string }) => string` instead of multiple parameters `(serverUrl: string, itemPath: string) => string`. _serverUrl_ is now optional and omitted when Metadata Edit Mode is used.
+* `[sitecore-jss]` Introduced _/editing_ submodule that contains all editing related functionality. Editing utils are now available in _/editing_ submodule. Editing utils exported from _/utils_ marked as deprecated. ([#1806](https://github.com/Sitecore/jss/pull/1806))
+* `[sitecore-jss-nextjs]` EditingRenderMiddleware `resolvePageUrl` function now accepts an object `(args: { serverUrl?: string; itemPath: string }) => string` instead of multiple parameters `(serverUrl: string, itemPath: string) => string`. `serverUrl` is now optional and omitted when Metadata Edit Mode is used.
 
 ### 🐛 Bug Fixes
 

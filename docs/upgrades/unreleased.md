@@ -76,7 +76,7 @@
         },
     ```
 
-* Update _pages/api/editing/render.ts_ API handler initialization signature, since _resolvePageUrl_ function now accepts an object and _serverUrl_ now is optional:
+* Update _pages/api/editing/render.ts_ API handler initialization signature, since _resolvePageUrl_ function now accepts an object and _serverUrl_ now is optional, it's ommited when Pages Metadata Edit Mode is used. Update the handler initialization as follows:
 
     ```ts
     const handler = new EditingRenderMiddleware({
