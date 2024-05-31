@@ -65,7 +65,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
                 A rendering error occurred in component{' '}
                 <em>{this.props.rendering?.componentName}</em>
                 <br />
-                Error: <em>{this.state.error.message}</em>
+                Error: <em>{this.state.error.message || JSON.stringify(this.state.error)}</em>
               </div>
             </div>
           );
