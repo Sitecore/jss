@@ -4,15 +4,15 @@ import { Module, ModuleFactory } from './sharedTypes/module-factory';
 /**
  * Represents a component that can be imported dynamically
  */
-export type LazyModule<T = unknown> = {
-  module: () => Promise<T>;
+export type LazyModule = {
+  module: () => Promise<Module>;
   element: (isEditing?: boolean) => JssComponentType;
 };
 
 /**
  * Component is a module or a lazy module
  */
-type Component = Module | LazyModule<Module> | JssComponentType;
+type Component = Module | LazyModule | JssComponentType;
 
 /**
  * Configuration for ComponentBuilder
@@ -62,8 +62,8 @@ export class ComponentBuilder {
       if (!component) return null;
 
       // check if module should be imported dynamically
-      if ((component as LazyModule<Module>).module) {
-        return (component as LazyModule<Module>).module();
+      if ((component as LazyModule).module) {
+        return (component as LazyModule).module();
       }
 
       return component as Module;
@@ -84,14 +84,12 @@ export class ComponentBuilder {
       if (!component) return null;
 
       // check if component should be imported dynamically
-      if ((component as LazyModule<Module>).element) {
+      if ((component as LazyModule).element) {
         // Editing mode doesn't work well with dynamic components in nextjs: dynamic components are not displayed without refresh after a rendering is added.
         // This happens beacuse Sitecore editors simply insert updated HTML generated on server side. This conflicts with nextjs dynamic logic as no HTML gets rendered for dynamic component
         // So we use require() to obtain dynamic components in editing mode while preserving dynamic logic for non-editing scenarios
         // As we need to be able to seamlessly work with dynamic components in both editing and normal modes, different componentFactory functions will be passed to app
-        const result: JssComponentType = (component as LazyModule<Module>).element(isEditing);
-        result.isDynamic = true;
-        return result;
+        return (component as LazyModule).element(isEditing);
       }
 
       if (exportName && exportName !== this.DEFAULT_EXPORT_NAME) {

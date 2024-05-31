@@ -227,7 +227,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           component = () => <></>;
         } else {
           component = this.getComponentForRendering(componentRendering);
-          console.log(component);
         }
 
         // Fallback/defaults for Sitecore Component renderings (in case not defined in component factory)
@@ -281,7 +280,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
               errorComponent={this.props.errorComponent}
               componentLoadingMessage={this.props.componentLoadingMessage}
               type={type}
-              isDynamic={(component as JssComponentType).isDynamic}
+              isDynamic={(component as JssComponentType).render?.preload ? true : false}
               {...rendered.props}
             >
               {rendered}

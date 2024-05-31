@@ -10,5 +10,6 @@ export type ComponentFactory = (componentName: string, exportName?: string) => C
  * Component type returned from component builder / factory
  */
 export type JssComponentType = ComponentType & {
-  isDynamic?: boolean;
+  // all dynamic elements will have a separate render prop
+  render?: { [key: string]: unknown };
 };
