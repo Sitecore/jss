@@ -40,7 +40,7 @@ export type EditingRenderMiddlewareConfig = {
   editingDataService?: EditingDataService;
   /**
    * -- Edit Mode Chromes / Metadata --
-   *f
+   *
    * Function used to determine route/page URL to render.
    * This may be necessary for certain custom Next.js routing configurations.
    * @param {Object} args Arguments for resolving the page URL
