@@ -1,7 +1,7 @@
 import React, { ComponentType } from 'react';
 import PropTypes, { Requireable } from 'prop-types';
 import { MissingComponent } from './MissingComponent';
-import { ComponentFactory } from './sharedTypes';
+import { ComponentFactory, JssComponentType } from './sharedTypes';
 import {
   ComponentRendering,
   RouteData,
@@ -227,6 +227,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           component = () => <></>;
         } else {
           component = this.getComponentForRendering(componentRendering);
+          console.log(component);
         }
 
         // Fallback/defaults for Sitecore Component renderings (in case not defined in component factory)
@@ -267,10 +268,26 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           rendering: componentRendering,
         };
 
-        const rendered = React.createElement<{ [attr: string]: unknown }>(
+        let rendered = React.createElement<{ [attr: string]: unknown }>(
           component as React.ComponentType,
           this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
         );
+
+        const type = rendered.props.type === 'text/sitecore' ? rendered.props.type : '';
+        if (!isEmpty) {
+          rendered = (
+            <ErrorBoundary
+              key={rendered.type + '-' + index}
+              errorComponent={this.props.errorComponent}
+              componentLoadingMessage={this.props.componentLoadingMessage}
+              type={type}
+              isDynamic={(component as JssComponentType).isDynamic}
+              {...rendered.props}
+            >
+              {rendered}
+            </ErrorBoundary>
+          );
+        }
 
         // if editMode is equal to 'metadata' then emit shallow chromes for hydration in Pages
         if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
@@ -297,27 +314,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       ];
     }
 
-    if (isEmpty) {
-      return transformedComponents;
-    }
-
-    return transformedComponents.map((element, id) => {
-      // assign type based on passed element - type='text/sitecore' should be ignored when renderEach Placeholder prop function is being used
-      const type = element.props.type === 'text/sitecore' ? element.props.type : '';
-      return (
-        // wrapping with error boundary could cause problems in case where parent component uses withPlaceholder HOC and tries to access its children props
-        // that's why we need to expose element's props here
-        <ErrorBoundary
-          key={element.type + '-' + id}
-          errorComponent={this.props.errorComponent}
-          componentLoadingMessage={this.props.componentLoadingMessage}
-          type={type}
-          {...element.props}
-        >
-          {element}
-        </ErrorBoundary>
-      );
-    });
+    return transformedComponents;
   }
 
   getComponentForRendering(renderingDefinition: ComponentRendering): ComponentType | null {
