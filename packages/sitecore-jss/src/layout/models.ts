@@ -34,7 +34,9 @@ export enum RenderingType {
 }
 
 /**
- * Represents the possible modes for rendering content in Pages
+ * Represents the possible modes for rendering content in Sitecore Editor
+ * - chromes - supported by Sitecore Experience Editor / Pages
+ * - metadata - supported by Sitecore Pages
  */
 export enum EditMode {
   Chromes = 'chromes',
