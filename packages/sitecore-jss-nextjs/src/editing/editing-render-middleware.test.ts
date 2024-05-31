@@ -23,6 +23,7 @@ import {
   ChromesHandler,
   EditingRenderMiddleware,
   MetadataQueryParams,
+  isEditingMetadataPreviewData,
 } from './editing-render-middleware';
 import { spy, match } from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -240,6 +241,45 @@ describe('EditingRenderMiddleware', () => {
 
       expect(res.redirect).to.have.been.calledOnce;
       expect(res.redirect).to.have.been.calledWith('/custom/path/styleguide');
+    });
+
+    it('should response with 400 for missing query params', async () => {
+      const req = mockRequest(EE_BODY, { sc_site: 'website', sc_version: 'latest', secret }, 'GET');
+      const res = mockResponse();
+
+      const middleware = new EditingRenderMiddleware();
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(res.status).to.have.been.calledOnce;
+      expect(res.status).to.have.been.calledWith(400);
+      expect(res.json).to.have.been.calledOnce;
+      expect(res.json).to.have.been.calledWith({
+        html:
+          '<html><body>Missing required query parameters: sc_itemid, sc_lang, sc_variant, mode</body></html>',
+      });
+    });
+
+    it('isEditingMetadataPreviewData should validate preview data type', () => {
+      const metadataPreviewData = {
+        site: 'website',
+        itemId: '{11111111-1111-1111-1111-111111111111}',
+        language: 'en',
+        variantId: 'dev',
+        version: 'latest',
+        editMode: 'metadata',
+        pageState: 'edit',
+      };
+
+      const chromesPreviewData = {
+        key: 'key1234',
+        serverUrl: 'http://localhost:3000',
+        params: {},
+      };
+
+      expect(isEditingMetadataPreviewData(metadataPreviewData)).to.be.true;
+      expect(isEditingMetadataPreviewData(chromesPreviewData)).to.be.false;
     });
   });
 

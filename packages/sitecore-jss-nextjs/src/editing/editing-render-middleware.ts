@@ -44,10 +44,10 @@ export type EditingRenderMiddlewareConfig = {
    * Function used to determine route/page URL to render.
    * This may be necessary for certain custom Next.js routing configurations.
    * @param {Object} args Arguments for resolving the page URL
-   * @param {string} args.serverUrl The root server URL e.g. 'http://localhost:3000'. In XMCloud Pages only present and necessary for Edit Mode Chromes.
+   * @param {string} args.serverUrl The root server URL e.g. 'http://localhost:3000'. Available in Chromes Edit Mode only.
    * @param {string} itemPath The Sitecore relative item path e.g. '/styleguide'
    * @returns {string} The URL to render
-   * @default `${serverUrl}${itemPath}`
+   * @default `${serverUrl}${itemPath}` In Edit Mode Chromes
    * @default `${itemPath}` In XMCloud Pages for Edit Mode Metadata
    * @see resolveServerUrl
    */
@@ -83,7 +83,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
     super();
 
     this.editingDataService = config?.editingDataService ?? editingDataService;
-    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher();
+    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.editing });
     this.resolvePageUrl = config?.resolvePageUrl ?? this.defaultResolvePageUrl;
     this.resolveServerUrl = config?.resolveServerUrl ?? this.defaultResolveServerUrl;
   }
@@ -273,7 +273,7 @@ export type EditingRenderMiddlewareMetadataConfig = Pick<
 
 /**
  * Query parameters appended to the page route URL
- * Appended when XMCloud Pages preview (editing) Metadata mode is used
+ * Appended when XMCloud Pages preview (editing) Metadata Mode is used
  */
 export type MetadataQueryParams = {
   secret: string;
@@ -294,7 +294,7 @@ type MetadataNextApiRequest = NextApiRequest & {
 };
 
 /**
- * Data for Next.js Preview (Editing) mode provided when Editing Metadata mode is used
+ * Data for Next.js Preview (Editing) Metadata Mode.
  */
 export type EditingMetadataPreviewData = {
   site: string;
@@ -304,6 +304,21 @@ export type EditingMetadataPreviewData = {
   version: string;
   editMode: EditMode.Metadata;
   pageState: Exclude<LayoutServicePageState, 'Normal'>;
+};
+
+/**
+ * Type guard for EditingMetadataPreviewData
+ * @param {Object} data preview data to check
+ * @returns true if the data is EditingMetadataPreviewData
+ * @see EditingMetadataPreviewData
+ */
+export const isEditingMetadataPreviewData = (data: unknown): data is EditingMetadataPreviewData => {
+  return (
+    typeof data === 'object' &&
+    data !== null &&
+    'editMode' in data &&
+    data.editMode === EditMode.Metadata
+  );
 };
 
 /**
@@ -319,18 +334,50 @@ export class MetadataHandler {
 
     const startTimestamp = Date.now();
 
-    res.setPreviewData({
-      site: query.sc_site,
-      itemId: query.sc_itemid,
-      language: query.sc_lang,
-      // sc_variant is an array in the query params, but we only need the first value
-      variantId: query.sc_variant.split(',')[0],
-      version: query.sc_version,
-      editMode: EditMode.Metadata,
-      pageState: query.mode,
-    } as EditingMetadataPreviewData);
+    const requiredQueryParams: (keyof MetadataQueryParams)[] = [
+      'sc_site',
+      'sc_itemid',
+      'sc_lang',
+      'sc_variant',
+      'sc_version',
+      'mode',
+    ];
 
-    const route = this.config.resolvePageUrl?.({ itemPath: query.route }) || query.route;
+    const missingQueryParams = requiredQueryParams.filter((param) => !query[param]);
+
+    // Validate query parameters
+    if (missingQueryParams.length) {
+      debug.editing('missing required query parameters: %o', missingQueryParams);
+
+      return res.status(400).json({
+        html: `<html><body>Missing required query parameters: ${missingQueryParams.join(
+          ', '
+        )}</body></html>`,
+      });
+    }
+
+    res.setPreviewData(
+      {
+        site: query.sc_site,
+        itemId: query.sc_itemid,
+        language: query.sc_lang,
+        // sc_variant is an array in the query params, but we only need the first value
+        variantId: query.sc_variant.split(',')[0],
+        version: query.sc_version,
+        editMode: EditMode.Metadata,
+        pageState: query.mode,
+      } as EditingMetadataPreviewData,
+      // Cache the preview data for 3 seconds to ensure the page is rendered with the correct preview data not the cached one
+      {
+        path: query.route,
+        maxAge: 3,
+      }
+    );
+
+    const route =
+      this.config.resolvePageUrl?.({
+        itemPath: query.route,
+      }) || query.route;
 
     debug.editing(
       'editing render middleware end in %dms: redirect %o',

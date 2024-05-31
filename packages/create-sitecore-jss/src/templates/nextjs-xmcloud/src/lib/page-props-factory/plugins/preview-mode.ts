@@ -1,29 +1,21 @@
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
-import { ParsedUrlQuery } from 'querystring';
 import { SiteInfo, personalizeLayout } from '@sitecore-jss/sitecore-jss-nextjs';
 import {
   editingDataService,
-  EditingPreviewData,
-  EditingMetadataPreviewData,
+  isEditingMetadataPreviewData,
 } from '@sitecore-jss/sitecore-jss-nextjs/editing';
 import { SitecorePageProps } from 'lib/page-props';
 import { graphQLEditingService } from 'lib/graphql-editing-service';
 import { Plugin } from '..';
 
-type PreviewData = EditingPreviewData | EditingMetadataPreviewData;
-
-type NextContext =
-  | GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
-  | GetStaticPropsContext<ParsedUrlQuery, PreviewData>;
-
 class PreviewModePlugin implements Plugin {
   order = 1;
 
-  async exec(props: SitecorePageProps, context: NextContext) {
+  async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
     if (!context.preview) return props;
 
-    // If we're in Pages preview (editing) Metadata mode, prefetch the editing data
-    if (context.previewData && 'editMode' in context.previewData) {
+    // If we're in Pages preview (editing) Metadata Edit Mode, prefetch the editing data
+    if (isEditingMetadataPreviewData(context.previewData)) {
       const { site, itemId, language, version, variantId } = context.previewData;
 
       const data = await graphQLEditingService.fetchEditingData({
@@ -50,7 +42,9 @@ class PreviewModePlugin implements Plugin {
       return props;
     }
 
-    // If we're in preview (editing) mode, use data already sent along with the editing request
+    // If we're in preview (editing) Chromes Edit Mode, use data already sent along with the editing request
+    // This mode is used by the Experience Editor.
+    // In Pages it's treated as a legacy mode but still supported for backward compatibility.
     const data = await editingDataService.getEditingData(context.previewData);
     if (!data) {
       throw new Error(

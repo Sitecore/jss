@@ -99,20 +99,13 @@ export class GraphQLEditingService {
   }
 
   /**
-   * Fetch layout data for an item.
-   * @param {string} itemPath item path to fetch layout data for.
-   * @param {string} [language] the language to fetch layout data for.
-   * @returns {Promise<LayoutServiceData>} layout service data
-   */
-
-  /**
    * Fetches editing data. Provides the layout data and dictionary phrases
    * @param {Object} variables - The parameters for fetching editing data.
    * @param {string} variables.siteName - The site name.
    * @param {string} variables.itemId - The item id (path) to fetch layout data for.
    * @param {string} variables.version - The version of the item .
    * @param {string} variables.language - The language to fetch layout data for.
-   * @returns {Promise<LayoutServiceData>} layout service data
+   * @returns {Promise} The layout data and dictionary phrases.
    */
   async fetchEditingData({
     siteName,
