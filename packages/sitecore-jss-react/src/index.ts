@@ -54,7 +54,7 @@ export {
   GraphQLRequestClient,
 } from '@sitecore-jss/sitecore-jss/graphql';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
-export { ComponentFactory } from './components/sharedTypes';
+export { ComponentFactory, JssComponentType } from './components/sharedTypes';
 export { Placeholder, PlaceholderComponentProps } from './components/Placeholder';
 export {
   Image,
