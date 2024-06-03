@@ -27,7 +27,7 @@ HTML content used to support Sitecore Experience Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:130](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/layout/models.ts#L130)
+[packages/sitecore-jss/src/layout/models.ts:130](https://github.com/Sitecore/jss/blob/5a3dd9c8e/packages/sitecore-jss/src/layout/models.ts#L130)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:129](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/layout/models.ts#L129)
+[packages/sitecore-jss/src/layout/models.ts:129](https://github.com/Sitecore/jss/blob/5a3dd9c8e/packages/sitecore-jss/src/layout/models.ts#L129)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:127](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/layout/models.ts#L127)
+[packages/sitecore-jss/src/layout/models.ts:127](https://github.com/Sitecore/jss/blob/5a3dd9c8e/packages/sitecore-jss/src/layout/models.ts#L127)
 
 ___
 
@@ -57,4 +57,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:128](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/layout/models.ts#L128)
+[packages/sitecore-jss/src/layout/models.ts:128](https://github.com/Sitecore/jss/blob/5a3dd9c8e/packages/sitecore-jss/src/layout/models.ts#L128)
