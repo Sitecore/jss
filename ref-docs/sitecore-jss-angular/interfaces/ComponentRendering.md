@@ -23,7 +23,7 @@ Definition of a component instance within a placeholder on a route
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:101
+packages/sitecore-jss/types/layout/models.d.ts:103
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:102
+packages/sitecore-jss/types/layout/models.d.ts:104
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:105
+packages/sitecore-jss/types/layout/models.d.ts:107
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:106
+packages/sitecore-jss/types/layout/models.d.ts:108
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:104
+packages/sitecore-jss/types/layout/models.d.ts:106
 
 ___
 
@@ -73,4 +73,4 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:103
+packages/sitecore-jss/types/layout/models.d.ts:105

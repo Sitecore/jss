@@ -30,7 +30,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:53
+packages/sitecore-jss/types/layout/models.d.ts:55
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:52
+packages/sitecore-jss/types/layout/models.d.ts:54
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:51
+packages/sitecore-jss/types/layout/models.d.ts:53
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:45
+packages/sitecore-jss/types/layout/models.d.ts:47
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:44
+packages/sitecore-jss/types/layout/models.d.ts:46
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:46
+packages/sitecore-jss/types/layout/models.d.ts:48
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:43
+packages/sitecore-jss/types/layout/models.d.ts:45
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:48
+packages/sitecore-jss/types/layout/models.d.ts:50
 
 ___
 
@@ -116,4 +116,4 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:47
+packages/sitecore-jss/types/layout/models.d.ts:49
