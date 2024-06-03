@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { expect, spy } from 'chai';
-import { isEditorActive, resetEditorChromes, isServer, resolveUrl } from '.';
-import { ChromeRediscoveryGlobalFunctionName } from './editing';
-import { enforceCors, isAbsoluteUrl, isTimeoutError } from './utils';
+import { isServer, resolveUrl } from '.';
+import { enforceCors, getAllowedOriginsFromEnv, isAbsoluteUrl, isTimeoutError } from './utils';
 import { IncomingMessage, OutgoingMessage } from 'http';
 
 // must make TypeScript happy with `global` variable modification
@@ -27,85 +26,6 @@ describe('utils', () => {
       global.window = { document: {} };
 
       expect(isServer()).to.be.false;
-    });
-
-    after(() => {
-      global.window = undefined;
-    });
-  });
-
-  describe('isEditorActive', () => {
-    it('should return false when invoked on server', () => {
-      expect(isEditorActive()).to.be.false;
-    });
-
-    it('should return true when EE is active', () => {
-      global.window = {
-        document: {},
-        location: { search: '' },
-        Sitecore: { PageModes: { ChromeManager: {} } },
-      };
-      expect(isEditorActive()).to.be.true;
-    });
-
-    it('should return true when Horizon is active', () => {
-      global.window = {
-        document: {},
-        location: { search: '?sc_horizon=editor' },
-        Sitecore: null,
-      };
-      expect(isEditorActive()).to.be.true;
-    });
-
-    it('should return false when EE and Horizon are not active', () => {
-      global.window = {
-        document: {},
-        location: { search: '' },
-        Sitecore: null,
-      };
-      expect(isEditorActive()).to.be.false;
-    });
-
-    after(() => {
-      global.window = undefined;
-    });
-  });
-
-  describe('resetEditorChromes', () => {
-    it('should not throw when invoked on server', () => {
-      expect(resetEditorChromes()).to.not.throw;
-    });
-
-    it('should reset chromes when EE is active', () => {
-      const resetChromes = spy();
-      global.window = {
-        document: {},
-        location: { search: '' },
-        Sitecore: { PageModes: { ChromeManager: { resetChromes } } },
-      };
-      resetEditorChromes();
-      expect(resetChromes).to.have.been.called.once;
-    });
-
-    it('should reset chromes when Horizon is active', () => {
-      const resetChromes = spy();
-      global.window = {
-        document: {},
-        location: { search: '?sc_horizon=editor' },
-        Sitecore: null,
-      };
-      global.window[ChromeRediscoveryGlobalFunctionName.name] = resetChromes;
-      resetEditorChromes();
-      expect(resetChromes).to.have.been.called.once;
-    });
-
-    it('should not throw when EE and Horizon are not active', () => {
-      global.window = {
-        document: {},
-        location: { search: '' },
-        Sitecore: null,
-      };
-      expect(resetEditorChromes()).to.not.throw;
     });
 
     after(() => {
@@ -265,6 +185,22 @@ describe('utils', () => {
       const req = mockRequest('https://preallowed.com');
       const res = mockResponse('https://preallowed.com');
       expect(enforceCors(req, res)).to.be.equal(true);
+    });
+  });
+
+  describe('getAllowedOriginsFromEnv', () => {
+    it('should return an empty array when JSS_ALLOWED_ORIGINS is not set', () => {
+      delete process.env.JSS_ALLOWED_ORIGINS;
+      expect(getAllowedOriginsFromEnv()).to.be.empty;
+    });
+
+    it('should return an array of allowed origins from JSS_ALLOWED_ORIGINS', () => {
+      process.env.JSS_ALLOWED_ORIGINS = 'https://allowed.com, https://alsoallowed.com';
+      expect(getAllowedOriginsFromEnv()).to.deep.equal([
+        'https://allowed.com',
+        'https://alsoallowed.com',
+      ]);
+      delete process.env.JSS_ALLOWED_ORIGINS;
     });
   });
 });

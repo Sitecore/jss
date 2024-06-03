@@ -17,19 +17,31 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[sitecore-jss-react]`Introduce ErrorBoundary component. All rendered components are wrapped with it and it will catch client or server side errors from any of its children, display appropriate message and prevent the rest of the application from failing. It accepts and can display custom error component and loading message if it is passed as a prop to parent Placeholder. ([#1786](https://github.com/Sitecore/jss/pull/1786))([#1790](https://github.com/Sitecore/jss/pull/1790))([#1793](https://github.com/Sitecore/jss/pull/1793))([#1794](https://github.com/Sitecore/jss/pull/1794))([#1799](https://github.com/Sitecore/jss/pull/1799))
-
+* `[sitecore-jss-react]` Introduce ErrorBoundary component. All rendered components are wrapped with it and it will catch client or server side errors from any of its children, display appropriate message and prevent the rest of the application from failing. It accepts and can display custom error component and loading message if it is passed as a prop to parent Placeholder. ([#1786](https://github.com/Sitecore/jss/pull/1786))([#1790](https://github.com/Sitecore/jss/pull/1790))([#1793](https://github.com/Sitecore/jss/pull/1793))([#1794](https://github.com/Sitecore/jss/pull/1794))([#1799](https://github.com/Sitecore/jss/pull/1799))
 * `[sitecore-jss-nextjs]` Enforce CORS policy that matches Sitecore Pages domains for editing middleware API endpoints ([#1798](https://github.com/Sitecore/jss/pull/1798)[#1801](https://github.com/Sitecore/jss/pull/1801))
+* `[sitecore-jss]` _GraphQLRequestClient_ now can accept custom 'headers' in the constructor or via _createClientFactory_ ([#1806](https://github.com/Sitecore/jss/pull/1806))
+* `[templates/nextjs]` Removed cors header for API endpoints from _lib/next-config/plugins/cors-header_ plugin since cors is handled by API handlers / middlewares ([#1806](https://github.com/Sitecore/jss/pull/1806))
 
 ### 🛠 Breaking Change
 
-*  Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792))([#1773](https://github.com/Sitecore/jss/pull/1773))([#1797](https://github.com/Sitecore/jss/pull/1797))([#1800](https://github.com/Sitecore/jss/pull/1800)) ([#1803](https://github.com/Sitecore/jss/pull/1803))
+* Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792))([#1773](https://github.com/Sitecore/jss/pull/1773))([#1797](https://github.com/Sitecore/jss/pull/1797))([#1800](https://github.com/Sitecore/jss/pull/1800))([#1803](https://github.com/Sitecore/jss/pull/1803))([#1806](https://github.com/Sitecore/jss/pull/1806))
   * `[sitecore-jss-react]` Introduces `PlaceholderMetadata` component which supports the hydration of chromes on Pages by rendering  the components and placeholders with required metadata.
   * `[sitecore-jss]` Chromes are hydrated based on the basis of new `editMode` property derived from LayoutData, which is defined as an enum consisting of `metadata` and `chromes`.
-  * `ComponentConsumerProps` is removed. You might need to reuse _WithSitecoreContextProps_ type.
+  * `ComponentConsumerProps` is removed. You might need to reuse `WithSitecoreContextProps` type.
   * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Introduce FieldMetadata component and functionality to render it when metadata field property is provided in the field's layout data. In such case the field component is wrapped with metadata markup to enable chromes hydration when editing in pages. Ability to render metadata has been added to the field rendering components for react and nextjs.
   * `[sitecore-jss-react]` Introduced `EditingScripts` component to render clientScripts / clientData in editing.
   * `[sitecore-jss-nextjs]` `[template/nextjs-xmlcoud]` Add editMode to /editing/config endpoint response with configurable integration option.
+  * `[sitecore-jss-nextjs]` Integrated a new Metadata Edit Mode in /api/editing/render endpoint.
+    * Exported new `EditingMetadataPreviewData` type and `isEditingMetadataPreviewData` guard function.
+  * `[sitecore-jss]` Introduced `GraphQLEditingService` class to fetch editing data in Metadata Edit Mode.
+  * `[templates/nextjs-xmcloud]` Introduced _/lib/graphql-editing-service_ to fetch editing data in Metadata Edit Mode.
+  * `[templates/nextjs-xmcloud]` Added a new _page-props-factory/plugins/preview-mode_ plugin to handle both Chromes and Metadata Edit Mode.
+* `[sitecore-jss]` Introduced _/editing_ submodule that contains all editing related functionality. Editing utils are now available in _/editing_ submodule. Editing utils exported from _/utils_ marked as deprecated. ([#1806](https://github.com/Sitecore/jss/pull/1806))
+* `[sitecore-jss-nextjs]` EditingRenderMiddleware `resolvePageUrl` function now accepts an object `(args: { serverUrl?: string; itemPath: string }) => string` instead of multiple parameters `(serverUrl: string, itemPath: string) => string`. `serverUrl` is now optional and omitted when Metadata Edit Mode is used.
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss]` `GraphQLRequestClientFactory` type is updated and `config` parameter is now optional. Since it should match `GraphQLRequestClient.createClientFactory` method return type ([#1806](https://github.com/Sitecore/jss/pull/1806))
 
 ## 22.0.0
 
@@ -39,22 +51,16 @@ Our versioning strategy is as follows:
   * Previously introduced Boolean `useSiteQuery` switch for XMCloud users has been removed.
   * Search query usage has been removed.
   * If you have any non-nextjs sites they should filter them out in multisite config plugin
-
 * `[sitecore-jss-nextjs]` `[templates/nextjs-xmcloud]` CloudSDK dependencies are updated to version ^0.3.0 ([#1779](https://github.com/Sitecore/jss/pull/1779))
   * Please ensure `@sitecore-cloudsdk/events` dependency is updated
-
 * `[sitecore-jss-nextjs]` Deprecated exports have been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)):
   * `sitecore-jss-nextjs` no longer exports `isEditorActive`, `resetEditorChormes`, `resolveUrl`, `handleEditorFastRefresh`, `getPublicUrl` functions. Use `sitecore-jss-nextjs/utils` instead.
   * `getFEAASLibraryStylesheetLinks` function has been removed in favor of `getComponentLibraryStylesheetLinks`
-
 * `[sitecore-jss-react]` `[templates/react]` Deprecated `media` prop is removed from Image component. Use `field` prop instead ([#1780](https://github.com/Sitecore/jss/pull/1780))([#1785](https://github.com/Sitecore/jss/pull/1785)).
-
 * `[templates/react]` `[templates/angular]` `[templates/vue]` `[templates/node-headless-ssr-experience-edge]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` ([#1783](https://github.com/Sitecore/jss/pull/1783)):
   * GraphQL-based services can now only be initialized with clientFactory parameter. Previously deprecated option of providing endpoint and apiKey has been removed
   * Removed deprecated _defaultProps_ react component property
-
 * `[templates/nextjs]` GraphQL-based services can now only be initialized with clientFactory parameter. Previously deprecated option of providing endpoint and apiKey has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
-
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Deprecated JSS_APP_NAME environment variable has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
 
 ### 🧹 Chores

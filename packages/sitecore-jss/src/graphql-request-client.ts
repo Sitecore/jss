@@ -74,6 +74,10 @@ export type GraphQLRequestClientConfig = {
    * back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
    */
   retryStrategy?: RetryStrategy;
+  /**
+   * Custom headers to be sent with each request.
+   */
+  headers?: Record<string, string>;
 };
 
 /**
@@ -83,7 +87,7 @@ export type GraphQLRequestClientConfig = {
  * @returns An instance of a GraphQL Request Client ready to send GraphQL requests.
  */
 export type GraphQLRequestClientFactory = (
-  config: Omit<GraphQLRequestClientConfig, 'apiKey'>
+  config?: Omit<GraphQLRequestClientConfig, 'apiKey'>
 ) => GraphQLRequestClient;
 
 /**
@@ -161,6 +165,10 @@ export class GraphQLRequestClient implements GraphQLClient {
   constructor(private endpoint: string, clientConfig: GraphQLRequestClientConfig = {}) {
     if (clientConfig.apiKey) {
       this.headers.sc_apikey = clientConfig.apiKey;
+    }
+
+    if (clientConfig.headers) {
+      this.headers = { ...this.headers, ...clientConfig.headers };
     }
 
     if (!endpoint || !parse(endpoint).hostname) {

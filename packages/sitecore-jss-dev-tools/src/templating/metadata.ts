@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { Metadata } from '@sitecore-jss/sitecore-jss/utils';
+import { Metadata } from '@sitecore-jss/sitecore-jss/editing';
 
 /**
  * Get application metadata
