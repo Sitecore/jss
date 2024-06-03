@@ -11,6 +11,7 @@
     "node_modules",
     "types",
     "dist",
+    "editing.d.ts",
     "layout.d.ts",
     "media.d.ts",
     "utils.d.ts",

@@ -5,7 +5,7 @@ import { EditFrame } from './EditFrame';
 import { ComponentFactory } from './sharedTypes';
 import { SitecoreContext } from './SitecoreContext';
 import { LayoutServiceData } from '../index';
-import { DefaultEditFrameButton, EditButtonTypes } from '@sitecore-jss/sitecore-jss/utils';
+import { DefaultEditFrameButton, EditButtonTypes } from '@sitecore-jss/sitecore-jss/editing';
 
 const components = new Map();
 const mockComponentFactory: ComponentFactory = (name) => components.get(name);

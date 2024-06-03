@@ -1,4 +1,5 @@
 export { constants, enableDebug, ClientError } from '@sitecore-jss/sitecore-jss';
+export { EnhancedOmit } from '@sitecore-jss/sitecore-jss/utils';
 export {
   isEditorActive,
   resetEditorChromes,
@@ -8,8 +9,7 @@ export {
   FieldEditButton,
   WebEditButton,
   EditButtonTypes,
-  EnhancedOmit,
-} from '@sitecore-jss/sitecore-jss/utils';
+} from '@sitecore-jss/sitecore-jss/editing';
 export {
   getContentStylesheetLink,
   getComponentLibraryStylesheetLinks,

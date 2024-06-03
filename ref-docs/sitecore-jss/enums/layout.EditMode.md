@@ -4,7 +4,9 @@
 
 [layout](../modules/layout.md).EditMode
 
-Represents the possible modes for rendering content in Pages
+Represents the possible modes for rendering content in Sitecore Editor
+- chromes - supported by Sitecore Experience Editor / Pages
+- metadata - supported by Sitecore Pages
 
 ## Table of contents
 
@@ -21,7 +23,7 @@ Represents the possible modes for rendering content in Pages
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:40](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/layout/models.ts#L40)
+[packages/sitecore-jss/src/layout/models.ts:42](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/layout/models.ts#L42)
 
 ___
 
@@ -31,4 +33,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:41](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/layout/models.ts#L41)
+[packages/sitecore-jss/src/layout/models.ts:43](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/layout/models.ts#L43)

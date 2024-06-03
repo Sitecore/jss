@@ -2,7 +2,9 @@
 
 # Enumeration: EditMode
 
-Represents the possible modes for rendering content in Pages
+Represents the possible modes for rendering content in Sitecore Editor
+- chromes - supported by Sitecore Experience Editor / Pages
+- metadata - supported by Sitecore Pages
 
 ## Table of contents
 
@@ -19,7 +21,7 @@ Represents the possible modes for rendering content in Pages
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:35
+packages/sitecore-jss/types/layout/models.d.ts:37
 
 ___
 
@@ -29,4 +31,4 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:36
+packages/sitecore-jss/types/layout/models.d.ts:38

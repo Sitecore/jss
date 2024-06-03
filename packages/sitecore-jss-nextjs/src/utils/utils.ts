@@ -1,4 +1,4 @@
-import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
+import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/editing';
 
 /**
  * Get the publicUrl.

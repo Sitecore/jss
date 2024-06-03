@@ -114,7 +114,7 @@
 
 #### Defined in
 
-packages/sitecore-jss/types/utils/edit-frame.d.ts:43
+packages/sitecore-jss/types/editing/edit-frame.d.ts:43
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/utils/edit-frame.d.ts:54
+packages/sitecore-jss/types/editing/edit-frame.d.ts:54
 
 ___
 
@@ -156,7 +156,7 @@ Configuration type for
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:84
+packages/sitecore-jss/types/graphql-request-client.d.ts:88
 
 ___
 
@@ -214,7 +214,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:82
+packages/sitecore-jss/types/layout/models.d.ts:84
 
 ___
 
@@ -224,7 +224,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/utils/edit-frame.d.ts:57
+packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 ## Variables
 
@@ -234,7 +234,7 @@ packages/sitecore-jss/types/utils/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -264,7 +264,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/utils/edit-frame.d.ts:12
+packages/sitecore-jss/types/editing/edit-frame.d.ts:12
 
 ___
 
@@ -274,7 +274,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/utils/edit-frame.d.ts:32
+packages/sitecore-jss/types/editing/edit-frame.d.ts:32
 
 ## Functions
 
@@ -404,7 +404,7 @@ Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/Mutation
 
 #### Defined in
 
-packages/sitecore-jss/types/utils/editing.d.ts:58
+packages/sitecore-jss/types/editing/utils.d.ts:58
 
 ___
 
@@ -423,7 +423,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-packages/sitecore-jss/types/utils/editing.d.ts:44
+packages/sitecore-jss/types/editing/utils.d.ts:44
 
 ___
 
@@ -443,7 +443,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
@@ -477,4 +477,4 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-packages/sitecore-jss/types/utils/editing.d.ts:48
+packages/sitecore-jss/types/editing/utils.d.ts:48

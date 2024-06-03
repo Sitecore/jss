@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/axios-fetcher.ts#L35)
+[packages/sitecore-jss/src/axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/axios-fetcher.ts#L35)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/debug.ts:6](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/debug.ts#L6)
+[packages/sitecore-jss/src/debug.ts:6](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/debug.ts#L6)
 
 ___
 
@@ -82,23 +82,24 @@ GraphQLClient
 | `apiKey?` | `string` | The API key to use for authentication. This will be added as an 'sc_apikey' header. |
 | `debugger?` | [`Debugger`](index.md#debugger) | Override debugger for logging. Uses 'sitecore-jss:http' by default. |
 | `fetch?` | typeof `fetch` | Override fetch method. Uses 'graphql-request' library default otherwise ('cross-fetch'). |
+| `headers?` | `Record`\<`string`, `string`\> | Custom headers to be sent with each request. |
 | `retries?` | `number` | Number of retries for client. Will use the specified `retryStrategy`. |
 | `retryStrategy?` | [`RetryStrategy`](../interfaces/index.RetryStrategy.md) | Retry strategy for the client. Uses `DefaultRetryStrategy` by default with exponential back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524. |
 | `timeout?` | `number` | GraphQLClient request timeout (in milliseconds). |
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:51](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/graphql-request-client.ts#L51)
+[packages/sitecore-jss/src/graphql-request-client.ts:51](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/graphql-request-client.ts#L51)
 
 ___
 
 ### GraphQLRequestClientFactory
 
-Ƭ **GraphQLRequestClientFactory**: (`config`: `Omit`\<[`GraphQLRequestClientConfig`](index.md#graphqlrequestclientconfig), ``"apiKey"``\>) => [`GraphQLRequestClient`](../classes/index.GraphQLRequestClient.md)
+Ƭ **GraphQLRequestClientFactory**: (`config?`: `Omit`\<[`GraphQLRequestClientConfig`](index.md#graphqlrequestclientconfig), ``"apiKey"``\>) => [`GraphQLRequestClient`](../classes/index.GraphQLRequestClient.md)
 
 #### Type declaration
 
-▸ (`config`): [`GraphQLRequestClient`](../classes/index.GraphQLRequestClient.md)
+▸ (`config?`): [`GraphQLRequestClient`](../classes/index.GraphQLRequestClient.md)
 
 A GraphQL Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
 This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
@@ -107,7 +108,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `config` | `Omit`\<[`GraphQLRequestClientConfig`](index.md#graphqlrequestclientconfig), ``"apiKey"``\> | The configuration object that specifies how the GraphQL client should be set up. |
+| `config?` | `Omit`\<[`GraphQLRequestClientConfig`](index.md#graphqlrequestclientconfig), ``"apiKey"``\> | The configuration object that specifies how the GraphQL client should be set up. |
 
 ##### Returns
 
@@ -117,7 +118,7 @@ An instance of a GraphQL Request Client ready to send GraphQL requests.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:85](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/graphql-request-client.ts#L85)
+[packages/sitecore-jss/src/graphql-request-client.ts:89](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/graphql-request-client.ts#L89)
 
 ___
 
@@ -136,7 +137,7 @@ Configuration type for
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:92](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/graphql-request-client.ts#L92)
+[packages/sitecore-jss/src/graphql-request-client.ts:96](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/graphql-request-client.ts#L96)
 
 ___
 
@@ -148,7 +149,7 @@ Html <link> tag data model
 
 #### Defined in
 
-[packages/sitecore-jss/src/models.ts:4](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/models.ts#L4)
+[packages/sitecore-jss/src/models.ts:4](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/models.ts#L4)
 
 ___
 
@@ -187,7 +188,7 @@ The interface implementation must:
 
 #### Defined in
 
-[packages/sitecore-jss/src/data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/data-fetcher.ts#L26)
+[packages/sitecore-jss/src/data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/data-fetcher.ts#L26)
 
 ___
 
@@ -197,7 +198,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:20](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/native-fetcher.ts#L20)
+[packages/sitecore-jss/src/native-fetcher.ts:20](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/native-fetcher.ts#L20)
 
 ## Variables
 
@@ -226,7 +227,7 @@ See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) f
 
 #### Defined in
 
-[packages/sitecore-jss/src/debug.ts:30](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/debug.ts#L30)
+[packages/sitecore-jss/src/debug.ts:30](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/debug.ts#L30)
 
 ## Functions
 
@@ -248,7 +249,7 @@ Enable debug logging dynamically
 
 #### Defined in
 
-[packages/sitecore-jss/src/debug.ts:24](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/debug.ts#L24)
+[packages/sitecore-jss/src/debug.ts:24](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/debug.ts#L24)
 
 ___
 
@@ -276,4 +277,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss/src/data-fetcher.ts#L57)
+[packages/sitecore-jss/src/data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/529d8d122/packages/sitecore-jss/src/data-fetcher.ts#L57)
