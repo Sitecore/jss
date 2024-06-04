@@ -21,15 +21,10 @@ which is required for Sitecore editing support.
 
 ### Properties
 
-- [dataFetcher](editing.EditingRenderMiddleware.md#datafetcher)
-- [editingDataService](editing.EditingRenderMiddleware.md#editingdataservice)
-- [resolvePageUrl](editing.EditingRenderMiddleware.md#resolvepageurl)
-- [resolveServerUrl](editing.EditingRenderMiddleware.md#resolveserverurl)
+- [config](editing.EditingRenderMiddleware.md#config)
 
 ### Methods
 
-- [defaultResolvePageUrl](editing.EditingRenderMiddleware.md#defaultresolvepageurl)
-- [defaultResolveServerUrl](editing.EditingRenderMiddleware.md#defaultresolveserverurl)
 - [getHandler](editing.EditingRenderMiddleware.md#gethandler)
 - [getQueryParamsForPropagation](editing.EditingRenderMiddleware.md#getqueryparamsforpropagation)
 - [handler](editing.EditingRenderMiddleware.md#handler)
@@ -44,7 +39,7 @@ which is required for Sitecore editing support.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `config?` | [`EditingRenderMiddlewareConfig`](../interfaces/editing.EditingRenderMiddlewareConfig.md) | Editing render middleware config |
+| `config?` | [`EditingRenderMiddlewareConfig`](../modules/editing.md#editingrendermiddlewareconfig) | Editing render middleware config |
 
 #### Overrides
 
@@ -52,129 +47,21 @@ RenderMiddlewareBase.constructor
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:62](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L62)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:416](https://github.com/Sitecore/jss/blob/a481db801/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L416)
 
 ## Properties
 
-### dataFetcher
+### config
 
-• `Private` **dataFetcher**: [`AxiosDataFetcher`](index.AxiosDataFetcher.md)
+• `Optional` **config**: [`EditingRenderMiddlewareConfig`](../modules/editing.md#editingrendermiddlewareconfig)
 
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:55](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L55)
-
-___
-
-### editingDataService
-
-• `Private` **editingDataService**: [`EditingDataService`](../interfaces/editing.EditingDataService.md)
+Editing render middleware config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:54](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L54)
-
-___
-
-### resolvePageUrl
-
-• `Private` **resolvePageUrl**: (`serverUrl`: `string`, `itemPath`: `string`) => `string`
-
-#### Type declaration
-
-▸ (`serverUrl`, `itemPath`): `string`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `serverUrl` | `string` |
-| `itemPath` | `string` |
-
-##### Returns
-
-`string`
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:56](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L56)
-
-___
-
-### resolveServerUrl
-
-• `Private` **resolveServerUrl**: (`req`: `NextApiRequest`) => `string`
-
-#### Type declaration
-
-▸ (`req`): `string`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `req` | `NextApiRequest` |
-
-##### Returns
-
-`string`
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:57](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L57)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:416](https://github.com/Sitecore/jss/blob/a481db801/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L416)
 
 ## Methods
-
-### defaultResolvePageUrl
-
-▸ `Private` **defaultResolvePageUrl**(`serverUrl`, `itemPath`): `string`
-
-Default page URL resolution.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `serverUrl` | `string` |
-| `itemPath` | `string` |
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:227](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L227)
-
-___
-
-### defaultResolveServerUrl
-
-▸ `Private` **defaultResolveServerUrl**(`req`): `string`
-
-Default server URL resolution.
-Note we use https protocol on Vercel due to serverless function architecture.
-In all other scenarios, including localhost (with or without a proxy e.g. ngrok)
-and within a nodejs container, http protocol should be used.
-
-For information about the VERCEL environment variable, see
-https://vercel.com/docs/environment-variables#system-environment-variables
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `req` | `NextApiRequest` |
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:241](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L241)
-
-___
 
 ### getHandler
 
@@ -207,7 +94,7 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:75](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L75)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:424](https://github.com/Sitecore/jss/blob/a481db801/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L424)
 
 ___
 
@@ -235,7 +122,7 @@ RenderMiddlewareBase.getQueryParamsForPropagation
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/render-middleware.ts:15](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L15)
+[sitecore-jss-nextjs/src/editing/render-middleware.ts:15](https://github.com/Sitecore/jss/blob/a481db801/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L15)
 
 ___
 
@@ -256,4 +143,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:79](https://github.com/Sitecore/jss/blob/417153890/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L79)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:428](https://github.com/Sitecore/jss/blob/a481db801/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L428)

@@ -18,4 +18,4 @@ Context information from the Sitecore Layout Service
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:59
+packages/sitecore-jss/types/layout/models.d.ts:61
