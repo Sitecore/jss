@@ -189,10 +189,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     );
   }
 
-  getComponentsForRenderingData(
-    placeholderData: (ComponentRendering | HtmlElementRendering)[],
-    isEmpty?: boolean
-  ) {
+  getComponentsForRenderingData(placeholderData: (ComponentRendering | HtmlElementRendering)[]) {
     const {
       name,
       fields: placeholderFields,
@@ -208,7 +205,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           ? (rendering as ComponentRendering).uid
           : `component-${index}`;
         const commonProps = { key };
-
+        let isEmpty = false;
         // if the element is not a 'component rendering', render it 'raw'
         if (
           !(rendering as ComponentRendering).componentName &&
@@ -223,8 +220,10 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
         if (componentRendering.componentName === HIDDEN_RENDERING_NAME) {
           component = hiddenRenderingComponent ?? HiddenRendering;
+          isEmpty = true;
         } else if (!componentRendering.componentName) {
           component = () => <></>;
+          isEmpty = true;
         } else {
           component = this.getComponentForRendering(componentRendering);
         }
@@ -248,6 +247,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           );
 
           component = missingComponentComponent ?? MissingComponent;
+          isEmpty = true;
         }
 
         const finalProps = {
@@ -272,8 +272,11 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
         );
 
-        const type = rendered.props.type === 'text/sitecore' ? rendered.props.type : '';
         if (!isEmpty) {
+          // assign type based on passed element - type='text/sitecore' should be ignored when renderEach Placeholder prop function is being used
+          const type = rendered.props.type === 'text/sitecore' ? rendered.props.type : '';
+          // wrapping with error boundary could cause problems in case where parent component uses withPlaceholder HOC and tries to access its children props
+          // that's why we need to expose element's props here
           rendered = (
             <ErrorBoundary
               key={rendered.type + '-' + index}
