@@ -317,7 +317,7 @@ export const isEditingMetadataPreviewData = (data: unknown): data is EditingMeta
     typeof data === 'object' &&
     data !== null &&
     'editMode' in data &&
-    data.editMode === EditMode.Metadata
+    (data as EditingMetadataPreviewData).editMode === EditMode.Metadata
   );
 };
 
