@@ -15,7 +15,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-proxy src/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -35,7 +35,7 @@
     "@types/chai": "^4.3.4",
     "@types/express": "^4.17.17",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.14.2",
+    "@types/node": "^20.14.2",
     "@types/set-cookie-parser": "^2.4.2",
     "chai": "^4.3.7",
     "del-cli": "^5.0.0",

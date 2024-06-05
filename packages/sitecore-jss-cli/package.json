@@ -16,7 +16,7 @@
     "coverage": "nyc --require ts-node/register/transpile-only npm test"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "preferGlobal": true,
   "bin": {
@@ -46,7 +46,7 @@
     "@types/chai": "^4.2.4",
     "@types/cross-spawn": "^6.0.2",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.18",
+    "@types/node": "^20.14.2",
     "@types/readline-sync": "^1.4.4",
     "@types/resolve": "^1.20.2",
     "@types/sinon": "^10.0.13",
