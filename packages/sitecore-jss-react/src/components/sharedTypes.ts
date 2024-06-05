@@ -13,6 +13,7 @@ export type ComponentFactory = (
  * Component type returned from component builder / factory
  */
 export type JssComponentType = ComponentType & {
-  // all dynamic elements will have a separate render prop
+  // all elements created with nextjs dynamic() will have a separate render prop
+  // react elements will not have it - so it's optional here
   render?: { [key: string]: unknown };
 };
