@@ -784,7 +784,7 @@ it('should render custom HiddenRendering when rendering is hidden', () => {
   expect(renderedComponent.find('p').props().children).to.equal('Hidden Rendering');
 });
 
-describe.only('PlaceholderMetadata', () => {
+describe('PlaceholderMetadata', () => {
   const layoutDataForNestedPlaceholder = {
     sitecore: {
       context: {
