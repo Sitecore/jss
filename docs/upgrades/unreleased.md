@@ -114,4 +114,4 @@
 
 * Update _lib/page-props-factory/plugins/preview-mode_ plugin to support a new Editing Metadata Mode. Can be done by replacing this file with the latest version introduced in _nextjs-xmcloud_ base template.
 
-* To support editing for fields in Pages, the new editing metadata architecture relies on the new metadata property 'field.metadata' (instead of on 'field.editable', which won't be used in this scenario). If you are using the new editing arhitecture in Pages (EditMode.Metadata) and have custom field component that manipulates or relies on 'field.editable' in some way, may need to be reworked.
+* To support editing for fields in Pages, the new editing metadata architecture relies on the new metadata property 'field.metadata' (instead of on 'field.editable', which won't be used in this scenario). If you are using the new editing arhitecture in Pages (EditMode.Metadata) and have custom field component that manipulates or relies on 'field.editable' in some way, it may need to be reworked.
