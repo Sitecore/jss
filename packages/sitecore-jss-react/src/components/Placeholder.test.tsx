@@ -784,7 +784,7 @@ it('should render custom HiddenRendering when rendering is hidden', () => {
   expect(renderedComponent.find('p').props().children).to.equal('Hidden Rendering');
 });
 
-describe('PlaceholderMetadata', () => {
+describe.only('PlaceholderMetadata', () => {
   const layoutDataForNestedPlaceholder = {
     sitecore: {
       context: {
@@ -793,7 +793,6 @@ describe('PlaceholderMetadata', () => {
       },
       route: {
         name: 'main',
-        uid: 'root123',
         placeholders: {
           main: [
             {
@@ -842,7 +841,7 @@ describe('PlaceholderMetadata', () => {
 
     expect(wrapper.html()).to.equal(
       [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_root123"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_00000000-0000-0000-0000-000000000000"></code>',
         '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="nested123"></code>',
         '<div class="header-wrapper">',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="logo_nested123"></code>',
@@ -868,7 +867,6 @@ describe('PlaceholderMetadata', () => {
         },
         route: {
           name: 'main',
-          uid: 'root123',
           placeholders: {
             main: [],
           },
@@ -885,7 +883,7 @@ describe('PlaceholderMetadata', () => {
     expect(wrapper.html()).to.equal(
       [
         '<div class="sc-jss-empty-placeholder">',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_root123"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_00000000-0000-0000-0000-000000000000"></code>',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
         '</div>',
       ].join('')
@@ -901,7 +899,6 @@ describe('PlaceholderMetadata', () => {
         },
         route: {
           name: 'main',
-          uid: 'root123',
           placeholders: {
             main: [
               {
@@ -922,7 +919,7 @@ describe('PlaceholderMetadata', () => {
 
     expect(wrapper.html()).to.equal(
       [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_root123"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_00000000-0000-0000-0000-000000000000"></code>',
         '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="123"></code>',
         '<div style="background:darkorange;outline:5px solid orange;padding:10px;color:white;max-width:500px"><h2>Unknown</h2><p>JSS component is missing React implementation. See the developer console for more information.</p></div>',
         '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
