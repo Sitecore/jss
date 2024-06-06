@@ -43,6 +43,11 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss]` `GraphQLRequestClientFactory` type is updated and `config` parameter is now optional. Since it should match `GraphQLRequestClient.createClientFactory` method return type ([#1806](https://github.com/Sitecore/jss/pull/1806))
 
+
+### 🧹 Chores
+
+* Update node/types to version 20 in all packages and samples ([#1810](https://github.com/Sitecore/jss/pull/1810))
+
 ## 22.0.0
 
 ### 🛠 Breaking Changes
