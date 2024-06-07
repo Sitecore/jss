@@ -29,7 +29,7 @@ export type CodeBlockAttributes = {
  * @returns {JSX.Element} A React fragment containing open and close code blocks surrounding the children elements.
  */
 export const PlaceholderMetadata = ({
-  uid,
+  uid = '00000000-0000-0000-0000-000000000000',
   placeholderName,
   children,
 }: PlaceholderMetadataProps): JSX.Element => {

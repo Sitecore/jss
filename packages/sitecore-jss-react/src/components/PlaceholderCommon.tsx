@@ -305,12 +305,10 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       .filter((element) => element); // remove nulls
 
     if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
-      // default value of uid for root placeholder when uid is not present.
-      const default_UID = '00000000-0000-0000-0000-000000000000';
       return [
         <PlaceholderMetadata
           key={(this.props.rendering as ComponentRendering).uid}
-          uid={(this.props.rendering as ComponentRendering).uid || default_UID}
+          uid={(this.props.rendering as ComponentRendering).uid}
           placeholderName={name}
         >
           {transformedComponents}
