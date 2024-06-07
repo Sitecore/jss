@@ -5507,7 +5507,7 @@ __metadata:
     "@angular-devkit/schematics": ~16.2.10
     "@schematics/angular": ~16.2.10
     "@types/jasmine": ^2.8.0
-    "@types/node": ^18.19.0
+    "@types/node": ^20.14.2
     chalk: ^2.4.2
     jasmine: ^2.99.0
     nyc: ^15.1.0
@@ -5531,7 +5531,7 @@ __metadata:
     "@angular/router": ~16.2.10
     "@sitecore-jss/sitecore-jss": 22.1.0-canary.23
     "@types/jasmine": ^3.4.1
-    "@types/node": ^18.19.0
+    "@types/node": ^20.14.2
     codelyzer: ^6.0.1
     eslint: ~8.3.0
     eslint-plugin-deprecation: ^1.5.0
@@ -5563,7 +5563,7 @@ __metadata:
     "@types/chai": ^4.2.4
     "@types/cross-spawn": ^6.0.2
     "@types/mocha": ^10.0.1
-    "@types/node": ^18.11.18
+    "@types/node": ^20.14.2
     "@types/readline-sync": ^1.4.4
     "@types/resolve": ^1.20.2
     "@types/sinon": ^10.0.13
@@ -5607,7 +5607,7 @@ __metadata:
     "@types/glob": ^8.0.1
     "@types/js-yaml": ^4.0.5
     "@types/mocha": ^10.0.1
-    "@types/node": ^18.11.18
+    "@types/node": ^20.14.2
     "@types/readline-sync": ^1.4.4
     "@types/resolve": ^1.20.2
     "@types/sinon": ^10.0.13
@@ -5617,7 +5617,7 @@ __metadata:
     axios: ^1.3.2
     chai: ^4.3.7
     chalk: ^4.1.2
-    chokidar: ^3.5.3
+    chokidar: ^3.6.0
     cross-env: ^7.0.3
     del: ^6.0.0
     del-cli: ^5.0.0
@@ -5659,7 +5659,7 @@ __metadata:
     "@types/chai-string": ^1.4.2
     "@types/lodash.unescape": ^4.0.7
     "@types/mocha": ^10.0.1
-    "@types/node": ^18.11.18
+    "@types/node": ^20.14.2
     axios: ^1.3.0
     chai: ^4.3.7
     chai-string: ^1.5.0
@@ -5686,7 +5686,7 @@ __metadata:
     "@types/chai-string": ^1.4.2
     "@types/enzyme": ^3.10.12
     "@types/mocha": ^10.0.1
-    "@types/node": ~18.11.18
+    "@types/node": ~20.14.2
     "@types/prop-types": ^15.7.5
     "@types/react": ^18.2.22
     "@types/react-dom": ^18.0.10
@@ -5735,7 +5735,7 @@ __metadata:
     "@types/chai": ^4.3.4
     "@types/express": ^4.17.17
     "@types/mocha": ^10.0.1
-    "@types/node": ^18.14.2
+    "@types/node": ^20.14.2
     "@types/set-cookie-parser": ^2.4.2
     chai: ^4.3.7
     del-cli: ^5.0.0
@@ -5758,7 +5758,7 @@ __metadata:
     "@types/chai": ^4.3.4
     "@types/enzyme": ^3.10.12
     "@types/mocha": ^10.0.1
-    "@types/node": 18.11.10
+    "@types/node": 20.14.2
     "@types/prop-types": ^15.7.5
     "@types/react": ^18.0.25
     "@types/react-dom": ^18.0.9
@@ -5817,7 +5817,7 @@ __metadata:
     react-native-svg-uri: ^1.2.3
     react-test-renderer: ^16.9.0
     ts-jest: ~26.0.0
-    typescript: ~4.3.5
+    typescript: ~4.7.0
   peerDependencies:
     react: 16.13.1
     react-native: ^0.63.4
@@ -5834,7 +5834,7 @@ __metadata:
     "@types/chai-string": ^1.4.2
     "@types/enzyme": ^3.10.12
     "@types/mocha": ^10.0.1
-    "@types/node": 18.11.10
+    "@types/node": 20.14.2
     "@types/prop-types": ^15.7.5
     "@types/react": ^18.2.22
     "@types/react-dom": ^18.0.10
@@ -5876,7 +5876,7 @@ __metadata:
     "@types/express-serve-static-core": ^4.17.33
     "@types/glob": ^8.0.1
     "@types/mocha": ^10.0.1
-    "@types/node": ^18.11.18
+    "@types/node": ^20.14.2
     "@types/webpack": 5.28.5
     "@types/webpack-dev-middleware": 2.0.5
     "@types/webpack-dev-server": 3.1.7
@@ -5903,7 +5903,7 @@ __metadata:
   dependencies:
     "@sitecore-jss/sitecore-jss": 22.1.0-canary.23
     "@types/jest": ^29.2.6
-    "@types/node": ^18.11.18
+    "@types/node": ^20.14.2
     "@vue/compiler-dom": ^3.2.45
     "@vue/compiler-sfc": ^3.0.11
     "@vue/test-utils": 2.2.7
@@ -5935,7 +5935,7 @@ __metadata:
     "@types/lodash.unescape": ^4.0.6
     "@types/memory-cache": ^0.2.1
     "@types/mocha": ^9.0.0
-    "@types/node": ^16.11.6
+    "@types/node": ^20.14.2
     "@types/sinon": ^17.0.3
     "@types/url-parse": 1.4.8
     axios: ^0.21.1
@@ -5956,7 +5956,7 @@ __metadata:
     sinon: ^17.0.1
     ts-node: ^8.4.1
     tslib: ^1.10.0
-    typescript: ~4.3.5
+    typescript: ~4.7.4
     url-parse: ^1.5.9
   languageName: unknown
   linkType: soft
@@ -6631,26 +6631,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.11.10":
-  version: 18.11.10
-  resolution: "@types/node@npm:18.11.10"
-  checksum: 0f60cb090b2ee91fcd3dc4311bc1ed7889b92f14644c0069f100776f86474c12eebbcc6c75bc0d7d96b975a103b4d5d6b3c22b4e88bea6e7f4e2b1bb0daf5ea8
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^16.11.6":
-  version: 16.18.68
-  resolution: "@types/node@npm:16.18.68"
-  checksum: 094ae9ed80eed2af4bd34d551467e307f2ecb6efb0f8b872feebfb9da5ea4b446c5883c9abe2349f8ea2b78bdacd8726a946c27c2a246676c4c330e41ccb9284
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^18.11.18, @types/node@npm:^18.14.2, @types/node@npm:^18.19.0":
-  version: 18.19.3
-  resolution: "@types/node@npm:18.19.3"
+"@types/node@npm:20.14.2, @types/node@npm:^20.14.2, @types/node@npm:~20.14.2":
+  version: 20.14.2
+  resolution: "@types/node@npm:20.14.2"
   dependencies:
     undici-types: ~5.26.4
-  checksum: 58c4fa45a78fcec75c78182a4b266395905957633654eb0311c5f9c30ac15c179ea2287ab1af034e46c2db7bb0589ef0000ee64c1de8f568a0aad29eaadb100c
+  checksum: 265362479b8f3b50fcd1e3f9e9af6121feb01a478dff0335ae67cccc3babfe45d0f12209d3d350595eebd7e67471762697b877c380513f8e5d27a238fa50c805
   languageName: node
   linkType: hard
 
@@ -6658,13 +6644,6 @@ __metadata:
   version: 8.10.66
   resolution: "@types/node@npm:8.10.66"
   checksum: c52039de862654a139abdc6a51de532a69dd80516ac35a959c3b3a2831ecbaaf065b0df5f9db943f5e28b544ebb9a891730d52b52f7a169b86a82bc060210000
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:~18.11.18":
-  version: 18.11.19
-  resolution: "@types/node@npm:18.11.19"
-  checksum: d7cd19fcfc59cbdd3f9ba0b4072cb7adc21bd575bd8eb7d7e698975e63564aaa83f03434f32b12331f84f73d0b369d9cbe2371e359d9d7f5c3361f4987f4f7da
   languageName: node
   linkType: hard
 
@@ -10494,6 +10473,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chokidar@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "chokidar@npm:3.6.0"
+  dependencies:
+    anymatch: ~3.1.2
+    braces: ~3.0.2
+    fsevents: ~2.3.2
+    glob-parent: ~5.1.2
+    is-binary-path: ~2.1.0
+    is-glob: ~4.0.1
+    normalize-path: ~3.0.0
+    readdirp: ~3.6.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  checksum: d2f29f499705dcd4f6f3bbed79a9ce2388cf530460122eed3b9c48efeab7a4e28739c6551fd15bec9245c6b9eeca7a32baa64694d64d9b6faeb74ddb8c4a413d
+  languageName: node
+  linkType: hard
+
 "chownr@npm:^2.0.0":
   version: 2.0.0
   resolution: "chownr@npm:2.0.0"
@@ -11332,7 +11330,7 @@ __metadata:
     "@types/inquirer": ^9.0.3
     "@types/minimist": ^1.2.2
     "@types/mocha": ^10.0.1
-    "@types/node": ^18.11.18
+    "@types/node": ^20.14.2
     "@types/sinon": 10.0.6
     "@types/sinon-chai": ^3.2.9
     chai: ^4.3.7
@@ -25588,17 +25586,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:~4.3.5":
-  version: 4.3.5
-  resolution: "typescript@npm:4.3.5"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: bab033b5e2b0790dd35b77fd005df976ef80b8d84fd2c6e63cc31808151875beae9216e5a315fe7068e8499905c3c354248fe83272cdfc13b7705635f0c66c97
-  languageName: node
-  linkType: hard
-
-"typescript@npm:~4.7.4":
+"typescript@npm:~4.7.0, typescript@npm:~4.7.4":
   version: 4.7.4
   resolution: "typescript@npm:4.7.4"
   bin:
@@ -25618,17 +25606,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@~4.3.5#~builtin<compat/typescript>":
-  version: 4.3.5
-  resolution: "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=ddd1e8"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 61fc1a2ca5037420de5bbe17c6ddc4cbcc0d52301ed94f0a7b5821c55ff9eb96307f0816f745ca8f0fc87ed92f3951cde6d97cd6fd6bc6920c02ea63b5b26259
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@~4.7.4#~builtin<compat/typescript>":
+"typescript@patch:typescript@~4.7.0#~builtin<compat/typescript>, typescript@patch:typescript@~4.7.4#~builtin<compat/typescript>":
   version: 4.7.4
   resolution: "typescript@patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=ddd1e8"
   bin:

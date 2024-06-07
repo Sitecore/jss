@@ -7,11 +7,11 @@ import debug from './debug';
 
 use(spies);
 
-let fetchInput: RequestInfo | undefined;
+let fetchInput: URL | RequestInfo | undefined;
 let fetchInit: RequestInit | undefined;
 
 const mockFetch = (status: number, response: unknown = {}, jsonError?: string) => {
-  return (input: RequestInfo, init?: RequestInit) => {
+  return (input: URL | RequestInfo, init?: RequestInit) => {
     fetchInput = input;
     fetchInit = init;
     return Promise.resolve({

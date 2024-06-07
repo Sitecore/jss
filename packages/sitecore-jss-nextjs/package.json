@@ -14,7 +14,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-nextjs --entryPoints src/index.ts --entryPoints src/monitoring/index.ts --entryPoints src/editing/index.ts --entryPoints src/middleware/index.ts --entryPoints src/context/index.ts --entryPoints src/utils/index.ts --entryPoints src/site/index.ts --entryPoints src/graphql/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -35,7 +35,7 @@
     "@types/chai-string": "^1.4.2",
     "@types/enzyme": "^3.10.12",
     "@types/mocha": "^10.0.1",
-    "@types/node": "~18.11.18",
+    "@types/node": "~20.14.2",
     "@types/prop-types": "^15.7.5",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.0.10",
