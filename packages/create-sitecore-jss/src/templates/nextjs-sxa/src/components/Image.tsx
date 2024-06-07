@@ -48,7 +48,15 @@ export const Banner = (props: ImageProps): JSX.Element => {
           ?.replace(`width="${props?.fields?.Image?.value?.width}"`, 'width="100%"')
           .replace(`height="${props?.fields?.Image?.value?.height}"`, 'height="100%"'),
       }
-    : { ...props.fields.Image };
+    : {
+        ...props.fields.Image,
+        metadata: {
+          ...props?.fields?.Image?.metadata,
+          rawValue: props?.fields?.Image?.metadata?.rawValue
+            ?.replace(`width="${props?.fields?.Image?.value?.width}"`, 'width="100%"')
+            .replace(`height="${props?.fields?.Image?.value?.height}"`, 'height="100%"'),
+        },
+      };
 
   return (
     <div
