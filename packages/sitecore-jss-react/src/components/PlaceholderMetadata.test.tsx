@@ -70,7 +70,7 @@ describe('PlaceholderMetadata', () => {
     );
   });
 
-    it('renders placeholder code blocks when metadataType is double digit dynamic placeholder', () => {
+  it('renders placeholder code blocks when metadataType is double digit dynamic placeholder', () => {
     const children = <div className="richtext-mock"></div>;
     const wrapper = shallow(
       <PlaceholderMetadata
