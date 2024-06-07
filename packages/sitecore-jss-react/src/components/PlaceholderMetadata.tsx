@@ -54,11 +54,6 @@ export const PlaceholderMetadata = ({
         let phId = '';
 
         for (const placeholder of Object.keys(rendering.placeholders)) {
-          // don't include properties that are inherited through the prototype chain.
-          if (!(placeholder in rendering.placeholders)) {
-            continue;
-          }
-
           if (placeholderName === placeholder) {
             phId = `${placeholderName}_${id}`;
             break;
