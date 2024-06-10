@@ -36,7 +36,7 @@ found image tag; null in case if not found
 
 #### Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:18](https://github.com/Sitecore/jss/blob/50ff8700a/packages/sitecore-jss/src/media/media-api.ts#L18)
+[packages/sitecore-jss/src/media/media-api.ts:18](https://github.com/Sitecore/jss/blob/fa162b1dd/packages/sitecore-jss/src/media/media-api.ts#L18)
 
 ___
 
@@ -68,7 +68,7 @@ requiredParams
 
 #### Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:44](https://github.com/Sitecore/jss/blob/50ff8700a/packages/sitecore-jss/src/media/media-api.ts#L44)
+[packages/sitecore-jss/src/media/media-api.ts:44](https://github.com/Sitecore/jss/blob/fa162b1dd/packages/sitecore-jss/src/media/media-api.ts#L44)
 
 ___
 
@@ -110,7 +110,7 @@ More information about `srcSet`: {@link https://developer.mozilla.org/en-US/docs
 
 #### Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:131](https://github.com/Sitecore/jss/blob/50ff8700a/packages/sitecore-jss/src/media/media-api.ts#L131)
+[packages/sitecore-jss/src/media/media-api.ts:131](https://github.com/Sitecore/jss/blob/fa162b1dd/packages/sitecore-jss/src/media/media-api.ts#L131)
 
 ___
 
@@ -136,7 +136,7 @@ The URL with the media URL prefix replaced
 
 #### Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:57](https://github.com/Sitecore/jss/blob/50ff8700a/packages/sitecore-jss/src/media/media-api.ts#L57)
+[packages/sitecore-jss/src/media/media-api.ts:57](https://github.com/Sitecore/jss/blob/fa162b1dd/packages/sitecore-jss/src/media/media-api.ts#L57)
 
 ___
 
@@ -166,4 +166,4 @@ The prepared URL
 
 #### Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:83](https://github.com/Sitecore/jss/blob/50ff8700a/packages/sitecore-jss/src/media/media-api.ts#L83)
+[packages/sitecore-jss/src/media/media-api.ts:83](https://github.com/Sitecore/jss/blob/fa162b1dd/packages/sitecore-jss/src/media/media-api.ts#L83)
