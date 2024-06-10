@@ -1,14 +1,14 @@
-import React, { CSSProperties } from 'react';
 import {
+  EditMode,
+  Field,
+  ImageField,
   Image as JssImage,
   Link as JssLink,
-  ImageField,
-  Field,
   LinkField,
   Text,
   useSitecoreContext,
-  EditMode,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import React, { CSSProperties } from 'react';
 
 interface Fields {
   Image: ImageField & { metadata?: { [key: string]: unknown } };
