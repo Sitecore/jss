@@ -14,6 +14,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Changed formatting in temp/config to prevent parse issues in Unix systems ([#1787](https://github.com/Sitecore/jss/pull/1787))([#1791](https://github.com/Sitecore/jss/pull/1791))
+* `[templates/nextjs-sxa]` The banner variant of image component is fixed with supporting metadata mode. ([#1817](https://github.com/Sitecore/jss/pull/1817))
 
 ### 🎉 New Features & Improvements
 
