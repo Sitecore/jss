@@ -153,8 +153,11 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     let result;
     let phName = name.slice();
 
-    /** [SXA] it needs for deleting dynamics placeholder when we set him number(props.name) of container.
-    from backend side we get common name of placeholder is called 'nameOfContainer-{*}' where '{*}' marker for replacing **/
+    /**
+     * [Chromes Mode]: [SXA] it needs for deleting dynamics placeholder when we set him number(props.name) of container.
+     * from backend side we get common name of placeholder is called 'nameOfContainer-{*}' where '{*}' marker for replacing.
+     * [Metadata Mode]: We need to keep the raw placeholder name. e.g 'nameOfContainer-{*}' instead of 'nameOfContainer-1'
+     */
     if (rendering?.placeholders) {
       Object.keys(rendering.placeholders).forEach((placeholder) => {
         const patternPlaceholder = isDynamicPlaceholder(placeholder)
@@ -162,7 +165,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           : null;
 
         if (patternPlaceholder && patternPlaceholder.test(phName)) {
-          // When working in Edit Mode Metadata we need to keep the raw placeholder name
           if (editMode === EditMode.Metadata) {
             phName = placeholder;
           } else {
