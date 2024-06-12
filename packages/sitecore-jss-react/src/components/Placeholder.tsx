@@ -88,7 +88,8 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
 
     const placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
       renderingData,
-      this.props.name
+      this.props.name,
+      this.props.sitecoreContext?.editMode
     );
 
     this.isEmpty = placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>
