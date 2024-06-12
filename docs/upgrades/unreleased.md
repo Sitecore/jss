@@ -117,19 +117,20 @@
 * To support editing for fields in Pages, the new editing metadata architecture relies on the new metadata property 'field.metadata' (instead of on 'field.editable', which won't be used in this scenario). If you are using the new editing arhitecture in Pages (EditMode.Metadata) and have custom field component that manipulates or relies on 'field.editable' in some way, it may need to be reworked. Experience Editor still relies on 'field.editable', so it needs to be supported. See example below from SXA's Banner component:
 
     ```ts
+        import { useSitecoreContext, EditMode, } from '@sitecore-jss/sitecore-jss-nextjs';
         ...
         export const Banner = (props: ImageProps): JSX.Element => {
+            const { sitecoreContext } = useSitecoreContext();
+            const isMetadataMode = sitecoreContext?.editMode === EditMode.Metadata;
             ...
-              const isMetadataMode = sitecoreContext?.editMode === EditMode.Metadata;
-            ...
-              const modifyImageProps = !isMetadataMode
-                ? {
-                    ...props.fields.Image,
-                    editable: props?.fields?.Image?.editable
-                    ?.replace(`width="${props?.fields?.Image?.value?.width}"`, 'width="100%"')
-                    .replace(`height="${props?.fields?.Image?.value?.height}"`, 'height="100%"'),
-                }
-                : { ...props.fields.Image };
+            const modifyImageProps = !isMetadataMode
+            ? {
+                ...props.fields.Image,
+                editable: props?.fields?.Image?.editable
+                ?.replace(`width="${props?.fields?.Image?.value?.width}"`, 'width="100%"')
+                .replace(`height="${props?.fields?.Image?.value?.height}"`, 'height="100%"'),
+            }
+            : { ...props.fields.Image };
             ...
         }
         ...
