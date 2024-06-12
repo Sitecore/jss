@@ -46,7 +46,7 @@ describe('PlaceholderMetadata', () => {
     );
   });
 
-  it('renders placeholder code blocks when metadataType is a root placeholder and uid is undefined', () => {
+  it('renders placeholder code blocks with DEFAULT_PLACEHOLDER_UID value when metadataType is a placeholder(root) and uid is not present', () => {
     const children = <div className="richtext-mock"></div>;
     const wrapper = shallow(
       <PlaceholderMetadata
