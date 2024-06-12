@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-cli",
-  "version": "22.1.0-canary.23",
+  "version": "22.1.0-canary.27",
   "description": "Sitecore JSS command-line",
   "main": "dist/cjs/cli.js",
   "module": "dist/esm/cli.js",
@@ -16,7 +16,7 @@
     "coverage": "nyc --require ts-node/register/transpile-only npm test"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "preferGlobal": true,
   "bin": {
@@ -32,7 +32,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "22.1.0-canary.23",
+    "@sitecore-jss/sitecore-jss-dev-tools": "22.1.0-canary.27",
     "chalk": "^4.1.2",
     "cross-spawn": "^7.0.3",
     "dotenv": "^16.0.3",
@@ -46,7 +46,7 @@
     "@types/chai": "^4.2.4",
     "@types/cross-spawn": "^6.0.2",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.18",
+    "@types/node": "^20.14.2",
     "@types/readline-sync": "^1.4.4",
     "@types/resolve": "^1.20.2",
     "@types/sinon": "^10.0.13",

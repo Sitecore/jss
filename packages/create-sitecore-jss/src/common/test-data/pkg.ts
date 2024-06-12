@@ -13,7 +13,7 @@ export const currentPkg = {
     chalk: '^4.1.2',
   },
   devDependencies: {
-    '@types/node': '^16.11.7',
+    '@types/node': '^20.14.2',
     typescript: '~4.3.5',
   },
   foo: {

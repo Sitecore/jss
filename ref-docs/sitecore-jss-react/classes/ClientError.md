@@ -155,7 +155,7 @@ Error.prepareStackTrace
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/node/ts4.8/globals.d.ts:11
+packages/sitecore-jss-react/node_modules/@types/node/globals.d.ts:28
 
 ___
 
@@ -169,7 +169,7 @@ Error.stackTraceLimit
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/node/ts4.8/globals.d.ts:13
+packages/sitecore-jss-react/node_modules/@types/node/globals.d.ts:30
 
 ## Methods
 
@@ -196,4 +196,4 @@ Error.captureStackTrace
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/node/ts4.8/globals.d.ts:4
+packages/sitecore-jss-react/node_modules/@types/node/globals.d.ts:21

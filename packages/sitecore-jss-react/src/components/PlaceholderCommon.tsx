@@ -30,6 +30,22 @@ export type ComponentProps = {
   rendering: ComponentRendering;
 };
 
+/**
+ * Returns a regular expression pattern for a dynamic placeholder name.
+ * @param {string} placeholder Placeholder name with a dynamic segment (e.g. 'main-{*}')
+ * @returns Regular expression pattern for the dynamic segment
+ */
+export const getDynamicPlaceholderPattern = (placeholder: string) => {
+  return new RegExp(`^${placeholder.replace(/\{\*\}+/i, '\\d+')}$`);
+};
+
+/**
+ * Checks if the placeholder name is dynamic.
+ * @param {string} placeholder Placeholder name
+ * @returns True if the placeholder name is dynamic
+ */
+export const isDynamicPlaceholder = (placeholder: string) => placeholder.indexOf('{*}') !== -1;
+
 export interface PlaceholderProps {
   [key: string]: unknown;
   /** Name of the placeholder to render. */
@@ -131,34 +147,43 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
   static getPlaceholderDataFromRenderingData(
     rendering: ComponentRendering | RouteData,
-    name: string
+    name: string,
+    editMode?: EditMode
   ) {
     let result;
-    /** [SXA] it needs for deleting dynamics placeholder when we set him number(props.name) of container.
-    from backend side we get common name of placeholder is called 'nameOfContainer-{*}' where '{*}' marker for replacing **/
+    let phName = name.slice();
+
+    /**
+     * [Chromes Mode]: [SXA] it needs for deleting dynamics placeholder when we set him number(props.name) of container.
+     * from backend side we get common name of placeholder is called 'nameOfContainer-{*}' where '{*}' marker for replacing.
+     * [Metadata Mode]: We need to keep the raw placeholder name. e.g 'nameOfContainer-{*}' instead of 'nameOfContainer-1'
+     */
     if (rendering?.placeholders) {
       Object.keys(rendering.placeholders).forEach((placeholder) => {
-        const patternPlaceholder =
-          placeholder.indexOf('{*}') !== -1
-            ? new RegExp(`^${placeholder.replace(/\{\*\}+/i, '\\d+')}$`)
-            : null;
+        const patternPlaceholder = isDynamicPlaceholder(placeholder)
+          ? getDynamicPlaceholderPattern(placeholder)
+          : null;
 
-        if (patternPlaceholder && patternPlaceholder.test(name)) {
-          rendering.placeholders[name] = rendering.placeholders[placeholder];
-          delete rendering.placeholders[placeholder];
+        if (patternPlaceholder && patternPlaceholder.test(phName)) {
+          if (editMode === EditMode.Metadata) {
+            phName = placeholder;
+          } else {
+            rendering.placeholders[phName] = rendering.placeholders[placeholder];
+            delete rendering.placeholders[placeholder];
+          }
         }
       });
     }
 
     if (rendering && rendering.placeholders && Object.keys(rendering.placeholders).length > 0) {
-      result = rendering.placeholders[name];
+      result = rendering.placeholders[phName];
     } else {
       result = null;
     }
 
     if (!result) {
       console.warn(
-        `Placeholder '${name}' was not found in the current rendering data`,
+        `Placeholder '${phName}' was not found in the current rendering data`,
         JSON.stringify(rendering, null, 2)
       );
 
@@ -294,7 +319,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         // if editMode is equal to 'metadata' then emit shallow chromes for hydration in Pages
         if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
           return (
-            <PlaceholderMetadata key={key} uid={(rendering as ComponentRendering).uid}>
+            <PlaceholderMetadata key={key} rendering={rendering as ComponentRendering}>
               {rendered}
             </PlaceholderMetadata>
           );
@@ -308,8 +333,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       return [
         <PlaceholderMetadata
           key={(this.props.rendering as ComponentRendering).uid}
-          uid={(this.props.rendering as ComponentRendering).uid}
           placeholderName={name}
+          rendering={this.props.rendering as ComponentRendering}
         >
           {transformedComponents}
         </PlaceholderMetadata>,

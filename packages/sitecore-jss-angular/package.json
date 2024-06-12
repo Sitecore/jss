@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular",
-  "version": "22.1.0-canary.23",
+  "version": "22.1.0-canary.27",
   "description": "",
   "scripts": {
     "build": "ng-packagr -p ng-package.json",
@@ -11,7 +11,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-angular src/public_api.ts --githubPages false"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -34,7 +34,7 @@
     "@angular/platform-browser-dynamic": "~16.2.10",
     "@angular/router": "~16.2.10",
     "@types/jasmine": "^3.4.1",
-    "@types/node": "^18.19.0",
+    "@types/node": "^20.14.2",
     "codelyzer": "^6.0.1",
     "eslint": "~8.3.0",
     "eslint-plugin-deprecation": "^1.5.0",
@@ -58,7 +58,7 @@
     "rxjs": "~7.8.1"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "22.1.0-canary.23"
+    "@sitecore-jss/sitecore-jss": "22.1.0-canary.27"
   },
   "main": "dist/esm2022/sitecore-jss-sitecore-jss-angular.mjs",
   "module": "dist/esm2022/sitecore-jss-sitecore-jss-angular.js",

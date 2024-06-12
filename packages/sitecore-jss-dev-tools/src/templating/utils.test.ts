@@ -57,11 +57,13 @@ describe('utils', () => {
           ...baseDirent,
           isDirectory: () => true,
           name: 'parent',
+          parentPath: 'mockparent',
         },
         childFile: {
           ...baseDirent,
           isFile: () => true,
           name: 'child.tsx',
+          parentPath: 'mockparent',
         },
         resolveItemCb: callbackStub,
       };

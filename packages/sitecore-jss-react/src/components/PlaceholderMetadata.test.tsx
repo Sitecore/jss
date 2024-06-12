@@ -7,7 +7,11 @@ describe('PlaceholderMetadata', () => {
   it('renders rendering code blocks for metadataType rendering', () => {
     const children = <div className="richtext-class"></div>;
 
-    const wrapper = shallow(<PlaceholderMetadata uid={'123'}>{children}</PlaceholderMetadata>);
+    const wrapper = shallow(
+      <PlaceholderMetadata rendering={{ uid: '123', componentName: 'RichText' }}>
+        {children}
+      </PlaceholderMetadata>
+    );
 
     expect(wrapper.html()).to.equal(
       [
@@ -21,7 +25,14 @@ describe('PlaceholderMetadata', () => {
   it('renders placeholder code blocks when metadataType is placeholder', () => {
     const children = <div className="richtext-mock"></div>;
     const wrapper = shallow(
-      <PlaceholderMetadata uid={'123'} placeholderName={'main'}>
+      <PlaceholderMetadata
+        rendering={{
+          uid: '123',
+          componentName: 'RichText',
+          placeholders: { main: [] },
+        }}
+        placeholderName={'main'}
+      >
         {children}
       </PlaceholderMetadata>
     );
@@ -29,6 +40,54 @@ describe('PlaceholderMetadata', () => {
     expect(wrapper.html()).to.equal(
       [
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_123"></code>',
+        '<div class="richtext-mock"></div>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
+      ].join('')
+    );
+  });
+
+  it('renders placeholder code blocks when metadataType is dynamic placeholder', () => {
+    const children = <div className="richtext-mock"></div>;
+    const wrapper = shallow(
+      <PlaceholderMetadata
+        rendering={{
+          uid: '123',
+          componentName: 'RichText',
+          placeholders: { 'main-{*}': [] },
+        }}
+        placeholderName={'main-1'}
+      >
+        {children}
+      </PlaceholderMetadata>
+    );
+
+    expect(wrapper.html()).to.equal(
+      [
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main-{*}"></code>',
+        '<div class="richtext-mock"></div>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
+      ].join('')
+    );
+  });
+
+  it('renders placeholder code blocks when metadataType is double digit dynamic placeholder', () => {
+    const children = <div className="richtext-mock"></div>;
+    const wrapper = shallow(
+      <PlaceholderMetadata
+        rendering={{
+          uid: '123',
+          componentName: 'RichText',
+          placeholders: { 'main-1-{*}': [] },
+        }}
+        placeholderName={'main-1-1'}
+      >
+        {children}
+      </PlaceholderMetadata>
+    );
+
+    expect(wrapper.html()).to.equal(
+      [
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main-1-{*}"></code>',
         '<div class="richtext-mock"></div>',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
       ].join('')
