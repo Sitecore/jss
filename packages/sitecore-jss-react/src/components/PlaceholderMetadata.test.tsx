@@ -46,6 +46,29 @@ describe('PlaceholderMetadata', () => {
     );
   });
 
+  it('renders placeholder code blocks when metadataType is a root placeholder and uid is undefined', () => {
+    const children = <div className="richtext-mock"></div>;
+    const wrapper = shallow(
+      <PlaceholderMetadata
+        rendering={{
+          componentName: 'RichText',
+          placeholders: { main: [] },
+        }}
+        placeholderName={'main'}
+      >
+        {children}
+      </PlaceholderMetadata>
+    );
+
+    expect(wrapper.html()).to.equal(
+      [
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_00000000-0000-0000-0000-000000000000"></code>',
+        '<div class="richtext-mock"></div>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
+      ].join('')
+    );
+  });
+
   it('renders placeholder code blocks when metadataType is dynamic placeholder', () => {
     const children = <div className="richtext-mock"></div>;
     const wrapper = shallow(
