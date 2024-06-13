@@ -20,6 +20,11 @@ export type CodeBlockAttributes = {
 };
 
 /**
+ * default value of uid for root placeholder when uid is not present.
+ */
+const DEFAULT_PLACEHOLDER_UID = '00000000-0000-0000-0000-000000000000';
+
+/**
  * A React component to generate metadata blocks for a placeholder or rendering.
  * It utilizes dynamic attributes based on whether the component acts as a placeholder
  * or as a rendering to properly render the surrounding code blocks.
@@ -55,7 +60,9 @@ export const PlaceholderMetadata = ({
 
         for (const placeholder of Object.keys(rendering.placeholders)) {
           if (placeholderName === placeholder) {
-            phId = `${placeholderName}_${id}`;
+            phId = id
+              ? `${placeholderName}_${id}`
+              : `${placeholderName}_${DEFAULT_PLACEHOLDER_UID}`;
             break;
           }
 

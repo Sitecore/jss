@@ -31,7 +31,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:41](https://github.com/Sitecore/jss/blob/c9d87aeba/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L41)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:41](https://github.com/Sitecore/jss/blob/cafe663df/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L41)
 
 ___
 
@@ -43,7 +43,7 @@ The language
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:36](https://github.com/Sitecore/jss/blob/c9d87aeba/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L36)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:36](https://github.com/Sitecore/jss/blob/cafe663df/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L36)
 
 ___
 
@@ -59,7 +59,7 @@ Pick.retries
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:71](https://github.com/Sitecore/jss/blob/c9d87aeba/packages/sitecore-jss/src/graphql-request-client.ts#L71)
+[packages/sitecore-jss/src/graphql-request-client.ts:71](https://github.com/Sitecore/jss/blob/cafe663df/packages/sitecore-jss/src/graphql-request-client.ts#L71)
 
 ___
 
@@ -76,7 +76,7 @@ Pick.retryStrategy
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:76](https://github.com/Sitecore/jss/blob/c9d87aeba/packages/sitecore-jss/src/graphql-request-client.ts#L76)
+[packages/sitecore-jss/src/graphql-request-client.ts:76](https://github.com/Sitecore/jss/blob/cafe663df/packages/sitecore-jss/src/graphql-request-client.ts#L76)
 
 ___
 
@@ -88,4 +88,4 @@ The JSS application name
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:32](https://github.com/Sitecore/jss/blob/c9d87aeba/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L32)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:32](https://github.com/Sitecore/jss/blob/cafe663df/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L32)
