@@ -8,7 +8,6 @@ export const layoutData = {
     },
     route: {
       name: 'main',
-      uid: 'root123',
       placeholders: {
         main: [
           {
@@ -37,7 +36,6 @@ export const layoutDataWithEmptyPlaceholder = {
     },
     route: {
       name: 'main',
-      uid: 'root123',
       placeholders: {
         main: [],
       },
@@ -53,7 +51,6 @@ export const layoutDataWithUnknownComponent = {
     },
     route: {
       name: 'main',
-      uid: 'root123',
       placeholders: {
         main: [
           {
@@ -74,7 +71,6 @@ export const layoutDataForNestedDynamicPlaceholder = (rootPhKey: string) => ({
     },
     route: {
       name: 'main',
-      uid: 'root123',
       placeholders: {
         [rootPhKey]: [
           {
