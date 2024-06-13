@@ -31,7 +31,7 @@ true
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:25](https://github.com/Sitecore/jss/blob/dffa5052d/packages/sitecore-jss-react/src/components/RichText.tsx#L25)
+[packages/sitecore-jss-react/src/components/RichText.tsx:25](https://github.com/Sitecore/jss/blob/db53d5411/packages/sitecore-jss-react/src/components/RichText.tsx#L25)
 
 ___
 
@@ -43,7 +43,7 @@ The rich text field data.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:14](https://github.com/Sitecore/jss/blob/dffa5052d/packages/sitecore-jss-react/src/components/RichText.tsx#L14)
+[packages/sitecore-jss-react/src/components/RichText.tsx:14](https://github.com/Sitecore/jss/blob/db53d5411/packages/sitecore-jss-react/src/components/RichText.tsx#L14)
 
 ___
 
@@ -61,4 +61,4 @@ The HTML element that will wrap the contents of the field.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:19](https://github.com/Sitecore/jss/blob/dffa5052d/packages/sitecore-jss-react/src/components/RichText.tsx#L19)
+[packages/sitecore-jss-react/src/components/RichText.tsx:19](https://github.com/Sitecore/jss/blob/db53d5411/packages/sitecore-jss-react/src/components/RichText.tsx#L19)
