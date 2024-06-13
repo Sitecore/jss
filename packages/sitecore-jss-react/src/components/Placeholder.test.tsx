@@ -20,6 +20,7 @@ import {
   sxaRenderingVariantDoubleDigitDynamicPlaceholder as sxaRenderingDoubleDigitContainerName,
   sxaRenderingVariantDataWithoutCommonContainerName as sxaRenderingWithoutContainerName,
 } from '../test-data/non-ee-data';
+import * as metadataData from '../test-data/metadata-data';
 import * as SxaRichText from '../test-data/sxa-rich-text';
 import * as BYOCComponent from './BYOCComponent';
 import * as BYOCWrapper from './BYOCWrapper';
@@ -789,72 +790,19 @@ it('should render custom HiddenRendering when rendering is hidden', () => {
 });
 
 describe('PlaceholderMetadata', () => {
-  const layoutDataForNestedPlaceholder = {
-    sitecore: {
-      context: {
-        pageEditing: true,
-        editMode: EditMode.Metadata,
-      },
-      route: {
-        name: 'main',
-        placeholders: {
-          main: [
-            {
-              uid: 'nested123',
-              componentName: 'Header',
-              placeholders: {
-                logo: [
-                  {
-                    uid: 'deep123',
-                    componentName: 'Logo',
-                  },
-                ],
-              },
-            },
-          ],
-        },
-      },
-    },
-  };
-
-  const layoutDataForNestedDynamicPlaceholder = (rootPhKey: string) => ({
-    sitecore: {
-      context: {
-        pageEditing: true,
-        editMode: EditMode.Metadata,
-      },
-      route: {
-        name: 'main',
-        uid: 'root123',
-        placeholders: {
-          [rootPhKey]: [
-            {
-              uid: 'nested123',
-              componentName: 'Header',
-              placeholders: {
-                logo: [
-                  {
-                    uid: 'deep123',
-                    componentName: 'Logo',
-                  },
-                ],
-              },
-            },
-          ],
-        },
-      },
-    },
-  });
+  const {
+    layoutData,
+    layoutDataForNestedDynamicPlaceholder,
+    layoutDataWithEmptyPlaceholder,
+    layoutDataWithUnknownComponent,
+  } = metadataData;
 
   const componentFactory: ComponentFactory = (componentName: string) => {
     const components = new Map<string, React.FC>();
 
     components.set('Header', () => (
       <div className="header-wrapper">
-        <Placeholder
-          name="logo"
-          rendering={layoutDataForNestedPlaceholder.sitecore.route.placeholders.main[0]}
-        />
+        <Placeholder name="logo" rendering={layoutData.sitecore.route.placeholders.main[0]} />
       </div>
     ));
     components.set('Logo', () => <div className="Logo-mock" />);
@@ -864,11 +812,8 @@ describe('PlaceholderMetadata', () => {
 
   it('should render <PlaceholderMetadata> with nested placeholder components', () => {
     const wrapper = mount(
-      <SitecoreContext
-        componentFactory={componentFactory}
-        layoutData={layoutDataForNestedPlaceholder}
-      >
-        <Placeholder name="main" rendering={layoutDataForNestedPlaceholder.sitecore.route} />
+      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
+        <Placeholder name="main" rendering={layoutData.sitecore.route} />
       </SitecoreContext>
     );
 
@@ -892,24 +837,12 @@ describe('PlaceholderMetadata', () => {
   });
 
   it('should render code blocks even if placeholder is empty', () => {
-    const layoutData = {
-      sitecore: {
-        context: {
-          pageEditing: true,
-          editMode: EditMode.Metadata,
-        },
-        route: {
-          name: 'main',
-          placeholders: {
-            main: [],
-          },
-        },
-      },
-    };
-
     const wrapper = shallow(
-      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
-        <Placeholder name="main" rendering={layoutData.sitecore.route} />
+      <SitecoreContext
+        componentFactory={componentFactory}
+        layoutData={layoutDataWithEmptyPlaceholder}
+      >
+        <Placeholder name="main" rendering={layoutDataWithEmptyPlaceholder.sitecore.route} />
       </SitecoreContext>
     );
 
@@ -924,29 +857,12 @@ describe('PlaceholderMetadata', () => {
   });
 
   it('should render missing component with code blocks if component is not registered', () => {
-    const layoutData = {
-      sitecore: {
-        context: {
-          pageEditing: true,
-          editMode: EditMode.Metadata,
-        },
-        route: {
-          name: 'main',
-          placeholders: {
-            main: [
-              {
-                uid: '123',
-                componentName: 'Unknown',
-              },
-            ],
-          },
-        },
-      },
-    };
-
     const wrapper = shallow(
-      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
-        <Placeholder name="main" rendering={layoutData.sitecore.route} />
+      <SitecoreContext
+        componentFactory={componentFactory}
+        layoutData={layoutDataWithUnknownComponent}
+      >
+        <Placeholder name="main" rendering={layoutDataWithUnknownComponent.sitecore.route} />
       </SitecoreContext>
     );
 
