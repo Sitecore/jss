@@ -28,25 +28,25 @@ function transformPayload(payload) {
 
   const event = github.event.watch;
 
-  let userInfoRes;
-  try {
-    userInfoRes = await fetch(
-      `https://api.github.com/repos/${github.event.repository.owner.login}/${github.event.repository.name}/collaborators/${event.user.login}/permission`,
-      {
-        headers: {
-          Authorization: `Bearer ${github.token}`,
-        },
-      }
-    );
+  // let userInfoRes;
+  // try {
+  //   userInfoRes = await fetch(
+  //     `https://api.github.com/repos/${github.event.repository.owner.login}/${github.event.repository.name}/collaborators/${event.user.login}/permission`,
+  //     {
+  //       headers: {
+  //         Authorization: `Bearer ${github.token}`,
+  //       },
+  //     }
+  //   );
 
-    userInfoRes = await userInfoRes.json();
-  } catch (error) {
-    console.log('Error occurred while fetching user permission', error);
-    process.exit(1);
-  }
+  //   userInfoRes = await userInfoRes.json();
+  // } catch (error) {
+  //   console.log('Error occurred while fetching user permission', error);
+  //   process.exit(1);
+  // }
 
   // don't create Jira issue if PR is created by admin
-  if (github.event.watch && userInfoRes.permission === 'admin') {
+  if (github.event.watch) {
     // TODO: add better log message
     console.log('Skipped 2');
     return;
