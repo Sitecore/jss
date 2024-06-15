@@ -28,22 +28,7 @@ function transformPayload(payload) {
 
   const event = github.event.watch;
 
-  // let userInfoRes;
-  // try {
-  //   userInfoRes = await fetch(
-  //     `https://api.github.com/repos/${github.event.repository.owner.login}/${github.event.repository.name}/collaborators/${event.user.login}/permission`,
-  //     {
-  //       headers: {
-  //         Authorization: `Bearer ${github.token}`,
-  //       },
-  //     }
-  //   );
-
-  //   userInfoRes = await userInfoRes.json();
-  // } catch (error) {
-  //   console.log('Error occurred while fetching user permission', error);
-  //   process.exit(1);
-  // }
+  console.log(github.event);
 
   // don't create Jira issue if PR is created by admin
   if (github.event.watch) {
