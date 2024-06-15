@@ -1,5 +1,8 @@
 ﻿name: Notify Teams
 on:
+  push:
+    branches:
+      - "feature/teams-notification"
   release:
     types: [published]
   watch:
