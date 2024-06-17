@@ -9,13 +9,14 @@ function transformPayload(payload) {
   const title = `JSS Release: ${payload.tag_name}`;
   const releaseUrl = payload.html_url;
   const publishedBy = payload.author.login;
+  const body = payload.body;
 
   const teamsPayload = {
     '@type': 'MessageCard',
     '@context': 'http://schema.org/extensions',
     themeColor: '0076D7',
-    title,
-    text: `**Release:** ${releaseUrl}\n\n**Published by:** ${publishedBy}`,
+    title: title,
+    text: `**Release:** ${releaseUrl}\n\n**Published by:** ${publishedBy}\n\n**Changelog:**\n\n${body}`,
   };
   return teamsPayload;
 }
