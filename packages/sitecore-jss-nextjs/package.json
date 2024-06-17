@@ -76,7 +76,6 @@
     "@sitecore-jss/sitecore-jss-dev-tools": "22.1.0-canary.30",
     "@sitecore-jss/sitecore-jss-react": "22.1.0-canary.30",
     "@vercel/kv": "^0.2.1",
-    "node-html-parser": "^6.1.4",
     "prop-types": "^15.8.1",
     "regex-parser": "^2.2.11",
     "sync-disk-cache": "^2.1.0"

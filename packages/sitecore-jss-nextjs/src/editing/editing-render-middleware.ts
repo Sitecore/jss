@@ -1,13 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
 import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
-import {
-  EDITING_COMPONENT_ID,
-  EditMode,
-  LayoutServicePageState,
-  RenderingType,
-} from '@sitecore-jss/sitecore-jss/layout';
-import { parse } from 'node-html-parser';
+import { EditMode, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
 import { EditingData } from './editing-data';
 import { EditingDataService, editingDataService } from './editing-data-service';
 import { EDITING_ALLOWED_ORIGINS, QUERY_PARAM_EDITING_SECRET } from './constants';
@@ -160,13 +154,6 @@ export class ChromesHandler extends RenderMiddlewareBase {
       // certain route configurations (e.g. multiple catch-all routes).
       // The following line will trick it into thinking we're SSR, thus avoiding any router.replace.
       html = html.replace(STATIC_PROPS_ID, SERVER_PROPS_ID);
-
-      if (editingData.layoutData.sitecore.context.renderingType === RenderingType.Component) {
-        // Handle component rendering. Extract component markup only
-        html = parse(html).getElementById(EDITING_COMPONENT_ID)?.innerHTML;
-
-        if (!html) throw new Error(`Failed to render component for ${editingData.path}`);
-      }
 
       const body = { html };
 

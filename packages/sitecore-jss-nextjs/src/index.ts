@@ -34,9 +34,6 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-  RenderingType,
-  EDITING_COMPONENT_PLACEHOLDER,
-  EDITING_COMPONENT_ID,
   getContentStylesheetLink,
   EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
@@ -119,7 +116,6 @@ export {
 export { Link, LinkProps } from './components/Link';
 export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
-export { EditingComponentPlaceholder } from './components/EditingComponentPlaceholder';
 export { NextImage } from './components/NextImage';
 import * as FEaaSWrapper from './components/FEaaSWrapper';
 import * as BYOCWrapper from './components/BYOCWrapper';

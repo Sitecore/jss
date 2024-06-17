@@ -5708,7 +5708,6 @@ __metadata:
     mocha: ^10.2.0
     next: ^14.1.0
     nock: ^13.3.0
-    node-html-parser: ^6.1.4
     nyc: ^15.1.0
     prop-types: ^15.8.1
     react: ^18.2.0
@@ -20213,16 +20212,6 @@ __metadata:
   bin:
     node-gyp: bin/node-gyp.js
   checksum: 60a74e66d364903ce02049966303a57f898521d139860ac82744a5fdd9f7b7b3b61f75f284f3bfe6e6add3b8f1871ce305a1d41f775c7482de837b50c792223f
-  languageName: node
-  linkType: hard
-
-"node-html-parser@npm:^6.1.4":
-  version: 6.1.11
-  resolution: "node-html-parser@npm:6.1.11"
-  dependencies:
-    css-select: ^5.1.0
-    he: 1.2.0
-  checksum: 65900e8b664eec99710ca711c7fd1120977cbe8c7798495962ccb6deeda35a32ab49798870743d74b437afc0f1073a678da9e95abe12a5f24467e9560b6a54d3
   languageName: node
   linkType: hard
 
