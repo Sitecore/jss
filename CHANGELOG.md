@@ -47,6 +47,7 @@ Our versioning strategy is as follows:
 ### 🧹 Chores
 
 * Update node/types to version 20 in all packages and samples ([#1810](https://github.com/Sitecore/jss/pull/1810))
+* Github - Teams integration ([#1823](https://github.com/Sitecore/jss/pull/1823))
 
 ## 22.0.0
 
