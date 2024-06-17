@@ -135,3 +135,24 @@
         }
         ...
     ```
+
+* The implementation of 'EditingComponentPlaceholder' has been removed. Its purpose to avoid refreshing the entire page during component editing in Pages had never been fully utilized. The references to it and to `RenderingType` enum in `[[...path]].tsx` of the nextjs app (and in any custom code) should be removed: 
+
+    ```ts
+        import Layout from 'src/Layout';
+        import { RenderingType, EditingComponentPlaceholder } from '@sitecore-jss/sitecore-jss-nextjs';
+        ...
+        const isComponentRendering =
+            layoutData.sitecore.context.renderingType === RenderingType.Component;
+        ...
+        {/*
+          Sitecore Pages supports component rendering to avoid refreshing the entire page during component editing.
+          If you are using Experience Editor only, this logic can be removed, Layout can be left.
+        */}
+        {isComponentRendering ? (
+          <EditingComponentPlaceholder rendering={layoutData.sitecore.route} />
+        ) : (
+          <Layout layoutData={layoutData} headLinks={headLinks} />
+        )}
+        ...
+    ```
