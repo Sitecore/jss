@@ -20,7 +20,6 @@ Shape of context data from the Sitecore Layout Service
 - [language](index.LayoutServiceContext.md#language)
 - [pageEditing](index.LayoutServiceContext.md#pageediting)
 - [pageState](index.LayoutServiceContext.md#pagestate)
-- [renderingType](index.LayoutServiceContext.md#renderingtype)
 - [site](index.LayoutServiceContext.md#site)
 - [visitorIdentificationTimestamp](index.LayoutServiceContext.md#visitoridentificationtimestamp)
 
@@ -32,7 +31,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:55
+sitecore-jss/types/layout/models.d.ts:40
 
 ___
 
@@ -42,7 +41,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:54
+sitecore-jss/types/layout/models.d.ts:39
 
 ___
 
@@ -52,7 +51,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:53
+sitecore-jss/types/layout/models.d.ts:38
 
 ___
 
@@ -62,7 +61,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:47
+sitecore-jss/types/layout/models.d.ts:32
 
 ___
 
@@ -72,7 +71,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:46
+sitecore-jss/types/layout/models.d.ts:31
 
 ___
 
@@ -82,17 +81,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:48
-
-___
-
-### renderingType
-
-• `Optional` **renderingType**: [`Component`](../enums/index.RenderingType.md#component)
-
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:45
+sitecore-jss/types/layout/models.d.ts:33
 
 ___
 
@@ -108,7 +97,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:50
+sitecore-jss/types/layout/models.d.ts:35
 
 ___
 
@@ -118,4 +107,4 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:49
+sitecore-jss/types/layout/models.d.ts:34

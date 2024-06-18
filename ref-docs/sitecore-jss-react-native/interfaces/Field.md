@@ -23,7 +23,7 @@
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:131
+sitecore-jss/types/layout/models.d.ts:116
 
 ___
 
@@ -33,4 +33,4 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:130
+sitecore-jss/types/layout/models.d.ts:115

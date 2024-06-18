@@ -21,7 +21,7 @@ Represents the possible modes for rendering content in Sitecore Editor
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:37
+packages/sitecore-jss/types/layout/models.d.ts:23
 
 ___
 
@@ -31,4 +31,4 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:38
+packages/sitecore-jss/types/layout/models.d.ts:24
