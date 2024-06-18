@@ -145,10 +145,6 @@
         const isComponentRendering =
             layoutData.sitecore.context.renderingType === RenderingType.Component;
         ...
-        {/*
-          Sitecore Pages supports component rendering to avoid refreshing the entire page during component editing.
-          If you are using Experience Editor only, this logic can be removed, Layout can be left.
-        */}
         {isComponentRendering ? (
           <EditingComponentPlaceholder rendering={layoutData.sitecore.route} />
         ) : (
