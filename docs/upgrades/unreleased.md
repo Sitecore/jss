@@ -84,6 +84,23 @@
     }).getHandler();
     ```
 
+* The implementation of 'EditingComponentPlaceholder' has been removed. Its purpose to avoid refreshing the entire page during component editing in Pages had never been fully utilized. The references to it and to `RenderingType` enum in `[[...path]].tsx` of the nextjs app (and in any custom code) should be removed: 
+
+    ```ts
+        import Layout from 'src/Layout';
+        import { RenderingType, EditingComponentPlaceholder } from '@sitecore-jss/sitecore-jss-nextjs';
+        ...
+        const isComponentRendering =
+            layoutData.sitecore.context.renderingType === RenderingType.Component;
+        ...
+        {isComponentRendering ? (
+          <EditingComponentPlaceholder rendering={layoutData.sitecore.route} />
+        ) : (
+          <Layout layoutData={layoutData} headLinks={headLinks} />
+        )}
+        ...
+    ```
+
 # nextjs-xmcloud
 
 * Render a new `EditingScripts` component in your `Scripts.ts` file to support a new Editing Integration feature.
@@ -133,22 +150,5 @@
             : { ...props.fields.Image };
             ...
         }
-        ...
-    ```
-
-* The implementation of 'EditingComponentPlaceholder' has been removed. Its purpose to avoid refreshing the entire page during component editing in Pages had never been fully utilized. The references to it and to `RenderingType` enum in `[[...path]].tsx` of the nextjs app (and in any custom code) should be removed: 
-
-    ```ts
-        import Layout from 'src/Layout';
-        import { RenderingType, EditingComponentPlaceholder } from '@sitecore-jss/sitecore-jss-nextjs';
-        ...
-        const isComponentRendering =
-            layoutData.sitecore.context.renderingType === RenderingType.Component;
-        ...
-        {isComponentRendering ? (
-          <EditingComponentPlaceholder rendering={layoutData.sitecore.route} />
-        ) : (
-          <Layout layoutData={layoutData} headLinks={headLinks} />
-        )}
         ...
     ```
