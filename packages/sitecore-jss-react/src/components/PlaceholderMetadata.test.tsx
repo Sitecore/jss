@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
 
-describe('PlaceholderMetadata', () => {
+describe.only('PlaceholderMetadata', () => {
   it('renders rendering code blocks for metadataType rendering', () => {
     const children = <div className="richtext-class"></div>;
 
@@ -74,7 +74,7 @@ describe('PlaceholderMetadata', () => {
     const wrapper = shallow(
       <PlaceholderMetadata
         rendering={{
-          uid: '123',
+          uid: 'renderinguid',
           componentName: 'RichText',
           placeholders: { 'main-{*}': [] },
         }}
@@ -86,7 +86,7 @@ describe('PlaceholderMetadata', () => {
 
     expect(wrapper.html()).to.equal(
       [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main-{*}"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main-{*}_renderinguid"></code>',
         '<div class="richtext-mock"></div>',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
       ].join('')
@@ -98,7 +98,7 @@ describe('PlaceholderMetadata', () => {
     const wrapper = shallow(
       <PlaceholderMetadata
         rendering={{
-          uid: '123',
+          uid: 'renderinguid',
           componentName: 'RichText',
           placeholders: { 'main-1-{*}': [] },
         }}
@@ -110,7 +110,7 @@ describe('PlaceholderMetadata', () => {
 
     expect(wrapper.html()).to.equal(
       [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main-1-{*}"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main-1-{*}_renderinguid"></code>',
         '<div class="richtext-mock"></div>',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
       ].join('')
