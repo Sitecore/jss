@@ -101,15 +101,18 @@ describe('GraphQLEditingService', () => {
     expect(result).to.deep.equal({
       layoutData: layoutDataResponse,
       dictionary: {
+        /* TODO: revert when dictionary schema updated
         foo: 'foo-phrase',
         bar: 'bar-phrase',
+      */
       },
     });
 
     spy.restore(clientFactorySpy);
   });
 
-  it('should fetch editing data when dicionary has multiple pages', async () => {
+  // TODO: re-enable when dictionary schema updated
+  xit('should fetch editing data when dicionary has multiple pages', async () => {
     nock(hostname, { reqheaders: { sc_editMode: 'true' } })
       .post(endpointPath, /EditingQuery/gi)
       .reply(200, mockEditingServiceResponse(true));
@@ -160,7 +163,7 @@ describe('GraphQLEditingService', () => {
       .to.be.called.with(dictionaryQuery, {
         language,
         siteName,
-        after: 'cursor',
+        after: '',
       });
 
     expect(clientFactorySpy.returnValues[0].request)
@@ -174,8 +177,10 @@ describe('GraphQLEditingService', () => {
     expect(result).to.deep.equal({
       layoutData: layoutDataResponse,
       dictionary: {
+        /* TODO: revert when dictionary schema updated
         foo: 'foo-phrase',
         bar: 'bar-phrase',
+      */
         'foo-one': 'foo-one-phrase',
         'bar-one': 'bar-one-phrase',
         'foo-two': 'foo-two-phrase',
@@ -222,5 +227,28 @@ describe('GraphQLEditingService', () => {
     } catch (error) {
       expect(error.response.error).to.equal('Internal server error');
     }
+  });
+
+  // TODO: remove when dictionary site schema available
+  it('should return empty dictionary results', async () => {
+    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+      .post(endpointPath, /EditingQuery/gi)
+      .reply(200, editingData);
+
+    const service = new GraphQLEditingService({
+      clientFactory,
+    });
+
+    const result = await service.fetchEditingData({
+      language,
+      version,
+      itemId,
+      siteName,
+    });
+
+    expect(result).to.deep.equal({
+      layoutData: layoutDataResponse,
+      dictionary: {},
+    });
   });
 });
