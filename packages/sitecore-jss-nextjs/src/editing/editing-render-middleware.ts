@@ -327,6 +327,7 @@ export class MetadataHandler {
       'sc_lang',
       'sc_variant',
       'sc_version',
+      'route',
       'mode',
     ];
 

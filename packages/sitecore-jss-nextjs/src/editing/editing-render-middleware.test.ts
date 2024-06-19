@@ -250,7 +250,7 @@ describe('EditingRenderMiddleware', () => {
       expect(res.json).to.have.been.calledOnce;
       expect(res.json).to.have.been.calledWith({
         html:
-          '<html><body>Missing required query parameters: sc_itemid, sc_lang, sc_variant, mode</body></html>',
+          '<html><body>Missing required query parameters: sc_itemid, sc_lang, sc_variant, route, mode</body></html>',
       });
     });
 
