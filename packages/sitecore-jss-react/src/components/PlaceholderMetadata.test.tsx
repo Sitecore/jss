@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
 
-describe.only('PlaceholderMetadata', () => {
+describe('PlaceholderMetadata', () => {
   it('renders rendering code blocks for metadataType rendering', () => {
     const children = <div className="richtext-class"></div>;
 
@@ -69,7 +69,7 @@ describe.only('PlaceholderMetadata', () => {
     );
   });
 
-  it('renders placeholder code blocks when metadataType is dynamic placeholder', () => {
+  it('renders placeholder blocks with rendering uid when metadataType is dynamic placeholder', () => {
     const children = <div className="richtext-mock"></div>;
     const wrapper = shallow(
       <PlaceholderMetadata
@@ -87,6 +87,29 @@ describe.only('PlaceholderMetadata', () => {
     expect(wrapper.html()).to.equal(
       [
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main-{*}_renderinguid"></code>',
+        '<div class="richtext-mock"></div>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
+      ].join('')
+    );
+  });
+
+  it('renders placeholder blocks with DEFAULT_PLACEHOLDER_UID value when metadataType is dynamic placeholder and uid is not present', () => {
+    const children = <div className="richtext-mock"></div>;
+    const wrapper = shallow(
+      <PlaceholderMetadata
+        rendering={{
+          componentName: 'RichText',
+          placeholders: { 'main-{*}': [] },
+        }}
+        placeholderName={'main-1'}
+      >
+        {children}
+      </PlaceholderMetadata>
+    );
+
+    expect(wrapper.html()).to.equal(
+      [
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main-{*}_00000000-0000-0000-0000-000000000000"></code>',
         '<div class="richtext-mock"></div>',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
       ].join('')
