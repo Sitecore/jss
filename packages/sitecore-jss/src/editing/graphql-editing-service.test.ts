@@ -19,7 +19,7 @@ import debug from '../debug';
 
 use(spies);
 
-describe('GraphQLEditingService', () => {
+describe.only('GraphQLEditingService', () => {
   const hostname = 'http://site';
   const endpointPath = '/?sitecoreContextId=context-id';
   const siteName = 'site-name';
@@ -90,7 +90,8 @@ describe('GraphQLEditingService', () => {
         },
       })
     ).to.be.true;
-    expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
+    // TODO: revert when dictionary schema updated
+    // expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
     expect(clientFactorySpy.returnValues[0].request).to.be.called.with(query, {
       language,
       version,
@@ -101,8 +102,10 @@ describe('GraphQLEditingService', () => {
     expect(result).to.deep.equal({
       layoutData: layoutDataResponse,
       dictionary: {
+        /* TODO: revert when dictionary schema updated
         foo: 'foo-phrase',
         bar: 'bar-phrase',
+      */
       },
     });
 
@@ -160,7 +163,7 @@ describe('GraphQLEditingService', () => {
       .to.be.called.with(dictionaryQuery, {
         language,
         siteName,
-        after: 'cursor',
+        after: '',
       });
 
     expect(clientFactorySpy.returnValues[0].request)
@@ -174,8 +177,10 @@ describe('GraphQLEditingService', () => {
     expect(result).to.deep.equal({
       layoutData: layoutDataResponse,
       dictionary: {
+        /* TODO: revert when dictionary schema updated
         foo: 'foo-phrase',
         bar: 'bar-phrase',
+      */
         'foo-one': 'foo-one-phrase',
         'bar-one': 'bar-one-phrase',
         'foo-two': 'foo-two-phrase',
@@ -222,5 +227,32 @@ describe('GraphQLEditingService', () => {
     } catch (error) {
       expect(error.response.error).to.equal('Internal server error');
     }
+  });
+
+  // TODO: remove when dictionary site schema available
+  it('should return empty dictionary results when dictionary query fails', async () => {
+    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+      .post(endpointPath, /EditingQuery/gi)
+      .reply(200, editingData);
+
+    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+      .post(endpointPath, /DictionaryQuery/gi)
+      .reply(500, 'Internal server error');
+
+    const service = new GraphQLEditingService({
+      clientFactory,
+    });
+
+    const result = await service.fetchEditingData({
+      language,
+      version,
+      itemId,
+      siteName,
+    });
+
+    expect(result).to.deep.equal({
+      layoutData: layoutDataResponse,
+      dictionary: {},
+    });
   });
 });

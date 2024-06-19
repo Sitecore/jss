@@ -12,6 +12,19 @@ const PAGE_SIZE = 1000;
 /**
  * GraphQL query for fetching editing data.
  */
+/*
+TODO: re-add dictionary part when dictionary schema updated
+site {
+      siteInfo(site: $siteName) {
+        dictionary(language: $language, first: ${PAGE_SIZE}, after: $after) {
+          results {
+            key
+            value
+          }
+        }
+      }
+    }
+*/
 export const query = /* GraphQL */ `
   query EditingQuery(
     $siteName: String!
@@ -22,16 +35,6 @@ export const query = /* GraphQL */ `
   ) {
     item(path: $itemId, language: $language, version: $version) {
       rendered
-    }
-    site {
-      siteInfo(site: $siteName) {
-        dictionary(language: $language, first: ${PAGE_SIZE}, after: $after) {
-          results {
-            key
-            value
-          }
-        }
-      }
     }
   }
 `;
@@ -132,23 +135,32 @@ export class GraphQLEditingService {
       language,
     });
 
+    /*
+    TODO: re-enable when dictionary schema updated
     dictionaryResults = editingData.site.siteInfo.dictionary.results;
     hasNext = editingData.site.siteInfo.dictionary.pageInfo.hasNext;
     after = editingData.site.siteInfo.dictionary.pageInfo.endCursor;
+    */
 
     while (hasNext) {
-      const data = await this.graphQLClient.request<GraphQLDictionaryQueryResponse>(
-        dictionaryQuery,
-        {
-          siteName,
-          language,
-          after,
-        }
-      );
-
-      dictionaryResults = dictionaryResults.concat(data.site.siteInfo.dictionary.results);
-      hasNext = data.site.siteInfo.dictionary.pageInfo.hasNext;
-      after = data.site.siteInfo.dictionary.pageInfo.endCursor;
+      // TODO: remove try-catch when dictionary schema updated
+      try {
+        const data = await this.graphQLClient.request<GraphQLDictionaryQueryResponse>(
+          dictionaryQuery,
+          {
+            siteName,
+            language,
+            after,
+          }
+        );
+        dictionaryResults = dictionaryResults.concat(data.site.siteInfo.dictionary.results);
+        hasNext = data.site.siteInfo.dictionary.pageInfo.hasNext;
+        after = data.site.siteInfo.dictionary.pageInfo.endCursor;
+      } catch (e) {
+        console.log(e);
+        console.log('Dictionary data not available, returning empty results');
+        hasNext = false;
+      }
     }
 
     dictionaryResults.forEach((item) => (dictionary[item.key] = item.value));
