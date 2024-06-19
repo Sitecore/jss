@@ -8,7 +8,6 @@
 
 - [EditMode](../enums/layout.EditMode.md)
 - [LayoutServicePageState](../enums/layout.LayoutServicePageState.md)
-- [RenderingType](../enums/layout.RenderingType.md)
 
 ### Classes
 
@@ -36,11 +35,6 @@
 - [DataFetcherResolver](layout.md#datafetcherresolver)
 - [PlaceholdersData](layout.md#placeholdersdata)
 - [RestLayoutServiceConfig](layout.md#restlayoutserviceconfig)
-
-### Variables
-
-- [EDITING\_COMPONENT\_ID](layout.md#editing_component_id)
-- [EDITING\_COMPONENT\_PLACEHOLDER](layout.md#editing_component_placeholder)
 
 ### Functions
 
@@ -80,7 +74,7 @@ Data fetcher resolver in order to provide custom data fetcher
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
 
 ___
 
@@ -99,7 +93,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:91](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss/src/layout/models.ts#L91)
+[packages/sitecore-jss/src/layout/models.ts:75](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss/src/layout/models.ts#L75)
 
 ___
 
@@ -120,31 +114,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
-
-## Variables
-
-### EDITING\_COMPONENT\_ID
-
-• `Const` **EDITING\_COMPONENT\_ID**: ``"editing-component"``
-
-Id of wrapper for component rendering
-
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:9](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss/src/layout/models.ts#L9)
-
-___
-
-### EDITING\_COMPONENT\_PLACEHOLDER
-
-• `Const` **EDITING\_COMPONENT\_PLACEHOLDER**: ``"editing-componentmode-placeholder"``
-
-Static placeholder name used for component rendering
-
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss/src/layout/models.ts#L4)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
 
 ## Functions
 
@@ -169,7 +139,7 @@ child placeholder
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss/src/layout/utils.ts#L60)
+[packages/sitecore-jss/src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss/src/layout/utils.ts#L60)
 
 ___
 
@@ -195,7 +165,7 @@ library stylesheet links
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/themes.ts:24](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss/src/layout/themes.ts#L24)
+[packages/sitecore-jss/src/layout/themes.ts:24](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss/src/layout/themes.ts#L24)
 
 ___
 
@@ -221,7 +191,7 @@ content styles link, null if no styles are used in layout
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss/src/layout/content-styles.ts#L26)
+[packages/sitecore-jss/src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss/src/layout/content-styles.ts#L26)
 
 ___
 
@@ -253,7 +223,7 @@ the field value or null if the field is not defined
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss/src/layout/utils.ts#L10)
+[packages/sitecore-jss/src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss/src/layout/utils.ts#L10)
 
 ▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -279,4 +249,4 @@ the field value or the default value if the field is not defined
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss/src/layout/utils.ts#L15)
+[packages/sitecore-jss/src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss/src/layout/utils.ts#L15)

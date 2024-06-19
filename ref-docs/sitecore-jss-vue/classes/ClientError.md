@@ -155,7 +155,7 @@ Error.prepareStackTrace
 
 #### Defined in
 
-packages/sitecore-jss-vue/node_modules/@types/node/ts4.8/globals.d.ts:27
+packages/sitecore-jss-vue/node_modules/@types/node/globals.d.ts:28
 
 ___
 
@@ -169,7 +169,7 @@ Error.stackTraceLimit
 
 #### Defined in
 
-packages/sitecore-jss-vue/node_modules/@types/node/ts4.8/globals.d.ts:29
+packages/sitecore-jss-vue/node_modules/@types/node/globals.d.ts:30
 
 ## Methods
 
@@ -196,4 +196,4 @@ Error.captureStackTrace
 
 #### Defined in
 
-packages/sitecore-jss-vue/node_modules/@types/node/ts4.8/globals.d.ts:20
+packages/sitecore-jss-vue/node_modules/@types/node/globals.d.ts:21

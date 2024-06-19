@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { spy } from 'sinon';
@@ -243,6 +243,50 @@ describe('ErrorBoundary', () => {
     });
   });
   describe('when not in page editing and not in development mode', () => {
+    const delay = (timeout, promise?) => {
+      return new Promise((resolve) => {
+        setTimeout(resolve, timeout);
+      }).then(() => promise);
+    };
+
+    const ItsADynamicComponent = React.lazy(() =>
+      delay(500, import('../test-data/test-dynamic-component'))
+    );
+
+    it('should render a loading message', async () => {
+      const rendered = mount(
+        <ErrorBoundary>
+          <ItsADynamicComponent />
+        </ErrorBoundary>
+      );
+      expect(rendered.text()).to.equal('Loading component...');
+    });
+
+    it('should render custom loading message', async () => {
+      const loading = 'I am customly loading...';
+      const rendered = mount(
+        <ErrorBoundary componentLoadingMessage={loading}>
+          <ItsADynamicComponent />
+        </ErrorBoundary>
+      );
+      expect(rendered.text()).to.equal(loading);
+    });
+
+    it('should not render Suspense and default loading message when wrapping a dynamic component', async () => {
+      // mount fails with lazy component and no suspense
+      const rendered = mount(
+        <Suspense>
+          <ErrorBoundary isDynamic={true}>
+            <ItsADynamicComponent />
+          </ErrorBoundary>
+        </Suspense>
+      );
+      expect(rendered.text()).to.equal('');
+      await delay(500);
+      rendered.update();
+      expect(rendered.text()).to.equal('No error');
+    });
+
     it('Should render custom error component when custom error component is provided and error is thrown', () => {
       const errorMessage = 'an error occured';
       const TestErrorComponent: React.FC = () => {

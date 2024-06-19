@@ -7,7 +7,7 @@ import {
   DefaultEditFrameButton,
   EditButtonTypes,
   EditFrameDataSource,
-} from '@sitecore-jss/sitecore-jss/utils';
+} from '@sitecore-jss/sitecore-jss/editing';
 import { LayoutServiceContextData, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import { RouterTestingModule } from '@angular/router/testing';
 

@@ -44,7 +44,7 @@ PlaceholderProps.componentFactory
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:25
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:37
 
 ___
 
@@ -60,7 +60,7 @@ PlaceholderProps.componentLoadingMessage
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:68
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:80
 
 ___
 
@@ -77,7 +77,7 @@ PlaceholderProps.errorComponent
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:60
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:72
 
 ___
 
@@ -98,7 +98,7 @@ PlaceholderProps.fields
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:30
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:42
 
 ___
 
@@ -114,7 +114,7 @@ PlaceholderProps.hiddenRenderingComponent
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:55
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:67
 
 ___
 
@@ -131,7 +131,7 @@ PlaceholderProps.missingComponentComponent
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:51
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:63
 
 ___
 
@@ -164,7 +164,7 @@ PlaceholderProps.modifyComponentProps
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:46
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:58
 
 ___
 
@@ -180,7 +180,7 @@ PlaceholderProps.name
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:18
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:30
 
 ___
 
@@ -201,7 +201,7 @@ PlaceholderProps.params
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:37
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:49
 
 ___
 
@@ -301,7 +301,7 @@ PlaceholderProps.rendering
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:20
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:32
 
 ___
 
@@ -317,4 +317,4 @@ PlaceholderProps.sitecoreContext
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:64
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:76

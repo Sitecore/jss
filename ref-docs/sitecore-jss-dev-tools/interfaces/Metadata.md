@@ -22,4 +22,4 @@ Application metadata
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:5
+sitecore-jss/types/editing/utils.d.ts:5

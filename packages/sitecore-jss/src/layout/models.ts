@@ -1,14 +1,4 @@
 /**
- * Static placeholder name used for component rendering
- */
-export const EDITING_COMPONENT_PLACEHOLDER = 'editing-componentmode-placeholder';
-
-/**
- * Id of wrapper for component rendering
- */
-export const EDITING_COMPONENT_ID = 'editing-component';
-
-/**
  * A reply from the Sitecore Layout Service
  */
 export interface LayoutServiceData {
@@ -27,14 +17,9 @@ export enum LayoutServicePageState {
 }
 
 /**
- * Editing rendering type
- */
-export enum RenderingType {
-  Component = 'component',
-}
-
-/**
- * Represents the possible modes for rendering content in Pages
+ * Represents the possible modes for rendering content in Sitecore Editor
+ * - chromes - supported by Sitecore Experience Editor / Pages
+ * - metadata - supported by Sitecore Pages
  */
 export enum EditMode {
   Chromes = 'chromes',
@@ -46,7 +31,6 @@ export enum EditMode {
  */
 export interface LayoutServiceContext {
   [key: string]: unknown;
-  renderingType?: RenderingType;
   pageEditing?: boolean;
   language?: string;
   pageState?: LayoutServicePageState;

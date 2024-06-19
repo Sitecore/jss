@@ -11,6 +11,7 @@ export type ErrorBoundaryProps = {
   children: ReactNode;
   sitecoreContext: SitecoreContextValue;
   type: string;
+  isDynamic?: boolean;
   errorComponent?: React.ComponentClass<ErrorComponentProps> | React.FC<ErrorComponentProps>;
   rendering?: ComponentRendering;
   componentLoadingMessage?: string;
@@ -64,7 +65,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
                 A rendering error occurred in component{' '}
                 <em>{this.props.rendering?.componentName}</em>
                 <br />
-                Error: <em>{this.state.error.message}</em>
+                Error: <em>{this.state.error.message || JSON.stringify(this.state.error)}</em>
               </div>
             </div>
           );
@@ -76,6 +77,11 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
           );
         }
       }
+    }
+
+    // do not apply suspense on already dynamic components
+    if (this.props.isDynamic) {
+      return this.props.children;
     }
 
     return (

@@ -163,11 +163,12 @@ describe('GraphQLRequestClient', () => {
         apiKey: 'bar',
       });
 
-      const client = clientFactory({ retries: 5, timeout: 300 });
+      const client = clientFactory({ retries: 5, timeout: 300, headers: { foo: 'foo-value' } });
 
       expect(client instanceof GraphQLRequestClient).to.equal(true);
       expect(client['retries']).to.equal(5);
       expect(client['timeout']).to.equal(300);
+      expect(client['headers']).to.deep.equal({ foo: 'foo-value', sc_apikey: 'bar' });
     });
   });
 

@@ -70,8 +70,8 @@ export {
   enableDebug,
   ClientError,
 } from '@sitecore-jss/sitecore-jss';
+export { isServer } from '@sitecore-jss/sitecore-jss/utils';
 export {
-  isServer,
   isEditorActive,
   resetEditorChromes,
   handleEditorAnchors,
@@ -80,7 +80,7 @@ export {
   EditFrameDataSource,
   FieldEditButton,
   WebEditButton,
-} from '@sitecore-jss/sitecore-jss/utils';
+} from '@sitecore-jss/sitecore-jss/editing';
 export {
   trackingApi,
   TrackingRequestOptions,

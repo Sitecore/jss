@@ -20,6 +20,7 @@ import {
   sxaRenderingVariantDoubleDigitDynamicPlaceholder as sxaRenderingDoubleDigitContainerName,
   sxaRenderingVariantDataWithoutCommonContainerName as sxaRenderingWithoutContainerName,
 } from '../test-data/non-ee-data';
+import * as metadataData from '../test-data/metadata-data';
 import * as SxaRichText from '../test-data/sxa-rich-text';
 import * as BYOCComponent from './BYOCComponent';
 import * as BYOCWrapper from './BYOCWrapper';
@@ -28,7 +29,11 @@ import * as FEAASWrapper from './FEaaSWrapper';
 import { HiddenRendering } from './HiddenRendering';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import { Placeholder } from './Placeholder';
-import { ComponentProps } from './PlaceholderCommon';
+import {
+  ComponentProps,
+  getDynamicPlaceholderPattern,
+  isDynamicPlaceholder,
+} from './PlaceholderCommon';
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
@@ -785,44 +790,19 @@ it('should render custom HiddenRendering when rendering is hidden', () => {
 });
 
 describe('PlaceholderMetadata', () => {
-  const layoutDataForNestedPlaceholder = {
-    sitecore: {
-      context: {
-        pageEditing: true,
-        editMode: EditMode.Metadata,
-      },
-      route: {
-        name: 'main',
-        uid: 'root123',
-        placeholders: {
-          main: [
-            {
-              uid: 'nested123',
-              componentName: 'Header',
-              placeholders: {
-                logo: [
-                  {
-                    uid: 'deep123',
-                    componentName: 'Logo',
-                  },
-                ],
-              },
-            },
-          ],
-        },
-      },
-    },
-  };
+  const {
+    layoutData,
+    layoutDataForNestedDynamicPlaceholder,
+    layoutDataWithEmptyPlaceholder,
+    layoutDataWithUnknownComponent,
+  } = metadataData;
 
   const componentFactory: ComponentFactory = (componentName: string) => {
     const components = new Map<string, React.FC>();
 
     components.set('Header', () => (
       <div className="header-wrapper">
-        <Placeholder
-          name="logo"
-          rendering={layoutDataForNestedPlaceholder.sitecore.route.placeholders.main[0]}
-        />
+        <Placeholder name="logo" rendering={layoutData.sitecore.route.placeholders.main[0]} />
       </div>
     ));
     components.set('Logo', () => <div className="Logo-mock" />);
@@ -832,17 +812,14 @@ describe('PlaceholderMetadata', () => {
 
   it('should render <PlaceholderMetadata> with nested placeholder components', () => {
     const wrapper = mount(
-      <SitecoreContext
-        componentFactory={componentFactory}
-        layoutData={layoutDataForNestedPlaceholder}
-      >
-        <Placeholder name="main" rendering={layoutDataForNestedPlaceholder.sitecore.route} />
+      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
+        <Placeholder name="main" rendering={layoutData.sitecore.route} />
       </SitecoreContext>
     );
 
     expect(wrapper.html()).to.equal(
       [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_root123"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_00000000-0000-0000-0000-000000000000"></code>',
         '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="nested123"></code>',
         '<div class="header-wrapper">',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="logo_nested123"></code>',
@@ -860,32 +837,19 @@ describe('PlaceholderMetadata', () => {
   });
 
   it('should render code blocks even if placeholder is empty', () => {
-    const layoutData = {
-      sitecore: {
-        context: {
-          pageEditing: true,
-          editMode: EditMode.Metadata,
-        },
-        route: {
-          name: 'main',
-          uid: 'root123',
-          placeholders: {
-            main: [],
-          },
-        },
-      },
-    };
-
     const wrapper = shallow(
-      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
-        <Placeholder name="main" rendering={layoutData.sitecore.route} />
+      <SitecoreContext
+        componentFactory={componentFactory}
+        layoutData={layoutDataWithEmptyPlaceholder}
+      >
+        <Placeholder name="main" rendering={layoutDataWithEmptyPlaceholder.sitecore.route} />
       </SitecoreContext>
     );
 
     expect(wrapper.html()).to.equal(
       [
         '<div class="sc-jss-empty-placeholder">',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_root123"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_00000000-0000-0000-0000-000000000000"></code>',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
         '</div>',
       ].join('')
@@ -893,36 +857,18 @@ describe('PlaceholderMetadata', () => {
   });
 
   it('should render missing component with code blocks if component is not registered', () => {
-    const layoutData = {
-      sitecore: {
-        context: {
-          pageEditing: true,
-          editMode: EditMode.Metadata,
-        },
-        route: {
-          name: 'main',
-          uid: 'root123',
-          placeholders: {
-            main: [
-              {
-                uid: '123',
-                componentName: 'Unknown',
-              },
-            ],
-          },
-        },
-      },
-    };
-
     const wrapper = shallow(
-      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
-        <Placeholder name="main" rendering={layoutData.sitecore.route} />
+      <SitecoreContext
+        componentFactory={componentFactory}
+        layoutData={layoutDataWithUnknownComponent}
+      >
+        <Placeholder name="main" rendering={layoutDataWithUnknownComponent.sitecore.route} />
       </SitecoreContext>
     );
 
     expect(wrapper.html()).to.equal(
       [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_root123"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_00000000-0000-0000-0000-000000000000"></code>',
         '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="123"></code>',
         '<div style="background:darkorange;outline:5px solid orange;padding:10px;color:white;max-width:500px"><h2>Unknown</h2><p>JSS component is missing React implementation. See the developer console for more information.</p></div>',
         '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
@@ -930,7 +876,78 @@ describe('PlaceholderMetadata', () => {
       ].join('')
     );
   });
+
+  it('should render dynamic placeholder', () => {
+    const phKey = 'container-1';
+    const layoutData = layoutDataForNestedDynamicPlaceholder('container-{*}');
+    const wrapper = mount(
+      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
+        <Placeholder name={phKey} rendering={layoutData.sitecore.route} />
+      </SitecoreContext>
+    );
+
+    expect(wrapper.html()).to.equal(
+      [
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="container-{*}"></code>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="nested123"></code>',
+        '<div class="header-wrapper">',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="logo_nested123"></code>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="deep123"></code>',
+        '<div class="Logo-mock"></div><code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
+        '</div>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
+      ].join('')
+    );
+
+    expect(wrapper.find(PlaceholderMetadata).length).to.equal(4);
+  });
+
+  it('should render double digit dynamic placeholder', () => {
+    const phKey = 'container-1-2';
+    const layoutData = layoutDataForNestedDynamicPlaceholder('container-1-{*}');
+    const wrapper = mount(
+      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
+        <Placeholder name={phKey} rendering={layoutData.sitecore.route} />
+      </SitecoreContext>
+    );
+
+    expect(wrapper.html()).to.equal(
+      [
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="container-1-{*}"></code>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="nested123"></code>',
+        '<div class="header-wrapper">',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="logo_nested123"></code>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="deep123"></code>',
+        '<div class="Logo-mock"></div><code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
+        '</div>',
+        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
+      ].join('')
+    );
+
+    expect(wrapper.find(PlaceholderMetadata).length).to.equal(4);
+  });
 });
+
+it('isDynamicPlaceholder', () => {
+  expect(isDynamicPlaceholder('container-{*}')).to.be.true;
+  expect(isDynamicPlaceholder('container-1-{*}')).to.be.true;
+  expect(isDynamicPlaceholder('container-1-2')).to.be.false;
+  expect(isDynamicPlaceholder('container-1')).to.be.false;
+  expect(isDynamicPlaceholder('container-1-2-3')).to.be.false;
+  expect(isDynamicPlaceholder('container-1-{*}-3')).to.be.true;
+});
+
+it('getDynamicPlaceholderPattern', () => {
+  expect(getDynamicPlaceholderPattern('container-{*}').test('container-1')).to.be.true;
+  expect(getDynamicPlaceholderPattern('container-{*}').test('container-1-2')).to.be.false;
+  expect(getDynamicPlaceholderPattern('container-1-{*}').test('container-1-2')).to.be.true;
+  expect(getDynamicPlaceholderPattern('container-1-{*}').test('container-1-2-3')).to.be.false;
+});
+
 after(() => {
   (global as any).window.close();
 });

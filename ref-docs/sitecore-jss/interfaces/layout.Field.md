@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:145](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss/src/layout/models.ts#L145)
+[packages/sitecore-jss/src/layout/models.ts:129](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss/src/layout/models.ts#L129)
 
 ___
 
@@ -35,4 +35,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:144](https://github.com/Sitecore/jss/blob/f24581e16/packages/sitecore-jss/src/layout/models.ts#L144)
+[packages/sitecore-jss/src/layout/models.ts:128](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss/src/layout/models.ts#L128)
