@@ -90,8 +90,7 @@ describe('GraphQLEditingService', () => {
         },
       })
     ).to.be.true;
-    // TODO: revert when dictionary schema updated
-    // expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
     expect(clientFactorySpy.returnValues[0].request).to.be.called.with(query, {
       language,
       version,
@@ -112,7 +111,8 @@ describe('GraphQLEditingService', () => {
     spy.restore(clientFactorySpy);
   });
 
-  it('should fetch editing data when dicionary has multiple pages', async () => {
+  // TODO: re-enable when dictionary schema updated
+  xit('should fetch editing data when dicionary has multiple pages', async () => {
     nock(hostname, { reqheaders: { sc_editMode: 'true' } })
       .post(endpointPath, /EditingQuery/gi)
       .reply(200, mockEditingServiceResponse(true));
@@ -230,14 +230,10 @@ describe('GraphQLEditingService', () => {
   });
 
   // TODO: remove when dictionary site schema available
-  it('should return empty dictionary results when dictionary query fails', async () => {
+  it('should return empty dictionary results', async () => {
     nock(hostname, { reqheaders: { sc_editMode: 'true' } })
       .post(endpointPath, /EditingQuery/gi)
       .reply(200, editingData);
-
-    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
-      .post(endpointPath, /DictionaryQuery/gi)
-      .reply(500, 'Internal server error');
 
     const service = new GraphQLEditingService({
       clientFactory,

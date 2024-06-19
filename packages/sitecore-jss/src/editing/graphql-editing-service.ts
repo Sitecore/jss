@@ -125,7 +125,8 @@ export class GraphQLEditingService {
 
     const dictionary: DictionaryPhrases = {};
     let dictionaryResults: { key: string; value: string }[] = [];
-    let hasNext = true;
+    // TODO: set to true when dictionary schema updated
+    let hasNext = false;
     let after = '';
 
     const editingData = await this.graphQLClient.request<GraphQLEditingQueryResponse>(query, {
@@ -143,24 +144,17 @@ export class GraphQLEditingService {
     */
 
     while (hasNext) {
-      // TODO: remove try-catch when dictionary schema updated
-      try {
-        const data = await this.graphQLClient.request<GraphQLDictionaryQueryResponse>(
-          dictionaryQuery,
-          {
-            siteName,
-            language,
-            after,
-          }
-        );
-        dictionaryResults = dictionaryResults.concat(data.site.siteInfo.dictionary.results);
-        hasNext = data.site.siteInfo.dictionary.pageInfo.hasNext;
-        after = data.site.siteInfo.dictionary.pageInfo.endCursor;
-      } catch (e) {
-        console.log(e);
-        console.log('Dictionary data not available, returning empty results');
-        hasNext = false;
-      }
+      const data = await this.graphQLClient.request<GraphQLDictionaryQueryResponse>(
+        dictionaryQuery,
+        {
+          siteName,
+          language,
+          after,
+        }
+      );
+      dictionaryResults = dictionaryResults.concat(data.site.siteInfo.dictionary.results);
+      hasNext = data.site.siteInfo.dictionary.pageInfo.hasNext;
+      after = data.site.siteInfo.dictionary.pageInfo.endCursor;
     }
 
     dictionaryResults.forEach((item) => (dictionary[item.key] = item.value));
