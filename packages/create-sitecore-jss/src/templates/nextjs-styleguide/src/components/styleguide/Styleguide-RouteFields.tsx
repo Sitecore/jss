@@ -27,7 +27,7 @@ const StyleguideRouteFields = (props: StyleguideRouteFieldsProps): JSX.Element =
       </p>
       <p>
         <Link href="/styleguide/custom-route-type">
-          <a>Sample of using a custom route type</a>
+          Sample of using a custom route type
         </Link>
       </p>
     </StyleguideSpecimen>
