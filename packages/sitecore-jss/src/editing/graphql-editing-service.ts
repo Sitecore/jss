@@ -12,19 +12,6 @@ const PAGE_SIZE = 1000;
 /**
  * GraphQL query for fetching editing data.
  */
-/*
-TODO: re-add dictionary part when dictionary schema updated
-site {
-      siteInfo(site: $siteName) {
-        dictionary(language: $language, first: ${PAGE_SIZE}, after: $after) {
-          results {
-            key
-            value
-          }
-        }
-      }
-    }
-*/
 export const query = /* GraphQL */ `
   query EditingQuery(
     $siteName: String!
@@ -35,6 +22,16 @@ export const query = /* GraphQL */ `
   ) {
     item(path: $itemId, language: $language, version: $version) {
       rendered
+    }
+    site {
+      siteInfo(site: $siteName) {
+        dictionary(language: $language, first: ${PAGE_SIZE}, after: $after) {
+          results {
+            key
+            value
+          }
+        }
+      }
     }
   }
 `;
@@ -125,8 +122,7 @@ export class GraphQLEditingService {
 
     const dictionary: DictionaryPhrases = {};
     let dictionaryResults: { key: string; value: string }[] = [];
-    // TODO: set to true when dictionary schema updated
-    let hasNext = false;
+    let hasNext = true;
     let after = '';
 
     const editingData = await this.graphQLClient.request<GraphQLEditingQueryResponse>(query, {
@@ -136,12 +132,9 @@ export class GraphQLEditingService {
       language,
     });
 
-    /*
-    TODO: re-enable when dictionary schema updated
     dictionaryResults = editingData.site.siteInfo.dictionary.results;
     hasNext = editingData.site.siteInfo.dictionary.pageInfo.hasNext;
     after = editingData.site.siteInfo.dictionary.pageInfo.endCursor;
-    */
 
     while (hasNext) {
       const data = await this.graphQLClient.request<GraphQLDictionaryQueryResponse>(
