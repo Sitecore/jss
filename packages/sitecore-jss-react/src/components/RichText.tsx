@@ -23,7 +23,7 @@ export interface RichTextProps {
   editable?: boolean;
 }
 
-export const RichText: React.SFC<RichTextProps> = forwardRef(
+export const RichText: React.FC<RichTextProps> = forwardRef(
   ({ field, tag, editable, ...otherProps }, ref) => {
     if (!field || (!field.editable && !field.value)) {
       return null;

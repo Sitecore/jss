@@ -2,7 +2,7 @@ import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import AppRoot from './AppRoot';
 import GraphQLClientFactory from './lib/GraphQLClientFactory';
@@ -11,7 +11,10 @@ import i18ninit from './i18n';
 
 /* eslint-disable no-underscore-dangle */
 
-let renderFunction = ReactDOM.render;
+let renderFunction = (rootElement, component) => {
+  const root = createRoot(rootElement);
+  root.render(component);
+};
 
 let initLanguage = config.defaultLanguage;
 
@@ -34,8 +37,8 @@ if (ssrRawJson) {
   __JSS_STATE__ = JSON.parse(ssrRawJson.innerHTML);
 }
 if (__JSS_STATE__) {
-  // when React initializes from a SSR-based initial state, you need to render with `hydrate` instead of `render`
-  renderFunction = ReactDOM.hydrate;
+  // when React initializes from a SSR-based initial state, you need to render with `hydrateRoot` instead of `render`
+  renderFunction = hydrateRoot;
 
   // set i18n language SSR state language instead of static config default language
   initLanguage = __JSS_STATE__.sitecore.context.language;
@@ -63,12 +66,12 @@ i18ninit(initLanguage).then(() => {
   const rootElement = document.getElementById('root');
 
   renderFunction(
+    rootElement,
     <AppRoot
       path={window.location.pathname}
       Router={BrowserRouter}
       graphQLClient={graphQLClient}
       ssrState={__JSS_STATE__}
-    />,
-    rootElement
+    />
   );
 });

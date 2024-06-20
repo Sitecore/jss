@@ -20,7 +20,7 @@ export interface FileProps {
   children?: React.ReactNode;
 }
 
-export const File: React.SFC<FileProps> = ({ field, children, ...otherProps }) => {
+export const File: React.FC<FileProps> = ({ field, children, ...otherProps }) => {
   /*
     File fields cannot be managed via the EE. We never output "editable."
   */
@@ -55,7 +55,6 @@ File.propTypes = {
       value: PropTypes.object,
     }),
   ]).isRequired,
-  children: PropTypes.node,
 };
 
 File.displayName = 'File';
