@@ -4,8 +4,9 @@ import chaiString from 'chai-string';
 import { RenderMiddlewareBase } from './render-middleware';
 import {
   QUERY_PARAM_EDITING_SECRET,
-  QUERY_PARAM_PROTECTION_BYPASS_SITECORE,
-  QUERY_PARAM_PROTECTION_BYPASS_VERCEL,
+  QUERY_PARAM_VERCEL_PROTECTION_BYPASS,
+  QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE,
+  EDITING_PASS_THROUGH_HEADERS,
 } from './constants';
 
 const expect = chai.use(chaiString).expect;
@@ -23,16 +24,32 @@ describe('RenderMiddlewareBase', () => {
 
       const secret = 'secret1234';
       const query = {} as Query;
-      const bypassTokenSitecore = 'token1234Sitecore';
-      const bypassTokenVercel = 'token1234Vercel';
+      const vercelBypassToken = 'token1234Vercel';
+      const vercelBypassCookie = 'samesitenone';
       query[QUERY_PARAM_EDITING_SECRET] = secret;
-      query[QUERY_PARAM_PROTECTION_BYPASS_SITECORE] = bypassTokenSitecore;
-      query[QUERY_PARAM_PROTECTION_BYPASS_VERCEL] = bypassTokenVercel;
+      query[QUERY_PARAM_VERCEL_PROTECTION_BYPASS] = vercelBypassToken;
+      query[QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE] = vercelBypassCookie;
 
       expect(middleware['getQueryParamsForPropagation'](query)).to.deep.equal({
-        [QUERY_PARAM_PROTECTION_BYPASS_SITECORE]: bypassTokenSitecore,
-        [QUERY_PARAM_PROTECTION_BYPASS_VERCEL]: bypassTokenVercel,
+        [QUERY_PARAM_VERCEL_PROTECTION_BYPASS]: vercelBypassToken,
+        [QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE]: vercelBypassCookie,
       });
+    });
+  });
+
+  describe('getHeadersForPropagation', () => {
+    it('should return approved headers', () => {
+      const middleware = new SampleMiddleware();
+
+      const approvedHeaders = {};
+      EDITING_PASS_THROUGH_HEADERS.forEach((key) => (approvedHeaders[key] = `${key}-value`));
+      const allHeaders = {
+        ...approvedHeaders,
+        nope: 'nope',
+        'should-not-pass': 'n/a',
+      };
+
+      expect(middleware['getHeadersForPropagation'](allHeaders)).to.deep.equal(approvedHeaders);
     });
   });
 });
