@@ -37,7 +37,7 @@
     "@types/mocha": "^9.0.0",
     "@types/node": "17.0.40",
     "@types/prop-types": "^15.7.4",
-    "@types/react": "^18.0.12",
+    "@types/react": "^18.2.22",
     "@types/react-dom": "^18.0.5",
     "@types/sinon": "^7.5.0",
     "@types/sinon-chai": "^3.2.5",
@@ -78,5 +78,11 @@
   },
   "description": "",
   "types": "types/index.d.ts",
-  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
+  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
+  "files": [
+    "dist",
+    "types",
+    "/*.js",
+    "/*.d.ts"
+  ]
 }
