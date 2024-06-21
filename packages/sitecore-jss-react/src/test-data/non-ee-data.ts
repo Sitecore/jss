@@ -1,66 +1,6 @@
-export const convertedDevData = {
-  sitecore: {
-    context: {
-      pageEditing: false,
-    },
-    route: {
-      name: 'home',
-      displayName: 'Home',
-      placeholders: {
-        main: [
-          {
-            componentName: 'Home',
-            fields: {
-              message: {
-                value: 'JavaScript all the things!',
-              },
-            },
-            uid: '2339622d-093b-4258-8334-95979e41efa6',
-            renderingParams: [] as { [key: string]: unknown }[],
-            placeholders: {
-              'page-header': [
-                {
-                  componentName: 'Jumbotron',
-                  params: {
-                    shade: 'dark',
-                    titleSize: '1',
-                  },
-                  fields: {
-                    titleText: {
-                      value: 'Your Favorite Source of Free Bootstrap Themes!',
-                    },
-                    body: {
-                      value:
-                        '<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>',
-                    },
-                  },
-                  uid: '53c31a2a-75d5-43c6-a0b8-66b7c7859c30',
-                },
-              ],
-              'page-content': [
-                {
-                  componentName: 'DownloadCallout',
-                  fields: {
-                    linkText: {
-                      value: 'Download',
-                    },
-                  },
-                  uid: '6701ac71-845d-4de4-bf8e-1f4feddf8908',
-                  params: [] as { [key: string]: unknown }[],
-                },
-              ],
-            },
-          },
-        ],
-      },
-      fields: {
-        key: 'This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;',
-      },
-    },
-  },
-};
+import { LayoutServiceData } from '@sitecore-jss/sitecore-jss/layout';
 
-export const convertedDevDataWithoutParams = {
+export const convertedDevData: LayoutServiceData = {
   sitecore: {
     context: {
       pageEditing: false,
@@ -78,7 +18,6 @@ export const convertedDevDataWithoutParams = {
               },
             },
             uid: '2339622d-093b-4258-8334-95979e41efa6',
-            renderingParams: [] as { [key: string]: unknown }[],
             placeholders: {
               'page-header': [
                 {
@@ -108,6 +47,21 @@ export const convertedDevDataWithoutParams = {
                     },
                   },
                   uid: '6701ac71-845d-4de4-bf8e-1f4feddf8908',
+                  params: {},
+                },
+                {
+                  uid: '55555555-845d-4de4-bf8e-1f4feddf8908',
+                  componentName: 'BrokenComponent',
+                  fields: {},
+                },
+                {
+                  uid: '77777777-845d-4de4-bf8e-1f4feddf8908',
+                  componentName: 'DynamicComponent',
+                  fields: {
+                    title: {
+                      value: 'Dynamic Component',
+                    },
+                  },
                 },
               ],
             },
@@ -115,7 +69,9 @@ export const convertedDevDataWithoutParams = {
         ],
       },
       fields: {
-        key: 'This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;',
+        key: {
+          value: 'This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;',
+        },
       },
     },
   },
