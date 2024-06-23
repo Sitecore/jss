@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import PropTypes from 'prop-types';
-
+import { DefaultEmptyFieldEditingComponent } from './DefaultEmptyFieldEditingComponent';
 export interface TextField {
   value?: string | number;
   editable?: string;
@@ -26,10 +26,23 @@ export interface TextProps {
    * If false, HTML-encoding of the field value is disabled and the value is rendered as-is.
    */
   encode?: boolean;
+  /**
+   * -- Edit Mode Metadata --
+   *
+   * Custom element to render in Pages in Metadata edit mode if field value is empty
+   */
+  emptyValueEditingPlaceholder?: React.ComponentClass | React.FC;
 }
 
 export const Text: React.FC<TextProps> = withFieldMetadata<TextProps>(
-  ({ field, tag, editable = true, encode = true, ...otherProps }) => {
+  ({ field, tag, editable = true, encode = true, emptyValueEditingPlaceholder, ...otherProps }) => {
+    // render empty field placeholder in editMode metadata
+    if (field?.metadata && editable && !field?.value) {
+      const EmptyFieldPhComponent =
+        emptyValueEditingPlaceholder || DefaultEmptyFieldEditingComponent;
+      return <EmptyFieldPhComponent />;
+    }
+
     if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
       return null;
     }

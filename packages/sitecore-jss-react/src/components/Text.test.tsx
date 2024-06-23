@@ -179,7 +179,7 @@ describe('<Text />', () => {
     expect(rendered.html()).to.contain('value');
   });
 
-  it('should render field metadata component when metadata property is present', () => {
+  describe('editMode metadata', () => {
     const testMetadata = {
       contextItem: {
         id: '{09A07660-6834-476C-B93B-584248D3003B}',
@@ -192,25 +192,78 @@ describe('<Text />', () => {
       rawValue: 'Test1',
     };
 
-    const field = {
-      value: 'value',
-      metadata: testMetadata,
-    };
+    it('should render field metadata component when metadata property is present', () => {
+      const field = {
+        value: 'value',
+        metadata: testMetadata,
+      };
 
-    const rendered = mount(
-      <Text field={field}>
-        <div>test</div>
-      </Text>
-    );
+      const rendered = mount(<Text field={field} />);
 
-    expect(rendered.html()).to.equal(
-      [
-        `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-          testMetadata
-        )}</code>`,
-        'value',
-        '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-      ].join('')
-    );
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          'value',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render empty field markup in edit mode when metadata is provided and field value is not present', () => {
+      const field = {
+        value: '',
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(<Text field={field} />);
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span>[No text in field]</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render custom empty field placeholder component when provided, when metadata is provided and field value is not present', () => {
+      const field = {
+        value: '',
+        metadata: testMetadata,
+      };
+
+      const EmptyValueEditingPlaceholder: React.FC = () => (
+        <span className="empty-field-value-placeholder">Custom Empty field value</span>
+      );
+
+      const rendered = mount(
+        <Text field={field} emptyValueEditingPlaceholder={EmptyValueEditingPlaceholder} />
+      );
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render nothing is field value is empty, metadata is provided and editing explicitly disabled', () => {
+      const field = {
+        value: '',
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(<Text field={field} editable={false} />);
+
+      expect(rendered.html()).to.equal('');
+    });
   });
 });
