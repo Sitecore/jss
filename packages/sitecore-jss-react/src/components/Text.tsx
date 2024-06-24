@@ -1,7 +1,8 @@
 import React, { ReactElement } from 'react';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
+import { withEmptyValueEditingPlaceholder } from '../enhancers/withEmptyValueEditingPlaceholder';
+import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 import PropTypes from 'prop-types';
-import { DefaultEmptyFieldEditingComponent } from './DefaultEmptyFieldEditingComponent';
 export interface TextField {
   value?: string | number;
   editable?: string;
@@ -35,77 +36,73 @@ export interface TextProps {
 }
 
 export const Text: React.FC<TextProps> = withFieldMetadata<TextProps>(
-  ({ field, tag, editable = true, encode = true, emptyValueEditingPlaceholder, ...otherProps }) => {
-    // render empty field placeholder in editMode metadata
-    if (field?.metadata && editable && !field?.value) {
-      const EmptyFieldPhComponent =
-        emptyValueEditingPlaceholder || DefaultEmptyFieldEditingComponent;
-      return <EmptyFieldPhComponent />;
-    }
-
-    if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
-      return null;
-    }
-
-    // can't use editable value if we want to output unencoded
-    if (!encode) {
-      // eslint-disable-next-line no-param-reassign
-      editable = false;
-    }
-
-    const isEditable = field.editable && editable;
-
-    let output: string | number | (ReactElement | string)[] = isEditable
-      ? field.editable || ''
-      : field.value === undefined
-      ? ''
-      : field.value;
-
-    // when string value isn't formatted, we should format line breaks
-    if (!field.editable && typeof output === 'string') {
-      const splitted = String(output).split('\n');
-
-      if (splitted.length) {
-        const formatted: (ReactElement | string)[] = [];
-
-        splitted.forEach((str, i) => {
-          const isLast = i === splitted.length - 1;
-
-          formatted.push(str);
-
-          if (!isLast) {
-            formatted.push(<br key={i} />);
-          }
-        });
-
-        output = formatted;
+  withEmptyValueEditingPlaceholder<TextProps>(
+    ({ field, tag, editable = true, encode = true, ...otherProps }) => {
+      if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
+        return null;
       }
-    }
 
-    const setDangerously = isEditable || !encode;
+      // can't use editable value if we want to output unencoded
+      if (!encode) {
+        // eslint-disable-next-line no-param-reassign
+        editable = false;
+      }
 
-    let children = null;
-    const htmlProps: {
-      [htmlAttributes: string]: unknown;
-      children?: React.ReactNode;
-    } = {
-      ...otherProps,
-    };
+      const isEditable = field.editable && editable;
 
-    if (setDangerously) {
-      htmlProps.dangerouslySetInnerHTML = {
-        __html: output,
+      let output: string | number | (ReactElement | string)[] = isEditable
+        ? field.editable || ''
+        : field.value === undefined
+        ? ''
+        : field.value;
+
+      // when string value isn't formatted, we should format line breaks
+      if (!field.editable && typeof output === 'string') {
+        const splitted = String(output).split('\n');
+
+        if (splitted.length) {
+          const formatted: (ReactElement | string)[] = [];
+
+          splitted.forEach((str, i) => {
+            const isLast = i === splitted.length - 1;
+
+            formatted.push(str);
+
+            if (!isLast) {
+              formatted.push(<br key={i} />);
+            }
+          });
+
+          output = formatted;
+        }
+      }
+
+      const setDangerously = isEditable || !encode;
+
+      let children = null;
+      const htmlProps: {
+        [htmlAttributes: string]: unknown;
+        children?: React.ReactNode;
+      } = {
+        ...otherProps,
       };
-    } else {
-      children = output;
-    }
 
-    if (tag || setDangerously) {
-      return React.createElement(tag || 'span', htmlProps, children);
-    } else {
-      return <React.Fragment>{children}</React.Fragment>;
-    }
-  }
+      if (setDangerously) {
+        htmlProps.dangerouslySetInnerHTML = {
+          __html: output,
+        };
+      } else {
+        children = output;
+      }
+
+      if (tag || setDangerously) {
+        return React.createElement(tag || 'span', htmlProps, children);
+      } else {
+        return <React.Fragment>{children}</React.Fragment>;
+      }
+    },
+    DefaultEmptyFieldEditingComponentText
+  )
 );
 
 Text.propTypes = {

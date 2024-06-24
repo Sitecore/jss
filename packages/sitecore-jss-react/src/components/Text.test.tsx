@@ -211,7 +211,7 @@ describe('<Text />', () => {
       );
     });
 
-    it('should render empty field markup in edit mode when metadata is provided and field value is not present', () => {
+    it('should render default empty field placeholder when field value is empty in edit mode metadata', () => {
       const field = {
         value: '',
         metadata: testMetadata,
@@ -230,7 +230,7 @@ describe('<Text />', () => {
       );
     });
 
-    it('should render custom empty field placeholder component when provided, when metadata is provided and field value is not present', () => {
+    it('should render custom empty field placeholder when provided, when field value is empty in edit mode metadata', () => {
       const field = {
         value: '',
         metadata: testMetadata,
@@ -255,7 +255,7 @@ describe('<Text />', () => {
       );
     });
 
-    it('should render nothing is field value is empty, metadata is provided and editing explicitly disabled', () => {
+    it('should render nothing when field value is empty, when editing is explicitly disabled in edit mode metadata ', () => {
       const field = {
         value: '',
         metadata: testMetadata,
