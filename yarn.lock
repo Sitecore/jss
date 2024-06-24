@@ -3989,14 +3989,14 @@ __metadata:
   dependencies:
     "@sitecore-jss/sitecore-jss-forms": 20.3.3
     "@types/chai": ^4.2.11
-    "@types/enzyme": ^3.10.5
-    "@types/mocha": ^7.0.2
-    "@types/node": "*"
+    "@types/enzyme": ^3.10.12
+    "@types/mocha": ^9.0.0
+    "@types/node": 17.0.40
     "@types/prop-types": ^15.7.4
-    "@types/react": ^18.2.22
-    "@types/react-dom": ^18.2.22
+    "@types/react": ^18.0.12
+    "@types/react-dom": ^18.0.5
     "@types/sinon": ^9.0.4
-    "@wojtekmaj/enzyme-adapter-react-17": ^0.6.3
+    "@wojtekmaj/enzyme-adapter-react-17": ^0.6.7
     chai: ^4.2.0
     del-cli: ^3.0.1
     enzyme: ^3.11.0
@@ -4065,7 +4065,7 @@ __metadata:
     "@types/chai": ^4.2.2
     "@types/chai-string": ^1.4.2
     "@types/deep-equal": ^1.0.1
-    "@types/enzyme": ^3.10.3
+    "@types/enzyme": ^3.10.12
     "@types/mocha": ^9.0.0
     "@types/node": 17.0.40
     "@types/prop-types": ^15.7.4
@@ -4482,16 +4482,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/enzyme@npm:^3.10.3, @types/enzyme@npm:^3.10.5":
-  version: 3.10.10
-  resolution: "@types/enzyme@npm:3.10.10"
-  dependencies:
-    "@types/cheerio": "*"
-    "@types/react": "*"
-  checksum: e2393f87d6737d643789fb1a83c53c5cb6cb9eaebf1e1c8a3163d95f778f3741a9734fea47761a7648d9c778166ffd531f61c0aa4c5bf97b0d8018cacad05a49
-  languageName: node
-  linkType: hard
-
 "@types/eslint-scope@npm:^3.7.0":
   version: 3.7.1
   resolution: "@types/eslint-scope@npm:3.7.1"
@@ -4835,13 +4825,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mocha@npm:^7.0.2":
-  version: 7.0.2
-  resolution: "@types/mocha@npm:7.0.2"
-  checksum: 9be72c563976a809caa3594e3ee1fd71748887aaf105b4cfa99c69e882659d3ddbb331d4c1e3b3af9a67c78f3b7b4ab30fe1baa13cb50561dcc386512a75142a
-  languageName: node
-  linkType: hard
-
 "@types/mocha@npm:^9.0.0":
   version: 9.0.0
   resolution: "@types/mocha@npm:9.0.0"
@@ -4940,7 +4923,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.5, @types/react-dom@npm:^18.2.22":
+"@types/react-dom@npm:^18.0.5":
   version: 18.3.0
   resolution: "@types/react-dom@npm:18.3.0"
   dependencies:
@@ -5009,7 +4992,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.2.22":
+"@types/react@npm:^18.0.12, @types/react@npm:^18.2.22":
   version: 18.3.3
   resolution: "@types/react@npm:18.3.3"
   dependencies:
@@ -5965,26 +5948,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wojtekmaj/enzyme-adapter-react-17@npm:^0.6.3":
-  version: 0.6.5
-  resolution: "@wojtekmaj/enzyme-adapter-react-17@npm:0.6.5"
-  dependencies:
-    "@wojtekmaj/enzyme-adapter-utils": ^0.1.1
-    enzyme-shallow-equal: ^1.0.0
-    has: ^1.0.0
-    object.assign: ^4.1.0
-    object.values: ^1.1.0
-    prop-types: ^15.7.0
-    react-is: ^17.0.2
-    react-test-renderer: ^17.0.0
-  peerDependencies:
-    enzyme: ^3.0.0
-    react: ^17.0.0-0
-    react-dom: ^17.0.0-0
-  checksum: 110f9a8a59ccc61ab5e1be47e15f61903b5868960872e1c8925c68dced184067cea47404e15e15d9d07c4d526d7e7b5324b81d885ff037dab6451dabf12e8f1f
-  languageName: node
-  linkType: hard
-
 "@wojtekmaj/enzyme-adapter-react-17@npm:^0.6.7":
   version: 0.6.7
   resolution: "@wojtekmaj/enzyme-adapter-react-17@npm:0.6.7"
@@ -6000,21 +5963,6 @@ __metadata:
     react: ^17.0.0-0
     react-dom: ^17.0.0-0
   checksum: 5cd4c01adf0d778c5ef749964ae971422f0d445be11f9585de6a077edc32ea7ca74f14c240cf5f0848a8147596d84ed133820c91fc98d33f02b9dc6eee3fd158
-  languageName: node
-  linkType: hard
-
-"@wojtekmaj/enzyme-adapter-utils@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "@wojtekmaj/enzyme-adapter-utils@npm:0.1.1"
-  dependencies:
-    function.prototype.name: ^1.1.0
-    has: ^1.0.0
-    object.assign: ^4.1.0
-    object.fromentries: ^2.0.0
-    prop-types: ^15.7.0
-  peerDependencies:
-    react: ^17.0.0-0
-  checksum: dc3dd0c2da0a0d0ab065f542fa5892f00026eec7eca34c0e673760ce0a35f19893fae64f648f3bb7121b9c47752d20a32fa0ca814d5e9300d3cdc14d899f535f
   languageName: node
   linkType: hard
 
