@@ -209,6 +209,7 @@ Image.propTypes = {
   imageParams: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]).isRequired
   ),
+  emptyValueEditingPlaceholder: PropTypes.func,
 };
 
 Image.displayName = 'Image';

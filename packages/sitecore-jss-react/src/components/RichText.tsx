@@ -67,6 +67,7 @@ export const RichTextPropTypes = {
   }),
   tag: PropTypes.string,
   editable: PropTypes.bool,
+  emptyValueEditingPlaceholder: PropTypes.func,
 };
 
 RichText.propTypes = RichTextPropTypes;

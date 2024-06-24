@@ -114,6 +114,7 @@ Text.propTypes = {
   tag: PropTypes.string,
   editable: PropTypes.bool,
   encode: PropTypes.bool,
+  emptyValueEditingPlaceholder: PropTypes.func,
 };
 
 Text.displayName = 'Text';

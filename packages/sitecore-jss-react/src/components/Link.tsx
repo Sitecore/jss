@@ -155,6 +155,7 @@ export const LinkPropTypes = {
   ]).isRequired,
   editable: PropTypes.bool,
   showLinkTextWithChildrenPresent: PropTypes.bool,
+  emptyValueEditingPlaceholder: PropTypes.func,
 };
 
 Link.propTypes = LinkPropTypes;

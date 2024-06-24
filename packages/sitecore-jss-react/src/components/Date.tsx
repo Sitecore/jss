@@ -76,6 +76,7 @@ DateField.propTypes = {
   tag: PropTypes.string,
   editable: PropTypes.bool,
   render: PropTypes.func,
+  emptyValueEditingPlaceholder: PropTypes.func,
 };
 
 DateField.displayName = 'Date';
