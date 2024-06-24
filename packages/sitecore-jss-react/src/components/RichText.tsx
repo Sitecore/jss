@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
+import { withEmptyValueEditingPlaceholder } from '../enhancers/withEmptyValueEditingPlaceholder';
+import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 
 export interface RichTextField {
   value?: string;
@@ -23,26 +25,36 @@ export interface RichTextProps {
    * @default true
    */
   editable?: boolean;
+  /**
+   * -- Edit Mode Metadata --
+   *
+   * Custom element to render in Pages in Metadata edit mode if field value is empty
+   */
+  emptyValueEditingPlaceholder?: React.ComponentClass | React.FC;
 }
 
 export const RichText: React.FC<RichTextProps> = withFieldMetadata<RichTextProps>(
-  // eslint-disable-next-line react/display-name
-  forwardRef<HTMLElement, RichTextProps>(
-    ({ field, tag = 'div', editable = true, ...otherProps }, ref) => {
-      if (!field || (!field.editable && !field.value)) {
-        return null;
+  withEmptyValueEditingPlaceholder<RichTextProps>(
+    // eslint-disable-next-line react/display-name
+    forwardRef<HTMLElement, RichTextProps>(
+      ({ field, tag = 'div', editable = true, ...otherProps }, ref) => {
+        if (!field || (!field.editable && !field.value)) {
+          return null;
+        }
+
+        const htmlProps = {
+          dangerouslySetInnerHTML: {
+            __html: field.editable && editable ? field.editable : field.value,
+          },
+          ref,
+          ...otherProps,
+        };
+
+        return React.createElement(tag || 'div', htmlProps);
       }
-
-      const htmlProps = {
-        dangerouslySetInnerHTML: {
-          __html: field.editable && editable ? field.editable : field.value,
-        },
-        ref,
-        ...otherProps,
-      };
-
-      return React.createElement(tag || 'div', htmlProps);
-    }
+    ),
+    DefaultEmptyFieldEditingComponentText,
+    true
   ),
   true
 );

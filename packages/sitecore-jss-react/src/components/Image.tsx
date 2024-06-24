@@ -4,6 +4,8 @@ import React from 'react';
 import { addClassName, convertAttributesToReactProps } from '../utils';
 import { getAttributesString } from '../utils';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
+import { withEmptyValueEditingPlaceholder } from '../enhancers/withEmptyValueEditingPlaceholder';
+import { DefaultEmptyFieldEditingComponentImage } from './DefaultEmptyFieldEditingComponents';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -65,6 +67,13 @@ export interface ImageProps {
   mediaUrlPrefix?: RegExp;
 
   /** HTML attributes that will be appended to the rendered <img /> tag. */
+
+  /**
+   * -- Edit Mode Metadata --
+   *
+   * Custom element to render in Pages in Metadata edit mode if field value is empty
+   */
+  emptyValueEditingPlaceholder?: React.ComponentClass | React.FC;
 }
 
 const getEditableWrapper = (editableMarkup: string, ...otherProps: unknown[]) => (
@@ -144,42 +153,45 @@ export const getEEMarkup = (
 };
 
 export const Image: React.FC<ImageProps> = withFieldMetadata<ImageProps>(
-  ({ editable = true, imageParams, field, mediaUrlPrefix, ...otherProps }) => {
-    const dynamicMedia = field as ImageField | ImageFieldValue;
+  withEmptyValueEditingPlaceholder<ImageProps>(
+    ({ editable = true, imageParams, field, mediaUrlPrefix, ...otherProps }) => {
+      const dynamicMedia = field as ImageField | ImageFieldValue;
 
-    if (
-      !field ||
-      (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)
-    ) {
-      return null;
-    }
+      if (
+        !field ||
+        (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)
+      ) {
+        return null;
+      }
 
-    const imageField = dynamicMedia as ImageField;
+      const imageField = dynamicMedia as ImageField;
 
-    if (editable && imageField.editable) {
-      return getEEMarkup(imageField, imageParams, mediaUrlPrefix, otherProps);
-    }
+      if (editable && imageField.editable) {
+        return getEEMarkup(imageField, imageParams, mediaUrlPrefix, otherProps);
+      }
 
-    // some wise-guy/gal is passing in a 'raw' image object value
-    const img = (dynamicMedia as ImageFieldValue).src
-      ? field
-      : (dynamicMedia.value as ImageFieldValue);
-    if (!img) {
-      return null;
-    }
+      // some wise-guy/gal is passing in a 'raw' image object value
+      const img = (dynamicMedia as ImageFieldValue).src
+        ? field
+        : (dynamicMedia.value as ImageFieldValue);
+      if (!img) {
+        return null;
+      }
 
-    // prevent metadata from being passed to the img tag
-    if (img.metadata) {
-      delete img.metadata;
-    }
+      // prevent metadata from being passed to the img tag
+      if (img.metadata) {
+        delete img.metadata;
+      }
 
-    const attrs = getImageAttrs({ ...img, ...otherProps }, imageParams, mediaUrlPrefix);
-    if (attrs) {
-      return <img {...attrs} />;
-    }
+      const attrs = getImageAttrs({ ...img, ...otherProps }, imageParams, mediaUrlPrefix);
+      if (attrs) {
+        return <img {...attrs} />;
+      }
 
-    return null; // we can't handle the truth
-  }
+      return null; // we can't handle the truth
+    },
+    DefaultEmptyFieldEditingComponentImage
+  )
 );
 
 Image.propTypes = {

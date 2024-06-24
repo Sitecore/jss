@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import { mount, shallow } from 'enzyme';
 import React from 'react';
 import { DateField } from './Date';
+import { describe } from 'node:test';
 
 describe('<DateField />', () => {
   it('should return null if no editable or value', () => {
@@ -81,7 +82,7 @@ describe('<DateField />', () => {
     expect(c.html()).equal('<span><h1 class="super">11-23-2001</h1></span>');
   });
 
-  it('should render field metadata component when metadata property is present', () => {
+  describe('editMode metadata', () => {
     const testMetadata = {
       contextItem: {
         id: '{09A07660-6834-476C-B93B-584248D3003B}',
@@ -94,23 +95,80 @@ describe('<DateField />', () => {
       rawValue: 'Test1',
     };
 
-    const props = {
-      field: {
-        value: '23-11-2001',
+    it('should render field metadata component when metadata property is present', () => {
+      const props = {
+        field: {
+          value: '23-11-2001',
+          metadata: testMetadata,
+        },
+      };
+
+      const rendered = mount(<DateField {...props} />);
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '23-11-2001',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render default empty field placeholder when field value is empty in edit mode metadata', () => {
+      const field = {
+        value: '',
         metadata: testMetadata,
-      },
-    };
+      };
 
-    const rendered = mount(<DateField {...props} />);
+      const rendered = mount(<DateField field={field} />);
 
-    expect(rendered.html()).to.equal(
-      [
-        `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-          testMetadata
-        )}</code>`,
-        '23-11-2001',
-        '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-      ].join('')
-    );
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span>[No text in field]</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render custom empty field placeholder when provided, when field value is empty in edit mode metadata', () => {
+      const field = {
+        value: '',
+        metadata: testMetadata,
+      };
+
+      const EmptyValueEditingPlaceholder: React.FC = () => (
+        <span className="empty-field-value-placeholder">Custom Empty field value</span>
+      );
+
+      const rendered = mount(
+        <DateField field={field} emptyValueEditingPlaceholder={EmptyValueEditingPlaceholder} />
+      );
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render nothing when field value is empty, when editing is explicitly disabled in edit mode metadata ', () => {
+      const field = {
+        value: '',
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(<DateField field={field} editable={false} />);
+
+      expect(rendered.html()).to.equal('');
+    });
   });
 });
