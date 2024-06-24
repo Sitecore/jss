@@ -13,6 +13,12 @@ interface WithEmptyValueEditingPlaceholderProps {
   emptyValueEditingPlaceholder?: React.ComponentClass | React.FC;
 }
 
+/**
+ * Returns the passed field component or placeholder content in case field value is empty and edit mode is 'metadata'
+ * @param {ComponentType<FieldComponentProps>} FieldComponent the field component
+ * @param {React.FC} defaultEmptyFieldEditingComponent the default empty field placeholder component
+ * @param {boolean} isForwardRef set to 'true' if forward reference is needed
+ */
 export function withEmptyValueEditingPlaceholder<
   FieldComponentProps extends WithEmptyValueEditingPlaceholderProps,
   RefElementType = HTMLElement
@@ -24,17 +30,19 @@ export function withEmptyValueEditingPlaceholder<
   const hasValue = (field: GeneralField | ImageFieldValue | LinkFieldValue) =>
     field?.value || (field as ImageFieldValue)?.src || (field as LinkFieldValue)?.href;
 
-  function getEmptyFieldPhComponent(props: FieldComponentProps): React.ComponentClass | React.FC {
+  const getEmptyFieldPhComponent = (
+    props: FieldComponentProps
+  ): React.ComponentClass | React.FC => {
     const { editable = true } = props;
-    // render empty field placeholder in editMode metadata
     if (props.field?.metadata && editable && !hasValue(props.field)) {
       return props.emptyValueEditingPlaceholder || defaultEmptyFieldEditingComponent;
     }
 
     return null;
-  }
+  };
 
   if (isForwardRef) {
+    // eslint-disable-next-line react/display-name
     return forwardRef((props: FieldComponentProps, ref: React.ForwardedRef<RefElementType>) => {
       const EmptyFieldPhComponent = getEmptyFieldPhComponent(props);
       return (
@@ -47,6 +55,7 @@ export function withEmptyValueEditingPlaceholder<
     });
   }
 
+  // eslint-disable-next-line react/display-name
   return (props: FieldComponentProps) => {
     const EmptyFieldPhComponent = getEmptyFieldPhComponent(props);
     return (
