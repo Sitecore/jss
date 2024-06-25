@@ -461,7 +461,7 @@ describe('RichText', () => {
             testMetadata
           )}</code>`,
           '<span>[No text in field]</span>',
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>`,
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
         ].join('')
       );
     });
@@ -495,7 +495,7 @@ describe('RichText', () => {
             testMetadata
           )}</code>`,
           '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>`,
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
         ].join('')
       );
     });
