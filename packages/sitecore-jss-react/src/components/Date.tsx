@@ -18,9 +18,7 @@ export interface DateFieldProps {
    * @default true
    */
   editable?: boolean;
-  render?: (
-    date: Date | null
-  ) => React.ComponentClass<unknown> | React.FunctionComponent<unknown> | React.ReactNode;
+  render?: (date: Date | null) => React.ReactNode;
 }
 
 export const DateField: React.FC<DateFieldProps> = ({
@@ -34,7 +32,7 @@ export const DateField: React.FC<DateFieldProps> = ({
     return null;
   }
 
-  let children: React.ComponentType | React.ReactNode;
+  let children: React.ReactNode;
 
   const htmlProps: {
     [htmlAttr: string]: unknown;
