@@ -37,11 +37,7 @@ TODO: re-add dictionary part when dictionary schema updated
   }
 */
 export const query = /* GraphQL */ `
-  query EditingQuery(
-    $itemId: String!
-    $version: String!
-    $language: String!
-  ) {
+  query EditingQuery($itemId: String!, $version: String!, $language: String!) {
     item(path: $itemId, language: $language, version: $version) {
       rendered
     }
