@@ -43,11 +43,13 @@ export const Link = (props: LinkProps): JSX.Element => {
           href={{ pathname: href, query: querystring, hash: anchor }}
           key="link"
           locale={false}
+          title={value.title}
+          target={value.target}
+          className={value.class}
+          {...htmlLinkProps}
         >
-          <a title={value.title} target={value.target} className={value.class} {...htmlLinkProps}>
-            {text}
-            {children}
-          </a>
+          {text}
+          {children}
         </NextLink>
       );
     }
