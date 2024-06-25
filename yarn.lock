@@ -5917,10 +5917,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^17.0.4":
-  version: 17.0.45
-  resolution: "@types/node@npm:17.0.45"
-  checksum: aa04366b9103b7d6cfd6b2ef64182e0eaa7d4462c3f817618486ea0422984c51fc69fd0d436eae6c9e696ddfdbec9ccaa27a917f7c2e8c75c5d57827fe3d95e8
+"@types/node@npm:^14.6.4":
+  version: 14.18.63
+  resolution: "@types/node@npm:14.18.63"
+  checksum: be909061a54931778c71c49dc562586c32f909c4b6197e3d71e6dac726d8bd9fccb9f599c0df99f52742b68153712b5097c0f00cac4e279fa894b0ea6719a8fd
   languageName: node
   linkType: hard
 
@@ -5994,7 +5994,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.5, @types/react-dom@npm:^18.0.9":
+"@types/react-dom@npm:^18.0.5, @types/react-dom@npm:^18.0.9, @types/react-dom@npm:^18.2.0":
   version: 18.3.0
   resolution: "@types/react-dom@npm:18.3.0"
   dependencies:
@@ -21832,10 +21832,10 @@ __metadata:
     "@sitecore-jss/sitecore-jss-cli": ^20.4.0-canary
     "@sitecore-jss/sitecore-jss-dev-tools": ^20.4.0-canary
     "@sitecore-jss/sitecore-jss-nextjs": ^20.4.0-canary
-    "@types/node": ^17.0.4
+    "@types/node": ^14.6.4
     "@types/nprogress": ^0.2.0
     "@types/react": ^18.2.22
-    "@types/react-dom": ^18.0.9
+    "@types/react-dom": ^18.2.0
     "@typescript-eslint/eslint-plugin": ^4.29.1
     "@typescript-eslint/parser": ^4.29.1
     axios: ^0.21.1
@@ -21859,8 +21859,8 @@ __metadata:
     prettier: ^2.1.2
     react: ^18.2.0
     react-dom: ^18.2.0
-    ts-node: ^9.0.0
-    typescript: ~4.3.5
+    ts-node: ^10.9.1
+    typescript: ~4.9.4
     yaml-loader: ^0.6.0
   languageName: unknown
   linkType: soft
