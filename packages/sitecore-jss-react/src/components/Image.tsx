@@ -148,7 +148,7 @@ export const getEEMarkup = (
   return getEditableWrapper(editableMarkup);
 };
 
-export const Image: React.SFC<ImageProps> = ({
+export const Image: React.FC<ImageProps> = ({
   media,
   editable,
   imageParams,

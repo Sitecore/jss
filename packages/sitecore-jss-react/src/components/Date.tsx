@@ -23,7 +23,7 @@ export interface DateFieldProps {
   ) => React.ComponentClass<unknown> | React.FunctionComponent<unknown> | React.ReactNode;
 }
 
-export const DateField: React.SFC<DateFieldProps> = ({
+export const DateField: React.FC<DateFieldProps> = ({
   field,
   tag,
   editable,
