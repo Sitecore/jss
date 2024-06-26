@@ -5,8 +5,8 @@ import { expect, use } from 'chai';
 import { NextApiRequest, NextApiResponse } from 'next';
 import {
   QUERY_PARAM_EDITING_SECRET,
-  QUERY_PARAM_PROTECTION_BYPASS_SITECORE,
-  QUERY_PARAM_PROTECTION_BYPASS_VERCEL,
+  QUERY_PARAM_VERCEL_PROTECTION_BYPASS,
+  QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE,
 } from './constants';
 import { FEAASRenderMiddleware } from './feaas-render-middleware';
 import { spy } from 'sinon';
@@ -219,11 +219,11 @@ describe('FEAASRenderMiddleware', () => {
 
   it('should pass along protection bypass query parameters', async () => {
     const query = {} as Query;
-    const bypassTokenSitecore = 'token1234Sitecore';
-    const bypassTokenVercel = 'token1234Vercel';
+    const vercelBypassToken = 'token1234Vercel';
+    const vercelBypassCookie = 'samesitenone';
     query[QUERY_PARAM_EDITING_SECRET] = secret;
-    query[QUERY_PARAM_PROTECTION_BYPASS_SITECORE] = bypassTokenSitecore;
-    query[QUERY_PARAM_PROTECTION_BYPASS_VERCEL] = bypassTokenVercel;
+    query[QUERY_PARAM_VERCEL_PROTECTION_BYPASS] = vercelBypassToken;
+    query[QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE] = vercelBypassCookie;
     const previewData = {};
 
     const req = mockRequest(query);
@@ -237,7 +237,7 @@ describe('FEAASRenderMiddleware', () => {
     expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
     expect(res.redirect).to.have.been.calledOnce;
     expect(res.redirect).to.have.been.calledWith(
-      '/feaas/render?x-sitecore-protection-bypass=token1234Sitecore&x-vercel-protection-bypass=token1234Vercel'
+      `/feaas/render?${QUERY_PARAM_VERCEL_PROTECTION_BYPASS}=${vercelBypassToken}&${QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE}=${vercelBypassCookie}`
     );
   });
 });

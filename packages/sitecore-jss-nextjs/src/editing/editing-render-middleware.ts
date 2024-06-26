@@ -83,7 +83,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
   }
 
   async render(req: NextApiRequest, res: NextApiResponse) {
-    const { query } = req;
+    const { query, headers: incomingHeaders } = req;
 
     const startTimestamp = Date.now();
 
@@ -96,6 +96,9 @@ export class ChromesHandler extends RenderMiddlewareBase {
 
       // Get query string parameters to propagate on subsequent requests (e.g. for deployment protection bypass)
       const params = this.getQueryParamsForPropagation(query);
+
+      // Get headers to propagate on subsequent requests
+      const headers = this.getHeadersForPropagation(incomingHeaders);
 
       // Stash for use later on (i.e. within getStatic/ServerSideProps).
       // Note we can't set this directly in setPreviewData since it's stored as a cookie (2KB limit)
@@ -111,6 +114,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
 
       // Grab the Next.js preview cookies to send on to the render request
       const cookies = res.getHeader('Set-Cookie') as string[];
+      headers.cookie = `${headers.cookie ? headers.cookie + ';' : ''}${cookies.join(';')}`;
 
       // Make actual render request for page route, passing on preview cookies as well as any approved query string parameters.
       // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
@@ -124,9 +128,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
       requestUrl.searchParams.append('timestamp', Date.now().toString());
       const pageRes = await this.dataFetcher
         .get<string>(requestUrl.toString(), {
-          headers: {
-            Cookie: cookies.join(';'),
-          },
+          headers,
         })
         .catch((err) => {
           // We need to handle not found error provided by Vercel
