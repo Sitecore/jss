@@ -74,5 +74,12 @@ module.exports = {
     // prevents cross-fetch -> node-fetch from throwing `Can't resolve 'encoding'` error
     // see https://github.com/node-fetch/node-fetch/issues/412
     new webpack.IgnorePlugin({ resourceRegExp: /^encoding$/, contextRegExp: /node-fetch/ }),
-  ],
+  ],<% if (helper.isDev) { %>
+  resolve: {
+    symlinks: false,
+    alias: {
+      react: path.resolve(process.cwd(), '.', 'node_modules', 'react')
+    }
+  },
+  <% } %>
 };

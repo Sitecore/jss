@@ -10,6 +10,7 @@ import {
   openPackageJson,
   sortKeys,
   writeFileToPath,
+  isDevEnvironment,
 } from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
 import { BaseArgs } from '../args/base';
@@ -192,6 +193,7 @@ export const transform = async (
   const ejsData: Data = {
     ...answers,
     helper: {
+      isDev: isDevEnvironment(answers.destination),
       getPascalCaseName: getPascalCaseName,
       getAppPrefix: getAppPrefix,
     },
