@@ -28,7 +28,11 @@ export function withEmptyFieldEditingComponent<
   isForwardRef = false
 ) {
   const hasValue = (field: GeneralField | ImageFieldValue | LinkFieldValue) =>
-    field?.value || (field as ImageFieldValue)?.src || (field as LinkFieldValue)?.href;
+    (field?.value as ImageFieldValue)?.src ||
+    (field?.value as LinkFieldValue)?.href ||
+    field?.value ||
+    (field as ImageFieldValue)?.src ||
+    (field as LinkFieldValue)?.href;
 
   const getEmptyFieldPhComponent = (
     props: FieldComponentProps
