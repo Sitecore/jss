@@ -141,12 +141,12 @@ describe('<DateField />', () => {
         metadata: testMetadata,
       };
 
-      const EmptyValueEditingPlaceholder: React.FC = () => (
+      const EmptyFieldEditingComponent: React.FC = () => (
         <span className="empty-field-value-placeholder">Custom Empty field value</span>
       );
 
       const rendered = mount(
-        <DateField field={field} emptyValueEditingPlaceholder={EmptyValueEditingPlaceholder} />
+        <DateField field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
       );
 
       expect(rendered.html()).to.equal(

@@ -7,10 +7,10 @@ interface GeneralField {
   value?: unknown;
 }
 
-interface WithEmptyValueEditingPlaceholderProps {
+interface WithEmptyFieldEditingComponentProps {
   field?: GeneralField;
   editable?: boolean;
-  emptyValueEditingPlaceholder?: React.ComponentClass | React.FC;
+  emptyFieldEditingComponent?: React.ComponentClass | React.FC;
 }
 
 /**
@@ -19,8 +19,8 @@ interface WithEmptyValueEditingPlaceholderProps {
  * @param {React.FC} defaultEmptyFieldEditingComponent the default empty field placeholder component
  * @param {boolean} isForwardRef set to 'true' if forward reference is needed
  */
-export function withEmptyValueEditingPlaceholder<
-  FieldComponentProps extends WithEmptyValueEditingPlaceholderProps,
+export function withEmptyFieldEditingComponent<
+  FieldComponentProps extends WithEmptyFieldEditingComponentProps,
   RefElementType = HTMLElement
 >(
   FieldComponent: ComponentType<FieldComponentProps>,
@@ -35,7 +35,7 @@ export function withEmptyValueEditingPlaceholder<
   ): React.ComponentClass | React.FC => {
     const { editable = true } = props;
     if (props.field?.metadata && editable && !hasValue(props.field)) {
-      return props.emptyValueEditingPlaceholder || defaultEmptyFieldEditingComponent;
+      return props.emptyFieldEditingComponent || defaultEmptyFieldEditingComponent;
     }
 
     return null;

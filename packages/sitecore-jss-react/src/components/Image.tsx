@@ -4,7 +4,7 @@ import React from 'react';
 import { addClassName, convertAttributesToReactProps } from '../utils';
 import { getAttributesString } from '../utils';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
-import { withEmptyValueEditingPlaceholder } from '../enhancers/withEmptyValueEditingPlaceholder';
+import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentImage } from './DefaultEmptyFieldEditingComponents';
 
 export interface ImageFieldValue {
@@ -73,7 +73,7 @@ export interface ImageProps {
    *
    * Custom element to render in Pages in Metadata edit mode if field value is empty
    */
-  emptyValueEditingPlaceholder?: React.ComponentClass | React.FC;
+  emptyFieldEditingComponent?: React.ComponentClass | React.FC;
 }
 
 const getEditableWrapper = (editableMarkup: string, ...otherProps: unknown[]) => (
@@ -153,7 +153,7 @@ export const getEEMarkup = (
 };
 
 export const Image: React.FC<ImageProps> = withFieldMetadata<ImageProps>(
-  withEmptyValueEditingPlaceholder<ImageProps>(
+  withEmptyFieldEditingComponent<ImageProps>(
     ({ editable = true, imageParams, field, mediaUrlPrefix, ...otherProps }) => {
       const dynamicMedia = field as ImageField | ImageFieldValue;
 
@@ -209,7 +209,7 @@ Image.propTypes = {
   imageParams: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]).isRequired
   ),
-  emptyValueEditingPlaceholder: PropTypes.func,
+  emptyFieldEditingComponent: PropTypes.func,
 };
 
 Image.displayName = 'Image';

@@ -9,12 +9,12 @@ import {
   withFieldMetadata,
 } from '@sitecore-jss/sitecore-jss-react';
 import Image, { ImageProps as NextImageProperties } from 'next/image';
-import { withEmptyValueEditingPlaceholder } from '@sitecore-jss/sitecore-jss-react';
+import { withEmptyFieldEditingComponent } from '@sitecore-jss/sitecore-jss-react';
 import { DefaultEmptyFieldEditingComponentImage } from '@sitecore-jss/sitecore-jss-react';
 
 type NextImageProps = ImageProps & Partial<NextImageProperties>;
 export const NextImage: React.FC<NextImageProps> = withFieldMetadata<NextImageProps>(
-  withEmptyValueEditingPlaceholder<NextImageProps>(
+  withEmptyFieldEditingComponent<NextImageProps>(
     ({ editable = true, imageParams, field, mediaUrlPrefix, fill, priority, ...otherProps }) => {
       // next handles src and we use a custom loader,
       // throw error if these are present

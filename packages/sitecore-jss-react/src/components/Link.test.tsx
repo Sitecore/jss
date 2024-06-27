@@ -182,12 +182,12 @@ describe('<Link />', () => {
         metadata: testMetadata,
       };
 
-      const EmptyValueEditingPlaceholder: React.FC = () => (
+      const EmptyFieldEditingComponent: React.FC = () => (
         <span className="empty-field-value-placeholder">Custom Empty field value</span>
       );
 
       const rendered = mount(
-        <Link field={field} emptyValueEditingPlaceholder={EmptyValueEditingPlaceholder} />
+        <Link field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
       );
 
       expect(rendered.html()).to.equal(

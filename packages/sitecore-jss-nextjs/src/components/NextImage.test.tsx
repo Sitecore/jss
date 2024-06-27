@@ -347,12 +347,12 @@ describe('<NextImage />', () => {
         metadata: testMetadata,
       };
 
-      const EmptyValueEditingPlaceholder: React.FC = () => (
+      const EmptyFieldEditingComponent: React.FC = () => (
         <span className="empty-field-value-placeholder">Custom Empty field value</span>
       );
 
       const rendered = mount(
-        <NextImage field={field} emptyValueEditingPlaceholder={EmptyValueEditingPlaceholder} />
+        <NextImage field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
       );
 
       expect(rendered.html()).to.equal(

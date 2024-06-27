@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
-import { withEmptyValueEditingPlaceholder } from '../enhancers/withEmptyValueEditingPlaceholder';
+import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 
 export interface RichTextField {
@@ -30,11 +30,11 @@ export interface RichTextProps {
    *
    * Custom element to render in Pages in Metadata edit mode if field value is empty
    */
-  emptyValueEditingPlaceholder?: React.ComponentClass | React.FC;
+  emptyFieldEditingComponent?: React.ComponentClass | React.FC;
 }
 
 export const RichText: React.FC<RichTextProps> = withFieldMetadata<RichTextProps>(
-  withEmptyValueEditingPlaceholder<RichTextProps>(
+  withEmptyFieldEditingComponent<RichTextProps>(
     // eslint-disable-next-line react/display-name
     forwardRef<HTMLElement, RichTextProps>(
       ({ field, tag = 'div', editable = true, ...otherProps }, ref) => {
@@ -67,7 +67,7 @@ export const RichTextPropTypes = {
   }),
   tag: PropTypes.string,
   editable: PropTypes.bool,
-  emptyValueEditingPlaceholder: PropTypes.func,
+  emptyFieldEditingComponent: PropTypes.func,
 };
 
 RichText.propTypes = RichTextPropTypes;

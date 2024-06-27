@@ -1,7 +1,7 @@
 import React, { ReactElement, RefAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
-import { withEmptyValueEditingPlaceholder } from '../enhancers/withEmptyValueEditingPlaceholder';
+import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 
 export interface LinkFieldValue {
@@ -44,11 +44,11 @@ export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
      *
      * Custom element to render in Pages in Metadata edit mode if field value is empty
      */
-    emptyValueEditingPlaceholder?: React.ComponentClass | React.FC;
+    emptyFieldEditingComponent?: React.ComponentClass | React.FC;
   };
 
 export const Link: React.FC<LinkProps> = withFieldMetadata<LinkProps, HTMLAnchorElement>(
-  withEmptyValueEditingPlaceholder<LinkProps, HTMLAnchorElement>(
+  withEmptyFieldEditingComponent<LinkProps, HTMLAnchorElement>(
     // eslint-disable-next-line react/display-name
     forwardRef<HTMLAnchorElement, LinkProps>(
       ({ field, editable = true, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {
@@ -155,7 +155,7 @@ export const LinkPropTypes = {
   ]).isRequired,
   editable: PropTypes.bool,
   showLinkTextWithChildrenPresent: PropTypes.bool,
-  emptyValueEditingPlaceholder: PropTypes.func,
+  emptyFieldEditingComponent: PropTypes.func,
 };
 
 Link.propTypes = LinkPropTypes;

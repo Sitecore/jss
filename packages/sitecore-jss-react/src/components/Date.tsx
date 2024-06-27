@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
-import { withEmptyValueEditingPlaceholder } from '../enhancers/withEmptyValueEditingPlaceholder';
+import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 
 export interface DateFieldProps {
@@ -28,11 +28,11 @@ export interface DateFieldProps {
    *
    * Custom element to render in Pages in Metadata edit mode if field value is empty
    */
-  emptyValueEditingPlaceholder?: React.ComponentClass | React.FC;
+  emptyFieldEditingComponent?: React.ComponentClass | React.FC;
 }
 
 export const DateField: React.FC<DateFieldProps> = withFieldMetadata<DateFieldProps>(
-  withEmptyValueEditingPlaceholder<DateFieldProps>(
+  withEmptyFieldEditingComponent<DateFieldProps>(
     ({ field, tag, editable = true, render, ...otherProps }) => {
       if (!field || (!field.editable && !field.value)) {
         return null;
@@ -76,7 +76,7 @@ DateField.propTypes = {
   tag: PropTypes.string,
   editable: PropTypes.bool,
   render: PropTypes.func,
-  emptyValueEditingPlaceholder: PropTypes.func,
+  emptyFieldEditingComponent: PropTypes.func,
 };
 
 DateField.displayName = 'Date';

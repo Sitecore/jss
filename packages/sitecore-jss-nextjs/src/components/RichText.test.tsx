@@ -478,13 +478,13 @@ describe('RichText', () => {
         },
       };
 
-      const EmptyValueEditingPlaceholder: React.FC = () => (
+      const EmptyFieldEditingComponent: React.FC = () => (
         <span className="empty-field-value-placeholder">Custom Empty field value</span>
       );
 
       const rendered = mount(
         <Page value={router}>
-          <RichText {...props} emptyValueEditingPlaceholder={EmptyValueEditingPlaceholder} />
+          <RichText {...props} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
         </Page>,
         { attachTo: app }
       );

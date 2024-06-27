@@ -103,7 +103,7 @@ export { withDatasourceCheck } from './enhancers/withDatasourceCheck';
 export { EditFrameProps, EditFrame } from './components/EditFrame';
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
 export { withFieldMetadata } from './enhancers/withFieldMetadata';
-export { withEmptyValueEditingPlaceholder } from './enhancers/withEmptyValueEditingPlaceholder';
+export { withEmptyFieldEditingComponent } from './enhancers/withEmptyFieldEditingComponent';
 export { EditingScripts } from './components/EditingScripts';
 export {
   DefaultEmptyFieldEditingComponentText,

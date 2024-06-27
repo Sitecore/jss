@@ -2,11 +2,11 @@
 import React, { forwardRef } from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { withEmptyValueEditingPlaceholder } from './withEmptyValueEditingPlaceholder';
+import { withEmptyFieldEditingComponent } from './withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from '../components/DefaultEmptyFieldEditingComponents';
 import { describe } from 'node:test';
 
-describe('withEmptyValueEditingPlaceholder', () => {
+describe('withEmptyFieldEditingComponent', () => {
   const testMetadata = {
     contextItem: {
       id: '{09A07660-6834-476C-B93B-584248D3003B}',
@@ -59,7 +59,7 @@ describe('withEmptyValueEditingPlaceholder', () => {
       },
     };
 
-    const WrappedComponent = withEmptyValueEditingPlaceholder<TestComponentProps>(
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
       TestComponent,
       DefaultEmptyFieldEditingComponentText
     );
@@ -71,7 +71,7 @@ describe('withEmptyValueEditingPlaceholder', () => {
   });
 
   it('Should render custom empty value placeholder if provided via props if field value is empty in metadata edit mode', () => {
-    const EmptyValueEditingPlaceholder: React.FC = () => (
+    const EmptyFieldEditingComponent: React.FC = () => (
       <span className="empty-field-value-placeholder">Custom Empty field value</span>
     );
 
@@ -80,16 +80,16 @@ describe('withEmptyValueEditingPlaceholder', () => {
         value: '',
         metadata: testMetadata,
       },
-      emptyValueEditingPlaceholder: EmptyValueEditingPlaceholder,
+      emptyFieldEditingComponent: EmptyFieldEditingComponent,
     };
 
-    const WrappedComponent = withEmptyValueEditingPlaceholder<TestComponentProps>(
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
       TestComponent,
       DefaultEmptyFieldEditingComponentText
     );
 
     const rendered = mount(<WrappedComponent {...props} />);
-    const expected = mount(<EmptyValueEditingPlaceholder />);
+    const expected = mount(<EmptyFieldEditingComponent />);
 
     expect(rendered.html()).to.equal(expected.html());
   });
@@ -102,7 +102,7 @@ describe('withEmptyValueEditingPlaceholder', () => {
       },
     };
 
-    const WrappedComponent = withEmptyValueEditingPlaceholder<TestComponentProps>(
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
       TestComponent,
       DefaultEmptyFieldEditingComponentText
     );
@@ -120,7 +120,7 @@ describe('withEmptyValueEditingPlaceholder', () => {
       editable: false,
     };
 
-    const WrappedComponent = withEmptyValueEditingPlaceholder<TestComponentProps>(
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
       TestComponent,
       DefaultEmptyFieldEditingComponentText
     );
@@ -136,7 +136,7 @@ describe('withEmptyValueEditingPlaceholder', () => {
       },
     };
 
-    const WrappedComponent = withEmptyValueEditingPlaceholder<TestComponentProps>(
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
       TestComponent,
       DefaultEmptyFieldEditingComponentText
     );
@@ -153,7 +153,7 @@ describe('withEmptyValueEditingPlaceholder', () => {
       },
     };
 
-    const WrappedComponent = withEmptyValueEditingPlaceholder<TestComponentProps>(
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
       TestComponentWithRef,
       DefaultEmptyFieldEditingComponentText,
       true
@@ -174,7 +174,7 @@ describe('withEmptyValueEditingPlaceholder', () => {
       },
     };
 
-    const WrappedComponent = withEmptyValueEditingPlaceholder<TestComponentProps>(
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
       TestComponent,
       DefaultEmptyFieldEditingComponentText
     );
@@ -192,7 +192,7 @@ describe('withEmptyValueEditingPlaceholder', () => {
       },
     };
 
-    const WrappedComponent = withEmptyValueEditingPlaceholder<TestComponentProps>(
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
       TestComponent,
       DefaultEmptyFieldEditingComponentText
     );

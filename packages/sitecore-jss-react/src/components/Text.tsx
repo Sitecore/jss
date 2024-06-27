@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
-import { withEmptyValueEditingPlaceholder } from '../enhancers/withEmptyValueEditingPlaceholder';
+import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 import PropTypes from 'prop-types';
 export interface TextField {
@@ -32,12 +32,19 @@ export interface TextProps {
    *
    * Custom element to render in Pages in Metadata edit mode if field value is empty
    */
-  emptyValueEditingPlaceholder?: React.ComponentClass | React.FC;
+  emptyFieldEditingComponent: React.ComponentClass | React.FC;
 }
 
 export const Text: React.FC<TextProps> = withFieldMetadata<TextProps>(
-  withEmptyValueEditingPlaceholder<TextProps>(
-    ({ field, tag, editable = true, encode = true, ...otherProps }) => {
+  withEmptyFieldEditingComponent<TextProps>(
+    ({
+      field,
+      tag,
+      editable = true,
+      encode = true,
+      emptyFieldEditingComponent = DefaultEmptyFieldEditingComponentText,
+      ...otherProps
+    }) => {
       if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
         return null;
       }
@@ -114,7 +121,7 @@ Text.propTypes = {
   tag: PropTypes.string,
   editable: PropTypes.bool,
   encode: PropTypes.bool,
-  emptyValueEditingPlaceholder: PropTypes.func,
+  emptyFieldEditingComponent: PropTypes.func,
 };
 
 Text.displayName = 'Text';
