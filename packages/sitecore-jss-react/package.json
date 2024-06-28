@@ -41,7 +41,6 @@
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "chai": "^4.3.7",
     "chai-string": "^1.5.0",
-    "cheerio": "1.0.0-rc.10",
     "del-cli": "^3.0.1",
     "enzyme": "^3.11.0",
     "eslint": "^7.15.0",
