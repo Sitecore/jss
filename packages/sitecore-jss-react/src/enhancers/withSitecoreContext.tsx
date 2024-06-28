@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { ReactNode } from 'react';
 import { SitecoreContextReactContext, SitecoreContextValue } from '../components/SitecoreContext';
 
 export interface WithSitecoreContextOptions {
@@ -27,13 +27,16 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
     Component: React.ComponentType<ComponentProps>
   ) {
     return function WithSitecoreContext(props: WithSitecoreContextHocProps<ComponentProps>) {
-      const context = useContext(SitecoreContextReactContext);
       return (
-        <Component
-          {...(props as ComponentProps)}
-          sitecoreContext={context.context}
-          updateSitecoreContext={options && options.updatable && context.setContext}
-        />
+        <SitecoreContextReactContext.Consumer>
+          {(context) => (
+            <Component
+              {...(props as ComponentProps)}
+              sitecoreContext={context.context}
+              updateSitecoreContext={options && options.updatable && context.setContext}
+            />
+          )}
+        </SitecoreContextReactContext.Consumer>
       );
     };
   };

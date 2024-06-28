@@ -34,28 +34,19 @@ class RouteHandler extends React.Component {
    * Loads route data from Sitecore Layout Service into state.routeData
    */
   updateLayoutData() {
-    let sitecoreRoutePath = this.props.route.match.params.sitecoreRoute || '/';
-    if (!sitecoreRoutePath.startsWith('/')) {
-      sitecoreRoutePath = `/${sitecoreRoutePath}`;
-    }
-
     const language = this.getLanguage();
 
     // instantiate the dictionary service.
     const layoutServiceInstance = layoutServiceFactory.create();
 
     // get the route data for the new route
-    layoutServiceInstance.fetchLayoutData(sitecoreRoutePath, language).then((routeData) => {
+    layoutServiceInstance.fetchLayoutData(this.props.route, language).then((routeData) => {
       this.props.updateSitecoreContext(routeData);
     });
   }
 
   getLanguage() {
-    return (
-      this.props.route.match.params.lang ||
-      this.props.sitecoreContext.language ||
-      config.defaultLanguage
-    );
+    return this.props.language || this.props.sitecoreContext.language || config.defaultLanguage;
   }
 
   /**
@@ -70,8 +61,8 @@ class RouteHandler extends React.Component {
   }
 
   componentDidUpdate(previousProps) {
-    const existingRoute = previousProps.route.match.url;
-    const newRoute = this.props.route.match.url;
+    const existingRoute = previousProps.url;
+    const newRoute = this.props.url;
 
     // don't change state (refetch route data) if the route has not changed
     if (existingRoute === newRoute) {

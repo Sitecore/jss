@@ -9,9 +9,7 @@ export interface PlaceholderComponentProps extends PlaceholderProps {
    * Render props function that is called when the placeholder contains no content components.
    * Can be used to wrap the Sitecore EE empty placeholder markup in something that's visually correct
    */
-  renderEmpty?: (
-    components: React.ReactNode[]
-  ) => React.ComponentClass<unknown> | React.SFC<unknown> | React.ReactNode;
+  renderEmpty?: (components: React.ReactNode[]) => React.ReactNode;
   /**
    * Render props function that enables control over the rendering of the components in the placeholder.
    * Useful for techniques like wrapping each child in a wrapper component.
@@ -20,16 +18,13 @@ export interface PlaceholderComponentProps extends PlaceholderProps {
     components: React.ReactNode[],
     data: (ComponentRendering | HtmlElementRendering)[],
     props: PlaceholderProps
-  ) => React.ComponentClass<unknown> | React.SFC<unknown> | React.ReactNode;
+  ) => React.ReactNode;
 
   /**
    * Render props function that is called for each non-system component added to the placeholder.
    * Mutually exclusive with `render`. System components added during Experience Editor are automatically rendered as-is.
    */
-  renderEach?: (
-    component: React.ReactNode,
-    index: number
-  ) => React.ComponentClass<unknown> | React.SFC<unknown> | React.ReactNode;
+  renderEach?: (component: React.ReactNode, index: number) => React.ReactNode;
 }
 
 /**

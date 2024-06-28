@@ -23,12 +23,12 @@ import logo from './assets/sc_logo.svg';
 // Most apps may also wish to use GraphQL for their navigation construction; this sample does not simply to support disconnected mode.
 let Navigation = ({ t, i18n }) => (
   <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom">
-    <h5 className="my-0 mr-md-auto font-weight-normal">
+    <h5 className="my-0 me-md-auto font-weight-normal">
       <NavLink to="/" className="text-dark">
         <img src={logo} alt="Sitecore" />
       </NavLink>
     </h5>
-    <nav className="my-2 my-md-0 mr-md-3">
+    <nav className="my-2 my-md-0 me-md-3">
       <a
         className="p-2 text-dark"
         href="https://jss.sitecore.com"
@@ -73,7 +73,7 @@ const Layout = ({ route }) => (
     <Navigation />
 
     {/* root placeholder for the app, which we add components to using route data */}
-    <div className="container">
+    <div className="container px-5">
       <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main" rendering={route} />
     </div>
   </React.Fragment>

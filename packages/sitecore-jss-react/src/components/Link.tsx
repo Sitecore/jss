@@ -39,7 +39,7 @@ export type LinkProps = React.DetailedHTMLProps<
   showLinkTextWithChildrenPresent?: boolean;
 };
 
-export const Link: React.SFC<LinkProps> = ({
+export const Link: React.FC<LinkProps> = ({
   field,
   editable,
   children,
@@ -131,7 +131,6 @@ export const LinkPropTypes = {
     }),
   ]).isRequired,
   editable: PropTypes.bool,
-  children: PropTypes.node,
   showLinkTextWithChildrenPresent: PropTypes.bool,
 };
 

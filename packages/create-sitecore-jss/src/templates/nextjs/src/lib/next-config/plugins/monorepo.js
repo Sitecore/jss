@@ -1,15 +1,11 @@
-const withTM = require('next-transpile-modules')(['@sitecore-jss/sitecore-jss-nextjs'], {
-  resolveSymlinks: false,
-});
 const path = require('path');
 
 const CWD = process.cwd();
-
 /**
  * @param {import('next').NextConfig} nextConfig
  */
 const monorepoPlugin = (nextConfig = {}) => {
-  return withTM(Object.assign({}, nextConfig, {
+  return Object.assign({}, nextConfig, {
     webpack: (config, options) => {
       if (options.isServer) {
         config.externals = ['react', 'vertx', ...config.externals];
@@ -24,7 +20,7 @@ const monorepoPlugin = (nextConfig = {}) => {
 
       return config;
     }
-  }));
+  });
 };
 
 module.exports = monorepoPlugin;

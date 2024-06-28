@@ -23,7 +23,7 @@ export const sitecoreLoader: ImageLoader = ({ src, width }: ImageLoaderProps): s
   return `${root}?${params}`;
 };
 
-export const NextImage: React.SFC<NextImageProps> = ({
+export const NextImage: React.FC<NextImageProps> = ({
   editable,
   imageParams,
   field,
@@ -85,7 +85,7 @@ export const NextImage: React.SFC<NextImageProps> = ({
   const loader = (otherProps.loader ? otherProps.loader : sitecoreLoader) as ImageLoader;
 
   if (attrs) {
-    return <Image loader={loader} {...imageProps} />;
+    return <Image alt="" loader={loader} {...imageProps} />;
   }
 
   return null; // we can't handle the truth

@@ -24,6 +24,7 @@
     "outDir": "dist/cjs",
     "declaration": true,
     "declarationDir": "./types",
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "strictNullChecks": false
