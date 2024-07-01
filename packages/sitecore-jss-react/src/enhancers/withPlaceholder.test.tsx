@@ -15,7 +15,6 @@ import PropTypes from 'prop-types';
 import { ComponentFactory } from '../components/sharedTypes';
 import {
   ComponentRendering,
-  EditMode,
   LayoutServiceData,
   RouteData,
 } from '@sitecore-jss/sitecore-jss/layout';
