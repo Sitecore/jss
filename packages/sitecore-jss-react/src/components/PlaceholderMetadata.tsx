@@ -72,7 +72,7 @@ export const PlaceholderMetadata = ({
 
             // Check if the placeholder matches the dynamic placeholder pattern
             if (pattern.test(placeholderName)) {
-              phId = placeholder;
+              phId = id ? `${placeholder}_${id}` : `${placeholder}_${DEFAULT_PLACEHOLDER_UID}`;
               break;
             }
           }

@@ -473,7 +473,7 @@ describe('withPlaceholder HOC', () => {
       expect(renderedComponent.html()).to.equal(
         [
           '<div class="home-mock">',
-          '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="container-{*}"></code>',
+          '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="container-{*}_00000000-0000-0000-0000-000000000000"></code>',
           '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="nested123"></code>',
           '<div class="header-wrapper">',
           '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="logo_nested123"></code>',
@@ -506,7 +506,7 @@ describe('withPlaceholder HOC', () => {
       expect(renderedComponent.html()).to.equal(
         [
           '<div class="home-mock">',
-          '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="container-1-{*}"></code>',
+          '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="container-1-{*}_00000000-0000-0000-0000-000000000000"></code>',
           '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="nested123"></code>',
           '<div class="header-wrapper">',
           '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="logo_nested123"></code>',

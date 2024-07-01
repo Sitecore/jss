@@ -69,12 +69,12 @@ describe('PlaceholderMetadata', () => {
     );
   });
 
-  it('renders placeholder code blocks when metadataType is dynamic placeholder', () => {
+  it('renders placeholder blocks with rendering uid when metadataType is dynamic placeholder', () => {
     const children = <div className="richtext-mock"></div>;
     const wrapper = shallow(
       <PlaceholderMetadata
         rendering={{
-          uid: '123',
+          uid: 'renderinguid',
           componentName: 'RichText',
           placeholders: { 'main-{*}': [] },
         }}
@@ -86,7 +86,30 @@ describe('PlaceholderMetadata', () => {
 
     expect(wrapper.html()).to.equal(
       [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main-{*}"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main-{*}_renderinguid"></code>',
+        '<div class="richtext-mock"></div>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
+      ].join('')
+    );
+  });
+
+  it('renders placeholder blocks with DEFAULT_PLACEHOLDER_UID value when metadataType is dynamic placeholder and uid is not present', () => {
+    const children = <div className="richtext-mock"></div>;
+    const wrapper = shallow(
+      <PlaceholderMetadata
+        rendering={{
+          componentName: 'RichText',
+          placeholders: { 'main-{*}': [] },
+        }}
+        placeholderName={'main-1'}
+      >
+        {children}
+      </PlaceholderMetadata>
+    );
+
+    expect(wrapper.html()).to.equal(
+      [
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main-{*}_00000000-0000-0000-0000-000000000000"></code>',
         '<div class="richtext-mock"></div>',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
       ].join('')
@@ -98,7 +121,7 @@ describe('PlaceholderMetadata', () => {
     const wrapper = shallow(
       <PlaceholderMetadata
         rendering={{
-          uid: '123',
+          uid: 'renderinguid',
           componentName: 'RichText',
           placeholders: { 'main-1-{*}': [] },
         }}
@@ -110,7 +133,7 @@ describe('PlaceholderMetadata', () => {
 
     expect(wrapper.html()).to.equal(
       [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main-1-{*}"></code>',
+        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main-1-{*}_renderinguid"></code>',
         '<div class="richtext-mock"></div>',
         '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
       ].join('')

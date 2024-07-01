@@ -14,7 +14,17 @@ const PAGE_SIZE = 1000;
  */
 /*
 TODO: re-add dictionary part when dictionary schema updated
-site {
+ query EditingQuery(
+    $siteName: String!
+    $itemId: String!
+    $version: String!
+    $language: String!
+    $after: String
+  ) {
+    item(path: $itemId, language: $language, version: $version) {
+      rendered
+    }
+    site {
       siteInfo(site: $siteName) {
         dictionary(language: $language, first: ${PAGE_SIZE}, after: $after) {
           results {
@@ -24,15 +34,10 @@ site {
         }
       }
     }
+  }
 */
 export const query = /* GraphQL */ `
-  query EditingQuery(
-    $siteName: String!
-    $itemId: String!
-    $version: String!
-    $language: String!
-    $after: String
-  ) {
+  query EditingQuery($itemId: String!, $version: String!, $language: String!) {
     item(path: $itemId, language: $language, version: $version) {
       rendered
     }
