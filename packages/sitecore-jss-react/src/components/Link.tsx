@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
+import { EditableFieldProps } from './sharedTypes';
 
 export interface LinkFieldValue {
   [attributeName: string]: unknown;
@@ -23,28 +24,17 @@ export interface LinkField {
   editableLastPart?: string;
 }
 
-export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
+export type LinkProps = EditableFieldProps &
+  React.AnchorHTMLAttributes<HTMLAnchorElement> &
   RefAttributes<HTMLAnchorElement> & {
     /** The link field data. */
     field: (LinkField | LinkFieldValue) & { metadata?: { [key: string]: unknown } };
-    /**
-     * Can be used to explicitly disable inline editing.
-     * If true and `field.editable` has a value, then `field.editable` will be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
-     * @default true
-     */
-    editable?: boolean;
 
     /**
      * Displays a link text ('description' in Sitecore) even when children exist
      * NOTE: when in Sitecore Experience Editor, this setting is ignored due to technical limitations, and the description is always rendered.
      */
     showLinkTextWithChildrenPresent?: boolean;
-    /**
-     * -- Edit Mode Metadata --
-     *
-     * Custom element to render in Pages in Metadata edit mode if field value is empty
-     */
-    emptyFieldEditingComponent?: React.ComponentClass | React.FC;
   };
 
 export const Link: React.FC<LinkProps> = withFieldMetadata<LinkProps, HTMLAnchorElement>(

@@ -6,6 +6,7 @@ import { getAttributesString } from '../utils';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentImage } from './DefaultEmptyFieldEditingComponents';
+import { EditableFieldProps } from './sharedTypes';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -36,17 +37,10 @@ export interface ImageSizeParameters {
   sc?: number;
 }
 
-export interface ImageProps {
+export interface ImageProps extends EditableFieldProps {
   [attributeName: string]: unknown;
   /** Image field data (consistent with other field types) */
   field?: (ImageField | ImageFieldValue) & { metadata?: { [key: string]: unknown } };
-
-  /**
-   * Can be used to explicitly disable inline editing.
-   * If true and `media.editable` has a value, then `media.editable` will be processed
-   * and rendered as component output. If false, `media.editable` value will be ignored and not rendered.
-   */
-  editable?: boolean;
 
   /**
    * Parameters that will be attached to Sitecore media URLs
@@ -67,13 +61,6 @@ export interface ImageProps {
   mediaUrlPrefix?: RegExp;
 
   /** HTML attributes that will be appended to the rendered <img /> tag. */
-
-  /**
-   * -- Edit Mode Metadata --
-   *
-   * Custom element to render in Pages in Metadata edit mode if field value is empty
-   */
-  emptyFieldEditingComponent?: React.ComponentClass | React.FC;
 }
 
 const getEditableWrapper = (editableMarkup: string, ...otherProps: unknown[]) => (

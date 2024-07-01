@@ -3,13 +3,15 @@ import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 import PropTypes from 'prop-types';
+import { EditableFieldProps } from './sharedTypes';
+
 export interface TextField {
   value?: string | number;
   editable?: string;
   metadata?: { [key: string]: unknown };
 }
 
-export interface TextProps {
+export interface TextProps extends EditableFieldProps {
   [htmlAttributes: string]: unknown;
   /** The text field data. */
   field?: TextField;
@@ -18,21 +20,9 @@ export interface TextProps {
    */
   tag?: string;
   /**
-   * Can be used to explicitly disable inline editing.
-   * If true and `field.editable` has a value, then `field.editable` will be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
-   * @default true
-   */
-  editable?: boolean;
-  /**
    * If false, HTML-encoding of the field value is disabled and the value is rendered as-is.
    */
   encode?: boolean;
-  /**
-   * -- Edit Mode Metadata --
-   *
-   * Custom element to render in Pages in Metadata edit mode if field value is empty
-   */
-  emptyFieldEditingComponent: React.ComponentClass | React.FC;
 }
 
 export const Text: React.FC<TextProps> = withFieldMetadata<TextProps>(

@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
+import { EditableFieldProps } from './sharedTypes';
 
-export interface DateFieldProps {
+export interface DateFieldProps extends EditableFieldProps {
   /** The date field data. */
   [htmlAttributes: string]: unknown;
   field: {
@@ -16,19 +17,8 @@ export interface DateFieldProps {
    * The HTML element that will wrap the contents of the field.
    */
   tag?: string;
-  /**
-   * Can be used to explicitly disable inline editing.
-   * If true and `field.editable` has a value, then `field.editable` will be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
-   * @default true
-   */
-  editable?: boolean;
+
   render?: (date: Date | null) => React.ReactNode;
-  /**
-   * -- Edit Mode Metadata --
-   *
-   * Custom element to render in Pages in Metadata edit mode if field value is empty
-   */
-  emptyFieldEditingComponent?: React.ComponentClass | React.FC;
 }
 
 export const DateField: React.FC<DateFieldProps> = withFieldMetadata<DateFieldProps>(
