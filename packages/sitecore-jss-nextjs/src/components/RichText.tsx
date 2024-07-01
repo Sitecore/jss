@@ -74,7 +74,7 @@ export const RichText = (props: RichTextProps): JSX.Element => {
     });
   };
 
-  return <ReactRichText ref={richTextRef} {...rest} />;
+  return <ReactRichText ref={richTextRef} editable={editable} {...rest} />;
 };
 
 RichText.propTypes = {

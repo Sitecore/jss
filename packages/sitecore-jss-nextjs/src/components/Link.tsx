@@ -30,7 +30,10 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
     if (
       !field ||
-      (!(field as LinkFieldValue).editable && !field.value && !(field as LinkFieldValue).href)
+      (!(field as LinkFieldValue).editable &&
+        !field.value &&
+        !(field as LinkFieldValue).href &&
+        !field.metadata)
     ) {
       return null;
     }
