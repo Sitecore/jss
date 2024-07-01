@@ -6,8 +6,6 @@ import React, { ReactElement, ReactNode } from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { convertedDevData as nonEeDevData } from '../test-data/non-ee-data';
-import { convertedDevDataWithoutParams as nonEeDevDataWithoutParams } from '../test-data/non-ee-data';
-import { convertedDataWithoutParams as eeDataWithoutParams } from '../test-data/ee-data';
 import { convertedData as eeData } from '../test-data/ee-data';
 import * as metadataData from '../test-data/metadata-data';
 import { withPlaceholder } from '../enhancers/withPlaceholder';
@@ -17,7 +15,6 @@ import PropTypes from 'prop-types';
 import { ComponentFactory } from '../components/sharedTypes';
 import {
   ComponentRendering,
-  EditMode,
   LayoutServiceData,
   RouteData,
 } from '@sitecore-jss/sitecore-jss/layout';
@@ -66,11 +63,28 @@ const ErrorMessageComponent: React.FC = () => (
   <div className="error-handled">Your error has been... dealt with.</div>
 );
 
+const delay = (timeout, promise?) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, timeout);
+  }).then(() => promise);
+};
+
 const componentFactory: ComponentFactory = (componentName: string) => {
   const components = new Map<string, React.FC<any>>();
 
   components.set('DownloadCallout', DownloadCallout);
   components.set('Jumbotron', () => <div className="jumbotron-mock"></div>);
+  components.set('BrokenComponent', () => {
+    throw new Error('BrokenComponent error');
+  });
+  components.set(
+    'DynamicComponent',
+    React.lazy(() =>
+      delay(500, () => {
+        throw new Error('DynamicComponent error');
+      })
+    )
+  );
 
   return components.get(componentName) || null;
 };
@@ -80,13 +94,13 @@ const testData = [
   { label: 'LayoutService data - EE on', data: eeData },
 ];
 
-const testDataWithoutParams = [
-  { label: 'Dev data without params', data: nonEeDevDataWithoutParams },
-  { label: 'LayoutService data - EE on without params', data: eeDataWithoutParams },
-];
-
 describe('withPlaceholder HOC', () => {
   describe('Error handling', () => {
+    before(() => {
+      // Set to development mode to show error details
+      process.env.NODE_ENV = 'development';
+    });
+
     it('should render default error component on wrapped component error', () => {
       const phKey = 'page-content';
       const props: EnhancedOmit<PlaceholderProps, 'sitecoreContext'> = {
@@ -123,12 +137,94 @@ describe('withPlaceholder HOC', () => {
       );
       expect(renderedComponent.find('.error-handled').length).to.equal(1);
     });
+
+    it('should render nested broken component', () => {
+      const component = (nonEeDevData.sitecore.route?.placeholders.main as (
+        | ComponentRendering
+        | RouteData
+      )[]).find((c) => (c as ComponentRendering).componentName) as ComponentRendering;
+      const phKey = 'page-content';
+      const props: EnhancedOmit<PlaceholderProps, 'sitecoreContext'> = {
+        name: phKey,
+        rendering: component,
+      };
+      const Element = withPlaceholder(phKey)(Home);
+      const renderedComponent = mount(
+        <SitecoreContext layoutData={nonEeDevData} componentFactory={componentFactory}>
+          <Element {...props} />
+        </SitecoreContext>
+      );
+
+      expect(renderedComponent.find('.download-callout-mock').length).to.equal(1);
+      expect(renderedComponent.find('.sc-jss-placeholder-error').length).to.equal(1);
+      expect(renderedComponent.find('h4').length).to.equal(1);
+      expect(renderedComponent.find('h4').html()).to.equal('<h4>Loading component...</h4>');
+    });
+
+    it('should render nested components using custom error component', () => {
+      const component = (nonEeDevData.sitecore.route?.placeholders.main as (
+        | ComponentRendering
+        | RouteData
+      )[]).find((c) => (c as ComponentRendering).componentName) as ComponentRendering;
+      const phKey = 'page-content';
+      const props: EnhancedOmit<PlaceholderProps, 'sitecoreContext'> = {
+        name: phKey,
+        rendering: component,
+        errorComponent: ErrorMessageComponent,
+        componentLoadingMessage: 'Custom loading message...',
+      };
+      const Element = withPlaceholder(phKey)(Home);
+      const renderedComponent = mount(
+        <SitecoreContext layoutData={nonEeDevData} componentFactory={componentFactory}>
+          <Element {...props} />
+        </SitecoreContext>
+      );
+
+      expect(renderedComponent.find('.download-callout-mock').length).to.equal(1);
+      expect(renderedComponent.find('.error-handled').length).to.equal(1);
+      expect(renderedComponent.find('h4').length).to.equal(1);
+      expect(renderedComponent.find('h4').html()).to.equal('<h4>Custom loading message...</h4>');
+    });
+
+    describe('Edit mode', () => {
+      const component = (eeData.sitecore.route?.placeholders.main as (
+        | ComponentRendering
+        | RouteData
+      )[]).find((c) => (c as ComponentRendering).componentName) as ComponentRendering;
+      const phKey = 'page-content';
+      const props: EnhancedOmit<PlaceholderProps, 'sitecoreContext'> = {
+        name: phKey,
+        rendering: component,
+      };
+      const Element = withPlaceholder(phKey)(Home);
+      const renderedComponent = mount(
+        <SitecoreContext
+          layoutData={eeData as LayoutServiceData}
+          componentFactory={componentFactory}
+        >
+          <Element {...props} />
+        </SitecoreContext>
+      );
+
+      it('should render normal component', () => {
+        expect(renderedComponent.find('.download-callout-mock').length).to.equal(1);
+      });
+
+      it('should render nested broken component', () => {
+        expect(renderedComponent.find('.sc-jss-placeholder-error').length).to.equal(1);
+      });
+
+      it('should render nested dynamic broken component', () => {
+        expect(renderedComponent.find('h4').length).to.equal(1);
+        expect(renderedComponent.find('h4').html()).to.equal('<h4>Loading component...</h4>');
+      });
+    });
   });
 
   testData.forEach((dataSet) => {
     describe(`with ${dataSet.label}`, () => {
       it('should render a placeholder with given key', () => {
-        const component = (dataSet.data.sitecore.route.placeholders.main as (
+        const component = (dataSet.data.sitecore.route?.placeholders.main as (
           | ComponentRendering
           | RouteData
         )[]).find((c) => (c as ComponentRendering).componentName) as ComponentRendering;
@@ -150,7 +246,7 @@ describe('withPlaceholder HOC', () => {
       });
 
       it('should render a placeholder with given key and prop', () => {
-        const component = (dataSet.data.sitecore.route.placeholders.main as (
+        const component = (dataSet.data.sitecore.route?.placeholders.main as (
           | ComponentRendering
           | RouteData
         )[]).find((c) => (c as ComponentRendering).componentName) as ComponentRendering;
@@ -176,7 +272,7 @@ describe('withPlaceholder HOC', () => {
       });
 
       it('should use propsTransformer method when provided', () => {
-        const component = (dataSet.data.sitecore.route.placeholders.main as (
+        const component = (dataSet.data.sitecore.route?.placeholders.main as (
           | ComponentRendering
           | RouteData
         )[]).find((c) => (c as ComponentRendering).componentName) as ComponentRendering;
@@ -204,29 +300,6 @@ describe('withPlaceholder HOC', () => {
         );
         expect(renderedComponent.find('.home-mock-with-prop').length).to.equal(0);
         expect(renderedComponent.find('.home-mock').length).to.not.equal(0);
-      });
-    });
-  });
-
-  testDataWithoutParams.forEach((dataSet) => {
-    describe(`with ${dataSet.label}`, () => {
-      it('should render a placeholder with given key when params are not passed', () => {
-        const component = (dataSet.data.sitecore.route.placeholders.main as (
-          | ComponentRendering
-          | RouteData
-        )[]).find((c) => (c as ComponentRendering).componentName) as ComponentRendering;
-        const phKey = 'page-content';
-        const props: EnhancedOmit<PlaceholderProps, 'sitecoreContext'> = {
-          name: phKey,
-          rendering: component,
-        };
-        const Element = withPlaceholder(phKey)(Home);
-        const renderedComponent = mount(
-          <SitecoreContext componentFactory={componentFactory}>
-            <Element {...props} />
-          </SitecoreContext>
-        );
-        expect(renderedComponent.find('.download-callout-mock').length).to.equal(1);
       });
     });
   });
