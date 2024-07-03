@@ -268,11 +268,11 @@ export type MetadataQueryParams = {
   secret: string;
   sc_lang: string;
   sc_itemid: string;
-  sc_version: string;
   sc_site: string;
   route: string;
-  sc_variant: string;
   mode: Exclude<LayoutServicePageState, 'normal'>;
+  sc_variant?: string;
+  sc_version?: string;
 };
 
 /**
@@ -289,10 +289,10 @@ export type EditingMetadataPreviewData = {
   site: string;
   itemId: string;
   language: string;
-  variantId: string;
-  version: string;
   editMode: EditMode.Metadata;
   pageState: Exclude<LayoutServicePageState, 'Normal'>;
+  variantId?: string;
+  version?: string;
 };
 
 /**
@@ -327,8 +327,6 @@ export class MetadataHandler {
       'sc_site',
       'sc_itemid',
       'sc_lang',
-      'sc_variant',
-      'sc_version',
       'route',
       'mode',
     ];
@@ -352,8 +350,8 @@ export class MetadataHandler {
         itemId: query.sc_itemid,
         language: query.sc_lang,
         // sc_variant is an array in the query params, but we only need the first value
-        variantId: query.sc_variant.split(',')[0],
-        version: query.sc_version,
+        variantId: (query.sc_variant && query.sc_variant.split(',')[0]) || '',
+        version: query.sc_version || '',
         editMode: EditMode.Metadata,
         pageState: query.mode,
       } as EditingMetadataPreviewData,
