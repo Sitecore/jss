@@ -90,7 +90,7 @@ const mockDataService = (previewData?: EditingPreviewData) => {
   return service;
 };
 
-describe.only('EditingRenderMiddleware', () => {
+describe('EditingRenderMiddleware', () => {
   const secret = 'secret1234';
 
   beforeEach(() => {
