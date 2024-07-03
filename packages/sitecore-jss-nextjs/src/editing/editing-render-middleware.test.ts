@@ -273,7 +273,7 @@ describe('EditingRenderMiddleware', () => {
     });
 
     it('should response with 400 for missing query params', async () => {
-      const req = mockRequest(EE_BODY, { sc_site: 'website', sc_version: 'latest', secret }, 'GET');
+      const req = mockRequest(EE_BODY, { sc_site: 'website', secret }, 'GET');
       const res = mockResponse();
 
       const middleware = new EditingRenderMiddleware();
