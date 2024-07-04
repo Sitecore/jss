@@ -81,7 +81,7 @@ export function getChildPlaceholder(
 
 /**
  * Determines if the passed in field object's value is empty.
- * @param {GenericFieldValue | Field} the field object
+ * @param {GenericFieldValue | Field} field the field object
  */
 export function fieldValueIsEmpty(field: GenericFieldValue | Field): boolean {
   const isEmpty = (fieldValue: GenericFieldValue) => {
