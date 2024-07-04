@@ -86,8 +86,8 @@ export function getChildPlaceholder(
 export function fieldValueIsEmpty(field: GenericFieldValue | Field): boolean {
   const isEmpty = (fieldValue: GenericFieldValue) => {
     if (
-      (fieldValue as { [key: string]: unknown })['src'] ||
-      (fieldValue as { [key: string]: unknown })['href'] ||
+      (fieldValue as { [key: string]: unknown }).src ||
+      (fieldValue as { [key: string]: unknown }).href ||
       fieldValue
     ) {
       return false;
