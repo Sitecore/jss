@@ -160,7 +160,7 @@ describe('<Link />', () => {
 
     it('should render default empty field placeholder when field value is empty in edit mode metadata', () => {
       const field = {
-        value: undefined,
+        value: '',
         metadata: testMetadata,
       };
       const rendered = mount(<Link field={field} />);
@@ -178,7 +178,7 @@ describe('<Link />', () => {
 
     it('should render custom empty field placeholder when provided, when field value is empty in edit mode metadata', () => {
       const field = {
-        value: undefined,
+        value: '',
         metadata: testMetadata,
       };
 

@@ -1,4 +1,10 @@
-import { ComponentRendering, ComponentFields, Field, HtmlElementRendering } from './models';
+import {
+  ComponentRendering,
+  ComponentFields,
+  Field,
+  GenericFieldValue,
+  HtmlElementRendering,
+} from './models';
 
 /**
  * Safely extracts a field value from a rendering or fields object.
@@ -71,4 +77,31 @@ export function getChildPlaceholder(
   }
 
   return rendering.placeholders[placeholderName];
+}
+
+/**
+ * Determines if the passed in field object's value is empty.
+ * @param {GenericFieldValue | Field} the field object
+ */
+export function fieldValueIsEmpty(field: GenericFieldValue | Field): boolean {
+  const isEmpty = (fieldValue: GenericFieldValue) => {
+    if (
+      (fieldValue as { [key: string]: unknown })['src'] ||
+      (fieldValue as { [key: string]: unknown })['href'] ||
+      fieldValue
+    ) {
+      return false;
+    }
+
+    return true;
+  };
+
+  if (!field) return true;
+
+  const dynamicField = field as Field<GenericFieldValue>;
+  if (dynamicField.value !== undefined) {
+    return isEmpty(dynamicField.value);
+  }
+
+  return isEmpty(field as GenericFieldValue);
 }

@@ -9,6 +9,7 @@ export {
   ComponentRendering,
   HtmlElementRendering,
   Field,
+  GenericFieldValue,
   Item,
   PlaceholdersData,
   ComponentFields,
@@ -16,7 +17,7 @@ export {
   EditMode,
 } from './models';
 
-export { getFieldValue, getChildPlaceholder } from './utils';
+export { getFieldValue, getChildPlaceholder, fieldValueIsEmpty } from './utils';
 
 export { getContentStylesheetLink } from './content-styles';
 

@@ -1,6 +1,5 @@
 import React, { ComponentType, forwardRef } from 'react';
-import { LinkFieldValue } from '../components/Link';
-import { ImageFieldValue } from '../components/Image';
+import { GenericFieldValue, Field, fieldValueIsEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
 interface GeneralField {
   metadata?: { [key: string]: unknown };
@@ -27,18 +26,15 @@ export function withEmptyFieldEditingComponent<
   defaultEmptyFieldEditingComponent: React.FC,
   isForwardRef = false
 ) {
-  const hasValue = (field: GeneralField | ImageFieldValue | LinkFieldValue) =>
-    (field?.value as ImageFieldValue)?.src ||
-    (field?.value as LinkFieldValue)?.href ||
-    field?.value ||
-    (field as ImageFieldValue)?.src ||
-    (field as LinkFieldValue)?.href;
-
   const getEmptyFieldPhComponent = (
     props: FieldComponentProps
   ): React.ComponentClass | React.FC => {
     const { editable = true } = props;
-    if (props.field?.metadata && editable && !hasValue(props.field)) {
+    if (
+      props.field?.metadata &&
+      editable &&
+      fieldValueIsEmpty(props.field as GenericFieldValue | Field)
+    ) {
       return props.emptyFieldEditingComponent || defaultEmptyFieldEditingComponent;
     }
 

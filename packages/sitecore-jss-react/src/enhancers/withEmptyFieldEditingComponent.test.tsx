@@ -168,7 +168,6 @@ describe('withEmptyFieldEditingComponent', () => {
   it('Should render component if field src value is provided (case for Image component)', () => {
     const props = {
       field: {
-        value: '',
         metadata: testMetadata,
         src: 'img src',
       },
@@ -186,7 +185,6 @@ describe('withEmptyFieldEditingComponent', () => {
   it('Should render component if field href value is provided (case for Link component)', () => {
     const props = {
       field: {
-        value: '',
         metadata: testMetadata,
         href: 'img src',
       },
