@@ -350,8 +350,8 @@ export class MetadataHandler {
         itemId: query.sc_itemid,
         language: query.sc_lang,
         // sc_variant is an array in the query params, but we only need the first value
-        variantId: query.sc_variant?.split(',')[0],
-        version: query.sc_version || '',
+        variantId: query.sc_variant?.split(',')[0] || '',
+        version: query.sc_version,
         editMode: EditMode.Metadata,
         pageState: query.mode,
       } as EditingMetadataPreviewData,

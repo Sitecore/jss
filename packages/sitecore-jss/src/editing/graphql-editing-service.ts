@@ -118,13 +118,13 @@ export class GraphQLEditingService {
   async fetchEditingData({
     siteName,
     itemId,
-    version,
     language,
+    version,
   }: {
     siteName: string;
     itemId: string;
-    version: string;
     language: string;
+    version?: string;
   }) {
     debug.editing('fetching editing data for %s %s %s %s', siteName, itemId, language, version);
 
