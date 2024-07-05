@@ -15,9 +15,10 @@ export {
   ComponentFields,
   ComponentParams,
   EditMode,
+  FieldMetadata,
 } from './models';
 
-export { getFieldValue, getChildPlaceholder, fieldValueIsEmpty } from './utils';
+export { getFieldValue, getChildPlaceholder, isFieldValueEmpty } from './utils';
 
 export { getContentStylesheetLink } from './content-styles';
 

@@ -7,6 +7,7 @@ import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentImage } from './DefaultEmptyFieldEditingComponents';
 import { EditableFieldProps } from './sharedTypes';
+import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -40,7 +41,7 @@ export interface ImageSizeParameters {
 export interface ImageProps extends EditableFieldProps {
   [attributeName: string]: unknown;
   /** Image field data (consistent with other field types) */
-  field?: (ImageField | ImageFieldValue) & { metadata?: { [key: string]: unknown } };
+  field?: (ImageField | ImageFieldValue) & FieldMetadata;
 
   /**
    * Parameters that will be attached to Sitecore media URLs

@@ -4,14 +4,14 @@ import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 import { EditableFieldProps } from './sharedTypes';
+import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface DateFieldProps extends EditableFieldProps {
   /** The date field data. */
   [htmlAttributes: string]: unknown;
-  field: {
+  field: FieldMetadata & {
     value?: string;
     editable?: string;
-    metadata?: { [key: string]: unknown };
   };
   /**
    * The HTML element that will wrap the contents of the field.

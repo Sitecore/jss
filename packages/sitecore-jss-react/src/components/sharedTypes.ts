@@ -18,6 +18,9 @@ export type JssComponentType = ComponentType & {
   render?: { [key: string]: unknown };
 };
 
+/**
+ * Shared editing field props
+ */
 export interface EditableFieldProps {
   /**
    * Can be used to explicitly disable inline editing.

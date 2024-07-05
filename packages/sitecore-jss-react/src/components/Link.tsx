@@ -4,6 +4,7 @@ import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 import { EditableFieldProps } from './sharedTypes';
+import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface LinkFieldValue {
   [attributeName: string]: unknown;
@@ -28,7 +29,7 @@ export type LinkProps = EditableFieldProps &
   React.AnchorHTMLAttributes<HTMLAnchorElement> &
   RefAttributes<HTMLAnchorElement> & {
     /** The link field data. */
-    field: (LinkField | LinkFieldValue) & { metadata?: { [key: string]: unknown } };
+    field: (LinkField | LinkFieldValue) & FieldMetadata;
 
     /**
      * Displays a link text ('description' in Sitecore) even when children exist

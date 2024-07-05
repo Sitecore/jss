@@ -4,11 +4,11 @@ import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditi
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 import PropTypes from 'prop-types';
 import { EditableFieldProps } from './sharedTypes';
+import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
 
-export interface TextField {
+export interface TextField extends FieldMetadata {
   value?: string | number;
   editable?: string;
-  metadata?: { [key: string]: unknown };
 }
 
 export interface TextProps extends EditableFieldProps {
@@ -27,14 +27,7 @@ export interface TextProps extends EditableFieldProps {
 
 export const Text: React.FC<TextProps> = withFieldMetadata<TextProps>(
   withEmptyFieldEditingComponent<TextProps>(
-    ({
-      field,
-      tag,
-      editable = true,
-      encode = true,
-      emptyFieldEditingComponent = DefaultEmptyFieldEditingComponentText,
-      ...otherProps
-    }) => {
+    ({ field, tag, editable = true, encode = true, ...otherProps }) => {
       if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
         return null;
       }

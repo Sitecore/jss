@@ -4,11 +4,11 @@ import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 import { EditableFieldProps } from './sharedTypes';
+import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
 
-export interface RichTextField {
+export interface RichTextField extends FieldMetadata {
   value?: string;
   editable?: string;
-  metadata?: { [key: string]: unknown };
 }
 
 export interface RichTextProps extends EditableFieldProps {
