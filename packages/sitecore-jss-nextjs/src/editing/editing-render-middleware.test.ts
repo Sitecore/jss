@@ -229,7 +229,7 @@ describe('EditingRenderMiddleware', () => {
         site: 'website',
         itemId: '{11111111-1111-1111-1111-111111111111}',
         language: 'en',
-        variantId: '_default_',
+        variantId: '_default',
         version: undefined,
         editMode: 'metadata',
         pageState: 'edit',
