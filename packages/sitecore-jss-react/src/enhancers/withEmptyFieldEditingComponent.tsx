@@ -7,17 +7,24 @@ import {
 } from '@sitecore-jss/sitecore-jss/layout';
 
 /**
- * The HOC options:
- * defaultEmptyFieldEditingComponent: the default empty field placeholder component
- * isForwardRef: set to 'true' if forward reference is needed
+ * The HOC options
  * */
 export interface WithEmptyFieldEditingComponentOptions {
+  /**
+   * the default empty field placeholder component
+   */
   defaultEmptyFieldEditingComponent: React.FC;
+  /**
+   * 'true' if forward reference is needed
+   */
   isForwardRef?: boolean;
 }
 
+/*
+ * represents the WithEmptyFieldEditingComponent HOC's props
+ */
 interface WithEmptyFieldEditingComponentProps {
-  // Parial is used here because field.value could be required or optional for the different field types
+  // Partial<T> type is used here because _field.value_ could be required or optional for the different field types
   field?: (Partial<Field> | GenericFieldValue) & FieldMetadata;
   editable?: boolean;
   emptyFieldEditingComponent?: React.ComponentClass | React.FC;

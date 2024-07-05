@@ -2,7 +2,6 @@
 import { expect } from 'chai';
 import { ComponentRendering } from '../../layout';
 import { getFieldValue, getChildPlaceholder, isFieldValueEmpty } from './utils';
-import { describe } from 'node:test';
 
 describe('sitecore-jss layout utils', () => {
   describe('getFieldValue', () => {
@@ -161,6 +160,22 @@ describe('sitecore-jss layout utils', () => {
     it('should return false if field value has value number 0', () => {
       const field = {
         value: 0,
+      };
+      const result = isFieldValueEmpty(field);
+      expect(result).to.be.false;
+    });
+
+    it('should return false if field value is boolean false', () => {
+      const field = {
+        value: false,
+      };
+      const result = isFieldValueEmpty(field);
+      expect(result).to.be.false;
+    });
+
+    it('should return false if field value is boolean true', () => {
+      const field = {
+        value: true,
       };
       const result = isFieldValueEmpty(field);
       expect(result).to.be.false;

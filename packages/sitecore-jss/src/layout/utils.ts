@@ -81,7 +81,8 @@ export function getChildPlaceholder(
 
 /**
  * Determines if the passed in field object's value is empty.
- * @param {GenericFieldValue | Partial<Field>} field the field object; Parial is used here because field.value could be required or optional for the different field types
+ * @param {GenericFieldValue | Partial<Field>} field the field object.
+ * Partial<T> type is used here because _field.value_ could be required or optional for the different field types
  */
 export function isFieldValueEmpty(field: GenericFieldValue | Partial<Field>): boolean {
   const isEmpty = (fieldValue: GenericFieldValue) => {
@@ -95,6 +96,9 @@ export function isFieldValueEmpty(field: GenericFieldValue | Partial<Field>): bo
 
       return true;
     } else if (typeof fieldValue === 'number') {
+      // Avoid returning true for 0
+      return false;
+    } else if (typeof fieldValue === 'boolean') {
       return false;
     } else {
       return !fieldValue;

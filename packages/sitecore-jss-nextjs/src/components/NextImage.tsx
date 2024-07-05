@@ -101,6 +101,7 @@ NextImage.propTypes = {
   imageParams: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]).isRequired
   ),
+  emptyFieldEditingComponent: PropTypes.func,
 };
 
 NextImage.displayName = 'NextImage';

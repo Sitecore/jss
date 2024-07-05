@@ -402,9 +402,11 @@ describe('<Link />', () => {
       );
     });
 
-    it('should render default empty field placeholder when field value is empty in edit mode metadata', () => {
+    it('should render default empty field component when field value is empty in edit mode metadata', () => {
       const field = {
-        value: '',
+        value: {
+          href: '',
+        },
         metadata: testMetadata,
       };
 
@@ -425,9 +427,11 @@ describe('<Link />', () => {
       );
     });
 
-    it('should render custom empty field placeholder when provided, when field value is empty in edit mode metadata', () => {
+    it('should render custom empty field component when provided, when field value is empty in edit mode metadata', () => {
       const field = {
-        value: '',
+        value: {
+          href: '',
+        },
         metadata: testMetadata,
       };
 
