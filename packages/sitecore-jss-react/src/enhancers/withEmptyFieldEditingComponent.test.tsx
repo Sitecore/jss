@@ -59,10 +59,9 @@ describe('withEmptyFieldEditingComponent', () => {
       },
     };
 
-    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
-      TestComponent,
-      DefaultEmptyFieldEditingComponentText
-    );
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(TestComponent, {
+      defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
+    });
 
     const rendered = mount(<WrappedComponent {...props} />);
     const expected = mount(<DefaultEmptyFieldEditingComponentText />);
@@ -83,10 +82,9 @@ describe('withEmptyFieldEditingComponent', () => {
       emptyFieldEditingComponent: EmptyFieldEditingComponent,
     };
 
-    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
-      TestComponent,
-      DefaultEmptyFieldEditingComponentText
-    );
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(TestComponent, {
+      defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
+    });
 
     const rendered = mount(<WrappedComponent {...props} />);
     const expected = mount(<EmptyFieldEditingComponent />);
@@ -102,10 +100,9 @@ describe('withEmptyFieldEditingComponent', () => {
       },
     };
 
-    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
-      TestComponent,
-      DefaultEmptyFieldEditingComponentText
-    );
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(TestComponent, {
+      defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
+    });
 
     const rendered = mount(<WrappedComponent {...props} />);
     expect(rendered.html()).to.equal('<div><h1>field value</h1><h2>foo</h2><p>bar</p></div>');
@@ -120,10 +117,9 @@ describe('withEmptyFieldEditingComponent', () => {
       editable: false,
     };
 
-    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
-      TestComponent,
-      DefaultEmptyFieldEditingComponentText
-    );
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(TestComponent, {
+      defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
+    });
 
     const rendered = mount(<WrappedComponent {...props} />);
     expect(rendered.html()).to.equal('<div><h1></h1><h2>foo</h2><p>bar</p></div>');
@@ -136,10 +132,9 @@ describe('withEmptyFieldEditingComponent', () => {
       },
     };
 
-    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
-      TestComponent,
-      DefaultEmptyFieldEditingComponentText
-    );
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(TestComponent, {
+      defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
+    });
 
     const rendered = mount(<WrappedComponent {...props} />);
     expect(rendered.html()).to.equal('<div><h1></h1><h2>foo</h2><p>bar</p></div>');
@@ -155,8 +150,10 @@ describe('withEmptyFieldEditingComponent', () => {
 
     const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
       TestComponentWithRef,
-      DefaultEmptyFieldEditingComponentText,
-      true
+      {
+        defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
+        isForwardRef: true,
+      }
     );
     const ref = React.createRef<HTMLDivElement>();
     const rendered = mount(<WrappedComponent {...props} ref={ref} />);
@@ -173,10 +170,9 @@ describe('withEmptyFieldEditingComponent', () => {
       },
     };
 
-    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
-      TestComponent,
-      DefaultEmptyFieldEditingComponentText
-    );
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(TestComponent, {
+      defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
+    });
 
     const rendered = mount(<WrappedComponent {...props} />);
     expect(rendered.html()).to.equal('<div><h1></h1><h2>foo</h2><p>bar</p></div>');
@@ -190,10 +186,9 @@ describe('withEmptyFieldEditingComponent', () => {
       },
     };
 
-    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(
-      TestComponent,
-      DefaultEmptyFieldEditingComponentText
-    );
+    const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(TestComponent, {
+      defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
+    });
 
     const rendered = mount(<WrappedComponent {...props} />);
     expect(rendered.html()).to.equal('<div><h1></h1><h2>foo</h2><p>bar</p></div>');

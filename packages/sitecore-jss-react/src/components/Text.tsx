@@ -91,7 +91,7 @@ export const Text: React.FC<TextProps> = withFieldMetadata<TextProps>(
         return <React.Fragment>{children}</React.Fragment>;
       }
     },
-    DefaultEmptyFieldEditingComponentText
+    { defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText }
   )
 );
 

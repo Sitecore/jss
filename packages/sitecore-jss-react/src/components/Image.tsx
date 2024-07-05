@@ -178,7 +178,7 @@ export const Image: React.FC<ImageProps> = withFieldMetadata<ImageProps>(
 
       return null; // we can't handle the truth
     },
-    DefaultEmptyFieldEditingComponentImage
+    { defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentImage }
   )
 );
 

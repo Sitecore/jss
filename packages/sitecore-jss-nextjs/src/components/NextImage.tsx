@@ -82,7 +82,7 @@ export const NextImage: React.FC<NextImageProps> = withFieldMetadata<NextImagePr
 
       return null; // we can't handle the truth
     },
-    DefaultEmptyFieldEditingComponentImage
+    { defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentImage }
   )
 );
 

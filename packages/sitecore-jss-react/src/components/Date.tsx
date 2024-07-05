@@ -53,7 +53,7 @@ export const DateField: React.FC<DateFieldProps> = withFieldMetadata<DateFieldPr
         return <React.Fragment>{children}</React.Fragment>;
       }
     },
-    DefaultEmptyFieldEditingComponentText
+    { defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText }
   )
 );
 

@@ -42,8 +42,7 @@ export const RichText: React.FC<RichTextProps> = withFieldMetadata<RichTextProps
         return React.createElement(tag || 'div', htmlProps);
       }
     ),
-    DefaultEmptyFieldEditingComponentText,
-    true
+    { defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText, isForwardRef: true }
   ),
   true
 );

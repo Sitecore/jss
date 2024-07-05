@@ -127,8 +127,7 @@ export const Link: React.FC<LinkProps> = withFieldMetadata<LinkProps, HTMLAnchor
         return <React.Fragment>{resultTags}</React.Fragment>;
       }
     ),
-    DefaultEmptyFieldEditingComponentText,
-    true
+    { defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText, isForwardRef: true }
   ),
   true
 );

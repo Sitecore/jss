@@ -6,6 +6,16 @@ import {
   FieldMetadata,
 } from '@sitecore-jss/sitecore-jss/layout';
 
+/**
+ * The HOC options:
+ * defaultEmptyFieldEditingComponent: the default empty field placeholder component
+ * isForwardRef: set to 'true' if forward reference is needed
+ * */
+export interface WithEmptyFieldEditingComponentOptions {
+  defaultEmptyFieldEditingComponent: React.FC;
+  isForwardRef?: boolean;
+}
+
 interface WithEmptyFieldEditingComponentProps {
   // Parial is used here because field.value could be required or optional for the different field types
   field?: (Partial<Field> | GenericFieldValue) & FieldMetadata;
@@ -16,29 +26,27 @@ interface WithEmptyFieldEditingComponentProps {
 /**
  * Returns the passed field component or default component in case field value is empty and edit mode is 'metadata'
  * @param {ComponentType<FieldComponentProps>} FieldComponent the field component
- * @param {React.FC} defaultEmptyFieldEditingComponent the default empty field placeholder component
- * @param {boolean} isForwardRef set to 'true' if forward reference is needed
+ * @param {WithEmptyFieldEditingComponentProps} options the options of the HOC;
  */
 export function withEmptyFieldEditingComponent<
   FieldComponentProps extends WithEmptyFieldEditingComponentProps,
   RefElementType = HTMLElement
 >(
   FieldComponent: ComponentType<FieldComponentProps>,
-  defaultEmptyFieldEditingComponent: React.FC,
-  isForwardRef = false
+  options: WithEmptyFieldEditingComponentOptions
 ) {
   const getEmptyFieldEditingComponent = (
     props: FieldComponentProps
   ): React.ComponentClass | React.FC => {
     const { editable = true } = props;
     if (props.field?.metadata && editable && isFieldValueEmpty(props.field)) {
-      return props.emptyFieldEditingComponent || defaultEmptyFieldEditingComponent;
+      return props.emptyFieldEditingComponent || options.defaultEmptyFieldEditingComponent;
     }
 
     return null;
   };
 
-  if (isForwardRef) {
+  if (options.isForwardRef) {
     // eslint-disable-next-line react/display-name
     return forwardRef((props: FieldComponentProps, ref: React.ForwardedRef<RefElementType>) => {
       const EmptyFieldEditingComponent = getEmptyFieldEditingComponent(props);
