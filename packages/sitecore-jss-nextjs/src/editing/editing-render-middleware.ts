@@ -8,6 +8,7 @@ import { EDITING_ALLOWED_ORIGINS, QUERY_PARAM_EDITING_SECRET } from './constants
 import { getJssEditingSecret } from '../utils/utils';
 import { RenderMiddlewareBase } from './render-middleware';
 import { enforceCors, getAllowedOriginsFromEnv } from '@sitecore-jss/sitecore-jss/utils';
+import { DEFAULT_VARIANT } from '@sitecore-jss/sitecore-jss/personalize';
 
 /**
  * Configuration for the Editing Render Middleware.
@@ -291,7 +292,7 @@ export type EditingMetadataPreviewData = {
   language: string;
   editMode: EditMode.Metadata;
   pageState: Exclude<LayoutServicePageState, 'Normal'>;
-  variantId?: string;
+  variantId: string;
   version?: string;
 };
 
@@ -350,7 +351,7 @@ export class MetadataHandler {
         itemId: query.sc_itemid,
         language: query.sc_lang,
         // sc_variant is an array in the query params, but we only need the first value
-        variantId: query.sc_variant?.split(',')[0] || '',
+        variantId: query.sc_variant?.split(',')[0] || DEFAULT_VARIANT,
         version: query.sc_version,
         editMode: EditMode.Metadata,
         pageState: query.mode,

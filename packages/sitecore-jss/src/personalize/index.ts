@@ -10,4 +10,5 @@ export {
   normalizePersonalizedRewrite,
   PersonalizedRewriteData,
   CdpHelper,
+  DEFAULT_VARIANT,
 } from './utils';
