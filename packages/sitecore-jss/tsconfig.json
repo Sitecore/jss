@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "es6",
-    // "useUnknownInCatchVariables": true,
+    "useUnknownInCatchVariables": false,
     "module": "commonjs",
     "outDir": "dist/cjs",
     "typeRoots": ["node_modules/@types"],
