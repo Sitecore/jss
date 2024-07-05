@@ -208,6 +208,41 @@ describe('EditingRenderMiddleware', () => {
       );
     });
 
+    it('should handle request with missing optional parameters', async () => {
+      const queryWithoutOptionalParams = {
+        mode: 'edit',
+        route: '/styleguide',
+        sc_itemid: '{11111111-1111-1111-1111-111111111111}',
+        sc_lang: 'en',
+        sc_site: 'website',
+        secret: secret,
+      } as MetadataQueryParams;
+      const req = mockRequest(EE_BODY, queryWithoutOptionalParams, 'GET');
+      const res = mockResponse();
+
+      const middleware = new EditingRenderMiddleware();
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith({
+        site: 'website',
+        itemId: '{11111111-1111-1111-1111-111111111111}',
+        language: 'en',
+        variantId: '_default',
+        version: undefined,
+        editMode: 'metadata',
+        pageState: 'edit',
+      });
+
+      expect(res.redirect).to.have.been.calledOnce;
+      expect(res.redirect).to.have.been.calledWith('/styleguide');
+      expect(res.setHeader).to.have.been.calledWith(
+        'Content-Security-Policy',
+        `frame-ancestors 'self' https://allowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
+      );
+    });
+
     it('should use custom resolvePageUrl', async () => {
       const req = mockRequest(EE_BODY, query, 'GET');
       const res = mockResponse();
@@ -237,7 +272,7 @@ describe('EditingRenderMiddleware', () => {
     });
 
     it('should response with 400 for missing query params', async () => {
-      const req = mockRequest(EE_BODY, { sc_site: 'website', sc_version: 'latest', secret }, 'GET');
+      const req = mockRequest(EE_BODY, { sc_site: 'website', secret }, 'GET');
       const res = mockResponse();
 
       const middleware = new EditingRenderMiddleware();
@@ -250,7 +285,7 @@ describe('EditingRenderMiddleware', () => {
       expect(res.json).to.have.been.calledOnce;
       expect(res.json).to.have.been.calledWith({
         html:
-          '<html><body>Missing required query parameters: sc_itemid, sc_lang, sc_variant, route, mode</body></html>',
+          '<html><body>Missing required query parameters: sc_itemid, sc_lang, route, mode</body></html>',
       });
     });
 

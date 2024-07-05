@@ -111,6 +111,55 @@ describe('GraphQLEditingService', () => {
     spy.restore(clientFactorySpy);
   });
 
+  it('should fetch editing data with missing optional params', async () => {
+    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+      .post(endpointPath, /EditingQuery/gi)
+      .reply(200, editingData);
+
+    const clientFactorySpy = sinon.spy(clientFactory);
+
+    const service = new GraphQLEditingService({
+      clientFactory: clientFactorySpy,
+    });
+
+    spy.on(clientFactorySpy.returnValues[0], 'request');
+
+    const result = await service.fetchEditingData({
+      language,
+      itemId,
+      siteName,
+    });
+
+    expect(clientFactorySpy.calledOnce).to.be.true;
+    expect(
+      clientFactorySpy.calledWith({
+        debugger: debug.editing,
+        headers: {
+          sc_editMode: 'true',
+        },
+      })
+    ).to.be.true;
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(query, {
+      language,
+      itemId,
+      siteName,
+      version: undefined,
+    });
+
+    expect(result).to.deep.equal({
+      layoutData: layoutDataResponse,
+      dictionary: {
+        /* TODO: revert when dictionary schema updated
+        foo: 'foo-phrase',
+        bar: 'bar-phrase',
+      */
+      },
+    });
+
+    spy.restore(clientFactorySpy);
+  });
+
   // TODO: re-enable when dictionary schema updated
   xit('should fetch editing data when dicionary has multiple pages', async () => {
     nock(hostname, { reqheaders: { sc_editMode: 'true' } })

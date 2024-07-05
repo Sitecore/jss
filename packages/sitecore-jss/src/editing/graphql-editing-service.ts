@@ -37,7 +37,7 @@ TODO: re-add dictionary part when dictionary schema updated
   }
 */
 export const query = /* GraphQL */ `
-  query EditingQuery($itemId: String!, $version: String!, $language: String!) {
+  query EditingQuery($itemId: String!, $language: String!, $version: String) {
     item(path: $itemId, language: $language, version: $version) {
       rendered
     }
@@ -111,20 +111,21 @@ export class GraphQLEditingService {
    * @param {Object} variables - The parameters for fetching editing data.
    * @param {string} variables.siteName - The site name.
    * @param {string} variables.itemId - The item id (path) to fetch layout data for.
-   * @param {string} variables.version - The version of the item .
    * @param {string} variables.language - The language to fetch layout data for.
+   * @param {string} [variables.version] - The version of the item (optional).
+   * @param variables.version
    * @returns {Promise} The layout data and dictionary phrases.
    */
   async fetchEditingData({
     siteName,
     itemId,
-    version,
     language,
+    version,
   }: {
     siteName: string;
     itemId: string;
-    version: string;
     language: string;
+    version?: string;
   }) {
     debug.editing('fetching editing data for %s %s %s %s', siteName, itemId, language, version);
 
