@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:10](https://github.com/Sitecore/jss/blob/0df68678f/packages/sitecore-jss-react/src/components/Image.tsx#L10)
+[packages/sitecore-jss-react/src/components/Image.tsx:10](https://github.com/Sitecore/jss/blob/05849806a/packages/sitecore-jss-react/src/components/Image.tsx#L10)
