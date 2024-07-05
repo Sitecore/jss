@@ -111,7 +111,7 @@ describe('GraphQLEditingService', () => {
     spy.restore(clientFactorySpy);
   });
 
-  it.only('should fetch editing data with missing optional params', async () => {
+  it('should fetch editing data with missing optional params', async () => {
     nock(hostname, { reqheaders: { sc_editMode: 'true' } })
       .post(endpointPath, /EditingQuery/gi)
       .reply(200, editingData);
