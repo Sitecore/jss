@@ -85,15 +85,20 @@ export function getChildPlaceholder(
  */
 export function isFieldValueEmpty(field: GenericFieldValue | Partial<Field>): boolean {
   const isEmpty = (fieldValue: GenericFieldValue) => {
-    if (
-      (fieldValue as { [key: string]: unknown }).src ||
-      (fieldValue as { [key: string]: unknown }).href ||
-      fieldValue
-    ) {
-      return false;
-    }
+    if (typeof fieldValue === 'object') {
+      if (
+        (fieldValue as { [key: string]: unknown }).src ||
+        (fieldValue as { [key: string]: unknown }).href
+      ) {
+        return false;
+      }
 
-    return true;
+      return true;
+    } else if (typeof fieldValue === 'number') {
+      return false;
+    } else {
+      return !fieldValue;
+    }
   };
 
   if (!field) return true;
