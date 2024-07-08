@@ -41,6 +41,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     const value = ((field as LinkFieldValue).href
       ? field
       : (field as LinkField).value) as LinkFieldValue;
+    // fallback to {} if value is undefined; could happen if field is LinkFieldValue, href is empty in metadata mode
     const { href, querystring, anchor } = value || {};
 
     const isEditing =
