@@ -1,5 +1,5 @@
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
-import PropTypes from 'prop-types';
+import PropTypes, { Requireable } from 'prop-types';
 import React from 'react';
 import {
   getEEMarkup,
@@ -11,6 +11,7 @@ import {
 import Image, { ImageProps as NextImageProperties } from 'next/image';
 import { withEmptyFieldEditingComponent } from '@sitecore-jss/sitecore-jss-react';
 import { DefaultEmptyFieldEditingComponentImage } from '@sitecore-jss/sitecore-jss-react';
+import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
 type NextImageProps = ImageProps & Partial<NextImageProperties>;
 export const NextImage: React.FC<NextImageProps> = withFieldMetadata<NextImageProps>(
@@ -24,10 +25,7 @@ export const NextImage: React.FC<NextImageProps> = withFieldMetadata<NextImagePr
 
       const dynamicMedia = field as ImageField | ImageFieldValue;
 
-      if (
-        !field ||
-        (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)
-      ) {
+      if (!field || (!dynamicMedia.editable && isFieldValueEmpty(dynamicMedia))) {
         return null;
       }
 
@@ -101,7 +99,10 @@ NextImage.propTypes = {
   imageParams: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]).isRequired
   ),
-  emptyFieldEditingComponent: PropTypes.func,
+  emptyFieldEditingComponent: PropTypes.oneOfType([
+    PropTypes.object as Requireable<React.ComponentClass<unknown>>,
+    PropTypes.func as Requireable<React.FC<unknown>>,
+  ]),
 };
 
 NextImage.displayName = 'NextImage';

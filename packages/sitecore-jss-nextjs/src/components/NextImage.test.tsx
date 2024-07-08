@@ -322,9 +322,9 @@ describe('<NextImage />', () => {
       );
     });
 
-    it('should render default empty field placeholder for Image when field value is empty in edit mode metadata', () => {
+    it('should render default empty field placeholder for Image when field value src is not present', () => {
       const field = {
-        value: '',
+        value: {},
         metadata: testMetadata,
       };
 
@@ -341,9 +341,28 @@ describe('<NextImage />', () => {
       );
     });
 
-    it('should render custom empty field placeholder when provided, when field value is empty in edit mode metadata', () => {
+    it('should render default empty field placeholder for Image when field src is not present', () => {
       const field = {
-        value: '',
+        src: undefined,
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(<NextImage field={field} />);
+      const defaultEmptyImagePlaceholder = mount(<DefaultEmptyFieldEditingComponentImage />);
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          defaultEmptyImagePlaceholder.html(),
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render custom empty field placeholder when provided, when field value src is not present', () => {
+      const field = {
+        value: {},
         metadata: testMetadata,
       };
 
@@ -366,9 +385,45 @@ describe('<NextImage />', () => {
       );
     });
 
-    it('should render nothing when field value is empty, when editing is explicitly disabled in edit mode metadata ', () => {
+    it('should render custom empty field placeholder when provided, when field src is not present', () => {
       const field = {
-        value: '',
+        src: undefined,
+        metadata: testMetadata,
+      };
+
+      const EmptyFieldEditingComponent: React.FC = () => (
+        <span className="empty-field-value-placeholder">Custom Empty field value</span>
+      );
+
+      const rendered = mount(
+        <NextImage field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
+      );
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render nothing when field value is not present, when editing is explicitly disabled', () => {
+      const field = {
+        value: {},
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(<NextImage field={field} editable={false} />);
+
+      expect(rendered.html()).to.equal('');
+    });
+
+    it('should render nothing when field src is not present, when editing is explicitly disabled', () => {
+      const field = {
+        src: undefined,
         metadata: testMetadata,
       };
 

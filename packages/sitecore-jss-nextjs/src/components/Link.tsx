@@ -41,7 +41,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     const value = ((field as LinkFieldValue).href
       ? field
       : (field as LinkField).value) as LinkFieldValue;
-    const { href, querystring, anchor } = value;
+    const { href, querystring, anchor } = value || {};
 
     const isEditing =
       editable && ((field as LinkFieldValue).editable || (field as LinkFieldValue).metadata);
