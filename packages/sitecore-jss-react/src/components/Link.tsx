@@ -1,10 +1,11 @@
 import React, { ReactElement, RefAttributes, forwardRef } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { Requireable } from 'prop-types';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 import { EditableFieldProps } from './sharedTypes';
 import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
+import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface LinkFieldValue {
   [attributeName: string]: unknown;
@@ -46,12 +47,7 @@ export const Link: React.FC<LinkProps> = withFieldMetadata<LinkProps, HTMLAnchor
         const children = otherProps.children as React.ReactNode;
         const dynamicField: LinkField | LinkFieldValue = field;
 
-        if (
-          !field ||
-          (!dynamicField.editableFirstPart &&
-            !dynamicField.value &&
-            !(dynamicField as LinkFieldValue).href)
-        ) {
+        if (!field || (!dynamicField.editableFirstPart && isFieldValueEmpty(dynamicField))) {
           return null;
         }
 
@@ -145,7 +141,10 @@ export const LinkPropTypes = {
   ]).isRequired,
   editable: PropTypes.bool,
   showLinkTextWithChildrenPresent: PropTypes.bool,
-  emptyFieldEditingComponent: PropTypes.func,
+  emptyFieldEditingComponent: PropTypes.oneOfType([
+    PropTypes.object as Requireable<React.ComponentClass<unknown>>,
+    PropTypes.func as Requireable<React.FC<unknown>>,
+  ]),
 };
 
 Link.propTypes = LinkPropTypes;

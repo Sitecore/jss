@@ -2,9 +2,9 @@ import React, { ReactElement } from 'react';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
-import PropTypes from 'prop-types';
+import PropTypes, { Requireable } from 'prop-types';
 import { EditableFieldProps } from './sharedTypes';
-import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
+import { FieldMetadata, isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface TextField extends FieldMetadata {
   value?: string | number;
@@ -28,7 +28,7 @@ export interface TextProps extends EditableFieldProps {
 export const Text: React.FC<TextProps> = withFieldMetadata<TextProps>(
   withEmptyFieldEditingComponent<TextProps>(
     ({ field, tag, editable = true, encode = true, ...otherProps }) => {
-      if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
+      if (!field || (!field.editable && isFieldValueEmpty(field))) {
         return null;
       }
 
@@ -104,7 +104,10 @@ Text.propTypes = {
   tag: PropTypes.string,
   editable: PropTypes.bool,
   encode: PropTypes.bool,
-  emptyFieldEditingComponent: PropTypes.func,
+  emptyFieldEditingComponent: PropTypes.oneOfType([
+    PropTypes.object as Requireable<React.ComponentClass<unknown>>,
+    PropTypes.func as Requireable<React.FC<unknown>>,
+  ]),
 };
 
 Text.displayName = 'Text';

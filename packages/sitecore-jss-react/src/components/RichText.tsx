@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { Requireable } from 'prop-types';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 import { EditableFieldProps } from './sharedTypes';
-import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
+import { FieldMetadata, isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface RichTextField extends FieldMetadata {
   value?: string;
@@ -27,7 +27,7 @@ export const RichText: React.FC<RichTextProps> = withFieldMetadata<RichTextProps
     // eslint-disable-next-line react/display-name
     forwardRef<HTMLElement, RichTextProps>(
       ({ field, tag = 'div', editable = true, ...otherProps }, ref) => {
-        if (!field || (!field.editable && !field.value)) {
+        if (!field || (!field.editable && isFieldValueEmpty(field))) {
           return null;
         }
 
@@ -55,7 +55,10 @@ export const RichTextPropTypes = {
   }),
   tag: PropTypes.string,
   editable: PropTypes.bool,
-  emptyFieldEditingComponent: PropTypes.func,
+  emptyFieldEditingComponent: PropTypes.oneOfType([
+    PropTypes.object as Requireable<React.ComponentClass<unknown>>,
+    PropTypes.func as Requireable<React.FC<unknown>>,
+  ]),
 };
 
 RichText.propTypes = RichTextPropTypes;

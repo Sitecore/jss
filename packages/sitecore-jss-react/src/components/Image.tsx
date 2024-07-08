@@ -1,5 +1,5 @@
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
-import PropTypes from 'prop-types';
+import PropTypes, { Requireable } from 'prop-types';
 import React from 'react';
 import { addClassName, convertAttributesToReactProps } from '../utils';
 import { getAttributesString } from '../utils';
@@ -8,6 +8,7 @@ import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditi
 import { DefaultEmptyFieldEditingComponentImage } from './DefaultEmptyFieldEditingComponents';
 import { EditableFieldProps } from './sharedTypes';
 import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
+import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -145,10 +146,7 @@ export const Image: React.FC<ImageProps> = withFieldMetadata<ImageProps>(
     ({ editable = true, imageParams, field, mediaUrlPrefix, ...otherProps }) => {
       const dynamicMedia = field as ImageField | ImageFieldValue;
 
-      if (
-        !field ||
-        (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)
-      ) {
+      if (!field || (!dynamicMedia.editable && isFieldValueEmpty(dynamicMedia))) {
         return null;
       }
 
@@ -197,7 +195,10 @@ Image.propTypes = {
   imageParams: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]).isRequired
   ),
-  emptyFieldEditingComponent: PropTypes.func,
+  emptyFieldEditingComponent: PropTypes.oneOfType([
+    PropTypes.object as Requireable<React.ComponentClass<unknown>>,
+    PropTypes.func as Requireable<React.FC<unknown>>,
+  ]),
 };
 
 Image.displayName = 'Image';
