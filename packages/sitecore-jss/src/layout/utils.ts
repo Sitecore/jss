@@ -85,20 +85,22 @@ export function getChildPlaceholder(
  * Partial<T> type is used here because _field.value_ could be required or optional for the different field types
  */
 export function isFieldValueEmpty(field: GenericFieldValue | Partial<Field>): boolean {
+  const isImageFieldEmpty = (fieldValue: GenericFieldValue) =>
+    !(fieldValue as { [key: string]: unknown }).src;
+  const isFileFieldEmpty = (fieldValue: GenericFieldValue) =>
+    !(fieldValue as { [key: string]: unknown }).src;
+  const isLinkFieldEmpty = (fieldValue: GenericFieldValue) =>
+    !(fieldValue as { [key: string]: unknown }).href;
+
   const isEmpty = (fieldValue: GenericFieldValue) => {
     if (typeof fieldValue === 'object') {
-      if (
-        (fieldValue as { [key: string]: unknown }).src ||
-        (fieldValue as { [key: string]: unknown }).href
-      ) {
-        return false;
-      }
-
-      return true;
-    } else if (typeof fieldValue === 'number') {
-      // Avoid returning true for 0
-      return false;
-    } else if (typeof fieldValue === 'boolean') {
+      return (
+        isImageFieldEmpty(fieldValue) &&
+        isFileFieldEmpty(fieldValue) &&
+        isLinkFieldEmpty(fieldValue)
+      );
+    } else if (typeof fieldValue === 'number' || typeof fieldValue === 'boolean') {
+      // Avoid returning true for 0 and false values
       return false;
     } else {
       return !fieldValue;
