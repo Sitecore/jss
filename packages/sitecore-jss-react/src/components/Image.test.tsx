@@ -5,6 +5,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { imageField as eeImageData } from '../test-data/ee-data';
 import { Image, ImageField } from './Image';
+import { DefaultEmptyFieldEditingComponentImage } from './DefaultEmptyFieldEditingComponents';
 
 const expect = chai.use(chaiString).expect;
 
@@ -294,7 +295,7 @@ describe('<Image />', () => {
     expect(rendered.find('img')).to.have.length(1);
   });
 
-  it('should render field metadata component when metadata property is present', () => {
+  describe('editMode metadata', () => {
     const testMetadata = {
       contextItem: {
         id: '{09A07660-6834-476C-B93B-584248D3003B}',
@@ -307,22 +308,134 @@ describe('<Image />', () => {
       rawValue: 'Test1',
     };
 
-    const imgField = {
-      src: '/assets/img/test0.png',
-      width: 8,
-      height: 10,
-      metadata: testMetadata,
-    };
-    const rendered = mount(<Image field={imgField} />);
+    it('should render field metadata component when metadata property is present', () => {
+      const imgField = {
+        src: '/assets/img/test0.png',
+        width: 8,
+        height: 10,
+        metadata: testMetadata,
+      };
+      const rendered = mount(<Image field={imgField} />);
 
-    expect(rendered.html()).to.equal(
-      [
-        `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-          testMetadata
-        )}</code>`,
-        '<img width="8" height="10" src="/assets/img/test0.png">',
-        '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-      ].join('')
-    );
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<img width="8" height="10" src="/assets/img/test0.png">',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render default empty field component for Image when field value src is not present', () => {
+      const field = {
+        value: { src: undefined },
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(<Image field={field} />);
+      const defaultEmptyImagePlaceholder = mount(<DefaultEmptyFieldEditingComponentImage />);
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          defaultEmptyImagePlaceholder.html(),
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render default empty field component for Image when field src is not present', () => {
+      const field = {
+        src: undefined,
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(<Image field={field} />);
+      const defaultEmptyImagePlaceholder = mount(<DefaultEmptyFieldEditingComponentImage />);
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          defaultEmptyImagePlaceholder.html(),
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render custom empty field component when provided, when field value src is not present', () => {
+      const field = {
+        value: { src: undefined },
+        metadata: testMetadata,
+      };
+
+      const EmptyFieldEditingComponent: React.FC = () => (
+        <span className="empty-field-value-placeholder">Custom Empty field value</span>
+      );
+
+      const rendered = mount(
+        <Image field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
+      );
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render custom empty field component when provided, when field src is not present', () => {
+      const field = {
+        src: undefined,
+        metadata: testMetadata,
+      };
+
+      const EmptyFieldEditingComponent: React.FC = () => (
+        <span className="empty-field-value-placeholder">Custom Empty field value</span>
+      );
+
+      const rendered = mount(
+        <Image field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
+      );
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render nothing when field value src is not present, when editing is explicitly disabled', () => {
+      const field = {
+        value: { src: undefined },
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(<Image field={field} editable={false} />);
+
+      expect(rendered.html()).to.equal('');
+    });
+
+    it('should render nothing when field src is not present, when editing is explicitly disabled', () => {
+      const field = {
+        src: undefined,
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(<Image field={field} editable={false} />);
+
+      expect(rendered.html()).to.equal('');
+    });
   });
 });

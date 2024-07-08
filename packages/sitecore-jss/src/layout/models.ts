@@ -124,9 +124,16 @@ export type GenericFieldValue =
   | { [key: string]: unknown }
   | Array<{ [key: string]: unknown }>;
 
-export interface Field<T = GenericFieldValue> {
+export interface Field<T = GenericFieldValue> extends FieldMetadata {
   value: T;
   editable?: string;
+}
+
+/**
+ * represents the field metadata provided by layout service in editMode 'metadata'
+ */
+export interface FieldMetadata {
+  metadata?: { [key: string]: unknown };
 }
 
 /**
