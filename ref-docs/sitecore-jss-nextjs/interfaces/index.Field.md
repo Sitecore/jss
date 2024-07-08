@@ -10,11 +10,18 @@
 | :------ | :------ |
 | `T` | `GenericFieldValue` |
 
+## Hierarchy
+
+- `FieldMetadata`
+
+  ↳ **`Field`**
+
 ## Table of contents
 
 ### Properties
 
 - [editable](index.Field.md#editable)
+- [metadata](index.Field.md#metadata)
 - [value](index.Field.md#value)
 
 ## Properties
@@ -26,6 +33,24 @@
 #### Defined in
 
 sitecore-jss/types/layout/models.d.ts:116
+
+___
+
+### metadata
+
+• `Optional` **metadata**: `Object`
+
+#### Index signature
+
+▪ [key: `string`]: `unknown`
+
+#### Inherited from
+
+FieldMetadata.metadata
+
+#### Defined in
+
+sitecore-jss/types/layout/models.d.ts:122
 
 ___
 

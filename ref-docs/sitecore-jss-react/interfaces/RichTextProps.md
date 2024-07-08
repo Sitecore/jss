@@ -2,6 +2,12 @@
 
 # Interface: RichTextProps
 
+## Hierarchy
+
+- `EditableFieldProps`
+
+  ↳ **`RichTextProps`**
+
 ## Indexable
 
 ▪ [htmlAttributes: `string`]: `unknown`
@@ -11,6 +17,7 @@
 ### Properties
 
 - [editable](RichTextProps.md#editable)
+- [emptyFieldEditingComponent](RichTextProps.md#emptyfieldeditingcomponent)
 - [field](RichTextProps.md#field)
 - [tag](RichTextProps.md#tag)
 
@@ -29,9 +36,31 @@ If true and `field.editable` has a value, then `field.editable` will be processe
 true
 ```
 
+#### Inherited from
+
+EditableFieldProps.editable
+
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:25](https://github.com/Sitecore/jss/blob/05849806a/packages/sitecore-jss-react/src/components/RichText.tsx#L25)
+[packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
+
+___
+
+### emptyFieldEditingComponent
+
+• `Optional` **emptyFieldEditingComponent**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
+
+-- Edit Mode Metadata --
+
+Custom element to render in Pages in Metadata edit mode if field value is empty
+
+#### Inherited from
+
+EditableFieldProps.emptyFieldEditingComponent
+
+#### Defined in
+
+[packages/sitecore-jss-react/src/components/sharedTypes.ts:36](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss-react/src/components/sharedTypes.ts#L36)
 
 ___
 
@@ -43,7 +72,7 @@ The rich text field data.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:14](https://github.com/Sitecore/jss/blob/05849806a/packages/sitecore-jss-react/src/components/RichText.tsx#L14)
+[packages/sitecore-jss-react/src/components/RichText.tsx:17](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss-react/src/components/RichText.tsx#L17)
 
 ___
 
@@ -61,4 +90,4 @@ The HTML element that will wrap the contents of the field.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:19](https://github.com/Sitecore/jss/blob/05849806a/packages/sitecore-jss-react/src/components/RichText.tsx#L19)
+[packages/sitecore-jss-react/src/components/RichText.tsx:22](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss-react/src/components/RichText.tsx#L22)

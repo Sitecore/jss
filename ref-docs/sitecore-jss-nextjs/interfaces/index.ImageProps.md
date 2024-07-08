@@ -4,6 +4,12 @@
 
 [index](../modules/index.md).ImageProps
 
+## Hierarchy
+
+- `EditableFieldProps`
+
+  ↳ **`ImageProps`**
+
 ## Indexable
 
 ▪ [attributeName: `string`]: `unknown`
@@ -13,6 +19,7 @@
 ### Properties
 
 - [editable](index.ImageProps.md#editable)
+- [emptyFieldEditingComponent](index.ImageProps.md#emptyfieldeditingcomponent)
 - [field](index.ImageProps.md#field)
 - [imageParams](index.ImageProps.md#imageparams)
 - [mediaUrlPrefix](index.ImageProps.md#mediaurlprefix)
@@ -25,12 +32,39 @@
 • `Optional` **editable**: `boolean`
 
 Can be used to explicitly disable inline editing.
-If true and `media.editable` has a value, then `media.editable` will be processed
-and rendered as component output. If false, `media.editable` value will be ignored and not rendered.
+If true and `field.editable` has a value, then `field.editable` will be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
+
+**`Default`**
+
+```ts
+true
+```
+
+#### Inherited from
+
+EditableFieldProps.editable
 
 #### Defined in
 
-sitecore-jss-react/types/components/Image.d.ts:41
+sitecore-jss-react/types/components/sharedTypes.d.ts:25
+
+___
+
+### emptyFieldEditingComponent
+
+• `Optional` **emptyFieldEditingComponent**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
+
+-- Edit Mode Metadata --
+
+Custom element to render in Pages in Metadata edit mode if field value is empty
+
+#### Inherited from
+
+EditableFieldProps.emptyFieldEditingComponent
+
+#### Defined in
+
+sitecore-jss-react/types/components/sharedTypes.d.ts:31
 
 ___
 
@@ -42,7 +76,7 @@ Image field data (consistent with other field types)
 
 #### Defined in
 
-sitecore-jss-react/types/components/Image.d.ts:31
+sitecore-jss-react/types/components/Image.d.ts:33
 
 ___
 
@@ -58,7 +92,7 @@ Parameters that will be attached to Sitecore media URLs
 
 #### Defined in
 
-sitecore-jss-react/types/components/Image.d.ts:45
+sitecore-jss-react/types/components/Image.d.ts:37
 
 ___
 
@@ -78,7 +112,7 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 #### Defined in
 
-sitecore-jss-react/types/components/Image.d.ts:56
+sitecore-jss-react/types/components/Image.d.ts:48
 
 ___
 
@@ -88,4 +122,4 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/Image.d.ts:48
+sitecore-jss-react/types/components/Image.d.ts:40

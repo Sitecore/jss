@@ -2,6 +2,12 @@
 
 # Interface: RichTextField
 
+## Hierarchy
+
+- `FieldMetadata`
+
+  ↳ **`RichTextField`**
+
 ## Table of contents
 
 ### Properties
@@ -18,7 +24,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:7](https://github.com/Sitecore/jss/blob/05849806a/packages/sitecore-jss-react/src/components/RichText.tsx#L7)
+[packages/sitecore-jss-react/src/components/RichText.tsx:11](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss-react/src/components/RichText.tsx#L11)
 
 ___
 
@@ -30,9 +36,13 @@ ___
 
 ▪ [key: `string`]: `unknown`
 
+#### Inherited from
+
+FieldMetadata.metadata
+
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:8](https://github.com/Sitecore/jss/blob/05849806a/packages/sitecore-jss-react/src/components/RichText.tsx#L8)
+packages/sitecore-jss/types/layout/models.d.ts:122
 
 ___
 
@@ -42,4 +52,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:6](https://github.com/Sitecore/jss/blob/05849806a/packages/sitecore-jss-react/src/components/RichText.tsx#L6)
+[packages/sitecore-jss-react/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss-react/src/components/RichText.tsx#L10)

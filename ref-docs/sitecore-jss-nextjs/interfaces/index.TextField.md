@@ -4,6 +4,12 @@
 
 [index](../modules/index.md).TextField
 
+## Hierarchy
+
+- `FieldMetadata`
+
+  ↳ **`TextField`**
+
 ## Table of contents
 
 ### Properties
@@ -20,7 +26,7 @@
 
 #### Defined in
 
-sitecore-jss-react/types/components/Text.d.ts:5
+sitecore-jss-react/types/components/Text.d.ts:7
 
 ___
 
@@ -32,9 +38,13 @@ ___
 
 ▪ [key: `string`]: `unknown`
 
+#### Inherited from
+
+FieldMetadata.metadata
+
 #### Defined in
 
-sitecore-jss-react/types/components/Text.d.ts:6
+sitecore-jss/types/layout/models.d.ts:122
 
 ___
 
@@ -44,4 +54,4 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/Text.d.ts:4
+sitecore-jss-react/types/components/Text.d.ts:6
