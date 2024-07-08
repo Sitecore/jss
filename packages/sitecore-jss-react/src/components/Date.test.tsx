@@ -116,7 +116,7 @@ describe('<DateField />', () => {
       );
     });
 
-    it('should render default empty field placeholder when field value is empty in edit mode metadata', () => {
+    it('should render default empty field component when field value is empty', () => {
       const field = {
         value: '',
         metadata: testMetadata,
@@ -135,7 +135,7 @@ describe('<DateField />', () => {
       );
     });
 
-    it('should render custom empty field placeholder when provided, when field value is empty in edit mode metadata', () => {
+    it('should render custom empty field component when provided, when field value is empty', () => {
       const field = {
         value: '',
         metadata: testMetadata,
@@ -160,7 +160,7 @@ describe('<DateField />', () => {
       );
     });
 
-    it('should render nothing when field value is empty, when editing is explicitly disabled in edit mode metadata ', () => {
+    it('should render nothing when field value is empty, when editing is explicitly disabled ', () => {
       const field = {
         value: '',
         metadata: testMetadata,

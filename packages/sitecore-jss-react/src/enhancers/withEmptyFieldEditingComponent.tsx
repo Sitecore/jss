@@ -11,7 +11,7 @@ import {
  * */
 export interface WithEmptyFieldEditingComponentOptions {
   /**
-   * the default empty field placeholder component
+   * the default empty field component
    */
   defaultEmptyFieldEditingComponent: React.FC;
   /**

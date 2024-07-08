@@ -158,7 +158,7 @@ describe('<Link />', () => {
       );
     });
 
-    it('should render default empty field placeholder when field value is not present', () => {
+    it('should render default empty field component when field value is not present', () => {
       const field = {
         value: { href: undefined },
         metadata: testMetadata,
@@ -176,7 +176,7 @@ describe('<Link />', () => {
       );
     });
 
-    it('should render default empty field placeholder when field value href is not present', () => {
+    it('should render default empty field component when field value href is not present', () => {
       const field = {
         href: undefined,
         metadata: testMetadata,
@@ -194,7 +194,7 @@ describe('<Link />', () => {
       );
     });
 
-    it('should render custom empty field placeholder when provided, when field value is not present', () => {
+    it('should render custom empty field component when provided, when field value is not present', () => {
       const field = {
         value: { href: undefined },
         metadata: testMetadata,
@@ -219,7 +219,7 @@ describe('<Link />', () => {
       );
     });
 
-    it('should render custom empty field placeholder when provided, when field value href is not present', () => {
+    it('should render custom empty field component when provided, when field value href is not present', () => {
       const field = {
         href: undefined,
         metadata: testMetadata,

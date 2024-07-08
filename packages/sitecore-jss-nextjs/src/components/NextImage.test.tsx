@@ -322,7 +322,7 @@ describe('<NextImage />', () => {
       );
     });
 
-    it('should render default empty field placeholder for Image when field value src is not present', () => {
+    it('should render default empty field component for Image when field value src is not present', () => {
       const field = {
         value: {},
         metadata: testMetadata,
@@ -341,7 +341,7 @@ describe('<NextImage />', () => {
       );
     });
 
-    it('should render default empty field placeholder for Image when field src is not present', () => {
+    it('should render default empty field component for Image when field src is not present', () => {
       const field = {
         src: undefined,
         metadata: testMetadata,
@@ -360,7 +360,7 @@ describe('<NextImage />', () => {
       );
     });
 
-    it('should render custom empty field placeholder when provided, when field value src is not present', () => {
+    it('should render custom empty field component when provided, when field value src is not present', () => {
       const field = {
         value: {},
         metadata: testMetadata,
@@ -385,7 +385,7 @@ describe('<NextImage />', () => {
       );
     });
 
-    it('should render custom empty field placeholder when provided, when field src is not present', () => {
+    it('should render custom empty field component when provided, when field src is not present', () => {
       const field = {
         src: undefined,
         metadata: testMetadata,
