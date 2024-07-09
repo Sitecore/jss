@@ -5,9 +5,11 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ## 20.4.0
 
-* `[sitecore-jss-nextjs]` `[nextjs]` Update nextjs to version 13
-* `[sitecore-jss-react]` `[sitecore-jss-forms-react]` `[react]` Update react to version 18
-* `[sitecore-jss-nextjs]` `[nextjs]` `[sitecore-jss-react]` `[sitecore-jss-forms]` `[react]` Update typescript to version 4.9
+### 🛠 Breaking Changes
+
+* `[sitecore-jss-nextjs]` `[nextjs]` Update nextjs to version 13 ([#1830](https://github.com/Sitecore/jss/pull/1830))
+* `[sitecore-jss-react]` `[sitecore-jss-forms-react]` `[react]` Update react to version 18 ([#1830](https://github.com/Sitecore/jss/pull/1830))
+* `[sitecore-jss-nextjs]` `[nextjs]` `[sitecore-jss-react]` `[sitecore-jss-forms]` `[react]` Update typescript to version 4.9 ([#1830](https://github.com/Sitecore/jss/pull/1830))
 
 ## 20.3.2
 
