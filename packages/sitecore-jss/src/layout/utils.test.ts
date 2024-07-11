@@ -1,7 +1,12 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { ComponentRendering } from '../../layout';
-import { getFieldValue, getChildPlaceholder, isFieldValueEmpty, EMPTY_DATE_FIELD_VALUE } from './utils';
+import {
+  getFieldValue,
+  getChildPlaceholder,
+  isFieldValueEmpty,
+  EMPTY_DATE_FIELD_VALUE,
+} from './utils';
 
 describe('sitecore-jss layout utils', () => {
   describe('getFieldValue', () => {
