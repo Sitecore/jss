@@ -38,6 +38,10 @@
 - [PlaceholdersData](layout.md#placeholdersdata)
 - [RestLayoutServiceConfig](layout.md#restlayoutserviceconfig)
 
+### Variables
+
+- [EMPTY\_DATE\_FIELD\_VALUE](layout.md#empty_date_field_value)
+
 ### Functions
 
 - [getChildPlaceholder](layout.md#getchildplaceholder)
@@ -77,7 +81,7 @@ Data fetcher resolver in order to provide custom data fetcher
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
 
 ___
 
@@ -89,7 +93,7 @@ Field value data on a component
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:120](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss/src/layout/models.ts#L120)
+[packages/sitecore-jss/src/layout/models.ts:120](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/layout/models.ts#L120)
 
 ___
 
@@ -108,7 +112,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:75](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss/src/layout/models.ts#L75)
+[packages/sitecore-jss/src/layout/models.ts:75](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/layout/models.ts#L75)
 
 ___
 
@@ -129,7 +133,20 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+
+## Variables
+
+### EMPTY\_DATE\_FIELD\_VALUE
+
+• `Const` **EMPTY\_DATE\_FIELD\_VALUE**: ``"0001-01-01T00:00:00Z"``
+
+The default value for an empty Date field.
+This value is defined as a default one by .NET
+
+#### Defined in
+
+[packages/sitecore-jss/src/layout/utils.ts:86](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/layout/utils.ts#L86)
 
 ## Functions
 
@@ -154,7 +171,7 @@ child placeholder
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:66](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss/src/layout/utils.ts#L66)
+[packages/sitecore-jss/src/layout/utils.ts:66](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/layout/utils.ts#L66)
 
 ___
 
@@ -180,7 +197,7 @@ library stylesheet links
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/themes.ts:24](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss/src/layout/themes.ts#L24)
+[packages/sitecore-jss/src/layout/themes.ts:24](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/layout/themes.ts#L24)
 
 ___
 
@@ -206,7 +223,7 @@ content styles link, null if no styles are used in layout
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss/src/layout/content-styles.ts#L26)
+[packages/sitecore-jss/src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/layout/content-styles.ts#L26)
 
 ___
 
@@ -238,7 +255,7 @@ the field value or null if the field is not defined
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:16](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss/src/layout/utils.ts#L16)
+[packages/sitecore-jss/src/layout/utils.ts:16](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/layout/utils.ts#L16)
 
 ▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -264,7 +281,7 @@ the field value or the default value if the field is not defined
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:21](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss/src/layout/utils.ts#L21)
+[packages/sitecore-jss/src/layout/utils.ts:21](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/layout/utils.ts#L21)
 
 ___
 
@@ -286,4 +303,4 @@ Determines if the passed in field object's value is empty.
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:87](https://github.com/Sitecore/jss/blob/b4309e8c7/packages/sitecore-jss/src/layout/utils.ts#L87)
+[packages/sitecore-jss/src/layout/utils.ts:93](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/layout/utils.ts#L93)
