@@ -80,6 +80,12 @@ export function getChildPlaceholder(
 }
 
 /**
+ * The default value for an empty Date field.
+ * This value is defined as a default one by .NET
+ */
+export const EMPTY_DATE_FIELD_VALUE = '0001-01-01T00:00:00Z';
+
+/**
  * Determines if the passed in field object's value is empty.
  * @param {GenericFieldValue | Partial<Field>} field the field object.
  * Partial<T> type is used here because _field.value_ could be required or optional for the different field types
@@ -91,6 +97,7 @@ export function isFieldValueEmpty(field: GenericFieldValue | Partial<Field>): bo
     !(fieldValue as { [key: string]: unknown }).src;
   const isLinkFieldEmpty = (fieldValue: GenericFieldValue) =>
     !(fieldValue as { [key: string]: unknown }).href;
+  const isDateFieldEmpty = (fieldValue: GenericFieldValue) => fieldValue === EMPTY_DATE_FIELD_VALUE;
 
   const isEmpty = (fieldValue: GenericFieldValue) => {
     if (typeof fieldValue === 'object') {
@@ -103,7 +110,7 @@ export function isFieldValueEmpty(field: GenericFieldValue | Partial<Field>): bo
       // Avoid returning true for 0 and false values
       return false;
     } else {
-      return !fieldValue;
+      return !fieldValue || isDateFieldEmpty(fieldValue);
     }
   };
 

@@ -18,7 +18,12 @@ export {
   FieldMetadata,
 } from './models';
 
-export { getFieldValue, getChildPlaceholder, isFieldValueEmpty } from './utils';
+export {
+  getFieldValue,
+  getChildPlaceholder,
+  isFieldValueEmpty,
+  EMPTY_DATE_FIELD_VALUE,
+} from './utils';
 
 export { getContentStylesheetLink } from './content-styles';
 
