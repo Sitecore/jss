@@ -5,6 +5,7 @@ import { mount } from 'enzyme';
 import { withEmptyFieldEditingComponent } from './withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from '../components/DefaultEmptyFieldEditingComponents';
 import { describe } from 'node:test';
+import { EMPTY_DATE_FIELD_VALUE } from '@sitecore-jss/sitecore-jss/layout';
 
 describe('withEmptyFieldEditingComponent', () => {
   describe('Metadata', () => {
@@ -163,6 +164,65 @@ describe('withEmptyFieldEditingComponent', () => {
 
       expect(ref.current?.outerHTML).to.equal('<h2>foo</h2>');
       expect(rendered.html()).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
+    });
+
+    describe('Date', () => {
+      it('Should render component if field value is provided', () => {
+        const props = {
+          field: {
+            metadata: testMetadata,
+            value: '2024-01-01T00:00:00Z',
+          },
+        };
+
+        const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(TestComponent, {
+          defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
+        });
+
+        const rendered = mount(<WrappedComponent {...props} />);
+        expect(rendered.html()).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
+      });
+
+      it('Should render default empty component if field value is empty', () => {
+        const props = {
+          field: {
+            value: EMPTY_DATE_FIELD_VALUE,
+            metadata: testMetadata,
+          },
+        };
+
+        const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(TestComponent, {
+          defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
+        });
+
+        const rendered = mount(<WrappedComponent {...props} />);
+        const expected = mount(<DefaultEmptyFieldEditingComponentText />);
+
+        expect(rendered.html()).to.equal(expected.html());
+      });
+
+      it('Should render custom empty component if field value is empty', () => {
+        const EmptyFieldEditingComponent: React.FC = () => (
+          <span className="empty-field-value-placeholder">Custom Empty field value</span>
+        );
+
+        const props = {
+          field: {
+            value: EMPTY_DATE_FIELD_VALUE,
+            metadata: testMetadata,
+          },
+          emptyFieldEditingComponent: EmptyFieldEditingComponent,
+        };
+
+        const WrappedComponent = withEmptyFieldEditingComponent<TestComponentProps>(TestComponent, {
+          defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
+        });
+
+        const rendered = mount(<WrappedComponent {...props} />);
+        const expected = mount(<EmptyFieldEditingComponent />);
+
+        expect(rendered.html()).to.equal(expected.html());
+      });
     });
 
     describe('Image', () => {

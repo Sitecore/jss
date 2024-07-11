@@ -4,6 +4,7 @@ import { mount, shallow } from 'enzyme';
 import React from 'react';
 import { DateField } from './Date';
 import { describe } from 'node:test';
+import { EMPTY_DATE_FIELD_VALUE } from '@sitecore-jss/sitecore-jss/layout';
 
 describe('<DateField />', () => {
   it('should return null if no editable or value', () => {
@@ -116,48 +117,98 @@ describe('<DateField />', () => {
       );
     });
 
-    it('should render default empty field component when field value is empty', () => {
-      const field = {
-        value: '',
-        metadata: testMetadata,
-      };
+    describe('empty value', () => {
+      describe('Should render default component', () => {
+        it('field value is empty string', () => {
+          const field = {
+            value: '',
+            metadata: testMetadata,
+          };
 
-      const rendered = mount(<DateField field={field} />);
+          const rendered = mount(<DateField field={field} />);
 
-      expect(rendered.html()).to.equal(
-        [
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-            testMetadata
-          )}</code>`,
-          '<span>[No text in field]</span>',
-          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-        ].join('')
-      );
-    });
+          expect(rendered.html()).to.equal(
+            [
+              `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+                testMetadata
+              )}</code>`,
+              '<span>[No text in field]</span>',
+              '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+            ].join('')
+          );
+        });
 
-    it('should render custom empty field component when provided, when field value is empty', () => {
-      const field = {
-        value: '',
-        metadata: testMetadata,
-      };
+        it('field value is default empty date value', () => {
+          const field = {
+            value: EMPTY_DATE_FIELD_VALUE,
+            metadata: testMetadata,
+          };
 
-      const EmptyFieldEditingComponent: React.FC = () => (
-        <span className="empty-field-value-placeholder">Custom Empty field value</span>
-      );
+          const rendered = mount(<DateField field={field} />);
 
-      const rendered = mount(
-        <DateField field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
-      );
+          expect(rendered.html()).to.equal(
+            [
+              `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+                testMetadata
+              )}</code>`,
+              '<span>[No text in field]</span>',
+              '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+            ].join('')
+          );
+        });
+      });
 
-      expect(rendered.html()).to.equal(
-        [
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-            testMetadata
-          )}</code>`,
-          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
-          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-        ].join('')
-      );
+      describe('Should render custom component', () => {
+        it('field value is empty string', () => {
+          const field = {
+            value: '',
+            metadata: testMetadata,
+          };
+
+          const EmptyFieldEditingComponent: React.FC = () => (
+            <span className="empty-field-value-placeholder">Custom Empty field value</span>
+          );
+
+          const rendered = mount(
+            <DateField field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
+          );
+
+          expect(rendered.html()).to.equal(
+            [
+              `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+                testMetadata
+              )}</code>`,
+              '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
+              '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+            ].join('')
+          );
+        });
+
+        it('field value is defaule empty date value', () => {
+          const field = {
+            value: EMPTY_DATE_FIELD_VALUE,
+            metadata: testMetadata,
+          };
+
+          const EmptyFieldEditingComponent: React.FC = () => (
+            <span className="empty-field-value-placeholder">Custom Empty field value</span>
+          );
+
+          const rendered = mount(
+            <DateField field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
+          );
+
+          expect(rendered.html()).to.equal(
+            [
+              `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+                testMetadata
+              )}</code>`,
+              '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
+              '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+            ].join('')
+          );
+        });
+      });
     });
 
     it('should render nothing when field value is empty, when editing is explicitly disabled ', () => {

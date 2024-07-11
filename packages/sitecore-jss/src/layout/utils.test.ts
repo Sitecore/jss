@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { ComponentRendering } from '../../layout';
-import { getFieldValue, getChildPlaceholder, isFieldValueEmpty } from './utils';
+import { getFieldValue, getChildPlaceholder, isFieldValueEmpty, EMPTY_DATE_FIELD_VALUE } from './utils';
 
 describe('sitecore-jss layout utils', () => {
   describe('getFieldValue', () => {
@@ -147,6 +147,29 @@ describe('sitecore-jss layout utils', () => {
           value: {
             href: 'some.url//',
           },
+        };
+        const result = isFieldValueEmpty(field);
+        expect(result).to.be.false;
+      });
+    });
+
+    describe('Date', () => {
+      it('should return true if Date field is empty', () => {
+        expect(
+          isFieldValueEmpty({
+            value: EMPTY_DATE_FIELD_VALUE,
+          })
+        ).to.be.true;
+        expect(
+          isFieldValueEmpty({
+            value: '',
+          })
+        ).to.be.true;
+      });
+
+      it('should return false if Date field is not empty', () => {
+        const field = {
+          value: '2024-01-01T00:00:00Z',
         };
         const result = isFieldValueEmpty(field);
         expect(result).to.be.false;
