@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
+import { StyleguideSpecimenComponent } from './shared/styleguide-specimen/styleguide-specimen.component';
 import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
 
 /*
@@ -13,8 +14,22 @@ import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
   Don't want code generation? See ./.gitignore for instructions to turn it off.
 */
 @NgModule({
-  imports: [CommonModule, TranslateModule, RouterModule, JssModule, FormsModule],
-  exports: [CommonModule, TranslateModule, RouterModule, FormsModule],
-  declarations: [],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    RouterModule,
+    JssModule,
+    FormsModule,
+  ],
+  exports: [
+    CommonModule,
+    TranslateModule,
+    RouterModule,
+    FormsModule,
+    StyleguideSpecimenComponent
+  ],
+  declarations: [
+    StyleguideSpecimenComponent
+  ],
 })
-export class AppComponentsSharedModule {}
+export class AppComponentsSharedModule { }
