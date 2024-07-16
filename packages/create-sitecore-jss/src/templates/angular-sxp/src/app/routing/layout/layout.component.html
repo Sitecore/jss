@@ -1,5 +1,7 @@
+<app-navigation></app-navigation>
 <div class="container">
   <ng-container *ngIf="state === LayoutState.Layout">
+    <app-visitor-identification></app-visitor-identification>
     <sc-placeholder
       name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main"
       [rendering]="route"
