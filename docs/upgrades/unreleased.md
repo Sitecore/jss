@@ -41,6 +41,18 @@
             configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]?.toString().trim()}";\n`;
         ```
 
+* Update import in _src/templates/angular/server.bundle.ts_
+  Use _'zone.js'_ instead of _'zone.js/dist/zone-node'_
+
+     ```ts
+          import 'zone.js';
+     ```
+* Update import in _src/templates/angular/src/polyfills.ts_
+  Use _'zone.js'_ instead of _'zone.js/dist/zone-node'_
+
+     ```ts
+          import 'zone.js';
+     ```
 
 # vue
 
