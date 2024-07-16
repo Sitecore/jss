@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel start:angular start:proxy start:watch-components\"",
+    "start:proxy": "ts-node --project src/tsconfig.webpack-server.json scripts/disconnected-mode-proxy.ts"
+  },
+  "devDependencies": {
+    "@sitecore-jss/sitecore-jss-dev-tools": "~22.1.0-canary"
+  }
+}

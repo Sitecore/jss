@@ -9,33 +9,35 @@
   This is accomplished by spinning up a small Express server that mocks the APIs, and then
   telling angular-cli to proxy requests to the API paths to this express instance.
 
-  See /scripts/disconnected-mode-proxy.ts for the proxy API server configuration.
 */
 const constants = require('@sitecore-jss/sitecore-jss-angular/cjs').constants;
 const environment = require('./src/environments/environment.js').environment;
 
 const port = 3043;
 
-const PROXY_CONFIG = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED ? [
-  {
-    context: ['/data', '/sitecore'],
-    target: `http://localhost:${port}`,
-    secure: false,
-  },
-] : [
-  {
-    context: [
-      // API endpoints
-      '/sitecore',
-      // media items
-      '/-',
-      // visitor identification
-      '/layouts'
-    ],
-    target: environment.sitecoreApiHost,
-    secure: false,
-    changeOrigin: true
-  }
-];
+const PROXY_CONFIG =
+  process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED
+    ? [
+        {
+          context: ['/data', '/sitecore'],
+          target: `http://localhost:${port}`,
+          secure: false,
+        },
+      ]
+    : [
+        {
+          context: [
+            // API endpoints
+            '/sitecore',
+            // media items
+            '/-',
+            // visitor identification
+            '/layouts',
+          ],
+          target: environment.sitecoreApiHost,
+          secure: false,
+          changeOrigin: true,
+        },
+      ];
 
 module.exports = PROXY_CONFIG;
