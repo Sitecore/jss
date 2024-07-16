@@ -2,7 +2,7 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import 'reflect-metadata';
-import 'zone.js/dist/zone-node';
+import 'zone.js';
 import { JssRouteBuilderService } from './src/app/routing/jss-route-builder.service';
 import { environment } from './src/environments/environment';
 import { AppServerModule, renderModule } from './src/main.server';
