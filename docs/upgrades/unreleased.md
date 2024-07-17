@@ -34,6 +34,10 @@
 
 # angular
 
+* Update Angular and core dependencies to ~17.3.1, related dependencies
+
+* Update Typescript to ~5.2.2
+
 * Replace `scripts/generate-config.ts` if you have not modified it. Otherwise:
     * Add a `trim()` call to `config[prop]` (use toString() to avoid type conflicts) and replace commas before a newline (`,`) with semicolon (`;`) in configText prop assignments so it would look like this:
 
