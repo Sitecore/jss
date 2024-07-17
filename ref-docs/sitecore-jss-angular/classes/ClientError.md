@@ -18,9 +18,11 @@
 
 - [message](ClientError.md#message)
 - [name](ClientError.md#name)
+- [originalStack](ClientError.md#originalstack)
 - [request](ClientError.md#request)
 - [response](ClientError.md#response)
 - [stack](ClientError.md#stack)
+- [zoneAwareStack](ClientError.md#zoneawarestack)
 - [extractMessage](ClientError.md#extractmessage)
 - [prepareStackTrace](ClientError.md#preparestacktrace)
 - [stackTraceLimit](ClientError.md#stacktracelimit)
@@ -80,6 +82,22 @@ node_modules/typescript/lib/lib.es5.d.ts:1028
 
 ___
 
+### originalStack
+
+• `Optional` **originalStack**: `string`
+
+Original stack trace with no modifications
+
+#### Inherited from
+
+Error.originalStack
+
+#### Defined in
+
+packages/sitecore-jss-angular/node_modules/zone.js/lib/zone.d.ts:38
+
+___
+
 ### request
 
 • **request**: `GraphQLRequestContext`\<`Variables`\>
@@ -111,6 +129,22 @@ Error.stack
 #### Defined in
 
 node_modules/typescript/lib/lib.es5.d.ts:1030
+
+___
+
+### zoneAwareStack
+
+• `Optional` **zoneAwareStack**: `string`
+
+Stack trace where extra frames have been removed and zone names added.
+
+#### Inherited from
+
+Error.zoneAwareStack
+
+#### Defined in
+
+packages/sitecore-jss-angular/node_modules/zone.js/lib/zone.d.ts:34
 
 ___
 
