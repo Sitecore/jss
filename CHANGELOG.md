@@ -45,7 +45,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-angular]``[sitecore-jss-schematics]``[templates/angular]` Upgrade Angular to v17 ([#1837](https://github.com/Sitecore/jss/pull/1837))
   * Updated Angular and core dependencies to ~17.3.11
   * Updated Typescript to ~5.2.2
-  * Update zone.js/dist/zone-node to zone.js
+  * Updated import statements from zone.js/dist/zone-node to zone.js
 
 ### 🐛 Bug Fixes
 
