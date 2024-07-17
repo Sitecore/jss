@@ -34,6 +34,10 @@
 
 # angular
 
+* Update Angular and core dependencies to ~17.3.1, related dependencies
+
+* Update Typescript to ~5.2.2
+
 * Replace `scripts/generate-config.ts` if you have not modified it. Otherwise:
     * Add a `trim()` call to `config[prop]` (use toString() to avoid type conflicts) and replace commas before a newline (`,`) with semicolon (`;`) in configText prop assignments so it would look like this:
 
@@ -41,6 +45,18 @@
             configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]?.toString().trim()}";\n`;
         ```
 
+* Update import in _src/templates/angular/server.bundle.ts_
+  Use _'zone.js'_ instead of _'zone.js/dist/zone-node'_
+
+     ```ts
+          import 'zone.js';
+     ```
+* Update import in _src/templates/angular/src/polyfills.ts_
+  Use _'zone.js'_ instead of _'zone.js/dist/zone-node'_
+
+     ```ts
+          import 'zone.js';
+     ```
 
 # vue
 
