@@ -43,7 +43,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` EditingRenderMiddleware `resolvePageUrl` function now accepts an object `(args: { serverUrl?: string; itemPath: string }) => string` instead of multiple parameters `(serverUrl: string, itemPath: string) => string`. `serverUrl` is now optional and omitted when Metadata Edit Mode is used.
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` `[sitecore-jss]` Remove Partial rendering implementation as it will not be used by Pages in its current implementation - includes removing of EditingComponentPlaceholder component, few constants associated with it and RenderingType enum ([#1821](https://github.com/Sitecore/jss/pull/1821))
 * `[sitecore-jss-angular]``[sitecore-jss-schematics]``[templates/angular]` Upgrade Angular to v17 ([#1837](https://github.com/Sitecore/jss/pull/1837))
-  * Update Angular and core dependencies to ~17.3.11
+  * Updated Angular and core dependencies to ~17.3.11
   * Updated Typescript to ~5.2.2
   * Update zone.js/dist/zone-node to zone.js
 
