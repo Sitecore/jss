@@ -132,6 +132,15 @@
     );
     ```
 
+* Add a `useSiteQuery` parameter when `GraphQLDictionaryService` is initialized in `/src/lib/dictionary-service-factory.ts` :
+    ```
+        new GraphQLDictionaryService({
+          siteName,
+          clientFactory,
+          .....
+          useSiteQuery: true,
+        })
+
 * We have introduced a new configuration option, `pagesEditMode`, in the `\src\pages\api\editing\config.ts` file to support the new editing metadata architecture for Pages (XMCloud). This option allows you to specify the editing mode used by Pages. It is set to `metadata` by default. However, if you are not ready to use a new integration and continue using the existing architecture, you can explicitly set the `pagesEditMode` to `chromes`.
 
     ```ts

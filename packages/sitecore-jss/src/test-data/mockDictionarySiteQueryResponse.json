@@ -1,0 +1,75 @@
+{
+  "singlepage": {
+    "data": {
+      "site": {
+        "siteInfo": {
+          "dictionary": {
+            "results": [
+              {
+                "key": "foo",
+                "value": "foo"
+              },
+              {
+                "key": "bar",
+                "value": "bar"
+              }
+            ],
+            "total": 2,
+            "pageInfo": {
+              "endCursor": "",
+              "hasNext": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "multipage": {
+    "page1": {
+      "data": {
+        "site": {
+          "siteInfo": {
+            "dictionary": {
+              "results": [
+                {
+                  "key": "foo",
+                  "value": "foo"
+                },
+                {
+                  "key": "bar",
+                  "value": "bar"
+                }
+              ],
+              "total": 3,
+              "pageInfo": {
+                "endCursor": "nextpage",
+                "hasNext": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "page2": {
+      "data": {
+        "site": {
+          "siteInfo": {
+            "dictionary": {
+              "results": [
+                {
+                  "key": "baz",
+                  "value": "baz"
+                }
+              ],
+              "total": 3,
+              "pageInfo": {
+                "endCursor": "",
+                "hasNext": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
