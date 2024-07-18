@@ -13,7 +13,13 @@ const PAGE_SIZE = 1000;
  * GraphQL query for fetching editing data.
  */
 export const query = /* GraphQL */ `
-  query EditingQuery($itemId: String!, $language: String!, $version: String) {
+ query EditingQuery(
+    $siteName: String!
+    $itemId: String!
+    $language: String!
+    $version: String
+    $after: String
+) {
     item(path: $itemId, language: $language, version: $version) {
       rendered
     }
