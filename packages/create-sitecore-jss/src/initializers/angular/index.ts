@@ -19,10 +19,25 @@ export default class AngularInitializer implements Initializer {
     };
     const templatePath = path.resolve(__dirname, '../../templates/angular');
     await transform(templatePath, mergedArgs);
+    const addInitializers: string[] = [];
+
+    if (answers.xmcloud) {
+      if (!args.templates.includes('angular-xmcloud')) {
+        addInitializers.push('angular-xmcloud');
+      }
+      if (!args.templates.includes('node-xmcloud-proxy')) {
+        addInitializers.push('angular-xmcloud');
+      }
+    } else {
+      if (!args.templates.includes('angular-sxp')) {
+        addInitializers.push('angular-sxp');
+      }
+    }
 
     const response = {
       nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
       appName: answers.appName,
+      initializers: addInitializers,
     };
 
     return response;
