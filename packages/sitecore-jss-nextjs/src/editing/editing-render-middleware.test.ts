@@ -8,8 +8,8 @@ import { EditingDataService, EditingPreviewData } from './editing-data-service';
 import {
   EDITING_ALLOWED_ORIGINS,
   QUERY_PARAM_EDITING_SECRET,
-  QUERY_PARAM_PROTECTION_BYPASS_SITECORE,
-  QUERY_PARAM_PROTECTION_BYPASS_VERCEL,
+  QUERY_PARAM_VERCEL_PROTECTION_BYPASS,
+  QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE,
 } from './constants';
 import { EE_PATH, EE_LANGUAGE, EE_LAYOUT, EE_DICTIONARY, EE_BODY } from '../test-data/ee-data';
 import {
@@ -208,6 +208,41 @@ describe('EditingRenderMiddleware', () => {
       );
     });
 
+    it('should handle request with missing optional parameters', async () => {
+      const queryWithoutOptionalParams = {
+        mode: 'edit',
+        route: '/styleguide',
+        sc_itemid: '{11111111-1111-1111-1111-111111111111}',
+        sc_lang: 'en',
+        sc_site: 'website',
+        secret: secret,
+      } as MetadataQueryParams;
+      const req = mockRequest(EE_BODY, queryWithoutOptionalParams, 'GET');
+      const res = mockResponse();
+
+      const middleware = new EditingRenderMiddleware();
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith({
+        site: 'website',
+        itemId: '{11111111-1111-1111-1111-111111111111}',
+        language: 'en',
+        variantId: '_default',
+        version: undefined,
+        editMode: 'metadata',
+        pageState: 'edit',
+      });
+
+      expect(res.redirect).to.have.been.calledOnce;
+      expect(res.redirect).to.have.been.calledWith('/styleguide');
+      expect(res.setHeader).to.have.been.calledWith(
+        'Content-Security-Policy',
+        `frame-ancestors 'self' https://allowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
+      );
+    });
+
     it('should use custom resolvePageUrl', async () => {
       const req = mockRequest(EE_BODY, query, 'GET');
       const res = mockResponse();
@@ -237,7 +272,7 @@ describe('EditingRenderMiddleware', () => {
     });
 
     it('should response with 400 for missing query params', async () => {
-      const req = mockRequest(EE_BODY, { sc_site: 'website', sc_version: 'latest', secret }, 'GET');
+      const req = mockRequest(EE_BODY, { sc_site: 'website', secret }, 'GET');
       const res = mockResponse();
 
       const middleware = new EditingRenderMiddleware();
@@ -250,7 +285,7 @@ describe('EditingRenderMiddleware', () => {
       expect(res.json).to.have.been.calledOnce;
       expect(res.json).to.have.been.calledWith({
         html:
-          '<html><body>Missing required query parameters: sc_itemid, sc_lang, sc_variant, route, mode</body></html>',
+          '<html><body>Missing required query parameters: sc_itemid, sc_lang, route, mode</body></html>',
       });
     });
 
@@ -304,7 +339,7 @@ describe('EditingRenderMiddleware', () => {
         match('http://localhost:3000/test/path?timestamp'),
         {
           headers: {
-            Cookie: mockNextJsPreviewCookies.join(';'),
+            cookie: mockNextJsPreviewCookies.join(';'),
           },
         }
       );
@@ -347,7 +382,7 @@ describe('EditingRenderMiddleware', () => {
         match('http://localhost:3000/test/path?timestamp'),
         {
           headers: {
-            Cookie: mockNextJsPreviewCookies.join(';'),
+            cookie: mockNextJsPreviewCookies.join(';'),
           },
         }
       );
@@ -390,7 +425,7 @@ describe('EditingRenderMiddleware', () => {
         match('http://localhost:3000/test/path?timestamp'),
         {
           headers: {
-            Cookie: mockNextJsPreviewCookies.join(';'),
+            cookie: mockNextJsPreviewCookies.join(';'),
           },
         }
       );
@@ -544,11 +579,11 @@ describe('EditingRenderMiddleware', () => {
     it('should pass along protection bypass query parameters', async () => {
       const html = '<html phkey="test1"><body phkey="test2">Something amazing</body></html>';
       const query = {} as Query;
-      const bypassTokenSitecore = 'token1234Sitecore';
-      const bypassTokenVercel = 'token1234Vercel';
+      const vercelBypassToken = 'token1234Vercel';
+      const vercelBypassCookie = 'samesitenone';
       query[QUERY_PARAM_EDITING_SECRET] = secret;
-      query[QUERY_PARAM_PROTECTION_BYPASS_SITECORE] = bypassTokenSitecore;
-      query[QUERY_PARAM_PROTECTION_BYPASS_VERCEL] = bypassTokenVercel;
+      query[QUERY_PARAM_VERCEL_PROTECTION_BYPASS] = vercelBypassToken;
+      query[QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE] = vercelBypassCookie;
       const previewData = { key: 'key1234' } as EditingPreviewData;
 
       const fetcher = mockFetcher(html);
@@ -568,7 +603,41 @@ describe('EditingRenderMiddleware', () => {
       expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
       expect(fetcher.get).to.have.been.calledOnce;
       expect(fetcher.get, 'pass along protection bypass query params').to.have.been.calledWithMatch(
-        `http://localhost:3000/test/path?${QUERY_PARAM_PROTECTION_BYPASS_SITECORE}=${bypassTokenSitecore}&${QUERY_PARAM_PROTECTION_BYPASS_VERCEL}=${bypassTokenVercel}&timestamp`
+        `http://localhost:3000/test/path?${QUERY_PARAM_VERCEL_PROTECTION_BYPASS}=${vercelBypassToken}&${QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE}=${vercelBypassCookie}&timestamp`
+      );
+    });
+
+    it('should pass along approved headers', async () => {
+      const html = '<html><body>Something amazing</body></html>';
+      const fetcher = mockFetcher(html);
+      const dataService = mockDataService();
+      const query = {} as Query;
+      query[QUERY_PARAM_EDITING_SECRET] = secret;
+      const mockAuthValue = 'authkey123';
+      const mockCookies = ['foo=bar', 'one=two'];
+      const req = mockRequest(EE_BODY, query, undefined, {
+        authorization: mockAuthValue,
+        cookie: mockCookies.join(';'),
+      });
+      const res = mockResponse();
+
+      const middleware = new EditingRenderMiddleware({
+        dataFetcher: fetcher,
+        editingDataService: dataService,
+      });
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(fetcher.get).to.have.been.calledOnce;
+      expect(fetcher.get).to.have.been.calledWith(
+        match('http://localhost:3000/test/path?timestamp'),
+        {
+          headers: {
+            authorization: mockAuthValue,
+            cookie: mockCookies.concat(mockNextJsPreviewCookies).join(';'),
+          },
+        }
       );
     });
 

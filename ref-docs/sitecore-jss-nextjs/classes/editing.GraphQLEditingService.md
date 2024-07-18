@@ -77,7 +77,7 @@ Fetches editing data. Provides the layout data and dictionary phrases
 | `variables.itemId` | `string` | The item id (path) to fetch layout data for. |
 | `variables.language` | `string` | The language to fetch layout data for. |
 | `variables.siteName` | `string` | The site name. |
-| `variables.version` | `string` | The version of the item . |
+| `variables.version?` | `string` | The version of the item (optional). |
 
 #### Returns
 
@@ -87,7 +87,7 @@ The layout data and dictionary phrases.
 
 #### Defined in
 
-sitecore-jss/types/editing/graphql-editing-service.d.ts:66
+sitecore-jss/types/editing/graphql-editing-service.d.ts:67
 
 ___
 
@@ -105,4 +105,4 @@ implementation
 
 #### Defined in
 
-sitecore-jss/types/editing/graphql-editing-service.d.ts:79
+sitecore-jss/types/editing/graphql-editing-service.d.ts:80

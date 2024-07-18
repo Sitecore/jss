@@ -149,6 +149,8 @@ export {
   File,
   FileField,
   RichTextField,
+  DefaultEmptyFieldEditingComponentImage,
+  DefaultEmptyFieldEditingComponentText,
   VisitorIdentification,
   PlaceholderComponentProps,
   SitecoreContext,
@@ -165,5 +167,6 @@ export {
   WithSitecoreContextProps,
   WithSitecoreContextHocProps,
   withFieldMetadata,
+  withEmptyFieldEditingComponent,
   EditingScripts,
 } from '@sitecore-jss/sitecore-jss-react';

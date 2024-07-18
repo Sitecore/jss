@@ -7,6 +7,7 @@ import { mount } from 'enzyme';
 import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
 import { Link } from './Link';
 import { spy } from 'sinon';
+import { describe } from 'node:test';
 
 const Router = (): NextRouter => ({
   pathname: '/',
@@ -361,7 +362,7 @@ describe('<Link />', () => {
     expect(rendered).to.have.length(0);
   });
 
-  it('should render field metadata component when metadata property is present', () => {
+  describe('editMode metadata', () => {
     const testMetadata = {
       contextItem: {
         id: '{09A07660-6834-476C-B93B-584248D3003B}',
@@ -374,29 +375,165 @@ describe('<Link />', () => {
       rawValue: 'Test1',
     };
 
-    const field = {
-      value: {
-        href: '/lorem',
-        text: 'ipsum',
-        class: 'my-link',
-      },
-      metadata: testMetadata,
-    };
+    it('should render field metadata component when metadata property is present', () => {
+      const field = {
+        value: {
+          href: '/lorem',
+          text: 'ipsum',
+          class: 'my-link',
+        },
+        metadata: testMetadata,
+      };
 
-    const rendered = mount(
-      <Page>
-        <Link field={field} />
-      </Page>
-    );
+      const rendered = mount(
+        <Page>
+          <Link field={field} />
+        </Page>
+      );
 
-    expect(rendered.html()).to.equal(
-      [
-        `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-          testMetadata
-        )}</code>`,
-        '<a href="/lorem" class="my-link">ipsum</a>',
-        '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-      ].join('')
-    );
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<a href="/lorem" class="my-link">ipsum</a>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render default empty field component when field value href is not present', () => {
+      const field = {
+        value: {
+          href: undefined,
+        },
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(
+        <Page>
+          <Link field={field} />
+        </Page>
+      );
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span>[No text in field]</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render default empty field component when field href is not present', () => {
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(
+        <Page>
+          <Link field={field} />
+        </Page>
+      );
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span>[No text in field]</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render custom empty field component when provided, when field value href is not present', () => {
+      const field = {
+        value: {
+          href: undefined,
+        },
+        metadata: testMetadata,
+      };
+
+      const EmptyFieldEditingComponent: React.FC = () => (
+        <span className="empty-field-value-placeholder">Custom Empty field value</span>
+      );
+
+      const rendered = mount(
+        <Page>
+          <Link field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
+        </Page>
+      );
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render custom empty field component when provided, when field href is not present', () => {
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+
+      const EmptyFieldEditingComponent: React.FC = () => (
+        <span className="empty-field-value-placeholder">Custom Empty field value</span>
+      );
+
+      const rendered = mount(
+        <Page>
+          <Link field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
+        </Page>
+      );
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render nothing when field value href is not present and editing is explicitly disabled', () => {
+      const field = {
+        value: { href: undefined },
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(
+        <Page>
+          <Link field={field} editable={false} />
+        </Page>
+      );
+
+      expect(rendered.html()).to.equal('');
+    });
+
+    it('should render nothing when field href is not present and editing is explicitly disabled', () => {
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(
+        <Page>
+          <Link field={field} editable={false} />
+        </Page>
+      );
+
+      expect(rendered.html()).to.equal('');
+    });
   });
 });

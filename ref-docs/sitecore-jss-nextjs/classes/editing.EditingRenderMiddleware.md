@@ -26,6 +26,7 @@ which is required for Sitecore editing support.
 ### Methods
 
 - [getHandler](editing.EditingRenderMiddleware.md#gethandler)
+- [getHeadersForPropagation](editing.EditingRenderMiddleware.md#getheadersforpropagation)
 - [getQueryParamsForPropagation](editing.EditingRenderMiddleware.md#getqueryparamsforpropagation)
 - [handler](editing.EditingRenderMiddleware.md#handler)
 
@@ -47,7 +48,7 @@ RenderMiddlewareBase.constructor
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:404](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L404)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:405](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L405)
 
 ## Properties
 
@@ -59,7 +60,7 @@ Editing render middleware config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:404](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L404)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:405](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L405)
 
 ## Methods
 
@@ -94,7 +95,35 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:412](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L412)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:413](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L413)
+
+___
+
+### getHeadersForPropagation
+
+▸ `Protected` **getHeadersForPropagation**(`headers`): `Object`
+
+Get headers that should be passed along to subsequent requests
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `headers` | `IncomingHttpHeaders` | Incoming HTTP Headers |
+
+#### Returns
+
+`Object`
+
+Object of approved headers
+
+#### Inherited from
+
+RenderMiddlewareBase.getHeadersForPropagation
+
+#### Defined in
+
+[sitecore-jss-nextjs/src/editing/render-middleware.ts:39](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L39)
 
 ___
 
@@ -122,7 +151,7 @@ RenderMiddlewareBase.getQueryParamsForPropagation
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/render-middleware.ts:15](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L15)
+[sitecore-jss-nextjs/src/editing/render-middleware.ts:17](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L17)
 
 ___
 
@@ -143,4 +172,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:416](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L416)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:417](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L417)

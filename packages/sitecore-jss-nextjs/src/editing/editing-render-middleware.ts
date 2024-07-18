@@ -8,6 +8,7 @@ import { EDITING_ALLOWED_ORIGINS, QUERY_PARAM_EDITING_SECRET } from './constants
 import { getJssEditingSecret } from '../utils/utils';
 import { RenderMiddlewareBase } from './render-middleware';
 import { enforceCors, getAllowedOriginsFromEnv } from '@sitecore-jss/sitecore-jss/utils';
+import { DEFAULT_VARIANT } from '@sitecore-jss/sitecore-jss/personalize';
 
 /**
  * Configuration for the Editing Render Middleware.
@@ -83,7 +84,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
   }
 
   async render(req: NextApiRequest, res: NextApiResponse) {
-    const { query } = req;
+    const { query, headers: incomingHeaders } = req;
 
     const startTimestamp = Date.now();
 
@@ -96,6 +97,9 @@ export class ChromesHandler extends RenderMiddlewareBase {
 
       // Get query string parameters to propagate on subsequent requests (e.g. for deployment protection bypass)
       const params = this.getQueryParamsForPropagation(query);
+
+      // Get headers to propagate on subsequent requests
+      const headers = this.getHeadersForPropagation(incomingHeaders);
 
       // Stash for use later on (i.e. within getStatic/ServerSideProps).
       // Note we can't set this directly in setPreviewData since it's stored as a cookie (2KB limit)
@@ -111,6 +115,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
 
       // Grab the Next.js preview cookies to send on to the render request
       const cookies = res.getHeader('Set-Cookie') as string[];
+      headers.cookie = `${headers.cookie ? headers.cookie + ';' : ''}${cookies.join(';')}`;
 
       // Make actual render request for page route, passing on preview cookies as well as any approved query string parameters.
       // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
@@ -124,9 +129,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
       requestUrl.searchParams.append('timestamp', Date.now().toString());
       const pageRes = await this.dataFetcher
         .get<string>(requestUrl.toString(), {
-          headers: {
-            Cookie: cookies.join(';'),
-          },
+          headers,
         })
         .catch((err) => {
           // We need to handle not found error provided by Vercel
@@ -266,11 +269,11 @@ export type MetadataQueryParams = {
   secret: string;
   sc_lang: string;
   sc_itemid: string;
-  sc_version: string;
   sc_site: string;
   route: string;
-  sc_variant: string;
   mode: Exclude<LayoutServicePageState, 'normal'>;
+  sc_variant?: string;
+  sc_version?: string;
 };
 
 /**
@@ -287,10 +290,10 @@ export type EditingMetadataPreviewData = {
   site: string;
   itemId: string;
   language: string;
-  variantId: string;
-  version: string;
   editMode: EditMode.Metadata;
   pageState: Exclude<LayoutServicePageState, 'Normal'>;
+  variantId: string;
+  version?: string;
 };
 
 /**
@@ -325,8 +328,6 @@ export class MetadataHandler {
       'sc_site',
       'sc_itemid',
       'sc_lang',
-      'sc_variant',
-      'sc_version',
       'route',
       'mode',
     ];
@@ -350,7 +351,7 @@ export class MetadataHandler {
         itemId: query.sc_itemid,
         language: query.sc_lang,
         // sc_variant is an array in the query params, but we only need the first value
-        variantId: query.sc_variant.split(',')[0],
+        variantId: query.sc_variant?.split(',')[0] || DEFAULT_VARIANT,
         version: query.sc_version,
         editMode: EditMode.Metadata,
         pageState: query.mode,

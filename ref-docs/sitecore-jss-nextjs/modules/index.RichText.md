@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:85](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L85)
+[sitecore-jss-nextjs/src/components/RichText.tsx:85](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L85)
 
 ___
 
@@ -32,10 +32,11 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `editable` | `Requireable`\<`boolean`\> |
+| `emptyFieldEditingComponent` | `Requireable`\<`ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>\> |
 | `field` | `Requireable`\<`InferProps`\<\{ `editable`: `Requireable`\<`string`\> ; `metadata`: `Requireable`\<\{ `[x: string]`: `any`;  }\> ; `value`: `Requireable`\<`string`\>  }\>\> |
 | `internalLinksSelector` | `Requireable`\<`string`\> |
 | `tag` | `Requireable`\<`string`\> |
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:80](https://github.com/Sitecore/jss/blob/7ff78933e/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L80)
+[sitecore-jss-nextjs/src/components/RichText.tsx:80](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L80)

@@ -1,3 +1,4 @@
+import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -27,7 +28,7 @@ export const File: React.FC<FileProps> = ({ field, children, ...otherProps }) =>
 
   const dynamicField: FileField | FileFieldValue = field;
 
-  if (!field || (!dynamicField.value && !(dynamicField as FileFieldValue).src)) {
+  if (!field || isFieldValueEmpty(dynamicField)) {
     return null;
   }
 
