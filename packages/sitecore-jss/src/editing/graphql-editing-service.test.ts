@@ -19,7 +19,7 @@ import debug from '../debug';
 
 use(spies);
 
-describe.only('GraphQLEditingService', () => {
+describe('GraphQLEditingService', () => {
   const hostname = 'http://site';
   const endpointPath = '/?sitecoreContextId=context-id';
   const siteName = 'site-name';
