@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:7](https://github.com/Sitecore/jss/blob/df514a555/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L7)
+[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:7](https://github.com/Sitecore/jss/blob/bd0c0011b/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L7)
 
 ___
 
@@ -53,7 +53,7 @@ Object model of personlize info
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:30](https://github.com/Sitecore/jss/blob/df514a555/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L30)
+[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:30](https://github.com/Sitecore/jss/blob/bd0c0011b/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L30)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:4](https://github.com/Sitecore/jss/blob/df514a555/packages/sitecore-jss/src/personalize/utils.ts#L4)
+[packages/sitecore-jss/src/personalize/utils.ts:4](https://github.com/Sitecore/jss/blob/bd0c0011b/packages/sitecore-jss/src/personalize/utils.ts#L4)
 
 ## Variables
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:1](https://github.com/Sitecore/jss/blob/df514a555/packages/sitecore-jss/src/personalize/utils.ts#L1)
+[packages/sitecore-jss/src/personalize/utils.ts:1](https://github.com/Sitecore/jss/blob/bd0c0011b/packages/sitecore-jss/src/personalize/utils.ts#L1)
 
 ## Functions
 
@@ -104,7 +104,7 @@ the rewrite path
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:14](https://github.com/Sitecore/jss/blob/df514a555/packages/sitecore-jss/src/personalize/utils.ts#L14)
+[packages/sitecore-jss/src/personalize/utils.ts:14](https://github.com/Sitecore/jss/blob/bd0c0011b/packages/sitecore-jss/src/personalize/utils.ts#L14)
 
 ___
 
@@ -128,7 +128,7 @@ the personalize data from the rewrite
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:24](https://github.com/Sitecore/jss/blob/df514a555/packages/sitecore-jss/src/personalize/utils.ts#L24)
+[packages/sitecore-jss/src/personalize/utils.ts:24](https://github.com/Sitecore/jss/blob/bd0c0011b/packages/sitecore-jss/src/personalize/utils.ts#L24)
 
 ___
 
@@ -152,7 +152,7 @@ the pathname with personalize data removed
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:41](https://github.com/Sitecore/jss/blob/df514a555/packages/sitecore-jss/src/personalize/utils.ts#L41)
+[packages/sitecore-jss/src/personalize/utils.ts:41](https://github.com/Sitecore/jss/blob/bd0c0011b/packages/sitecore-jss/src/personalize/utils.ts#L41)
 
 ___
 
@@ -175,4 +175,4 @@ Apply personalization to layout data. This will recursively go through all place
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/layout-personalizer.ts:17](https://github.com/Sitecore/jss/blob/df514a555/packages/sitecore-jss/src/personalize/layout-personalizer.ts#L17)
+[packages/sitecore-jss/src/personalize/layout-personalizer.ts:17](https://github.com/Sitecore/jss/blob/bd0c0011b/packages/sitecore-jss/src/personalize/layout-personalizer.ts#L17)
