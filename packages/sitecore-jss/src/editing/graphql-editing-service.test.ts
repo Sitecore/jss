@@ -148,18 +148,15 @@ describe.only('GraphQLEditingService', () => {
     expect(result).to.deep.equal({
       layoutData: layoutDataResponse,
       dictionary: {
-        /* TODO: revert when dictionary schema updated
         foo: 'foo-phrase',
         bar: 'bar-phrase',
-      */
       },
     });
 
     spy.restore(clientFactorySpy);
   });
 
-  // TODO: re-enable when dictionary schema updated
-  xit('should fetch editing data when dicionary has multiple pages', async () => {
+  it('should fetch editing data when dicionary has multiple pages', async () => {
     nock(hostname, { reqheaders: { sc_editMode: 'true' } })
       .post(endpointPath, /EditingQuery/gi)
       .reply(200, mockEditingServiceResponse(true));
