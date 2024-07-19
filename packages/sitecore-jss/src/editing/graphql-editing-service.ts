@@ -12,15 +12,14 @@ const PAGE_SIZE = 1000;
 /**
  * GraphQL query for fetching editing data.
  */
-/*
-TODO: re-add dictionary part when dictionary schema updated
+export const query = /* GraphQL */ `
  query EditingQuery(
     $siteName: String!
     $itemId: String!
-    $version: String!
     $language: String!
+    $version: String
     $after: String
-  ) {
+) {
     item(path: $itemId, language: $language, version: $version) {
       rendered
     }
@@ -33,13 +32,6 @@ TODO: re-add dictionary part when dictionary schema updated
           }
         }
       }
-    }
-  }
-*/
-export const query = /* GraphQL */ `
-  query EditingQuery($itemId: String!, $language: String!, $version: String) {
-    item(path: $itemId, language: $language, version: $version) {
-      rendered
     }
   }
 `;
@@ -113,7 +105,6 @@ export class GraphQLEditingService {
    * @param {string} variables.itemId - The item id (path) to fetch layout data for.
    * @param {string} variables.language - The language to fetch layout data for.
    * @param {string} [variables.version] - The version of the item (optional).
-   * @param variables.version
    * @returns {Promise} The layout data and dictionary phrases.
    */
   async fetchEditingData({
@@ -131,8 +122,7 @@ export class GraphQLEditingService {
 
     const dictionary: DictionaryPhrases = {};
     let dictionaryResults: { key: string; value: string }[] = [];
-    // TODO: set to true when dictionary schema updated
-    let hasNext = false;
+    let hasNext = true;
     let after = '';
 
     const editingData = await this.graphQLClient.request<GraphQLEditingQueryResponse>(query, {
@@ -142,12 +132,9 @@ export class GraphQLEditingService {
       language,
     });
 
-    /*
-    TODO: re-enable when dictionary schema updated
     dictionaryResults = editingData.site.siteInfo.dictionary.results;
     hasNext = editingData.site.siteInfo.dictionary.pageInfo.hasNext;
     after = editingData.site.siteInfo.dictionary.pageInfo.endCursor;
-    */
 
     while (hasNext) {
       const data = await this.graphQLClient.request<GraphQLDictionaryQueryResponse>(

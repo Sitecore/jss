@@ -29,6 +29,8 @@ SearchQueryService<DictionaryQueryResult>
 ### Methods
 
 - [fetchDictionaryData](GraphQLDictionaryService.md#fetchdictionarydata)
+- [fetchWithSearchQuery](GraphQLDictionaryService.md#fetchwithsearchquery)
+- [fetchWithSiteQuery](GraphQLDictionaryService.md#fetchwithsitequery)
 - [getCacheClient](GraphQLDictionaryService.md#getcacheclient)
 - [getCacheValue](GraphQLDictionaryService.md#getcachevalue)
 - [getGraphQLClient](GraphQLDictionaryService.md#getgraphqlclient)
@@ -54,7 +56,7 @@ DictionaryServiceBase.constructor
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:51
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:73
 
 ## Properties
 
@@ -64,7 +66,7 @@ packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:51
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:45
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:67
 
 ___
 
@@ -78,7 +80,7 @@ DictionaryServiceBase.options
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:44
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:66
 
 ___
 
@@ -88,7 +90,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:46
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:68
 
 ## Methods
 
@@ -96,7 +98,40 @@ packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:46
 
 ▸ **fetchDictionaryData**(`language`): `Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
-Fetches dictionary data for internalization.
+Fetches dictionary data for internalization. Uses search query by default
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `language` | `string` | the language to fetch |
+
+#### Returns
+
+`Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
+
+dictionary phrases
+
+**`Throws`**
+
+if the app root was not found for the specified site and language.
+
+#### Overrides
+
+DictionaryServiceBase.fetchDictionaryData
+
+#### Defined in
+
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:80
+
+___
+
+### fetchWithSearchQuery
+
+▸ **fetchWithSearchQuery**(`language`): `Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
+
+Fetches dictionary data with search query
+This is the default behavior for non-XMCloud deployments
 
 #### Parameters
 
@@ -120,13 +155,40 @@ query (@see query)
 
 if the app root was not found for the specified site and language.
 
-#### Overrides
+#### Defined in
 
-DictionaryServiceBase.fetchDictionaryData
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:89
+
+___
+
+### fetchWithSiteQuery
+
+▸ **fetchWithSiteQuery**(`language`): `Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
+
+Fetches dictionary data with site query
+This is the default behavior for XMCloud deployments
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `language` | `string` | the language to fetch |
+
+#### Returns
+
+`Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
+
+dictionary phrases
+
+**`Default`**
+
+```ts
+siteQuery (@see siteQuery)
+```
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:59
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:97
 
 ___
 
@@ -203,7 +265,7 @@ implementation
 
 #### Defined in
 
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:66
+packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:104
 
 ___
 

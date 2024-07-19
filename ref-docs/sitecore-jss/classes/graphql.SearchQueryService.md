@@ -4,6 +4,9 @@
 
 [graphql](../modules/graphql.md).SearchQueryService
 
+**`Deprecated`**
+
+use GraphQLClient instead
 Provides functionality for performing GraphQL 'search' operations, including handling pagination.
 This class is meant to be extended or used as a mixin; it's not meant to be used directly.
 
@@ -51,7 +54,7 @@ Creates an instance of search query service.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:89](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss/src/graphql/search-service.ts#L89)
+[packages/sitecore-jss/src/graphql/search-service.ts:91](https://github.com/Sitecore/jss/blob/af7b7c41f/packages/sitecore-jss/src/graphql/search-service.ts#L91)
 
 ## Properties
 
@@ -63,7 +66,7 @@ that fetches data from a GraphQL endpoint.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:89](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss/src/graphql/search-service.ts#L89)
+[packages/sitecore-jss/src/graphql/search-service.ts:91](https://github.com/Sitecore/jss/blob/af7b7c41f/packages/sitecore-jss/src/graphql/search-service.ts#L91)
 
 ## Methods
 
@@ -98,4 +101,4 @@ if the provided language(s) is(are) not valid.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:102](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss/src/graphql/search-service.ts#L102)
+[packages/sitecore-jss/src/graphql/search-service.ts:104](https://github.com/Sitecore/jss/blob/af7b7c41f/packages/sitecore-jss/src/graphql/search-service.ts#L104)

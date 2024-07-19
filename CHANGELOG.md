@@ -16,6 +16,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Changed formatting in temp/config to prevent parse issues in Unix systems ([#1787](https://github.com/Sitecore/jss/pull/1787))([#1791](https://github.com/Sitecore/jss/pull/1791))
 * `[templates/nextjs-sxa]` The banner variant of image component is fixed with supporting metadata mode. ([#1826](https://github.com/Sitecore/jss/pull/1826))
 * `[sitecore-jss]` `[sitecore-jss-react]` DateField empty value is not treated as empty ([#1836](https://github.com/Sitecore/jss/pull/1836))
+* `[templates/nextjs-sxa]` Fix styles of title component in metadata mode. ([#1839](https://github.com/Sitecore/jss/pull/1839))
 
 ### 🎉 New Features & Improvements
 
@@ -25,6 +26,8 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` Removed cors header for API endpoints from _lib/next-config/plugins/cors-header_ plugin since cors is handled by API handlers / middlewares ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[sitecore-jss-nextjs]` Updates to Next.js editing integration to further support secure hosting scenarios (on XM Cloud & Vercel) ([#1832](https://github.com/Sitecore/jss/pull/1832))
 * `[templates/nextjs-xmcloud]` `[sitecore-jss]` Updates the render process in normal mode for component level personalization. ([#1844](https://github.com/Sitecore/jss/pull/1844))
+* `[sitecore-jss]` `[nextjs-xmcloud]` DictionaryService can now use a `site` GraphQL query instead of `search` one to improve performance. This is currently only available for XMCloud deployments and is enabled with `nextjs-xmcloud` add-on by default ([#1804](https://github.com/Sitecore/jss/pull/1804))
+
 
 ### 🛠 Breaking Change
 
@@ -43,7 +46,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss]` Introduced _/editing_ submodule that contains all editing related functionality. Editing utils are now available in _/editing_ submodule. Editing utils exported from _/utils_ marked as deprecated. ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[sitecore-jss-nextjs]` EditingRenderMiddleware `resolvePageUrl` function now accepts an object `(args: { serverUrl?: string; itemPath: string }) => string` instead of multiple parameters `(serverUrl: string, itemPath: string) => string`. `serverUrl` is now optional and omitted when Metadata Edit Mode is used.
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` `[sitecore-jss]` Remove Partial rendering implementation as it will not be used by Pages in its current implementation - includes removing of EditingComponentPlaceholder component, few constants associated with it and RenderingType enum ([#1821](https://github.com/Sitecore/jss/pull/1821))
-* `[sitecore-jss-angular]``[sitecore-jss-schematics]``[templates/angular]` Upgrade Angular to v17 ([#1837](https://github.com/Sitecore/jss/pull/1837))
+* `[sitecore-jss-angular]``[sitecore-jss-schematics]``[templates/angular]` Upgrade Angular to v17 ([#1837](https://github.com/Sitecore/jss/pull/1837)) ([#1841](https://github.com/Sitecore/jss/pull/1841))
   * Updated Angular and core dependencies to ~17.3.11
   * Updated Typescript to ~5.2.2
   * Updated import statements from zone.js/dist/zone-node to zone.js

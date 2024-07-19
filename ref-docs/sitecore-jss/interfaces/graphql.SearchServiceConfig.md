@@ -4,6 +4,9 @@
 
 [graphql](../modules/graphql.md).SearchServiceConfig
 
+**`Deprecated`**
+
+will be removed with SearchQueryService. Use GraphQLClient and supporting types
 Configuration options for service classes that extend
 
 **`See`**
@@ -20,8 +23,6 @@ except 'language' are consistent across languages so they are passed to construc
 - `Omit`\<[`SearchQueryVariables`](graphql.SearchQueryVariables.md), ``"language"``\>
 
   ↳ **`SearchServiceConfig`**
-
-  ↳↳ [`GraphQLDictionaryServiceConfig`](i18n.GraphQLDictionaryServiceConfig.md)
 
 ## Table of contents
 
@@ -54,7 +55,7 @@ Omit.pageSize
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:60](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss/src/graphql/search-service.ts#L60)
+[packages/sitecore-jss/src/graphql/search-service.ts:60](https://github.com/Sitecore/jss/blob/af7b7c41f/packages/sitecore-jss/src/graphql/search-service.ts#L60)
 
 ___
 
@@ -70,7 +71,7 @@ Omit.rootItemId
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss/src/graphql/search-service.ts#L48)
+[packages/sitecore-jss/src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/af7b7c41f/packages/sitecore-jss/src/graphql/search-service.ts#L48)
 
 ___
 
@@ -83,7 +84,7 @@ in cases where one is not specified by the caller.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:75](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss/src/graphql/search-service.ts#L75)
+[packages/sitecore-jss/src/graphql/search-service.ts:76](https://github.com/Sitecore/jss/blob/af7b7c41f/packages/sitecore-jss/src/graphql/search-service.ts#L76)
 
 ___
 
@@ -99,4 +100,4 @@ Omit.templates
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/fbaa3427a/packages/sitecore-jss/src/graphql/search-service.ts#L53)
+[packages/sitecore-jss/src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/af7b7c41f/packages/sitecore-jss/src/graphql/search-service.ts#L53)
