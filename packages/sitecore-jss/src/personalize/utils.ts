@@ -57,7 +57,9 @@ export function normalizePersonalizedRewrite(pathname: string): string {
   }
   let segments = pathname.split('/');
   segments = segments.filter((segment) => !segment.includes(VARIANT_PREFIX));
-  return segments.join('/');
+  const result = segments.join('/');
+  // return root path if all segments were personalize data
+  return result ? result : '/';
 }
 
 /**

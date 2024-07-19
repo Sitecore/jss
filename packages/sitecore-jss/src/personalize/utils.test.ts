@@ -59,6 +59,25 @@ describe('utils', () => {
 
       expect(getPersonalizedRewriteData(path1)).to.deep.equal(getPersonalizedRewriteData(path2));
     });
+    it('should return the personalized data with component variant ids from the rewrite path', () => {
+      const pathname = `/some/path/${VARIANT_PREFIX}123/${VARIANT_PREFIX}comp1_var2/${VARIANT_PREFIX}comp2_var1/`;
+      const expectedResult = {
+        variantId: '123',
+        componentVariantIds: ['comp1_var2', 'comp2_var1'],
+      };
+      const result = getPersonalizedRewriteData(pathname);
+      expect(result).to.deep.equal(expectedResult);
+    });
+    it('should return the personalized data with component variant ids from any position in pathname', () => {
+      const persSegmentOne = `${VARIANT_PREFIX}123`;
+      const persSegmentTwo = `${VARIANT_PREFIX}comp1_var2`;
+      const persSegmentThree = `${VARIANT_PREFIX}comp2_var1'`;
+
+      const path1 = `/${persSegmentOne}/${persSegmentTwo}/${persSegmentThree}/some/path/`;
+      const path2 = `/_site_mysite/${persSegmentOne}/${persSegmentTwo}/${persSegmentThree}/some/path/`;
+
+      expect(getPersonalizedRewriteData(path1)).to.deep.equal(getPersonalizedRewriteData(path2));
+    });
   });
 
   describe('normalizePersonalizedRewrite', () => {
@@ -87,9 +106,35 @@ describe('utils', () => {
     });
     it('should normalize path with other prefixes present', () => {
       const pathname = `/_site_mysite/${VARIANT_PREFIX}foo`;
-      const pathNameInversed = `/${VARIANT_PREFIX}foo/_site_mysite/`;
+      const pathNameInversed = `/${VARIANT_PREFIX}foo/_site_mysite`;
       const result = normalizePersonalizedRewrite(pathname);
-      expect(result).to.equal('/_site_mysite/');
+      expect(result).to.equal('/_site_mysite');
+      expect(normalizePersonalizedRewrite(pathNameInversed)).to.equal(result);
+    });
+
+    it('should return pathname without variant id and component variant ids', () => {
+      const pathname = `/${VARIANT_PREFIX}foo/${VARIANT_PREFIX}comp1_var1/${VARIANT_PREFIX}comp2_var3/some/path`;
+      const result = normalizePersonalizedRewrite(pathname);
+      expect(result).to.equal('/some/path');
+    });
+
+    it('should return the root pathname without the variant id and component ids', () => {
+      const pathname = `/${VARIANT_PREFIX}foo/${VARIANT_PREFIX}comp1_var1/${VARIANT_PREFIX}comp2_var3/`;
+      const result = normalizePersonalizedRewrite(pathname);
+      expect(result).to.equal('/');
+    });
+
+    it('should return the root pathname without the variant id and component ids when pathname not ends with "/"', () => {
+      const pathname = `/${VARIANT_PREFIX}foo/${VARIANT_PREFIX}comp1_var1/${VARIANT_PREFIX}comp2_var3`;
+      const result = normalizePersonalizedRewrite(pathname);
+      expect(result).to.equal('/');
+    });
+
+    it('should normalize path with multiple component variant ids with other prefixes present', () => {
+      const pathname = `/_site_mysite/${VARIANT_PREFIX}foo/${VARIANT_PREFIX}comp1_var1/${VARIANT_PREFIX}comp2_var3`;
+      const pathNameInversed = `/${VARIANT_PREFIX}foo/${VARIANT_PREFIX}comp1_var1/${VARIANT_PREFIX}comp2_var3/_site_mysite`;
+      const result = normalizePersonalizedRewrite(pathname);
+      expect(result).to.equal('/_site_mysite');
       expect(normalizePersonalizedRewrite(pathNameInversed)).to.equal(result);
     });
   });
