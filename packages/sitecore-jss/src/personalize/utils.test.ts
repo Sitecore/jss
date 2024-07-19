@@ -6,6 +6,8 @@ import {
   CdpHelper,
   VARIANT_PREFIX,
   DEFAULT_VARIANT,
+  PersonalizedRewriteData,
+  getGroomedVariantIds,
 } from './utils';
 
 describe('utils', () => {
@@ -77,6 +79,35 @@ describe('utils', () => {
       const path2 = `/_site_mysite/${persSegmentOne}/${persSegmentTwo}/${persSegmentThree}/some/path/`;
 
       expect(getPersonalizedRewriteData(path1)).to.deep.equal(getPersonalizedRewriteData(path2));
+    });
+  });
+
+  describe('getGroomedVariantIds', () => {
+    it('should return object with DEFAULT_VARIANT only for empty collection', () => {
+      const input: string[] = [];
+      const expectedOutput: PersonalizedRewriteData = {
+        variantId: DEFAULT_VARIANT,
+        componentVariantIds: [],
+      };
+      expect(getGroomedVariantIds(input)).to.deep.equal(expectedOutput);
+    });
+
+    it('should return object with page-level variandId when matching ID found', () => {
+      const input = ['standard-page-level-varid'];
+      const expectedOutput: PersonalizedRewriteData = {
+        variantId: 'standard-page-level-varid',
+        componentVariantIds: [],
+      };
+      expect(getGroomedVariantIds(input)).to.deep.equal(expectedOutput);
+    });
+
+    it('should return object with component variant ids, when matching IDs found', () => {
+      const input = ['component-id_variantid-1', 'other-component-id_variantid-2'];
+      const expectedOutput: PersonalizedRewriteData = {
+        variantId: DEFAULT_VARIANT,
+        componentVariantIds: input,
+      };
+      expect(getGroomedVariantIds(input)).to.deep.equal(expectedOutput);
     });
   });
 
