@@ -3,6 +3,7 @@ export const VARIANT_PREFIX = '_variantId_';
 
 export type PersonalizedRewriteData = {
   variantId: string;
+  componentVariantIds?: string[];
 };
 
 /**
@@ -24,11 +25,21 @@ export function getPersonalizedRewrite(pathname: string, data: PersonalizedRewri
 export function getPersonalizedRewriteData(pathname: string): PersonalizedRewriteData {
   const data: PersonalizedRewriteData = {
     variantId: DEFAULT_VARIANT,
+    componentVariantIds: [],
   };
   const path = pathname.endsWith('/') ? pathname : pathname + '/';
   const result = path.match(`${VARIANT_PREFIX}(.*?)\\/`);
   if (result) {
-    data.variantId = result[1];
+    const variantId = result[1];
+    if (variantId.includes('_')) {
+      // Component-level personalization in format "<ComponentID>_<VariantID>"
+      // There can be multiple
+      data.componentVariantIds?.push(variantId);
+    } else {
+      // Embedded (page-level) personalization in format "<VariantID>"
+      // There should be only one
+      data.variantId = variantId;
+    }
   }
   return data;
 }
@@ -42,8 +53,9 @@ export function normalizePersonalizedRewrite(pathname: string): string {
   if (!pathname.includes(VARIANT_PREFIX)) {
     return pathname;
   }
-  const result = pathname.match(`${VARIANT_PREFIX}.*?(?:\\/|$)`);
-  return result === null ? pathname : pathname.replace(result[0], '');
+  let segments = pathname.split('/');
+  segments = segments.filter((segment) => !segment.includes(VARIANT_PREFIX));
+  return segments.join('/');
 }
 
 /**
