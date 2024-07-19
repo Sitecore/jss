@@ -30,9 +30,8 @@ export function personalizeLayout(
     Object.keys(placeholders).forEach((placeholder) => {
       placeholders[placeholder] = personalizePlaceholder(placeholders[placeholder], [
         variantId,
-        componentVariantIds || []
-      ]
-      );
+        ...(componentVariantIds || []),
+      ]);
     });
   }
 }
