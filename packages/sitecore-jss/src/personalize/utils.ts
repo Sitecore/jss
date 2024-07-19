@@ -27,20 +27,22 @@ export function getPersonalizedRewriteData(pathname: string): PersonalizedRewrit
     variantId: DEFAULT_VARIANT,
     componentVariantIds: [],
   };
-  const path = pathname.endsWith('/') ? pathname : pathname + '/';
-  const result = path.match(`${VARIANT_PREFIX}(.*?)\\/`);
-  if (result) {
-    const variantId = result[1];
-    if (variantId.includes('_')) {
-      // Component-level personalization in format "<ComponentID>_<VariantID>"
-      // There can be multiple
-      data.componentVariantIds?.push(variantId);
-    } else {
-      // Embedded (page-level) personalization in format "<VariantID>"
-      // There should be only one
-      data.variantId = variantId;
+  const segments = pathname.split('/');
+  segments.forEach((segment) => {
+    const result = segment.match(`${VARIANT_PREFIX}(.*$)`);
+    if (result) {
+      const variantId = result[1];
+      if (variantId.includes('_')) {
+        // Component-level personalization in format "<ComponentID>_<VariantID>"
+        // There can be multiple
+        data.componentVariantIds?.push(variantId);
+      } else {
+        // Embedded (page-level) personalization in format "<VariantID>"
+        // There should be only one
+        data.variantId = variantId;
+      }
     }
-  }
+  });
   return data;
 }
 
