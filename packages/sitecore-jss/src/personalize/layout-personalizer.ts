@@ -84,7 +84,7 @@ export function personalizeComponent(
     // DEFAULT IS HIDDEN
     return null;
   } else if (variant && variant.componentName === null && variant.dataSource === null) {
-    // HIDDEN
+    // VARIANT IS HIDDEN
     return null;
   } else if (variant) {
     component = variant;
