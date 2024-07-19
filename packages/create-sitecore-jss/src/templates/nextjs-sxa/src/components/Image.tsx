@@ -2,7 +2,7 @@ import {
   EditMode,
   Field,
   ImageField,
-  Image as JssImage,
+  NextImage as JssImage,
   Link as JssLink,
   LinkField,
   Text,
