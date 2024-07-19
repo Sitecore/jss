@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Image as JssImage,
+  NextImage as JssImage,
   Link as JssLink,
   RichText as JssRichText,
   ImageField,
