@@ -350,8 +350,8 @@ export class MetadataHandler {
         site: query.sc_site,
         itemId: query.sc_itemid,
         language: query.sc_lang,
-        // for sc_variant we may employ multiple variants for personalization
-        variantIds: query.sc_variant?.split(',') || DEFAULT_VARIANT,
+        // for sc_variantId we may employ multiple variants (page-layout + component level)
+        variantIds: query.sc_variant?.split(',') || [DEFAULT_VARIANT],
         version: query.sc_version,
         editMode: EditMode.Metadata,
         pageState: query.mode,
