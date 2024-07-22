@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:11](https://github.com/Sitecore/jss/blob/5813a2df8/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L11)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:11](https://github.com/Sitecore/jss/blob/53744f2da/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L11)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:12](https://github.com/Sitecore/jss/blob/5813a2df8/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L12)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:12](https://github.com/Sitecore/jss/blob/53744f2da/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L12)

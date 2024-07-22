@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:85](https://github.com/Sitecore/jss/blob/5813a2df8/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L85)
+[sitecore-jss-nextjs/src/components/RichText.tsx:85](https://github.com/Sitecore/jss/blob/53744f2da/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L85)
 
 ___
 
@@ -39,4 +39,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:80](https://github.com/Sitecore/jss/blob/5813a2df8/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L80)
+[sitecore-jss-nextjs/src/components/RichText.tsx:80](https://github.com/Sitecore/jss/blob/53744f2da/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L80)
