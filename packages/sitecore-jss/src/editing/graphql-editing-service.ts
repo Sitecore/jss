@@ -2,7 +2,7 @@ import debug from '../debug';
 import { PageInfo } from '../graphql';
 import { GraphQLClient, GraphQLRequestClientFactory } from '../graphql-request-client';
 import { DictionaryPhrases } from '../i18n';
-import { LayoutServiceData } from '../layout';
+import { EditMode, LayoutServiceData } from '../layout';
 
 /**
  * The dictionary query default page size.
@@ -179,7 +179,15 @@ export class GraphQLEditingService {
 
     dictionaryResults.forEach((item) => (dictionary[item.key] = item.value));
 
-    return { layoutData: editingData.item.rendered, dictionary };
+    return {
+      layoutData: editingData?.item?.rendered || {
+        sitecore: {
+          context: { pageEditing: true, language, editMode: EditMode.Metadata },
+          route: null,
+        },
+      },
+      dictionary,
+    };
   }
 
   /**
