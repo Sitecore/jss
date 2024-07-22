@@ -39,7 +39,7 @@ Fetch layout data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:97](https://github.com/Sitecore/jss/blob/afb8d777d/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L97)
+[packages/sitecore-jss/src/editing/graphql-editing-service.ts:99](https://github.com/Sitecore/jss/blob/9c6161d01/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L99)
 
 ## Properties
 
@@ -49,7 +49,7 @@ Fetch layout data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:91](https://github.com/Sitecore/jss/blob/afb8d777d/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L91)
+[packages/sitecore-jss/src/editing/graphql-editing-service.ts:93](https://github.com/Sitecore/jss/blob/9c6161d01/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L93)
 
 ___
 
@@ -61,7 +61,7 @@ configuration
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:97](https://github.com/Sitecore/jss/blob/afb8d777d/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L97)
+[packages/sitecore-jss/src/editing/graphql-editing-service.ts:99](https://github.com/Sitecore/jss/blob/9c6161d01/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L99)
 
 ## Methods
 
@@ -89,7 +89,7 @@ The layout data and dictionary phrases.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:110](https://github.com/Sitecore/jss/blob/afb8d777d/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L110)
+[packages/sitecore-jss/src/editing/graphql-editing-service.ts:112](https://github.com/Sitecore/jss/blob/9c6161d01/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L112)
 
 ___
 
@@ -107,4 +107,4 @@ implementation
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:162](https://github.com/Sitecore/jss/blob/afb8d777d/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L162)
+[packages/sitecore-jss/src/editing/graphql-editing-service.ts:164](https://github.com/Sitecore/jss/blob/9c6161d01/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L164)
