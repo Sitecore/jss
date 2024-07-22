@@ -177,3 +177,18 @@
         }
         ...
     ```
+
+* To enable AB testing and component level personalization support in JSS, ensure componentVariantIds are passed to personalizeLayout:
+
+  ```ts
+  // Get variant(s) for personalization (from path)
+  const personalizeData = getPersonalizedRewriteData(path);
+
+  // Modify layoutData to use specific variant(s) instead of default
+  // This will also set the variantId on the Sitecore context so that it is accessible here
+  personalizeLayout(
+    props.layoutData,
+    personalizeData.variantId,
+    personalizeData.componentVariantIds
+  );
+  ```
