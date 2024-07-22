@@ -39,7 +39,7 @@ Fetch layout data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:91](https://github.com/Sitecore/jss/blob/fe42148e2/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L91)
+[packages/sitecore-jss/src/editing/graphql-editing-service.ts:107](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L107)
 
 ## Properties
 
@@ -49,7 +49,7 @@ Fetch layout data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:85](https://github.com/Sitecore/jss/blob/fe42148e2/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L85)
+[packages/sitecore-jss/src/editing/graphql-editing-service.ts:101](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L101)
 
 ___
 
@@ -61,13 +61,13 @@ configuration
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:91](https://github.com/Sitecore/jss/blob/fe42148e2/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L91)
+[packages/sitecore-jss/src/editing/graphql-editing-service.ts:107](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L107)
 
 ## Methods
 
 ### fetchEditingData
 
-▸ **fetchEditingData**(`variables`): `Promise`\<\{ `dictionary`: [`DictionaryPhrases`](../interfaces/i18n.DictionaryPhrases.md) ; `layoutData`: [`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md) = editingData.item.rendered }\>
+▸ **fetchEditingData**(`variables`): `Promise`\<\{ `dictionary`: [`DictionaryPhrases`](../interfaces/i18n.DictionaryPhrases.md) ; `layoutData`: [`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md)  }\>
 
 Fetches editing data. Provides the layout data and dictionary phrases
 
@@ -83,13 +83,13 @@ Fetches editing data. Provides the layout data and dictionary phrases
 
 #### Returns
 
-`Promise`\<\{ `dictionary`: [`DictionaryPhrases`](../interfaces/i18n.DictionaryPhrases.md) ; `layoutData`: [`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md) = editingData.item.rendered }\>
+`Promise`\<\{ `dictionary`: [`DictionaryPhrases`](../interfaces/i18n.DictionaryPhrases.md) ; `layoutData`: [`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md)  }\>
 
 The layout data and dictionary phrases.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:104](https://github.com/Sitecore/jss/blob/fe42148e2/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L104)
+[packages/sitecore-jss/src/editing/graphql-editing-service.ts:120](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L120)
 
 ___
 
@@ -107,4 +107,4 @@ implementation
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:156](https://github.com/Sitecore/jss/blob/fe42148e2/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L156)
+[packages/sitecore-jss/src/editing/graphql-editing-service.ts:197](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L197)

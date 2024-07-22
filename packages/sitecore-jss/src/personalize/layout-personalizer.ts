@@ -19,8 +19,8 @@ export function personalizeLayout(
   layout: LayoutServiceData,
   variantId: string,
   componentVariantIds?: string[]
-): void {
-  // Add variantId to Sitecore context so that it is accessible here
+): PlaceholdersData<string> | undefined {
+  // Add (page-level) variantId to Sitecore context so that it is accessible here
   layout.sitecore.context.variantId = variantId;
   const placeholders = layout.sitecore.route?.placeholders;
   if (Object.keys(placeholders ?? {}).length === 0) {
@@ -34,12 +34,12 @@ export function personalizeLayout(
       ]);
     });
   }
+  return placeholders;
 }
 
 /**
-
  * @param {Array} components components within placeholder
- * @param {string} variantIds variant id
+ * @param {string[]} variantIds variant ids
  * @returns {Array<ComponentRendering | HtmlElementRendering>} components with personalization applied
  */
 export function personalizePlaceholder(
@@ -76,7 +76,7 @@ export function personalizeComponent(
   component: ComponentRenderingWithExperiences,
   variantIds: string[]
 ): ComponentRendering | null {
-  // Match a potential experience on component to incoming variant IDs
+  // Check if we have an page/component experience matching any of the variants (there should be at most 1)
   const match = Object.keys(component.experiences).find((variantId) =>
     variantIds.includes(variantId)
   );
@@ -85,7 +85,7 @@ export function personalizeComponent(
     // DEFAULT IS HIDDEN
     return null;
   } else if (variant && variant.componentName === null && variant.dataSource === null) {
-    // HIDDEN
+    // VARIANT IS HIDDEN
     return null;
   } else if (variant) {
     component = variant;

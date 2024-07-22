@@ -2,7 +2,7 @@ import debug from '../debug';
 import { PageInfo } from '../graphql';
 import { GraphQLClient, GraphQLRequestClientFactory } from '../graphql-request-client';
 import { DictionaryPhrases } from '../i18n';
-import { LayoutServiceData } from '../layout';
+import { EditMode, LayoutServiceData } from '../layout';
 
 /**
  * The dictionary query default page size.
@@ -13,16 +13,27 @@ const PAGE_SIZE = 1000;
  * GraphQL query for fetching editing data.
  */
 export const query = /* GraphQL */ `
-  query EditingQuery($itemId: String!, $language: String!, $version: String) {
+ query EditingQuery(
+    $siteName: String!
+    $itemId: String!
+    $language: String!
+    $version: String
+    $after: String
+    $pageSize: Int = ${PAGE_SIZE}
+) {
     item(path: $itemId, language: $language, version: $version) {
       rendered
     }
     site {
       siteInfo(site: $siteName) {
-        dictionary(language: $language, first: ${PAGE_SIZE}, after: $after) {
+        dictionary(language: $language, first: $pageSize, after: $after) {
           results {
             key
             value
+          }
+          pageInfo {
+            endCursor
+            hasNext
           }
         }
       }
@@ -39,13 +50,18 @@ export const dictionaryQuery = /* GraphQL */ `
     $siteName: String!
     $language: String!
     $after: String
+    $pageSize: Int = ${PAGE_SIZE}
   ) {
     site {
       siteInfo(site: $siteName) {
-        dictionary(language: $language, first: ${PAGE_SIZE}, after: $after) {
+        dictionary(language: $language, first: $pageSize, after: $after) {
           results {
             key
             value
+          }
+          pageInfo {
+            endCursor
+            hasNext
           }
         }
       }
@@ -114,6 +130,14 @@ export class GraphQLEditingService {
   }) {
     debug.editing('fetching editing data for %s %s %s %s', siteName, itemId, language, version);
 
+    if (!siteName) {
+      throw new RangeError('The site name must be a non-empty string');
+    }
+
+    if (!language) {
+      throw new RangeError('The language must be a non-empty string');
+    }
+
     const dictionary: DictionaryPhrases = {};
     let dictionaryResults: { key: string; value: string }[] = [];
     let hasNext = true;
@@ -126,9 +150,13 @@ export class GraphQLEditingService {
       language,
     });
 
-    dictionaryResults = editingData.site.siteInfo.dictionary.results;
-    hasNext = editingData.site.siteInfo.dictionary.pageInfo.hasNext;
-    after = editingData.site.siteInfo.dictionary.pageInfo.endCursor;
+    if (editingData?.site?.siteInfo?.dictionary) {
+      dictionaryResults = editingData.site.siteInfo.dictionary.results;
+      hasNext = editingData.site.siteInfo.dictionary.pageInfo.hasNext;
+      after = editingData.site.siteInfo.dictionary.pageInfo.endCursor;
+    } else {
+      hasNext = false;
+    }
 
     while (hasNext) {
       const data = await this.graphQLClient.request<GraphQLDictionaryQueryResponse>(
@@ -139,14 +167,27 @@ export class GraphQLEditingService {
           after,
         }
       );
-      dictionaryResults = dictionaryResults.concat(data.site.siteInfo.dictionary.results);
-      hasNext = data.site.siteInfo.dictionary.pageInfo.hasNext;
-      after = data.site.siteInfo.dictionary.pageInfo.endCursor;
+
+      if (data?.site?.siteInfo?.dictionary) {
+        dictionaryResults = dictionaryResults.concat(data.site.siteInfo.dictionary.results);
+        hasNext = data.site.siteInfo.dictionary.pageInfo.hasNext;
+        after = data.site.siteInfo.dictionary.pageInfo.endCursor;
+      } else {
+        hasNext = false;
+      }
     }
 
     dictionaryResults.forEach((item) => (dictionary[item.key] = item.value));
 
-    return { layoutData: editingData.item.rendered, dictionary };
+    return {
+      layoutData: editingData?.item?.rendered || {
+        sitecore: {
+          context: { pageEditing: true, language, editMode: EditMode.Metadata },
+          route: null,
+        },
+      },
+      dictionary,
+    };
   }
 
   /**

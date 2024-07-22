@@ -23,14 +23,41 @@ export function getPersonalizedRewrite(pathname: string, data: PersonalizedRewri
  * @returns {PersonalizedRewriteData} the personalize data from the rewrite
  */
 export function getPersonalizedRewriteData(pathname: string): PersonalizedRewriteData {
+  const segments = pathname.split('/');
+  const variantIds: string[] = [];
+  segments.forEach((segment) => {
+    const result = segment.match(`${VARIANT_PREFIX}(.*$)`);
+    if (result) {
+      variantIds.push(result[1]);
+    }
+  });
+
+  return getGroomedVariantIds(variantIds);
+}
+
+/**
+ * Parses a list of variantIds and divides into layout and component variants
+ * @param {string[]} variantIds the list of variant IDs for a page
+ * @returns {PersonalizedRewriteData} object with variant IDs sorted
+ */
+export function getGroomedVariantIds(variantIds: string[]) {
   const data: PersonalizedRewriteData = {
     variantId: DEFAULT_VARIANT,
+    componentVariantIds: [],
   };
-  const path = pathname.endsWith('/') ? pathname : pathname + '/';
-  const result = path.match(`${VARIANT_PREFIX}(.*?)\\/`);
-  if (result) {
-    data.variantId = result[1];
-  }
+
+  variantIds.forEach((variantId) => {
+    if (variantId.includes('_')) {
+      // Component-level personalization in format "<ComponentID>_<VariantID>"
+      // There can be multiple
+      data.componentVariantIds?.push(variantId);
+    } else {
+      // Embedded (page-level) personalization in format "<VariantID>"
+      // There should be only one
+      data.variantId = variantId;
+    }
+  });
+
   return data;
 }
 
@@ -67,8 +94,11 @@ export function normalizePersonalizedRewrite(pathname: string): string {
   if (!pathname.includes(VARIANT_PREFIX)) {
     return pathname;
   }
-  const result = pathname.match(`${VARIANT_PREFIX}.*?(?:\\/|$)`);
-  return result === null ? pathname : pathname.replace(result[0], '');
+  let segments = pathname.split('/');
+  segments = segments.filter((segment) => !segment.includes(VARIANT_PREFIX));
+  const result = segments.join('/');
+  // return root path if all segments were personalize data
+  return result ? result : '/';
 }
 
 /**

@@ -109,6 +109,65 @@ describe('GraphQLEditingService', () => {
     spy.restore(clientFactorySpy);
   });
 
+  it('should return empty dictionary and layout', async () => {
+    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+      .post(endpointPath, /EditingQuery/gi)
+      .reply(200, {
+        data: {
+          item: null,
+          site: {
+            siteInfo: {
+              dictionary: null,
+            },
+          },
+        },
+      });
+
+    const clientFactorySpy = sinon.spy(clientFactory);
+
+    const service = new GraphQLEditingService({
+      clientFactory: clientFactorySpy,
+    });
+
+    spy.on(clientFactorySpy.returnValues[0], 'request');
+
+    const result = await service.fetchEditingData({
+      language,
+      version,
+      itemId,
+      siteName,
+    });
+
+    expect(clientFactorySpy.calledOnce).to.be.true;
+    expect(
+      clientFactorySpy.calledWith({
+        debugger: debug.editing,
+        headers: {
+          sc_editMode: 'true',
+        },
+      })
+    ).to.be.true;
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(query, {
+      language,
+      version,
+      itemId,
+      siteName,
+    });
+
+    expect(result).to.deep.equal({
+      layoutData: {
+        sitecore: {
+          context: { pageEditing: true, language, editMode: EditMode.Metadata },
+          route: null,
+        },
+      },
+      dictionary: {},
+    });
+
+    spy.restore(clientFactorySpy);
+  });
+
   it('should fetch editing data with missing optional params', async () => {
     nock(hostname, { reqheaders: { sc_editMode: 'true' } })
       .post(endpointPath, /EditingQuery/gi)
@@ -233,6 +292,55 @@ describe('GraphQLEditingService', () => {
     spy.restore(clientFactorySpy);
   });
 
+  it('should return empty dictionary when dictionary is not provided', async () => {
+    const editingData = mockEditingServiceResponse();
+
+    (editingData.data.site.siteInfo as any) = null;
+
+    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+      .post(endpointPath, /EditingQuery/gi)
+      .reply(200, editingData);
+
+    const clientFactorySpy = sinon.spy(clientFactory);
+
+    const service = new GraphQLEditingService({
+      clientFactory: clientFactorySpy,
+    });
+
+    spy.on(clientFactorySpy.returnValues[0], 'request');
+
+    const result = await service.fetchEditingData({
+      language,
+      version,
+      itemId,
+      siteName,
+    });
+
+    expect(clientFactorySpy.calledOnce).to.be.true;
+    expect(
+      clientFactorySpy.calledWith({
+        debugger: debug.editing,
+        headers: {
+          sc_editMode: 'true',
+        },
+      })
+    ).to.be.true;
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(query, {
+      language,
+      version,
+      itemId,
+      siteName,
+    });
+
+    expect(result).to.deep.equal({
+      layoutData: layoutDataResponse,
+      dictionary: {},
+    });
+
+    spy.restore(clientFactorySpy);
+  });
+
   it('should throw an error when client factory is not provided', async () => {
     try {
       const service = new GraphQLEditingService({} as GraphQLEditingServiceConfig);
@@ -268,6 +376,40 @@ describe('GraphQLEditingService', () => {
       });
     } catch (error) {
       expect(error.response.error).to.equal('Internal server error');
+    }
+  });
+
+  it('should throw an error when siteName is not provided', async () => {
+    const service = new GraphQLEditingService({
+      clientFactory,
+    });
+
+    try {
+      await service.fetchEditingData({
+        language,
+        version,
+        itemId,
+        siteName: '',
+      });
+    } catch (error) {
+      expect(error.message).to.equal('The site name must be a non-empty string');
+    }
+  });
+
+  it('should throw an error when language is not provided', async () => {
+    const service = new GraphQLEditingService({
+      clientFactory,
+    });
+
+    try {
+      await service.fetchEditingData({
+        language: '',
+        version,
+        itemId,
+        siteName,
+      });
+    } catch (error) {
+      expect(error.message).to.equal('The language must be a non-empty string');
     }
   });
 });
