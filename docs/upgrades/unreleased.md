@@ -212,4 +212,17 @@
         personalizeData.componentVariantIds
     );
     ```
+  
+* Update _lib/middleware/plugins/personalize.ts_ `PersonalizeMiddleware` constructor signature, moving `scope` from `cdpConfig` to the root. For now this option will continue working but is marked as deprecated. It will be removed in the next major version release.
+
+    ```ts
+    this.personalizeMiddleware = new PersonalizeMiddleware({
+        ...
+        cdpConfig: {
+            ...
+            scope: process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE, // REMOVE
+        },
+        scope: process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE, // ADD
+    });
+    ```
 
