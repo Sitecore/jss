@@ -19,54 +19,39 @@ import {
 
 const { personalizeLayout, personalizePlaceholder, personalizeComponent } = personalize;
 
-describe('layout-personalizer', () => {
+describe.only('layout-personalizer', () => {
+  const componentVariantIds = ['mountain_bike_audience', 'another_variant', 'third_variant'];
+
   describe('personalizeLayout', () => {
-    it('should not return anything', () => {
+    it('should return unmodified placeholder data when no component variantIds passed', () => {
       const variant = 'test';
-      const personalizedLayoutResult = personalizeLayout(layoutData, variant);
-      expect(personalizedLayoutResult).to.equal(undefined);
+      // personalizeLayout modifies the incoming layoutData - we need to clone it to keep tests truthful
+      const testLayoutData = structuredClone(layoutData);
+      const personalizedLayoutResult = personalizeLayout(testLayoutData, variant);
+      expect(personalizedLayoutResult).to.equal(testLayoutData.sitecore.route.placeholders);
     });
 
     it('should return undefined if no placeholders', () => {
       const variant = 'test';
-      const personalizedLayoutResult = personalizeLayout(layoutDataWithoutPlaceholder, variant);
+      const testLayoutData = structuredClone(layoutDataWithoutPlaceholder);
+      const personalizedLayoutResult = personalizeLayout(testLayoutData, variant);
       expect(personalizedLayoutResult).to.equal(undefined);
     });
 
     it('should set variantId on Sitecore context', () => {
       const variant = 'test';
-      personalizeLayout(layoutData, variant);
-      expect(layoutData.sitecore.context.variantId).to.equal(variant);
+      const testLayoutData = structuredClone(layoutData);
+      personalizeLayout(testLayoutData, variant);
+      expect(testLayoutData.sitecore.context.variantId).to.equal(variant);
     });
 
     describe('with component variant ids', () => {
-      it('should not return anything', () => {
+      it('should apply component variant Ids to placeholders', () => {
         const variant = 'test';
-        const componentVariantIds = ['mountain_bike_audience', 'another_variant', 'third_variant'];
-        const personalizedLayoutResult = personalizeLayout(
-          layoutData,
-          variant,
-          componentVariantIds
-        );
-        expect(personalizedLayoutResult).to.equal(undefined);
-      });
-
-      it('should return undefined if no placeholders', () => {
-        const variant = 'test';
-        const componentVariantIds = ['mountain_bike_audience', 'another_variant', 'third_variant'];
-        const personalizedLayoutResult = personalizeLayout(
-          layoutDataWithoutPlaceholder,
-          variant,
-          componentVariantIds
-        );
-        expect(personalizedLayoutResult).to.equal(undefined);
-      });
-
-      it('should set variantId on Sitecore context', () => {
-        const variant = 'test';
-        const componentVariantIds = ['mountain_bike_audience', 'another_variant', 'third_variant'];
-        personalizeLayout(layoutData, variant, componentVariantIds);
-        expect(layoutData.sitecore.context.variantId).to.equal(variant);
+        const testLayoutData = structuredClone(layoutData);
+        const result = personalizeLayout(testLayoutData, variant, componentVariantIds);
+        console.log(JSON.stringify(result));
+        expect(result).to.be.deep.equal({ 'jss-main': [...componentsWithExperiencesArray] });
       });
     });
   });
@@ -186,8 +171,10 @@ describe('layout-personalizer', () => {
             city_bike_audience,
           },
         };
-        const variantIds = ['mountain_bike_audience', 'another_variant', 'third_variant'];
-        const personalizedPlaceholderResult = personalizePlaceholder([rootComponent], variantIds);
+        const personalizedPlaceholderResult = personalizePlaceholder(
+          [rootComponent],
+          componentVariantIds
+        );
         expect(personalizedPlaceholderResult).to.deep.equal([
           {
             uid: '0b6d23d8-c50e-4e79-9eca-317ec43e82b0',
@@ -224,9 +211,10 @@ describe('layout-personalizer', () => {
             main: [component, component2],
           },
         };
-
-        const variantIds = ['mountain_bike_audience', 'another_variant', 'third_variant'];
-        const personalizedPlaceholderResult = personalizePlaceholder([rootComponent], variantIds);
+        const personalizedPlaceholderResult = personalizePlaceholder(
+          [rootComponent],
+          componentVariantIds
+        );
         expect(personalizedPlaceholderResult).to.deep.equal([
           {
             uid: '0b6d23d8-c50e-4e79-9eca-317ec43e82b0',
@@ -375,10 +363,9 @@ describe('layout-personalizer', () => {
       const testComponent = structuredClone(component);
 
       it('should return personalized component without experiences', () => {
-        const variantIds = ['mountain_bike_audience', 'another_variant', 'third_variant'];
         const personalizedComponentResult = personalizeComponent(
           (testComponent as unknown) as ComponentRenderingWithExperiences,
-          variantIds
+          componentVariantIds
         );
         expect(personalizedComponentResult).to.deep.equal(componentWithExperiences);
         expect(

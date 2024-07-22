@@ -19,7 +19,7 @@ export function personalizeLayout(
   layout: LayoutServiceData,
   variantId: string,
   componentVariantIds?: string[]
-): void {
+): PlaceholdersData<string> | undefined {
   // Add (page-level) variantId to Sitecore context so that it is accessible here
   layout.sitecore.context.variantId = variantId;
   const placeholders = layout.sitecore.route?.placeholders;
@@ -34,6 +34,7 @@ export function personalizeLayout(
       ]);
     });
   }
+  return placeholders;
 }
 
 /**

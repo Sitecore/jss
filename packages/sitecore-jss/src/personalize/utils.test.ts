@@ -59,7 +59,10 @@ describe('utils', () => {
       const path1 = `/${VARIANT_PREFIX}${testId}/some/path/`;
       const path2 = `/_site_mysite/${VARIANT_PREFIX}${testId}/some/path/`;
 
-      expect(getPersonalizedRewriteData(path1)).to.deep.equal(getPersonalizedRewriteData(path2));
+      const actual = getPersonalizedRewriteData(path1);
+      const expected = getPersonalizedRewriteData(path2);
+
+      expect(actual).to.deep.equal(expected);
     });
     it('should return the personalized data with component variant ids from the rewrite path', () => {
       const pathname = `/some/path/${VARIANT_PREFIX}123/${VARIANT_PREFIX}comp1_var2/${VARIANT_PREFIX}comp2_var1/`;
