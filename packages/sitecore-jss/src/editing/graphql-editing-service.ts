@@ -134,9 +134,13 @@ export class GraphQLEditingService {
       language,
     });
 
-    dictionaryResults = editingData.site.siteInfo.dictionary.results;
-    hasNext = editingData.site.siteInfo.dictionary.pageInfo.hasNext;
-    after = editingData.site.siteInfo.dictionary.pageInfo.endCursor;
+    if (editingData?.site?.siteInfo?.dictionary) {
+      dictionaryResults = editingData.site.siteInfo.dictionary.results;
+      hasNext = editingData.site.siteInfo.dictionary.pageInfo.hasNext;
+      after = editingData.site.siteInfo.dictionary.pageInfo.endCursor;
+    } else {
+      hasNext = false;
+    }
 
     while (hasNext) {
       const data = await this.graphQLClient.request<GraphQLDictionaryQueryResponse>(
@@ -147,9 +151,14 @@ export class GraphQLEditingService {
           after,
         }
       );
-      dictionaryResults = dictionaryResults.concat(data.site.siteInfo.dictionary.results);
-      hasNext = data.site.siteInfo.dictionary.pageInfo.hasNext;
-      after = data.site.siteInfo.dictionary.pageInfo.endCursor;
+
+      if (data?.site?.siteInfo?.dictionary) {
+        dictionaryResults = dictionaryResults.concat(data.site.siteInfo.dictionary.results);
+        hasNext = data.site.siteInfo.dictionary.pageInfo.hasNext;
+        after = data.site.siteInfo.dictionary.pageInfo.endCursor;
+      } else {
+        hasNext = false;
+      }
     }
 
     dictionaryResults.forEach((item) => (dictionary[item.key] = item.value));

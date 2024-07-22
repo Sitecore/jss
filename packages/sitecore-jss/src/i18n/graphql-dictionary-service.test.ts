@@ -353,5 +353,27 @@ describe('GraphQLDictionaryService', () => {
         expect(error.response.error).to.equal('whoops');
       });
     });
+
+    it('should return empty result when no dictionary entries found', async () => {
+      nock(endpoint)
+        .post('/')
+        .reply(200, {
+          data: {
+            site: {
+              siteInfo: null,
+            },
+          },
+        });
+
+      const service = new GraphQLDictionaryService({
+        clientFactory,
+        siteName,
+        cacheEnabled: false,
+        useSiteQuery: true,
+      });
+
+      const result = await service.fetchDictionaryData('en');
+      expect(result).to.deep.equal({});
+    });
   });
 });

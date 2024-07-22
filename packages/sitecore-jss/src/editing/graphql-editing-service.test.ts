@@ -233,6 +233,55 @@ describe('GraphQLEditingService', () => {
     spy.restore(clientFactorySpy);
   });
 
+  it('should return empty dictionary when dictionary is not provided', async () => {
+    const editingData = mockEditingServiceResponse();
+
+    (editingData.data.site.siteInfo as any) = null;
+
+    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+      .post(endpointPath, /EditingQuery/gi)
+      .reply(200, editingData);
+
+    const clientFactorySpy = sinon.spy(clientFactory);
+
+    const service = new GraphQLEditingService({
+      clientFactory: clientFactorySpy,
+    });
+
+    spy.on(clientFactorySpy.returnValues[0], 'request');
+
+    const result = await service.fetchEditingData({
+      language,
+      version,
+      itemId,
+      siteName,
+    });
+
+    expect(clientFactorySpy.calledOnce).to.be.true;
+    expect(
+      clientFactorySpy.calledWith({
+        debugger: debug.editing,
+        headers: {
+          sc_editMode: 'true',
+        },
+      })
+    ).to.be.true;
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(query, {
+      language,
+      version,
+      itemId,
+      siteName,
+    });
+
+    expect(result).to.deep.equal({
+      layoutData: layoutDataResponse,
+      dictionary: {},
+    });
+
+    spy.restore(clientFactorySpy);
+  });
+
   it('should throw an error when client factory is not provided', async () => {
     try {
       const service = new GraphQLEditingService({} as GraphQLEditingServiceConfig);

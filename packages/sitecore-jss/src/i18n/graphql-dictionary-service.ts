@@ -236,10 +236,15 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
         }
       );
 
-      results = results.concat(fetchResponse?.site.siteInfo.dictionary.results);
-      hasNext = fetchResponse.site.siteInfo.dictionary.pageInfo.hasNext;
-      after = fetchResponse.site.siteInfo.dictionary.pageInfo.endCursor;
+      if (fetchResponse?.site?.siteInfo?.dictionary) {
+        results = results.concat(fetchResponse.site.siteInfo.dictionary.results);
+        after = fetchResponse.site.siteInfo.dictionary.pageInfo.endCursor;
+        hasNext = fetchResponse.site.siteInfo.dictionary.pageInfo.hasNext;
+      } else {
+        hasNext = false;
+      }
     }
+
     results.forEach((item) => (phrases[item.key] = item.value));
 
     return phrases;
