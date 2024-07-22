@@ -131,8 +131,9 @@ export type RouteListQueryResult = {
 export interface BaseGraphQLSitemapServiceConfig
   extends Omit<SiteRouteQueryVariables, 'language' | 'siteName'> {
   /**
-   * A flag for whether to include personalized routes in service output - only works on XM Cloud
-   * turned off by default
+   * A flag for whether to include personalized routes in service output.
+   * Only works on XM Cloud for pages using Embedded Personalization (not Component A/B testing).
+   * Turned off by default.
    */
   includePersonalizedRoutes?: boolean;
   /**
@@ -258,12 +259,12 @@ export abstract class BaseGraphQLSitemapService {
 
       aggregatedPaths.push(formatPath(item.path));
 
-      // check for type safety's sake - personalize may be empty depending on query type
-      if (item.route?.personalization?.variantIds.length) {
+      const variantIds = item.route?.personalization?.variantIds?.filter(
+        (variantId) => !variantId.includes('_') // exclude component A/B test variants
+      );
+      if (variantIds?.length) {
         aggregatedPaths.push(
-          ...(item.route?.personalization?.variantIds.map((varId) =>
-            formatPath(getPersonalizedRewrite(item.path, { variantId: varId }))
-          ) || {})
+          ...variantIds.map((varId) => formatPath(getPersonalizedRewrite(item.path, [varId])))
         );
       }
     });

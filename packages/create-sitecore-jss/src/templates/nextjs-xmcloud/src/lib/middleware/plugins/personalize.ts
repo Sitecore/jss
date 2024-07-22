@@ -30,7 +30,6 @@ class PersonalizePlugin implements MiddlewarePlugin {
           (process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT &&
             parseInt(process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT)) ||
           400,
-        scope: process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE,
       },
       // Configuration for your Sitecore CDP endpoint
       cdpConfig: {
@@ -41,6 +40,8 @@ class PersonalizePlugin implements MiddlewarePlugin {
             parseInt(process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT)) ||
           400,
       },
+      // Optional Sitecore Personalize scope identifier.
+      scope: process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE,
       // This function determines if the middleware should be turned off.
       // IMPORTANT: You should implement based on your cookie consent management solution of choice.
       // You may wish to keep it disabled while in development mode.

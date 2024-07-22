@@ -8,6 +8,7 @@ import {
 } from './graphql-sitemap-service';
 import sitemapDefaultQueryResult from '../test-data/sitemapDefaultQueryResult.json';
 import sitemapPersonalizeQueryResult from '../test-data/sitemapPersonalizeQueryResult.json';
+import sitemapComponentTestingQueryResult from '../test-data/sitemapComponentTestingQueryResult.json';
 import sitemapServiceSinglesiteResult from '../test-data/sitemapServiceSinglesiteResult';
 import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss/graphql';
 
@@ -320,6 +321,37 @@ describe('GraphQLSitemapService', () => {
           {
             params: {
               path: ['_variantId_purple', 'y1', 'y2', 'y3', 'y4'],
+            },
+            locale: lang,
+          },
+        ]);
+        return expect(nock.isDone()).to.be.true;
+      });
+
+      it('should not return personalized paths when personalize data is requested and component a/b testing returned', async () => {
+        const lang = 'ua';
+
+        nock(endpoint)
+          .post('/', /PersonalizeSitemapQuery/gi)
+          .reply(200, sitemapComponentTestingQueryResult);
+
+        const service = new GraphQLSitemapService({
+          clientFactory,
+          siteName,
+          includePersonalizedRoutes: true,
+        });
+        const sitemap = await service.fetchSSGSitemap([lang]);
+
+        expect(sitemap).to.deep.equal([
+          {
+            params: {
+              path: [''],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['y1', 'y2', 'y3', 'y4'],
             },
             locale: lang,
           },

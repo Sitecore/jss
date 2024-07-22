@@ -74,23 +74,7 @@ describe('GraphQLPersonalizeService', () => {
     );
 
     expect(personalizeData).to.deep.equal({
-      contentId: `embedded_${id}_en`.toLowerCase(),
-      variantIds,
-    });
-  });
-
-  it('should return personalize info for a route when scope is provided', async () => {
-    mockNonEmptyResponse();
-
-    const service = new GraphQLPersonalizeService({ ...config, scope: 'myscope123' });
-    const personalizeData = await service.getPersonalizeInfo(
-      '/sitecore/content/home',
-      'en',
-      siteName
-    );
-
-    expect(personalizeData).to.deep.equal({
-      contentId: `embedded_myscope123_${id}_en`.toLowerCase(),
+      pageId: id,
       variantIds,
     });
   });
@@ -179,7 +163,7 @@ describe('GraphQLPersonalizeService', () => {
     const firstResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
 
     expect(firstResult).to.deep.equal({
-      contentId: `embedded_${id}_en`.toLowerCase(),
+      pageId: id,
       variantIds,
     });
 
@@ -203,7 +187,7 @@ describe('GraphQLPersonalizeService', () => {
     const firstResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
 
     expect(firstResult).to.deep.equal({
-      contentId: `embedded_${id}_en`.toLowerCase(),
+      pageId: id,
       variantIds,
     });
 

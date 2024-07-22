@@ -1,7 +1,6 @@
 import { GraphQLClient, GraphQLRequestClientFactory } from '../graphql-request-client';
 import debug from '../debug';
 import { isTimeoutError } from '../utils';
-import { CdpHelper } from './utils';
 import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
 
 export type GraphQLPersonalizeServiceConfig = CacheOptions & {
@@ -11,6 +10,7 @@ export type GraphQLPersonalizeServiceConfig = CacheOptions & {
   timeout?: number;
   /**
    * Optional Sitecore Personalize scope identifier allowing you to isolate your personalization data between XM Cloud environments
+   * @deprecated Use 'scope' on 'PersonalizeMiddlewareConfig' instead. Will be removed in a future release.
    */
   scope?: string;
   /**
@@ -29,9 +29,9 @@ export type GraphQLPersonalizeServiceConfig = CacheOptions & {
  */
 export type PersonalizeInfo = {
   /**
-   * The (CDP-friendly) content id
+   * The page id
    */
-  contentId: string;
+  pageId: string;
   /**
    * The configured variant ids
    */
@@ -105,8 +105,7 @@ export class GraphQLPersonalizeService {
     }
     return data?.layout?.item
       ? {
-          // CDP expects content id format `embedded_[<scope>_]<id>_<lang>` (lowercase)
-          contentId: CdpHelper.getContentId(data.layout.item.id, language, this.config.scope),
+          pageId: data.layout.item.id,
           variantIds: data.layout.item.personalization.variantIds,
         }
       : undefined;

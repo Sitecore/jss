@@ -7,6 +7,7 @@ import sinon, { spy } from 'sinon';
 import nextjs, { NextRequest, NextResponse } from 'next/server';
 import { GraphQLRequestClient, debug } from '@sitecore-jss/sitecore-jss';
 import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
+import { CdpHelper } from '@sitecore-jss/sitecore-jss/personalize';
 import { PersonalizeMiddleware } from './personalize-middleware';
 
 use(sinonChai);
@@ -27,10 +28,8 @@ describe('PersonalizeMiddleware', () => {
   const hostname = 'foo.net';
   const siteName = 'bar';
 
-  const id = 'item-id';
-  const version = '1';
+  const pageId = 'item-id';
   const variantIds = ['variant-1', 'variant-2'];
-  const contentId = `${id}_en_${version}`.toLowerCase();
   const defaultLang = 'en';
   const referrer = 'http://localhost:3000';
   const createRequest = (props: any = {}) => {
@@ -143,12 +142,14 @@ describe('PersonalizeMiddleware', () => {
       siteResolver?: SiteResolver;
       edgeConfig?: any;
       cdpConfig?: any;
+      scope?: string;
       variantId?: string;
       personalizeInfo?: {
-        contentId: string;
+        pageId: string;
         variantIds: string[];
       } | null;
       getPersonalizeInfoStub?: sinon.SinonStub;
+      personalizeStub?: sinon.SinonStub;
       handleCookieStub?: sinon.SinonStub;
     } = {}
   ) => {
@@ -190,11 +191,13 @@ describe('PersonalizeMiddleware', () => {
 
     const initPersonalizeServer = (middleware['initPersonalizeServer'] = sinon.stub());
 
-    const personalize = (middleware['personalize'] = sinon.stub().returns(
-      Promise.resolve({
-        variantId: props.variantId,
-      })
-    ));
+    const personalize = (middleware['personalize'] =
+      props.personalizeStub ||
+      sinon.stub().returns(
+        Promise.resolve({
+          variantId: props.variantId,
+        })
+      ));
 
     const getPersonalizeInfo = (middleware['personalizeService']['getPersonalizeInfo'] =
       props.getPersonalizeInfoStub ||
@@ -203,7 +206,7 @@ describe('PersonalizeMiddleware', () => {
           props.personalizeInfo === null
             ? undefined
             : props.personalizeInfo || {
-                contentId,
+                pageId,
                 variantIds,
               }
         )
@@ -395,7 +398,7 @@ describe('PersonalizeMiddleware', () => {
       const res = createResponse();
       const { middleware, getPersonalizeInfo } = createMiddleware({
         personalizeInfo: {
-          contentId,
+          pageId,
           variantIds: [],
         },
       });
@@ -435,20 +438,25 @@ describe('PersonalizeMiddleware', () => {
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
       expect(initPersonalizeServer.called).to.be.true;
       expect(personalize.called).to.be.true;
-      validateDebugLog('skipped (no variant identified)');
+      validateDebugLog('skipped (no variant(s) identified)');
       expect(finalRes).to.deep.equal(res);
     });
     it('invalid variant', async () => {
       const req = createRequest();
       const res = createResponse();
       const handleCookieStub = sinon.stub().resolves();
+      const invalidVariant = 'invalid-variant';
       const {
         middleware,
         getPersonalizeInfo,
         initPersonalizeServer,
         personalize,
       } = createMiddleware({
-        variantId: 'invalid-variant',
+        personalizeInfo: {
+          pageId,
+          variantIds,
+        },
+        variantId: invalidVariant,
         handleCookieStub,
       });
       const finalRes = await middleware.getHandler()(req, res);
@@ -463,14 +471,36 @@ describe('PersonalizeMiddleware', () => {
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
       expect(initPersonalizeServer.called).to.be.true;
       expect(personalize.called).to.be.true;
-      validateDebugLog('skipped (invalid variant)');
+      validateDebugLog('invalid variant %s', invalidVariant);
       expect(finalRes).to.deep.equal(res);
+    });
+
+    it('prefetch', async () => {
+      const req = createRequest({
+        headerValues: {
+          purpose: 'prefetch',
+        },
+      });
+      const res = createResponse();
+      const { middleware } = createMiddleware();
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateDebugLog('personalize middleware start: %o', {
+        hostname: 'foo.net',
+        pathname: '/styleguide',
+        language: 'en',
+        headers: {
+          ...req.headers,
+        },
+      });
+      validateDebugLog('skipped (prefetch)');
+      expect(finalRes).to.deep.equal(res);
+      expect(finalRes.headers['x-middleware-cache']).to.equal('no-cache');
     });
   });
 
   describe('request passed', () => {
     it('fallback defaultLocale is used', async () => {
-      const contentId = `${id}_da-dk_${version}`;
       const language = 'da-DK';
       const req = createRequest({
         nextUrl: {
@@ -491,7 +521,7 @@ describe('PersonalizeMiddleware', () => {
         variantId: 'variant-2',
         personalizeInfo: {
           variantIds,
-          contentId,
+          pageId,
         },
       });
       const finalRes = await middleware.getHandler()(req, res);
@@ -810,6 +840,99 @@ describe('PersonalizeMiddleware', () => {
         },
       });
       expect(siteResolver.getByHost).to.be.calledWith('foobar');
+      expect(finalRes).to.deep.equal(res);
+      nextRewriteStub.restore();
+    });
+
+    it('configured scope is used', async () => {
+      const pageId = 'item-id';
+      const scope = 'myscope';
+      const req = createRequest();
+      const res = createResponse();
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      const personalizeStub = sinon.stub().returns(Promise.resolve({ variantId: undefined }));
+      const { middleware, getPersonalizeInfo, personalize } = createMiddleware({
+        scope,
+        personalizeInfo: {
+          pageId,
+          variantIds: ['variant1'],
+        },
+        personalizeStub,
+      });
+      const finalRes = await middleware.getHandler()(req, res);
+
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
+      expect(
+        personalize.calledWith(
+          sinon.match({ friendlyId: CdpHelper.getPageFriendlyId(pageId, 'en', scope) }),
+          sinon.match.any
+        )
+      ).to.be.true;
+      expect(finalRes).to.deep.equal(res);
+      nextRewriteStub.restore();
+    });
+
+    it('component testing is executed', async () => {
+      const pageId = 'item-id';
+      const req = createRequest();
+      const res = createResponse();
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      const personalizeStub = sinon.stub();
+      personalizeStub
+        .withArgs(
+          sinon.match({ friendlyId: CdpHelper.getComponentFriendlyId(pageId, 'component1', 'en') }),
+          sinon.match.any
+        )
+        .returns(Promise.resolve({ variantId: 'component1_default' }));
+      personalizeStub
+        .withArgs(
+          sinon.match({ friendlyId: CdpHelper.getComponentFriendlyId(pageId, 'component2', 'en') }),
+          sinon.match.any
+        )
+        .returns(Promise.resolve({ variantId: 'component2_variant1' }));
+      personalizeStub
+        .withArgs(
+          sinon.match({ friendlyId: CdpHelper.getComponentFriendlyId(pageId, 'component3', 'en') }),
+          sinon.match.any
+        )
+        .returns(Promise.resolve({ variantId: 'component3_variant3' }));
+      const { middleware, getPersonalizeInfo, initPersonalizeServer } = createMiddleware({
+        personalizeInfo: {
+          pageId,
+          variantIds: [
+            'component1_variant1',
+            'component2_variant1',
+            'component2_variant2',
+            'component3_variant1',
+            'component3_variant2',
+            'component3_variant3',
+          ],
+        },
+        personalizeStub,
+      });
+      const finalRes = await middleware.getHandler()(req);
+
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
+      expect(initPersonalizeServer.calledOnce).to.be.true;
+      expect(personalizeStub.calledThrice).to.be.true;
+      validateDebugLog('personalize middleware start: %o', {
+        headers: {
+          ...req.headers,
+        },
+        hostname: 'foo.net',
+        pathname: '/styleguide',
+        language: 'en',
+      });
+      validateEndMessageDebugLog('personalize middleware end in %dms: %o', {
+        rewritePath:
+          '/_variantId_component1_default/_variantId_component2_variant1/_variantId_component3_variant3/styleguide',
+        headers: {
+          ...res.headers,
+          'x-middleware-cache': 'no-cache',
+          'x-sc-rewrite':
+            '/_variantId_component1_default/_variantId_component2_variant1/_variantId_component3_variant3/styleguide',
+        },
+      });
       expect(finalRes).to.deep.equal(res);
       nextRewriteStub.restore();
     });
