@@ -19,13 +19,14 @@ export const query = /* GraphQL */ `
     $language: String!
     $version: String
     $after: String
+    $pageSize: Int = ${PAGE_SIZE}
 ) {
     item(path: $itemId, language: $language, version: $version) {
       rendered
     }
     site {
       siteInfo(site: $siteName) {
-        dictionary(language: $language, first: ${PAGE_SIZE}, after: $after) {
+        dictionary(language: $language, first: $pageSize, after: $after) {
           results {
             key
             value
@@ -45,10 +46,11 @@ export const dictionaryQuery = /* GraphQL */ `
     $siteName: String!
     $language: String!
     $after: String
+    $pageSize: Int = ${PAGE_SIZE}
   ) {
     site {
       siteInfo(site: $siteName) {
-        dictionary(language: $language, first: ${PAGE_SIZE}, after: $after) {
+        dictionary(language: $language, first: $pageSize, after: $after) {
           results {
             key
             value
