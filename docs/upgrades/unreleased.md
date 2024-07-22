@@ -178,7 +178,7 @@
         ...
     ```
 
-* To enable AB testing and component level personalization support in JSS, ensure componentVariantIds are passed to personalizeLayout:
+* To enable AB testing and component level personalization support in JSS, ensure _componentVariantIds_ are passed to _personalizeLayout_ function call:
 
   ```ts
   // Get variant(s) for personalization (from path)
