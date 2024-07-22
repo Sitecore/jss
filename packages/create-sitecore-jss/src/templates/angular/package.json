@@ -15,8 +15,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "lint:yml": "ts-node ./scripts/lint-yml.ts",
-    "lint": "ng lint <%- appName %> --fix && npm run lint:yml",
+    "lint": "ng lint <%- appName %> --fix",
     "e2e": "ng e2e",
     "jss": "jss",
     "start:connected": "npm-run-all --serial bootstrap start:angular start:watch-components",
