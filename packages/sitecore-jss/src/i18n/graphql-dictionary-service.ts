@@ -7,6 +7,7 @@ import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase } from './dictionary-service';
 import { CacheOptions } from '../cache-client';
 import { getAppRootId, SearchQueryService, PageInfo, SearchQueryVariables } from '../graphql';
+import { siteNameError, languageError } from '../graphql/app-root-query';
 import debug from '../debug';
 
 /** @private */
@@ -224,6 +225,14 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
     let results: { key: string; value: string }[] = [];
     let hasNext = true;
     let after = '';
+
+    if (!this.options.siteName) {
+      throw new RangeError(siteNameError);
+    }
+
+    if (!language) {
+      throw new RangeError(languageError);
+    }
 
     while (hasNext) {
       const fetchResponse = await this.graphQLClient.request<DictionarySiteQueryResponse>(

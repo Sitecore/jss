@@ -319,4 +319,38 @@ describe('GraphQLEditingService', () => {
       expect(error.response.error).to.equal('Internal server error');
     }
   });
+
+  it('should throw an error when siteName is not provided', async () => {
+    const service = new GraphQLEditingService({
+      clientFactory,
+    });
+
+    try {
+      await service.fetchEditingData({
+        language,
+        version,
+        itemId,
+        siteName: '',
+      });
+    } catch (error) {
+      expect(error.message).to.equal('The site name must be a non-empty string');
+    }
+  });
+
+  it('should throw an error when language is not provided', async () => {
+    const service = new GraphQLEditingService({
+      clientFactory,
+    });
+
+    try {
+      await service.fetchEditingData({
+        language: '',
+        version,
+        itemId,
+        siteName,
+      });
+    } catch (error) {
+      expect(error.message).to.equal('The language must be a non-empty string');
+    }
+  });
 });

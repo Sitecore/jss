@@ -122,6 +122,14 @@ export class GraphQLEditingService {
   }) {
     debug.editing('fetching editing data for %s %s %s %s', siteName, itemId, language, version);
 
+    if (!siteName) {
+      throw new RangeError('The site name must be a non-empty string');
+    }
+
+    if (!language) {
+      throw new RangeError('The language must be a non-empty string');
+    }
+
     const dictionary: DictionaryPhrases = {};
     let dictionaryResults: { key: string; value: string }[] = [];
     let hasNext = true;
