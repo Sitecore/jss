@@ -31,6 +31,10 @@ export const query = /* GraphQL */ `
             key
             value
           }
+          pageInfo {
+            endCursor
+            hasNext
+          }
         }
       }
     }
@@ -54,6 +58,10 @@ export const dictionaryQuery = /* GraphQL */ `
           results {
             key
             value
+          }
+          pageInfo {
+            endCursor
+            hasNext
           }
         }
       }
