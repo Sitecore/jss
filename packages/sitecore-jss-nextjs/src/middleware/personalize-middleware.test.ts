@@ -880,19 +880,33 @@ describe('PersonalizeMiddleware', () => {
       const personalizeStub = sinon.stub();
       personalizeStub
         .withArgs(
-          sinon.match({ friendlyId: CdpHelper.getComponentFriendlyId(pageId, 'component1', 'en') }),
+          sinon.match({
+            friendlyId: CdpHelper.getComponentFriendlyId(pageId, 'component1', 'en'),
+            variantIds: ['component1_default', 'component1_variant1'],
+          }),
           sinon.match.any
         )
         .returns(Promise.resolve({ variantId: 'component1_default' }));
       personalizeStub
         .withArgs(
-          sinon.match({ friendlyId: CdpHelper.getComponentFriendlyId(pageId, 'component2', 'en') }),
+          sinon.match({
+            friendlyId: CdpHelper.getComponentFriendlyId(pageId, 'component2', 'en'),
+            variantIds: ['component2_default', 'component2_variant1', 'component2_variant2'],
+          }),
           sinon.match.any
         )
         .returns(Promise.resolve({ variantId: 'component2_variant1' }));
       personalizeStub
         .withArgs(
-          sinon.match({ friendlyId: CdpHelper.getComponentFriendlyId(pageId, 'component3', 'en') }),
+          sinon.match({
+            friendlyId: CdpHelper.getComponentFriendlyId(pageId, 'component3', 'en'),
+            variantIds: [
+              'component3_default',
+              'component3_variant1',
+              'component3_variant2',
+              'component3_variant3',
+            ],
+          }),
           sinon.match.any
         )
         .returns(Promise.resolve({ variantId: 'component3_variant3' }));

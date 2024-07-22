@@ -133,25 +133,30 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       friendlyId,
       language,
       timeout,
+      variantIds,
     }: {
       params: ExperienceParams;
       friendlyId: string;
       language: string;
       timeout?: number;
+      variantIds?: string[];
     },
     request: NextRequest
   ) {
-    const personalizationData = {
-      channel: this.config.cdpConfig.channel || 'WEB',
-      currency: this.config.cdpConfig.currency ?? 'USD',
-      friendlyId,
-      params,
-      language,
-    };
-
     debug.personalize('executing experience for %s %o', friendlyId, params);
 
-    return (await personalize(request, personalizationData, { timeout })) as {
+    return (await personalize(
+      request,
+      {
+        channel: this.config.cdpConfig.channel || 'WEB',
+        currency: this.config.cdpConfig.currency ?? 'USD',
+        friendlyId,
+        params,
+        language,
+        pageVariantIds: variantIds,
+      },
+      { timeout }
+    )) as {
       variantId: string;
     };
   }
@@ -309,18 +314,25 @@ export class PersonalizeMiddleware extends MiddlewareBase {
 
     await Promise.all(
       executions.map((execution) =>
-        this.personalize({ friendlyId: execution.friendlyId, params, language, timeout }, req).then(
-          (personalization) => {
-            const variantId = personalization.variantId;
-            if (variantId) {
-              if (!execution.variantIds.includes(variantId)) {
-                debug.personalize('invalid variant %s', variantId);
-              } else {
-                identifiedVariantIds.push(variantId);
-              }
+        this.personalize(
+          {
+            friendlyId: execution.friendlyId,
+            variantIds: execution.variantIds,
+            params,
+            language,
+            timeout,
+          },
+          req
+        ).then((personalization) => {
+          const variantId = personalization.variantId;
+          if (variantId) {
+            if (!execution.variantIds.includes(variantId)) {
+              debug.personalize('invalid variant %s', variantId);
+            } else {
+              identifiedVariantIds.push(variantId);
             }
           }
-        )
+        })
       )
     );
 
