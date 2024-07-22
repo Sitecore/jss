@@ -30,4 +30,4 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:136](https://github.com/Sitecore/jss/blob/66164a422/packages/sitecore-jss/src/layout/models.ts#L136)
+[packages/sitecore-jss/src/layout/models.ts:136](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/layout/models.ts#L136)

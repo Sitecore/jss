@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:7](https://github.com/Sitecore/jss/blob/66164a422/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L7)
+[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:7](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L7)
 
 ___
 
@@ -53,7 +53,7 @@ Object model of personlize info
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:30](https://github.com/Sitecore/jss/blob/66164a422/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L30)
+[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:30](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L30)
 
 ___
 
@@ -65,11 +65,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
+| `componentVariantIds?` | `string`[] |
 | `variantId` | `string` |
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:4](https://github.com/Sitecore/jss/blob/66164a422/packages/sitecore-jss/src/personalize/utils.ts#L4)
+[packages/sitecore-jss/src/personalize/utils.ts:4](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/utils.ts#L4)
 
 ## Variables
 
@@ -79,7 +80,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:1](https://github.com/Sitecore/jss/blob/66164a422/packages/sitecore-jss/src/personalize/utils.ts#L1)
+[packages/sitecore-jss/src/personalize/utils.ts:1](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/utils.ts#L1)
 
 ## Functions
 
@@ -104,7 +105,7 @@ the rewrite path
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:14](https://github.com/Sitecore/jss/blob/66164a422/packages/sitecore-jss/src/personalize/utils.ts#L14)
+[packages/sitecore-jss/src/personalize/utils.ts:15](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/utils.ts#L15)
 
 ___
 
@@ -128,7 +129,7 @@ the personalize data from the rewrite
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:24](https://github.com/Sitecore/jss/blob/66164a422/packages/sitecore-jss/src/personalize/utils.ts#L24)
+[packages/sitecore-jss/src/personalize/utils.ts:25](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/utils.ts#L25)
 
 ___
 
@@ -152,13 +153,13 @@ the pathname with personalize data removed
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:41](https://github.com/Sitecore/jss/blob/66164a422/packages/sitecore-jss/src/personalize/utils.ts#L41)
+[packages/sitecore-jss/src/personalize/utils.ts:69](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/utils.ts#L69)
 
 ___
 
 ### personalizeLayout
 
-▸ **personalizeLayout**(`layout`, `variantId`): `void`
+▸ **personalizeLayout**(`layout`, `variantId`, `componentVariantIds?`): [`PlaceholdersData`](layout.md#placeholdersdata)\<`string`\> \| `undefined`
 
 Apply personalization to layout data. This will recursively go through all placeholders/components, check experiences nodes and replace default with object from specific experience.
 
@@ -168,11 +169,12 @@ Apply personalization to layout data. This will recursively go through all place
 | :------ | :------ | :------ |
 | `layout` | [`LayoutServiceData`](../interfaces/layout.LayoutServiceData.md) | Layout data |
 | `variantId` | `string` | variant id |
+| `componentVariantIds?` | `string`[] | component variant ids |
 
 #### Returns
 
-`void`
+[`PlaceholdersData`](layout.md#placeholdersdata)\<`string`\> \| `undefined`
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/layout-personalizer.ts:17](https://github.com/Sitecore/jss/blob/66164a422/packages/sitecore-jss/src/personalize/layout-personalizer.ts#L17)
+[packages/sitecore-jss/src/personalize/layout-personalizer.ts:18](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/layout-personalizer.ts#L18)
