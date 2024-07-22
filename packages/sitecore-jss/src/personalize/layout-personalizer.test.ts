@@ -19,7 +19,7 @@ import {
 
 const { personalizeLayout, personalizePlaceholder, personalizeComponent } = personalize;
 
-describe.only('layout-personalizer', () => {
+describe('layout-personalizer', () => {
   const componentVariantIds = ['mountain_bike_audience', 'another_variant', 'third_variant'];
 
   describe('personalizeLayout', () => {

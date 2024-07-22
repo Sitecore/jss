@@ -62,30 +62,6 @@ export function getGroomedVariantIds(variantIds: string[]) {
 }
 
 /**
- * Parses a list of variantIds and divides into layout and component variants
- * @param {string[]} variantIds the list of variant IDs for a page
- * @returns {PersonalizedRewriteData} object with variant IDs sorted
- */
-export function getGroomedVariantIds(variantIds: string[]) {
-  const data: PersonalizedRewriteData = {
-    variantId: DEFAULT_VARIANT,
-    componentVariantIds: [],
-  };
-  variantIds.forEach((variantId) => {
-    if (variantId.includes('_')) {
-      // Component-level personalization in format "<ComponentID>_<VariantID>"
-      // There can be multiple
-      data.componentVariantIds?.push(variantId);
-    } else {
-      // Embedded (page-level) personalization in format "<VariantID>"
-      // There should be only one
-      data.variantId = variantId;
-    }
-  });
-  return data;
-}
-
-/**
  * Normalize a personalized rewrite path (remove personalize data)
  * @param {string} pathname the pathname
  * @returns {string} the pathname with personalize data removed
