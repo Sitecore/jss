@@ -18,7 +18,7 @@ export const prompts = [
     message: 'Are you building for Sitecore XM Cloud?',
     default: false,
     when: (answers: AngularAnswer): boolean => {
-      // don't prompt if --yes or nextjs-xmcloud template was specified
+      // don't prompt if --yes or angular-xmcloud template was specified
       if (answers.yes) {
         return false;
       } else if (
