@@ -353,5 +353,53 @@ describe('GraphQLDictionaryService', () => {
         expect(error.response.error).to.equal('whoops');
       });
     });
+
+    it('should return empty result when no dictionary entries found', async () => {
+      nock(endpoint)
+        .post('/')
+        .reply(200, {
+          data: {
+            site: {
+              siteInfo: null,
+            },
+          },
+        });
+
+      const service = new GraphQLDictionaryService({
+        clientFactory,
+        siteName,
+        cacheEnabled: false,
+        useSiteQuery: true,
+      });
+
+      const result = await service.fetchDictionaryData('en');
+      expect(result).to.deep.equal({});
+    });
+
+    it('should throw error if siteName is not provided', async () => {
+      const service = new GraphQLDictionaryService({
+        clientFactory,
+        siteName: '',
+        cacheEnabled: false,
+        useSiteQuery: true,
+      });
+
+      await service.fetchDictionaryData('en').catch((error) => {
+        expect(error.message).to.equal('The site name must be a non-empty string');
+      });
+    });
+
+    it('should throw error if language is not provided', async () => {
+      const service = new GraphQLDictionaryService({
+        clientFactory,
+        siteName,
+        cacheEnabled: false,
+        useSiteQuery: true,
+      });
+
+      await service.fetchDictionaryData('').catch((error) => {
+        expect(error.message).to.equal('The language must be a non-empty string');
+      });
+    });
   });
 });

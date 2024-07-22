@@ -7,6 +7,7 @@ import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase } from './dictionary-service';
 import { CacheOptions } from '../cache-client';
 import { getAppRootId, SearchQueryService, PageInfo, SearchQueryVariables } from '../graphql';
+import { siteNameError, languageError } from '../graphql/app-root-query';
 import debug from '../debug';
 
 /** @private */
@@ -225,6 +226,14 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
     let hasNext = true;
     let after = '';
 
+    if (!this.options.siteName) {
+      throw new RangeError(siteNameError);
+    }
+
+    if (!language) {
+      throw new RangeError(languageError);
+    }
+
     while (hasNext) {
       const fetchResponse = await this.graphQLClient.request<DictionarySiteQueryResponse>(
         siteQuery,
@@ -236,10 +245,15 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
         }
       );
 
-      results = results.concat(fetchResponse?.site.siteInfo.dictionary.results);
-      hasNext = fetchResponse.site.siteInfo.dictionary.pageInfo.hasNext;
-      after = fetchResponse.site.siteInfo.dictionary.pageInfo.endCursor;
+      if (fetchResponse?.site?.siteInfo?.dictionary) {
+        results = results.concat(fetchResponse.site.siteInfo.dictionary.results);
+        after = fetchResponse.site.siteInfo.dictionary.pageInfo.endCursor;
+        hasNext = fetchResponse.site.siteInfo.dictionary.pageInfo.hasNext;
+      } else {
+        hasNext = false;
+      }
     }
+
     results.forEach((item) => (phrases[item.key] = item.value));
 
     return phrases;

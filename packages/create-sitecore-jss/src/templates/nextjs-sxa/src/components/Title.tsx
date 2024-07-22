@@ -63,7 +63,7 @@ const ComponentContent = (props: ComponentContentProps) => {
 export const Default = (props: TitleProps): JSX.Element => {
   const datasource = props.fields?.data?.datasource || props.fields?.data?.contextItem;
   const { sitecoreContext } = useSitecoreContext();
-  const text: TextField = datasource?.field?.jsonValue;
+  const text: TextField = datasource?.field?.jsonValue || {};
   const link: LinkField = {
     value: {
       href: datasource?.url?.path,
@@ -72,7 +72,7 @@ export const Default = (props: TitleProps): JSX.Element => {
   };
   if (sitecoreContext.pageState !== 'normal') {
     link.value.querystring = `sc_site=${datasource?.url?.siteName}`;
-    if (!text.value) {
+    if (!text?.value) {
       text.value = 'Title field';
       link.value.href = '#';
     }
