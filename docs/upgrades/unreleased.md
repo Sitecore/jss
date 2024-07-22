@@ -1,207 +1,179 @@
 ## Unreleased
 
-- If you are importing any _editing_ utils from `@sitecore-jss/sitecore-jss/utils` in your code, please update the import path to `@sitecore-jss/sitecore-jss/editing`. For now these exports are still available in the old path and marked as deprecated. They will be removed in the next major version release. Specifically for the following utils:
-  - ExperienceEditor
-  - HorizonEditor
-  - isEditorActive
-  - resetEditorChromes
-  - handleEditorAnchors
-  - Metadata
-  - DefaultEditFrameButton
-  - DefaultEditFrameButtons
-  - DefaultEditFrameButtonIds
-  - EditFrameDataSource
-  - ChromeCommand
-  - FieldEditButton
-  - WebEditButton
-  - EditButtonTypes
-  - mapButtonToCommand
+* If you are importing any _editing_ utils from `@sitecore-jss/sitecore-jss/utils` in your code, please update the import path to `@sitecore-jss/sitecore-jss/editing`. For now these exports are still available in the old path and marked as deprecated. They will be removed in the next major version release. Specifically for the following utils:
+  * ExperienceEditor
+  * HorizonEditor
+  * isEditorActive
+  * resetEditorChromes
+  * handleEditorAnchors
+  * Metadata
+  * DefaultEditFrameButton
+  * DefaultEditFrameButtons
+  * DefaultEditFrameButtonIds
+  * EditFrameDataSource
+  * ChromeCommand
+  * FieldEditButton
+  * WebEditButton
+  * EditButtonTypes
+  * mapButtonToCommand
 
 # react
 
-- With the simplification of Editing Support work we have added the following breaking changes to the `sitecore-jss-react` package. Please make the necessary updates.
+* With the simplification of Editing Support work we have added the following breaking changes to the `sitecore-jss-react` package. Please make the necessary updates.
   - `ComponentConsumerProps` is removed. You might need to reuse _WithSitecoreContextProps_ type.
 
 ### headless-ssr-experience-edge
+* Replace `scripts/generate-config.js` if you have not modified it. Otherwise:
+    * Add a `trim()` call to `config[prop]` and replace comma before a newline (`,`) with semicolon (`;`) in configText prop assignment so it would look like this:
 
-- Replace `scripts/generate-config.js` if you have not modified it. Otherwise:
-
-  - Add a `trim()` call to `config[prop]` and replace comma before a newline (`,`) with semicolon (`;`) in configText prop assignment so it would look like this:
-
-    ```ts
-    configText += `config.${prop} = process.env.REACT_APP_${constantCase(prop)} || "${config[
-      prop
-    ]?.trim()}";\n`;
-    ```
+        ```ts
+            configText += `config.${prop} = process.env.REACT_APP_${constantCase(prop)} || "${
+                config[prop]?.trim()
+            }";\n`;
+        ```
 
 # angular
 
-- Update Angular and core dependencies to ~17.3.1, related dependencies
+* Update Angular and core dependencies to ~17.3.1, related dependencies
 
-- Update Typescript to ~5.2.2
+* Update Typescript to ~5.2.2
 
-- Replace `scripts/generate-config.ts` if you have not modified it. Otherwise:
+* Replace `scripts/generate-config.ts` if you have not modified it. Otherwise:
+    * Add a `trim()` call to `config[prop]` (use toString() to avoid type conflicts) and replace commas before a newline (`,`) with semicolon (`;`) in configText prop assignments so it would look like this:
 
-  - Add a `trim()` call to `config[prop]` (use toString() to avoid type conflicts) and replace commas before a newline (`,`) with semicolon (`;`) in configText prop assignments so it would look like this:
+        ```ts
+            configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]?.toString().trim()}";\n`;
+        ```
 
-    ```ts
-    configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]
-      ?.toString()
-      .trim()}";\n`;
-    ```
-
-- Update import in _src/templates/angular/server.bundle.ts_
+* Update import in _src/templates/angular/server.bundle.ts_
   Use _'zone.js'_ instead of _'zone.js/dist/zone-node'_
 
-  ```ts
-  import 'zone.js';
-  ```
-
-- Update import in _src/templates/angular/src/polyfills.ts_
+     ```ts
+          import 'zone.js';
+     ```
+* Update import in _src/templates/angular/src/polyfills.ts_
   Use _'zone.js'_ instead of _'zone.js/dist/zone-node'_
 
-  ```ts
-  import 'zone.js';
-  ```
+     ```ts
+          import 'zone.js';
+     ```
 
 # vue
 
-- Replace `scripts/generate-config.js` if you have not modified it. Otherwise:
+* Replace `scripts/generate-config.js` if you have not modified it. Otherwise:
+    *  Add a `trim()` call to `config[prop]` and replace commas before a newline (`,`) with semicolon (`;`) in configText prop assignments so it would look like this:
 
-  - Add a `trim()` call to `config[prop]` and replace commas before a newline (`,`) with semicolon (`;`) in configText prop assignments so it would look like this:
-
-    ```ts
-    configText += `config.${prop} = process.env.VUE_APP_${constantCase(prop)} || "${config[
-      prop
-    ]?.trim()}";\n`;
-    ```
+        ```ts
+            configText += `config.${prop} = process.env.VUE_APP_${constantCase(prop)} || "${
+                config[prop]?.trim()
+            }";\n`;
+        ```
 
 # nextjs
 
-- Replace `scripts/generate-config.ts` if you have not modified it. Otherwise:
+* Replace `scripts/generate-config.ts` if you have not modified it. Otherwise:
+    * Add a `trim()` call to `config[prop]` and replace comma before a newline (`,`) with semicolon (`;`) in configText prop assignment so it would look like this:
 
-  - Add a `trim()` call to `config[prop]` and replace comma before a newline (`,`) with semicolon (`;`) in configText prop assignment so it would look like this:
+        ```ts
+            configText += `config.${prop} = process.env.${constantCase(prop)} || '${config[prop]?.trim()}';\n`;
+        ```
+
+* Remove cors header for API endpoints from _lib/next-config/plugins/cors-header_ plugin since cors is handled by API handlers / middlewares:
 
     ```ts
-    configText += `config.${prop} = process.env.${constantCase(prop)} || '${config[
-      prop
-    ]?.trim()}';\n`;
+        {
+            source: '/api/:path*',
+            headers: [
+                {
+                    key: 'Access-Control-Allow-Origin',
+                    value: config.sitecoreApiHost.replace(/\/$/, ''),
+                },
+            ],
+        },
     ```
 
-- Remove cors header for API endpoints from _lib/next-config/plugins/cors-header_ plugin since cors is handled by API handlers / middlewares:
+* Update _pages/api/editing/render.ts_ API handler initialization signature, since _resolvePageUrl_ function now accepts an object and _serverUrl_ now is optional, it's ommited when Pages Metadata Edit Mode is used. Update the handler initialization as follows:
 
-  ```ts
-      {
-          source: '/api/:path*',
-          headers: [
-              {
-                  key: 'Access-Control-Allow-Origin',
-                  value: config.sitecoreApiHost.replace(/\/$/, ''),
-              },
-          ],
-      },
-  ```
+    ```ts
+    const handler = new EditingRenderMiddleware({
+        resolvePageUrl: ({ serverUrl, itemPath }) => `${serverUrl}${itemPath}`,
+    }).getHandler();
+    ```
 
-- Update _pages/api/editing/render.ts_ API handler initialization signature, since _resolvePageUrl_ function now accepts an object and _serverUrl_ now is optional, it's ommited when Pages Metadata Edit Mode is used. Update the handler initialization as follows:
+* The implementation of 'EditingComponentPlaceholder' has been removed. Its purpose to avoid refreshing the entire page during component editing in Pages had never been fully utilized. The references to it and to `RenderingType` enum in `[[...path]].tsx` of the nextjs app (and in any custom code) should be removed: 
 
-  ```ts
-  const handler = new EditingRenderMiddleware({
-    resolvePageUrl: ({ serverUrl, itemPath }) => `${serverUrl}${itemPath}`,
-  }).getHandler();
-  ```
-
-- The implementation of 'EditingComponentPlaceholder' has been removed. Its purpose to avoid refreshing the entire page during component editing in Pages had never been fully utilized. The references to it and to `RenderingType` enum in `[[...path]].tsx` of the nextjs app (and in any custom code) should be removed:
-
-  ```ts
-      import Layout from 'src/Layout';
-      import { RenderingType, EditingComponentPlaceholder } from '@sitecore-jss/sitecore-jss-nextjs';
-      ...
-      const isComponentRendering =
-          layoutData.sitecore.context.renderingType === RenderingType.Component;
-      ...
-      {isComponentRendering ? (
-        <EditingComponentPlaceholder rendering={layoutData.sitecore.route} />
-      ) : (
-        <Layout layoutData={layoutData} headLinks={headLinks} />
-      )}
-      ...
-  ```
+    ```ts
+        import Layout from 'src/Layout';
+        import { RenderingType, EditingComponentPlaceholder } from '@sitecore-jss/sitecore-jss-nextjs';
+        ...
+        const isComponentRendering =
+            layoutData.sitecore.context.renderingType === RenderingType.Component;
+        ...
+        {isComponentRendering ? (
+          <EditingComponentPlaceholder rendering={layoutData.sitecore.route} />
+        ) : (
+          <Layout layoutData={layoutData} headLinks={headLinks} />
+        )}
+        ...
+    ```
 
 # nextjs-xmcloud
 
-- Render a new `EditingScripts` component in your `Scripts.ts` file to support a new Editing Integration feature.
+* Render a new `EditingScripts` component in your `Scripts.ts` file to support a new Editing Integration feature.
 
-  ```ts
-  import { EditingScripts } from '@sitecore-jss/sitecore-jss-nextjs';
-  ...
-  const Scripts = (): JSX.Element | null => (
-      <>
-      <EditingScripts />
-      ...
-      </>
-  );
-  ```
+    ```ts
+    import { EditingScripts } from '@sitecore-jss/sitecore-jss-nextjs';
+    ...
+    const Scripts = (): JSX.Element | null => (
+        <>
+        <EditingScripts />
+        ...
+        </>
+    );
+    ```
 
-- Add a `useSiteQuery` parameter when `GraphQLDictionaryService` is initialized in `/src/lib/dictionary-service-factory.ts` :
+* Add a `useSiteQuery` parameter when `GraphQLDictionaryService` is initialized in `/src/lib/dictionary-service-factory.ts` :
+    ```
+        new GraphQLDictionaryService({
+          siteName,
+          clientFactory,
+          .....
+          useSiteQuery: true,
+        })
 
-  ```
-      new GraphQLDictionaryService({
-        siteName,
-        clientFactory,
-        .....
-        useSiteQuery: true,
-      })
+* We have introduced a new configuration option, `pagesEditMode`, in the `\src\pages\api\editing\config.ts` file to support the new editing metadata architecture for Pages (XMCloud). This option allows you to specify the editing mode used by Pages. It is set to `metadata` by default. However, if you are not ready to use a new integration and continue using the existing architecture, you can explicitly set the `pagesEditMode` to `chromes`.
 
-  ```
+    ```ts
+        import { EditMode } from '@sitecore-jss/sitecore-jss-nextjs';
 
-- We have introduced a new configuration option, `pagesEditMode`, in the `\src\pages\api\editing\config.ts` file to support the new editing metadata architecture for Pages (XMCloud). This option allows you to specify the editing mode used by Pages. It is set to `metadata` by default. However, if you are not ready to use a new integration and continue using the existing architecture, you can explicitly set the `pagesEditMode` to `chromes`.
+        const handler = new EditingConfigMiddleware({
+        ...
+        pagesEditMode: EditMode.Chromes,
+        }).getHandler();
+    ```
 
-  ```ts
-      import { EditMode } from '@sitecore-jss/sitecore-jss-nextjs';
+* Introduce a new _lib/graphql-editing-service.ts_ file to initialize a _graphQLEditingService_ to support a new Editing Metadata Mode. Can be done by adding this file from the latest version introduced in _nextjs-xmcloud_ base template.
 
-      const handler = new EditingConfigMiddleware({
-      ...
-      pagesEditMode: EditMode.Chromes,
-      }).getHandler();
-  ```
+* Update _lib/page-props-factory/plugins/preview-mode_ plugin to support a new Editing Metadata Mode. Can be done by replacing this file with the latest version introduced in _nextjs-xmcloud_ base template.
 
-- Introduce a new _lib/graphql-editing-service.ts_ file to initialize a _graphQLEditingService_ to support a new Editing Metadata Mode. Can be done by adding this file from the latest version introduced in _nextjs-xmcloud_ base template.
+* To support editing for fields in Pages, the new editing metadata architecture relies on the new metadata property 'field.metadata' (instead of on 'field.editable', which won't be used in this scenario). If you are using the new editing arhitecture in Pages (EditMode.Metadata) and have custom field component that manipulates or relies on 'field.editable' in some way, it may need to be reworked. Experience Editor still relies on 'field.editable', so it needs to be supported. See example below from SXA's Banner component:
 
-- Update _lib/page-props-factory/plugins/preview-mode_ plugin to support a new Editing Metadata Mode. Can be done by replacing this file with the latest version introduced in _nextjs-xmcloud_ base template.
-
-- To support editing for fields in Pages, the new editing metadata architecture relies on the new metadata property 'field.metadata' (instead of on 'field.editable', which won't be used in this scenario). If you are using the new editing arhitecture in Pages (EditMode.Metadata) and have custom field component that manipulates or relies on 'field.editable' in some way, it may need to be reworked. Experience Editor still relies on 'field.editable', so it needs to be supported. See example below from SXA's Banner component:
-
-  ```ts
-      import { useSitecoreContext, EditMode } from '@sitecore-jss/sitecore-jss-nextjs';
-      ...
-      export const Banner = (props: ImageProps): JSX.Element => {
-          const { sitecoreContext } = useSitecoreContext();
-          const isMetadataMode = sitecoreContext?.editMode === EditMode.Metadata;
-          ...
-          const modifyImageProps = !isMetadataMode
-          ? {
-              ...props.fields.Image,
-              editable: props?.fields?.Image?.editable
-              ?.replace(`width="${props?.fields?.Image?.value?.width}"`, 'width="100%"')
-              .replace(`height="${props?.fields?.Image?.value?.height}"`, 'height="100%"'),
-          }
-          : { ...props.fields.Image };
-          ...
-      }
-      ...
-  ```
-
-- Jss now supports component level personalization for XM Cloud. See below code from personalize.ts. _personalizeData_ contains _componentVariantIds_ property which has the personalized components. It can be passed to the _personalizeLayout_ function to apply the personalization to the _layoutData_:
-
-  ```ts
-  // Get variant(s) for personalization (from path)
-  const personalizeData = getPersonalizedRewriteData(path);
-
-  // Modify layoutData to use specific variant(s) instead of default
-  // This will also set the variantId on the Sitecore context so that it is accessible here
-  personalizeLayout(
-    props.layoutData,
-    personalizeData.variantId,
-    personalizeData.componentVariantIds
-  );
-  ```
+    ```ts
+        import { useSitecoreContext, EditMode } from '@sitecore-jss/sitecore-jss-nextjs';
+        ...
+        export const Banner = (props: ImageProps): JSX.Element => {
+            const { sitecoreContext } = useSitecoreContext();
+            const isMetadataMode = sitecoreContext?.editMode === EditMode.Metadata;
+            ...
+            const modifyImageProps = !isMetadataMode
+            ? {
+                ...props.fields.Image,
+                editable: props?.fields?.Image?.editable
+                ?.replace(`width="${props?.fields?.Image?.value?.width}"`, 'width="100%"')
+                .replace(`height="${props?.fields?.Image?.value?.height}"`, 'height="100%"'),
+            }
+            : { ...props.fields.Image };
+            ...
+        }
+        ...
+    ```
