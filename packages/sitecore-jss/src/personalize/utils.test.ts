@@ -11,8 +11,8 @@ import {
 } from './utils';
 
 describe('utils', () => {
-  describe('getPersonalizedRewrite', () => {
-    const variantIds = ['123', '456'];
+  describe.only('getPersonalizedRewrite', () => {
+    const variantIds = ['123', '456_ABC'];
     it('should return a string', () => {
       expect(getPersonalizedRewrite('/pathname', variantIds)).to.be.a('string');
     });
