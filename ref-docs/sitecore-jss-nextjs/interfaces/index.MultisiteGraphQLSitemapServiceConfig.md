@@ -42,7 +42,7 @@ BaseGraphQLSitemapServiceConfig.clientFactory
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:142](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L142)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:143](https://github.com/Sitecore/jss/blob/bd5ebb363/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L143)
 
 ___
 
@@ -58,7 +58,7 @@ BaseGraphQLSitemapServiceConfig.excludedPaths
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:88](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L88)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:88](https://github.com/Sitecore/jss/blob/bd5ebb363/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L88)
 
 ___
 
@@ -66,8 +66,9 @@ ___
 
 • `Optional` **includePersonalizedRoutes**: `boolean`
 
-A flag for whether to include personalized routes in service output - only works on XM Cloud
-turned off by default
+A flag for whether to include personalized routes in service output.
+Only works on XM Cloud for pages using Embedded Personalization (not Component A/B testing).
+Turned off by default.
 
 #### Inherited from
 
@@ -75,7 +76,7 @@ BaseGraphQLSitemapServiceConfig.includePersonalizedRoutes
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:137](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L137)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:138](https://github.com/Sitecore/jss/blob/bd5ebb363/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L138)
 
 ___
 
@@ -91,7 +92,7 @@ BaseGraphQLSitemapServiceConfig.includedPaths
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:84](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L84)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:84](https://github.com/Sitecore/jss/blob/bd5ebb363/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L84)
 
 ___
 
@@ -115,7 +116,7 @@ BaseGraphQLSitemapServiceConfig.pageSize
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:95](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L95)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:95](https://github.com/Sitecore/jss/blob/bd5ebb363/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L95)
 
 ___
 
@@ -127,4 +128,4 @@ Names of the configured sites
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:19](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L19)
+[sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:19](https://github.com/Sitecore/jss/blob/bd5ebb363/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L19)
