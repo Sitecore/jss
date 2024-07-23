@@ -7,6 +7,7 @@ import { jssRouteResolver } from './jss-route-resolver.service';
 import { JssRouteBuilderService } from './jss-route-builder.service';
 import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { BrowserModule } from '@angular/platform-browser';
+import { NavigationComponent } from './navigation/navigation.component';
 import { TranslateModule } from '@ngx-translate/core';
 
 export function jssRouteMatcher(url: UrlSegment[]): UrlMatchResult {
@@ -54,7 +55,7 @@ const routes: Routes = [
     BrowserModule,
   ],
   exports: [RouterModule, TranslateModule],
-  declarations: [NotFoundComponent, ServerErrorComponent, LayoutComponent],
+  declarations: [NotFoundComponent, ServerErrorComponent, LayoutComponent, NavigationComponent],
   providers: [JssRouteBuilderService],
 })
 export class RoutingModule {}
