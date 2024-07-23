@@ -7,7 +7,6 @@ import { mount } from 'enzyme';
 import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
 import { Link } from './Link';
 import { spy } from 'sinon';
-import { describe } from 'node:test';
 
 const Router = (): NextRouter => ({
   pathname: '/',

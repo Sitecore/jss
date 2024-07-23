@@ -178,17 +178,38 @@
         ...
     ```
 
-* To enable AB testing and component level personalization support in JSS, ensure _componentVariantIds_ are passed to _personalizeLayout_ function call:
+* To enable AB testing and component level personalization support in JSS:
+    * Ensure `componentVariantIds` are passed to `personalizeLayout` function call in `/lib/page-props-factory/plugins/personalize.ts`:
 
-  ```ts
-  // Get variant(s) for personalization (from path)
-  const personalizeData = getPersonalizedRewriteData(path);
+    ```ts
+    // Get variant(s) for personalization (from path)
+    const personalizeData = getPersonalizedRewriteData(path);
 
-  // Modify layoutData to use specific variant(s) instead of default
-  // This will also set the variantId on the Sitecore context so that it is accessible here
-  personalizeLayout(
-    props.layoutData,
-    personalizeData.variantId,
-    personalizeData.componentVariantIds
-  );
-  ```
+    // Modify layoutData to use specific variant(s) instead of default
+    // This will also set the variantId on the Sitecore context so that it is accessible here
+    personalizeLayout(
+        props.layoutData,
+        personalizeData.variantId,
+        personalizeData.componentVariantIds
+    );
+    ```
+
+    * For preview mode, prepare and pass `componentVariantIds` into `personalizeLayout` in `/lib/page-props-factory/plugins/preview-mode.ts`:
+
+    ```ts
+    import {
+        SiteInfo,
+        personalizeLayout,
+        getGroomedVariantIds,
+    } from '@sitecore-jss/sitecore-jss-nextjs';
+    ```
+    ```ts
+    props.headLinks = [];
+    const personalizeData = getGroomedVariantIds(variantIds);
+    personalizeLayout(
+        props.layoutData,
+        personalizeData.variantId,
+        personalizeData.componentVariantIds
+    );
+    ```
+

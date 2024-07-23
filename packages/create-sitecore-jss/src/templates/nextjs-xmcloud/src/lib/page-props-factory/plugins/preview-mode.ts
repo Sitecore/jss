@@ -1,5 +1,9 @@
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
-import { SiteInfo, personalizeLayout } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  SiteInfo,
+  personalizeLayout,
+  getGroomedVariantIds,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import {
   editingDataService,
   isEditingMetadataPreviewData,
@@ -16,7 +20,7 @@ class PreviewModePlugin implements Plugin {
 
     // If we're in Pages preview (editing) Metadata Edit Mode, prefetch the editing data
     if (isEditingMetadataPreviewData(context.previewData)) {
-      const { site, itemId, language, version, variantId } = context.previewData;
+      const { site, itemId, language, version, variantIds } = context.previewData;
 
       const data = await graphQLEditingService.fetchEditingData({
         siteName: site,
@@ -36,8 +40,12 @@ class PreviewModePlugin implements Plugin {
       props.layoutData = data.layoutData;
       props.dictionary = data.dictionary;
       props.headLinks = [];
-
-      personalizeLayout(props.layoutData, variantId);
+      const personalizeData = getGroomedVariantIds(variantIds);
+      personalizeLayout(
+        props.layoutData,
+        personalizeData.variantId,
+        personalizeData.componentVariantIds
+      );
 
       return props;
     }

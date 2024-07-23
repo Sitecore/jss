@@ -292,7 +292,7 @@ export type EditingMetadataPreviewData = {
   language: string;
   editMode: EditMode.Metadata;
   pageState: Exclude<LayoutServicePageState, 'Normal'>;
-  variantId: string;
+  variantIds: string[];
   version?: string;
 };
 
@@ -350,8 +350,8 @@ export class MetadataHandler {
         site: query.sc_site,
         itemId: query.sc_itemid,
         language: query.sc_lang,
-        // sc_variant is an array in the query params, but we only need the first value
-        variantId: query.sc_variant?.split(',')[0] || DEFAULT_VARIANT,
+        // for sc_variantId we may employ multiple variants (page-layout + component level)
+        variantIds: query.sc_variant?.split(',') || [DEFAULT_VARIANT],
         version: query.sc_version,
         editMode: EditMode.Metadata,
         pageState: query.mode,
