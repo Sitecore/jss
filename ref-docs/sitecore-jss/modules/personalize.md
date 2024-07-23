@@ -21,6 +21,7 @@
 
 ### Functions
 
+- [getGroomedVariantIds](personalize.md#getgroomedvariantids)
 - [getPersonalizedRewrite](personalize.md#getpersonalizedrewrite)
 - [getPersonalizedRewriteData](personalize.md#getpersonalizedrewritedata)
 - [normalizePersonalizedRewrite](personalize.md#normalizepersonalizedrewrite)
@@ -34,7 +35,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:7](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L7)
+[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:7](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L7)
 
 ___
 
@@ -53,7 +54,7 @@ Object model of personlize info
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:30](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L30)
+[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:30](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L30)
 
 ___
 
@@ -70,7 +71,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:4](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/utils.ts#L4)
+[packages/sitecore-jss/src/personalize/utils.ts:4](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss/src/personalize/utils.ts#L4)
 
 ## Variables
 
@@ -80,9 +81,33 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:1](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/utils.ts#L1)
+[packages/sitecore-jss/src/personalize/utils.ts:1](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss/src/personalize/utils.ts#L1)
 
 ## Functions
+
+### getGroomedVariantIds
+
+▸ **getGroomedVariantIds**(`variantIds`): [`PersonalizedRewriteData`](personalize.md#personalizedrewritedata)
+
+Parses a list of variantIds and divides into layout and component variants
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `variantIds` | `string`[] | the list of variant IDs for a page |
+
+#### Returns
+
+[`PersonalizedRewriteData`](personalize.md#personalizedrewritedata)
+
+object with variant IDs sorted
+
+#### Defined in
+
+[packages/sitecore-jss/src/personalize/utils.ts:43](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss/src/personalize/utils.ts#L43)
+
+___
 
 ### getPersonalizedRewrite
 
@@ -105,7 +130,7 @@ the rewrite path
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:15](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/utils.ts#L15)
+[packages/sitecore-jss/src/personalize/utils.ts:15](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss/src/personalize/utils.ts#L15)
 
 ___
 
@@ -129,7 +154,7 @@ the personalize data from the rewrite
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:25](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/utils.ts#L25)
+[packages/sitecore-jss/src/personalize/utils.ts:25](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss/src/personalize/utils.ts#L25)
 
 ___
 
@@ -153,7 +178,7 @@ the pathname with personalize data removed
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:69](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/utils.ts#L69)
+[packages/sitecore-jss/src/personalize/utils.ts:69](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss/src/personalize/utils.ts#L69)
 
 ___
 
@@ -177,4 +202,4 @@ Apply personalization to layout data. This will recursively go through all place
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/layout-personalizer.ts:18](https://github.com/Sitecore/jss/blob/be2b1de0d/packages/sitecore-jss/src/personalize/layout-personalizer.ts#L18)
+[packages/sitecore-jss/src/personalize/layout-personalizer.ts:18](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss/src/personalize/layout-personalizer.ts#L18)
