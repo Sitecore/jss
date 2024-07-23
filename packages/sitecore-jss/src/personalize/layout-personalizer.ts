@@ -76,7 +76,7 @@ export function personalizeComponent(
   component: ComponentRenderingWithExperiences,
   variantIds: string[]
 ): ComponentRendering | null {
-  // Check if we have an page/component experience matching any of the variants (there should be at most 1)
+  // Check if we have a page/component experience matching any of the variants (there should be at most 1)
   const match = Object.keys(component.experiences).find((variantId) =>
     variantIds.includes(variantId)
   );
