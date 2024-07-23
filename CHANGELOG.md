@@ -13,6 +13,18 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+### 🎉 New Features & Improvements
+
+### 🛠 Breaking Change
+
+* `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))
+
+### 🧹 Chores
+
+## 22.1.0
+
+### 🐛 Bug Fixes
+
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Changed formatting in temp/config to prevent parse issues in Unix systems ([#1787](https://github.com/Sitecore/jss/pull/1787))([#1791](https://github.com/Sitecore/jss/pull/1791))
 * `[templates/nextjs-sxa]` The banner variant of image component is fixed with supporting metadata mode. ([#1826](https://github.com/Sitecore/jss/pull/1826))
 * `[sitecore-jss]` `[sitecore-jss-react]` DateField empty value is not treated as empty ([#1836](https://github.com/Sitecore/jss/pull/1836))
