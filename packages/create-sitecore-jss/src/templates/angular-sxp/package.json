@@ -4,8 +4,5 @@
     "start:proxy": "ts-node --project src/tsconfig.webpack-server.json scripts/disconnected-mode-proxy.ts",
     "lint:yml": "ts-node ./scripts/lint-yml.ts",
     "lint": "ng lint <%- appName %> --fix && npm run lint:yml"
-  },
-  "devDependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "~22.1.0-canary"
   }
 }

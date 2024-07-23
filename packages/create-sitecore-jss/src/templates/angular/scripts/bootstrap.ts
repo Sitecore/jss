@@ -1,5 +1,4 @@
 import 'dotenv/config';
-import { generateConfig } from './generate-config';
 
 /*
   BOOTSTRAPPING
@@ -9,22 +8,14 @@ import { generateConfig } from './generate-config';
 */
 
 /*
-  CONFIG GENERATION
-  Generates the /src/environments/environment.js file which contains runtime configuration
-  that the app can import and use.
-
-  This is generated rather than using Angular environments because of the need to set config params
-  based on build arguments, which env files don't directly allow.
+   PLUGINS GENERATION
 */
-function writeConfig(
-  configOverride: { production: boolean; sitecoreApiHost?: string },
-  outputPath?: string
-) {
-  generateConfig(configOverride, outputPath);
-}
+require('./generate-plugins');
 
-writeConfig({ production: false });
-writeConfig({ production: true }, 'src/environments/environment.prod.js');
+/*
+  CONFIG GENERATION
+*/
+require('./generate-config');
 
 /*
   COMPONENT FACTORY GENERATION

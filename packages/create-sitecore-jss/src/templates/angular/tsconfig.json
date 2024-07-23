@@ -24,8 +24,14 @@
     "lib": ["es2018", "dom", "esnext.asynciterable"],
     "paths": {
       "@angular/*": ["../node_modules/@angular/*"],
-      "rxjs": ["node_modules/rxjs", "../node_modules/rxjs"]
+      "rxjs": ["node_modules/rxjs", "../node_modules/rxjs"],
+      "lib/*": ["src/lib/*"],
+      "temp/*": ["src/temp/*"]
     },
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "esModuleInterop": true
+  },
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
   }
 }
