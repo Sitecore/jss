@@ -4,6 +4,8 @@ import {
   GraphQLPersonalizeServiceConfig,
   getPersonalizedRewrite,
   PersonalizeInfo,
+  CdpHelper,
+  DEFAULT_VARIANT,
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
@@ -42,6 +44,10 @@ export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
    * Configuration for your Sitecore CDP endpoint
    */
   cdpConfig: CdpServiceConfig;
+  /**
+   * Optional Sitecore Personalize scope identifier allowing you to isolate your personalization data between XM Cloud environments
+   */
+  scope?: string;
 };
 
 /**
@@ -56,6 +62,14 @@ export type ExperienceParams = {
     medium: string | undefined;
     content: string | undefined;
   };
+};
+
+/**
+ * Object model of personalize execution data
+ */
+type PersonalizeExecution = {
+  friendlyId: string;
+  variantIds: string[];
 };
 
 /**
@@ -117,26 +131,33 @@ export class PersonalizeMiddleware extends MiddlewareBase {
   protected async personalize(
     {
       params,
-      personalizeInfo,
+      friendlyId,
       language,
       timeout,
+      variantIds,
     }: {
-      personalizeInfo: PersonalizeInfo;
       params: ExperienceParams;
+      friendlyId: string;
       language: string;
       timeout?: number;
+      variantIds?: string[];
     },
     request: NextRequest
   ) {
-    const personalizationData = {
-      channel: this.config.cdpConfig.channel || 'WEB',
-      currency: this.config.cdpConfig.currency ?? 'USD',
-      friendlyId: personalizeInfo.contentId,
-      params,
-      language,
-    };
+    debug.personalize('executing experience for %s %o', friendlyId, params);
 
-    return (await personalize(request, personalizationData, { timeout })) as {
+    return (await personalize(
+      request,
+      {
+        channel: this.config.cdpConfig.channel || 'WEB',
+        currency: this.config.cdpConfig.currency ?? 'USD',
+        friendlyId,
+        params,
+        language,
+        pageVariantIds: variantIds,
+      },
+      { timeout }
+    )) as {
       variantId: string;
     };
   }
@@ -161,6 +182,62 @@ export class PersonalizeMiddleware extends MiddlewareBase {
   protected excludeRoute(pathname: string): boolean | undefined {
     // ignore files
     return pathname.includes('.') || super.excludeRoute(pathname);
+  }
+
+  /**
+   * Aggregates personalize executions based on the provided route personalize information and language
+   * @param {PersonalizeInfo} personalizeInfo the route personalize information
+   * @param {string} language the language
+   * @returns An array of personalize executions
+   */
+  protected getPersonalizeExecutions(
+    personalizeInfo: PersonalizeInfo,
+    language: string
+  ): PersonalizeExecution[] {
+    if (personalizeInfo.variantIds.length === 0) {
+      return [];
+    }
+    const results: PersonalizeExecution[] = [];
+    return personalizeInfo.variantIds.reduce((results, variantId) => {
+      if (variantId.includes('_')) {
+        // Component-level personalization in format "<ComponentID>_<VariantID>"
+        const componentId = variantId.split('_')[0];
+        const friendlyId = CdpHelper.getComponentFriendlyId(
+          personalizeInfo.pageId,
+          componentId,
+          language,
+          this.config.scope || this.config.edgeConfig.scope
+        );
+        const execution = results.find((x) => x.friendlyId === friendlyId);
+        if (execution) {
+          execution.variantIds.push(variantId);
+        } else {
+          // The default/control variant (format "<ComponentID>_default") is also a valid value returned by the execution
+          const defaultVariant = `${componentId}${DEFAULT_VARIANT}`;
+          results.push({
+            friendlyId,
+            variantIds: [defaultVariant, variantId],
+          });
+        }
+      } else {
+        // Embedded (page-level) personalization in format "<VariantID>"
+        const friendlyId = CdpHelper.getPageFriendlyId(
+          personalizeInfo.pageId,
+          language,
+          this.config.scope || this.config.edgeConfig.scope
+        );
+        const execution = results.find((x) => x.friendlyId === friendlyId);
+        if (execution) {
+          execution.variantIds.push(variantId);
+        } else {
+          results.push({
+            friendlyId,
+            variantIds: [variantId],
+          });
+        }
+      }
+      return results;
+    }, results);
   }
 
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
@@ -216,6 +293,16 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       return response;
     }
 
+    if (this.isPrefetch(req)) {
+      debug.personalize('skipped (prefetch)');
+      // Personalized, but this is a prefetch request.
+      // In this case, don't execute a personalize request; otherwise, the metrics for component A/B experiments would be inaccurate.
+      // Disable preflight caching to force revalidation on client-side navigation (personalization WILL be influenced).
+      // Note the reason we don't move this any earlier in the middleware is that we would then be sacrificing performance for non-personalized pages.
+      response.headers.set('x-middleware-cache', 'no-cache');
+      return response;
+    }
+
     await this.initPersonalizeServer({
       hostname,
       siteName: site.name,
@@ -224,30 +311,35 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     });
 
     const params = this.getExperienceParams(req);
+    const executions = this.getPersonalizeExecutions(personalizeInfo, language);
+    const identifiedVariantIds: string[] = [];
 
-    debug.personalize('executing experience for %s %o', personalizeInfo.contentId, params);
+    await Promise.all(
+      executions.map((execution) =>
+        this.personalize(
+          {
+            friendlyId: execution.friendlyId,
+            variantIds: execution.variantIds,
+            params,
+            language,
+            timeout,
+          },
+          req
+        ).then((personalization) => {
+          const variantId = personalization.variantId;
+          if (variantId) {
+            if (!execution.variantIds.includes(variantId)) {
+              debug.personalize('invalid variant %s', variantId);
+            } else {
+              identifiedVariantIds.push(variantId);
+            }
+          }
+        })
+      )
+    );
 
-    let variantId;
-
-    // Execute targeted experience in Personalize SDK
-    // eslint-disable-next-line no-useless-catch
-    try {
-      const personalization = await this.personalize(
-        { personalizeInfo, params, language, timeout },
-        req
-      );
-      variantId = personalization.variantId;
-    } catch (error) {
-      throw error;
-    }
-
-    if (!variantId) {
-      debug.personalize('skipped (no variant identified)');
-      return response;
-    }
-
-    if (!personalizeInfo.variantIds.includes(variantId)) {
-      debug.personalize('skipped (invalid variant)');
+    if (identifiedVariantIds.length === 0) {
+      debug.personalize('skipped (no variant(s) identified)');
       return response;
     }
 
@@ -255,11 +347,11 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     const basePath = res?.headers.get('x-sc-rewrite') || pathname;
 
     // Rewrite to persononalized path
-    const rewritePath = getPersonalizedRewrite(basePath, { variantId });
+    const rewritePath = getPersonalizedRewrite(basePath, identifiedVariantIds);
     response = this.rewrite(rewritePath, req, response);
 
-    // Disable preflight caching to force revalidation on client-side navigation (personalization may be influenced)
-    // See https://github.com/vercel/next.js/issues/32727
+    // Disable preflight caching to force revalidation on client-side navigation (personalization MAY be influenced).
+    // See https://github.com/vercel/next.js/pull/32767
     response.headers.set('x-middleware-cache', 'no-cache');
 
     debug.personalize('personalize middleware end in %dms: %o', Date.now() - startTimestamp, {
