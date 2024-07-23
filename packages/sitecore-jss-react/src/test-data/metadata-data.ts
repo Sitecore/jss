@@ -63,6 +63,26 @@ export const layoutDataWithUnknownComponent = {
   },
 };
 
+export const layoutDataWithNullComponent = {
+  sitecore: {
+    context: {
+      pageEditing: true,
+      editMode: EditMode.Metadata,
+    },
+    route: {
+      name: 'main',
+      placeholders: {
+        main: [
+          {
+            uid: '123',
+            componentName: null,
+          },
+        ],
+      },
+    },
+  },
+};
+
 export const layoutDataForNestedDynamicPlaceholder = (rootPhKey: string) => ({
   sitecore: {
     context: {

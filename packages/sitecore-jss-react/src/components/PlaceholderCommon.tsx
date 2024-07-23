@@ -247,7 +247,11 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           component = hiddenRenderingComponent ?? HiddenRendering;
           isEmpty = true;
         } else if (!componentRendering.componentName) {
-          component = () => <></>;
+          if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
+            component = hiddenRenderingComponent ?? HiddenRendering;
+          } else {
+            component = () => <></>;
+          }
           isEmpty = true;
         } else {
           component = this.getComponentForRendering(componentRendering);

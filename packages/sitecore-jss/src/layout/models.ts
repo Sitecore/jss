@@ -94,7 +94,7 @@ export interface ComponentParams {
  * Definition of a component instance within a placeholder on a route
  */
 export interface ComponentRendering {
-  componentName: string;
+  componentName: string | null;
   dataSource?: string;
   uid?: string;
   placeholders?: PlaceholdersData;
