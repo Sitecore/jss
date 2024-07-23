@@ -20,8 +20,6 @@ const defaultConfig: JssConfig = {
   defaultLanguage: process.env[`${constantCase('defaultLanguage')}`],
   graphQLEndpoint: process.env[`${constantCase('graphQLEndpoint')}`],
   graphQLEndpointPath: process.env[`${constantCase('graphQLEndpointPath')}`],
-  layoutServiceConfigurationName: process.env[`${constantCase('layoutServiceConfigurationName')}`],
-  sitecoreLayoutServiceConfig: 'jss',
   defaultServerRoute: '/',
 };
 

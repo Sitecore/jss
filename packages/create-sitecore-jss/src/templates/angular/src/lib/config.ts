@@ -10,6 +10,5 @@ export interface JssConfig extends Record<string, string | boolean | undefined> 
   graphQLEndpoint?: string;
   graphQLEndpointPath?: string;
   layoutServiceConfigurationName?: string;
-  sitecoreLayoutServiceConfig?: string;
   defaultServerRoute?: string;
 }
