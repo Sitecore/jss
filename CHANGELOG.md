@@ -13,14 +13,23 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+### 🎉 New Features & Improvements
+
+### 🛠 Breaking Change
+
+* `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))
+
+### 🧹 Chores
+
+## 22.1.0
+
+### 🐛 Bug Fixes
+
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Changed formatting in temp/config to prevent parse issues in Unix systems ([#1787](https://github.com/Sitecore/jss/pull/1787))([#1791](https://github.com/Sitecore/jss/pull/1791))
 * `[templates/nextjs-sxa]` The banner variant of image component is fixed with supporting metadata mode. ([#1826](https://github.com/Sitecore/jss/pull/1826))
 * `[sitecore-jss]` `[sitecore-jss-react]` DateField empty value is not treated as empty ([#1836](https://github.com/Sitecore/jss/pull/1836))
 
 ### 🎉 New Features & Improvements
-
-* `[create-sitecore-jss]``[angular]``[sitecore-jss-angular]` Introduce support for XM Cloud for Angular apps
-  * `[create-sitecore-jss]` Rework Angular initializer ([#1845](https://github.com/Sitecore/jss/pull/1845))
 
 * `[sitecore-jss-react]` Introduce ErrorBoundary component. All rendered components are wrapped with it and it will catch client or server side errors from any of its children, display appropriate message and prevent the rest of the application from failing. It accepts and can display custom error component and loading message if it is passed as a prop to parent Placeholder. ([#1786](https://github.com/Sitecore/jss/pull/1786))([#1790](https://github.com/Sitecore/jss/pull/1790))([#1793](https://github.com/Sitecore/jss/pull/1793))([#1794](https://github.com/Sitecore/jss/pull/1794))([#1799](https://github.com/Sitecore/jss/pull/1799))([#1807](https://github.com/Sitecore/jss/pull/1807))([#1829](https://github.com/Sitecore/jss/pull/1829))
 * `[sitecore-jss-nextjs]` Enforce CORS policy that matches Sitecore Pages domains for editing middleware API endpoints ([#1798](https://github.com/Sitecore/jss/pull/1798)[#1801](https://github.com/Sitecore/jss/pull/1801))
