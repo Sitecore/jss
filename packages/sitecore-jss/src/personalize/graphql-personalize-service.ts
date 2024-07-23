@@ -10,7 +10,7 @@ export type GraphQLPersonalizeServiceConfig = CacheOptions & {
   timeout?: number;
   /**
    * Optional Sitecore Personalize scope identifier allowing you to isolate your personalization data between XM Cloud environments
-   * @deprecated Use 'scope' on 'PersonalizeMiddlewareConfig' instead. Will be removed in a future release.
+   * @deprecated Will be removed in a future release.
    */
   scope?: string;
   /**

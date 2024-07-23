@@ -5,6 +5,7 @@ import {
   getPersonalizedRewrite,
   PersonalizeInfo,
   CdpHelper,
+  DEFAULT_VARIANT,
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
@@ -212,7 +213,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
           execution.variantIds.push(variantId);
         } else {
           // The default/control variant (format "<ComponentID>_default") is also a valid value returned by the execution
-          const defaultVariant = `${componentId}_default`;
+          const defaultVariant = `${componentId}${DEFAULT_VARIANT}`;
           results.push({
             friendlyId,
             variantIds: [defaultVariant, variantId],
@@ -297,6 +298,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       // Personalized, but this is a prefetch request.
       // In this case, don't execute a personalize request; otherwise, the metrics for component A/B experiments would be inaccurate.
       // Disable preflight caching to force revalidation on client-side navigation (personalization WILL be influenced).
+      // Note the reason we don't move this any earlier in the middleware is that we would then be sacrificing performance for non-personalized pages.
       response.headers.set('x-middleware-cache', 'no-cache');
       return response;
     }

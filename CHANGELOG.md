@@ -14,6 +14,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Changed formatting in temp/config to prevent parse issues in Unix systems ([#1787](https://github.com/Sitecore/jss/pull/1787))([#1791](https://github.com/Sitecore/jss/pull/1791))
+* `[sitecore-jss]` `GraphQLRequestClientFactory` type is updated and `config` parameter is now optional. Since it should match `GraphQLRequestClient.createClientFactory` method return type ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[templates/nextjs-sxa]` The banner variant of image component is fixed with supporting metadata mode. ([#1826](https://github.com/Sitecore/jss/pull/1826))
 * `[sitecore-jss]` `[sitecore-jss-react]` DateField empty value is not treated as empty ([#1836](https://github.com/Sitecore/jss/pull/1836))
 * `[templates/nextjs-sxa]` Fix styles of title component in metadata mode. ([#1839](https://github.com/Sitecore/jss/pull/1839))
@@ -52,11 +53,7 @@ Our versioning strategy is as follows:
   * Updated Angular and core dependencies to ~17.3.11
   * Updated Typescript to ~5.2.2
   * Updated import statements from zone.js/dist/zone-node to zone.js
-
-### 🐛 Bug Fixes
-
-* `[sitecore-jss]` `GraphQLRequestClientFactory` type is updated and `config` parameter is now optional. Since it should match `GraphQLRequestClient.createClientFactory` method return type ([#1806](https://github.com/Sitecore/jss/pull/1806))
-
+* `[sitecore-jss/personalize]` `[sitecore-jss-nextjs]` `CdpHelper.getPersonalizedRewrite` signature changed to accept `variantIds: string[]` as second parameter. `CdpHelper.getContentId` was renamed to `CdpHelper.getPageFriendlyId`. ([#1848](https://github.com/Sitecore/jss/pull/1848))
 
 ### 🧹 Chores
 

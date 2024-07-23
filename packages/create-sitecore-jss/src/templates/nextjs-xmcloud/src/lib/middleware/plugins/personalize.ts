@@ -7,12 +7,12 @@ import { siteResolver } from 'lib/site-resolver';
 
 /**
  * This is the personalize middleware plugin for Next.js.
- * It is used to enable Sitecore personalization of pages in Next.js.
+ * It is used to enable Sitecore personalization and A/B testing of pages in Next.js.
  *
  * The `PersonalizeMiddleware` will
- *  1. Make a call to the Sitecore Experience Edge to get the personalization information about the page.
- *  2. Based on the response, make a call to the Sitecore CDP (with request/user context) to determine the page variant.
- *  3. Rewrite the response to the specific page variant.
+ *  1. Call Sitecore Experience Edge to get the personalization information about the page.
+ *  2. Based on the response, call Sitecore Personalize (with request/user context) to determine the page / component variant(s).
+ *  3. Rewrite the response to the specific page / component variant(s).
  */
 class PersonalizePlugin implements MiddlewarePlugin {
   private personalizeMiddleware: PersonalizeMiddleware;

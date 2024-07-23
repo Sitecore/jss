@@ -110,7 +110,7 @@ export class CdpHelper {
    * @param {string} pageId the page id
    * @param {string} language the language
    * @param {string} [scope] the scope value
-   * @returns {string} the content id
+   * @returns {string} the friendly id
    */
   static getPageFriendlyId(pageId: string, language: string, scope?: string): string {
     const formattedPageId = pageId.replace(/[{}-]/g, '');
