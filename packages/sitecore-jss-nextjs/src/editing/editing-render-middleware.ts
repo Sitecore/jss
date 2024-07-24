@@ -363,6 +363,11 @@ export class MetadataHandler {
       }
     );
 
+    // Cookies with the SameSite=Lax policy set by Next.js setPreviewData function causes CORS issue
+    // when Next.js preview mode is activated, resulting the page to render in normal mode instead.
+    // By replacing it with "SameSite=None; Secure", we ensure cookies are correctly sent with
+    // cross-origin requests, allowing the page to be editable. This change should be reverted
+    // once vercel addresses this open issue: https://github.com/vercel/next.js/issues/49927
     const setCookieHeader = res.getHeader('Set-Cookie');
 
     if (setCookieHeader && Array.isArray(setCookieHeader)) {
