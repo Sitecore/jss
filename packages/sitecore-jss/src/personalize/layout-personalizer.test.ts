@@ -16,6 +16,7 @@ import {
   mountain_bike_audience,
   city_bike_audience,
 } from '../test-data/personalizeData';
+import { HIDDEN_RENDERING_NAME } from '../constants';
 
 const { personalizeLayout, personalizePlaceholder, personalizeComponent } = personalize;
 
@@ -347,6 +348,19 @@ describe('layout-personalizer', () => {
           [variant]
         );
         expect(personalizedComponentResult).to.equal(null);
+      });
+
+      it('should return HIDDEN_RENDERING variant in metadata edit mode when variantVariant is hidden', () => {
+        const variant = 'mountain_bike_audience';
+        const personalizedComponentResult = personalizeComponent(
+          (variantIsHidden as unknown) as ComponentRenderingWithExperiences,
+          [variant],
+          true
+        );
+        expect(personalizedComponentResult).to.deep.equal({
+          ...variantIsHidden.experiences.mountain_bike_audience,
+          componentName: HIDDEN_RENDERING_NAME,
+        });
       });
 
       it('should return null when variantVariant and componentName is undefined', () => {

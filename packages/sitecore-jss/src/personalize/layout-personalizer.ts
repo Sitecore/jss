@@ -1,8 +1,10 @@
+import { HIDDEN_RENDERING_NAME } from '../constants';
 import {
   LayoutServiceData,
   ComponentRendering,
   HtmlElementRendering,
   PlaceholdersData,
+  EditMode,
 } from './../layout/models';
 
 export type ComponentRenderingWithExperiences = ComponentRendering & {
@@ -26,12 +28,15 @@ export function personalizeLayout(
   if (Object.keys(placeholders ?? {}).length === 0) {
     return;
   }
+  const metadataEditing =
+    layout.sitecore.context.pageEditing && layout.sitecore.context.editMode === EditMode.Metadata;
   if (placeholders) {
     Object.keys(placeholders).forEach((placeholder) => {
-      placeholders[placeholder] = personalizePlaceholder(placeholders[placeholder], [
-        variantId,
-        ...(componentVariantIds || []),
-      ]);
+      placeholders[placeholder] = personalizePlaceholder(
+        placeholders[placeholder],
+        [variantId, ...(componentVariantIds || [])],
+        metadataEditing
+      );
     });
   }
   return placeholders;
@@ -40,25 +45,33 @@ export function personalizeLayout(
 /**
  * @param {Array} components components within placeholder
  * @param {string[]} variantIds variant ids
+ * @param {boolean} metadataEditing indicates if page is rendered in metadata edit mode
  * @returns {Array<ComponentRendering | HtmlElementRendering>} components with personalization applied
  */
 export function personalizePlaceholder(
   components: Array<ComponentRendering | HtmlElementRendering>,
-  variantIds: string[]
+  variantIds: string[],
+  metadataEditing?: boolean
 ): Array<ComponentRendering | HtmlElementRendering> {
   return components
     .map((component) => {
       const rendering = component as ComponentRendering;
 
       if ((rendering as ComponentRenderingWithExperiences).experiences !== undefined) {
-        return personalizeComponent(rendering as ComponentRenderingWithExperiences, variantIds) as
-          | ComponentRendering
-          | HtmlElementRendering;
+        return personalizeComponent(
+          rendering as ComponentRenderingWithExperiences,
+          variantIds,
+          metadataEditing
+        ) as ComponentRendering | HtmlElementRendering;
       } else if (rendering.placeholders) {
         const placeholders = rendering.placeholders as PlaceholdersData;
 
         Object.keys(placeholders).forEach((placeholder) => {
-          placeholders[placeholder] = personalizePlaceholder(placeholders[placeholder], variantIds);
+          placeholders[placeholder] = personalizePlaceholder(
+            placeholders[placeholder],
+            variantIds,
+            metadataEditing
+          );
         });
       }
 
@@ -70,11 +83,13 @@ export function personalizePlaceholder(
 /**
  * @param {ComponentRenderingWithExperiences} component component with experiences
  * @param {string[]} variantIds variant ids
+ * @param {boolean} metadataEditing indicates if page is rendered in metadata edit mode
  * @returns {ComponentRendering | null} component with personalization applied or null if hidden
  */
 export function personalizeComponent(
   component: ComponentRenderingWithExperiences,
-  variantIds: string[]
+  variantIds: string[],
+  metadataEditing?: boolean
 ): ComponentRendering | null {
   // Check if we have a page/component experience matching any of the variants (there should be at most 1)
   const match = Object.keys(component.experiences).find((variantId) =>
@@ -86,7 +101,14 @@ export function personalizeComponent(
     return null;
   } else if (variant && variant.componentName === null && variant.dataSource === null) {
     // VARIANT IS HIDDEN
-    return null;
+    if (metadataEditing) {
+      component = {
+        ...variant,
+        componentName: HIDDEN_RENDERING_NAME,
+      };
+    } else {
+      return null;
+    }
   } else if (variant) {
     component = variant;
   }
