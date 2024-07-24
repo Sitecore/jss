@@ -11,7 +11,7 @@ import {
   EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
 import { convertAttributesToReactProps } from '../utils';
-import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
+import { HiddenRendering } from './HiddenRendering';
 import { FEaaSComponent, FEAAS_COMPONENT_RENDERING_NAME } from './FEaaSComponent';
 import { FEaaSWrapper, FEAAS_WRAPPER_RENDERING_NAME } from './FEaaSWrapper';
 import { BYOCComponent, BYOC_COMPONENT_RENDERING_NAME } from './BYOCComponent';
@@ -247,11 +247,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           component = hiddenRenderingComponent ?? HiddenRendering;
           isEmpty = true;
         } else if (!componentRendering.componentName) {
-          if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
-            component = hiddenRenderingComponent ?? HiddenRendering;
-          } else {
-            component = () => <></>;
-          }
+          component = () => <></>;
           isEmpty = true;
         } else {
           component = this.getComponentForRendering(componentRendering);

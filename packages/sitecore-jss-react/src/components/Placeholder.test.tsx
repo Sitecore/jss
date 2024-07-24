@@ -795,7 +795,6 @@ describe('PlaceholderMetadata', () => {
     layoutDataForNestedDynamicPlaceholder,
     layoutDataWithEmptyPlaceholder,
     layoutDataWithUnknownComponent,
-    layoutDataWithNullComponent,
   } = metadataData;
 
   const componentFactory: ComponentFactory = (componentName: string) => {
@@ -810,37 +809,6 @@ describe('PlaceholderMetadata', () => {
 
     return components.get(componentName) || null;
   };
-
-  it('should render HiddenRendering when rendering is hidden', () => {
-    const renderedComponent = mount(
-      <SitecoreContext componentFactory={componentFactory} layoutData={layoutDataWithNullComponent}>
-        <Placeholder name="main" rendering={layoutDataWithNullComponent.sitecore.route} />
-      </SitecoreContext>
-    );
-    expect(renderedComponent.find(HiddenRendering).length).to.equal(1);
-  });
-
-  it('should render custom HiddenRendering when rendering is hidden in metadata mode', () => {
-    const CustomHiddenRendering: React.FC<any> = (props) => (
-      <div className="hidden-rendering">
-        <HiddenRendering />
-        <p>Hidden Rendering</p>
-      </div>
-    );
-
-    const renderedComponent = mount(
-      <SitecoreContext componentFactory={componentFactory} layoutData={layoutDataWithNullComponent}>
-        <Placeholder
-          name="main"
-          rendering={layoutDataWithNullComponent.sitecore.route}
-          hiddenRenderingComponent={CustomHiddenRendering}
-        />
-      </SitecoreContext>
-    );
-    expect(renderedComponent.find('.hidden-rendering').length).to.equal(1);
-    expect(renderedComponent.find(HiddenRendering).length).to.equal(1);
-    expect(renderedComponent.find('p').props().children).to.equal('Hidden Rendering');
-  });
 
   it('should render <PlaceholderMetadata> with nested placeholder components', () => {
     const wrapper = mount(
