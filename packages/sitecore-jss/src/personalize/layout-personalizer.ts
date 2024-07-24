@@ -101,7 +101,9 @@ export function personalizeComponent(
     variantIds.includes(variantId)
   );
   const variant = match && component.experiences[match];
-  if (variant === undefined && component.componentName === undefined) {
+
+  // variant and componentName can be undefined or null
+  if (!variant && !component.componentName) {
     // DEFAULT IS HIDDEN
     if (metadataEditing) {
       component = hiddenRenderingVariant;
