@@ -103,9 +103,6 @@ export default {
         name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute',
         possibleTypes: [
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>ExampleCustomRouteType',
-          },
-          {
             name: 'C__<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute',
           },
         ],
