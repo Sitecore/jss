@@ -39,7 +39,7 @@ import {
   PLACEHOLDER_HIDDEN_RENDERING_COMPONENT,
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
 } from '../services/placeholder.token';
-import { HIDDEN_RENDERING_NAME } from './hidden-rendering.component';
+import { constants } from '@sitecore-jss/sitecore-jss';
 import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
 import { RenderEachDirective } from './render-each.directive';
 import { RenderEmptyDirective } from './render-empty.directive';
@@ -286,7 +286,8 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
   private _renderEmbeddedComponent(rendering: ComponentFactoryResult, data: Data, index: number) {
     if (
-      (rendering.componentDefinition as ComponentRendering).componentName === HIDDEN_RENDERING_NAME
+      (rendering.componentDefinition as ComponentRendering).componentName ===
+      constants.HIDDEN_RENDERING_NAME
     ) {
       rendering.componentImplementation = this.hiddenRenderingComponent;
     }
