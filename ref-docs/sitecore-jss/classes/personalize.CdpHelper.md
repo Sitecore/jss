@@ -14,7 +14,8 @@ Static utility class for Sitecore CDP
 
 ### Methods
 
-- [getContentId](personalize.CdpHelper.md#getcontentid)
+- [getComponentFriendlyId](personalize.CdpHelper.md#getcomponentfriendlyid)
+- [getPageFriendlyId](personalize.CdpHelper.md#getpagefriendlyid)
 - [getPageVariantId](personalize.CdpHelper.md#getpagevariantid)
 - [normalizeScope](personalize.CdpHelper.md#normalizescope)
 
@@ -26,11 +27,38 @@ Static utility class for Sitecore CDP
 
 ## Methods
 
-### getContentId
+### getComponentFriendlyId
 
-▸ `Static` **getContentId**(`pageId`, `language`, `scope?`): `string`
+▸ `Static` **getComponentFriendlyId**(`pageId`, `componentId`, `language`, `scope?`): `string`
 
-Gets the content id for CDP in the required format `embedded_[<scope>_]<id>_<lang>`
+Gets the friendly id for Component A/B Testing in the required format `component_[<scope>_]<pageId>_<componentId>_<language>*`
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `pageId` | `string` | the page id |
+| `componentId` | `string` | the component id |
+| `language` | `string` | the language |
+| `scope?` | `string` | the scope value |
+
+#### Returns
+
+`string`
+
+the friendly id
+
+#### Defined in
+
+[packages/sitecore-jss/src/personalize/utils.ts:130](https://github.com/Sitecore/jss/blob/2e745958e/packages/sitecore-jss/src/personalize/utils.ts#L130)
+
+___
+
+### getPageFriendlyId
+
+▸ `Static` **getPageFriendlyId**(`pageId`, `language`, `scope?`): `string`
+
+Gets the friendly id for (page-level) Embedded Personalization in the required format `embedded_[<scope>_]<id>_<lang>`
 
 #### Parameters
 
@@ -44,11 +72,11 @@ Gets the content id for CDP in the required format `embedded_[<scope>_]<id>_<lan
 
 `string`
 
-the content id
+the friendly id
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:115](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss/src/personalize/utils.ts#L115)
+[packages/sitecore-jss/src/personalize/utils.ts:115](https://github.com/Sitecore/jss/blob/2e745958e/packages/sitecore-jss/src/personalize/utils.ts#L115)
 
 ___
 
@@ -75,7 +103,7 @@ the formatted page variant id
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:92](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss/src/personalize/utils.ts#L92)
+[packages/sitecore-jss/src/personalize/utils.ts:92](https://github.com/Sitecore/jss/blob/2e745958e/packages/sitecore-jss/src/personalize/utils.ts#L92)
 
 ___
 
@@ -100,4 +128,4 @@ normalized scope value
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:128](https://github.com/Sitecore/jss/blob/ef15fcaf3/packages/sitecore-jss/src/personalize/utils.ts#L128)
+[packages/sitecore-jss/src/personalize/utils.ts:149](https://github.com/Sitecore/jss/blob/2e745958e/packages/sitecore-jss/src/personalize/utils.ts#L149)

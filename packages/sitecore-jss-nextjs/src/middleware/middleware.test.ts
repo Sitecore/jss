@@ -109,6 +109,37 @@ describe('MiddlewareBase', () => {
     });
   });
 
+  describe('isPrefetch', () => {
+    it('should return true when purpose header is prefetch', () => {
+      const middleware = new SampleMiddleware({ siteResolver: new MockSiteResolver([]) });
+      const req = createReq({
+        headerValues: {
+          purpose: 'prefetch',
+        },
+      });
+
+      expect(middleware['isPrefetch'](req)).to.equal(true);
+    });
+
+    it('should return true when Next-Router-Prefetch header is 1', () => {
+      const middleware = new SampleMiddleware({ siteResolver: new MockSiteResolver([]) });
+      const req = createReq({
+        headerValues: {
+          'Next-Router-Prefetch': '1',
+        },
+      });
+
+      expect(middleware['isPrefetch'](req)).to.equal(true);
+    });
+
+    it('should return false when required header is not provided', () => {
+      const middleware = new SampleMiddleware({ siteResolver: new MockSiteResolver([]) });
+      const req = createReq();
+
+      expect(middleware['isPrefetch'](req)).to.equal(false);
+    });
+  });
+
   describe('excludeRoute', () => {
     it('default', () => {
       const middleware = new SampleMiddleware({ siteResolver: new MockSiteResolver([]) });

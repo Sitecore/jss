@@ -14,10 +14,12 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Changed formatting in temp/config to prevent parse issues in Unix systems ([#1787](https://github.com/Sitecore/jss/pull/1787))([#1791](https://github.com/Sitecore/jss/pull/1791))
+* `[sitecore-jss]` `GraphQLRequestClientFactory` type is updated and `config` parameter is now optional. Since it should match `GraphQLRequestClient.createClientFactory` method return type ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[templates/nextjs-sxa]` The banner variant of image component is fixed with supporting metadata mode. ([#1826](https://github.com/Sitecore/jss/pull/1826))
 * `[sitecore-jss]` `[sitecore-jss-react]` DateField empty value is not treated as empty ([#1836](https://github.com/Sitecore/jss/pull/1836))
 * `[templates/nextjs-sxa]` Fix styles of title component in metadata mode. ([#1839](https://github.com/Sitecore/jss/pull/1839))
 * `[templates/nextjs-sxa]` Fix missing value of field property in Title component. ([#1842](https://github.com/Sitecore/jss/pull/1842))
+
 
 ### 🎉 New Features & Improvements
 
@@ -26,14 +28,14 @@ Our versioning strategy is as follows:
 * `[sitecore-jss]` _GraphQLRequestClient_ now can accept custom 'headers' in the constructor or via _createClientFactory_ ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[templates/nextjs]` Removed cors header for API endpoints from _lib/next-config/plugins/cors-header_ plugin since cors is handled by API handlers / middlewares ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[sitecore-jss-nextjs]` Updates to Next.js editing integration to further support secure hosting scenarios (on XM Cloud & Vercel) ([#1832](https://github.com/Sitecore/jss/pull/1832))
-* `[templates/nextjs-xmcloud]` `[sitecore-jss]` AB testing and componente level personalization support. ([#1844](https://github.com/Sitecore/jss/pull/1844))([1847](https://github.com/Sitecore/jss/pull/1847))
+* `[templates/nextjs-xmcloud]` `[sitecore-jss]` A/B testing and component-level personalization support. ([#1844](https://github.com/Sitecore/jss/pull/1844))([#1847](https://github.com/Sitecore/jss/pull/1847))([#1848](https://github.com/Sitecore/jss/pull/1848))
 * `[sitecore-jss]` `[nextjs-xmcloud]` DictionaryService can now use a `site` GraphQL query instead of `search` one to improve performance. This is currently only available for XMCloud deployments and is enabled with `nextjs-xmcloud` add-on by default ([#1804](https://github.com/Sitecore/jss/pull/1804))([#1846](https://github.com/Sitecore/jss/pull/1846))([commit](https://github.com/Sitecore/jss/commit/5813a2df8ad6a9ee63dd74d5f206ed4b4f758753))([commit](https://github.com/Sitecore/jss/commit/d0ea3ac02c78343b5dd60277dbf7403410794a49))([commit](https://github.com/Sitecore/jss/commit/307b905ed60d7fff44b2dc799fd78c0842af6fbd))([commit](https://github.com/Sitecore/jss/commit/66164a42263aac8b55f0c5e47eda4bd4d7a72e87))
-* `[templates/nextjs-sxa]` nextjs-sxa components now use the NextImage component instead of the react Image component from JSS lib for image optimization ([#1843](https://github.com/Sitecore/jss/pull/1843))
+* `[templates/nextjs-sxa]` SXA components now use the NextImage component instead of the Image component from JSS lib for image optimization ([#1843](https://github.com/Sitecore/jss/pull/1843))([#1850](https://github.com/Sitecore/jss/pull/1850))
 
 
 ### 🛠 Breaking Change
 
-* Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792))([#1773](https://github.com/Sitecore/jss/pull/1773))([#1797](https://github.com/Sitecore/jss/pull/1797))([#1800](https://github.com/Sitecore/jss/pull/1800))([#1803](https://github.com/Sitecore/jss/pull/1803))([#1806](https://github.com/Sitecore/jss/pull/1806))([#1809](https://github.com/Sitecore/jss/pull/1809))([#1814](https://github.com/Sitecore/jss/pull/1814))([#1816](https://github.com/Sitecore/jss/pull/1816))([#1819](https://github.com/Sitecore/jss/pull/1819))([#1828](https://github.com/Sitecore/jss/pull/1828))([#1835](https://github.com/Sitecore/jss/pull/1835))([#1853](https://github.com/Sitecore/jss/pull/1853))
+* Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792))([#1773](https://github.com/Sitecore/jss/pull/1773))([#1797](https://github.com/Sitecore/jss/pull/1797))([#1800](https://github.com/Sitecore/jss/pull/1800))([#1803](https://github.com/Sitecore/jss/pull/1803))([#1806](https://github.com/Sitecore/jss/pull/1806))([#1809](https://github.com/Sitecore/jss/pull/1809))([#1814](https://github.com/Sitecore/jss/pull/1814))([#1816](https://github.com/Sitecore/jss/pull/1816))([#1819](https://github.com/Sitecore/jss/pull/1819))([#1828](https://github.com/Sitecore/jss/pull/1828))([#1835](https://github.com/Sitecore/jss/pull/1835))([#1849](https://github.com/Sitecore/jss/pull/1849))([#1853](https://github.com/Sitecore/jss/pull/1853))
   * `[sitecore-jss-react]` Introduces `PlaceholderMetadata` component which supports the hydration of chromes on Pages by rendering  the components and placeholders with required metadata.
   * `[sitecore-jss]` Chromes are hydrated based on the basis of new `editMode` property derived from LayoutData, which is defined as an enum consisting of `metadata` and `chromes`.
   * `ComponentConsumerProps` is removed. You might need to reuse `WithSitecoreContextProps` type.
@@ -53,11 +55,7 @@ Our versioning strategy is as follows:
   * Updated Angular and core dependencies to ~17.3.11
   * Updated Typescript to ~5.2.2
   * Updated import statements from zone.js/dist/zone-node to zone.js
-
-### 🐛 Bug Fixes
-
-* `[sitecore-jss]` `GraphQLRequestClientFactory` type is updated and `config` parameter is now optional. Since it should match `GraphQLRequestClient.createClientFactory` method return type ([#1806](https://github.com/Sitecore/jss/pull/1806))
-
+* `[sitecore-jss/personalize]` `[sitecore-jss-nextjs]` `CdpHelper.getPersonalizedRewrite` signature changed to accept `variantIds: string[]` as second parameter. `CdpHelper.getContentId` was renamed to `CdpHelper.getPageFriendlyId`. ([#1848](https://github.com/Sitecore/jss/pull/1848))
 
 ### 🧹 Chores
 
