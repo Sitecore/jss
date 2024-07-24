@@ -7,6 +7,11 @@ import {
   EditMode,
 } from './../layout/models';
 
+const hiddenRenderingVariant = {
+  componentName: HIDDEN_RENDERING_NAME,
+  experiences: {},
+};
+
 export type ComponentRenderingWithExperiences = ComponentRendering & {
   experiences: { [name: string]: ComponentRenderingWithExperiences };
 };
@@ -98,14 +103,15 @@ export function personalizeComponent(
   const variant = match && component.experiences[match];
   if (variant === undefined && component.componentName === undefined) {
     // DEFAULT IS HIDDEN
-    return null;
+    if (metadataEditing) {
+      component = hiddenRenderingVariant;
+    } else {
+      return null;
+    }
   } else if (variant && variant.componentName === null && variant.dataSource === null) {
     // VARIANT IS HIDDEN
     if (metadataEditing) {
-      component = {
-        ...variant,
-        componentName: HIDDEN_RENDERING_NAME,
-      };
+      component = hiddenRenderingVariant;
     } else {
       return null;
     }

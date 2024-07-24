@@ -341,7 +341,7 @@ describe('layout-personalizer', () => {
         ).to.deep.equal({});
       });
 
-      it('should return null when variantVariant is hidden', () => {
+      it('should return null when variant is hidden', () => {
         const variant = 'mountain_bike_audience';
         const personalizedComponentResult = personalizeComponent(
           (variantIsHidden as unknown) as ComponentRenderingWithExperiences,
@@ -350,20 +350,7 @@ describe('layout-personalizer', () => {
         expect(personalizedComponentResult).to.equal(null);
       });
 
-      it('should return HIDDEN_RENDERING variant in metadata edit mode when variantVariant is hidden', () => {
-        const variant = 'mountain_bike_audience';
-        const personalizedComponentResult = personalizeComponent(
-          (variantIsHidden as unknown) as ComponentRenderingWithExperiences,
-          [variant],
-          true
-        );
-        expect(personalizedComponentResult).to.deep.equal({
-          ...variantIsHidden.experiences.mountain_bike_audience,
-          componentName: HIDDEN_RENDERING_NAME,
-        });
-      });
-
-      it('should return null when variantVariant and componentName is undefined', () => {
+      it('should return null when variant and componentName is undefined', () => {
         const variant = 'test';
         const personalizedComponentResult = personalizeComponent(
           (withoutComponentName as unknown) as ComponentRenderingWithExperiences,
@@ -371,6 +358,26 @@ describe('layout-personalizer', () => {
         );
         expect(personalizedComponentResult).to.equal(null);
       });
+    });
+
+    it('should return HIDDEN_RENDERING variant in metadata edit mode when non-default variant is hidden', () => {
+      const variant = 'mountain_bike_audience';
+      const personalizedComponentResult = personalizeComponent(
+        (variantIsHidden as unknown) as ComponentRenderingWithExperiences,
+        [variant],
+        true
+      );
+      expect(personalizedComponentResult?.componentName).to.equal(HIDDEN_RENDERING_NAME);
+    });
+
+    it('should return HIDDEN_RENDERING variant in metadata edit mode when default variant is hidden', () => {
+      const variant = 'will-not-match';
+      const personalizedComponentResult = personalizeComponent(
+        (withoutComponentName as unknown) as ComponentRenderingWithExperiences,
+        [variant],
+        true
+      );
+      expect(personalizedComponentResult?.componentName).to.equal(HIDDEN_RENDERING_NAME);
     });
 
     describe('with multiple variant Ids', () => {
