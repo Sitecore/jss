@@ -1,6 +1,6 @@
 import * as fetch from 'isomorphic-fetch';
 import * as fs from 'fs';
-import { generateConfig } from './generate-config';
+import { generateConfig, defaultConfig } from './generate-config';
 
 // Apollo Client supports caching GraphQL responses, which can greatly reduce network traffic needs.
 // In order to work correctly with interfaces in GraphQL, it needs to know some basic information about
@@ -9,7 +9,7 @@ import { generateConfig } from './generate-config';
 //
 // The `jss graphql:update` command should be executed when Sitecore templates related to the site are altered.
 
-generateConfig();
+generateConfig(defaultConfig);
 
 let jssConfig;
 

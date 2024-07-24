@@ -12,7 +12,7 @@ import { JssConfig } from 'lib/config';
  * NOTE! Any configs returned here will be written into the client-side JS bundle. DO NOT PUT SECRETS HERE.
  */
 
-const defaultConfig: JssConfig = {
+export const defaultConfig: JssConfig = {
   production: false,
   sitecoreApiKey: process.env[`${constantCase('sitecoreApiKey')}`],
   sitecoreApiHost: process.env[`${constantCase('sitecoreApiHost')}`],
