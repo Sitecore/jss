@@ -7,7 +7,7 @@
 [Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/22/sitecore-headless-development/sitecore-javascript-rendering-sdk--jss--for-angular.html)
 
 <!---
-@TODO: Update link to new angular for xm cloud documentation
+@TODO: Verify the link for angular xmcloud when documentation is ready
 -->
 
-[Documentation (XM Cloud)](https://doc.sitecore.com/xmc/en/developers/jss/latest/jss-xmc/sitecore-jss-for-next-js-differences-from-jss-for-react%2C-angular%2C-and-vue-js.html#architecture-and-deployment)
+[Documentation (XM Cloud)](https://doc.sitecore.com/xmc/en/developers/xm-cloud/sitecore-javascript-rendering-sdk--jss--for-angular.html)
