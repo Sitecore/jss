@@ -4,7 +4,7 @@ import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editi
  * This Next.js API route is used to handle GET and POST requests from Sitecore editors.
  * GET requests are used with Metadata editing mode while POST ones are used with Chromes(legacy) mode.
  * This route should match the `serverSideRenderingEngineEndpointUrl` in your Sitecore configuration,
- * which is set to "http://localhost:3000/api/editing/render" by default (see \sitecore\config\<%- appName %>.config).
+ * which is set to "http://<rendering_host>/api/editing/render" by default (see the settings item under /sitecore/content/<your/site/path>/Settings/Site Grouping).
  *
  * For Metadata mode, the `EditingRenderMiddleware` will
  *  1. Extract data about the route we need to rendr from the Sitecore editor GET request
@@ -29,7 +29,7 @@ import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editi
  * Please refer to documentation for a detailed guide.
  */
 
-// Bump body size limit (1mb by default) and disable response limit for Sitecore editor payloads
+// [Chromes mode only] Bump body size limit (1mb by default) and disable response limit for Sitecore editor payloads
 // See https://nextjs.org/docs/api-routes/request-helpers#custom-config
 export const config = {
   api: {
