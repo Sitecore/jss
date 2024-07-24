@@ -1,5 +1,0 @@
-{
-  "scripts": {
-    "scaffold": "ng generate @sitecore-jss/sitecore-jss-angular-schematics:jss-component --no-manifest"
-  }
-}
