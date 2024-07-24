@@ -1,5 +1,5 @@
 /*
- * Represents the type of config object available within the generated temp/config.js
+ * Represents the type of config object available within the generated /environments/environment.js
  */
 export interface JssConfig extends Record<string, string | boolean | undefined> {
   production?: false;
