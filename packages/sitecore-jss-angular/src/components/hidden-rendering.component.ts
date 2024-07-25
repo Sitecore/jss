@@ -8,5 +8,3 @@ export class HiddenRenderingComponent {
     return 'background-image: linear-gradient(45deg, #ffffff 25%, #dcdcdc 25%, #dcdcdc 50%, #ffffff 50%, #ffffff 75%, #dcdcdc 75%, #dcdcdc 100%); background-size: 3px 3px; display: block; height: 100px;';
   }
 }
-
-export const HIDDEN_RENDERING_NAME = 'Hidden Rendering';
