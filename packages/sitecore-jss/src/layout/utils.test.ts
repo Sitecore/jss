@@ -247,6 +247,6 @@ describe('sitecore-jss layout utils', () => {
         const result = isFieldValueEmpty(field as any);
         expect(result).to.be.true;
       });
-    })
+    });
   });
 });
