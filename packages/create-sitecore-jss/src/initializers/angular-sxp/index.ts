@@ -6,6 +6,7 @@ import {
   DEFAULT_APPNAME,
   ClientAppArgs,
 } from '../../common';
+import { InitializerResults } from '../../common/Initializer';
 
 export default class AngularSxpInitializer implements Initializer {
   get isBase(): boolean {
@@ -25,7 +26,7 @@ export default class AngularSxpInitializer implements Initializer {
 
     await transform(templatePath, mergedArgs);
 
-    const response = {
+    const response: InitializerResults = {
       nextSteps: [],
       appName: mergedArgs.appName,
     };
