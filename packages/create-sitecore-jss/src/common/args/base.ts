@@ -33,6 +33,10 @@ export type BaseArgs = {
    * Pre-push hook for linting check
    */
   prePushHook?: boolean;
+  /**
+   * Destination for auxillary proxy app, when initialized alongside the main one
+   */
+  nodeAppDestination?: string;
 };
 
 /**
