@@ -216,5 +216,37 @@ describe('sitecore-jss layout utils', () => {
         expect(result).to.be.false;
       });
     });
+
+    describe('null', () => {
+      it('should return true if field value is null', () => {
+        const field = {
+          value: null,
+        };
+        const result = isFieldValueEmpty(field);
+        expect(result).to.be.true;
+      });
+
+      it('should return true if value is null', () => {
+        const field = null;
+        const result = isFieldValueEmpty(field as any);
+        expect(result).to.be.true;
+      });
+    });
+
+    describe('undefined', () => {
+      it('should return true if field value is undefined', () => {
+        const field = {
+          value: undefined,
+        };
+        const result = isFieldValueEmpty(field);
+        expect(result).to.be.true;
+      });
+
+      it('should return true if value is undefined', () => {
+        const field = undefined;
+        const result = isFieldValueEmpty(field as any);
+        expect(result).to.be.true;
+      });
+    })
   });
 });
