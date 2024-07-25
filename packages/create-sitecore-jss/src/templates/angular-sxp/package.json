@@ -5,5 +5,8 @@
     "lint:yml": "ts-node ./scripts/lint-yml.ts",
     "lint": "ng lint <%- appName %> --fix && npm run lint:yml",
     "scaffold": "ng generate @sitecore-jss/sitecore-jss-angular-schematics:jss-component"
+  },
+  "devDependencies": {
+    "yaml-lint": "^1.2.4"
   }
 }
