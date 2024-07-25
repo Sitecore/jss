@@ -24,4 +24,4 @@ Application metadata
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:19](https://github.com/Sitecore/jss/blob/2e745958e/packages/sitecore-jss/src/editing/utils.ts#L19)
+[packages/sitecore-jss/src/editing/utils.ts:19](https://github.com/Sitecore/jss/blob/b604dddd4/packages/sitecore-jss/src/editing/utils.ts#L19)
