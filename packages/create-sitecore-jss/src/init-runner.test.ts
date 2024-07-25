@@ -108,7 +108,7 @@ describe('initRunner', () => {
       path.resolve(`${args.nodeAppDestination}${sep}package.json`)
     );
 
-    expect(installPackagesStub).to.be.calledTwice
+    expect(installPackagesStub).to.be.calledTwice;
     expect(installPackagesStub.getCall(0).args[0]).to.equal(args.destination);
     expect(installPackagesStub.getCall(1).args[0]).to.equal(args.nodeAppDestination);
 
