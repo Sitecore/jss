@@ -6,13 +6,23 @@ import { initRunner } from './init-runner';
 import minimist, { ParsedArgs } from 'minimist';
 import { getAllTemplates, getBaseTemplates } from './common';
 
+const proxyAppMatcher = /node-.+-proxy/g;
+
 export const parseArgs = (): ParsedArgs => {
   // parse any command line arguments passed into `init sitecore-jss`
   // to pass to the generator prompts and skip them.
   // useful for CI and testing purposes
   const options = {
     boolean: ['appPrefix', 'force', 'noInstall', 'yes', 'silent', 'prePushHook'],
-    string: ['appName', 'destination', 'templates', 'hostName', 'fetchWith', 'language'],
+    string: [
+      'appName',
+      'destination',
+      'nodeAppDestination',
+      'templates',
+      'hostName',
+      'fetchWith',
+      'language',
+    ],
     default: { prePushHook: null },
   };
   const args: ParsedArgs = minimist(process.argv.slice(2), options);
@@ -24,6 +34,60 @@ export const parseArgs = (): ParsedArgs => {
     args[key] === '' && delete args[key];
   });
   return args;
+};
+
+export const getDestinations = async (args: ParsedArgs, templates: string[]) => {
+  if (templates.length === 0) {
+    throw new Error('Unable to get destinations, provided templates are empty');
+  }
+  // validate/gather destination
+  const defaultBaseDestination = `${process.cwd()}${
+    args.appName ? sep + args.appName : `${sep}${templates[0]}`
+  }`;
+  const destination = args.destination
+    ? args.destination
+    : args.yes
+    ? defaultBaseDestination
+    : await promptDestination('Where would you like your new app created?', defaultBaseDestination);
+
+  // work with node-proxy destination if needed
+  const proxyApp = templates.find((template) => template.match(proxyAppMatcher));
+  if (proxyApp) {
+    const defaultProxyDestination = proxyApp && `${process.cwd()}${sep}${proxyApp}`;
+    let nodeAppDestination = args.nodeAppDestination
+      ? args.nodeAppDestination
+      : args.yes
+      ? defaultProxyDestination
+      : await promptDestination(
+          'Where would you like your proxy app created?',
+          defaultProxyDestination
+        );
+    while (nodeAppDestination === destination) {
+      nodeAppDestination = await promptDestination(
+        'Proxy app and base app cannot be located in the same folder. Please input another path for proxy',
+        defaultProxyDestination
+      );
+    }
+    return {
+      destination,
+      nodeAppDestination,
+    };
+  }
+
+  return {
+    destination,
+  };
+};
+
+export const promptDestination = async (prompt: string, defaultDestination: string) => {
+  return (
+    await inquirer.prompt({
+      type: 'input',
+      name: 'destination',
+      message: prompt,
+      default: () => defaultDestination,
+    })
+  ).destination;
 };
 
 export const main = async (args: ParsedArgs) => {
@@ -64,39 +128,22 @@ export const main = async (args: ParsedArgs) => {
     templates.push(answer.template);
   }
 
-  // validate/gather destination
-  const defaultDestination = `${process.cwd()}${
-    args.appName ? sep + args.appName : `${sep}${templates[0]}`
-  }`;
+  const destinations = await getDestinations(args, templates);
 
-  let destination = args.destination;
-
-  if (!destination) {
-    if (args.yes) {
-      destination = defaultDestination;
-    } else {
+  for (const destination of [destinations.destination, destinations.nodeAppDestination]) {
+    if (!destination) continue;
+    if (!args.force && fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
       const answer = await inquirer.prompt({
-        type: 'input',
-        name: 'destination',
-        message: 'Where would you like your new app created?',
-        default: () => defaultDestination,
+        type: 'confirm',
+        name: 'continue',
+        message: `Directory '${destination}' not empty. Are you sure you want to continue?`,
       });
-
-      destination = answer.destination;
+      if (!answer.continue) {
+        process.exit();
+      }
+    } else {
+      args.force = true;
     }
-  }
-
-  if (!args.force && fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
-    const answer = await inquirer.prompt({
-      type: 'confirm',
-      name: 'continue',
-      message: `Directory '${destination}' not empty. Are you sure you want to continue?`,
-    });
-    if (!answer.continue) {
-      process.exit();
-    }
-  } else {
-    args.force = true;
   }
 
   if (!args.yes) {
@@ -117,7 +164,7 @@ export const main = async (args: ParsedArgs) => {
   }
 
   try {
-    await initRunner(templates.slice(), { ...args, destination, templates });
+    await initRunner(templates.slice(), { ...args, ...destinations, templates });
   } catch (error) {
     console.log(chalk.red('An error occurred: ', error));
     process.exit(1);

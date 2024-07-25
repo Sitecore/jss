@@ -533,6 +533,42 @@ describe('transform', () => {
       });
     });
 
+    it('should transform file in proxy destination when processing proxy and proxy location destination', async () => {
+      const templatePath = path.resolve('templates/node-app-proxy');
+      const destinationPath = path.resolve('samples/next');
+      const destinationProxy = path.resolve('samples/proxy');
+      const file = 'file.ts';
+      const renderFileOutput = 'file output';
+
+      globSyncStub = sinon.stub(glob, 'sync').returns([file]);
+      ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(renderFileOutput));
+      diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
+
+      const answers = {
+        destination: destinationPath,
+        nodeAppDestination: destinationProxy,
+        templates: [],
+        appPrefix: false,
+        force: false,
+      };
+
+      await transformFunc(templatePath, answers);
+
+      expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
+        ...answers,
+        helper: {
+          isDev: false,
+          getPascalCaseName: helpers.getPascalCaseName,
+          getAppPrefix: helpers.getAppPrefix,
+        },
+      });
+      expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({
+        rendered: renderFileOutput,
+        pathToNewFile: path.join(destinationProxy, file),
+        answers,
+      });
+    });
+
     it('should skip if isFileForSkip', async () => {
       const templatePath = path.resolve('templates/next');
       const destinationPath = path.resolve('samples/next');

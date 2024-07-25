@@ -6,7 +6,7 @@ import { sep } from 'path';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { ParsedArgs } from 'minimist';
-import { parseArgs, main } from './bin';
+import { parseArgs, main, promptDestination, getDestinations } from './bin';
 import * as helpers from './common/utils/helpers';
 import * as initRunner from './init-runner';
 
@@ -37,6 +37,8 @@ describe('bin', () => {
         'test',
         '--destination',
         '.\\test\\path',
+        '--nodeAppDestination',
+        '.\\test\\proxypath',
         '--templates',
         'foo,bar',
         '--hostName',
@@ -231,34 +233,6 @@ describe('bin', () => {
       });
     });
 
-    it('should prompt for destination if missing', async () => {
-      getAllTemplatesStub.returns(['foo', 'bar']);
-      getBaseTemplatesStub.returns(['foo']);
-      fsExistsSyncStub.returns(false);
-      fsReaddirSyncStub.returns([]);
-      inquirerPromptStub.returns({
-        prePushHook: true,
-      });
-
-      const mockDestination = 'my\\path';
-      inquirerPromptStub.returns({
-        destination: mockDestination,
-      });
-
-      const args = mockArgs({
-        templates: 'foo',
-      });
-      const expectedTemplates = ['foo'];
-      await main(args);
-
-      expect(inquirerPromptStub).to.have.been.called;
-      expect(initRunnerStub).to.have.been.calledWith(expectedTemplates, {
-        ...args,
-        destination: mockDestination,
-        templates: expectedTemplates,
-      });
-    });
-
     it('should prompt for prePushHook if missing', async () => {
       getAllTemplatesStub.returns(['foo', 'bar']);
       getBaseTemplatesStub.returns(['foo']);
@@ -287,88 +261,189 @@ describe('bin', () => {
       });
     });
 
-    describe('destination default', () => {
-      it('should use appName', async () => {
-        getAllTemplatesStub.returns(['foo', 'bar']);
-        getBaseTemplatesStub.returns(['foo']);
-        fsExistsSyncStub.returns(false);
-        fsReaddirSyncStub.returns([]);
-
+    describe('promptDestination', () => {
+      it('should prompt with provided prompt text and return input value', async () => {
         const mockDestination = 'my\\path';
+        const mockPrompt = 'Enter the mocking path';
         inquirerPromptStub.returns({
           destination: mockDestination,
         });
-
-        const args = mockArgs({
-          templates: 'foo',
-          appName: 'testApp',
-        });
-        const expectedTemplates = ['foo'];
-        const expectedDestinationDefault = `${process.cwd()}${sep + args.appName}`;
-
-        await main(args);
-
+        const result = await promptDestination(mockPrompt, 'default');
         expect(inquirerPromptStub).to.have.been.called;
-        expect(inquirerPromptStub.getCall(0).args[0].default()).to.equal(
-          expectedDestinationDefault
-        );
-        expect(initRunnerStub).to.have.been.calledWith(expectedTemplates, {
-          ...args,
-          destination: mockDestination,
-          templates: expectedTemplates,
-        });
+        expect(inquirerPromptStub.getCall(0).args[0].message).to.be.equal(mockPrompt);
+        expect(result).to.be.equal(mockDestination);
       });
 
-      it('should use template if appName not provided', async () => {
-        getAllTemplatesStub.returns(['foo', 'bar']);
-        getBaseTemplatesStub.returns(['foo']);
-        fsExistsSyncStub.returns(false);
-        fsReaddirSyncStub.returns([]);
-
-        const mockDestination = 'my\\path';
+      it('should use default value', async () => {
         inquirerPromptStub.returns({
-          destination: mockDestination,
+          destination: undefined,
         });
-
-        const args = mockArgs({
-          templates: 'foo,bar',
-        });
-        const expectedTemplates = ['foo', 'bar'];
-        const expectedDestinationDefault = `${process.cwd()}${sep + expectedTemplates[0]}`;
-
-        await main(args);
-
+        const defaultDestination = 'defa\\ult';
+        await promptDestination('use default here', defaultDestination);
         expect(inquirerPromptStub).to.have.been.called;
-        expect(inquirerPromptStub.getCall(0).args[0].default()).to.equal(
-          expectedDestinationDefault
-        );
-        expect(initRunnerStub).to.have.been.calledWith(expectedTemplates, {
-          ...args,
-          destination: mockDestination,
-          templates: expectedTemplates,
+        expect(inquirerPromptStub.getCall(0).args[0].default()).to.be.equal(defaultDestination);
+      });
+    });
+
+    describe('getDestinations', () => {
+      const testTemplates = ['foo', 'bar'];
+
+      it('should return base args.destination value only when provided', async () => {
+        const testPath = 'test\\path';
+        const testArgs = mockArgs({
+          destination: testPath,
+        });
+        expect(await getDestinations(testArgs, testTemplates)).to.deep.equal({
+          destination: testPath,
         });
       });
 
-      it('should respect yes', async () => {
-        getAllTemplatesStub.returns(['foo', 'bar']);
-        getBaseTemplatesStub.returns(['foo']);
-        fsExistsSyncStub.returns(false);
-        fsReaddirSyncStub.returns([]);
+      it('should return base and proxy destinations from args when templates contain proxy app', async () => {
+        const testPath = 'test\\path';
+        const proxyPath = 'proxy\\path';
+        const testArgs = mockArgs({
+          destination: testPath,
+          nodeAppDestination: proxyPath,
+        });
+        const templatesWithProxy = [...testTemplates, 'node-app-proxy'];
+        expect(await getDestinations(testArgs, templatesWithProxy)).to.deep.equal({
+          destination: testPath,
+          nodeAppDestination: proxyPath,
+        });
+      });
 
-        const args = mockArgs({
-          templates: 'foo',
-          appName: 'testApp',
+      it('should prompt to get base destination when args.destination is empty', async () => {
+        const testPath = 'test\\path';
+        inquirerPromptStub.returns({
+          destination: testPath,
+        });
+        const testArgs = mockArgs({
+          destination: undefined,
+        });
+        await getDestinations(testArgs, testTemplates);
+        expect(inquirerPromptStub).to.have.been.calledOnce;
+        expect(inquirerPromptStub.getCall(0).args[0].message).to.be.equal(
+          'Where would you like your new app created?'
+        );
+      });
+
+      it('should prompt for both base and proxy when destinations are missing in args and templates contain proxy app', async () => {
+        const testPath = 'test\\path';
+        const proxyPath = 'proxy\\path';
+        inquirerPromptStub.onCall(0).returns({
+          destination: testPath,
+        });
+        // avoid paths being equal - this case is tested further down
+        inquirerPromptStub.onCall(1).returns({
+          destination: proxyPath,
+        });
+        const testArgs = mockArgs({
+          destination: undefined,
+          nodeAppDestination: undefined,
+        });
+        const templatesWithProxy = [...testTemplates, 'node-app-proxy'];
+        await getDestinations(testArgs, templatesWithProxy);
+        expect(inquirerPromptStub).to.have.been.calledTwice;
+        expect(inquirerPromptStub.getCall(0).args[0].message).to.be.equal(
+          'Where would you like your new app created?'
+        );
+        expect(inquirerPromptStub.getCall(1).args[0].message).to.be.equal(
+          'Where would you like your proxy app created?'
+        );
+      });
+
+      it('should return default base destination with base template when --yes arg is used', async () => {
+        const testArgs = mockArgs({
+          destination: undefined,
           yes: true,
         });
+        const expectedDestination = `${process.cwd()}${sep + testTemplates[0]}`;
+        expect(await getDestinations(testArgs, testTemplates)).to.deep.equal({
+          destination: expectedDestination,
+        });
+      });
+
+      it('should return default base destination with args.appName when provided and --yes arg is used', async () => {
+        const testAppName = 'myapp';
+        const testArgs = mockArgs({
+          destination: undefined,
+          appName: testAppName,
+          yes: true,
+        });
+        const expectedDestination = `${process.cwd()}${sep + testAppName}`;
+        expect(await getDestinations(testArgs, testTemplates)).to.deep.equal({
+          destination: expectedDestination,
+        });
+      });
+
+      it('should return default proxy destination when -- yes arg is used', async () => {
+        const testPath = 'test\\path';
+        const testArgs = mockArgs({
+          destination: testPath,
+          yes: true,
+        });
+        const templatesWithProxy = [...testTemplates, 'node-app-proxy'];
+        const expectedProxyDestination = `${process.cwd()}${sep + 'node-app-proxy'}`;
+        expect(await getDestinations(testArgs, templatesWithProxy)).to.deep.equal({
+          destination: testPath,
+          nodeAppDestination: expectedProxyDestination,
+        });
+      });
+
+      it('should prompt for proxy destination again if proxy destination is the same as base destination', async () => {
+        const testPath = 'test\\path';
+        const proxyPath = 'proxy\\path';
+        // avoid paths being equal - this case is tested further down
+        inquirerPromptStub.onCall(0).returns({
+          destination: proxyPath,
+        });
+        const testArgs = mockArgs({
+          destination: testPath,
+          nodeAppDestination: testPath,
+        });
+        const templatesWithProxy = [...testTemplates, 'node-app-proxy'];
+        await getDestinations(testArgs, templatesWithProxy);
+        expect(inquirerPromptStub).to.have.been.calledOnce;
+        expect(inquirerPromptStub.getCall(0).args[0].message).to.be.equal(
+          'Proxy app and base app cannot be located in the same folder. Please input another path for proxy'
+        );
+      });
+
+      it('should throw when templates are empty', async () => {
+        const testArgs = mockArgs();
+        await getDestinations(testArgs, []).catch((error) => {
+          expect(error.message).to.be.equal(
+            'Unable to get destinations, provided templates are empty'
+          );
+        });
+      });
+    });
+
+    // this partially duplicates tests for getDestinations, but we need to ensure initRunnerStub is called with correct values
+    // no way around it however - sinon cannot mock getDestinations on its own, which could've prevented this
+    describe('main with destinations from args', () => {
+      it('should call initRunnerStub with values from getDestinations', async () => {
+        getAllTemplatesStub.returns(['foo', 'bar']);
+        getBaseTemplatesStub.returns(['foo']);
+        fsExistsSyncStub.returns(false);
+        fsReaddirSyncStub.returns([]);
+
+        const mockDestination = 'my\\path';
+        const proxyDestination = 'my\\proxy';
+
+        const args = mockArgs({
+          templates: 'foo',
+          destination: mockDestination,
+          nodeAppDestination: proxyDestination,
+        });
         const expectedTemplates = ['foo'];
-        const expectedDestinationDefault = `${process.cwd()}${sep + args.appName}`;
 
         await main(args);
 
-        expect(inquirerPromptStub).to.not.have.been.called;
-        expect(initRunnerStub).to.have.been.calledOnceWith(expectedTemplates, {
+        expect(initRunnerStub).to.have.been.calledWith(expectedTemplates, {
           ...args,
-          destination: expectedDestinationDefault,
+          destination: mockDestination,
+          nodeAppDestination: proxyDestination,
           templates: expectedTemplates,
         });
       });

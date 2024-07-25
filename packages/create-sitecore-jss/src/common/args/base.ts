@@ -34,7 +34,7 @@ export type BaseArgs = {
    */
   prePushHook?: boolean;
   /**
-   * Destination for auxillary proxy app, when initialized alongside the main one
+   * Optional destination for proxy app, whether it's initialized alongside the main one or standalone
    */
   nodeAppDestination?: string;
 };
