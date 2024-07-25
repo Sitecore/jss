@@ -1,13 +1,31 @@
-import { LayoutService, GraphQLLayoutService } from '@sitecore-jss/sitecore-jss-angular';
+import {
+  LayoutService,
+  GraphQLLayoutService,
+  RestLayoutService,
+  constants,
+} from '@sitecore-jss/sitecore-jss-angular';
 import { environment } from '../../environments/environment';
 import { clientFactory } from './client-factory';
 
 export class LayoutServiceFactory {
   create(): LayoutService {
-    new GraphQLLayoutService({
-      clientFactory,
-      siteName: environment.sitecoreSiteName,
-    });
+    const service =
+    <% if (!locals.xmcloud) { -%>
+      process.env.FETCH_WITH === constants.FETCH_WITH.REST
+        ? new RestLayoutService({
+            apiHost: environment.sitecoreApiHost,
+            apiKey: environment.sitecoreApiKey,
+            siteName: environment.sitecoreSiteName,
+            configurationName: environment.layoutServiceConfigurationName,
+          })
+        : 
+    <% } -%>
+        new GraphQLLayoutService({
+            clientFactory,
+            siteName: environment.sitecoreSiteName,
+          });
+
+    return service;
   }
 }
 
