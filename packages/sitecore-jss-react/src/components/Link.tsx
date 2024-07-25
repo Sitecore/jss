@@ -97,7 +97,7 @@ export const Link: React.FC<LinkProps> = withFieldMetadata<LinkProps, HTMLAnchor
         const querystring = link.querystring ? `?${link.querystring}` : '';
 
         const anchorAttrs: { [attr: string]: unknown } = {
-          href: link.href ? `${link.href}${querystring}${anchor}` : undefined,
+          href: `${link.href}${querystring}${anchor}`,
           className: link.class,
           title: link.title,
           target: link.target,
