@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { JssContextService } from '../../jss-context.service';
+import { JssContextService } from '../../../jss-context.service';
 
 let emittedVI = false;
 

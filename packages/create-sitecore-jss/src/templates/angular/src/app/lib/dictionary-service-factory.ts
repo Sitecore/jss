@@ -11,7 +11,7 @@ export class DictionaryServiceFactory {
   create(): DictionaryService {
     const service =
     <% if (!locals.xmcloud) { -%>
-     constants.FETCH_WITH.REST
+     process.env.FETCH_WITH === constants.FETCH_WITH.REST
       ? new RestDictionaryService({
           apiHost: env.sitecoreApiHost,
           apiKey: env.sitecoreApiKey,
