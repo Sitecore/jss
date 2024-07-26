@@ -23,20 +23,20 @@ const defaultConfigValue: JssConfig = {
   defaultServerRoute: '/',
 };
 
-generateConfig(defaultConfigValue, { production: false });
-generateConfig(defaultConfigValue, { production: true }, 'src/environments/environment.prod.js');
+generateConfig('src/environments/environment.js', defaultConfigValue, { production: false });
+generateConfig('src/environments/environment.prod.js', defaultConfigValue, { production: true });
 
 /**
  * Generates the JSS config based on config plugins (under ./config/plugins)
  * and then writes the config to disk.
- * @param {JssConfig} defaultConfig Default configuration.
- * @param {[key: string]:unknown} configOverrides configuration values that override the generated ones.
  * @param {string} outputPath the output path of the generated config.
+ * @param {JssConfig} [defaultConfig] Default configuration.
+ * @param {[key: string]:unknown} [configOverrides] configuration values that override the generated ones.
  */
 export function generateConfig(
+  outputPath: string,
   defaultConfig: JssConfig = defaultConfigValue,
-  configOverrides?: { [key: string]: unknown },
-  outputPath?: string
+  configOverrides?: { [key: string]: unknown }
 ) {
   jssConfigFactory
     .create(defaultConfig)

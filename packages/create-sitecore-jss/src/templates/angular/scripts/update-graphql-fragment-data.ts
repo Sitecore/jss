@@ -9,7 +9,7 @@ import { generateConfig } from './generate-config';
 //
 // The `jss graphql:update` command should be executed when Sitecore templates related to the site are altered.
 
-generateConfig();
+generateConfig('src/environments/environment.js');
 
 let jssConfig;
 
