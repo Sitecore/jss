@@ -1,6 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<HiddenRendering /> should render 1`] = `
-<div style="height: 100px; background-size: 3px 3px;">
+<div style="background-size: 3px 3px; display: flex; justify-content: center; align-items: center; padding: 30px; color: rgb(170, 170, 170);">
+  The component is hidden
 </div>
 `;
