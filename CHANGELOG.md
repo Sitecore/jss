@@ -15,9 +15,13 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-### 🛠 Breaking Change
+* `[create-sitecore-jss]` `[template/angular]` `[template/angular-sxp]` `[template/angular-xmcloud]` Introduced "angular-sxp", "angular-xmcloud" addons ([#1838](https://github.com/Sitecore/jss/pull/1838))([#1845](https://github.com/Sitecore/jss/pull/1845)):
+    * The Angular app should now be initialized by providing both templates (or using CLI prompts): 
+      * SXP-based: 'angular,angular-sxp'
+      * XMCloud-based: 'angular,angular-xmcloud'
+    * Rework Angular initializer to support XMCloud and SXP journeys;
 
-* `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))
+### 🛠 Breaking Change
 
 ### 🧹 Chores
 

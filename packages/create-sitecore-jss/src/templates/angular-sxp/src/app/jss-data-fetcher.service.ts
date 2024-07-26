@@ -3,7 +3,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { HttpResponse } from '@sitecore-jss/sitecore-jss-angular';
 import { Observable, lastValueFrom } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class JssDataFetcherService {
   constructor(
     private readonly httpClient: HttpClient,
