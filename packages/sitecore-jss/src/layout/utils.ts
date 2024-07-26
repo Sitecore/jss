@@ -100,6 +100,10 @@ export function isFieldValueEmpty(field: GenericFieldValue | Partial<Field>): bo
   const isDateFieldEmpty = (fieldValue: GenericFieldValue) => fieldValue === EMPTY_DATE_FIELD_VALUE;
 
   const isEmpty = (fieldValue: GenericFieldValue) => {
+    if (fieldValue === null || fieldValue === undefined) {
+      return true;
+    }
+
     if (typeof fieldValue === 'object') {
       return (
         isImageFieldEmpty(fieldValue) &&

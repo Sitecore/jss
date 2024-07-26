@@ -87,7 +87,7 @@ The layout data and dictionary phrases.
 
 #### Defined in
 
-sitecore-jss/types/editing/graphql-editing-service.d.ts:67
+sitecore-jss/types/editing/graphql-editing-service.d.ts:66
 
 ___
 
@@ -105,4 +105,4 @@ implementation
 
 #### Defined in
 
-sitecore-jss/types/editing/graphql-editing-service.d.ts:80
+sitecore-jss/types/editing/graphql-editing-service.d.ts:79

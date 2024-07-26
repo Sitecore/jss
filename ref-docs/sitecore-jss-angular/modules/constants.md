@@ -11,6 +11,7 @@
 ### Variables
 
 - [FETCH\_WITH](constants.md#fetch_with)
+- [HIDDEN\_RENDERING\_NAME](constants.md#hidden_rendering_name)
 - [JSS\_MODE](constants.md#jss_mode)
 - [SITECORE\_EDGE\_URL\_DEFAULT](constants.md#sitecore_edge_url_default)
 - [siteNameError](constants.md#sitenameerror)
@@ -31,6 +32,16 @@
 #### Defined in
 
 packages/sitecore-jss/types/constants.d.ts:5
+
+___
+
+### HIDDEN\_RENDERING\_NAME
+
+• `Const` **HIDDEN\_RENDERING\_NAME**: ``"Hidden Rendering"``
+
+#### Defined in
+
+packages/sitecore-jss/types/constants.d.ts:15
 
 ___
 

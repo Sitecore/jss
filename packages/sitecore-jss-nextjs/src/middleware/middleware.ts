@@ -47,6 +47,19 @@ export abstract class MiddlewareBase {
     );
   }
 
+  /**
+   * Determines if the request is a Next.js (next/link) prefetch request
+   * @param {NextRequest} req request
+   * @returns {boolean} is prefetch
+   */
+  protected isPrefetch(req: NextRequest): boolean {
+    return (
+      // eslint-disable-next-line prettier/prettier
+      req.headers.get('purpose') === 'prefetch' || // Pages Router
+      req.headers.get('Next-Router-Prefetch') === '1' // App Router
+    );
+  }
+
   protected excludeRoute(pathname: string) {
     return (
       pathname.startsWith('/api/') || // Ignore Next.js API calls

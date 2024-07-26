@@ -14,7 +14,8 @@ Static utility class for Sitecore CDP
 
 ### Methods
 
-- [getContentId](index.CdpHelper.md#getcontentid)
+- [getComponentFriendlyId](index.CdpHelper.md#getcomponentfriendlyid)
+- [getPageFriendlyId](index.CdpHelper.md#getpagefriendlyid)
 - [getPageVariantId](index.CdpHelper.md#getpagevariantid)
 - [normalizeScope](index.CdpHelper.md#normalizescope)
 
@@ -26,11 +27,38 @@ Static utility class for Sitecore CDP
 
 ## Methods
 
-### getContentId
+### getComponentFriendlyId
 
-▸ `Static` **getContentId**(`pageId`, `language`, `scope?`): `string`
+▸ `Static` **getComponentFriendlyId**(`pageId`, `componentId`, `language`, `scope?`): `string`
 
-Gets the content id for CDP in the required format `embedded_[<scope>_]<id>_<lang>`
+Gets the friendly id for Component A/B Testing in the required format `component_[<scope>_]<pageId>_<componentId>_<language>*`
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `pageId` | `string` | the page id |
+| `componentId` | `string` | the component id |
+| `language` | `string` | the language |
+| `scope?` | `string` | the scope value |
+
+#### Returns
+
+`string`
+
+the friendly id
+
+#### Defined in
+
+sitecore-jss/types/personalize/utils.d.ts:61
+
+___
+
+### getPageFriendlyId
+
+▸ `Static` **getPageFriendlyId**(`pageId`, `language`, `scope?`): `string`
+
+Gets the friendly id for (page-level) Embedded Personalization in the required format `embedded_[<scope>_]<id>_<lang>`
 
 #### Parameters
 
@@ -44,11 +72,11 @@ Gets the content id for CDP in the required format `embedded_[<scope>_]<id>_<lan
 
 `string`
 
-the content id
+the friendly id
 
 #### Defined in
 
-sitecore-jss/types/personalize/utils.d.ts:45
+sitecore-jss/types/personalize/utils.d.ts:52
 
 ___
 
@@ -75,7 +103,7 @@ the formatted page variant id
 
 #### Defined in
 
-sitecore-jss/types/personalize/utils.d.ts:37
+sitecore-jss/types/personalize/utils.d.ts:44
 
 ___
 
@@ -100,4 +128,4 @@ normalized scope value
 
 #### Defined in
 
-sitecore-jss/types/personalize/utils.d.ts:52
+sitecore-jss/types/personalize/utils.d.ts:68

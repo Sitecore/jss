@@ -34,6 +34,10 @@
 
 # angular
 
+* Update Angular and core dependencies to ~17.3.1, related dependencies
+
+* Update Typescript to ~5.2.2
+
 * Replace `scripts/generate-config.ts` if you have not modified it. Otherwise:
     * Add a `trim()` call to `config[prop]` (use toString() to avoid type conflicts) and replace commas before a newline (`,`) with semicolon (`;`) in configText prop assignments so it would look like this:
 
@@ -41,6 +45,18 @@
             configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]?.toString().trim()}";\n`;
         ```
 
+* Update import in _src/templates/angular/server.bundle.ts_
+  Use _'zone.js'_ instead of _'zone.js/dist/zone-node'_
+
+     ```ts
+          import 'zone.js';
+     ```
+* Update import in _src/templates/angular/src/polyfills.ts_
+  Use _'zone.js'_ instead of _'zone.js/dist/zone-node'_
+
+     ```ts
+          import 'zone.js';
+     ```
 
 # vue
 
@@ -116,6 +132,15 @@
     );
     ```
 
+* Add a `useSiteQuery` parameter when `GraphQLDictionaryService` is initialized in `/src/lib/dictionary-service-factory.ts` :
+    ```
+        new GraphQLDictionaryService({
+          siteName,
+          clientFactory,
+          .....
+          useSiteQuery: true,
+        })
+
 * We have introduced a new configuration option, `pagesEditMode`, in the `\src\pages\api\editing\config.ts` file to support the new editing metadata architecture for Pages (XMCloud). This option allows you to specify the editing mode used by Pages. It is set to `metadata` by default. However, if you are not ready to use a new integration and continue using the existing architecture, you can explicitly set the `pagesEditMode` to `chromes`.
 
     ```ts
@@ -152,3 +177,52 @@
         }
         ...
     ```
+
+* To enable AB testing and component level personalization support in JSS:
+    * Ensure `componentVariantIds` are passed to `personalizeLayout` function call in `/lib/page-props-factory/plugins/personalize.ts`:
+
+    ```ts
+    // Get variant(s) for personalization (from path)
+    const personalizeData = getPersonalizedRewriteData(path);
+
+    // Modify layoutData to use specific variant(s) instead of default
+    // This will also set the variantId on the Sitecore context so that it is accessible here
+    personalizeLayout(
+        props.layoutData,
+        personalizeData.variantId,
+        personalizeData.componentVariantIds
+    );
+    ```
+
+    * For preview mode, prepare and pass `componentVariantIds` into `personalizeLayout` in `/lib/page-props-factory/plugins/preview-mode.ts`:
+
+    ```ts
+    import {
+        SiteInfo,
+        personalizeLayout,
+        getGroomedVariantIds,
+    } from '@sitecore-jss/sitecore-jss-nextjs';
+    ```
+    ```ts
+    props.headLinks = [];
+    const personalizeData = getGroomedVariantIds(variantIds);
+    personalizeLayout(
+        props.layoutData,
+        personalizeData.variantId,
+        personalizeData.componentVariantIds
+    );
+    ```
+  
+* Update _lib/middleware/plugins/personalize.ts_ `PersonalizeMiddleware` constructor signature, moving `scope` from `cdpConfig` to the root. For now this option will continue working but is marked as deprecated. It will be removed in the next major version release.
+
+    ```ts
+    this.personalizeMiddleware = new PersonalizeMiddleware({
+        ...
+        cdpConfig: {
+            ...
+            scope: process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE, // REMOVE
+        },
+        scope: process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE, // ADD
+    });
+    ```
+

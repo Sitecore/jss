@@ -24,8 +24,8 @@ import sinonChai from 'sinon-chai';
 use(sinonChai);
 
 const mockNextJsPreviewCookies = [
-  '__prerender_bypass:1122334455',
-  '__next_preview_data:6677889900',
+  '__prerender_bypass=1122334455; Path=/; SameSite=Lax',
+  '__next_preview_data=6677889900; Path=/; SameSite=Lax',
 ];
 
 type Query = {
@@ -176,7 +176,7 @@ describe('EditingRenderMiddleware', () => {
       sc_itemid: '{11111111-1111-1111-1111-111111111111}',
       sc_lang: 'en',
       sc_site: 'website',
-      sc_variant: 'dev,dev2',
+      sc_variant: 'dev',
       sc_version: 'latest',
       secret: secret,
     } as MetadataQueryParams;
@@ -194,7 +194,7 @@ describe('EditingRenderMiddleware', () => {
         site: 'website',
         itemId: '{11111111-1111-1111-1111-111111111111}',
         language: 'en',
-        variantId: 'dev',
+        variantIds: ['dev'],
         version: 'latest',
         editMode: 'metadata',
         pageState: 'edit',
@@ -206,6 +206,36 @@ describe('EditingRenderMiddleware', () => {
         'Content-Security-Policy',
         `frame-ancestors 'self' https://allowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
       );
+    });
+
+    it('should pass multiple variant ids into setPreviewData when sc_variantId parameter has many values', async () => {
+      const query = {
+        mode: 'edit',
+        route: '/styleguide',
+        sc_itemid: '{11111111-1111-1111-1111-111111111111}',
+        sc_lang: 'en',
+        sc_site: 'website',
+        secret: secret,
+        sc_variant: 'id-1,id-2,id-3',
+      } as MetadataQueryParams;
+
+      const req = mockRequest(EE_BODY, query, 'GET');
+      const res = mockResponse();
+
+      const middleware = new EditingRenderMiddleware();
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith({
+        site: 'website',
+        itemId: '{11111111-1111-1111-1111-111111111111}',
+        language: 'en',
+        variantIds: ['id-1', 'id-2', 'id-3'],
+        version: undefined,
+        editMode: 'metadata',
+        pageState: 'edit',
+      });
     });
 
     it('should handle request with missing optional parameters', async () => {
@@ -229,7 +259,7 @@ describe('EditingRenderMiddleware', () => {
         site: 'website',
         itemId: '{11111111-1111-1111-1111-111111111111}',
         language: 'en',
-        variantId: '_default',
+        variantIds: ['_default'],
         version: undefined,
         editMode: 'metadata',
         pageState: 'edit',
@@ -261,7 +291,7 @@ describe('EditingRenderMiddleware', () => {
         site: 'website',
         itemId: '{11111111-1111-1111-1111-111111111111}',
         language: 'en',
-        variantId: 'dev',
+        variantIds: ['dev'],
         version: 'latest',
         editMode: 'metadata',
         pageState: 'edit',
@@ -294,7 +324,7 @@ describe('EditingRenderMiddleware', () => {
         site: 'website',
         itemId: '{11111111-1111-1111-1111-111111111111}',
         language: 'en',
-        variantId: 'dev',
+        variantIds: ['dev'],
         version: 'latest',
         editMode: 'metadata',
         pageState: 'edit',
@@ -308,6 +338,21 @@ describe('EditingRenderMiddleware', () => {
 
       expect(isEditingMetadataPreviewData(metadataPreviewData)).to.be.true;
       expect(isEditingMetadataPreviewData(chromesPreviewData)).to.be.false;
+    });
+
+    it('should modify the Set-Cookie header', async () => {
+      const req = mockRequest(EE_BODY, query, 'GET');
+      const res = mockResponse();
+
+      const middleware = new EditingRenderMiddleware();
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(res.setHeader).to.have.been.calledWith('Set-Cookie', [
+        '__prerender_bypass=1122334455; Path=/; SameSite=None; Secure',
+        '__next_preview_data=6677889900; Path=/; SameSite=None; Secure',
+      ]);
     });
   });
 
