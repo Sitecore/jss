@@ -117,6 +117,9 @@
         ...
     ```
 
+* It's highly recommended to install `sharp` dependency version `0.32.6` for nextjs apps in order to improve memory usage of Image Optimization feature. Run the `npm` command to install it:
+    `npm i sharp@0.32.6`
+
 # nextjs-xmcloud
 
 * Render a new `EditingScripts` component in your `Scripts.ts` file to support a new Editing Integration feature.

@@ -62,6 +62,7 @@ Our versioning strategy is as follows:
 
 * Update node/types to version 20 in all packages and samples ([#1810](https://github.com/Sitecore/jss/pull/1810))
 * Github - Teams integration ([#1823](https://github.com/Sitecore/jss/pull/1823))
+* [nextjs] Add `sharp` dependency to be in-line with nextjs's Image Optimizaion best practices: https://nextjs.org/docs/messages/install-sharp
 
 ## 22.0.0
 
