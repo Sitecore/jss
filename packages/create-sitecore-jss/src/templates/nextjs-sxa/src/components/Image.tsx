@@ -41,22 +41,27 @@ export const Banner = (props: ImageProps): JSX.Element => {
   const backgroundStyle = (props?.fields?.Image?.value?.src && {
     backgroundImage: `url('${props.fields.Image.value.src}')`,
   }) as CSSProperties;
-  const modifyImageProps = !isMetadataMode
-    ? {
-        ...props.fields.Image,
-        editable: props?.fields?.Image?.editable
-          ?.replace(`width="${props?.fields?.Image?.value?.width}"`, 'width="100%"')
-          .replace(`height="${props?.fields?.Image?.value?.height}"`, 'height="100%"'),
-      }
-    : {
-      ...props.fields.Image,
+  let modifyImageProps = props.fields.Image;
+  if (isMetadataMode) {
+    if (modifyImageProps.value) {
+      delete modifyImageProps.value.width;
+      delete modifyImageProps.value.height;
+    }
+    modifyImageProps = {
+      ...modifyImageProps,
       value: {
-        ...props.fields.Image.value,
-        width: "100%",
-        height: "100%",
+        ...modifyImageProps.value,
+        sizes: '100vw',
       },
     };
-
+  } else {
+    modifyImageProps = {
+      ...modifyImageProps,
+      editable: props?.fields?.Image?.editable
+        ?.replace(`width="${props?.fields?.Image?.value?.width}"`, 'width="100%"')
+        .replace(`height="${props?.fields?.Image?.value?.height}"`, 'height="100%"'),
+    };
+  }
   return (
     <div
       className={`component hero-banner ${props.params.styles} ${classHeroBannerEmpty}`}
