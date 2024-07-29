@@ -19,7 +19,7 @@
     "e2e": "ng e2e",
     "jss": "jss",
     "start:connected": "npm-run-all --serial bootstrap start:angular start:watch-components",
-    "build": "npm-run-all --serial bootstrap --serial build:client build:server",
+    "build": "cross-env-shell JSS_MODE=production \"npm-run-all --serial bootstrap --serial build:client build:server\"",
     "scaffold": "ng generate @sitecore-jss/sitecore-jss-angular-schematics:jss-component --no-manifest",
     "start:angular": "ng serve -o",
     "start:watch-components": "ts-node --project src/tsconfig.webpack-server.json scripts/generate-component-factory.ts --watch",
