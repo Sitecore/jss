@@ -72,7 +72,7 @@ server.use(
 );
 
 /**
- * Proxy GraphQL requests to the Sitecore GraphQL endpoint
+ * Proxy browser GraphQL requests to the Sitecore GraphQL endpoint
  */
 server.use(
   config.serverBundle.graphQLEndpointPath,
