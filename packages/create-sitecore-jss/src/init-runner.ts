@@ -41,9 +41,10 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
 
   await runner(initializers);
 
-  for (const destination of [args.destination, args.nodeAppDestination]) {
+  saveConfiguration(args.templates, path.resolve(`${args.destination}${sep}package.json`));
+
+  for (const destination of [args.destination, args.proxyAppDestination]) {
     if (!destination) continue;
-    saveConfiguration(args.templates, path.resolve(`${destination}${sep}package.json`));
     // final steps (install, lint, etc)
     if (!args.noInstall) {
       installPackages(destination, args.silent);

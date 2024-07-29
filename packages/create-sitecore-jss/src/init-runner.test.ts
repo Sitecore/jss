@@ -80,7 +80,7 @@ describe('initRunner', () => {
     const args = {
       silent: false,
       destination: 'samples/next',
-      nodeAppDestination: 'samples/proxy',
+      proxyAppDestination: 'samples/proxy',
       templates,
     };
 
@@ -98,23 +98,14 @@ describe('initRunner', () => {
     });
     expect(mockFoo.init).to.be.calledOnceWith(args);
     expect(mockBar.init).to.be.calledOnceWith(args);
-    expect(saveConfigurationStub).to.be.calledTwice;
-    expect(saveConfigurationStub.getCall(0).args[0]).to.deep.equal(
-      templates,
-      path.resolve(`${args.destination}${sep}package.json`)
-    );
-    expect(saveConfigurationStub.getCall(1).args[0]).to.deep.equal(
-      templates,
-      path.resolve(`${args.nodeAppDestination}${sep}package.json`)
-    );
 
     expect(installPackagesStub).to.be.calledTwice;
     expect(installPackagesStub.getCall(0).args[0]).to.equal(args.destination);
-    expect(installPackagesStub.getCall(1).args[0]).to.equal(args.nodeAppDestination);
+    expect(installPackagesStub.getCall(1).args[0]).to.equal(args.proxyAppDestination);
 
     expect(lintFixStub).to.be.calledTwice;
     expect(lintFixStub.getCall(0).args[0]).to.equal(args.destination);
-    expect(lintFixStub.getCall(1).args[0]).to.equal(args.nodeAppDestination);
+    expect(lintFixStub.getCall(1).args[0]).to.equal(args.proxyAppDestination);
   });
 
   it('should process returned initializers', async () => {

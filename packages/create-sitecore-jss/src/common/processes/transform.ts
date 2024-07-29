@@ -233,7 +233,7 @@ export const transform = async (
   let destination = undefined;
   // allow proxy app to be installed separately alongside base app
   if (templatePath.match(/.*node-.+-proxy$/g)) {
-    destination = answers.nodeAppDestination;
+    destination = answers.proxyAppDestination;
   }
   const destinationPath = path.resolve(destination || answers.destination);
 

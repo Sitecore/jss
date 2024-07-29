@@ -37,7 +37,7 @@ describe('bin', () => {
         'test',
         '--destination',
         '.\\test\\path',
-        '--nodeAppDestination',
+        '--proxyAppDestination',
         '.\\test\\proxypath',
         '--templates',
         'foo,bar',
@@ -303,12 +303,12 @@ describe('bin', () => {
         const proxyPath = 'proxy\\path';
         const testArgs = mockArgs({
           destination: testPath,
-          nodeAppDestination: proxyPath,
+          proxyAppDestination: proxyPath,
         });
         const templatesWithProxy = [...testTemplates, 'node-app-proxy'];
         expect(await getDestinations(testArgs, templatesWithProxy)).to.deep.equal({
           destination: testPath,
-          nodeAppDestination: proxyPath,
+          proxyAppDestination: proxyPath,
         });
       });
 
@@ -339,7 +339,7 @@ describe('bin', () => {
         });
         const testArgs = mockArgs({
           destination: undefined,
-          nodeAppDestination: undefined,
+          proxyAppDestination: undefined,
         });
         const templatesWithProxy = [...testTemplates, 'node-app-proxy'];
         await getDestinations(testArgs, templatesWithProxy);
@@ -386,7 +386,7 @@ describe('bin', () => {
         const expectedProxyDestination = `${process.cwd()}${sep + 'node-app-proxy'}`;
         expect(await getDestinations(testArgs, templatesWithProxy)).to.deep.equal({
           destination: testPath,
-          nodeAppDestination: expectedProxyDestination,
+          proxyAppDestination: expectedProxyDestination,
         });
       });
 
@@ -399,7 +399,7 @@ describe('bin', () => {
         });
         const testArgs = mockArgs({
           destination: testPath,
-          nodeAppDestination: testPath,
+          proxyAppDestination: testPath,
         });
         const templatesWithProxy = [...testTemplates, 'node-app-proxy'];
         await getDestinations(testArgs, templatesWithProxy);
@@ -434,7 +434,7 @@ describe('bin', () => {
         const args = mockArgs({
           templates: 'foo',
           destination: mockDestination,
-          nodeAppDestination: proxyDestination,
+          proxyAppDestination: proxyDestination,
         });
         const expectedTemplates = ['foo'];
 
@@ -443,7 +443,7 @@ describe('bin', () => {
         expect(initRunnerStub).to.have.been.calledWith(expectedTemplates, {
           ...args,
           destination: mockDestination,
-          nodeAppDestination: proxyDestination,
+          proxyAppDestination: proxyDestination,
           templates: expectedTemplates,
         });
       });

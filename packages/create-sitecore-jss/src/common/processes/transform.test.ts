@@ -546,7 +546,7 @@ describe('transform', () => {
 
       const answers = {
         destination: destinationPath,
-        nodeAppDestination: destinationProxy,
+        proxyAppDestination: destinationProxy,
         templates: [],
         appPrefix: false,
         force: false,

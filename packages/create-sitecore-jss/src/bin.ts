@@ -17,7 +17,7 @@ export const parseArgs = (): ParsedArgs => {
     string: [
       'appName',
       'destination',
-      'nodeAppDestination',
+      'proxyAppDestination',
       'templates',
       'hostName',
       'fetchWith',
@@ -40,37 +40,42 @@ export const getDestinations = async (args: ParsedArgs, templates: string[]) => 
   if (templates.length === 0) {
     throw new Error('Unable to get destinations, provided templates are empty');
   }
-  // validate/gather destination
+  // validate/gather destinations
   const defaultBaseDestination = `${process.cwd()}${
     args.appName ? sep + args.appName : `${sep}${templates[0]}`
   }`;
-  const destination = args.destination
-    ? args.destination
-    : args.yes
-    ? defaultBaseDestination
-    : await promptDestination('Where would you like your new app created?', defaultBaseDestination);
+  let destination = args.destination;
+  if (!destination) {
+    destination = args.yes
+      ? defaultBaseDestination
+      : await promptDestination(
+          'Where would you like your new app created?',
+          defaultBaseDestination
+        );
+  }
 
   // work with node-proxy destination if needed
   const proxyApp = templates.find((template) => template.match(proxyAppMatcher));
   if (proxyApp) {
     const defaultProxyDestination = proxyApp && `${process.cwd()}${sep}${proxyApp}`;
-    let nodeAppDestination = args.nodeAppDestination
-      ? args.nodeAppDestination
-      : args.yes
-      ? defaultProxyDestination
-      : await promptDestination(
-          'Where would you like your proxy app created?',
-          defaultProxyDestination
-        );
-    while (nodeAppDestination === destination) {
-      nodeAppDestination = await promptDestination(
+    let proxyAppDestination = args.proxyAppDestination;
+    if (!proxyAppDestination) {
+      proxyAppDestination = args.yes
+        ? defaultProxyDestination
+        : await promptDestination(
+            'Where would you like your proxy app created?',
+            defaultProxyDestination
+          );
+    }
+    while (proxyAppDestination === destination) {
+      proxyAppDestination = await promptDestination(
         'Proxy app and base app cannot be located in the same folder. Please input another path for proxy',
         defaultProxyDestination
       );
     }
     return {
       destination,
-      nodeAppDestination,
+      proxyAppDestination,
     };
   }
 
@@ -130,7 +135,7 @@ export const main = async (args: ParsedArgs) => {
 
   const destinations = await getDestinations(args, templates);
 
-  for (const destination of [destinations.destination, destinations.nodeAppDestination]) {
+  for (const destination of [destinations.destination, destinations.proxyAppDestination]) {
     if (!destination) continue;
     if (!args.force && fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
       const answer = await inquirer.prompt({

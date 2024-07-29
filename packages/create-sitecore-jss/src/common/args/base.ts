@@ -36,7 +36,7 @@ export type BaseArgs = {
   /**
    * Optional destination for proxy app, whether it's initialized alongside the main one or standalone
    */
-  nodeAppDestination?: string;
+  proxyAppDestination?: string;
 };
 
 /**
