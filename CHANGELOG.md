@@ -15,11 +15,17 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-### 🛠 Breaking Change
+* `[create-sitecore-jss]` `[template/angular]` `[template/angular-sxp]` `[template/angular-xmcloud]` Introduced "angular-sxp", "angular-xmcloud" addons ([#1838](https://github.com/Sitecore/jss/pull/1838))([#1845](https://github.com/Sitecore/jss/pull/1845)):
+    * The Angular app should now be initialized by providing both templates (or using CLI prompts): 
+      * SXP-based: 'angular,angular-sxp'
+      * XMCloud-based: 'angular,angular-xmcloud'
+    * Rework Angular initializer to support XMCloud and SXP journeys;
 
 * `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))
 * `[create-sitecore-jss]` Allows proxy apps to be installed alongside main apps ([#1858](https://github.com/Sitecore/jss/pull/1858))
   * `nodeAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
+
+### 🛠 Breaking Change
 
 ### 🧹 Chores
 
@@ -28,8 +34,12 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Changed formatting in temp/config to prevent parse issues in Unix systems ([#1787](https://github.com/Sitecore/jss/pull/1787))([#1791](https://github.com/Sitecore/jss/pull/1791))
+* `[sitecore-jss]` `GraphQLRequestClientFactory` type is updated and `config` parameter is now optional. Since it should match `GraphQLRequestClient.createClientFactory` method return type ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[templates/nextjs-sxa]` The banner variant of image component is fixed with supporting metadata mode. ([#1826](https://github.com/Sitecore/jss/pull/1826))
 * `[sitecore-jss]` `[sitecore-jss-react]` DateField empty value is not treated as empty ([#1836](https://github.com/Sitecore/jss/pull/1836))
+* `[templates/nextjs-sxa]` Fix styles of title component in metadata mode. ([#1839](https://github.com/Sitecore/jss/pull/1839))
+* `[templates/nextjs-sxa]` Fix missing value of field property in Title component. ([#1842](https://github.com/Sitecore/jss/pull/1842))
+
 
 ### 🎉 New Features & Improvements
 
@@ -38,10 +48,15 @@ Our versioning strategy is as follows:
 * `[sitecore-jss]` _GraphQLRequestClient_ now can accept custom 'headers' in the constructor or via _createClientFactory_ ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[templates/nextjs]` Removed cors header for API endpoints from _lib/next-config/plugins/cors-header_ plugin since cors is handled by API handlers / middlewares ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[sitecore-jss-nextjs]` Updates to Next.js editing integration to further support secure hosting scenarios (on XM Cloud & Vercel) ([#1832](https://github.com/Sitecore/jss/pull/1832))
+* `[templates/nextjs-xmcloud]` `[sitecore-jss]` A/B testing and component-level personalization support. ([#1844](https://github.com/Sitecore/jss/pull/1844))([#1847](https://github.com/Sitecore/jss/pull/1847))([#1848](https://github.com/Sitecore/jss/pull/1848))
+* `[sitecore-jss]` `[nextjs-xmcloud]` DictionaryService can now use a `site` GraphQL query instead of `search` one to improve performance. This is currently only available for XMCloud deployments and is enabled with `nextjs-xmcloud` add-on by default ([#1804](https://github.com/Sitecore/jss/pull/1804))([#1846](https://github.com/Sitecore/jss/pull/1846))([commit](https://github.com/Sitecore/jss/commit/5813a2df8ad6a9ee63dd74d5f206ed4b4f758753))([commit](https://github.com/Sitecore/jss/commit/d0ea3ac02c78343b5dd60277dbf7403410794a49))([commit](https://github.com/Sitecore/jss/commit/307b905ed60d7fff44b2dc799fd78c0842af6fbd))([commit](https://github.com/Sitecore/jss/commit/66164a42263aac8b55f0c5e47eda4bd4d7a72e87))
+* `[templates/nextjs-sxa]` SXA components now use the NextImage component instead of the Image component from JSS lib for image optimization ([#1843](https://github.com/Sitecore/jss/pull/1843))([#1850](https://github.com/Sitecore/jss/pull/1850))
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[sitecore-jss-angular]` `[sitecore-jss-vue]` The default Hidden Rendering component now contains the text 'The component is hidden' ([#1857](https://github.com/Sitecore/jss/pull/1857))
+
 
 ### 🛠 Breaking Change
 
-* Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792))([#1773](https://github.com/Sitecore/jss/pull/1773))([#1797](https://github.com/Sitecore/jss/pull/1797))([#1800](https://github.com/Sitecore/jss/pull/1800))([#1803](https://github.com/Sitecore/jss/pull/1803))([#1806](https://github.com/Sitecore/jss/pull/1806))([#1809](https://github.com/Sitecore/jss/pull/1809))([#1814](https://github.com/Sitecore/jss/pull/1814))([#1816](https://github.com/Sitecore/jss/pull/1816))([#1819](https://github.com/Sitecore/jss/pull/1819))([#1828](https://github.com/Sitecore/jss/pull/1828))([#1835](https://github.com/Sitecore/jss/pull/1835))
+* Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792))([#1773](https://github.com/Sitecore/jss/pull/1773))([#1797](https://github.com/Sitecore/jss/pull/1797))([#1800](https://github.com/Sitecore/jss/pull/1800))([#1803](https://github.com/Sitecore/jss/pull/1803))([#1806](https://github.com/Sitecore/jss/pull/1806))([#1809](https://github.com/Sitecore/jss/pull/1809))([#1814](https://github.com/Sitecore/jss/pull/1814))([#1816](https://github.com/Sitecore/jss/pull/1816))([#1819](https://github.com/Sitecore/jss/pull/1819))([#1828](https://github.com/Sitecore/jss/pull/1828))([#1835](https://github.com/Sitecore/jss/pull/1835))([#1849](https://github.com/Sitecore/jss/pull/1849))([#1831](https://github.com/Sitecore/jss/pull/1831))([#1853](https://github.com/Sitecore/jss/pull/1853))([#1854](https://github.com/Sitecore/jss/pull/1854))([#1857](https://github.com/Sitecore/jss/pull/1857))
   * `[sitecore-jss-react]` Introduces `PlaceholderMetadata` component which supports the hydration of chromes on Pages by rendering  the components and placeholders with required metadata.
   * `[sitecore-jss]` Chromes are hydrated based on the basis of new `editMode` property derived from LayoutData, which is defined as an enum consisting of `metadata` and `chromes`.
   * `ComponentConsumerProps` is removed. You might need to reuse `WithSitecoreContextProps` type.
@@ -53,19 +68,21 @@ Our versioning strategy is as follows:
   * `[sitecore-jss]` Introduced `GraphQLEditingService` class to fetch editing data in Metadata Edit Mode.
   * `[templates/nextjs-xmcloud]` Introduced _/lib/graphql-editing-service_ to fetch editing data in Metadata Edit Mode.
   * `[templates/nextjs-xmcloud]` Added a new _page-props-factory/plugins/preview-mode_ plugin to handle both Chromes and Metadata Edit Mode.
+  * `[sitecore-jss]` layout-personalizer will mark components hidden by personalization by setting 'Hidden Rendering' component name in Metadata edit mode
 * `[sitecore-jss]` Introduced _/editing_ submodule that contains all editing related functionality. Editing utils are now available in _/editing_ submodule. Editing utils exported from _/utils_ marked as deprecated. ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[sitecore-jss-nextjs]` EditingRenderMiddleware `resolvePageUrl` function now accepts an object `(args: { serverUrl?: string; itemPath: string }) => string` instead of multiple parameters `(serverUrl: string, itemPath: string) => string`. `serverUrl` is now optional and omitted when Metadata Edit Mode is used.
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` `[sitecore-jss]` Remove Partial rendering implementation as it will not be used by Pages in its current implementation - includes removing of EditingComponentPlaceholder component, few constants associated with it and RenderingType enum ([#1821](https://github.com/Sitecore/jss/pull/1821))
-
-### 🐛 Bug Fixes
-
-* `[sitecore-jss]` `GraphQLRequestClientFactory` type is updated and `config` parameter is now optional. Since it should match `GraphQLRequestClient.createClientFactory` method return type ([#1806](https://github.com/Sitecore/jss/pull/1806))
-
+* `[sitecore-jss-angular]``[sitecore-jss-schematics]``[templates/angular]` Upgrade Angular to v17 ([#1837](https://github.com/Sitecore/jss/pull/1837)) ([#1841](https://github.com/Sitecore/jss/pull/1841))
+  * Updated Angular and core dependencies to ~17.3.11
+  * Updated Typescript to ~5.2.2
+  * Updated import statements from zone.js/dist/zone-node to zone.js
+* `[sitecore-jss/personalize]` `[sitecore-jss-nextjs]` `CdpHelper.getPersonalizedRewrite` signature changed to accept `variantIds: string[]` as second parameter. `CdpHelper.getContentId` was renamed to `CdpHelper.getPageFriendlyId`. ([#1848](https://github.com/Sitecore/jss/pull/1848))
 
 ### 🧹 Chores
 
 * Update node/types to version 20 in all packages and samples ([#1810](https://github.com/Sitecore/jss/pull/1810))
 * Github - Teams integration ([#1823](https://github.com/Sitecore/jss/pull/1823))
+* [nextjs] Add `sharp` dependency to be in-line with nextjs's Image Optimizaion best practices: https://nextjs.org/docs/messages/install-sharp
 
 ## 22.0.0
 

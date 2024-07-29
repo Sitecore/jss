@@ -101,11 +101,68 @@ describe('GraphQLEditingService', () => {
     expect(result).to.deep.equal({
       layoutData: layoutDataResponse,
       dictionary: {
-        /* TODO: revert when dictionary schema updated
         foo: 'foo-phrase',
         bar: 'bar-phrase',
-      */
       },
+    });
+
+    spy.restore(clientFactorySpy);
+  });
+
+  it('should return empty dictionary and layout', async () => {
+    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+      .post(endpointPath, /EditingQuery/gi)
+      .reply(200, {
+        data: {
+          item: null,
+          site: {
+            siteInfo: {
+              dictionary: null,
+            },
+          },
+        },
+      });
+
+    const clientFactorySpy = sinon.spy(clientFactory);
+
+    const service = new GraphQLEditingService({
+      clientFactory: clientFactorySpy,
+    });
+
+    spy.on(clientFactorySpy.returnValues[0], 'request');
+
+    const result = await service.fetchEditingData({
+      language,
+      version,
+      itemId,
+      siteName,
+    });
+
+    expect(clientFactorySpy.calledOnce).to.be.true;
+    expect(
+      clientFactorySpy.calledWith({
+        debugger: debug.editing,
+        headers: {
+          sc_editMode: 'true',
+        },
+      })
+    ).to.be.true;
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(query, {
+      language,
+      version,
+      itemId,
+      siteName,
+    });
+
+    expect(result).to.deep.equal({
+      layoutData: {
+        sitecore: {
+          context: { pageEditing: true, language, editMode: EditMode.Metadata },
+          route: null,
+        },
+      },
+      dictionary: {},
     });
 
     spy.restore(clientFactorySpy);
@@ -150,18 +207,15 @@ describe('GraphQLEditingService', () => {
     expect(result).to.deep.equal({
       layoutData: layoutDataResponse,
       dictionary: {
-        /* TODO: revert when dictionary schema updated
         foo: 'foo-phrase',
         bar: 'bar-phrase',
-      */
       },
     });
 
     spy.restore(clientFactorySpy);
   });
 
-  // TODO: re-enable when dictionary schema updated
-  xit('should fetch editing data when dicionary has multiple pages', async () => {
+  it('should fetch editing data when dicionary has multiple pages', async () => {
     nock(hostname, { reqheaders: { sc_editMode: 'true' } })
       .post(endpointPath, /EditingQuery/gi)
       .reply(200, mockEditingServiceResponse(true));
@@ -212,7 +266,7 @@ describe('GraphQLEditingService', () => {
       .to.be.called.with(dictionaryQuery, {
         language,
         siteName,
-        after: '',
+        after: 'cursor',
       });
 
     expect(clientFactorySpy.returnValues[0].request)
@@ -226,15 +280,62 @@ describe('GraphQLEditingService', () => {
     expect(result).to.deep.equal({
       layoutData: layoutDataResponse,
       dictionary: {
-        /* TODO: revert when dictionary schema updated
         foo: 'foo-phrase',
         bar: 'bar-phrase',
-      */
         'foo-one': 'foo-one-phrase',
         'bar-one': 'bar-one-phrase',
         'foo-two': 'foo-two-phrase',
         'bar-two': 'bar-two-phrase',
       },
+    });
+
+    spy.restore(clientFactorySpy);
+  });
+
+  it('should return empty dictionary when dictionary is not provided', async () => {
+    const editingData = mockEditingServiceResponse();
+
+    (editingData.data.site.siteInfo as any) = null;
+
+    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+      .post(endpointPath, /EditingQuery/gi)
+      .reply(200, editingData);
+
+    const clientFactorySpy = sinon.spy(clientFactory);
+
+    const service = new GraphQLEditingService({
+      clientFactory: clientFactorySpy,
+    });
+
+    spy.on(clientFactorySpy.returnValues[0], 'request');
+
+    const result = await service.fetchEditingData({
+      language,
+      version,
+      itemId,
+      siteName,
+    });
+
+    expect(clientFactorySpy.calledOnce).to.be.true;
+    expect(
+      clientFactorySpy.calledWith({
+        debugger: debug.editing,
+        headers: {
+          sc_editMode: 'true',
+        },
+      })
+    ).to.be.true;
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(query, {
+      language,
+      version,
+      itemId,
+      siteName,
+    });
+
+    expect(result).to.deep.equal({
+      layoutData: layoutDataResponse,
+      dictionary: {},
     });
 
     spy.restore(clientFactorySpy);
@@ -278,26 +379,37 @@ describe('GraphQLEditingService', () => {
     }
   });
 
-  // TODO: remove when dictionary site schema available
-  it('should return empty dictionary results', async () => {
-    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
-      .post(endpointPath, /EditingQuery/gi)
-      .reply(200, editingData);
-
+  it('should throw an error when siteName is not provided', async () => {
     const service = new GraphQLEditingService({
       clientFactory,
     });
 
-    const result = await service.fetchEditingData({
-      language,
-      version,
-      itemId,
-      siteName,
+    try {
+      await service.fetchEditingData({
+        language,
+        version,
+        itemId,
+        siteName: '',
+      });
+    } catch (error) {
+      expect(error.message).to.equal('The site name must be a non-empty string');
+    }
+  });
+
+  it('should throw an error when language is not provided', async () => {
+    const service = new GraphQLEditingService({
+      clientFactory,
     });
 
-    expect(result).to.deep.equal({
-      layoutData: layoutDataResponse,
-      dictionary: {},
-    });
+    try {
+      await service.fetchEditingData({
+        language: '',
+        version,
+        itemId,
+        siteName,
+      });
+    } catch (error) {
+      expect(error.message).to.equal('The language must be a non-empty string');
+    }
   });
 });

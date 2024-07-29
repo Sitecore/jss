@@ -7,9 +7,10 @@ import {
   RouteData,
 } from '@sitecore-jss/sitecore-jss/layout';
 import { resetEditorChromes } from '@sitecore-jss/sitecore-jss/editing';
+import { constants } from '@sitecore-jss/sitecore-jss';
 import { Component, h, VNode, DefineComponent, ref, onMounted } from 'vue';
 import { MissingComponent } from './MissingComponent';
-import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
+import { HiddenRendering } from './HiddenRendering';
 import { ComponentFactory } from './sharedTypes';
 
 export interface PlaceholderProps {
@@ -116,7 +117,7 @@ export function getVNodesForRenderingData(
 
       let component: any;
 
-      if (rendering.componentName === HIDDEN_RENDERING_NAME) {
+      if (rendering.componentName === constants.HIDDEN_RENDERING_NAME) {
         component = hiddenRenderingComponent || HiddenRendering;
       } else {
         component = getComponentForRendering(rendering, componentFactory);

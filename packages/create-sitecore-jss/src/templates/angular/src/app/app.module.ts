@@ -10,7 +10,6 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { JssTranslationClientLoaderService } from './i18n/jss-translation-client-loader.service';
 import { JssTranslationLoaderService } from './i18n/jss-translation-loader.service';
 import { GraphQLModule } from './jss-graphql.module';
-import { JssDataFetcherService } from './jss-data-fetcher.service';
 import { JssMetaService } from './jss-meta.service';
 
 @NgModule({
@@ -31,7 +30,6 @@ import { JssMetaService } from './jss-meta.service';
     // The token is needed in cases when multiple applications are bootstrapped on a page
     { provide: APP_ID, useValue: 'my-app' },
     JssContextService,
-    JssDataFetcherService,
     JssLayoutService,
     JssMetaService,
     // IMPORTANT: you must set the base href with this token, not a <base> tag in the HTML.

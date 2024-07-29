@@ -59,6 +59,7 @@ export {
   personalizeLayout,
   getPersonalizedRewrite,
   getPersonalizedRewriteData,
+  getGroomedVariantIds,
   normalizePersonalizedRewrite,
   CdpHelper,
 } from '@sitecore-jss/sitecore-jss/personalize';

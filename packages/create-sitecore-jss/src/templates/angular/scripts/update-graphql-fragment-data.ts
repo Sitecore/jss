@@ -9,7 +9,7 @@ import { generateConfig } from './generate-config';
 //
 // The `jss graphql:update` command should be executed when Sitecore templates related to the site are altered.
 
-generateConfig();
+generateConfig('src/environments/environment.js');
 
 let jssConfig;
 
@@ -47,7 +47,9 @@ fetch(jssConfig.graphQLEndpoint, {
   .then((result) => result.json())
   .then((result) => {
     // here we're filtering out any type information unrelated to unions or interfaces
-    const filteredData = result.data.__schema.types.filter((type: { possibleTypes: Array<string>; }) => type.possibleTypes !== null);
+    const filteredData = result.data.__schema.types.filter(
+      (type: { possibleTypes: Array<string> }) => type.possibleTypes !== null
+    );
 
     const filteredResult = { ...result };
     filteredResult.data.__schema.types = filteredData;

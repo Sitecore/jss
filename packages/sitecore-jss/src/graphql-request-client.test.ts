@@ -345,7 +345,7 @@ describe('GraphQLRequestClient', () => {
       }
     });
 
-    describe('Retrayable status codes', () => {
+    describe('Retryable status codes', () => {
       const retryableStatusCodeThrowError = async (statusCode: number) => {
         nock('http://jssnextweb')
           .post('/graphql')

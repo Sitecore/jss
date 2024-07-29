@@ -13,6 +13,7 @@
 ### Variables
 
 - [FETCH\_WITH](index.constants.md#fetch_with)
+- [HIDDEN\_RENDERING\_NAME](index.constants.md#hidden_rendering_name)
 - [JSS\_MODE](index.constants.md#jss_mode)
 - [SITECORE\_EDGE\_URL\_DEFAULT](index.constants.md#sitecore_edge_url_default)
 - [siteNameError](index.constants.md#sitenameerror)
@@ -32,7 +33,17 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/constants.ts:9](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/constants.ts#L9)
+[packages/sitecore-jss/src/constants.ts:9](https://github.com/Sitecore/jss/blob/f1a949104/packages/sitecore-jss/src/constants.ts#L9)
+
+___
+
+### HIDDEN\_RENDERING\_NAME
+
+• `Const` **HIDDEN\_RENDERING\_NAME**: ``"Hidden Rendering"``
+
+#### Defined in
+
+[packages/sitecore-jss/src/constants.ts:23](https://github.com/Sitecore/jss/blob/f1a949104/packages/sitecore-jss/src/constants.ts#L23)
 
 ___
 
@@ -49,7 +60,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/constants.ts:14](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/constants.ts#L14)
+[packages/sitecore-jss/src/constants.ts:14](https://github.com/Sitecore/jss/blob/f1a949104/packages/sitecore-jss/src/constants.ts#L14)
 
 ___
 
@@ -59,7 +70,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/constants.ts:21](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/constants.ts#L21)
+[packages/sitecore-jss/src/constants.ts:21](https://github.com/Sitecore/jss/blob/f1a949104/packages/sitecore-jss/src/constants.ts#L21)
 
 ___
 
@@ -69,4 +80,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/constants.ts:19](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/constants.ts#L19)
+[packages/sitecore-jss/src/constants.ts:19](https://github.com/Sitecore/jss/blob/f1a949104/packages/sitecore-jss/src/constants.ts#L19)

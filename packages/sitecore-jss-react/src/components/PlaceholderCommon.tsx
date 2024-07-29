@@ -10,8 +10,9 @@ import {
   HtmlElementRendering,
   EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
+import { constants } from '@sitecore-jss/sitecore-jss';
 import { convertAttributesToReactProps } from '../utils';
-import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
+import { HiddenRendering } from './HiddenRendering';
 import { FEaaSComponent, FEAAS_COMPONENT_RENDERING_NAME } from './FEaaSComponent';
 import { FEaaSWrapper, FEAAS_WRAPPER_RENDERING_NAME } from './FEaaSWrapper';
 import { BYOCComponent, BYOC_COMPONENT_RENDERING_NAME } from './BYOCComponent';
@@ -243,7 +244,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
         let component;
 
-        if (componentRendering.componentName === HIDDEN_RENDERING_NAME) {
+        if (componentRendering.componentName === constants.HIDDEN_RENDERING_NAME) {
           component = hiddenRenderingComponent ?? HiddenRendering;
           isEmpty = true;
         } else if (!componentRendering.componentName) {

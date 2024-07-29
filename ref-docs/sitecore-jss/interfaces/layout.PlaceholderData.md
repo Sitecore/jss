@@ -22,7 +22,7 @@ Contents of a single placeholder returned from placeholder service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:158](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/layout/models.ts#L158)
+[packages/sitecore-jss/src/layout/models.ts:158](https://github.com/Sitecore/jss/blob/f1a949104/packages/sitecore-jss/src/layout/models.ts#L158)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:156](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/layout/models.ts#L156)
+[packages/sitecore-jss/src/layout/models.ts:156](https://github.com/Sitecore/jss/blob/f1a949104/packages/sitecore-jss/src/layout/models.ts#L156)
 
 ___
 
@@ -42,4 +42,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:157](https://github.com/Sitecore/jss/blob/4a1519e69/packages/sitecore-jss/src/layout/models.ts#L157)
+[packages/sitecore-jss/src/layout/models.ts:157](https://github.com/Sitecore/jss/blob/f1a949104/packages/sitecore-jss/src/layout/models.ts#L157)

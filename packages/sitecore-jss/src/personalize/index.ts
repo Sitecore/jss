@@ -7,6 +7,7 @@ export {
 export {
   getPersonalizedRewrite,
   getPersonalizedRewriteData,
+  getGroomedVariantIds,
   normalizePersonalizedRewrite,
   PersonalizedRewriteData,
   CdpHelper,
