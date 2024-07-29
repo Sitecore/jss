@@ -1,5 +1,5 @@
 {
-  "name": "node-xmcloud-proxy-sample",
+  "name": "node-xmcloud-sample",
   "version": "22.1.0-canary",
   "description": "Node server-side-rendering proxy sample for running XMCloud JSS apps under Node hosting",
   "author": {
