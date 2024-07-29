@@ -1,7 +1,7 @@
 {
   "name": "node-xmcloud-sample",
   "version": "22.1.0-canary",
-  "description": "Node server-side-rendering proxy sample for running XMCloud JSS apps under Node hosting",
+  "description": "Node XMCloud Proxy sample for running XMCloud JSS SPA apps",
   "author": {
     "name": "Sitecore Corporation",
     "url": "https://jss.sitecore.com"
