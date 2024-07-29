@@ -29,7 +29,8 @@ export default class AngularInitializer implements Initializer {
         addInitializers.push('node-xmcloud-proxy');
       }
     } else {
-      if (!args.templates.includes('angular-sxp')) {
+      // invoke default non-XMC init
+      if (!args.templates.includes('angular-sxp') && !args.templates.includes('angular-xmcloud')) {
         addInitializers.push('angular-sxp');
       }
     }

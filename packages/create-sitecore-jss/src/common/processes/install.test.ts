@@ -151,11 +151,22 @@ describe('install', () => {
   });
 
   describe('installPrePushHook', () => {
-    const execStub = sinon.stub(childProcess, 'exec');
+    let execStub: SinonStub;
+    beforeEach(() => {
+      execStub = sinon.stub(childProcess, 'exec');
+    });
+
+    afterEach(() => {
+      execStub?.restore();
+    });
 
     it('should run exec function', () => {
       const destination = './some/path';
-
+      openPackageJson = sinon.stub(helpers, 'openPackageJson').returns({
+        scripts: {
+          'install-pre-push-hook': 'stub',
+        },
+      });
       installPrePushHook(destination);
 
       expect(log).to.have.been.calledOnceWith(chalk.cyan('Installing pre-push hook...'));
@@ -167,7 +178,11 @@ describe('install', () => {
     it('should respect silent', () => {
       const destination = './some/path';
       const silent = true;
-
+      openPackageJson = sinon.stub(helpers, 'openPackageJson').returns({
+        scripts: {
+          'install-pre-push-hook': 'stub',
+        },
+      });
       installPrePushHook(destination, silent);
 
       expect(log).to.not.have.been.called;
@@ -176,11 +191,27 @@ describe('install', () => {
       );
     });
 
+    it('should skip if installPrePushHook script not defined', () => {
+      const destination = './some/path';
+      openPackageJson = sinon.stub(helpers, 'openPackageJson').returns({
+        scripts: {},
+      });
+
+      installPrePushHook(destination);
+
+      expect(log).to.not.have.been.called;
+      expect(execStub).to.not.have.been.called;
+    });
+
     it('should log a warning message if there is an error', async () => {
       const destination = './some/path';
       const error = new Error('some error');
       execStub.yields(error);
-
+      openPackageJson = sinon.stub(helpers, 'openPackageJson').returns({
+        scripts: {
+          'install-pre-push-hook': 'stub',
+        },
+      });
       try {
         await installPrePushHook(destination);
       } catch (err) {

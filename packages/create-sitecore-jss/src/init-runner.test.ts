@@ -74,6 +74,40 @@ describe('initRunner', () => {
     expect(nextStepsStub).to.be.calledOnceWith(appName, []);
   });
 
+  it('should run for both base and proxy path when latter is provided', async () => {
+    const templates = ['foo', 'bar'];
+    const appName = 'test-app';
+    const args = {
+      silent: false,
+      destination: 'samples/next',
+      proxyAppDestination: 'samples/proxy',
+      templates,
+    };
+
+    const mockFoo = mockInitializer(true, { appName });
+    const mockBar = mockInitializer(false, { appName });
+    createStub = sinon.stub(InitializerFactory.prototype, 'create');
+    createStub.withArgs('foo').returns(mockFoo);
+    createStub.withArgs('bar').returns(mockBar);
+
+    await initRunner(templates, args);
+
+    expect(log.getCalls().length).to.equal(2);
+    templates.forEach((template, i) => {
+      expect(log.getCall(i).args[0]).to.equal(chalk.cyan(`Initializing '${template}'...`));
+    });
+    expect(mockFoo.init).to.be.calledOnceWith(args);
+    expect(mockBar.init).to.be.calledOnceWith(args);
+
+    expect(installPackagesStub).to.be.calledTwice;
+    expect(installPackagesStub.getCall(0).args[0]).to.equal(args.destination);
+    expect(installPackagesStub.getCall(1).args[0]).to.equal(args.proxyAppDestination);
+
+    expect(lintFixStub).to.be.calledTwice;
+    expect(lintFixStub.getCall(0).args[0]).to.equal(args.destination);
+    expect(lintFixStub.getCall(1).args[0]).to.equal(args.proxyAppDestination);
+  });
+
   it('should process returned initializers', async () => {
     const templates = ['foo', 'bar', 'zoo'];
     const appName = 'test-app';

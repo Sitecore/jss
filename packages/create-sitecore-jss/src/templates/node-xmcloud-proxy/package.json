@@ -1,0 +1,29 @@
+{
+    "name": "node-xmcloud-sample",
+    "version": "22.1.0-canary",
+    "description": "Node server-side-rendering proxy sample for running JSS apps under Node hosting for XM Cloud",
+    "scripts": {
+      "start": "ts-node ./src/index.ts"
+    },
+    "author": {
+      "name": "Sitecore Corporation",
+      "url": "https://jss.sitecore.com"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/sitecore/jss.git"
+    },
+    "bugs": {
+      "url": "https://github.com/sitecore/jss/issues"
+    },
+    "homepage": "https://jss.sitecore.com",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "ts-node": "^10.9.1"
+    },
+    "devDependencies": {
+      "@types/node": "^20.14.2"
+    },
+    "private": true
+}
+  
