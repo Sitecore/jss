@@ -1,6 +1,5 @@
 import { JssConfig } from 'lib/config';
 import { ConfigPlugin } from '..';
-import path from 'path';
 import { constantCase } from 'constant-case';
 import { constants } from '@sitecore-jss/sitecore-jss-angular/cjs';
 
@@ -14,9 +13,7 @@ class ComputedPlugin implements ConfigPlugin {
   order = 10;
 
   async exec(config: JssConfig) {
-    const proxyBuildPath =
-      process.env[`${constantCase('proxyBuildPath')}`]?.replace(/\/$/, '') ||
-      path.join(__dirname, '..', 'C:/Work/jss/samples/node-xmc-proxy/dist');
+    const proxyBuildPath = process.env[`${constantCase('proxyBuildPath')}`]?.replace(/\/$/, '');
 
     const proxyHost = process.env[`${constantCase('proxyHost')}`];
 
