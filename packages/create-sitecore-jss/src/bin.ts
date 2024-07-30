@@ -67,7 +67,7 @@ export const getDestinations = async (args: ParsedArgs, templates: string[]) => 
             defaultProxyDestination
           );
     }
-    while (proxyAppDestination === destination) {
+    while (path.resolve(proxyAppDestination) === path.resolve(destination)) {
       proxyAppDestination = await promptDestination(
         'Proxy app and base app cannot be located in the same folder. Please input another path for proxy',
         defaultProxyDestination
