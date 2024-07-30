@@ -231,9 +231,15 @@ export const transform = async (
 ) => {
   const { isFileForCopy, isFileForSkip, fileForCopyRegExp = FILE_FOR_COPY_REGEXP } = options;
   let destination = undefined;
+  let relativeProxyAppPath = undefined;
   // allow proxy app to be installed separately alongside base app
+  // also calculate relative path between main app and proxy
   if (templatePath.match(/.*node-.+-proxy$/g)) {
     destination = answers.proxyAppDestination;
+  } else {
+    relativeProxyAppPath = answers.proxyAppDestination
+      ? path.relative(path.resolve(answers.destination), path.resolve(answers.proxyAppDestination))
+      : undefined;
   }
   const destinationPath = path.resolve(destination || answers.destination);
 
@@ -248,6 +254,7 @@ export const transform = async (
       isDev: isDevEnvironment(destination || answers.destination),
       getPascalCaseName: getPascalCaseName,
       getAppPrefix: getAppPrefix,
+      relativeProxyAppPath,
     },
   };
 
