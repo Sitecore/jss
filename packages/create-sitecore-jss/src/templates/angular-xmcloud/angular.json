@@ -23,7 +23,7 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
-              "src/assets/styles/main.css"
+              "src/assets/styles/main.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/assets/styles", "node_modules/font-awesome"]
@@ -98,7 +98,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
-            "styles": ["src/styles.css", "src/assets/styles/main.css"],
+            "styles": ["src/styles.css", "src/assets/styles/main.scss"],
             "assets": ["src/assets", "src/favicon.ico"]
           }
         },
