@@ -32,11 +32,15 @@ export const getPascalCaseName = (name: string): string => {
  */
 export const openPackageJson = (pkgPath?: string) => {
   const filePath = path.resolve(pkgPath ?? `.${sep}package.json`);
+  return openJson(filePath);
+};
+
+export const openJson = (jsonPath: string) => {
   try {
-    const data = fs.readFileSync(filePath, 'utf8');
+    const data = fs.readFileSync(jsonPath, 'utf8');
     return data ? JSON.parse(data) : undefined;
   } catch (error) {
-    console.log(chalk.red(`The following error occurred while trying to read ${filePath}:`));
+    console.log(chalk.red(`The following error occurred while trying to read ${jsonPath}:`));
     console.log(chalk.red(error));
   }
 };

@@ -1,0 +1,9 @@
+{
+  "first": "test first",
+  "second": "test second",
+  "description": "Test package.json",
+  "third": {
+    "thirdOne": "tests third one"
+  },
+  "array": ["one", "two"]
+}

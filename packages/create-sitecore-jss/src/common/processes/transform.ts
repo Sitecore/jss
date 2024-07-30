@@ -9,6 +9,7 @@ import {
   getPascalCaseName,
   getAppPrefix,
   openPackageJson,
+  openJson,
   sortKeys,
   writeFileToPath,
   isDevEnvironment,
@@ -289,6 +290,12 @@ export const transform = async (
         const templatePkg = JSON.parse(await renderFile(path.resolve(pathToTemplate), ejsData));
         // merge them and set the result to str which will then go through diff
         const merged = merge(currentPkg, templatePkg);
+        str = JSON.stringify(merged, null, 2);
+      } else if (file.endsWith('.json') && fs.existsSync(pathToNewFile)) {
+        // we have other json file use simililar logic as for package.json to merge it
+        const currentJsonFile = openJson(pathToNewFile);
+        const templateJsonFile = JSON.parse(await renderFile(path.resolve(pathToTemplate), ejsData));
+        const merged = merge(currentJsonFile, templateJsonFile);
         str = JSON.stringify(merged, null, 2);
       }
 

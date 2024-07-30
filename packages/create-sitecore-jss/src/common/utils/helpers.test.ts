@@ -13,9 +13,11 @@ import {
   getBaseTemplates,
   getAppPrefix,
   saveConfiguration,
+  openJson,
 } from './helpers';
 import { JsonObjectType } from '../processes/transform';
 import testPackage from '../test-data/test.package.json';
+import testJson from '../test-data/test.json';
 import rootPackage from '../../../package.json';
 import { Initializer } from '../Initializer';
 import { InitializerFactory } from '../../InitializerFactory';
@@ -77,6 +79,37 @@ describe('helpers', () => {
       const result = openPackageJson();
 
       expect(result).to.deep.equal(rootPackage);
+    });
+  });
+
+  describe('openJson', () => {
+    let log: SinonStub;
+
+    it('should return json data using provided path', () => {
+      const filePath = path.resolve('src', 'common', 'test-data', 'test.json');
+
+      const result = openJson(filePath);
+
+      expect(result).to.deep.equal(testJson);
+    });
+
+    it('should throw an error when the path to the package does not exist', () => {
+      log = sinon.stub(console, 'log');
+
+      const filePath = path.resolve('not', 'existing', 'path', 'test.json');
+
+      const result = openJson(filePath);
+
+      expect(result).to.equal(undefined);
+      expect(log.calledTwice).to.equal(true);
+      expect(log.getCall(0).args[0]).to.equal(
+        chalk.red(`The following error occurred while trying to read ${filePath}:`)
+      );
+      expect(log.getCall(1).args[0]).to.equal(
+        chalk.red(`Error: ENOENT: no such file or directory, open '${filePath}'`)
+      );
+
+      log.restore();
     });
   });
 
