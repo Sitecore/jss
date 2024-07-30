@@ -2,8 +2,8 @@
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 
 @Component({
-  selector: 'app-rich-text',
-  templateUrl: './rich-text.component.html',
+  selector: 'app-richtext',
+  templateUrl: './richtext.component.html',
 })
 export class RichTextComponent implements OnInit {
   @Input() rendering: ComponentRendering;
