@@ -5,8 +5,7 @@ import inquirer from 'inquirer';
 import { initRunner } from './init-runner';
 import minimist, { ParsedArgs } from 'minimist';
 import { getAllTemplates, getBaseTemplates } from './common';
-
-const proxyAppMatcher = /node-.+-proxy/g;
+import { proxyAppMatcher, getDefaultProxyDestination } from './common/utils/helpers';
 
 export const parseArgs = (): ParsedArgs => {
   // parse any command line arguments passed into `init sitecore-jss`
@@ -57,7 +56,8 @@ export const getDestinations = async (args: ParsedArgs, templates: string[]) => 
   // work with node-proxy destination if needed
   const proxyApp = templates.find((template) => template.match(proxyAppMatcher));
   if (proxyApp) {
-    const defaultProxyDestination = proxyApp && `${process.cwd()}${sep}${proxyApp}`;
+    // put the proxy alongside main app by default
+    const defaultProxyDestination = getDefaultProxyDestination(destination, proxyApp);
     let proxyAppDestination = args.proxyAppDestination;
     if (!proxyAppDestination) {
       proxyAppDestination = args.yes

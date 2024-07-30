@@ -9,6 +9,7 @@ import {
   installPrePushHook,
 } from './common';
 import { InitializerFactory } from './InitializerFactory';
+import { proxyAppMatcher, getDefaultProxyDestination } from './common/utils/helpers';
 
 export const initRunner = async (initializers: string[], args: BaseArgs) => {
   let nextStepsArr: string[] = [];
@@ -27,9 +28,15 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
 
       appName = response.appName;
       nextStepsArr = [...nextStepsArr, ...(response.nextSteps ?? [])];
-
       // process any returned initializers
       if (response.initializers && response.initializers.length > 0) {
+        // set default proxy path if proxy initializer was added
+        const proxyApp = response.initializers.find((initializer) =>
+          initializer.match(proxyAppMatcher)
+        );
+        if (proxyApp) {
+          args.proxyAppDestination = getDefaultProxyDestination(args.destination, proxyApp);
+        }
         // provide info for addons to see other addons used.
         // add-ons will not have information about the initial
         // list of templates, as it has `nextjs` initializer for example

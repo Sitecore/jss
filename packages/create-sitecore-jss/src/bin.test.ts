@@ -9,6 +9,7 @@ import { ParsedArgs } from 'minimist';
 import { parseArgs, main, promptDestination, getDestinations } from './bin';
 import * as helpers from './common/utils/helpers';
 import * as initRunner from './init-runner';
+import { getDefaultProxyDestination } from './common/utils/helpers';
 
 describe('bin', () => {
   describe('parseArgs', () => {
@@ -383,7 +384,7 @@ describe('bin', () => {
           yes: true,
         });
         const templatesWithProxy = [...testTemplates, 'node-app-proxy'];
-        const expectedProxyDestination = `${process.cwd()}${sep + 'node-app-proxy'}`;
+        const expectedProxyDestination = getDefaultProxyDestination(testPath, 'node-app-proxy');
         expect(await getDestinations(testArgs, templatesWithProxy)).to.deep.equal({
           destination: testPath,
           proxyAppDestination: expectedProxyDestination,
