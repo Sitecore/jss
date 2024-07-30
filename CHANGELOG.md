@@ -15,11 +15,12 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[create-sitecore-jss]` `[template/angular]` `[template/angular-sxp]` `[template/angular-xmcloud]` Introduced "angular-sxp", "angular-xmcloud" addons ([#1838](https://github.com/Sitecore/jss/pull/1838))([#1845](https://github.com/Sitecore/jss/pull/1845)):
+* `[create-sitecore-jss]` `[template/angular]` `[template/angular-sxp]` `[template/angular-xmcloud]` Introduced "angular-sxp", "angular-xmcloud" addons ([#1838](https://github.com/Sitecore/jss/pull/1838))([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1865](https://github.com/Sitecore/jss/pull/1865)):
     * The Angular app should now be initialized by providing both templates (or using CLI prompts): 
       * SXP-based: 'angular,angular-sxp'
       * XMCloud-based: 'angular,angular-xmcloud'
     * Rework Angular initializer to support XMCloud and SXP journeys;
+    * Add SXA styles to xmcloud addon
 
 * `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))
 * `[create-sitecore-jss]` Allows proxy apps to be installed alongside main apps ([#1858](https://github.com/Sitecore/jss/pull/1858))
