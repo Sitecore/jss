@@ -1,6 +1,6 @@
-@import '@fontawesome/scss/mixins';
-@import '@fontawesome/scss/variables';
-@import "@sass/abstracts/mixins";
+@import 'fontawesome/scss/mixins';
+@import 'fontawesome/scss/variables';
+@import "sass/abstracts/mixins";
 
 //files icons
 .field-filetypeicon>a>span, .pdf, .xls, .xlsx, .pptx, .ppt, .docx, .doc, .bmp, .png, .jpg, .jpeg, .psd, .gif, .avi, .mp4, .wmv, .mov, .mp3, .wma, .txt, .zip {

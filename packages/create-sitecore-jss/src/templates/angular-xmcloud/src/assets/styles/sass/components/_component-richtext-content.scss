@@ -1,5 +1,5 @@
-@import "@sass/abstracts/vars";
-@import "@sass/abstracts/mixins";
+@import "sass/abstracts/vars";
+@import "sass/abstracts/mixins";
 
 .content, .rich-text {
     border: $rich-content-border;
@@ -9,11 +9,11 @@
     * {
         max-width: 100%;
     }
-    @import "@sass/base/richtext";
+    @import "sass/base/richtext";
 }
 .rich-text  {
-    @import "@sass/variants/rich-text";
+    @import "sass/variants/rich-text";
 }
 .content {
-    @import "@sass/variants/page-content";
+    @import "sass/variants/page-content";
 }

@@ -1,4 +1,7 @@
 {
-    "license": "yo-ho-ho"
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "sass": "^1.52.3",
+    "sass-alias": "^1.0.5"
+  }
 }
-  
