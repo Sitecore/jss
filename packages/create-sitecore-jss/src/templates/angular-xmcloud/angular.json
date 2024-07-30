@@ -25,6 +25,9 @@
               "src/styles.css",
               "src/assets/styles/main.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/assets/styles", "node_modules/font-awesome"]
+            },
             "scripts": [],
             "allowedCommonJsDependencies": [
               "zen-observable",
