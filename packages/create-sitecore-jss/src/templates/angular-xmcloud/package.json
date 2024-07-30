@@ -1,4 +1,6 @@
 {
-    "license": "yo-ho-ho"
+    "config": {
+        "relativeProxyPath": "<%- helper.relativeProxyAppDestination %>"
+    }    
 }
   
