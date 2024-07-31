@@ -6,6 +6,9 @@ import 'zone.js';
 import { JssRouteBuilderService } from './src/app/routing/jss-route-builder.service';
 import { environment } from './src/environments/environment';
 import { AppServerModule, renderModule } from './src/main.server';
+import { clientFactory } from './src/app/lib/graphql-client-factory';
+import { dictionaryServiceFactory } from './src/app/lib/dictionary-service-factory';
+import { layoutServiceFactory } from './src/app/lib/layout-service-factory';
 
 export * from './src/main.server';
 
@@ -99,5 +102,20 @@ function parseRouteUrl(url: string) {
 
 const apiKey = environment.sitecoreApiKey;
 const siteName = environment.sitecoreSiteName;
+const defaultLanguage = environment.defaultLanguage;
+const graphQLEndpointPath = environment.graphQLEndpointPath;
+const graphQLEndpoint = environment.graphQLEndpoint;
 
-export { renderView, parseRouteUrl, setUpDefaultAgents, apiKey, siteName };
+export {
+  renderView,
+  parseRouteUrl,
+  setUpDefaultAgents,
+  apiKey,
+  siteName,
+  clientFactory,
+  dictionaryServiceFactory,
+  layoutServiceFactory,
+  defaultLanguage,
+  graphQLEndpointPath,
+  graphQLEndpoint,
+};

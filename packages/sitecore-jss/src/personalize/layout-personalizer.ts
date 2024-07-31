@@ -7,10 +7,13 @@ import {
   EditMode,
 } from './../layout/models';
 
-const hiddenRenderingVariant = {
+const transformToHiddenRenderingVariant = (
+  component: ComponentRendering | HtmlElementRendering
+) => ({
+  ...component,
   componentName: HIDDEN_RENDERING_NAME,
   experiences: {},
-};
+});
 
 export type ComponentRenderingWithExperiences = ComponentRendering & {
   experiences: { [name: string]: ComponentRenderingWithExperiences };
@@ -106,14 +109,14 @@ export function personalizeComponent(
   if (!variant && !component.componentName) {
     // DEFAULT IS HIDDEN
     if (metadataEditing) {
-      component = hiddenRenderingVariant;
+      component = transformToHiddenRenderingVariant(component);
     } else {
       return null;
     }
   } else if (variant && variant.componentName === null && variant.dataSource === null) {
     // VARIANT IS HIDDEN
     if (metadataEditing) {
-      component = hiddenRenderingVariant;
+      component = transformToHiddenRenderingVariant(component);
     } else {
       return null;
     }

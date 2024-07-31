@@ -1,8 +1,10 @@
 import {
   LayoutService,
   GraphQLLayoutService,
+  <% if (!locals.xmcloud) { -%>
   RestLayoutService,
   constants,
+   <% } -%>
 } from '@sitecore-jss/sitecore-jss-angular';
 import { environment } from '../../environments/environment';
 import { clientFactory } from './graphql-client-factory';
