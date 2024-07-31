@@ -1,4 +1,10 @@
 {
-    "license": "yo-ho-ho"
+  "config": {
+    "sitecoreDistPath": "/dist"
+  },
+  "scripts": {
+    "postbuild:server": "npm-run-all --serial prepare:build prepare:proxy-build",
+    "prepare:build": "move-cli ./dist/main.js ./dist/server.bundle.js",
+    "prepare:proxy-build": "ts-node --project src/tsconfig.webpack-server.json ./scripts/proxy-build.ts"
+  }
 }
-  
