@@ -230,8 +230,12 @@ export const transform = async (
   options: TransformOptions = {}
 ) => {
   const { isFileForCopy, isFileForSkip, fileForCopyRegExp = FILE_FOR_COPY_REGEXP } = options;
-
-  const destinationPath = path.resolve(answers.destination);
+  let destination = undefined;
+  // allow proxy app to be installed separately alongside base app
+  if (templatePath.match(/.*node-.+-proxy$/g)) {
+    destination = answers.proxyAppDestination;
+  }
+  const destinationPath = path.resolve(destination || answers.destination);
 
   if (!answers.appPrefix) {
     answers.appPrefix = false;
@@ -241,7 +245,7 @@ export const transform = async (
   const ejsData: Data = {
     ...answers,
     helper: {
-      isDev: isDevEnvironment(answers.destination),
+      isDev: isDevEnvironment(destination || answers.destination),
       getPascalCaseName: getPascalCaseName,
       getAppPrefix: getAppPrefix,
     },

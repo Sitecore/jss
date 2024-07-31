@@ -33,6 +33,10 @@ export type BaseArgs = {
    * Pre-push hook for linting check
    */
   prePushHook?: boolean;
+  /**
+   * Optional destination for proxy app, whether it's initialized alongside the main one or standalone
+   */
+  proxyAppDestination?: string;
 };
 
 /**

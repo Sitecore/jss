@@ -13,6 +13,27 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+### 🎉 New Features & Improvements
+
+* `[create-sitecore-jss]` Introduced "node-xmcloud-proxy" addon ([#1863](https://github.com/Sitecore/jss/pull/1863))
+* `[create-sitecore-jss]` `[template/angular]` `[template/angular-sxp]` `[template/angular-xmcloud]` Introduced "angular-sxp", "angular-xmcloud" addons ([#1838](https://github.com/Sitecore/jss/pull/1838))([#1845](https://github.com/Sitecore/jss/pull/1845)):
+    * The Angular app should now be initialized by providing both templates (or using CLI prompts): 
+      * SXP-based: 'angular,angular-sxp'
+      * XMCloud-based: 'angular,angular-xmcloud'
+    * Rework Angular initializer to support XMCloud and SXP journeys;
+
+* `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))
+* `[create-sitecore-jss]` Allows proxy apps to be installed alongside main apps ([#1858](https://github.com/Sitecore/jss/pull/1858))
+  * `nodeAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
+
+### 🛠 Breaking Change
+
+### 🧹 Chores
+
+## 22.1.0
+
+### 🐛 Bug Fixes
+
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Changed formatting in temp/config to prevent parse issues in Unix systems ([#1787](https://github.com/Sitecore/jss/pull/1787))([#1791](https://github.com/Sitecore/jss/pull/1791))
 * `[sitecore-jss]` `GraphQLRequestClientFactory` type is updated and `config` parameter is now optional. Since it should match `GraphQLRequestClient.createClientFactory` method return type ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[templates/nextjs-sxa]` The banner variant of image component is fixed with supporting metadata mode. ([#1826](https://github.com/Sitecore/jss/pull/1826))

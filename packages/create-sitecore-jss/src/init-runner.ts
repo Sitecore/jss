@@ -42,15 +42,19 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
   await runner(initializers);
 
   saveConfiguration(args.templates, path.resolve(`${args.destination}${sep}package.json`));
-  // final steps (install, lint, etc)
-  if (!args.noInstall) {
-    installPackages(args.destination, args.silent);
-    lintFix(args.destination, args.silent);
-  }
 
-  // install pre-push hook if user opts-in
-  if (args.prePushHook) {
-    await installPrePushHook(args.destination, args.silent);
+  for (const destination of [args.destination, args.proxyAppDestination]) {
+    if (!destination) continue;
+    // final steps (install, lint, etc)
+    if (!args.noInstall) {
+      installPackages(destination, args.silent);
+      lintFix(destination, args.silent);
+    }
+
+    // install pre-push hook if user opts-in
+    if (args.prePushHook) {
+      await installPrePushHook(destination, args.silent);
+    }
   }
 
   if (!args.silent) {
