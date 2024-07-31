@@ -72,7 +72,7 @@ describe('initRunner', () => {
     );
     expect(installPackagesStub).to.be.calledOnceWith(args.destination, args.silent);
     expect(lintFixStub).to.be.calledOnceWith(args.destination, args.silent);
-    expect(nextStepsStub).to.be.calledOnceWith(appName, []);
+    expect(nextStepsStub).to.be.calledOnceWith([appName], []);
   });
 
   it('should run for both base and proxy path when latter is provided', async () => {
@@ -207,12 +207,10 @@ describe('initRunner', () => {
 
     await initRunner(templates, args);
 
-    expect(nextStepsStub).to.be.calledOnceWith(appName, [
-      'foo step 1',
-      'bar step 1',
-      'bar step 2',
-      'baz step 1',
-    ]);
+    expect(nextStepsStub).to.be.calledOnceWith(
+      [appName],
+      ['foo step 1', 'bar step 1', 'bar step 2', 'baz step 1']
+    );
   });
 
   it('should respect silent', async () => {

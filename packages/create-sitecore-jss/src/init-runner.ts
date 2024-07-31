@@ -13,7 +13,7 @@ import { proxyAppMatcher, getDefaultProxyDestination } from './common/utils/help
 
 export const initRunner = async (initializers: string[], args: BaseArgs) => {
   let nextStepsArr: string[] = [];
-  let appName;
+  const appNames = new Set<string>([]);
 
   const initFactory = new InitializerFactory();
   const prepareForProxy = (initializers: string[]) => {
@@ -32,7 +32,7 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
       args.silent || console.log(chalk.cyan(`Initializing '${init}'...`));
       const response = await initializer.init(args);
 
-      appName = response.appName;
+      appNames.add(response.appName);
       nextStepsArr = [...nextStepsArr, ...(response.nextSteps ?? [])];
       // process any returned initializers
       if (response.initializers && response.initializers.length > 0) {
@@ -66,6 +66,6 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
   }
 
   if (!args.silent) {
-    nextSteps(appName || '', nextStepsArr);
+    nextSteps([...appNames], nextStepsArr);
   }
 };

@@ -2,10 +2,10 @@ import chalk from 'chalk';
 
 /**
  * Logs app creation completion message and next steps
- * @param {string} appName application name for the new app
+ * @param {string[]} appNames application name(s) for the new app
  * @param {string[]} nextStepsArr next steps to be performed after app is created
  */
-export const nextSteps = async (appName: string, nextStepsArr: string[]) => {
+export const nextSteps = async (appNames: string[], nextStepsArr: string[]) => {
   console.log(chalk.red('                 -/oyhdmNNNNmdhyo/-                '));
   console.log(chalk.red('             :sdMMMMMMMMMMMMMMMMMMMMds:            '));
   console.log(chalk.red('          :yNMMMMMMMMMMMMMMMMMMMMMMMMMMNy:         '));
@@ -37,7 +37,7 @@ export const nextSteps = async (appName: string, nextStepsArr: string[]) => {
   console.log(chalk.white('                 / // /\\ \\_\\ \\  '));
   console.log(chalk.white('                 \\___/___/___/'));
   console.log();
-  console.log(`JSS application ${chalk.green(appName)} is ready!`);
+  console.log(`JSS application(s) ${chalk.green(JSON.stringify(appNames))} is ready!`);
   console.log();
   console.log(chalk.yellow('Next steps:'));
   nextStepsArr.forEach((step) => {
