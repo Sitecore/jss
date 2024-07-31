@@ -141,9 +141,9 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     let phName = name.slice();
 
     /**
-     * [Chromes Mode]: [SXA] it needs for deleting dynamics placeholder when we set him number(props.name) of container.
-     * from backend side we get common name of placeholder is called 'nameOfContainer-{*}' where '{*}' marker for replacing.
-     * [Metadata Mode]: We need to keep the raw placeholder name. e.g 'nameOfContainer-{*}' instead of 'nameOfContainer-1'
+     * Process (SXA) dynamic placeholders
+     * Find and replace the matching dynamic placeholder e.g 'nameOfContainer-{*}' with the requested e.g. 'nameOfContainer-1'.
+     * For Metadata EditMode, we need to keep the raw placeholder name in place.
      */
     if (rendering?.placeholders) {
       Object.keys(rendering.placeholders).forEach((placeholder) => {
