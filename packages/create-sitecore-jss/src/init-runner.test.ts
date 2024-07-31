@@ -159,7 +159,7 @@ describe('initRunner', () => {
 
     expect(mockFoo.init).to.be.calledOnceWith(args);
     expect(args.templates).to.deep.equal(['foo', 'node-bar-proxy']);
-    expect(args.proxyAppDestination).to.equal('samples\\node-bar-proxy');
+    expect(args.proxyAppDestination).to.equal(`samples${sep}node-bar-proxy`);
   });
 
   it('should populate proxyAppDestination if returned initializers have proxy', async () => {
