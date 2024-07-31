@@ -5,26 +5,13 @@
 If you plan to use the Angular SDK with XMCloud, you will need to perform next steps:
 
 * On top of existing Angular sample, apply changes from "angular-xmcloud" add-on.
-* Updated package.json "build" script to set "JSS_MODE=production":
+* Update package.json "build:client" script to use explicit "production" configuration:
 
     ```shell
-    "cross-env-shell JSS_MODE=production \"npm-run-all --serial bootstrap --serial build:client build:server\""
+    "build:client": "cross-env-shell ng build --configuration=production --base-href $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/"
     ```
 
-* Update "scripts/generate-config.ts" to handle tempalte literals in the output "environment" file:
-
-    ```ts
-    Object.keys(config).forEach((prop) => {
-        let value = config[prop]?.toString().trim();
-        const usesTemplateLiteral = /\$\{.*?\}/.test(config[prop].toString());
-
-        value = usesTemplateLiteral ? `\`${value}\`` : `"${value}"`;
-
-        configText += `config.${prop} = process.env.${constantCase(prop)} || ${value};\n`;
-    });
-    ```
-
-* Updated "server.bundle.ts" to additionally expose new properties:
+* Update "server.bundle.ts" to additionally expose new properties:
 
     ```ts
     import { environment } from './src/environments/environment';
@@ -48,4 +35,4 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
     };
     ```
 
-* GraphQL FETCH_WITH method is required to be used, REST is not supported. Updated FETCH_WITH environment variable if needed.
+* GraphQL FETCH_WITH method is required to be used, REST is not supported. Update FETCH_WITH environment variable if needed.
