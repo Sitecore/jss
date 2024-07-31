@@ -5,6 +5,8 @@ import {
   getFieldValue,
   getChildPlaceholder,
   isFieldValueEmpty,
+  isDynamicPlaceholder,
+  getDynamicPlaceholderPattern,
   EMPTY_DATE_FIELD_VALUE,
 } from './utils';
 
@@ -247,6 +249,29 @@ describe('sitecore-jss layout utils', () => {
         const result = isFieldValueEmpty(field as any);
         expect(result).to.be.true;
       });
+    });
+  });
+
+  describe('isDynamicPlaceholder', () => {
+    it('should return true if placeholder is dynamic', () => {
+      expect(isDynamicPlaceholder('container-{*}')).to.be.true;
+      expect(isDynamicPlaceholder('container-1-{*}')).to.be.true;
+    });
+
+    it('should return false if placeholder is not dynamic', () => {
+      expect(isDynamicPlaceholder('container-1-2')).to.be.false;
+      expect(isDynamicPlaceholder('container-1')).to.be.false;
+      expect(isDynamicPlaceholder('container-1-2-3')).to.be.false;
+      expect(isDynamicPlaceholder('container-1-{*}-3')).to.be.true;
+    });
+  });
+
+  describe('getDynamicPlaceholderPattern', () => {
+    it('should return dynamic placeholder pattern', () => {
+      expect(getDynamicPlaceholderPattern('container-{*}').test('container-1')).to.be.true;
+      expect(getDynamicPlaceholderPattern('container-{*}').test('container-1-2')).to.be.false;
+      expect(getDynamicPlaceholderPattern('container-1-{*}').test('container-1-2')).to.be.true;
+      expect(getDynamicPlaceholderPattern('container-1-{*}').test('container-1-2-3')).to.be.false;
     });
   });
 });

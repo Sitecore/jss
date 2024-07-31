@@ -9,6 +9,8 @@ import {
   Item,
   HtmlElementRendering,
   EditMode,
+  isDynamicPlaceholder,
+  getDynamicPlaceholderPattern,
 } from '@sitecore-jss/sitecore-jss/layout';
 import { constants } from '@sitecore-jss/sitecore-jss';
 import { convertAttributesToReactProps } from '../utils';
@@ -30,22 +32,6 @@ export type ComponentProps = {
   [key: string]: unknown;
   rendering: ComponentRendering;
 };
-
-/**
- * Returns a regular expression pattern for a dynamic placeholder name.
- * @param {string} placeholder Placeholder name with a dynamic segment (e.g. 'main-{*}')
- * @returns Regular expression pattern for the dynamic segment
- */
-export const getDynamicPlaceholderPattern = (placeholder: string) => {
-  return new RegExp(`^${placeholder.replace(/\{\*\}+/i, '\\d+')}$`);
-};
-
-/**
- * Checks if the placeholder name is dynamic.
- * @param {string} placeholder Placeholder name
- * @returns True if the placeholder name is dynamic
- */
-export const isDynamicPlaceholder = (placeholder: string) => placeholder.indexOf('{*}') !== -1;
 
 export interface PlaceholderProps {
   [key: string]: unknown;
