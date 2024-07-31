@@ -67,12 +67,9 @@ export function writeConfig(config: JssConfig, outputPath?: string) {
 
   // Set base configuration values, allowing override with environment variables
   Object.keys(config).forEach((prop) => {
-    let value = config[prop]?.toString().trim();
-    const usesTemplateLiteral = /\$\{.*?\}/.test(config[prop].toString());
-
-    value = usesTemplateLiteral ? `\`${value}\`` : `"${value}"`;
-
-    configText += `config.${prop} = process.env.${constantCase(prop)} || ${value};\n`;
+    configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]
+      ?.toString()
+      .trim()}";\n`;
   });
 
   configText += `module.exports.environment = config;`;

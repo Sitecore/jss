@@ -14,9 +14,28 @@ const {
   layoutServiceFactory,
 } = config.serverBundle;
 
-if (!renderView || !parseRouteUrl) {
+/**
+ * Required server bundle properties
+ */
+const requiredProperties = [
+  'renderView',
+  'parseRouteUrl',
+  'clientFactory',
+  'siteName',
+  'defaultLanguage',
+  'layoutServiceFactory',
+  'dictionaryServiceFactory',
+  'graphQLEndpointPath',
+  'graphQLEndpoint',
+];
+
+const missingProperties = requiredProperties.filter((property) => !config.serverBundle[property]);
+
+if (missingProperties.length > 0) {
   throw new Error(
-    'ERROR: The serverBundle should export `renderView` and `parseRouteUrl`, please check your server bundle.'
+    `ERROR: The serverBundle should export the following properties: ${missingProperties.join(
+      ', '
+    )}. Please check your server bundle.`
   );
 }
 

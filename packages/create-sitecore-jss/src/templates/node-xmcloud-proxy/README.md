@@ -1,14 +1,14 @@
-# Node XMCloud Proxy
+# Node XM Cloud Proxy
 
-> Sitecore JSS Proxy for XMCloud is considered experimental.
+> Sitecore JSS Proxy for XM Cloud is considered experimental.
 
 [Documentation](<TODO>)
 
-This is a sample setup showing one of how you can configure XMCloud rendering server.
+This is a sample setup showing one of how you can configure XM Cloud rendering server.
 
 ## Pre-requisites
 
-1. SPA sample supports XMCloud out of the box.
+1. SPA sample supports XM Cloud out of the box.
 
 1. Build your SPA app bundle with `jss build`. The build output should be placed in the `dist` folder.
 

@@ -14,7 +14,6 @@ export const FETCH_WITH = {
 export const JSS_MODE = {
   CONNECTED: 'connected',
   DISCONNECTED: 'disconnected',
-  PRODUCTION: 'production',
 };
 
 export const siteNameError = 'The siteName cannot be empty';

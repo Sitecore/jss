@@ -40,6 +40,7 @@ declare type RouteUrlParser = (
 };
 
 export interface ServerBundle {
+  [key: string]: unknown;
   renderView: AppRenderer;
   parseRouteUrl: RouteUrlParser;
   clientFactory: GraphQLRequestClientFactory;
