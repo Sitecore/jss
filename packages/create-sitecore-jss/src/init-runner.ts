@@ -16,6 +16,12 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
   let appName;
 
   const initFactory = new InitializerFactory();
+  const prepareForProxy = (initializers: string[]) => {
+    const proxyApp = initializers.find((initializer) => initializer.match(proxyAppMatcher));
+    if (proxyApp && !args.proxyAppDestination) {
+      args.proxyAppDestination = getDefaultProxyDestination(args.destination, proxyApp);
+    }
+  };
   const runner = async (inits: string[]): Promise<void> => {
     for (const init of [...inits]) {
       const initializer = await initFactory.create(init);
@@ -31,12 +37,7 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
       // process any returned initializers
       if (response.initializers && response.initializers.length > 0) {
         // set default proxy path if proxy initializer was added
-        const proxyApp = response.initializers.find((initializer) =>
-          initializer.match(proxyAppMatcher)
-        );
-        if (proxyApp) {
-          args.proxyAppDestination = getDefaultProxyDestination(args.destination, proxyApp);
-        }
+        prepareForProxy(response.initializers);
         // provide info for addons to see other addons used.
         // add-ons will not have information about the initial
         // list of templates, as it has `nextjs` initializer for example
@@ -45,7 +46,7 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
       }
     }
   };
-
+  prepareForProxy(initializers);
   await runner(initializers);
 
   saveConfiguration(args.templates, path.resolve(`${args.destination}${sep}package.json`));

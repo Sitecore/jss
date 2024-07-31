@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import fs from 'fs-extra';
-import path from 'path';
+import path, { sep } from 'path';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 import ejs from 'ejs';
@@ -478,7 +478,7 @@ describe('transform', () => {
         language: 'en',
       };
       const result = populateEjsData(answers);
-      expect(result.helper.relativeProxyAppDestination).to.equal('..\\proxy');
+      expect(result.helper.relativeProxyAppDestination).to.equal(`..${sep}proxy`);
     });
   });
 
@@ -578,7 +578,7 @@ describe('transform', () => {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
           getAppPrefix: helpers.getAppPrefix,
-          relativeProxyAppDestination: '..\\proxy',
+          relativeProxyAppDestination: `..${sep}proxy`,
         },
       });
       expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({
