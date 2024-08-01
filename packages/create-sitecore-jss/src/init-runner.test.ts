@@ -9,7 +9,6 @@ import { initRunner } from './init-runner';
 import * as helpers from './common/utils/helpers';
 import * as install from './common/processes/install';
 import * as next from './common/processes/next';
-import { BaseArgs } from './common';
 
 describe('initRunner', () => {
   let log: SinonStub;
@@ -138,50 +137,6 @@ describe('initRunner', () => {
     expect(mockHuh.init).to.be.calledOnceWith(args);
     expect(mockZoo.init).to.be.calledOnceWith(args);
     expect(args.templates).to.deep.equal(['foo', 'bar', 'zoo', 'baz', 'huh']);
-  });
-
-  it('should populate proxyAppDestination if starting initializers have proxy', async () => {
-    const templates = ['foo', 'node-bar-proxy'];
-    const appName = 'test-app';
-    const args: BaseArgs = {
-      silent: false,
-      destination: 'samples/next',
-      templates,
-    };
-
-    const mockFoo = mockInitializer(true, { appName });
-    const mockProxy = mockInitializer(true, { appName });
-    createStub = sinon.stub(InitializerFactory.prototype, 'create');
-    createStub.withArgs('foo').returns(mockFoo);
-    createStub.withArgs('node-bar-proxy').returns(mockProxy);
-
-    await initRunner(templates, args);
-
-    expect(mockFoo.init).to.be.calledOnceWith(args);
-    expect(args.templates).to.deep.equal(['foo', 'node-bar-proxy']);
-    expect(args.proxyAppDestination).to.equal(`samples${sep}node-bar-proxy`);
-  });
-
-  it('should populate proxyAppDestination if returned initializers have proxy', async () => {
-    const templates = ['foo'];
-    const appName = 'test-app';
-    const args: BaseArgs = {
-      silent: false,
-      destination: 'samples/next',
-      templates,
-    };
-
-    const mockFoo = mockInitializer(true, { appName, initializers: ['node-bar-proxy'] });
-    const mockProxy = mockInitializer(true, { appName });
-    createStub = sinon.stub(InitializerFactory.prototype, 'create');
-    createStub.withArgs('foo').returns(mockFoo);
-    createStub.withArgs('node-bar-proxy').returns(mockProxy);
-
-    await initRunner(templates, args);
-
-    expect(mockFoo.init).to.be.calledOnceWith(args);
-    expect(args.templates).to.deep.equal(['foo', 'node-bar-proxy']);
-    expect(args.proxyAppDestination).to.equal(`samples${sep}node-bar-proxy`);
   });
 
   it('should aggregate nextSteps', async () => {
