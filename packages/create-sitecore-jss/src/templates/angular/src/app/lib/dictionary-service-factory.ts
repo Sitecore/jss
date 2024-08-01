@@ -1,8 +1,10 @@
 import {
   DictionaryService,
   GraphQLDictionaryService,
+  <% if (!locals.xmcloud) { -%>
   RestDictionaryService,
   constants,
+  <% } -%>
 } from '@sitecore-jss/sitecore-jss-angular';
 import { environment as env } from '../../environments/environment';
 import { clientFactory } from './graphql-client-factory';
