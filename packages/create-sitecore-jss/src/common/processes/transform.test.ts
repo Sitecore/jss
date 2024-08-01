@@ -466,7 +466,7 @@ describe('transform', () => {
   });
 
   describe('populateEjsData', () => {
-    it('should populate relative proxy path in helper, if proxyAppDestination populated', () => {
+    it('should populate relative proxy path (with trailing slash) in helper, if proxyAppDestination populated', () => {
       const answers = {
         appName: 'JssNextWeb',
         hostName: 'http://jssnextweb',
@@ -478,7 +478,7 @@ describe('transform', () => {
         language: 'en',
       };
       const result = populateEjsData(answers);
-      expect(result.helper.relativeProxyAppDestination).to.equal(`..${sep}proxy`);
+      expect(result.helper.relativeProxyAppDestination).to.equal(`..${sep}proxy${sep}`);
     });
   });
 
@@ -578,7 +578,7 @@ describe('transform', () => {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
           getAppPrefix: helpers.getAppPrefix,
-          relativeProxyAppDestination: `..${sep}proxy`,
+          relativeProxyAppDestination: `..${sep}proxy${sep}`,
         },
       });
       expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({

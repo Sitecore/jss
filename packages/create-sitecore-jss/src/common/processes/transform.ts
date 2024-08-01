@@ -206,7 +206,7 @@ export const populateEjsData = (answers: BaseArgs, destination?: string) => {
   // Absolute path can't be used across all the machines
   if (answers.proxyAppDestination) {
     ejsData.helper.relativeProxyAppDestination = `${path.relative(
-      path.resolve(destination || answers.destination),
+      path.resolve(answers.destination),
       path.resolve(answers.proxyAppDestination)
     )}${sep}`;
   }
