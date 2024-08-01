@@ -6,7 +6,9 @@ import {
   ImageField,
   Field,
   LinkField,
+  useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import config from 'temp/config';
 
 interface Fields {
   PromoIcon: ImageField;
@@ -20,6 +22,26 @@ type PromoProps = {
   fields: Fields;
 };
 
+const PromoImageComponent = ({ promoImage }: { promoImage: ImageField }): JSX.Element => {
+  let promoIconField = {};
+  const { sitecoreContext } = useSitecoreContext();
+  const isHostURL = /^http(s)?/.test(promoImage?.value?.src || '');
+
+  if (promoImage?.value?.src && !isHostURL && sitecoreContext.pageState === 'preview') {
+    promoIconField = {
+      ...promoImage,
+      value: {
+        ...promoImage.value,
+        src: config.sitecoreApiHost + promoImage.value.src,
+      },
+    };
+  } else {
+    promoIconField = promoImage;
+  }
+
+  return <JssImage field={promoIconField} />;
+};
+
 const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
   <div className={`component promo ${props.params.styles}`}>
     <div className="component-content">
@@ -30,12 +52,13 @@ const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
 
 export const Default = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
+
   if (props.fields) {
     return (
       <div className={`component promo ${props.params.styles}`} id={id ? id : undefined}>
         <div className="component-content">
           <div className="field-promoicon">
-            <JssImage field={props.fields.PromoIcon} />
+            <PromoImageComponent promoImage={props.fields.PromoIcon} />
           </div>
           <div className="promo-text">
             <div>
@@ -57,12 +80,13 @@ export const Default = (props: PromoProps): JSX.Element => {
 
 export const WithText = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
+
   if (props.fields) {
     return (
       <div className={`component promo ${props.params.styles}`} id={id ? id : undefined}>
         <div className="component-content">
           <div className="field-promoicon">
-            <JssImage field={props.fields.PromoIcon} />
+            <PromoImageComponent promoImage={props.fields.PromoIcon} />
           </div>
           <div className="promo-text">
             <div>
