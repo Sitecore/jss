@@ -1,7 +1,6 @@
 {
   "config": {
-    "sitecoreDistPath": "/dist",
-    "relativeProxyPath": "<%- helper.relativeProxyAppDestination %>"
+    "sitecoreDistPath": "/dist"
   },
   "scripts": {
     "postbuild:server": "npm-run-all --serial prepare:build prepare:proxy-build",
