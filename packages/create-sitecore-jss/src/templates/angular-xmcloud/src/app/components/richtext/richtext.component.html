@@ -1,12 +1,11 @@
 ﻿<div
   class="component rich-text {{ styles }}"
-  [id]="id ? id : null"
+  [attr.id]="id"
 >
   <div class="component-content">
-    <div
-      *ngIf="text; else emptyHint"
-      [scRichText]="text"
-    ></div>
+    <ng-container *ngIf="text; else emptyHint">
+      <div *scRichText="text"></div>
+    </ng-container>
     <ng-template #emptyHint>
       <span class="is-empty-hint">Rich text</span>
     </ng-template>

@@ -1,19 +1,16 @@
-﻿import { Component, Input, OnInit } from '@angular/core';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
+﻿import { Component, OnInit } from '@angular/core';
+import { Field } from '@sitecore-jss/sitecore-jss-angular';
+import { BaseSxaComponent } from '../base-sxa.component';
 
 @Component({
   selector: 'app-richtext',
   templateUrl: './richtext.component.html',
 })
-export class RichTextComponent implements OnInit {
-  @Input() rendering: ComponentRendering;
-  text: string;
-  id: string;
-  styles: string;
+export class RichTextComponent extends BaseSxaComponent implements OnInit {
+  text?: Field<string>;
 
   ngOnInit() {
-    this.text = this.rendering.fields.Text;
-    this.id = this.rendering.params.RenderingIdentifier;
-    this.styles = this.rendering.params?.styles?.trimEnd();
+    super.ngOnInit();
+    this.text = this.rendering.fields?.Text as Field<string>;
   }
 }
