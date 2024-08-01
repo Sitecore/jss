@@ -1,4 +1,13 @@
-import { Component, DebugElement, EventEmitter, Injectable, Input, Output } from '@angular/core';
+import {
+  Component,
+  DebugElement,
+  EventEmitter,
+  Injectable,
+  Input,
+  Output,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Location } from '@angular/common';
@@ -10,6 +19,9 @@ import { convertedData as eeData } from '../test-data/ee-data';
 import {
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
+  sxaRenderingData,
+  sxaRenderingDynamicPlaceholderData,
+  sxaRenderingDoubleDigitDynamicPlaceholderData,
 } from '../test-data/non-ee-data';
 import { LazyComponent } from '../test-data/lazy-loading/lazy-component.component';
 import { JssCanActivate, JssCanActivateFn, JssResolve } from '../services/placeholder.token';
@@ -674,4 +686,161 @@ describe('<sc-placeholder /> with lazy loaded modules', () => {
       );
     });
   });
+});
+
+@Component({
+  selector: 'test-rich-text',
+  template: `
+    <ng-template #default>
+      <span class="default">Rich text</span>
+    </ng-template>
+
+    <ng-template #withTitle>
+      <div class="title" *scText="rendering.fields.Title"></div>
+      <div class="text" *scText="rendering.fields.Text"></div>
+    </ng-template>
+
+    <div class="rendering-variant {{ rendering.params.styles }}">
+      <ng-container [ngTemplateOutlet]="variant"></ng-container>
+    </div>
+  `,
+})
+class TestRichTextComponent {
+  @Input() rendering: ComponentRendering;
+  @ViewChild('default', { static: true }) defaultVariant: TemplateRef<any>;
+  @ViewChild('withTitle', { static: true }) withTitleVariant: TemplateRef<any>;
+  public get variant(): TemplateRef<any> {
+    return this.rendering.params?.FieldNames === 'WithTitle'
+      ? this.withTitleVariant
+      : this.defaultVariant;
+  }
+}
+
+describe('SXA components', () => {
+  let fixture: ComponentFixture<TestPlaceholderComponent>;
+  let de: DebugElement;
+  let comp: TestPlaceholderComponent;
+
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [TestPlaceholderComponent, TestRichTextComponent],
+        imports: [
+          RouterTestingModule,
+          JssModule.withComponents([{ name: 'RichText', type: TestRichTextComponent }]),
+        ],
+        providers: [],
+      });
+
+      fixture = TestBed.createComponent(TestPlaceholderComponent);
+      de = fixture.debugElement;
+
+      comp = fixture.componentInstance;
+      fixture.detectChanges();
+    })
+  );
+
+  it(
+    'should render',
+    waitForAsync(async () => {
+      const component = sxaRenderingData.sitecore.route;
+      const phKey = 'main';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+      fixture.detectChanges();
+
+      await fixture.whenStable();
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(1);
+
+      const richText = de.query(By.directive(TestRichTextComponent));
+      expect(richText).not.toBeNull();
+      expect(richText.nativeElement.innerHTML).toContain('rendering-variant');
+
+      const container = de.query(By.css('.rendering-variant'));
+      expect(container).not.toBeNull();
+      expect(container.attributes.class).toEqual(
+        'col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 rendering-variant test-css-class-x'
+      );
+
+      const title = de.query(By.css('.title'));
+      expect(title).not.toBeNull();
+      expect(title.nativeElement.innerHTML).toEqual('Rich Text Rendering Variant');
+
+      const text = de.query(By.css('.text'));
+      expect(text).not.toBeNull();
+      expect(text.nativeElement.innerHTML).toEqual('Test RichText');
+    })
+  );
+
+  it(
+    'should render another rendering variant',
+    waitForAsync(async () => {
+      const component = sxaRenderingData.sitecore.route;
+      const phKey = 'main-second';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+      fixture.detectChanges();
+
+      await fixture.whenStable();
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(1);
+
+      const richText = de.query(By.directive(TestRichTextComponent));
+      expect(richText).not.toBeNull();
+      expect(richText.nativeElement.innerHTML).toContain('rendering-variant');
+
+      const container = de.query(By.css('.rendering-variant'));
+      expect(container).not.toBeNull();
+      expect(container.attributes.class).toEqual(
+        'col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 rendering-variant test-css-class-y'
+      );
+
+      const span = de.query(By.css('.default'));
+      expect(span).not.toBeNull();
+      expect(span.nativeElement.innerHTML).toEqual('Rich text');
+    })
+  );
+
+  it(
+    'should render with container-{*} type dynamic placeholder',
+    waitForAsync(async () => {
+      const component = sxaRenderingDynamicPlaceholderData.sitecore.route;
+      const phKey = 'container-1';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+      fixture.detectChanges();
+
+      await fixture.whenStable();
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(1);
+
+      const richText = de.query(By.directive(TestRichTextComponent));
+      expect(richText).not.toBeNull();
+      expect(richText.nativeElement.innerHTML).toContain('rendering-variant');
+    })
+  );
+
+  it(
+    'should render with dynamic-1-{*} type dynamic placeholder',
+    waitForAsync(async () => {
+      const component = sxaRenderingDoubleDigitDynamicPlaceholderData.sitecore.route;
+      const phKey = 'dynamic-1-{*}';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+      fixture.detectChanges();
+
+      await fixture.whenStable();
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(1);
+
+      const richText = de.query(By.directive(TestRichTextComponent));
+      expect(richText).not.toBeNull();
+      expect(richText.nativeElement.innerHTML).toContain('rendering-variant');
+    })
+  );
 });
