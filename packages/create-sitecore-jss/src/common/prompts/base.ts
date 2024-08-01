@@ -59,18 +59,6 @@ export const clientAppPrompts: DistinctQuestion<ClientAppAnswer>[] = [
     },
   },
   {
-    type: 'input',
-    name: 'hostName',
-    message: 'What is your Sitecore hostname (used if deployed to Sitecore)?',
-    default: (answers: ClientAppAnswer) => `${answers.appName}.dev.local`,
-    when: (answers: ClientAppAnswer): boolean => {
-      if (answers.yes && !answers.hostName) {
-        answers.hostName = `${answers.appName}.dev.local`;
-      }
-      return !answers.hostName;
-    },
-  },
-  {
     type: 'list',
     name: 'fetchWith',
     message: 'How would you like to fetch Layout and Dictionary data?',

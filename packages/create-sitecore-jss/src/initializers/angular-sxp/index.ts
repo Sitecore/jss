@@ -5,8 +5,11 @@ import {
   transform,
   DEFAULT_APPNAME,
   ClientAppArgs,
+  SxpAnswer,
+  sxpPrompts,
 } from '../../common';
 import { InitializerResults } from '../../common/Initializer';
+import inquirer from 'inquirer';
 
 export default class AngularSxpInitializer implements Initializer {
   get isBase(): boolean {
@@ -15,11 +18,12 @@ export default class AngularSxpInitializer implements Initializer {
 
   async init(args: ClientAppArgs) {
     const pkg = openPackageJson(`${args.destination}${sep}package.json`);
-
+    const answers = await inquirer.prompt<SxpAnswer>(sxpPrompts, args);
     const mergedArgs = {
       ...args,
       appName: args.appName || pkg?.config?.appName || DEFAULT_APPNAME,
       appPrefix: args.appPrefix || pkg?.config?.prefix || false,
+      ...answers,
     };
 
     const templatePath = path.resolve(__dirname, '../../templates/angular-sxp');

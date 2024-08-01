@@ -9,7 +9,7 @@ export {
   missingAddonMsg,
 } from './prompts/base';
 export { StyleguideAnswer, styleguidePrompts } from './prompts/styleguide';
-
+export { SxpAnswer, sxpPrompts } from './prompts/sxp';
 export {
   isDevEnvironment,
   openPackageJson,
