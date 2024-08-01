@@ -294,4 +294,3 @@ export const sxaRenderingDoubleDigitDynamicPlaceholderData = {
     },
   },
 };
-

@@ -26,7 +26,6 @@ import { Data, Router, UrlTree } from '@angular/router';
 import {
   ComponentRendering,
   HtmlElementRendering,
-  LayoutServiceContextData,
   EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
 import { Observable } from 'rxjs';
@@ -110,7 +109,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   @Input() renderings?: Array<ComponentRendering | HtmlElementRendering>;
   @Input() outputs: { [k: string]: (eventType: unknown) => void };
   @Input() clientOnly = false;
-  @Input() sitecore: LayoutServiceContextData;
 
   @Output() loaded = new EventEmitter<string | undefined>();
   @Output() failed = new EventEmitter<Error>();
@@ -179,7 +177,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     if (changes.rendering || changes.renderings) {
       this._render();
     }
-    this.editMode = this.sitecore?.context?.editMode;
   }
 
   ngDoCheck() {
