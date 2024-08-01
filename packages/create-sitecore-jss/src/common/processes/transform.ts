@@ -193,6 +193,7 @@ export const diffAndWriteFiles = async ({
 };
 
 export const populateEjsData = (answers: BaseArgs, destination?: string) => {
+  // pass in helper to answers object
   const ejsData: Data = {
     ...answers,
     helper: {
@@ -201,12 +202,13 @@ export const populateEjsData = (answers: BaseArgs, destination?: string) => {
       getAppPrefix: getAppPrefix,
     },
   };
-  // calculate relative path between main app and proxy when needed
+  // When SPA application and XM Cloud proxy is used we need to calculate relative path between SPA app and proxy to apply that in EJS template
+  // Absolute path can't be used across all the machines
   if (answers.proxyAppDestination) {
-    ejsData.helper.relativeProxyAppDestination = path.relative(
-      path.resolve(answers.destination),
+    ejsData.helper.relativeProxyAppDestination = `${path.relative(
+      path.resolve(destination || answers.destination),
       path.resolve(answers.proxyAppDestination)
-    );
+    )}${sep}`;
   }
   return ejsData;
 };
@@ -260,9 +262,7 @@ export const transform = async (
     answers.appPrefix = false;
   }
 
-  // pass in helper to answers object
   const ejsData: Data = populateEjsData(answers, destination);
-
   // the templates to be run through ejs render or copied directly
   const files = glob.sync('**/*', { cwd: templatePath, dot: true, nodir: true });
 
