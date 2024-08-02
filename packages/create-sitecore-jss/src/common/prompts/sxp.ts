@@ -1,7 +1,7 @@
 import { Answers, DistinctQuestion } from 'inquirer';
 
 /**
- * Set of CLI answers for the client-side app
+ * Set of CLI answers for an SXP app
  */
 export type SxpAnswer = Answers & {
   /**
@@ -11,7 +11,7 @@ export type SxpAnswer = Answers & {
 };
 
 /**
- * Set of CLI prompts for the client-side app
+ * Set of CLI prompts for an SXP app
  */
 export const sxpPrompts: DistinctQuestion<SxpAnswer>[] = [
   {
