@@ -1,4 +1,4 @@
-import { RouteData, LayoutServiceContextData, HTMLlink } from '@sitecore-jss/sitecore-jss-angular';
+import { RouteData, LayoutServiceContextData, HTMLLink } from '@sitecore-jss/sitecore-jss-angular';
 import { LayoutServiceError } from './layout/jss-layout.service';
 
 export class JssState<Fields = Record<string, unknown>> {
@@ -9,5 +9,5 @@ export class JssState<Fields = Record<string, unknown>> {
     route: RouteData<Fields>;
   };
   viewBag: { [key: string]: unknown };
-  headLinks: HTMLlink[];
+  headLinks: HTMLLink[];
 }

@@ -21,6 +21,12 @@ const pluginDefinitions: PluginDefinition[] = [
     rootPath: 'scripts/config/plugins',
     moduleType: ModuleType.ESM,
   },
+  {
+    distPath: 'src/app/temp/jss-state-factory-plugins.ts',
+    rootPath: 'src/app/lib/jss-state-factory/plugins',
+    moduleType: ModuleType.ESM,
+    relative: true,
+  },
 ];
 
 pluginDefinitions.forEach((definition) => {

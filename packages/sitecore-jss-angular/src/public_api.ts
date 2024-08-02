@@ -70,6 +70,7 @@ export {
   HttpResponse,
   enableDebug,
   ClientError,
+  HTMLLink,
 } from '@sitecore-jss/sitecore-jss';
 export { isServer } from '@sitecore-jss/sitecore-jss/utils';
 export {
