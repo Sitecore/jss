@@ -1,11 +1,5 @@
 ﻿import path, { sep } from 'path';
-import {
-  Initializer,
-  openJsonFile,
-  transform,
-  DEFAULT_APPNAME,
-  ClientAppArgs,
-} from '../../common';
+import { Initializer, openJsonFile, transform, DEFAULT_APPNAME, ClientAppArgs } from '../../common';
 
 export default class NextjsMultisiteInitializer implements Initializer {
   get isBase(): boolean {
