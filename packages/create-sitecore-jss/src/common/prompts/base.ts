@@ -10,15 +10,15 @@ export enum FetchWith {
  * Set of CLI answers for the client-side app
  */
 export type ClientAppAnswer = Answers & {
+   /**
+   * Application name
+   */
+   appName: string;
   /**
    * Determines which request method should be used.
    * Default is @type {DEFAULT_FETCHWITH}
    */
   fetchWith: FetchWith;
-  /**
-   * Application host name
-   */
-  hostName: string;
 };
 
 /**
