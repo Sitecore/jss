@@ -22,6 +22,8 @@ export {
   getFieldValue,
   getChildPlaceholder,
   isFieldValueEmpty,
+  isDynamicPlaceholder,
+  getDynamicPlaceholderPattern,
   EMPTY_DATE_FIELD_VALUE,
 } from './utils';
 

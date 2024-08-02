@@ -1,6 +1,9 @@
 ﻿import React, { ReactNode } from 'react';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
-import { getDynamicPlaceholderPattern, isDynamicPlaceholder } from './PlaceholderCommon';
+import {
+  ComponentRendering,
+  getDynamicPlaceholderPattern,
+  isDynamicPlaceholder,
+} from '@sitecore-jss/sitecore-jss/layout';
 
 /**
  *  Props containing the component data to render.
