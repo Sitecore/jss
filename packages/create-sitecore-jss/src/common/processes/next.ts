@@ -37,7 +37,7 @@ export const nextSteps = async (appNames: string[], nextStepsArr: string[]) => {
   console.log(chalk.white('                 / // /\\ \\_\\ \\  '));
   console.log(chalk.white('                 \\___/___/___/'));
   console.log();
-  console.log(`JSS application(s) ${chalk.green(JSON.stringify(appNames))} is ready!`);
+  console.log(`JSS application(s) ${chalk.green(appNames.join(', '))} is ready!`);
   console.log();
   console.log(chalk.yellow('Next steps:'));
   nextStepsArr.forEach((step) => {

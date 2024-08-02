@@ -168,6 +168,25 @@ describe('initRunner', () => {
     );
   });
 
+  it('should pass two appNames when two main apps initialized', async () => {
+    const templates = ['foo', 'bar'];
+    const args = {
+      silent: false,
+      destination: 'samples/next',
+      templates,
+    };
+
+    const mockFoo = mockInitializer(true, { appName: templates[0] });
+    const mockBar = mockInitializer(true, { appName: templates[1] });
+    createStub = sinon.stub(InitializerFactory.prototype, 'create');
+    createStub.withArgs('foo').returns(mockFoo);
+    createStub.withArgs('bar').returns(mockBar);
+
+    await initRunner(templates, args);
+
+    expect(nextStepsStub).to.be.calledOnceWith(['foo', 'bar']);
+  });
+
   it('should respect silent', async () => {
     const templates = ['foo', 'bar'];
     const appName = 'test-app';

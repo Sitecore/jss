@@ -1,7 +1,7 @@
-import chalk from 'chalk';
 import { expect } from 'chai';
 import sinon, { SinonStub } from 'sinon';
 import { nextSteps } from './next';
+import chalk from 'chalk';
 
 describe('next', () => {
   describe('nextSteps', () => {
@@ -20,12 +20,16 @@ describe('next', () => {
       await nextSteps(appNames, []);
 
       const calls = log.getCalls();
+      calls.forEach((call) => {
+        console.log(call.args[0]);
+      });
       expect(
         calls.some(
           (call) =>
-            call.args[0] === `JSS application(s) ${chalk.green(JSON.stringify(appNames))} is ready!`
+            call.args[0] ===
+            `JSS application(s) ${chalk.green('my-cool-app, second-app')} is ready!`
         )
-      );
+      ).to.equal(true);
     });
 
     it('displays next steps in output', async () => {

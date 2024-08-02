@@ -11,10 +11,6 @@ export enum FetchWith {
  */
 export type ClientAppAnswer = Answers & {
   /**
-   * Application name
-   */
-  appName: string;
-  /**
    * Determines which request method should be used.
    * Default is @type {DEFAULT_FETCHWITH}
    */

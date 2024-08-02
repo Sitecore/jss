@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import path from 'path';
+import path, { sep } from 'path';
 import fs from 'fs';
 import { expect } from 'chai';
 import chalk from 'chalk';
@@ -13,6 +13,7 @@ import {
   getBaseTemplates,
   getAppPrefix,
   saveConfiguration,
+  getDefaultProxyDestination,
 } from './helpers';
 import { JsonObjectType } from '../processes/transform';
 import testPackage from '../test-data/test.package.json';
@@ -21,6 +22,13 @@ import { Initializer } from '../Initializer';
 import { InitializerFactory } from '../../InitializerFactory';
 
 describe('helpers', () => {
+  describe('getDefaultProxyDestination', () => {
+    it('should return default proxy destination alongside main app', () => {
+      expect(getDefaultProxyDestination(`..${sep}app-path${sep}main-app`, 'my-proxy')).to.equal(
+        `..${sep}app-path${sep}my-proxy`
+      );
+    });
+  });
   describe('getPascalCaseName', () => {
     it('should reformat kebab-case to PascalCase', () => {
       const result = getPascalCaseName('my-next-sitecore-app');
