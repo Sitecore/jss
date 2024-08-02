@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import fs from 'fs-extra';
-import path from 'path';
+import path, { sep } from 'path';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 import ejs from 'ejs';
@@ -727,7 +727,7 @@ describe('transform', () => {
         },
       });
       expect(mergeStub).to.have.been.calledOnceWith(currentJson, templateJson);
-      expect(openJsonFileStub).to.have.been.calledOnceWith(`${destinationPath}\\${file}`);
+      expect(openJsonFileStub).to.have.been.calledOnceWith(`${destinationPath}${sep}${file}`);
       expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({
         rendered: JSON.stringify(mergedPkg, null, 2),
         pathToNewFile: path.join(destinationPath, file),
