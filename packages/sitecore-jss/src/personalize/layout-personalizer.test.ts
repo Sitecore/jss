@@ -360,6 +360,16 @@ describe('layout-personalizer', () => {
       });
     });
 
+    it('should return HIDDEN_RENDERING variant in metadata mode with uid preserved', () => {
+      const variant = 'mountain_bike_audience';
+      const personalizedComponentResult = personalizeComponent(
+        (variantIsHidden as unknown) as ComponentRenderingWithExperiences,
+        [variant],
+        true
+      );
+      expect(personalizedComponentResult?.uid).to.equal(variantIsHidden.uid);
+    });
+
     it('should return HIDDEN_RENDERING variant in metadata edit mode when non-default variant is hidden', () => {
       const variant = 'mountain_bike_audience';
       const personalizedComponentResult = personalizeComponent(

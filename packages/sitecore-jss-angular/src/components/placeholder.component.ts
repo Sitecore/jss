@@ -23,7 +23,11 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { Data, Router, UrlTree } from '@angular/router';
-import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
+import {
+  ComponentRendering,
+  HtmlElementRendering,
+  EditMode,
+} from '@sitecore-jss/sitecore-jss/layout';
 import { Observable } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
 import { JssCanActivateRedirectError } from '../services/jss-can-activate-error';
@@ -40,6 +44,10 @@ import {
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
 } from '../services/placeholder.token';
 import { constants } from '@sitecore-jss/sitecore-jss';
+import {
+  isDynamicPlaceholder,
+  getDynamicPlaceholderPattern,
+} from '@sitecore-jss/sitecore-jss/layout';
 import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
 import { RenderEachDirective } from './render-each.directive';
 import { RenderEmptyDirective } from './render-empty.directive';
@@ -48,10 +56,34 @@ import { isRawRendering } from './rendering';
 /**
  * @param {ComponentRendering} rendering
  * @param {string} name
+ * @param {EditMode} [editMode]
  */
-function getPlaceholder(rendering: ComponentRendering, name: string) {
+function getPlaceholder(rendering: ComponentRendering, name: string, editMode?: EditMode) {
+  let phName = name.slice();
+
+  /**
+   * Process (SXA) dynamic placeholders
+   * Find and replace the matching dynamic placeholder e.g 'nameOfContainer-{*}' with the requested e.g. 'nameOfContainer-1'.
+   * For Metadata EditMode, we need to keep the raw placeholder name in place.
+   */
+  rendering?.placeholders &&
+    Object.keys(rendering.placeholders).forEach((placeholder) => {
+      const patternPlaceholder = isDynamicPlaceholder(placeholder)
+        ? getDynamicPlaceholderPattern(placeholder)
+        : null;
+
+      if (patternPlaceholder && patternPlaceholder.test(phName)) {
+        if (editMode === EditMode.Metadata) {
+          phName = placeholder;
+        } else {
+          rendering.placeholders![phName] = rendering.placeholders![placeholder];
+          delete rendering.placeholders![placeholder];
+        }
+      }
+    });
+
   if (rendering && rendering.placeholders && Object.keys(rendering.placeholders).length > 0) {
-    return rendering.placeholders[name];
+    return rendering.placeholders[phName];
   }
   return null;
 }
@@ -95,6 +127,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   private _componentInstances: { [prop: string]: unknown }[] = [];
   private destroyed = false;
   private parentStyleAttribute = '';
+  private editMode?: EditMode = undefined;
 
   constructor(
     private differs: KeyValueDiffers,
@@ -208,7 +241,8 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
       return;
     }
 
-    const placeholder = this.renderings || getPlaceholder(this.rendering, this.name || '');
+    const placeholder =
+      this.renderings || getPlaceholder(this.rendering, this.name || '', this.editMode);
 
     if (!placeholder) {
       console.warn(
