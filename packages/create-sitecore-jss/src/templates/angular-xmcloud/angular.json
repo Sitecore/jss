@@ -16,7 +16,10 @@
         },
         "test": {
           "options": {
-            "styles": ["src/styles.css", "src/assets/styles/main.scss"]
+            "styles": ["src/styles.css", "src/assets/styles/main.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/assets/styles", "node_modules"]
+            }
           }
         }
       }
@@ -26,9 +29,6 @@
     "@schematics/angular:component": {
       "prefix": "app",
       "style": "scss"
-    },
-    "@schematics/angular:directive": {
-      "prefix": "app"
     }
   }
 }
