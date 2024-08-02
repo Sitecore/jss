@@ -6,19 +6,17 @@ import chalk from 'chalk';
 import sinon, { SinonStub } from 'sinon';
 import {
   getPascalCaseName,
-  openPackageJson,
-  writePackageJson,
+  openJsonFile,
+  writeJsonFile,
   sortKeys,
   getAllTemplates,
   getBaseTemplates,
   getAppPrefix,
   saveConfiguration,
-  openJson,
 } from './helpers';
 import { JsonObjectType } from '../processes/transform';
 import testPackage from '../test-data/test.package.json';
 import testJson from '../test-data/test.json';
-import rootPackage from '../../../package.json';
 import { Initializer } from '../Initializer';
 import { InitializerFactory } from '../../InitializerFactory';
 
@@ -43,7 +41,7 @@ describe('helpers', () => {
     });
   });
 
-  describe('openPackageJson', () => {
+  describe('openJsonFile', () => {
     let log: SinonStub;
 
     afterEach(() => log?.restore());
@@ -51,7 +49,7 @@ describe('helpers', () => {
     it('should return package.json data using provided path', () => {
       const filePath = path.resolve('src', 'common', 'test-data', 'test.package.json');
 
-      const result = openPackageJson(filePath);
+      const result = openJsonFile(filePath);
 
       expect(result).to.deep.equal(testPackage);
     });
@@ -61,7 +59,7 @@ describe('helpers', () => {
 
       const filePath = path.resolve('not', 'existing', 'path', 'package.json');
 
-      const result = openPackageJson(filePath);
+      const result = openJsonFile(filePath);
 
       expect(result).to.equal(undefined);
       expect(log.calledTwice).to.equal(true);
@@ -75,20 +73,10 @@ describe('helpers', () => {
       log.restore();
     });
 
-    it('should return package.json data from the root when path is not provided', () => {
-      const result = openPackageJson();
-
-      expect(result).to.deep.equal(rootPackage);
-    });
-  });
-
-  describe('openJson', () => {
-    let log: SinonStub;
-
     it('should return json data using provided path', () => {
       const filePath = path.resolve('src', 'common', 'test-data', 'test.json');
 
-      const result = openJson(filePath);
+      const result = openJsonFile(filePath);
 
       expect(result).to.deep.equal(testJson);
     });
@@ -96,9 +84,9 @@ describe('helpers', () => {
     it('should throw an error when the path to the package does not exist', () => {
       log = sinon.stub(console, 'log');
 
-      const filePath = path.resolve('not', 'existing', 'path', 'test.json');
+      const filePath = path.resolve('not', 'existing', 'path', 'package.json');
 
-      const result = openJson(filePath);
+      const result = openJsonFile(filePath);
 
       expect(result).to.equal(undefined);
       expect(log.calledTwice).to.equal(true);
@@ -113,7 +101,7 @@ describe('helpers', () => {
     });
   });
 
-  describe('writePackageJson', () => {
+  describe('writeJsonFile', () => {
     let log: SinonStub;
     let writeFileSync: SinonStub;
 
@@ -130,19 +118,12 @@ describe('helpers', () => {
         bar: { baz: 'baz' },
       };
 
-      writePackageJson(data);
+      const filePath = path.resolve('src', 'common', 'test-data', 'test.package.json');
+
+      writeJsonFile(data, filePath);
 
       expect(writeFileSync.calledOnce).to.equal(true);
       expect(writeFileSync.getCall(0).args[1]).to.equal(JSON.stringify(data, null, 2));
-    });
-
-    it('should use default path when path is not provided', () => {
-      writeFileSync = sinon.stub(fs, 'writeFileSync');
-
-      writePackageJson({});
-
-      expect(writeFileSync.calledOnce).to.equal(true);
-      expect(writeFileSync.getCall(0).args[0]).to.equal(path.resolve('./package.json'));
     });
 
     it('should use provided path', () => {
@@ -150,7 +131,7 @@ describe('helpers', () => {
 
       const filePath = path.resolve('src', 'common', 'test-data', 'test.package.json');
 
-      writePackageJson({}, filePath);
+      writeJsonFile({}, filePath);
 
       expect(writeFileSync.calledOnce).to.equal(true);
       expect(writeFileSync.getCall(0).args[0]).to.equal(filePath);
@@ -161,7 +142,7 @@ describe('helpers', () => {
 
       const filePath = path.resolve('not', 'existing', 'path', 'package.json');
 
-      writePackageJson({}, filePath);
+      writeJsonFile({}, filePath);
 
       expect(log.calledTwice).to.equal(true);
       expect(log.getCall(0).args[0]).to.equal(
@@ -187,7 +168,7 @@ describe('helpers', () => {
     it('should save configuration', () => {
       writeFileSync = sinon.stub(fs, 'writeFileSync');
       const pkgPath = path.resolve('src', 'common', 'test-data', 'test.package.json');
-      const pkg = openPackageJson(pkgPath);
+      const pkg = openJsonFile(pkgPath);
       const templates = ['nextjs', 'nextjs-styleguide'];
 
       saveConfiguration(templates, pkgPath);

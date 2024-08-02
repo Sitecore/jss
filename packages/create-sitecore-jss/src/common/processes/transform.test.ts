@@ -476,8 +476,7 @@ describe('transform', () => {
     let diffAndWriteFilesStub: SinonStub;
     let writeFileToPathStub: SinonStub;
     let transformFilenameStub: SinonStub;
-    let openPackageJsonStub: SinonStub;
-    let openJsonStub: SinonStub;
+    let openJsonFileStub: SinonStub;
     let log: SinonStub;
 
     beforeEach(() => {
@@ -496,8 +495,7 @@ describe('transform', () => {
       diffAndWriteFilesStub?.restore();
       writeFileToPathStub?.restore();
       transformFilenameStub?.restore();
-      openPackageJsonStub?.restore();
-      openJsonStub?.restore();
+      openJsonFileStub?.restore();
       log?.restore();
     });
 
@@ -665,7 +663,7 @@ describe('transform', () => {
 
       globSyncStub = sinon.stub(glob, 'sync').returns([file]);
       fsExistsSyncStub = sinon.stub(fs, 'existsSync').returns(true);
-      openPackageJsonStub = sinon.stub(helpers, 'openPackageJson').returns(currentPkg);
+      openJsonFileStub = sinon.stub(helpers, 'openJsonFile').returns(currentPkg);
       ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(renderFileOutput));
       mergeStub = sinon.stub(transform, 'merge').returns(mergedPkg);
       diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
@@ -706,7 +704,7 @@ describe('transform', () => {
 
       globSyncStub = sinon.stub(glob, 'sync').returns([file]);
       fsExistsSyncStub = sinon.stub(fs, 'existsSync').returns(true);
-      openJsonStub = sinon.stub(helpers, 'openJson').returns(currentJson);
+      openJsonFileStub = sinon.stub(helpers, 'openJsonFile').returns(currentJson);
       ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(renderFileOutput));
       mergeStub = sinon.stub(transform, 'merge').returns(mergedPkg);
       diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
@@ -729,7 +727,7 @@ describe('transform', () => {
         },
       });
       expect(mergeStub).to.have.been.calledOnceWith(currentJson, templateJson);
-      expect(openJsonStub).to.have.been.calledOnceWith(`${destinationPath}\\${file}`);
+      expect(openJsonFileStub).to.have.been.calledOnceWith(`${destinationPath}\\${file}`);
       expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({
         rendered: JSON.stringify(mergedPkg, null, 2),
         pathToNewFile: path.join(destinationPath, file),

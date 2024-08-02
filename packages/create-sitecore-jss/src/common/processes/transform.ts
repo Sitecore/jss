@@ -8,8 +8,7 @@ import inquirer from 'inquirer';
 import {
   getPascalCaseName,
   getAppPrefix,
-  openPackageJson,
-  openJson,
+  openJsonFile,
   sortKeys,
   writeFileToPath,
   isDevEnvironment,
@@ -283,19 +282,13 @@ export const transform = async (
         continue;
       }
 
-      if (file.endsWith('package.json') && fs.existsSync(pathToNewFile)) {
-        // we treat package.json a bit differently
-        // read the current package.json and the template package.json (rendered with ejs)
-        const currentPkg = openPackageJson(pathToNewFile);
-        const templatePkg = JSON.parse(await renderFile(path.resolve(pathToTemplate), ejsData));
+      if (file.endsWith('.json') && fs.existsSync(pathToNewFile)) {
+        // we treat a .json a bit differently
+        // read the current .json and the template .json (rendered with ejs)
+        const currentJson = openJsonFile(pathToNewFile);
+        const templateJson = JSON.parse(await renderFile(path.resolve(pathToTemplate), ejsData));
         // merge them and set the result to str which will then go through diff
-        const merged = merge(currentPkg, templatePkg);
-        str = JSON.stringify(merged, null, 2);
-      } else if (file.endsWith('.json') && fs.existsSync(pathToNewFile)) {
-        // we have other json file use simililar logic as for package.json to merge it
-        const currentJsonFile = openJson(pathToNewFile);
-        const templateJsonFile = JSON.parse(await renderFile(path.resolve(pathToTemplate), ejsData));
-        const merged = merge(currentJsonFile, templateJsonFile);
+        const merged = merge(currentJson, templateJson);
         str = JSON.stringify(merged, null, 2);
       }
 
