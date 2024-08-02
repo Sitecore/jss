@@ -1,5 +1,5 @@
 import { Injectable, TransferState, makeStateKey } from '@angular/core';
-import { LayoutServiceData } from '@sitecore-jss/sitecore-jss-angular';
+import { LayoutServiceData, getContentStylesheetLink } from '@sitecore-jss/sitecore-jss-angular';
 import { map, shareReplay, catchError } from 'rxjs/operators';
 import { Observable, of as observableOf, BehaviorSubject } from 'rxjs';
 import { JssState } from './JssState';
@@ -47,6 +47,17 @@ export class JssContextService {
         result.sitecore = lsResult.sitecore ? lsResult.sitecore : null;
         result.language = appLanguage;
         result.serverRoute = route;
+
+        // TODO: get contextId and edgeUrl properly
+        const sitecoreEdgeContextId = '';
+        const sitecoreEdgeUrl = '';
+        const contentStyles = getContentStylesheetLink(
+          lsResult,
+          sitecoreEdgeContextId,
+          sitecoreEdgeUrl
+        );
+        contentStyles && result.headLinks.push(contentStyles);
+
         return result;
       }),
       catchError((error: LayoutServiceError) => {
