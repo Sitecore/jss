@@ -27,7 +27,7 @@ export const getPascalCaseName = (name: string): string => {
 
 /**
  * Provides json data from a file
- * @param {string} [jsonFilePath] path to the .json file.
+ * @param {string} jsonFilePath path to the .json file.
  * @returns json data
  */
 export const openJsonFile = (jsonFilePath: string) => {
