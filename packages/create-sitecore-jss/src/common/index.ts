@@ -12,8 +12,8 @@ export { StyleguideAnswer, styleguidePrompts } from './prompts/styleguide';
 
 export {
   isDevEnvironment,
-  openPackageJson,
-  writePackageJson,
+  openJsonFile,
+  writeJsonFile,
   getAllTemplates,
   getBaseTemplates,
   saveConfiguration,

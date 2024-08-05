@@ -1,11 +1,5 @@
 import path, { sep } from 'path';
-import {
-  Initializer,
-  openPackageJson,
-  transform,
-  DEFAULT_APPNAME,
-  ClientAppArgs,
-} from '../../common';
+import { Initializer, openJsonFile, transform, DEFAULT_APPNAME, ClientAppArgs } from '../../common';
 import { InitializerResults } from '../../common/Initializer';
 
 export default class AngularSxpInitializer implements Initializer {
@@ -14,7 +8,7 @@ export default class AngularSxpInitializer implements Initializer {
   }
 
   async init(args: ClientAppArgs) {
-    const pkg = openPackageJson(`${args.destination}${sep}package.json`);
+    const pkg = openJsonFile(`${args.destination}${sep}package.json`);
 
     const mergedArgs = {
       ...args,
