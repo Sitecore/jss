@@ -4,7 +4,6 @@ import { map, shareReplay, catchError } from 'rxjs/operators';
 import { Observable, of as observableOf, BehaviorSubject } from 'rxjs';
 import { JssState } from './JssState';
 import { JssLayoutService, LayoutServiceError } from './layout/jss-layout.service';
-import { sitecoreJssStateFactory } from './lib/jss-state-factory';
 
 export const jssKey = makeStateKey<JssState>('jss');
 
