@@ -1,4 +1,4 @@
-﻿import { OnInit, Input, Directive } from '@angular/core';
+import { OnInit, Input, Directive } from '@angular/core';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 
 @Directive()

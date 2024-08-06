@@ -9,6 +9,7 @@ import { ParsedArgs } from 'minimist';
 import { parseArgs, main, promptDestination, getDestinations } from './bin';
 import * as helpers from './common/utils/helpers';
 import * as initRunner from './init-runner';
+import { getDefaultProxyDestination } from './common/utils/helpers';
 
 describe('bin', () => {
   describe('parseArgs', () => {
@@ -305,7 +306,7 @@ describe('bin', () => {
           destination: testPath,
           proxyAppDestination: proxyPath,
         });
-        const templatesWithProxy = [...testTemplates, 'node-app-proxy'];
+        const templatesWithProxy = [...testTemplates, 'node-xmcloud-proxy-proxy'];
         expect(await getDestinations(testArgs, templatesWithProxy)).to.deep.equal({
           destination: testPath,
           proxyAppDestination: proxyPath,
@@ -341,7 +342,7 @@ describe('bin', () => {
           destination: undefined,
           proxyAppDestination: undefined,
         });
-        const templatesWithProxy = [...testTemplates, 'node-app-proxy'];
+        const templatesWithProxy = [...testTemplates, 'node-xmcloud-proxy'];
         await getDestinations(testArgs, templatesWithProxy);
         expect(inquirerPromptStub).to.have.been.calledTwice;
         expect(inquirerPromptStub.getCall(0).args[0].message).to.be.equal(
@@ -382,8 +383,8 @@ describe('bin', () => {
           destination: testPath,
           yes: true,
         });
-        const templatesWithProxy = [...testTemplates, 'node-app-proxy'];
-        const expectedProxyDestination = `${process.cwd()}${sep + 'node-app-proxy'}`;
+        const templatesWithProxy = [...testTemplates, 'node-xmcloud-proxy'];
+        const expectedProxyDestination = getDefaultProxyDestination(testPath, 'node-xmcloud-proxy');
         expect(await getDestinations(testArgs, templatesWithProxy)).to.deep.equal({
           destination: testPath,
           proxyAppDestination: expectedProxyDestination,
@@ -401,7 +402,7 @@ describe('bin', () => {
           destination: testPath,
           proxyAppDestination: testPath,
         });
-        const templatesWithProxy = [...testTemplates, 'node-app-proxy'];
+        const templatesWithProxy = [...testTemplates, 'node-xmcloud-proxy'];
         await getDestinations(testArgs, templatesWithProxy);
         expect(inquirerPromptStub).to.have.been.calledOnce;
         expect(inquirerPromptStub.getCall(0).args[0].message).to.be.equal(

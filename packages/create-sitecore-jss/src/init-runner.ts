@@ -12,9 +12,10 @@ import { InitializerFactory } from './InitializerFactory';
 
 export const initRunner = async (initializers: string[], args: BaseArgs) => {
   let nextStepsArr: string[] = [];
-  let appName;
+  const appNames = new Set<string>([]);
 
   const initFactory = new InitializerFactory();
+
   const runner = async (inits: string[]): Promise<void> => {
     for (const init of [...inits]) {
       const initializer = await initFactory.create(init);
@@ -25,9 +26,9 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
       args.silent || console.log(chalk.cyan(`Initializing '${init}'...`));
       const response = await initializer.init(args);
 
-      appName = response.appName;
+      // App names can be multiple if the base template requires to setup additional standalone app (e.g. XM Cloud proxy)
+      appNames.add(response.appName);
       nextStepsArr = [...nextStepsArr, ...(response.nextSteps ?? [])];
-
       // process any returned initializers
       if (response.initializers && response.initializers.length > 0) {
         // provide info for addons to see other addons used.
@@ -38,7 +39,6 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
       }
     }
   };
-
   await runner(initializers);
 
   saveConfiguration(args.templates, path.resolve(`${args.destination}${sep}package.json`));
@@ -58,6 +58,6 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
   }
 
   if (!args.silent) {
-    nextSteps(appName || '', nextStepsArr);
+    nextSteps([...appNames], nextStepsArr);
   }
 };

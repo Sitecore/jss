@@ -118,19 +118,17 @@ export class JssComponentFactoryService {
   }
 
   private applySXAParams(rendering: ComponentRendering) {
-    if (!rendering.params?.FieldNames) {
-      // Not SXA component
-      return rendering;
-    }
     // Provide aggregated SXA styles on params 'styles'
     const styles = [];
-    if (rendering.params.GridParameters) {
-      styles.push(rendering.params.GridParameters);
+    if (rendering.params?.GridParameters) {
+      styles.push(rendering.params.GridParameters.trim());
     }
-    if (rendering.params.Styles) {
-      styles.push(rendering.params.Styles);
+    if (rendering.params?.Styles) {
+      styles.push(rendering.params.Styles.trim());
     }
-    rendering.params.styles = styles.join(' ');
+    if (rendering.params && styles.length > 0) {
+      rendering.params.styles = styles.join(' ');
+    }
     return rendering;
   }
 }

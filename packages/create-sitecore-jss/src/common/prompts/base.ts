@@ -19,10 +19,6 @@ export type ClientAppAnswer = Answers & {
    * Default is @type {DEFAULT_FETCHWITH}
    */
   fetchWith: FetchWith;
-  /**
-   * Application host name
-   */
-  hostName: string;
 };
 
 /**
@@ -56,18 +52,6 @@ export const clientAppPrompts: DistinctQuestion<ClientAppAnswer>[] = [
         answers.appName = DEFAULT_APPNAME;
       }
       return !answers.appName;
-    },
-  },
-  {
-    type: 'input',
-    name: 'hostName',
-    message: 'What is your Sitecore hostname (used if deployed to Sitecore)?',
-    default: (answers: ClientAppAnswer) => `${answers.appName}.dev.local`,
-    when: (answers: ClientAppAnswer): boolean => {
-      if (answers.yes && !answers.hostName) {
-        answers.hostName = `${answers.appName}.dev.local`;
-      }
-      return !answers.hostName;
     },
   },
   {

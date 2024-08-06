@@ -1,0 +1,15 @@
+<div class="container-wrapper" *ngIf="wrapped; else default">
+  <ng-container *ngTemplateOutlet="default"></ng-container>
+</div>
+<ng-template #default>
+  <div class="component container-default {{ styles }}" [attr.id]="id">
+    <div class="component-content" [ngStyle]="backgroundStyle">
+      <div class="row">
+        <sc-placeholder
+          [name]="placeholderName"
+          [rendering]="rendering">
+        </sc-placeholder>
+      </div>
+    </div>
+  </div>
+</ng-template>

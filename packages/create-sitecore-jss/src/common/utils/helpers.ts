@@ -1,8 +1,20 @@
 import chalk from 'chalk';
 import fs from 'fs';
-import path, { sep } from 'path';
+import path from 'path';
 import { InitializerFactory } from '../../InitializerFactory';
 import { JsonObjectType } from '../processes/transform';
+
+// matched for proxy templates
+export const proxyAppMatcher = /node-headless.+|node-xmcloud.+/g;
+
+/**
+ * Returns the default path for proxy app initialized alongside main JSS tempalates.
+ * @param {string} mainAppDestination target destination for main app
+ * @param {string} proxyName name of for the proxy app folder
+ * @returns {string} target path for proxy app
+ */
+export const getDefaultProxyDestination = (mainAppDestination: string, proxyName: string) =>
+  path.join(mainAppDestination, '..', proxyName);
 
 /**
  * Determines whether you are in a dev environment.
@@ -26,32 +38,30 @@ export const getPascalCaseName = (name: string): string => {
 };
 
 /**
- * Provides `package.json` data
- * @param {string} [pkgPath] path to `package.json`. Default is './package.json'.
- * @returns `package.json` data
+ * Provides json data from a file
+ * @param {string} jsonFilePath path to the .json file.
+ * @returns json data
  */
-export const openPackageJson = (pkgPath?: string) => {
-  const filePath = path.resolve(pkgPath ?? `.${sep}package.json`);
+export const openJsonFile = (jsonFilePath: string) => {
   try {
-    const data = fs.readFileSync(filePath, 'utf8');
+    const data = fs.readFileSync(jsonFilePath, 'utf8');
     return data ? JSON.parse(data) : undefined;
   } catch (error) {
-    console.log(chalk.red(`The following error occurred while trying to read ${filePath}:`));
+    console.log(chalk.red(`The following error occurred while trying to read ${jsonFilePath}:`));
     console.log(chalk.red(error));
   }
 };
 
 /**
- * Creates `package.json` file and inserts provided data
- * @param {Object} data data to be written into package.json
- * @param {string} [pkgPath] a path to a file. Default is './package.json'.
+ * Creates a .json file and inserts provided data
+ * @param {Object} data data to be written into the .json file
+ * @param {string} jsonFilePath a path to a file.
  */
-export const writePackageJson = (data: { [key: string]: unknown }, pkgPath?: string) => {
-  const filePath = path.resolve(pkgPath ?? `.${sep}package.json`);
+export const writeJsonFile = (data: { [key: string]: unknown }, jsonFilePath: string) => {
   try {
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), { encoding: 'utf8' });
+    fs.writeFileSync(jsonFilePath, JSON.stringify(data, null, 2), { encoding: 'utf8' });
   } catch (error) {
-    console.log(chalk.red(`The following error occurred while trying to write ${filePath}:`));
+    console.log(chalk.red(`The following error occurred while trying to write ${jsonFilePath}:`));
     console.log(chalk.red(error));
   }
 };
@@ -61,10 +71,10 @@ export const writePackageJson = (data: { [key: string]: unknown }, pkgPath?: str
  * @param {string[]} templates templates applied to the sample
  * @param {string} [pkgPath] path to the package.json
  */
-export const saveConfiguration = (templates: string[], pkgPath?: string) => {
-  const pkg = openPackageJson(pkgPath);
+export const saveConfiguration = (templates: string[], pkgPath: string) => {
+  const pkg = openJsonFile(pkgPath);
 
-  writePackageJson({ ...pkg, config: { ...pkg.config, templates } }, pkgPath);
+  writeJsonFile({ ...pkg, config: { ...pkg.config, templates } }, pkgPath);
 };
 
 export const sortKeys = (obj: JsonObjectType) => {

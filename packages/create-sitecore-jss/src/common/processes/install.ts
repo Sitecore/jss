@@ -2,7 +2,7 @@ import { exec } from 'child_process';
 import path from 'path';
 import chalk from 'chalk';
 import { run } from '../utils/cmd';
-import { isDevEnvironment, openPackageJson } from '../utils/helpers';
+import { isDevEnvironment, openJsonFile } from '../utils/helpers';
 
 /**
  * Executes packages installation, depending on the environment
@@ -87,5 +87,5 @@ export const installPrePushHook = async (destination: string, silent?: boolean) 
 
 const getPackageJson = (projectFolder: string) => {
   const packagePath = path.join(projectFolder, 'package.json');
-  return openPackageJson(packagePath);
+  return openJsonFile(packagePath);
 };
