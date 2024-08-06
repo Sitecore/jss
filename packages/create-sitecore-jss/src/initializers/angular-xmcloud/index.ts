@@ -9,7 +9,7 @@ export default class AngularXmCloudInitializer implements Initializer {
   }
 
   async init(args: ClientAppArgs) {
-    const pkg = openPackageJson(`${args.destination}${sep}package.json`);
+    const pkg = openJsonFile(`${args.destination}${sep}package.json`);
     const addInitializers = [];
     // when installing proxy alongside main app, have a separate path ready
     if (!args.proxyAppDestination) {

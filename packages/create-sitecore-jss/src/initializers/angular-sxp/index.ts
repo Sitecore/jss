@@ -1,7 +1,6 @@
 import path, { sep } from 'path';
 import {
   Initializer,
-  openPackageJson,
   transform,
   DEFAULT_APPNAME,
   ClientAppArgs,
@@ -9,6 +8,7 @@ import {
   sxpPrompts,
   StyleguideAnswer,
   styleguidePrompts,
+  openJsonFile,
 } from '../../common';
 import { InitializerResults } from '../../common/Initializer';
 import inquirer from 'inquirer';
@@ -19,7 +19,7 @@ export default class AngularSxpInitializer implements Initializer {
   }
 
   async init(args: ClientAppArgs) {
-    const pkg = openPackageJson(`${args.destination}${sep}package.json`);
+    const pkg = openJsonFile(`${args.destination}${sep}package.json`);
     const answers = await inquirer.prompt<SxpAnswer>(sxpPrompts, args);
     const styleguideAnswers = await inquirer.prompt<StyleguideAnswer>(styleguidePrompts, args);
 
