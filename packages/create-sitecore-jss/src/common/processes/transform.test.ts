@@ -10,6 +10,7 @@ import sinon, { SinonStub } from 'sinon';
 import { currentPkg, partialPkg } from '../test-data/pkg';
 import * as transform from './transform';
 import * as helpers from '../utils/helpers';
+import { populateEjsData } from './transform';
 
 const {
   transformFilename,
@@ -464,6 +465,23 @@ describe('transform', () => {
     });
   });
 
+  describe('populateEjsData', () => {
+    it('should populate relative proxy path (with trailing slash) in helper, if proxyAppDestination populated', () => {
+      const answers = {
+        appName: 'JssNextWeb',
+        hostName: 'http://jssnextweb',
+        destination: 'samples/next',
+        proxyAppDestination: 'samples/proxy',
+        fetchWith: 'REST',
+        force: false,
+        templates: [],
+        language: 'en',
+      };
+      const result = populateEjsData(answers);
+      expect(result.helper.relativeProxyAppDestination).to.equal(`..${sep}proxy${sep}`);
+    });
+  });
+
   describe('transform', () => {
     let fsMkdirsSyncStub: SinonStub;
     let fsCopySyncStub: SinonStub;
@@ -560,6 +578,7 @@ describe('transform', () => {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
           getAppPrefix: helpers.getAppPrefix,
+          relativeProxyAppDestination: `..${sep}proxy${sep}`,
         },
       });
       expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({

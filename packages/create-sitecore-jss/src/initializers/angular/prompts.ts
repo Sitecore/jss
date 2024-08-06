@@ -1,9 +1,4 @@
-import {
-  ClientAppAnswer,
-  clientAppPrompts,
-  StyleguideAnswer,
-  styleguidePrompts,
-} from '../../common';
+import { ClientAppAnswer, clientAppPrompts, StyleguideAnswer } from '../../common';
 
 export type AngularAnswer = ClientAppAnswer &
   StyleguideAnswer & {
@@ -11,7 +6,7 @@ export type AngularAnswer = ClientAppAnswer &
   };
 
 export const prompts = [
-  ...clientAppPrompts,
+  // XMCloud answer defines init behavior. Prompt must go first
   {
     type: 'confirm',
     name: 'xmcloud',
@@ -31,5 +26,5 @@ export const prompts = [
       return true;
     },
   },
-  ...styleguidePrompts,
+  ...clientAppPrompts,
 ];
