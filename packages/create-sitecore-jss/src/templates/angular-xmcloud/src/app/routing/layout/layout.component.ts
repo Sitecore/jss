@@ -1,6 +1,11 @@
 /* eslint-disable no-shadow, no-console */
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { RouteData, Field, LayoutServiceContextData } from '@sitecore-jss/sitecore-jss-angular';
+import {
+  RouteData,
+  Field,
+  LayoutServiceContextData,
+  getContentStylesheetLink,
+} from '@sitecore-jss/sitecore-jss-angular';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { JssState } from '../../JssState';
@@ -53,7 +58,20 @@ export class LayoutComponent implements OnInit, OnDestroy {
             ? 'editing-mode'
             : 'prod-mode';
 
-          this.linkService.addHeadLinks(data.jssState.headLinks);
+          const sitecoreEdgeContextId = '';
+          const sitecoreEdgeUrl = '';
+          const contentStyles = getContentStylesheetLink(
+            data.jssState.sitecore,
+            sitecoreEdgeContextId,
+            sitecoreEdgeUrl
+          );
+          if (contentStyles) {
+            // Clear existing stylesheets
+            this.linkService.removeLinksByRel('stylesheet');
+
+            data.jssState.headLinks.push(contentStyles);
+            this.linkService.addHeadLinks([contentStyles]);
+          }
         }
 
         if (data.jssState.routeFetchError) {

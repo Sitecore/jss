@@ -10,16 +10,53 @@ export class JssLinkService {
     this.document = Inject(DOCUMENT);
   }
 
+  /**
+   * Adds or updates link elements in the document head.
+   * @param headLinks - An array of HTMLLink objects to add to the head.
+   */
   addHeadLinks(headLinks: HTMLLink[]) {
     if (!headLinks || !headLinks.length) {
       return;
     }
 
     headLinks.forEach((headLink: HTMLLink) => {
-      let link: HTMLLinkElement = this.document.createElement('link');
-      link.setAttribute('rel', headLink.rel);
-      link.setAttribute('href', headLink.href);
-      this.document.head.appendChild(link);
+      this.removeLinksByRelAndHref(headLink.rel, headLink.href);
+
+      this.createLink(headLink);
+    });
+  }
+
+  /**
+   * Creates a new link element and appends it to the head.
+   * @param headLink - An HTMLLink object to be added.
+   */
+  private createLink(headLink: HTMLLink) {
+    const link: HTMLLinkElement = this.document.createElement('link');
+    link.setAttribute('rel', headLink.rel);
+    link.setAttribute('href', headLink.href);
+    this.document.head.appendChild(link);
+  }
+
+  /**
+   * Removes all link elements that match the specified rel attribute.
+   * @param rel - The rel attribute of the links to be removed.
+   */
+  removeLinksByRel(rel: string) {
+    const links = this.document.head.querySelectorAll(`link[rel="${rel}"]`);
+    links.forEach((link) => {
+      this.document.head.removeChild(link);
+    });
+  }
+
+  /**
+   * Removes link elements that match the specified rel and href attributes.
+   * @param rel - The rel attribute of the links to be removed.
+   * @param href - The href attribute of the links to be removed.
+   */
+  private removeLinksByRelAndHref(rel: string, href: string) {
+    const links = this.document.head.querySelectorAll(`link[rel="${rel}"][href="${href}"]`);
+    links.forEach((link) => {
+      this.document.head.removeChild(link);
     });
   }
 }
