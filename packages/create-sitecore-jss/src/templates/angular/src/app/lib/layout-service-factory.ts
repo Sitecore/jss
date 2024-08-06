@@ -1,4 +1,4 @@
-﻿import {
+import {
   LayoutService,
   GraphQLLayoutService,
   <% if (!locals.xmcloud) { -%>

@@ -1,4 +1,4 @@
-﻿import {
+import {
   GraphQLRequestClientFactoryConfig,
   GraphQLRequestClient,
 } from '@sitecore-jss/sitecore-jss-angular';

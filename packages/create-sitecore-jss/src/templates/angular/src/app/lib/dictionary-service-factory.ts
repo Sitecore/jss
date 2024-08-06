@@ -1,4 +1,4 @@
-﻿import {
+import {
   DictionaryService,
   GraphQLDictionaryService,
   <% if (!locals.xmcloud) { -%>
