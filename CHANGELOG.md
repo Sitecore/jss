@@ -13,6 +13,8 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* `[templates/nextjs-sxa]` The caption of image component has been fixed. ([#1874](https://github.com/Sitecore/jss/pull/1874))
+
 ### 🎉 New Features & Improvements
 
 * `[create-sitecore-jss]` Introduced "node-xmcloud-proxy" addon ([#1863](https://github.com/Sitecore/jss/pull/1863))
