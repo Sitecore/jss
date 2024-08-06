@@ -1,11 +1,5 @@
 import path, { sep } from 'path';
-import {
-  ClientAppArgs,
-  DEFAULT_APPNAME,
-  Initializer,
-  transform,
-  openPackageJson,
-} from '../../common';
+import { ClientAppArgs, DEFAULT_APPNAME, Initializer, transform, openJsonFile } from '../../common';
 import { InitializerResults } from '../../common/Initializer';
 import { getDefaultProxyDestination } from '../../common/utils/helpers';
 

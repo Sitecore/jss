@@ -22,6 +22,7 @@ export default class AngularSxpInitializer implements Initializer {
     const pkg = openPackageJson(`${args.destination}${sep}package.json`);
     const answers = await inquirer.prompt<SxpAnswer>(sxpPrompts, args);
     const styleguideAnswers = await inquirer.prompt<StyleguideAnswer>(styleguidePrompts, args);
+
     const mergedArgs = {
       ...args,
       appName: args.appName || pkg?.config?.appName || DEFAULT_APPNAME,

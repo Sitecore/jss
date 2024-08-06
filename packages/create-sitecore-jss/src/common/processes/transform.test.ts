@@ -494,7 +494,7 @@ describe('transform', () => {
     let diffAndWriteFilesStub: SinonStub;
     let writeFileToPathStub: SinonStub;
     let transformFilenameStub: SinonStub;
-    let openPackageJsonStub: SinonStub;
+    let openJsonFileStub: SinonStub;
     let log: SinonStub;
 
     beforeEach(() => {
@@ -513,7 +513,7 @@ describe('transform', () => {
       diffAndWriteFilesStub?.restore();
       writeFileToPathStub?.restore();
       transformFilenameStub?.restore();
-      openPackageJsonStub?.restore();
+      openJsonFileStub?.restore();
       log?.restore();
     });
 
@@ -682,7 +682,7 @@ describe('transform', () => {
 
       globSyncStub = sinon.stub(glob, 'sync').returns([file]);
       fsExistsSyncStub = sinon.stub(fs, 'existsSync').returns(true);
-      openPackageJsonStub = sinon.stub(helpers, 'openPackageJson').returns(currentPkg);
+      openJsonFileStub = sinon.stub(helpers, 'openJsonFile').returns(currentPkg);
       ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(renderFileOutput));
       mergeStub = sinon.stub(transform, 'merge').returns(mergedPkg);
       diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
@@ -705,6 +705,48 @@ describe('transform', () => {
         },
       });
       expect(mergeStub).to.have.been.calledOnceWith(currentPkg, templatePkg);
+      expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({
+        rendered: JSON.stringify(mergedPkg, null, 2),
+        pathToNewFile: path.join(destinationPath, file),
+        answers,
+      });
+    });
+
+    it('should merge json file', async () => {
+      const templatePath = path.resolve('templates/next');
+      const destinationPath = path.resolve('samples/next');
+      const file = 'test.json';
+      const renderFileOutput = '{ "one": 1, "two": 2}';
+      const currentJson = { three: 3, four: 4 };
+      const templateJson = JSON.parse(renderFileOutput);
+      const mergedPkg = { merged: true };
+
+      globSyncStub = sinon.stub(glob, 'sync').returns([file]);
+      fsExistsSyncStub = sinon.stub(fs, 'existsSync').returns(true);
+      openJsonFileStub = sinon.stub(helpers, 'openJsonFile').returns(currentJson);
+      ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(renderFileOutput));
+      mergeStub = sinon.stub(transform, 'merge').returns(mergedPkg);
+      diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
+
+      const answers = {
+        destination: destinationPath,
+        templates: [],
+        appPrefix: false,
+        force: false,
+      };
+
+      await transformFunc(templatePath, answers);
+
+      expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
+        ...answers,
+        helper: {
+          isDev: false,
+          getPascalCaseName: helpers.getPascalCaseName,
+          getAppPrefix: helpers.getAppPrefix,
+        },
+      });
+      expect(mergeStub).to.have.been.calledOnceWith(currentJson, templateJson);
+      expect(openJsonFileStub).to.have.been.calledOnceWith(`${destinationPath}${sep}${file}`);
       expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({
         rendered: JSON.stringify(mergedPkg, null, 2),
         pathToNewFile: path.join(destinationPath, file),

@@ -1,11 +1,5 @@
 ﻿import path, { sep } from 'path';
-import {
-  Initializer,
-  openPackageJson,
-  transform,
-  DEFAULT_APPNAME,
-  ClientAppArgs,
-} from '../../common';
+import { Initializer, openJsonFile, transform, DEFAULT_APPNAME, ClientAppArgs } from '../../common';
 
 export default class NextjsMultisiteInitializer implements Initializer {
   get isBase(): boolean {
@@ -13,7 +7,7 @@ export default class NextjsMultisiteInitializer implements Initializer {
   }
 
   async init(args: ClientAppArgs) {
-    const pkg = openPackageJson(`${args.destination}${sep}package.json`);
+    const pkg = openJsonFile(`${args.destination}${sep}package.json`);
 
     const mergedArgs = {
       ...args,

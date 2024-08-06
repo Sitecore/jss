@@ -12,8 +12,8 @@ export { StyleguideAnswer, styleguidePrompts } from './prompts/styleguide';
 export { SxpAnswer, sxpPrompts } from './prompts/sxp';
 export {
   isDevEnvironment,
-  openPackageJson,
-  writePackageJson,
+  openJsonFile,
+  writeJsonFile,
   getAllTemplates,
   getBaseTemplates,
   saveConfiguration,

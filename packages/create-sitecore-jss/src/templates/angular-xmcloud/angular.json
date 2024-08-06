@@ -1,0 +1,34 @@
+{
+  "projects": {
+    "<%- appName %>": {
+      "architect": {
+        "build": {
+          "options": {
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css",
+              "src/assets/styles/main.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/assets/styles", "node_modules"]
+            }
+          }
+        },
+        "test": {
+          "options": {
+            "styles": ["src/styles.css", "src/assets/styles/main.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/assets/styles", "node_modules"]
+            }
+          }
+        }
+      }
+    }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "app",
+      "style": "scss"
+    }
+  }
+}
