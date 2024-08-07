@@ -12,6 +12,7 @@ import {
   sortKeys,
   writeFileToPath,
   isDevEnvironment,
+  proxyAppMatcher,
 } from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
 import { BaseArgs } from '../args/base';
@@ -253,7 +254,7 @@ export const transform = async (
   const { isFileForCopy, isFileForSkip, fileForCopyRegExp = FILE_FOR_COPY_REGEXP } = options;
   let destination = undefined;
   // allow proxy app to be installed separately alongside base app
-  if (templatePath.match(/.*node-.+-proxy$/g) && answers.proxyAppDestination) {
+  if (templatePath.match(proxyAppMatcher) && answers.proxyAppDestination) {
     destination = answers.proxyAppDestination;
   }
   const destinationPath = path.resolve(destination || answers.destination);
