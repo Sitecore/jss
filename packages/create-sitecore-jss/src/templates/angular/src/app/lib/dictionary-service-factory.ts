@@ -24,6 +24,9 @@ export class DictionaryServiceFactory {
       new GraphQLDictionaryService({
           clientFactory,
           siteName: env.sitecoreSiteName,
+          <% if (locals.xmcloud) { -%>
+          useSiteQuery: true,
+          <% } -%>
           /*
         The Dictionary Service needs a root item ID in order to fetch dictionary phrases for the current
         app. If your Sitecore instance only has 1 JSS App, you can specify the root item ID here;

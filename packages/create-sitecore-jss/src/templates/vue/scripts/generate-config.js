@@ -34,10 +34,8 @@ module.exports = function generateConfig(configOverrides) {
   const config = Object.assign(defaultConfig, scjssConfig, packageJson, configOverrides);
 
   // Handle undefined values
-  Object.keys(config).forEach((value, key) => {
-    if (config[key] === undefined) {
-      config[key] = '';
-    }
+  Object.keys(config).forEach((prop) => {
+    config[prop] = config[prop] || '';
   });
 
   // The GraphQL endpoint is an example of making a _computed_ config setting

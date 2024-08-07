@@ -20,7 +20,9 @@ class DisconnectedPlugin implements ConfigPlugin {
       );
     }
 
-    return config;
+    return Object.assign({}, config, {
+      sitecoreApiKey: config.sitecoreApiKey || 'no-api-key-set',
+    });
   }
 }
 

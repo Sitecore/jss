@@ -32,12 +32,9 @@ generateConfig();
  */
 function generateConfig() {
   // Handle undefined values
-  defaultConfig = Object.keys(defaultConfig).reduce((acc, key) => {
-    return {
-      ...acc,
-      [key]: defaultConfig[key] || '',
-    };
-  }, {});
+  Object.keys(defaultConfig).forEach((prop) => {
+    defaultConfig[prop] = defaultConfig[prop] || '';
+  });
 
   try {
     config = jssConfigFactory.create(defaultConfig);
