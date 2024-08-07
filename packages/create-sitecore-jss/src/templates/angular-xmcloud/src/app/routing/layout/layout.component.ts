@@ -62,7 +62,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
           const sitecoreEdgeContextId = '';
           const sitecoreEdgeUrl = '';
           const contentStyles = getContentStylesheetLink(
-            data.jssState.sitecore,
+            { sitecore: data.jssState.sitecore },
             sitecoreEdgeContextId,
             sitecoreEdgeUrl
           );
