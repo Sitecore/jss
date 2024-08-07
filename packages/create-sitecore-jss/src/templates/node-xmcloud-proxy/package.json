@@ -16,7 +16,7 @@
     "http-proxy-middleware": "^3.0.0"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss": "~22.1.0-canary",
+    "@sitecore-jss/sitecore-jss": "~22.2.0-canary",
     "@types/compression": "^1.7.2",
     "@types/express": "^4.17.17",
     "ts-node": "^10.9.1",
