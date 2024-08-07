@@ -11,7 +11,7 @@ export class JssLinkService {
   }
 
   /**
-   * Adds or updates link elements in the document head.
+   * Adds link elements in the document head.
    * @param headLinks - An array of HTMLLink objects to add to the head.
    */
   addHeadLinks(headLinks: HTMLLink[]) {
@@ -20,8 +20,6 @@ export class JssLinkService {
     }
 
     headLinks.forEach((headLink: HTMLLink) => {
-      this.removeLinksByRelAndHref(headLink.rel, headLink.href);
-
       this.createLink(headLink);
     });
   }
@@ -43,18 +41,6 @@ export class JssLinkService {
    */
   removeLinksByRel(rel: string) {
     const links = this.document.head.querySelectorAll(`link[rel="${rel}"]`);
-    links.forEach((link) => {
-      this.document.head.removeChild(link);
-    });
-  }
-
-  /**
-   * Removes link elements that match the specified rel and href attributes.
-   * @param rel - The rel attribute of the links to be removed.
-   * @param href - The href attribute of the links to be removed.
-   */
-  private removeLinksByRelAndHref(rel: string, href: string) {
-    const links = this.document.head.querySelectorAll(`link[rel="${rel}"][href="${href}"]`);
     links.forEach((link) => {
       this.document.head.removeChild(link);
     });
