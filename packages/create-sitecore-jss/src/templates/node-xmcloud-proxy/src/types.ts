@@ -1,4 +1,7 @@
-import { GraphQLRequestClientFactory } from '@sitecore-jss/sitecore-jss';
+import {
+  GraphQLRequestClientFactory,
+  GraphQLRequestClientFactoryConfig,
+} from '@sitecore-jss/sitecore-jss';
 import { DictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
 import { LayoutService, LayoutServiceData } from '@sitecore-jss/sitecore-jss/layout';
 
@@ -44,12 +47,11 @@ export interface ServerBundle {
   renderView: AppRenderer;
   parseRouteUrl: RouteUrlParser;
   clientFactory: GraphQLRequestClientFactory;
+  getClientFactoryConfig: () => GraphQLRequestClientFactoryConfig;
   siteName: string;
   defaultLanguage: string;
   layoutServiceFactory: { create: () => LayoutService };
   dictionaryServiceFactory: { create: () => DictionaryService };
-  graphQLEndpointPath: string;
-  graphQLEndpoint: string;
 }
 
 export interface Config {

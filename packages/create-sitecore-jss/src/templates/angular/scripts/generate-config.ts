@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import * as fs from 'fs';
 import * as path from 'path';
 import { constantCase } from 'constant-case';
@@ -38,6 +39,14 @@ export function generateConfig(
   defaultConfig: JssConfig = defaultConfigValue,
   configOverrides?: { [key: string]: unknown }
 ) {
+  // Handle undefined values
+  defaultConfig = Object.keys(defaultConfig).reduce((acc, key) => {
+    return {
+      ...acc,
+      [key]: defaultConfig[key] || '',
+    };
+  }, {});
+
   jssConfigFactory
     .create(defaultConfig)
     .then((config) => {
@@ -67,9 +76,11 @@ export function writeConfig(config: JssConfig, outputPath?: string) {
 
   // Set base configuration values, allowing override with environment variables
   Object.keys(config).forEach((prop) => {
-    configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]
-      ?.toString()
-      .trim()}";\n`;
+    // Handle undefined values
+    const value = config[prop] || '';
+    configText += `config.${prop} = process.env.${constantCase(
+      prop
+    )} || "${value.toString().trim()}";\n`;
   });
 
   configText += `module.exports.environment = config;`;

@@ -62,6 +62,7 @@ export {
   GraphQLClientError,
   GraphQLRequestClientFactoryConfig,
   GraphQLRequestClient,
+  getEdgeProxyContentUrl,
 } from '@sitecore-jss/sitecore-jss/graphql';
 export {
   constants,
