@@ -9,5 +9,4 @@ export class JssState<Fields = Record<string, unknown>> {
     route: RouteData<Fields>;
   };
   viewBag: { [key: string]: unknown };
-  headLinks: HTMLLink[];
 }

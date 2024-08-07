@@ -58,6 +58,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
             ? 'editing-mode'
             : 'prod-mode';
 
+          /**  TODO: get contextId and edgeUrl properly **/
           const sitecoreEdgeContextId = '';
           const sitecoreEdgeUrl = '';
           const contentStyles = getContentStylesheetLink(
@@ -65,13 +66,12 @@ export class LayoutComponent implements OnInit, OnDestroy {
             sitecoreEdgeContextId,
             sitecoreEdgeUrl
           );
-          if (contentStyles) {
-            // Clear existing stylesheets
-            this.linkService.removeLinksByRel('stylesheet');
 
-            data.jssState.headLinks.push(contentStyles);
-            const uniqueHeadLinks = [...new Set(data.jssState.headLinks)];
-            this.linkService.addHeadLinks(uniqueHeadLinks);
+          // Clear existing stylesheets
+          this.linkService.removeLinksByRel('stylesheet');
+
+          if (contentStyles) {
+            this.linkService.addHeadLinks(contentStyles);
           }
         }
 

@@ -7,6 +7,7 @@
         <sc-placeholder
           name="headless-header"
           [rendering]="route"
+          (loaded)="onPlaceholderLoaded($event)"
         ></sc-placeholder>
       </div>
     </header>
@@ -15,7 +16,7 @@
         <sc-placeholder
           name="headless-main"
           [rendering]="route"
-          (loaded)="onMainPlaceholderLoaded($event)"
+          (loaded)="onPlaceholderLoaded($event)"
         ></sc-placeholder>
       </div>
     </main>
@@ -24,6 +25,7 @@
         <sc-placeholder
           name="headless-footer"
           [rendering]="route"
+          (loaded)="onMainPlaceholderLoaded($event)"
         ></sc-placeholder>
       </div>
     </footer>

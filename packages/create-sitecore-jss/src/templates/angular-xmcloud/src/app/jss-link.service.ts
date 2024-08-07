@@ -11,17 +11,15 @@ export class JssLinkService {
   }
 
   /**
-   * Adds link elements in the document head.
+   * Adds link element in the document head.
    * @param headLinks - An array of HTMLLink objects to add to the head.
    */
-  addHeadLinks(headLinks: HTMLLink[]) {
-    if (!headLinks || !headLinks.length) {
+  addHeadLinks(headLink: HTMLLink) {
+    if (!headLink) {
       return;
     }
 
-    headLinks.forEach((headLink: HTMLLink) => {
-      this.createLink(headLink);
-    });
+    this.createLink(headLink);
   }
 
   /**

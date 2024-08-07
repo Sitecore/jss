@@ -47,8 +47,6 @@ export class JssContextService {
         result.sitecore = lsResult.sitecore ? lsResult.sitecore : null;
         result.language = appLanguage;
         result.serverRoute = route;
-        result.headLinks = [];
-
         return result;
       }),
       catchError((error: LayoutServiceError) => {
