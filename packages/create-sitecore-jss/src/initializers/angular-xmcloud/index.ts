@@ -1,5 +1,12 @@
 import path, { sep } from 'path';
-import { ClientAppArgs, DEFAULT_APPNAME, Initializer, transform, openJsonFile } from '../../common';
+import {
+  ClientAppArgs,
+  DEFAULT_APPNAME,
+  Initializer,
+  transform,
+  openJsonFile,
+  incompatibleAddonsMsg,
+} from '../../common';
 import { InitializerResults } from '../../common/Initializer';
 import { getDefaultProxyDestination } from '../../common/utils/helpers';
 
@@ -28,6 +35,10 @@ export default class AngularXmCloudInitializer implements Initializer {
     const templatePath = path.resolve(__dirname, '../../templates/angular-xmcloud');
 
     await transform(templatePath, mergedArgs);
+
+    if (args.templates.includes('angular-sxp') || pkg.config?.templates?.includes('angular-sxp')) {
+      console.log(incompatibleAddonsMsg('angular-xmcloud', 'angular-sxp'));
+    }
 
     const response: InitializerResults = {
       nextSteps: [],
