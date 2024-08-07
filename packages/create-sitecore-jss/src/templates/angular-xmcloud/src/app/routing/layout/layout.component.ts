@@ -70,7 +70,8 @@ export class LayoutComponent implements OnInit, OnDestroy {
             this.linkService.removeLinksByRel('stylesheet');
 
             data.jssState.headLinks.push(contentStyles);
-            this.linkService.addHeadLinks([contentStyles]);
+            const uniqueHeadLinks = [...new Set(data.jssState.headLinks)];
+            this.linkService.addHeadLinks(uniqueHeadLinks);
           }
         }
 

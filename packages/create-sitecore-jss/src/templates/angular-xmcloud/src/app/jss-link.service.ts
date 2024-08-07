@@ -29,6 +29,11 @@ export class JssLinkService {
    * @param headLink - An HTMLLink object to be added.
    */
   private createLink(headLink: HTMLLink) {
+    if (!headLink.rel || !headLink.href) {
+      console.log('Invalid link object:', headLink);
+      return;
+    }
+
     const link: HTMLLinkElement = this.document.createElement('link');
     link.setAttribute('rel', headLink.rel);
     link.setAttribute('href', headLink.href);
