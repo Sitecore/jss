@@ -11,4 +11,4 @@ export const EDITING_PASS_THROUGH_HEADERS = ['authorization', 'cookie'];
 /**
  * Default allowed origins for editing requests. This is used to enforce CORS, CSP headers.
  */
-export const EDITING_ALLOWED_ORIGINS = ['https://pages*.cloud', 'https://pages.sitecorecloud.io'];
+export const EDITING_ALLOWED_ORIGINS = ['https://pages.sitecorecloud.io'];
