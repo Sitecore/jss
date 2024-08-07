@@ -552,7 +552,7 @@ describe('transform', () => {
     });
 
     it('should transform file in proxy destination when processing proxy and proxy location destination', async () => {
-      const templatePath = path.resolve('templates/node-app-proxy');
+      const templatePath = path.resolve('templates/node-headless-proxy');
       const destinationPath = path.resolve('samples/next');
       const destinationProxy = path.resolve('samples/proxy');
       const file = 'file.ts';
