@@ -55,7 +55,8 @@ export const getDestinations = async (args: ParsedArgs, templates: string[]) => 
 
   // work with node-proxy destination if needed
   const proxyApp = templates.find((template) => template.match(proxyAppMatcher));
-  if (proxyApp) {
+  // only ask dedicated proxy destination when installed alongside main app
+  if (proxyApp && templates.length > 1) {
     // put the proxy alongside main app by default
     const defaultProxyDestination = getDefaultProxyDestination(destination, proxyApp);
     let proxyAppDestination = args.proxyAppDestination;

@@ -353,6 +353,19 @@ describe('bin', () => {
         );
       });
 
+      it('should populate destination only when proxy installed on its own', async () => {
+        const testPath = 'test\\path';
+        const testArgs = mockArgs({
+          destination: testPath,
+        });
+        const templatesWithProxy = ['node-xmcloud-proxy'];
+        const result = await getDestinations(testArgs, templatesWithProxy);
+        expect(inquirerPromptStub).to.not.have.been.called;
+        expect(result).to.deep.equal({
+          destination: testPath,
+        });
+      });
+
       it('should return default base destination with base template when --yes arg is used', async () => {
         const testArgs = mockArgs({
           destination: undefined,
