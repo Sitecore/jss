@@ -27,7 +27,7 @@ describe('next', () => {
         calls.some(
           (call) =>
             call.args[0] ===
-            `JSS application(s) ${chalk.green('my-cool-app, second-app')} is ready!`
+            `JSS application(s) ${chalk.green('my-cool-app, second-app')} are ready!`
         )
       ).to.equal(true);
     });
