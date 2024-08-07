@@ -1,4 +1,4 @@
-import { RouteData, LayoutServiceContextData, HTMLLink } from '@sitecore-jss/sitecore-jss-angular';
+import { RouteData, LayoutServiceContextData } from '@sitecore-jss/sitecore-jss-angular';
 import { LayoutServiceError } from './layout/jss-layout.service';
 
 export class JssState<Fields = Record<string, unknown>> {
