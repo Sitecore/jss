@@ -64,9 +64,6 @@ export class LayoutComponent implements OnInit, OnDestroy {
           env.sitecoreEdgeUrl
         );
 
-        // Clear existing stylesheets
-        this.linkService.removeLinksByRel('stylesheet');
-
         if (contentStyles) {
           this.linkService.addHeadLinks(contentStyles);
         }
@@ -95,7 +92,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
   setMetadata(routeFields: RouteFields) {
     // set page title, if it exists
-    if (routeFields && routeFields?.pageTitle) {
+    if (routeFields && routeFields.pageTitle) {
       this.meta.setTitle(routeFields.pageTitle.value || 'Page');
     }
   }

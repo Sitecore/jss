@@ -67,7 +67,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
   setMetadata(routeFields: RouteFields) {
     // set page title, if it exists
-    if (routeFields && routeFields?.pageTitle) {
+    if (routeFields && routeFields.pageTitle) {
       this.meta.setTitle(routeFields.pageTitle.value || 'Page');
     }
   }

@@ -10,7 +10,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NavigationComponent } from './navigation/navigation.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { ScriptsModule } from './scripts/scripts.module';
-import { JssLinkService } from '../jss-link.service';
 
 export function jssRouteMatcher(url: UrlSegment[]): UrlMatchResult {
   // use the route builder to parse out language / server route
@@ -59,6 +58,6 @@ const routes: Routes = [
   ],
   exports: [RouterModule, TranslateModule],
   declarations: [NotFoundComponent, ServerErrorComponent, LayoutComponent, NavigationComponent],
-  providers: [JssRouteBuilderService, JssLinkService],
+  providers: [JssRouteBuilderService],
 })
 export class RoutingModule {}
