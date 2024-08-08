@@ -21,12 +21,11 @@ const requiredProperties = [
   'renderView',
   'parseRouteUrl',
   'clientFactory',
+  'getClientFactoryConfig',
   'siteName',
   'defaultLanguage',
   'layoutServiceFactory',
   'dictionaryServiceFactory',
-  'graphQLEndpointPath',
-  'graphQLEndpoint',
 ];
 
 const missingProperties = requiredProperties.filter((property) => !config.serverBundle[property]);
@@ -38,6 +37,31 @@ if (missingProperties.length > 0) {
     )}. Please check your server bundle.`
   );
 }
+
+/**
+ * GraphQL endpoint resolution to meet the requirements of the http-proxy-middleware
+ */
+const graphQLEndpoint = (() => {
+  const clientFactoryConfig = config.serverBundle.getClientFactoryConfig();
+
+  try {
+    const graphQLEndpoint = new URL(clientFactoryConfig.endpoint);
+    // Browser request path to the proxy. Includes only the pathname. 
+    const pathname = graphQLEndpoint.pathname;
+    // Target URL for the proxy. Can't include the query string.
+    const target = `${graphQLEndpoint.protocol}//${graphQLEndpoint.hostname}${pathname}`;
+
+    return {
+      target,
+      path: pathname,
+    };
+  } catch (error) {
+    throw new Error(
+      `ERROR: The serverBundle should export a getClientFactoryConfig function with valid GraphQL endpoint URL returned, current value is ${clientFactoryConfig.endpoint}. ` +
+        'Please check your server bundle.'
+    );
+  }
+})();
 
 const layoutService = layoutServiceFactory.create();
 
@@ -94,9 +118,9 @@ server.use(
  * Proxy browser GraphQL requests to the Sitecore GraphQL endpoint
  */
 server.use(
-  config.serverBundle.graphQLEndpointPath,
+  graphQLEndpoint.path,
   createProxyMiddleware({
-    target: config.serverBundle.graphQLEndpoint,
+    target: graphQLEndpoint.target,
     changeOrigin: true,
   })
 );

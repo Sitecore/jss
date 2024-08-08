@@ -12,4 +12,6 @@ export interface JssConfig extends Record<string, string | boolean | undefined> 
   defaultServerRoute?: string;
   proxyBuildPath?: string;
   proxyHost?: string;
+  sitecoreEdgeUrl?: string;
+  sitecoreEdgeContextId?: string;
 }
