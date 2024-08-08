@@ -345,6 +345,8 @@ export class MetadataHandler {
       });
     }
 
+    res.clearPreviewData();
+
     res.setPreviewData(
       {
         site: query.sc_site,
