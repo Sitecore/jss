@@ -55,6 +55,7 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+  getContentStylesheetLink,
 } from '@sitecore-jss/sitecore-jss/layout';
 export {
   RetryStrategy,
@@ -70,6 +71,7 @@ export {
   HttpResponse,
   enableDebug,
   ClientError,
+  HTMLLink,
 } from '@sitecore-jss/sitecore-jss';
 export { isServer } from '@sitecore-jss/sitecore-jss/utils';
 export {
