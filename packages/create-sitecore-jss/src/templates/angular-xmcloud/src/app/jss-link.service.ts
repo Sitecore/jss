@@ -45,7 +45,7 @@ export class JssLinkService {
    * @returns {boolean} - True if a matching link exists, false otherwise.
    */
   private isDuplicateLink(headLink: HTMLLink): boolean {
-    const existingLink = this.document.querySelector(
+    const existingLink = this.document.head.querySelector(
       `link[rel='${headLink.rel}'][href='${headLink.href}']`
     );
     return !!existingLink;
