@@ -118,8 +118,8 @@ export class RedirectsMiddleware extends MiddlewareBase {
         url.href = existsRedirect.target;
       } else {
         const source = this.getModifyURL(url.pathname, url.search);
-        url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
         const urlFirstPart = existsRedirect.target.split('/')[1];
+
         if (this.locales.includes(urlFirstPart)) {
           url.locale = urlFirstPart;
           existsRedirect.target = existsRedirect.target.replace(`/${urlFirstPart}`, '');
@@ -130,12 +130,18 @@ export class RedirectsMiddleware extends MiddlewareBase {
           .replace(/^\/\//, '/')
           .split('?');
 
-        url.href = `${url.origin}/${target[0]}`;
+        url.pathname = `${target[0]}`;
 
         if (target[1]) {
           const newParams = new URLSearchParams(target[1]);
-          url.href = `${url.origin}/${target[0]}?${newParams.toString()}`;
+          url.search = `?${newParams.toString()}`;
         }
+
+        const newURL = new URL(
+          `${url.pathname}${existsRedirect.isQueryStringPreserved ? url.search : ''}`,
+          url.origin
+        );
+        url.href = newURL.href;
       }
 
       const redirectUrl = decodeURIComponent(url.href);
@@ -198,7 +204,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
             .replace(/^\^\/|\/\$$/g, '')
             .replace(/^\^|\$$/g, '')
             .replace(/(?<!\\)\?/g, '\\?')
-            .replace(/\$\/gi$/g, '')}[\/]?$/gi`;
+            .replace(/\$\/gi$/g, '')}[\/]?/gi`;
 
           return (
             (regexParser(redirect.pattern).test(tragetURL) ||

@@ -488,9 +488,10 @@ describe('RedirectsMiddleware', () => {
         });
         const req = createRequest({
           nextUrl: {
+            origin: 'http://localhost:3000',
             pathname: '/not-found',
             search: 'abc=def',
-            href: 'http://localhost:3000/found?abc=def',
+            href: 'http://localhost:3000/not-found?abc=def',
             clone() {
               return Object.assign({}, req.nextUrl);
             },
@@ -942,8 +943,8 @@ describe('RedirectsMiddleware', () => {
         });
 
         const expected = NextResponse.redirect('http://localhost:3000/found', {
+          ...res,
           status: 301,
-          headers: res.headers,
         });
 
         const finalRes = await middleware.getHandler()(req, res);
@@ -957,8 +958,6 @@ describe('RedirectsMiddleware', () => {
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {
             location: 'http://localhost:3000/found',
-            'set-cookie': 'sc_site=foo; Path=/',
-            'x-middleware-rewrite': 'http://localhost:3000/found',
           },
           redirected: false,
           status: 301,
