@@ -7,7 +7,7 @@ import { JssRouteBuilderService } from './src/app/routing/jss-route-builder.serv
 import { environment } from './src/environments/environment';
 import { AppServerModule, renderModule } from './src/main.server';
 import clientFactory from './src/app/lib/graphql-client-factory';
-import { getGraphQLClientFactoryConfig } from './src/app/lib/graphql-client/config';
+import { getGraphQLClientFactoryConfig } from './src/app/lib/graphql-client-factory/config';
 import { dictionaryServiceFactory } from './src/app/lib/dictionary-service-factory';
 import { layoutServiceFactory } from './src/app/lib/layout-service-factory';
 
