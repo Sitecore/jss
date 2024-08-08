@@ -7,7 +7,7 @@ import {
    <% } -%>
 } from '@sitecore-jss/sitecore-jss-angular';
 import { environment } from '../../environments/environment';
-import { clientFactory } from './graphql-client/client-factory';
+import clientFactory from './graphql-client-factory';
 
 export class LayoutServiceFactory {
   create(): LayoutService {

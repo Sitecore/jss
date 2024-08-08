@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import { generateConfig } from './generate-config';
-import { clientFactory } from 'lib/graphql-client/client-factory';
-import { getGraphQLClientFactoryConfig } from 'lib/graphql-client/config';
+import clientFactory from 'lib/graphql-client-factory';
+import { getGraphQLClientFactoryConfig } from 'lib/graphql-client-factory/config';
 
 // Apollo Client supports caching GraphQL responses, which can greatly reduce network traffic needs.
 // In order to work correctly with interfaces in GraphQL, it needs to know some basic information about

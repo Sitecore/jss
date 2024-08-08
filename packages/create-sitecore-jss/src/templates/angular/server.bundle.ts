@@ -6,7 +6,7 @@ import 'zone.js';
 import { JssRouteBuilderService } from './src/app/routing/jss-route-builder.service';
 import { environment } from './src/environments/environment';
 import { AppServerModule, renderModule } from './src/main.server';
-import { clientFactory } from './src/app/lib/graphql-client/client-factory';
+import clientFactory from './src/app/lib/graphql-client-factory';
 import { getGraphQLClientFactoryConfig } from './src/app/lib/graphql-client/config';
 import { dictionaryServiceFactory } from './src/app/lib/dictionary-service-factory';
 import { layoutServiceFactory } from './src/app/lib/layout-service-factory';

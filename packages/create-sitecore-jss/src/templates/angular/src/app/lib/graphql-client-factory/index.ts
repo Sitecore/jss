@@ -7,10 +7,10 @@ import { getGraphQLClientFactoryConfig } from './config';
  * Creates a new GraphQLRequestClientFactory instance
  * @returns GraphQLRequestClientFactory instance
  */
-export const createGraphQLClientFactory = () => {
+const createGraphQLClientFactory = () => {
   const clientConfig = getGraphQLClientFactoryConfig();
 
   return GraphQLRequestClient.createClientFactory(clientConfig);
 };
 
-export const clientFactory = createGraphQLClientFactory();
+export default createGraphQLClientFactory();

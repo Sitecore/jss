@@ -8,7 +8,7 @@ const chalk = require('chalk');
  */
 class DisconnectedPlugin implements ConfigPlugin {
   // should come before other plugins
-  order = 0;
+  order = 2;
 
   async exec(config: JssConfig) {
     const disconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
