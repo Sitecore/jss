@@ -197,7 +197,6 @@ export const populateEjsData = (answers: BaseArgs, destination?: string) => {
   // pass in helper to answers object
   const ejsData: Data = {
     ...answers,
-    xmcloud: answers.xmcloud || answers.templates.some((el) => el.includes('xmcloud')),
     helper: {
       isDev: isDevEnvironment(destination || answers.destination),
       getPascalCaseName: getPascalCaseName,
