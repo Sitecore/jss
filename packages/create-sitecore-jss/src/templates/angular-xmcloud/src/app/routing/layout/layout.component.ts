@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 import { JssState } from '../../JssState';
 import { JssMetaService } from '../../jss-meta.service';
 import { JssLinkService } from '../../jss-link.service';
+import { environment as env } from '../../../environments/environment';
 
 enum LayoutState {
   Layout,
@@ -58,13 +59,10 @@ export class LayoutComponent implements OnInit, OnDestroy {
             ? 'editing-mode'
             : 'prod-mode';
 
-          /**  TODO: get contextId and edgeUrl properly **/
-          const sitecoreEdgeContextId = '';
-          const sitecoreEdgeUrl = '';
           const contentStyles = getContentStylesheetLink(
             { sitecore: data.jssState.sitecore },
-            sitecoreEdgeContextId,
-            sitecoreEdgeUrl
+            env.sitecoreEdgeContextId,
+            env.sitecoreEdgeUrl
           );
 
           // Clear existing stylesheets
