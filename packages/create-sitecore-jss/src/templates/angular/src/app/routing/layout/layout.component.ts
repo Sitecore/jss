@@ -9,12 +9,12 @@ import { JssMetaService } from '../../jss-meta.service';
 enum LayoutState {
   Layout,
   NotFound,
-  Error
+  Error,
 }
 
 interface RouteFields {
   [name: string]: unknown;
-  pageTitle: Field<string>;
+  pageTitle?: Field<string>;
 }
 
 @Component({
@@ -28,14 +28,11 @@ export class LayoutComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   errorContextData: LayoutServiceContextData;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private readonly meta: JssMetaService,
-  ) { }
+  constructor(private activatedRoute: ActivatedRoute, private readonly meta: JssMetaService) {}
 
   ngOnInit() {
     // route data is populated by the JssRouteResolver
-    this.subscription = this.activatedRoute.data.subscribe((data: { jssState: JssState<RouteFields> }) => {
+    this.subscription = this.activatedRoute.data.subscribe((data: { jssState: JssState }) => {
       if (!data.jssState) {
         this.state = LayoutState.NotFound;
         return;
@@ -48,13 +45,17 @@ export class LayoutComponent implements OnInit, OnDestroy {
       }
 
       if (data.jssState.routeFetchError) {
-        if (data.jssState.routeFetchError.status >= 400 && data.jssState.routeFetchError.status < 500) {
+        if (
+          data.jssState.routeFetchError.status >= 400 &&
+          data.jssState.routeFetchError.status < 500
+        ) {
           this.state = LayoutState.NotFound;
         } else {
           this.state = LayoutState.Error;
         }
 
-        this.errorContextData = data.jssState.routeFetchError.data && data.jssState.routeFetchError.data.sitecore;
+        this.errorContextData =
+          data.jssState.routeFetchError.data && data.jssState.routeFetchError.data.sitecore;
       }
     });
   }

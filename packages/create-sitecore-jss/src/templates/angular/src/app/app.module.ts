@@ -11,6 +11,7 @@ import { JssTranslationClientLoaderService } from './i18n/jss-translation-client
 import { JssTranslationLoaderService } from './i18n/jss-translation-loader.service';
 import { GraphQLModule } from './jss-graphql.module';
 import { JssMetaService } from './jss-meta.service';
+import { JssLinkService } from './jss-link.service';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { JssMetaService } from './jss-meta.service';
     JssContextService,
     JssLayoutService,
     JssMetaService,
+    JssLinkService,
     // IMPORTANT: you must set the base href with this token, not a <base> tag in the HTML.
     // the Sitecore Experience Editor will not work correctly when a base tag is used.
     { provide: APP_BASE_HREF, useValue: '/' },
