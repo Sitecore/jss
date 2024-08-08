@@ -14,6 +14,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[templates/nextjs-sxa]` The caption of image component has been fixed. ([#1874](https://github.com/Sitecore/jss/pull/1874))
+* `[templates/nextjs-sxa]` The background image in the Container component was being generated from the image ID instead of the mediaUrl parameter. This fix changes that behavior. ([#1879](https://github.com/Sitecore/jss/pull/1879))
 
 ### 🎉 New Features & Improvements
 
