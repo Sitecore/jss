@@ -358,7 +358,7 @@ export class MetadataHandler {
         editMode: EditMode.Metadata,
         pageState: query.mode,
       } as EditingMetadataPreviewData,
-      // Cache the preview data for 4 seconds to ensure the page is rendered with the correct preview data not the cached one
+      // Cache the preview data for 3 seconds to ensure the page is rendered with the correct preview data not the cached one
       {
         path: query.route,
         maxAge: 3,
