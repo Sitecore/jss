@@ -43,6 +43,9 @@ export class JssLinkService {
    * @param rel - The rel attribute of the links to be removed.
    */
   removeLinksByRel(rel: string) {
+    if (!this.document || !this.document.head) {
+      return;
+    }
     const links = this.document.head.querySelectorAll(`link[rel="${rel}"]`);
     links.forEach((link) => {
       this.document.head.removeChild(link);
