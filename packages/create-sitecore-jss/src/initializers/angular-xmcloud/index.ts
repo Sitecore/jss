@@ -8,7 +8,8 @@ import {
   incompatibleAddonsMsg,
 } from '../../common';
 import { InitializerResults } from '../../common/Initializer';
-import { getDefaultProxyDestination } from '../../common/utils/helpers';
+import { ProxyArgs, proxyPrompts } from '../../common/prompts/proxy';
+import inquirer from 'inquirer';
 
 export default class AngularXmCloudInitializer implements Initializer {
   get isBase(): boolean {
@@ -18,23 +19,29 @@ export default class AngularXmCloudInitializer implements Initializer {
   async init(args: ClientAppArgs) {
     const pkg = openJsonFile(`${args.destination}${sep}package.json`);
     const addInitializers = [];
-    // when installing proxy alongside main app, have a separate path ready
-    if (!args.proxyAppDestination) {
-      args.proxyAppDestination = getDefaultProxyDestination(args.destination, 'node-xmcloud-proxy');
-    }
-
+    // angular-xmcloud requires node-xmcloud-proxy
     if (!args.templates.includes('node-xmcloud-proxy')) {
       addInitializers.push('node-xmcloud-proxy');
     }
-    const mergedArgs = {
+
+    // ensure proxyAppDestination is populated
+    const promptArgs = {
+      yes: args.yes,
+      destination: args.destination,
+      proxyName: 'node-xmcloud-proxy',
+    };
+    const proxyDetails = await inquirer.prompt<ProxyArgs>(proxyPrompts, promptArgs);
+
+    const finalArgs = {
       ...args,
       appName: args.appName || pkg?.config?.appName || DEFAULT_APPNAME,
       appPrefix: args.appPrefix || pkg?.config?.prefix || false,
+      ...proxyDetails,
     };
 
     const templatePath = path.resolve(__dirname, '../../templates/angular-xmcloud');
 
-    await transform(templatePath, mergedArgs);
+    await transform(templatePath, finalArgs);
 
     if (args.templates.includes('angular-sxp') || pkg.config?.templates?.includes('angular-sxp')) {
       console.log(incompatibleAddonsMsg('angular-xmcloud', 'angular-sxp'));
