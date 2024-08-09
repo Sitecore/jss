@@ -67,6 +67,9 @@ const mockResponse = () => {
     return name === 'Set-Cookie' ? mockNextJsPreviewCookies : undefined;
   });
   res.setHeader = spy();
+  res.clearPreviewData = spy(() => {
+    return res;
+  });
   res.setPreviewData = spy(() => {
     return res;
   });

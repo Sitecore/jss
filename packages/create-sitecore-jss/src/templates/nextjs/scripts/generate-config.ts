@@ -29,6 +29,11 @@ generateConfig(defaultConfig);
  * @param {JssConfig} defaultConfig Default configuration.
  */
 function generateConfig(defaultConfig: JssConfig): void {
+  // Handle undefined values
+  Object.keys(defaultConfig).forEach(prop => {
+    defaultConfig[prop] = defaultConfig[prop] || '';
+  }, {});
+
   jssConfigFactory
     .create(defaultConfig)
     .then(config => {
@@ -53,7 +58,9 @@ const config = {};\n`;
 
   // Set configuration values, allowing override with environment variables
   Object.keys(config).forEach(prop => {
-    configText += `config.${prop} = process.env.${constantCase(prop)} || '${config[prop]?.trim()}';\n`;
+    // Handle undefined values
+    const value = config[prop] || '';
+    configText += `config.${prop} = process.env.${constantCase(prop)} || '${value.trim()}';\n`;
   });
 
   configText += `module.exports = config;`;

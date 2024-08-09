@@ -3,7 +3,7 @@ import { Config, ServerBundle } from './types';
 /**
  * The server.bundle.js file from your pre-built SPA app.
  */
-const bundlePath = process.env.PROXY_BUNDLE_PATH || `../dist/server.bundle`;
+const bundlePath = process.env.PROXY_BUNDLE_PATH || '../dist/server.bundle';
 
 const serverBundle: ServerBundle = require(bundlePath);
 

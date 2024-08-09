@@ -4,11 +4,7 @@ import { HTMLLink } from '@sitecore-jss/sitecore-jss-angular';
 
 @Injectable()
 export class JssLinkService {
-  document: Document;
-
-  constructor() {
-    this.document = Inject(DOCUMENT);
-  }
+  constructor(@Inject(DOCUMENT) private document: Document) {}
 
   /**
    * Adds link element in the document head.
@@ -16,6 +12,11 @@ export class JssLinkService {
    */
   addHeadLinks(headLink: HTMLLink) {
     if (!headLink) {
+      return;
+    }
+
+    // Check if a link with the same rel and href already exists
+    if (this.isDuplicateLink(headLink)) {
       return;
     }
 
@@ -39,13 +40,14 @@ export class JssLinkService {
   }
 
   /**
-   * Removes all link elements that match the specified rel attribute.
-   * @param rel - The rel attribute of the links to be removed.
+   * Checks for an existing link element with the same rel and href attributes.
+   * @param headLink - An HTMLLink object to be checked.
+   * @returns {boolean} - True if a matching link exists, false otherwise.
    */
-  removeLinksByRel(rel: string) {
-    const links = this.document.head.querySelectorAll(`link[rel="${rel}"]`);
-    links.forEach((link) => {
-      this.document.head.removeChild(link);
-    });
+  private isDuplicateLink(headLink: HTMLLink): boolean {
+    const existingLink = this.document.head.querySelector(
+      `link[rel='${headLink.rel}'][href='${headLink.href}']`
+    );
+    return !!existingLink;
   }
 }
