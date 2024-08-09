@@ -1,5 +1,5 @@
 import { Answers, DistinctQuestion } from 'inquirer';
-import { DEFAULT_FETCHWITH, FetchWith } from './base';
+import { DEFAULT_APPNAME, DEFAULT_FETCHWITH, FetchWith } from './base';
 
 /**
  * Set of CLI answers for an SXP app
@@ -24,10 +24,10 @@ export const sxpPrompts: DistinctQuestion<SxpAnswer>[] = [
     type: 'input',
     name: 'hostName',
     message: 'What is your Sitecore hostname (used if deployed to Sitecore)?',
-    default: (answers: SxpAnswer) => `${answers.appName}.dev.local`,
+    default: (answers: SxpAnswer) => `${answers.appName || DEFAULT_APPNAME}.dev.local`,
     when: (answers: SxpAnswer): boolean => {
       if (answers.yes && !answers.hostName) {
-        answers.hostName = `${answers.appName}.dev.local`;
+        answers.hostName = `${answers.appName || DEFAULT_APPNAME}.dev.local`;
       }
       return !answers.hostName;
     },
