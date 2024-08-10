@@ -24,13 +24,14 @@ export default class AngularXmCloudInitializer implements Initializer {
       addInitializers.push('node-xmcloud-proxy');
     }
 
-    // ensure proxyAppDestination is populated
+    // ensure args.proxyAppDestination is populated
     const promptArgs = {
       yes: args.yes,
       destination: args.destination,
       proxyName: 'node-xmcloud-proxy',
     };
     const proxyDetails = await inquirer.prompt<ProxyArgs>(proxyPrompts, promptArgs);
+    args.proxyAppDestination = proxyDetails.proxyAppDestination;
 
     const finalArgs = {
       ...args,
@@ -40,7 +41,6 @@ export default class AngularXmCloudInitializer implements Initializer {
     };
 
     const templatePath = path.resolve(__dirname, '../../templates/angular-xmcloud');
-
     await transform(templatePath, finalArgs);
 
     if (args.templates.includes('angular-sxp') || pkg.config?.templates?.includes('angular-sxp')) {
