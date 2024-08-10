@@ -252,12 +252,13 @@ export const transform = async (
   options: TransformOptions = {}
 ) => {
   const { isFileForCopy, isFileForSkip, fileForCopyRegExp = FILE_FOR_COPY_REGEXP } = options;
-  let destination = undefined;
-  // allow proxy app to be installed separately alongside base app
-  if (templatePath.match(proxyAppMatcher) && answers.proxyAppDestination) {
-    destination = answers.proxyAppDestination;
-  }
-  const destinationPath = path.resolve(destination || answers.destination);
+  // allow proxy app to be installed and processed separately alongside base app
+  const destination =
+    templatePath.match(proxyAppMatcher) && answers.proxyAppDestination
+      ? answers.proxyAppDestination
+      : answers.destination;
+
+  const destinationPath = path.resolve(destination);
 
   if (!answers.appPrefix) {
     answers.appPrefix = false;
