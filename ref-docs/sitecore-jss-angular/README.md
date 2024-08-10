@@ -77,6 +77,7 @@
 - [FieldEditButton](README.md#fieldeditbutton)
 - [GraphQLClientError](README.md#graphqlclienterror)
 - [GraphQLRequestClientFactoryConfig](README.md#graphqlrequestclientfactoryconfig)
+- [HTMLLink](README.md#htmllink)
 - [HttpDataFetcher](README.md#httpdatafetcher)
 - [PlaceholdersData](README.md#placeholdersdata)
 - [WebEditButton](README.md#webeditbutton)
@@ -91,6 +92,8 @@
 
 - [enableDebug](README.md#enabledebug)
 - [getChildPlaceholder](README.md#getchildplaceholder)
+- [getContentStylesheetLink](README.md#getcontentstylesheetlink)
+- [getEdgeProxyContentUrl](README.md#getedgeproxycontenturl)
 - [getFieldValue](README.md#getfieldvalue)
 - [handleEditorAnchors](README.md#handleeditoranchors)
 - [isEditorActive](README.md#iseditoractive)
@@ -157,6 +160,18 @@ Configuration type for
 #### Defined in
 
 packages/sitecore-jss/types/graphql-request-client.d.ts:88
+
+___
+
+### HTMLLink
+
+Ƭ **HTMLLink**: \{ `[key: string]`: `unknown`;  } & `Pick`\<`HTMLLinkElement`, ``"rel"`` \| ``"href"``\>
+
+Html <link> tag data model
+
+#### Defined in
+
+packages/sitecore-jss/types/models.d.ts:4
 
 ___
 
@@ -234,7 +249,7 @@ packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/f84c92fe5/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/bfe284746/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -322,6 +337,57 @@ child placeholder
 #### Defined in
 
 packages/sitecore-jss/types/layout/utils.d.ts:17
+
+___
+
+### getContentStylesheetLink
+
+▸ **getContentStylesheetLink**(`layoutData`, `sitecoreEdgeContextId`, `sitecoreEdgeUrl?`): ``null`` \| [`HTMLLink`](README.md#htmllink)
+
+Get the content styles link to be loaded from the Sitecore Edge Platform
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `layoutData` | [`LayoutServiceData`](interfaces/LayoutServiceData.md) | Layout service data |
+| `sitecoreEdgeContextId` | `string` | Sitecore Edge Context ID |
+| `sitecoreEdgeUrl?` | `string` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
+
+#### Returns
+
+``null`` \| [`HTMLLink`](README.md#htmllink)
+
+content styles link, null if no styles are used in layout
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/content-styles.d.ts:13
+
+___
+
+### getEdgeProxyContentUrl
+
+▸ **getEdgeProxyContentUrl**(`sitecoreEdgeContextId`, `sitecoreEdgeUrl?`): `string`
+
+Generates a URL for accessing Sitecore Edge Platform Content using the provided endpoint and context ID.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `sitecoreEdgeContextId` | `string` | The unique context id. |
+| `sitecoreEdgeUrl?` | `string` | The base endpoint URL for the Edge Platform. Default is https://edge-platform.sitecorecloud.io |
+
+#### Returns
+
+`string`
+
+The complete URL for accessing content through the Edge Platform.
+
+#### Defined in
+
+packages/sitecore-jss/types/graphql/graphql-edge-proxy.d.ts:7
 
 ___
 
@@ -443,7 +509,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/f84c92fe5/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/bfe284746/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 

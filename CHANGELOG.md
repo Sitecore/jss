@@ -13,7 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-* `[templates/nextjs-sxa]` The caption of image component has been fixed. ([#1874](https://github.com/Sitecore/jss/pull/1874))
+* `[templates/nextjs]` `[templates/react]` `[templates/angular]` `[templates/vue]` Fixed an issue when environment variable is undefined (not present in .env), that produced an "undefined" value in generated config file ([#1875](https://github.com/Sitecore/jss/pull/1875))
 
 ### 🎉 New Features & Improvements
 
@@ -24,12 +24,14 @@ Our versioning strategy is as follows:
       * XMCloud-based: 'angular,angular-xmcloud'
     * Rework Angular initializer to support XMCloud and SXP journeys;
     * Add SXA styles to xmcloud addon
+* `[create-sitecore-jss]` `[template/angular]` `[template/angular-xmcloud]` `[template/node-xmcloud-proxy]` Edge Proxy / Context Id support ([#1875](https://github.com/Sitecore/jss/pull/1875))
 
-* `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1868](https://github.com/Sitecore/jss/pull/1868))([#1881](https://github.com/Sitecore/jss/pull/1881))
+* `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1868](https://github.com/Sitecore/jss/pull/1868))([#1881](https://github.com/Sitecore/jss/pull/1881))([#1882](https://github.com/Sitecore/jss/pull/1882))
   * `[create-sitecore-jss]` Allow node-xmcloud-proxy app to be installed alongside Angular SPA application
   * `proxyAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
-* `[create-sitecore-jss]``[template/angular-xmcloud]` Angular SXA components ([#1864](https://github.com/Sitecore/jss/pull/1864))([#1872](https://github.com/Sitecore/jss/pull/1872))
-* `[sitecore-jss-angular]` Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))([#1872](https://github.com/Sitecore/jss/pull/1872))
+* `[create-sitecore-jss]``[template/angular-xmcloud]` Angular SXA components ([#1864](https://github.com/Sitecore/jss/pull/1864))
+* `[sitecore-jss-angular]` Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))
+* `[template/angular-xmcloud]` Angular SXA layout ([#1873](https://github.com/Sitecore/jss/pull/1873))([#1880](https://github.com/Sitecore/jss/pull/1880))
 
 ### 🛠 Breaking Change
 
@@ -45,7 +47,8 @@ Our versioning strategy is as follows:
 * `[sitecore-jss]` `[sitecore-jss-react]` DateField empty value is not treated as empty ([#1836](https://github.com/Sitecore/jss/pull/1836))
 * `[templates/nextjs-sxa]` Fix styles of title component in metadata mode. ([#1839](https://github.com/Sitecore/jss/pull/1839))
 * `[templates/nextjs-sxa]` Fix missing value of field property in Title component. ([#1842](https://github.com/Sitecore/jss/pull/1842))
-
+* `[templates/nextjs-sxa]` The background image in the Container component was being generated from the image ID instead of the mediaUrl parameter. This fix changes that behavior. ([#1879](https://github.com/Sitecore/jss/pull/1879))
+* `[templates/nextjs-sxa]` The caption of image component has been fixed. ([#1874](https://github.com/Sitecore/jss/pull/1874))
 
 ### 🎉 New Features & Improvements
 
@@ -62,7 +65,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Change
 
-* Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792))([#1773](https://github.com/Sitecore/jss/pull/1773))([#1797](https://github.com/Sitecore/jss/pull/1797))([#1800](https://github.com/Sitecore/jss/pull/1800))([#1803](https://github.com/Sitecore/jss/pull/1803))([#1806](https://github.com/Sitecore/jss/pull/1806))([#1809](https://github.com/Sitecore/jss/pull/1809))([#1814](https://github.com/Sitecore/jss/pull/1814))([#1816](https://github.com/Sitecore/jss/pull/1816))([#1819](https://github.com/Sitecore/jss/pull/1819))([#1828](https://github.com/Sitecore/jss/pull/1828))([#1835](https://github.com/Sitecore/jss/pull/1835))([#1849](https://github.com/Sitecore/jss/pull/1849))([#1831](https://github.com/Sitecore/jss/pull/1831))([#1853](https://github.com/Sitecore/jss/pull/1853))([#1854](https://github.com/Sitecore/jss/pull/1854))([#1857](https://github.com/Sitecore/jss/pull/1857))([#1862](https://github.com/Sitecore/jss/pull/1862))
+* Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792))([#1773](https://github.com/Sitecore/jss/pull/1773))([#1797](https://github.com/Sitecore/jss/pull/1797))([#1800](https://github.com/Sitecore/jss/pull/1800))([#1803](https://github.com/Sitecore/jss/pull/1803))([#1806](https://github.com/Sitecore/jss/pull/1806))([#1809](https://github.com/Sitecore/jss/pull/1809))([#1814](https://github.com/Sitecore/jss/pull/1814))([#1816](https://github.com/Sitecore/jss/pull/1816))([#1819](https://github.com/Sitecore/jss/pull/1819))([#1828](https://github.com/Sitecore/jss/pull/1828))([#1835](https://github.com/Sitecore/jss/pull/1835))([#1849](https://github.com/Sitecore/jss/pull/1849))([#1831](https://github.com/Sitecore/jss/pull/1831))([#1853](https://github.com/Sitecore/jss/pull/1853))([#1854](https://github.com/Sitecore/jss/pull/1854))([#1857](https://github.com/Sitecore/jss/pull/1857))([#1862](https://github.com/Sitecore/jss/pull/1862))([#1878](https://github.com/Sitecore/jss/pull/1878))
   * `[sitecore-jss-react]` Introduces `PlaceholderMetadata` component which supports the hydration of chromes on Pages by rendering  the components and placeholders with required metadata.
   * `[sitecore-jss]` Chromes are hydrated based on the basis of new `editMode` property derived from LayoutData, which is defined as an enum consisting of `metadata` and `chromes`.
   * `ComponentConsumerProps` is removed. You might need to reuse `WithSitecoreContextProps` type.

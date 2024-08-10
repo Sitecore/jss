@@ -7,7 +7,7 @@ import {
   <% } -%>
 } from '@sitecore-jss/sitecore-jss-angular';
 import { environment as env } from '../../environments/environment';
-import { clientFactory } from './graphql-client-factory';
+import clientFactory from './graphql-client-factory';
 
 export class DictionaryServiceFactory {
   create(): DictionaryService {
@@ -24,6 +24,9 @@ export class DictionaryServiceFactory {
       new GraphQLDictionaryService({
           clientFactory,
           siteName: env.sitecoreSiteName,
+          <% if (locals.xmcloud) { -%>
+          useSiteQuery: true,
+          <% } -%>
           /*
         The Dictionary Service needs a root item ID in order to fetch dictionary phrases for the current
         app. If your Sitecore instance only has 1 JSS App, you can specify the root item ID here;
