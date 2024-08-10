@@ -25,9 +25,9 @@ Our versioning strategy is as follows:
     * Rework Angular initializer to support XMCloud and SXP journeys;
     * Add SXA styles to xmcloud addon
 
-* `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1868](https://github.com/Sitecore/jss/pull/1868))
+* `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1868](https://github.com/Sitecore/jss/pull/1868))([#1881](https://github.com/Sitecore/jss/pull/1881))
   * `[create-sitecore-jss]` Allow node-xmcloud-proxy app to be installed alongside Angular SPA application
-  * `nodeAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
+  * `proxyAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
 * `[create-sitecore-jss]``[template/angular-xmcloud]` Angular SXA components ([#1864](https://github.com/Sitecore/jss/pull/1864))([#1872](https://github.com/Sitecore/jss/pull/1872))
 * `[sitecore-jss-angular]` Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))([#1872](https://github.com/Sitecore/jss/pull/1872))
 
