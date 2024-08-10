@@ -1,6 +1,6 @@
 {
   "name": "node-xmcloud-sample",
-  "version": "22.1.0-canary",
+  "version": "22.2.0-canary",
   "description": "Node XM Cloud Proxy sample for running XM Cloud JSS SPA apps",
   "author": {
     "name": "Sitecore Corporation",
