@@ -5,7 +5,6 @@ import inquirer from 'inquirer';
 import { initRunner } from './init-runner';
 import minimist, { ParsedArgs } from 'minimist';
 import { getAllTemplates, getBaseTemplates } from './common';
-import { proxyAppMatcher, getDefaultProxyDestination } from './common/utils/helpers';
 
 export const parseArgs = (): ParsedArgs => {
   // parse any command line arguments passed into `init sitecore-jss`
@@ -35,7 +34,7 @@ export const parseArgs = (): ParsedArgs => {
   return args;
 };
 
-export const getDestinations = async (args: ParsedArgs, templates: string[]) => {
+export const getDestination = async (args: ParsedArgs, templates: string[]) => {
   if (templates.length === 0) {
     throw new Error('Unable to get destinations, provided templates are empty');
   }
@@ -52,36 +51,7 @@ export const getDestinations = async (args: ParsedArgs, templates: string[]) => 
           defaultBaseDestination
         );
   }
-
-  // work with node-proxy destination if needed
-  const proxyApp = templates.find((template) => template.match(proxyAppMatcher));
-  if (proxyApp) {
-    // put the proxy alongside main app by default
-    const defaultProxyDestination = getDefaultProxyDestination(destination, proxyApp);
-    let proxyAppDestination = args.proxyAppDestination;
-    if (!proxyAppDestination) {
-      proxyAppDestination = args.yes
-        ? defaultProxyDestination
-        : await promptDestination(
-            'Where would you like your proxy app created?',
-            defaultProxyDestination
-          );
-    }
-    while (path.resolve(proxyAppDestination) === path.resolve(destination)) {
-      proxyAppDestination = await promptDestination(
-        'Proxy app and base app cannot be located in the same folder. Please input another path for proxy',
-        defaultProxyDestination
-      );
-    }
-    return {
-      destination,
-      proxyAppDestination,
-    };
-  }
-
-  return {
-    destination,
-  };
+  return destination;
 };
 
 export const promptDestination = async (prompt: string, defaultDestination: string) => {
@@ -133,22 +103,19 @@ export const main = async (args: ParsedArgs) => {
     templates.push(answer.template);
   }
 
-  const destinations = await getDestinations(args, templates);
+  const destination = await getDestination(args, templates);
 
-  for (const destination of [destinations.destination, destinations.proxyAppDestination]) {
-    if (!destination) continue;
-    if (!args.force && fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
-      const answer = await inquirer.prompt({
-        type: 'confirm',
-        name: 'continue',
-        message: `Directory '${destination}' not empty. Are you sure you want to continue?`,
-      });
-      if (!answer.continue) {
-        process.exit();
-      }
-    } else {
-      args.force = true;
+  if (!args.force && fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
+    const answer = await inquirer.prompt({
+      type: 'confirm',
+      name: 'continue',
+      message: `Directory '${destination}' not empty. Are you sure you want to continue?`,
+    });
+    if (!answer.continue) {
+      process.exit();
     }
+  } else {
+    args.force = true;
   }
 
   if (!args.yes) {
@@ -169,7 +136,7 @@ export const main = async (args: ParsedArgs) => {
   }
 
   try {
-    await initRunner(templates.slice(), { ...args, ...destinations, templates });
+    await initRunner(templates.slice(), { ...args, destination, templates });
   } catch (error) {
     console.log(chalk.red('An error occurred: ', error));
     process.exit(1);

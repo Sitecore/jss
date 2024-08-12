@@ -26,8 +26,10 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
       args.silent || console.log(chalk.cyan(`Initializing '${init}'...`));
       const response = await initializer.init(args);
 
-      // App names can be multiple if the base template requires to setup additional standalone app (e.g. XM Cloud proxy)
-      appNames.add(response.appName);
+      // We can have multiple appNames if base template requires to setup an additional standalone app (e.g. XM Cloud proxy)
+      if (initializer.isBase) {
+        appNames.add(response.appName);
+      }
       nextStepsArr = [...nextStepsArr, ...(response.nextSteps ?? [])];
       // process any returned initializers
       if (response.initializers && response.initializers.length > 0) {

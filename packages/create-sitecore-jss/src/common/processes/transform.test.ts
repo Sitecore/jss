@@ -10,7 +10,6 @@ import sinon, { SinonStub } from 'sinon';
 import { currentPkg, partialPkg } from '../test-data/pkg';
 import * as transform from './transform';
 import * as helpers from '../utils/helpers';
-import { populateEjsData } from './transform';
 
 const {
   transformFilename,
@@ -465,23 +464,6 @@ describe('transform', () => {
     });
   });
 
-  describe('populateEjsData', () => {
-    it('should populate relative proxy path (with trailing slash) in helper, if proxyAppDestination populated', () => {
-      const answers = {
-        appName: 'JssNextWeb',
-        hostName: 'http://jssnextweb',
-        destination: 'samples/next',
-        proxyAppDestination: 'samples/proxy',
-        fetchWith: 'REST',
-        force: false,
-        templates: [],
-        language: 'en',
-      };
-      const result = populateEjsData(answers);
-      expect(result.helper.relativeProxyAppDestination).to.equal(`..${sep}proxy${sep}`);
-    });
-  });
-
   describe('transform', () => {
     let fsMkdirsSyncStub: SinonStub;
     let fsCopySyncStub: SinonStub;
@@ -547,43 +529,6 @@ describe('transform', () => {
       expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({
         rendered: renderFileOutput,
         pathToNewFile: path.join(destinationPath, file),
-        answers,
-      });
-    });
-
-    it('should transform file in proxy destination when processing proxy and proxy location destination', async () => {
-      const templatePath = path.resolve('templates/node-app-proxy');
-      const destinationPath = path.resolve('samples/next');
-      const destinationProxy = path.resolve('samples/proxy');
-      const file = 'file.ts';
-      const renderFileOutput = 'file output';
-
-      globSyncStub = sinon.stub(glob, 'sync').returns([file]);
-      ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(renderFileOutput));
-      diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
-
-      const answers = {
-        destination: destinationPath,
-        proxyAppDestination: destinationProxy,
-        templates: [],
-        appPrefix: false,
-        force: false,
-      };
-
-      await transformFunc(templatePath, answers);
-
-      expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
-        ...answers,
-        helper: {
-          isDev: false,
-          getPascalCaseName: helpers.getPascalCaseName,
-          getAppPrefix: helpers.getAppPrefix,
-          relativeProxyAppDestination: `..${sep}proxy${sep}`,
-        },
-      });
-      expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({
-        rendered: renderFileOutput,
-        pathToNewFile: path.join(destinationProxy, file),
         answers,
       });
     });
