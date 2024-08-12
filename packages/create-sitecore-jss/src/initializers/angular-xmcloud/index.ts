@@ -10,6 +10,7 @@ import {
 import { InitializerResults } from '../../common/Initializer';
 import { ProxyArgs, proxyPrompts } from '../../common/prompts/proxy';
 import inquirer from 'inquirer';
+import { getRelativeProxyDestination } from '../../common/utils/helpers';
 
 export default class AngularXmCloudInitializer implements Initializer {
   get isBase(): boolean {
@@ -38,6 +39,10 @@ export default class AngularXmCloudInitializer implements Initializer {
       appName: args.appName || pkg?.config?.appName || DEFAULT_APPNAME,
       appPrefix: args.appPrefix || pkg?.config?.prefix || false,
       ...proxyDetails,
+      relativeProxyAppDestination: getRelativeProxyDestination(
+        args.destination,
+        args.proxyAppDestination
+      ),
     };
 
     const templatePath = path.resolve(__dirname, '../../templates/angular-xmcloud');

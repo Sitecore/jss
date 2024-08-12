@@ -8,7 +8,11 @@ export default class AngularXmCloudInitializer implements Initializer {
 
   async init(args: BaseArgs) {
     const templatePath = path.resolve(__dirname, '../../templates/node-xmcloud-proxy');
-    await transform(templatePath, args);
+    const modifiedArgs = {
+      ...args,
+      destination: args.proxyAppDestination || args.destination,
+    };
+    await transform(templatePath, modifiedArgs);
     const response = {
       appName: 'node-xmcloud-proxy',
     };

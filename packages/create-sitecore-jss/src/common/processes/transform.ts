@@ -12,7 +12,6 @@ import {
   sortKeys,
   writeFileToPath,
   isDevEnvironment,
-  proxyAppMatcher,
 } from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
 import { BaseArgs } from '../args/base';
@@ -203,14 +202,6 @@ export const populateEjsData = (answers: BaseArgs, destination?: string) => {
       getAppPrefix: getAppPrefix,
     },
   };
-  // When SPA application and XM Cloud proxy is used we need to calculate relative path between SPA app and proxy to apply that in EJS template
-  // Absolute path can't be used across all the machines
-  if (answers.proxyAppDestination) {
-    ejsData.helper.relativeProxyAppDestination = `${path.relative(
-      path.resolve(answers.destination),
-      path.resolve(answers.proxyAppDestination)
-    )}${sep}`;
-  }
   return ejsData;
 };
 
@@ -252,19 +243,14 @@ export const transform = async (
   options: TransformOptions = {}
 ) => {
   const { isFileForCopy, isFileForSkip, fileForCopyRegExp = FILE_FOR_COPY_REGEXP } = options;
-  // allow proxy app to be installed and processed separately alongside base app
-  const destination =
-    templatePath.match(proxyAppMatcher) && answers.proxyAppDestination
-      ? answers.proxyAppDestination
-      : answers.destination;
 
-  const destinationPath = path.resolve(destination);
+  const destinationPath = path.resolve(answers.destination);
 
   if (!answers.appPrefix) {
     answers.appPrefix = false;
   }
 
-  const ejsData: Data = populateEjsData(answers, destination);
+  const ejsData: Data = populateEjsData(answers);
   // the templates to be run through ejs render or copied directly
   const files = glob.sync('**/*', { cwd: templatePath, dot: true, nodir: true });
 
