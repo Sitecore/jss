@@ -1,5 +1,6 @@
 import { Answers, DistinctQuestion } from 'inquirer';
 import { getDefaultProxyDestination } from '../utils/helpers';
+import path from 'path';
 
 export const FALLBACK_PROXYNAME = 'sitecore-jss-proxy-app';
 
@@ -47,6 +48,12 @@ export const proxyPrompts: DistinctQuestion<ProxyArgs>[] = [
         );
       }
       return !answers.proxyAppDestination;
+    },
+    validate: (input: string, answers: ProxyArgs) => {
+      if (path.resolve(input) === path.resolve(answers.destination)) {
+        return 'Paths for main app and proxy cannot match. Please choose another destination';
+      }
+      return true;
     },
   },
 ];

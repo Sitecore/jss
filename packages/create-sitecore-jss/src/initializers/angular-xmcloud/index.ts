@@ -10,7 +10,6 @@ import {
 import { InitializerResults } from '../../common/Initializer';
 import { ProxyArgs, proxyPrompts } from '../../common/prompts/proxy';
 import inquirer from 'inquirer';
-import chalk from 'chalk';
 
 export default class AngularXmCloudInitializer implements Initializer {
   get isBase(): boolean {
@@ -31,13 +30,7 @@ export default class AngularXmCloudInitializer implements Initializer {
       destination: args.destination,
       proxyName: 'node-xmcloud-proxy',
     };
-    let proxyDetails = await inquirer.prompt<ProxyArgs>(proxyPrompts, promptArgs);
-    while (proxyDetails.proxyAppDestination === args.destination) {
-      console.log(
-        chalk.red('Paths for main app and proxy cannot match. Please choose another destination')
-      );
-      proxyDetails = await inquirer.prompt<ProxyArgs>(proxyPrompts, promptArgs);
-    }
+    const proxyDetails = await inquirer.prompt<ProxyArgs>(proxyPrompts, promptArgs);
     args.proxyAppDestination = proxyDetails.proxyAppDestination;
 
     const finalArgs = {
