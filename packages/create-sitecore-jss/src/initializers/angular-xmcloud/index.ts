@@ -30,6 +30,7 @@ export default class AngularXmCloudInitializer implements Initializer {
       yes: args.yes,
       destination: args.destination,
       proxyName: 'node-xmcloud-proxy',
+      proxyAppDestination: args.proxyAppDestination,
     };
     const proxyDetails = await inquirer.prompt<ProxyArgs>(proxyPrompts, promptArgs);
     args.proxyAppDestination = proxyDetails.proxyAppDestination;
