@@ -70,9 +70,6 @@ const mockResponse = () => {
   res.clearPreviewData = spy(() => {
     return res;
   });
-  res.setPreviewData = spy(() => {
-    return res;
-  });
   res.redirect = spy();
   return res;
 };
