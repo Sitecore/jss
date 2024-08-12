@@ -20,6 +20,7 @@ describe('Proxy related prompts', () => {
       yes: false,
       destination: 'stub',
       proxyName: 'stub',
+      proxyAppDestination: '',
     };
 
     const proxyPathPrompt =
