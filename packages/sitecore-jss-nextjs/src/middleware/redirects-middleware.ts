@@ -133,8 +133,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
         url.pathname = `${target[0]}`;
 
         if (target[1]) {
-          const newParams = new URLSearchParams(target[1]);
-          url.search = `?${newParams.toString()}`;
+          url.search = `?${target[1]}`;
         }
 
         const newURL = new URL(
@@ -153,15 +152,18 @@ export class RedirectsMiddleware extends MiddlewareBase {
             ...res,
             status: 301,
             statusText: 'Moved Permanently',
+            headers: res?.headers,
           });
         case REDIRECT_TYPE_302:
           return NextResponse.redirect(redirectUrl, {
             ...res,
             status: 302,
             statusText: 'Found',
+            headers: res?.headers,
           });
-        case REDIRECT_TYPE_SERVER_TRANSFER:
-          return NextResponse.rewrite(redirectUrl, res);
+        case REDIRECT_TYPE_SERVER_TRANSFER: {
+          return this.rewrite(redirectUrl, req, res || new NextResponse());
+        }
         default:
           return res || NextResponse.next();
       }
@@ -204,7 +206,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
             .replace(/^\^\/|\/\$$/g, '')
             .replace(/^\^|\$$/g, '')
             .replace(/(?<!\\)\?/g, '\\?')
-            .replace(/\$\/gi$/g, '')}[\/]?/gi`;
+            .replace(/\$\/gi$/g, '')}[\/]?$/gi`;
 
           return (
             (regexParser(redirect.pattern).test(tragetURL) ||
