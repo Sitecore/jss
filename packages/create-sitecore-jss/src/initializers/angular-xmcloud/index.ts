@@ -41,7 +41,7 @@ export default class AngularXmCloudInitializer implements Initializer {
       ...proxyDetails,
       relativeProxyAppDestination: getRelativeProxyDestination(
         args.destination,
-        args.proxyAppDestination || ''
+        args.proxyAppDestination
       ),
     };
 
