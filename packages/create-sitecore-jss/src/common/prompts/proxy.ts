@@ -22,7 +22,7 @@ export type ProxyArgs = Pick<Answers, 'yes'> & {
   /**
    * destination for proxy app installed alongside main app
    */
-  proxyAppDestination: string;
+  proxyAppDestination?: string;
 };
 
 /**
