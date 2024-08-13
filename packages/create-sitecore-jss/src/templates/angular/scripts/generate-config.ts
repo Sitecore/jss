@@ -24,8 +24,16 @@ const defaultConfigValue: JssConfig = {
   defaultServerRoute: '/',
 };
 
-generateConfig('src/environments/environment.js', defaultConfigValue, { production: false });
-generateConfig('src/environments/environment.prod.js', defaultConfigValue, { production: true });
+async function main() {
+  await generateConfig('src/environments/environment.js', defaultConfigValue, {
+    production: false,
+  });
+  await generateConfig('src/environments/environment.prod.js', defaultConfigValue, {
+    production: true,
+  });
+}
+
+main();
 
 /**
  * Generates the JSS config based on config plugins (under ./config/plugins)
@@ -47,7 +55,7 @@ export function generateConfig(
     };
   }, {});
 
-  jssConfigFactory
+  return jssConfigFactory
     .create(defaultConfig)
     .then((config) => {
       writeConfig(Object.assign(config, configOverrides), outputPath);
