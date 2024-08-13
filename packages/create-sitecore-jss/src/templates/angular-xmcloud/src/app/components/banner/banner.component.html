@@ -1,0 +1,10 @@
+<div
+  class="component hero-banner {{ styles }} {{ classHeroBannerEmpty }}"
+  [attr.id]="id ? id : undefined"
+>
+  <div className="component-content sc-sxa-image-hero-banner" [ngStyle]="backgroundStyle">
+    <ng-container *ngIf="isEditing">
+      <img *scImage="modifyImageProps" />
+    </ng-container>
+  </div>
+</div>
