@@ -7,11 +7,12 @@ import {
   ImageField,
   ImageFieldValue,
   withFieldMetadata,
+  useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-react';
 import Image, { ImageProps as NextImageProperties } from 'next/image';
 import { withEmptyFieldEditingComponent } from '@sitecore-jss/sitecore-jss-react';
 import { DefaultEmptyFieldEditingComponentImage } from '@sitecore-jss/sitecore-jss-react';
-import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
+import { isFieldValueEmpty, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
 
 type NextImageProps = ImageProps & Partial<NextImageProperties>;
 export const NextImage: React.FC<NextImageProps> = withFieldMetadata<NextImageProps>(
@@ -48,6 +49,11 @@ export const NextImage: React.FC<NextImageProps> = withFieldMetadata<NextImagePr
       if (!img) {
         return null;
       }
+      const {
+        sitecoreContext: { pageState },
+      } = useSitecoreContext();
+      // disable image optimization for Edit and Preview
+      const unoptimized = pageState !== LayoutServicePageState.Normal;
 
       const attrs = {
         ...img,
@@ -59,6 +65,7 @@ export const NextImage: React.FC<NextImageProps> = withFieldMetadata<NextImagePr
           imageParams as { [paramName: string]: string | number },
           mediaUrlPrefix as RegExp
         ),
+        unoptimized,
       };
 
       const imageProps = {
