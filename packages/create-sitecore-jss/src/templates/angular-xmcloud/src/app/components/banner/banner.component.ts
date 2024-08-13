@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { EditMode } from '@sitecore-jss/sitecore-jss-angular';
+import { EditMode, ImageField } from '@sitecore-jss/sitecore-jss-angular';
 import { SxaComponent } from '../sxa.component';
 import { JssContextService } from '../../jss-context.service';
 
@@ -22,10 +22,9 @@ export class BannerComponent extends SxaComponent implements OnInit, OnDestroy {
   ngOnInit() {
     super.ngOnInit();
 
-    const imageField = this.rendering.fields?.Image;
-
+    const imageField = this.rendering.fields?.Image as ImageField;
     this.backgroundStyle = imageField?.value?.src && {
-      'background-image': `url('${imageField.value.src}');`,
+      'background-image': `url('${imageField.value.src}')`,
     };
 
     this.contextSubscription = this.jssContext.state.subscribe((newState) => {
