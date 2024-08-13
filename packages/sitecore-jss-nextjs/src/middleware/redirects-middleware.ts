@@ -117,7 +117,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
       if (REGEXP_ABSOLUTE_URL.test(existsRedirect.target)) {
         url.href = existsRedirect.target;
       } else {
-        const source = this.getModifyURL(url.pathname, url.search);
+        const source = this.normalizeUrl(url.pathname, url.search);
         const urlFirstPart = existsRedirect.target.split('/')[1];
 
         if (this.locales.includes(urlFirstPart)) {
@@ -162,7 +162,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
             headers: res?.headers,
           });
         case REDIRECT_TYPE_SERVER_TRANSFER: {
-          return this.rewrite(redirectUrl, req, res || new NextResponse());
+          return this.rewrite(redirectUrl, req, res || NextResponse.next());
         }
         default:
           return res || NextResponse.next();
@@ -193,8 +193,12 @@ export class RedirectsMiddleware extends MiddlewareBase {
     siteName: string
   ): Promise<RedirectInfo | undefined> {
     const redirects = await this.redirectsService.fetchRedirects(siteName);
-    const tragetURL = req.nextUrl.pathname;
-    const targetQS = req.nextUrl.search || '';
+    const normalizedUrl = new URL(
+      this.normalizeUrl(req.nextUrl.pathname, req.nextUrl.search || ''),
+      req.nextUrl.href
+    );
+    const tragetURL = normalizedUrl.pathname;
+    const targetQS = normalizedUrl.search || '';
     const language = this.getLanguage(req);
     const modifyRedirects = structuredClone(redirects);
 
@@ -231,16 +235,25 @@ export class RedirectsMiddleware extends MiddlewareBase {
    * @param {string} queryString
    * @returns {string} modified url
    */
-  private getModifyURL(pathname: string, queryString: string) {
+  private normalizeUrl(pathname: string, queryString: string) {
     if (!queryString) {
       return pathname;
     }
 
+    /**
+     * Prepare special parameters for exclusion.
+     */
     const splittedPathname = pathname
       .split('/')
       .filter((route) => route)
       .map((route) => `path=${route}`);
 
+    /**
+     * Remove special parameters(Next.JS)
+     * Example: /about/contact/us
+     * When a user clicks on this link, Next.js should generate a link for the middleware, formatted like this:
+     * http://host/about/contact/us?path=about&path=contact&path=us
+     */
     const newQueryString = queryString
       .replace(/^\?/, '')
       .split('&')
