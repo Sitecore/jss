@@ -34,7 +34,7 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:129](https://github.com/Sitecore/jss/blob/727314bee/packages/sitecore-jss/src/layout/models.ts#L129)
+[packages/sitecore-jss/src/layout/models.ts:129](https://github.com/Sitecore/jss/blob/41f0943ee/packages/sitecore-jss/src/layout/models.ts#L129)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:136](https://github.com/Sitecore/jss/blob/727314bee/packages/sitecore-jss/src/layout/models.ts#L136)
+[packages/sitecore-jss/src/layout/models.ts:136](https://github.com/Sitecore/jss/blob/41f0943ee/packages/sitecore-jss/src/layout/models.ts#L136)
 
 ___
 
@@ -62,4 +62,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:128](https://github.com/Sitecore/jss/blob/727314bee/packages/sitecore-jss/src/layout/models.ts#L128)
+[packages/sitecore-jss/src/layout/models.ts:128](https://github.com/Sitecore/jss/blob/41f0943ee/packages/sitecore-jss/src/layout/models.ts#L128)
