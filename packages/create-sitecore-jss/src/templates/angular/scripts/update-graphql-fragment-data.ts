@@ -1,5 +1,4 @@
 import * as fs from 'fs';
-import { generateConfig } from './generate-config';
 import clientFactory from 'lib/graphql-client-factory';
 import { getGraphQLClientFactoryConfig } from 'lib/graphql-client-factory/config';
 
@@ -10,7 +9,7 @@ import { getGraphQLClientFactoryConfig } from 'lib/graphql-client-factory/config
 //
 // The `jss graphql:update` command should be executed when Sitecore templates related to the site are altered.
 
-generateConfig('src/environments/environment.js');
+import './generate-config';
 
 const clientFactoryConfig = getGraphQLClientFactoryConfig();
 
