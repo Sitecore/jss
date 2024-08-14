@@ -22,6 +22,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` The background image in the Container component was being generated from the image ID instead of the mediaUrl parameter. This fix changes that behavior. ([#1879](https://github.com/Sitecore/jss/pull/1879))
 * `[templates/nextjs-sxa]` The caption of image component has been fixed. ([#1874](https://github.com/Sitecore/jss/pull/1874))
 * `[sitecore-jss-nextjs]` A bug has been fixed in the redirect middleware that occurred when a user clicked on a link rendered by the Link component from the Next.js library(next/link). ([#1876](https://github.com/Sitecore/jss/pull/1876))
+* `[sitecore-jss-nextjs]` Disable nextjs image optimization in edit and preview modes. This prevents rendering issues in XM Cloud Pages Edit and Preview.
 
 ### 🎉 New Features & Improvements
 
