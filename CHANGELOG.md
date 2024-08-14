@@ -30,10 +30,12 @@ Our versioning strategy is as follows:
   * `[create-sitecore-jss]` Allow node-xmcloud-proxy app to be installed alongside Angular SPA application
   * `proxyAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
 * `[create-sitecore-jss]``[sitecore-jss-angular]``[template/angular-xmcloud]` Angular SXA components
-  * Angular SXA Richtext component ([#1864](https://github.com/Sitecore/jss/pull/1864))
-  * Angular SXA Container component ([#1872](https://github.com/Sitecore/jss/pull/1872))
+  * Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))
+  * Richtext component ([#1864](https://github.com/Sitecore/jss/pull/1864))
+  * Container component ([#1872](https://github.com/Sitecore/jss/pull/1872))
   * Angular SXA layout ([#1873](https://github.com/Sitecore/jss/pull/1873))([#1880](https://github.com/Sitecore/jss/pull/1880))
-  *  Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))
+  * Column-Splitter ([#1889](https://github.com/Sitecore/jss/pull/1889))
+  
 
 
 ### 🛠 Breaking Change
