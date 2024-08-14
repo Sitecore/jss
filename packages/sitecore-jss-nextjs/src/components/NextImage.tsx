@@ -7,7 +7,7 @@ import {
   ImageField,
   ImageFieldValue,
   withFieldMetadata,
-  useSitecoreContext,
+  SitecoreContextReactContext,
 } from '@sitecore-jss/sitecore-jss-react';
 import Image, { ImageProps as NextImageProperties } from 'next/image';
 import { withEmptyFieldEditingComponent } from '@sitecore-jss/sitecore-jss-react';
@@ -18,6 +18,7 @@ type NextImageProps = ImageProps & Partial<NextImageProperties>;
 export const NextImage: React.FC<NextImageProps> = withFieldMetadata<NextImageProps>(
   withEmptyFieldEditingComponent<NextImageProps>(
     ({ editable = true, imageParams, field, mediaUrlPrefix, fill, priority, ...otherProps }) => {
+      const sitecoreContext = React.useContext(SitecoreContextReactContext);
       // next handles src and we use a custom loader,
       // throw error if these are present
       if (otherProps.src) {
@@ -49,9 +50,11 @@ export const NextImage: React.FC<NextImageProps> = withFieldMetadata<NextImagePr
       if (!img) {
         return null;
       }
-      // disable image optimization for Edit and Preview
+
+      // disable image optimization for Edit and Preview, but preserve original value if true
       const unoptimized =
-        otherProps.unoptimized !== undefined ? otherProps.unoptimized : field.metadata;
+        otherProps.unoptimized ||
+        sitecoreContext.context?.pageState !== LayoutServicePageState.Normal;
 
       const attrs = {
         ...img,
