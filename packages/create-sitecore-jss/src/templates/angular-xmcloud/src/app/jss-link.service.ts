@@ -2,7 +2,9 @@ import { Inject, Injectable } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { HTMLLink } from '@sitecore-jss/sitecore-jss-angular';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class JssLinkService {
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
