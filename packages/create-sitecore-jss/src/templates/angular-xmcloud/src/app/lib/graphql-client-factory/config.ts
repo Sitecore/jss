@@ -48,7 +48,7 @@ export const getGraphQLClientFactoryConfig = () => {
     }
   }
 
-  if (!clientConfig.endpoint) {
+  if (!clientConfig?.endpoint) {
     throw new Error(
       'Please configure either your sitecoreEdgeContextId, or your graphQLEndpoint and sitecoreApiKey.'
     );
