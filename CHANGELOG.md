@@ -31,7 +31,7 @@ Our versioning strategy is as follows:
   * `proxyAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
 * `[create-sitecore-jss]``[template/angular-xmcloud]` Angular SXA components ([#1864](https://github.com/Sitecore/jss/pull/1864))
 * `[sitecore-jss-angular]` Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))
-* `[template/angular-xmcloud]` Angular SXA layout ([#1873](https://github.com/Sitecore/jss/pull/1873))([#1880](https://github.com/Sitecore/jss/pull/1880))
+* `[template/angular-xmcloud]` Angular SXA layout ([#1873](https://github.com/Sitecore/jss/pull/1873))([#1880](https://github.com/Sitecore/jss/pull/1880))([#1890](https://github.com/Sitecore/jss/pull/1890))
 
 ### 🛠 Breaking Change
 
