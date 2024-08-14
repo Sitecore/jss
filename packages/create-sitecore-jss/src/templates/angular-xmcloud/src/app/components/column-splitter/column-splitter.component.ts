@@ -1,47 +1,35 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { SxaComponent } from '../sxa.component';
 
 @Component({
   selector: 'app-column-splitter',
   templateUrl: './column-splitter.component.html',
 })
-export class ColumnSplitterComponent extends SxaComponent implements OnInit {
-  ngOnInit() {
-    super.ngOnInit();
-  }
-
+export class ColumnSplitterComponent extends SxaComponent {
   get columnSplitterStyles(): string {
     return `${this.rendering.params.GridParameters ?? ''} ${this.rendering.params.Styles ??
       ''}`.trimEnd();
   }
 
   get columnWidths(): string[] {
-    return [
-      this.rendering.params.ColumnWidth1,
-      this.rendering.params.ColumnWidth2,
-      this.rendering.params.ColumnWidth3,
-      this.rendering.params.ColumnWidth4,
-      this.rendering.params.ColumnWidth5,
-      this.rendering.params.ColumnWidth6,
-      this.rendering.params.ColumnWidth7,
-      this.rendering.params.ColumnWidth8,
-    ];
+    return Array.from({ length: 8 }, (_, i) => this.rendering.params[`ColumnWidth${i + 1}`]);
   }
 
   get columnStyles(): string[] {
-    return [
-      this.rendering.params.Styles1,
-      this.rendering.params.Styles2,
-      this.rendering.params.Styles3,
-      this.rendering.params.Styles4,
-      this.rendering.params.Styles5,
-      this.rendering.params.Styles6,
-      this.rendering.params.Styles7,
-      this.rendering.params.Styles8,
-    ];
+    return Array.from({ length: 8 }, (_, i) => this.rendering.params[`Styles${i + 1}`]);
   }
 
   get enabledPlaceholders(): string[] {
     return this.rendering.params.EnabledPlaceholders.split(',');
+  }
+
+  getColumnClass(index: number): string {
+    const widthClass = this.columnWidths[index] || '';
+    const styleClass = this.columnStyles[index] || '';
+    return `${widthClass} ${styleClass}`.trim();
+  }
+
+  getPlaceholderName(ph: string): string {
+    return `column-${ph}-{*}`;
   }
 }
