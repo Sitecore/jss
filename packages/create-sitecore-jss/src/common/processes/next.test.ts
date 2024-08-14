@@ -26,8 +26,22 @@ describe('next', () => {
       expect(
         calls.some(
           (call) =>
-            call.args[0] ===
-            `JSS application(s) ${chalk.green('my-cool-app, second-app')} are ready!`
+            call.args[0] === `JSS applications ${chalk.green('my-cool-app, second-app')} are ready!`
+        )
+      ).to.equal(true);
+    });
+
+    it('displays single app name with single item wording in output', async () => {
+      const appNames = ['my-cool-app'];
+      await nextSteps(appNames, []);
+
+      const calls = log.getCalls();
+      calls.forEach((call) => {
+        console.log(call.args[0]);
+      });
+      expect(
+        calls.some(
+          (call) => call.args[0] === `JSS application ${chalk.green('my-cool-app')} is ready!`
         )
       ).to.equal(true);
     });
