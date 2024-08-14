@@ -1,0 +1,13 @@
+﻿<div [ngClass]="['row', 'component', 'column-splitter', columnSplitterStyles]" [attr.id]="id || null">
+  <div *ngFor="let ph of enabledPlaceholders; let index = index">
+    <div [ngClass]="[columnWidths[+ph - 1], columnStyles[+ph - 1] || ''].join(' ').trim()">
+      <div [ngClass]="['row']">
+        <sc-placeholder
+          [key]="index"
+          [name]="'column-' + ph + '-{*}'"
+          [rendering]="rendering">
+        </sc-placeholder>
+      </div>
+    </div>
+  </div>
+</div>
