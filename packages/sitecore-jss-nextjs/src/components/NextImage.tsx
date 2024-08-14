@@ -49,11 +49,9 @@ export const NextImage: React.FC<NextImageProps> = withFieldMetadata<NextImagePr
       if (!img) {
         return null;
       }
-      const {
-        sitecoreContext: { pageState },
-      } = useSitecoreContext();
       // disable image optimization for Edit and Preview
-      const unoptimized = pageState !== LayoutServicePageState.Normal;
+      const unoptimized =
+        otherProps.unoptimized !== undefined ? otherProps.unoptimized : field.metadata;
 
       const attrs = {
         ...img,
