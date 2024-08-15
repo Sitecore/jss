@@ -44,7 +44,7 @@ EditableFieldProps.editable
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/4f04499b1/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
+[packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/41049f8bc/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
 
 ___
 
@@ -62,7 +62,7 @@ EditableFieldProps.emptyFieldEditingComponent
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/sharedTypes.ts:36](https://github.com/Sitecore/jss/blob/4f04499b1/packages/sitecore-jss-react/src/components/sharedTypes.ts#L36)
+[packages/sitecore-jss-react/src/components/sharedTypes.ts:36](https://github.com/Sitecore/jss/blob/41049f8bc/packages/sitecore-jss-react/src/components/sharedTypes.ts#L36)
 
 ___
 
@@ -74,7 +74,7 @@ Image field data (consistent with other field types)
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:45](https://github.com/Sitecore/jss/blob/4f04499b1/packages/sitecore-jss-react/src/components/Image.tsx#L45)
+[packages/sitecore-jss-react/src/components/Image.tsx:45](https://github.com/Sitecore/jss/blob/41049f8bc/packages/sitecore-jss-react/src/components/Image.tsx#L45)
 
 ___
 
@@ -90,7 +90,7 @@ Parameters that will be attached to Sitecore media URLs
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:50](https://github.com/Sitecore/jss/blob/4f04499b1/packages/sitecore-jss-react/src/components/Image.tsx#L50)
+[packages/sitecore-jss-react/src/components/Image.tsx:50](https://github.com/Sitecore/jss/blob/41049f8bc/packages/sitecore-jss-react/src/components/Image.tsx#L50)
 
 ___
 
@@ -110,7 +110,7 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:63](https://github.com/Sitecore/jss/blob/4f04499b1/packages/sitecore-jss-react/src/components/Image.tsx#L63)
+[packages/sitecore-jss-react/src/components/Image.tsx:63](https://github.com/Sitecore/jss/blob/41049f8bc/packages/sitecore-jss-react/src/components/Image.tsx#L63)
 
 ___
 
@@ -120,4 +120,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:54](https://github.com/Sitecore/jss/blob/4f04499b1/packages/sitecore-jss-react/src/components/Image.tsx#L54)
+[packages/sitecore-jss-react/src/components/Image.tsx:54](https://github.com/Sitecore/jss/blob/41049f8bc/packages/sitecore-jss-react/src/components/Image.tsx#L54)
