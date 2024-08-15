@@ -40,7 +40,7 @@ The delay in milliseconds before the next retry.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:45](https://github.com/Sitecore/jss/blob/41049f8bc/packages/sitecore-jss/src/graphql-request-client.ts#L45)
+[packages/sitecore-jss/src/graphql-request-client.ts:45](https://github.com/Sitecore/jss/blob/c01559fa0/packages/sitecore-jss/src/graphql-request-client.ts#L45)
 
 ___
 
@@ -66,4 +66,4 @@ A boolean indicating whether to retry the request.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:38](https://github.com/Sitecore/jss/blob/41049f8bc/packages/sitecore-jss/src/graphql-request-client.ts#L38)
+[packages/sitecore-jss/src/graphql-request-client.ts:38](https://github.com/Sitecore/jss/blob/c01559fa0/packages/sitecore-jss/src/graphql-request-client.ts#L38)
