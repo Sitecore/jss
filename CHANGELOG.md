@@ -29,9 +29,14 @@ Our versioning strategy is as follows:
 * `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1868](https://github.com/Sitecore/jss/pull/1868))([#1881](https://github.com/Sitecore/jss/pull/1881))([#1882](https://github.com/Sitecore/jss/pull/1882))
   * `[create-sitecore-jss]` Allow node-xmcloud-proxy app to be installed alongside Angular SPA application
   * `proxyAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
-* `[create-sitecore-jss]``[template/angular-xmcloud]` Angular SXA components ([#1864](https://github.com/Sitecore/jss/pull/1864))
-* `[sitecore-jss-angular]` Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))
-* `[template/angular-xmcloud]` Angular SXA layout ([#1873](https://github.com/Sitecore/jss/pull/1873))([#1880](https://github.com/Sitecore/jss/pull/1880))([#1890](https://github.com/Sitecore/jss/pull/1890))
+* `[create-sitecore-jss]``[sitecore-jss-angular]``[template/angular-xmcloud]` Angular SXA components
+  * Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))
+  * Richtext component ([#1864](https://github.com/Sitecore/jss/pull/1864))
+  * Container component ([#1872](https://github.com/Sitecore/jss/pull/1872))
+  * Angular SXA layout ([#1873](https://github.com/Sitecore/jss/pull/1873))([#1880](https://github.com/Sitecore/jss/pull/1880))([#1890](https://github.com/Sitecore/jss/pull/1890))
+  * Column-Splitter ([#1889](https://github.com/Sitecore/jss/pull/1889))
+  
+
 
 ### 🛠 Breaking Change
 
@@ -49,7 +54,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Fix missing value of field property in Title component. ([#1842](https://github.com/Sitecore/jss/pull/1842))
 * `[templates/nextjs-sxa]` The background image in the Container component was being generated from the image ID instead of the mediaUrl parameter. This fix changes that behavior. ([#1879](https://github.com/Sitecore/jss/pull/1879))
 * `[templates/nextjs-sxa]` The caption of image component has been fixed. ([#1874](https://github.com/Sitecore/jss/pull/1874))
-* `[sitecore-jss-nextjs]` A bug has been fixed in the redirect middleware that occurred when a user clicked on a link rendered by the Link component from the Next.js library(next/link). ([#1876](https://github.com/Sitecore/jss/pull/1876))
+* `[sitecore-jss-nextjs]` A bug has been fixed in the redirect middleware that occurred when a user clicked on a link rendered by the Link component from the Next.js library(next/link). ([#1876](https://github.com/Sitecore/jss/pull/1876)) ([#1891](https://github.com/Sitecore/jss/pull/1891))
 * `[sitecore-jss-nextjs]` Disable nextjs image optimization in edit and preview modes. This prevents rendering issues in XM Cloud Pages Edit and Preview.
 
 ### 🎉 New Features & Improvements
