@@ -34,9 +34,8 @@ Our versioning strategy is as follows:
   * Richtext component ([#1864](https://github.com/Sitecore/jss/pull/1864))
   * Container component ([#1872](https://github.com/Sitecore/jss/pull/1872))
   * Angular SXA layout ([#1873](https://github.com/Sitecore/jss/pull/1873))([#1880](https://github.com/Sitecore/jss/pull/1880))([#1890](https://github.com/Sitecore/jss/pull/1890))
-  * Column-Splitter ([#1889](https://github.com/Sitecore/jss/pull/1889))
-  
-
+  * Column-Splitter component ([#1889](https://github.com/Sitecore/jss/pull/1889))
+  * Page-Content component ([#1892](https://github.com/Sitecore/jss/pull/1892))
 
 ### 🛠 Breaking Change
 
