@@ -14,12 +14,14 @@ import {
   getAppPrefix,
   saveConfiguration,
   getDefaultProxyDestination,
+  getRelativeProxyDestination,
 } from './helpers';
 import { JsonObjectType } from '../processes/transform';
 import testPackage from '../test-data/test.package.json';
 import testJson from '../test-data/test.json';
 import { Initializer } from '../Initializer';
 import { InitializerFactory } from '../../InitializerFactory';
+import { cwd } from 'process';
 
 describe('helpers', () => {
   describe('getDefaultProxyDestination', () => {
@@ -29,6 +31,25 @@ describe('helpers', () => {
       );
     });
   });
+
+  describe('getRelativeProxyDestination', () => {
+    it('should return relative path between two relative destinations', () => {
+      const destination = 'samples/next';
+      const proxyAppDestination = 'samples/proxy';
+
+      const result = getRelativeProxyDestination(destination, proxyAppDestination);
+      expect(result).to.equal(`..${sep}proxy${sep}`);
+    });
+
+    it('should return relative path between absolute and relative destinations', () => {
+      const destination = path.join(cwd(), 'samples/next');
+      const proxyAppDestination = 'samples/proxy';
+
+      const result = getRelativeProxyDestination(destination, proxyAppDestination);
+      expect(result).to.equal(`..${sep}proxy${sep}`);
+    });
+  });
+
   describe('getPascalCaseName', () => {
     it('should reformat kebab-case to PascalCase', () => {
       const result = getPascalCaseName('my-next-sitecore-app');

@@ -14,11 +14,6 @@ export type ClientAppAnswer = Answers & {
    * Application name
    */
   appName: string;
-  /**
-   * Determines which request method should be used.
-   * Default is @type {DEFAULT_FETCHWITH}
-   */
-  fetchWith: FetchWith;
 };
 
 /**
@@ -52,19 +47,6 @@ export const clientAppPrompts: DistinctQuestion<ClientAppAnswer>[] = [
         answers.appName = DEFAULT_APPNAME;
       }
       return !answers.appName;
-    },
-  },
-  {
-    type: 'list',
-    name: 'fetchWith',
-    message: 'How would you like to fetch Layout and Dictionary data?',
-    choices: Object.values(FetchWith),
-    default: DEFAULT_FETCHWITH,
-    when: (answers: ClientAppAnswer): boolean => {
-      if (answers.yes && !answers.fetchWith) {
-        answers.fetchWith = DEFAULT_FETCHWITH;
-      }
-      return !answers.fetchWith;
     },
   },
 ];

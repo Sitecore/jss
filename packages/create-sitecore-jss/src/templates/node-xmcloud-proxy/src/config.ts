@@ -5,7 +5,13 @@ import { Config, ServerBundle } from './types';
  */
 const bundlePath = process.env.PROXY_BUNDLE_PATH || '../dist/server.bundle';
 
-const serverBundle: ServerBundle = require(bundlePath);
+let serverBundle: ServerBundle;
+
+try {
+  serverBundle = require(bundlePath);
+} catch (error) {
+  throw new Error(`ERROR: The server.bundle.js error. ${error}`);
+}
 
 export const config: Config = {
   /**

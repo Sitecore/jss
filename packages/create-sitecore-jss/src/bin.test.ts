@@ -6,10 +6,9 @@ import { sep } from 'path';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { ParsedArgs } from 'minimist';
-import { parseArgs, main, promptDestination, getDestinations } from './bin';
+import { parseArgs, main, promptDestination, getDestination } from './bin';
 import * as helpers from './common/utils/helpers';
 import * as initRunner from './init-runner';
-import { getDefaultProxyDestination } from './common/utils/helpers';
 
 describe('bin', () => {
   describe('parseArgs', () => {
@@ -286,7 +285,7 @@ describe('bin', () => {
       });
     });
 
-    describe('getDestinations', () => {
+    describe('getDestination', () => {
       const testTemplates = ['foo', 'bar'];
 
       it('should return base args.destination value only when provided', async () => {
@@ -294,23 +293,7 @@ describe('bin', () => {
         const testArgs = mockArgs({
           destination: testPath,
         });
-        expect(await getDestinations(testArgs, testTemplates)).to.deep.equal({
-          destination: testPath,
-        });
-      });
-
-      it('should return base and proxy destinations from args when templates contain proxy app', async () => {
-        const testPath = 'test\\path';
-        const proxyPath = 'proxy\\path';
-        const testArgs = mockArgs({
-          destination: testPath,
-          proxyAppDestination: proxyPath,
-        });
-        const templatesWithProxy = [...testTemplates, 'node-xmcloud-proxy-proxy'];
-        expect(await getDestinations(testArgs, templatesWithProxy)).to.deep.equal({
-          destination: testPath,
-          proxyAppDestination: proxyPath,
-        });
+        expect(await getDestination(testArgs, testTemplates)).to.equal(testPath);
       });
 
       it('should prompt to get base destination when args.destination is empty', async () => {
@@ -321,35 +304,10 @@ describe('bin', () => {
         const testArgs = mockArgs({
           destination: undefined,
         });
-        await getDestinations(testArgs, testTemplates);
+        await getDestination(testArgs, testTemplates);
         expect(inquirerPromptStub).to.have.been.calledOnce;
         expect(inquirerPromptStub.getCall(0).args[0].message).to.be.equal(
           'Where would you like your new app created?'
-        );
-      });
-
-      it('should prompt for both base and proxy when destinations are missing in args and templates contain proxy app', async () => {
-        const testPath = 'test\\path';
-        const proxyPath = 'proxy\\path';
-        inquirerPromptStub.onCall(0).returns({
-          destination: testPath,
-        });
-        // avoid paths being equal - this case is tested further down
-        inquirerPromptStub.onCall(1).returns({
-          destination: proxyPath,
-        });
-        const testArgs = mockArgs({
-          destination: undefined,
-          proxyAppDestination: undefined,
-        });
-        const templatesWithProxy = [...testTemplates, 'node-xmcloud-proxy'];
-        await getDestinations(testArgs, templatesWithProxy);
-        expect(inquirerPromptStub).to.have.been.calledTwice;
-        expect(inquirerPromptStub.getCall(0).args[0].message).to.be.equal(
-          'Where would you like your new app created?'
-        );
-        expect(inquirerPromptStub.getCall(1).args[0].message).to.be.equal(
-          'Where would you like your proxy app created?'
         );
       });
 
@@ -359,9 +317,7 @@ describe('bin', () => {
           yes: true,
         });
         const expectedDestination = `${process.cwd()}${sep + testTemplates[0]}`;
-        expect(await getDestinations(testArgs, testTemplates)).to.deep.equal({
-          destination: expectedDestination,
-        });
+        expect(await getDestination(testArgs, testTemplates)).to.deep.equal(expectedDestination);
       });
 
       it('should return default base destination with args.appName when provided and --yes arg is used', async () => {
@@ -372,47 +328,12 @@ describe('bin', () => {
           yes: true,
         });
         const expectedDestination = `${process.cwd()}${sep + testAppName}`;
-        expect(await getDestinations(testArgs, testTemplates)).to.deep.equal({
-          destination: expectedDestination,
-        });
-      });
-
-      it('should return default proxy destination when -- yes arg is used', async () => {
-        const testPath = 'test\\path';
-        const testArgs = mockArgs({
-          destination: testPath,
-          yes: true,
-        });
-        const templatesWithProxy = [...testTemplates, 'node-xmcloud-proxy'];
-        const expectedProxyDestination = getDefaultProxyDestination(testPath, 'node-xmcloud-proxy');
-        expect(await getDestinations(testArgs, templatesWithProxy)).to.deep.equal({
-          destination: testPath,
-          proxyAppDestination: expectedProxyDestination,
-        });
-      });
-
-      it('should prompt for proxy destination again if proxy destination is the same as base destination', async () => {
-        const testPath = 'test\\path';
-        const proxyPath = 'proxy\\path';
-        // avoid paths being equal - this case is tested further down
-        inquirerPromptStub.onCall(0).returns({
-          destination: proxyPath,
-        });
-        const testArgs = mockArgs({
-          destination: testPath,
-          proxyAppDestination: testPath,
-        });
-        const templatesWithProxy = [...testTemplates, 'node-xmcloud-proxy'];
-        await getDestinations(testArgs, templatesWithProxy);
-        expect(inquirerPromptStub).to.have.been.calledOnce;
-        expect(inquirerPromptStub.getCall(0).args[0].message).to.be.equal(
-          'Proxy app and base app cannot be located in the same folder. Please input another path for proxy'
-        );
+        expect(await getDestination(testArgs, testTemplates)).to.deep.equal(expectedDestination);
       });
 
       it('should throw when templates are empty', async () => {
         const testArgs = mockArgs();
-        await getDestinations(testArgs, []).catch((error) => {
+        await getDestination(testArgs, []).catch((error) => {
           expect(error.message).to.be.equal(
             'Unable to get destinations, provided templates are empty'
           );
@@ -423,19 +344,17 @@ describe('bin', () => {
     // this partially duplicates tests for getDestinations, but we need to ensure initRunnerStub is called with correct values
     // no way around it however - sinon cannot mock getDestinations on its own, which could've prevented this
     describe('main with destinations from args', () => {
-      it('should call initRunnerStub with values from getDestinations', async () => {
+      it('should call initRunnerStub with value from getDestination', async () => {
         getAllTemplatesStub.returns(['foo', 'bar']);
         getBaseTemplatesStub.returns(['foo']);
         fsExistsSyncStub.returns(false);
         fsReaddirSyncStub.returns([]);
 
         const mockDestination = 'my\\path';
-        const proxyDestination = 'my\\proxy';
 
         const args = mockArgs({
           templates: 'foo',
           destination: mockDestination,
-          proxyAppDestination: proxyDestination,
         });
         const expectedTemplates = ['foo'];
 
@@ -444,7 +363,6 @@ describe('bin', () => {
         expect(initRunnerStub).to.have.been.calledWith(expectedTemplates, {
           ...args,
           destination: mockDestination,
-          proxyAppDestination: proxyDestination,
           templates: expectedTemplates,
         });
       });

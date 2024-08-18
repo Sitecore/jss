@@ -14,13 +14,14 @@ export const prompts = [
     default: false,
     when: (answers: AngularAnswer): boolean => {
       // don't prompt if --yes or angular-xmcloud template was specified
-      if (answers.yes) {
-        return false;
-      } else if (
+      if (
         answers.templates.includes('angular-xmcloud') &&
         !answers.templates.includes('angular-sxp')
       ) {
         answers.xmcloud = true;
+        return false;
+      }
+      if (answers.yes) {
         return false;
       }
       return true;
