@@ -56,6 +56,7 @@ export {
   ComponentFields,
   ComponentParams,
   getContentStylesheetLink,
+  EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
 export {
   RetryStrategy,
