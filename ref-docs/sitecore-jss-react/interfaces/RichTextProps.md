@@ -42,7 +42,7 @@ EditableFieldProps.editable
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/410e85a33/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
+[packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/ea9e6c798/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
 
 ___
 
@@ -60,7 +60,7 @@ EditableFieldProps.emptyFieldEditingComponent
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/sharedTypes.ts:36](https://github.com/Sitecore/jss/blob/410e85a33/packages/sitecore-jss-react/src/components/sharedTypes.ts#L36)
+[packages/sitecore-jss-react/src/components/sharedTypes.ts:36](https://github.com/Sitecore/jss/blob/ea9e6c798/packages/sitecore-jss-react/src/components/sharedTypes.ts#L36)
 
 ___
 
@@ -72,7 +72,7 @@ The rich text field data.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:17](https://github.com/Sitecore/jss/blob/410e85a33/packages/sitecore-jss-react/src/components/RichText.tsx#L17)
+[packages/sitecore-jss-react/src/components/RichText.tsx:17](https://github.com/Sitecore/jss/blob/ea9e6c798/packages/sitecore-jss-react/src/components/RichText.tsx#L17)
 
 ___
 
@@ -90,4 +90,4 @@ The HTML element that will wrap the contents of the field.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:22](https://github.com/Sitecore/jss/blob/410e85a33/packages/sitecore-jss-react/src/components/RichText.tsx#L22)
+[packages/sitecore-jss-react/src/components/RichText.tsx:22](https://github.com/Sitecore/jss/blob/ea9e6c798/packages/sitecore-jss-react/src/components/RichText.tsx#L22)
