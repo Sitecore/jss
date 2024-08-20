@@ -21,7 +21,7 @@ export class NavigationItemComponent implements OnInit {
   @Input() navItemFields: NavItemFields;
   @Input() relativeLevel: number;
   @Output() childLinkClickEvent: EventEmitter<Event> = new EventEmitter<Event>();
-  classNameList = '';
+  cssClasses = '';
   isActive = false;
   linkField = {};
   childrenRelativeLevel = 0;
@@ -30,7 +30,7 @@ export class NavigationItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.classNameList = `${this.navItemFields.Styles.concat('rel-level' + this.relativeLevel).join(
+    this.cssClasses = `${this.navItemFields.Styles.concat('rel-level' + this.relativeLevel).join(
       ' '
     )}`;
     this.linkField = this.getLinkField(this.navItemFields);
