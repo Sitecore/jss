@@ -48,7 +48,7 @@ RenderMiddlewareBase.constructor
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:430](https://github.com/Sitecore/jss/blob/16512f80b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L430)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:430](https://github.com/Sitecore/jss/blob/8923612a3/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L430)
 
 ## Properties
 
@@ -60,7 +60,7 @@ Editing render middleware config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:430](https://github.com/Sitecore/jss/blob/16512f80b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L430)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:430](https://github.com/Sitecore/jss/blob/8923612a3/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L430)
 
 ## Methods
 
@@ -95,7 +95,7 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:438](https://github.com/Sitecore/jss/blob/16512f80b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L438)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:438](https://github.com/Sitecore/jss/blob/8923612a3/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L438)
 
 ___
 
@@ -123,7 +123,7 @@ RenderMiddlewareBase.getHeadersForPropagation
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/render-middleware.ts:39](https://github.com/Sitecore/jss/blob/16512f80b/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L39)
+[sitecore-jss-nextjs/src/editing/render-middleware.ts:39](https://github.com/Sitecore/jss/blob/8923612a3/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L39)
 
 ___
 
@@ -151,7 +151,7 @@ RenderMiddlewareBase.getQueryParamsForPropagation
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/render-middleware.ts:17](https://github.com/Sitecore/jss/blob/16512f80b/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L17)
+[sitecore-jss-nextjs/src/editing/render-middleware.ts:17](https://github.com/Sitecore/jss/blob/8923612a3/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L17)
 
 ___
 
@@ -172,4 +172,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:442](https://github.com/Sitecore/jss/blob/16512f80b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L442)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:442](https://github.com/Sitecore/jss/blob/8923612a3/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L442)
