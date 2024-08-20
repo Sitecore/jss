@@ -10,6 +10,10 @@
 - [mediaApi](modules/mediaApi.md)
 - [trackingApi](modules/trackingApi.md)
 
+### Enumerations
+
+- [EditMode](enums/EditMode.md)
+
 ### Classes
 
 - [ClientError](classes/ClientError.md)
@@ -249,7 +253,7 @@ packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/ea9e6c798/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/eb833ef44/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -509,7 +513,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/ea9e6c798/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/eb833ef44/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
