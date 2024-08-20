@@ -5,7 +5,7 @@ import {
   ChromeCommand,
   EditButtonTypes,
   mapButtonToCommand,
-} from '@sitecore-jss/sitecore-jss/utils';
+} from '@sitecore-jss/sitecore-jss/editing';
 
 export interface EditFrameProps {
   dataSource?: EditFrameDataSource;

@@ -6,8 +6,8 @@
 
 ### Enumerations
 
+- [EditMode](../enums/layout.EditMode.md)
 - [LayoutServicePageState](../enums/layout.LayoutServicePageState.md)
-- [RenderingType](../enums/layout.RenderingType.md)
 
 ### Classes
 
@@ -20,6 +20,7 @@
 - [ComponentParams](../interfaces/layout.ComponentParams.md)
 - [ComponentRendering](../interfaces/layout.ComponentRendering.md)
 - [Field](../interfaces/layout.Field.md)
+- [FieldMetadata](../interfaces/layout.FieldMetadata.md)
 - [GraphQLLayoutServiceConfig](../interfaces/layout.GraphQLLayoutServiceConfig.md)
 - [HtmlElementRendering](../interfaces/layout.HtmlElementRendering.md)
 - [Item](../interfaces/layout.Item.md)
@@ -33,13 +34,13 @@
 ### Type Aliases
 
 - [DataFetcherResolver](layout.md#datafetcherresolver)
+- [GenericFieldValue](layout.md#genericfieldvalue)
 - [PlaceholdersData](layout.md#placeholdersdata)
 - [RestLayoutServiceConfig](layout.md#restlayoutserviceconfig)
 
 ### Variables
 
-- [EDITING\_COMPONENT\_ID](layout.md#editing_component_id)
-- [EDITING\_COMPONENT\_PLACEHOLDER](layout.md#editing_component_placeholder)
+- [EMPTY\_DATE\_FIELD\_VALUE](layout.md#empty_date_field_value)
 
 ### Functions
 
@@ -47,6 +48,7 @@
 - [getComponentLibraryStylesheetLinks](layout.md#getcomponentlibrarystylesheetlinks)
 - [getContentStylesheetLink](layout.md#getcontentstylesheetlink)
 - [getFieldValue](layout.md#getfieldvalue)
+- [isFieldValueEmpty](layout.md#isfieldvalueempty)
 
 ## Type Aliases
 
@@ -79,7 +81,19 @@ Data fetcher resolver in order to provide custom data fetcher
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+
+___
+
+### GenericFieldValue
+
+Ƭ **GenericFieldValue**: `string` \| `boolean` \| `number` \| \{ `[key: string]`: `unknown`;  } \| \{ `[key: string]`: `unknown`;  }[]
+
+Field value data on a component
+
+#### Defined in
+
+[packages/sitecore-jss/src/layout/models.ts:120](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/models.ts#L120)
 
 ___
 
@@ -98,7 +112,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:80](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/models.ts#L80)
+[packages/sitecore-jss/src/layout/models.ts:75](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/models.ts#L75)
 
 ___
 
@@ -119,31 +133,20 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
 
 ## Variables
 
-### EDITING\_COMPONENT\_ID
+### EMPTY\_DATE\_FIELD\_VALUE
 
-• `Const` **EDITING\_COMPONENT\_ID**: ``"editing-component"``
+• `Const` **EMPTY\_DATE\_FIELD\_VALUE**: ``"0001-01-01T00:00:00Z"``
 
-Id of wrapper for component rendering
-
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:9](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/models.ts#L9)
-
-___
-
-### EDITING\_COMPONENT\_PLACEHOLDER
-
-• `Const` **EDITING\_COMPONENT\_PLACEHOLDER**: ``"editing-componentmode-placeholder"``
-
-Static placeholder name used for component rendering
+The default value for an empty Date field.
+This value is defined as a default one by .NET
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/models.ts#L4)
+[packages/sitecore-jss/src/layout/utils.ts:86](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/utils.ts#L86)
 
 ## Functions
 
@@ -168,7 +171,7 @@ child placeholder
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:60](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/utils.ts#L60)
+[packages/sitecore-jss/src/layout/utils.ts:66](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/utils.ts#L66)
 
 ___
 
@@ -194,7 +197,7 @@ library stylesheet links
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/themes.ts:24](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/themes.ts#L24)
+[packages/sitecore-jss/src/layout/themes.ts:24](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/themes.ts#L24)
 
 ___
 
@@ -220,7 +223,7 @@ content styles link, null if no styles are used in layout
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/content-styles.ts#L26)
+[packages/sitecore-jss/src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/content-styles.ts#L26)
 
 ___
 
@@ -252,7 +255,7 @@ the field value or null if the field is not defined
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:10](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/utils.ts#L10)
+[packages/sitecore-jss/src/layout/utils.ts:16](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/utils.ts#L16)
 
 ▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -278,4 +281,26 @@ the field value or the default value if the field is not defined
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:15](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/utils.ts#L15)
+[packages/sitecore-jss/src/layout/utils.ts:21](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/utils.ts#L21)
+
+___
+
+### isFieldValueEmpty
+
+▸ **isFieldValueEmpty**(`field`): `boolean`
+
+Determines if the passed in field object's value is empty.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `field` | [`GenericFieldValue`](layout.md#genericfieldvalue) \| `Partial`\<[`Field`](../interfaces/layout.Field.md)\<[`GenericFieldValue`](layout.md#genericfieldvalue)\>\> | the field object. Partial<T> type is used here because _field.value_ could be required or optional for the different field types |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[packages/sitecore-jss/src/layout/utils.ts:93](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/utils.ts#L93)

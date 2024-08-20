@@ -15,26 +15,6 @@ export interface GraphQLClient {
    */
   request<T>(query: string | DocumentNode, variables?: { [key: string]: unknown }): Promise<T>;
 }
-/**
- * Defines the strategy for retrying GraphQL requests based on errors and attempts.
- */
-export interface RetryStrategy {
-  /**
-   * Determines whether a request should be retried based on the given error and attempt count.
-   * @param error - The error received from the GraphQL request.
-   * @param attempt - The current attempt number.
-   * @param retries - The number of retries configured.
-   * @returns A boolean indicating whether to retry the request.
-   */
-  shouldRetry(error: ClientError, attempt: number, retries: number): boolean;
-  /**
-   * Calculates the delay (in milliseconds) before the next retry based on the given error and attempt count.
-   * @param error - The error received from the GraphQL request.
-   * @param attempt - The current attempt number.
-   * @returns The delay in milliseconds before the next retry.
-   */
-  getDelay(error: ClientError, attempt: number): number;
-}
 
 /**
  * This type represents errors that can occur in a GraphQL client.
@@ -94,6 +74,10 @@ export type GraphQLRequestClientConfig = {
    * back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
    */
   retryStrategy?: RetryStrategy;
+  /**
+   * Custom headers to be sent with each request.
+   */
+  headers?: Record<string, string>;
 };
 
 /**
@@ -103,7 +87,7 @@ export type GraphQLRequestClientConfig = {
  * @returns An instance of a GraphQL Request Client ready to send GraphQL requests.
  */
 export type GraphQLRequestClientFactory = (
-  config: Omit<GraphQLRequestClientConfig, 'apiKey'>
+  config?: Omit<GraphQLRequestClientConfig, 'apiKey'>
 ) => GraphQLRequestClient;
 
 /**
@@ -181,6 +165,10 @@ export class GraphQLRequestClient implements GraphQLClient {
   constructor(private endpoint: string, clientConfig: GraphQLRequestClientConfig = {}) {
     if (clientConfig.apiKey) {
       this.headers.sc_apikey = clientConfig.apiKey;
+    }
+
+    if (clientConfig.headers) {
+      this.headers = { ...this.headers, ...clientConfig.headers };
     }
 
     if (!endpoint || !parse(endpoint).hostname) {

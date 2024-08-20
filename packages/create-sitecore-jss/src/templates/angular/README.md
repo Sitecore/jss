@@ -5,6 +5,7 @@
 -->
 [Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/22/sitecore-headless-development/sitecore-javascript-rendering-sdk--jss--for-angular.html)
 
+
 ## App setup
 
 1. `npm install`
@@ -42,10 +43,10 @@ Run `jss deploy package`.
 
 This step will:
 
-- Run the production bundle of your app.
-- Generate the app manifest.
-- Generate a package with the manifest and production bundle.
-- Install the package over HTTP on your Sitecore instance.
+* Run the production bundle of your app.
+* Generate the app manifest.
+* Generate a package with the manifest and production bundle.
+* Install the package over HTTP on your Sitecore instance.
 
 ## Further help
 

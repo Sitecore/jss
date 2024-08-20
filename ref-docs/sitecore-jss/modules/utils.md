@@ -18,6 +18,7 @@
 - [ChromeCommand](utils.md#chromecommand)
 - [EditButtonTypes](utils.md#editbuttontypes)
 - [EditFrameDataSource](utils.md#editframedatasource)
+- [EnhancedOmit](utils.md#enhancedomit)
 - [FieldEditButton](utils.md#fieldeditbutton)
 - [WebEditButton](utils.md#webeditbutton)
 
@@ -29,6 +30,8 @@
 
 ### Functions
 
+- [enforceCors](utils.md#enforcecors)
+- [getAllowedOriginsFromEnv](utils.md#getallowedoriginsfromenv)
 - [handleEditorAnchors](utils.md#handleeditoranchors)
 - [isAbsoluteUrl](utils.md#isabsoluteurl)
 - [isEditorActive](utils.md#iseditoractive)
@@ -58,7 +61,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:2](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/edit-frame.ts#L2)
+[packages/sitecore-jss/src/editing/edit-frame.ts:2](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/editing/edit-frame.ts#L2)
 
 ___
 
@@ -68,7 +71,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/edit-frame.ts#L73)
+[packages/sitecore-jss/src/editing/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/editing/edit-frame.ts#L73)
 
 ___
 
@@ -86,7 +89,27 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/edit-frame.ts#L49)
+[packages/sitecore-jss/src/editing/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/editing/edit-frame.ts#L49)
+
+___
+
+### EnhancedOmit
+
+Ƭ **EnhancedOmit**\<`T`, `K`\>: \{ [P in keyof T as Exclude\<P, K\>]: T[P] }
+
+Omit properties from T that are in K. This is a simplified version of TypeScript's built-in `Omit` utility type.
+Since default `Omit` doesn't support indexing types, we had to introduce this custom implementation.
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `T` |
+| `K` | extends `PropertyKey` |
+
+#### Defined in
+
+[packages/sitecore-jss/src/utils/utils.ts:12](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/utils/utils.ts#L12)
 
 ___
 
@@ -96,7 +119,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:62](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/edit-frame.ts#L62)
+[packages/sitecore-jss/src/editing/edit-frame.ts:62](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/editing/edit-frame.ts#L62)
 
 ___
 
@@ -106,7 +129,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:66](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/edit-frame.ts#L66)
+[packages/sitecore-jss/src/editing/edit-frame.ts:66](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/editing/edit-frame.ts#L66)
 
 ## Variables
 
@@ -136,7 +159,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/edit-frame.ts#L15)
+[packages/sitecore-jss/src/editing/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/editing/edit-frame.ts#L15)
 
 ___
 
@@ -152,7 +175,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:11](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/edit-frame.ts#L11)
+[packages/sitecore-jss/src/editing/edit-frame.ts:11](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/editing/edit-frame.ts#L11)
 
 ___
 
@@ -162,9 +185,56 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:36](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/edit-frame.ts#L36)
+[packages/sitecore-jss/src/editing/edit-frame.ts:36](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/editing/edit-frame.ts#L36)
 
 ## Functions
+
+### enforceCors
+
+▸ **enforceCors**(`req`, `res`, `allowedOrigins?`): `boolean`
+
+Tests origin from incoming request against allowed origins list that can be
+set in JSS's JSS_ALLOWED_ORIGINS env variable, passed via allowedOrigins param and/or
+be already set in Access-Control-Allow-Origin by other logic.
+Applies Access-Control-Allow-Origin and Access-Control-Allow-Methods on match
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `req` | `IncomingMessage` | incoming request |
+| `res` | `OutgoingMessage`\<`IncomingMessage`\> | response to set CORS headers for |
+| `allowedOrigins?` | `string`[] | additional list of origins to test against |
+
+#### Returns
+
+`boolean`
+
+true if incoming origin matches the allowed lists, false when it does not
+
+#### Defined in
+
+[packages/sitecore-jss/src/utils/utils.ts:122](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/utils/utils.ts#L122)
+
+___
+
+### getAllowedOriginsFromEnv
+
+▸ **getAllowedOriginsFromEnv**(): `string`[]
+
+Gets allowed origins from JSS_ALLOWED_ORIGINS env variable
+
+#### Returns
+
+`string`[]
+
+list of allowed origins from JSS_ALLOWED_ORIGINS env variable
+
+#### Defined in
+
+[packages/sitecore-jss/src/utils/utils.ts:107](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/utils/utils.ts#L107)
+
+___
 
 ### handleEditorAnchors
 
@@ -189,7 +259,7 @@ Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/Mutation
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/editing.ts:109](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/editing.ts#L109)
+[packages/sitecore-jss/src/editing/utils.ts:109](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/editing/utils.ts#L109)
 
 ___
 
@@ -209,7 +279,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:52](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/utils.ts#L52)
+[packages/sitecore-jss/src/utils/utils.ts:60](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/utils/utils.ts#L60)
 
 ___
 
@@ -228,7 +298,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/editing.ts:85](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/editing.ts#L85)
+[packages/sitecore-jss/src/editing/utils.ts:85](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/editing/utils.ts#L85)
 
 ___
 
@@ -246,7 +316,7 @@ true if executing server-side
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/is-server.ts#L5)
+[packages/sitecore-jss/src/utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/utils/is-server.ts#L5)
 
 ___
 
@@ -270,7 +340,7 @@ is timeout error
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:69](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/utils.ts#L69)
+[packages/sitecore-jss/src/utils/utils.ts:77](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/utils/utils.ts#L77)
 
 ___
 
@@ -294,7 +364,7 @@ Map the edit button types to chrome data
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/edit-frame.ts#L81)
+[packages/sitecore-jss/src/editing/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/editing/edit-frame.ts#L81)
 
 ___
 
@@ -310,7 +380,7 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/editing.ts:92](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/editing.ts#L92)
+[packages/sitecore-jss/src/editing/utils.ts:92](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/editing/utils.ts#L92)
 
 ___
 
@@ -340,7 +410,7 @@ if the provided url is an empty string
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:27](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/utils.ts#L27)
+[packages/sitecore-jss/src/utils/utils.ts:35](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/utils/utils.ts#L35)
 
 ___
 
@@ -371,4 +441,4 @@ parsed value
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/utils/env.ts#L7)
+[packages/sitecore-jss/src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/utils/env.ts#L7)

@@ -5,8 +5,8 @@ import { expect, use } from 'chai';
 import { NextApiRequest, NextApiResponse } from 'next';
 import {
   QUERY_PARAM_EDITING_SECRET,
-  QUERY_PARAM_PROTECTION_BYPASS_SITECORE,
-  QUERY_PARAM_PROTECTION_BYPASS_VERCEL,
+  QUERY_PARAM_VERCEL_PROTECTION_BYPASS,
+  QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE,
 } from './constants';
 import { FEAASRenderMiddleware } from './feaas-render-middleware';
 import { spy } from 'sinon';
@@ -18,12 +18,18 @@ type Query = {
   [key: string]: string;
 };
 
-const mockRequest = (query?: Query, method?: string, host?: string) => {
+const allowedOrigin = 'https://allowed.com';
+
+const mockRequest = (query?: Query, method?: string, headers?: { [key: string]: string }) => {
   return {
     body: {},
     method: method ?? 'GET',
     query: query ?? {},
-    headers: { host: host ?? 'localhost:3000' },
+    headers: {
+      host: 'localhost:3000',
+      origin: allowedOrigin,
+      ...headers,
+    },
   } as NextApiRequest;
 };
 
@@ -44,6 +50,9 @@ const mockResponse = () => {
   res.redirect = spy(() => {
     return res;
   });
+  res.getHeader = spy(() => {
+    return undefined;
+  });
 
   return res;
 };
@@ -53,10 +62,12 @@ describe('FEAASRenderMiddleware', () => {
 
   beforeEach(() => {
     process.env.JSS_EDITING_SECRET = secret;
+    process.env.JSS_ALLOWED_ORIGINS = allowedOrigin;
   });
 
   after(() => {
     delete process.env.JSS_EDITING_SECRET;
+    delete process.env.JSS_ALLOWED_ORIGINS;
   });
 
   it('should handle request', async () => {
@@ -138,6 +149,22 @@ describe('FEAASRenderMiddleware', () => {
     );
   });
 
+  it('should stop request and return 401 when CORS match is not met', async () => {
+    const req = mockRequest({}, 'POST', { origin: 'https://notallowed.com' });
+    const res = mockResponse();
+    const middleware = new FEAASRenderMiddleware();
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(401);
+    expect(res.send).to.have.been.calledOnce;
+    expect(res.send).to.have.been.calledWith(
+      '<html><body>Requests from origin https://notallowed.com are not allowed</body></html>'
+    );
+  });
+
   it('should respond with 401 for missing secret', async () => {
     const query = {} as Query;
     const req = mockRequest(query);
@@ -192,11 +219,11 @@ describe('FEAASRenderMiddleware', () => {
 
   it('should pass along protection bypass query parameters', async () => {
     const query = {} as Query;
-    const bypassTokenSitecore = 'token1234Sitecore';
-    const bypassTokenVercel = 'token1234Vercel';
+    const vercelBypassToken = 'token1234Vercel';
+    const vercelBypassCookie = 'samesitenone';
     query[QUERY_PARAM_EDITING_SECRET] = secret;
-    query[QUERY_PARAM_PROTECTION_BYPASS_SITECORE] = bypassTokenSitecore;
-    query[QUERY_PARAM_PROTECTION_BYPASS_VERCEL] = bypassTokenVercel;
+    query[QUERY_PARAM_VERCEL_PROTECTION_BYPASS] = vercelBypassToken;
+    query[QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE] = vercelBypassCookie;
     const previewData = {};
 
     const req = mockRequest(query);
@@ -210,7 +237,7 @@ describe('FEAASRenderMiddleware', () => {
     expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
     expect(res.redirect).to.have.been.calledOnce;
     expect(res.redirect).to.have.been.calledWith(
-      '/feaas/render?x-sitecore-protection-bypass=token1234Sitecore&x-vercel-protection-bypass=token1234Vercel'
+      `/feaas/render?${QUERY_PARAM_VERCEL_PROTECTION_BYPASS}=${vercelBypassToken}&${QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE}=${vercelBypassCookie}`
     );
   });
 });

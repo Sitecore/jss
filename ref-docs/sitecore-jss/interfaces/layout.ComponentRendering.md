@@ -25,7 +25,7 @@ Definition of a component instance within a placeholder on a route
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:102](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/models.ts#L102)
+[packages/sitecore-jss/src/layout/models.ts:97](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/models.ts#L97)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:103](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/models.ts#L103)
+[packages/sitecore-jss/src/layout/models.ts:98](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/models.ts#L98)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:106](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/models.ts#L106)
+[packages/sitecore-jss/src/layout/models.ts:101](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/models.ts#L101)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:107](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/models.ts#L107)
+[packages/sitecore-jss/src/layout/models.ts:102](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/models.ts#L102)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:105](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/models.ts#L105)
+[packages/sitecore-jss/src/layout/models.ts:100](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/models.ts#L100)
 
 ___
 
@@ -75,4 +75,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:104](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/layout/models.ts#L104)
+[packages/sitecore-jss/src/layout/models.ts:99](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/layout/models.ts#L99)

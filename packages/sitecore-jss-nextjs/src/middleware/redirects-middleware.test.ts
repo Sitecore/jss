@@ -372,6 +372,7 @@ describe('RedirectsMiddleware', () => {
         const req = createRequest({
           nextUrl: {
             pathname: '/not-found',
+            origin: 'http://localhost:3000',
             locale: 'en',
             href: 'http://localhost:3000/not-found',
             clone() {
@@ -414,16 +415,25 @@ describe('RedirectsMiddleware', () => {
 
       it('should override locale with locale parsed from target', async () => {
         const setCookies = () => {};
+        const cloneUrl = () => {
+          return Object.assign({}, req.nextUrl);
+        };
         const res = createResponse({
-          url: 'http://localhost:3000/ua/found',
-          status: 301,
+          url: {
+            pathname: 'http://localhost:3000/ua/found',
+            href: 'http://localhost:3000/not-found',
+            origin: 'http://localhost:3000',
+            locale: 'en',
+            clone: cloneUrl,
+          },
+          status: 200,
           setCookies,
         });
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url, _init) => {
           return ({
             url,
-            status: 301,
+            status: 200,
             cookies: { set: setCookies },
             headers: res.headers,
           } as unknown) as NextResponse;
@@ -432,10 +442,9 @@ describe('RedirectsMiddleware', () => {
           nextUrl: {
             pathname: '/not-found',
             href: 'http://localhost:3000/not-found',
+            origin: 'http://localhost:3000',
             locale: 'en',
-            clone() {
-              return Object.assign({}, req.nextUrl);
-            },
+            clone: cloneUrl,
           },
         });
 
@@ -456,10 +465,18 @@ describe('RedirectsMiddleware', () => {
         });
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
-          headers: {},
+          headers: {
+            'x-sc-rewrite': 'http://localhost:3000/ua/found',
+          },
           redirected: undefined,
-          status: 301,
-          url: 'http://localhost:3000/ua/found',
+          status: 200,
+          url: {
+            pathname: 'http://localhost:3000/ua/found',
+            href: 'http://localhost:3000/not-found',
+            origin: 'http://localhost:3000',
+            locale: 'en',
+            clone: cloneUrl,
+          },
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
@@ -473,32 +490,41 @@ describe('RedirectsMiddleware', () => {
 
       it('should preserve query string on relative path redirect, when isQueryStringPreserved is true', async () => {
         const setCookies = () => {};
+        const cloneUrl = () => {
+          return Object.assign({}, req.nextUrl);
+        };
         const res = createResponse({
-          url: 'http://localhost:3000/found?abc=def',
-          status: 301,
+          url: {
+            origin: 'http://localhost:3000',
+            pathname: 'http://localhost:3000/found?abc=def',
+            href: 'http://localhost:3000/not-found?abc=def',
+            search: '?abc=def',
+            locale: 'en',
+            clone: cloneUrl,
+          },
+          status: 200,
           setCookies,
         });
         const nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url) => {
           return ({
             url,
-            status: 301,
+            status: 200,
             cookies: { set: setCookies },
             headers: res.headers,
           } as unknown) as NextResponse;
         });
         const req = createRequest({
           nextUrl: {
+            origin: 'http://localhost:3000',
             pathname: '/not-found',
-            search: 'abc=def',
-            href: 'http://localhost:3000/found?abc=def',
-            clone() {
-              return Object.assign({}, req.nextUrl);
-            },
+            search: '?abc=def',
+            href: 'http://localhost:3000/not-found?abc=def',
+            clone: cloneUrl,
           },
         });
 
         const { middleware, fetchRedirects, siteResolver } = createMiddleware({
-          pattern: 'not-found',
+          pattern: 'not-found?abc=def',
           target: 'found',
           redirectType: REDIRECT_TYPE_SERVER_TRANSFER,
           isQueryStringPreserved: true,
@@ -513,10 +539,19 @@ describe('RedirectsMiddleware', () => {
         });
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
-          headers: {},
+          headers: {
+            'x-sc-rewrite': 'http://localhost:3000/found?abc=def',
+          },
           redirected: undefined,
-          status: 301,
-          url: 'http://localhost:3000/found?abc=def',
+          status: 200,
+          url: {
+            origin: 'http://localhost:3000',
+            pathname: 'http://localhost:3000/found?abc=def',
+            href: 'http://localhost:3000/not-found?abc=def',
+            search: '?abc=def',
+            locale: 'en',
+            clone: cloneUrl,
+          },
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
@@ -550,6 +585,7 @@ describe('RedirectsMiddleware', () => {
             search: '?abc=def',
             href: 'http://localhost:3000/not-found?abc=def',
             locale: 'en',
+            origin: 'http://localhost:3000',
             clone() {
               return Object.assign({}, req.nextUrl);
             },
@@ -628,6 +664,67 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(finalRes).to.deep.equal(res);
+      });
+
+      it('should redirect, when target uses query string', async () => {
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/found?abc=def',
+          status: 301,
+          setCookies,
+        });
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, init) => {
+          const status = typeof init === 'number' ? init : init?.status || 307;
+          return ({
+            url,
+            status,
+            cookies: { set: setCookies },
+            headers: res.headers,
+          } as unknown) as NextResponse;
+        });
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            search: '?abc=def',
+            href: 'http://localhost:3000/not-found?abc=def',
+            locale: 'en',
+            origin: 'http://localhost:3000',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+        });
+
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
+          pattern: 'not-found',
+          target: 'http://localhost:3000/found?abc=def',
+          redirectType: REDIRECT_TYPE_301,
+          isQueryStringPreserved: false,
+          locale: 'en',
+        });
+
+        const finalRes = await middleware.getHandler()(req);
+
+        validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
+          pathname: '/not-found',
+        });
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url: 'http://localhost:3000/found?abc=def',
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+
+        nextRedirectStub.restore();
       });
 
       xit('should redirect uses token in target', async () => {
@@ -711,6 +808,7 @@ describe('RedirectsMiddleware', () => {
             pathname: '/not-found',
             href: 'http://localhost:3000/not-found',
             locale: 'en',
+            origin: 'http://localhost:3000',
             clone() {
               return Object.assign({}, req.nextUrl);
             },
@@ -771,6 +869,7 @@ describe('RedirectsMiddleware', () => {
             search: 'abc=def',
             href: 'http://localhost:3000/not-found',
             locale: 'en',
+            origin: 'http://localhost:3000',
             clone() {
               return Object.assign({}, req.nextUrl);
             },
@@ -864,8 +963,16 @@ describe('RedirectsMiddleware', () => {
 
       it('should rewrite path when redirect type is server transfer', async () => {
         const setCookies = () => {};
+        const cloneUrl = () => {
+          return Object.assign({}, req.nextUrl);
+        };
         const res = createResponse({
-          url: 'http://localhost:3000/found',
+          url: {
+            clone: cloneUrl,
+            href: 'http://localhost:3000/not-found',
+            locale: 'en',
+            pathname: 'http://localhost:3000/found',
+          },
           setCookies,
         });
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -881,9 +988,7 @@ describe('RedirectsMiddleware', () => {
             pathname: '/not-found',
             href: 'http://localhost:3000/not-found',
             locale: 'en',
-            clone() {
-              return Object.assign({}, req.nextUrl);
-            },
+            clone: cloneUrl,
           },
         });
 
@@ -904,10 +1009,17 @@ describe('RedirectsMiddleware', () => {
         });
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
-          headers: {},
+          headers: {
+            'x-sc-rewrite': 'http://localhost:3000/found',
+          },
           redirected: undefined,
           status: undefined,
-          url: 'http://localhost:3000/found',
+          url: {
+            clone: cloneUrl,
+            href: 'http://localhost:3000/not-found',
+            locale: 'en',
+            pathname: 'http://localhost:3000/found',
+          },
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
@@ -920,13 +1032,14 @@ describe('RedirectsMiddleware', () => {
 
       it('should use sc_site cookie', async () => {
         const siteName = 'foo';
-        const res = NextResponse.rewrite('http://localhost:3000/found');
+        const res = NextResponse.redirect('http://localhost:3000/found');
         res.cookies.set('sc_site', siteName);
         const req = createRequest({
           nextUrl: {
             href: 'http://localhost:3000/not-found',
             pathname: '/not-found',
             locale: 'en',
+            origin: 'http://localhost:3000',
             clone() {
               return Object.assign({}, req.nextUrl);
             },
@@ -942,8 +1055,9 @@ describe('RedirectsMiddleware', () => {
         });
 
         const expected = NextResponse.redirect('http://localhost:3000/found', {
+          ...res,
           status: 301,
-          headers: res.headers,
+          headers: { ...res?.headers },
         });
 
         const finalRes = await middleware.getHandler()(req, res);
@@ -958,7 +1072,6 @@ describe('RedirectsMiddleware', () => {
           headers: {
             location: 'http://localhost:3000/found',
             'set-cookie': 'sc_site=foo; Path=/',
-            'x-middleware-rewrite': 'http://localhost:3000/found',
           },
           redirected: false,
           status: 301,
@@ -968,7 +1081,6 @@ describe('RedirectsMiddleware', () => {
         expect(siteResolver.getByHost).not.called.to.equal(true);
         expect(siteResolver.getByName).to.be.calledWith(siteName);
         expect(fetchRedirects).to.be.calledWith(siteName);
-        expect(finalRes).to.deep.equal(expected);
         expect(finalRes.status).to.equal(expected.status);
       });
 
@@ -1094,6 +1206,7 @@ describe('RedirectsMiddleware', () => {
             pathname: '/not-found',
             href: 'http://localhost:3000/not-found',
             locale: 'en',
+            origin: 'http://localhost:3000',
             clone() {
               return Object.assign({}, req.nextUrl);
             },
@@ -1156,6 +1269,7 @@ describe('RedirectsMiddleware', () => {
             pathname: '/not-found',
             href: 'http://localhost:3000/not-found',
             locale: 'en',
+            origin: 'http://localhost:3000',
             clone() {
               return Object.assign({}, req.nextUrl);
             },
@@ -1215,6 +1329,7 @@ describe('RedirectsMiddleware', () => {
             pathname: '/not-found/',
             href: 'http://localhost:3000/not-found/',
             locale: 'en',
+            origin: 'http://localhost:3000',
             clone() {
               return Object.assign({}, req.nextUrl);
             },
@@ -1242,6 +1357,331 @@ describe('RedirectsMiddleware', () => {
           redirected: undefined,
           status: 301,
           url: 'http://localhost:3000/found/',
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+
+        nextRedirectStub.restore();
+      });
+
+      it('should redirect when the isQueryStringPreserved parameter is true and the target URL contains query string parameters', async () => {
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/found?b=1&a=1',
+          status: 301,
+          setCookies,
+        });
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, init) => {
+          const status = typeof init === 'number' ? init : init?.status || 307;
+          return ({
+            url,
+            status,
+            cookies: { set: setCookies },
+            headers: res.headers,
+          } as unknown) as NextResponse;
+        });
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            href: 'http://localhost:3000/not-found?b=1',
+            locale: 'en',
+            origin: 'http://localhost:3000',
+            search: '?b=1',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+        });
+
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
+          pattern: '/not-found?b=1',
+          target: '/found?a=1',
+          redirectType: REDIRECT_TYPE_301,
+          isQueryStringPreserved: true,
+          locale: 'en',
+        });
+
+        const finalRes = await middleware.getHandler()(req);
+
+        validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
+          pathname: '/not-found',
+        });
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url: 'http://localhost:3000/found?b=1&a=1',
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+
+        nextRedirectStub.restore();
+      });
+    });
+
+    describe('should redirect to normalized path when nextjs specific "path" query string parameter is provided', () => {
+      it('should return 301 redirect', async () => {
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/found',
+          status: 301,
+          setCookies,
+        });
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, init) => {
+          const status = typeof init === 'number' ? init : init?.status || 307;
+          return ({
+            url,
+            status,
+            cookies: { set: setCookies },
+            headers: res.headers,
+          } as unknown) as NextResponse;
+        });
+
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            search: '?path=not-found',
+            href: 'http://localhost:3000/not-found/?path=not-found',
+            locale: 'en',
+            origin: 'http://localhost:3000',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+        });
+
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
+          pattern: '/not-found',
+          target: 'http://localhost:3000/found',
+          redirectType: REDIRECT_TYPE_301,
+          isQueryStringPreserved: false,
+          locale: 'en',
+        });
+
+        const finalRes = await middleware.getHandler()(req);
+
+        validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
+          pathname: '/not-found',
+        });
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url: 'http://localhost:3000/found',
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+
+        nextRedirectStub.restore();
+      });
+
+      it('should return 301 redirect when trailingSlash is true', async () => {
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/found/',
+          status: 301,
+          setCookies,
+        });
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, init) => {
+          const status = typeof init === 'number' ? init : init?.status || 307;
+          return ({
+            url,
+            status,
+            cookies: { set: setCookies },
+            headers: res.headers,
+          } as unknown) as NextResponse;
+        });
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found/',
+            search: '?path=not-found',
+            href: 'http://localhost:3000/not-found/?path=not-found',
+            locale: 'en',
+            origin: 'http://localhost:3000',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+        });
+
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
+          pattern: '/not-found/',
+          target: 'http://localhost:3000/found/',
+          redirectType: REDIRECT_TYPE_301,
+          isQueryStringPreserved: true,
+          locale: 'en',
+        });
+
+        const finalRes = await middleware.getHandler()(req);
+
+        validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
+          pathname: '/not-found/',
+        });
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url: 'http://localhost:3000/found/',
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+
+        nextRedirectStub.restore();
+      });
+
+      it('should return a 302 redirect', async () => {
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/found',
+          status: 302,
+          setCookies,
+        });
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, init) => {
+          const status = typeof init === 'number' ? init : init?.status || 307;
+          return ({
+            url,
+            status,
+            cookies: { set: setCookies },
+            headers: res.headers,
+          } as unknown) as NextResponse;
+        });
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            search: '?path=not-found&abc=edf',
+            href: 'http://localhost:3000/not-found?path=not-found&abc=edf',
+            locale: 'en',
+            origin: 'http://localhost:3000',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+        });
+
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
+          pattern: '/not-found?abc=edf',
+          target: 'http://localhost:3000/found',
+          redirectType: REDIRECT_TYPE_302,
+          isQueryStringPreserved: false,
+          locale: 'en',
+        });
+
+        const finalRes = await middleware.getHandler()(req);
+
+        validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
+          pathname: '/not-found',
+        });
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 302,
+          url: 'http://localhost:3000/found',
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+
+        nextRedirectStub.restore();
+      });
+
+      it('should return rewrite', async () => {
+        const setCookies = () => {};
+        const cloneUrl = () => {
+          return Object.assign({}, req.nextUrl);
+        };
+        const res = createResponse({
+          url: {
+            origin: 'http://localhost:3000',
+            pathname: 'http://localhost:3000/found',
+            href: 'http://localhost:3000/not-found?path=not-found',
+            search: '?path=not-found',
+            locale: 'en',
+            clone: cloneUrl,
+          },
+          status: 200,
+          setCookies,
+        });
+        const nextRedirectStub = sinon.stub(NextResponse, 'rewrite').callsFake((url, init) => {
+          const status = typeof init === 'number' ? init : init?.status || 307;
+          return ({
+            url,
+            status,
+            cookies: { set: setCookies },
+            headers: res.headers,
+          } as unknown) as NextResponse;
+        });
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            search: '?path=not-found',
+            href: 'http://localhost:3000/not-found?path=not-found',
+            locale: 'en',
+            origin: 'http://localhost:3000',
+            clone: cloneUrl,
+          },
+        });
+
+        const { middleware, fetchRedirects, siteResolver } = createMiddleware({
+          pattern: '/not-found',
+          target: 'http://localhost:3000/found',
+          redirectType: REDIRECT_TYPE_SERVER_TRANSFER,
+          isQueryStringPreserved: false,
+          locale: 'en',
+        });
+
+        const finalRes = await middleware.getHandler()(req);
+
+        validateDebugLog('redirects middleware start: %o', {
+          hostname: 'foo.net',
+          language: 'en',
+          pathname: '/not-found',
+        });
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {
+            'x-sc-rewrite': 'http://localhost:3000/found',
+          },
+          redirected: undefined,
+          url: {
+            origin: 'http://localhost:3000',
+            pathname: 'http://localhost:3000/found',
+            href: 'http://localhost:3000/not-found?path=not-found',
+            search: '?path=not-found',
+            locale: 'en',
+            clone: cloneUrl,
+          },
+          status: 200,
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);

@@ -2,11 +2,18 @@
 
 # Interface: TextField
 
+## Hierarchy
+
+- `FieldMetadata`
+
+  ↳ **`TextField`**
+
 ## Table of contents
 
 ### Properties
 
 - [editable](TextField.md#editable)
+- [metadata](TextField.md#metadata)
 - [value](TextField.md#value)
 
 ## Properties
@@ -17,7 +24,25 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Text.tsx:6](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss-react/src/components/Text.tsx#L6)
+[packages/sitecore-jss-react/src/components/Text.tsx:11](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss-react/src/components/Text.tsx#L11)
+
+___
+
+### metadata
+
+• `Optional` **metadata**: `Object`
+
+#### Index signature
+
+▪ [key: `string`]: `unknown`
+
+#### Inherited from
+
+FieldMetadata.metadata
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:122
 
 ___
 
@@ -27,4 +52,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Text.tsx:5](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss-react/src/components/Text.tsx#L5)
+[packages/sitecore-jss-react/src/components/Text.tsx:10](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss-react/src/components/Text.tsx#L10)

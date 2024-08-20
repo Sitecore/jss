@@ -1,4 +1,4 @@
-import isServer from './is-server';
+import isServer from '../utils/is-server';
 
 type ExtendedWindow = Window &
   typeof globalThis & {

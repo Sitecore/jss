@@ -34,10 +34,8 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-  RenderingType,
-  EDITING_COMPONENT_PLACEHOLDER,
-  EDITING_COMPONENT_ID,
   getContentStylesheetLink,
+  EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
@@ -61,6 +59,7 @@ export {
   personalizeLayout,
   getPersonalizedRewrite,
   getPersonalizedRewriteData,
+  getGroomedVariantIds,
   normalizePersonalizedRewrite,
   CdpHelper,
 } from '@sitecore-jss/sitecore-jss/personalize';
@@ -118,7 +117,6 @@ export {
 export { Link, LinkProps } from './components/Link';
 export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
-export { EditingComponentPlaceholder } from './components/EditingComponentPlaceholder';
 export { NextImage } from './components/NextImage';
 import * as FEaaSWrapper from './components/FEaaSWrapper';
 import * as BYOCWrapper from './components/BYOCWrapper';
@@ -152,6 +150,8 @@ export {
   File,
   FileField,
   RichTextField,
+  DefaultEmptyFieldEditingComponentImage,
+  DefaultEmptyFieldEditingComponentText,
   VisitorIdentification,
   PlaceholderComponentProps,
   SitecoreContext,
@@ -164,7 +164,10 @@ export {
   withPlaceholder,
   withDatasourceCheck,
   ImageSizeParameters,
-  ComponentConsumerProps,
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
+  WithSitecoreContextHocProps,
+  withFieldMetadata,
+  withEmptyFieldEditingComponent,
+  EditingScripts,
 } from '@sitecore-jss/sitecore-jss-react';

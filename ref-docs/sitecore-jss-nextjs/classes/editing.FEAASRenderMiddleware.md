@@ -28,6 +28,7 @@ which is required for Sitecore editing support.
 ### Methods
 
 - [getHandler](editing.FEAASRenderMiddleware.md#gethandler)
+- [getHeadersForPropagation](editing.FEAASRenderMiddleware.md#getheadersforpropagation)
 - [getQueryParamsForPropagation](editing.FEAASRenderMiddleware.md#getqueryparamsforpropagation)
 - [handler](editing.FEAASRenderMiddleware.md#handler)
 
@@ -49,7 +50,7 @@ RenderMiddlewareBase.constructor
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:30](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L30)
+[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:31](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L31)
 
 ## Properties
 
@@ -61,7 +62,7 @@ Editing render middleware config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:30](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L30)
+[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:31](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L31)
 
 ___
 
@@ -71,7 +72,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:25](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L25)
+[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:26](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L26)
 
 ___
 
@@ -81,7 +82,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:24](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L24)
+[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:25](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L25)
 
 ## Methods
 
@@ -116,7 +117,35 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:40](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L40)
+[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:41](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L41)
+
+___
+
+### getHeadersForPropagation
+
+▸ `Protected` **getHeadersForPropagation**(`headers`): `Object`
+
+Get headers that should be passed along to subsequent requests
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `headers` | `IncomingHttpHeaders` | Incoming HTTP Headers |
+
+#### Returns
+
+`Object`
+
+Object of approved headers
+
+#### Inherited from
+
+RenderMiddlewareBase.getHeadersForPropagation
+
+#### Defined in
+
+[sitecore-jss-nextjs/src/editing/render-middleware.ts:39](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L39)
 
 ___
 
@@ -144,7 +173,7 @@ RenderMiddlewareBase.getQueryParamsForPropagation
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/render-middleware.ts:15](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L15)
+[sitecore-jss-nextjs/src/editing/render-middleware.ts:17](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L17)
 
 ___
 
@@ -165,4 +194,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:44](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L44)
+[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:45](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L45)

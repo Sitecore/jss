@@ -12,14 +12,46 @@ Shape of context data from the Sitecore Layout Service
 
 ### Properties
 
+- [clientData](LayoutServiceContext.md#clientdata)
+- [clientScripts](LayoutServiceContext.md#clientscripts)
+- [editMode](LayoutServiceContext.md#editmode)
 - [language](LayoutServiceContext.md#language)
 - [pageEditing](LayoutServiceContext.md#pageediting)
 - [pageState](LayoutServiceContext.md#pagestate)
-- [renderingType](LayoutServiceContext.md#renderingtype)
 - [site](LayoutServiceContext.md#site)
 - [visitorIdentificationTimestamp](LayoutServiceContext.md#visitoridentificationtimestamp)
 
 ## Properties
+
+### clientData
+
+• `Optional` **clientData**: `Record`\<`string`, `Record`\<`string`, `unknown`\>\>
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:40
+
+___
+
+### clientScripts
+
+• `Optional` **clientScripts**: `string`[]
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:39
+
+___
+
+### editMode
+
+• `Optional` **editMode**: [`EditMode`](../enums/EditMode.md)
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:38
+
+___
 
 ### language
 
@@ -27,7 +59,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:38
+packages/sitecore-jss/types/layout/models.d.ts:32
 
 ___
 
@@ -37,7 +69,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:37
+packages/sitecore-jss/types/layout/models.d.ts:31
 
 ___
 
@@ -47,17 +79,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:39
-
-___
-
-### renderingType
-
-• `Optional` **renderingType**: `Component`
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:36
+packages/sitecore-jss/types/layout/models.d.ts:33
 
 ___
 
@@ -73,7 +95,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:41
+packages/sitecore-jss/types/layout/models.d.ts:35
 
 ___
 
@@ -83,4 +105,4 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:40
+packages/sitecore-jss/types/layout/models.d.ts:34

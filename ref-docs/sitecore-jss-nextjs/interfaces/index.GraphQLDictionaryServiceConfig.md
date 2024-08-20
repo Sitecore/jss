@@ -12,7 +12,7 @@ GraphQLDictionaryService instances
 
 ## Hierarchy
 
-- `SearchServiceConfig`
+- `Omit`\<`SearchQueryVariables`, ``"language"``\>
 
 - `CacheOptions`
 
@@ -35,6 +35,7 @@ GraphQLDictionaryService instances
 - [rootItemId](index.GraphQLDictionaryServiceConfig.md#rootitemid)
 - [siteName](index.GraphQLDictionaryServiceConfig.md#sitename)
 - [templates](index.GraphQLDictionaryServiceConfig.md#templates)
+- [useSiteQuery](index.GraphQLDictionaryServiceConfig.md#usesitequery)
 
 ## Properties
 
@@ -91,7 +92,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:15
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:20
 
 ___
 
@@ -109,7 +110,7 @@ Optional. The template ID to use when searching for dictionary entries.
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:20
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:25
 
 ___
 
@@ -127,7 +128,7 @@ Optional. The template ID of a JSS App to use when searching for the appRootId.
 
 #### Defined in
 
-sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:25
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:30
 
 ___
 
@@ -147,7 +148,7 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 
 #### Inherited from
 
-SearchServiceConfig.pageSize
+Omit.pageSize
 
 #### Defined in
 
@@ -167,7 +168,7 @@ Pick.retries
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:87
+sitecore-jss/types/graphql-request-client.d.ts:67
 
 ___
 
@@ -184,7 +185,7 @@ Pick.retryStrategy
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:92
+sitecore-jss/types/graphql-request-client.d.ts:72
 
 ___
 
@@ -196,7 +197,7 @@ Optional. The ID of the search root item. Fetch items that have this item as an 
 
 #### Inherited from
 
-SearchServiceConfig.rootItemId
+Omit.rootItemId
 
 #### Defined in
 
@@ -211,13 +212,9 @@ ___
 The name of the current Sitecore site. This is used to to determine the search query root
 in cases where one is not specified by the caller.
 
-#### Inherited from
-
-SearchServiceConfig.siteName
-
 #### Defined in
 
-sitecore-jss/types/graphql/search-service.d.ts:65
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:15
 
 ___
 
@@ -229,8 +226,20 @@ Optional. Sitecore template ID(s). Fetch items that inherit from this template(s
 
 #### Inherited from
 
-SearchServiceConfig.templates
+Omit.templates
 
 #### Defined in
 
 sitecore-jss/types/graphql/search-service.d.ts:45
+
+___
+
+### useSiteQuery
+
+• `Optional` **useSiteQuery**: `boolean`
+
+Optional. Use site query for dictionary fetch instead of search query (XM Cloud only)
+
+#### Defined in
+
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:34

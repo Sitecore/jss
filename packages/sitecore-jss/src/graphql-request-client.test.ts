@@ -118,11 +118,12 @@ describe('GraphQLRequestClient', () => {
     try {
       new GraphQLRequestClient(endpoint, { debugger: debug.layout });
     } catch (error) {
-      expect((error as Error).toString()).to.equal(
+      expect(error.toString()).to.equal(
         `Error: Invalid GraphQL endpoint '${endpoint}'. Verify that 'layoutServiceHost' property in 'scjssconfig.json' file or appropriate environment variable is set`
       );
     }
   });
+
   it('should throw error when request is aborted with default timeout value', async () => {
     nock('http://jssnextweb')
       .post('/graphql')
@@ -162,11 +163,12 @@ describe('GraphQLRequestClient', () => {
         apiKey: 'bar',
       });
 
-      const client = clientFactory({ retries: 5, timeout: 300 });
+      const client = clientFactory({ retries: 5, timeout: 300, headers: { foo: 'foo-value' } });
 
       expect(client instanceof GraphQLRequestClient).to.equal(true);
       expect(client['retries']).to.equal(5);
       expect(client['timeout']).to.equal(300);
+      expect(client['headers']).to.deep.equal({ foo: 'foo-value', sc_apikey: 'bar' });
     });
   });
 
@@ -337,13 +339,13 @@ describe('GraphQLRequestClient', () => {
         expect.fail('Expected request to throw an error');
       } catch (error) {
         expect(graphQLClient['client'].request).to.be.called.exactly(2);
-        expect((error as Error).name).to.equal('AbortError');
+        expect(error.name).to.equal('AbortError');
       } finally {
         spy.restore(graphQLClient);
       }
     });
 
-    describe('Retrayable status codes', () => {
+    describe('Retryable status codes', () => {
       const retryableStatusCodeThrowError = async (statusCode: number) => {
         nock('http://jssnextweb')
           .post('/graphql')

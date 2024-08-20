@@ -2,10 +2,17 @@ import React, { useContext } from 'react';
 import {
   Placeholder as ReactPlaceholder,
   PlaceholderComponentProps,
+  WithSitecoreContextProps,
+  EnhancedOmit,
 } from '@sitecore-jss/sitecore-jss-react';
 import { ComponentPropsReactContext } from './ComponentPropsContext';
 
-export const Placeholder = (props: PlaceholderComponentProps) => {
+/**
+ * React Placeholder component wrapped by withSitecoreContext, so these properties shouldn't be passed to the Next.js Placeholder.
+ */
+type PlaceholderProps = EnhancedOmit<PlaceholderComponentProps, keyof WithSitecoreContextProps>;
+
+export const Placeholder = (props: PlaceholderProps) => {
   const componentPropsContext = useContext(ComponentPropsReactContext);
 
   return (

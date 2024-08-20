@@ -1,4 +1,5 @@
 export { constants, enableDebug, ClientError } from '@sitecore-jss/sitecore-jss';
+export { EnhancedOmit } from '@sitecore-jss/sitecore-jss/utils';
 export {
   isEditorActive,
   resetEditorChromes,
@@ -8,7 +9,7 @@ export {
   FieldEditButton,
   WebEditButton,
   EditButtonTypes,
-} from '@sitecore-jss/sitecore-jss/utils';
+} from '@sitecore-jss/sitecore-jss/editing';
 export {
   getContentStylesheetLink,
   getComponentLibraryStylesheetLinks,
@@ -28,6 +29,7 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+  EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
 export {
   trackingApi,
@@ -52,7 +54,7 @@ export {
   GraphQLRequestClient,
 } from '@sitecore-jss/sitecore-jss/graphql';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
-export { ComponentFactory } from './components/sharedTypes';
+export { ComponentFactory, JssComponentType } from './components/sharedTypes';
 export { Placeholder, PlaceholderComponentProps } from './components/Placeholder';
 export {
   Image,
@@ -91,7 +93,6 @@ export {
 export {
   withSitecoreContext,
   useSitecoreContext,
-  ComponentConsumerProps,
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
   WithSitecoreContextHocProps,
@@ -101,3 +102,10 @@ export { withPlaceholder } from './enhancers/withPlaceholder';
 export { withDatasourceCheck } from './enhancers/withDatasourceCheck';
 export { EditFrameProps, EditFrame } from './components/EditFrame';
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
+export { withFieldMetadata } from './enhancers/withFieldMetadata';
+export { withEmptyFieldEditingComponent } from './enhancers/withEmptyFieldEditingComponent';
+export { EditingScripts } from './components/EditingScripts';
+export {
+  DefaultEmptyFieldEditingComponentText,
+  DefaultEmptyFieldEditingComponentImage,
+} from './components/DefaultEmptyFieldEditingComponents';

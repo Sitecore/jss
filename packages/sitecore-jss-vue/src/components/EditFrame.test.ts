@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { defineComponent, h } from 'vue';
 import { EditFrame } from './EditFrame';
-import { DefaultEditFrameButton, EditButtonTypes } from '@sitecore-jss/sitecore-jss/utils';
+import { DefaultEditFrameButton, EditButtonTypes } from '@sitecore-jss/sitecore-jss/editing';
 
 const normalContext = {
   pageEditing: false,

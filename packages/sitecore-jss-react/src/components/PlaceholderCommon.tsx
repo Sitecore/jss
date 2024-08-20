@@ -1,20 +1,25 @@
 import React, { ComponentType } from 'react';
 import PropTypes, { Requireable } from 'prop-types';
 import { MissingComponent } from './MissingComponent';
-import { ComponentFactory } from './sharedTypes';
+import { ComponentFactory, JssComponentType } from './sharedTypes';
 import {
   ComponentRendering,
   RouteData,
   Field,
   Item,
   HtmlElementRendering,
+  EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
+import { constants } from '@sitecore-jss/sitecore-jss';
 import { convertAttributesToReactProps } from '../utils';
-import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
+import { HiddenRendering } from './HiddenRendering';
 import { FEaaSComponent, FEAAS_COMPONENT_RENDERING_NAME } from './FEaaSComponent';
 import { FEaaSWrapper, FEAAS_WRAPPER_RENDERING_NAME } from './FEaaSWrapper';
 import { BYOCComponent, BYOC_COMPONENT_RENDERING_NAME } from './BYOCComponent';
 import { BYOCWrapper, BYOC_WRAPPER_RENDERING_NAME } from './BYOCWrapper';
+import { SitecoreContextValue } from './SitecoreContext';
+import { PlaceholderMetadata } from './PlaceholderMetadata';
+import ErrorBoundary from './ErrorBoundary';
 
 type ErrorComponentProps = {
   [prop: string]: unknown;
@@ -25,6 +30,22 @@ export type ComponentProps = {
   [key: string]: unknown;
   rendering: ComponentRendering;
 };
+
+/**
+ * Returns a regular expression pattern for a dynamic placeholder name.
+ * @param {string} placeholder Placeholder name with a dynamic segment (e.g. 'main-{*}')
+ * @returns Regular expression pattern for the dynamic segment
+ */
+export const getDynamicPlaceholderPattern = (placeholder: string) => {
+  return new RegExp(`^${placeholder.replace(/\{\*\}+/i, '\\d+')}$`);
+};
+
+/**
+ * Checks if the placeholder name is dynamic.
+ * @param {string} placeholder Placeholder name
+ * @returns True if the placeholder name is dynamic
+ */
+export const isDynamicPlaceholder = (placeholder: string) => placeholder.indexOf('{*}') !== -1;
 
 export interface PlaceholderProps {
   [key: string]: unknown;
@@ -74,6 +95,14 @@ export interface PlaceholderProps {
    * the placeholder
    */
   errorComponent?: React.ComponentClass<ErrorComponentProps> | React.FC<ErrorComponentProps>;
+  /**
+   *  Context data from the Sitecore Layout Service
+   */
+  sitecoreContext: SitecoreContextValue;
+  /**
+   * The message that gets displayed while component is loading
+   */
+  componentLoadingMessage?: string;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
@@ -102,6 +131,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       PropTypes.func as Requireable<React.FC<unknown>>,
     ]),
     modifyComponentProps: PropTypes.func,
+    sitecoreContext: PropTypes.object as Requireable<SitecoreContextValue>,
   };
 
   nodeRefs: Element[];
@@ -118,34 +148,43 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
   static getPlaceholderDataFromRenderingData(
     rendering: ComponentRendering | RouteData,
-    name: string
+    name: string,
+    editMode?: EditMode
   ) {
     let result;
-    /** [SXA] it needs for deleting dynamics placeholder when we set him number(props.name) of container.
-    from backend side we get common name of placeholder is called 'nameOfContainer-{*}' where '{*}' marker for replacing **/
+    let phName = name.slice();
+
+    /**
+     * [Chromes Mode]: [SXA] it needs for deleting dynamics placeholder when we set him number(props.name) of container.
+     * from backend side we get common name of placeholder is called 'nameOfContainer-{*}' where '{*}' marker for replacing.
+     * [Metadata Mode]: We need to keep the raw placeholder name. e.g 'nameOfContainer-{*}' instead of 'nameOfContainer-1'
+     */
     if (rendering?.placeholders) {
       Object.keys(rendering.placeholders).forEach((placeholder) => {
-        const patternPlaceholder =
-          placeholder.indexOf('{*}') !== -1
-            ? new RegExp(`^${placeholder.replace(/\{\*\}+/i, '\\d+')}$`)
-            : null;
+        const patternPlaceholder = isDynamicPlaceholder(placeholder)
+          ? getDynamicPlaceholderPattern(placeholder)
+          : null;
 
-        if (patternPlaceholder && patternPlaceholder.test(name)) {
-          rendering.placeholders[name] = rendering.placeholders[placeholder];
-          delete rendering.placeholders[placeholder];
+        if (patternPlaceholder && patternPlaceholder.test(phName)) {
+          if (editMode === EditMode.Metadata) {
+            phName = placeholder;
+          } else {
+            rendering.placeholders[phName] = rendering.placeholders[placeholder];
+            delete rendering.placeholders[placeholder];
+          }
         }
       });
     }
 
     if (rendering && rendering.placeholders && Object.keys(rendering.placeholders).length > 0) {
-      result = rendering.placeholders[name];
+      result = rendering.placeholders[phName];
     } else {
       result = null;
     }
 
     if (!result) {
       console.warn(
-        `Placeholder '${name}' was not found in the current rendering data`,
+        `Placeholder '${phName}' was not found in the current rendering data`,
         JSON.stringify(rendering, null, 2)
       );
 
@@ -186,13 +225,13 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       ...placeholderProps
     } = this.props;
 
-    return placeholderData
+    const transformedComponents = placeholderData
       .map((rendering: ComponentRendering | HtmlElementRendering, index: number) => {
         const key = (rendering as ComponentRendering).uid
           ? (rendering as ComponentRendering).uid
           : `component-${index}`;
         const commonProps = { key };
-
+        let isEmpty = false;
         // if the element is not a 'component rendering', render it 'raw'
         if (
           !(rendering as ComponentRendering).componentName &&
@@ -205,10 +244,12 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
         let component;
 
-        if (componentRendering.componentName === HIDDEN_RENDERING_NAME) {
+        if (componentRendering.componentName === constants.HIDDEN_RENDERING_NAME) {
           component = hiddenRenderingComponent ?? HiddenRendering;
+          isEmpty = true;
         } else if (!componentRendering.componentName) {
           component = () => <></>;
+          isEmpty = true;
         } else {
           component = this.getComponentForRendering(componentRendering);
         }
@@ -232,6 +273,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           );
 
           component = missingComponentComponent ?? MissingComponent;
+          isEmpty = true;
         }
 
         const finalProps = {
@@ -251,12 +293,56 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           rendering: componentRendering,
         };
 
-        return React.createElement<{ [attr: string]: unknown }>(
+        let rendered = React.createElement<{ [attr: string]: unknown }>(
           component as React.ComponentType,
           this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
         );
+
+        if (!isEmpty) {
+          // assign type based on passed element - type='text/sitecore' should be ignored when renderEach Placeholder prop function is being used
+          const type = rendered.props.type === 'text/sitecore' ? rendered.props.type : '';
+          // wrapping with error boundary could cause problems in case where parent component uses withPlaceholder HOC and tries to access its children props
+          // that's why we need to expose element's props here
+          rendered = (
+            <ErrorBoundary
+              key={rendered.type + '-' + index}
+              errorComponent={this.props.errorComponent}
+              componentLoadingMessage={this.props.componentLoadingMessage}
+              type={type}
+              isDynamic={(component as JssComponentType).render?.preload ? true : false}
+              {...rendered.props}
+            >
+              {rendered}
+            </ErrorBoundary>
+          );
+        }
+
+        // if editMode is equal to 'metadata' then emit shallow chromes for hydration in Pages
+        if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
+          return (
+            <PlaceholderMetadata key={key} rendering={rendering as ComponentRendering}>
+              {rendered}
+            </PlaceholderMetadata>
+          );
+        }
+
+        return rendered;
       })
       .filter((element) => element); // remove nulls
+
+    if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
+      return [
+        <PlaceholderMetadata
+          key={(this.props.rendering as ComponentRendering).uid}
+          placeholderName={name}
+          rendering={this.props.rendering as ComponentRendering}
+        >
+          {transformedComponents}
+        </PlaceholderMetadata>,
+      ];
+    }
+
+    return transformedComponents;
   }
 
   getComponentForRendering(renderingDefinition: ComponentRendering): ComponentType | null {

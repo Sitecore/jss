@@ -29,27 +29,6 @@ Calculates the delay (in milliseconds) before the next retry based on the given 
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `error` | `ClientError` | The error received from the GraphQL request. |
-| `attempt` | `number` | The current attempt number. |
-
-#### Returns
-
-`number`
-
-The delay in milliseconds before the next retry.
-
-#### Defined in
-
-sitecore-jss/types/graphql-request-client.d.ts:35
-
-▸ **getDelay**(`error`, `attempt`): `number`
-
-Calculates the delay (in milliseconds) before the next retry based on the given error and attempt count.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
 | `error` | [`GraphQLClientError`](../modules/graphql.md#graphqlclienterror) | The error received from the GraphQL request. |
 | `attempt` | `number` | The current attempt number. |
 
@@ -61,7 +40,7 @@ The delay in milliseconds before the next retry.
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:62
+sitecore-jss/types/graphql-request-client.d.ts:42
 
 ___
 
@@ -75,28 +54,6 @@ Determines whether a request should be retried based on the given error and atte
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `error` | `ClientError` | The error received from the GraphQL request. |
-| `attempt` | `number` | The current attempt number. |
-| `retries` | `number` | The number of retries configured. |
-
-#### Returns
-
-`boolean`
-
-A boolean indicating whether to retry the request.
-
-#### Defined in
-
-sitecore-jss/types/graphql-request-client.d.ts:28
-
-▸ **shouldRetry**(`error`, `attempt`, `retries`): `boolean`
-
-Determines whether a request should be retried based on the given error and attempt count.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
 | `error` | [`GraphQLClientError`](../modules/graphql.md#graphqlclienterror) | The error received from the GraphQL request. |
 | `attempt` | `number` | The current attempt number. |
 | `retries` | `number` | The number of retries configured. |
@@ -109,4 +66,4 @@ A boolean indicating whether to retry the request.
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:55
+sitecore-jss/types/graphql-request-client.d.ts:35

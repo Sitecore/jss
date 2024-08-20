@@ -1,4 +1,10 @@
-import { ComponentRendering, ComponentFields, Field, HtmlElementRendering } from './models';
+import {
+  ComponentRendering,
+  ComponentFields,
+  Field,
+  GenericFieldValue,
+  HtmlElementRendering,
+} from './models';
 
 /**
  * Safely extracts a field value from a rendering or fields object.
@@ -71,4 +77,53 @@ export function getChildPlaceholder(
   }
 
   return rendering.placeholders[placeholderName];
+}
+
+/**
+ * The default value for an empty Date field.
+ * This value is defined as a default one by .NET
+ */
+export const EMPTY_DATE_FIELD_VALUE = '0001-01-01T00:00:00Z';
+
+/**
+ * Determines if the passed in field object's value is empty.
+ * @param {GenericFieldValue | Partial<Field>} field the field object.
+ * Partial<T> type is used here because _field.value_ could be required or optional for the different field types
+ */
+export function isFieldValueEmpty(field: GenericFieldValue | Partial<Field>): boolean {
+  const isImageFieldEmpty = (fieldValue: GenericFieldValue) =>
+    !(fieldValue as { [key: string]: unknown }).src;
+  const isFileFieldEmpty = (fieldValue: GenericFieldValue) =>
+    !(fieldValue as { [key: string]: unknown }).src;
+  const isLinkFieldEmpty = (fieldValue: GenericFieldValue) =>
+    !(fieldValue as { [key: string]: unknown }).href;
+  const isDateFieldEmpty = (fieldValue: GenericFieldValue) => fieldValue === EMPTY_DATE_FIELD_VALUE;
+
+  const isEmpty = (fieldValue: GenericFieldValue) => {
+    if (fieldValue === null || fieldValue === undefined) {
+      return true;
+    }
+
+    if (typeof fieldValue === 'object') {
+      return (
+        isImageFieldEmpty(fieldValue) &&
+        isFileFieldEmpty(fieldValue) &&
+        isLinkFieldEmpty(fieldValue)
+      );
+    } else if (typeof fieldValue === 'number' || typeof fieldValue === 'boolean') {
+      // Avoid returning true for 0 and false values
+      return false;
+    } else {
+      return !fieldValue || isDateFieldEmpty(fieldValue);
+    }
+  };
+
+  if (!field) return true;
+
+  const dynamicField = field as Partial<Field>;
+  if (dynamicField.value !== undefined) {
+    return isEmpty(dynamicField.value);
+  }
+
+  return isEmpty(field as GenericFieldValue);
 }

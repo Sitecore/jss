@@ -58,8 +58,8 @@ describe('<FEaaSComponent />', () => {
     };
     const wrapper = shallow(<FEaaSComponent {...props} />);
     expect(wrapper).to.have.length(1);
-    expect(wrapper.html()).to.contain(
-      '<feaas-component class="-feaas" cdn="host123" library="library123" version="version123" component="component123" revision="staged"'
+    expect(wrapper.html()).to.equal(
+      '<feaas-component class="-feaas" cdn="host123" library="library123" version="version123" component="component123" revision="staged" fetch=""></feaas-component>'
     );
   });
 

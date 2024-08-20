@@ -29,27 +29,6 @@ Calculates the delay (in milliseconds) before the next retry based on the given 
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `error` | [`ClientError`](../classes/index.ClientError.md) | The error received from the GraphQL request. |
-| `attempt` | `number` | The current attempt number. |
-
-#### Returns
-
-`number`
-
-The delay in milliseconds before the next retry.
-
-#### Defined in
-
-[packages/sitecore-jss/src/graphql-request-client.ts:36](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/graphql-request-client.ts#L36)
-
-▸ **getDelay**(`error`, `attempt`): `number`
-
-Calculates the delay (in milliseconds) before the next retry based on the given error and attempt count.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
 | `error` | [`GraphQLClientError`](../modules/graphql.md#graphqlclienterror) | The error received from the GraphQL request. |
 | `attempt` | `number` | The current attempt number. |
 
@@ -61,7 +40,7 @@ The delay in milliseconds before the next retry.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:65](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/graphql-request-client.ts#L65)
+[packages/sitecore-jss/src/graphql-request-client.ts:45](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/graphql-request-client.ts#L45)
 
 ___
 
@@ -75,28 +54,6 @@ Determines whether a request should be retried based on the given error and atte
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `error` | [`ClientError`](../classes/index.ClientError.md) | The error received from the GraphQL request. |
-| `attempt` | `number` | The current attempt number. |
-| `retries` | `number` | The number of retries configured. |
-
-#### Returns
-
-`boolean`
-
-A boolean indicating whether to retry the request.
-
-#### Defined in
-
-[packages/sitecore-jss/src/graphql-request-client.ts:29](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/graphql-request-client.ts#L29)
-
-▸ **shouldRetry**(`error`, `attempt`, `retries`): `boolean`
-
-Determines whether a request should be retried based on the given error and attempt count.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
 | `error` | [`GraphQLClientError`](../modules/graphql.md#graphqlclienterror) | The error received from the GraphQL request. |
 | `attempt` | `number` | The current attempt number. |
 | `retries` | `number` | The number of retries configured. |
@@ -109,4 +66,4 @@ A boolean indicating whether to retry the request.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:58](https://github.com/Sitecore/jss/blob/bcac2d1f6/packages/sitecore-jss/src/graphql-request-client.ts#L58)
+[packages/sitecore-jss/src/graphql-request-client.ts:38](https://github.com/Sitecore/jss/blob/2fd13c9a3/packages/sitecore-jss/src/graphql-request-client.ts#L38)
