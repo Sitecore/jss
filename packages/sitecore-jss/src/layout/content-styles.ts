@@ -1,7 +1,6 @@
 import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
 import {
   ComponentRendering,
-  DatasourceField,
   Field,
   HtmlElementRendering,
   Item,
@@ -60,10 +59,7 @@ export const traversePlaceholder = (
   });
 };
 
-export const traverseField = (
-  field: Field | Item | Item[] | DatasourceField | undefined,
-  config: Config
-) => {
+export const traverseField = (field: Field | Item | Item[] | undefined, config: Config) => {
   if (!field || config.loadStyles) return;
 
   if ('editable' in field && field.editable) {

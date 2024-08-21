@@ -16,7 +16,6 @@ export {
   ComponentParams,
   EditMode,
   FieldMetadata,
-  DatasourceField,
 } from './models';
 
 export {

@@ -76,15 +76,11 @@ export type PlaceholdersData<TYPEDNAME extends string = string> = {
   [P in TYPEDNAME]: Array<ComponentRendering | HtmlElementRendering>;
 };
 
-export interface DatasourceField {
-  datasource: Item;
-}
-
 /**
  * Content field data passed to a component
  */
 export interface ComponentFields {
-  [name: string]: Field | Item | Item[] | DatasourceField;
+  [name: string]: Field | Item | Item[];
 }
 
 /**
@@ -97,12 +93,12 @@ export interface ComponentParams {
 /**
  * Definition of a component instance within a placeholder on a route
  */
-export interface ComponentRendering {
+export interface ComponentRendering<T = ComponentFields> {
   componentName: string;
   dataSource?: string;
   uid?: string;
   placeholders?: PlaceholdersData;
-  fields?: ComponentFields;
+  fields?: T;
   params?: ComponentParams;
 }
 
@@ -150,12 +146,6 @@ export interface Item {
   url?: string;
   fields: {
     [name: string]: Field | Item | Item[] | undefined;
-  };
-  field?: {
-    [name: string]: Field;
-  };
-  children?: {
-    results: Item[];
   };
 }
 
