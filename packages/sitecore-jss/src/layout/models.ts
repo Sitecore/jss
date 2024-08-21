@@ -76,11 +76,15 @@ export type PlaceholdersData<TYPEDNAME extends string = string> = {
   [P in TYPEDNAME]: Array<ComponentRendering | HtmlElementRendering>;
 };
 
+export interface DatasourceField {
+  datasource: Item;
+}
+
 /**
  * Content field data passed to a component
  */
 export interface ComponentFields {
-  [name: string]: Field | Item | Item[];
+  [name: string]: Field | Item | Item[] | DatasourceField;
 }
 
 /**
@@ -137,7 +141,7 @@ export interface FieldMetadata {
 }
 
 /**
- * Content data returned from Content Service
+ * Content data returned from Layout Service
  */
 export interface Item {
   name: string;
@@ -146,6 +150,12 @@ export interface Item {
   url?: string;
   fields: {
     [name: string]: Field | Item | Item[] | undefined;
+  };
+  field?: {
+    [name: string]: Field;
+  };
+  children?: {
+    results: Item[];
   };
 }
 
