@@ -1,15 +1,15 @@
-import regexParser from 'regex-parser';
-import { NextResponse, NextRequest } from 'next/server';
+import { debug } from '@sitecore-jss/sitecore-jss';
 import {
-  RedirectInfo,
   GraphQLRedirectsService,
   GraphQLRedirectsServiceConfig,
   REDIRECT_TYPE_301,
   REDIRECT_TYPE_302,
   REDIRECT_TYPE_SERVER_TRANSFER,
+  RedirectInfo,
   SiteInfo,
 } from '@sitecore-jss/sitecore-jss/site';
-import { debug } from '@sitecore-jss/sitecore-jss';
+import { NextRequest, NextResponse } from 'next/server';
+import regexParser from 'regex-parser';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
 
 const REGEXP_CONTEXT_SITE_LANG = new RegExp(/\$siteLang/, 'i');
@@ -143,6 +143,20 @@ export class RedirectsMiddleware extends MiddlewareBase {
         url.href = prepareNewURL.href;
       }
 
+      const normalizedHeaders = new Headers();
+
+      /**
+       * FIX for Netlify service
+       * Netlify doesn’t handle 301/302 redirects if Next.js sets the header x-middleware-next.
+       */
+      if (res?.headers) {
+        res.headers.forEach((value, key) => {
+          if (key.toLowerCase() !== 'x-middleware-next') {
+            normalizedHeaders.set(key, value);
+          }
+        });
+      }
+
       const redirectUrl = decodeURIComponent(url.href);
 
       /** return Response redirect with http code of redirect type **/
@@ -152,14 +166,14 @@ export class RedirectsMiddleware extends MiddlewareBase {
             ...res,
             status: 301,
             statusText: 'Moved Permanently',
-            headers: res?.headers,
+            headers: normalizedHeaders,
           });
         case REDIRECT_TYPE_302:
           return NextResponse.redirect(redirectUrl, {
             ...res,
             status: 302,
             statusText: 'Found',
-            headers: res?.headers,
+            headers: normalizedHeaders,
           });
         case REDIRECT_TYPE_SERVER_TRANSFER: {
           return this.rewrite(redirectUrl, req, res || NextResponse.next());
