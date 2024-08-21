@@ -19,8 +19,6 @@ export class NavigationComponent extends SxaComponent implements OnInit, OnDestr
 
   ngOnInit() {
     super.ngOnInit();
-    console.log(this.rendering);
-    console.log(this.rendering.fields);
     this.contextSubscription = this.jssContext.state.subscribe((newState) => {
       this.isEditing = newState.sitecore && newState.sitecore.context.pageEditing;
     });

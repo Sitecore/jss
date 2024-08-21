@@ -39,7 +39,6 @@ export class NavigationItemComponent implements OnInit {
   }
 
   onClick(event: Event) {
-    console.log('hi from child');
     this.childLinkClickEvent.emit(event);
   }
 
