@@ -35,6 +35,7 @@ Our versioning strategy is as follows:
   * Angular SXA layout ([#1873](https://github.com/Sitecore/jss/pull/1873))([#1880](https://github.com/Sitecore/jss/pull/1880))([#1890](https://github.com/Sitecore/jss/pull/1890))
   * Link-List ([#1898](https://github.com/Sitecore/jss/pull/1898))
   * Column-Splitter ([#1889](https://github.com/Sitecore/jss/pull/1889))
+  * PartialDesignDynamicPlaceholder ([#1902](https://github.com/Sitecore/jss/pull/1902))
 
 ### 🛠 Breaking Change
 
