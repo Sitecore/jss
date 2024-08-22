@@ -576,7 +576,7 @@ function createOptions(
  * @param {ProxyConfig} config
  * @param {RouteUrlParser} parseRouteUrl
  */
-export default function scProxy(
+export function middleware(
   renderer: AppRenderer,
   config: ProxyConfig,
   parseRouteUrl: RouteUrlParser

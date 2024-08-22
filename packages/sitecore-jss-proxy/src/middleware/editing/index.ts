@@ -113,7 +113,6 @@ export const editingRouter = (options: EditingRouterConfig) => {
     return null;
   });
 
-  // Middleware to handle invalid method/path
   router.use(editingNotFoundMiddleware);
 
   return router;
