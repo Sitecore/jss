@@ -10,6 +10,6 @@ export class PartialDesignDynamicPlaceholderComponent extends SxaComponent imple
   ngOnInit() {
     super.ngOnInit();
 
-    this.sig = this.rendering.params?.sig;
+    this.sig = this.rendering.params?.sig || '';
   }
 }

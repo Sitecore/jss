@@ -18,11 +18,11 @@ Contents of a single placeholder returned from placeholder service
 
 ### elements
 
-• **elements**: ([`ComponentRendering`](layout.ComponentRendering.md) \| [`HtmlElementRendering`](layout.HtmlElementRendering.md))[]
+• **elements**: ([`ComponentRendering`](layout.ComponentRendering.md)\<[`ComponentFields`](layout.ComponentFields.md)\> \| [`HtmlElementRendering`](layout.HtmlElementRendering.md))[]
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:158](https://github.com/Sitecore/jss/blob/1b68e94e9/packages/sitecore-jss/src/layout/models.ts#L158)
+[packages/sitecore-jss/src/layout/models.ts:158](https://github.com/Sitecore/jss/blob/491f8e930/packages/sitecore-jss/src/layout/models.ts#L158)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:156](https://github.com/Sitecore/jss/blob/1b68e94e9/packages/sitecore-jss/src/layout/models.ts#L156)
+[packages/sitecore-jss/src/layout/models.ts:156](https://github.com/Sitecore/jss/blob/491f8e930/packages/sitecore-jss/src/layout/models.ts#L156)
 
 ___
 
@@ -42,4 +42,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:157](https://github.com/Sitecore/jss/blob/1b68e94e9/packages/sitecore-jss/src/layout/models.ts#L157)
+[packages/sitecore-jss/src/layout/models.ts:157](https://github.com/Sitecore/jss/blob/491f8e930/packages/sitecore-jss/src/layout/models.ts#L157)
