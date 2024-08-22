@@ -27,6 +27,8 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
+    "@sitecore-jss/sitecore-jss": "22.2.0-canary.26",
+    "express": "^4.19.2",
     "http-proxy-middleware": "^2.0.6",
     "http-status-codes": "^2.2.0",
     "set-cookie-parser": "^2.5.1"
