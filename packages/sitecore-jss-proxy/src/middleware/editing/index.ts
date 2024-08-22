@@ -29,7 +29,7 @@ export const editingMiddleware = async (
   const secret = process.env.JSS_EDITING_SECRET;
 
   debug.editing('editing middleware start: %o', {
-    path: req.path,
+    path: req.originalUrl,
     method: req.method,
     query: req.query,
     headers: req.headers,

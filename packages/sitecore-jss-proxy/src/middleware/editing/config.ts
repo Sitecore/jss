@@ -10,7 +10,7 @@ export type EditingConfigEndpointOptions = {
    */
   path?: string;
   /**
-   * Components available in the application
+   * Components registered in the application
    */
   components: string[] | Map<string, unknown>;
   /**

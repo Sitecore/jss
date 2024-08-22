@@ -3,6 +3,7 @@ import {
   GraphQLRequestClientFactoryConfig,
 } from '@sitecore-jss/sitecore-jss';
 import { DictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
+import { Metadata } from '@sitecore-jss/sitecore-jss/utils';
 import { LayoutService, LayoutServiceData } from '@sitecore-jss/sitecore-jss/layout';
 
 interface ServerResponse {
@@ -52,6 +53,8 @@ export interface ServerBundle {
   defaultLanguage: string;
   layoutServiceFactory: { create: () => LayoutService };
   dictionaryServiceFactory: { create: () => DictionaryService };
+  components: string[];
+  metadata: Metadata;
 }
 
 export interface Config {

@@ -79,12 +79,14 @@ function generateComponentFactory() {
   const registrations: string[] = [];
   const lazyRegistrations: string[] = [];
   const declarations: string[] = [];
+  const components: string[] = [];
 
   packages.forEach((p) => {
     const variables = p.components
       .map((c) => {
         registrations.push(`{ name: '${c.componentName}', type: ${c.moduleName} },`);
         declarations.push(`${c.moduleName},`);
+        components.push(c.componentName);
 
         return c.moduleName;
       })
@@ -118,6 +120,8 @@ function generateComponentFactory() {
     const componentName = componentClassMatch[1];
     const importVarName = `${componentName}Component`;
 
+    components.push(componentName);
+
     // check for lazy loading needs
     const moduleFilePath = path.join(componentRootPath, componentFolder, `${componentFolder}.module.ts`);
     const isLazyLoaded = fs.existsSync(moduleFilePath);
@@ -143,6 +147,10 @@ import { NgModule } from '@angular/core';
 import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { AppComponentsSharedModule } from './app-components.shared.module';
 ${imports.join('\n')}
+
+export const components = [
+  ${components.map((c) => `'${c}'`).join(',\n  ')}
+];
 
 @NgModule({
   imports: [

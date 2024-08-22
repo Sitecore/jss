@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { ProxyConfig } from '../ProxyConfig';
+import { ProxyConfig } from '../middleware/headless-ssr-proxy/ProxyConfig';
 
 const config: ProxyConfig = {
   apiHost: 'http://jssadvancedapp',

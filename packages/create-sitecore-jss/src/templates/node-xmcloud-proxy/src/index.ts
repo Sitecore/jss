@@ -27,6 +27,8 @@ const requiredProperties = [
   'defaultLanguage',
   'layoutServiceFactory',
   'dictionaryServiceFactory',
+  'components',
+  'metadata',
 ];
 
 const missingProperties = requiredProperties.filter((property) => !config.serverBundle[property]);
@@ -130,13 +132,8 @@ server.use(
   '/api/editing',
   editingRouter({
     config: {
-      components: ['ContentBlock', 'Foo'],
-      metadata: {
-        packages: {
-          '@sitecore-jss/sitecore-jss-react': 'latest',
-        },
-      },
-      path: '/test',
+      components: config.serverBundle.components,
+      metadata: config.serverBundle.metadata,
     },
   })
 );
