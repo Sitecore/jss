@@ -1,10 +1,7 @@
-import { expect, use } from 'chai';
-import sinonChai from 'sinon-chai';
+import { expect } from 'chai';
 import express from 'express';
 import request from 'supertest';
 import { editingRouter } from './index';
-
-use(sinonChai);
 
 describe('editingRouter', () => {
   const defaultOptions = {
