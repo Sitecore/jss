@@ -1,4 +1,4 @@
-import { QUERY_PARAM_EDITING_SECRET } from './constants';
+import { QUERY_PARAM_EDITING_SECRET } from '@sitecore-jss/sitecore-jss/editing';
 import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from './editing-data';
 import { EditingDataCache, editingDataDiskCache } from './editing-data-cache';

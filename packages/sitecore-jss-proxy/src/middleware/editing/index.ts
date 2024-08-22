@@ -1,9 +1,23 @@
 import { NextFunction, Request, Response, Router } from 'express';
 import { debug } from '@sitecore-jss/sitecore-jss';
+import {
+  EDITING_ALLOWED_ORIGINS,
+  QUERY_PARAM_EDITING_SECRET,
+} from '@sitecore-jss/sitecore-jss/editing';
 import { enforceCors } from '@sitecore-jss/sitecore-jss/utils';
-import { EDITING_ALLOWED_ORIGINS, QUERY_PARAM_EDITING_SECRET } from '../utils';
 import { EditingConfigEndpointOptions, editingConfigMiddleware } from './config';
 
+/**
+ * Default endpoints for editing requests
+ */
+const ENDPOINTS = {
+  CONFIG: '/config',
+  RENDER: '/render',
+};
+
+/**
+ * Configuration for the editing router
+ */
 export type EditingRouterConfig = {
   /**
    * Configuration for the /config endpoint
@@ -20,6 +34,12 @@ export type EditingRouterConfig = {
   };
 };
 
+/**
+ * Middleware to handle editing requests
+ * @param {Request} req Request
+ * @param {Response} res Response
+ * @param {NextFunction} next Next function
+ */
 export const editingMiddleware = async (
   req: Request,
   res: Response,
@@ -62,23 +82,34 @@ export const editingMiddleware = async (
   return next();
 };
 
+/**
+ * Middleware to handle invalid method or path
+ * @param {Request} req Request
+ * @param {Response} res Response
+ */
 const editingNotFoundMiddleware = (req: Request, res: Response) => {
   debug.editing('invalid method or path - sent %s %s', req.method, req.originalUrl);
-
-  res.setHeader('Allow', 'GET');
 
   return res.status(405).json({
     html: `<html><body>Invalid request method or path ${req.method} ${req.originalUrl}</body></html>`,
   });
 };
 
+/**
+ * Creates a router for editing requests.
+ * Supports the following routes:
+ * - <routerPath>/render (GET) - renders a route
+ * - <routerPath>/config (GET) - returns the current application configuration
+ * @param {EditingRouterConfig} options Editing router configuration
+ * @returns {Router} Editing router
+ */
 export const editingRouter = (options: EditingRouterConfig) => {
   const router = Router();
 
   router.use(editingMiddleware);
 
-  router.get(options.config.path || '/config', editingConfigMiddleware(options.config));
-  router.get(options.render?.path || '/render', () => {
+  router.get(options.config.path || ENDPOINTS.CONFIG, editingConfigMiddleware(options.config));
+  router.get(options.render?.path || ENDPOINTS.RENDER, () => {
     return null;
   });
 

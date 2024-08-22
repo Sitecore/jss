@@ -75,6 +75,48 @@ describe('editingRouter', () => {
       });
   });
 
+  it('should throw 405 error when not allowed method is used', (done) => {
+    process.env.JSS_EDITING_SECRET = 'correct';
+
+    app.use('/api/editing', editingRouter(defaultOptions));
+
+    request(app)
+      .post('/api/editing/config')
+      .query({ secret: 'correct' })
+      .expect(405)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.body.html).to.equal(
+          '<html><body>Invalid request method or path POST /api/editing/config?secret=correct</body></html>'
+        );
+
+        delete process.env.JSS_EDITING_SECRET;
+
+        done();
+      });
+  });
+
+  it('should throw 405 error when not allowed path is used', (done) => {
+    process.env.JSS_EDITING_SECRET = 'correct';
+
+    app.use('/api/editing', editingRouter(defaultOptions));
+
+    request(app)
+      .get('/api/editing/fake-config')
+      .query({ secret: 'correct' })
+      .expect(405)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.body.html).to.equal(
+          '<html><body>Invalid request method or path GET /api/editing/fake-config?secret=correct</body></html>'
+        );
+
+        delete process.env.JSS_EDITING_SECRET;
+
+        done();
+      });
+  });
+
   describe('/config', () => {
     it('should return editing config', (done) => {
       process.env.JSS_EDITING_SECRET = 'correct';

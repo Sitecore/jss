@@ -5,10 +5,9 @@ import { createProxyMiddleware, Options } from 'http-proxy-middleware';
 import HttpStatus from 'http-status-codes';
 import setCookieParser, { Cookie } from 'set-cookie-parser';
 import zlib from 'zlib'; // node.js standard lib
-import { AppRenderer } from './AppRenderer';
+import { AppRenderer, RenderResponse } from '../../types/AppRenderer';
+import { RouteUrlParser } from '../../types/RouteUrlParser';
 import { ProxyConfig, LayoutServiceData, ServerBundle } from './ProxyConfig';
-import { RenderResponse } from './RenderResponse';
-import { RouteUrlParser } from './RouteUrlParser';
 import { buildQueryString, tryParseJson } from '../../util';
 
 interface ExtendedRequest extends Request {

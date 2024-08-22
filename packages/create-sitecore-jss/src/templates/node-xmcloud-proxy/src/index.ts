@@ -128,6 +128,9 @@ server.use(
   })
 );
 
+/**
+ * Proxy editing requests through the editing router
+ */
 server.use(
   '/api/editing',
   editingRouter({

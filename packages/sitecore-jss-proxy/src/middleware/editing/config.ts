@@ -1,7 +1,11 @@
-import { Request, Response } from 'express';
+import { Request, RequestHandler, Response } from 'express';
+import { debug } from '@sitecore-jss/sitecore-jss';
 import { EditMode } from '@sitecore-jss/sitecore-jss/layout';
 import { Metadata } from '@sitecore-jss/sitecore-jss/utils';
 
+/**
+ * Configuration for the editing config endpoint
+ */
 export type EditingConfigEndpointOptions = {
   /**
    * Custom path for the endpoint. Default is `<routerPath>/config`
@@ -19,15 +23,29 @@ export type EditingConfigEndpointOptions = {
   metadata: Metadata;
 };
 
-export const editingConfigMiddleware = (config: EditingConfigEndpointOptions) => async (
+/**
+ * Middleware to handle editing config requests
+ * @param {EditingConfigEndpointOptions} config Configuration for the endpoint
+ * @returns {RequestHandler} Middleware function
+ */
+export const editingConfigMiddleware = (config: EditingConfigEndpointOptions): RequestHandler => (
   _req: Request,
   res: Response
-): Promise<unknown> => {
+): void => {
+  debug.editing('editing config middleware start');
+
+  const startTimestamp = Date.now();
+
   const components = Array.isArray(config.components)
     ? config.components
     : Array.from(config.components.keys());
 
-  return res.status(200).json({
+  debug.editing('editing config middleware end in %dms: %o', Date.now() - startTimestamp, {
+    components,
+    packages: config.metadata.packages,
+  });
+
+  res.status(200).json({
     components,
     packages: config.metadata.packages,
     editMode: EditMode.Metadata,
