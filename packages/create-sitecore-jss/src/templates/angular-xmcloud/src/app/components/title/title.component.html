@@ -1,0 +1,14 @@
+<div class="component title {{ styles }}" [attr.id]="id">
+  <div clas="component-content">
+    <div class="field-title">
+      <ng-container *ngIf="!pageEditing; else textOnly">
+        <a *scLink="link">
+          <ng-content *scText="text"></ng-content>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+  <ng-template #textOnly>
+    <ng-content [scText]="text"></ng-content>
+  </ng-template>
+</div>
