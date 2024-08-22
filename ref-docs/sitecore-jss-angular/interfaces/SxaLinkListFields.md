@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:54](https://github.com/Sitecore/jss/blob/284ab8f9d/packages/sitecore-jss-angular/src/components/rendering-field.ts#L54)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:54](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/rendering-field.ts#L54)
