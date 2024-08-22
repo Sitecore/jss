@@ -93,12 +93,12 @@ export interface ComponentParams {
 /**
  * Definition of a component instance within a placeholder on a route
  */
-export interface ComponentRendering {
+export interface ComponentRendering<T = ComponentFields> {
   componentName: string;
   dataSource?: string;
   uid?: string;
   placeholders?: PlaceholdersData;
-  fields?: ComponentFields;
+  fields?: T;
   params?: ComponentParams;
 }
 
@@ -137,7 +137,7 @@ export interface FieldMetadata {
 }
 
 /**
- * Content data returned from Content Service
+ * Content data returned from Layout Service
  */
 export interface Item {
   name: string;
