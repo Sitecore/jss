@@ -10,7 +10,7 @@ import {
   BasicEditingDataService,
   generateKey,
 } from './editing-data-service';
-import { QUERY_PARAM_EDITING_SECRET } from './constants';
+import { QUERY_PARAM_EDITING_SECRET } from '@sitecore-jss/sitecore-jss/editing';
 import sinonChai from 'sinon-chai';
 import { spy } from 'sinon';
 
