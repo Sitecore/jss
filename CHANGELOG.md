@@ -37,6 +37,7 @@ Our versioning strategy is as follows:
   * Link-List ([#1898](https://github.com/Sitecore/jss/pull/1898))
   * Column-Splitter ([#1889](https://github.com/Sitecore/jss/pull/1889))
   * Promo component ([#1897](https://github.com/Sitecore/jss/pull/1897))
+  * Page-Content component ([#1905](https://github.com/Sitecore/jss/pull/1905))
 
 ### 🛠 Breaking Change
 
