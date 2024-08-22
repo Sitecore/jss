@@ -28,6 +28,7 @@ export class TitleComponent extends SxaComponent<SxaTitleFields> implements OnIn
       value: {
         href: datasource?.url?.path,
         title: datasource?.field?.jsonValue?.value,
+        text: datasource?.field?.jsonValue?.value,
       },
     };
     this.contextSubscription = this.jssContext.state.subscribe(({ sitecore }) => {
