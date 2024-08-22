@@ -1,8 +1,6 @@
-<ng-container [ngTemplateOutlet]="variant"></ng-container>
-
-<ng-template #default>
-  <div class="component promo {{ styles }}" [attr.id]="id">
-    <div class="component-content">
+<div class="component promo {{ styles }}" [attr.id]="id">
+  <div class="component-content">
+    <ng-container *ngIf="rendering.fields; else empty">
       <div class="field-promoicon">
         <img *scImage="rendering.fields.PromoIcon" />
       </div>
@@ -16,34 +14,10 @@
           <a *scLink="rendering.fields.PromoLink"></a>
         </div>
       </div>
-    </div>
+    </ng-container>
   </div>
-</ng-template>
-
-<ng-template #withText>
-  <div class="component promo {{ styles }}" [attr.id]="id">
-    <div className="component-content">
-      <div className="field-promoicon">
-        <img *scImage="rendering.fields.PromoIcon" />
-      </div>
-      <div className="promo-text">
-        <div>
-          <div className="field-promotext">
-            <div class="promo-text" *scRichText="rendering.fields.PromoText"></div>
-          </div>
-        </div>
-        <div className="field-promotext">
-          <div class="promo-text" *scRichText="rendering.fields.PromoText2"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</ng-template>
+</div>
 
 <ng-template #empty>
-  <div class="component promo {{ styles }}">
-    <div className="component-content">
-      <span className="is-empty-hint">Promo</span>
-    </div>
-  </div>
+  <span className="is-empty-hint">Promo</span>
 </ng-template>
