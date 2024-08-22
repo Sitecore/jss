@@ -1,10 +1,16 @@
 [@sitecore-jss/sitecore-jss-nextjs](../README.md) / [index](../modules/index.md) / ComponentRendering
 
-# Interface: ComponentRendering
+# Interface: ComponentRendering\<T\>
 
 [index](../modules/index.md).ComponentRendering
 
 Definition of a component instance within a placeholder on a route
+
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | [`ComponentFields`](index.ComponentFields.md) |
 
 ## Table of contents
 
@@ -41,7 +47,7 @@ ___
 
 ### fields
 
-• `Optional` **fields**: [`ComponentFields`](index.ComponentFields.md)
+• `Optional` **fields**: `T`
 
 #### Defined in
 

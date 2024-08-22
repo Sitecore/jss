@@ -130,11 +130,13 @@ export class RedirectsMiddleware extends MiddlewareBase {
           .replace(/^\/\//, '/')
           .split('?');
 
-        if (target[1]) {
-          const movedSearchParams = existsRedirect.isQueryStringPreserved
-            ? url.search.replace(/^\?/gi, '&')
-            : '';
-          url.search = '?' + new URLSearchParams(`${target[1]}${movedSearchParams}`).toString();
+        if (url.search && existsRedirect.isQueryStringPreserved) {
+          const targetQueryString = target[1] ?? '';
+          url.search = '?' + new URLSearchParams(`${url.search}&${targetQueryString}`).toString();
+        } else if (target[1]) {
+          url.search = '?' + target[1];
+        } else {
+          url.search = '';
         }
 
         const prepareNewURL = new URL(`${target[0]}${url.search}`, url.origin);

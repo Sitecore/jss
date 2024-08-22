@@ -1,10 +1,16 @@
 [@sitecore-jss/sitecore-jss](../README.md) / [layout](../modules/layout.md) / ComponentRendering
 
-# Interface: ComponentRendering
+# Interface: ComponentRendering\<T\>
 
 [layout](../modules/layout.md).ComponentRendering
 
 Definition of a component instance within a placeholder on a route
+
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | [`ComponentFields`](layout.ComponentFields.md) |
 
 ## Table of contents
 
@@ -25,7 +31,7 @@ Definition of a component instance within a placeholder on a route
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:97](https://github.com/Sitecore/jss/blob/ea9e6c798/packages/sitecore-jss/src/layout/models.ts#L97)
+[packages/sitecore-jss/src/layout/models.ts:97](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss/src/layout/models.ts#L97)
 
 ___
 
@@ -35,17 +41,17 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:98](https://github.com/Sitecore/jss/blob/ea9e6c798/packages/sitecore-jss/src/layout/models.ts#L98)
+[packages/sitecore-jss/src/layout/models.ts:98](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss/src/layout/models.ts#L98)
 
 ___
 
 ### fields
 
-• `Optional` **fields**: [`ComponentFields`](layout.ComponentFields.md)
+• `Optional` **fields**: `T`
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:101](https://github.com/Sitecore/jss/blob/ea9e6c798/packages/sitecore-jss/src/layout/models.ts#L101)
+[packages/sitecore-jss/src/layout/models.ts:101](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss/src/layout/models.ts#L101)
 
 ___
 
@@ -55,7 +61,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:102](https://github.com/Sitecore/jss/blob/ea9e6c798/packages/sitecore-jss/src/layout/models.ts#L102)
+[packages/sitecore-jss/src/layout/models.ts:102](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss/src/layout/models.ts#L102)
 
 ___
 
@@ -65,7 +71,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:100](https://github.com/Sitecore/jss/blob/ea9e6c798/packages/sitecore-jss/src/layout/models.ts#L100)
+[packages/sitecore-jss/src/layout/models.ts:100](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss/src/layout/models.ts#L100)
 
 ___
 
@@ -75,4 +81,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:99](https://github.com/Sitecore/jss/blob/ea9e6c798/packages/sitecore-jss/src/layout/models.ts#L99)
+[packages/sitecore-jss/src/layout/models.ts:99](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss/src/layout/models.ts#L99)

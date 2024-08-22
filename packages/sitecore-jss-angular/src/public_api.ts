@@ -30,6 +30,7 @@ export {
   RenderingField,
   RichTextField,
   TextField,
+  SxaLinkListFields,
 } from './components/rendering-field';
 export { RichTextDirective } from './components/rich-text.directive';
 export { TextDirective } from './components/text.directive';
@@ -56,6 +57,7 @@ export {
   ComponentFields,
   ComponentParams,
   getContentStylesheetLink,
+  EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
 export {
   RetryStrategy,
