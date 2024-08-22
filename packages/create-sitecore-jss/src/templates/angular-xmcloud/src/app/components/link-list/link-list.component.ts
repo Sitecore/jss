@@ -32,6 +32,5 @@ export class LinkListComponent extends SxaComponent<SxaLinkListFields> implement
           this.fieldLinks.push(item.field.link as LinkField);
       });
     }
-    console.log(datasource);
   }
 }
