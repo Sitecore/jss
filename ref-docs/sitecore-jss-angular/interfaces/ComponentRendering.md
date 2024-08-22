@@ -1,8 +1,14 @@
 [@sitecore-jss/sitecore-jss-angular](../README.md) / ComponentRendering
 
-# Interface: ComponentRendering
+# Interface: ComponentRendering\<T\>
 
 Definition of a component instance within a placeholder on a route
+
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | [`ComponentFields`](ComponentFields.md) |
 
 ## Table of contents
 
@@ -39,7 +45,7 @@ ___
 
 ### fields
 
-• `Optional` **fields**: [`ComponentFields`](ComponentFields.md)
+• `Optional` **fields**: `T`
 
 #### Defined in
 

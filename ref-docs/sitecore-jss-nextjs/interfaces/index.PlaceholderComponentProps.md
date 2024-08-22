@@ -207,7 +207,7 @@ ___
 
 ### render
 
-• `Optional` **render**: (`components`: `ReactNode`[], `data`: ([`ComponentRendering`](index.ComponentRendering.md) \| [`HtmlElementRendering`](index.HtmlElementRendering.md))[], `props`: `PlaceholderProps`) => `ReactNode`
+• `Optional` **render**: (`components`: `ReactNode`[], `data`: ([`ComponentRendering`](index.ComponentRendering.md)\<[`ComponentFields`](index.ComponentFields.md)\> \| [`HtmlElementRendering`](index.HtmlElementRendering.md))[], `props`: `PlaceholderProps`) => `ReactNode`
 
 #### Type declaration
 
@@ -221,7 +221,7 @@ Useful for techniques like wrapping each child in a wrapper component.
 | Name | Type |
 | :------ | :------ |
 | `components` | `ReactNode`[] |
-| `data` | ([`ComponentRendering`](index.ComponentRendering.md) \| [`HtmlElementRendering`](index.HtmlElementRendering.md))[] |
+| `data` | ([`ComponentRendering`](index.ComponentRendering.md)\<[`ComponentFields`](index.ComponentFields.md)\> \| [`HtmlElementRendering`](index.HtmlElementRendering.md))[] |
 | `props` | `PlaceholderProps` |
 
 ##### Returns
@@ -291,7 +291,7 @@ ___
 
 ### rendering
 
-• **rendering**: [`ComponentRendering`](index.ComponentRendering.md) \| [`RouteData`](index.RouteData.md)\<`Record`\<`string`, [`Field`](index.Field.md)\<`GenericFieldValue`\> \| [`Item`](index.Item.md) \| [`Item`](index.Item.md)[]\>\>
+• **rendering**: [`ComponentRendering`](index.ComponentRendering.md)\<[`ComponentFields`](index.ComponentFields.md)\> \| [`RouteData`](index.RouteData.md)\<`Record`\<`string`, [`Field`](index.Field.md)\<`GenericFieldValue`\> \| [`Item`](index.Item.md) \| [`Item`](index.Item.md)[]\>\>
 
 Rendering data to be used when rendering the placeholder.
 

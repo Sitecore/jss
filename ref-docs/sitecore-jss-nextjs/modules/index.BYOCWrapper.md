@@ -44,7 +44,7 @@ Will be called during SSR
 
 | Name | Type |
 | :------ | :------ |
-| `rendering` | [`ComponentRendering`](../interfaces/index.ComponentRendering.md) |
+| `rendering` | [`ComponentRendering`](../interfaces/index.ComponentRendering.md)\<[`ComponentFields`](../interfaces/index.ComponentFields.md)\> |
 | `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) |
 | `context` | `GetServerSidePropsContext`\<`ParsedUrlQuery`, `PreviewData`\> |
 
@@ -56,7 +56,7 @@ context
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/1b68e94e9/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/284ab8f9d/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
 
 ___
 
@@ -70,7 +70,7 @@ Will be called during SSG
 
 | Name | Type |
 | :------ | :------ |
-| `rendering` | [`ComponentRendering`](../interfaces/index.ComponentRendering.md) |
+| `rendering` | [`ComponentRendering`](../interfaces/index.ComponentRendering.md)\<[`ComponentFields`](../interfaces/index.ComponentFields.md)\> |
 | `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) |
 | `context` | `GetStaticPropsContext`\<`ParsedUrlQuery`, `PreviewData`\> |
 
@@ -82,4 +82,4 @@ context
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/1b68e94e9/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/284ab8f9d/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
