@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect, use } from 'chai';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { QUERY_PARAM_EDITING_SECRET } from '@sitecore-jss/sitecore-jss/editing'
+import { QUERY_PARAM_EDITING_SECRET } from '@sitecore-jss/sitecore-jss/editing';
 import {
   QUERY_PARAM_VERCEL_PROTECTION_BYPASS,
   QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE,
