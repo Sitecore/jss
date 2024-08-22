@@ -53,7 +53,7 @@ export interface ServerBundle {
   defaultLanguage: string;
   layoutServiceFactory: { create: () => LayoutService };
   dictionaryServiceFactory: { create: () => DictionaryService };
-  components: string[];
+  components: string[] | Map<string, unknown>;
   metadata: Metadata;
 }
 

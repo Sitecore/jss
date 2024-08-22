@@ -47,9 +47,10 @@ export const editingMiddleware = async (
   if (!secret) {
     debug.editing('missing editing secret - set JSS_EDITING_SECRET environment variable');
 
-    return res
-      .status(401)
-      .json({ message: 'Missing editing secret - set JSS_EDITING_SECRET environment variable' });
+    return res.status(401).json({
+      html:
+        '<html><body>Missing editing secret - set JSS_EDITING_SECRET environment variable</body></html>',
+    });
   }
 
   if (secret !== providedSecret) {
