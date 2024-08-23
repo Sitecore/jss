@@ -72,6 +72,7 @@
 - [RetryStrategy](interfaces/RetryStrategy.md)
 - [RichTextField](interfaces/RichTextField.md)
 - [RouteData](interfaces/RouteData.md)
+- [SxaLinkListFields](interfaces/SxaLinkListFields.md)
 - [TextField](interfaces/TextField.md)
 - [TrackingRequestOptions](interfaces/TrackingRequestOptions.md)
 
@@ -253,7 +254,7 @@ packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/1b68e94e9/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -329,7 +330,7 @@ Gets rendering definitions in a given child placeholder under a current renderin
 
 | Name | Type |
 | :------ | :------ |
-| `rendering` | [`ComponentRendering`](interfaces/ComponentRendering.md) |
+| `rendering` | [`ComponentRendering`](interfaces/ComponentRendering.md)\<[`ComponentFields`](interfaces/ComponentFields.md)\> |
 | `placeholderName` | `string` |
 
 #### Returns
@@ -412,7 +413,7 @@ Null will be returned if the field is not defined.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`ComponentFields`](interfaces/ComponentFields.md) | the rendering or fields object to extract the field from |
+| `renderingOrFields` | [`ComponentFields`](interfaces/ComponentFields.md) \| [`ComponentRendering`](interfaces/ComponentRendering.md)\<[`ComponentFields`](interfaces/ComponentFields.md)\> | the rendering or fields object to extract the field from |
 | `fieldName` | `string` | the name of the field to extract |
 
 #### Returns
@@ -437,7 +438,7 @@ packages/sitecore-jss/types/layout/utils.d.ts:9
 
 | Name | Type |
 | :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`ComponentFields`](interfaces/ComponentFields.md) |
+| `renderingOrFields` | [`ComponentFields`](interfaces/ComponentFields.md) \| [`ComponentRendering`](interfaces/ComponentRendering.md)\<[`ComponentFields`](interfaces/ComponentFields.md)\> |
 | `fieldName` | `string` |
 | `defaultValue` | `T` |
 
@@ -505,7 +506,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `rendering` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`HtmlElementRendering`](interfaces/HtmlElementRendering.md) |
+| `rendering` | [`ComponentRendering`](interfaces/ComponentRendering.md)\<[`ComponentFields`](interfaces/ComponentFields.md)\> \| [`HtmlElementRendering`](interfaces/HtmlElementRendering.md) |
 
 #### Returns
 
@@ -513,7 +514,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/1b68e94e9/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 

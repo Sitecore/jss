@@ -1,9 +1,9 @@
 import { IncomingMessage, ServerResponse, Agent } from 'http';
 import { Agent as HttpsAgent } from 'https';
 import { Options } from 'http-proxy-middleware';
-import { AppRenderer } from './AppRenderer';
-import { RenderResponse } from './RenderResponse';
-import { RouteUrlParser } from './RouteUrlParser';
+import { AppRenderer, RenderResponse } from '../../types/AppRenderer';
+import { RouteUrlParser } from '../../types/RouteUrlParser';
+
 /** A reply from the Sitecore Layout Service */
 export interface LayoutServiceData {
   sitecore: {

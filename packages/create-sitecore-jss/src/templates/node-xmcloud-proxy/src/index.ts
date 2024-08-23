@@ -28,6 +28,8 @@ const requiredProperties = [
   'defaultLanguage',
   'layoutServiceFactory',
   'dictionaryServiceFactory',
+  'components',
+  'metadata',
 ];
 
 const missingProperties = requiredProperties.filter((property) => !config.serverBundle[property]);
@@ -127,17 +129,15 @@ server.use(
   })
 );
 
+/**
+ * Proxy editing requests through the editing router
+ */
 server.use(
   '/api/editing',
   editingRouter({
     config: {
-      components: ['ContentBlock', 'Foo'],
-      metadata: {
-        packages: {
-          '@sitecore-jss/sitecore-jss-react': 'latest',
-        },
-      },
-      path: '/test',
+      components: config.serverBundle.components,
+      metadata: config.serverBundle.metadata,
     },
     render: {
       clientFactory: GraphQLRequestClient.createClientFactory(config.clientConfig),
