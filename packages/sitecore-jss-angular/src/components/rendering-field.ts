@@ -44,25 +44,6 @@ export interface LinkField extends LinkFieldValue, RenderingField {
   editableLastPart?: string;
 }
 
-interface LayoutServiceLinkField {
-  field: {
-    link: LinkField;
-  };
-}
-
-export interface SxaLinkListFields {
-  data: {
-    datasource: {
-      children: {
-        results: LayoutServiceLinkField[];
-      };
-      field: {
-        title: TextField;
-      };
-    };
-  };
-}
-
 export interface RichTextField extends RenderingField<string> {}
 
 export interface TextField extends RenderingField<string> {}
