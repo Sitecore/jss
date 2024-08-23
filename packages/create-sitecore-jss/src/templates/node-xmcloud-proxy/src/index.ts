@@ -140,11 +140,13 @@ server.use(
       metadata: config.serverBundle.metadata,
     },
     render: {
-      clientFactory: GraphQLRequestClient.createClientFactory(config.clientConfig),
+      clientFactory: GraphQLRequestClient.createClientFactory(
+        config.serverBundle.getClientFactoryConfig()
+      ),
       dictionaryService: dictionaryService,
       renderView: renderView,
-      defaultLanguage: config.serverBundle.defaultLanguage
-    }
+      defaultLanguage: config.serverBundle.defaultLanguage,
+    },
   })
 );
 

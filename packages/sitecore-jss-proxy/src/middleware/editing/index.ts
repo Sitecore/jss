@@ -104,8 +104,8 @@ export const editingRouter = (options: EditingRouterConfig) => {
 
   router.use(editingMiddleware);
 
-  router.get(options.config.path || '/config', editingConfigMiddleware(options.config));
-  router.get(options.render?.path || '/render', editingRenderMiddleware(options.render));
+  router.get(options.config.path || ENDPOINTS.CONFIG, editingConfigMiddleware(options.config));
+  router.get(options.render.path || ENDPOINTS.RENDER, editingRenderMiddleware(options.render));
 
   router.use(editingNotFoundMiddleware);
 
