@@ -27,6 +27,21 @@ export enum EditMode {
 }
 
 /**
+ * Query parameters appended to the page route URL
+ * Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
+ */
+export type MetadataQueryParams = {
+  secret: string;
+  sc_lang: string;
+  sc_itemid: string;
+  sc_site: string;
+  route: string;
+  mode: Exclude<LayoutServicePageState, 'normal'>;
+  sc_variant?: string;
+  sc_version?: string;
+};
+
+/**
  * Shape of context data from the Sitecore Layout Service
  */
 export interface LayoutServiceContext {

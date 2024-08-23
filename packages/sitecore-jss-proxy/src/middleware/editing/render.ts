@@ -1,14 +1,10 @@
 import { GraphQLRequestClientFactory, debug } from '@sitecore-jss/sitecore-jss';
-import { AppRenderer } from '../headless-ssr-proxy/AppRenderer';
+import { AppRenderer, RenderResponse } from '../../types/AppRenderer';
 import { Request, Response } from 'express';
-import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
+import { MetadataQueryParams } from '@sitecore-jss/sitecore-jss/layout';
 import { getAllowedOriginsFromEnv } from '@sitecore-jss/sitecore-jss/utils';
-import { GraphQLEditingService } from '@sitecore-jss/sitecore-jss/editing';
+import { GraphQLEditingService, EDITING_ALLOWED_ORIGINS } from '@sitecore-jss/sitecore-jss/editing';
 import { DictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
-/**
- * Default allowed origins for editing requests. This is used to enforce CORS, CSP headers.
- */
-export const EDITING_ALLOWED_ORIGINS = ['https://pages.sitecorecloud.io'];
 
 export type EditingRenderEndpointConfig = {
   /**
@@ -35,27 +31,16 @@ export type EditingRenderEndpointConfig = {
   defaultLanguage: string;
 };
 
-/**
- * Query parameters appended to the page route URL
- * Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
- */
-export type MetadataQueryParams = {
-  secret: string;
-  sc_lang: string;
-  sc_itemid: string;
-  sc_site: string;
-  route: string;
-  mode: Exclude<LayoutServicePageState, 'normal'>;
-  sc_variant?: string;
-  sc_version?: string;
-};
-
 export const editingRenderMiddleware = (config: EditingRenderEndpointConfig) => async (
   _req: Request,
   res: Response
 ): Promise<unknown> => {
   try {
-    const { query } = _req;
+    debug.editing('editing config middleware start');
+
+    const startTimestamp = Date.now();
+
+    const query = _req.query as MetadataQueryParams;
 
     const requiredQueryParams: (keyof MetadataQueryParams)[] = [
       'sc_site',
@@ -83,10 +68,10 @@ export const editingRenderMiddleware = (config: EditingRenderEndpointConfig) => 
     });
 
     const data = await graphQLEditingService.fetchEditingData({
-      siteName: query.sc_site as string,
-      itemId: query.sc_itemid as string,
-      language: query.sc_lang as string,
-      version: query.sc_version as string,
+      siteName: query.sc_site,
+      itemId: query.sc_itemid,
+      language: query.sc_lang,
+      version: query.sc_version,
     });
 
     if (!data) {
@@ -98,11 +83,17 @@ export const editingRenderMiddleware = (config: EditingRenderEndpointConfig) => 
       data.layoutData.sitecore.context.language || config.defaultLanguage
     );
 
-    // Restrict the page to be rendered only within the allowed origins
-    res.setHeader('Content-Security-Policy', getSCPHeader());
+    debug.editing(
+      'editing render middleware end in %dms: redirect %o',
+      Date.now() - startTimestamp,
+      {
+        status: 307,
+        route: query.route,
+      }
+    );
 
     config.renderView(
-      (err, result) => {
+      (err: Error | null, result: RenderResponse | null) => {
         if (err) {
           handleError(res, err);
           return;
@@ -116,6 +107,9 @@ export const editingRenderMiddleware = (config: EditingRenderEndpointConfig) => 
 
         const statusCode = data.layoutData.sitecore.route ? 200 : 404;
 
+        // Restrict the page to be rendered only within the allowed origins
+        res.setHeader('Content-Security-Policy', getSCPHeader());
+
         debug.editing('sending response with status %s', statusCode);
 
         return res.status(statusCode).json({ html: result.html });
@@ -128,6 +122,8 @@ export const editingRenderMiddleware = (config: EditingRenderEndpointConfig) => 
     handleError(res, err);
     return;
   }
+
+  return Promise.resolve();
 };
 
 /**

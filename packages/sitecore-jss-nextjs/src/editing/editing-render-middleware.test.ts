@@ -9,6 +9,7 @@ import {
   EDITING_ALLOWED_ORIGINS,
   QUERY_PARAM_EDITING_SECRET,
 } from '@sitecore-jss/sitecore-jss/editing';
+import { MetadataQueryParams } from '@sitecore-jss/sitecore-jss/layout';
 import {
   QUERY_PARAM_VERCEL_PROTECTION_BYPASS,
   QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE,
@@ -17,7 +18,6 @@ import { EE_PATH, EE_LANGUAGE, EE_LAYOUT, EE_DICTIONARY, EE_BODY } from '../test
 import {
   ChromesHandler,
   EditingRenderMiddleware,
-  MetadataQueryParams,
   isEditingMetadataPreviewData,
 } from './editing-render-middleware';
 import { spy, match } from 'sinon';
