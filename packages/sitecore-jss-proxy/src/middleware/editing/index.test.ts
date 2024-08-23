@@ -1,9 +1,33 @@
 import { expect } from 'chai';
+import sinon, { SinonSpy } from 'sinon';
 import express from 'express';
 import request from 'supertest';
 import { editingRouter } from './index';
+import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
+import { GraphQLDictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
 
 describe('editingRouter', () => {
+  const siteName = 'TestSite';
+  const rootItemId = '{GUID}';
+  const clientFactory = GraphQLRequestClient.createClientFactory({
+    endpoint: 'http://site/?sitecoreContextId=context-id',
+  });
+
+  const dictionaryService = new GraphQLDictionaryService({
+    siteName,
+    rootItemId,
+    cacheEnabled: false,
+    clientFactory,
+  });
+  const renderView: SinonSpy = sinon.spy();
+
+  const renderConfig = {
+    clientFactory,
+    dictionaryService,
+    renderView,
+    defaultLanguage: 'en',
+  };
+
   const defaultOptions = {
     config: {
       components: ['component1', 'component2'],
@@ -14,6 +38,7 @@ describe('editingRouter', () => {
         },
       },
     },
+    render: renderConfig,
   };
 
   let app: express.Express;
@@ -159,6 +184,7 @@ describe('editingRouter', () => {
               },
             },
           },
+          render: renderConfig,
         })
       );
 
@@ -198,6 +224,7 @@ describe('editingRouter', () => {
             },
             path: '/foo/config',
           },
+          render: renderConfig,
         })
       );
 
@@ -219,6 +246,43 @@ describe('editingRouter', () => {
 
           done();
         });
+    });
+  });
+
+  describe('/render', () => {
+    const requiredParams = ['sc_site', 'sc_itemid', 'sc_lang', 'route', 'mode'];
+    // const validQueryParams = {
+    //   sc_site: siteName,
+    //   sc_itemid: '{Guid}',
+    //   sc_lang: 'en',
+    //   route: '/',
+    //   mode: 'edit',
+    // };
+
+    it('should response with 400 for missing query params', (done) => {
+      process.env.JSS_EDITING_SECRET = 'correct';
+
+      app.use('/api/editing', editingRouter(defaultOptions));
+
+      request(app)
+        .get('/api/editing/render')
+        .query({ secret: 'correct' })
+        .expect(400)
+        .end((err, res) => {
+          if (err) return done(err);
+
+          expect(res.body.html).to.include(
+            `Missing required query parameters: ${requiredParams.join(', ')}`
+          );
+
+          delete process.env.JSS_EDITING_SECRET;
+
+          done();
+        });
+    });
+
+    it('should handle request without optional parameters', (done) => {
+      done();
     });
   });
 });
