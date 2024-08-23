@@ -38,6 +38,7 @@ Our versioning strategy is as follows:
   * Column-Splitter ([#1889](https://github.com/Sitecore/jss/pull/1889))
   * PartialDesignDynamicPlaceholder ([#1902](https://github.com/Sitecore/jss/pull/1902))
   * Promo component ([#1897](https://github.com/Sitecore/jss/pull/1897))
+  * Navigation ([#1894](https://github.com/Sitecore/jss/pull/1894))
 
 ### 🛠 Breaking Change
 
