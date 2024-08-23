@@ -1,11 +1,14 @@
 import { GraphQLRequestClientFactory, debug } from '@sitecore-jss/sitecore-jss';
 import { AppRenderer, RenderResponse } from '../../types/AppRenderer';
-import { Request, Response } from 'express';
+import { Request, RequestHandler, Response } from 'express';
 import { MetadataQueryParams } from '@sitecore-jss/sitecore-jss/layout';
 import { getAllowedOriginsFromEnv } from '@sitecore-jss/sitecore-jss/utils';
 import { GraphQLEditingService, EDITING_ALLOWED_ORIGINS } from '@sitecore-jss/sitecore-jss/editing';
 import { DictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
 
+/**
+ * Configuration for the editing render endpoint
+ */
 export type EditingRenderEndpointConfig = {
   /**
    * Custom path for the endpoint. Default is `<routerPath>/render`
@@ -31,10 +34,13 @@ export type EditingRenderEndpointConfig = {
   defaultLanguage: string;
 };
 
-export const editingRenderMiddleware = (config: EditingRenderEndpointConfig) => async (
-  _req: Request,
-  res: Response
-): Promise<unknown> => {
+/* Middleware to handle editing render requests
+ * @param {EditingRenderEndpointConfig} configuration for the endpoint
+ * @returns {RequestHandler} Middleware function
+ */
+export const editingRenderMiddleware = (
+  config: EditingRenderEndpointConfig
+): RequestHandler => async (_req: Request, res: Response): Promise<unknown> => {
   try {
     debug.editing('editing config middleware start');
 
