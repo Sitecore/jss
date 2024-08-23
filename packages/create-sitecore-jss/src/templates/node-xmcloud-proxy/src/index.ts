@@ -5,6 +5,7 @@ import { createProxyMiddleware } from 'http-proxy-middleware';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { editingRouter } from '@sitecore-jss/sitecore-jss-proxy';
 import { config } from './config';
+import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 const server = express();
 
@@ -39,12 +40,16 @@ if (missingProperties.length > 0) {
   );
 }
 
+const layoutService = layoutServiceFactory.create();
+
+const dictionaryService = dictionaryServiceFactory.create();
+
+const clientFactoryConfig = config.serverBundle.getClientFactoryConfig();
+
 /**
  * GraphQL endpoint resolution to meet the requirements of the http-proxy-middleware
  */
 const graphQLEndpoint = (() => {
-  const clientFactoryConfig = config.serverBundle.getClientFactoryConfig();
-
   try {
     const graphQLEndpoint = new URL(clientFactoryConfig.endpoint);
     // Browser request path to the proxy. Includes only the pathname.
@@ -63,10 +68,6 @@ const graphQLEndpoint = (() => {
     );
   }
 })();
-
-const layoutService = layoutServiceFactory.create();
-
-const dictionaryService = dictionaryServiceFactory.create();
 
 /**
  * Parse requested url in order to detect current route and language
@@ -138,6 +139,12 @@ server.use(
       },
       path: '/test',
     },
+    render: {
+      clientFactory: GraphQLRequestClient.createClientFactory(config.clientConfig),
+      dictionaryService: dictionaryService,
+      renderView: renderView,
+      defaultLanguage: config.serverBundle.defaultLanguage
+    }
   })
 );
 

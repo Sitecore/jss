@@ -3,6 +3,7 @@ import { debug } from '@sitecore-jss/sitecore-jss';
 import { enforceCors } from '@sitecore-jss/sitecore-jss/utils';
 import { EDITING_ALLOWED_ORIGINS, QUERY_PARAM_EDITING_SECRET } from '../utils';
 import { EditingConfigEndpointOptions, editingConfigMiddleware } from './config';
+import { EditingRenderEndpointConfig, editingRenderMiddleware } from './render';
 
 export type EditingRouterConfig = {
   /**
@@ -12,12 +13,7 @@ export type EditingRouterConfig = {
   /**
    * Configuration for the /render endpoint
    */
-  render?: {
-    /**
-     * Custom path for the editing render endpoint
-     */
-    path?: string;
-  };
+  render: EditingRenderEndpointConfig;
 };
 
 export const editingMiddleware = async (
@@ -77,9 +73,7 @@ export const editingRouter = (options: EditingRouterConfig) => {
   router.use(editingMiddleware);
 
   router.get(options.config.path || '/config', editingConfigMiddleware(options.config));
-  router.get(options.render?.path || '/render', () => {
-    return null;
-  });
+  router.get(options.render?.path || '/render', editingRenderMiddleware(options.render));
 
   // Middleware to handle invalid method/path
   router.use(editingNotFoundMiddleware);
