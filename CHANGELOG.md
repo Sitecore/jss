@@ -34,12 +34,13 @@ Our versioning strategy is as follows:
   * Richtext component ([#1864](https://github.com/Sitecore/jss/pull/1864))
   * Container component ([#1872](https://github.com/Sitecore/jss/pull/1872))
   * Angular SXA layout ([#1873](https://github.com/Sitecore/jss/pull/1873))([#1880](https://github.com/Sitecore/jss/pull/1880))([#1890](https://github.com/Sitecore/jss/pull/1890))([#1906](https://github.com/Sitecore/jss/pull/1906))
-  * Row-Splitter ([#1901](https://github.com/Sitecore/jss/pull/1901))
-  * Link-List ([#1898](https://github.com/Sitecore/jss/pull/1898))
-  * Column-Splitter ([#1889](https://github.com/Sitecore/jss/pull/1889))
-  * PartialDesignDynamicPlaceholder ([#1902](https://github.com/Sitecore/jss/pull/1902))
+  * RowSplitter component([#1901](https://github.com/Sitecore/jss/pull/1901))
+  * LinkList component([#1898](https://github.com/Sitecore/jss/pull/1898))
+  * ColumnSplitter ([#1889](https://github.com/Sitecore/jss/pull/1889))
+  * PartialDesignDynamicPlaceholder component ([#1902](https://github.com/Sitecore/jss/pull/1902))
   * Promo component ([#1897](https://github.com/Sitecore/jss/pull/1897))
-  * Navigation ([#1894](https://github.com/Sitecore/jss/pull/1894))
+  * PageContent component ([#1905](https://github.com/Sitecore/jss/pull/1905))
+  * Navigation component ([#1894](https://github.com/Sitecore/jss/pull/1894))
 
 ### 🛠 Breaking Change
 
