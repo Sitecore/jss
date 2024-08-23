@@ -2,7 +2,7 @@
 
 # Interface: Item
 
-Content data returned from Content Service
+Content data returned from Layout Service
 
 ## Table of contents
 

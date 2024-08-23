@@ -47,6 +47,16 @@ describe('<a *scLink />', () => {
     expect(de.children.length).toBe(0);
   });
 
+  it('should render nothing for empty field', () => {
+    const field = {
+      value: { href: '' },
+    };
+    comp.field = field;
+    fixture.detectChanges();
+
+    expect(de.children.length).toBe(0);
+  });
+
   it('should render editable with an editable value', () => {
     const field = {
       editableFirstPart: '<a class="yo" href="/services">Lorem',

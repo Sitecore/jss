@@ -162,7 +162,7 @@ packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/Date.ts:14](https://github.com/Sitecore/jss/blob/eb833ef44/packages/sitecore-jss-vue/src/components/Date.ts#L14)
+[packages/sitecore-jss-vue/src/components/Date.ts:14](https://github.com/Sitecore/jss/blob/e90ab9187/packages/sitecore-jss-vue/src/components/Date.ts#L14)
 
 ___
 
@@ -212,7 +212,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/EditFrame.ts:10](https://github.com/Sitecore/jss/blob/eb833ef44/packages/sitecore-jss-vue/src/components/EditFrame.ts#L10)
+[packages/sitecore-jss-vue/src/components/EditFrame.ts:10](https://github.com/Sitecore/jss/blob/e90ab9187/packages/sitecore-jss-vue/src/components/EditFrame.ts#L10)
 
 ___
 
@@ -222,7 +222,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/File.ts:14](https://github.com/Sitecore/jss/blob/eb833ef44/packages/sitecore-jss-vue/src/components/File.ts#L14)
+[packages/sitecore-jss-vue/src/components/File.ts:14](https://github.com/Sitecore/jss/blob/e90ab9187/packages/sitecore-jss-vue/src/components/File.ts#L14)
 
 ___
 
@@ -232,7 +232,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/Image.ts:55](https://github.com/Sitecore/jss/blob/eb833ef44/packages/sitecore-jss-vue/src/components/Image.ts#L55)
+[packages/sitecore-jss-vue/src/components/Image.ts:55](https://github.com/Sitecore/jss/blob/e90ab9187/packages/sitecore-jss-vue/src/components/Image.ts#L55)
 
 ___
 
@@ -242,17 +242,17 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/Link.ts:19](https://github.com/Sitecore/jss/blob/eb833ef44/packages/sitecore-jss-vue/src/components/Link.ts#L19)
+[packages/sitecore-jss-vue/src/components/Link.ts:19](https://github.com/Sitecore/jss/blob/e90ab9187/packages/sitecore-jss-vue/src/components/Link.ts#L19)
 
 ___
 
 ### Placeholder
 
-• `Const` **Placeholder**: `DefineComponent`\<\{ `componentFactory`: \{ `default`: `any` = undefined; `type`: () => `ComponentFactory`  } ; `errorComponent`: \{ `default`: `any` = undefined; `type`: `ObjectConstructor` = Object } ; `fields`: \{ `default`: `any` = undefined; `type`: () => \{ `[name: string]`: [`Field`](interfaces/Field.md) \| `Item`[];  }  } ; `hiddenRenderingComponent`: \{ `default`: `any` = undefined; `type`: `ObjectConstructor` = Object } ; `missingComponentComponent`: \{ `default`: `any` = undefined; `type`: `ObjectConstructor` = Object } ; `name`: \{ `required`: ``true`` = true; `type`: `StringConstructor` = String } ; `params`: \{ `default`: `any` = undefined; `type`: () => \{ `[name: string]`: `string`;  }  } ; `rendering`: \{ `required`: ``true`` = true; `type`: () => [`RouteData`](interfaces/RouteData.md)\<`Record`\<`string`, [`Field`](interfaces/Field.md)\<`GenericFieldValue`\> \| `Item` \| `Item`[]\>\> \| [`ComponentRendering`](interfaces/ComponentRendering.md)  }  }, () => `VNode`\<`RendererNode`, `RendererElement`, \{ `[key: string]`: `any`;  }\> \| () => `VNode`\<`RendererNode`, `RendererElement`, \{ `[key: string]`: `any`;  }\>[], `unknown`, {}, {}, `ComponentOptionsMixin`, `ComponentOptionsMixin`, {}, `string`, `PublicProps`, `Readonly`\<`ExtractPropTypes`\<\{ `componentFactory`: \{ `default`: `any` = undefined; `type`: () => `ComponentFactory`  } ; `errorComponent`: \{ `default`: `any` = undefined; `type`: `ObjectConstructor` = Object } ; `fields`: \{ `default`: `any` = undefined; `type`: () => \{ `[name: string]`: [`Field`](interfaces/Field.md) \| `Item`[];  }  } ; `hiddenRenderingComponent`: \{ `default`: `any` = undefined; `type`: `ObjectConstructor` = Object } ; `missingComponentComponent`: \{ `default`: `any` = undefined; `type`: `ObjectConstructor` = Object } ; `name`: \{ `required`: ``true`` = true; `type`: `StringConstructor` = String } ; `params`: \{ `default`: `any` = undefined; `type`: () => \{ `[name: string]`: `string`;  }  } ; `rendering`: \{ `required`: ``true`` = true; `type`: () => [`RouteData`](interfaces/RouteData.md)\<`Record`\<`string`, [`Field`](interfaces/Field.md)\<`GenericFieldValue`\> \| `Item` \| `Item`[]\>\> \| [`ComponentRendering`](interfaces/ComponentRendering.md)  }  }\>\>, \{ `componentFactory`: `ComponentFactory` ; `errorComponent`: `Record`\<`string`, `any`\> ; `fields`: \{ `[name: string]`: [`Field`](interfaces/Field.md) \| `Item`[];  } ; `hiddenRenderingComponent`: `Record`\<`string`, `any`\> ; `missingComponentComponent`: `Record`\<`string`, `any`\> ; `params`: \{ `[name: string]`: `string`;  }  }, {}\>
+• `Const` **Placeholder**: `DefineComponent`\<\{ `componentFactory`: \{ `default`: `any` = undefined; `type`: () => `ComponentFactory`  } ; `errorComponent`: \{ `default`: `any` = undefined; `type`: `ObjectConstructor` = Object } ; `fields`: \{ `default`: `any` = undefined; `type`: () => \{ `[name: string]`: [`Field`](interfaces/Field.md) \| `Item`[];  }  } ; `hiddenRenderingComponent`: \{ `default`: `any` = undefined; `type`: `ObjectConstructor` = Object } ; `missingComponentComponent`: \{ `default`: `any` = undefined; `type`: `ObjectConstructor` = Object } ; `name`: \{ `required`: ``true`` = true; `type`: `StringConstructor` = String } ; `params`: \{ `default`: `any` = undefined; `type`: () => \{ `[name: string]`: `string`;  }  } ; `rendering`: \{ `required`: ``true`` = true; `type`: () => [`RouteData`](interfaces/RouteData.md)\<`Record`\<`string`, [`Field`](interfaces/Field.md)\<`GenericFieldValue`\> \| `Item` \| `Item`[]\>\> \| [`ComponentRendering`](interfaces/ComponentRendering.md)\<[`ComponentFields`](interfaces/ComponentFields.md)\>  }  }, () => `VNode`\<`RendererNode`, `RendererElement`, \{ `[key: string]`: `any`;  }\> \| () => `VNode`\<`RendererNode`, `RendererElement`, \{ `[key: string]`: `any`;  }\>[], `unknown`, {}, {}, `ComponentOptionsMixin`, `ComponentOptionsMixin`, {}, `string`, `PublicProps`, `Readonly`\<`ExtractPropTypes`\<\{ `componentFactory`: \{ `default`: `any` = undefined; `type`: () => `ComponentFactory`  } ; `errorComponent`: \{ `default`: `any` = undefined; `type`: `ObjectConstructor` = Object } ; `fields`: \{ `default`: `any` = undefined; `type`: () => \{ `[name: string]`: [`Field`](interfaces/Field.md) \| `Item`[];  }  } ; `hiddenRenderingComponent`: \{ `default`: `any` = undefined; `type`: `ObjectConstructor` = Object } ; `missingComponentComponent`: \{ `default`: `any` = undefined; `type`: `ObjectConstructor` = Object } ; `name`: \{ `required`: ``true`` = true; `type`: `StringConstructor` = String } ; `params`: \{ `default`: `any` = undefined; `type`: () => \{ `[name: string]`: `string`;  }  } ; `rendering`: \{ `required`: ``true`` = true; `type`: () => [`RouteData`](interfaces/RouteData.md)\<`Record`\<`string`, [`Field`](interfaces/Field.md)\<`GenericFieldValue`\> \| `Item` \| `Item`[]\>\> \| [`ComponentRendering`](interfaces/ComponentRendering.md)\<[`ComponentFields`](interfaces/ComponentFields.md)\>  }  }\>\>, \{ `componentFactory`: `ComponentFactory` ; `errorComponent`: `Record`\<`string`, `any`\> ; `fields`: \{ `[name: string]`: [`Field`](interfaces/Field.md) \| `Item`[];  } ; `hiddenRenderingComponent`: `Record`\<`string`, `any`\> ; `missingComponentComponent`: `Record`\<`string`, `any`\> ; `params`: \{ `[name: string]`: `string`;  }  }, {}\>
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/Placeholder.ts:13](https://github.com/Sitecore/jss/blob/eb833ef44/packages/sitecore-jss-vue/src/components/Placeholder.ts#L13)
+[packages/sitecore-jss-vue/src/components/Placeholder.ts:13](https://github.com/Sitecore/jss/blob/e90ab9187/packages/sitecore-jss-vue/src/components/Placeholder.ts#L13)
 
 ___
 
@@ -262,7 +262,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/RichText.ts:3](https://github.com/Sitecore/jss/blob/eb833ef44/packages/sitecore-jss-vue/src/components/RichText.ts#L3)
+[packages/sitecore-jss-vue/src/components/RichText.ts:3](https://github.com/Sitecore/jss/blob/e90ab9187/packages/sitecore-jss-vue/src/components/RichText.ts#L3)
 
 ___
 
@@ -272,7 +272,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/SitecoreContext.ts:8](https://github.com/Sitecore/jss/blob/eb833ef44/packages/sitecore-jss-vue/src/components/SitecoreContext.ts#L8)
+[packages/sitecore-jss-vue/src/components/SitecoreContext.ts:8](https://github.com/Sitecore/jss/blob/e90ab9187/packages/sitecore-jss-vue/src/components/SitecoreContext.ts#L8)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts:30](https://github.com/Sitecore/jss/blob/eb833ef44/packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts#L30)
+[packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts:30](https://github.com/Sitecore/jss/blob/e90ab9187/packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts#L30)
 
 ___
 
@@ -292,7 +292,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/Text.ts:3](https://github.com/Sitecore/jss/blob/eb833ef44/packages/sitecore-jss-vue/src/components/Text.ts#L3)
+[packages/sitecore-jss-vue/src/components/Text.ts:3](https://github.com/Sitecore/jss/blob/e90ab9187/packages/sitecore-jss-vue/src/components/Text.ts#L3)
 
 ## Functions
 
@@ -328,7 +328,7 @@ Gets rendering definitions in a given child placeholder under a current renderin
 
 | Name | Type |
 | :------ | :------ |
-| `rendering` | [`ComponentRendering`](interfaces/ComponentRendering.md) |
+| `rendering` | [`ComponentRendering`](interfaces/ComponentRendering.md)\<[`ComponentFields`](interfaces/ComponentFields.md)\> |
 | `placeholderName` | `string` |
 
 #### Returns
@@ -360,7 +360,7 @@ Null will be returned if the field is not defined.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`ComponentFields`](interfaces/ComponentFields.md) | the rendering or fields object to extract the field from |
+| `renderingOrFields` | [`ComponentFields`](interfaces/ComponentFields.md) \| [`ComponentRendering`](interfaces/ComponentRendering.md)\<[`ComponentFields`](interfaces/ComponentFields.md)\> | the rendering or fields object to extract the field from |
 | `fieldName` | `string` | the name of the field to extract |
 
 #### Returns
@@ -385,7 +385,7 @@ packages/sitecore-jss/types/layout/utils.d.ts:9
 
 | Name | Type |
 | :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`ComponentFields`](interfaces/ComponentFields.md) |
+| `renderingOrFields` | [`ComponentFields`](interfaces/ComponentFields.md) \| [`ComponentRendering`](interfaces/ComponentRendering.md)\<[`ComponentFields`](interfaces/ComponentFields.md)\> |
 | `fieldName` | `string` |
 | `defaultValue` | `T` |
 
@@ -462,7 +462,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts:31](https://github.com/Sitecore/jss/blob/eb833ef44/packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts#L31)
+[packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts:31](https://github.com/Sitecore/jss/blob/e90ab9187/packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts#L31)
 
 ___
 

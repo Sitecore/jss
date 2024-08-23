@@ -33,7 +33,11 @@ Our versioning strategy is as follows:
   * Richtext component ([#1864](https://github.com/Sitecore/jss/pull/1864))
   * Container component ([#1872](https://github.com/Sitecore/jss/pull/1872))
   * Angular SXA layout ([#1873](https://github.com/Sitecore/jss/pull/1873))([#1880](https://github.com/Sitecore/jss/pull/1880))([#1890](https://github.com/Sitecore/jss/pull/1890))
+  * Row-Splitter ([#1901](https://github.com/Sitecore/jss/pull/1901))
+  * Link-List ([#1898](https://github.com/Sitecore/jss/pull/1898))
   * Column-Splitter ([#1889](https://github.com/Sitecore/jss/pull/1889))
+  * PartialDesignDynamicPlaceholder ([#1902](https://github.com/Sitecore/jss/pull/1902))
+  * Promo component ([#1897](https://github.com/Sitecore/jss/pull/1897))
   * Navigation ([#1894](https://github.com/Sitecore/jss/pull/1894))
 
 ### 🛠 Breaking Change
@@ -52,7 +56,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Fix missing value of field property in Title component. ([#1842](https://github.com/Sitecore/jss/pull/1842))
 * `[templates/nextjs-sxa]` The background image in the Container component was being generated from the image ID instead of the mediaUrl parameter. This fix changes that behavior. ([#1879](https://github.com/Sitecore/jss/pull/1879))
 * `[templates/nextjs-sxa]` The caption of image component has been fixed. ([#1874](https://github.com/Sitecore/jss/pull/1874))
-* `[sitecore-jss-nextjs]` A bug has been fixed in the redirect middleware that occurred when a user clicked on a link rendered by the Link component from the Next.js library(next/link). ([#1876](https://github.com/Sitecore/jss/pull/1876)) ([#1891](https://github.com/Sitecore/jss/pull/1891)) ([#1893](https://github.com/Sitecore/jss/pull/1893))
+* `[sitecore-jss-nextjs]` A bug has been fixed in the redirect middleware that occurred when a user clicked on a link rendered by the Link component from the Next.js library(next/link). ([#1876](https://github.com/Sitecore/jss/pull/1876)) ([#1891](https://github.com/Sitecore/jss/pull/1891)) ([#1893](https://github.com/Sitecore/jss/pull/1893))(#[1895](https://github.com/Sitecore/jss/pull/1895))
 * `[sitecore-jss-nextjs]` Disable nextjs image optimization in edit and preview modes. This prevents rendering issues in XM Cloud Pages Edit and Preview.
 
 ### 🎉 New Features & Improvements
@@ -62,7 +66,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss]` _GraphQLRequestClient_ now can accept custom 'headers' in the constructor or via _createClientFactory_ ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[templates/nextjs]` Removed cors header for API endpoints from _lib/next-config/plugins/cors-header_ plugin since cors is handled by API handlers / middlewares ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[sitecore-jss-nextjs]` Updates to Next.js editing integration to further support secure hosting scenarios (on XM Cloud & Vercel) ([#1832](https://github.com/Sitecore/jss/pull/1832))
-* `[templates/nextjs-xmcloud]` `[sitecore-jss]` A/B testing and component-level personalization support. ([#1844](https://github.com/Sitecore/jss/pull/1844))([#1847](https://github.com/Sitecore/jss/pull/1847))([#1848](https://github.com/Sitecore/jss/pull/1848))
+* `[templates/nextjs-xmcloud]` `[sitecore-jss]` JSS is now ready to support A/B testing and component-level personalization. This feature will be enabled in Pages after the current release. ([#1844](https://github.com/Sitecore/jss/pull/1844))([#1847](https://github.com/Sitecore/jss/pull/1847))([#1848](https://github.com/Sitecore/jss/pull/1848))
 * `[sitecore-jss]` `[nextjs-xmcloud]` DictionaryService can now use a `site` GraphQL query instead of `search` one to improve performance. This is currently only available for XMCloud deployments and is enabled with `nextjs-xmcloud` add-on by default ([#1804](https://github.com/Sitecore/jss/pull/1804))([#1846](https://github.com/Sitecore/jss/pull/1846))([commit](https://github.com/Sitecore/jss/commit/5813a2df8ad6a9ee63dd74d5f206ed4b4f758753))([commit](https://github.com/Sitecore/jss/commit/d0ea3ac02c78343b5dd60277dbf7403410794a49))([commit](https://github.com/Sitecore/jss/commit/307b905ed60d7fff44b2dc799fd78c0842af6fbd))([commit](https://github.com/Sitecore/jss/commit/66164a42263aac8b55f0c5e47eda4bd4d7a72e87))
 * `[templates/nextjs-sxa]` SXA components now use the NextImage component instead of the Image component from JSS lib for image optimization ([#1843](https://github.com/Sitecore/jss/pull/1843))([#1850](https://github.com/Sitecore/jss/pull/1850))([#1860](https://github.com/Sitecore/jss/pull/1860))
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[sitecore-jss-angular]` `[sitecore-jss-vue]` The default Hidden Rendering component now contains the text 'The component is hidden' ([#1857](https://github.com/Sitecore/jss/pull/1857))

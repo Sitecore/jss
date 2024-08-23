@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx:15](https://github.com/Sitecore/jss/blob/eb833ef44/packages/sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx#L15)
+[sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx:15](https://github.com/Sitecore/jss/blob/e90ab9187/packages/sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx#L15)
 
 ___
 
@@ -180,7 +180,7 @@ Gets rendering definitions in a given child placeholder under a current renderin
 
 | Name | Type |
 | :------ | :------ |
-| `rendering` | [`ComponentRendering`](interfaces/ComponentRendering.md) |
+| `rendering` | [`ComponentRendering`](interfaces/ComponentRendering.md)\<[`ComponentFields`](interfaces/ComponentFields.md)\> |
 | `placeholderName` | `string` |
 
 #### Returns
@@ -212,7 +212,7 @@ Null will be returned if the field is not defined.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`ComponentFields`](interfaces/ComponentFields.md) | the rendering or fields object to extract the field from |
+| `renderingOrFields` | [`ComponentFields`](interfaces/ComponentFields.md) \| [`ComponentRendering`](interfaces/ComponentRendering.md)\<[`ComponentFields`](interfaces/ComponentFields.md)\> | the rendering or fields object to extract the field from |
 | `fieldName` | `string` | the name of the field to extract |
 
 #### Returns
@@ -237,7 +237,7 @@ sitecore-jss/types/layout/utils.d.ts:9
 
 | Name | Type |
 | :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`ComponentFields`](interfaces/ComponentFields.md) |
+| `renderingOrFields` | [`ComponentFields`](interfaces/ComponentFields.md) \| [`ComponentRendering`](interfaces/ComponentRendering.md)\<[`ComponentFields`](interfaces/ComponentFields.md)\> |
 | `fieldName` | `string` |
 | `defaultValue` | `T` |
 

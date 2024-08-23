@@ -18,7 +18,7 @@ Contents of a single placeholder returned from placeholder service
 
 ### elements
 
-• **elements**: ([`ComponentRendering`](index.ComponentRendering.md) \| [`HtmlElementRendering`](index.HtmlElementRendering.md))[]
+• **elements**: ([`ComponentRendering`](index.ComponentRendering.md)\<[`ComponentFields`](index.ComponentFields.md)\> \| [`HtmlElementRendering`](index.HtmlElementRendering.md))[]
 
 #### Defined in
 
