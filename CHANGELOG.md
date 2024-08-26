@@ -41,6 +41,7 @@ Our versioning strategy is as follows:
   * Promo component ([#1897](https://github.com/Sitecore/jss/pull/1897))
   * PageContent component ([#1905](https://github.com/Sitecore/jss/pull/1905))
   * Navigation component ([#1894](https://github.com/Sitecore/jss/pull/1894))
+* `[sitecore-jss]``[sitecore-jss-nextjs]` Pass `sc_layoutKind` to grapqhl layout request header. ([#1907](https://github.com/Sitecore/jss/pull/1907))
 
 ### 🛠 Breaking Change
 
