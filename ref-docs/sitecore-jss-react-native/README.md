@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx:15](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx#L15)
+[sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx:15](https://github.com/Sitecore/jss/blob/e8cb65715/packages/sitecore-jss-react-native/src/enhancers/withComponentFactory.tsx#L15)
 
 ___
 
@@ -266,7 +266,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-sitecore-jss/types/editing/utils.d.ts:44
+sitecore-jss/types/editing/utils.d.ts:52
 
 ___
 
@@ -282,4 +282,4 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-sitecore-jss/types/editing/utils.d.ts:48
+sitecore-jss/types/editing/utils.d.ts:56
