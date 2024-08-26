@@ -30,8 +30,8 @@ export {
   RenderingField,
   RichTextField,
   TextField,
-  SxaLinkListFields,
 } from './components/rendering-field';
+export { SxaLinkListFields, SxaTitleFields } from './components/rendering-field-sxa';
 export { RichTextDirective } from './components/rich-text.directive';
 export { TextDirective } from './components/text.directive';
 export { JssModule } from './lib.module';

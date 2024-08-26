@@ -26,6 +26,11 @@
 
 - [GraphQLEditingService](../classes/editing.GraphQLEditingService.md)
 
+### Variables
+
+- [EDITING\_ALLOWED\_ORIGINS](editing.md#editing_allowed_origins)
+- [QUERY\_PARAM\_EDITING\_SECRET](editing.md#query_param_editing_secret)
+
 ## References
 
 ### ChromeCommand
@@ -115,3 +120,27 @@ ___
 ### resetEditorChromes
 
 Re-exports [resetEditorChromes](utils.md#reseteditorchromes)
+
+## Variables
+
+### EDITING\_ALLOWED\_ORIGINS
+
+• `Const` **EDITING\_ALLOWED\_ORIGINS**: `string`[]
+
+Default allowed origins for editing requests. This is used to enforce CORS, CSP headers.
+
+#### Defined in
+
+[packages/sitecore-jss/src/editing/utils.ts:11](https://github.com/Sitecore/jss/blob/e8cb65715/packages/sitecore-jss/src/editing/utils.ts#L11)
+
+___
+
+### QUERY\_PARAM\_EDITING\_SECRET
+
+• `Const` **QUERY\_PARAM\_EDITING\_SECRET**: ``"secret"``
+
+Query parameter for editing secret
+
+#### Defined in
+
+[packages/sitecore-jss/src/editing/utils.ts:6](https://github.com/Sitecore/jss/blob/e8cb65715/packages/sitecore-jss/src/editing/utils.ts#L6)

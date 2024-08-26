@@ -2,7 +2,7 @@
 
 <ng-template #default>
   <div class="component image {{ styles }}" [attr.id]="id" *ngIf="rendering.fields; else empty">
-    <div className="component-content">
+    <div class="component-content">
       <ng-container *ngIf="isEditing || !rendering.fields.TargetUrl?.value?.href; else withLink">
         <img *scImage="rendering.fields.Image" />
       </ng-container>
@@ -28,7 +28,7 @@
 </ng-template>
 
 <ng-template #empty>
-  <div className="component image {{ styles }}">
+  <div class="component image {{ styles }}">
     <div class="component-content">
       <span class="is-empty-hint">Image</span>
     </div>
