@@ -37,6 +37,7 @@
 - [ngOnChanges](LinkDirective.md#ngonchanges)
 - [renderInlineWrapper](LinkDirective.md#renderinlinewrapper)
 - [renderTemplate](LinkDirective.md#rendertemplate)
+- [shouldRender](LinkDirective.md#shouldrender)
 - [updateAttribute](LinkDirective.md#updateattribute)
 - [updateView](LinkDirective.md#updateview)
 
@@ -57,7 +58,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:23](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L23)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:23](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L23)
 
 ## Properties
 
@@ -71,7 +72,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:17](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L17)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:17](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L17)
 
 ___
 
@@ -81,7 +82,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:15](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L15)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:15](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L15)
 
 ___
 
@@ -91,7 +92,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:27](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L27)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:27](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L27)
 
 ___
 
@@ -101,7 +102,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:19](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L19)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:19](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L19)
 
 ___
 
@@ -111,7 +112,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:21](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L21)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:21](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L21)
 
 ___
 
@@ -121,7 +122,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:26](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L26)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:26](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L26)
 
 ___
 
@@ -131,7 +132,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:25](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L25)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:25](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L25)
 
 ___
 
@@ -141,7 +142,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:24](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L24)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:24](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L24)
 
 ## Methods
 
@@ -155,7 +156,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:118](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L118)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:122](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L122)
 
 ___
 
@@ -179,7 +180,7 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:30](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L30)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:30](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L30)
 
 ___
 
@@ -200,7 +201,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:98](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L98)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:102](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L102)
 
 ___
 
@@ -221,7 +222,21 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:42](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L42)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:42](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L42)
+
+___
+
+### shouldRender
+
+▸ `Private` **shouldRender**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/link.directive.ts:79](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L79)
 
 ___
 
@@ -243,7 +258,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:56](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L56)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:56](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L56)
 
 ___
 
@@ -257,4 +272,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:79](https://github.com/Sitecore/jss/blob/e00cdb008/packages/sitecore-jss-angular/src/components/link.directive.ts#L79)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:83](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/link.directive.ts#L83)
