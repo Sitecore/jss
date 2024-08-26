@@ -28,6 +28,7 @@ Our versioning strategy is as follows:
 * `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1868](https://github.com/Sitecore/jss/pull/1868))([#1881](https://github.com/Sitecore/jss/pull/1881))([#1882](https://github.com/Sitecore/jss/pull/1882))
   * `[create-sitecore-jss]` Allow node-xmcloud-proxy app to be installed alongside Angular SPA application
   * `proxyAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
+* `[create-sitecore-jss]` `[template/angular]` `[template/angular-xmcloud]` `[template/node-xmcloud-proxy]` Introduced /api/editing/config endpoint ([#1903](https://github.com/Sitecore/jss/pull/1903))
 * `[create-sitecore-jss]``[sitecore-jss-angular]``[template/angular-xmcloud]` Angular SXA components
   * Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))
   * Title component ([#1904](https://github.com/Sitecore/jss/pull/1904))
@@ -43,6 +44,10 @@ Our versioning strategy is as follows:
   * Navigation component ([#1894](https://github.com/Sitecore/jss/pull/1894))
 
 ### 🛠 Breaking Change
+
+* `[sitecore-jss-proxy]` Updated exports of the module for better extensibility ([#1903](https://github.com/Sitecore/jss/pull/1903))
+  * `express@^4.19.2` dependency is marked as a peer dependency
+  * Default `scProxy` middleware export is replaced by `headlessProxy` object that contains the `middleware`, `ProxyConfig`, `ServerBundle` properties
 
 ### 🧹 Chores
 

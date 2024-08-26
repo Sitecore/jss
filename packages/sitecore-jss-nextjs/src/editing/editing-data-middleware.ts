@@ -1,7 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { EditingDataCache, editingDataDiskCache } from './editing-data-cache';
 import { EditingData, isEditingData } from './editing-data';
-import { EDITING_ALLOWED_ORIGINS, QUERY_PARAM_EDITING_SECRET } from './constants';
+import {
+  EDITING_ALLOWED_ORIGINS,
+  QUERY_PARAM_EDITING_SECRET,
+} from '@sitecore-jss/sitecore-jss/editing';
 import { getJssEditingSecret } from '../utils/utils';
 import { enforceCors } from '@sitecore-jss/sitecore-jss/utils';
 import { debug } from '@sitecore-jss/sitecore-jss';

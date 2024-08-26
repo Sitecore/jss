@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { spy } from 'sinon';
 import { expect } from 'chai';
 import { EditingConfigMiddleware } from './editing-config-middleware';
-import { QUERY_PARAM_EDITING_SECRET } from './constants';
+import { QUERY_PARAM_EDITING_SECRET } from '@sitecore-jss/sitecore-jss/editing';
 import { EditMode } from '@sitecore-jss/sitecore-jss/layout';
 
 type Query = {

@@ -11,6 +11,31 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
     "build:client": "cross-env-shell ng build --configuration=production --base-href $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/"
     ```
 
+* Update /scripts/bootstrap.ts file to generate a metadata for editing integration:
+    Assuming that you have a `generate-metadata.ts` file pulled from the "angular-xmcloud" add-on:
+
+    ```ts
+    ...
+    /*
+    METADATA GENERATION
+    */
+    require('./generate-metadata');
+    ...
+    ```
+
+* Update /scripts/generate-component-factory.ts to generate a list of component names for the editing integration, see implementation in the the "angular" template:
+
+    ```ts
+    import { AppComponentsSharedModule } from './app-components.shared.module';
+    ${imports.join('\n')}
+
+    export const components = [
+        ${components.map((c) => `'${c}'`).join(',\n  ')}
+    ];
+
+    @NgModule({
+    ```
+
 * Restructure /src/app/lib/client-factory.ts. This is needed in order to separate the GraphQL client factory configuration from the client factory itself, so we have a single source of GraphQL endpoint resolution that can be used in different places. For example node-xmcloud-proxy, scripts/update-graphql-fragment-data.ts, etc.
   * Introduce /src/app/lib/graphql-client-factory/config.ts. It should expose the _getGraphQLClientFactoryConfig_ that returns the configuration object for the GraphQL client factory, for example (full code snippet you can find in the "angular-xmcloud" add-on):
 
@@ -72,6 +97,8 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
     import { getGraphQLClientFactoryConfig } from './src/app/lib/graphql-client-factory/config';
     import { dictionaryServiceFactory } from './src/app/lib/dictionary-service-factory';
     import { layoutServiceFactory } from './src/app/lib/layout-service-factory';
+    import { components } from './src/app/components/app-components.module';
+    import metadata from './src/environments/metadata.json';
 
     ...
     const defaultLanguage = environment.defaultLanguage;
@@ -84,8 +111,12 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
         dictionaryServiceFactory,
         layoutServiceFactory,
         defaultLanguage,
+        components,
+        metadata
     };
     ```
+
+    * Optionally, you can follow our new approach and create a separate file `server.exports.ts` where you can import/export all the necessary properties and then re-export them from `server.bundle.ts`. See the "angular-xmcloud" add-on for more details.
 
 * GraphQL FETCH_WITH method is required to be used, REST is not supported. Update FETCH_WITH environment variable if needed.
 
@@ -98,3 +129,27 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
         useSiteQuery: true,
     });
     ```
+
+# @sitecore-jss/sitecore-jss-proxy
+
+* Update the import statement
+
+    ```ts
+    // from
+    import scProxy, { ProxyConfig, ServerBundle } from '@sitecore-jss/sitecore-jss-proxy';
+    // to
+    import { headlessProxy } from '@sitecore-jss/sitecore-jss-proxy';
+    ...
+    server.use(
+        '*',
+        headlessProxy.middleware(
+            config.serverBundle.renderView,
+            config,
+            config.serverBundle.parseRouteUrl
+        )
+    );
+    ```
+
+    Now `middleware`, `ProxyConfig`, `ServerBundle` properties are available on the "headlessProxy" object.
+
+* `express` dependency is marked as a peer dependency, so you need to match the required version "^4.19.2".
