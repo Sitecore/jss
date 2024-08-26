@@ -6267,7 +6267,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-proxy@workspace:packages/sitecore-jss-proxy"
   dependencies:
-    "@sitecore-jss/sitecore-jss": 22.2.0-canary.32
+    "@sitecore-jss/sitecore-jss": 22.2.0-canary.37
     "@types/chai": ^4.3.4
     "@types/express": ^4.17.17
     "@types/mocha": ^10.0.1
