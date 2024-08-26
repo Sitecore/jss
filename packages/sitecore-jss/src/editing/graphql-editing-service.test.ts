@@ -14,7 +14,7 @@ import {
   mockEditingServiceDictionaryResponse,
   mockEditingServiceResponse,
 } from '../test-data/mockEditingServiceResponse';
-import { EditMode } from '../layout';
+import { EditMode, LayoutKind } from '../layout';
 import debug from '../debug';
 
 use(spies);
@@ -62,7 +62,7 @@ describe('GraphQLEditingService', () => {
   });
 
   it('should fetch editing data', async () => {
-    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+    nock(hostname, { reqheaders: { sc_editMode: 'true', sc_layoutKind: 'final' } })
       .post(endpointPath, /EditingQuery/gi)
       .reply(200, editingData);
 
@@ -91,12 +91,18 @@ describe('GraphQLEditingService', () => {
       })
     ).to.be.true;
     expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
-    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(query, {
-      language,
-      version,
-      itemId,
-      siteName,
-    });
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(
+      query,
+      {
+        language,
+        version,
+        itemId,
+        siteName,
+      },
+      {
+        sc_layoutKind: 'final',
+      }
+    );
 
     expect(result).to.deep.equal({
       layoutData: layoutDataResponse,
@@ -136,6 +142,7 @@ describe('GraphQLEditingService', () => {
       version,
       itemId,
       siteName,
+      layoutKind: LayoutKind.Shared,
     });
 
     expect(clientFactorySpy.calledOnce).to.be.true;
@@ -148,12 +155,18 @@ describe('GraphQLEditingService', () => {
       })
     ).to.be.true;
     expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
-    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(query, {
-      language,
-      version,
-      itemId,
-      siteName,
-    });
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(
+      query,
+      {
+        language,
+        version,
+        itemId,
+        siteName,
+      },
+      {
+        sc_layoutKind: 'shared',
+      }
+    );
 
     expect(result).to.deep.equal({
       layoutData: {

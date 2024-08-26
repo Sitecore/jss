@@ -13,7 +13,11 @@ export interface GraphQLClient {
    * @param {string | DocumentNode} query graphql query
    * @param {Object} variables graphql variables
    */
-  request<T>(query: string | DocumentNode, variables?: { [key: string]: unknown }): Promise<T>;
+  request<T>(
+    query: string | DocumentNode,
+    variables?: { [key: string]: unknown },
+    requestHeaders?: Record<string, string>
+  ): Promise<T>;
 }
 
 /**
@@ -207,10 +211,12 @@ export class GraphQLRequestClient implements GraphQLClient {
    * Execute graphql request
    * @param {string | DocumentNode} query graphql query
    * @param {Object} variables graphql variables
+   * @param {Record<string, string>} requestHeaders
    */
   async request<T>(
     query: string | DocumentNode,
-    variables?: { [key: string]: unknown }
+    variables?: { [key: string]: unknown },
+    requestHeaders?: Record<string, string>
   ): Promise<T> {
     let attempt = 1;
 
@@ -224,7 +230,7 @@ export class GraphQLRequestClient implements GraphQLClient {
         variables,
       });
       const startTimestamp = Date.now();
-      const fetchWithOptionalTimeout = [this.client.request(query, variables)];
+      const fetchWithOptionalTimeout = [this.client.request(query, variables, requestHeaders)];
       if (this.timeout) {
         this.abortTimeout = new TimeoutPromise(this.timeout);
         fetchWithOptionalTimeout.push(this.abortTimeout.start);
