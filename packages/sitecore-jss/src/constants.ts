@@ -21,3 +21,7 @@ export const siteNameError = 'The siteName cannot be empty';
 export const SITECORE_EDGE_URL_DEFAULT = 'https://edge-platform.sitecorecloud.io';
 
 export const HIDDEN_RENDERING_NAME = 'Hidden Rendering';
+/**
+ * default value of uid for root placeholder when uid is not present.
+ */
+export const DEFAULT_PLACEHOLDER_UID = '00000000-0000-0000-0000-000000000000';

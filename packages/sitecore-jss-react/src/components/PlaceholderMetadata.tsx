@@ -4,6 +4,7 @@ import {
   getDynamicPlaceholderPattern,
   isDynamicPlaceholder,
 } from '@sitecore-jss/sitecore-jss/layout';
+import { constants } from '@sitecore-jss/sitecore-jss';
 
 /**
  *  Props containing the component data to render.
@@ -21,11 +22,6 @@ export type CodeBlockAttributes = {
   kind: string;
   id?: string;
 };
-
-/**
- * default value of uid for root placeholder when uid is not present.
- */
-const DEFAULT_PLACEHOLDER_UID = '00000000-0000-0000-0000-000000000000';
 
 /**
  * A React component to generate metadata blocks for a placeholder or rendering.
@@ -65,7 +61,7 @@ export const PlaceholderMetadata = ({
           if (placeholderName === placeholder) {
             phId = id
               ? `${placeholderName}_${id}`
-              : `${placeholderName}_${DEFAULT_PLACEHOLDER_UID}`;
+              : `${placeholderName}_${constants.DEFAULT_PLACEHOLDER_UID}`;
             break;
           }
 
@@ -75,7 +71,9 @@ export const PlaceholderMetadata = ({
 
             // Check if the placeholder matches the dynamic placeholder pattern
             if (pattern.test(placeholderName)) {
-              phId = id ? `${placeholder}_${id}` : `${placeholder}_${DEFAULT_PLACEHOLDER_UID}`;
+              phId = id
+                ? `${placeholder}_${id}`
+                : `${placeholder}_${constants.DEFAULT_PLACEHOLDER_UID}`;
               break;
             }
           }

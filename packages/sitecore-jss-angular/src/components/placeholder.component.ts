@@ -52,6 +52,7 @@ import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
 import { RenderEachDirective } from './render-each.directive';
 import { RenderEmptyDirective } from './render-empty.directive';
 import { isRawRendering } from './rendering';
+import { PlaceholderMetadataComponent } from './placeholder-metadata.component';
 
 /**
  * @param {ComponentRendering} rendering
@@ -100,7 +101,9 @@ export interface FactoryWithData {
       *ngIf="isLoading"
       [ngTemplateOutlet]="placeholderLoading?.templateRef"
     ></ng-template>
-    <ng-template #view></ng-template>
+    <sc-placeholder-metadata #placeholderMetadata>
+      <ng-template #view></ng-template>
+    </sc-placeholder-metadata>
   `,
 })
 export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
@@ -117,7 +120,8 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   @ContentChild(RenderEmptyDirective, { static: true }) renderEmptyTemplate: RenderEmptyDirective;
   @ContentChild(PlaceholderLoadingDirective, { static: true })
   placeholderLoading?: PlaceholderLoadingDirective;
-
+  @ViewChild(PlaceholderMetadataComponent, { static: true })
+  placeholderMetadata: PlaceholderMetadataComponent;
   @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
 
   public isLoading = true;
@@ -222,6 +226,9 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   }
 
   private async _render() {
+    this.placeholderMetadata.placeholderName = this.name;
+    this.placeholderMetadata.rendering = this.rendering;
+    this.placeholderMetadata.enabled = this.editMode === EditMode.Metadata;
     if (this.clientOnly && isPlatformServer(this.platformId)) {
       return;
     }
