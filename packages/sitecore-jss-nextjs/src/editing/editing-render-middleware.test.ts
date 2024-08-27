@@ -171,7 +171,7 @@ describe('EditingRenderMiddleware', () => {
     expect(res.json).to.have.been.calledOnce;
   });
 
-  describe.only('metadata handler', () => {
+  describe('metadata handler', () => {
     const query = {
       mode: 'edit',
       route: '/styleguide',
