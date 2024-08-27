@@ -55,7 +55,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[sitecore-jss]``[sitecore-jss-nextjs]` Pass `sc_layoutKind` to grapqhl layout request header. ([#1907](https://github.com/Sitecore/jss/pull/1907))
+* `[sitecore-jss]``[sitecore-jss-nextjs]` Pass `sc_layoutKind` to GraphQLEditingService request header to support shared/final editing layouts ([#1907](https://github.com/Sitecore/jss/pull/1907))
 
 ## 22.1.0
 
