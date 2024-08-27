@@ -163,11 +163,9 @@ export class GraphQLEditingService {
         language,
       },
       {
-        {
-            headers: {
-                sc_layoutKind: layoutKind,
-            }
-        }
+        headers: {
+          sc_layoutKind: layoutKind,
+        },
       }
     );
 

@@ -101,7 +101,9 @@ describe('GraphQLEditingService', () => {
         siteName,
       },
       {
-        sc_layoutKind: 'final',
+        headers: {
+          sc_layoutKind: 'final',
+        },
       }
     );
 
@@ -143,7 +145,6 @@ describe('GraphQLEditingService', () => {
       version,
       itemId,
       siteName,
-      layoutKind: LayoutKind.Shared,
     });
 
     expect(clientFactorySpy.calledOnce).to.be.true;
@@ -165,7 +166,9 @@ describe('GraphQLEditingService', () => {
         siteName,
       },
       {
-        sc_layoutKind: 'shared',
+        headers: {
+          sc_layoutKind: 'final',
+        },
       }
     );
 
@@ -225,6 +228,47 @@ describe('GraphQLEditingService', () => {
         bar: 'bar-phrase',
       },
     });
+
+    spy.restore(clientFactorySpy);
+  });
+
+  it('should fetch shared layout editing data', async () => {
+    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+      .post(endpointPath, /EditingQuery/gi)
+      .reply(200, editingData);
+
+    const clientFactorySpy = sinon.spy(clientFactory);
+
+    const service = new GraphQLEditingService({
+      clientFactory: clientFactorySpy,
+    });
+
+    spy.on(clientFactorySpy.returnValues[0], 'request');
+
+    await service.fetchEditingData({
+      language,
+      version,
+      itemId,
+      siteName,
+      layoutKind: LayoutKind.Shared,
+    });
+
+    expect(clientFactorySpy.calledOnce).to.be.true;
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(
+      query,
+      {
+        language,
+        version,
+        itemId,
+        siteName,
+      },
+      {
+        headers: {
+          sc_layoutKind: 'shared',
+        },
+      }
+    );
 
     spy.restore(clientFactorySpy);
   });
