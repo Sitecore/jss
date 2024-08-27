@@ -10,14 +10,10 @@ import metadata from './src/environments/metadata.json';
  * Define the required configuration values to be exported from the server.bundle.ts.
  */
 
-const apiKey = environment.sitecoreApiKey;
-const siteName = environment.sitecoreSiteName;
 const defaultLanguage = environment.defaultLanguage;
 const getClientFactoryConfig = getGraphQLClientFactoryConfig;
 
 export {
-  apiKey,
-  siteName,
   clientFactory,
   getClientFactoryConfig,
   dictionaryServiceFactory,

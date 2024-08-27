@@ -23,7 +23,6 @@ const requiredProperties = [
   'parseRouteUrl',
   'clientFactory',
   'getClientFactoryConfig',
-  'siteName',
   'defaultLanguage',
   'layoutServiceFactory',
   'dictionaryServiceFactory',
