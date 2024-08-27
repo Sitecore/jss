@@ -1,14 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
 import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
-import {
-  EditMode,
-  LayoutServicePageState,
-  MetadataQueryParams,
-} from '@sitecore-jss/sitecore-jss/layout';
+import { EditMode, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
 import {
   QUERY_PARAM_EDITING_SECRET,
   EDITING_ALLOWED_ORIGINS,
+  RenderMetadataQueryParams,
 } from '@sitecore-jss/sitecore-jss/editing';
 import { EditingData } from './editing-data';
 import { EditingDataService, editingDataService } from './editing-data-service';
@@ -272,7 +269,7 @@ export type EditingRenderMiddlewareMetadataConfig = Pick<
  * Next.js API request with Metadata query parameters.
  */
 type MetadataNextApiRequest = NextApiRequest & {
-  query: MetadataQueryParams;
+  query: RenderMetadataQueryParams;
 };
 
 /**
@@ -316,7 +313,7 @@ export class MetadataHandler {
 
     const startTimestamp = Date.now();
 
-    const requiredQueryParams: (keyof MetadataQueryParams)[] = [
+    const requiredQueryParams: (keyof RenderMetadataQueryParams)[] = [
       'sc_site',
       'sc_itemid',
       'sc_lang',

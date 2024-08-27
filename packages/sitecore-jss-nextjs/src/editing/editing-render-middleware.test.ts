@@ -8,8 +8,8 @@ import { EditingDataService, EditingPreviewData } from './editing-data-service';
 import {
   EDITING_ALLOWED_ORIGINS,
   QUERY_PARAM_EDITING_SECRET,
+  RenderMetadataQueryParams,
 } from '@sitecore-jss/sitecore-jss/editing';
-import { MetadataQueryParams } from '@sitecore-jss/sitecore-jss/layout';
 import {
   QUERY_PARAM_VERCEL_PROTECTION_BYPASS,
   QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE,
@@ -38,7 +38,7 @@ const allowedOrigin = 'https://allowed.com';
 
 const mockRequest = (
   body?: any,
-  query?: Query | MetadataQueryParams,
+  query?: Query | RenderMetadataQueryParams,
   method?: string,
   headers?: { [key: string]: string }
 ) => {
@@ -181,7 +181,7 @@ describe('EditingRenderMiddleware', () => {
       sc_variant: 'dev',
       sc_version: 'latest',
       secret: secret,
-    } as MetadataQueryParams;
+    } as RenderMetadataQueryParams;
 
     it('should handle request', async () => {
       const req = mockRequest(EE_BODY, query, 'GET');
@@ -219,7 +219,7 @@ describe('EditingRenderMiddleware', () => {
         sc_site: 'website',
         secret: secret,
         sc_variant: 'id-1,id-2,id-3',
-      } as MetadataQueryParams;
+      } as RenderMetadataQueryParams;
 
       const req = mockRequest(EE_BODY, query, 'GET');
       const res = mockResponse();
@@ -248,7 +248,7 @@ describe('EditingRenderMiddleware', () => {
         sc_lang: 'en',
         sc_site: 'website',
         secret: secret,
-      } as MetadataQueryParams;
+      } as RenderMetadataQueryParams;
       const req = mockRequest(EE_BODY, queryWithoutOptionalParams, 'GET');
       const res = mockResponse();
 

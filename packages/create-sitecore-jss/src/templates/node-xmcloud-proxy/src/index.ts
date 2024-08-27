@@ -5,7 +5,6 @@ import { createProxyMiddleware } from 'http-proxy-middleware';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { editingRouter } from '@sitecore-jss/sitecore-jss-proxy';
 import { config } from './config';
-import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 const server = express();
 
@@ -140,12 +139,8 @@ server.use(
       metadata: config.serverBundle.metadata,
     },
     render: {
-      clientFactory: GraphQLRequestClient.createClientFactory(
-        config.serverBundle.getClientFactoryConfig()
-      ),
-      dictionaryService: dictionaryService,
+      clientFactory: config.serverBundle.clientFactory,
       renderView: renderView,
-      defaultLanguage: config.serverBundle.defaultLanguage,
     },
   })
 );

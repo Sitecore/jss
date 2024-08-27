@@ -1,15 +1,17 @@
 import { GraphQLRequestClientFactory, debug } from '@sitecore-jss/sitecore-jss';
 import { AppRenderer, RenderResponse } from '../../types/AppRenderer';
-import { Request, RequestHandler, Response } from 'express';
-import { MetadataQueryParams } from '@sitecore-jss/sitecore-jss/layout';
+import { Request, Response } from 'express';
 import { getAllowedOriginsFromEnv } from '@sitecore-jss/sitecore-jss/utils';
-import { GraphQLEditingService, EDITING_ALLOWED_ORIGINS } from '@sitecore-jss/sitecore-jss/editing';
-import { DictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
+import {
+  GraphQLEditingService,
+  EDITING_ALLOWED_ORIGINS,
+  RenderMetadataQueryParams,
+} from '@sitecore-jss/sitecore-jss/editing';
 
 /**
  * Configuration for the editing render endpoint
  */
-export type EditingRenderEndpointConfig = {
+export type EditingRenderEndpointOptions = {
   /**
    * Custom path for the endpoint. Default is `<routerPath>/render`
    * @example
@@ -21,34 +23,29 @@ export type EditingRenderEndpointConfig = {
    */
   clientFactory: GraphQLRequestClientFactory;
   /**
-   * The dictionary service provided by the server bundle
-   */
-  dictionaryService: DictionaryService;
-  /**
    * The appRenderer will produce the requested route's html
    */
   renderView: AppRenderer;
-  /**
-   * The default language provided by the server bundle
-   */
-  defaultLanguage: string;
 };
 
-/* Middleware to handle editing render requests
- * @param {EditingRenderEndpointConfig} configuration for the endpoint
- * @returns {RequestHandler} Middleware function
+type MetadataRequest = Request & { query: RenderMetadataQueryParams };
+
+/**
+ * Middleware to handle editing render requests
+ * @param {EditingRenderEndpointOptions} config for the endpoint
  */
-export const editingRenderMiddleware = (
-  config: EditingRenderEndpointConfig
-): RequestHandler => async (_req: Request, res: Response): Promise<unknown> => {
+export const editingRenderMiddleware = (config: EditingRenderEndpointOptions) => async (
+  req: MetadataRequest,
+  res: Response
+): Promise<void> => {
   try {
-    debug.editing('editing config middleware start');
+    debug.editing('editing render middleware start');
 
     const startTimestamp = Date.now();
 
-    const query = _req.query as MetadataQueryParams;
+    const query = req.query;
 
-    const requiredQueryParams: (keyof MetadataQueryParams)[] = [
+    const requiredQueryParams: (keyof RenderMetadataQueryParams)[] = [
       'sc_site',
       'sc_itemid',
       'sc_lang',
@@ -62,11 +59,13 @@ export const editingRenderMiddleware = (
     if (missingQueryParams.length) {
       debug.editing('missing required query parameters: %o', missingQueryParams);
 
-      return res.status(400).json({
+      res.status(400).json({
         html: `<html><body>Missing required query parameters: ${missingQueryParams.join(
           ', '
         )}</body></html>`,
       });
+
+      return;
     }
 
     const graphQLEditingService = new GraphQLEditingService({
@@ -78,25 +77,14 @@ export const editingRenderMiddleware = (
       itemId: query.sc_itemid,
       language: query.sc_lang,
       version: query.sc_version,
+      layoutKind: query.sc_layoutKind,
     });
 
-    if (!data) {
-      throw new Error(`Unable to fetch editing data for preview ${JSON.stringify(query)}`);
+    if (!data || !data.layoutData || !data.dictionary) {
+      throw new Error(`Unable to fetch editing data for ${JSON.stringify(query)}`);
     }
 
-    const viewBag = { dictionary: {} };
-    viewBag.dictionary = await config.dictionaryService.fetchDictionaryData(
-      data.layoutData.sitecore.context.language || config.defaultLanguage
-    );
-
-    debug.editing(
-      'editing render middleware end in %dms: redirect %o',
-      Date.now() - startTimestamp,
-      {
-        status: 307,
-        route: query.route,
-      }
-    );
+    const viewBag = { dictionary: data.dictionary };
 
     config.renderView(
       (err: Error | null, result: RenderResponse | null) => {
@@ -106,9 +94,13 @@ export const editingRenderMiddleware = (
         }
 
         if (!result) {
-          debug.editing('no result returned from renderView, returning 204');
+          debug.editing('editing render middleware end in %dms: %o', Date.now() - startTimestamp, {
+            status: 204,
+            route: query.route,
+          });
 
-          return res.status(204);
+          res.status(204).send();
+          return;
         }
 
         const statusCode = data.layoutData.sitecore.route ? 200 : 404;
@@ -116,11 +108,14 @@ export const editingRenderMiddleware = (
         // Restrict the page to be rendered only within the allowed origins
         res.setHeader('Content-Security-Policy', getSCPHeader());
 
-        debug.editing('sending response with status %s', statusCode);
+        debug.editing('editing render middleware end in %dms: %o', Date.now() - startTimestamp, {
+          status: statusCode,
+          route: query.route,
+        });
 
-        return res.status(statusCode).json({ html: result.html });
+        res.status(statusCode).json({ html: result.html });
       },
-      query.route as string,
+      query.route,
       data.layoutData,
       viewBag
     );
@@ -128,15 +123,13 @@ export const editingRenderMiddleware = (
     handleError(res, err);
     return;
   }
-
-  return Promise.resolve();
 };
 
 /**
  * Gets the Content-Security-Policy header value
- * @returns Content-Security-Policy header value
+ * @returns {string} Content-Security-Policy header value
  */
-const getSCPHeader = () => {
+export const getSCPHeader = () => {
   return `frame-ancestors 'self' ${[getAllowedOriginsFromEnv(), ...EDITING_ALLOWED_ORIGINS].join(
     ' '
   )}`;

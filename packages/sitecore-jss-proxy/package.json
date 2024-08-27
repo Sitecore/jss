@@ -9,7 +9,7 @@
     "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint \"./src/**/*.ts\"",
-    "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
+    "test": "mocha --require ts-node/register \"./src/**/*.test.ts\" --exit",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-proxy src/index.ts --githubPages false"

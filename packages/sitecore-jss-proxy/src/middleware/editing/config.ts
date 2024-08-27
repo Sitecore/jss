@@ -1,4 +1,4 @@
-import { Request, RequestHandler, Response } from 'express';
+import { Request, Response } from 'express';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { EditMode } from '@sitecore-jss/sitecore-jss/layout';
 import { Metadata } from '@sitecore-jss/sitecore-jss/utils';
@@ -28,7 +28,7 @@ export type EditingConfigEndpointOptions = {
  * @param {EditingConfigEndpointOptions} config Configuration for the endpoint
  * @returns {RequestHandler} Middleware function
  */
-export const editingConfigMiddleware = (config: EditingConfigEndpointOptions): RequestHandler => (
+export const editingConfigMiddleware = (config: EditingConfigEndpointOptions) => (
   _req: Request,
   res: Response
 ): void => {

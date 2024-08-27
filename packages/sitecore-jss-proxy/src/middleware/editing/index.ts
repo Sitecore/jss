@@ -6,7 +6,7 @@ import {
 } from '@sitecore-jss/sitecore-jss/editing';
 import { enforceCors } from '@sitecore-jss/sitecore-jss/utils';
 import { EditingConfigEndpointOptions, editingConfigMiddleware } from './config';
-import { EditingRenderEndpointConfig, editingRenderMiddleware } from './render';
+import { EditingRenderEndpointOptions, editingRenderMiddleware } from './render';
 
 /**
  * Default endpoints for editing requests
@@ -27,7 +27,7 @@ export type EditingRouterConfig = {
   /**
    * Configuration for the /render endpoint
    */
-  render: EditingRenderEndpointConfig;
+  render: EditingRenderEndpointOptions;
 };
 
 /**
