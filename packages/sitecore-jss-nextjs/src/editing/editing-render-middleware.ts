@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
 import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditMode, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
+import { LayoutKind } from '@sitecore-jss/sitecore-jss/editing';
 import { EditingData } from './editing-data';
 import { EditingDataService, editingDataService } from './editing-data-service';
 import { EDITING_ALLOWED_ORIGINS, QUERY_PARAM_EDITING_SECRET } from './constants';
@@ -274,6 +275,7 @@ export type MetadataQueryParams = {
   mode: Exclude<LayoutServicePageState, 'normal'>;
   sc_variant?: string;
   sc_version?: string;
+  sc_layoutKind?: LayoutKind;
 };
 
 /**
@@ -294,6 +296,7 @@ export type EditingMetadataPreviewData = {
   pageState: Exclude<LayoutServicePageState, 'Normal'>;
   variantIds: string[];
   version?: string;
+  layoutKind?: LayoutKind;
 };
 
 /**
@@ -355,6 +358,7 @@ export class MetadataHandler {
         version: query.sc_version,
         editMode: EditMode.Metadata,
         pageState: query.mode,
+        layoutKind: query.sc_layoutKind,
       } as EditingMetadataPreviewData,
       // Cache the preview data for 3 seconds to ensure the page is rendered with the correct preview data not the cached one
       {

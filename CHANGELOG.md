@@ -9,6 +9,18 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 22.1.1
+
+### 🎉 New Features & Improvements
+
+* `[XM Cloud]` `[Metadata Mode]` `[Next.js]` API was changed, next.js preview data provides a new parameter `layoutKind` therefore, please make the necessary updates in the app in `plugins/preview-mode.ts` as shown in the following PR to experience a smooth upgrade.
+* `[sitecore-jss]` `[sitecore-jss-nextjs]` Pass `sc_layoutKind` to GraphQLEditingService request header to support shared/final editing layouts ([#1907](https://github.com/Sitecore/jss/pull/1907))
+* `[sitecore-jss]` `GraphQLRequestClient`'s `request` method now supports dynamic headers based on specific request ([#1907](https://github.com/Sitecore/jss/pull/1907))
+
+```
+  client.request(query, variables, { headers })
+```
+
 ## 22.1.0
 
 ### 🐛 Bug Fixes

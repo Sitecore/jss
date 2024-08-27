@@ -3,6 +3,7 @@ import { PageInfo } from '../graphql';
 import { GraphQLClient, GraphQLRequestClientFactory } from '../graphql-request-client';
 import { DictionaryPhrases } from '../i18n';
 import { EditMode, LayoutServiceData } from '../layout';
+import { LayoutKind } from './models';
 
 /**
  * The dictionary query default page size.
@@ -115,6 +116,7 @@ export class GraphQLEditingService {
    * @param {string} variables.itemId - The item id (path) to fetch layout data for.
    * @param {string} variables.language - The language to fetch layout data for.
    * @param {string} [variables.version] - The version of the item (optional).
+   * @param {LayoutKind} [variables.layoutKind] - The final or shared layout variant.
    * @returns {Promise} The layout data and dictionary phrases.
    */
   async fetchEditingData({
@@ -122,13 +124,22 @@ export class GraphQLEditingService {
     itemId,
     language,
     version,
+    layoutKind = LayoutKind.Final,
   }: {
     siteName: string;
     itemId: string;
     language: string;
     version?: string;
+    layoutKind?: LayoutKind;
   }) {
-    debug.editing('fetching editing data for %s %s %s %s', siteName, itemId, language, version);
+    debug.editing(
+      'fetching editing data for %s %s %s %s',
+      siteName,
+      itemId,
+      language,
+      version,
+      layoutKind
+    );
 
     if (!siteName) {
       throw new RangeError('The site name must be a non-empty string');
@@ -143,12 +154,20 @@ export class GraphQLEditingService {
     let hasNext = true;
     let after = '';
 
-    const editingData = await this.graphQLClient.request<GraphQLEditingQueryResponse>(query, {
-      siteName,
-      itemId,
-      version,
-      language,
-    });
+    const editingData = await this.graphQLClient.request<GraphQLEditingQueryResponse>(
+      query,
+      {
+        siteName,
+        itemId,
+        version,
+        language,
+      },
+      {
+        headers: {
+          sc_layoutKind: layoutKind,
+        },
+      }
+    );
 
     if (editingData?.site?.siteInfo?.dictionary) {
       dictionaryResults = editingData.site.siteInfo.dictionary.results;
