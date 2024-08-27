@@ -233,7 +233,7 @@ describe('GraphQLEditingService', () => {
   });
 
   it('should fetch shared layout editing data', async () => {
-    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+    nock(hostname, { reqheaders: { sc_editMode: 'true', sc_layoutKind: 'shared' } })
       .post(endpointPath, /EditingQuery/gi)
       .reply(200, editingData);
 
@@ -245,7 +245,7 @@ describe('GraphQLEditingService', () => {
 
     spy.on(clientFactorySpy.returnValues[0], 'request');
 
-    await service.fetchEditingData({
+    const result = await service.fetchEditingData({
       language,
       version,
       itemId,
@@ -269,6 +269,14 @@ describe('GraphQLEditingService', () => {
         },
       }
     );
+
+    expect(result).to.deep.equal({
+      layoutData: layoutDataResponse,
+      dictionary: {
+        foo: 'foo-phrase',
+        bar: 'bar-phrase',
+      },
+    });
 
     spy.restore(clientFactorySpy);
   });
