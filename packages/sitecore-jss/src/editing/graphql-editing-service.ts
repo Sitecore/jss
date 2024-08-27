@@ -2,7 +2,8 @@ import debug from '../debug';
 import { PageInfo } from '../graphql';
 import { GraphQLClient, GraphQLRequestClientFactory } from '../graphql-request-client';
 import { DictionaryPhrases } from '../i18n';
-import { EditMode, LayoutKind, LayoutServiceData } from '../layout';
+import { EditMode, LayoutServiceData } from '../layout';
+import { LayoutKind } from './models';
 
 /**
  * The dictionary query default page size.
@@ -123,7 +124,7 @@ export class GraphQLEditingService {
     itemId,
     language,
     version,
-    layoutKind,
+    layoutKind = LayoutKind.Final,
   }: {
     siteName: string;
     itemId: string;
@@ -162,7 +163,7 @@ export class GraphQLEditingService {
         language,
       },
       {
-        sc_layoutKind: layoutKind || LayoutKind.Final,
+        sc_layoutKind: layoutKind,
       }
     );
 

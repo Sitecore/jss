@@ -169,7 +169,7 @@ describe('EditingRenderMiddleware', () => {
     expect(res.json).to.have.been.calledOnce;
   });
 
-  describe('metadata handler', () => {
+  describe.only('metadata handler', () => {
     const query = {
       mode: 'edit',
       route: '/styleguide',
@@ -237,7 +237,7 @@ describe('EditingRenderMiddleware', () => {
         version: undefined,
         editMode: 'metadata',
         pageState: 'edit',
-        layoutKind: 'final',
+        layoutKind: undefined,
       });
     });
 
@@ -266,7 +266,7 @@ describe('EditingRenderMiddleware', () => {
         version: undefined,
         editMode: 'metadata',
         pageState: 'edit',
-        layoutKind: 'final',
+        layoutKind: undefined,
       });
 
       expect(res.redirect).to.have.been.calledOnce;

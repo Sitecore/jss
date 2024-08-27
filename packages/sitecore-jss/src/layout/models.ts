@@ -27,16 +27,6 @@ export enum EditMode {
 }
 
 /**
- * Represents the layout switcher to pass to CM when rendering to horizon.
- * - shared - shared layout
- * - final- final layout
- */
-export enum LayoutKind {
-  Final = 'final',
-  Shared = 'shared',
-}
-
-/**
  * Shape of context data from the Sitecore Layout Service
  */
 export interface LayoutServiceContext {

@@ -5,18 +5,27 @@ import debuggers, { Debugger } from './debug';
 import TimeoutPromise from './utils/timeout-promise';
 
 /**
+ * Options for configuring a GraphQL request.
+ */
+interface RequestOptions {
+  [key: string]: unknown;
+  headers?: Record<string, string>;
+}
+
+/**
  * An interface for GraphQL clients for Sitecore APIs
  */
 export interface GraphQLClient {
   /**
    * Execute graphql request
    * @param {string | DocumentNode} query graphql query
-   * @param {Object} variables graphql variables
+   * @param {Object} [variables] graphql variables
+   * @param {RequestOptions} [options] options for configuring a GraphQL request.
    */
   request<T>(
     query: string | DocumentNode,
     variables?: { [key: string]: unknown },
-    requestHeaders?: Record<string, string>
+    options?: RequestOptions
   ): Promise<T>;
 }
 
@@ -210,13 +219,13 @@ export class GraphQLRequestClient implements GraphQLClient {
   /**
    * Execute graphql request
    * @param {string | DocumentNode} query graphql query
-   * @param {Object} variables graphql variables
-   * @param {Record<string, string>} requestHeaders
+   * @param {Object} [variables] graphql variables
+   * @param {RequestOptions} [options] Options for configuring a GraphQL request.
    */
   async request<T>(
     query: string | DocumentNode,
     variables?: { [key: string]: unknown },
-    requestHeaders?: Record<string, string>
+    options?: RequestOptions
   ): Promise<T> {
     let attempt = 1;
 
@@ -225,12 +234,12 @@ export class GraphQLRequestClient implements GraphQLClient {
       // (or nice hooks like we have with Axios), but we should log whatever we have.
       this.debug('request: %o', {
         url: this.endpoint,
-        headers: this.headers,
+        headers: { ...this.headers, ...options?.headers },
         query,
         variables,
       });
       const startTimestamp = Date.now();
-      const fetchWithOptionalTimeout = [this.client.request(query, variables, requestHeaders)];
+      const fetchWithOptionalTimeout = [this.client.request(query, variables, options?.headers)];
       if (this.timeout) {
         this.abortTimeout = new TimeoutPromise(this.timeout);
         fetchWithOptionalTimeout.push(this.abortTimeout.start);

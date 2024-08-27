@@ -15,7 +15,6 @@ export {
   ComponentFields,
   ComponentParams,
   EditMode,
-  LayoutKind,
   FieldMetadata,
 } from './models';
 

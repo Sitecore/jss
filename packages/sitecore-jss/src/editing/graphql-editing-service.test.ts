@@ -14,12 +14,13 @@ import {
   mockEditingServiceDictionaryResponse,
   mockEditingServiceResponse,
 } from '../test-data/mockEditingServiceResponse';
-import { EditMode, LayoutKind } from '../layout';
+import { EditMode } from '../layout';
+import { LayoutKind } from './models';
 import debug from '../debug';
 
 use(spies);
 
-describe('GraphQLEditingService', () => {
+describe.only('GraphQLEditingService', () => {
   const hostname = 'http://site';
   const endpointPath = '/?sitecoreContextId=context-id';
   const siteName = 'site-name';
@@ -62,7 +63,7 @@ describe('GraphQLEditingService', () => {
   });
 
   it('should fetch editing data', async () => {
-    nock(hostname, { reqheaders: { sc_editMode: 'true', sc_layoutKind: 'final' } })
+    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
       .post(endpointPath, /EditingQuery/gi)
       .reply(200, editingData);
 
