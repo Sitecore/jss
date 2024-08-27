@@ -55,7 +55,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-NOTE: API was changed, preview data provides a new parameter therefore, please make the necessary updates to the nextjs template files as shown in the following PR to experience a smooth upgrade.
+NOTE: API was changed, preview data provides a new parameter `sc_layoutKind` therefore, please make the necessary updates to the nextjs template files as shown in the following PR to experience a smooth upgrade.
 
 * `[XM Cloud]` `[Metadata Mode]` `[Next.js]` API was changed, next.js preview data provides a new parameter `layoutKind` therefore, please make the necessary updates in the app in `plugins/preview-mode.ts` as shown in the following PR to experience a smooth upgrade.
 * `[sitecore-jss]` `[sitecore-jss-nextjs]` Pass `sc_layoutKind` to GraphQLEditingService request header to support shared/final editing layouts ([#1907](https://github.com/Sitecore/jss/pull/1907))
