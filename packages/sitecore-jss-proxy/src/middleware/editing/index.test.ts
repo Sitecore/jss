@@ -7,6 +7,7 @@ import { editingRouter, EditingRouterConfig } from './index';
 import { debug, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 import {
   GraphQLEditingService,
+  LayoutKind,
   RenderMetadataQueryParams,
 } from '@sitecore-jss/sitecore-jss/editing';
 import { EditingRenderEndpointOptions, getSCPHeader } from './render';
@@ -229,7 +230,7 @@ describe('editingRouter', () => {
       sc_site: 'site',
       sc_itemid: '{Guid}',
       sc_lang: 'en',
-      sc_layoutKind: 'shared',
+      sc_layoutKind: LayoutKind.Shared,
       sc_version: '1',
       route: '/',
       mode: LayoutServicePageState.Edit,
