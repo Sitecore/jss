@@ -16,7 +16,6 @@ export interface RenderMetadataQueryParams {
   sc_variant?: string;
   sc_version?: string;
 }
-
 /**
  * Represents the Editing Layout variant.
  * - shared - shared layout
