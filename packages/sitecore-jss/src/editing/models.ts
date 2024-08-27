@@ -12,7 +12,7 @@ export interface RenderMetadataQueryParams {
   sc_site: string;
   route: string;
   mode: Exclude<LayoutServicePageState, 'normal'>;
-  sc_layoutKind?: 'final' | 'shared';
+  sc_layoutKind?: LayoutKind;
   sc_variant?: string;
   sc_version?: string;
 }
