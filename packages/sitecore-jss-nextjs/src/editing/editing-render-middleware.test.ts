@@ -181,6 +181,7 @@ describe('EditingRenderMiddleware', () => {
       sc_variant: 'dev',
       sc_version: 'latest',
       secret: secret,
+      sc_layoutKind: 'shared',
     } as MetadataQueryParams;
 
     it('should handle request', async () => {
@@ -200,6 +201,7 @@ describe('EditingRenderMiddleware', () => {
         version: 'latest',
         editMode: 'metadata',
         pageState: 'edit',
+        layoutKind: 'shared',
       });
 
       expect(res.redirect).to.have.been.calledOnce;
@@ -237,6 +239,7 @@ describe('EditingRenderMiddleware', () => {
         version: undefined,
         editMode: 'metadata',
         pageState: 'edit',
+        layoutKind: undefined,
       });
     });
 
@@ -265,6 +268,7 @@ describe('EditingRenderMiddleware', () => {
         version: undefined,
         editMode: 'metadata',
         pageState: 'edit',
+        layoutKind: undefined,
       });
 
       expect(res.redirect).to.have.been.calledOnce;
@@ -297,6 +301,7 @@ describe('EditingRenderMiddleware', () => {
         version: 'latest',
         editMode: 'metadata',
         pageState: 'edit',
+        layoutKind: 'shared',
       });
 
       expect(res.redirect).to.have.been.calledOnce;
