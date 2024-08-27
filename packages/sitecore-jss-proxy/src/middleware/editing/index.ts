@@ -55,24 +55,21 @@ export const editingMiddleware = async (
     debug.editing(
       'invalid origin host - set allowed origins in JSS_ALLOWED_ORIGINS environment variable'
     );
-    return res.status(401).json({
-      html: `<html><body>Requests from origin ${req.headers?.origin} not allowed</body></html>`,
-    });
+    return res.status(401).send(`Requests from origin ${req.headers?.origin} are not allowed`);
   }
 
   if (!secret) {
     debug.editing('missing editing secret - set JSS_EDITING_SECRET environment variable');
 
-    return res.status(401).json({
-      html:
-        '<html><body>Missing editing secret - set JSS_EDITING_SECRET environment variable</body></html>',
-    });
+    return res
+      .status(401)
+      .send('Missing editing secret - set JSS_EDITING_SECRET environment variable');
   }
 
   if (secret !== providedSecret) {
-    debug.editing('invalid editing secret - sent "%s" expected "%s"', secret, providedSecret);
+    debug.editing('invalid editing secret - sent "%s" expected "%s"', providedSecret, secret);
 
-    return res.status(401).json({ html: '<html><body>Missing or invalid secret</body></html>' });
+    return res.status(401).send('Missing or invalid secret');
   }
 
   return next();
@@ -86,9 +83,7 @@ export const editingMiddleware = async (
 const editingNotFoundMiddleware = (req: Request, res: Response) => {
   debug.editing('invalid method or path - sent %s %s', req.method, req.originalUrl);
 
-  return res.status(405).json({
-    html: `<html><body>Invalid request method or path ${req.method} ${req.originalUrl}</body></html>`,
-  });
+  return res.status(405).send(`Invalid request method or path ${req.method} ${req.originalUrl}`);
 };
 
 /**

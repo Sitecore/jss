@@ -59,11 +59,7 @@ export const editingRenderMiddleware = (config: EditingRenderEndpointOptions) =>
     if (missingQueryParams.length) {
       debug.editing('missing required query parameters: %o', missingQueryParams);
 
-      res.status(400).json({
-        html: `<html><body>Missing required query parameters: ${missingQueryParams.join(
-          ', '
-        )}</body></html>`,
-      });
+      res.status(400).send(`Missing required query parameters: ${missingQueryParams.join(', ')}`);
 
       return;
     }
@@ -113,7 +109,7 @@ export const editingRenderMiddleware = (config: EditingRenderEndpointOptions) =>
           route: query.route,
         });
 
-        res.status(statusCode).json({ html: result.html });
+        res.status(statusCode).send(result.html);
       },
       query.route,
       data.layoutData,

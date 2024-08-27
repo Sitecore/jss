@@ -57,13 +57,7 @@ describe('editingRouter', () => {
     request(app)
       .get('/config')
       .set('origin', 'http://not-allowed.com')
-      .expect(
-        401,
-        {
-          html: '<html><body>Requests from origin http://not-allowed.com not allowed</body></html>',
-        },
-        done
-      );
+      .expect(401, 'Requests from origin http://not-allowed.com are not allowed', done);
   });
 
   it('should response 401 error when editing secret is not set', (done) => {
@@ -73,14 +67,7 @@ describe('editingRouter', () => {
 
     request(app)
       .get('/config')
-      .expect(
-        401,
-        {
-          html:
-            '<html><body>Missing editing secret - set JSS_EDITING_SECRET environment variable</body></html>',
-        },
-        done
-      );
+      .expect(401, 'Missing editing secret - set JSS_EDITING_SECRET environment variable', done);
   });
 
   it('should response 401 error when editing secret is incorrect', (done) => {
@@ -89,13 +76,7 @@ describe('editingRouter', () => {
     request(app)
       .get('/config')
       .query({ secret: 'incorrect' })
-      .expect(
-        401,
-        {
-          html: '<html><body>Missing or invalid secret</body></html>',
-        },
-        done
-      );
+      .expect(401, 'Missing or invalid secret', done);
   });
 
   it('should response 405 error when not allowed method is used', (done) => {
@@ -104,14 +85,7 @@ describe('editingRouter', () => {
     request(app)
       .post('/api/editing/config')
       .query({ secret: 'correct' })
-      .expect(
-        405,
-        {
-          html:
-            '<html><body>Invalid request method or path POST /api/editing/config?secret=correct</body></html>',
-        },
-        done
-      );
+      .expect(405, 'Invalid request method or path POST /api/editing/config?secret=correct', done);
   });
 
   it('should response 405 error when not allowed path is used', (done) => {
@@ -122,10 +96,7 @@ describe('editingRouter', () => {
       .query({ secret: 'correct' })
       .expect(
         405,
-        {
-          html:
-            '<html><body>Invalid request method or path GET /api/editing/fake-config?secret=correct</body></html>',
-        },
+        'Invalid request method or path GET /api/editing/fake-config?secret=correct',
         done
       );
   });
@@ -261,15 +232,7 @@ describe('editingRouter', () => {
       request(app)
         .get('/api/editing/render')
         .query({ secret: 'correct' })
-        .expect(
-          400,
-          {
-            html: `<html><body>Missing required query parameters: ${requiredParams.join(
-              ', '
-            )}</body></html>`,
-          },
-          done
-        );
+        .expect(400, `Missing required query parameters: ${requiredParams.join(', ')}`, done);
     });
 
     it('should response 500 error when unable to fetch editing data', (done) => {
@@ -495,7 +458,7 @@ describe('editingRouter', () => {
       request(app)
         .get('/api/editing/render')
         .query(validQS)
-        .expect(200, { html: '<div>Hello World</div>' })
+        .expect(200, '<div>Hello World</div>')
         .expect('Content-Security-Policy', `${getSCPHeader()}`)
         .expect(() => {
           expect(fetchEditingDataStub.calledOnceWith(fetchEditingDataArgs)).to.be.true;
@@ -539,7 +502,7 @@ describe('editingRouter', () => {
       request(app)
         .get('/api/editing/foo/render')
         .query(validQS)
-        .expect(200, { html: '<div>Hello World</div>' })
+        .expect(200, '<div>Hello World</div>')
         .expect('Content-Security-Policy', `${getSCPHeader()}`)
         .expect(() => {
           expect(fetchEditingDataStub.calledOnceWith(fetchEditingDataArgs)).to.be.true;
@@ -582,7 +545,7 @@ describe('editingRouter', () => {
       request(app)
         .get('/api/editing/render')
         .query(validQS)
-        .expect(404, { html: '<div>Not Found</div>' })
+        .expect(404, '<div>Not Found</div>')
         .expect('Content-Security-Policy', `${getSCPHeader()}`)
         .expect(() => {
           expect(fetchEditingDataStub.calledOnceWith(fetchEditingDataArgs)).to.be.true;
