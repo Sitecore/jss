@@ -4,7 +4,6 @@ export { LinkDirective } from './components/link.directive';
 export { RouterLinkDirective } from './components/router-link.directive';
 export { GenericLinkDirective } from './components/generic-link.directive';
 export { PlaceholderComponent } from './components/placeholder.component';
-export { PlaceholderMetadataComponent } from './components/placeholder-metadata.component';
 export { HiddenRenderingComponent } from './components/hidden-rendering.component';
 export { RenderEachDirective } from './components/render-each.directive';
 export { RenderEmptyDirective } from './components/render-empty.directive';

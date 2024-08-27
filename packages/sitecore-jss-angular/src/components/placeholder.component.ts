@@ -52,7 +52,6 @@ import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
 import { RenderEachDirective } from './render-each.directive';
 import { RenderEmptyDirective } from './render-empty.directive';
 import { isRawRendering } from './rendering';
-import { PlaceholderMetadataComponent } from './placeholder-metadata.component';
 
 /**
  * @param {ComponentRendering} rendering
@@ -101,9 +100,23 @@ export interface FactoryWithData {
       *ngIf="isLoading"
       [ngTemplateOutlet]="placeholderLoading?.templateRef"
     ></ng-template>
-    <sc-placeholder-metadata #placeholderMetadata>
-      <ng-template #view></ng-template>
-    </sc-placeholder-metadata>
+    <code
+      *ngIf="metadataMode"
+      kind="open"
+      type="text/sitecore"
+      [attr.chrometype]="chromeType"
+      class="scpm"
+      [attr.id]="getCodeBlockId('open')"
+    ></code>
+    <ng-template #view></ng-template>
+    <code
+      *ngIf="metadataMode"
+      kind="close"
+      type="text/sitecore"
+      [attr.chrometype]="chromeType"
+      class="scpm"
+      [attr.id]="getCodeBlockId('close')"
+    ></code>
   `,
 })
 export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
@@ -120,18 +133,18 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   @ContentChild(RenderEmptyDirective, { static: true }) renderEmptyTemplate: RenderEmptyDirective;
   @ContentChild(PlaceholderLoadingDirective, { static: true })
   placeholderLoading?: PlaceholderLoadingDirective;
-  @ViewChild(PlaceholderMetadataComponent, { static: true })
-  placeholderMetadata: PlaceholderMetadataComponent;
   @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
 
   public isLoading = true;
-
+  metadataMode: boolean;
+  chromeType: string;
   private _inputs: { [key: string]: unknown };
   private _differ: KeyValueDiffer<string, unknown>;
   private _componentInstances: { [prop: string]: unknown }[] = [];
   private destroyed = false;
   private parentStyleAttribute = '';
   private editMode?: EditMode = undefined;
+  // private contextSubscription: Subscription;
 
   constructor(
     private differs: KeyValueDiffers,
@@ -157,7 +170,41 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     }
   }
 
+  getCodeBlockId = (kind: string): string | undefined => {
+    const placeholderName = this.name;
+    const id = this.rendering.uid;
+
+    if (kind === 'open') {
+      if (this.chromeType === 'placeholder' && placeholderName) {
+        let phId = '';
+        for (const placeholder of Object.keys(this.rendering.placeholders || [])) {
+          if (placeholderName === placeholder) {
+            phId = id
+              ? `${placeholderName}_${id}`
+              : `${placeholderName}_${constants.DEFAULT_PLACEHOLDER_UID}`;
+            break;
+          }
+          // Check if the placeholder is a dynamic placeholder
+          if (isDynamicPlaceholder(placeholder)) {
+            const pattern = getDynamicPlaceholderPattern(placeholder);
+            // Check if the placeholder matches the dynamic placeholder pattern
+            if (pattern.test(placeholderName)) {
+              phId = id
+                ? `${placeholder}_${id}`
+                : `${placeholder}_${constants.DEFAULT_PLACEHOLDER_UID}`;
+              break;
+            }
+          }
+        }
+        return phId;
+      }
+    }
+    return id;
+  };
+
   ngOnInit() {
+    
+    this.chromeType = this.name ? 'placeholder' : 'rendering';
     // just to ensure the element exists
     const elem = this.elementRef.nativeElement;
 
@@ -178,6 +225,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    this.chromeType = changes.name ? 'placeholder' : 'rendering';
     if (changes.rendering || changes.renderings) {
       this._render();
     }
@@ -226,9 +274,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   }
 
   private async _render() {
-    this.placeholderMetadata.placeholderName = this.name;
-    this.placeholderMetadata.rendering = this.rendering;
-    this.placeholderMetadata.enabled = this.editMode === EditMode.Metadata;
     if (this.clientOnly && isPlatformServer(this.platformId)) {
       return;
     }

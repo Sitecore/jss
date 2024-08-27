@@ -12,7 +12,6 @@ import { MissingComponentComponent } from './components/missing-component.compon
 import { HiddenRenderingComponent } from './components/hidden-rendering.component';
 import { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
 import { PlaceholderComponent } from './components/placeholder.component';
-import { PlaceholderMetadataComponent } from './components/placeholder-metadata.component';
 import { EditFrameComponent } from './components/editframe.component';
 import {
   ComponentNameAndModule,
@@ -48,7 +47,6 @@ import { JssComponentFactoryService } from './services/jss-component-factory.ser
     PlaceholderLoadingDirective,
     RenderComponentComponent,
     PlaceholderComponent,
-    PlaceholderMetadataComponent,
     RawComponent,
     RichTextDirective,
     TextDirective,
@@ -67,7 +65,6 @@ import { JssComponentFactoryService } from './services/jss-component-factory.ser
     RenderEmptyDirective,
     RenderComponentComponent,
     PlaceholderComponent,
-    PlaceholderMetadataComponent,
     HiddenRenderingComponent,
     PlaceholderLoadingDirective,
     RichTextDirective,
