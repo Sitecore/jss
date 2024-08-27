@@ -139,7 +139,7 @@ server.use(
     },
     render: {
       clientFactory: config.serverBundle.clientFactory,
-      renderView: renderView,
+      renderView,
     },
   })
 );
