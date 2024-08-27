@@ -51,6 +51,12 @@ Our versioning strategy is as follows:
 
 ### 🧹 Chores
 
+## 22.1.1
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss]``[sitecore-jss-nextjs]` Pass `sc_layoutKind` to grapqhl layout request header. ([#1907](https://github.com/Sitecore/jss/pull/1907))
+
 ## 22.1.0
 
 ### 🐛 Bug Fixes

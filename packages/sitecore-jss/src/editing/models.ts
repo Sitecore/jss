@@ -16,3 +16,13 @@ export interface RenderMetadataQueryParams {
   sc_variant?: string;
   sc_version?: string;
 }
+
+/**
+ * Represents the Editing Layout variant.
+ * - shared - shared layout
+ * - final - final layout
+ */
+export enum LayoutKind {
+  Final = 'final',
+  Shared = 'shared',
+}
