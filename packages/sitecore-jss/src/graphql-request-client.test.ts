@@ -68,7 +68,41 @@ describe('GraphQLRequestClient', () => {
       });
 
     const graphQLClient = new GraphQLRequestClient(endpoint, { apiKey });
-    await graphQLClient.request('test');
+    const result = await graphQLClient.request('test');
+
+    expect(result).to.deep.equal({ result: 'Hello world...' });
+  });
+
+  it('should send additional request headers configured through options', async () => {
+    const apiKey = 'cjhNRWNVOHRFTklwUjhYa0RSTnBhSStIam1mNE1KN1pyeW13c3FnRVExTT18bXRzdC1kLTAxOQ==';
+    const customHeader = 'Custom-Header-Value';
+    nock('http://jssnextweb', {
+      reqheaders: {
+        sc_apikey: apiKey,
+      },
+    })
+      .post('/graphql')
+      .reply(200, function() {
+        const receivedHeaders = this.req.headers;
+
+        expect(receivedHeaders['sc_apikey']).to.deep.equal([apiKey]);
+        expect(receivedHeaders['custom-header']).to.deep.equal([customHeader]);
+
+        return {
+          data: {
+            result: 'Hello world...',
+          },
+        };
+      });
+
+    const graphQLClient = new GraphQLRequestClient(endpoint, { apiKey });
+    const result = await graphQLClient.request('test', undefined, {
+      headers: {
+        'Custom-Header': customHeader,
+      },
+    });
+
+    expect(result).to.deep.equal({ result: 'Hello world...' });
   });
 
   it('should debug log request and response', async () => {

@@ -8,7 +8,6 @@ import TimeoutPromise from './utils/timeout-promise';
  * Options for configuring a GraphQL request.
  */
 interface RequestOptions {
-  [key: string]: unknown;
   headers?: Record<string, string>;
 }
 

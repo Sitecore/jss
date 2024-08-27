@@ -56,7 +56,10 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[sitecore-jss]``[sitecore-jss-nextjs]` Pass `sc_layoutKind` to grapqhl layout request header. ([#1907](https://github.com/Sitecore/jss/pull/1907))
+NOTE: API was changed, preview data provides a new parameter `sc_layoutKind` therefore, please make the necessary updates to the nextjs template files as shown in the following PR to experience a smooth upgrade.
+
+* `[sitecore-jss]``[sitecore-jss-nextjs]` Pass `sc_layoutKind` to GraphQLEditingService request header to support shared/final editing layouts ([#1907](https://github.com/Sitecore/jss/pull/1907))
+  * NOTE: `GraphQLRequestClient`'s  `request` method now supports dynamic headers.
 
 ## 22.1.0
 
