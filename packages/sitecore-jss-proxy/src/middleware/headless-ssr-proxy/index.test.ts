@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { IncomingMessage } from 'http';
 import { Request } from 'express';
 import { removeEmptyAnalyticsCookie, rewriteRequestPath } from './';
-import config from './test/config.test';
+import config from './config.test';
 
 describe('removeEmptyAnalyticsCookie', () => {
   it('should remove empty analytics cookie from response headers', () => {

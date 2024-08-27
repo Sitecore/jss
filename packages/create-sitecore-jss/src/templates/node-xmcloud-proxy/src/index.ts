@@ -3,6 +3,7 @@ import express, { Response } from 'express';
 import compression from 'compression';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import { debug } from '@sitecore-jss/sitecore-jss';
+import { editingRouter } from '@sitecore-jss/sitecore-jss-proxy';
 import { config } from './config';
 
 const server = express();
@@ -26,6 +27,8 @@ const requiredProperties = [
   'defaultLanguage',
   'layoutServiceFactory',
   'dictionaryServiceFactory',
+  'components',
+  'metadata',
 ];
 
 const missingProperties = requiredProperties.filter((property) => !config.serverBundle[property]);
@@ -46,7 +49,7 @@ const graphQLEndpoint = (() => {
 
   try {
     const graphQLEndpoint = new URL(clientFactoryConfig.endpoint);
-    // Browser request path to the proxy. Includes only the pathname. 
+    // Browser request path to the proxy. Includes only the pathname.
     const pathname = graphQLEndpoint.pathname;
     // Target URL for the proxy. Can't include the query string.
     const target = `${graphQLEndpoint.protocol}//${graphQLEndpoint.hostname}${pathname}`;
@@ -122,6 +125,19 @@ server.use(
   createProxyMiddleware({
     target: graphQLEndpoint.target,
     changeOrigin: true,
+  })
+);
+
+/**
+ * Proxy editing requests through the editing router
+ */
+server.use(
+  '/api/editing',
+  editingRouter({
+    config: {
+      components: config.serverBundle.components,
+      metadata: config.serverBundle.metadata,
+    },
   })
 );
 

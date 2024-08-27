@@ -1,7 +1,7 @@
 import express from 'express';
 import compression from 'compression';
 import 'dotenv/config';
-import scProxy from '@sitecore-jss/sitecore-jss-proxy';
+import { headlessProxy } from '@sitecore-jss/sitecore-jss-proxy';
 import { config } from './config';
 //import { cacheMiddleware } from './cacheMiddleware';
 
@@ -42,7 +42,14 @@ server.use((req, _res, next) => {
 });
 
 // For any other requests, we render app routes server-side and return them
-server.use('*', scProxy(config.serverBundle.renderView, config, config.serverBundle.parseRouteUrl));
+server.use(
+  '*',
+  headlessProxy.middleware(
+    config.serverBundle.renderView,
+    config,
+    config.serverBundle.parseRouteUrl
+  )
+);
 
 server.listen(port, () => {
   console.log(`server listening on port ${port}!`);

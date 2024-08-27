@@ -6,6 +6,8 @@ export {
   resetEditorChromes,
   handleEditorAnchors,
   Metadata,
+  EDITING_ALLOWED_ORIGINS,
+  QUERY_PARAM_EDITING_SECRET,
 } from './utils';
 export {
   DefaultEditFrameButton,
