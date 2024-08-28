@@ -2,10 +2,11 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
 import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditMode, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
-import { LayoutKind } from '@sitecore-jss/sitecore-jss/editing';
 import {
   QUERY_PARAM_EDITING_SECRET,
   EDITING_ALLOWED_ORIGINS,
+  RenderMetadataQueryParams,
+  LayoutKind,
 } from '@sitecore-jss/sitecore-jss/editing';
 import { EditingData } from './editing-data';
 import { EditingDataService, editingDataService } from './editing-data-service';
@@ -266,26 +267,10 @@ export type EditingRenderMiddlewareMetadataConfig = Pick<
 >;
 
 /**
- * Query parameters appended to the page route URL
- * Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
- */
-export type MetadataQueryParams = {
-  secret: string;
-  sc_lang: string;
-  sc_itemid: string;
-  sc_site: string;
-  route: string;
-  mode: Exclude<LayoutServicePageState, 'normal'>;
-  sc_variant?: string;
-  sc_version?: string;
-  sc_layoutKind?: LayoutKind;
-};
-
-/**
  * Next.js API request with Metadata query parameters.
  */
 type MetadataNextApiRequest = NextApiRequest & {
-  query: MetadataQueryParams;
+  query: RenderMetadataQueryParams;
 };
 
 /**
@@ -330,7 +315,7 @@ export class MetadataHandler {
 
     const startTimestamp = Date.now();
 
-    const requiredQueryParams: (keyof MetadataQueryParams)[] = [
+    const requiredQueryParams: (keyof RenderMetadataQueryParams)[] = [
       'sc_site',
       'sc_itemid',
       'sc_lang',

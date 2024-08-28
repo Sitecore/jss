@@ -13,7 +13,6 @@ export interface ServerBundle {
   parseRouteUrl: RouteUrlParser;
   clientFactory: GraphQLRequestClientFactory;
   getClientFactoryConfig: () => GraphQLRequestClientFactoryConfig;
-  siteName: string;
   defaultLanguage: string;
   layoutServiceFactory: { create: () => LayoutService };
   dictionaryServiceFactory: { create: () => DictionaryService };

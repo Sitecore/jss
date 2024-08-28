@@ -23,7 +23,6 @@ const requiredProperties = [
   'parseRouteUrl',
   'clientFactory',
   'getClientFactoryConfig',
-  'siteName',
   'defaultLanguage',
   'layoutServiceFactory',
   'dictionaryServiceFactory',
@@ -41,12 +40,16 @@ if (missingProperties.length > 0) {
   );
 }
 
+const layoutService = layoutServiceFactory.create();
+
+const dictionaryService = dictionaryServiceFactory.create();
+
+const clientFactoryConfig = config.serverBundle.getClientFactoryConfig();
+
 /**
  * GraphQL endpoint resolution to meet the requirements of the http-proxy-middleware
  */
 const graphQLEndpoint = (() => {
-  const clientFactoryConfig = config.serverBundle.getClientFactoryConfig();
-
   try {
     const graphQLEndpoint = new URL(clientFactoryConfig.endpoint);
     // Browser request path to the proxy. Includes only the pathname.
@@ -65,10 +68,6 @@ const graphQLEndpoint = (() => {
     );
   }
 })();
-
-const layoutService = layoutServiceFactory.create();
-
-const dictionaryService = dictionaryServiceFactory.create();
 
 /**
  * Parse requested url in order to detect current route and language
@@ -137,6 +136,10 @@ server.use(
     config: {
       components: config.serverBundle.components,
       metadata: config.serverBundle.metadata,
+    },
+    render: {
+      clientFactory: config.serverBundle.clientFactory,
+      renderView,
     },
   })
 );
