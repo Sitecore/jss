@@ -143,38 +143,16 @@ export class RedirectsMiddleware extends MiddlewareBase {
         url.href = prepareNewURL.href;
       }
 
-      const normalizedHeaders = new Headers();
-
-      /**
-       * FIX for Netlify service
-       * Netlify doesn’t handle 301/302 redirects if Next.js sets the header x-middleware-next.
-       */
-      if (res?.headers) {
-        res.headers.forEach((value, key) => {
-          if (key.toLowerCase() !== 'x-middleware-next') {
-            normalizedHeaders.set(key, value);
-          }
-        });
-      }
-
       const redirectUrl = decodeURIComponent(url.href);
 
       /** return Response redirect with http code of redirect type **/
       switch (existsRedirect.redirectType) {
-        case REDIRECT_TYPE_301:
-          return NextResponse.redirect(redirectUrl, {
-            ...res,
-            status: 301,
-            statusText: 'Moved Permanently',
-            headers: normalizedHeaders,
-          });
-        case REDIRECT_TYPE_302:
-          return NextResponse.redirect(redirectUrl, {
-            ...res,
-            status: 302,
-            statusText: 'Found',
-            headers: normalizedHeaders,
-          });
+        case REDIRECT_TYPE_301: {
+          return this.createRedirectResponse(redirectUrl, res, 301, 'Moved Permanently');
+        }
+        case REDIRECT_TYPE_302: {
+          return this.createRedirectResponse(redirectUrl, res, 302, 'Found');
+        }
         case REDIRECT_TYPE_SERVER_TRANSFER: {
           return this.rewrite(redirectUrl, req, res || NextResponse.next());
         }
@@ -280,5 +258,31 @@ export class RedirectsMiddleware extends MiddlewareBase {
     }
 
     return new URL(`${url.pathname}`, url.origin);
+  }
+
+  /**
+   * Helper function to create a redirect response and remove the x-middleware-next header.
+   * @param {string} url The URL to redirect to.
+   * @param {Response} res The response object.
+   * @param {number} status The HTTP status code of the redirect.
+   * @param {string} statusText The status text of the redirect.
+   * @returns {NextResponse<unknown>} The redirect response.
+   */
+  private createRedirectResponse(
+    url: string,
+    res: Response | undefined,
+    status: number,
+    statusText: string
+  ): NextResponse {
+    const redirect = NextResponse.redirect(url, {
+      ...(res || {}),
+      status,
+      statusText,
+      headers: res?.headers,
+    });
+    if (res?.headers) {
+      redirect.headers.delete('x-middleware-next');
+    }
+    return redirect;
   }
 }
