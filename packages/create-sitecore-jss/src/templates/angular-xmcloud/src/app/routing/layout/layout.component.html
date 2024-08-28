@@ -4,14 +4,14 @@
     <header>
       <div id="header">    
         <sc-placeholder
-          name="headless-header"
+          name="headless-header class="row""
           [rendering]="route"
           (loaded)="onPlaceholderLoaded($event)"
         ></sc-placeholder>
       </div>
     </header>
     <main>
-      <div id="content">
+      <div id="content" class="row">
         <sc-placeholder
           name="headless-main"
           [rendering]="route"
@@ -20,7 +20,7 @@
       </div>
     </main>
     <footer>
-      <div id="footer">
+      <div id="footer" class="row">
         <sc-placeholder
           name="headless-footer"
           [rendering]="route"
