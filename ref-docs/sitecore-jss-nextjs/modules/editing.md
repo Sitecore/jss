@@ -57,7 +57,7 @@
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:9](https://github.com/Sitecore/jss/blob/9fc110cd9/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L9)
+[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:9](https://github.com/Sitecore/jss/blob/7522339b5/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L9)
 
 ___
 
@@ -78,7 +78,7 @@ Data sent from Sitecore editors
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/9fc110cd9/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
+[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/7522339b5/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
 
 ___
 
@@ -95,6 +95,7 @@ Data for Next.js Preview (Editing) Metadata Edit Mode.
 | `editMode` | [`Metadata`](../enums/index.EditMode.md#metadata) |
 | `itemId` | `string` |
 | `language` | `string` |
+| `layoutKind?` | `LayoutKind` |
 | `pageState` | `Exclude`\<[`LayoutServicePageState`](../enums/index.LayoutServicePageState.md), ``"Normal"``\> |
 | `site` | `string` |
 | `variantIds` | `string`[] |
@@ -102,7 +103,7 @@ Data for Next.js Preview (Editing) Metadata Edit Mode.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:289](https://github.com/Sitecore/jss/blob/9fc110cd9/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L289)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:291](https://github.com/Sitecore/jss/blob/7522339b5/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L291)
 
 ___
 
@@ -123,7 +124,7 @@ Configuration for the Editing Render Middleware.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:16](https://github.com/Sitecore/jss/blob/9fc110cd9/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L16)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:17](https://github.com/Sitecore/jss/blob/7522339b5/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L17)
 
 ## Variables
 
@@ -139,7 +140,7 @@ https://vercel.com/docs/environment-variables#system-environment-variables
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:223](https://github.com/Sitecore/jss/blob/9fc110cd9/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L223)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:223](https://github.com/Sitecore/jss/blob/7522339b5/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L223)
 
 ## Functions
 
@@ -167,4 +168,4 @@ EditingMetadataPreviewData
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:305](https://github.com/Sitecore/jss/blob/9fc110cd9/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L305)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:308](https://github.com/Sitecore/jss/blob/7522339b5/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L308)

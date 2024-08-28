@@ -22,6 +22,10 @@
 - [mapButtonToCommand](editing.md#mapbuttontocommand)
 - [resetEditorChromes](editing.md#reseteditorchromes)
 
+### Enumerations
+
+- [LayoutKind](../enums/editing.LayoutKind.md)
+
 ### Classes
 
 - [GraphQLEditingService](../classes/editing.GraphQLEditingService.md)

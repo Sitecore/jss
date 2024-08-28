@@ -137,7 +137,7 @@ In cases where an error status was sent back from the server (`!response.ok`), t
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:21
+packages/sitecore-jss/types/graphql-request-client.d.ts:28
 
 ___
 
@@ -156,7 +156,7 @@ Configuration type for
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:88
+packages/sitecore-jss/types/graphql-request-client.d.ts:95
 
 ___
 
@@ -234,7 +234,7 @@ packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/9fc110cd9/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/7522339b5/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -443,7 +443,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/9fc110cd9/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/7522339b5/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
