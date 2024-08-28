@@ -23,7 +23,7 @@ Represents the Editing Layout variant.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:26](https://github.com/Sitecore/jss/blob/60f3ec15f/packages/sitecore-jss/src/editing/models.ts#L26)
+[packages/sitecore-jss/src/editing/models.ts:26](https://github.com/Sitecore/jss/blob/577f1eaa2/packages/sitecore-jss/src/editing/models.ts#L26)
 
 ___
 
@@ -33,4 +33,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:27](https://github.com/Sitecore/jss/blob/60f3ec15f/packages/sitecore-jss/src/editing/models.ts#L27)
+[packages/sitecore-jss/src/editing/models.ts:27](https://github.com/Sitecore/jss/blob/577f1eaa2/packages/sitecore-jss/src/editing/models.ts#L27)
