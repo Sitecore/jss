@@ -2,9 +2,9 @@
   <ng-container *ngIf="state === LayoutState.Layout">
     <app-scripts></app-scripts>
     <header>
-      <div id="header">    
+      <div id="header" class="row">
         <sc-placeholder
-          name="headless-header class="row""
+          name="headless-header"
           [rendering]="route"
           (loaded)="onPlaceholderLoaded($event)"
         ></sc-placeholder>
