@@ -48,9 +48,6 @@ export class RichTextComponent extends SxaComponent implements OnInit {
       if (parent.id === 'footer') {
         this.renderer.addClass(this.el.nativeElement, 'footer-richtext');
         break;
-      } else if (parent.id === 'header') {
-        this.renderer.addClass(this.el.nativeElement, 'header-richtext');
-        break;
       }
       parent = parent.parentElement;
     }
