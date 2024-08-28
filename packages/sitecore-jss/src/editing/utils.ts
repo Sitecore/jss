@@ -74,8 +74,12 @@ export class HorizonEditor {
     if (isServer()) {
       return false;
     }
-    // Horizon will add "sc_horizon=editor" query string parameter for the editor and "sc_horizon=simulator" for the preview
-    return window.location.search.indexOf('sc_horizon=editor') > -1;
+    // XMCloud Pages (ex-Horizon) will have hrz-canvas-state element present in Edit and Preview
+    // But Edit would not have the have the sc_horizon query string param
+    return (
+      !!window.document.getElementById('hrz-canvas-state') &&
+      window.location.search.indexOf('sc_horizon=preview') === -1
+    );
   }
   static resetChromes(): void {
     if (isServer()) {

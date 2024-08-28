@@ -15,6 +15,14 @@ interface Global {
 declare const global: Global;
 
 describe('utils', () => {
+  const pagesDocument = {
+    getElementById: (id: unknown) => (id === 'hrz-canvas-state' ? 'present' : null),
+  };
+
+  const nonPagesDocument = {
+    getElementById: (id: unknown) => (id === 'hrz-canvas-state' ? null : 'present'),
+  };
+
   describe('isEditorActive', () => {
     it('should return false when invoked on server', () => {
       expect(isEditorActive()).to.be.false;
@@ -22,25 +30,34 @@ describe('utils', () => {
 
     it('should return true when EE is active', () => {
       global.window = {
-        document: {},
+        document: nonPagesDocument,
         location: { search: '' },
         Sitecore: { PageModes: { ChromeManager: {} } },
       };
       expect(isEditorActive()).to.be.true;
     });
 
-    it('should return true when Horizon is active', () => {
+    it('should return true when XMC Pages edit mode is active', () => {
       global.window = {
-        document: {},
-        location: { search: '?sc_horizon=editor' },
+        document: pagesDocument,
+        location: { search: '' },
         Sitecore: null,
       };
       expect(isEditorActive()).to.be.true;
     });
 
-    it('should return false when EE and Horizon are not active', () => {
+    it('should return false when XMC Pages preview mode is active', () => {
       global.window = {
-        document: {},
+        document: pagesDocument,
+        location: { search: '?sc_horizon=preview' },
+        Sitecore: null,
+      };
+      expect(isEditorActive()).to.be.false;
+    });
+
+    it('should return false when EE and XMC Pages are not active', () => {
+      global.window = {
+        document: nonPagesDocument,
         location: { search: '' },
         Sitecore: null,
       };
@@ -60,7 +77,7 @@ describe('utils', () => {
     it('should reset chromes when EE is active', () => {
       const resetChromes = spy();
       global.window = {
-        document: {},
+        document: nonPagesDocument,
         location: { search: '' },
         Sitecore: { PageModes: { ChromeManager: { resetChromes } } },
       };
@@ -68,11 +85,11 @@ describe('utils', () => {
       expect(resetChromes).to.have.been.called.once;
     });
 
-    it('should reset chromes when Horizon is active', () => {
+    it('should reset chromes when XMC Pages edit mode is active', () => {
       const resetChromes = spy();
       global.window = {
-        document: {},
-        location: { search: '?sc_horizon=editor' },
+        document: pagesDocument,
+        location: { search: '' },
         Sitecore: null,
       };
       global.window[ChromeRediscoveryGlobalFunctionName.name] = resetChromes;
@@ -80,9 +97,9 @@ describe('utils', () => {
       expect(resetChromes).to.have.been.called.once;
     });
 
-    it('should not throw when EE and Horizon are not active', () => {
+    it('should not throw when EE and XMC Pages are not active', () => {
       global.window = {
-        document: {},
+        document: nonPagesDocument,
         location: { search: '' },
         Sitecore: null,
       };
