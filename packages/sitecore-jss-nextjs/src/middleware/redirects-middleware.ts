@@ -1,15 +1,15 @@
-import regexParser from 'regex-parser';
-import { NextResponse, NextRequest } from 'next/server';
+import { debug } from '@sitecore-jss/sitecore-jss';
 import {
-  RedirectInfo,
   GraphQLRedirectsService,
   GraphQLRedirectsServiceConfig,
   REDIRECT_TYPE_301,
   REDIRECT_TYPE_302,
   REDIRECT_TYPE_SERVER_TRANSFER,
+  RedirectInfo,
   SiteInfo,
 } from '@sitecore-jss/sitecore-jss/site';
-import { debug } from '@sitecore-jss/sitecore-jss';
+import { NextRequest, NextResponse } from 'next/server';
+import regexParser from 'regex-parser';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
 
 const REGEXP_CONTEXT_SITE_LANG = new RegExp(/\$siteLang/, 'i');
@@ -147,20 +147,12 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
       /** return Response redirect with http code of redirect type **/
       switch (existsRedirect.redirectType) {
-        case REDIRECT_TYPE_301:
-          return NextResponse.redirect(redirectUrl, {
-            ...res,
-            status: 301,
-            statusText: 'Moved Permanently',
-            headers: res?.headers,
-          });
-        case REDIRECT_TYPE_302:
-          return NextResponse.redirect(redirectUrl, {
-            ...res,
-            status: 302,
-            statusText: 'Found',
-            headers: res?.headers,
-          });
+        case REDIRECT_TYPE_301: {
+          return this.createRedirectResponse(redirectUrl, res, 301, 'Moved Permanently');
+        }
+        case REDIRECT_TYPE_302: {
+          return this.createRedirectResponse(redirectUrl, res, 302, 'Found');
+        }
         case REDIRECT_TYPE_SERVER_TRANSFER: {
           return this.rewrite(redirectUrl, req, res || NextResponse.next());
         }
@@ -266,5 +258,31 @@ export class RedirectsMiddleware extends MiddlewareBase {
     }
 
     return new URL(`${url.pathname}`, url.origin);
+  }
+
+  /**
+   * Helper function to create a redirect response and remove the x-middleware-next header.
+   * @param {string} url The URL to redirect to.
+   * @param {Response} res The response object.
+   * @param {number} status The HTTP status code of the redirect.
+   * @param {string} statusText The status text of the redirect.
+   * @returns {NextResponse<unknown>} The redirect response.
+   */
+  private createRedirectResponse(
+    url: string,
+    res: Response | undefined,
+    status: number,
+    statusText: string
+  ): NextResponse {
+    const redirect = NextResponse.redirect(url, {
+      ...(res || {}),
+      status,
+      statusText,
+      headers: res?.headers,
+    });
+    if (res?.headers) {
+      redirect.headers.delete('x-middleware-next');
+    }
+    return redirect;
   }
 }

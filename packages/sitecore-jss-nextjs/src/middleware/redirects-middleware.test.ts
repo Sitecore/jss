@@ -1430,6 +1430,62 @@ describe('RedirectsMiddleware', () => {
       });
     });
 
+    it('should remove x-middleware-next header and redirect 301', async () => {
+      const siteName = 'foo';
+      const res = NextResponse.redirect('http://localhost:3000/found', {});
+      res.headers.set('x-middleware-next', '1');
+      res.cookies.set('sc_site', siteName);
+      const req = createRequest({
+        nextUrl: {
+          href: 'http://localhost:3000/not-found',
+          pathname: '/not-found',
+          locale: 'en',
+          search: '',
+          origin: 'http://localhost:3000',
+          clone() {
+            return Object.assign({}, req.nextUrl);
+          },
+        },
+      });
+
+      const { middleware, fetchRedirects, siteResolver } = createMiddleware({
+        pattern: 'not-found',
+        target: '/found',
+        redirectType: REDIRECT_TYPE_301,
+        isQueryStringPreserved: true,
+        locale: 'en',
+      });
+
+      const expected = NextResponse.redirect('http://localhost:3000/found', {
+        ...res,
+        status: 301,
+        headers: {},
+      });
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateDebugLog('redirects middleware start: %o', {
+        hostname: 'foo.net',
+        language: 'en',
+        pathname: '/not-found',
+      });
+
+      validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+        headers: {
+          location: 'http://localhost:3000/found',
+          'set-cookie': 'sc_site=foo; Path=/',
+        },
+        redirected: false,
+        status: 301,
+        url: '',
+      });
+
+      expect(siteResolver.getByHost).not.called.to.equal(true);
+      expect(siteResolver.getByName).to.be.calledWith(siteName);
+      expect(fetchRedirects).to.be.calledWith(siteName);
+      expect(finalRes.status).to.equal(expected.status);
+    });
+
     describe('should redirect to normalized path when nextjs specific "path" query string parameter is provided', () => {
       it('should return 301 redirect', async () => {
         const setCookies = () => {};
