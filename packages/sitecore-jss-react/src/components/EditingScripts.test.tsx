@@ -10,6 +10,7 @@ import {
 import { EditingScripts } from './EditingScripts';
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
+import { getJssHorizonClientData } from '@sitecore-jss/sitecore-jss/editing';
 
 describe('<EditingScripts />', () => {
   const mockComponentFactory: ComponentFactory = () => null;
@@ -75,31 +76,62 @@ describe('<EditingScripts />', () => {
     expect(scripts.find('script')).to.have.length(0);
   });
 
-  ['Preview', 'Edit'].forEach((pageState) => {
-    it(`should render nothing when ${pageState} and edit mode is Chromes`, () => {
-      const layoutData = getLayoutData({
-        editMode: EditMode.Chromes,
-        pageState: LayoutServicePageState[pageState],
-        pageEditing: true,
-      });
-
-      const component = mount(
-        <SitecoreContext componentFactory={mockComponentFactory} layoutData={layoutData}>
-          <EditingScripts />
-        </SitecoreContext>
-      );
-
-      const scripts = component.find('EditingScripts');
-
-      expect(scripts.html()).to.be.null;
-      expect(scripts.find('script')).to.have.length(0);
+  it('should render nothing when Preview and edit mode is Chromes', () => {
+    const layoutData = getLayoutData({
+      editMode: EditMode.Chromes,
+      pageState: LayoutServicePageState.Preview,
+      pageEditing: true,
     });
 
-    describe(`should render scripts when ${pageState} and edit mode is Metadata`, () => {
+    const component = mount(
+      <SitecoreContext componentFactory={mockComponentFactory} layoutData={layoutData}>
+        <EditingScripts />
+      </SitecoreContext>
+    );
+
+    const scripts = component.find('EditingScripts');
+
+    expect(scripts.html()).to.be.null;
+    expect(scripts.find('script')).to.have.length(0);
+  });
+
+  it('should render JSS client data script elements when Edit and edit mode is Chromes', () => {
+    const layoutData = getLayoutData({
+      editMode: EditMode.Chromes,
+      pageState: LayoutServicePageState.Edit,
+      pageEditing: true,
+    });
+
+    const component = mount(
+      <SitecoreContext componentFactory={mockComponentFactory} layoutData={layoutData}>
+        <EditingScripts />
+      </SitecoreContext>
+    );
+
+    const scripts = component.find('EditingScripts');
+    const ids = Object.keys(getJssHorizonClientData());
+    expect(scripts.html()).to.not.be.null;
+    ids.forEach((id) => {
+      expect(scripts.exists(`#${id}`)).to.equal(true);
+    });
+    expect(scripts.find('script')).to.have.length(ids.length);
+  });
+
+  [
+    {
+      pageState: 'Edit',
+      jssData: getJssHorizonClientData(),
+    },
+    {
+      pageState: 'Preview',
+      jssData: {},
+    },
+  ].forEach((scenario) => {
+    describe(`should render Pages scripts when ${scenario.pageState} and edit mode is Metadata`, () => {
       it('should render scripts', () => {
         const layoutData = getLayoutData({
           editMode: EditMode.Metadata,
-          pageState: LayoutServicePageState[pageState],
+          pageState: LayoutServicePageState[scenario.pageState],
           pageEditing: true,
         });
 
@@ -110,8 +142,9 @@ describe('<EditingScripts />', () => {
         );
 
         const scripts = component.find('EditingScripts');
+        const jssScriptsLength = Object.keys(scenario.jssData).length;
 
-        expect(scripts.find('script')).to.have.length(4);
+        expect(scripts.find('script')).to.have.length(4 + jssScriptsLength);
 
         const script1 = scripts.find('script').at(0);
         expect(script1.prop('src')).to.equal('http://test.foo/script1.js');
@@ -140,10 +173,12 @@ describe('<EditingScripts />', () => {
         );
       });
 
-      it('should render nothing when data is not provided', () => {
+      it(`should render ${scenario.jssData ? 'jss client scripts' : 'nothing'} when edit mode is ${
+        scenario.pageState
+      } and data is not provided`, () => {
         const layoutData = getLayoutData({
           editMode: EditMode.Metadata,
-          pageState: LayoutServicePageState[pageState],
+          pageState: LayoutServicePageState[scenario.pageState],
           pageEditing: true,
           clientData: {},
           clientScripts: [],
@@ -156,9 +191,16 @@ describe('<EditingScripts />', () => {
         );
 
         const scripts = component.find('EditingScripts');
-
-        expect(scripts.html()).to.equal('');
-        expect(scripts.find('script')).to.have.length(0);
+        if (scenario.jssData) {
+          const ids = Object.keys(scenario.jssData);
+          ids.forEach((id) => {
+            expect(scripts.exists(`#${id}`)).to.equal(true);
+          });
+          expect(scripts.find('script')).to.have.length(ids.length);
+        } else {
+          expect(scripts.html()).to.equal('');
+          expect(scripts.find('script')).to.have.length(0);
+        }
       });
     });
   });

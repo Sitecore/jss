@@ -6,6 +6,12 @@ import isServer from '../utils/is-server';
 export const QUERY_PARAM_EDITING_SECRET = 'secret';
 
 /**
+ * ID to be used as a marker for a script rendered in XMC Pages
+ * Should identify app is in XM Cloud Pages editing mode
+ */
+export const PAGES_EDITING_MARKER = 'jss-hrz-editing';
+
+/**
  * Default allowed origins for editing requests. This is used to enforce CORS, CSP headers.
  */
 export const EDITING_ALLOWED_ORIGINS = ['https://pages.sitecorecloud.io'];
@@ -74,12 +80,10 @@ export class HorizonEditor {
     if (isServer()) {
       return false;
     }
-    // XMCloud Pages (ex-Horizon) will have hrz-canvas-state element present in Edit and Preview
-    // But Edit would not have the have the sc_horizon query string param
-    return (
-      !!window.document.getElementById('hrz-canvas-state') &&
-      window.location.search.indexOf('sc_horizon=preview') === -1
-    );
+    // Legacy check for Horizon. Only active in Chromes mode, and may be removed later
+    const legacyCheck = window.location.search.indexOf('sc_horizon=editor') > -1;
+    // JSS will render a jss-exclusive script element to indicate edit mode in Pages
+    return legacyCheck || !!window.document.getElementById(PAGES_EDITING_MARKER);
   }
   static resetChromes(): void {
     if (isServer()) {
@@ -148,4 +152,15 @@ export const handleEditorAnchors = () => {
   if (targetNode) {
     observer.observe(targetNode, observerOptions);
   }
+};
+
+/**
+ * Gets extra JSS clientData scripts to render in XMC Pages in addition to clientData from Pages itself
+ * @returns {Record} collection of clientData
+ */
+export const getJssHorizonClientData = () => {
+  const clientData: Record<string, Record<string, unknown>> = {};
+  clientData[PAGES_EDITING_MARKER] = {};
+
+  return clientData;
 };

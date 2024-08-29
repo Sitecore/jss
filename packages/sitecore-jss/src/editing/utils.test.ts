@@ -1,6 +1,11 @@
 /* eslint-disable no-unused-expressions */
 import { expect, spy } from 'chai';
-import { isEditorActive, resetEditorChromes, ChromeRediscoveryGlobalFunctionName } from './utils';
+import {
+  isEditorActive,
+  resetEditorChromes,
+  ChromeRediscoveryGlobalFunctionName,
+  PAGES_EDITING_MARKER,
+} from './utils';
 
 // must make TypeScript happy with `global` variable modification
 interface CustomWindow {
@@ -15,12 +20,12 @@ interface Global {
 declare const global: Global;
 
 describe('utils', () => {
-  const pagesDocument = {
-    getElementById: (id: unknown) => (id === 'hrz-canvas-state' ? 'present' : null),
+  const pagesEditingDocument = {
+    getElementById: (id: unknown) => (id === PAGES_EDITING_MARKER ? 'present' : null),
   };
 
-  const nonPagesDocument = {
-    getElementById: (id: unknown) => (id === 'hrz-canvas-state' ? null : 'present'),
+  const nonPagesEditingDocument = {
+    getElementById: (id: unknown) => (id === PAGES_EDITING_MARKER ? null : 'present'),
   };
 
   describe('isEditorActive', () => {
@@ -30,7 +35,7 @@ describe('utils', () => {
 
     it('should return true when EE is active', () => {
       global.window = {
-        document: nonPagesDocument,
+        document: nonPagesEditingDocument,
         location: { search: '' },
         Sitecore: { PageModes: { ChromeManager: {} } },
       };
@@ -39,7 +44,7 @@ describe('utils', () => {
 
     it('should return true when XMC Pages edit mode is active', () => {
       global.window = {
-        document: pagesDocument,
+        document: pagesEditingDocument,
         location: { search: '' },
         Sitecore: null,
       };
@@ -48,7 +53,7 @@ describe('utils', () => {
 
     it('should return false when XMC Pages preview mode is active', () => {
       global.window = {
-        document: pagesDocument,
+        document: nonPagesEditingDocument,
         location: { search: '?sc_horizon=preview' },
         Sitecore: null,
       };
@@ -57,7 +62,7 @@ describe('utils', () => {
 
     it('should return false when EE and XMC Pages are not active', () => {
       global.window = {
-        document: nonPagesDocument,
+        document: nonPagesEditingDocument,
         location: { search: '' },
         Sitecore: null,
       };
@@ -77,7 +82,7 @@ describe('utils', () => {
     it('should reset chromes when EE is active', () => {
       const resetChromes = spy();
       global.window = {
-        document: nonPagesDocument,
+        document: nonPagesEditingDocument,
         location: { search: '' },
         Sitecore: { PageModes: { ChromeManager: { resetChromes } } },
       };
@@ -88,7 +93,7 @@ describe('utils', () => {
     it('should reset chromes when XMC Pages edit mode is active', () => {
       const resetChromes = spy();
       global.window = {
-        document: pagesDocument,
+        document: pagesEditingDocument,
         location: { search: '' },
         Sitecore: null,
       };
@@ -99,7 +104,7 @@ describe('utils', () => {
 
     it('should not throw when EE and XMC Pages are not active', () => {
       global.window = {
-        document: nonPagesDocument,
+        document: nonPagesEditingDocument,
         location: { search: '' },
         Sitecore: null,
       };
