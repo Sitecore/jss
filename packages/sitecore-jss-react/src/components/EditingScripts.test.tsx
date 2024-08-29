@@ -76,7 +76,7 @@ describe('<EditingScripts />', () => {
     expect(scripts.find('script')).to.have.length(0);
   });
 
-  it('should render nothing when Preview and edit mode is Chromes', () => {
+  it('should render nothing when in Preview pageState and Chromes editmode', () => {
     const layoutData = getLayoutData({
       editMode: EditMode.Chromes,
       pageState: LayoutServicePageState.Preview,
@@ -95,7 +95,7 @@ describe('<EditingScripts />', () => {
     expect(scripts.find('script')).to.have.length(0);
   });
 
-  it('should render JSS client data script elements when Edit and edit mode is Chromes', () => {
+  it('should render JSS client data script elements in Edit pageState and Chromes editmode', () => {
     const layoutData = getLayoutData({
       editMode: EditMode.Chromes,
       pageState: LayoutServicePageState.Edit,
