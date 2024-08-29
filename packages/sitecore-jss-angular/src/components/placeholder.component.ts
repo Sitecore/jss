@@ -203,7 +203,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   };
 
   ngOnInit() {
-    
     this.chromeType = this.name ? 'placeholder' : 'rendering';
     // just to ensure the element exists
     const elem = this.elementRef.nativeElement;
