@@ -15,7 +15,6 @@ Our versioning strategy is as follows:
 
 * `[templates/nextjs]` `[templates/react]` `[templates/angular]` `[templates/vue]` Fixed an issue when environment variable is undefined (not present in .env), that produced an "undefined" value in generated config file ([#1875](https://github.com/Sitecore/jss/pull/1875))
 * `[templates/nextjs]` Fix embedded personalization not rendering correctly after navigation through router links. ([#1911](https://github.com/Sitecore/jss/pull/1911))
-* `[sitecore-jss-nextjs]` The redirects middleware issue has been fixed for the Netlify service. ([#1899](https://github.com/Sitecore/jss/pull/1899))
 
 ### 🎉 New Features & Improvements
 
@@ -53,6 +52,12 @@ Our versioning strategy is as follows:
   * Default `scProxy` middleware export is replaced by `headlessProxy` object that contains the `middleware`, `ProxyConfig`, `ServerBundle` properties
 
 ### 🧹 Chores
+
+## 22.1.2
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Resolved an issue with redirects that was caused by the x-middleware-next header in Next.js. This header prevented the flow from being interrupted properly, resulting in redirects not functioning correctly in certain cases. ([#1899](https://github.com/Sitecore/jss/pull/1899))
 
 ## 22.1.1
 
