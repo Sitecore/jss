@@ -54,6 +54,13 @@ Our versioning strategy is as follows:
 
 ### 🧹 Chores
 
+## 22.1.2
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss]` Fix isEditorActive returning false in XMCloud Pages ([#1912](https://github.com/Sitecore/jss/pull/1912))
+
+
 ## 22.1.1
 
 ### 🎉 New Features & Improvements
