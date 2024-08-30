@@ -40,7 +40,7 @@ true if executing within a Experience Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:41](https://github.com/Sitecore/jss/blob/e6585dba1/packages/sitecore-jss/src/editing/utils.ts#L41)
+[packages/sitecore-jss/src/editing/utils.ts:47](https://github.com/Sitecore/jss/blob/a9b094dab/packages/sitecore-jss/src/editing/utils.ts#L47)
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:49](https://github.com/Sitecore/jss/blob/e6585dba1/packages/sitecore-jss/src/editing/utils.ts#L49)
+[packages/sitecore-jss/src/editing/utils.ts:55](https://github.com/Sitecore/jss/blob/a9b094dab/packages/sitecore-jss/src/editing/utils.ts#L55)
