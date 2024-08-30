@@ -56,7 +56,7 @@ context
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/ca06445b5/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/e6585dba1/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
 
 ___
 
@@ -82,4 +82,4 @@ context
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/ca06445b5/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:17](https://github.com/Sitecore/jss/blob/e6585dba1/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L17)
