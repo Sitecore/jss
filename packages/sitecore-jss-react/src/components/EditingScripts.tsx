@@ -12,38 +12,28 @@ export const EditingScripts = (): JSX.Element => {
     sitecoreContext: { pageState, editMode, clientData, clientScripts },
   } = useSitecoreContext();
 
-  const renderClientData = () => (
-    <>
-      {Object.keys(jssClientData).map((id) => (
-        <script
-          key={id}
-          id={id}
-          type="application/json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jssClientData[id]) }}
-        />
-      ))}
-    </>
-  );
-
   // Don't render anything if not in editing/preview mode
   if (pageState === LayoutServicePageState.Normal) return <></>;
 
-  let jssClientData: Record<string, unknown> = {};
-  if (pageState === LayoutServicePageState.Edit) {
-    jssClientData = getJssHorizonClientData();
-    if (editMode === EditMode.Chromes) {
-      return renderClientData();
-    }
-  }
-
   if (editMode === EditMode.Metadata) {
-    jssClientData = { ...clientData, ...jssClientData };
+    let jssClientData: Record<string, unknown> = clientData;
+    if (pageState === LayoutServicePageState.Edit) {
+      jssClientData = { ...jssClientData, ...getJssHorizonClientData() };
+    }
+
     return (
       <>
         {clientScripts?.map((src, index) => (
           <script src={src} key={index} />
         ))}
-        {renderClientData()}
+        {Object.keys(jssClientData).map((id) => (
+          <script
+            key={id}
+            id={id}
+            type="application/json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jssClientData[id]) }}
+          />
+        ))}
       </>
     );
   }

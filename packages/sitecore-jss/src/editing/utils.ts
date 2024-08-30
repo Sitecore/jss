@@ -68,28 +68,28 @@ export const ChromeRediscoveryGlobalFunctionName = {
 };
 
 /**
- * Static utility class for Sitecore Horizon Editor
+ * Static utility class for Sitecore Pages Editor (ex-Horizon)
  */
 export class HorizonEditor {
   /**
-   * Determines whether the current execution context is within a Horizon Editor.
-   * Horizon Editor environment can be identified only in the browser
-   * @returns true if executing within a Horizon Editor
+   * Determines whether the current execution context is within a Pages Editor.
+   * Pages Editor environment can be identified only in the browser
+   * @returns true if executing within a Pages Editor
    */
   static isActive(): boolean {
     if (isServer()) {
       return false;
     }
-    // Legacy check for Horizon. Only active in Chromes mode, and may be removed later
-    const legacyCheck = window.location.search.indexOf('sc_horizon=editor') > -1;
-    // JSS will render a jss-exclusive script element to indicate edit mode in Pages
-    return legacyCheck || !!window.document.getElementById(PAGES_EDITING_MARKER);
+    // Check for Chromes mode
+    const chromesCheck = window.location.search.indexOf('sc_headless_mode=edit') > -1;
+    // JSS will render a jss-exclusive script element in Metadata mode to indicate edit mode in Pages
+    return chromesCheck || !!window.document.getElementById(PAGES_EDITING_MARKER);
   }
   static resetChromes(): void {
     if (isServer()) {
       return;
     }
-    // Reset chromes in Horizon
+    // Reset chromes in Pages
     (window as ExtendedWindow)[ChromeRediscoveryGlobalFunctionName.name] &&
       ((window as ExtendedWindow)[ChromeRediscoveryGlobalFunctionName.name] as () => void)();
   }

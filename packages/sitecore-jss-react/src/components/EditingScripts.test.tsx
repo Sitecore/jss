@@ -76,47 +76,6 @@ describe('<EditingScripts />', () => {
     expect(scripts.find('script')).to.have.length(0);
   });
 
-  it('should render nothing when in Preview pageState and Chromes editmode', () => {
-    const layoutData = getLayoutData({
-      editMode: EditMode.Chromes,
-      pageState: LayoutServicePageState.Preview,
-      pageEditing: true,
-    });
-
-    const component = mount(
-      <SitecoreContext componentFactory={mockComponentFactory} layoutData={layoutData}>
-        <EditingScripts />
-      </SitecoreContext>
-    );
-
-    const scripts = component.find('EditingScripts');
-
-    expect(scripts.html()).to.be.null;
-    expect(scripts.find('script')).to.have.length(0);
-  });
-
-  it('should render JSS client data script elements in Edit pageState and Chromes editmode', () => {
-    const layoutData = getLayoutData({
-      editMode: EditMode.Chromes,
-      pageState: LayoutServicePageState.Edit,
-      pageEditing: true,
-    });
-
-    const component = mount(
-      <SitecoreContext componentFactory={mockComponentFactory} layoutData={layoutData}>
-        <EditingScripts />
-      </SitecoreContext>
-    );
-
-    const scripts = component.find('EditingScripts');
-    const ids = Object.keys(getJssHorizonClientData());
-    expect(scripts.html()).to.not.be.null;
-    ids.forEach((id) => {
-      expect(scripts.exists(`#${id}`)).to.equal(true);
-    });
-    expect(scripts.find('script')).to.have.length(ids.length);
-  });
-
   [
     {
       pageState: 'Edit',
@@ -127,6 +86,25 @@ describe('<EditingScripts />', () => {
       jssData: {},
     },
   ].forEach((scenario) => {
+    it(`should render nothing when in ${scenario.pageState} pageState and Chromes editmode`, () => {
+      const layoutData = getLayoutData({
+        editMode: EditMode.Chromes,
+        pageState: LayoutServicePageState.Preview,
+        pageEditing: true,
+      });
+
+      const component = mount(
+        <SitecoreContext componentFactory={mockComponentFactory} layoutData={layoutData}>
+          <EditingScripts />
+        </SitecoreContext>
+      );
+
+      const scripts = component.find('EditingScripts');
+
+      expect(scripts.html()).to.be.null;
+      expect(scripts.find('script')).to.have.length(0);
+    });
+
     describe(`should render Pages scripts when ${scenario.pageState} and edit mode is Metadata`, () => {
       it('should render scripts', () => {
         const layoutData = getLayoutData({
