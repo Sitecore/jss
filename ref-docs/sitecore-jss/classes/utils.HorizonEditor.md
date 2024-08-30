@@ -4,7 +4,7 @@
 
 [utils](../modules/utils.md).HorizonEditor
 
-Static utility class for Sitecore Horizon Editor
+Static utility class for Sitecore Pages Editor (ex-Horizon)
 
 ## Table of contents
 
@@ -29,18 +29,18 @@ Static utility class for Sitecore Horizon Editor
 
 ▸ `Static` **isActive**(): `boolean`
 
-Determines whether the current execution context is within a Horizon Editor.
-Horizon Editor environment can be identified only in the browser
+Determines whether the current execution context is within a Pages Editor.
+Pages Editor environment can be identified only in the browser
 
 #### Returns
 
 `boolean`
 
-true if executing within a Horizon Editor
+true if executing within a Pages Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:63](https://github.com/Sitecore/jss/blob/fb67b4475/packages/sitecore-jss/src/editing/utils.ts#L63)
+[packages/sitecore-jss/src/editing/utils.ts:79](https://github.com/Sitecore/jss/blob/e77df558c/packages/sitecore-jss/src/editing/utils.ts#L79)
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:70](https://github.com/Sitecore/jss/blob/fb67b4475/packages/sitecore-jss/src/editing/utils.ts#L70)
+[packages/sitecore-jss/src/editing/utils.ts:88](https://github.com/Sitecore/jss/blob/e77df558c/packages/sitecore-jss/src/editing/utils.ts#L88)
