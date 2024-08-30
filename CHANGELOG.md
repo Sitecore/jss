@@ -57,6 +57,10 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* [templates/nextjs] [XM Cloud] FEAAS / BYOC Components are not visible on the page with running A/B test ([#1914](https://github.com/Sitecore/jss/pull/1914))
+  * Make sure to update the _PagePropsFactory_ plugins *order*, these plugins should be executed after the _page-props-factory\plugins\personalize.ts_ plugin to ensure that personalized layout data is used:
+    - _page-props-factory/plugins/component-themes.ts_
+    - _page-props-factory/plugins/component-props.ts_
 * `[sitecore-jss-nextjs]` Resolved an issue with redirects that was caused by the x-middleware-next header in Next.js. This header prevented the flow from being interrupted properly, resulting in redirects not functioning correctly in certain cases. ([#1899](https://github.com/Sitecore/jss/pull/1899))
 
 ## 22.1.1
