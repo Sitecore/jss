@@ -6,6 +6,12 @@ import isServer from '../utils/is-server';
 export const QUERY_PARAM_EDITING_SECRET = 'secret';
 
 /**
+ * ID to be used as a marker for a script rendered in XMC Pages
+ * Should identify app is in XM Cloud Pages editing mode
+ */
+export const PAGES_EDITING_MARKER = 'jss-hrz-editing';
+
+/**
  * Default allowed origins for editing requests. This is used to enforce CORS, CSP headers.
  */
 export const EDITING_ALLOWED_ORIGINS = ['https://pages.sitecorecloud.io'];
@@ -62,26 +68,28 @@ export const ChromeRediscoveryGlobalFunctionName = {
 };
 
 /**
- * Static utility class for Sitecore Horizon Editor
+ * Static utility class for Sitecore Pages Editor (ex-Horizon)
  */
 export class HorizonEditor {
   /**
-   * Determines whether the current execution context is within a Horizon Editor.
-   * Horizon Editor environment can be identified only in the browser
-   * @returns true if executing within a Horizon Editor
+   * Determines whether the current execution context is within a Pages Editor.
+   * Pages Editor environment can be identified only in the browser
+   * @returns true if executing within a Pages Editor
    */
   static isActive(): boolean {
     if (isServer()) {
       return false;
     }
-    // Horizon will add "sc_horizon=editor" query string parameter for the editor and "sc_horizon=simulator" for the preview
-    return window.location.search.indexOf('sc_horizon=editor') > -1;
+    // Check for Chromes mode
+    const chromesCheck = window.location.search.indexOf('sc_headless_mode=edit') > -1;
+    // JSS will render a jss-exclusive script element in Metadata mode to indicate edit mode in Pages
+    return chromesCheck || !!window.document.getElementById(PAGES_EDITING_MARKER);
   }
   static resetChromes(): void {
     if (isServer()) {
       return;
     }
-    // Reset chromes in Horizon
+    // Reset chromes in Pages
     (window as ExtendedWindow)[ChromeRediscoveryGlobalFunctionName.name] &&
       ((window as ExtendedWindow)[ChromeRediscoveryGlobalFunctionName.name] as () => void)();
   }
@@ -144,4 +152,15 @@ export const handleEditorAnchors = () => {
   if (targetNode) {
     observer.observe(targetNode, observerOptions);
   }
+};
+
+/**
+ * Gets extra JSS clientData scripts to render in XMC Pages in addition to clientData from Pages itself
+ * @returns {Record} collection of clientData
+ */
+export const getJssPagesClientData = () => {
+  const clientData: Record<string, Record<string, unknown>> = {};
+  clientData[PAGES_EDITING_MARKER] = {};
+
+  return clientData;
 };
