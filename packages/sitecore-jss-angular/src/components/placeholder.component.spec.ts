@@ -23,6 +23,7 @@ import {
   sxaRenderingDynamicPlaceholderData,
   sxaRenderingDoubleDigitDynamicPlaceholderData,
 } from '../test-data/non-ee-data';
+import * as metadataData from '../test-data/metadata-data';
 import { LazyComponent } from '../test-data/lazy-loading/lazy-component.component';
 import { JssCanActivate, JssCanActivateFn, JssResolve } from '../services/placeholder.token';
 import * as lazyLoadingData from '../test-data/lazy-loading/data';
@@ -843,4 +844,56 @@ describe('SXA components', () => {
       expect(richText.nativeElement.innerHTML).toContain('rendering-variant');
     })
   );
+});
+
+xdescribe('PlaceholderMetadata', () => {
+  let fixture: ComponentFixture<TestPlaceholderComponent>;
+  let de: DebugElement;
+  let comp: TestPlaceholderComponent;
+
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [TestPlaceholderComponent, TestRichTextComponent],
+        imports: [
+          RouterTestingModule,
+          JssModule.withComponents([{ name: 'TestEdit', type: TestRichTextComponent }]),
+        ],
+        providers: [],
+      });
+
+      fixture = TestBed.createComponent(TestPlaceholderComponent);
+      de = fixture.debugElement;
+
+      comp = fixture.componentInstance;
+      fixture.detectChanges();
+    })
+  );
+  /*
+  const {
+    layoutData,
+    layoutDataForNestedDynamicPlaceholder,
+    layoutDataWithEmptyPlaceholder,
+    layoutDataWithUnknownComponent,
+  } = metadataData;
+  */
+  it('should render <PlaceholderMetadata> with nested placeholder components', () => {
+    expect(true).toBe(false);
+  });
+
+  it('should render code blocks even if placeholder is empty', () => {
+    expect(true).toBe(false);
+  });
+
+  it('should render missing component with code blocks if component is not registered', () => {
+    expect(true).toBe(false);
+  });
+
+  it('should render dynamic placeholder', () => {
+    expect(true).toBe(false);
+  });
+
+  it('should render double digit dynamic placeholder', () => {
+    expect(true).toBe(false);
+  });
 });
