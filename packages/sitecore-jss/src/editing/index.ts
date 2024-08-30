@@ -6,7 +6,7 @@ export {
   resetEditorChromes,
   handleEditorAnchors,
   Metadata,
-  getJssHorizonClientData,
+  getJssPagesClientData,
   EDITING_ALLOWED_ORIGINS,
   QUERY_PARAM_EDITING_SECRET,
   PAGES_EDITING_MARKER,

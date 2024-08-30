@@ -158,7 +158,7 @@ export const handleEditorAnchors = () => {
  * Gets extra JSS clientData scripts to render in XMC Pages in addition to clientData from Pages itself
  * @returns {Record} collection of clientData
  */
-export const getJssHorizonClientData = () => {
+export const getJssPagesClientData = () => {
   const clientData: Record<string, Record<string, unknown>> = {};
   clientData[PAGES_EDITING_MARKER] = {};
 
