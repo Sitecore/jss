@@ -139,7 +139,7 @@ Default allowed origins for editing requests. This is used to enforce CORS, CSP 
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:11](https://github.com/Sitecore/jss/blob/ca06445b5/packages/sitecore-jss/src/editing/utils.ts#L11)
+[packages/sitecore-jss/src/editing/utils.ts:11](https://github.com/Sitecore/jss/blob/e6585dba1/packages/sitecore-jss/src/editing/utils.ts#L11)
 
 ___
 
@@ -151,4 +151,4 @@ Query parameter for editing secret
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:6](https://github.com/Sitecore/jss/blob/ca06445b5/packages/sitecore-jss/src/editing/utils.ts#L6)
+[packages/sitecore-jss/src/editing/utils.ts:6](https://github.com/Sitecore/jss/blob/e6585dba1/packages/sitecore-jss/src/editing/utils.ts#L6)

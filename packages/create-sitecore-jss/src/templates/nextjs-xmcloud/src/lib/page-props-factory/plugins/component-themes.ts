@@ -4,7 +4,8 @@ import { Plugin } from '..';
 import config from 'temp/config';
 
 class ComponentThemesPlugin implements Plugin {
-  order = 2;
+  // Make sure to run this plugin after the personalization plugin, since it relies on the layout data
+  order = 10;
 
   async exec(props: SitecorePageProps) {
     // Collect FEAAS, BYOC, SXA component themes
