@@ -57,7 +57,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-* [templates/nextjs] [XM Cloud] FEAAS / BYOC Components are not visible on the page with running A/B test ([#1914](https://github.com/Sitecore/jss/pull/1914))
+* `[templates/nextjs]` `[XM Cloud]` FEAAS / BYOC Components are not visible on the page with running A/B test ([#1914](https://github.com/Sitecore/jss/pull/1914))
   * Make sure to update the _PagePropsFactory_ plugins *order*, these plugins should be executed after the _page-props-factory\plugins\personalize.ts_ plugin to ensure that personalized layout data is used:
     - _page-props-factory/plugins/component-themes.ts_
     - _page-props-factory/plugins/component-props.ts_
