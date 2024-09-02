@@ -48,6 +48,8 @@ export class TextDirective extends BaseFieldDirective implements OnChanges {
           this.emptyFieldEditingTemplate ?? DefaultEmptyFieldEditingComponent
         );
       }
+
+      return;
     }
 
     // can't use editable value if we want to output unencoded

@@ -56,6 +56,8 @@ export class DateDirective extends BaseFieldDirective implements OnChanges {
           this.emptyFieldEditingTemplate ?? DefaultEmptyFieldEditingComponent
         );
       }
+
+      return;
     }
 
     const html = field.editable && this.editable ? field.editable : field.value;
