@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
-export interface RenderingField<V = unknown> {
+import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
+
+export interface RenderingField<V = unknown> extends FieldMetadata {
   value?: V;
   editable?: string;
 }
 
-export interface DateField {
+export interface DateField extends RenderingField {
   value?: string | number | Date;
-  editable?: string;
 }
 
 export interface FileFieldValue {
