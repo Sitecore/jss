@@ -39,7 +39,6 @@ export class TextDirective extends BaseFieldDirective implements OnChanges {
 
   private updateView() {
     if (!this.shouldRender()) {
-      console.log('should not render');
       super.renderEmpty(DefaultEmptyFieldEditingComponent);
       return;
     }
