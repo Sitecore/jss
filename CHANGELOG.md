@@ -13,9 +13,9 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-* `[templates/nextjs]` Fix embedded personalization not rendering correctly after navigation through router links. ([#1911](https://github.com/Sitecore/jss/pull/1911))
-* `[sitecore-jss-nextjs]` Resolved an issue with redirects that was caused by the x-middleware-next header in Next.js. This header prevented the flow from being interrupted properly, resulting in redirects not functioning correctly in certain cases. ([#1899](https://github.com/Sitecore/jss/pull/1899))
-* `[sitecore-jss]` Fix `isEditorActive` returning false in XMCloud Pages ([#1912](https://github.com/Sitecore/jss/pull/1912))
+* `[sitecore-jss-nextjs]` `[templates/nextjs]` Update nextjs to 14.2.7 ([#1911](https://github.com/Sitecore/jss/pull/1911))
+  * Make sure to update your app to use the latest Next.js version 14.2.7. It will fix the case when Embedded Personalization / A/B Testing is not executed after navigating through the router links
+* `[sitecore-jss]` Fix isEditorActive returning false in XMCloud Pages ([#1912](https://github.com/Sitecore/jss/pull/1912))
 * `[templates/nextjs]` `[XM Cloud]` FEAAS / BYOC Components are not visible on the page with running A/B test ([#1914](https://github.com/Sitecore/jss/pull/1914))
   * Make sure to update the _PagePropsFactory_ plugins *order*, these plugins should be executed after the _page-props-factory\plugins\personalize.ts_ plugin to ensure that personalized layout data is used:
     - _page-props-factory/plugins/component-themes.ts_
