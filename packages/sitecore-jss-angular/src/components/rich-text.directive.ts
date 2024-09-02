@@ -12,7 +12,6 @@ import { isAbsoluteUrl } from '@sitecore-jss/sitecore-jss/utils';
 import { RichTextField } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
 import { DefaultEmptyFieldEditingComponent } from './default-empty-field-editing.component';
-import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
 @Directive({
   selector: '[scRichText]',
@@ -45,17 +44,12 @@ export class RichTextDirective extends BaseFieldDirective implements OnChanges {
   }
 
   private updateView() {
-    const field = this.field;
-    if (!field?.editable && isFieldValueEmpty(this.field)) {
-      if (this.field?.metadata && this.editable) {
-        super.renderEmptyFieldEditingComponent(
-          this.emptyFieldEditingTemplate ?? DefaultEmptyFieldEditingComponent
-        );
-      }
-
+    if (!this.shouldRender()) {
+      super.renderEmpty(DefaultEmptyFieldEditingComponent);
       return;
     }
 
+    const field = this.field;
     const html = field.editable && this.editable ? field.editable : field.value;
     this.viewRef.rootNodes.forEach((node) => {
       node.innerHTML = html;

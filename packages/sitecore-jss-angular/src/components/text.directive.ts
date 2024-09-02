@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { TextField } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
-import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 import { DefaultEmptyFieldEditingComponent } from './default-empty-field-editing.component';
 
 @Directive({
@@ -39,18 +38,14 @@ export class TextDirective extends BaseFieldDirective implements OnChanges {
   }
 
   private updateView() {
-    const field = this.field;
-    let editable = this.editable;
-
-    if (!field?.editable && isFieldValueEmpty(this.field)) {
-      if (this.field?.metadata && this.editable) {
-        super.renderEmptyFieldEditingComponent(
-          this.emptyFieldEditingTemplate ?? DefaultEmptyFieldEditingComponent
-        );
-      }
-
+    if (!this.shouldRender()) {
+      console.log('should not render');
+      super.renderEmpty(DefaultEmptyFieldEditingComponent);
       return;
     }
+
+    const field = this.field;
+    let editable = this.editable;
 
     // can't use editable value if we want to output unencoded
     if (!this.encode) {

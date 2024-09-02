@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
-import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
+import { FieldMetadata, GenericFieldValue } from '@sitecore-jss/sitecore-jss/layout';
 
-export interface RenderingField<V = unknown> extends FieldMetadata {
+export interface RenderingField<V = GenericFieldValue> extends FieldMetadata {
   value?: V;
   editable?: string;
 }
@@ -14,9 +14,7 @@ export interface FileFieldValue {
   displayName?: string;
 }
 
-export interface FileField extends FileFieldValue, RenderingField {
-  value?: FileFieldValue;
-}
+export interface FileField extends FileFieldValue, RenderingField<FileFieldValue> {}
 
 export interface ImageFieldValue {
   [key: string]: unknown;

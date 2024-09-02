@@ -9,7 +9,6 @@ import {
 } from '@angular/core';
 import { DateField } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
-import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 import { DefaultEmptyFieldEditingComponent } from './default-empty-field-editing.component';
 
 @Directive({
@@ -48,17 +47,12 @@ export class DateDirective extends BaseFieldDirective implements OnChanges {
   }
 
   private updateView() {
-    const field = this.field;
-
-    if (!field?.editable && isFieldValueEmpty(this.field)) {
-      if (this.field?.metadata && this.editable) {
-        super.renderEmptyFieldEditingComponent(
-          this.emptyFieldEditingTemplate ?? DefaultEmptyFieldEditingComponent
-        );
-      }
-
+    if (!this.shouldRender()) {
+      super.renderEmpty(DefaultEmptyFieldEditingComponent);
       return;
     }
+
+    const field = this.field;
 
     const html = field.editable && this.editable ? field.editable : field.value;
     const setDangerously = field.editable && this.editable;
