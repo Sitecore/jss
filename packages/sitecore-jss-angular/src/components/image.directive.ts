@@ -10,12 +10,16 @@ import {
 } from '@angular/core';
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import { ImageField, ImageFieldValue } from './rendering-field';
+import { BaseFieldDirective } from './base-field.directive';
+import { DefaultEmptyFieldEditingImageComponent } from './default-empty-field-editing-image.component';
 
 @Directive({ selector: '[scImage]' })
-export class ImageDirective implements OnChanges {
-  @Input('scImage') field: ImageField | '';
+export class ImageDirective extends BaseFieldDirective implements OnChanges {
+  @Input('scImage') field: ImageField;
 
   @Input('scImageEditable') editable = true;
+
+  @Input('scImageEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
 
   /**
    * Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
@@ -33,11 +37,13 @@ export class ImageDirective implements OnChanges {
   private inlineRef: HTMLSpanElement | null = null;
 
   constructor(
-    private viewContainer: ViewContainerRef,
+    viewContainer: ViewContainerRef,
     private templateRef: TemplateRef<unknown>,
     private renderer: Renderer2,
     private elementRef: ElementRef
-  ) {}
+  ) {
+    super(viewContainer);
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.urlParams || changes.attrs) {
@@ -52,15 +58,16 @@ export class ImageDirective implements OnChanges {
   }
 
   private updateView() {
+    if (!this.shouldRender()) {
+      super.renderEmpty(DefaultEmptyFieldEditingImageComponent);
+      return;
+    }
+
     const overrideAttrs = {
       ...this.getElementAttrs(),
       ...this.attrs,
     };
     const media = this.field;
-
-    if (!media || (!media.editable && !media.value && !media.src)) {
-      return;
-    }
 
     let attrs: { [attr: string]: string } | null = {};
 

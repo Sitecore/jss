@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 /**
- * Demonstrates usage of a Rich Text (HTML) content field within JSS.
+ * Default component that will be rendered in pages when field is empty; applies for text, richtext, date and link fields.
  */
 @Component({
   selector: 'app-default-empty-field-editing',
