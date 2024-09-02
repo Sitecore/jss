@@ -12,10 +12,10 @@ export abstract class BaseFieldDirective {
   constructor(protected viewContainer: ViewContainerRef) {}
 
   protected shouldRender() {
-    return this.field?.editable || !isFieldValueEmpty(this.field);
+    return !!this.field?.editable || !isFieldValueEmpty(this.field);
   }
 
-  protected shouldRenderEmptyEditingComponent() {
+  private shouldRenderEmptyEditingComponent() {
     return this.field?.metadata && this.editable;
   }
 

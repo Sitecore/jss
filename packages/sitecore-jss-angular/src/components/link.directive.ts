@@ -9,23 +9,29 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { LinkField } from './rendering-field';
+import { BaseFieldDirective } from './base-field.directive';
+import { DefaultEmptyFieldEditingComponent } from './default-empty-field-editing.component';
 
 @Directive({ selector: '[scLink]' })
-export class LinkDirective implements OnChanges {
+export class LinkDirective extends BaseFieldDirective implements OnChanges {
   @Input('scLinkEditable') editable = true;
 
   @Input('scLinkAttrs') attrs: { [attr: string]: string } = {};
 
   @Input('scLink') field: LinkField;
 
+  @Input('scLinkEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
+
   private inlineRef: HTMLSpanElement | null = null;
 
   constructor(
-    protected viewContainer: ViewContainerRef,
+    viewContainer: ViewContainerRef,
     protected templateRef: TemplateRef<unknown>,
     protected renderer: Renderer2,
     private elementRef: ElementRef
-  ) {}
+  ) {
+    super(viewContainer);
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.attrs) {
@@ -76,15 +82,16 @@ export class LinkDirective implements OnChanges {
     }
   }
 
-  private shouldRender() {
-    return this.field && (this.field.href || this.field.value?.href || this.field.text);
-  }
-
   private updateView() {
     const field = this.field;
     if (this.editable && field && field.editableFirstPart && field.editableLastPart) {
       this.renderInlineWrapper(field.editableFirstPart, field.editableLastPart);
-    } else if (this.shouldRender()) {
+    } else {
+      if (!this.shouldRender()) {
+        super.renderEmpty(DefaultEmptyFieldEditingComponent);
+        return;
+      }
+
       const props = field.href ? field : field.value;
 
       const linkText = field.text || field.value?.text || field.href || field.value?.href;

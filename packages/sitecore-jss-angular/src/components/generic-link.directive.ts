@@ -21,6 +21,10 @@ export class GenericLinkDirective extends LinkDirective {
 
   @Input('scGenericLinkExtras') extras?: NavigationExtras;
 
+  @Input('scGenericLinkEmptyFieldEditingTemplate') declare emptyFieldEditingTemplate: TemplateRef<
+    unknown
+  >;
+
   constructor(
     viewContainer: ViewContainerRef,
     templateRef: TemplateRef<unknown>,

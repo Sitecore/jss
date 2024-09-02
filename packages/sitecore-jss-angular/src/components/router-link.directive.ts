@@ -18,6 +18,10 @@ export class RouterLinkDirective extends LinkDirective {
 
   @Input('scRouterLink') declare field: LinkField;
 
+  @Input('scRouterLinkEmptyFieldEditingTemplate') declare emptyFieldEditingTemplate: TemplateRef<
+    unknown
+  >;
+
   constructor(
     viewContainer: ViewContainerRef,
     templateRef: TemplateRef<unknown>,
