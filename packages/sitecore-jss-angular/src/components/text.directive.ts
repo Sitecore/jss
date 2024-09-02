@@ -1,6 +1,5 @@
 import {
   Directive,
-  EmbeddedViewRef,
   Input,
   OnChanges,
   SimpleChanges,
@@ -8,20 +7,25 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { TextField } from './rendering-field';
+import { BaseFieldDirective } from './base-field.directive';
+import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
+import { DefaultEmptyFieldEditingComponent } from './default-empty-field-editing.component';
 
 @Directive({
   selector: '[scText]',
 })
-export class TextDirective implements OnChanges {
+export class TextDirective extends BaseFieldDirective implements OnChanges {
   @Input('scTextEditable') editable = true;
 
   @Input('scTextEncode') encode = true;
 
   @Input('scText') field: TextField;
 
-  private viewRef: EmbeddedViewRef<unknown>;
+  @Input('scTextEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
 
-  constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<unknown>) {}
+  constructor(viewContainer: ViewContainerRef, private templateRef: TemplateRef<unknown>) {
+    super(viewContainer);
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.encode) {
@@ -38,8 +42,12 @@ export class TextDirective implements OnChanges {
     const field = this.field;
     let editable = this.editable;
 
-    if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
-      return;
+    if (!field?.editable && isFieldValueEmpty(this.field)) {
+      if (this.field?.metadata && this.editable) {
+        super.renderEmptyFieldEditingComponent(
+          this.emptyFieldEditingTemplate ?? DefaultEmptyFieldEditingComponent
+        );
+      }
     }
 
     // can't use editable value if we want to output unencoded

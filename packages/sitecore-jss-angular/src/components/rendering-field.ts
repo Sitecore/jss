@@ -6,9 +6,7 @@ export interface RenderingField<V = unknown> extends FieldMetadata {
   editable?: string;
 }
 
-export interface DateField extends RenderingField {
-  value?: string | number | Date;
-}
+export interface DateField extends RenderingField<string> {}
 
 export interface FileFieldValue {
   src?: string;
