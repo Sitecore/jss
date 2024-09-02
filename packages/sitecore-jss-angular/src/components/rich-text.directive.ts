@@ -19,9 +19,10 @@ import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 })
 export class RichTextDirective extends BaseFieldDirective implements OnChanges {
   @Input('scRichTextEditable') editable = true;
-  @Input('scRichTextEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
 
   @Input('scRichText') field: RichTextField;
+
+  @Input('scRichTextEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
 
   constructor(
     viewContainer: ViewContainerRef,
@@ -31,8 +32,6 @@ export class RichTextDirective extends BaseFieldDirective implements OnChanges {
   ) {
     super(viewContainer);
   }
-
-  ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable) {
