@@ -282,6 +282,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
     });
     if (res?.headers) {
       redirect.headers.delete('x-middleware-next');
+      redirect.headers.delete('x-middleware-rewrite');
     }
     return redirect;
   }

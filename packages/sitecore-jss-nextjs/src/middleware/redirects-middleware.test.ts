@@ -1430,10 +1430,11 @@ describe('RedirectsMiddleware', () => {
       });
     });
 
-    it('should remove x-middleware-next header and redirect 301', async () => {
+    it('should remove x-middleware-next/x-middleware-rewrite headers and redirect 301', async () => {
       const siteName = 'foo';
       const res = NextResponse.redirect('http://localhost:3000/found', {});
       res.headers.set('x-middleware-next', '1');
+      res.headers.set('x-middleware-rewrite', '1');
       res.cookies.set('sc_site', siteName);
       const req = createRequest({
         nextUrl: {
