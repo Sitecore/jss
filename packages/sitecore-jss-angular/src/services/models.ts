@@ -55,13 +55,13 @@ export abstract class AngularContextService {
   }
 
   changeLanguage(language: string) {
-    console.log(`Called change language on abstract JssContext for ${language}`)
+    console.log(`Called change language on abstract JssContext for ${language}`);
     throw Error('Not implemented');
   }
 
   // primarily invoked by JssRouteResolver on URL/route change
   changeRoute(route: string, language: string): Observable<JssState> {
-    console.log(`Called change route on abstract JssContext for ${route}, ${language}`)
+    console.log(`Called change route on abstract JssContext for ${route}, ${language}`);
     return throwError(() => new Error('Not implemented'));
   }
 }
