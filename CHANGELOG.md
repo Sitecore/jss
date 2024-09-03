@@ -53,6 +53,12 @@ Our versioning strategy is as follows:
 
 ### 🧹 Chores
 
+## 22.1.3
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Addressed an issue where the x-middleware-rewrite header caused redirects to fail during execution on Netlify. ([#1915](https://github.com/Sitecore/jss/pull/1915))
+
 ## 22.1.2
 
 ### 🐛 Bug Fixes
