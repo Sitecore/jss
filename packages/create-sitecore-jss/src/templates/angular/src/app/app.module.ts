@@ -3,7 +3,6 @@ import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RoutingModule } from './routing/routing.module';
 import { JssLayoutService } from './layout/jss-layout.service';
-import { JssContextService } from './jss-context.service';
 import { AppComponentsModule } from './components/app-components.module';
 import { AppComponent } from './app.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -11,6 +10,8 @@ import { JssTranslationClientLoaderService } from './i18n/jss-translation-client
 import { JssTranslationLoaderService } from './i18n/jss-translation-loader.service';
 import { GraphQLModule } from './jss-graphql.module';
 import { JssMetaService } from './jss-meta.service';
+import { AngularContextService, AngularLayoutService } from '@sitecore-jss/sitecore-jss-angular';
+import { JssContextService } from './jss-context.service';
 
 @NgModule({
   imports: [
@@ -29,8 +30,12 @@ import { JssMetaService } from './jss-meta.service';
   providers: [
     // The token is needed in cases when multiple applications are bootstrapped on a page
     { provide: APP_ID, useValue: 'my-app' },
+    // Temp stubs TODO: simplify, avoid double layout/context service declaration
     JssContextService,
     JssLayoutService,
+    // DI for abstract classes used in angular package, i.e. by placeholder
+    {provide: AngularContextService, useClass: JssContextService},
+    {provide: AngularLayoutService, useClass: JssLayoutService},
     JssMetaService,
     // IMPORTANT: you must set the base href with this token, not a <base> tag in the HTML.
     // the Sitecore Experience Editor will not work correctly when a base tag is used.

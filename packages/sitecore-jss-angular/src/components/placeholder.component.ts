@@ -28,7 +28,7 @@ import {
   HtmlElementRendering,
   EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
 import { JssCanActivateRedirectError } from '../services/jss-can-activate-error';
 import {
@@ -52,6 +52,7 @@ import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
 import { RenderEachDirective } from './render-each.directive';
 import { RenderEmptyDirective } from './render-empty.directive';
 import { isRawRendering } from './rendering';
+import { AngularContextService } from '../services/models';
 
 /**
  * @param {ComponentRendering} rendering
@@ -144,7 +145,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   private destroyed = false;
   private parentStyleAttribute = '';
   private editMode?: EditMode = undefined;
-  // private contextSubscription: Subscription;
+  private contextSubscription: Subscription;
 
   constructor(
     private differs: KeyValueDiffers,
@@ -159,7 +160,8 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     @Inject(GUARD_RESOLVER) private guardResolver: GuardResolver,
     @Inject(DATA_RESOLVER) private dataResolver: DataResolver,
     // eslint-disable-next-line @typescript-eslint/ban-types
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private jssContext: AngularContextService
   ) {}
 
   @Input()
@@ -216,11 +218,18 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
         }
       }
     }
+    this.contextSubscription = this.jssContext.state.subscribe((state) => {
+      console.log(JSON.stringify(state));
+      this.metadataMode = state?.sitecore?.context.editMode === EditMode.Metadata;
+    });
   }
 
   ngOnDestroy() {
     this.destroyed = true;
     this._componentInstances = [];
+    if (this.contextSubscription) {
+      this.contextSubscription.unsubscribe();
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {

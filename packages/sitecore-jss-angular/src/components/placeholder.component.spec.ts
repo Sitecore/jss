@@ -6,6 +6,7 @@ import {
   Input,
   Output,
   TemplateRef,
+  TransferState,
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
@@ -27,7 +28,7 @@ import * as metadataData from '../test-data/metadata-data';
 import { LazyComponent } from '../test-data/lazy-loading/lazy-component.component';
 import { JssCanActivate, JssCanActivateFn, JssResolve } from '../services/placeholder.token';
 import * as lazyLoadingData from '../test-data/lazy-loading/data';
-
+import { AngularContextService, AngularLayoutService, JssState } from '../services/models';
 @Component({
   selector: 'test-placeholder',
   template: `
@@ -846,7 +847,32 @@ describe('SXA components', () => {
   );
 });
 
-xdescribe('PlaceholderMetadata', () => {
+fdescribe('PlaceholderMetadata', () => {
+  @Component({
+    selector: 'test-text',
+    template: `
+      <span id="text" *scText="rendering.fields.text"></span>
+    `,
+  })
+  class TestTextComponent {
+    @Input() rendering: ComponentRendering;
+  }
+
+  @Injectable()
+  class TestContextService extends AngularContextService {
+    constructor(
+      protected stateOverride: JssState,
+      protected transferState: TransferState,
+      protected layoutService: AngularLayoutService
+    ) {
+      super(transferState, layoutService);
+      this.state.next(this.stateOverride);
+    }
+    setState(state: JssState) {
+      this.state.next(state);
+    }
+  }
+
   let fixture: ComponentFixture<TestPlaceholderComponent>;
   let de: DebugElement;
   let comp: TestPlaceholderComponent;
@@ -854,12 +880,16 @@ xdescribe('PlaceholderMetadata', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [TestPlaceholderComponent, TestRichTextComponent],
+        declarations: [TestTextComponent, TestPlaceholderComponent],
         imports: [
           RouterTestingModule,
-          JssModule.withComponents([{ name: 'TestEdit', type: TestRichTextComponent }]),
+          JssModule.withComponents([{ name: 'Home', type: TestTextComponent }]),
         ],
-        providers: [],
+        providers: [
+          AngularLayoutService,
+          { provide: JssState, useValue: layoutData.sitecore.context },
+          { provide: AngularContextService, useClass: TestContextService },
+        ],
       });
 
       fixture = TestBed.createComponent(TestPlaceholderComponent);
@@ -869,31 +899,48 @@ xdescribe('PlaceholderMetadata', () => {
       fixture.detectChanges();
     })
   );
-  /*
+
   const {
     layoutData,
-    layoutDataForNestedDynamicPlaceholder,
-    layoutDataWithEmptyPlaceholder,
-    layoutDataWithUnknownComponent,
+    // layoutDataForNestedDynamicPlaceholder,
+    // layoutDataWithEmptyPlaceholder,
+    // layoutDataWithUnknownComponent,
   } = metadataData;
-  */
-  it('should render <PlaceholderMetadata> with nested placeholder components', () => {
+
+  it(
+    'should render code blocks around nested placeholder components',
+    waitForAsync(async () => {
+      const component = layoutData.sitecore.route;
+      const phKey = 'main';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+
+      const jssContext = de.injector.get(AngularContextService) as TestContextService;
+      jssContext.state.next(layoutData);
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(1);
+      const text = de.query(By.css('#text'));
+      expect(text.nativeElement.nextSibling.innerHTML).toBe('code');
+      expect(text.nativeElement.previousSibling.innerHTML).toBe('code');
+    })
+  );
+
+  xit('should render code blocks even if placeholder is empty', () => {
     expect(true).toBe(false);
   });
 
-  it('should render code blocks even if placeholder is empty', () => {
+  xit('should render missing component with code blocks if component is not registered', () => {
     expect(true).toBe(false);
   });
 
-  it('should render missing component with code blocks if component is not registered', () => {
+  xit('should render dynamic placeholder', () => {
     expect(true).toBe(false);
   });
 
-  it('should render dynamic placeholder', () => {
-    expect(true).toBe(false);
-  });
-
-  it('should render double digit dynamic placeholder', () => {
+  xit('should render double digit dynamic placeholder', () => {
     expect(true).toBe(false);
   });
 });

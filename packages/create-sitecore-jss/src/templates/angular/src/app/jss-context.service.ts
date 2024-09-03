@@ -1,9 +1,7 @@
 import { Injectable, TransferState, makeStateKey } from '@angular/core';
-import { LayoutServiceData } from '@sitecore-jss/sitecore-jss-angular';
 import { map, shareReplay, catchError } from 'rxjs/operators';
-import { Observable, of as observableOf, BehaviorSubject } from 'rxjs';
-import { JssState } from './JssState';
-import { JssLayoutService, LayoutServiceError } from './layout/jss-layout.service';
+import { Observable, of as observableOf } from 'rxjs';
+import { AngularContextService, AngularLayoutService, JssState, LayoutServiceData, LayoutServiceError } from '@sitecore-jss/sitecore-jss-angular';
 
 export const jssKey = makeStateKey<JssState>('jss');
 
@@ -13,21 +11,24 @@ export const jssKey = makeStateKey<JssState>('jss');
  * for the implementation that runs on the server (SSR) side.
  */
 @Injectable()
-export class JssContextService {
+export class JssContextService extends AngularContextService {
   // components can subscribe to this (or use getValue()) to get access to latest data from Layout Service,
   // as well as current language and server route
-  state: BehaviorSubject<JssState>;
 
-  constructor(protected transferState: TransferState, protected layoutService: JssLayoutService) {
-    this.state = new BehaviorSubject<JssState>(new JssState());
+  constructor(
+    protected transferState: TransferState,
+    protected layoutService: AngularLayoutService
+  ) {
+    super(transferState, layoutService);
   }
 
   changeLanguage(language: string) {
-    this.state.next({ ...this.state.value, language });
+    const state = this.state.value as JssState;
+    this.state.next({ ...state, language });
   }
 
   // primarily invoked by JssRouteResolver on URL/route change
-  changeRoute(route: string, language: string): Observable<JssState> {
+  changeRoute(route: string, language: string): Observable<JssState | null> {
     // on client initial load, retrieve initial state from server
     const foundInitialState = this.transferState.hasKey(jssKey);
     if (foundInitialState) {
@@ -37,14 +38,14 @@ export class JssContextService {
       return observableOf(jssState);
     }
 
-    const appLanguage = this.state.value.language || language;
+    const appLanguage = this.state.value?.language || language;
 
     const jssState$ = this.layoutService.getRouteData(route, appLanguage).pipe(
       map((routeData) => {
         const lsResult = routeData as LayoutServiceData;
 
         const result = new JssState();
-        result.sitecore = lsResult.sitecore ? lsResult.sitecore : null;
+        result.sitecore = lsResult.sitecore ? lsResult.sitecore : undefined;
         result.language = appLanguage;
         result.serverRoute = route;
         return result;
