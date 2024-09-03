@@ -213,7 +213,7 @@ describe('<a *scLink />', () => {
       comp.editable = false;
       comp.field = field;
       fixture.detectChanges();
-      console.log(de.nativeElement);
+
       const rendered = de.query(By.css('a'));
 
       expect(rendered.nativeElement.href).toBe('');
