@@ -1,20 +1,19 @@
 ﻿/* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable dot-notation */
-import chai, { use } from 'chai';
-import chaiString from 'chai-string';
-import sinonChai from 'sinon-chai';
-import sinon, { spy } from 'sinon';
-import { NextRequest, NextResponse } from 'next/server';
-import { debug } from '@sitecore-jss/sitecore-jss';
+import { debug, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 import {
   REDIRECT_TYPE_301,
   REDIRECT_TYPE_302,
   REDIRECT_TYPE_SERVER_TRANSFER,
   SiteResolver,
 } from '@sitecore-jss/sitecore-jss/site';
+import chai, { use } from 'chai';
+import chaiString from 'chai-string';
+import { NextRequest, NextResponse } from 'next/server';
+import sinon, { spy } from 'sinon';
+import sinonChai from 'sinon-chai';
 import { RedirectsMiddleware } from './redirects-middleware';
-import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
@@ -1480,6 +1479,10 @@ describe('RedirectsMiddleware', () => {
         status: 301,
         url: '',
       });
+
+      // Check that the headers were not removed
+      expect(finalRes.headers.has('x-middleware-next')).to.equal(false);
+      expect(finalRes.headers.has('x-middleware-rewrite')).to.equal(false);
 
       expect(siteResolver.getByHost).not.called.to.equal(true);
       expect(siteResolver.getByName).to.be.calledWith(siteName);
