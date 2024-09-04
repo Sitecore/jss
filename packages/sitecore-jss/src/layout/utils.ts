@@ -113,7 +113,13 @@ export function isFieldValueEmpty(field: GenericFieldValue | Partial<Field>): bo
     !(fieldValue as { [key: string]: unknown }).src;
   const isLinkFieldEmpty = (fieldValue: GenericFieldValue) =>
     !(fieldValue as { [key: string]: unknown }).href;
-  const isDateFieldEmpty = (fieldValue: GenericFieldValue) => fieldValue === EMPTY_DATE_FIELD_VALUE;
+  const isDateFieldEmpty = (fieldValue: GenericFieldValue) => {
+    if (typeof fieldValue === 'string') {
+      return fieldValue === EMPTY_DATE_FIELD_VALUE;
+    } else {
+      return !(typeof (fieldValue as Date)?.getMonth === 'function');
+    }
+  };
 
   const isEmpty = (fieldValue: GenericFieldValue) => {
     if (fieldValue === null || fieldValue === undefined) {
@@ -124,7 +130,8 @@ export function isFieldValueEmpty(field: GenericFieldValue | Partial<Field>): bo
       return (
         isImageFieldEmpty(fieldValue) &&
         isFileFieldEmpty(fieldValue) &&
-        isLinkFieldEmpty(fieldValue)
+        isLinkFieldEmpty(fieldValue) &&
+        isDateFieldEmpty(fieldValue)
       );
     } else if (typeof fieldValue === 'number' || typeof fieldValue === 'boolean') {
       // Avoid returning true for 0 and false values

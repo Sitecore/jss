@@ -121,6 +121,7 @@ export type GenericFieldValue =
   | string
   | boolean
   | number
+  | Date
   | { [key: string]: unknown }
   | Array<{ [key: string]: unknown }>;
 

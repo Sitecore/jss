@@ -181,6 +181,22 @@ describe('sitecore-jss layout utils', () => {
         const result = isFieldValueEmpty(field);
         expect(result).to.be.false;
       });
+
+      it('should return true if Date field is empty for Date type', () => {
+        expect(
+          isFieldValueEmpty({
+            value: undefined,
+          })
+        ).to.be.true;
+      });
+
+      it('should return false if Date field is not empty for Date type', () => {
+        const field = {
+          value: new Date('2024-01-01T00:00:00Z'),
+        };
+        const result = isFieldValueEmpty(field);
+        expect(result).to.be.false;
+      });
     });
 
     describe('boolean', () => {
