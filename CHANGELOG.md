@@ -44,6 +44,7 @@ Our versioning strategy is as follows:
   * Promo component ([#1897](https://github.com/Sitecore/jss/pull/1897))
   * PageContent component ([#1905](https://github.com/Sitecore/jss/pull/1905))
   * Navigation component ([#1894](https://github.com/Sitecore/jss/pull/1894))
+* `[sitecore-jss]``[sitecore-jss-angular]` Default Placeholder Content for empty fields in editMode metadata - in edit mode metadata in Pages, angular package field directives will render default or custom placeholder content if the provided field is empty; base package's GenericFieldValue model is updated to accept Date type ([#1916](https://github.com/Sitecore/jss/pull/1916))
 
 ### 🛠 Breaking Change
 
