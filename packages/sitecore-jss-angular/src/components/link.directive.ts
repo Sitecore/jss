@@ -82,6 +82,11 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
     }
   }
 
+  protected shouldRender() {
+    // render the field if field is empty but we have 'text' and we are not in edditing mode, to preserve existing functionality
+    return super.shouldRender() || (this.field?.text && !this.field?.metadata);
+  }
+
   private updateView() {
     const field = this.field;
     if (this.editable && field && field.editableFirstPart && field.editableLastPart) {
@@ -142,10 +147,5 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
     }
     view.destroy();
     return attrs;
-  }
-
-  protected shouldRender() {
-    // render the field if field is empty but we have 'text' and we are not in edditing mode, to preserve existing functionality
-    return super.shouldRender() || (this.field?.text && !this.field?.metadata);
   }
 }

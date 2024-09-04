@@ -15,10 +15,6 @@ export abstract class BaseFieldDirective {
     return !!this.field?.editable || !isFieldValueEmpty(this.field);
   }
 
-  private shouldRenderEmptyEditingComponent() {
-    return this.field?.metadata && this.editable;
-  }
-
   protected renderEmpty(emptyFieldEditingComponent: Type<unknown>) {
     if (this.shouldRenderEmptyEditingComponent()) {
       if (this.emptyFieldEditingTemplate) {
@@ -28,5 +24,9 @@ export abstract class BaseFieldDirective {
         this.viewContainer.createComponent(emptyFieldEditingComponent);
       }
     }
+  }
+
+  private shouldRenderEmptyEditingComponent() {
+    return this.field?.metadata && this.editable;
   }
 }
