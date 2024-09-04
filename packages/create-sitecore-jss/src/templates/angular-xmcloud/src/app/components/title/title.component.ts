@@ -7,6 +7,11 @@ import { JssContextService } from '../../jss-context.service';
 @Component({
   selector: 'app-title',
   templateUrl: './title.component.html',
+  host: {
+    'class': 'component title',
+    '[class]': 'styles',
+    '[id]': 'id',
+  }
 })
 export class TitleComponent extends SxaComponent<SxaTitleFields> implements OnInit, OnDestroy {
   text: TextField;

@@ -1,10 +1,11 @@
-<div class="component row-splitter" [ngClass]="rowSplitterStyles" [attr.id]="id">
-  <div *ngFor="let ph of enabledPlaceholders" class="container-fluid" [ngClass]="getRowClass(+ph - 1)">
-    <div>
-      <div class="row">
-        <sc-placeholder [name]="getPlaceholderName(ph)" [rendering]="rendering">
-        </sc-placeholder>
-      </div>
+<div
+  *ngFor="let ph of enabledPlaceholders"
+  class="container-fluid"
+  [ngClass]="getRowClass(+ph - 1)"
+>
+  <div>
+    <div class="row">
+      <sc-placeholder [name]="getPlaceholderName(ph)" [rendering]="rendering"> </sc-placeholder>
     </div>
   </div>
 </div>

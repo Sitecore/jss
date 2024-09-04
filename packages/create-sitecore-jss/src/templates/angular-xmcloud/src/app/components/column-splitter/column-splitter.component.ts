@@ -4,6 +4,11 @@ import { SxaComponent } from '../sxa.component';
 @Component({
   selector: 'app-column-splitter',
   templateUrl: './column-splitter.component.html',
+  host: {
+    'class': 'row component column-splitter',
+    '[class]': 'columnSplitterStyles',
+    '[id]' : 'id'
+  }
 })
 export class ColumnSplitterComponent extends SxaComponent {
   get columnSplitterStyles(): string {
