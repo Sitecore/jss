@@ -18,7 +18,7 @@ class TestComponent {
   @Input() attrs = {};
 }
 
-const emptyLinkFieldEditingTemplateId = 'emptyImageFieldEditingTemplate';
+const emptyLinkFieldEditingTemplateId = 'emptyLinkFieldEditingTemplate';
 const emptyLinkFieldEditingTemplate = '<span>[This is a *custom* empty field template]</span>';
 const emptyLinkFieldEditingTemplateDefaultTestString = '<span>[No text in field]</span>';
 
