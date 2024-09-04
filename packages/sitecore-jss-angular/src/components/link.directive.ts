@@ -84,7 +84,7 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
 
   protected shouldRender() {
     // render the field if field is empty but we have 'text' and we are not in edditing mode, to preserve existing functionality
-    return super.shouldRender() || (this.field?.text && !this.field?.metadata);
+    return super.shouldRender() || !!(this.field?.text && !this.field?.metadata);
   }
 
   private updateView() {
