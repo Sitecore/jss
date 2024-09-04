@@ -5,6 +5,11 @@ import { Field, LinkField, SxaLinkListFields } from '@sitecore-jss/sitecore-jss-
 @Component({
   selector: 'app-link-list',
   templateUrl: './link-list.component.html',
+  host: {
+    'class': 'component link-list',
+    '[class]': 'styles',
+    '[attr.id]': 'id',
+  }
 })
 export class LinkListComponent extends SxaComponent<SxaLinkListFields> implements OnInit {
   title?: Field<string>;

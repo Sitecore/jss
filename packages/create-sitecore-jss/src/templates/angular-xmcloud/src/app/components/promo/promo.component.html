@@ -1,21 +1,19 @@
-<div class="component promo {{ styles }}" [attr.id]="id">
-  <div class="component-content">
-    <ng-container *ngIf="rendering.fields; else empty">
-      <div class="field-promoicon">
-        <img *scImage="rendering.fields.PromoIcon" />
-      </div>
-      <div class="promo-text">
-        <div>
-          <div class="field-promotext">
-            <div *scRichText="rendering.fields.PromoText"></div>
-          </div>
-        </div>
-        <div class="field-promolink">
-          <a *scLink="rendering.fields.PromoLink"></a>
+<div class="component-content">
+  <ng-container *ngIf="rendering.fields; else empty">
+    <div class="field-promoicon">
+      <img *scImage="rendering.fields.PromoIcon" />
+    </div>
+    <div class="promo-text">
+      <div>
+        <div class="field-promotext">
+          <div *scRichText="rendering.fields.PromoText"></div>
         </div>
       </div>
-    </ng-container>
-  </div>
+      <div class="field-promolink">
+        <a *scLink="rendering.fields.PromoLink"></a>
+      </div>
+    </div>
+  </ng-container>
 </div>
 
 <ng-template #empty>
