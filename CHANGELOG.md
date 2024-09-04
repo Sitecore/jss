@@ -33,6 +33,7 @@ Our versioning strategy is as follows:
 * `[templates/angular]` `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/editing/render endpoint ([#1908](https://github.com/Sitecore/jss/pull/1908))
 * `[create-sitecore-jss]``[sitecore-jss-angular]``[template/angular-xmcloud]` Angular SXA components
   * Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))
+  * Component styles ([#1917](https://github.com/Sitecore/jss/pull/1917))
   * Title component ([#1904](https://github.com/Sitecore/jss/pull/1904))
   * Richtext component ([#1864](https://github.com/Sitecore/jss/pull/1864))
   * Container component ([#1872](https://github.com/Sitecore/jss/pull/1872))
