@@ -33,7 +33,7 @@ export abstract class BaseFieldDirective {
    * Renders the empty field markup which is required by Pages in editMode 'metadata' in case field is empty.
    */
   protected renderEmpty() {
-    if (this.shouldRenderEmptyEditingComponent()) {
+    if (this.field?.metadata && this.editable) {
       if (this.emptyFieldEditingTemplate) {
         this.viewContainer.createEmbeddedView(this.emptyFieldEditingTemplate);
       } else {
@@ -41,12 +41,5 @@ export abstract class BaseFieldDirective {
         this.viewContainer.createComponent(this.defaultFieldEditingComponent);
       }
     }
-  }
-
-  /**
-   * Determines if empty editing markup should be rendered for edit mode 'metadata'
-   */
-  private shouldRenderEmptyEditingComponent() {
-    return this.field?.metadata && this.editable;
   }
 }
