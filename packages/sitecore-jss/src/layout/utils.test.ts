@@ -204,7 +204,7 @@ describe('sitecore-jss layout utils', () => {
         };
         const result = isFieldValueEmpty(field);
         expect(result).to.be.true;
-      })
+      });
     });
 
     describe('boolean', () => {
