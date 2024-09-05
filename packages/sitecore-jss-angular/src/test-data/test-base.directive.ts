@@ -43,7 +43,7 @@ export class TestBaseDirective extends BaseFieldDirective implements OnChanges {
     }
 
     const field = this.field;
-    let editable = this.editable;
+    const editable = this.editable;
 
     const html = field.editable && editable ? field.editable : field.value;
 
