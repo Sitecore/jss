@@ -21,8 +21,14 @@ export class TextDirective extends BaseFieldDirective implements OnChanges {
 
   @Input('scText') field: TextField;
 
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
   @Input('scTextEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
 
+  /**
+   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
+   */
   protected defaultFieldEditingComponent: Type<unknown>;
 
   constructor(viewContainer: ViewContainerRef, private templateRef: TemplateRef<unknown>) {

@@ -26,8 +26,14 @@ export class DateDirective extends BaseFieldDirective implements OnChanges {
 
   @Input('scDate') field: DateField;
 
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
   @Input('scDateEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
 
+  /**
+   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
+   */
   protected defaultFieldEditingComponent: Type<unknown>;
 
   constructor(

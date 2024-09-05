@@ -20,8 +20,14 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
 
   @Input('scImageEditable') editable = true;
 
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
   @Input('scImageEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
 
+  /**
+   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
+   */
   protected defaultFieldEditingComponent: Type<unknown>;
 
   /**

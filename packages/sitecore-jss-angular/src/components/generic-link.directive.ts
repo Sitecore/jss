@@ -21,6 +21,9 @@ export class GenericLinkDirective extends LinkDirective {
 
   @Input('scGenericLinkExtras') extras?: NavigationExtras;
 
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
   @Input('scGenericLinkEmptyFieldEditingTemplate') declare emptyFieldEditingTemplate: TemplateRef<
     unknown
   >;

@@ -10,7 +10,13 @@ export abstract class BaseFieldDirective {
   protected viewRef: EmbeddedViewRef<unknown>;
   protected abstract field: RenderingField<GenericFieldValue>;
   protected abstract editable: boolean;
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
   protected abstract emptyFieldEditingTemplate: TemplateRef<unknown>;
+  /**
+   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
+   */
   protected abstract defaultFieldEditingComponent: Type<unknown>;
 
   constructor(protected viewContainer: ViewContainerRef) {}
