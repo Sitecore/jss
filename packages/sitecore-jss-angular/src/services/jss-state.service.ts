@@ -3,7 +3,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { LayoutServiceContextData, RouteData } from '../public_api';
 
 export class BaseJssState {
-  [key: string]: unknown;
   sitecore?: LayoutServiceContextData & {
     route: RouteData | null;
   };
@@ -14,11 +13,11 @@ export class BaseJssState {
  * State service for JSS context data. Mainly works with context data from Sitecore's layout service response
  */
 @Injectable()
-export class JssStateService {
+export class JssStateService<State extends BaseJssState = BaseJssState> {
   /**
    * Observable JSS state to subscribe to
    */
-  get state(): Observable<BaseJssState> {
+  get state(): Observable<State> {
     return this._state.asObservable();
   }
 
@@ -29,17 +28,17 @@ export class JssStateService {
     return this._state.value;
   }
 
-  private _state: BehaviorSubject<BaseJssState>;
+  private _state: BehaviorSubject<State>;
 
   constructor(protected transferState: TransferState) {
-    this._state = new BehaviorSubject<BaseJssState>(new BaseJssState());
+    this._state = new BehaviorSubject<State>({} as State);
   }
 
   /**
    * Set new JSS state
    * @param {JssState} newState new state
    */
-  setState(newState: BaseJssState) {
+  setState(newState: State) {
     this._state.next(newState);
   }
 }

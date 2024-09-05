@@ -1,8 +1,9 @@
 import { Injectable, TransferState, makeStateKey } from '@angular/core';
-import { LayoutServiceData, LayoutServiceError, JssState, JssStateService } from '@sitecore-jss/sitecore-jss-angular';
+import { LayoutServiceData, JssStateService } from '@sitecore-jss/sitecore-jss-angular';
 import { map, shareReplay, catchError } from 'rxjs/operators';
 import { Observable, of as observableOf } from 'rxjs';
-import { JssLayoutService } from './layout/jss-layout.service';
+import { JssLayoutService, LayoutServiceError } from './layout/jss-layout.service';
+import { JssState } from './JssState';
 
 export const jssKey = makeStateKey<JssState>('jss');
 
@@ -21,7 +22,7 @@ export class JssContextService {
   get stateValue() {
     return this.stateService.stateValue;
   }
-  constructor(protected transferState: TransferState, protected layoutService: JssLayoutService, protected stateService: JssStateService) {
+  constructor(protected transferState: TransferState, protected layoutService: JssLayoutService, protected stateService: JssStateService<JssState>) {
   }
 
   changeLanguage(language: string) {

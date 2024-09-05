@@ -13,6 +13,6 @@ export class GraphQLLayoutComponent implements OnInit {
   constructor(private contextService: JssContextService) { }
 
   ngOnInit() {
-    this.disconnectedMode = this.contextService.state.value.sitecore.route.itemId === 'available-in-connected-mode';
+    this.disconnectedMode = this.contextService.stateValue.sitecore.route.itemId === 'available-in-connected-mode';
   }
 }

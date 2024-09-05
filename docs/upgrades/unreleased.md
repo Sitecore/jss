@@ -10,10 +10,9 @@
             ```  
             with
             ```
-            import { LayoutServiceData, LayoutServiceError, JssState, JssStateService } from '@sitecore-jss/sitecore-jss-angular';
+            import { LayoutServiceData, JssStateService } from '@sitecore-jss/sitecore-jss-angular';
             ```
         * Remove `BehaviorSubject` import
-        * Remove `LayoutServiceError` from `./layout/jss-layout.service`
         * Remove the `state` field (`state: BehaviorSubject<JssState>;`) 
         * Add two getters and replace constuctor as below:
         ```
@@ -23,17 +22,32 @@
         get stateValue() {
             return this.stateService.getStateValue();
         }
-        constructor(protected transferState: TransferState, protected layoutService: JssLayoutService, protected stateService: JssStateService) {
+        constructor(protected transferState: TransferState, protected layoutService: JssLayoutService, protected stateService: JssStateService<JssState>) {
         }
         ```
         * Replace all `this.state.next` calls with `this.stateService.setState`
         * Replace all `this.state.value` calls with `this.stateService.getStateValue()`
+    * In `\src\app\jss-context.server-side.service.ts`:
+        * Add import for `JssStateService`:
+            ```
+            import { JssStateService } from '@sitecore-jss/sitecore-jss-angular';
+            ```
+        * Modify the constructor. Pass `JssStateService` and propagate it to base class. Your constructor should look like this:
+        ```
+            constructor(
+                protected transferState: TransferState,
+                protected layoutService: JssLayoutService,
+                protected stateService: JssStateService<JssState>,
+                // this initial state from sitecore is injected by server.bundle for "integrated" mode
+                @Inject('JSS_SERVER_LAYOUT_DATA') private serverToSsrState: JssState
+            ) {
+                super(transferState, layoutService, stateService);
+            }
+        ```
     * In `\src\app\jss-graphql.service.ts`:
         * Replace all `this.sitecoreContext.state.value` calls with `this.sitecoreContext.stateValue`
-    * In `\src\app\layout\jss-layout.service.ts`:
-        * Remove the `LayoutServiceError` class
-        * Remove `LayoutServiceContextData` import
-        * Add `LayoutServiceError` import from `@sitecore-jss/sitecore-jss-angular`
+    * In `\src\app\components\graph-ql-layout\graph-ql-layout.component.ts`:
+        * Replace `this.sitecoreContext.state.value` call with `this.sitecoreContext.stateValue`
 
 # Angular - XMCloud
 

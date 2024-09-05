@@ -42,6 +42,7 @@ Our versioning strategy is as follows:
   * PageContent component ([#1905](https://github.com/Sitecore/jss/pull/1905))
   * Navigation component ([#1894](https://github.com/Sitecore/jss/pull/1894))
 * `[sitecore-jss-angular]` Placeholder component will now render metadata code blocks when in Metadata Edit mode ([#1918](https://github.com/Sitecore/jss/pull/1918))
+*  `[templates/angular]` JssContextService now relies on JssStateService for state management. This allows for improved type safety and reverts the previous anti-pattern of modifying `state` object directly ([#1918](https://github.com/Sitecore/jss/pull/1918))
 
 ### 🛠 Breaking Change
 
