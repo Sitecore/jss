@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/File.tsx:61](https://github.com/Sitecore/jss/blob/e77df558c/packages/sitecore-jss-react/src/components/File.tsx#L61)
+[packages/sitecore-jss-react/src/components/File.tsx:61](https://github.com/Sitecore/jss/blob/c9adb012c/packages/sitecore-jss-react/src/components/File.tsx#L61)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/File.tsx:50](https://github.com/Sitecore/jss/blob/e77df558c/packages/sitecore-jss-react/src/components/File.tsx#L50)
+[packages/sitecore-jss-react/src/components/File.tsx:50](https://github.com/Sitecore/jss/blob/c9adb012c/packages/sitecore-jss-react/src/components/File.tsx#L50)
