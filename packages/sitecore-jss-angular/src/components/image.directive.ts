@@ -21,16 +21,6 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
   @Input('scImageEditable') editable = true;
 
   /**
-   * Custom template to render in Pages in Metadata edit mode if field value is empty
-   */
-  @Input('scImageEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
-
-  /**
-   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
-   */
-  protected defaultFieldEditingComponent: Type<unknown>;
-
-  /**
    * Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
    * @example
    * /\/([-~]{1})assets\//i
@@ -42,6 +32,16 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
   @Input('scImageUrlParams') urlParams: { [param: string]: string | number } = {};
 
   @Input('scImageAttrs') attrs: { [param: string]: unknown } = {};
+
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
+  @Input('scImageEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
+
+  /**
+   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
+   */
+  protected defaultFieldEditingComponent: Type<unknown>;
 
   private inlineRef: HTMLSpanElement | null = null;
 
