@@ -12,6 +12,7 @@ import { Component } from '@angular/core';
       class="scEmptyImage"
     />
   `,
-  styles: `img { min-width:48px; min-height:48px; max-width:400px; max-height:400px; cursor:pointer }`,
+  styles:
+    'img { min-width:48px; min-height:48px; max-width:400px; max-height:400px; cursor:pointer }',
 })
 export class DefaultEmptyImageFieldEditingComponent {}
