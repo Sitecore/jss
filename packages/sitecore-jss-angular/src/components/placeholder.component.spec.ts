@@ -912,7 +912,6 @@ describe('Placeholder Metadata:', () => {
   })
   class TestTextComponent {
     @Input() rendering: ComponentRendering;
-    nestedRenering: ComponentRendering = layoutData.sitecore.route.placeholders.main[0];
   }
 
   let fixture: ComponentFixture<TestPlaceholderComponent>;
@@ -1116,7 +1115,7 @@ describe('Placeholder Metadata: dynamic placeholder:', () => {
   );
 
   it(
-    'should code blocks render dynamic placeholder',
+    'should renders code blocks with DEFAULT_PLACEHOLDER_UID value when dynamic placeholder is used and uid is not present',
     waitForAsync(async () => {
       const layoutData = layoutDataForNestedDynamicPlaceholder('container-{*}');
       const component = layoutData.sitecore.route;
@@ -1136,6 +1135,55 @@ describe('Placeholder Metadata: dynamic placeholder:', () => {
       expect(elements.length).toBe(8);
       expect(elements[0].nativeElement.outerHTML).toBe(
         '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="container-{*}_00000000-0000-0000-0000-000000000000"></code>'
+      );
+      expect(elements[1].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>'
+      );
+      expect(elements[2].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="logo_nested123"></code>'
+      );
+      expect(elements[3].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="deep123"></code>'
+      );
+      expect(elements[4].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>'
+      );
+      expect(elements[5].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>'
+      );
+      expect(elements[6].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>'
+      );
+      expect(elements[7].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>'
+      );
+      expect(de.query(By.css('div.Logo-deep')).nativeNode.outerHTML).toBe(
+        '<div class="Logo-deep"></div>'
+      );
+    })
+  );
+
+  it(
+    'should renders code blocks with provided uid value when dynamic placeholder is used',
+    waitForAsync(async () => {
+      const layoutData = layoutDataForNestedDynamicPlaceholder('container-{*}');
+      const component = layoutData.sitecore.route;
+      const phKey = 'container-1';
+
+      comp.name = phKey;
+      comp.rendering = { uid: '1234', ...((component as unknown) as ComponentRendering) };
+      fixture.detectChanges();
+      // double await is needed for nested/deep placeholders to render all components. Just Angular things?
+      await fixture.whenStable();
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      expect(de.children.length).toBe(1);
+      const elements = de.queryAll(By.css('code'));
+
+      expect(elements.length).toBe(8);
+      expect(elements[0].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="container-{*}_1234"></code>'
       );
       expect(elements[1].nativeElement.outerHTML).toBe(
         '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>'

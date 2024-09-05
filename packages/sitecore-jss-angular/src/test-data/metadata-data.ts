@@ -14,6 +14,13 @@ export const layoutData = {
       name: 'main',
       componentName: '',
       fields: {
+        /* TODO: uncomment when doing Fields rework. Type mismatches otherwise
+        metadata: {
+          fieldId: '123',
+          fieldType: 'text',
+          rawValue: 'textField',
+        },
+        */
         text: {
           value: 'textField',
         },
@@ -24,6 +31,13 @@ export const layoutData = {
             uid: 'nested123',
             componentName: 'Home',
             fields: {
+              /* TODO: uncomment when doing Fields rework
+              metadata: {
+                fieldId: '123',
+                fieldType: 'text',
+                rawValue: 'textField',
+              },
+              */
               text: {
                 value: 'textField',
               },
@@ -104,6 +118,13 @@ export const layoutDataForNestedDynamicPlaceholder = (rootPhKey: string) => ({
             uid: 'nested123',
             componentName: 'Home',
             fields: {
+              /* TODO: uncomment when doing Fields rework
+              metadata: {
+                fieldId: '123',
+                fieldType: 'text',
+                rawValue: 'textField',
+              },
+              */
               text: {
                 value: 'textField',
               },
