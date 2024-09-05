@@ -15,7 +15,7 @@ export const layoutData = {
       componentName: '',
       fields: {
         text: {
-          value: '123',
+          value: 'textField',
         },
       },
       placeholders: {
@@ -25,8 +25,16 @@ export const layoutData = {
             componentName: 'Home',
             fields: {
               text: {
-                value: '123',
+                value: 'textField',
               },
+            },
+            placeholders: {
+              logo: [
+                {
+                  uid: 'deep123',
+                  componentName: 'Logo',
+                },
+              ],
             },
           },
         ],
@@ -36,6 +44,8 @@ export const layoutData = {
 };
 
 export const layoutDataWithEmptyPlaceholder = {
+  serverRoute: '/',
+  language: 'en',
   sitecore: {
     context: {
       pageEditing: true,
@@ -53,6 +63,8 @@ export const layoutDataWithEmptyPlaceholder = {
 };
 
 export const layoutDataWithUnknownComponent = {
+  serverRoute: '/',
+  language: 'en',
   sitecore: {
     context: {
       pageEditing: true,
@@ -65,7 +77,7 @@ export const layoutDataWithUnknownComponent = {
       placeholders: {
         main: [
           {
-            uid: '123',
+            uid: 'nested123',
             componentName: 'Unknown',
           },
         ],
@@ -75,6 +87,8 @@ export const layoutDataWithUnknownComponent = {
 };
 
 export const layoutDataForNestedDynamicPlaceholder = (rootPhKey: string) => ({
+  serverRoute: '/',
+  language: 'en',
   sitecore: {
     context: {
       pageEditing: true,
@@ -88,7 +102,12 @@ export const layoutDataForNestedDynamicPlaceholder = (rootPhKey: string) => ({
         [rootPhKey]: [
           {
             uid: 'nested123',
-            componentName: 'Header',
+            componentName: 'Home',
+            fields: {
+              text: {
+                value: 'textField',
+              },
+            },
             placeholders: {
               logo: [
                 {

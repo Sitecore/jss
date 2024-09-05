@@ -18,6 +18,7 @@ import {
   PLATFORM_ID,
   Renderer2,
   SimpleChanges,
+  TemplateRef,
   Type,
   ViewChild,
   ViewContainerRef,
@@ -27,6 +28,7 @@ import {
   ComponentRendering,
   HtmlElementRendering,
   EditMode,
+  ComponentFields,
 } from '@sitecore-jss/sitecore-jss/layout';
 import { Observable, Subscription } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
@@ -52,42 +54,13 @@ import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
 import { RenderEachDirective } from './render-each.directive';
 import { RenderEmptyDirective } from './render-empty.directive';
 import { isRawRendering } from './rendering';
-import { AngularContextService } from '../services/models';
+import { JssStateService } from '../services/jss-state.service';
 
 /**
  * @param {ComponentRendering} rendering
  * @param {string} name
  * @param {EditMode} [editMode]
  */
-function getPlaceholder(rendering: ComponentRendering, name: string, editMode?: EditMode) {
-  let phName = name.slice();
-
-  /**
-   * Process (SXA) dynamic placeholders
-   * Find and replace the matching dynamic placeholder e.g 'nameOfContainer-{*}' with the requested e.g. 'nameOfContainer-1'.
-   * For Metadata EditMode, we need to keep the raw placeholder name in place.
-   */
-  rendering?.placeholders &&
-    Object.keys(rendering.placeholders).forEach((placeholder) => {
-      const patternPlaceholder = isDynamicPlaceholder(placeholder)
-        ? getDynamicPlaceholderPattern(placeholder)
-        : null;
-
-      if (patternPlaceholder && patternPlaceholder.test(phName)) {
-        if (editMode === EditMode.Metadata) {
-          phName = placeholder;
-        } else {
-          rendering.placeholders![phName] = rendering.placeholders![placeholder];
-          delete rendering.placeholders![placeholder];
-        }
-      }
-    });
-
-  if (rendering && rendering.placeholders && Object.keys(rendering.placeholders).length > 0) {
-    return rendering.placeholders[phName];
-  }
-  return null;
-}
 
 export interface FactoryWithData {
   factory: ComponentFactoryResult;
@@ -101,23 +74,38 @@ export interface FactoryWithData {
       *ngIf="isLoading"
       [ngTemplateOutlet]="placeholderLoading?.templateRef"
     ></ng-template>
-    <code
-      *ngIf="metadataMode"
-      kind="open"
-      type="text/sitecore"
-      [attr.chrometype]="chromeType"
-      class="scpm"
-      [attr.id]="getCodeBlockId('open')"
-    ></code>
+    <ng-template
+      #metadataCodeBlock
+      let-kind="kind"
+      let-type="chromeType"
+      let-renderingId="renderingId"
+    >
+      <code
+        [attr.kind]="kind"
+        type="text/sitecore"
+        [attr.chrometype]="type"
+        class="scpm"
+        [attr.id]="getCodeBlockId(kind, renderingId)"
+      ></code
+    ></ng-template>
+
+    <ng-container
+      *ngTemplateOutlet="
+        metadataMode && metadataCodeBlock;
+        context: { kind: 'open', chromeType: 'placeholder' }
+      "
+    >
+    </ng-container>
+
     <ng-template #view></ng-template>
-    <code
-      *ngIf="metadataMode"
-      kind="close"
-      type="text/sitecore"
-      [attr.chrometype]="chromeType"
-      class="scpm"
-      [attr.id]="getCodeBlockId('close')"
-    ></code>
+
+    <ng-container
+      *ngTemplateOutlet="
+        metadataMode && metadataCodeBlock;
+        context: { kind: 'close', chromeType: 'placeholder' }
+      "
+    >
+    </ng-container>
   `,
 })
 export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
@@ -129,19 +117,20 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
   @Output() loaded = new EventEmitter<string | undefined>();
   @Output() failed = new EventEmitter<Error>();
-
   @ContentChild(RenderEachDirective, { static: true }) renderEachTemplate: RenderEachDirective;
   @ContentChild(RenderEmptyDirective, { static: true }) renderEmptyTemplate: RenderEmptyDirective;
   @ContentChild(PlaceholderLoadingDirective, { static: true })
   placeholderLoading?: PlaceholderLoadingDirective;
   @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
-
+  @ViewChild('metadataCodeBlock', { read: TemplateRef }) private metadataNode: TemplateRef<unknown>;
+  // @ViewChild('wrappedRendering', { read: TemplateRef }) private wrappedRendering: ViewContainerRef;
   public isLoading = true;
   metadataMode: boolean;
   chromeType: string;
   private _inputs: { [key: string]: unknown };
   private _differ: KeyValueDiffer<string, unknown>;
   private _componentInstances: { [prop: string]: unknown }[] = [];
+  private placeholderData?: (ComponentRendering<ComponentFields> | HtmlElementRendering)[];
   private destroyed = false;
   private parentStyleAttribute = '';
   private editMode?: EditMode = undefined;
@@ -161,7 +150,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     @Inject(DATA_RESOLVER) private dataResolver: DataResolver,
     // eslint-disable-next-line @typescript-eslint/ban-types
     @Inject(PLATFORM_ID) private platformId: Object,
-    private jssContext: AngularContextService
+    private jssState: JssStateService
   ) {}
 
   @Input()
@@ -172,12 +161,64 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     }
   }
 
-  getCodeBlockId = (kind: string): string | undefined => {
-    const placeholderName = this.name;
-    const id = this.rendering.uid;
+  ngOnInit() {
+    this.chromeType = this.name ? 'placeholder' : 'rendering';
+    // just to ensure the element exists
+    const elem = this.elementRef.nativeElement;
 
-    if (kind === 'open') {
-      if (this.chromeType === 'placeholder' && placeholderName) {
+    if (elem) {
+      const attributes: NamedNodeMap = elem.attributes;
+      for (let i = 0; i < attributes.length; i++) {
+        const attr: Attr | null = attributes.item(i);
+        if (attr && attr.name.indexOf('_ngcontent') !== -1) {
+          this.parentStyleAttribute = attr.name;
+        }
+      }
+    }
+    this.placeholderData = this.renderings || this.getPlaceholder() || [];
+    this.contextSubscription = this.jssState.state.subscribe(({ sitecore }) => {
+      this.editMode = sitecore?.context.editMode;
+      this.metadataMode = this.editMode === EditMode.Metadata;
+    });
+  }
+
+  getPlaceholder() {
+    let phName = this.name?.slice() || '';
+    /**
+     * Process (SXA) dynamic placeholders
+     * Find and replace the matching dynamic placeholder e.g 'nameOfContainer-{*}' with the requested e.g. 'nameOfContainer-1'.
+     * For Metadata EditMode, we need to keep the raw placeholder name in place.
+     */
+    this.rendering?.placeholders &&
+      Object.keys(this.rendering.placeholders).forEach((placeholder) => {
+        const patternPlaceholder = isDynamicPlaceholder(placeholder)
+          ? getDynamicPlaceholderPattern(placeholder)
+          : null;
+        if (patternPlaceholder && patternPlaceholder.test(phName)) {
+          if (this.editMode === EditMode.Metadata) {
+            phName = placeholder;
+          } else {
+            this.rendering.placeholders![phName] = this.rendering.placeholders![placeholder];
+            delete this.rendering.placeholders![placeholder];
+          }
+        }
+      });
+
+    if (
+      this.rendering &&
+      this.rendering.placeholders &&
+      Object.keys(this.rendering.placeholders).length > 0
+    ) {
+      return this.rendering.placeholders[phName];
+    }
+    return null;
+  }
+
+  getCodeBlockId = (kind: string, renderingId?: string): string | undefined => {
+    if (this.rendering && kind === 'open') {
+      const placeholderName = this.name;
+      const id = renderingId || this.rendering?.uid;
+      if (!renderingId && placeholderName) {
         let phId = '';
         for (const placeholder of Object.keys(this.rendering.placeholders || [])) {
           if (placeholderName === placeholder) {
@@ -199,30 +240,12 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
           }
         }
         return phId;
+      } else {
+        return id;
       }
     }
-    return id;
+    return undefined;
   };
-
-  ngOnInit() {
-    this.chromeType = this.name ? 'placeholder' : 'rendering';
-    // just to ensure the element exists
-    const elem = this.elementRef.nativeElement;
-
-    if (elem) {
-      const attributes: NamedNodeMap = elem.attributes;
-      for (let i = 0; i < attributes.length; i++) {
-        const attr: Attr | null = attributes.item(i);
-        if (attr && attr.name.indexOf('_ngcontent') !== -1) {
-          this.parentStyleAttribute = attr.name;
-        }
-      }
-    }
-    this.contextSubscription = this.jssContext.state.subscribe((state) => {
-      console.log(JSON.stringify(state));
-      this.metadataMode = state?.sitecore?.context.editMode === EditMode.Metadata;
-    });
-  }
 
   ngOnDestroy() {
     this.destroyed = true;
@@ -235,6 +258,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   ngOnChanges(changes: SimpleChanges) {
     this.chromeType = changes.name ? 'placeholder' : 'rendering';
     if (changes.rendering || changes.renderings) {
+      this.placeholderData = this.renderings || this.getPlaceholder() || [];
       this._render();
     }
   }
@@ -301,9 +325,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
       return;
     }
 
-    const placeholder =
-      this.renderings || getPlaceholder(this.rendering, this.name || '', this.editMode);
-
+    const placeholder = this.placeholderData;
     if (!placeholder) {
       console.warn(
         `Placeholder '${this.name}' was not found in the current rendering data`,
@@ -325,17 +347,27 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
       this.isLoading = false;
     } else {
       const factories = await this.componentFactory.getComponents(placeholder);
-
       try {
         const nonGuarded = await this.guardResolver(factories);
         const withData = await this.dataResolver(nonGuarded);
-
-        withData.forEach((rendering, index) => {
+        // not using index to ensure code blocks are rendered at correct positions
+        withData.forEach((rendering) => {
+          this.view.createEmbeddedView(this.metadataNode, {
+            kind: 'open',
+            chromeType: 'rendering',
+            renderingId: (rendering.factory.componentDefinition as ComponentRendering)?.uid,
+          });
           if (this.renderEachTemplate && !isRawRendering(rendering.factory.componentDefinition)) {
-            this._renderTemplatedComponent(rendering.factory.componentDefinition, index);
+            this._renderTemplatedComponent(rendering.factory.componentDefinition);
           } else {
-            this._renderEmbeddedComponent(rendering.factory, rendering.data, index);
+            this._renderEmbeddedComponent(rendering.factory, rendering.data);
           }
+
+          this.view.createEmbeddedView(this.metadataNode, {
+            kind: 'close',
+            chromeType: 'rendering',
+            renderingId: (rendering.factory.componentDefinition as ComponentRendering)?.uid,
+          });
         });
 
         this.isLoading = false;
@@ -367,7 +399,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
   private _renderTemplatedComponent(
     rendering: ComponentRendering | HtmlElementRendering,
-    index: number
+    index?: number
   ) {
     // the render-each template takes care of all component mapping etc
     // generally using <sc-render-component> which is about like _renderEmbeddedComponent()
@@ -378,7 +410,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     });
   }
 
-  private _renderEmbeddedComponent(rendering: ComponentFactoryResult, data: Data, index: number) {
+  private _renderEmbeddedComponent(rendering: ComponentFactoryResult, data: Data, index?: number) {
     if (
       (rendering.componentDefinition as ComponentRendering).componentName ===
       constants.HIDDEN_RENDERING_NAME

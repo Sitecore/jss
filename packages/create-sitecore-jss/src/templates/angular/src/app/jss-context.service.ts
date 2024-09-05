@@ -1,7 +1,8 @@
 import { Injectable, TransferState, makeStateKey } from '@angular/core';
+import { LayoutServiceData, LayoutServiceError, JssState, JssStateService } from '@sitecore-jss/sitecore-jss-angular';
 import { map, shareReplay, catchError } from 'rxjs/operators';
 import { Observable, of as observableOf } from 'rxjs';
-import { AngularContextService, AngularLayoutService, JssState, LayoutServiceData, LayoutServiceError } from '@sitecore-jss/sitecore-jss-angular';
+import { JssLayoutService,  } from './layout/jss-layout.service';
 
 export const jssKey = makeStateKey<JssState>('jss');
 
@@ -11,41 +12,41 @@ export const jssKey = makeStateKey<JssState>('jss');
  * for the implementation that runs on the server (SSR) side.
  */
 @Injectable()
-export class JssContextService extends AngularContextService {
+export class JssContextService {
   // components can subscribe to this (or use getValue()) to get access to latest data from Layout Service,
   // as well as current language and server route
-
-  constructor(
-    protected transferState: TransferState,
-    protected layoutService: AngularLayoutService
-  ) {
-    super(transferState, layoutService);
+  get state() {
+    return this.stateService.state;
+  }
+  get stateValue() {
+    return this.stateService.getStateValue();
+  }
+  constructor(protected transferState: TransferState, protected layoutService: JssLayoutService, protected stateService: JssStateService) {
   }
 
   changeLanguage(language: string) {
-    const state = this.state.value as JssState;
-    this.state.next({ ...state, language });
+    this.stateService.setState({ ...this.stateService.getStateValue(), language });
   }
 
   // primarily invoked by JssRouteResolver on URL/route change
-  changeRoute(route: string, language: string): Observable<JssState | null> {
+  changeRoute(route: string, language: string): Observable<JssState> {
     // on client initial load, retrieve initial state from server
     const foundInitialState = this.transferState.hasKey(jssKey);
     if (foundInitialState) {
       const jssState = this.transferState.get<JssState>(jssKey, null);
       this.transferState.remove(jssKey);
-      this.state.next(jssState);
+      this.stateService.setState(jssState);
       return observableOf(jssState);
     }
 
-    const appLanguage = this.state.value?.language || language;
+    const appLanguage = this.stateService.getStateValue().language || language;
 
     const jssState$ = this.layoutService.getRouteData(route, appLanguage).pipe(
       map((routeData) => {
         const lsResult = routeData as LayoutServiceData;
 
         const result = new JssState();
-        result.sitecore = lsResult.sitecore ? lsResult.sitecore : undefined;
+        result.sitecore = lsResult.sitecore ? lsResult.sitecore : null;
         result.language = appLanguage;
         result.serverRoute = route;
         return result;
@@ -62,7 +63,7 @@ export class JssContextService extends AngularContextService {
 
     // subscribe to it ourselves so we can maintain current state
     jssState$.subscribe((jssState) => {
-      this.state.next(jssState);
+      this.stateService.setState(jssState);
     });
 
     return jssState$;

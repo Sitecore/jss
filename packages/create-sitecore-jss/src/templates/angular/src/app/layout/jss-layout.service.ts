@@ -6,12 +6,11 @@ import {
 import { from as fromPromise, Observable, throwError as observableThrow } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { layoutServiceFactory } from '../lib/layout-service-factory';
-import { AngularLayoutService } from '@sitecore-jss/sitecore-jss-angular/dist/services/models';
 
 const layoutServiceInstance = layoutServiceFactory.create();
 
 @Injectable()
-export class JssLayoutService extends AngularLayoutService {
+export class JssLayoutService {
   getRouteData(
     route: string,
     language: string

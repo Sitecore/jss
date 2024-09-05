@@ -11,9 +11,9 @@ import {
 import { Observable, EMPTY } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { ComponentRendering, isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss-angular';
-import { JssContextService } from './jss-context.service';
 import { ExecutableDefinitionNode } from 'graphql';
 import { isPlatformServer } from '@angular/common';
+import { JssContextService } from './jss-context.service';
 
 export interface JssGraphQLOptions {
   renderingContext?: ComponentRendering;
@@ -43,7 +43,7 @@ export class JssGraphQLService {
   ) {
     this.isEditingOrPreviewingAndSsr =
       isPlatformServer(this.platformId) &&
-      this.sitecoreContext.state.value.sitecore.context.pageState !== 'normal';
+      this.sitecoreContext.stateValue.sitecore.context.pageState !== 'normal';
   }
 
   private static extractVariableNames(query: DocumentNode) {
@@ -127,19 +127,19 @@ export class JssGraphQLService {
 
     if (
       usedVariables.contextItem &&
-      this.sitecoreContext.state.value.sitecore &&
-      this.sitecoreContext.state.value.sitecore.route &&
-      this.sitecoreContext.state.value.sitecore.route.itemId
+      this.sitecoreContext.stateValue.sitecore &&
+      this.sitecoreContext.stateValue.sitecore.route &&
+      this.sitecoreContext.stateValue.sitecore.route.itemId
     ) {
-      (variables as EmptyObject).contextItem = this.sitecoreContext.state.value.sitecore.route.itemId;
+      (variables as EmptyObject).contextItem = this.sitecoreContext.stateValue.sitecore.route.itemId;
     }
 
     // pass language as a variable to the query, if language exists as a variable and in sitecoreContext
     if (
       usedVariables.language &&
-      this.sitecoreContext.state.value.language
+      this.sitecoreContext.stateValue.language
     ) {
-      (variables as EmptyObject).language = this.sitecoreContext.state.value.language;
+      (variables as EmptyObject).language = this.sitecoreContext.stateValue.language;
     }
 
     return variables;

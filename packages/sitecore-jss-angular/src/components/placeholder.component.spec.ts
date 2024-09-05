@@ -6,7 +6,6 @@ import {
   Input,
   Output,
   TemplateRef,
-  TransferState,
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
@@ -28,7 +27,9 @@ import * as metadataData from '../test-data/metadata-data';
 import { LazyComponent } from '../test-data/lazy-loading/lazy-component.component';
 import { JssCanActivate, JssCanActivateFn, JssResolve } from '../services/placeholder.token';
 import * as lazyLoadingData from '../test-data/lazy-loading/data';
-import { AngularContextService, AngularLayoutService, JssState } from '../services/models';
+import { JssState } from '../services/models';
+import { MissingComponentComponent } from './missing-component.component';
+import { JssStateService } from '../services/jss-state.service';
 @Component({
   selector: 'test-placeholder',
   template: `
@@ -103,7 +104,19 @@ describe('<sc-placeholder />', () => {
             ]
           ),
         ],
-        providers: [],
+        providers: [
+          JssStateService,
+          {
+            provide: JssState,
+            useValue: {
+              context: {
+                pageEditing: false,
+                serverRoute: '/',
+                language: 'en',
+              },
+            },
+          },
+        ],
       }).compileComponents();
     })
   );
@@ -392,7 +405,19 @@ describe('<sc-placeholder /> with input/output binding', () => {
           { name: 'Child', type: TestChildComponent },
         ]),
       ],
-      providers: [],
+      providers: [
+        JssStateService,
+        {
+          provide: JssState,
+          useValue: {
+            context: {
+              pageEditing: false,
+              serverRoute: '/',
+              language: 'en',
+            },
+          },
+        },
+      ],
     });
 
     fixture = TestBed.createComponent(TestParentComponent);
@@ -604,7 +629,21 @@ describe('<sc-placeholder /> with lazy loaded modules', () => {
             ]
           ),
         ],
-        providers: [MockUrlTreeGuard, MockUnexpectedErrorGuard],
+        providers: [
+          MockUrlTreeGuard,
+          MockUnexpectedErrorGuard,
+          JssStateService,
+          {
+            provide: JssState,
+            useValue: {
+              context: {
+                pageEditing: false,
+                serverRoute: '/',
+                language: 'en',
+              },
+            },
+          },
+        ],
       }).compileComponents();
     })
   );
@@ -731,7 +770,19 @@ describe('SXA components', () => {
           RouterTestingModule,
           JssModule.withComponents([{ name: 'RichText', type: TestRichTextComponent }]),
         ],
-        providers: [],
+        providers: [
+          JssStateService,
+          {
+            provide: JssState,
+            useValue: {
+              context: {
+                pageEditing: false,
+                serverRoute: '/',
+                language: 'en',
+              },
+            },
+          },
+        ],
       });
 
       fixture = TestBed.createComponent(TestPlaceholderComponent);
@@ -847,30 +898,22 @@ describe('SXA components', () => {
   );
 });
 
-fdescribe('PlaceholderMetadata', () => {
+describe('Placeholder Metadata:', () => {
+  const {
+    layoutData,
+    layoutDataWithEmptyPlaceholder,
+    layoutDataWithUnknownComponent,
+  } = metadataData;
+
   @Component({
     selector: 'test-text',
     template: `
-      <span id="text" *scText="rendering.fields.text"></span>
+      <div className="nested-test-wrapper"></div>
     `,
   })
   class TestTextComponent {
     @Input() rendering: ComponentRendering;
-  }
-
-  @Injectable()
-  class TestContextService extends AngularContextService {
-    constructor(
-      protected stateOverride: JssState,
-      protected transferState: TransferState,
-      protected layoutService: AngularLayoutService
-    ) {
-      super(transferState, layoutService);
-      this.state.next(this.stateOverride);
-    }
-    setState(state: JssState) {
-      this.state.next(state);
-    }
+    nestedRenering: ComponentRendering = layoutData.sitecore.route.placeholders.main[0];
   }
 
   let fixture: ComponentFixture<TestPlaceholderComponent>;
@@ -885,62 +928,289 @@ fdescribe('PlaceholderMetadata', () => {
           RouterTestingModule,
           JssModule.withComponents([{ name: 'Home', type: TestTextComponent }]),
         ],
-        providers: [
-          AngularLayoutService,
-          { provide: JssState, useValue: layoutData.sitecore.context },
-          { provide: AngularContextService, useClass: TestContextService },
-        ],
-      });
+        providers: [],
+      }).compileComponents();
 
       fixture = TestBed.createComponent(TestPlaceholderComponent);
       de = fixture.debugElement;
 
       comp = fixture.componentInstance;
+      const jssContext = de.injector.get(JssStateService);
+      jssContext.setState(layoutData);
       fixture.detectChanges();
     })
   );
 
-  const {
-    layoutData,
-    // layoutDataForNestedDynamicPlaceholder,
-    // layoutDataWithEmptyPlaceholder,
-    // layoutDataWithUnknownComponent,
-  } = metadataData;
-
   it(
-    'should render code blocks around nested placeholder components',
+    'should render code blocks around nested placeholder components with DEFAULT_PLACEHOLDER_UID',
     waitForAsync(async () => {
       const component = layoutData.sitecore.route;
       const phKey = 'main';
       comp.name = phKey;
       comp.rendering = (component as unknown) as ComponentRendering;
 
-      const jssContext = de.injector.get(AngularContextService) as TestContextService;
-      jssContext.state.next(layoutData);
       fixture.detectChanges();
       await fixture.whenStable();
       fixture.detectChanges();
 
       expect(de.children.length).toBe(1);
-      const text = de.query(By.css('#text'));
-      expect(text.nativeElement.nextSibling.innerHTML).toBe('code');
-      expect(text.nativeElement.previousSibling.innerHTML).toBe('code');
+      const elements = de.queryAll(By.css('code'));
+      expect(elements.length).toBe(4);
+      expect(elements[0].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="main_00000000-0000-0000-0000-000000000000"></code>'
+      );
+      expect(elements[1].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>'
+      );
+      expect(elements[2].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>'
+      );
+      expect(elements[3].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>'
+      );
     })
   );
 
-  xit('should render code blocks even if placeholder is empty', () => {
-    expect(true).toBe(false);
-  });
+  it(
+    'should render code blocks around nested placeholder components with provided placeholder ID',
+    waitForAsync(async () => {
+      const component = layoutData.sitecore.route;
+      const phKey = 'main';
+      comp.name = phKey;
+      comp.rendering = { uid: '1234', ...((component as unknown) as ComponentRendering) };
 
-  xit('should render missing component with code blocks if component is not registered', () => {
-    expect(true).toBe(false);
-  });
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
 
-  xit('should render dynamic placeholder', () => {
-    expect(true).toBe(false);
-  });
+      expect(de.children.length).toBe(1);
+      const elements = de.queryAll(By.css('code'));
+      expect(elements.length).toBe(4);
+      expect(elements[0].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="main_1234"></code>'
+      );
+      expect(elements[1].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>'
+      );
+      expect(elements[2].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>'
+      );
+      expect(elements[3].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>'
+      );
+    })
+  );
 
-  xit('should render double digit dynamic placeholder', () => {
-    expect(true).toBe(false);
-  });
+  it('should render code blocks even if placeholder is empty', () =>
+    waitForAsync(async () => {
+      const component = layoutDataWithEmptyPlaceholder.sitecore.route;
+      const phKey = 'main';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      const elements = de.queryAll(By.css('code'));
+
+      expect(de.query(By.css('div.sc-jss-empty-placeholder'))).toBeDefined();
+
+      expect(elements.length).toBe(4);
+      expect(elements[0].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="main_00000000-0000-0000-0000-000000000000"></code>'
+      );
+      expect(elements[1].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>'
+      );
+      expect(elements[2].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>'
+      );
+      expect(elements[3].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>'
+      );
+    }));
+
+  it(
+    'should render missing component with code blocks if component is not registered',
+    waitForAsync(async () => {
+      const component = layoutDataWithUnknownComponent.sitecore.route;
+      const phKey = 'main';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(1);
+      const elements = de.queryAll(By.css('code'));
+
+      expect(elements.length).toBe(4);
+      expect(elements[0].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="main_00000000-0000-0000-0000-000000000000"></code>'
+      );
+      expect(elements[1].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>'
+      );
+      expect(elements[2].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>'
+      );
+      expect(elements[3].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>'
+      );
+      expect(de.query(By.directive(MissingComponentComponent))).toBeDefined();
+    })
+  );
+});
+
+describe('Placeholder Metadata: dynamic placeholder:', () => {
+  const { layoutData, layoutDataForNestedDynamicPlaceholder } = metadataData;
+
+  @Component({
+    selector: 'test-nest',
+    template: `
+      <div className="nested-test-wrapper">
+        <sc-placeholder name="logo" [rendering]="nestedRenering"></sc-placeholder>
+      </div>
+    `,
+  })
+  class TestNestingComponent {
+    @Input() rendering: ComponentRendering;
+    nestedRenering: ComponentRendering = layoutData.sitecore.route.placeholders.main[0];
+  }
+
+  @Component({
+    selector: 'logo',
+    template: `
+      <div class="Logo-deep"></div>
+    `,
+  })
+  class LogoComponent {
+    @Input() rendering: ComponentRendering;
+  }
+
+  let fixture: ComponentFixture<TestPlaceholderComponent>;
+  let de: DebugElement;
+  let comp: TestPlaceholderComponent;
+
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [TestNestingComponent, TestPlaceholderComponent, LogoComponent],
+        imports: [
+          RouterTestingModule,
+          JssModule.withComponents([
+            { name: 'Home', type: TestNestingComponent },
+            { name: 'Logo', type: LogoComponent },
+          ]),
+        ],
+        providers: [],
+      }).compileComponents();
+
+      fixture = TestBed.createComponent(TestPlaceholderComponent);
+      de = fixture.debugElement;
+      const jssContext = de.injector.get(JssStateService);
+      jssContext.setState(layoutData);
+      comp = fixture.componentInstance;
+      fixture.detectChanges();
+    })
+  );
+
+  it(
+    'should code blocks render dynamic placeholder',
+    waitForAsync(async () => {
+      const layoutData = layoutDataForNestedDynamicPlaceholder('container-{*}');
+      const component = layoutData.sitecore.route;
+      const phKey = 'container-1';
+
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+      fixture.detectChanges();
+      // double await is needed for nested/deep placeholders to render all components. Just Angular things?
+      await fixture.whenStable();
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      expect(de.children.length).toBe(1);
+      const elements = de.queryAll(By.css('code'));
+
+      expect(elements.length).toBe(8);
+      expect(elements[0].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="container-{*}_00000000-0000-0000-0000-000000000000"></code>'
+      );
+      expect(elements[1].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>'
+      );
+      expect(elements[2].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="logo_nested123"></code>'
+      );
+      expect(elements[3].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="deep123"></code>'
+      );
+      expect(elements[4].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>'
+      );
+      expect(elements[5].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>'
+      );
+      expect(elements[6].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>'
+      );
+      expect(elements[7].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>'
+      );
+      expect(de.query(By.css('div.Logo-deep')).nativeNode.outerHTML).toBe(
+        '<div class="Logo-deep"></div>'
+      );
+    })
+  );
+
+  it(
+    'should render code blocks double digit dynamic placeholder',
+    waitForAsync(async () => {
+      const layoutData = layoutDataForNestedDynamicPlaceholder('container-1-{*}');
+      const component = layoutData.sitecore.route;
+      const phKey = 'container-1-2';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+
+      fixture.detectChanges();
+      // double await is needed for nested/deep placeholders to render all components
+      await fixture.whenStable();
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      expect(de.children.length).toBe(1);
+      const elements = de.queryAll(By.css('code'));
+
+      expect(elements.length).toBe(8);
+      expect(elements[0].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="container-1-{*}_00000000-0000-0000-0000-000000000000"></code>'
+      );
+      expect(elements[1].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>'
+      );
+      expect(elements[2].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="logo_nested123"></code>'
+      );
+      expect(elements[3].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="deep123"></code>'
+      );
+      expect(elements[4].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>'
+      );
+      expect(elements[5].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>'
+      );
+      expect(elements[6].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>'
+      );
+      expect(elements[7].nativeElement.outerHTML).toBe(
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>'
+      );
+      expect(de.query(By.css('div.Logo-deep')).nativeNode.outerHTML).toBe(
+        '<div class="Logo-deep"></div>'
+      );
+    })
+  );
 });
