@@ -4,6 +4,7 @@ import {
   OnChanges,
   SimpleChanges,
   TemplateRef,
+  Type,
   ViewContainerRef,
 } from '@angular/core';
 import { TextField } from './rendering-field';
@@ -22,8 +23,11 @@ export class TextDirective extends BaseFieldDirective implements OnChanges {
 
   @Input('scTextEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
 
+  protected defaultFieldEditingComponent: Type<unknown>;
+
   constructor(viewContainer: ViewContainerRef, private templateRef: TemplateRef<unknown>) {
     super(viewContainer);
+    this.defaultFieldEditingComponent = DefaultEmptyFieldEditingComponent;
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -39,7 +43,7 @@ export class TextDirective extends BaseFieldDirective implements OnChanges {
 
   private updateView() {
     if (!this.shouldRender()) {
-      super.renderEmpty(DefaultEmptyFieldEditingComponent);
+      super.renderEmpty();
       return;
     }
 

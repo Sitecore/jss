@@ -9,8 +9,9 @@ import { GenericFieldValue, isFieldValueEmpty } from '@sitecore-jss/sitecore-jss
 export abstract class BaseFieldDirective {
   protected viewRef: EmbeddedViewRef<unknown>;
   protected abstract field: RenderingField<GenericFieldValue>;
-  protected abstract emptyFieldEditingTemplate: TemplateRef<unknown>;
   protected abstract editable: boolean;
+  protected abstract emptyFieldEditingTemplate: TemplateRef<unknown>;
+  protected abstract defaultFieldEditingComponent: Type<unknown>;
 
   constructor(protected viewContainer: ViewContainerRef) {}
 
@@ -25,13 +26,13 @@ export abstract class BaseFieldDirective {
   /**
    * Renders the empty field markup which is required by Pages in editMode 'metadata' in case field is empty.
    */
-  protected renderEmpty(emptyFieldEditingComponent: Type<unknown>) {
+  protected renderEmpty() {
     if (this.shouldRenderEmptyEditingComponent()) {
       if (this.emptyFieldEditingTemplate) {
         this.viewContainer.createEmbeddedView(this.emptyFieldEditingTemplate);
       } else {
         this.viewContainer.clear();
-        this.viewContainer.createComponent(emptyFieldEditingComponent);
+        this.viewContainer.createComponent(this.defaultFieldEditingComponent);
       }
     }
   }

@@ -6,6 +6,7 @@ import {
   Renderer2,
   SimpleChanges,
   TemplateRef,
+  Type,
   ViewContainerRef,
 } from '@angular/core';
 import { LinkField } from './rendering-field';
@@ -22,6 +23,8 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
 
   @Input('scLinkEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
 
+  protected defaultFieldEditingComponent: Type<unknown>;
+
   private inlineRef: HTMLSpanElement | null = null;
 
   constructor(
@@ -31,6 +34,7 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
     private elementRef: ElementRef
   ) {
     super(viewContainer);
+    this.defaultFieldEditingComponent = DefaultEmptyFieldEditingComponent;
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -101,7 +105,7 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
       this.renderInlineWrapper(field.editableFirstPart, field.editableLastPart);
     } else {
       if (!this.shouldRender()) {
-        super.renderEmpty(DefaultEmptyFieldEditingComponent);
+        super.renderEmpty();
         return;
       }
 

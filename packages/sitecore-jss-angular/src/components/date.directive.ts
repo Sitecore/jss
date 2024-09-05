@@ -5,6 +5,7 @@ import {
   OnChanges,
   SimpleChanges,
   TemplateRef,
+  Type,
   ViewContainerRef,
 } from '@angular/core';
 import { DateField } from './rendering-field';
@@ -27,12 +28,15 @@ export class DateDirective extends BaseFieldDirective implements OnChanges {
 
   @Input('scDateEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
 
+  protected defaultFieldEditingComponent: Type<unknown>;
+
   constructor(
     viewContainer: ViewContainerRef,
     private templateRef: TemplateRef<unknown>,
     private datePipe: DatePipe
   ) {
     super(viewContainer);
+    this.defaultFieldEditingComponent = DefaultEmptyFieldEditingComponent;
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -48,7 +52,7 @@ export class DateDirective extends BaseFieldDirective implements OnChanges {
 
   private updateView() {
     if (!this.shouldRender()) {
-      super.renderEmpty(DefaultEmptyFieldEditingComponent);
+      super.renderEmpty();
       return;
     }
 

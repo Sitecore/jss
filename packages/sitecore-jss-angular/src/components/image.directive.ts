@@ -6,6 +6,7 @@ import {
   Renderer2,
   SimpleChanges,
   TemplateRef,
+  Type,
   ViewContainerRef,
 } from '@angular/core';
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
@@ -20,6 +21,8 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
   @Input('scImageEditable') editable = true;
 
   @Input('scImageEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
+
+  protected defaultFieldEditingComponent: Type<unknown>;
 
   /**
    * Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
@@ -43,6 +46,7 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
     private elementRef: ElementRef
   ) {
     super(viewContainer);
+    this.defaultFieldEditingComponent = DefaultEmptyImageFieldEditingComponent;
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -59,7 +63,7 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
 
   private updateView() {
     if (!this.shouldRender()) {
-      super.renderEmpty(DefaultEmptyImageFieldEditingComponent);
+      super.renderEmpty();
       return;
     }
 
