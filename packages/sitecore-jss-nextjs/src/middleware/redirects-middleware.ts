@@ -275,7 +275,6 @@ export class RedirectsMiddleware extends MiddlewareBase {
     statusText: string
   ): NextResponse {
     const redirect = NextResponse.redirect(url, {
-      ...(res || {}),
       status,
       statusText,
       headers: res?.headers,
