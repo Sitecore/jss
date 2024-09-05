@@ -11,9 +11,9 @@ import {
 import { Observable, EMPTY } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { ComponentRendering, isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss-angular';
+import { JssContextService } from './jss-context.service';
 import { ExecutableDefinitionNode } from 'graphql';
 import { isPlatformServer } from '@angular/common';
-import { JssContextService } from './jss-context.service';
 
 export interface JssGraphQLOptions {
   renderingContext?: ComponentRendering;

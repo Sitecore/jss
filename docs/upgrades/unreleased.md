@@ -1,5 +1,40 @@
 ## Unreleased
 
+# Angular
+
+* Update several services to use updated Jss Context service:
+    * In `\src\app\jss-context.service.ts`:
+        * Replace the import from `sitecore-jss-angular`:
+            ```
+            import { LayoutServiceData } from '@sitecore-jss/sitecore-jss-angular';
+            ```  
+            with
+            ```
+            import { LayoutServiceData, LayoutServiceError, JssState, JssStateService } from '@sitecore-jss/sitecore-jss-angular';
+            ```
+        * Remove `BehaviorSubject` import
+        * Remove `LayoutServiceError` from `./layout/jss-layout.service`
+        * Remove the `state` field (`state: BehaviorSubject<JssState>;`) 
+        * Add two getters and replace constuctor as below:
+        ```
+        get state() {
+            return this.stateService.state;
+        }
+        get stateValue() {
+            return this.stateService.getStateValue();
+        }
+        constructor(protected transferState: TransferState, protected layoutService: JssLayoutService, protected stateService: JssStateService) {
+        }
+        ```
+        * Replace all `this.state.next` calls with `this.stateService.setState`
+        * Replace all `this.state.value` calls with `this.stateService.getStateValue()`
+    * In `\src\app\jss-graphql.service.ts`:
+        * Replace all `this.sitecoreContext.state.value` calls with `this.sitecoreContext.stateValue`
+    * In `\src\app\layout\jss-layout.service.ts`:
+        * Remove the `LayoutServiceError` class
+        * Remove `LayoutServiceContextData` import
+        * Add `LayoutServiceError` import from `@sitecore-jss/sitecore-jss-angular`
+
 # Angular - XMCloud
 
 If you plan to use the Angular SDK with XMCloud, you will need to perform next steps:

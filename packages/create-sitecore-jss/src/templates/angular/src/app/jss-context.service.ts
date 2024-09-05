@@ -2,7 +2,7 @@ import { Injectable, TransferState, makeStateKey } from '@angular/core';
 import { LayoutServiceData, LayoutServiceError, JssState, JssStateService } from '@sitecore-jss/sitecore-jss-angular';
 import { map, shareReplay, catchError } from 'rxjs/operators';
 import { Observable, of as observableOf } from 'rxjs';
-import { JssLayoutService,  } from './layout/jss-layout.service';
+import { JssLayoutService } from './layout/jss-layout.service';
 
 export const jssKey = makeStateKey<JssState>('jss');
 
