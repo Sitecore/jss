@@ -8,7 +8,9 @@
 
     @include respond-to(mobile-large) {
       padding-bottom: 0;
-      flex-direction: column-reverse;
+      sc-placeholder {
+        flex-direction: column-reverse;
+      }
     }
   }
 }

@@ -4,78 +4,106 @@
 
 ## Table of contents
 
+### Namespaces
+
+- [headlessProxy](modules/headlessProxy.md)
+
 ### Interfaces
 
-- [ProxyConfig](interfaces/ProxyConfig.md)
-- [ServerBundle](interfaces/ServerBundle.md)
+- [RenderResponse](interfaces/RenderResponse.md)
+
+### Type Aliases
+
+- [AppRenderer](README.md#apprenderer)
+- [RouteUrlParser](README.md#routeurlparser)
 
 ### Functions
 
-- [default](README.md#default)
-- [removeEmptyAnalyticsCookie](README.md#removeemptyanalyticscookie)
-- [rewriteRequestPath](README.md#rewriterequestpath)
+- [editingRouter](README.md#editingrouter)
 
-## Functions
+## Type Aliases
 
-### default
+### AppRenderer
 
-▸ **default**(`renderer`, `config`, `parseRouteUrl`): `RequestHandler`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\>[]
+Ƭ **AppRenderer**: (`callback`: (`error`: `Error` \| ``null``, `result`: [`RenderResponse`](interfaces/RenderResponse.md) \| ``null``) => `void`, `path`: `string`, `data`: `LayoutServiceData`, `viewBag`: \{ `[key: string]`: `unknown`; `dictionary`: `DictionaryPhrases`  }) => `void`
 
-#### Parameters
+#### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `renderer` | `AppRenderer` |
-| `config` | [`ProxyConfig`](interfaces/ProxyConfig.md) |
-| `parseRouteUrl` | `RouteUrlParser` |
+▸ (`callback`, `path`, `data`, `viewBag`): `void`
 
-#### Returns
+AppRenderer is a function that renders a JSS app's markup for a given route and data.
 
-`RequestHandler`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\>[]
-
-#### Defined in
-
-[index.ts:580](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-proxy/src/index.ts#L580)
-
-___
-
-### removeEmptyAnalyticsCookie
-
-▸ **removeEmptyAnalyticsCookie**(`proxyResponse`): `void`
-
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `proxyResponse` | `IncomingMessage` |
+| `callback` | (`error`: `Error` \| ``null``, `result`: [`RenderResponse`](interfaces/RenderResponse.md) \| ``null``) => `void` |
+| `path` | `string` |
+| `data` | `LayoutServiceData` |
+| `viewBag` | `Object` |
+| `viewBag.dictionary` | `DictionaryPhrases` |
 
-#### Returns
+##### Returns
 
 `void`
 
 #### Defined in
 
-[index.ts:24](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-proxy/src/index.ts#L24)
+[types/AppRenderer.ts:26](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L26)
 
 ___
 
-### rewriteRequestPath
+### RouteUrlParser
 
-▸ **rewriteRequestPath**(`reqPath`, `req`, `config`, `parseRouteUrl?`): `string`
+Ƭ **RouteUrlParser**: (`url`: `string`) => \{ `lang?`: `string` ; `qsParams?`: `string` ; `sitecoreRoute?`: `string`  }
 
-#### Parameters
+#### Type declaration
+
+▸ (`url`): `Object`
+
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `reqPath` | `string` |
-| `req` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
-| `config` | [`ProxyConfig`](interfaces/ProxyConfig.md) |
-| `parseRouteUrl?` | `RouteUrlParser` |
+| `url` | `string` |
 
-#### Returns
+##### Returns
 
-`string`
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `lang?` | `string` |
+| `qsParams?` | `string` |
+| `sitecoreRoute?` | `string` |
 
 #### Defined in
 
-[index.ts:350](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-proxy/src/index.ts#L350)
+[types/RouteUrlParser.ts:1](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-proxy/src/types/RouteUrlParser.ts#L1)
+
+## Functions
+
+### editingRouter
+
+▸ **editingRouter**(`options`): `Router`
+
+Creates a router for editing requests.
+Supports the following routes:
+- <routerPath>/render (GET) - renders a route
+- <routerPath>/config (GET) - returns the current application configuration
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | `EditingRouterConfig` | Editing router configuration |
+
+#### Returns
+
+`Router`
+
+Editing router
+
+#### Defined in
+
+[middleware/editing/index.ts:97](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-proxy/src/middleware/editing/index.ts#L97)

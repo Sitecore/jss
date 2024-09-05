@@ -1,7 +1,7 @@
 {
   "name": "@sitecore-jss/sitecore-jss-proxy",
-  "version": "22.2.0-canary.37",
-  "description": "Proxy middleware for express.js server.",
+  "version": "22.2.0-canary.47",
+  "description": "Middlewares, utilities to work in a headless mode",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -9,7 +9,7 @@
     "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint \"./src/**/*.ts\"",
-    "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
+    "test": "mocha --require ts-node/register \"./src/**/*.test.ts\" --exit",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-proxy src/index.ts --githubPages false"
@@ -27,6 +27,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
+    "@sitecore-jss/sitecore-jss": "22.2.0-canary.47",
     "http-proxy-middleware": "^2.0.6",
     "http-status-codes": "^2.2.0",
     "set-cookie-parser": "^2.5.1"
@@ -37,13 +38,21 @@
     "@types/mocha": "^10.0.1",
     "@types/node": "^20.14.2",
     "@types/set-cookie-parser": "^2.4.2",
+    "@types/sinon": "^17.0.3",
+    "@types/supertest": "^6.0.2",
     "chai": "^4.3.7",
     "del-cli": "^5.0.0",
     "eslint": "^8.33.0",
+    "express": "^4.19.2",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
+    "sinon": "^17.0.1",
+    "supertest": "^7.0.0",
     "ts-node": "^10.9.1",
     "typescript": "~4.9.5"
+  },
+  "peerDependencies": {
+    "express": "^4.19.2"
   },
   "types": "types/index.d.ts",
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",

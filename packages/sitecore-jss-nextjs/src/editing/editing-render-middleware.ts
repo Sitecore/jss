@@ -2,9 +2,14 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
 import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditMode, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
+import {
+  QUERY_PARAM_EDITING_SECRET,
+  EDITING_ALLOWED_ORIGINS,
+  RenderMetadataQueryParams,
+  LayoutKind,
+} from '@sitecore-jss/sitecore-jss/editing';
 import { EditingData } from './editing-data';
 import { EditingDataService, editingDataService } from './editing-data-service';
-import { EDITING_ALLOWED_ORIGINS, QUERY_PARAM_EDITING_SECRET } from './constants';
 import { getJssEditingSecret } from '../utils/utils';
 import { RenderMiddlewareBase } from './render-middleware';
 import { enforceCors, getAllowedOriginsFromEnv } from '@sitecore-jss/sitecore-jss/utils';
@@ -262,25 +267,10 @@ export type EditingRenderMiddlewareMetadataConfig = Pick<
 >;
 
 /**
- * Query parameters appended to the page route URL
- * Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
- */
-export type MetadataQueryParams = {
-  secret: string;
-  sc_lang: string;
-  sc_itemid: string;
-  sc_site: string;
-  route: string;
-  mode: Exclude<LayoutServicePageState, 'normal'>;
-  sc_variant?: string;
-  sc_version?: string;
-};
-
-/**
  * Next.js API request with Metadata query parameters.
  */
 type MetadataNextApiRequest = NextApiRequest & {
-  query: MetadataQueryParams;
+  query: RenderMetadataQueryParams;
 };
 
 /**
@@ -294,6 +284,7 @@ export type EditingMetadataPreviewData = {
   pageState: Exclude<LayoutServicePageState, 'Normal'>;
   variantIds: string[];
   version?: string;
+  layoutKind?: LayoutKind;
 };
 
 /**
@@ -324,7 +315,7 @@ export class MetadataHandler {
 
     const startTimestamp = Date.now();
 
-    const requiredQueryParams: (keyof MetadataQueryParams)[] = [
+    const requiredQueryParams: (keyof RenderMetadataQueryParams)[] = [
       'sc_site',
       'sc_itemid',
       'sc_lang',
@@ -355,6 +346,7 @@ export class MetadataHandler {
         version: query.sc_version,
         editMode: EditMode.Metadata,
         pageState: query.mode,
+        layoutKind: query.sc_layoutKind,
       } as EditingMetadataPreviewData,
       // Cache the preview data for 3 seconds to ensure the page is rendered with the correct preview data not the cached one
       {

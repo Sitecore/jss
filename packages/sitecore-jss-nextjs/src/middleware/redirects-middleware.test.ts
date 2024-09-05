@@ -1,20 +1,19 @@
 ﻿/* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable dot-notation */
-import chai, { use } from 'chai';
-import chaiString from 'chai-string';
-import sinonChai from 'sinon-chai';
-import sinon, { spy } from 'sinon';
-import { NextRequest, NextResponse } from 'next/server';
-import { debug } from '@sitecore-jss/sitecore-jss';
+import { debug, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 import {
   REDIRECT_TYPE_301,
   REDIRECT_TYPE_302,
   REDIRECT_TYPE_SERVER_TRANSFER,
   SiteResolver,
 } from '@sitecore-jss/sitecore-jss/site';
+import chai, { use } from 'chai';
+import chaiString from 'chai-string';
+import { NextRequest, NextResponse } from 'next/server';
+import sinon, { spy } from 'sinon';
+import sinonChai from 'sinon-chai';
 import { RedirectsMiddleware } from './redirects-middleware';
-import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
@@ -1428,6 +1427,67 @@ describe('RedirectsMiddleware', () => {
 
         nextRedirectStub.restore();
       });
+    });
+
+    it('should remove x-middleware-next/x-middleware-rewrite headers and redirect 301', async () => {
+      const siteName = 'foo';
+      const res = NextResponse.redirect('http://localhost:3000/found', {});
+      res.headers.set('x-middleware-next', '1');
+      res.headers.set('x-middleware-rewrite', '1');
+      res.cookies.set('sc_site', siteName);
+      const req = createRequest({
+        nextUrl: {
+          href: 'http://localhost:3000/not-found',
+          pathname: '/not-found',
+          locale: 'en',
+          search: '',
+          origin: 'http://localhost:3000',
+          clone() {
+            return Object.assign({}, req.nextUrl);
+          },
+        },
+      });
+
+      const { middleware, fetchRedirects, siteResolver } = createMiddleware({
+        pattern: 'not-found',
+        target: '/found',
+        redirectType: REDIRECT_TYPE_301,
+        isQueryStringPreserved: true,
+        locale: 'en',
+      });
+
+      const expected = NextResponse.redirect('http://localhost:3000/found', {
+        ...res,
+        status: 301,
+        headers: {},
+      });
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateDebugLog('redirects middleware start: %o', {
+        hostname: 'foo.net',
+        language: 'en',
+        pathname: '/not-found',
+      });
+
+      validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+        headers: {
+          location: 'http://localhost:3000/found',
+          'set-cookie': 'sc_site=foo; Path=/',
+        },
+        redirected: false,
+        status: 301,
+        url: '',
+      });
+
+      // Check that the headers were not removed
+      expect(finalRes.headers.has('x-middleware-next')).to.equal(false);
+      expect(finalRes.headers.has('x-middleware-rewrite')).to.equal(false);
+
+      expect(siteResolver.getByHost).not.called.to.equal(true);
+      expect(siteResolver.getByName).to.be.calledWith(siteName);
+      expect(fetchRedirects).to.be.calledWith(siteName);
+      expect(finalRes.status).to.equal(expected.status);
     });
 
     describe('should redirect to normalized path when nextjs specific "path" query string parameter is provided', () => {

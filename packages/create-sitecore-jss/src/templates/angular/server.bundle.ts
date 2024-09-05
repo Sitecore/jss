@@ -4,14 +4,11 @@ import { join } from 'path';
 import 'reflect-metadata';
 import 'zone.js';
 import { JssRouteBuilderService } from './src/app/routing/jss-route-builder.service';
-import { environment } from './src/environments/environment';
 import { AppServerModule, renderModule } from './src/main.server';
-import clientFactory from './src/app/lib/graphql-client-factory';
-import { getGraphQLClientFactoryConfig } from './src/app/lib/graphql-client-factory/config';
-import { dictionaryServiceFactory } from './src/app/lib/dictionary-service-factory';
-import { layoutServiceFactory } from './src/app/lib/layout-service-factory';
 
 export * from './src/main.server';
+
+export * from './server.exports';
 
 const http = require('http');
 const https = require('https');
@@ -101,20 +98,4 @@ function parseRouteUrl(url: string) {
   };
 }
 
-const apiKey = environment.sitecoreApiKey;
-const siteName = environment.sitecoreSiteName;
-const defaultLanguage = environment.defaultLanguage;
-const getClientFactoryConfig = getGraphQLClientFactoryConfig;
-
-export {
-  renderView,
-  parseRouteUrl,
-  setUpDefaultAgents,
-  apiKey,
-  siteName,
-  clientFactory,
-  getClientFactoryConfig,
-  dictionaryServiceFactory,
-  layoutServiceFactory,
-  defaultLanguage,
-};
+export { renderView, parseRouteUrl, setUpDefaultAgents };

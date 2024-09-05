@@ -14,6 +14,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[templates/nextjs]` `[templates/react]` `[templates/angular]` `[templates/vue]` Fixed an issue when environment variable is undefined (not present in .env), that produced an "undefined" value in generated config file ([#1875](https://github.com/Sitecore/jss/pull/1875))
+* `[templates/nextjs]` Fix embedded personalization not rendering correctly after navigation through router links. ([#1911](https://github.com/Sitecore/jss/pull/1911))
 
 ### 🎉 New Features & Improvements
 
@@ -28,8 +29,11 @@ Our versioning strategy is as follows:
 * `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1868](https://github.com/Sitecore/jss/pull/1868))([#1881](https://github.com/Sitecore/jss/pull/1881))([#1882](https://github.com/Sitecore/jss/pull/1882))
   * `[create-sitecore-jss]` Allow node-xmcloud-proxy app to be installed alongside Angular SPA application
   * `proxyAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
+* `[templates/angular]` `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/editing/config endpoint ([#1903](https://github.com/Sitecore/jss/pull/1903))
+* `[templates/angular]` `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/editing/render endpoint ([#1908](https://github.com/Sitecore/jss/pull/1908))
 * `[create-sitecore-jss]``[sitecore-jss-angular]``[template/angular-xmcloud]` Angular SXA components
   * Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))
+  * Component styles ([#1917](https://github.com/Sitecore/jss/pull/1917))
   * Title component ([#1904](https://github.com/Sitecore/jss/pull/1904))
   * Richtext component ([#1864](https://github.com/Sitecore/jss/pull/1864))
   * Container component ([#1872](https://github.com/Sitecore/jss/pull/1872))
@@ -45,9 +49,46 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Change
 
+
 *  `[templates/angular]` JssContextService now relies on JssStateService for state management. This allows for improved type safety and reverts the previous anti-pattern of modifying `state` object directly ([#1918](https://github.com/Sitecore/jss/pull/1918))
+* `[sitecore-jss-proxy]` Updated exports of the module for better extensibility ([#1903](https://github.com/Sitecore/jss/pull/1903))
+  * `express@^4.19.2` dependency is marked as a peer dependency
+  * Default `scProxy` middleware export is replaced by `headlessProxy` object that contains the `middleware`, `ProxyConfig`, `ServerBundle` properties
+
 
 ### 🧹 Chores
+
+## 22.1.3
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Addressed an issue where the x-middleware-rewrite header caused redirects to fail during execution on Netlify. ([#1915](https://github.com/Sitecore/jss/pull/1915))
+* `[sitecore-jss-nextjs]` Fixed incorrect behavior of redirects on Netlify service. This fix does not resolve issues related to multilingual redirects. ([#1919](https://github.com/Sitecore/jss/pull/1919))
+
+## 22.1.2
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` `[templates/nextjs]` Update nextjs to 14.2.7 ([#1911](https://github.com/Sitecore/jss/pull/1911))
+  * Make sure to update your app to use the latest Next.js version 14.2.7. It will fix the case when Embedded Personalization / A/B Testing is not executed after navigating through the router links
+* `[sitecore-jss]` Fix isEditorActive returning false in XMCloud Pages ([#1912](https://github.com/Sitecore/jss/pull/1912))
+* `[templates/nextjs]` `[XM Cloud]` FEAAS / BYOC Components are not visible on the page with running A/B test ([#1914](https://github.com/Sitecore/jss/pull/1914))
+  * Make sure to update the _PagePropsFactory_ plugins *order*, these plugins should be executed after the _page-props-factory\plugins\personalize.ts_ plugin to ensure that personalized layout data is used:
+    - _page-props-factory/plugins/component-themes.ts_
+    - _page-props-factory/plugins/component-props.ts_
+* `[sitecore-jss-nextjs]` Resolved an issue with redirects that was caused by the x-middleware-next header in Next.js. This header prevented the flow from being interrupted properly, resulting in redirects not functioning correctly in certain cases. ([#1899](https://github.com/Sitecore/jss/pull/1899))
+
+## 22.1.1
+
+### 🎉 New Features & Improvements
+
+* `[XM Cloud]` `[Metadata Mode]` `[Next.js]` API was changed, next.js preview data provides a new parameter `layoutKind` therefore, please make the necessary updates in the app in `plugins/preview-mode.ts` as shown in the following PR to experience a smooth upgrade.
+* `[sitecore-jss]` `[sitecore-jss-nextjs]` Pass `sc_layoutKind` to GraphQLEditingService request header to support shared/final editing layouts ([#1907](https://github.com/Sitecore/jss/pull/1907))
+* `[sitecore-jss]` `GraphQLRequestClient`'s `request` method now supports dynamic headers based on specific request ([#1907](https://github.com/Sitecore/jss/pull/1907))
+
+```
+  client.request(query, variables, { headers })
+```
 
 ## 22.1.0
 

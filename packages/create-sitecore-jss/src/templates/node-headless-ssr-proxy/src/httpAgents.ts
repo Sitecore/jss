@@ -1,4 +1,4 @@
-import { ServerBundle } from '@sitecore-jss/sitecore-jss-proxy';
+import { headlessProxy } from '@sitecore-jss/sitecore-jss-proxy';
 import keepAlive from 'agentkeepalive';
 import http from 'http';
 import https from 'https';
@@ -14,7 +14,7 @@ const httpAgent = new keepAlive(keepAliveConfig);
 const httpsAgent = (new keepAlive.HttpsAgent(keepAliveConfig) as unknown) as https.Agent;
 
 interface HttpAgentsConfig {
-  setUpDefaultAgents: (serverBundle: ServerBundle) => void;
+  setUpDefaultAgents: (serverBundle: headlessProxy.ServerBundle) => void;
   getAgent: (url: string) => http.Agent | https.Agent;
 }
 

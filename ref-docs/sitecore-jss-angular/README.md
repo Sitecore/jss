@@ -146,7 +146,7 @@ In cases where an error status was sent back from the server (`!response.ok`), t
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:21
+packages/sitecore-jss/types/graphql-request-client.d.ts:28
 
 ___
 
@@ -165,7 +165,7 @@ Configuration type for
 
 #### Defined in
 
-packages/sitecore-jss/types/graphql-request-client.d.ts:88
+packages/sitecore-jss/types/graphql-request-client.d.ts:95
 
 ___
 
@@ -255,7 +255,7 @@ packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -476,7 +476,7 @@ Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/Mutation
 
 #### Defined in
 
-packages/sitecore-jss/types/editing/utils.d.ts:58
+packages/sitecore-jss/types/editing/utils.d.ts:71
 
 ___
 
@@ -495,7 +495,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-packages/sitecore-jss/types/editing/utils.d.ts:44
+packages/sitecore-jss/types/editing/utils.d.ts:57
 
 ___
 
@@ -515,7 +515,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/28ddee7d9/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
@@ -549,4 +549,4 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-packages/sitecore-jss/types/editing/utils.d.ts:48
+packages/sitecore-jss/types/editing/utils.d.ts:61

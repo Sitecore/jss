@@ -39,7 +39,7 @@ Fetch layout data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-sitecore-jss/types/editing/graphql-editing-service.d.ts:56
+sitecore-jss/types/editing/graphql-editing-service.d.ts:57
 
 ## Properties
 
@@ -49,7 +49,7 @@ sitecore-jss/types/editing/graphql-editing-service.d.ts:56
 
 #### Defined in
 
-sitecore-jss/types/editing/graphql-editing-service.d.ts:51
+sitecore-jss/types/editing/graphql-editing-service.d.ts:52
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/editing/graphql-editing-service.d.ts:50
+sitecore-jss/types/editing/graphql-editing-service.d.ts:51
 
 ## Methods
 
@@ -76,6 +76,7 @@ Fetches editing data. Provides the layout data and dictionary phrases
 | `variables` | `Object` | The parameters for fetching editing data. |
 | `variables.itemId` | `string` | The item id (path) to fetch layout data for. |
 | `variables.language` | `string` | The language to fetch layout data for. |
+| `variables.layoutKind?` | `LayoutKind` | The final or shared layout variant. |
 | `variables.siteName` | `string` | The site name. |
 | `variables.version?` | `string` | The version of the item (optional). |
 
@@ -87,7 +88,7 @@ The layout data and dictionary phrases.
 
 #### Defined in
 
-sitecore-jss/types/editing/graphql-editing-service.d.ts:66
+sitecore-jss/types/editing/graphql-editing-service.d.ts:68
 
 ___
 
@@ -105,4 +106,4 @@ implementation
 
 #### Defined in
 
-sitecore-jss/types/editing/graphql-editing-service.d.ts:79
+sitecore-jss/types/editing/graphql-editing-service.d.ts:82

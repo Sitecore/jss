@@ -4,12 +4,11 @@
 <ng-template #default>
   <div class="component container-default {{ styles }}" [attr.id]="id">
     <div class="component-content" [ngStyle]="backgroundStyle">
-      <div class="row">
         <sc-placeholder
           [name]="placeholderName"
-          [rendering]="rendering">
+          [rendering]="rendering"
+          class="row">
         </sc-placeholder>
-      </div>
     </div>
   </div>
 </ng-template>

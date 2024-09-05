@@ -22,9 +22,27 @@
 - [mapButtonToCommand](editing.md#mapbuttontocommand)
 - [resetEditorChromes](editing.md#reseteditorchromes)
 
+### Enumerations
+
+- [LayoutKind](../enums/editing.LayoutKind.md)
+
 ### Classes
 
 - [GraphQLEditingService](../classes/editing.GraphQLEditingService.md)
+
+### Interfaces
+
+- [RenderMetadataQueryParams](../interfaces/editing.RenderMetadataQueryParams.md)
+
+### Variables
+
+- [EDITING\_ALLOWED\_ORIGINS](editing.md#editing_allowed_origins)
+- [PAGES\_EDITING\_MARKER](editing.md#pages_editing_marker)
+- [QUERY\_PARAM\_EDITING\_SECRET](editing.md#query_param_editing_secret)
+
+### Functions
+
+- [getJssPagesClientData](editing.md#getjsspagesclientdata)
 
 ## References
 
@@ -115,3 +133,58 @@ ___
 ### resetEditorChromes
 
 Re-exports [resetEditorChromes](utils.md#reseteditorchromes)
+
+## Variables
+
+### EDITING\_ALLOWED\_ORIGINS
+
+• `Const` **EDITING\_ALLOWED\_ORIGINS**: `string`[]
+
+Default allowed origins for editing requests. This is used to enforce CORS, CSP headers.
+
+#### Defined in
+
+[packages/sitecore-jss/src/editing/utils.ts:17](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss/src/editing/utils.ts#L17)
+
+___
+
+### PAGES\_EDITING\_MARKER
+
+• `Const` **PAGES\_EDITING\_MARKER**: ``"jss-hrz-editing"``
+
+ID to be used as a marker for a script rendered in XMC Pages
+Should identify app is in XM Cloud Pages editing mode
+
+#### Defined in
+
+[packages/sitecore-jss/src/editing/utils.ts:12](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss/src/editing/utils.ts#L12)
+
+___
+
+### QUERY\_PARAM\_EDITING\_SECRET
+
+• `Const` **QUERY\_PARAM\_EDITING\_SECRET**: ``"secret"``
+
+Query parameter for editing secret
+
+#### Defined in
+
+[packages/sitecore-jss/src/editing/utils.ts:6](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss/src/editing/utils.ts#L6)
+
+## Functions
+
+### getJssPagesClientData
+
+▸ **getJssPagesClientData**(): `Record`\<`string`, `Record`\<`string`, `unknown`\>\>
+
+Gets extra JSS clientData scripts to render in XMC Pages in addition to clientData from Pages itself
+
+#### Returns
+
+`Record`\<`string`, `Record`\<`string`, `unknown`\>\>
+
+collection of clientData
+
+#### Defined in
+
+[packages/sitecore-jss/src/editing/utils.ts:161](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss/src/editing/utils.ts#L161)
