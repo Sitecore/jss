@@ -82,9 +82,17 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
     }
   }
 
+  /**
+   * Determines if directive should render the field as is
+   * Returns true if we are in edit mode 'chromes' (field.editable is present) or field is not empty
+   * or link field text is present and we are not in edit mode 'metadata'
+   * The right side of the expression was added to preserve existing functionality
+   */
   protected shouldRender() {
-    // render the field if field is empty but we have 'text' and we are not in edditing mode, to preserve existing functionality
-    return super.shouldRender() || !!(this.field?.text && !this.field?.metadata);
+    return (
+      super.shouldRender() ||
+      !!((this.field?.text || this.field?.value?.text) && !this.field?.metadata)
+    );
   }
 
   private updateView() {
