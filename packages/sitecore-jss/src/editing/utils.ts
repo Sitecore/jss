@@ -6,6 +6,7 @@ import isServer from '../utils/is-server';
  */
 export const DEFAULT_PLACEHOLDER_UID = '00000000-0000-0000-0000-000000000000';
 
+/**
  * Query parameter for editing secret
  */
 export const QUERY_PARAM_EDITING_SECRET = 'secret';
@@ -20,7 +21,6 @@ export const PAGES_EDITING_MARKER = 'jss-hrz-editing';
  * Default allowed origins for editing requests. This is used to enforce CORS, CSP headers.
  */
 export const EDITING_ALLOWED_ORIGINS = ['https://pages.sitecorecloud.io'];
-
 
 type ExtendedWindow = Window &
   typeof globalThis & {
