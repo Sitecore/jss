@@ -11,7 +11,7 @@ import {
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import { ImageField, ImageFieldValue } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
-import { DefaultEmptyFieldEditingImageComponent } from './default-empty-field-editing-image.component';
+import { DefaultEmptyImageFieldEditingComponent } from './default-empty-image-field-editing-placeholder.component';
 
 @Directive({ selector: '[scImage]' })
 export class ImageDirective extends BaseFieldDirective implements OnChanges {
@@ -59,7 +59,7 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
 
   private updateView() {
     if (!this.shouldRender()) {
-      super.renderEmpty(DefaultEmptyFieldEditingImageComponent);
+      super.renderEmpty(DefaultEmptyImageFieldEditingComponent);
       return;
     }
 
