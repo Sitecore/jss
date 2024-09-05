@@ -197,6 +197,14 @@ describe('sitecore-jss layout utils', () => {
         const result = isFieldValueEmpty(field);
         expect(result).to.be.false;
       });
+
+      it('should return true if Date field is invalid for Date type', () => {
+        const field = {
+          value: new Date('invalid-date-string'),
+        };
+        const result = isFieldValueEmpty(field);
+        expect(result).to.be.true;
+      })
     });
 
     describe('boolean', () => {

@@ -117,7 +117,7 @@ export function isFieldValueEmpty(field: GenericFieldValue | Partial<Field>): bo
     if (typeof fieldValue === 'string') {
       return fieldValue === EMPTY_DATE_FIELD_VALUE;
     } else {
-      return !(typeof (fieldValue as Date)?.getMonth === 'function');
+      return !(typeof (fieldValue as Date)?.getMonth === 'function' && !isNaN((fieldValue as Date)?.getMonth()));
     }
   };
 
