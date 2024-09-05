@@ -352,22 +352,25 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
         const withData = await this.dataResolver(nonGuarded);
         // not using index to ensure code blocks are rendered at correct positions
         withData.forEach((rendering) => {
-          this.view.createEmbeddedView(this.metadataNode, {
-            kind: 'open',
-            chromeType: 'rendering',
-            renderingId: (rendering.factory.componentDefinition as ComponentRendering)?.uid,
-          });
+          this.metadataMode &&
+            this.view.createEmbeddedView(this.metadataNode, {
+              kind: 'open',
+              chromeType: 'rendering',
+              renderingId: (rendering.factory.componentDefinition as ComponentRendering)?.uid,
+            });
+
           if (this.renderEachTemplate && !isRawRendering(rendering.factory.componentDefinition)) {
             this._renderTemplatedComponent(rendering.factory.componentDefinition);
           } else {
             this._renderEmbeddedComponent(rendering.factory, rendering.data);
           }
 
-          this.view.createEmbeddedView(this.metadataNode, {
-            kind: 'close',
-            chromeType: 'rendering',
-            renderingId: (rendering.factory.componentDefinition as ComponentRendering)?.uid,
-          });
+          this.metadataMode &&
+            this.view.createEmbeddedView(this.metadataNode, {
+              kind: 'close',
+              chromeType: 'rendering',
+              renderingId: (rendering.factory.componentDefinition as ComponentRendering)?.uid,
+            });
         });
 
         this.isLoading = false;
