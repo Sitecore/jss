@@ -27,9 +27,8 @@ import * as metadataData from '../test-data/metadata-data';
 import { LazyComponent } from '../test-data/lazy-loading/lazy-component.component';
 import { JssCanActivate, JssCanActivateFn, JssResolve } from '../services/placeholder.token';
 import * as lazyLoadingData from '../test-data/lazy-loading/data';
-import { JssState } from '../services/models';
 import { MissingComponentComponent } from './missing-component.component';
-import { JssStateService } from '../services/jss-state.service';
+import { JssStateService, BaseJssState as JssState } from '../services/jss-state.service';
 @Component({
   selector: 'test-placeholder',
   template: `

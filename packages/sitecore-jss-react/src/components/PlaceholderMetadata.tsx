@@ -4,7 +4,7 @@ import {
   getDynamicPlaceholderPattern,
   isDynamicPlaceholder,
 } from '@sitecore-jss/sitecore-jss/layout';
-import { constants } from '@sitecore-jss/sitecore-jss';
+import { DEFAULT_PLACEHOLDER_UID } from '@sitecore-jss/sitecore-jss/editing';
 
 /**
  *  Props containing the component data to render.
@@ -61,7 +61,7 @@ export const PlaceholderMetadata = ({
           if (placeholderName === placeholder) {
             phId = id
               ? `${placeholderName}_${id}`
-              : `${placeholderName}_${constants.DEFAULT_PLACEHOLDER_UID}`;
+              : `${placeholderName}_${DEFAULT_PLACEHOLDER_UID}`;
             break;
           }
 
@@ -71,9 +71,7 @@ export const PlaceholderMetadata = ({
 
             // Check if the placeholder matches the dynamic placeholder pattern
             if (pattern.test(placeholderName)) {
-              phId = id
-                ? `${placeholder}_${id}`
-                : `${placeholder}_${constants.DEFAULT_PLACEHOLDER_UID}`;
+              phId = id ? `${placeholder}_${id}` : `${placeholder}_${DEFAULT_PLACEHOLDER_UID}`;
               break;
             }
           }

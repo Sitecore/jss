@@ -55,12 +55,7 @@ import { RenderEachDirective } from './render-each.directive';
 import { RenderEmptyDirective } from './render-empty.directive';
 import { isRawRendering } from './rendering';
 import { JssStateService } from '../services/jss-state.service';
-
-/**
- * @param {ComponentRendering} rendering
- * @param {string} name
- * @param {EditMode} [editMode]
- */
+import { DEFAULT_PLACEHOLDER_UID } from '@sitecore-jss/sitecore-jss/editing';
 
 export interface FactoryWithData {
   factory: ComponentFactoryResult;
@@ -123,7 +118,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   placeholderLoading?: PlaceholderLoadingDirective;
   @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
   @ViewChild('metadataCodeBlock', { read: TemplateRef }) private metadataNode: TemplateRef<unknown>;
-  // @ViewChild('wrappedRendering', { read: TemplateRef }) private wrappedRendering: ViewContainerRef;
   public isLoading = true;
   metadataMode: boolean;
   chromeType: string;
@@ -182,71 +176,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     });
   }
 
-  getPlaceholder() {
-    let phName = this.name?.slice() || '';
-    /**
-     * Process (SXA) dynamic placeholders
-     * Find and replace the matching dynamic placeholder e.g 'nameOfContainer-{*}' with the requested e.g. 'nameOfContainer-1'.
-     * For Metadata EditMode, we need to keep the raw placeholder name in place.
-     */
-    this.rendering?.placeholders &&
-      Object.keys(this.rendering.placeholders).forEach((placeholder) => {
-        const patternPlaceholder = isDynamicPlaceholder(placeholder)
-          ? getDynamicPlaceholderPattern(placeholder)
-          : null;
-        if (patternPlaceholder && patternPlaceholder.test(phName)) {
-          if (this.editMode === EditMode.Metadata) {
-            phName = placeholder;
-          } else {
-            this.rendering.placeholders![phName] = this.rendering.placeholders![placeholder];
-            delete this.rendering.placeholders![placeholder];
-          }
-        }
-      });
-
-    if (
-      this.rendering &&
-      this.rendering.placeholders &&
-      Object.keys(this.rendering.placeholders).length > 0
-    ) {
-      return this.rendering.placeholders[phName];
-    }
-    return null;
-  }
-
-  getCodeBlockId = (kind: string, renderingId?: string): string | undefined => {
-    if (this.rendering && kind === 'open') {
-      const placeholderName = this.name;
-      const id = renderingId || this.rendering?.uid;
-      if (!renderingId && placeholderName) {
-        let phId = '';
-        for (const placeholder of Object.keys(this.rendering.placeholders || [])) {
-          if (placeholderName === placeholder) {
-            phId = id
-              ? `${placeholderName}_${id}`
-              : `${placeholderName}_${constants.DEFAULT_PLACEHOLDER_UID}`;
-            break;
-          }
-          // Check if the placeholder is a dynamic placeholder
-          if (isDynamicPlaceholder(placeholder)) {
-            const pattern = getDynamicPlaceholderPattern(placeholder);
-            // Check if the placeholder matches the dynamic placeholder pattern
-            if (pattern.test(placeholderName)) {
-              phId = id
-                ? `${placeholder}_${id}`
-                : `${placeholder}_${constants.DEFAULT_PLACEHOLDER_UID}`;
-              break;
-            }
-          }
-        }
-        return phId;
-      } else {
-        return id;
-      }
-    }
-    return undefined;
-  };
-
   ngOnDestroy() {
     this.destroyed = true;
     this._componentInstances = [];
@@ -279,6 +208,82 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     this._componentInstances.forEach((componentInstance) =>
       this._setComponentInputs(componentInstance, updates)
     );
+  }
+
+  /**
+   * Gets id for Metadata code blocks, in specific format
+   * Metadata code blocks will wrap be added around placeholder content and each rendering component
+   * to allow for editing integration in Pages.
+   * @param {string} kind code block type ("open" or "close"). "open" is added before an element, and "close" added after one.
+   * @param {string?} renderingId rendering uid to apply as id to code block
+   * @returns {string} formatted id value for code HTML node
+   */
+  getCodeBlockId = (kind: string, renderingId?: string): string | undefined => {
+    if (this.rendering && kind === 'open') {
+      const placeholderName = this.name;
+      const id = renderingId || this.rendering?.uid;
+      if (!renderingId && placeholderName) {
+        let phId = '';
+        for (const placeholder of Object.keys(this.rendering.placeholders || [])) {
+          if (placeholderName === placeholder) {
+            phId = id
+              ? `${placeholderName}_${id}`
+              : `${placeholderName}_${DEFAULT_PLACEHOLDER_UID}`;
+            break;
+          }
+          // Check if the placeholder is a dynamic placeholder
+          if (isDynamicPlaceholder(placeholder)) {
+            const pattern = getDynamicPlaceholderPattern(placeholder);
+            // Check if the placeholder matches the dynamic placeholder pattern
+            if (pattern.test(placeholderName)) {
+              phId = id ? `${placeholder}_${id}` : `${placeholder}_${DEFAULT_PLACEHOLDER_UID}`;
+              break;
+            }
+          }
+        }
+        return phId;
+      } else {
+        return id;
+      }
+    }
+    return undefined;
+  };
+
+  /**
+   * Get renderings/components to be rendered for current placeholder name
+   * Can modify the inner placeholders collection to adjust to using SXA dynamic placeholders
+   * @returns {ComponentRendering<ComponentFields> | HtmlElementRendering[] | null} List of renderings to be rendered
+   */
+  private getPlaceholder() {
+    let phName = this.name?.slice() || '';
+    /**
+     * Process (SXA) dynamic placeholders
+     * Find and replace the matching dynamic placeholder e.g 'nameOfContainer-{*}' with the requested e.g. 'nameOfContainer-1'.
+     * For Metadata EditMode, we need to keep the raw placeholder name in place.
+     */
+    this.rendering?.placeholders &&
+      Object.keys(this.rendering.placeholders).forEach((placeholder) => {
+        const patternPlaceholder = isDynamicPlaceholder(placeholder)
+          ? getDynamicPlaceholderPattern(placeholder)
+          : null;
+        if (patternPlaceholder && patternPlaceholder.test(phName)) {
+          if (this.editMode === EditMode.Metadata) {
+            phName = placeholder;
+          } else {
+            this.rendering.placeholders![phName] = this.rendering.placeholders![placeholder];
+            delete this.rendering.placeholders![placeholder];
+          }
+        }
+      });
+
+    if (
+      this.rendering &&
+      this.rendering.placeholders &&
+      Object.keys(this.rendering.placeholders).length > 0
+    ) {
+      return this.rendering.placeholders[phName];
+    }
+    return null;
   }
 
   private _setComponentInputs(
@@ -400,20 +405,16 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     }
   }
 
-  private _renderTemplatedComponent(
-    rendering: ComponentRendering | HtmlElementRendering,
-    index?: number
-  ) {
+  private _renderTemplatedComponent(rendering: ComponentRendering | HtmlElementRendering) {
     // the render-each template takes care of all component mapping etc
     // generally using <sc-render-component> which is about like _renderEmbeddedComponent()
     // as a separate component
     this.view.createEmbeddedView(this.renderEachTemplate.templateRef, {
       rendering,
-      index,
     });
   }
 
-  private _renderEmbeddedComponent(rendering: ComponentFactoryResult, data: Data, index?: number) {
+  private _renderEmbeddedComponent(rendering: ComponentFactoryResult, data: Data) {
     if (
       (rendering.componentDefinition as ComponentRendering).componentName ===
       constants.HIDDEN_RENDERING_NAME
@@ -436,7 +437,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     // apply the parent style attribute _ngcontent
     // work-around for https://github.com/angular/angular/issues/12215
     const createdComponentRef = this.view.createComponent(rendering.componentImplementation, {
-      index: index,
       ngModuleRef: rendering.componentModuleRef,
     });
     if (this.parentStyleAttribute) {

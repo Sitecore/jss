@@ -1,5 +1,10 @@
 import isServer from '../utils/is-server';
 
+/**
+ * default value of uid for root placeholder when uid is not present.
+ */
+export const DEFAULT_PLACEHOLDER_UID = '00000000-0000-0000-0000-000000000000';
+
 type ExtendedWindow = Window &
   typeof globalThis & {
     [key: string]: unknown;

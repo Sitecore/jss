@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 import {
   LayoutServiceData,
-  LayoutServiceError,
+  LayoutServiceContextData,
 } from '@sitecore-jss/sitecore-jss-angular';
 import { from as fromPromise, Observable, throwError as observableThrow } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { layoutServiceFactory } from '../lib/layout-service-factory';
+
+export class LayoutServiceError {
+  status: number;
+  statusText: string;
+  data?: { sitecore?: LayoutServiceContextData };
+}
 
 const layoutServiceInstance = layoutServiceFactory.create();
 

@@ -19,13 +19,13 @@ export class JssContextService {
     return this.stateService.state;
   }
   get stateValue() {
-    return this.stateService.getStateValue();
+    return this.stateService.stateValue;
   }
   constructor(protected transferState: TransferState, protected layoutService: JssLayoutService, protected stateService: JssStateService) {
   }
 
   changeLanguage(language: string) {
-    this.stateService.setState({ ...this.stateService.getStateValue(), language });
+    this.stateService.setState({ ...this.stateService.stateValue, language });
   }
 
   // primarily invoked by JssRouteResolver on URL/route change
@@ -39,7 +39,7 @@ export class JssContextService {
       return observableOf(jssState);
     }
 
-    const appLanguage = this.stateService.getStateValue().language || language;
+    const appLanguage = this.stateService.stateValue.language || language;
 
     const jssState$ = this.layoutService.getRouteData(route, appLanguage).pipe(
       map((routeData) => {
