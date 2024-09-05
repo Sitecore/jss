@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { TextField } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
-import { DefaultEmptyFieldEditingComponent } from './default-empty-field-editing.component';
+import { DefaultEmptyFieldEditingComponent } from './default-empty-text-field-editing-placeholder.component';
 
 @Directive({
   selector: '[scText]',

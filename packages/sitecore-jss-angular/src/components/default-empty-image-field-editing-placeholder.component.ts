@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
  * Default component that will be rendered in pages when image field is empty.
  */
 @Component({
-  selector: 'app-default-empty-field-editing-image',
+  selector: 'app-default-empty-image-field-editing-placeholder',
   template: `
     <img
       alt=""
