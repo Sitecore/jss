@@ -15,6 +15,7 @@
 ### Properties
 
 - [editable](ImageField.md#editable)
+- [metadata](ImageField.md#metadata)
 - [src](ImageField.md#src)
 - [srcSet](ImageField.md#srcset)
 - [value](ImageField.md#value)
@@ -31,7 +32,25 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:4](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/rendering-field.ts#L4)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
+
+___
+
+### metadata
+
+• `Optional` **metadata**: `Object`
+
+#### Index signature
+
+▪ [key: `string`]: `unknown`
+
+#### Inherited from
+
+[RenderingField](RenderingField.md).[metadata](RenderingField.md#metadata)
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:122
 
 ___
 
@@ -45,7 +64,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:24](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/rendering-field.ts#L24)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:21](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/rendering-field.ts#L21)
 
 ___
 
@@ -59,7 +78,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:25](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/rendering-field.ts#L25)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:22](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/rendering-field.ts#L22)
 
 ___
 
@@ -73,4 +92,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:31](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/rendering-field.ts#L31)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:28](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/rendering-field.ts#L28)

@@ -57,7 +57,7 @@
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:12](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L12)
+[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:12](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L12)
 
 ___
 
@@ -78,7 +78,7 @@ Data sent from Sitecore editors
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
+[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
 
 ___
 
@@ -103,7 +103,7 @@ Data for Next.js Preview (Editing) Metadata Edit Mode.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:279](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L279)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:279](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L279)
 
 ___
 
@@ -124,7 +124,7 @@ Configuration for the Editing Render Middleware.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:21](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L21)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:21](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L21)
 
 ## Variables
 
@@ -140,7 +140,7 @@ https://vercel.com/docs/environment-variables#system-environment-variables
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:223](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L223)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:223](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L223)
 
 ## Functions
 
@@ -168,4 +168,4 @@ EditingMetadataPreviewData
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:296](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L296)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:296](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L296)

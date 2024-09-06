@@ -1,4 +1,4 @@
-import { Component, DebugElement, Input } from '@angular/core';
+import { Component, DebugElement, Input, TemplateRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -18,25 +18,55 @@ class TestComponent {
   @Input() encode = true;
 }
 
+const emptyTextFieldEditingTemplateId = 'emptyTextFieldEditingTemplate';
+const emptyTextFieldEditingTemplate =
+  '<span>[This is a *custom* empty field component for text]</span>';
+
+@Component({
+  selector: 'test-empty-template-text',
+  template: `
+    <span
+      *scText="
+        field;
+        editable: editable;
+        encode: encode;
+        emptyFieldEditingTemplate: ${emptyTextFieldEditingTemplateId}
+      "
+    ></span>
+
+    <ng-template #${emptyTextFieldEditingTemplateId}>
+      ${emptyTextFieldEditingTemplate}
+    </ng-template>
+  `,
+})
+class TestEmptyTemplateComponent {
+  @Input() field: TextField;
+  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
+  @Input() editable = true;
+  @Input() encode = true;
+}
+
 describe('<span *scText />', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
+  let deSpan: DebugElement;
   let comp: TestComponent;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TextDirective, TestComponent],
+      declarations: [TextDirective, TestComponent, TestEmptyTemplateComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);
     fixture.detectChanges();
 
-    de = fixture.debugElement.query(By.css('span'));
+    de = fixture.debugElement;
+    deSpan = de.query(By.css('span'));
     comp = fixture.componentInstance;
   });
 
   it('should render nothing with missing field', () => {
-    const rendered = de.nativeElement.innerHTML;
+    const rendered = deSpan.nativeElement.innerHTML;
     expect(rendered).toBe('');
   });
 
@@ -45,7 +75,7 @@ describe('<span *scText />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = de.nativeElement.innerHTML;
+    const rendered = deSpan.nativeElement.innerHTML;
     expect(rendered).toBe('');
   });
 
@@ -56,7 +86,7 @@ describe('<span *scText />', () => {
 
     comp.field = field;
     fixture.detectChanges();
-    const rendered = de.nativeElement.innerHTML;
+    const rendered = deSpan.nativeElement.innerHTML;
     expect(rendered).toBe('');
   });
 
@@ -68,7 +98,7 @@ describe('<span *scText />', () => {
 
     comp.field = field;
     fixture.detectChanges();
-    const rendered = de.nativeElement.innerHTML;
+    const rendered = deSpan.nativeElement.innerHTML;
     expect(rendered).toBe('editable');
   });
 
@@ -81,7 +111,7 @@ describe('<span *scText />', () => {
     comp.editable = false;
     fixture.detectChanges();
 
-    const rendered = de.nativeElement.innerHTML;
+    const rendered = deSpan.nativeElement.innerHTML;
     expect(rendered).toBe('value');
   });
 
@@ -94,7 +124,7 @@ describe('<span *scText />', () => {
     comp.editable = false;
     fixture.detectChanges();
 
-    const rendered = de.nativeElement.innerHTML;
+    const rendered = deSpan.nativeElement.innerHTML;
     expect(rendered).toContain('&lt; &gt;');
   });
 
@@ -105,7 +135,7 @@ describe('<span *scText />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = de.nativeElement.innerHTML;
+    const rendered = deSpan.nativeElement.innerHTML;
     expect(rendered).toBe('value');
   });
 
@@ -116,7 +146,7 @@ describe('<span *scText />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = de.nativeElement.innerHTML;
+    const rendered = deSpan.nativeElement.innerHTML;
     expect(rendered).toBe('1.23');
   });
 
@@ -127,7 +157,7 @@ describe('<span *scText />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = de.nativeElement.innerHTML;
+    const rendered = deSpan.nativeElement.innerHTML;
     expect(rendered).toBe('0');
   });
 
@@ -139,7 +169,7 @@ describe('<span *scText />', () => {
     comp.encode = false;
     fixture.detectChanges();
 
-    const rendered = de.nativeElement.innerHTML;
+    const rendered = deSpan.nativeElement.innerHTML;
     expect(rendered).toBe(field.value);
   });
 
@@ -150,7 +180,7 @@ describe('<span *scText />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = de.nativeElement.innerHTML;
+    const rendered = deSpan.nativeElement.innerHTML;
     expect(rendered).toContain('<input');
     expect(rendered).toContain('<span class="scChromeData">');
   });
@@ -164,4 +194,61 @@ describe('<span *scText />', () => {
   //   expect(rendered.html()).to.contain('<h1 class="cssClass" id="lorem">');
   //   expect(rendered.html()).to.contain('value');
   // });
+
+  describe('editMode metadata', () => {
+    const testMetadata = {
+      contextItem: {
+        id: '{09A07660-6834-476C-B93B-584248D3003B}',
+        language: 'en',
+        revision: 'a0b36ce0a7db49418edf90eb9621e145',
+        version: 1,
+      },
+      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
+      fieldType: 'single-line',
+      rawValue: 'Test1',
+    };
+
+    it('should render default empty field component when field value is empty', () => {
+      const field = {
+        value: '',
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain('<span>[No text in field]</span>');
+    });
+
+    it('should render custom empty field component when provided, when field value is empty', () => {
+      fixture = TestBed.createComponent(TestEmptyTemplateComponent);
+      fixture.detectChanges();
+
+      de = fixture.debugElement;
+      comp = fixture.componentInstance;
+
+      const field = {
+        value: '',
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyTextFieldEditingTemplate);
+    });
+
+    it('should render nothing when field value is empty, when editing is explicitly disabled', () => {
+      const field = {
+        value: '',
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      comp.editable = false;
+      fixture.detectChanges();
+
+      const rendered = deSpan.nativeElement.innerHTML;
+      expect(rendered).toBe('');
+    });
+  });
 });

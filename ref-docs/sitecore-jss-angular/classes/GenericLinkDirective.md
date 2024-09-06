@@ -17,18 +17,23 @@
 ### Properties
 
 - [attrs](GenericLinkDirective.md#attrs)
+- [defaultFieldEditingComponent](GenericLinkDirective.md#defaultfieldeditingcomponent)
 - [editable](GenericLinkDirective.md#editable)
+- [emptyFieldEditingTemplate](GenericLinkDirective.md#emptyfieldeditingtemplate)
 - [extras](GenericLinkDirective.md#extras)
 - [field](GenericLinkDirective.md#field)
 - [renderer](GenericLinkDirective.md#renderer)
 - [router](GenericLinkDirective.md#router)
 - [templateRef](GenericLinkDirective.md#templateref)
 - [viewContainer](GenericLinkDirective.md#viewcontainer)
+- [viewRef](GenericLinkDirective.md#viewref)
 
 ### Methods
 
 - [ngOnChanges](GenericLinkDirective.md#ngonchanges)
+- [renderEmpty](GenericLinkDirective.md#renderempty)
 - [renderTemplate](GenericLinkDirective.md#rendertemplate)
+- [shouldRender](GenericLinkDirective.md#shouldrender)
 - [updateAttribute](GenericLinkDirective.md#updateattribute)
 
 ## Constructors
@@ -53,7 +58,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:24](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L24)
+[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:31](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L31)
 
 ## Properties
 
@@ -71,7 +76,23 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:18](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L18)
+[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:18](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L18)
+
+___
+
+### defaultFieldEditingComponent
+
+• `Protected` **defaultFieldEditingComponent**: `Type`\<`unknown`\>
+
+Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
+
+#### Inherited from
+
+[LinkDirective](LinkDirective.md).[defaultFieldEditingComponent](LinkDirective.md#defaultfieldeditingcomponent)
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/link.directive.ts:32](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/link.directive.ts#L32)
 
 ___
 
@@ -85,7 +106,23 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:16](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L16)
+[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:16](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L16)
+
+___
+
+### emptyFieldEditingTemplate
+
+• **emptyFieldEditingTemplate**: `TemplateRef`\<`unknown`\>
+
+Custom template to render in Pages in Metadata edit mode if field value is empty
+
+#### Overrides
+
+[LinkDirective](LinkDirective.md).[emptyFieldEditingTemplate](LinkDirective.md#emptyfieldeditingtemplate)
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:27](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L27)
 
 ___
 
@@ -95,7 +132,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:22](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L22)
+[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:22](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L22)
 
 ___
 
@@ -109,7 +146,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:20](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L20)
+[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:20](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L20)
 
 ___
 
@@ -123,7 +160,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:26](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/link.directive.ts#L26)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:39](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/link.directive.ts#L39)
 
 ___
 
@@ -133,7 +170,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:29](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L29)
+[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:36](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L36)
 
 ___
 
@@ -147,7 +184,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:25](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/link.directive.ts#L25)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:38](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/link.directive.ts#L38)
 
 ___
 
@@ -161,7 +198,21 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:24](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/link.directive.ts#L24)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:22](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L22)
+
+___
+
+### viewRef
+
+• `Protected` **viewRef**: `EmbeddedViewRef`\<`unknown`\>
+
+#### Inherited from
+
+[LinkDirective](LinkDirective.md).[viewRef](LinkDirective.md#viewref)
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:10](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L10)
 
 ## Methods
 
@@ -185,7 +236,27 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:30](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/link.directive.ts#L30)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:46](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/link.directive.ts#L46)
+
+___
+
+### renderEmpty
+
+▸ `Protected` **renderEmpty**(): `void`
+
+Renders the empty field markup which is required by Pages in editMode 'metadata' in case field is empty.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[LinkDirective](LinkDirective.md).[renderEmpty](LinkDirective.md#renderempty)
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:35](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L35)
 
 ___
 
@@ -210,7 +281,30 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:34](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L34)
+[packages/sitecore-jss-angular/src/components/generic-link.directive.ts:41](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L41)
+
+___
+
+### shouldRender
+
+▸ `Protected` **shouldRender**(): `boolean`
+
+Determines if directive should render the field as is
+Returns true if we are in edit mode 'chromes' (field.editable is present) or field is not empty
+or link field text is present and we are not in edit mode 'metadata'
+The right side of the expression was added to preserve existing functionality
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+[LinkDirective](LinkDirective.md).[shouldRender](LinkDirective.md#shouldrender)
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/link.directive.ts:101](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/link.directive.ts#L101)
 
 ___
 
@@ -236,4 +330,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:56](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/link.directive.ts#L56)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:72](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/link.directive.ts#L72)
