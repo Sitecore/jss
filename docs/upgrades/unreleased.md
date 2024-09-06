@@ -2,7 +2,7 @@
 
 # Angular
 
-* Update several services to use updated Jss Context service:
+* Update the JssContextService and all the references to it, since some of the sitecore-jss-angular components now rely on the application state:
     * In `\src\app\jss-context.service.ts`:
         * Replace the import from `sitecore-jss-angular`:
             ```
