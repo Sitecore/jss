@@ -6,27 +6,30 @@
 
 | Name | Type |
 | :------ | :------ |
-| `V` | `unknown` |
+| `V` | `GenericFieldValue` |
 
 ## Hierarchy
 
-- **`RenderingField`**
+- `FieldMetadata`
 
-  ↳ [`FileField`](FileField.md)
+  ↳ **`RenderingField`**
 
-  ↳ [`ImageField`](ImageField.md)
+  ↳↳ [`FileField`](FileField.md)
 
-  ↳ [`LinkField`](LinkField.md)
+  ↳↳ [`ImageField`](ImageField.md)
 
-  ↳ [`RichTextField`](RichTextField.md)
+  ↳↳ [`LinkField`](LinkField.md)
 
-  ↳ [`TextField`](TextField.md)
+  ↳↳ [`RichTextField`](RichTextField.md)
+
+  ↳↳ [`TextField`](TextField.md)
 
 ## Table of contents
 
 ### Properties
 
 - [editable](RenderingField.md#editable)
+- [metadata](RenderingField.md#metadata)
 - [value](RenderingField.md#value)
 
 ## Properties
@@ -37,7 +40,25 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:4](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/rendering-field.ts#L4)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
+
+___
+
+### metadata
+
+• `Optional` **metadata**: `Object`
+
+#### Index signature
+
+▪ [key: `string`]: `unknown`
+
+#### Inherited from
+
+FieldMetadata.metadata
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:122
 
 ___
 
@@ -47,4 +68,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:3](https://github.com/Sitecore/jss/blob/804428d73/packages/sitecore-jss-angular/src/components/rendering-field.ts#L3)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:5](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/rendering-field.ts#L5)
