@@ -61,7 +61,7 @@ describe('<span *scTestBase />', () => {
     comp = fixture.componentInstance;
   });
 
-  describe('edit mode cromes', () => {
+  describe('edit mode chromes', () => {
     it('should render field value if it is present', () => {
       const field: { [prop: string]: unknown } = {
         value: 'value',
