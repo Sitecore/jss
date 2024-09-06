@@ -49,7 +49,6 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Change
 
-
 *  `[templates/angular]` JssContextService now relies on JssStateService for state management. This allows for improved type safety and reverts the previous anti-pattern of modifying `state` object directly ([#1918](https://github.com/Sitecore/jss/pull/1918))
 * `[sitecore-jss-proxy]` Updated exports of the module for better extensibility ([#1903](https://github.com/Sitecore/jss/pull/1903))
   * `express@^4.19.2` dependency is marked as a peer dependency
