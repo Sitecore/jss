@@ -639,21 +639,7 @@ describe('<sc-placeholder /> with lazy loaded modules', () => {
             ]
           ),
         ],
-        providers: [
-          MockUrlTreeGuard,
-          MockUnexpectedErrorGuard,
-          JssStateService,
-          {
-            provide: JssState,
-            useValue: {
-              context: {
-                pageEditing: false,
-                serverRoute: '/',
-                language: 'en',
-              },
-            },
-          },
-        ],
+        providers: [MockUrlTreeGuard, MockUnexpectedErrorGuard],
       }).compileComponents();
     })
   );
@@ -908,7 +894,7 @@ describe('SXA components', () => {
   );
 });
 
-fdescribe('Placeholder Metadata:', () => {
+describe('Placeholder Metadata:', () => {
   const {
     layoutData,
     layoutDataWithEmptyPlaceholder,
