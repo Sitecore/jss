@@ -1,4 +1,4 @@
-import { EditMode } from '@sitecore-jss/sitecore-jss/layout';
+import { EditMode, ComponentRendering, ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
 
 export const layoutData = {
   serverRoute: '/',
@@ -27,24 +27,25 @@ export const layoutData = {
           {
             uid: 'nested123',
             componentName: 'Home',
-            // fields: {
-            //   text: {
-            //     metadata: {
-            //       fieldId: '123',
-            //       fieldType: 'text',
-            //       rawValue: 'textField',
-            //     },
-            //   },
-            // },
+            fields: {
+              text: {
+                value: 'test123',
+                metadata: {
+                  fieldId: '123',
+                  fieldType: 'text',
+                  rawValue: 'textField',
+                },
+              },
+            },
             placeholders: {
               logo: [
                 {
                   uid: 'deep123',
                   componentName: 'Logo',
-                },
+                } as ComponentRendering,
               ],
             },
-          },
+          } as ComponentRendering<ComponentFields>,
         ],
       },
     },
@@ -111,15 +112,15 @@ export const layoutDataForNestedDynamicPlaceholder = (rootPhKey: string) => ({
           {
             uid: 'nested123',
             componentName: 'Home',
-            // fields: {
-            //   text: {
-            //     metadata: {
-            //       fieldId: '123',
-            //       fieldType: 'text',
-            //       rawValue: 'textField',
-            //     },
-            //   },
-            // },
+            fields: {
+              text: {
+                metadata: {
+                  fieldId: '123',
+                  fieldType: 'text',
+                  rawValue: 'textField',
+                },
+              },
+            },
             placeholders: {
               logo: [
                 {

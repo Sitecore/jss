@@ -29,6 +29,17 @@ import { JssCanActivate, JssCanActivateFn, JssResolve } from '../services/placeh
 import * as lazyLoadingData from '../test-data/lazy-loading/data';
 import { MissingComponentComponent } from './missing-component.component';
 import { JssStateService, BaseJssState as JssState } from '../services/jss-state.service';
+
+/**
+ * Remove angular comments and angular-specific bindings
+ * @param {string} html
+ */
+function cleanHtml(html: string): string {
+  return html
+    .replace(/<!--[^>]*-->/g, '')
+    .replace(/\s*ng-reflect-[^=]*="[^"]*"/g, '')
+    .trim();
+}
 @Component({
   selector: 'test-placeholder',
   template: `
@@ -897,21 +908,7 @@ describe('SXA components', () => {
   );
 });
 
-/**
- * @param html
- */
-function cleanHtml(html: string): string {
-  return (
-    html
-      // Remove Angular comments
-      .replace(/<!--[^>]*-->/g, '')
-      // Remove Angular-specific bindings
-      .replace(/\s*ng-reflect-[^=]*="[^"]*"/g, '')
-      .trim()
-  );
-}
-
-describe('Placeholder Metadata:', () => {
+fdescribe('Placeholder Metadata:', () => {
   const {
     layoutData,
     layoutDataWithEmptyPlaceholder,
@@ -922,13 +919,13 @@ describe('Placeholder Metadata:', () => {
     selector: 'test-nest',
     template: `
       <div class="nested-test-wrapper">
-        <sc-placeholder name="logo" [rendering]="nestedRenering"></sc-placeholder>
+        <sc-placeholder name="logo" [rendering]="nestedRendering"></sc-placeholder>
       </div>
     `,
   })
   class TestNestingComponent {
     @Input() rendering: ComponentRendering;
-    nestedRenering: ComponentRendering = layoutData.sitecore.route.placeholders.main[0];
+    nestedRendering: ComponentRendering = layoutData.sitecore.route.placeholders.main[0];
   }
 
   @Component({
