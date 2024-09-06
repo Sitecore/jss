@@ -14,15 +14,12 @@ export const layoutData = {
       name: 'main',
       componentName: '',
       fields: {
-        /* TODO: uncomment when doing Fields rework. Type mismatches otherwise
-        metadata: {
-          fieldId: '123',
-          fieldType: 'text',
-          rawValue: 'textField',
-        },
-        */
         text: {
-          value: 'textField',
+          metadata: {
+            fieldId: '123',
+            fieldType: 'text',
+            rawValue: 'textField',
+          },
         },
       },
       placeholders: {
@@ -30,18 +27,15 @@ export const layoutData = {
           {
             uid: 'nested123',
             componentName: 'Home',
-            fields: {
-              /* TODO: uncomment when doing Fields rework
-              metadata: {
-                fieldId: '123',
-                fieldType: 'text',
-                rawValue: 'textField',
-              },
-              */
-              text: {
-                value: 'textField',
-              },
-            },
+            // fields: {
+            //   text: {
+            //     metadata: {
+            //       fieldId: '123',
+            //       fieldType: 'text',
+            //       rawValue: 'textField',
+            //     },
+            //   },
+            // },
             placeholders: {
               logo: [
                 {
@@ -117,18 +111,15 @@ export const layoutDataForNestedDynamicPlaceholder = (rootPhKey: string) => ({
           {
             uid: 'nested123',
             componentName: 'Home',
-            fields: {
-              /* TODO: uncomment when doing Fields rework
-              metadata: {
-                fieldId: '123',
-                fieldType: 'text',
-                rawValue: 'textField',
-              },
-              */
-              text: {
-                value: 'textField',
-              },
-            },
+            // fields: {
+            //   text: {
+            //     metadata: {
+            //       fieldId: '123',
+            //       fieldType: 'text',
+            //       rawValue: 'textField',
+            //     },
+            //   },
+            // },
             placeholders: {
               logo: [
                 {
