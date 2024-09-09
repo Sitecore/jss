@@ -65,7 +65,6 @@ Our versioning strategy is as follows:
   * `express@^4.19.2` dependency is marked as a peer dependency
   * Default `scProxy` middleware export is replaced by `headlessProxy` object that contains the `middleware`, `ProxyConfig`, `ServerBundle` properties
 
-
 ### 🧹 Chores
 
 ## 22.1.3
