@@ -22,6 +22,7 @@
 - [DateDirective](classes/DateDirective.md)
 - [DefaultRetryStrategy](classes/DefaultRetryStrategy.md)
 - [EditFrameComponent](classes/EditFrameComponent.md)
+- [EditingScriptsComponent](classes/EditingScriptsComponent.md)
 - [FileDirective](classes/FileDirective.md)
 - [GenericLinkDirective](classes/GenericLinkDirective.md)
 - [GraphQLDictionaryService](classes/GraphQLDictionaryService.md)
@@ -257,7 +258,7 @@ packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/ebab2559a/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -517,7 +518,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/ebab2559a/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
