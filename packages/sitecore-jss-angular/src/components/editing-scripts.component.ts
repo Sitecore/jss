@@ -23,8 +23,13 @@ export class EditingScriptsComponent implements OnInit {
     const state = this.stateService.stateValue;
     const { pageState, editMode, clientData, clientScripts } = state.sitecore?.context || {};
 
-    // Don't render anything if not in editing/preview mode
-    if (pageState === LayoutServicePageState.Normal) return;
+    // Don't render anything if not in editing mode
+    if (
+      pageState === LayoutServicePageState.Normal ||
+      pageState === LayoutServicePageState.Preview
+    ) {
+      return;
+    }
 
     if (editMode === EditMode.Metadata) {
       const jssClientData = { ...clientData, ...getJssPagesClientData() };

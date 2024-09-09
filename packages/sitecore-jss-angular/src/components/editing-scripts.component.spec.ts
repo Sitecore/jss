@@ -15,7 +15,7 @@ import { EditingScriptsComponent } from './editing-scripts.component';
 })
 class TestComponent {}
 
-fdescribe('<EditingScripts />', () => {
+describe('<EditingScripts />', () => {
   let fixture: ComponentFixture<TestComponent>;
 
   const sharedData = {
@@ -144,6 +144,38 @@ fdescribe('<EditingScripts />', () => {
           'script[src="https://test.com/horizon/canvas/horizon.canvas.js"]'
         )
       ).toBeTruthy();
+    }
+  ));
+
+  it('should not add editing scripts and client data when page state is preview', inject(
+    [JssStateService, DOCUMENT],
+    (stateService: JssStateService, _document: Document) => {
+      stateService.setState({
+        sitecore: {
+          context: {
+            editMode: EditMode.Metadata,
+            pageState: LayoutServicePageState.Preview,
+            ...sharedData,
+          },
+          route: null,
+        },
+      });
+
+      fixture.detectChanges();
+
+      expect(_document.body.querySelector(`#${PAGES_EDITING_MARKER}`)).toBeNull();
+      expect(_document.body.querySelector('#hrz-canvas-state')).toBeNull();
+      expect(_document.body.querySelector('#hrz-canvas-verification-token')).toBeNull();
+      expect(
+        _document.body.querySelector(
+          'script[src="https://test.com/packages/page-extension/latest/page.js"]'
+        )
+      ).toBeNull();
+      expect(
+        _document.body.querySelector(
+          'script[src="https://test.com/horizon/canvas/horizon.canvas.js"]'
+        )
+      ).toBeNull();
     }
   ));
 });
