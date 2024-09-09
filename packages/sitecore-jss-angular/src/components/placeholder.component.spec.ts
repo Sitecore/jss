@@ -28,7 +28,7 @@ import { LazyComponent } from '../test-data/lazy-loading/lazy-component.componen
 import { JssCanActivate, JssCanActivateFn, JssResolve } from '../services/placeholder.token';
 import * as lazyLoadingData from '../test-data/lazy-loading/data';
 import { MissingComponentComponent } from './missing-component.component';
-import { JssStateService, BaseJssState as JssState } from '../services/jss-state.service';
+import { JssStateService } from '../services/jss-state.service';
 
 /**
  * Remove angular comments and angular-specific bindings
@@ -114,19 +114,7 @@ describe('<sc-placeholder />', () => {
             ]
           ),
         ],
-        providers: [
-          JssStateService,
-          {
-            provide: JssState,
-            useValue: {
-              context: {
-                pageEditing: false,
-                serverRoute: '/',
-                language: 'en',
-              },
-            },
-          },
-        ],
+        providers: [JssStateService],
       }).compileComponents();
     })
   );
@@ -415,19 +403,7 @@ describe('<sc-placeholder /> with input/output binding', () => {
           { name: 'Child', type: TestChildComponent },
         ]),
       ],
-      providers: [
-        JssStateService,
-        {
-          provide: JssState,
-          useValue: {
-            context: {
-              pageEditing: false,
-              serverRoute: '/',
-              language: 'en',
-            },
-          },
-        },
-      ],
+      providers: [JssStateService],
     });
 
     fixture = TestBed.createComponent(TestParentComponent);
@@ -766,19 +742,7 @@ describe('SXA components', () => {
           RouterTestingModule,
           JssModule.withComponents([{ name: 'RichText', type: TestRichTextComponent }]),
         ],
-        providers: [
-          JssStateService,
-          {
-            provide: JssState,
-            useValue: {
-              context: {
-                pageEditing: false,
-                serverRoute: '/',
-                language: 'en',
-              },
-            },
-          },
-        ],
+        providers: [JssStateService],
       });
 
       fixture = TestBed.createComponent(TestPlaceholderComponent);
