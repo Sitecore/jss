@@ -29,7 +29,6 @@ import { JssContextService } from './jss-context.service';
   providers: [
     // The token is needed in cases when multiple applications are bootstrapped on a page
     { provide: APP_ID, useValue: 'my-app' },
-    // Temp stubs TODO: simplify, avoid double layout/context service declaration
     JssContextService,
     JssLayoutService,
     JssMetaService,
