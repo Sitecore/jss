@@ -55,6 +55,7 @@ Our versioning strategy is as follows:
    - `scRichTextEmptyFieldEditingTemplate` for _scRichText_
    - `scRouterLinkEmptyFieldEditingTemplate` for _scRouterLink_
    - `scTextEmptyFieldEditingTemplate` for _scText_
+* `[sitecore-jss-angular]` `[templates/angular-xmcloud]` Render clientScripts / clientData. The new `sc-editing-scripts` component is exposed from `sitecore-jss-angular` package and required to be rendered on the page to enable Metadata Edit mode. ([#1924](https://github.com/Sitecore/jss/pull/1924))
 * `[sitecore-jss]` GenericFieldValue model is updated to accept Date type ([#1916](https://github.com/Sitecore/jss/pull/1916))
 
 ### 🛠 Breaking Change
