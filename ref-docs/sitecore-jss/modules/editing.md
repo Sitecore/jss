@@ -36,6 +36,7 @@
 
 ### Variables
 
+- [DEFAULT\_PLACEHOLDER\_UID](editing.md#default_placeholder_uid)
 - [EDITING\_ALLOWED\_ORIGINS](editing.md#editing_allowed_origins)
 - [PAGES\_EDITING\_MARKER](editing.md#pages_editing_marker)
 - [QUERY\_PARAM\_EDITING\_SECRET](editing.md#query_param_editing_secret)
@@ -136,6 +137,18 @@ Re-exports [resetEditorChromes](utils.md#reseteditorchromes)
 
 ## Variables
 
+### DEFAULT\_PLACEHOLDER\_UID
+
+• `Const` **DEFAULT\_PLACEHOLDER\_UID**: ``"00000000-0000-0000-0000-000000000000"``
+
+Default value of uid for root placeholder when uid is not present.
+
+#### Defined in
+
+[packages/sitecore-jss/src/editing/utils.ts:6](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss/src/editing/utils.ts#L6)
+
+___
+
 ### EDITING\_ALLOWED\_ORIGINS
 
 • `Const` **EDITING\_ALLOWED\_ORIGINS**: `string`[]
@@ -144,7 +157,7 @@ Default allowed origins for editing requests. This is used to enforce CORS, CSP 
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:17](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss/src/editing/utils.ts#L17)
+[packages/sitecore-jss/src/editing/utils.ts:22](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss/src/editing/utils.ts#L22)
 
 ___
 
@@ -157,7 +170,7 @@ Should identify app is in XM Cloud Pages editing mode
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:12](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss/src/editing/utils.ts#L12)
+[packages/sitecore-jss/src/editing/utils.ts:17](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss/src/editing/utils.ts#L17)
 
 ___
 
@@ -169,7 +182,7 @@ Query parameter for editing secret
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:6](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss/src/editing/utils.ts#L6)
+[packages/sitecore-jss/src/editing/utils.ts:11](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss/src/editing/utils.ts#L11)
 
 ## Functions
 
@@ -187,4 +200,4 @@ collection of clientData
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:161](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss/src/editing/utils.ts#L161)
+[packages/sitecore-jss/src/editing/utils.ts:166](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss/src/editing/utils.ts#L166)

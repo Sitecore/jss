@@ -16,6 +16,7 @@
 
 ### Classes
 
+- [BaseJssState](classes/BaseJssState.md)
 - [ClientError](classes/ClientError.md)
 - [ComponentNameAndType](classes/ComponentNameAndType.md)
 - [DateDirective](classes/DateDirective.md)
@@ -29,6 +30,7 @@
 - [HiddenRenderingComponent](classes/HiddenRenderingComponent.md)
 - [ImageDirective](classes/ImageDirective.md)
 - [JssModule](classes/JssModule.md)
+- [JssStateService](classes/JssStateService.md)
 - [LinkDirective](classes/LinkDirective.md)
 - [PlaceholderComponent](classes/PlaceholderComponent.md)
 - [PlaceholderLoadingDirective](classes/PlaceholderLoadingDirective.md)
@@ -255,7 +257,7 @@ packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -476,7 +478,7 @@ Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/Mutation
 
 #### Defined in
 
-packages/sitecore-jss/types/editing/utils.d.ts:71
+packages/sitecore-jss/types/editing/utils.d.ts:75
 
 ___
 
@@ -495,7 +497,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-packages/sitecore-jss/types/editing/utils.d.ts:57
+packages/sitecore-jss/types/editing/utils.d.ts:61
 
 ___
 
@@ -515,7 +517,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
@@ -549,4 +551,4 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-packages/sitecore-jss/types/editing/utils.d.ts:61
+packages/sitecore-jss/types/editing/utils.d.ts:65

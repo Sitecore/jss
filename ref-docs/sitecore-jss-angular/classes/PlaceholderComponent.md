@@ -21,8 +21,10 @@
 - [\_differ](PlaceholderComponent.md#_differ)
 - [\_inputs](PlaceholderComponent.md#_inputs)
 - [changeDetectorRef](PlaceholderComponent.md#changedetectorref)
+- [chromeType](PlaceholderComponent.md#chrometype)
 - [clientOnly](PlaceholderComponent.md#clientonly)
 - [componentFactory](PlaceholderComponent.md#componentfactory)
+- [contextSubscription](PlaceholderComponent.md#contextsubscription)
 - [dataResolver](PlaceholderComponent.md#dataresolver)
 - [destroyed](PlaceholderComponent.md#destroyed)
 - [differs](PlaceholderComponent.md#differs)
@@ -32,11 +34,15 @@
 - [guardResolver](PlaceholderComponent.md#guardresolver)
 - [hiddenRenderingComponent](PlaceholderComponent.md#hiddenrenderingcomponent)
 - [isLoading](PlaceholderComponent.md#isloading)
+- [jssState](PlaceholderComponent.md#jssstate)
 - [loaded](PlaceholderComponent.md#loaded)
+- [metadataMode](PlaceholderComponent.md#metadatamode)
+- [metadataNode](PlaceholderComponent.md#metadatanode)
 - [missingComponentComponent](PlaceholderComponent.md#missingcomponentcomponent)
 - [name](PlaceholderComponent.md#name)
 - [outputs](PlaceholderComponent.md#outputs)
 - [parentStyleAttribute](PlaceholderComponent.md#parentstyleattribute)
+- [placeholderData](PlaceholderComponent.md#placeholderdata)
 - [placeholderLoading](PlaceholderComponent.md#placeholderloading)
 - [platformId](PlaceholderComponent.md#platformid)
 - [renderEachTemplate](PlaceholderComponent.md#rendereachtemplate)
@@ -58,6 +64,8 @@
 - [\_renderTemplatedComponent](PlaceholderComponent.md#_rendertemplatedcomponent)
 - [\_setComponentInputs](PlaceholderComponent.md#_setcomponentinputs)
 - [\_subscribeComponentOutputs](PlaceholderComponent.md#_subscribecomponentoutputs)
+- [getCodeBlockId](PlaceholderComponent.md#getcodeblockid)
+- [getPlaceholder](PlaceholderComponent.md#getplaceholder)
 - [ngDoCheck](PlaceholderComponent.md#ngdocheck)
 - [ngOnChanges](PlaceholderComponent.md#ngonchanges)
 - [ngOnDestroy](PlaceholderComponent.md#ngondestroy)
@@ -67,7 +75,7 @@
 
 ### constructor
 
-• **new PlaceholderComponent**(`differs`, `componentFactory`, `changeDetectorRef`, `elementRef`, `renderer`, `router`, `missingComponentComponent`, `hiddenRenderingComponent`, `guardResolver`, `dataResolver`, `platformId`)
+• **new PlaceholderComponent**(`differs`, `componentFactory`, `changeDetectorRef`, `elementRef`, `renderer`, `router`, `missingComponentComponent`, `hiddenRenderingComponent`, `guardResolver`, `dataResolver`, `platformId`, `jssState`)
 
 #### Parameters
 
@@ -84,10 +92,11 @@
 | `guardResolver` | `GuardResolver` |
 | `dataResolver` | `DataResolver` |
 | `platformId` | `Object` |
+| `jssState` | [`JssStateService`](JssStateService.md)\<[`BaseJssState`](BaseJssState.md)\> |
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:132](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L132)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:133](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L133)
 
 ## Properties
 
@@ -97,7 +106,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:127](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L127)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:126](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L126)
 
 ___
 
@@ -107,7 +116,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:126](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L126)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:125](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L125)
 
 ___
 
@@ -121,7 +130,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:125](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L125)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:124](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L124)
 
 ___
 
@@ -131,7 +140,17 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:135](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L135)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:136](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L136)
+
+___
+
+### chromeType
+
+• **chromeType**: `string`
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:123](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L123)
 
 ___
 
@@ -141,7 +160,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:111](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L111)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:111](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L111)
 
 ___
 
@@ -151,7 +170,17 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:134](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L134)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:135](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L135)
+
+___
+
+### contextSubscription
+
+• `Private` **contextSubscription**: `Subscription`
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:131](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L131)
 
 ___
 
@@ -161,7 +190,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:143](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L143)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:144](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L144)
 
 ___
 
@@ -171,7 +200,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:128](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L128)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:128](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L128)
 
 ___
 
@@ -181,7 +210,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:133](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L133)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:134](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L134)
 
 ___
 
@@ -191,7 +220,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:130](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L130)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:130](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L130)
 
 ___
 
@@ -201,7 +230,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:136](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L136)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:137](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L137)
 
 ___
 
@@ -211,7 +240,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:114](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L114)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:114](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L114)
 
 ___
 
@@ -221,7 +250,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:142](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L142)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:143](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L143)
 
 ___
 
@@ -231,7 +260,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:141](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L141)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:142](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L142)
 
 ___
 
@@ -241,7 +270,17 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:123](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L123)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:121](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L121)
+
+___
+
+### jssState
+
+• `Private` **jssState**: [`JssStateService`](JssStateService.md)\<[`BaseJssState`](BaseJssState.md)\>
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:147](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L147)
 
 ___
 
@@ -251,7 +290,27 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:113](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L113)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:113](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L113)
+
+___
+
+### metadataMode
+
+• **metadataMode**: `boolean`
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:122](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L122)
+
+___
+
+### metadataNode
+
+• `Private` **metadataNode**: `TemplateRef`\<`unknown`\>
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:120](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L120)
 
 ___
 
@@ -261,7 +320,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:140](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L140)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:141](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L141)
 
 ___
 
@@ -271,7 +330,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:107](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L107)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:107](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L107)
 
 ___
 
@@ -285,7 +344,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:110](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L110)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:110](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L110)
 
 ___
 
@@ -295,7 +354,17 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:129](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L129)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:129](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L129)
+
+___
+
+### placeholderData
+
+• `Private` `Optional` **placeholderData**: ([`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> \| [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md))[]
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:127](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L127)
 
 ___
 
@@ -305,7 +374,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:119](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L119)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:118](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L118)
 
 ___
 
@@ -315,7 +384,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:145](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L145)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:146](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L146)
 
 ___
 
@@ -325,7 +394,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:116](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L116)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:115](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L115)
 
 ___
 
@@ -335,7 +404,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:117](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L117)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:116](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L116)
 
 ___
 
@@ -345,7 +414,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:137](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L137)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:138](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L138)
 
 ___
 
@@ -355,7 +424,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:108](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L108)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:108](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L108)
 
 ___
 
@@ -365,7 +434,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:109](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L109)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:109](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L109)
 
 ___
 
@@ -375,7 +444,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:138](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L138)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:139](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L139)
 
 ___
 
@@ -385,7 +454,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:121](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L121)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:119](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L119)
 
 ## Accessors
 
@@ -405,7 +474,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:148](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L148)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:150](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L150)
 
 ## Methods
 
@@ -419,13 +488,13 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:224](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L224)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:313](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L313)
 
 ___
 
 ### \_renderEmbeddedComponent
 
-▸ `Private` **_renderEmbeddedComponent**(`rendering`, `data`, `index`): `void`
+▸ `Private` **_renderEmbeddedComponent**(`rendering`, `data`): `void`
 
 #### Parameters
 
@@ -433,7 +502,6 @@ ___
 | :------ | :------ |
 | `rendering` | `ComponentFactoryResult` |
 | `data` | `Data` |
-| `index` | `number` |
 
 #### Returns
 
@@ -441,20 +509,19 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:321](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L321)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:417](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L417)
 
 ___
 
 ### \_renderTemplatedComponent
 
-▸ `Private` **_renderTemplatedComponent**(`rendering`, `index`): `void`
+▸ `Private` **_renderTemplatedComponent**(`rendering`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `rendering` | [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> \| [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md) |
-| `index` | `number` |
 
 #### Returns
 
@@ -462,7 +529,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:308](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L308)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:408](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L408)
 
 ___
 
@@ -483,7 +550,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:200](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L200)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:289](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L289)
 
 ___
 
@@ -504,7 +571,53 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:209](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L209)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:298](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L298)
+
+___
+
+### getCodeBlockId
+
+▸ **getCodeBlockId**(`kind`, `renderingId?`): `undefined` \| `string`
+
+Gets id for Metadata code blocks, in specific format
+Metadata code blocks will wrap be added around placeholder content and each rendering component
+to allow for editing integration in Pages.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `kind` | `string` | code block type ("open" or "close"). "open" is added before an element, and "close" added after one. |
+| `renderingId?` | `string` | rendering uid to apply as id to code block |
+
+#### Returns
+
+`undefined` \| `string`
+
+formatted id value for code HTML node
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:221](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L221)
+
+___
+
+### getPlaceholder
+
+▸ `Private` **getPlaceholder**(): ``null`` \| ([`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> \| [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md))[]
+
+Get renderings/components to be rendered for current placeholder name
+Can modify the inner placeholders collection to adjust to using SXA dynamic placeholders
+
+#### Returns
+
+``null`` \| ([`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> \| [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md))[]
+
+List of renderings to be rendered
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:257](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L257)
 
 ___
 
@@ -522,7 +635,7 @@ DoCheck.ngDoCheck
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:182](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L182)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:195](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L195)
 
 ___
 
@@ -546,7 +659,7 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:176](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L176)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:187](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L187)
 
 ___
 
@@ -564,7 +677,7 @@ OnDestroy.ngOnDestroy
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:171](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L171)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:179](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L179)
 
 ___
 
@@ -582,4 +695,4 @@ OnInit.ngOnInit
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/placeholder.component.ts:156](https://github.com/Sitecore/jss/blob/971602e81/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L156)
+[packages/sitecore-jss-angular/src/components/placeholder.component.ts:158](https://github.com/Sitecore/jss/blob/3f785d38d/packages/sitecore-jss-angular/src/components/placeholder.component.ts#L158)
