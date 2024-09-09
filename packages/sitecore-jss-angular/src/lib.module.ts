@@ -33,6 +33,7 @@ import { RouterLinkDirective } from './components/router-link.directive';
 import { TextDirective } from './components/text.directive';
 import { JssComponentFactoryService } from './services/jss-component-factory.service';
 import { JssStateService } from './services/jss-state.service';
+import { EditingScriptsComponent } from './components/editing-scripts.component';
 
 @NgModule({
   imports: [CommonModule],
@@ -54,7 +55,7 @@ import { JssStateService } from './services/jss-state.service';
     MissingComponentComponent,
     HiddenRenderingComponent,
     EditFrameComponent,
-    EditingScriptsDirective,
+    EditingScriptsComponent,
   ],
   exports: [
     FileDirective,
@@ -72,7 +73,7 @@ import { JssStateService } from './services/jss-state.service';
     RichTextDirective,
     TextDirective,
     EditFrameComponent,
-    EditingScriptsDirective,
+    EditingScriptsComponent,
   ],
 })
 export class JssModule {

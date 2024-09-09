@@ -10,7 +10,7 @@ export { RenderEmptyDirective } from './components/render-empty.directive';
 export { RenderComponentComponent } from './components/render-component.component';
 export { DateDirective } from './components/date.directive';
 export { EditFrameComponent } from './components/editframe.component';
-export { EditingScriptsDirective } from './components/editing-scripts.directive';
+export { EditingScriptsComponent } from './components/editing-scripts.component';
 export {
   ComponentNameAndType,
   DYNAMIC_COMPONENT,
