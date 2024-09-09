@@ -1,5 +1,6 @@
 export { GraphQLEditingService } from './graphql-editing-service';
 export {
+  DEFAULT_PLACEHOLDER_UID,
   ExperienceEditor,
   HorizonEditor,
   isEditorActive,

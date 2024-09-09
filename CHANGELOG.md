@@ -45,6 +45,7 @@ Our versioning strategy is as follows:
   * Promo component ([#1897](https://github.com/Sitecore/jss/pull/1897))
   * PageContent component ([#1905](https://github.com/Sitecore/jss/pull/1905))
   * Navigation component ([#1894](https://github.com/Sitecore/jss/pull/1894))
+* `[sitecore-jss-angular]` Placeholder component will now render metadata code blocks when in Metadata Edit mode ([#1918](https://github.com/Sitecore/jss/pull/1918))
 * `[sitecore-jss]``[sitecore-jss-angular]` Default Placeholder Content for empty fields in editMode metadata - in edit mode metadata in Pages, angular package field directives will render default or custom placeholder content if the provided field is empty; ([#1916](https://github.com/Sitecore/jss/pull/1916))
   * custom placeholder content can be provided to field directives by passing the corresponding input:
    - `scDateEmptyFieldEditingTemplate` for _scDate_
@@ -58,6 +59,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Change
 
+*  `[templates/angular]` `[sitecore-jss-angular]` A new `JssStateService` has been introduced in the `sitecore-jss-angular` package, enhancing type safety and enabling state sharing across the application and SDK components. As a result, the JssContextService now relies on JssStateService for state management.([#1918](https://github.com/Sitecore/jss/pull/1918))
 * `[sitecore-jss-proxy]` Updated exports of the module for better extensibility ([#1903](https://github.com/Sitecore/jss/pull/1903))
   * `express@^4.19.2` dependency is marked as a peer dependency
   * Default `scProxy` middleware export is replaced by `headlessProxy` object that contains the `middleware`, `ProxyConfig`, `ServerBundle` properties

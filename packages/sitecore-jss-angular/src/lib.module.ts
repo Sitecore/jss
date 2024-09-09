@@ -32,6 +32,7 @@ import { RichTextDirective } from './components/rich-text.directive';
 import { RouterLinkDirective } from './components/router-link.directive';
 import { TextDirective } from './components/text.directive';
 import { JssComponentFactoryService } from './services/jss-component-factory.service';
+import { JssStateService } from './services/jss-state.service';
 
 @NgModule({
   imports: [CommonModule],
@@ -83,6 +84,7 @@ export class JssModule {
       ngModule: JssModule,
       providers: [
         DatePipe,
+        JssStateService,
         JssComponentFactoryService,
         {
           provide: GUARD_RESOLVER,

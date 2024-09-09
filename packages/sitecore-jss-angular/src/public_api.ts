@@ -19,6 +19,7 @@ export {
   JssCanActivateFn,
   GuardInput,
 } from './services/placeholder.token';
+export { JssStateService, BaseJssState } from './services/jss-state.service';
 export { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
 export { isRawRendering } from './components/rendering';
 export {

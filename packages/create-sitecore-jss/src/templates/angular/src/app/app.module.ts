@@ -3,7 +3,6 @@ import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RoutingModule } from './routing/routing.module';
 import { JssLayoutService } from './layout/jss-layout.service';
-import { JssContextService } from './jss-context.service';
 import { AppComponentsModule } from './components/app-components.module';
 import { AppComponent } from './app.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -11,6 +10,7 @@ import { JssTranslationClientLoaderService } from './i18n/jss-translation-client
 import { JssTranslationLoaderService } from './i18n/jss-translation-loader.service';
 import { GraphQLModule } from './jss-graphql.module';
 import { JssMetaService } from './jss-meta.service';
+import { JssContextService } from './jss-context.service';
 
 @NgModule({
   imports: [

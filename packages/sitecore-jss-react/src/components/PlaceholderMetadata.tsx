@@ -4,6 +4,7 @@ import {
   getDynamicPlaceholderPattern,
   isDynamicPlaceholder,
 } from '@sitecore-jss/sitecore-jss/layout';
+import { DEFAULT_PLACEHOLDER_UID } from '@sitecore-jss/sitecore-jss/editing';
 
 /**
  *  Props containing the component data to render.
@@ -21,11 +22,6 @@ export type CodeBlockAttributes = {
   kind: string;
   id?: string;
 };
-
-/**
- * default value of uid for root placeholder when uid is not present.
- */
-const DEFAULT_PLACEHOLDER_UID = '00000000-0000-0000-0000-000000000000';
 
 /**
  * A React component to generate metadata blocks for a placeholder or rendering.
