@@ -43,7 +43,7 @@ export class EditingScriptsComponent implements OnInit {
         const scriptElement = this.renderer.createElement('script');
         scriptElement.id = id;
         scriptElement.type = 'application/json';
-        scriptElement.innerHTML = JSON.stringify((jssClientData as any)[id]);
+        scriptElement.innerHTML = JSON.stringify(jssClientData[id]);
         this.renderer.appendChild(this.document.body, scriptElement);
       });
     }

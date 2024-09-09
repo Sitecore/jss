@@ -175,7 +175,7 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
     });
     ```
 
-* Make sure to render new `sc-editing-scripts` component (exposed by JssModule) in your Layout, since it's required for the editing integration:
+* Make sure to render new `sc-editing-scripts` component (exposed by JssModule) in your Layout, since it's required for the editing integration. You might need to introduce a separate _Scripts_ module for that, see example in _angular-xmcloud_ add-on _angular-xmcloud/src/app/routing/scripts/scripts.module.ts_:
 
     ```html
     <sc-editing-scripts></sc-editing-scripts>
