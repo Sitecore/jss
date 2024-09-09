@@ -218,7 +218,7 @@ Resolves layout service url
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `apiType` | ``"placeholder"`` \| ``"render"`` | which layout service API to call ('render' or 'placeholder') |
+| `apiType` | ``"render"`` \| ``"placeholder"`` | which layout service API to call ('render' or 'placeholder') |
 
 #### Returns
 

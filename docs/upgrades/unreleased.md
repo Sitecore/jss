@@ -2,7 +2,7 @@
 
 # Angular
 
-* Update several services to use updated Jss Context service:
+* Update the JssContextService and all the references to it, since some of the sitecore-jss-angular components now rely on the application state:
     * In `\src\app\jss-context.service.ts`:
         * Replace the import from `sitecore-jss-angular`:
             ```
@@ -44,10 +44,6 @@
                 super(transferState, layoutService, stateService);
             }
         ```
-    * In `\src\app\jss-graphql.service.ts`:
-        * Replace all `this.sitecoreContext.state.value` calls with `this.sitecoreContext.stateValue`
-    * In `\src\app\components\graph-ql-layout\graph-ql-layout.component.ts`:
-        * Replace `this.sitecoreContext.state.value` call with `this.sitecoreContext.stateValue`
 
 # Angular - XMCloud
 

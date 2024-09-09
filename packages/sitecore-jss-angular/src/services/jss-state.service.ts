@@ -10,7 +10,8 @@ export class BaseJssState {
 }
 
 /**
- * State service for JSS context data. Mainly works with context data from Sitecore's layout service response
+ * The service that is used to store and retrieve the current state of the app.
+ * Referenced by the SDK to get the current state of the app.
  */
 @Injectable()
 export class JssStateService<State extends BaseJssState = BaseJssState> {

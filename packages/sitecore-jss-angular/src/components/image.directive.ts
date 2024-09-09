@@ -6,14 +6,17 @@ import {
   Renderer2,
   SimpleChanges,
   TemplateRef,
+  Type,
   ViewContainerRef,
 } from '@angular/core';
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import { ImageField, ImageFieldValue } from './rendering-field';
+import { BaseFieldDirective } from './base-field.directive';
+import { DefaultEmptyImageFieldEditingComponent } from './default-empty-image-field-editing-placeholder.component';
 
 @Directive({ selector: '[scImage]' })
-export class ImageDirective implements OnChanges {
-  @Input('scImage') field: ImageField | '';
+export class ImageDirective extends BaseFieldDirective implements OnChanges {
+  @Input('scImage') field: ImageField;
 
   @Input('scImageEditable') editable = true;
 
@@ -30,14 +33,27 @@ export class ImageDirective implements OnChanges {
 
   @Input('scImageAttrs') attrs: { [param: string]: unknown } = {};
 
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
+  @Input('scImageEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
+
+  /**
+   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
+   */
+  protected defaultFieldEditingComponent: Type<unknown>;
+
   private inlineRef: HTMLSpanElement | null = null;
 
   constructor(
-    private viewContainer: ViewContainerRef,
+    viewContainer: ViewContainerRef,
     private templateRef: TemplateRef<unknown>,
     private renderer: Renderer2,
     private elementRef: ElementRef
-  ) {}
+  ) {
+    super(viewContainer);
+    this.defaultFieldEditingComponent = DefaultEmptyImageFieldEditingComponent;
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.urlParams || changes.attrs) {
@@ -52,15 +68,16 @@ export class ImageDirective implements OnChanges {
   }
 
   private updateView() {
+    if (!this.shouldRender()) {
+      super.renderEmpty();
+      return;
+    }
+
     const overrideAttrs = {
       ...this.getElementAttrs(),
       ...this.attrs,
     };
     const media = this.field;
-
-    if (!media || (!media.editable && !media.value && !media.src)) {
-      return;
-    }
 
     let attrs: { [attr: string]: string } | null = {};
 
