@@ -175,6 +175,12 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
     });
     ```
 
+* Make sure to render new `sc-editing-scripts` component (exposed by JssModule) in your Layout, since it's required for the editing integration:
+
+    ```html
+    <sc-editing-scripts></sc-editing-scripts>
+    ```
+
 # @sitecore-jss/sitecore-jss-proxy
 
 * Update the import statement
