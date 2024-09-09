@@ -938,23 +938,23 @@ describe('Placeholder Metadata:', () => {
 
       const expectedHTML = [
         '<sc-placeholder>',
-        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="main_00000000-0000-0000-0000-000000000000"></code>',
-        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>',
-        '<test-nest>',
-        '<div class="nested-test-wrapper">',
-        '<sc-placeholder name="logo">',
-        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="logo_nested123"></code>',
-        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="deep123"></code>',
-        '<logo>',
-        '<div class="Logo-deep"></div>',
-        '</logo>',
-        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
-        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
-        '</sc-placeholder>',
-        '</div>',
-        '</test-nest>',
-        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
-        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
+          '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="main_00000000-0000-0000-0000-000000000000"></code>',
+            '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>',
+              '<test-nest>',
+                '<div class="nested-test-wrapper">',
+                  '<sc-placeholder name="logo">',
+                    '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="logo_nested123"></code>',
+                      '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="deep123"></code>',
+                        '<logo>',
+                          '<div class="Logo-deep"></div>',
+                        '</logo>',
+                      '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
+                    '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
+                '</sc-placeholder>',
+               '</div>',
+              '</test-nest>',
+            '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
+            '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
         '</sc-placeholder>',
       ].join('');
 
@@ -1127,7 +1127,7 @@ describe('Placeholder Metadata: dynamic placeholder:', () => {
   );
 
   it(
-    'should renders code blocks with DEFAULT_PLACEHOLDER_UID value when dynamic placeholder is used and uid is not present',
+    'should render code blocks with DEFAULT_PLACEHOLDER_UID value when dynamic placeholder is used and uid is not present',
     waitForAsync(async () => {
       const layoutData = layoutDataForNestedDynamicPlaceholder('container-{*}');
       const component = layoutData.sitecore.route;
@@ -1174,7 +1174,7 @@ describe('Placeholder Metadata: dynamic placeholder:', () => {
   );
 
   it(
-    'should renders code blocks with provided uid value when dynamic placeholder is used',
+    'should render code blocks with provided uid value when dynamic placeholder is used',
     waitForAsync(async () => {
       const layoutData = layoutDataForNestedDynamicPlaceholder('container-{*}');
       const component = layoutData.sitecore.route;
