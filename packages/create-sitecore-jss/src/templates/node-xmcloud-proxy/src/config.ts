@@ -21,5 +21,5 @@ export const config: Config = {
   /**
    * Port which will be used when start the proxy
    */
-  port: process.env.PROXY_PORT || 3001,
+  port: process.env.PROXY_PORT || 3000,
 };

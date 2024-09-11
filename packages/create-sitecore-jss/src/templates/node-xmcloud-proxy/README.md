@@ -33,4 +33,4 @@ The following environment variables can be set to configure the Proxy sample ins
 1. Run `npm run start`
 
 You should be able to see the following message:
-`server listening on port 3001!`.
+`server listening on port 3000!`.
