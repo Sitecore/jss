@@ -349,6 +349,120 @@ describe('<a *scLink />', () => {
       fixture.detectChanges();
       expect(de.children.length).toBe(0);
     });
+
+    describe('with "metadata" property value', () => {
+      describe('and edtiging enabled', () => {
+        it('should render <img /> with metadata chrome tags', () => {
+          const linkField = {
+            metadata: { foo: 'bar' },
+            value: {
+              href: '/lorem',
+              text: 'ipsum',
+              class: 'my-link',
+              title: 'My Link',
+              target: '_blank',
+            },
+          };
+          comp.editable = true;
+          comp.field = linkField;
+          fixture.detectChanges();
+
+          const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = link.previousElementSibling;
+          const metadataCloseTag = link.nextElementSibling;
+
+          expect(metadataOpenTag).toBeDefined();
+          expect(metadataOpenTag?.tagName).toEqual('CODE');
+          expect(metadataOpenTag?.getAttribute('kind')).toEqual('open');
+          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
+
+          expect(metadataOpenTag?.textContent).toContain(JSON.stringify(linkField.metadata));
+
+          expect(metadataCloseTag).toBeDefined();
+          expect(metadataCloseTag?.tagName).toEqual('CODE');
+          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
+          expect(metadataCloseTag?.getAttribute('kind')).toEqual('close');
+        });
+
+        it('should render empty field with metadata chrome tags', () => {
+          const field = {
+            metadata: { foo: 'bar' },
+            value: { src: undefined },
+          };
+          comp.editable = true;
+          comp.field = field;
+          fixture.detectChanges();
+
+          const fieldValue = de.query(By.css('sc-default-empty-text-field-editing-placeholder'));
+          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
+          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
+
+          expect(metadataOpenTag).toBeDefined();
+          expect(metadataOpenTag?.tagName).toEqual('CODE');
+          expect(metadataOpenTag?.getAttribute('kind')).toEqual('open');
+          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
+
+          expect(metadataOpenTag?.textContent).toContain(JSON.stringify(field.metadata));
+
+          expect(metadataCloseTag).toBeDefined();
+          expect(metadataCloseTag?.tagName).toEqual('CODE');
+          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
+          expect(metadataCloseTag?.getAttribute('kind')).toEqual('close');
+        });
+      });
+
+      describe('and edtiging disabled', () => {
+        it('should render <img /> without metadata chrome tags', () => {
+          const linkField = {
+            metadata: { foo: 'bar' },
+            value: {
+              href: '/lorem',
+              text: 'ipsum',
+              class: 'my-link',
+              title: 'My Link',
+              target: '_blank',
+            },
+          };
+          comp.editable = false;
+          comp.field = linkField;
+          fixture.detectChanges();
+
+          const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = link.previousElementSibling;
+          const metadataCloseTag = link.nextElementSibling;
+
+          expect(metadataOpenTag).toBeNull();
+          expect(metadataCloseTag).toBeNull();
+        });
+      });
+    });
+
+    describe('without "metadata" property value', () => {
+      it('should render <img /> without metadata chrome tags', () => {
+        const linkField = {
+          value: {
+            href: '/lorem',
+            text: 'ipsum',
+            class: 'my-link',
+            title: 'My Link',
+            target: '_blank',
+          },
+        };
+        comp.editable = true;
+        comp.field = linkField;
+        fixture.detectChanges();
+
+        const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+        const metadataOpenTag = link.previousElementSibling;
+        const metadataCloseTag = link.nextElementSibling;
+
+        expect(metadataOpenTag).toBeNull();
+        expect(metadataCloseTag).toBeNull();
+      });
+    });
   });
 });
 
@@ -595,6 +709,120 @@ describe('<a *scLink>children</a>', () => {
       comp.editable = false;
       fixture.detectChanges();
       expect(de.children.length).toBe(0);
+    });
+
+    describe('with "metadata" property value', () => {
+      describe('and edtiging enabled', () => {
+        it('should render <img /> with metadata chrome tags', () => {
+          const linkField = {
+            metadata: { foo: 'bar' },
+            value: {
+              href: '/lorem',
+              text: 'ipsum',
+              class: 'my-link',
+              title: 'My Link',
+              target: '_blank',
+            },
+          };
+          comp.editable = true;
+          comp.field = linkField;
+          fixture.detectChanges();
+
+          const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = link.previousElementSibling;
+          const metadataCloseTag = link.nextElementSibling;
+
+          expect(metadataOpenTag).toBeDefined();
+          expect(metadataOpenTag?.tagName).toEqual('CODE');
+          expect(metadataOpenTag?.getAttribute('kind')).toEqual('open');
+          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
+
+          expect(metadataOpenTag?.textContent).toContain(JSON.stringify(linkField.metadata));
+
+          expect(metadataCloseTag).toBeDefined();
+          expect(metadataCloseTag?.tagName).toEqual('CODE');
+          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
+          expect(metadataCloseTag?.getAttribute('kind')).toEqual('close');
+        });
+
+        it('should render empty field with metadata chrome tags', () => {
+          const field = {
+            metadata: { foo: 'bar' },
+            value: { src: undefined },
+          };
+          comp.editable = true;
+          comp.field = field;
+          fixture.detectChanges();
+
+          const fieldValue = de.query(By.css('sc-default-empty-text-field-editing-placeholder'));
+          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
+          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
+
+          expect(metadataOpenTag).toBeDefined();
+          expect(metadataOpenTag?.tagName).toEqual('CODE');
+          expect(metadataOpenTag?.getAttribute('kind')).toEqual('open');
+          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
+
+          expect(metadataOpenTag?.textContent).toContain(JSON.stringify(field.metadata));
+
+          expect(metadataCloseTag).toBeDefined();
+          expect(metadataCloseTag?.tagName).toEqual('CODE');
+          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
+          expect(metadataCloseTag?.getAttribute('kind')).toEqual('close');
+        });
+      });
+
+      describe('and edtiging disabled', () => {
+        it('should render <img /> without metadata chrome tags', () => {
+          const linkField = {
+            metadata: { foo: 'bar' },
+            value: {
+              href: '/lorem',
+              text: 'ipsum',
+              class: 'my-link',
+              title: 'My Link',
+              target: '_blank',
+            },
+          };
+          comp.editable = false;
+          comp.field = linkField;
+          fixture.detectChanges();
+
+          const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = link.previousElementSibling;
+          const metadataCloseTag = link.nextElementSibling;
+
+          expect(metadataOpenTag).toBeNull();
+          expect(metadataCloseTag).toBeNull();
+        });
+      });
+    });
+
+    describe('without "metadata" property value', () => {
+      it('should render <img /> without metadata chrome tags', () => {
+        const linkField = {
+          value: {
+            href: '/lorem',
+            text: 'ipsum',
+            class: 'my-link',
+            title: 'My Link',
+            target: '_blank',
+          },
+        };
+        comp.editable = true;
+        comp.field = linkField;
+        fixture.detectChanges();
+
+        const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+        const metadataOpenTag = link.previousElementSibling;
+        const metadataCloseTag = link.nextElementSibling;
+
+        expect(metadataOpenTag).toBeNull();
+        expect(metadataCloseTag).toBeNull();
+      });
     });
   });
 });

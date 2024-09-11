@@ -47,11 +47,7 @@ export class DateDirective extends BaseFieldDirective implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.format) {
-      if (!this.viewRef) {
-        this.viewContainer.clear();
-        this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
-      }
-
+      this.viewContainer.clear();
       this.updateView();
     }
   }
@@ -62,11 +58,14 @@ export class DateDirective extends BaseFieldDirective implements OnChanges {
       return;
     }
 
+    this.renderMetadataTag('open');
+    this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
+    this.renderMetadataTag('close');
+
     const field = this.field;
 
     const html = field.editable && this.editable ? field.editable : field.value;
     const setDangerously = field.editable && this.editable;
-
     this.viewRef.rootNodes.forEach((node) => {
       if (setDangerously) {
         node.innerHTML = html;

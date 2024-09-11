@@ -1,6 +1,7 @@
 import { Directive, Type, ViewContainerRef, EmbeddedViewRef, TemplateRef } from '@angular/core';
 import { RenderingField } from './rendering-field';
 import { GenericFieldValue, isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
+import { FieldMetadataMarkerComponent } from './field-metadata-marker.component';
 
 /**
  * Base class that contains common functionality for the field directives.
@@ -34,11 +35,26 @@ export abstract class BaseFieldDirective {
    */
   protected renderEmpty() {
     if (this.field?.metadata && this.editable) {
+      this.renderMetadataTag('open');
       if (this.emptyFieldEditingTemplate) {
         this.viewContainer.createEmbeddedView(this.emptyFieldEditingTemplate);
       } else {
-        this.viewContainer.clear();
         this.viewContainer.createComponent(this.defaultFieldEditingComponent);
+      }
+      this.renderMetadataTag('close');
+    }
+  }
+
+  /**
+   * Renders a metadata chrome marker for the field. Required by Pages in editMode 'metadata'.
+   * @param {string} kind - 'open' or 'close' to indicate the start or end of the metadata chrome
+   */
+  protected renderMetadataTag(kind: 'open' | 'close') {
+    if (this.field?.metadata && this.editable) {
+      const metadataChrome = this.viewContainer.createComponent(FieldMetadataMarkerComponent);
+      metadataChrome.setInput('kind', kind);
+      if (kind === 'open') {
+        metadataChrome.setInput('metadata', this.field.metadata);
       }
     }
   }

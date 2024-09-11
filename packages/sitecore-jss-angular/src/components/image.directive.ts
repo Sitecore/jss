@@ -107,7 +107,9 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
 
     attrs = this.getImageAttrs(img, overrideAttrs, this.urlParams);
     if (attrs) {
+      this.renderMetadataTag('open');
       this.renderTemplate(attrs);
+      this.renderMetadataTag('close');
     }
   }
 

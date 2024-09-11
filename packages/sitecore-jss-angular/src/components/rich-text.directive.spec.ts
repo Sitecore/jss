@@ -47,7 +47,6 @@ class TestEmptyTemplateComponent {
 describe('<div *scRichText />', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
-  let deH: DebugElement;
   let comp: TestComponent;
 
   beforeEach(() => {
@@ -60,21 +59,20 @@ describe('<div *scRichText />', () => {
     fixture.detectChanges();
 
     de = fixture.debugElement;
-    deH = de.query(By.css('h1'));
     comp = fixture.componentInstance;
   });
 
   it('should render nothing with missing field', () => {
-    const rendered = deH.nativeElement.innerHTML;
-    expect(rendered).toBe('');
+    const deh1 = de.query(By.css('h1'));
+    expect(deh1).toBeNull();
   });
 
   it('should render nothing with missing editable and value', () => {
     comp.field = {};
     fixture.detectChanges();
 
-    const rendered = deH.nativeElement.innerHTML;
-    expect(rendered).toBe('');
+    const deh1 = de.query(By.css('h1'));
+    expect(deh1).toBeNull();
   });
 
   it('should render editable with editable value', () => {
@@ -85,7 +83,7 @@ describe('<div *scRichText />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = deH.nativeElement.innerHTML;
+    const rendered = de.query(By.css('h1')).nativeElement.innerHTML;
     expect(rendered).toBe('editable');
   });
 
@@ -98,7 +96,7 @@ describe('<div *scRichText />', () => {
     comp.editable = false;
     fixture.detectChanges();
 
-    const rendered = deH.nativeElement.innerHTML;
+    const rendered = de.query(By.css('h1')).nativeElement.innerHTML;
     expect(rendered).toBe('<a href="www.example.com">Hello World</a>');
   });
 
@@ -109,7 +107,7 @@ describe('<div *scRichText />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = deH.nativeElement.innerHTML;
+    const rendered = de.query(By.css('h1')).nativeElement.innerHTML;
     expect(rendered).toBe('value');
   });
 
@@ -120,7 +118,7 @@ describe('<div *scRichText />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = deH.nativeElement.innerHTML;
+    const rendered = de.query(By.css('h1')).nativeElement.innerHTML;
     expect(rendered).toBe(field.value);
   });
 
@@ -133,7 +131,7 @@ describe('<div *scRichText />', () => {
     const router: Router = TestBed.inject(Router);
     spyOn(router, 'navigateByUrl');
 
-    const renderedLink = deH.nativeElement.querySelector('a[href]');
+    const renderedLink = de.query(By.css('h1')).nativeElement.querySelector('a[href]');
     expect(renderedLink.getAttribute('href')).toBe('/lorem');
     renderedLink.click();
     fixture.detectChanges();
@@ -147,7 +145,7 @@ describe('<div *scRichText />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = deH.nativeElement.innerHTML;
+    const rendered = de.query(By.css('h1')).nativeElement.innerHTML;
     expect(rendered).toContain('<input');
     expect(rendered).toContain('<span class="scChromeData">');
   });
@@ -204,8 +202,101 @@ describe('<div *scRichText />', () => {
       comp.editable = false;
       fixture.detectChanges();
 
-      const rendered = deH.nativeElement.innerHTML;
-      expect(rendered).toBe('');
+      const deh1 = de.query(By.css('h1'));
+      expect(deh1).toBeNull();
+    });
+
+    describe('with "metadata" property value', () => {
+      describe('and edtiging enabled', () => {
+        it('should render <img /> with metadata chrome tags', () => {
+          const field = {
+            metadata: { foo: 'bar' },
+            value: 'foo',
+          };
+          comp.editable = true;
+          comp.field = field;
+          fixture.detectChanges();
+
+          const fieldValue = de.query(By.css('h1'));
+          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
+          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
+
+          expect(metadataOpenTag).toBeDefined();
+          expect(metadataOpenTag?.tagName).toEqual('CODE');
+          expect(metadataOpenTag?.getAttribute('kind')).toEqual('open');
+          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
+
+          expect(metadataOpenTag?.textContent).toContain(JSON.stringify(field.metadata));
+
+          expect(metadataCloseTag).toBeDefined();
+          expect(metadataCloseTag?.tagName).toEqual('CODE');
+          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
+          expect(metadataCloseTag?.getAttribute('kind')).toEqual('close');
+        });
+
+        it('should render empty field with metadata chrome tags', () => {
+          const field = {
+            metadata: { foo: 'bar' },
+            value: '',
+          };
+          comp.editable = true;
+          comp.field = field;
+          fixture.detectChanges();
+
+          const fieldValue = de.query(By.css('sc-default-empty-text-field-editing-placeholder'));
+          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
+          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
+
+          expect(metadataOpenTag).toBeDefined();
+          expect(metadataOpenTag?.tagName).toEqual('CODE');
+          expect(metadataOpenTag?.getAttribute('kind')).toEqual('open');
+          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
+
+          expect(metadataOpenTag?.textContent).toContain(JSON.stringify(field.metadata));
+
+          expect(metadataCloseTag).toBeDefined();
+          expect(metadataCloseTag?.tagName).toEqual('CODE');
+          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
+          expect(metadataCloseTag?.getAttribute('kind')).toEqual('close');
+        });
+      });
+
+      describe('and edtiging disabled', () => {
+        it('should render <img /> without metadata chrome tags', () => {
+          const field = {
+            metadata: { foo: 'bar' },
+            value: 'foo',
+          };
+          comp.editable = false;
+          comp.field = field;
+          fixture.detectChanges();
+
+          const fieldValue = de.query(By.css('h1'));
+          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
+          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
+
+          expect(metadataOpenTag).toBeNull();
+          expect(metadataCloseTag).toBeNull();
+        });
+      });
+    });
+
+    describe('without "metadata" property value', () => {
+      it('should render <img /> without metadata chrome tags', () => {
+        const field = {
+          value: 'foo ',
+        };
+        comp.editable = true;
+        comp.field = field;
+        fixture.detectChanges();
+
+        const fieldValue = de.query(By.css('h1'));
+        const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
+        const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
+
+        expect(metadataOpenTag).toBeNull();
+        expect(metadataCloseTag).toBeNull();
+      });
     });
   });
 });

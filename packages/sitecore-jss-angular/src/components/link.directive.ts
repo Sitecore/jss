@@ -124,8 +124,9 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
       const mergedAttrs = { ...props, ...this.attrs, href };
 
       delete mergedAttrs.anchor;
-
+      this.renderMetadataTag('open');
       this.renderTemplate(mergedAttrs, linkText);
+      this.renderMetadataTag('close');
     }
   }
 
