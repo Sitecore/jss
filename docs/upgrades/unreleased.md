@@ -1,5 +1,7 @@
 ## Unreleased
 
+* `FETCH_WITH.REST` constant string value from '@sitecore-jss/sitecore-jss' package now is set to 'REST' instead of 'Rest'. If you are using this constant in your code, please update it accordingly.
+
 # Angular
 
 * Update the JssContextService and all the references to it, since some of the sitecore-jss-angular components now rely on the application state:
