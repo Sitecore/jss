@@ -1,15 +1,15 @@
 import express from 'express';
 import request from 'supertest';
-import { healthCheckMiddleware } from './index';
+import { healthCheck } from './index';
 
-describe('editingRouter - /editing/render', () => {
+describe('healthcheck router - /api/healthz', () => {
   const app = express();
 
   it('should handle request', async () => {
-    app.get('/api/halthz', healthCheckMiddleware());
+    app.use(healthCheck());
 
     request(app)
-      .get('/api/halthz')
+      .get('/api/healthz')
       .expect(200, 'Healthy');
   });
 });
