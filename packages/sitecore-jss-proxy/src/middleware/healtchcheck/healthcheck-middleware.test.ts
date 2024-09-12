@@ -6,7 +6,7 @@ describe('healthcheck middleware - /api/healthz', () => {
   const app = express();
 
   it('should handle request', async () => {
-    app.get('/api/halthz', healthCheckMiddleware());
+    app.get('/api/healthz', healthCheckMiddleware());
 
     request(app)
       .get('/api/halthz')
