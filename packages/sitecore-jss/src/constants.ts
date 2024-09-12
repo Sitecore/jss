@@ -8,7 +8,7 @@ export enum SitecoreTemplateId {
 
 export const FETCH_WITH = {
   GRAPHQL: 'GraphQL',
-  REST: 'Rest',
+  REST: 'REST',
 };
 
 export const JSS_MODE = {
