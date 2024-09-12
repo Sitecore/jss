@@ -33,7 +33,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:14](https://github.com/Sitecore/jss/blob/b9ecb63fb/packages/sitecore-jss/src/editing/models.ts#L14)
+[packages/sitecore-jss/src/editing/models.ts:14](https://github.com/Sitecore/jss/blob/a69fed355/packages/sitecore-jss/src/editing/models.ts#L14)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:13](https://github.com/Sitecore/jss/blob/b9ecb63fb/packages/sitecore-jss/src/editing/models.ts#L13)
+[packages/sitecore-jss/src/editing/models.ts:13](https://github.com/Sitecore/jss/blob/a69fed355/packages/sitecore-jss/src/editing/models.ts#L13)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:11](https://github.com/Sitecore/jss/blob/b9ecb63fb/packages/sitecore-jss/src/editing/models.ts#L11)
+[packages/sitecore-jss/src/editing/models.ts:11](https://github.com/Sitecore/jss/blob/a69fed355/packages/sitecore-jss/src/editing/models.ts#L11)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:10](https://github.com/Sitecore/jss/blob/b9ecb63fb/packages/sitecore-jss/src/editing/models.ts#L10)
+[packages/sitecore-jss/src/editing/models.ts:10](https://github.com/Sitecore/jss/blob/a69fed355/packages/sitecore-jss/src/editing/models.ts#L10)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:15](https://github.com/Sitecore/jss/blob/b9ecb63fb/packages/sitecore-jss/src/editing/models.ts#L15)
+[packages/sitecore-jss/src/editing/models.ts:15](https://github.com/Sitecore/jss/blob/a69fed355/packages/sitecore-jss/src/editing/models.ts#L15)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:12](https://github.com/Sitecore/jss/blob/b9ecb63fb/packages/sitecore-jss/src/editing/models.ts#L12)
+[packages/sitecore-jss/src/editing/models.ts:12](https://github.com/Sitecore/jss/blob/a69fed355/packages/sitecore-jss/src/editing/models.ts#L12)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:16](https://github.com/Sitecore/jss/blob/b9ecb63fb/packages/sitecore-jss/src/editing/models.ts#L16)
+[packages/sitecore-jss/src/editing/models.ts:16](https://github.com/Sitecore/jss/blob/a69fed355/packages/sitecore-jss/src/editing/models.ts#L16)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:17](https://github.com/Sitecore/jss/blob/b9ecb63fb/packages/sitecore-jss/src/editing/models.ts#L17)
+[packages/sitecore-jss/src/editing/models.ts:17](https://github.com/Sitecore/jss/blob/a69fed355/packages/sitecore-jss/src/editing/models.ts#L17)
 
 ___
 
@@ -113,4 +113,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:9](https://github.com/Sitecore/jss/blob/b9ecb63fb/packages/sitecore-jss/src/editing/models.ts#L9)
+[packages/sitecore-jss/src/editing/models.ts:9](https://github.com/Sitecore/jss/blob/a69fed355/packages/sitecore-jss/src/editing/models.ts#L9)
