@@ -60,6 +60,8 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Change
 
+* `[sitecore-jss]` Set FETCH_WITH.REST to 'REST' instead of 'Rest' ([#1927](https://github.com/Sitecore/jss/pull/1927)):
+  * The `FETCH_WITH.REST` constant has been updated to 'REST' instead of 'Rest' to match the value that we mention in the documentation. If you are using this constant in your code, please update your FETCH_WITH env variable to 'REST'.
 *  `[templates/angular]` `[sitecore-jss-angular]` A new `JssStateService` has been introduced in the `sitecore-jss-angular` package, enhancing type safety and enabling state sharing across the application and SDK components. As a result, the JssContextService now relies on JssStateService for state management.([#1918](https://github.com/Sitecore/jss/pull/1918))
 * `[sitecore-jss-proxy]` Updated exports of the module for better extensibility ([#1903](https://github.com/Sitecore/jss/pull/1903))
   * `express@^4.19.2` dependency is marked as a peer dependency

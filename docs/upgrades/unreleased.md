@@ -1,6 +1,6 @@
 ## Unreleased
 
-* `FETCH_WITH.REST` constant string value from '@sitecore-jss/sitecore-jss' package now is set to 'REST' instead of 'Rest'. If you are using this constant in your code, please update it accordingly.
+* `FETCH_WITH.REST` constant string value from '@sitecore-jss/sitecore-jss' package now is set to 'REST' instead of 'Rest'. If you are using this constant in your code, please update your FETCH_WITH env variable to 'REST'.
 
 # Angular
 
