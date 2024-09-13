@@ -2,6 +2,7 @@ import { Component, DebugElement, Input } from '@angular/core';
 import { FieldMetadataMarkerComponent } from './field-metadata-marker.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { ChromeKind } from '@sitecore-jss/sitecore-jss/editing';
 
 @Component({
   selector: 'test-marker',
@@ -11,7 +12,7 @@ import { By } from '@angular/platform-browser';
 })
 class TestComponent {
   @Input() metadata: any;
-  @Input() kind: 'open' | 'close' = 'open';
+  @Input() kind: ChromeKind = ChromeKind.Open;
 }
 
 describe('<code scFieldMetadataMarker />', () => {
@@ -39,7 +40,7 @@ describe('<code scFieldMetadataMarker />', () => {
   });
 
   it('should render a kind attribute with "open" value', () => {
-    comp.kind = 'open';
+    comp.kind = ChromeKind.Open;
     fixture.detectChanges();
 
     const rendered = de.query(By.css('code')).nativeElement;
@@ -47,7 +48,7 @@ describe('<code scFieldMetadataMarker />', () => {
   });
 
   it('should render a kind attribute with "close" value', () => {
-    comp.kind = 'close';
+    comp.kind = ChromeKind.Close;
     fixture.detectChanges();
 
     const rendered = de.query(By.css('code')).nativeElement;

@@ -13,6 +13,7 @@ import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import { ImageField, ImageFieldValue } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
 import { DefaultEmptyImageFieldEditingComponent } from './default-empty-image-field-editing-placeholder.component';
+import { ChromeKind } from '@sitecore-jss/sitecore-jss/editing';
 
 @Directive({ selector: '[scImage]' })
 export class ImageDirective extends BaseFieldDirective implements OnChanges {
@@ -107,9 +108,9 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
 
     attrs = this.getImageAttrs(img, overrideAttrs, this.urlParams);
     if (attrs) {
-      this.renderMetadataTag('open');
+      this.renderMetadata(ChromeKind.Open);
       this.renderTemplate(attrs);
-      this.renderMetadataTag('close');
+      this.renderMetadata(ChromeKind.Close);
     }
   }
 

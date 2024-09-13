@@ -26,3 +26,13 @@ export enum LayoutKind {
   Final = 'final',
   Shared = 'shared',
 }
+
+/**
+ * Represents the kind of chrome element.
+ * - open - starting chrome element
+ * - close - closing chrome element
+ */
+export enum ChromeKind {
+  Open = 'open',
+  Close = 'close',
+}

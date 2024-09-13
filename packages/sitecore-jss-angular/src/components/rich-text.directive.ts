@@ -13,6 +13,7 @@ import { isAbsoluteUrl } from '@sitecore-jss/sitecore-jss/utils';
 import { RichTextField } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
 import { DefaultEmptyFieldEditingComponent } from './default-empty-text-field-editing-placeholder.component';
+import { ChromeKind } from '@sitecore-jss/sitecore-jss/editing';
 
 @Directive({
   selector: '[scRichText]',
@@ -55,9 +56,9 @@ export class RichTextDirective extends BaseFieldDirective implements OnChanges {
       return;
     }
 
-    this.renderMetadataTag('open');
+    this.renderMetadata(ChromeKind.Open);
     this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
-    this.renderMetadataTag('close');
+    this.renderMetadata(ChromeKind.Close);
 
     const field = this.field;
     const html = field.editable && this.editable ? field.editable : field.value;

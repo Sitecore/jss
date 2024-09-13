@@ -4,7 +4,7 @@ import {
   getDynamicPlaceholderPattern,
   isDynamicPlaceholder,
 } from '@sitecore-jss/sitecore-jss/layout';
-import { DEFAULT_PLACEHOLDER_UID } from '@sitecore-jss/sitecore-jss/editing';
+import { ChromeKind, DEFAULT_PLACEHOLDER_UID } from '@sitecore-jss/sitecore-jss/editing';
 
 /**
  *  Props containing the component data to render.
@@ -40,7 +40,7 @@ export const PlaceholderMetadata = ({
   children,
 }: PlaceholderMetadataProps): JSX.Element => {
   const getCodeBlockAttributes = (
-    kind: string,
+    kind: ChromeKind,
     id: string,
     placeholderName?: string
   ): CodeBlockAttributes => {
@@ -53,7 +53,7 @@ export const PlaceholderMetadata = ({
       kind: kind,
     };
 
-    if (kind === 'open') {
+    if (kind === ChromeKind.Open) {
       if (chrometype === 'placeholder' && placeholderName) {
         let phId = '';
 
@@ -88,9 +88,9 @@ export const PlaceholderMetadata = ({
 
   const renderComponent = (uid: string, placeholderName?: string) => (
     <>
-      <code {...getCodeBlockAttributes('open', uid, placeholderName)} />
+      <code {...getCodeBlockAttributes(ChromeKind.Open, uid, placeholderName)} />
       {children}
-      <code {...getCodeBlockAttributes('close', uid, placeholderName)} />
+      <code {...getCodeBlockAttributes(ChromeKind.Close, uid, placeholderName)} />
     </>
   );
 
