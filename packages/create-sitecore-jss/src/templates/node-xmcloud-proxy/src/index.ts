@@ -4,6 +4,7 @@ import compression from 'compression';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { editingRouter } from '@sitecore-jss/sitecore-jss-proxy';
+import { healthCheck } from '@sitecore-jss/sitecore-jss-proxy';
 import { config } from './config';
 
 const server = express();
@@ -126,6 +127,11 @@ server.use(
     changeOrigin: true,
   })
 );
+
+/**
+ * The health check endpoint
+ */
+server.use(healthCheck());
 
 /**
  * Proxy editing requests through the editing router

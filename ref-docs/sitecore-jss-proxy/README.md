@@ -20,6 +20,7 @@
 ### Functions
 
 - [editingRouter](README.md#editingrouter)
+- [healthCheck](README.md#healthcheck)
 
 ## Type Aliases
 
@@ -49,7 +50,7 @@ AppRenderer is a function that renders a JSS app's markup for a given route and 
 
 #### Defined in
 
-[types/AppRenderer.ts:26](https://github.com/Sitecore/jss/blob/a792e20a8/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L26)
+[types/AppRenderer.ts:26](https://github.com/Sitecore/jss/blob/a69fed355/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L26)
 
 ___
 
@@ -79,7 +80,7 @@ ___
 
 #### Defined in
 
-[types/RouteUrlParser.ts:1](https://github.com/Sitecore/jss/blob/a792e20a8/packages/sitecore-jss-proxy/src/types/RouteUrlParser.ts#L1)
+[types/RouteUrlParser.ts:1](https://github.com/Sitecore/jss/blob/a69fed355/packages/sitecore-jss-proxy/src/types/RouteUrlParser.ts#L1)
 
 ## Functions
 
@@ -106,4 +107,22 @@ Editing router
 
 #### Defined in
 
-[middleware/editing/index.ts:97](https://github.com/Sitecore/jss/blob/a792e20a8/packages/sitecore-jss-proxy/src/middleware/editing/index.ts#L97)
+[middleware/editing/index.ts:97](https://github.com/Sitecore/jss/blob/a69fed355/packages/sitecore-jss-proxy/src/middleware/editing/index.ts#L97)
+
+___
+
+### healthCheck
+
+▸ **healthCheck**(): `Router`
+
+Creates a router for health check requests.
+
+#### Returns
+
+`Router`
+
+Editing router
+
+#### Defined in
+
+[middleware/healthcheck/index.ts:7](https://github.com/Sitecore/jss/blob/a69fed355/packages/sitecore-jss-proxy/src/middleware/healthcheck/index.ts#L7)
