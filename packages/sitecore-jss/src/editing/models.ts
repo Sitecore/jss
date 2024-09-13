@@ -28,11 +28,11 @@ export enum LayoutKind {
 }
 
 /**
- * Represents the kind of chrome element.
+ * Represents the kind of metadata element.
  * - open - starting chrome element
  * - close - closing chrome element
  */
-export enum ChromeKind {
+export enum MetadataKind {
   Open = 'open',
   Close = 'close',
 }

@@ -24,4 +24,4 @@ export {
   mapButtonToCommand,
 } from './edit-frame';
 export { RenderMetadataQueryParams } from './models';
-export { LayoutKind, ChromeKind } from './models';
+export { LayoutKind, MetadataKind } from './models';

@@ -1,5 +1,5 @@
 import { Component, HostBinding, Input } from '@angular/core';
-import { ChromeKind } from '@sitecore-jss/sitecore-jss/editing';
+import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 /**
  * Component that renders a field' metadata chrome element.
@@ -24,5 +24,5 @@ export class FieldMetadataMarkerComponent {
 
   @HostBinding('attr.kind')
   @Input()
-  kind: ChromeKind = ChromeKind.Open;
+  kind: MetadataKind = MetadataKind.Open;
 }

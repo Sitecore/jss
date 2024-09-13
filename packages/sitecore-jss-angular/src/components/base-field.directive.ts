@@ -2,7 +2,7 @@ import { Directive, Type, ViewContainerRef, EmbeddedViewRef, TemplateRef } from 
 import { RenderingField } from './rendering-field';
 import { GenericFieldValue, isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 import { FieldMetadataMarkerComponent } from './field-metadata-marker.component';
-import { ChromeKind } from '@sitecore-jss/sitecore-jss/editing';
+import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 /**
  * Base class that contains common functionality for the field directives.
@@ -36,13 +36,13 @@ export abstract class BaseFieldDirective {
    */
   protected renderEmpty() {
     if (this.field?.metadata && this.editable) {
-      this.renderMetadata(ChromeKind.Open);
+      this.renderMetadata(MetadataKind.Open);
       if (this.emptyFieldEditingTemplate) {
         this.viewContainer.createEmbeddedView(this.emptyFieldEditingTemplate);
       } else {
         this.viewContainer.createComponent(this.defaultFieldEditingComponent);
       }
-      this.renderMetadata(ChromeKind.Close);
+      this.renderMetadata(MetadataKind.Close);
     }
   }
 
@@ -50,11 +50,11 @@ export abstract class BaseFieldDirective {
    * Renders a metadata chrome marker for the field. Required by Pages in editMode 'metadata'.
    * @param {string} kind - 'open' or 'close' to indicate the start or end of the metadata chrome
    */
-  protected renderMetadata(kind: ChromeKind) {
+  protected renderMetadata(kind: MetadataKind) {
     if (this.field?.metadata && this.editable) {
       const metadataChrome = this.viewContainer.createComponent(FieldMetadataMarkerComponent);
       metadataChrome.setInput('kind', kind);
-      if (kind === ChromeKind.Open) {
+      if (kind === MetadataKind.Open) {
         metadataChrome.setInput('metadata', this.field.metadata);
       }
     }

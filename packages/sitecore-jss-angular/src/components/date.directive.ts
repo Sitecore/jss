@@ -11,7 +11,7 @@ import {
 import { DateField } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
 import { DefaultEmptyFieldEditingComponent } from './default-empty-text-field-editing-placeholder.component';
-import { ChromeKind } from '@sitecore-jss/sitecore-jss/editing';
+import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 @Directive({
   selector: '[scDate]',
@@ -59,9 +59,9 @@ export class DateDirective extends BaseFieldDirective implements OnChanges {
       return;
     }
 
-    this.renderMetadata(ChromeKind.Open);
+    this.renderMetadata(MetadataKind.Open);
     this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
-    this.renderMetadata(ChromeKind.Close);
+    this.renderMetadata(MetadataKind.Close);
 
     const field = this.field;
 
