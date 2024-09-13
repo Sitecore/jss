@@ -47,6 +47,44 @@
             }
         ```
 
+* Update jss-translation-client-loader service to get the performance improvement during fetching Dictionary Data Fetching for SSR
+    * In `/src/app/i18n/jss-translation-client-loader.service.ts`
+        * Add import for TranferState and of
+            ```
+                import { TransferState } from '@angular/core';
+                import { of } from 'rxjs';
+            ```
+        * Update `dictionaryStateKe`y` variable type
+            ```
+                export const dictionaryStateKey = makeStateKey<{ [key: string]: string }>('jssDictionary');
+            ```
+        * Add `tranferState` variable to constructor
+            ```
+                constructor(private fallbackLoader: TranslateLoader, private transferState: TransferState) {}
+            ```
+        * Update the `getTranslation` method
+            ```
+                getTranslation(lang: string) {
+                        const storedDictionary = this.transferState.get<{ [key: string]: string } | null>(
+                        dictionaryStateKey,
+                        null
+                        );
+
+                        if (storedDictionary !== null && Object.keys(storedDictionary).length > 0) {
+                        return of(storedDictionary);
+                        }
+
+                        ...
+                }
+            ```
+    * Update `/src/templates/angular/src/app/app.module.ts`
+         ```
+           ...
+            useFactory: (transferState: TransferState) =>
+                new JssTranslationClientLoaderService(new JssTranslationLoaderService(), transferState),
+            ...
+        ```
+
 # Angular - XMCloud
 
 If you plan to use the Angular SDK with XMCloud, you will need to perform next steps:
