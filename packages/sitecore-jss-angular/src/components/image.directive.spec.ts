@@ -475,6 +475,101 @@ describe('<img *scImage />', () => {
 
       expect(de.children.length).toBe(0);
     });
+
+    describe('with "metadata" property value', () => {
+      describe('and editing enabled', () => {
+        it('should render <img /> with metadata chrome tags', () => {
+          const media = {
+            metadata: { foo: 'bar' },
+            value: {
+              src: '/assets/img/test0.png',
+              alt: 'my image',
+            },
+          };
+          comp.editable = true;
+          comp.field = media;
+          fixture.detectChanges();
+
+          const img = de.query(By.css('img')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = img.previousElementSibling;
+          const metadataCloseTag = img.nextElementSibling;
+
+          expect(metadataOpenTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">{"foo":"bar"}</code>'
+          );
+          expect(metadataCloseTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
+        });
+
+        it('should render empty field with metadata chrome tags', () => {
+          const field = {
+            metadata: { foo: 'bar' },
+            value: { src: undefined },
+          };
+          comp.editable = true;
+          comp.field = field;
+          fixture.detectChanges();
+
+          const fieldValue = de.query(By.css('sc-default-empty-image-field-editing-placeholder'));
+          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
+          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
+
+          expect(metadataOpenTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">{"foo":"bar"}</code>'
+          );
+          expect(metadataCloseTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
+        });
+      });
+
+      describe('and editing disabled', () => {
+        it('should render <img /> without metadata chrome tags', () => {
+          const media = {
+            metadata: { foo: 'bar' },
+            value: {
+              src: '/assets/img/test0.png',
+              alt: 'my image',
+            },
+          };
+          comp.editable = false;
+          comp.field = media;
+          fixture.detectChanges();
+
+          const img = de.query(By.css('img')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = img.previousElementSibling;
+          const metadataCloseTag = img.nextElementSibling;
+
+          expect(metadataOpenTag).toBeNull();
+          expect(metadataCloseTag).toBeNull();
+        });
+      });
+    });
+
+    describe('without "metadata" property value', () => {
+      it('should render <img /> without metadata chrome tags', () => {
+        const media = {
+          value: {
+            src: '/assets/img/test0.png',
+            alt: 'my image',
+          },
+        };
+        comp.editable = true;
+        comp.field = media;
+        fixture.detectChanges();
+
+        const img = de.query(By.css('img')).nativeElement as HTMLElement;
+
+        const metadataOpenTag = img.previousElementSibling;
+        const metadataCloseTag = img.nextElementSibling;
+
+        expect(metadataOpenTag).toBeNull();
+        expect(metadataCloseTag).toBeNull();
+      });
+    });
   });
 
   it('should render no <img /> when media prop is empty', () => {

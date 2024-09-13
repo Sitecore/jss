@@ -26,3 +26,13 @@ export enum LayoutKind {
   Final = 'final',
   Shared = 'shared',
 }
+
+/**
+ * Represents the kind of metadata element.
+ * - open - starting chrome element
+ * - close - closing chrome element
+ */
+export enum MetadataKind {
+  Open = 'open',
+  Close = 'close',
+}

@@ -55,7 +55,7 @@ import { RenderEachDirective } from './render-each.directive';
 import { RenderEmptyDirective } from './render-empty.directive';
 import { isRawRendering } from './rendering';
 import { JssStateService } from '../services/jss-state.service';
-import { DEFAULT_PLACEHOLDER_UID } from '@sitecore-jss/sitecore-jss/editing';
+import { MetadataKind, DEFAULT_PLACEHOLDER_UID } from '@sitecore-jss/sitecore-jss/editing';
 
 export interface FactoryWithData {
   factory: ComponentFactoryResult;
@@ -219,7 +219,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
    * @returns {string} formatted id value for code HTML node
    */
   getCodeBlockId = (kind: string, renderingId?: string): string | undefined => {
-    if (this.rendering && kind === 'open') {
+    if (this.rendering && kind === MetadataKind.Open) {
       const placeholderName = this.name;
       const id = renderingId || this.rendering?.uid;
       if (!renderingId && placeholderName) {
@@ -359,7 +359,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
         withData.forEach((rendering) => {
           this.metadataMode &&
             this.view.createEmbeddedView(this.metadataNode, {
-              kind: 'open',
+              kind: MetadataKind.Open,
               chromeType: 'rendering',
               renderingId: (rendering.factory.componentDefinition as ComponentRendering)?.uid,
             });
@@ -372,7 +372,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
           this.metadataMode &&
             this.view.createEmbeddedView(this.metadataNode, {
-              kind: 'close',
+              kind: MetadataKind.Close,
               chromeType: 'rendering',
               renderingId: (rendering.factory.componentDefinition as ComponentRendering)?.uid,
             });

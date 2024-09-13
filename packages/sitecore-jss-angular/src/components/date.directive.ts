@@ -11,6 +11,7 @@ import {
 import { DateField } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
 import { DefaultEmptyFieldEditingComponent } from './default-empty-text-field-editing-placeholder.component';
+import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 @Directive({
   selector: '[scDate]',
@@ -47,11 +48,7 @@ export class DateDirective extends BaseFieldDirective implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.format) {
-      if (!this.viewRef) {
-        this.viewContainer.clear();
-        this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
-      }
-
+      this.viewContainer.clear();
       this.updateView();
     }
   }
@@ -62,11 +59,14 @@ export class DateDirective extends BaseFieldDirective implements OnChanges {
       return;
     }
 
+    this.renderMetadata(MetadataKind.Open);
+    this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
+    this.renderMetadata(MetadataKind.Close);
+
     const field = this.field;
 
     const html = field.editable && this.editable ? field.editable : field.value;
     const setDangerously = field.editable && this.editable;
-
     this.viewRef.rootNodes.forEach((node) => {
       if (setDangerously) {
         node.innerHTML = html;

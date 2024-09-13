@@ -12,6 +12,7 @@ import {
 import { LinkField } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
 import { DefaultEmptyFieldEditingComponent } from './default-empty-text-field-editing-placeholder.component';
+import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 @Directive({ selector: '[scLink]' })
 export class LinkDirective extends BaseFieldDirective implements OnChanges {
@@ -124,8 +125,9 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
       const mergedAttrs = { ...props, ...this.attrs, href };
 
       delete mergedAttrs.anchor;
-
+      this.renderMetadata(MetadataKind.Open);
       this.renderTemplate(mergedAttrs, linkText);
+      this.renderMetadata(MetadataKind.Close);
     }
   }
 

@@ -349,6 +349,110 @@ describe('<a *scLink />', () => {
       fixture.detectChanges();
       expect(de.children.length).toBe(0);
     });
+
+    describe('with "metadata" property value', () => {
+      describe('and editing enabled', () => {
+        it('should render <img /> with metadata chrome tags', () => {
+          const linkField = {
+            metadata: { foo: 'bar' },
+            value: {
+              href: '/lorem',
+              text: 'ipsum',
+              class: 'my-link',
+              title: 'My Link',
+              target: '_blank',
+            },
+          };
+          comp.editable = true;
+          comp.field = linkField;
+          fixture.detectChanges();
+
+          const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = link.previousElementSibling;
+          const metadataCloseTag = link.nextElementSibling;
+
+          expect(metadataOpenTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">{"foo":"bar"}</code>'
+          );
+          expect(metadataCloseTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
+        });
+
+        it('should render empty field with metadata chrome tags', () => {
+          const field = {
+            metadata: { foo: 'bar' },
+            value: { src: undefined },
+          };
+          comp.editable = true;
+          comp.field = field;
+          fixture.detectChanges();
+
+          const fieldValue = de.query(By.css('sc-default-empty-text-field-editing-placeholder'));
+          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
+          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
+
+          expect(metadataOpenTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">{"foo":"bar"}</code>'
+          );
+          expect(metadataCloseTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
+        });
+      });
+
+      describe('and editing disabled', () => {
+        it('should render <img /> without metadata chrome tags', () => {
+          const linkField = {
+            metadata: { foo: 'bar' },
+            value: {
+              href: '/lorem',
+              text: 'ipsum',
+              class: 'my-link',
+              title: 'My Link',
+              target: '_blank',
+            },
+          };
+          comp.editable = false;
+          comp.field = linkField;
+          fixture.detectChanges();
+
+          const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = link.previousElementSibling;
+          const metadataCloseTag = link.nextElementSibling;
+
+          expect(metadataOpenTag).toBeNull();
+          expect(metadataCloseTag).toBeNull();
+        });
+      });
+    });
+
+    describe('without "metadata" property value', () => {
+      it('should render <img /> without metadata chrome tags', () => {
+        const linkField = {
+          value: {
+            href: '/lorem',
+            text: 'ipsum',
+            class: 'my-link',
+            title: 'My Link',
+            target: '_blank',
+          },
+        };
+        comp.editable = true;
+        comp.field = linkField;
+        fixture.detectChanges();
+
+        const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+        const metadataOpenTag = link.previousElementSibling;
+        const metadataCloseTag = link.nextElementSibling;
+
+        expect(metadataOpenTag).toBeNull();
+        expect(metadataCloseTag).toBeNull();
+      });
+    });
   });
 });
 
@@ -595,6 +699,110 @@ describe('<a *scLink>children</a>', () => {
       comp.editable = false;
       fixture.detectChanges();
       expect(de.children.length).toBe(0);
+    });
+
+    describe('with "metadata" property value', () => {
+      describe('and editing enabled', () => {
+        it('should render <img /> with metadata chrome tags', () => {
+          const linkField = {
+            metadata: { foo: 'bar' },
+            value: {
+              href: '/lorem',
+              text: 'ipsum',
+              class: 'my-link',
+              title: 'My Link',
+              target: '_blank',
+            },
+          };
+          comp.editable = true;
+          comp.field = linkField;
+          fixture.detectChanges();
+
+          const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = link.previousElementSibling;
+          const metadataCloseTag = link.nextElementSibling;
+
+          expect(metadataOpenTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">{"foo":"bar"}</code>'
+          );
+          expect(metadataCloseTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
+        });
+
+        it('should render empty field with metadata chrome tags', () => {
+          const field = {
+            metadata: { foo: 'bar' },
+            value: { src: undefined },
+          };
+          comp.editable = true;
+          comp.field = field;
+          fixture.detectChanges();
+
+          const fieldValue = de.query(By.css('sc-default-empty-text-field-editing-placeholder'));
+          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
+          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
+
+          expect(metadataOpenTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">{"foo":"bar"}</code>'
+          );
+          expect(metadataCloseTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
+        });
+      });
+
+      describe('and editing disabled', () => {
+        it('should render <img /> without metadata chrome tags', () => {
+          const linkField = {
+            metadata: { foo: 'bar' },
+            value: {
+              href: '/lorem',
+              text: 'ipsum',
+              class: 'my-link',
+              title: 'My Link',
+              target: '_blank',
+            },
+          };
+          comp.editable = false;
+          comp.field = linkField;
+          fixture.detectChanges();
+
+          const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = link.previousElementSibling;
+          const metadataCloseTag = link.nextElementSibling;
+
+          expect(metadataOpenTag).toBeNull();
+          expect(metadataCloseTag).toBeNull();
+        });
+      });
+    });
+
+    describe('without "metadata" property value', () => {
+      it('should render <img /> without metadata chrome tags', () => {
+        const linkField = {
+          value: {
+            href: '/lorem',
+            text: 'ipsum',
+            class: 'my-link',
+            title: 'My Link',
+            target: '_blank',
+          },
+        };
+        comp.editable = true;
+        comp.field = linkField;
+        fixture.detectChanges();
+
+        const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+        const metadataOpenTag = link.previousElementSibling;
+        const metadataCloseTag = link.nextElementSibling;
+
+        expect(metadataOpenTag).toBeNull();
+        expect(metadataCloseTag).toBeNull();
+      });
     });
   });
 });

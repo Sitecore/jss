@@ -10,6 +10,7 @@ import {
 import { TextField } from '../components/rendering-field';
 import { BaseFieldDirective } from '../components/base-field.directive';
 import { DefaultEmptyFieldEditingComponent } from '../components/default-empty-text-field-editing-placeholder.component';
+import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 @Directive({
   selector: '[scTestBase]',
@@ -27,10 +28,7 @@ export class TestBaseDirective extends BaseFieldDirective implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.encode) {
-      if (!this.viewRef) {
-        this.viewContainer.clear();
-        this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
-      }
+      this.viewContainer.clear();
 
       this.updateView();
     }
@@ -41,6 +39,10 @@ export class TestBaseDirective extends BaseFieldDirective implements OnChanges {
       super.renderEmpty();
       return;
     }
+
+    this.renderMetadata(MetadataKind.Open);
+    this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
+    this.renderMetadata(MetadataKind.Close);
 
     const field = this.field;
     const editable = this.editable;
