@@ -20,7 +20,8 @@ import { JssContextService } from './jss-context.service';
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: () => new JssTranslationClientLoaderService(new JssTranslationLoaderService()),
+        useFactory: (transferState: TransferState) =>
+          new JssTranslationClientLoaderService(new JssTranslationLoaderService(), transferState),
         deps: [HttpClient, TransferState],
       },
     }),
