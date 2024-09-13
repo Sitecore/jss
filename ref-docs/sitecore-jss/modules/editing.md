@@ -25,6 +25,7 @@
 ### Enumerations
 
 - [LayoutKind](../enums/editing.LayoutKind.md)
+- [MetadataKind](../enums/editing.MetadataKind.md)
 
 ### Classes
 
@@ -145,7 +146,7 @@ Default value of uid for root placeholder when uid is not present.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:6](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss/src/editing/utils.ts#L6)
+[packages/sitecore-jss/src/editing/utils.ts:6](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss/src/editing/utils.ts#L6)
 
 ___
 
@@ -157,7 +158,7 @@ Default allowed origins for editing requests. This is used to enforce CORS, CSP 
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:22](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss/src/editing/utils.ts#L22)
+[packages/sitecore-jss/src/editing/utils.ts:22](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss/src/editing/utils.ts#L22)
 
 ___
 
@@ -170,7 +171,7 @@ Should identify app is in XM Cloud Pages editing mode
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:17](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss/src/editing/utils.ts#L17)
+[packages/sitecore-jss/src/editing/utils.ts:17](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss/src/editing/utils.ts#L17)
 
 ___
 
@@ -182,7 +183,7 @@ Query parameter for editing secret
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:11](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss/src/editing/utils.ts#L11)
+[packages/sitecore-jss/src/editing/utils.ts:11](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss/src/editing/utils.ts#L11)
 
 ## Functions
 
@@ -200,4 +201,4 @@ collection of clientData
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:166](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss/src/editing/utils.ts#L166)
+[packages/sitecore-jss/src/editing/utils.ts:166](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss/src/editing/utils.ts#L166)

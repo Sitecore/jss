@@ -42,7 +42,7 @@ module
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/lib.module.ts:111](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/lib.module.ts#L111)
+[packages/sitecore-jss-angular/src/lib.module.ts:111](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/lib.module.ts#L111)
 
 ___
 
@@ -61,7 +61,7 @@ module
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/lib.module.ts:85](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/lib.module.ts#L85)
+[packages/sitecore-jss-angular/src/lib.module.ts:85](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/lib.module.ts#L85)
 
 ___
 
@@ -87,4 +87,4 @@ module
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/lib.module.ts:130](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/lib.module.ts#L130)
+[packages/sitecore-jss-angular/src/lib.module.ts:130](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/lib.module.ts#L130)

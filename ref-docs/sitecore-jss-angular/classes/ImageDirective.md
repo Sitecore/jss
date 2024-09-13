@@ -41,6 +41,7 @@
 - [ngOnChanges](ImageDirective.md#ngonchanges)
 - [renderEmpty](ImageDirective.md#renderempty)
 - [renderInlineWrapper](ImageDirective.md#renderinlinewrapper)
+- [renderMetadata](ImageDirective.md#rendermetadata)
 - [renderTemplate](ImageDirective.md#rendertemplate)
 - [shouldRender](ImageDirective.md#shouldrender)
 - [updateView](ImageDirective.md#updateview)
@@ -66,7 +67,7 @@ BaseFieldDirective.constructor
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:48](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L48)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:49](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L49)
 
 ## Properties
 
@@ -80,7 +81,7 @@ BaseFieldDirective.constructor
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:34](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L34)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:35](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L35)
 
 ___
 
@@ -96,7 +97,7 @@ BaseFieldDirective.defaultFieldEditingComponent
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:44](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L44)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:45](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L45)
 
 ___
 
@@ -110,7 +111,7 @@ BaseFieldDirective.editable
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:21](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L21)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:22](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L22)
 
 ___
 
@@ -120,7 +121,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:52](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L52)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:53](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L53)
 
 ___
 
@@ -136,7 +137,7 @@ BaseFieldDirective.emptyFieldEditingTemplate
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:39](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L39)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:40](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L40)
 
 ___
 
@@ -150,7 +151,7 @@ BaseFieldDirective.field
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:19](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L19)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:20](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L20)
 
 ___
 
@@ -160,7 +161,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:46](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L46)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:47](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L47)
 
 ___
 
@@ -180,7 +181,7 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:30](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L30)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:31](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L31)
 
 ___
 
@@ -190,7 +191,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:51](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L51)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:52](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L52)
 
 ___
 
@@ -200,7 +201,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:50](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L50)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:51](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L51)
 
 ___
 
@@ -214,7 +215,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:32](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L32)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:33](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L33)
 
 ___
 
@@ -228,7 +229,7 @@ BaseFieldDirective.viewContainer
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:22](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L22)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
 
 ___
 
@@ -242,7 +243,7 @@ BaseFieldDirective.viewRef
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:10](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L10)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
 
 ## Methods
 
@@ -256,7 +257,7 @@ BaseFieldDirective.viewRef
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:151](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L151)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:154](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L154)
 
 ___
 
@@ -278,7 +279,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:114](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L114)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:117](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L117)
 
 ___
 
@@ -302,7 +303,7 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:58](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L58)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:59](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L59)
 
 ___
 
@@ -322,7 +323,7 @@ BaseFieldDirective.renderEmpty
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:35](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L35)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
 
 ___
 
@@ -342,7 +343,33 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:169](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L169)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:172](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L172)
+
+___
+
+### renderMetadata
+
+▸ `Protected` **renderMetadata**(`kind`): `void`
+
+Renders a metadata chrome marker for the field. Required by Pages in editMode 'metadata'.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `kind` | `MetadataKind` | 'open' or 'close' to indicate the start or end of the metadata chrome |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+BaseFieldDirective.renderMetadata
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
 
 ___
 
@@ -362,7 +389,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:142](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L142)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:145](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L145)
 
 ___
 
@@ -383,7 +410,7 @@ BaseFieldDirective.shouldRender
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:28](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L28)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:30](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L30)
 
 ___
 
@@ -397,4 +424,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/image.directive.ts:70](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/image.directive.ts#L70)
+[packages/sitecore-jss-angular/src/components/image.directive.ts:71](https://github.com/Sitecore/jss/blob/6d1a80314/packages/sitecore-jss-angular/src/components/image.directive.ts#L71)
