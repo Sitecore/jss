@@ -54,7 +54,7 @@
                 import { TransferState } from '@angular/core';
                 import { of } from 'rxjs';
             ```
-        * Update `dictionaryStateKe`y` variable type
+        * Update `dictionaryStateKey` variable type
             ```
                 export const dictionaryStateKey = makeStateKey<{ [key: string]: string }>('jssDictionary');
             ```
