@@ -27,10 +27,7 @@ export class TestBaseDirective extends BaseFieldDirective implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.encode) {
-      if (!this.viewRef) {
-        this.viewContainer.clear();
-        this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
-      }
+      this.viewContainer.clear();
 
       this.updateView();
     }
@@ -41,6 +38,10 @@ export class TestBaseDirective extends BaseFieldDirective implements OnChanges {
       super.renderEmpty();
       return;
     }
+
+    this.renderMetadataTag('open');
+    this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
+    this.renderMetadataTag('close');
 
     const field = this.field;
     const editable = this.editable;

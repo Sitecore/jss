@@ -239,17 +239,12 @@ describe('<span *scDate />', () => {
           const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
           const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
 
-          expect(metadataOpenTag).toBeDefined();
-          expect(metadataOpenTag?.tagName).toEqual('CODE');
-          expect(metadataOpenTag?.getAttribute('kind')).toEqual('open');
-          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
-
-          expect(metadataOpenTag?.textContent).toContain(JSON.stringify(field.metadata));
-
-          expect(metadataCloseTag).toBeDefined();
-          expect(metadataCloseTag?.tagName).toEqual('CODE');
-          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
-          expect(metadataCloseTag?.getAttribute('kind')).toEqual('close');
+          expect(metadataOpenTag.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">{"foo":"bar"}</code>'
+          );
+          expect(metadataCloseTag.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
         });
 
         it('should render empty field with metadata chrome tags', () => {
@@ -265,21 +260,16 @@ describe('<span *scDate />', () => {
           const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
           const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
 
-          expect(metadataOpenTag).toBeDefined();
-          expect(metadataOpenTag?.tagName).toEqual('CODE');
-          expect(metadataOpenTag?.getAttribute('kind')).toEqual('open');
-          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
-
-          expect(metadataOpenTag?.textContent).toContain(JSON.stringify(field.metadata));
-
-          expect(metadataCloseTag).toBeDefined();
-          expect(metadataCloseTag?.tagName).toEqual('CODE');
-          expect(metadataOpenTag?.getAttribute('chrometype')).toEqual('field');
-          expect(metadataCloseTag?.getAttribute('kind')).toEqual('close');
+          expect(metadataOpenTag.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">{"foo":"bar"}</code>'
+          );
+          expect(metadataCloseTag.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
         });
       });
 
-      describe('and edtiging disabled', () => {
+      describe('and editing disabled', () => {
         it('should render <img /> without metadata chrome tags', () => {
           const field = {
             metadata: { foo: 'bar' },

@@ -45,7 +45,6 @@ class TestEmptyTemplateComponent {
 describe('<span *scTestBase />', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
-  let deSpan: DebugElement;
   let comp: TestComponent;
 
   beforeEach(() => {
@@ -57,7 +56,6 @@ describe('<span *scTestBase />', () => {
     fixture.detectChanges();
 
     de = fixture.debugElement;
-    deSpan = de.query(By.css('span'));
     comp = fixture.componentInstance;
   });
 
@@ -69,7 +67,7 @@ describe('<span *scTestBase />', () => {
       comp.field = field;
       fixture.detectChanges();
 
-      const rendered = deSpan.nativeElement.innerHTML;
+      const rendered = de.query(By.css('span')).nativeElement.innerHTML;
       expect(rendered).toBe('value');
     });
 
@@ -81,7 +79,7 @@ describe('<span *scTestBase />', () => {
       comp.field = field;
       fixture.detectChanges();
 
-      const rendered = deSpan.nativeElement.innerHTML;
+      const rendered = de.query(By.css('span')).nativeElement.innerHTML;
       expect(rendered).toBe(field.editable);
     });
 
@@ -92,8 +90,8 @@ describe('<span *scTestBase />', () => {
       comp.field = field;
       fixture.detectChanges();
 
-      const rendered = deSpan.nativeElement.innerHTML;
-      expect(rendered).toBe('');
+      const spanElement = de.query(By.css('span'));
+      expect(spanElement).toBeNull();
     });
   });
 
@@ -118,7 +116,7 @@ describe('<span *scTestBase />', () => {
       comp.field = field;
       fixture.detectChanges();
 
-      const rendered = deSpan.nativeElement.innerHTML;
+      const rendered = de.query(By.css('span')).nativeElement.innerHTML;
       expect(rendered).toBe('value');
     });
 
@@ -162,8 +160,95 @@ describe('<span *scTestBase />', () => {
         comp.editable = false;
         fixture.detectChanges();
 
-        const rendered = deSpan.nativeElement.innerHTML;
-        expect(rendered).toBe('');
+        const spanElement = de.query(By.css('span'));
+        expect(spanElement).toBeNull();
+      });
+    });
+
+    describe('with "metadata" property value', () => {
+      describe('and edtiging enabled', () => {
+        it('should render <img /> with metadata chrome tags', () => {
+          const field = {
+            metadata: testMetadata,
+            value: 'value',
+          };
+          comp.editable = true;
+          comp.field = field;
+          fixture.detectChanges();
+
+          const fieldValue = de.query(By.css('span'));
+          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
+          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
+
+          expect(metadataOpenTag.outerHTML).toEqual(
+            `<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">${JSON.stringify(
+              testMetadata
+            )}</code>`
+          );
+          expect(metadataCloseTag.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
+        });
+
+        it('should render empty field with metadata chrome tags', () => {
+          const field = {
+            metadata: testMetadata,
+            value: '',
+          };
+          comp.editable = true;
+          comp.field = field;
+          fixture.detectChanges();
+
+          const fieldValue = de.query(By.css('sc-default-empty-text-field-editing-placeholder'));
+          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
+          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
+
+          expect(metadataOpenTag.outerHTML).toEqual(
+            `<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">${JSON.stringify(
+              testMetadata
+            )}</code>`
+          );
+          expect(metadataCloseTag.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
+        });
+      });
+
+      describe('and editing disabled', () => {
+        it('should render <img /> without metadata chrome tags', () => {
+          const field = {
+            metadata: testMetadata,
+            value: 'value',
+          };
+          comp.editable = false;
+          comp.field = field;
+          fixture.detectChanges();
+
+          const fieldEl = de.query(By.css('span'));
+          const metadataOpenTag = fieldEl.nativeElement.previousElementSibling;
+          const metadataCloseTag = fieldEl.nativeElement.nextElementSibling;
+
+          expect(metadataOpenTag).toBeNull();
+          expect(metadataCloseTag).toBeNull();
+        });
+      });
+    });
+
+    describe('without "metadata" property value', () => {
+      it('should render <img /> without metadata chrome tags', () => {
+        const field = {
+          value: 'value',
+        };
+        comp.editable = true;
+        comp.field = field;
+        fixture.detectChanges();
+
+        const fieldEl = de.query(By.css('span'));
+        const metadataOpenTag = fieldEl.nativeElement.previousElementSibling;
+        const metadataCloseTag = fieldEl.nativeElement.nextElementSibling;
+
+        expect(metadataOpenTag).toBeNull();
+        expect(metadataCloseTag).toBeNull();
       });
     });
   });
