@@ -207,7 +207,7 @@ describe('<div *scRichText />', () => {
     });
 
     describe('with "metadata" property value', () => {
-      describe('and edtiging enabled', () => {
+      describe('and editing enabled', () => {
         it('should render <img /> with metadata chrome tags', () => {
           const field = {
             metadata: { foo: 'bar' },

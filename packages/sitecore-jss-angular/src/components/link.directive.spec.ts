@@ -351,7 +351,7 @@ describe('<a *scLink />', () => {
     });
 
     describe('with "metadata" property value', () => {
-      describe('and edtiging enabled', () => {
+      describe('and editing enabled', () => {
         it('should render <img /> with metadata chrome tags', () => {
           const linkField = {
             metadata: { foo: 'bar' },
@@ -702,7 +702,7 @@ describe('<a *scLink>children</a>', () => {
     });
 
     describe('with "metadata" property value', () => {
-      describe('and edtiging enabled', () => {
+      describe('and editing enabled', () => {
         it('should render <img /> with metadata chrome tags', () => {
           const linkField = {
             metadata: { foo: 'bar' },
