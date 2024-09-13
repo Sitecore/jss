@@ -23,4 +23,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field-sxa.ts:37](https://github.com/Sitecore/jss/blob/a69fed355/packages/sitecore-jss-angular/src/components/rendering-field-sxa.ts#L37)
+[packages/sitecore-jss-angular/src/components/rendering-field-sxa.ts:37](https://github.com/Sitecore/jss/blob/d93e3b5a7/packages/sitecore-jss-angular/src/components/rendering-field-sxa.ts#L37)
