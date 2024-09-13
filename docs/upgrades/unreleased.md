@@ -47,7 +47,7 @@
             }
         ```
 
-* Update jss-translation-client-loader service to get the performance improvement during fetching Dictionary Data Fetching for SSR
+* Update jss-translation-client-loader service to get the performance improvement during fetching Dictionary Data for SSR
     * In `/src/app/i18n/jss-translation-client-loader.service.ts`
         * Add import for TranferState and of
             ```
@@ -58,7 +58,7 @@
             ```
                 export const dictionaryStateKey = makeStateKey<{ [key: string]: string }>('jssDictionary');
             ```
-        * Add `tranferState` variable to constructor
+        * Add `transferState` variable to constructor
             ```
                 constructor(private fallbackLoader: TranslateLoader, private transferState: TransferState) {}
             ```
@@ -66,12 +66,12 @@
             ```
                 getTranslation(lang: string) {
                         const storedDictionary = this.transferState.get<{ [key: string]: string } | null>(
-                        dictionaryStateKey,
-                        null
+                            dictionaryStateKey,
+                            null
                         );
 
                         if (storedDictionary !== null && Object.keys(storedDictionary).length > 0) {
-                        return of(storedDictionary);
+                            return of(storedDictionary);
                         }
 
                         ...
@@ -79,7 +79,7 @@
             ```
     * Update `/src/templates/angular/src/app/app.module.ts`
          ```
-           ...
+            ...
             useFactory: (transferState: TransferState) =>
                 new JssTranslationClientLoaderService(new JssTranslationLoaderService(), transferState),
             ...
