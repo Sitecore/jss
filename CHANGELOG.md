@@ -27,7 +27,7 @@ Our versioning strategy is as follows:
     * Rework Angular initializer to support XMCloud and SXP journeys;
     * Add SXA styles to xmcloud addon
 * `[create-sitecore-jss]` `[template/angular]` `[template/angular-xmcloud]` `[template/node-xmcloud-proxy]` Edge Proxy / Context Id support ([#1875](https://github.com/Sitecore/jss/pull/1875))([#1885](https://github.com/Sitecore/jss/pull/1885))
-* `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1868](https://github.com/Sitecore/jss/pull/1868))([#1881](https://github.com/Sitecore/jss/pull/1881))([#1882](https://github.com/Sitecore/jss/pull/1882))
+* `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1868](https://github.com/Sitecore/jss/pull/1868))([#1881](https://github.com/Sitecore/jss/pull/1881))([#1882](https://github.com/Sitecore/jss/pull/1882))([#1931](https://github.com/Sitecore/jss/pull/1931))
   * `[create-sitecore-jss]` Allow node-xmcloud-proxy app to be installed alongside Angular SPA application
   * `proxyAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
 * `[templates/angular]` `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/editing/config endpoint ([#1903](https://github.com/Sitecore/jss/pull/1903))
