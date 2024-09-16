@@ -27,9 +27,7 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
       const response = await initializer.init(args);
 
       // We can have multiple appNames if base template requires to setup an additional standalone app (e.g. XM Cloud proxy)
-      if (initializer.isBase) {
-        appNames.add(response.appName);
-      }
+      appNames.add(response.appName);
       nextStepsArr = [...nextStepsArr, ...(response.nextSteps ?? [])];
       // process any returned initializers
       if (response.initializers && response.initializers.length > 0) {
