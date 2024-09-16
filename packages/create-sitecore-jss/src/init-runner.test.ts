@@ -168,6 +168,33 @@ describe('initRunner', () => {
     );
   });
 
+  it('should aggregate nextSteps when using non base, post-initializer template', async () => {
+    const templates = ['bar'];
+    const appName = 'test-app-bar';
+    const args = {
+      silent: false,
+      destination: 'samples/next',
+      templates,
+    };
+
+    const mockBar = mockInitializer(false, {
+      appName,
+      nextSteps: ['bar step 1', 'bar step 2'],
+      initializers: ['baz'],
+    });
+    const mockBaz = mockInitializer(false, { appName, nextSteps: ['baz step 1'] });
+    createStub = sinon.stub(InitializerFactory.prototype, 'create');
+    createStub.withArgs('bar').returns(mockBar);
+    createStub.withArgs('baz').returns(mockBaz);
+
+    await initRunner(templates, args);
+
+    expect(nextStepsStub).to.be.calledOnceWith(
+      [appName],
+      ['bar step 1', 'bar step 2', 'baz step 1']
+    );
+  });
+
   it('should pass two appNames when two main apps initialized', async () => {
     const templates = ['foo', 'bar'];
     const args = {
