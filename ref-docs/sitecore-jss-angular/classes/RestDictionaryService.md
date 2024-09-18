@@ -91,7 +91,7 @@ packages/sitecore-jss/types/i18n/rest-dictionary-service.d.ts:39
 
 ### fetchDictionaryData
 
-▸ **fetchDictionaryData**(`language`): `Promise`\<`DictionaryPhrases`\>
+▸ **fetchDictionaryData**(`language`): `Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
 Fetch dictionary data for a language.
 
@@ -103,7 +103,7 @@ Fetch dictionary data for a language.
 
 #### Returns
 
-`Promise`\<`DictionaryPhrases`\>
+`Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
 dictionary phrases
 
@@ -119,7 +119,7 @@ ___
 
 ### getCacheClient
 
-▸ `Protected` **getCacheClient**(): `CacheClient`\<`DictionaryPhrases`\>
+▸ `Protected` **getCacheClient**(): `CacheClient`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
 Gets a cache client that can cache data. Uses memory-cache as the default
 library for caching (@see MemoryCacheClient). Override this method if you
@@ -127,7 +127,7 @@ want to use something else.
 
 #### Returns
 
-`CacheClient`\<`DictionaryPhrases`\>
+`CacheClient`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
 implementation
 
@@ -143,7 +143,7 @@ ___
 
 ### getCacheValue
 
-▸ **getCacheValue**(`key`): ``null`` \| `DictionaryPhrases`
+▸ **getCacheValue**(`key`): ``null`` \| [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
 
 Retrieves a
 
@@ -155,7 +155,7 @@ Retrieves a
 
 #### Returns
 
-``null`` \| `DictionaryPhrases`
+``null`` \| [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
 
 The
 
@@ -200,7 +200,7 @@ ___
 
 ### setCacheValue
 
-▸ **setCacheValue**(`key`, `value`): `DictionaryPhrases`
+▸ **setCacheValue**(`key`, `value`): [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
 
 Caches a
 
@@ -209,11 +209,11 @@ Caches a
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `key` | `string` | The cache key. |
-| `value` | `DictionaryPhrases` | The value to cache. |
+| `value` | [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md) | The value to cache. |
 
 #### Returns
 
-`DictionaryPhrases`
+[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
 
 The value added to the cache.
 
