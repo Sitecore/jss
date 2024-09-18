@@ -47,43 +47,76 @@
             }
         ```
 
-* Update jss-translation-client-loader service to get the performance improvement during fetching Dictionary Data for SSR
-    * In `/src/app/i18n/jss-translation-client-loader.service.ts`
-        * Add import for TranferState and of
-            ```
-                import { TransferState } from '@angular/core';
-                import { of } from 'rxjs';
-            ```
-        * Update `dictionaryStateKey` variable type
-            ```
-                export const dictionaryStateKey = makeStateKey<{ [key: string]: string }>('jssDictionary');
-            ```
-        * Add `transferState` variable to constructor
-            ```
-                constructor(private fallbackLoader: TranslateLoader, private transferState: TransferState) {}
-            ```
-        * Update the `getTranslation` method
-            ```
-                getTranslation(lang: string) {
-                        const storedDictionary = this.transferState.get<{ [key: string]: string } | null>(
-                            dictionaryStateKey,
-                            null
-                        );
+* Update i18n initialization to gain the performance improvement during fetching Dictionary Data for using SSR:
+  * Inject _TransferState_ both on the server and client side:
+    `app.module.ts`:
 
-                        if (storedDictionary !== null && Object.keys(storedDictionary).length > 0) {
-                            return of(storedDictionary);
-                        }
+    ```ts
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (transferState: TransferState) =>
+          new JssTranslationClientLoaderService(new JssTranslationLoaderService(), transferState),
+        deps: [TransferState],
+      },
+    }),
+    ```
 
-                        ...
-                }
-            ```
-    * Update `/src/templates/angular/src/app/app.module.ts`
-         ```
+    `app.server.module.ts`:
+
+    ```ts
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (
+          ssrViewBag: {
+            [key: string]: unknown;
+            dictionary: { [key: string]: string };
+          },
+          transferState: TransferState
+        ) => new JssTranslationServerLoaderService(ssrViewBag, transferState),
+        deps: ['JSS_SERVER_VIEWBAG', TransferState],
+      },
+    }),
+    ```
+
+  * In `app\i18n\jss-translation-server-loader.service.ts`:
+    * Inject _TransferState_.
+    * Make sure to set _dictionary_ data in _transferState_.
+
+    ```ts
+        export const dictionaryStateKey: StateKey<DictionaryPhrases> = makeStateKey<DictionaryPhrases>(
+            'dictionary'
+        );
+
+        ...
+
+        getTranslation(_lang: string) {
+            const dictionary = this.serverViewBag.dictionary;
+
+            this.transferState.set(dictionaryStateKey, dictionary);
             ...
-            useFactory: (transferState: TransferState) =>
-                new JssTranslationClientLoaderService(new JssTranslationLoaderService(), transferState),
+        }
+    ```
+
+  * In `app\i18n\jss-translation-client-loader.service.ts`:
+    * Inject _TransferState_.
+    * Make sure to check for _dictionary_ data in _transferState_ and use it if available and provided by the server.
+
+    ```ts
+        import { dictionaryStateKey } from './jss-translation-server-loader.service';
+
+        ...
+
+        getTranslation(lang: string): Observable<DictionaryPhrases> {
+            const dictionary = this.transferState.get(dictionaryStateKey, null);
+
+            if (dictionary) {
+                return of(dictionary);
+            }
             ...
-        ```
+        }
+    ```
 
 # Angular - XMCloud
 

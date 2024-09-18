@@ -1,6 +1,6 @@
 import { APP_ID, NgModule, TransferState } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RoutingModule } from './routing/routing.module';
 import { JssLayoutService } from './layout/jss-layout.service';
 import { AppComponentsModule } from './components/app-components.module';
@@ -22,7 +22,7 @@ import { JssContextService } from './jss-context.service';
         provide: TranslateLoader,
         useFactory: (transferState: TransferState) =>
           new JssTranslationClientLoaderService(new JssTranslationLoaderService(), transferState),
-        deps: [HttpClient, TransferState],
+        deps: [TransferState],
       },
     }),
     AppComponentsModule,

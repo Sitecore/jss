@@ -42,6 +42,7 @@ export {
   DictionaryService,
   GraphQLDictionaryService,
   RestDictionaryService,
+  DictionaryPhrases,
 } from '@sitecore-jss/sitecore-jss/i18n';
 export {
   LayoutService,
