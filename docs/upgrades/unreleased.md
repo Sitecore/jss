@@ -49,6 +49,7 @@
 
 * Update i18n initialization to gain the performance improvement during fetching Dictionary Data for using SSR:
   * Inject _TransferState_ both on the server and client side:
+
     `app.module.ts`:
 
     ```ts
