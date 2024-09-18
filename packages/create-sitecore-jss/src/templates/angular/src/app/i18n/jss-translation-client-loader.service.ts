@@ -1,21 +1,22 @@
-import { makeStateKey, Injectable, TransferState } from '@angular/core';
+import { Injectable, TransferState } from '@angular/core';
 import { TranslateLoader } from '@ngx-translate/core';
-import { EMPTY, of } from 'rxjs';
-
-export const dictionaryStateKey = makeStateKey<{ [key: string]: string }>('jssDictionary');
+import { DictionaryPhrases } from '@sitecore-jss/sitecore-jss-angular';
+import { EMPTY, Observable, of } from 'rxjs';
+import { JssTranslationLoaderService } from './jss-translation-loader.service';
+import { dictionaryStateKey } from './jss-translation-server-loader.service';
 
 @Injectable()
 export class JssTranslationClientLoaderService implements TranslateLoader {
-  constructor(private fallbackLoader: TranslateLoader, private transferState: TransferState) {}
+  constructor(
+    private fallbackLoader: JssTranslationLoaderService,
+    private transferState: TransferState
+  ) {}
 
-  getTranslation(lang: string) {
-    const storedDictionary = this.transferState.get<{ [key: string]: string } | null>(
-      dictionaryStateKey,
-      null
-    );
+  getTranslation(lang: string): Observable<DictionaryPhrases> {
+    const dictionary = this.transferState.get(dictionaryStateKey, null);
 
-    if (storedDictionary !== null && Object.keys(storedDictionary).length > 0) {
-      return of(storedDictionary);
+    if (dictionary) {
+      return of(dictionary);
     }
 
     if (!this.fallbackLoader) {
