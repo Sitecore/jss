@@ -1,6 +1,6 @@
-import { APP_ID, NgModule, TransferState } from '@angular/core';
+import { APP_ID, NgModule, TransferState, PLATFORM_ID } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RoutingModule } from './routing/routing.module';
 import { JssLayoutService } from './layout/jss-layout.service';
 import { AppComponentsModule } from './components/app-components.module';
@@ -20,9 +20,9 @@ import { JssContextService } from './jss-context.service';
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (transferState: TransferState) =>
-          new JssTranslationClientLoaderService(new JssTranslationLoaderService(), transferState),
-        deps: [HttpClient, TransferState],
+        useFactory: (platformId: object) =>
+          new JssTranslationClientLoaderService(new JssTranslationLoaderService(), platformId),
+        deps: [PLATFORM_ID, TransferState],
       },
     }),
     AppComponentsModule,
@@ -33,9 +33,17 @@ import { JssContextService } from './jss-context.service';
     JssContextService,
     JssLayoutService,
     JssMetaService,
+
     // IMPORTANT: you must set the base href with this token, not a <base> tag in the HTML.
     // the Sitecore Experience Editor will not work correctly when a base tag is used.
     { provide: APP_BASE_HREF, useValue: '/' },
+    // {
+    //   provide: 'JSS_SERVER_VIEWBAG',
+    //   useFactory: (transferState: TransferState) => {
+    //     return transferState.get(jssKey, null);
+    //   },
+    //   deps: [TransferState],
+    // },
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

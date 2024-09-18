@@ -1,24 +1,31 @@
-import { makeStateKey, Injectable, TransferState } from '@angular/core';
+import { makeStateKey, Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { TranslateLoader } from '@ngx-translate/core';
-import { EMPTY, of } from 'rxjs';
+import { isPlatformServer } from '@angular/common';
+import { EMPTY } from 'rxjs';
 
 export const dictionaryStateKey = makeStateKey<{ [key: string]: string }>('jssDictionary');
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class JssTranslationClientLoaderService implements TranslateLoader {
-  constructor(private fallbackLoader: TranslateLoader, private transferState: TransferState) {}
+  private isServer: boolean;
+
+  constructor(
+    private fallbackLoader: TranslateLoader,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isServer = isPlatformServer(this.platformId);
+  }
 
   getTranslation(lang: string) {
-    const storedDictionary = this.transferState.get<{ [key: string]: string } | null>(
-      dictionaryStateKey,
-      null
-    );
-
-    if (storedDictionary !== null && Object.keys(storedDictionary).length > 0) {
-      return of(storedDictionary);
+    if (!this.fallbackLoader) {
+      return EMPTY;
     }
 
-    if (!this.fallbackLoader) {
+    console.log(this.isServer);
+
+    if (this.isServer) {
       return EMPTY;
     }
 
