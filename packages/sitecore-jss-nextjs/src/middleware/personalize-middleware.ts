@@ -9,7 +9,8 @@ import {
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
-import { init, personalize } from '@sitecore-cloudsdk/personalize/server';
+import { CloudSDK } from '@sitecore-cloudsdk/core/server';
+import { personalize } from '@sitecore-cloudsdk/personalize/server';
 
 export type CdpServiceConfig = {
   /**
@@ -119,13 +120,15 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     request: NextRequest;
     response: NextResponse;
   }): Promise<void> {
-    await init(request, response, {
+    await CloudSDK(request, response, {
       sitecoreEdgeUrl: this.config.cdpConfig.sitecoreEdgeUrl,
       sitecoreEdgeContextId: this.config.cdpConfig.sitecoreEdgeContextId,
       siteName,
       cookieDomain: hostname,
       enableServerCookie: true,
-    });
+    })
+    .addPersonalize()
+    .initialize();
   }
 
   protected async personalize(

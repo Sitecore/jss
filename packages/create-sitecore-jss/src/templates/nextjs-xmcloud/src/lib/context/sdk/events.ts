@@ -1,3 +1,4 @@
+import { CloudSDK } from "@sitecore-cloudsdk/core/browser";
 import * as Events from '@sitecore-cloudsdk/events/browser';
 import { SDK } from '@sitecore-jss/sitecore-jss-nextjs/context';
 
@@ -11,7 +12,7 @@ const sdkModule: SDK<typeof Events> = {
     if (process.env.NODE_ENV === 'development')
       throw 'Browser Events SDK is not initialized in development environment';
     
-    await Events.init({
+    await CloudSDK({
       siteName: props.siteName,
       sitecoreEdgeUrl: props.sitecoreEdgeUrl,
       sitecoreEdgeContextId: props.sitecoreEdgeContextId,
@@ -19,7 +20,9 @@ const sdkModule: SDK<typeof Events> = {
       cookieDomain: window.location.hostname.replace(/^www\./, ''),
       // Cookie may be created in personalize middleware (server), but if not we should create it here
       enableBrowserCookie: true,
-    });
+    })
+    .addEvents()
+    .initialize();
   },
 };
 
