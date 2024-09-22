@@ -127,8 +127,8 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       cookieDomain: hostname,
       enableServerCookie: true,
     })
-    .addPersonalize()
-    .initialize();
+      .addPersonalize()
+      .initialize();
   }
 
   protected async personalize(
