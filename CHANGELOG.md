@@ -72,6 +72,8 @@ Our versioning strategy is as follows:
 
 ### 🧹 Chores
 
+* `[templates/angular]``[templates/node-xmcloud-proxy]``[templates/node-headless-ssr-proxy]``[templates/node-headless-ssr-experience-edge]` Adjust out of box .gitignore rules
+
 ## 22.1.3
 
 ### 🐛 Bug Fixes

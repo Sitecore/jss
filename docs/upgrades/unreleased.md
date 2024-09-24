@@ -118,6 +118,12 @@
             ...
         }
     ```
+  * In root folder .gitingore, add the rule for `.angular` if not already present
+  * Replace the contents of `src/environments/.gitingore` with the following, if not done so already:
+  ```
+    *
+    !.gitignore
+  ```
 
 # Angular - XMCloud
 
@@ -278,3 +284,5 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
     Now `middleware`, `ProxyConfig`, `ServerBundle` properties are available on the "headlessProxy" object.
 
 * `express` dependency is marked as a peer dependency, so you need to match the required version "^4.19.2".
+
+* Copy the `.gitignore` file from fresh latest version proxy app into your existing proxy app, if not already present.
