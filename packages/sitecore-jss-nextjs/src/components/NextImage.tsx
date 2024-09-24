@@ -20,7 +20,7 @@ export const NextImage: React.FC<NextImageProps> = ({
   fill,
   priority,
   ...otherProps
-}) => {
+} = {editable: true}) => {
   // next handles src and we use a custom loader,
   // throw error if these are present
   if (otherProps.src) {
@@ -103,10 +103,6 @@ NextImage.propTypes = {
   imageParams: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]).isRequired
   ),
-};
-
-NextImage.defaultProps = {
-  editable: true,
 };
 
 NextImage.displayName = 'NextImage';
