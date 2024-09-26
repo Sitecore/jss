@@ -117,7 +117,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
       if (REGEXP_ABSOLUTE_URL.test(existsRedirect.target)) {
         url.href = existsRedirect.target;
       } else {
-        const source = `${url.pathname.replace(/\/*$/gi, '')}${url.search}`;
+        const source = `${url.pathname.replace(/\/*$/gi, '')}${existsRedirect.matchedQueryString}`;
         const urlFirstPart = existsRedirect.target.split('/')[1];
 
         if (this.locales.includes(urlFirstPart)) {
@@ -183,7 +183,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
   private async getExistsRedirect(
     req: NextRequest,
     siteName: string
-  ): Promise<RedirectInfo | undefined> {
+  ): Promise<(RedirectInfo & { matchedQueryString?: string }) | undefined> {
     const redirects = await this.redirectsService.fetchRedirects(siteName);
     const normalizedUrl = this.normalizeUrl(req.nextUrl.clone());
     const tragetURL = normalizedUrl.pathname;
@@ -192,24 +192,26 @@ export class RedirectsMiddleware extends MiddlewareBase {
     const modifyRedirects = structuredClone(redirects);
 
     return modifyRedirects.length
-      ? modifyRedirects.find((redirect: RedirectInfo) => {
+      ? modifyRedirects.find((redirect: RedirectInfo & { matchedQueryString?: string }) => {
           redirect.pattern = redirect.pattern.replace(RegExp(`^[^]?/${language}/`, 'gi'), '');
           redirect.pattern = `/^\/${redirect.pattern
             .replace(/^\/|\/$/g, '')
             .replace(/^\^\/|\/\$$/g, '')
             .replace(/^\^|\$$/g, '')
             .replace(/(?<!\\)\?/g, '\\?')
-            .replace(/\$\/gi$/g, '')}[\/]?$/gi`;
+            .replace(/\$\/gi$/g, '')}[\/]?$/i`;
+          const matchedQueryString = this.isPermutedQueryMatch({
+            pathname: tragetURL,
+            queryString: targetQS,
+            pattern: redirect.pattern,
+            locale: req.nextUrl.locale,
+          });
+          redirect.matchedQueryString = matchedQueryString || '';
 
           return (
             (regexParser(redirect.pattern).test(tragetURL) ||
               regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${tragetURL}`) ||
-              this.isPermutedQueryMatch({
-                pathname: tragetURL,
-                queryString: targetQS,
-                pattern: redirect.pattern,
-                locale: req.nextUrl.locale,
-              })) &&
+              matchedQueryString) &&
             (redirect.locale
               ? redirect.locale.toLowerCase() === req.nextUrl.locale.toLowerCase()
               : true)
@@ -311,7 +313,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
    * @param {string} params.queryString - The current URL query string.
    * @param {string} params.pattern - The regex pattern to test the constructed URLs against.
    * @param {string} [params.locale] - The locale prefix to include in the URL if present.
-   * @returns {boolean} - True if any of the query permutations match the provided pattern, false otherwise.
+   * @returns {string | undefined} - return query string if any of the query permutations match the provided pattern, undefined otherwise.
    */
   private isPermutedQueryMatch({
     pathname,
@@ -323,14 +325,14 @@ export class RedirectsMiddleware extends MiddlewareBase {
     queryString: string;
     pattern: string;
     locale?: string;
-  }): boolean {
+  }): string | undefined {
     const paramsArray = Array.from(new URLSearchParams(queryString).entries());
     const listOfPermuted = this.getPermutations(paramsArray).map(
       (permutation) => '?' + permutation.map(([key, value]) => `${key}=${value}`).join('&')
     );
 
     const normalizedPath = pathname.replace(/\/*$/gi, '');
-    return listOfPermuted.some((query) =>
+    return listOfPermuted.find((query) =>
       [
         regexParser(pattern).test(`${normalizedPath}${query}`),
         regexParser(pattern).test(`/${locale}${normalizedPath}${query}`),
