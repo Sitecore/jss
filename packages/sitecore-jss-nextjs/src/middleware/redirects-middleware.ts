@@ -203,11 +203,13 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
           return (
             (regexParser(redirect.pattern).test(tragetURL) ||
-              regexParser(redirect.pattern).test(`${tragetURL.replace(/\/*$/gi, '')}${targetQS}`) ||
               regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${tragetURL}`) ||
-              regexParser(redirect.pattern).test(
-                `/${req.nextUrl.locale}${tragetURL}${targetQS}`
-              )) &&
+              this.isPermutedQueryMatch({
+                pathname: tragetURL,
+                queryString: targetQS,
+                pattern: redirect.pattern,
+                locale: req.nextUrl.locale,
+              })) &&
             (redirect.locale
               ? redirect.locale.toLowerCase() === req.nextUrl.locale.toLowerCase()
               : true)
@@ -284,5 +286,55 @@ export class RedirectsMiddleware extends MiddlewareBase {
       redirect.headers.delete('x-middleware-rewrite');
     }
     return redirect;
+  }
+
+  /**
+   * Generates all possible permutations of an array of key-value pairs.
+   * This is used to create every possible combination of URL query parameters.
+   * @param {Array<[string, string]>} array - The array of key-value pairs to permute.
+   * @returns {Array<Array<[string, string]>>} - A 2D array where each inner array is a unique permutation of the input.
+   */
+  private getPermutations(array: [string, string][]): [string, string][][] {
+    if (array.length <= 1) return [array];
+
+    return array.flatMap((current, i) => {
+      const remaining = array.filter((_, idx) => idx !== i);
+      return this.getPermutations(remaining).map((permutation) => [current, ...permutation]);
+    });
+  }
+
+  /**
+   * Checks if the current URL query matches the provided pattern, considering all permutations of query parameters.
+   * It constructs all possible query parameter permutations and tests them against the pattern.
+   * @param {Object} params - The parameters for the URL match.
+   * @param {string} params.pathname - The current URL pathname.
+   * @param {string} params.queryString - The current URL query string.
+   * @param {string} params.pattern - The regex pattern to test the constructed URLs against.
+   * @param {string} [params.locale] - The locale prefix to include in the URL if present.
+   * @returns {boolean} - True if any of the query permutations match the provided pattern, false otherwise.
+   */
+  private isPermutedQueryMatch({
+    pathname,
+    queryString,
+    pattern,
+    locale,
+  }: {
+    pathname: string;
+    queryString: string;
+    pattern: string;
+    locale?: string;
+  }): boolean {
+    const paramsArray = Array.from(new URLSearchParams(queryString).entries());
+    const listOfPermuted = this.getPermutations(paramsArray).map(
+      (permutation) => '?' + permutation.map(([key, value]) => `${key}=${value}`).join('&')
+    );
+
+    const normalizedPath = pathname.replace(/\/*$/gi, '');
+    return listOfPermuted.some((query) =>
+      [
+        regexParser(pattern).test(`${normalizedPath}${query}`),
+        regexParser(pattern).test(`/${locale}${normalizedPath}${query}`),
+      ].some(Boolean)
+    );
   }
 }
