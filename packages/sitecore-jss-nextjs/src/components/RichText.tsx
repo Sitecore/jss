@@ -24,7 +24,7 @@ export type RichTextProps = ReactRichTextProps & {
 
 const prefetched: { [cacheKey: string]: boolean } = {};
 
-export const RichText = (props: RichTextProps = {tag: 'div', editable: true}): JSX.Element => {
+export const RichText = (props: RichTextProps = { tag: 'div', editable: true }): JSX.Element => {
   const { internalLinksSelector = 'a[href^="/"]', prefetchLinks = true, ...rest } = props;
   const hasText = props.field && props.field.value;
   const isEditing = props.editable && props.field && props.field.editable;
