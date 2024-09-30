@@ -1,8 +1,10 @@
 import { DatePipe } from '@angular/common';
 import {
   Directive,
+  ElementRef,
   Input,
   OnChanges,
+  Renderer2,
   SimpleChanges,
   TemplateRef,
   Type,
@@ -40,9 +42,11 @@ export class DateDirective extends BaseFieldDirective implements OnChanges {
   constructor(
     viewContainer: ViewContainerRef,
     private templateRef: TemplateRef<unknown>,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    protected renderer: Renderer2,
+    protected elementRef: ElementRef
   ) {
-    super(viewContainer);
+    super(viewContainer, renderer, elementRef);
     this.defaultFieldEditingComponent = DefaultEmptyFieldEditingComponent;
   }
 

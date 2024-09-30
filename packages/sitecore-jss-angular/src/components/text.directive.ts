@@ -1,7 +1,9 @@
 import {
   Directive,
+  ElementRef,
   Input,
   OnChanges,
+  Renderer2,
   SimpleChanges,
   TemplateRef,
   Type,
@@ -32,8 +34,13 @@ export class TextDirective extends BaseFieldDirective implements OnChanges {
    */
   protected defaultFieldEditingComponent: Type<unknown>;
 
-  constructor(viewContainer: ViewContainerRef, private templateRef: TemplateRef<unknown>) {
-    super(viewContainer);
+  constructor(
+    viewContainer: ViewContainerRef,
+    private templateRef: TemplateRef<unknown>,
+    protected renderer: Renderer2,
+    protected elementRef: ElementRef
+  ) {
+    super(viewContainer, renderer, elementRef);
     this.defaultFieldEditingComponent = DefaultEmptyFieldEditingComponent;
   }
 

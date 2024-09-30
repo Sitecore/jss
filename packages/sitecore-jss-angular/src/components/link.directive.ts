@@ -38,9 +38,9 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
     viewContainer: ViewContainerRef,
     protected templateRef: TemplateRef<unknown>,
     protected renderer: Renderer2,
-    private elementRef: ElementRef
+    protected elementRef: ElementRef
   ) {
-    super(viewContainer);
+    super(viewContainer, renderer, elementRef);
     this.defaultFieldEditingComponent = DefaultEmptyFieldEditingComponent;
   }
 

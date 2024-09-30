@@ -7,6 +7,7 @@ import {
   ViewContainerRef,
   Renderer2,
   Type,
+  ElementRef,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { isAbsoluteUrl } from '@sitecore-jss/sitecore-jss/utils';
@@ -36,10 +37,11 @@ export class RichTextDirective extends BaseFieldDirective implements OnChanges {
   constructor(
     viewContainer: ViewContainerRef,
     private templateRef: TemplateRef<unknown>,
-    private renderer: Renderer2,
-    private router: Router
+    private router: Router,
+    protected renderer: Renderer2,
+    protected elementRef: ElementRef
   ) {
-    super(viewContainer);
+    super(viewContainer, renderer, elementRef);
     this.defaultFieldEditingComponent = DefaultEmptyFieldEditingComponent;
   }
 
