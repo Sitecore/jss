@@ -8,6 +8,7 @@ Our versioning strategy is as follows:
 - Patch: no breaking changes (e.g. bug fixes, minor improvements)
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features
+
 ## Unreleased
 
 ### 🐛 Bug Fixes
