@@ -7,8 +7,7 @@ Our versioning strategy is as follows:
 
 - Patch: no breaking changes (e.g. bug fixes, minor improvements)
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
-- Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
-
+- Major: may include breaking changes in core packages (e.g. major architectural changes, major features
 ## Unreleased
 
 ### 🐛 Bug Fixes
@@ -16,6 +15,8 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` `[templates/react]` `[templates/angular]` `[templates/vue]` Fixed an issue when environment variable is undefined (not present in .env), that produced an "undefined" value in generated config file ([#1875](https://github.com/Sitecore/jss/pull/1875))
 * `[templates/nextjs]` Fix embedded personalization not rendering correctly after navigation through router links. ([#1911](https://github.com/Sitecore/jss/pull/1911))
 * `[template/angular]` Prevent client-side dictionary API call when SSR data is available ([#1930](https://github.com/Sitecore/jss/pull/1930)) ([#1932](https://github.com/Sitecore/jss/pull/1932))
+* `[sitecore-jss-angular]` Fix default empty field components to not render the unwanted wrapping tags ([#1937](https://github.com/Sitecore/jss/pull/1937))
+
 
 ### 🎉 New Features & Improvements
 

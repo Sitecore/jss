@@ -11,7 +11,6 @@ export class DefaultEmptyFieldEditingComponent implements OnInit {
   constructor(private renderer: Renderer2, private elementRef: ElementRef) {}
 
   ngOnInit() {
-    // Change the default wrapping element to a <span>
     const nativeElement = this.elementRef.nativeElement;
     const parent = nativeElement.parentNode;
 
