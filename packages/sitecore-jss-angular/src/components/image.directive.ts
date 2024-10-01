@@ -49,8 +49,8 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
   constructor(
     viewContainer: ViewContainerRef,
     private templateRef: TemplateRef<unknown>,
-    protected renderer: Renderer2,
-    protected elementRef: ElementRef
+    private renderer: Renderer2,
+    private elementRef: ElementRef
   ) {
     super(viewContainer);
     this.defaultFieldEditingComponent = DefaultEmptyImageFieldEditingComponent;
