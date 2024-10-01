@@ -41,7 +41,7 @@ export class RichTextDirective extends BaseFieldDirective implements OnChanges {
     protected renderer: Renderer2,
     protected elementRef: ElementRef
   ) {
-    super(viewContainer, renderer, elementRef);
+    super(viewContainer);
     this.defaultFieldEditingComponent = DefaultEmptyFieldEditingComponent;
   }
 

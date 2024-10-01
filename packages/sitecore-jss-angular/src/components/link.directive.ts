@@ -40,7 +40,7 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
     protected renderer: Renderer2,
     protected elementRef: ElementRef
   ) {
-    super(viewContainer, renderer, elementRef);
+    super(viewContainer);
     this.defaultFieldEditingComponent = DefaultEmptyFieldEditingComponent;
   }
 
@@ -112,7 +112,11 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
       this.renderInlineWrapper(field.editableFirstPart, field.editableLastPart);
     } else {
       if (!this.shouldRender()) {
-        super.renderEmpty();
+        if (this.emptyFieldEditingTemplate) {
+          super.renderEmpty();
+        } else {
+          this.defaultEmptyFieldTemplate();
+        }
         return;
       }
 
@@ -128,6 +132,16 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
       this.renderMetadata(MetadataKind.Open);
       this.renderTemplate(mergedAttrs, linkText);
       this.renderMetadata(MetadataKind.Close);
+    }
+  }
+
+  private defaultEmptyFieldTemplate() {
+    const emptyElement = this.renderer.createElement('span');
+    emptyElement.textContent = '[No text in field]';
+
+    const parentNode = this.renderer.parentNode(this.elementRef.nativeElement);
+    if (parentNode) {
+      this.renderer.insertBefore(parentNode, emptyElement, this.elementRef.nativeElement);
     }
   }
 
