@@ -160,7 +160,9 @@ describe('<span *scDate />', () => {
       fixture.detectChanges();
 
       const rendered = de.nativeElement.innerHTML;
-      expect(rendered).toContain('<span>[No text in field]</span>');
+      expect(rendered).toContain(
+        '<span sc-default-empty-text-field-editing-placeholder="">[No text in field]</span>'
+      );
     });
 
     it('should render default empty field component when field value is the default empty date value', () => {
@@ -172,7 +174,9 @@ describe('<span *scDate />', () => {
       fixture.detectChanges();
 
       const rendered = de.nativeElement.innerHTML;
-      expect(rendered).toContain('<span>[No text in field]</span>');
+      expect(rendered).toContain(
+        '<span sc-default-empty-text-field-editing-placeholder="">[No text in field]</span>'
+      );
     });
 
     it('should render custom empty field component when provided, when field value is empty', () => {
@@ -256,7 +260,9 @@ describe('<span *scDate />', () => {
           comp.field = field;
           fixture.detectChanges();
 
-          const fieldValue = de.query(By.css('sc-default-empty-text-field-editing-placeholder'));
+          const fieldValue = de.query(
+            By.css('span[sc-default-empty-text-field-editing-placeholder]')
+          );
           const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
           const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
 

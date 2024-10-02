@@ -20,7 +20,8 @@ class TestComponent {
 
 const emptyLinkFieldEditingTemplateId = 'emptyLinkFieldEditingTemplate';
 const emptyLinkFieldEditingTemplate = '<span>[This is a *custom* empty field template]</span>';
-const emptyLinkFieldEditingTemplateDefaultTestString = '<span>[No text in field]</span>';
+const emptyLinkFieldEditingTemplateDefaultTestString =
+  '<span sc-default-empty-text-field-editing-placeholder="">[No text in field]</span>';
 
 @Component({
   selector: 'test-empty-template-link',
@@ -389,7 +390,9 @@ describe('<a *scLink />', () => {
           comp.field = field;
           fixture.detectChanges();
 
-          const fieldValue = de.query(By.css('sc-default-empty-text-field-editing-placeholder'));
+          const fieldValue = de.query(
+            By.css('span[sc-default-empty-text-field-editing-placeholder]')
+          );
           const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
           const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
 
@@ -740,7 +743,9 @@ describe('<a *scLink>children</a>', () => {
           comp.field = field;
           fixture.detectChanges();
 
-          const fieldValue = de.query(By.css('sc-default-empty-text-field-editing-placeholder'));
+          const fieldValue = de.query(
+            By.css('span[sc-default-empty-text-field-editing-placeholder]')
+          );
           const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
           const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
 
