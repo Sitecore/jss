@@ -512,7 +512,7 @@ describe('<img *scImage />', () => {
           comp.field = field;
           fixture.detectChanges();
 
-          const fieldValue = de.query(By.css('sc-default-empty-image-field-editing-placeholder'));
+          const fieldValue = de.query(By.css('[sc-default-empty-image-field-editing-placeholder]'));
           const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
           const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
 
