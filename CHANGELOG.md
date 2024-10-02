@@ -18,7 +18,6 @@ Our versioning strategy is as follows:
 * `[template/angular]` Prevent client-side dictionary API call when SSR data is available ([#1930](https://github.com/Sitecore/jss/pull/1930)) ([#1932](https://github.com/Sitecore/jss/pull/1932))
 * `[sitecore-jss-angular]` Fix default empty field components to not render the unwanted wrapping tags ([#1937](https://github.com/Sitecore/jss/pull/1937))
 
-
 ### 🎉 New Features & Improvements
 
 * `[create-sitecore-jss]` Introduced "node-xmcloud-proxy" addon ([#1863](https://github.com/Sitecore/jss/pull/1863))
