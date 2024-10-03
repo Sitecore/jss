@@ -11,9 +11,12 @@ Our versioning strategy is as follows:
 
 ## 21.8.0
 
-### 🎉 New Features & Improvements
+### 🛠 Breaking Changes
 
-* `[sitecore-jss-angular]` Angular 17 Upgrade
+`[sitecore-jss-angular]` `[sitecore-jss-schematics]` `[templates/angular]` Upgrade Angular to v17 ([#1939](https://github.com/Sitecore/jss/pull/1939))
+  - Updated Angular and core dependencies to ~17.3.11
+  - Updated Typescript to ~5.2.2
+  - Updated import statements from zone.js/dist/zone-node to zone.js
 
 ## 21.7.1
 
