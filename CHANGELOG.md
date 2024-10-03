@@ -9,6 +9,14 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## Unreleased
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Fixed issue with sitecore-jss-nextjs field components using deprecated feature (`.defaultProps`) when using react 18+
+
+
+
 ## 21.7.1
 
 ### 🐛 Bug Fixes
