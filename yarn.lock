@@ -42,7 +42,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-angular@npm:~17.3.8":
+"@angular-devkit/build-angular@npm:~17.3.10":
   version: 17.3.10
   resolution: "@angular-devkit/build-angular@npm:17.3.10"
   dependencies:
@@ -167,7 +167,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/core@npm:17.3.10, @angular-devkit/core@npm:~17.3.8":
+"@angular-devkit/core@npm:17.3.10, @angular-devkit/core@npm:~17.3.10":
   version: 17.3.10
   resolution: "@angular-devkit/core@npm:17.3.10"
   dependencies:
@@ -186,7 +186,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/schematics@npm:17.3.10, @angular-devkit/schematics@npm:~17.3.8":
+"@angular-devkit/schematics@npm:17.3.10, @angular-devkit/schematics@npm:~17.3.10":
   version: 17.3.10
   resolution: "@angular-devkit/schematics@npm:17.3.10"
   dependencies:
@@ -206,7 +206,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-eslint/eslint-plugin@npm:^17.5.2":
+"@angular-eslint/eslint-plugin@npm:^17.5.3":
   version: 17.5.3
   resolution: "@angular-eslint/eslint-plugin@npm:17.5.3"
   dependencies:
@@ -233,7 +233,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cli@npm:~17.3.8":
+"@angular/cli@npm:~17.3.10":
   version: 17.3.10
   resolution: "@angular/cli@npm:17.3.10"
   dependencies:
@@ -261,7 +261,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/common@npm:~17.3.11":
+"@angular/common@npm:~17.3.12":
   version: 17.3.12
   resolution: "@angular/common@npm:17.3.12"
   dependencies:
@@ -273,7 +273,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/compiler-cli@npm:~17.3.11":
+"@angular/compiler-cli@npm:~17.3.12":
   version: 17.3.12
   resolution: "@angular/compiler-cli@npm:17.3.12"
   dependencies:
@@ -305,7 +305,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/compiler@npm:~17.3.11":
+"@angular/compiler@npm:~17.3.12":
   version: 17.3.12
   resolution: "@angular/compiler@npm:17.3.12"
   dependencies:
@@ -330,7 +330,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/core@npm:~17.3.11":
+"@angular/core@npm:~17.3.12":
   version: 17.3.12
   resolution: "@angular/core@npm:17.3.12"
   dependencies:
@@ -342,7 +342,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/platform-browser-dynamic@npm:~17.3.11":
+"@angular/platform-browser-dynamic@npm:~17.3.12":
   version: 17.3.12
   resolution: "@angular/platform-browser-dynamic@npm:17.3.12"
   dependencies:
@@ -356,7 +356,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/platform-browser@npm:~17.3.11":
+"@angular/platform-browser@npm:~17.3.12":
   version: 17.3.12
   resolution: "@angular/platform-browser@npm:17.3.12"
   dependencies:
@@ -372,7 +372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/router@npm:~17.3.11":
+"@angular/router@npm:~17.3.12":
   version: 17.3.12
   resolution: "@angular/router@npm:17.3.12"
   dependencies:
@@ -5813,7 +5813,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@schematics/angular@npm:17.3.10, @schematics/angular@npm:~17.3.8":
+"@schematics/angular@npm:17.3.10, @schematics/angular@npm:~17.3.10":
   version: 17.3.10
   resolution: "@schematics/angular@npm:17.3.10"
   dependencies:
@@ -6015,9 +6015,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-angular-schematics@workspace:packages/sitecore-jss-angular-schematics"
   dependencies:
-    "@angular-devkit/core": ~17.3.8
-    "@angular-devkit/schematics": ~17.3.8
-    "@schematics/angular": ~17.3.8
+    "@angular-devkit/core": ~17.3.10
+    "@angular-devkit/schematics": ~17.3.10
+    "@schematics/angular": ~17.3.10
     "@types/jasmine": ^2.8.0
     "@types/node": ^18.19.0
     chalk: ^2.4.2
@@ -6031,16 +6031,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-angular@workspace:packages/sitecore-jss-angular"
   dependencies:
-    "@angular-devkit/build-angular": ~17.3.8
-    "@angular-eslint/eslint-plugin": ^17.5.2
-    "@angular/cli": ~17.3.8
-    "@angular/common": ~17.3.11
-    "@angular/compiler": ~17.3.11
-    "@angular/compiler-cli": ~17.3.11
-    "@angular/core": ~17.3.11
-    "@angular/platform-browser": ~17.3.11
-    "@angular/platform-browser-dynamic": ~17.3.11
-    "@angular/router": ~17.3.11
+    "@angular-devkit/build-angular": ~17.3.10
+    "@angular-eslint/eslint-plugin": ^17.5.3
+    "@angular/cli": ~17.3.10
+    "@angular/common": ~17.3.12
+    "@angular/compiler": ~17.3.12
+    "@angular/compiler-cli": ~17.3.12
+    "@angular/core": ~17.3.12
+    "@angular/platform-browser": ~17.3.12
+    "@angular/platform-browser-dynamic": ~17.3.12
+    "@angular/router": ~17.3.12
     "@sitecore-jss/sitecore-jss": 21.7.1
     "@types/jasmine": ^5.1.4
     "@types/node": ^20.14.10
