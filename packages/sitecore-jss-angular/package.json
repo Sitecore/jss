@@ -11,7 +11,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-angular src/public_api.ts --githubPages false"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -23,16 +23,16 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~17.3.8",
+    "@angular-devkit/build-angular": "~17.3.10",
     "@angular-eslint/eslint-plugin": "^17.5.2",
-    "@angular/cli": "~17.3.8",
-    "@angular/common": "~17.3.11",
-    "@angular/compiler": "~17.3.11",
-    "@angular/compiler-cli": "~17.3.11",
-    "@angular/core": "~17.3.11",
-    "@angular/platform-browser": "~17.3.11",
-    "@angular/platform-browser-dynamic": "~17.3.11",
-    "@angular/router": "~17.3.11",
+    "@angular/cli": "~17.3.10",
+    "@angular/common": "~17.3.12",
+    "@angular/compiler": "~17.3.12",
+    "@angular/compiler-cli": "~17.3.12",
+    "@angular/core": "~17.3.12",
+    "@angular/platform-browser": "~17.3.12",
+    "@angular/platform-browser-dynamic": "~17.3.12",
+    "@angular/router": "~17.3.12",
     "@types/jasmine": "^5.1.4",
     "@types/node": "^20.14.10",
     "codelyzer": "^6.0.1",
