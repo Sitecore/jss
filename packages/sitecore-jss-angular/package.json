@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~17.3.10",
-    "@angular-eslint/eslint-plugin": "^17.5.2",
+    "@angular-eslint/eslint-plugin": "^17.5.3",
     "@angular/cli": "~17.3.10",
     "@angular/common": "~17.3.12",
     "@angular/compiler": "~17.3.12",
