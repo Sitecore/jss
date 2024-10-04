@@ -12,15 +12,11 @@ import Image, { ImageProps as NextImageProperties } from 'next/image';
 
 type NextImageProps = Omit<ImageProps, 'media'> & Partial<NextImageProperties>;
 
-export const NextImage: React.FC<NextImageProps> = ({
-  editable,
-  imageParams,
-  field,
-  mediaUrlPrefix,
-  fill,
-  priority,
-  ...otherProps
-}) => {
+export const NextImage: React.FC<NextImageProps> = (
+  { editable, imageParams, field, mediaUrlPrefix, fill, priority, ...otherProps } = {
+    editable: true,
+  }
+) => {
   // next handles src and we use a custom loader,
   // throw error if these are present
   if (otherProps.src) {
@@ -103,10 +99,6 @@ NextImage.propTypes = {
   imageParams: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]).isRequired
   ),
-};
-
-NextImage.defaultProps = {
-  editable: true,
 };
 
 NextImage.displayName = 'NextImage';
