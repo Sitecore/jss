@@ -17,6 +17,17 @@ Our versioning strategy is as follows:
   - Updated Angular and core dependencies to ~17.3.11
   - Updated Typescript to ~5.2.2
   - Updated import statements from zone.js/dist/zone-node to zone.js
+      Use _'zone.js'_ instead of _'zone.js/dist/zone-node'_
+
+        ```ts
+              import 'zone.js';
+        ```
+  - Update import in _src/templates/angular/src/polyfills.ts_
+      Use _'zone.js'_ instead of _'zone.js/dist/zone-node'_
+
+        ```ts
+              import 'zone.js';
+        ```
 
 ## 21.7.1
 
