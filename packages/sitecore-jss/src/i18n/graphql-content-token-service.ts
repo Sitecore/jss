@@ -82,7 +82,7 @@ export interface GraphQLContentTokenServiceConfig
 }
 
 /**
- * The schema of data returned in response to a dictionary query request.
+ * The schema of data returned in response to a content token query request.
  */
 export type ContentTokenQueryResult = {
   key: { value: string };
@@ -90,7 +90,7 @@ export type ContentTokenQueryResult = {
 };
 
 /**
- * Service that fetch dictionary data using Sitecore's GraphQL API.
+ * Service that fetch content token data using Sitecore's GraphQL API.
  * @augments ContentTokenServiceBase
  * @mixes SearchQueryService<ContentTokenQueryResult>
  */
@@ -99,7 +99,7 @@ export class GraphQLContentTokenService extends ContentTokenServiceBase {
   // private searchService: SearchQueryService<ContentTokenQueryResult>;
 
   /**
-   * Creates an instance of graphQL dictionary service with the provided options
+   * Creates an instance of graphQL content token service with the provided options
    * @param {GraphQLContentTokenService} options instance
    */
   constructor(public options: GraphQLContentTokenServiceConfig) {
@@ -109,16 +109,16 @@ export class GraphQLContentTokenService extends ContentTokenServiceBase {
   }
 
   /**
-   * Fetches dictionary data for internalization. Uses search query by default
+   * Fetches content token data for internalization. Uses search query by default
    * @param {string} language the language to fetch
-   * @returns {Promise<ContentTokenPhrases>} dictionary phrases
+   * @returns {Promise<ContentTokenPhrases>} content token phrases
    * @throws {Error} if the app root was not found for the specified site and language.
    */
   async fetchContentTokens(language: string): Promise<ContentTokenPhrases> {
     const cacheKey = this.options.siteName + language;
     const cachedValue = this.getCacheValue(cacheKey);
     if (cachedValue) {
-      debug.contenttokens('using cached dictionary data for %s %s', language, this.options.siteName);
+      debug.contenttokens('using cached content token data for %s %s', language, this.options.siteName);
       return cachedValue;
     }
 
@@ -129,11 +129,11 @@ export class GraphQLContentTokenService extends ContentTokenServiceBase {
   }
 
   /**
-   * Fetches dictionary data with search query
+   * Fetches content token data with search query
    * This is the default behavior for non-XMCloud deployments
    * @param {string} language the language to fetch
    * @default query (@see query)
-   * @returns {Promise<ContentTokenPhrases>} dictionary phrases
+   * @returns {Promise<ContentTokenPhrases>} content token phrases
    * @throws {Error} if the app root was not found for the specified site and language.
    */
   async fetchWithSearchQuery(language: string): Promise<ContentTokenPhrases> {
@@ -153,7 +153,7 @@ export class GraphQLContentTokenService extends ContentTokenServiceBase {
       throw new Error(queryError);
     }
 
-    debug.contenttokens('fetching dictionary data for %s %s', language, this.options.siteName);
+    debug.contenttokens('fetching content token data for %s %s', language, this.options.siteName);
     const phrases: ContentTokenPhrases = {};
     let results: ContentTokenQueryResult[] = [];
     let hasNext = true;
