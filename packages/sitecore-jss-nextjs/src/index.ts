@@ -48,10 +48,16 @@ export {
   PageViewInstance,
 } from '@sitecore-jss/sitecore-jss/tracking';
 export {
+  ContentTokenPhrases,
+  ContentTokenService,
   DictionaryPhrases,
   DictionaryService,
+  GraphQLContentTokenService,
+  GraphQLContentTokenServiceConfig,
   GraphQLDictionaryService,
   GraphQLDictionaryServiceConfig,
+  //TODO:RestContentTokenService,
+  //TODO:RestContentTokenServiceConfig,
   RestDictionaryService,
   RestDictionaryServiceConfig,
 } from '@sitecore-jss/sitecore-jss/i18n';
