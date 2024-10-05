@@ -72,7 +72,7 @@ export interface GraphQLContentTokenServiceConfig
    * Optional. The template ID to use when searching for content token entries.
    * @default '7d659ee9d4874d408a9210c6d68844c8' (/sitecore/templates/Feature/Experience Accelerator/Content Tokens/Content Token)
    */
-  contentTokenEntryTemplateId?: string;
+  contentTokenTemplateId?: string;
 
   /**
    * Optional. The template ID of a JSS App to use when searching for the appRootId.
@@ -161,7 +161,7 @@ export class GraphQLContentTokenService extends ContentTokenServiceBase {
     await this.graphQLClient.request<SearchQueryResult<ContentTokenQueryResult>>(query, {
       rootItemId,
       language,
-      templates: this.options.contentTokenEntryTemplateId || SitecoreTemplateId.ContentTokenEntry,
+      templates: this.options.contentTokenTemplateId || SitecoreTemplateId.ContentToken,
       pageSize: this.options.pageSize,
       after
     });
