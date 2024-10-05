@@ -14,7 +14,7 @@ export const queryError =
   'Valid value for rootItemId not provided and failed to auto-resolve app root item.';
 
 const query = /* GraphQL */ `
-  query DictionarySearch(
+  query ContentTokenSearch(
     $rootItemId: String!
     $language: String!
     $templates: String!
