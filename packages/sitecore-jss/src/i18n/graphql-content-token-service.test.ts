@@ -192,7 +192,7 @@ describe('GraphQLContentTokenService', () => {
       siteName,
       rootItemId,
       cacheEnabled: false,
-      dictionaryEntryTemplateId: customTemplateId,
+      contentTokenEntryTemplateId: customTemplateId,
     });
     const result = await service.fetchContentTokens('en');
     expect(result).to.have.all.keys('foo', 'bar');
@@ -200,7 +200,7 @@ describe('GraphQLContentTokenService', () => {
 
   it('should use default dictionary entry template ID, if template ID not provided', async () => {
     nock(endpoint)
-      .post('/', (body) => body.variables.templates === SitecoreTemplateId.DictionaryEntry)
+      .post('/', (body) => body.variables.templates === SitecoreTemplateId.ContentTokenEntry)
       .reply(200, contentTokenQueryResponse);
 
     const service = new GraphQLContentTokenService({
