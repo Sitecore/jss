@@ -92,11 +92,9 @@ export type ContentTokenQueryResult = {
 /**
  * Service that fetch content token data using Sitecore's GraphQL API.
  * @augments ContentTokenServiceBase
- * @mixes SearchQueryService<ContentTokenQueryResult>
  */
 export class GraphQLContentTokenService extends ContentTokenServiceBase {
   private graphQLClient: GraphQLClient;
-  // private searchService: SearchQueryService<ContentTokenQueryResult>;
 
   /**
    * Creates an instance of graphQL content token service with the provided options
@@ -105,7 +103,6 @@ export class GraphQLContentTokenService extends ContentTokenServiceBase {
   constructor(public options: GraphQLContentTokenServiceConfig) {
     super(options);
     this.graphQLClient = this.getGraphQLClient();
-    // this.searchService = new SearchQueryService<ContentTokenQueryResult>(this.graphQLClient);
   }
 
   /**
