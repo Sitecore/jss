@@ -6,7 +6,7 @@ import {
 import { SitecoreTemplateId } from '../constants';
 import { ContentTokenPhrases, ContentTokenServiceBase } from './content-token-service';
 import { CacheOptions } from '../cache-client';
-import { getAppRootId, SearchQueryService, SearchQueryVariables } from '../graphql';
+import { getAppRootId, SearchQueryResult, SearchQueryVariables } from '../graphql';
 import debug from '../debug';
 
 /** @private */
@@ -96,7 +96,7 @@ export type ContentTokenQueryResult = {
  */
 export class GraphQLContentTokenService extends ContentTokenServiceBase {
   private graphQLClient: GraphQLClient;
-  private searchService: SearchQueryService<ContentTokenQueryResult>;
+  // private searchService: SearchQueryService<ContentTokenQueryResult>;
 
   /**
    * Creates an instance of graphQL dictionary service with the provided options
@@ -105,7 +105,7 @@ export class GraphQLContentTokenService extends ContentTokenServiceBase {
   constructor(public options: GraphQLContentTokenServiceConfig) {
     super(options);
     this.graphQLClient = this.getGraphQLClient();
-    this.searchService = new SearchQueryService<ContentTokenQueryResult>(this.graphQLClient);
+    // this.searchService = new SearchQueryService<ContentTokenQueryResult>(this.graphQLClient);
   }
 
   /**
@@ -155,26 +155,26 @@ export class GraphQLContentTokenService extends ContentTokenServiceBase {
 
     debug.contenttokens('fetching dictionary data for %s %s', language, this.options.siteName);
     const phrases: ContentTokenPhrases = {};
-    //TODO: remove searchservice and implement gql client instead
-    // await this.getGraphQLClient.request(query, {
-    //   rootItemId,
-    //   language,
-    //   templates: this.options.contentTokenEntryTemplateId || SitecoreTemplateId.ContentTokenEntry,
-    //   pageSiqe: this.options.pageSize
-    // })
-    // .then((results) => {
-    //   results.forEach((item) => (phrases[item.key.value] = item.value.value));
-    // })
-    await this.searchService
-      .fetch(query, {
-        rootItemId,
-        language,
-        templates: this.options.contentTokenEntryTemplateId || SitecoreTemplateId.ContentTokenEntry,
-        pageSize: this.options.pageSize,
-      })
-      .then((results) => {
-        results.forEach((item) => (phrases[item.key.value] = item.value.value));
-      });
+    let results: ContentTokenQueryResult[] = [];
+    let hasNext = true;
+    let after = '';
+
+    while (hasNext) {
+      const fetchResponse =
+    await this.graphQLClient.request<SearchQueryResult<ContentTokenQueryResult>>(query, {
+      rootItemId,
+      language,
+      templates: this.options.contentTokenEntryTemplateId || SitecoreTemplateId.ContentTokenEntry,
+      pageSize: this.options.pageSize,
+      after
+    });
+
+    results = results.concat(fetchResponse?.search?.results);
+      hasNext = fetchResponse.search.pageInfo.hasNext;
+      after = fetchResponse.search.pageInfo.endCursor;
+    }
+
+    results.forEach((item) => (phrases[item.key.value] = item.value.value));
 
     return phrases;
   }
