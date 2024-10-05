@@ -40,4 +40,5 @@ export default {
   personalize: debug(`${rootNamespace}:personalize`),
   errorpages: debug(`${rootNamespace}:errorpages`),
   proxy: debug(`${rootNamespace}:proxy`),
+  contenttokens: debug(`${rootNamespace}:contenttokens`),
 };
