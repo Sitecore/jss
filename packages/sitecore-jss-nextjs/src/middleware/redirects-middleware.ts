@@ -112,6 +112,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
           REGEXP_CONTEXT_SITE_LANG,
           site.language
         );
+        req.nextUrl.locale = site.language;
       }
 
       const url = this.normalizeUrl(req.nextUrl.clone());
@@ -189,7 +190,9 @@ export class RedirectsMiddleware extends MiddlewareBase {
     siteName: string
   ): Promise<(RedirectInfo & { matchedQueryString?: string }) | undefined> {
     const redirects = await this.redirectsService.fetchRedirects(siteName);
-    const { pathname: targetURL, search: targetQS = '', locale } = req.nextUrl.clone();
+    const { pathname: targetURL, search: targetQS = '', locale } = this.normalizeUrl(
+      req.nextUrl.clone()
+    );
     const language = this.getLanguage(req);
     const modifyRedirects = structuredClone(redirects);
 
@@ -289,7 +292,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
       })
       .join('&');
 
-    const newUrl = newQueryString ? new URL(`${url.pathname}?${newQueryString}`, url.origin) : url;
+    const newUrl = new URL(`${url.pathname}?${newQueryString}`, url.origin);
 
     url.search = newUrl.search;
     url.pathname = newUrl.pathname;
