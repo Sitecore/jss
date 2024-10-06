@@ -31,7 +31,7 @@ describe('GraphQLContentTokenService', () => {
     nock.cleanAll();
   });
 
-  it('should fetch dictionary phrases using clientFactory', async () => {
+  it('should fetch content token phrases using clientFactory', async () => {
     nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
       .post('/', /ContentTokenSearch/gi)
       .reply(200, contentTokenQueryResponse);
@@ -180,7 +180,7 @@ describe('GraphQLContentTokenService', () => {
     expect(result).to.have.all.keys('foo', 'bar');
   });
 
-  it('should use custom dictionary entry template ID, if provided', async () => {
+  it('should use custom content token template ID, if provided', async () => {
     const customTemplateId = 'custom-template-id';
 
     nock(endpoint)
@@ -192,15 +192,15 @@ describe('GraphQLContentTokenService', () => {
       siteName,
       rootItemId,
       cacheEnabled: false,
-      contentTokenEntryTemplateId: customTemplateId,
+      contentTokenTemplateId: customTemplateId,
     });
     const result = await service.fetchContentTokens('en');
     expect(result).to.have.all.keys('foo', 'bar');
   });
 
-  it('should use default dictionary entry template ID, if template ID not provided', async () => {
+  it('should use default content token template ID, if template ID not provided', async () => {
     nock(endpoint)
-      .post('/', (body) => body.variables.templates === SitecoreTemplateId.ContentTokenEntry)
+      .post('/', (body) => body.variables.templates === SitecoreTemplateId.ContentToken)
       .reply(200, contentTokenQueryResponse);
 
     const service = new GraphQLContentTokenService({
