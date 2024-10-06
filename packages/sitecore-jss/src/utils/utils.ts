@@ -153,3 +153,18 @@ export const enforceCors = (
   }
   return false;
 };
+
+  /**
+   * Generates all possible permutations of an array of key-value pairs.
+   * This is used to create every possible combination of URL query parameters.
+   * @param {Array<[string, string]>} array - The array of key-value pairs to permute.
+   * @returns {Array<Array<[string, string]>>} - A 2D array where each inner array is a unique permutation of the input.
+   */
+ export const getPermutations = (array: [string, string][]): [string, string][][] =>{
+  if (array.length <= 1) return [array];
+
+  return array.flatMap((current, i) => {
+    const remaining = array.filter((_, idx) => idx !== i);
+    return getPermutations(remaining).map((permutation) => [current, ...permutation]);
+  });
+};
