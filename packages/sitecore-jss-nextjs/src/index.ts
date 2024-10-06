@@ -56,8 +56,8 @@ export {
   GraphQLContentTokenServiceConfig,
   GraphQLDictionaryService,
   GraphQLDictionaryServiceConfig,
-  //TODO:RestContentTokenService,
-  //TODO:RestContentTokenServiceConfig,
+  // TODO:RestContentTokenService,
+  // TODO:RestContentTokenServiceConfig,
   RestDictionaryService,
   RestDictionaryServiceConfig,
 } from '@sitecore-jss/sitecore-jss/i18n';

@@ -115,7 +115,11 @@ export class GraphQLContentTokenService extends ContentTokenServiceBase {
     const cacheKey = this.options.siteName + language;
     const cachedValue = this.getCacheValue(cacheKey);
     if (cachedValue) {
-      debug.contenttokens('using cached content token data for %s %s', language, this.options.siteName);
+      debug.contenttokens(
+        'using cached content token data for %s %s',
+        language,
+        this.options.siteName
+      );
       return cachedValue;
     }
 
@@ -157,16 +161,17 @@ export class GraphQLContentTokenService extends ContentTokenServiceBase {
     let after = '';
 
     while (hasNext) {
-      const fetchResponse =
-    await this.graphQLClient.request<SearchQueryResult<ContentTokenQueryResult>>(query, {
-      rootItemId,
-      language,
-      templates: this.options.contentTokenTemplateId || SitecoreTemplateId.ContentToken,
-      pageSize: this.options.pageSize,
-      after
-    });
+      const fetchResponse = await this.graphQLClient.request<
+        SearchQueryResult<ContentTokenQueryResult>
+      >(query, {
+        rootItemId,
+        language,
+        templates: this.options.contentTokenTemplateId || SitecoreTemplateId.ContentToken,
+        pageSize: this.options.pageSize,
+        after,
+      });
 
-    results = results.concat(fetchResponse?.search?.results);
+      results = results.concat(fetchResponse?.search?.results);
       hasNext = fetchResponse.search.pageInfo.hasNext;
       after = fetchResponse.search.pageInfo.endCursor;
     }
