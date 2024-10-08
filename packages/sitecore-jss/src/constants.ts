@@ -4,6 +4,9 @@ export enum SitecoreTemplateId {
 
   // /sitecore/templates/System/Dictionary/Dictionary entry
   DictionaryEntry = '6d1cd89719364a3aa511289a94c2a7b1',
+
+  // /sitecore/templates/Feature/Experience Accelerator/Content Tokens/Content Token
+  ContentToken = '7d659ee9d4874d408a9210c6d68844c8',
 }
 
 export const FETCH_WITH = {
