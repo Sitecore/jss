@@ -124,7 +124,7 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
       ...parsedAttrs,
     };
     // eslint-disable-next-line prefer-const
-    let { src, srcSet, ...otherAttrs } = combinedAttrs;
+    let { src, srcSet, style, ...otherAttrs } = combinedAttrs;
     if (!src) {
       return null;
     }
@@ -139,6 +139,13 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
     } else {
       newAttrs.src = src;
     }
+
+    if (style) {
+      newAttrs.style = Object.entries(style)
+        .map(([propName, value]) => `${propName}:${value}`)
+        .join(';');
+    }
+
     return newAttrs;
   }
 
