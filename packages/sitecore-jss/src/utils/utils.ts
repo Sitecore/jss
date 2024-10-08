@@ -1,8 +1,8 @@
-import isServer from './is-server';
-import { ParsedUrlQueryInput } from 'querystring';
 import { AxiosError } from 'axios';
-import { ResponseError } from '../data-fetcher';
 import { IncomingMessage, OutgoingMessage } from 'http';
+import { ParsedUrlQueryInput } from 'querystring';
+import { ResponseError } from '../data-fetcher';
+import isServer from './is-server';
 
 /**
  * Omit properties from T that are in K. This is a simplified version of TypeScript's built-in `Omit` utility type.

@@ -1,8 +1,14 @@
 /* eslint-disable no-unused-expressions */
 import { expect, spy } from 'chai';
-import { isServer, resolveUrl } from '.';
-import { enforceCors, getAllowedOriginsFromEnv, isAbsoluteUrl, isTimeoutError } from './utils';
 import { IncomingMessage, OutgoingMessage } from 'http';
+import { isServer, resolveUrl } from '.';
+import {
+  enforceCors,
+  getAllowedOriginsFromEnv,
+  getPermutations,
+  isAbsoluteUrl,
+  isTimeoutError,
+} from './utils';
 
 // must make TypeScript happy with `global` variable modification
 interface CustomWindow {
@@ -201,6 +207,38 @@ describe('utils', () => {
         'https://alsoallowed.com',
       ]);
       delete process.env.JSS_ALLOWED_ORIGINS;
+    });
+  });
+
+  describe('getPermutations', () => {
+    it('should return all permutations of an array with one pair', () => {
+      const input: [string, string][] = [['key1', 'value1']];
+      const expectedOutput = [[['key1', 'value1']]];
+      expect(getPermutations(input)).to.deep.equal(expectedOutput);
+    });
+
+    it('should return all permutations of an array with two pairs', () => {
+      const input: [string, string][] = [
+        ['key1', 'value1'],
+        ['key2', 'value2'],
+      ];
+      const expectedOutput = [
+        [
+          ['key1', 'value1'],
+          ['key2', 'value2'],
+        ],
+        [
+          ['key2', 'value2'],
+          ['key1', 'value1'],
+        ],
+      ];
+      expect(getPermutations(input)).to.deep.equal(expectedOutput);
+    });
+
+    it('should return an empty array when input is empty', () => {
+      const input: [string, string][] = [];
+      const expectedOutput = [[]];
+      expect(getPermutations(input)).to.deep.equal(expectedOutput);
     });
   });
 });
