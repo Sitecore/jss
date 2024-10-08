@@ -56,7 +56,7 @@ BaseFieldDirective.constructor
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/text.directive.ts:35](https://github.com/Sitecore/jss/blob/881196c17/packages/sitecore-jss-angular/src/components/text.directive.ts#L35)
+[packages/sitecore-jss-angular/src/components/text.directive.ts:35](https://github.com/Sitecore/jss/blob/70a58c007/packages/sitecore-jss-angular/src/components/text.directive.ts#L35)
 
 ## Properties
 
@@ -72,7 +72,7 @@ BaseFieldDirective.defaultFieldEditingComponent
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/text.directive.ts:33](https://github.com/Sitecore/jss/blob/881196c17/packages/sitecore-jss-angular/src/components/text.directive.ts#L33)
+[packages/sitecore-jss-angular/src/components/text.directive.ts:33](https://github.com/Sitecore/jss/blob/70a58c007/packages/sitecore-jss-angular/src/components/text.directive.ts#L33)
 
 ___
 
@@ -86,7 +86,7 @@ BaseFieldDirective.editable
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/text.directive.ts:19](https://github.com/Sitecore/jss/blob/881196c17/packages/sitecore-jss-angular/src/components/text.directive.ts#L19)
+[packages/sitecore-jss-angular/src/components/text.directive.ts:19](https://github.com/Sitecore/jss/blob/70a58c007/packages/sitecore-jss-angular/src/components/text.directive.ts#L19)
 
 ___
 
@@ -102,7 +102,7 @@ BaseFieldDirective.emptyFieldEditingTemplate
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/text.directive.ts:28](https://github.com/Sitecore/jss/blob/881196c17/packages/sitecore-jss-angular/src/components/text.directive.ts#L28)
+[packages/sitecore-jss-angular/src/components/text.directive.ts:28](https://github.com/Sitecore/jss/blob/70a58c007/packages/sitecore-jss-angular/src/components/text.directive.ts#L28)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/text.directive.ts:21](https://github.com/Sitecore/jss/blob/881196c17/packages/sitecore-jss-angular/src/components/text.directive.ts#L21)
+[packages/sitecore-jss-angular/src/components/text.directive.ts:21](https://github.com/Sitecore/jss/blob/70a58c007/packages/sitecore-jss-angular/src/components/text.directive.ts#L21)
 
 ___
 
@@ -126,7 +126,7 @@ BaseFieldDirective.field
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/text.directive.ts:23](https://github.com/Sitecore/jss/blob/881196c17/packages/sitecore-jss-angular/src/components/text.directive.ts#L23)
+[packages/sitecore-jss-angular/src/components/text.directive.ts:23](https://github.com/Sitecore/jss/blob/70a58c007/packages/sitecore-jss-angular/src/components/text.directive.ts#L23)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/text.directive.ts:35](https://github.com/Sitecore/jss/blob/881196c17/packages/sitecore-jss-angular/src/components/text.directive.ts#L35)
+[packages/sitecore-jss-angular/src/components/text.directive.ts:35](https://github.com/Sitecore/jss/blob/70a58c007/packages/sitecore-jss-angular/src/components/text.directive.ts#L35)
 
 ___
 
@@ -150,7 +150,7 @@ BaseFieldDirective.viewContainer
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/881196c17/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/70a58c007/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
 
 ___
 
@@ -164,7 +164,7 @@ BaseFieldDirective.viewRef
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/881196c17/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/70a58c007/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
 
 ## Methods
 
@@ -188,7 +188,7 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/text.directive.ts:40](https://github.com/Sitecore/jss/blob/881196c17/packages/sitecore-jss-angular/src/components/text.directive.ts#L40)
+[packages/sitecore-jss-angular/src/components/text.directive.ts:40](https://github.com/Sitecore/jss/blob/70a58c007/packages/sitecore-jss-angular/src/components/text.directive.ts#L40)
 
 ___
 
@@ -208,7 +208,7 @@ BaseFieldDirective.renderEmpty
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/881196c17/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/70a58c007/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
 
 ___
 
@@ -234,7 +234,7 @@ BaseFieldDirective.renderMetadata
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/881196c17/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/70a58c007/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
 
 ___
 
@@ -255,7 +255,7 @@ BaseFieldDirective.shouldRender
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:30](https://github.com/Sitecore/jss/blob/881196c17/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L30)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:30](https://github.com/Sitecore/jss/blob/70a58c007/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L30)
 
 ___
 
@@ -269,4 +269,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/text.directive.ts:48](https://github.com/Sitecore/jss/blob/881196c17/packages/sitecore-jss-angular/src/components/text.directive.ts#L48)
+[packages/sitecore-jss-angular/src/components/text.directive.ts:48](https://github.com/Sitecore/jss/blob/70a58c007/packages/sitecore-jss-angular/src/components/text.directive.ts#L48)

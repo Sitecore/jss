@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
  * Default component that will be rendered in pages when image field is empty.
  */
 @Component({
-  selector: 'sc-default-empty-image-field-editing-placeholder',
+  selector: '[sc-default-empty-image-field-editing-placeholder]',
   template: `
     <img
       alt=""
@@ -12,7 +12,16 @@ import { Component } from '@angular/core';
       class="scEmptyImage"
     />
   `,
-  styles:
-    'img { min-width:48px; min-height:48px; max-width:400px; max-height:400px; cursor:pointer }',
+  styles: [
+    `
+      :host {
+        min-width: 48px;
+        min-height: 48px;
+        max-width: 400px;
+        max-height: 400px;
+        cursor: pointer;
+      }
+    `,
+  ],
 })
 export class DefaultEmptyImageFieldEditingComponent {}
