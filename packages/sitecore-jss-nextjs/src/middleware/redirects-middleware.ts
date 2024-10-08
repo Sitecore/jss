@@ -8,6 +8,7 @@ import {
   RedirectInfo,
   SiteInfo,
 } from '@sitecore-jss/sitecore-jss/site';
+import { getPermutations } from '@sitecore-jss/sitecore-jss/utils';
 import { NextRequest, NextResponse } from 'next/server';
 import regexParser from 'regex-parser';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
@@ -117,7 +118,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
       if (REGEXP_ABSOLUTE_URL.test(existsRedirect.target)) {
         url.href = existsRedirect.target;
       } else {
-        const source = `${url.pathname.replace(/\/*$/gi, '')}${url.search}`;
+        const source = `${url.pathname.replace(/\/*$/gi, '')}${existsRedirect.matchedQueryString}`;
         const urlFirstPart = existsRedirect.target.split('/')[1];
 
         if (this.locales.includes(urlFirstPart)) {
@@ -183,7 +184,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
   private async getExistsRedirect(
     req: NextRequest,
     siteName: string
-  ): Promise<RedirectInfo | undefined> {
+  ): Promise<(RedirectInfo & { matchedQueryString?: string }) | undefined> {
     const redirects = await this.redirectsService.fetchRedirects(siteName);
     const normalizedUrl = this.normalizeUrl(req.nextUrl.clone());
     const tragetURL = normalizedUrl.pathname;
@@ -192,22 +193,58 @@ export class RedirectsMiddleware extends MiddlewareBase {
     const modifyRedirects = structuredClone(redirects);
 
     return modifyRedirects.length
-      ? modifyRedirects.find((redirect: RedirectInfo) => {
+      ? modifyRedirects.find((redirect: RedirectInfo & { matchedQueryString?: string }) => {
+          // Modify the redirect pattern to ignore the language prefix in the path
           redirect.pattern = redirect.pattern.replace(RegExp(`^[^]?/${language}/`, 'gi'), '');
-          redirect.pattern = `/^\/${redirect.pattern
-            .replace(/^\/|\/$/g, '')
-            .replace(/^\^\/|\/\$$/g, '')
-            .replace(/^\^|\$$/g, '')
-            .replace(/(?<!\\)\?/g, '\\?')
-            .replace(/\$\/gi$/g, '')}[\/]?$/gi`;
 
+          // Prepare the redirect pattern as a regular expression, making it more flexible for matching URLs
+          redirect.pattern = `/^\/${redirect.pattern
+            .replace(/^\/|\/$/g, '') // Removes leading and trailing slashes
+            .replace(/^\^\/|\/\$$/g, '') // Removes unnecessary start (^) and end ($) anchors
+            .replace(/^\^|\$$/g, '') // Further cleans up anchors
+            .replace(/(?<!\\)\?/g, '\\?') // Escapes question marks in the pattern
+            .replace(/\$\/gi$/g, '')}[\/]?$/i`; // Ensures the pattern allows an optional trailing slash
+
+          /**
+           * This line checks whether the current URL query string (and all its possible permutations)
+           * matches the redirect pattern.
+           *
+           * Query parameters in URLs can come in different orders, but logically they represent the
+           * same information (e.g., "key1=value1&key2=value2" is the same as "key2=value2&key1=value1").
+           * To account for this, the method `isPermutedQueryMatch` generates all possible permutations
+           * of the query parameters and checks if any of those permutations match the regex pattern for the redirect.
+           *
+           * NOTE: This fix is specifically implemented for Netlify, where query parameters are sometimes
+           * automatically sorted, which can cause issues with matching redirects if the order of query
+           * parameters is important. By checking every possible permutation, we ensure that redirects
+           * work correctly on Netlify despite this behavior.
+           *
+           * It passes several pieces of information to the function:
+           * 1. `pathname`: The normalized URL path without query parameters (e.g., '/about').
+           * 2. `queryString`: The current query string from the URL, which will be permuted and matched (e.g., '?key1=value1&key2=value2').
+           * 3. `pattern`: The regex pattern for the redirect that we are trying to match against the URL (e.g., '/about?key1=value1').
+           * 4. `locale`: The locale part of the URL (if any), which helps support multilingual URLs.
+           *
+           * If one of the permutations of the query string matches the redirect pattern, the function
+           * returns the matched query string, which is stored in `matchedQueryString`. If no match is found,
+           * it returns `undefined`. The `matchedQueryString` is later used to indicate whether the query
+           * string contributed to a successful redirect match.
+           */
+          const matchedQueryString = this.isPermutedQueryMatch({
+            pathname: tragetURL,
+            queryString: targetQS,
+            pattern: redirect.pattern,
+            locale: req.nextUrl.locale,
+          });
+
+          // Save the matched query string (if found) into the redirect object
+          redirect.matchedQueryString = matchedQueryString || '';
+
+          // Return the redirect if the URL path or any query string permutation matches the pattern
           return (
             (regexParser(redirect.pattern).test(tragetURL) ||
-              regexParser(redirect.pattern).test(`${tragetURL.replace(/\/*$/gi, '')}${targetQS}`) ||
               regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${tragetURL}`) ||
-              regexParser(redirect.pattern).test(
-                `/${req.nextUrl.locale}${tragetURL}${targetQS}`
-              )) &&
+              matchedQueryString) &&
             (redirect.locale
               ? redirect.locale.toLowerCase() === req.nextUrl.locale.toLowerCase()
               : true)
@@ -284,5 +321,41 @@ export class RedirectsMiddleware extends MiddlewareBase {
       redirect.headers.delete('x-middleware-rewrite');
     }
     return redirect;
+  }
+
+  /**
+   * Checks if the current URL query matches the provided pattern, considering all permutations of query parameters.
+   * It constructs all possible query parameter permutations and tests them against the pattern.
+   * @param {Object} params - The parameters for the URL match.
+   * @param {string} params.pathname - The current URL pathname.
+   * @param {string} params.queryString - The current URL query string.
+   * @param {string} params.pattern - The regex pattern to test the constructed URLs against.
+   * @param {string} [params.locale] - The locale prefix to include in the URL if present.
+   * @returns {string | undefined} - return query string if any of the query permutations match the provided pattern, undefined otherwise.
+   */
+  private isPermutedQueryMatch({
+    pathname,
+    queryString,
+    pattern,
+    locale,
+  }: {
+    pathname: string;
+    queryString: string;
+    pattern: string;
+    locale?: string;
+  }): string | undefined {
+    const paramsArray = Array.from(new URLSearchParams(queryString).entries());
+    const listOfPermuted = getPermutations(paramsArray).map(
+      (permutation: [string, string][]) =>
+        '?' + permutation.map(([key, value]) => `${key}=${value}`).join('&')
+    );
+
+    const normalizedPath = pathname.replace(/\/*$/gi, '');
+    return listOfPermuted.find((query: string) =>
+      [
+        regexParser(pattern).test(`${normalizedPath}${query}`),
+        regexParser(pattern).test(`/${locale}${normalizedPath}${query}`),
+      ].some(Boolean)
+    );
   }
 }
