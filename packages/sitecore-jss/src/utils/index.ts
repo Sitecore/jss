@@ -4,6 +4,7 @@ export {
   isAbsoluteUrl,
   isTimeoutError,
   enforceCors,
+  getPermutations,
   EnhancedOmit,
   getAllowedOriginsFromEnv,
 } from './utils';
