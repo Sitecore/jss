@@ -20,4 +20,4 @@ Context information from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:50](https://github.com/Sitecore/jss/blob/f219ae3cc/packages/sitecore-jss/src/layout/models.ts#L50)
+[packages/sitecore-jss/src/layout/models.ts:50](https://github.com/Sitecore/jss/blob/5d7a2d34c/packages/sitecore-jss/src/layout/models.ts#L50)
