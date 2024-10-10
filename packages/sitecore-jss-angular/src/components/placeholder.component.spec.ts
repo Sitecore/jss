@@ -1271,7 +1271,7 @@ describe('Placeholder Metadata: dynamic placeholder:', () => {
   );
 
   fit(
-    'should retain correct list of placeholders',
+    'should retain correct name of dynamic placeholder',
     waitForAsync(async () => {
       const layoutData = layoutDataForNestedDynamicPlaceholder('container-{*}');
       const component = layoutData.sitecore.route;
@@ -1280,11 +1280,7 @@ describe('Placeholder Metadata: dynamic placeholder:', () => {
       comp.rendering = (component as unknown) as ComponentRendering;
 
       fixture.detectChanges();
-      // double await is needed for nested/deep placeholders to render all components
       await fixture.whenStable();
-      fixture.detectChanges();
-      await fixture.whenStable();
-      fixture.detectChanges();
       const placeholder = de.query(By.css('sc-placeholder')).componentInstance;
       expect(Object.keys(placeholder?.rendering?.placeholders || [])).toEqual(['container-{*}']);
     })
