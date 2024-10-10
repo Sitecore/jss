@@ -1269,4 +1269,24 @@ describe('Placeholder Metadata: dynamic placeholder:', () => {
       expect(cleanedRenderedHTML).toEqual(expectedHTML);
     })
   );
+
+  fit(
+    'should retain correct list of placeholders',
+    waitForAsync(async () => {
+      const layoutData = layoutDataForNestedDynamicPlaceholder('container-{*}');
+      const component = layoutData.sitecore.route;
+      const phKey = 'container-2';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+
+      fixture.detectChanges();
+      // double await is needed for nested/deep placeholders to render all components
+      await fixture.whenStable();
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      const placeholder = de.query(By.css('sc-placeholder')).componentInstance;
+      expect(Object.keys(placeholder?.rendering?.placeholders || [])).toEqual(['container-{*}']);
+    })
+  );
 });
