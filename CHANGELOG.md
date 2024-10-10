@@ -19,6 +19,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` `[sitecore-jss]` Resolved an issue with Netlify where URL query parameters were being sorted, causing redirect failures. Added a method to generate all possible permutations of query parameters, ensuring proper matching with URL patterns regardless of their order. ([#1935](https://github.com/Sitecore/jss/pull/1935))
 * `[sitecore-jss-angular]` Fix default empty field components to not render the unwanted wrapping tags ([#1937](https://github.com/Sitecore/jss/pull/1937)) ([#1940](https://github.com/Sitecore/jss/pull/1940))
 * `[sitecore-jss-angular]` Fix image field style property not rendered properly ([#1944](https://github.com/Sitecore/jss/pull/1944))
+* `[sitecore-jss-angular]` Fix nested dynamic placeholders not being displayed in Pages ([#1947](https://github.com/Sitecore/jss/pull/1947))
 
 ### 🎉 New Features & Improvements
 
