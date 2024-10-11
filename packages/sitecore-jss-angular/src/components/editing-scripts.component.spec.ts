@@ -116,7 +116,7 @@ describe('<EditingScripts />', () => {
     }
   ));
 
-  it('should not add editing scripts and client data when edit mode is Metadata and not serverside rendering', inject(
+  it('should not add editing scripts and client data when edit mode is Metadata and rendering is not server side', inject(
     [JssStateService, DOCUMENT],
     (stateService: JssStateService, _document: Document) => {
       stateService.setState({
