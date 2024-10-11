@@ -3,6 +3,7 @@ import { getJssPagesClientData } from '@sitecore-jss/sitecore-jss/editing';
 import { JssStateService } from '../services/jss-state.service';
 import { DOCUMENT } from '@angular/common';
 import { EditMode, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
+import { isServer } from '@sitecore-jss/sitecore-jss/utils';
 
 /**
  * Component that renders editing scripts and client data for the current page in Sitecore Editor.
@@ -23,10 +24,11 @@ export class EditingScriptsComponent implements OnInit {
     const state = this.stateService.stateValue;
     const { pageState, editMode, clientData, clientScripts } = state.sitecore?.context || {};
 
-    // Don't render anything if not in editing mode
+    // Don't render anything if not in editing mode or not server side
     if (
       pageState === LayoutServicePageState.Normal ||
-      pageState === LayoutServicePageState.Preview
+      pageState === LayoutServicePageState.Preview ||
+      !isServer()
     ) {
       return;
     }
