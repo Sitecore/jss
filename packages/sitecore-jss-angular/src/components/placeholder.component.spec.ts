@@ -1270,7 +1270,7 @@ describe('Placeholder Metadata: dynamic placeholder:', () => {
     })
   );
 
-  fit(
+  it(
     'should retain correct name of dynamic placeholder',
     waitForAsync(async () => {
       const layoutData = layoutDataForNestedDynamicPlaceholder('container-{*}');
