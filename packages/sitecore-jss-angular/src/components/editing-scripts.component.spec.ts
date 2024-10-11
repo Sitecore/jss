@@ -6,6 +6,7 @@ import { PAGES_EDITING_MARKER } from '@sitecore-jss/sitecore-jss/editing';
 import { inject } from '@angular/core/testing';
 import { JssStateService } from '../services/jss-state.service';
 import { EditingScriptsComponent } from './editing-scripts.component';
+import * as utils from '@sitecore-jss/sitecore-jss/utils';
 
 @Component({
   selector: 'test-component',
@@ -61,6 +62,8 @@ describe('<EditingScripts />', () => {
         },
       });
 
+      spyOnProperty(utils, 'isServer').and.returnValue(() => true);
+
       fixture.detectChanges();
 
       expect(_document.body.querySelector(`#${PAGES_EDITING_MARKER}`)).toBeNull();
@@ -93,6 +96,42 @@ describe('<EditingScripts />', () => {
         },
       });
 
+      spyOnProperty(utils, 'isServer').and.returnValue(() => true);
+
+      fixture.detectChanges();
+
+      expect(_document.body.querySelector(`#${PAGES_EDITING_MARKER}`)).toBeNull();
+      expect(_document.body.querySelector('#hrz-canvas-state')).toBeNull();
+      expect(_document.body.querySelector('#hrz-canvas-verification-token')).toBeNull();
+      expect(
+        _document.body.querySelector(
+          'script[src="https://test.com/packages/page-extension/latest/page.js"]'
+        )
+      ).toBeNull();
+      expect(
+        _document.body.querySelector(
+          'script[src="https://test.com/horizon/canvas/horizon.canvas.js"]'
+        )
+      ).toBeNull();
+    }
+  ));
+
+  it('should not add editing scripts and client data when edit mode is Metadata and not serverside rendering', inject(
+    [JssStateService, DOCUMENT],
+    (stateService: JssStateService, _document: Document) => {
+      stateService.setState({
+        sitecore: {
+          context: {
+            editMode: EditMode.Metadata,
+            pageState: LayoutServicePageState.Edit,
+            ...sharedData,
+          },
+          route: null,
+        },
+      });
+
+      spyOnProperty(utils, 'isServer').and.returnValue(() => false);
+
       fixture.detectChanges();
 
       expect(_document.body.querySelector(`#${PAGES_EDITING_MARKER}`)).toBeNull();
@@ -124,6 +163,8 @@ describe('<EditingScripts />', () => {
           route: null,
         },
       });
+
+      spyOnProperty(utils, 'isServer').and.returnValue(() => true);
 
       fixture.detectChanges();
 
@@ -160,6 +201,8 @@ describe('<EditingScripts />', () => {
           route: null,
         },
       });
+
+      spyOnProperty(utils, 'isServer').and.returnValue(() => true);
 
       fixture.detectChanges();
 
