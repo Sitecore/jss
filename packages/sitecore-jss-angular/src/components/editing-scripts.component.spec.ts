@@ -36,6 +36,14 @@ describe('<EditingScripts />', () => {
     },
   };
 
+  beforeAll(() => {
+    jasmine.getEnv().allowRespy(true);
+  });
+
+  afterAll(() => {
+    jasmine.getEnv().allowRespy(false);
+  });
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [TestComponent, EditingScriptsComponent],
@@ -45,6 +53,7 @@ describe('<EditingScripts />', () => {
         { provide: DOCUMENT, useValue: document.implementation.createHTMLDocument() },
       ],
     }).compileComponents();
+    spyOnProperty(utils, 'isServer').and.returnValue(() => true);
     fixture = TestBed.createComponent(TestComponent);
   });
 
@@ -61,8 +70,6 @@ describe('<EditingScripts />', () => {
           route: null,
         },
       });
-
-      spyOnProperty(utils, 'isServer').and.returnValue(() => true);
 
       fixture.detectChanges();
 
@@ -95,8 +102,6 @@ describe('<EditingScripts />', () => {
           route: null,
         },
       });
-
-      spyOnProperty(utils, 'isServer').and.returnValue(() => true);
 
       fixture.detectChanges();
 
@@ -133,6 +138,8 @@ describe('<EditingScripts />', () => {
       spyOnProperty(utils, 'isServer').and.returnValue(() => false);
 
       fixture.detectChanges();
+      // reset spy state
+      spyOnProperty(utils, 'isServer').and.returnValue(() => true);
 
       expect(_document.body.querySelector(`#${PAGES_EDITING_MARKER}`)).toBeNull();
       expect(_document.body.querySelector('#hrz-canvas-state')).toBeNull();
@@ -163,8 +170,6 @@ describe('<EditingScripts />', () => {
           route: null,
         },
       });
-
-      spyOnProperty(utils, 'isServer').and.returnValue(() => true);
 
       fixture.detectChanges();
 
@@ -201,8 +206,6 @@ describe('<EditingScripts />', () => {
           route: null,
         },
       });
-
-      spyOnProperty(utils, 'isServer').and.returnValue(() => true);
 
       fixture.detectChanges();
 
