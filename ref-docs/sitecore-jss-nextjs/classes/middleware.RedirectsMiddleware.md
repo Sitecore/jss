@@ -9,7 +9,7 @@ compares with current url and redirects to target url
 
 ## Hierarchy
 
-- `MiddlewareBase`
+- [`MiddlewareBase`](middleware.MiddlewareBase.md)
 
   ↳ **`RedirectsMiddleware`**
 
@@ -39,6 +39,7 @@ compares with current url and redirects to target url
 - [getLanguage](middleware.RedirectsMiddleware.md#getlanguage)
 - [getSite](middleware.RedirectsMiddleware.md#getsite)
 - [handler](middleware.RedirectsMiddleware.md#handler)
+- [isPermutedQueryMatch](middleware.RedirectsMiddleware.md#ispermutedquerymatch)
 - [isPrefetch](middleware.RedirectsMiddleware.md#isprefetch)
 - [isPreview](middleware.RedirectsMiddleware.md#ispreview)
 - [normalizeUrl](middleware.RedirectsMiddleware.md#normalizeurl)
@@ -58,11 +59,11 @@ compares with current url and redirects to target url
 
 #### Overrides
 
-MiddlewareBase.constructor
+[MiddlewareBase](middleware.MiddlewareBase.md).[constructor](middleware.MiddlewareBase.md#constructor)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:40](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L40)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:42](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L42)
 
 ## Properties
 
@@ -72,11 +73,11 @@ MiddlewareBase.constructor
 
 #### Inherited from
 
-MiddlewareBase.REWRITE\_HEADER\_NAME
+[MiddlewareBase](middleware.MiddlewareBase.md).[REWRITE_HEADER_NAME](middleware.MiddlewareBase.md#rewrite_header_name)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:32](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L32)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:32](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L32)
 
 ___
 
@@ -86,11 +87,11 @@ ___
 
 #### Inherited from
 
-MiddlewareBase.SITE\_SYMBOL
+[MiddlewareBase](middleware.MiddlewareBase.md).[SITE_SYMBOL](middleware.MiddlewareBase.md#site_symbol)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:31](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L31)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:31](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L31)
 
 ___
 
@@ -102,11 +103,11 @@ redirects middleware config
 
 #### Inherited from
 
-MiddlewareBase.config
+[MiddlewareBase](middleware.MiddlewareBase.md).[config](middleware.MiddlewareBase.md#config)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:40](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L40)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:42](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L42)
 
 ___
 
@@ -116,11 +117,11 @@ ___
 
 #### Inherited from
 
-MiddlewareBase.defaultHostname
+[MiddlewareBase](middleware.MiddlewareBase.md).[defaultHostname](middleware.MiddlewareBase.md#defaulthostname)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:33](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L33)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:33](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L33)
 
 ___
 
@@ -130,7 +131,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:35](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L35)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:37](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L37)
 
 ___
 
@@ -140,7 +141,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:34](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L34)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:36](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L36)
 
 ## Methods
 
@@ -154,7 +155,7 @@ Helper function to create a redirect response and remove the x-middleware-next h
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `url` | `string` | The URL to redirect to. |
+| `url` | `NextURL` | The URL to redirect to. |
 | `res` | `undefined` \| `Response` | The response object. |
 | `status` | `number` | The HTTP status code of the redirect. |
 | `statusText` | `string` | The status text of the redirect. |
@@ -167,7 +168,7 @@ The redirect response.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:271](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L271)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:312](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L312)
 
 ___
 
@@ -187,11 +188,11 @@ ___
 
 #### Inherited from
 
-MiddlewareBase.excludeRoute
+[MiddlewareBase](middleware.MiddlewareBase.md).[excludeRoute](middleware.MiddlewareBase.md#excluderoute)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:63](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L63)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:63](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L63)
 
 ___
 
@@ -216,17 +217,17 @@ Object with headers as key/value pairs
 
 #### Inherited from
 
-MiddlewareBase.extractDebugHeaders
+[MiddlewareBase](middleware.MiddlewareBase.md).[extractDebugHeaders](middleware.MiddlewareBase.md#extractdebugheaders)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:78](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L78)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:78](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L78)
 
 ___
 
 ### getExistsRedirect
 
-▸ `Private` **getExistsRedirect**(`req`, `siteName`): `Promise`\<`undefined` \| `RedirectInfo`\>
+▸ `Private` **getExistsRedirect**(`req`, `siteName`): `Promise`\<`undefined` \| `RedirectInfo` & \{ `matchedQueryString?`: `string`  }\>
 
 Method returns RedirectInfo when matches
 
@@ -239,13 +240,13 @@ Method returns RedirectInfo when matches
 
 #### Returns
 
-`Promise`\<`undefined` \| `RedirectInfo`\>
+`Promise`\<`undefined` \| `RedirectInfo` & \{ `matchedQueryString?`: `string`  }\>
 
 Promise<RedirectInfo | undefined>
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:183](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L183)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:188](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L188)
 
 ___
 
@@ -280,7 +281,7 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:53](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L53)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:55](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L55)
 
 ___
 
@@ -302,11 +303,11 @@ Extract 'host' header
 
 #### Inherited from
 
-MiddlewareBase.getHostHeader
+[MiddlewareBase](middleware.MiddlewareBase.md).[getHostHeader](middleware.MiddlewareBase.md#gethostheader)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:97](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L97)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:97](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L97)
 
 ___
 
@@ -330,11 +331,11 @@ language
 
 #### Inherited from
 
-MiddlewareBase.getLanguage
+[MiddlewareBase](middleware.MiddlewareBase.md).[getLanguage](middleware.MiddlewareBase.md#getlanguage)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:89](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L89)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:89](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L89)
 
 ___
 
@@ -360,11 +361,11 @@ site information
 
 #### Inherited from
 
-MiddlewareBase.getSite
+[MiddlewareBase](middleware.MiddlewareBase.md).[getSite](middleware.MiddlewareBase.md#getsite)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:108](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L108)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:108](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L108)
 
 ___
 
@@ -385,7 +386,36 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:65](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L65)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:67](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L67)
+
+___
+
+### isPermutedQueryMatch
+
+▸ `Private` **isPermutedQueryMatch**(`params`): `undefined` \| `string`
+
+Checks if the current URL query matches the provided pattern, considering all permutations of query parameters.
+It constructs all possible query parameter permutations and tests them against the pattern.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params` | `Object` | The parameters for the URL match. |
+| `params.locale?` | `string` | The locale prefix to include in the URL if present. |
+| `params.pathname` | `string` | The current URL pathname. |
+| `params.pattern` | `string` | The regex pattern to test the constructed URLs against. |
+| `params.queryString` | `string` | The current URL query string. |
+
+#### Returns
+
+`undefined` \| `string`
+
+- return query string if any of the query permutations match the provided pattern, undefined otherwise.
+
+#### Defined in
+
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:340](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L340)
 
 ___
 
@@ -409,11 +439,11 @@ is prefetch
 
 #### Inherited from
 
-MiddlewareBase.isPrefetch
+[MiddlewareBase](middleware.MiddlewareBase.md).[isPrefetch](middleware.MiddlewareBase.md#isprefetch)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:55](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L55)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:55](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L55)
 
 ___
 
@@ -437,17 +467,17 @@ is preview
 
 #### Inherited from
 
-MiddlewareBase.isPreview
+[MiddlewareBase](middleware.MiddlewareBase.md).[isPreview](middleware.MiddlewareBase.md#ispreview)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:44](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L44)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:44](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L44)
 
 ___
 
 ### normalizeUrl
 
-▸ `Private` **normalizeUrl**(`url`): `URL`
+▸ `Private` **normalizeUrl**(`url`): `NextURL`
 
 When a user clicks on a link generated by the Link component from next/link,
 Next.js adds special parameters in the route called path.
@@ -457,17 +487,17 @@ This method removes these special parameters.
 
 | Name | Type |
 | :------ | :------ |
-| `url` | `URL` |
+| `url` | `NextURL` |
 
 #### Returns
 
-`URL`
+`NextURL`
 
 normalize url
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:226](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L226)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:265](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L265)
 
 ___
 
@@ -491,8 +521,8 @@ Create a rewrite response
 
 #### Inherited from
 
-MiddlewareBase.rewrite
+[MiddlewareBase](middleware.MiddlewareBase.md).[rewrite](middleware.MiddlewareBase.md#rewrite)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:124](https://github.com/Sitecore/jss/blob/030d32eb3/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L124)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:124](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L124)
