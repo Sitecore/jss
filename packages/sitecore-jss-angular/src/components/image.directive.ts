@@ -141,7 +141,7 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
     }
 
     if (style) {
-      newAttrs.style = Object.entries(style)
+      newAttrs.style = Object.entries(style as Record<string, unknown>)
         .map(([propName, value]) => `${propName}:${value}`)
         .join(';');
     }
