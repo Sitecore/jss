@@ -15,15 +15,28 @@ const trackedScopes = ['@sitecore', '@sitecore-cloudsdk', '@sitecore-feaas', '@s
  * Get application metadata
  */
 export function getMetadata(): Metadata {
+  const metadata: Metadata = { packages: {} };
+
   const packageLockPath = './package-lock.json';
   const packageLockIsAvailable = fs.existsSync(packageLockPath);
 
   if (!packageLockIsAvailable) {
-    execSync('npm i --package-lock-only --workspaces false');
+    try {
+      execSync('npm i --package-lock-only --workspaces false');
+    } catch (error) {
+      console.error(`Failed to create package-lock.json in project`, error);
+      return metadata;
+    }
   }
 
-  const metadata: Metadata = { packages: {} };
-  const packageLock = JSON.parse(fs.readFileSync(packageLockPath, 'utf8'));
+  let packageLock = {};
+  try {
+    packageLock = JSON.parse(fs.readFileSync(packageLockPath, 'utf8'));
+  } catch (error) {
+    console.error(`Failed to read/parse package-lock.json`, error);
+    return metadata;
+  }
+
   metadata.packages = getPackagesFromPackageLock(packageLock);
 
   if (!packageLockIsAvailable) {
