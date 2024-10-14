@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { Metadata, getMetadata } from '@sitecore-jss/sitecore-jss-dev-tools';
+import { execSync } from 'child_process';
 
 /*
   METADATA GENERATION
@@ -10,8 +11,23 @@ import { Metadata, getMetadata } from '@sitecore-jss/sitecore-jss-dev-tools';
 generateMetadata();
 
 function generateMetadata(): void {
-  const metadata: Metadata = getMetadata();
+  const packageLockPath = './package-lock.json';
+  const packageLockAvailable = fs.existsSync(packageLockPath);
+
+  const absolutePath = path.resolve(__dirname);
+  console.log(absolutePath);
+
+  if (!packageLockAvailable) {
+    execSync('npm i --package-lock-only --workspaces false');
+  }
+  const packageLock = JSON.parse(fs.readFileSync(packageLockPath, 'utf8'));
+
+  const metadata: Metadata = getMetadata(packageLock);
   writeMetadata(metadata);
+
+  if (!packageLockAvailable) {
+    execSync(`del "${packageLockPath}"`);
+  }
 }
 
 /**
