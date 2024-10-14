@@ -1,7 +1,9 @@
 import { Metadata } from '@sitecore-jss/sitecore-jss/editing';
+import fs from 'fs';
+import { execSync } from 'child_process';
 
 type Package = {
-  [dependency: string]: unknown;
+  [key: string]: unknown;
   name: string;
   version: string;
 };
@@ -12,9 +14,22 @@ const trackedScopes = ['@sitecore', '@sitecore-cloudsdk', '@sitecore-feaas', '@s
 /**
  * Get application metadata
  */
-export function getMetadata(packageLock: Record<string, unknown>): Metadata {
+export function getMetadata(): Metadata {
+  const packageLockPath = './package-lock.json';
+  const packageLockIsAvailable = fs.existsSync(packageLockPath);
+
+  if (!packageLockIsAvailable) {
+    execSync('npm i --package-lock-only --workspaces false');
+  }
+
   const metadata: Metadata = { packages: {} };
+  const packageLock = JSON.parse(fs.readFileSync(packageLockPath, 'utf8'));
   metadata.packages = getPackagesFromPackageLock(packageLock);
+
+  if (!packageLockIsAvailable) {
+    execSync(`del "${packageLockPath}"`);
+  }
+
   return metadata;
 }
 
@@ -38,7 +53,7 @@ function getPackagesFromPackageLock(
   }
 
   // traverse packages again to get the exact versions.
-  // getting packages names and versions in one go doesn't gurantee getting every package correctly
+  // getting packages names and versions in one go doesn't gurantee getting all package info correctly
   for (const key in packages) {
     Object.keys(packagesResult).forEach((scPackage) => {
       if (packages[key].name === scPackage || key.endsWith(scPackage)) {
