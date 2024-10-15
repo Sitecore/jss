@@ -29,6 +29,17 @@
   text-align-last: center !important;
 }
 
+@include media-breakpoint-up(sm) {
+  .ms-sm-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+  .me-sm-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+  }
+}
+
 @include media-breakpoint-up(md) {
   .ms-md-auto {
     margin-left: auto !important;
@@ -40,16 +51,6 @@
   }
 }
 
-@include media-breakpoint-up(sm) {
-  .ms-sm-auto {
-    margin-left: auto !important;
-    margin-right: 0 !important;
-  }
-  .me-sm-auto {
-    margin-right: auto !important;
-    margin-left: 0 !important;
-  }
-}
 @include media-breakpoint-up(lg) {
   .ms-lg-auto {
     margin-left: auto !important;
@@ -60,6 +61,7 @@
     margin-left: 0 !important;
   }
 }
+
 @include media-breakpoint-up(xl) {
   .ms-xl-auto {
     margin-left: auto !important;
@@ -70,6 +72,7 @@
     margin-left: 0 !important;
   }
 }
+
 @include media-breakpoint-up(xxl) {
   .ms-xxl-auto {
     margin-left: auto !important;
