@@ -1,31 +1,85 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
 .position-left,
 .position-left * {
-    text-align: left !important;
+  text-align: left !important;
 }
 
 .position-right,
 .position-right * {
-    text-align: right !important;
+  text-align: right !important;
 }
 
 .position-center,
 .position-center * {
-    text-align: center !important;
+  text-align: center !important;
 }
 
 .position-left select {
-    direction: ltr !important;
+  direction: ltr !important;
 }
 
 .position-right select {
-    direction: rtl !important;
+  direction: rtl !important;
 }
 
 .position-center select {
-    text-align-last: center !important;
+  text-align-last: center !important;
 }
 
-.ms-md-auto {
+@include media-breakpoint-up(sm) {
+  .ms-sm-auto {
     margin-left: auto !important;
     margin-right: 0 !important;
+  }
+  .me-sm-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .ms-md-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+  .me-md-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .ms-lg-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+  .me-lg-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .ms-xl-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+  .me-xl-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .ms-xxl-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+  .me-xxl-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+  }
 }
