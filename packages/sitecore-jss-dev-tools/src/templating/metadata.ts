@@ -22,7 +22,8 @@ export function getMetadata(): Metadata {
 
   if (!packageLockIsAvailable) {
     try {
-      execSync('npm i --package-lock-only --workspaces false');
+      console.log('Creating package-lock.json ...');
+      execSync('npm i --package-lock-only --workspaces false --force');
     } catch (error) {
       console.error(`Failed to create package-lock.json in project`, error);
       return metadata;
@@ -40,6 +41,7 @@ export function getMetadata(): Metadata {
   metadata.packages = getPackagesFromPackageLock(packageLock);
 
   if (!packageLockIsAvailable) {
+    console.log('Deleting package-lock.json ...');
     execSync(`del "${packageLockPath}"`);
   }
 
