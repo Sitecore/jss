@@ -6,6 +6,9 @@ import path from 'path';
 import { getMetadata } from './metadata';
 import sinon, { SinonStub } from 'sinon';
 import { Metadata } from '@sitecore-jss/sitecore-jss/editing';
+import childProcess from 'child_process';
+import packageLockNextjs from './../test-data/metadata/package-lock-nextjs.json';
+import metadataNextjs from './../test-data/metadata/metadata-nextjs.json';
 
 describe('metadata', () => {
   afterEach(() => {
@@ -15,10 +18,14 @@ describe('metadata', () => {
   describe('getMetadata', () => {
     let readdirSync: SinonStub;
     let readFileSync: SinonStub;
+    let existsSync: SinonStub;
+    let execSyncStub: SinonStub;
 
     afterEach(() => {
       readdirSync?.restore();
       readFileSync?.restore();
+      existsSync?.restore();
+      execSyncStub?.restore();
     });
 
     it('should return packages metadata from @sitecore scope', () => {
@@ -146,6 +153,35 @@ describe('metadata', () => {
         .returns('{"name": "@sitecore-feaas/clientside","version": "0.5.12"');
 
       expect(() => getMetadata()).to.throw;
+    });
+
+    it('new test: it should create package-lock.json if not already present and then remove it', () => {
+      existsSync = sinon.stub(fs, 'existsSync');
+      existsSync.withArgs('./package-lock.json').returns(false);
+      readFileSync = sinon.stub(fs, 'readFileSync');
+      readFileSync.withArgs('./package-lock.json', 'utf8').returns(JSON.stringify({}));
+      execSyncStub = sinon.stub(childProcess, 'execSync');
+      getMetadata();
+      expect(execSyncStub.calledTwice).to.be.true;
+    });
+
+    it('new test: should thorow if package-lock creation failed', () => {
+      existsSync = sinon.stub(fs, 'existsSync');
+      existsSync.withArgs('./package-lock.json').returns(false);
+      execSyncStub = sinon.stub(childProcess, 'execSync').throws('error');
+      expect(() => getMetadata()).to.throw;
+    });
+
+    it('new test: should return tracked packages from example nextjs package-lock.json', () => {
+      existsSync = sinon.stub(fs, 'existsSync');
+      existsSync.withArgs('./package-lock.json').returns(true);
+      readFileSync = sinon.stub(fs, 'readFileSync');
+      readFileSync
+        .withArgs('./package-lock.json', 'utf8')
+        .returns(JSON.stringify(packageLockNextjs));
+
+      const metadata = getMetadata();
+      expect(metadata).to.deep.equal(metadataNextjs);
     });
   });
 });
