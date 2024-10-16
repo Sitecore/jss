@@ -1269,4 +1269,20 @@ describe('Placeholder Metadata: dynamic placeholder:', () => {
       expect(cleanedRenderedHTML).toEqual(expectedHTML);
     })
   );
+
+  it(
+    'should retain correct name of dynamic placeholder',
+    waitForAsync(async () => {
+      const layoutData = layoutDataForNestedDynamicPlaceholder('container-{*}');
+      const component = layoutData.sitecore.route;
+      const phKey = 'container-2';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+
+      fixture.detectChanges();
+      await fixture.whenStable();
+      const placeholder = de.query(By.css('sc-placeholder')).componentInstance;
+      expect(Object.keys(placeholder?.rendering?.placeholders || [])).toEqual(['container-{*}']);
+    })
+  );
 });
