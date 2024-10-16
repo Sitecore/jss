@@ -3,17 +3,7 @@ import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testin
 import { FormComponent, FormRendering } from './form.component';
 import { EDGE_CONFIG, EdgeConfigToken } from '../services/shared.token';
 import { ElementRef } from '@angular/core';
-
-/**
- * Remove angular comments and angular-specific bindings
- * @param {string} html
- */
-function cleanHtml(html: string): string {
-  return html
-    .replace(/<!--[^>]*-->/g, '')
-    .replace(/\s*ng-reflect-[^=]*="[^"]*"/g, '')
-    .trim();
-}
+import { cleanHtml } from '../test-utils';
 
 describe('FormComponent', () => {
   let component: FormComponent;
