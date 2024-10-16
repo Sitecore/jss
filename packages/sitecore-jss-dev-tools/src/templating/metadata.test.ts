@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import fs from 'fs';
+import path from 'path';
 import { getMetadata } from './metadata';
 import sinon, { SinonStub } from 'sinon';
 import childProcess from 'child_process';
@@ -17,6 +18,7 @@ describe('metadata', () => {
   });
 
   describe('getMetadata', () => {
+    const packageLockPath = `.${path.sep}package-lock.json`;
     let readdirSync: SinonStub;
     let readFileSync: SinonStub;
     let existsSync: SinonStub;
@@ -31,9 +33,9 @@ describe('metadata', () => {
 
     it('it should create package-lock.json if not already present and then remove it', () => {
       existsSync = sinon.stub(fs, 'existsSync');
-      existsSync.withArgs('./package-lock.json').returns(false);
+      existsSync.withArgs(packageLockPath).returns(false);
       readFileSync = sinon.stub(fs, 'readFileSync');
-      readFileSync.withArgs('./package-lock.json', 'utf8').returns(JSON.stringify({}));
+      readFileSync.withArgs(packageLockPath, 'utf8').returns(JSON.stringify({}));
       execSyncStub = sinon.stub(childProcess, 'execSync');
       getMetadata();
       expect(execSyncStub.calledTwice).to.be.true;
@@ -41,18 +43,16 @@ describe('metadata', () => {
 
     it('should thorow if package-lock creation failed', () => {
       existsSync = sinon.stub(fs, 'existsSync');
-      existsSync.withArgs('./package-lock.json').returns(false);
+      existsSync.withArgs(packageLockPath).returns(false);
       execSyncStub = sinon.stub(childProcess, 'execSync').throws('error');
       expect(() => getMetadata()).to.throw;
     });
 
     it('should return tracked packages from example nextjs package-lock.json', () => {
       existsSync = sinon.stub(fs, 'existsSync');
-      existsSync.withArgs('./package-lock.json').returns(true);
+      existsSync.withArgs(packageLockPath).returns(true);
       readFileSync = sinon.stub(fs, 'readFileSync');
-      readFileSync
-        .withArgs('./package-lock.json', 'utf8')
-        .returns(JSON.stringify(packageLockNextjs));
+      readFileSync.withArgs(packageLockPath, 'utf8').returns(JSON.stringify(packageLockNextjs));
 
       const metadata = getMetadata();
       expect(metadata).to.deep.equal(metadataNextjs);
@@ -60,11 +60,9 @@ describe('metadata', () => {
 
     it('should return tracked packages from example angular package-lock.json', () => {
       existsSync = sinon.stub(fs, 'existsSync');
-      existsSync.withArgs('./package-lock.json').returns(true);
+      existsSync.withArgs(packageLockPath).returns(true);
       readFileSync = sinon.stub(fs, 'readFileSync');
-      readFileSync
-        .withArgs('./package-lock.json', 'utf8')
-        .returns(JSON.stringify(packageLockAngular));
+      readFileSync.withArgs(packageLockPath, 'utf8').returns(JSON.stringify(packageLockAngular));
 
       const metadata = getMetadata();
       expect(metadata).to.deep.equal(metadataAngular);
@@ -72,11 +70,9 @@ describe('metadata', () => {
 
     it('should not return packages for package-lock not containng tracked packages', () => {
       existsSync = sinon.stub(fs, 'existsSync');
-      existsSync.withArgs('./package-lock.json').returns(true);
+      existsSync.withArgs(packageLockPath).returns(true);
       readFileSync = sinon.stub(fs, 'readFileSync');
-      readFileSync
-        .withArgs('./package-lock.json', 'utf8')
-        .returns(JSON.stringify(packageLockNoSitecore));
+      readFileSync.withArgs(packageLockPath, 'utf8').returns(JSON.stringify(packageLockNoSitecore));
 
       const metadata = getMetadata();
       expect(metadata).to.deep.equal({ packages: {} });
@@ -84,10 +80,10 @@ describe('metadata', () => {
 
     it('should throw if package-lock json not valid', () => {
       existsSync = sinon.stub(fs, 'existsSync');
-      existsSync.withArgs('./package-lock.json').returns(true);
+      existsSync.withArgs(packageLockPath).returns(true);
       readFileSync = sinon.stub(fs, 'readFileSync');
       readFileSync
-        .withArgs('./package-lock.json', 'utf8')
+        .withArgs(packageLockPath, 'utf8')
         .returns(fs.readFileSync('./../test-data/metadata/package-lock-invalid.json', 'utf8'));
       expect(() => getMetadata()).to.throw;
     });

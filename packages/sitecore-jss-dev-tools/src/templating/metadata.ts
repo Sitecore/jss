@@ -1,5 +1,6 @@
 import { Metadata } from '@sitecore-jss/sitecore-jss/editing';
 import fs from 'fs';
+import path from 'path';
 import { execSync } from 'child_process';
 
 type Package = {
@@ -17,7 +18,7 @@ const trackedScopes = ['@sitecore', '@sitecore-cloudsdk', '@sitecore-feaas', '@s
 export function getMetadata(): Metadata {
   const metadata: Metadata = { packages: {} };
 
-  const packageLockPath = './package-lock.json';
+  const packageLockPath = `.${path.sep}package-lock.json`;
   const packageLockIsAvailable = fs.existsSync(packageLockPath);
 
   if (!packageLockIsAvailable) {
