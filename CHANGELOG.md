@@ -68,6 +68,8 @@ Our versioning strategy is as follows:
 * `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/healthz endpoint ([#1928](https://github.com/Sitecore/jss/pull/1928))
 * `[sitecore-jss]` `[sitecore-jss-angular]` Render field metdata chromes in editMode metadata - in edit mode metadata in Pages, angular package field directives will render wrapping `code` elements with field metadata required for editing; ([#1926](https://github.com/Sitecore/jss/pull/1926))
 * `[sitecore-jss-nextjs]` Expose MiddlewareBase class and MiddlewareBaseConfig type ([#1941](https://github.com/Sitecore/jss/pull/1941))
+* `[angular-xmcloud]``[sitecore-jss-angular]` Analytics and CloudSDK integration
+  * `[angular-xmcloud]` Add CloudSDK initialization on client side ([#1952](https://github.com/Sitecore/jss/pull/1952))
 
 ### 🛠 Breaking Change
 
