@@ -112,7 +112,7 @@ export class FormComponent implements OnInit {
   /**
    * When you set the innerHTML property of an element, the browser does not execute any <script> tags included in the HTML string
    * This method ensures that any <script> elements within the loaded HTML are executed.
-   * It creates new script elements and appends them to the document head, then removes them to avoid duplication.
+   * It re-creates the script elements and appends the to the component's template, then removes old script elements to avoid duplication.
    */
   executeScriptElements() {
     const scriptElements = this.elRef.nativeElement.querySelectorAll('script');
