@@ -11,6 +11,9 @@ export {
   HTMLLink,
   enableDebug,
   debug,
+  CacheClient,
+  CacheOptions,
+  MemoryCacheClient,
 } from '@sitecore-jss/sitecore-jss';
 
 export {
