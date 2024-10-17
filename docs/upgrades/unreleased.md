@@ -261,6 +261,40 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
     <sc-editing-scripts></sc-editing-scripts>
     ```
 
+* In order to be able to start using Forms in XMCloud you need to register a Form component and add required configuration:
+    * Update your _scripts/generate-component-builder_ template::
+        * Register Form component
+
+            ```ts
+            const packages = [
+            {
+                name: '@sitecore-jss/sitecore-jss-angular',
+                components: [{ componentName: 'Form', moduleName: 'FormComponent' }],
+            },
+            ]
+            ```
+
+            Make sure to don't push such components to the "declarations" list, since the related module is a part of "imports" list.
+        * Add to "providers" list a new InjectionToken, EDGE_CONFIG token is needed for Form component to be able to fetch the form from Sitecore Edge:
+
+            ```ts
+            import { EDGE_CONFIG } from '@sitecore-jss/sitecore-jss-angular';
+            import { environment } from '../../environments/environment';
+            ...
+            providers: [
+                {
+                    // This configuration is used to be able to integrate sitecore-jss-angular SDK with Sitecore Edge
+                    provide: EDGE_CONFIG,
+                    useValue: {
+                        sitecoreEdgeUrl: environment.sitecoreEdgeUrl,
+                        sitecoreEdgeContextId: environment.sitecoreEdgeContextId,
+                    },
+                },
+            ],
+            ```
+
+    
+
 # @sitecore-jss/sitecore-jss-proxy
 
 * Update the import statement

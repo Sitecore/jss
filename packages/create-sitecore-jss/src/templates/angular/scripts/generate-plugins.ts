@@ -21,6 +21,11 @@ const pluginDefinitions: PluginDefinition[] = [
     rootPath: 'scripts/config/plugins',
     moduleType: ModuleType.ESM,
   },
+  {
+    distPath: 'scripts/temp/generate-component-factory-plugins.ts',
+    rootPath: 'scripts/generate-component-factory/plugins',
+    moduleType: ModuleType.ESM,
+  },
 ];
 
 pluginDefinitions.forEach((definition) => {
