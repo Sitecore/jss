@@ -43,7 +43,7 @@ EditableFieldProps.editable
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/2f87a1106/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
+[packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/c9dc64e6b/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
 
 ___
 
@@ -61,7 +61,7 @@ EditableFieldProps.emptyFieldEditingComponent
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/sharedTypes.ts:36](https://github.com/Sitecore/jss/blob/2f87a1106/packages/sitecore-jss-react/src/components/sharedTypes.ts#L36)
+[packages/sitecore-jss-react/src/components/sharedTypes.ts:36](https://github.com/Sitecore/jss/blob/c9dc64e6b/packages/sitecore-jss-react/src/components/sharedTypes.ts#L36)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:13](https://github.com/Sitecore/jss/blob/2f87a1106/packages/sitecore-jss-react/src/components/Date.tsx#L13)
+[packages/sitecore-jss-react/src/components/Date.tsx:13](https://github.com/Sitecore/jss/blob/c9dc64e6b/packages/sitecore-jss-react/src/components/Date.tsx#L13)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:22](https://github.com/Sitecore/jss/blob/2f87a1106/packages/sitecore-jss-react/src/components/Date.tsx#L22)
+[packages/sitecore-jss-react/src/components/Date.tsx:22](https://github.com/Sitecore/jss/blob/c9dc64e6b/packages/sitecore-jss-react/src/components/Date.tsx#L22)
 
 ___
 
@@ -107,4 +107,4 @@ The HTML element that will wrap the contents of the field.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:20](https://github.com/Sitecore/jss/blob/2f87a1106/packages/sitecore-jss-react/src/components/Date.tsx#L20)
+[packages/sitecore-jss-react/src/components/Date.tsx:20](https://github.com/Sitecore/jss/blob/c9dc64e6b/packages/sitecore-jss-react/src/components/Date.tsx#L20)
