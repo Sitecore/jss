@@ -228,6 +228,50 @@ describe('<Link />', () => {
     expect(rendered.find(ReactLink).length).to.equal(0);
   });
 
+  describe('relative file url', () => {
+    it('should not render Next link when file url is provided', () => {
+      const field = {
+        value: {
+          href: '/foo/bar/test.html',
+          text: 'ipsum',
+          class: 'my-link',
+          title: 'My Link',
+          target: '_blank',
+        },
+      };
+      const rendered = mount(
+        <Page>
+          <Link field={field} showLinkTextWithChildrenPresent>
+            <p>Hello world...</p>
+          </Link>
+        </Page>
+      );
+      expect(rendered.find(NextLink).length).to.equal(0);
+      expect(rendered.find(ReactLink).length).to.equal(1);
+    });
+
+    it('should not render Next link when file url is provided in the root', () => {
+      const field = {
+        value: {
+          href: '/test.png',
+          text: 'ipsum',
+          class: 'my-link',
+          title: 'My Link',
+          target: '_blank',
+        },
+      };
+      const rendered = mount(
+        <Page>
+          <Link field={field} showLinkTextWithChildrenPresent>
+            <p>Hello world...</p>
+          </Link>
+        </Page>
+      );
+      expect(rendered.find(NextLink).length).to.equal(0);
+      expect(rendered.find(ReactLink).length).to.equal(1);
+    });
+  });
+
   it('should render ReactLink if link is external', () => {
     const field = {
       value: {
