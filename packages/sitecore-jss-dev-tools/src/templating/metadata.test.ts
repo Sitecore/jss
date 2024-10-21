@@ -5,7 +5,9 @@ import { getMetadata } from './metadata';
 import sinon, { SinonStub } from 'sinon';
 import childProcess from 'child_process';
 import metadataNextjs from './../test-data/metadata/metadata-nextjs.json';
-import npmQueryResult from './../test-data/metadata/npm-query.json';
+import metadataAngular from './../test-data/metadata/metadata-angular.json';
+import npmQueryResultNext from './../test-data/metadata/npm-query-nextjs.json';
+import npmQueryResultAngular from './../test-data/metadata/npm-query-angular.json';
 import npmQueryResultNoSc from './../test-data/metadata/npm-query-no-sc.json';
 
 describe('metadata', () => {
@@ -20,13 +22,22 @@ describe('metadata', () => {
       execSyncStub?.restore();
     });
 
-    it('should return tracked packages with exact versions from result of npm query', () => {
+    it('should return tracked packages with exact versions from result of npm query (nextjs app)', () => {
       execSyncStub = sinon.stub(childProcess, 'execSync');
       execSyncStub
         .withArgs('npm query [name*=@sitecore] --workspaces false')
-        .returns(JSON.stringify(npmQueryResult));
+        .returns(JSON.stringify(npmQueryResultNext));
       const metadata = getMetadata();
       expect(metadata).to.deep.equal(metadataNextjs);
+    });
+
+    it('should return tracked packages with exact versions from result of npm query (angular app)', () => {
+      execSyncStub = sinon.stub(childProcess, 'execSync');
+      execSyncStub
+        .withArgs('npm query [name*=@sitecore] --workspaces false')
+        .returns(JSON.stringify(npmQueryResultAngular));
+      const metadata = getMetadata();
+      expect(metadata).to.deep.equal(metadataAngular);
     });
 
     it('should throw if result of npm query is not valid', () => {
