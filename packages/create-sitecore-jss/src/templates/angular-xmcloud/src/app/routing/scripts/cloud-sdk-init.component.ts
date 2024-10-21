@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CloudSDK } from '@sitecore-cloudsdk/core/browser';
+import '@sitecore-cloudsdk/events/browser';
 import { environment } from '../../../environments/environment';
-import { isServer } from '@sitecore-jss/sitecore-jss/utils';
+import { isServer } from '@sitecore-jss/sitecore-jss-angular';
 
 /**
  * Component to init CloudSDK logic - to allow events throughout the site
@@ -23,7 +24,9 @@ export class CloudSdkInitComponent implements OnInit {
         cookieDomain: window.location.hostname.replace(/^www\./, ''),
         // Cookie may be created in personalize middleware (server), but if not we should create it here
         enableBrowserCookie: true,
-      }).initialize();
+      })
+      .addEvents()
+      .initialize();
     }
   }
 }
