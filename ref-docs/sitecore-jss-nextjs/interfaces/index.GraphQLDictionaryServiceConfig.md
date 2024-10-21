@@ -14,7 +14,7 @@ GraphQLDictionaryService instances
 
 - `Omit`\<`SearchQueryVariables`, ``"language"``\>
 
-- `CacheOptions`
+- [`CacheOptions`](index.CacheOptions.md)
 
 - `Pick`\<`GraphQLRequestClientConfig`, ``"retries"`` \| ``"retryStrategy"``\>
 
@@ -53,7 +53,7 @@ true
 
 #### Inherited from
 
-CacheOptions.cacheEnabled
+[CacheOptions](index.CacheOptions.md).[cacheEnabled](index.CacheOptions.md#cacheenabled)
 
 #### Defined in
 
@@ -75,7 +75,7 @@ Cache timeout (sec)
 
 #### Inherited from
 
-CacheOptions.cacheTimeout
+[CacheOptions](index.CacheOptions.md).[cacheTimeout](index.CacheOptions.md#cachetimeout)
 
 #### Defined in
 
