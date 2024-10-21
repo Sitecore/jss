@@ -1,0 +1,1359 @@
+[
+  {
+    "name": "@sitecore-jss/sitecore-jss",
+    "version": "22.2.0-canary.69",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "sideEffects": false,
+    "scripts": {
+      "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+      "clean": "del-cli dist types",
+      "lint": "eslint \"./src/**/*.ts\"",
+      "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
+      "prepublishOnly": "npm run build",
+      "coverage": "nyc npm test",
+      "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss --entryPoints src/index.ts --entryPoints src/graphql/index.ts --entryPoints src/i18n/index.ts --entryPoints src/layout/index.ts --entryPoints src/media/index.ts --entryPoints src/personalize/index.ts --entryPoints src/site/index.ts --entryPoints src/tracking/index.ts --entryPoints src/utils/index.ts --entryPoints src/editing/index.ts --githubPages false"
+    },
+    "engines": {
+      "node": ">=20"
+    },
+    "author": {
+      "name": "Sitecore Corporation",
+      "url": "https://jss.sitecore.com"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Sitecore/jss"
+    },
+    "license": "Apache-2.0",
+    "homepage": "https://jss.sitecore.com",
+    "bugs": {
+      "url": "https://github.com/sitecore/jss/issues"
+    },
+    "devDependencies": {
+      "@types/chai": "^4.2.3",
+      "@types/chai-spies": "^1.0.3",
+      "@types/chai-string": "^1.4.2",
+      "@types/debug": "^4.1.5",
+      "@types/lodash.unescape": "^4.0.6",
+      "@types/memory-cache": "^0.2.1",
+      "@types/mocha": "^9.0.0",
+      "@types/node": "^20.14.2",
+      "@types/sinon": "^17.0.3",
+      "@types/url-parse": "1.4.8",
+      "chai": "^4.2.0",
+      "chai-spies": "^1.0.0",
+      "chai-string": "^1.5.0",
+      "del-cli": "^5.0.0",
+      "eslint": "^7.15.0",
+      "mocha": "^10.2.0",
+      "nock": "^13.0.5",
+      "nyc": "^15.1.0",
+      "sinon": "^17.0.1",
+      "ts-node": "^8.4.1",
+      "tslib": "^1.10.0",
+      "typescript": "~4.7.4"
+    },
+    "dependencies": {
+      "axios": "^0.21.1",
+      "chalk": "^4.1.0",
+      "debug": "^4.3.1",
+      "graphql": "^16.5.0",
+      "graphql-request": "^4.2.0",
+      "lodash.unescape": "^4.0.1",
+      "memory-cache": "^0.2.0",
+      "url-parse": "^1.5.9"
+    },
+    "description": "",
+    "types": "types/index.d.ts",
+    "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
+    "files": ["dist", "types", "/*.js", "/*.d.ts"],
+    "_id": "@sitecore-jss/sitecore-jss@22.2.0-canary.69",
+    "pkgid": "sitecore-jss@npm:@sitecore-jss/sitecore-jss@22.2.0-canary.69",
+    "location": "../../packages/sitecore-jss",
+    "path": "C:\\workspace\\jss\\packages\\sitecore-jss",
+    "realpath": "C:\\workspace\\jss\\packages\\sitecore-jss",
+    "resolved": null,
+    "from": [],
+    "to": [
+      "../../packages/sitecore-jss/node_modules/axios",
+      "../../packages/sitecore-jss/node_modules/chalk",
+      "../../packages/sitecore-jss/node_modules/debug",
+      "../../packages/sitecore-jss/node_modules/graphql",
+      "../../packages/sitecore-jss/node_modules/graphql-request",
+      "../../packages/sitecore-jss/node_modules/lodash.unescape",
+      "../../packages/sitecore-jss/node_modules/memory-cache",
+      "../../packages/sitecore-jss/node_modules/url-parse",
+      "../../packages/sitecore-jss/node_modules/@types/chai",
+      "../../packages/sitecore-jss/node_modules/@types/chai-spies",
+      "../../packages/sitecore-jss/node_modules/@types/chai-string",
+      "../../packages/sitecore-jss/node_modules/@types/debug",
+      "../../packages/sitecore-jss/node_modules/@types/lodash.unescape",
+      "../../packages/sitecore-jss/node_modules/@types/memory-cache",
+      "../../packages/sitecore-jss/node_modules/@types/mocha",
+      "../../packages/sitecore-jss/node_modules/@types/node",
+      "../../packages/sitecore-jss/node_modules/@types/sinon",
+      "../../packages/sitecore-jss/node_modules/@types/url-parse",
+      "../../packages/sitecore-jss/node_modules/chai",
+      "../../packages/sitecore-jss/node_modules/chai-spies",
+      "../../packages/sitecore-jss/node_modules/chai-string",
+      "../../packages/sitecore-jss/node_modules/del-cli",
+      "../../packages/sitecore-jss/node_modules/eslint",
+      "../../packages/sitecore-jss/node_modules/mocha",
+      "../../packages/sitecore-jss/node_modules/nock",
+      "../../packages/sitecore-jss/node_modules/nyc",
+      "../../packages/sitecore-jss/node_modules/sinon",
+      "../../packages/sitecore-jss/node_modules/ts-node",
+      "../../packages/sitecore-jss/node_modules/tslib",
+      "../../packages/sitecore-jss/node_modules/typescript"
+    ],
+    "dev": false,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "name": "@sitecore-jss/sitecore-jss-cli",
+    "version": "22.2.0-canary.69",
+    "description": "Sitecore JSS command-line",
+    "main": "dist/cjs/cli.js",
+    "module": "dist/esm/cli.js",
+    "sideEffects": false,
+    "scripts": {
+      "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+      "watch": "npm run build -- --watch",
+      "clean": "del-cli dist types",
+      "lint": "eslint \"./src/**/*.ts\"",
+      "prepublishOnly": "npm run build",
+      "jss": "node ./dist/cjs/bin/jss.js",
+      "test": "mocha --require ts-node/register/transpile-only \"./src/**/*.test.ts\"",
+      "coverage": "nyc --require ts-node/register/transpile-only npm test"
+    },
+    "engines": {
+      "node": ">=20"
+    },
+    "preferGlobal": true,
+    "bin": {
+      "jss": "dist/cjs/bin/jss.js"
+    },
+    "author": {
+      "name": "Sitecore Corporation",
+      "url": "https://jss.sitecore.com"
+    },
+    "license": "Apache-2.0",
+    "homepage": "https://jss.sitecore.com",
+    "bugs": {
+      "url": "https://github.com/sitecore/jss/issues"
+    },
+    "dependencies": {
+      "@sitecore-jss/sitecore-jss-dev-tools": "22.2.0-canary.69",
+      "chalk": "^4.1.2",
+      "cross-spawn": "^7.0.3",
+      "dotenv": "^16.0.3",
+      "dotenv-expand": "^10.0.0",
+      "readline-sync": "^1.4.10",
+      "resolve": "^1.22.1",
+      "tmp": "^0.2.1",
+      "yargs": "^17.6.2"
+    },
+    "devDependencies": {
+      "@types/chai": "^4.2.4",
+      "@types/cross-spawn": "^6.0.2",
+      "@types/mocha": "^10.0.1",
+      "@types/node": "^20.14.2",
+      "@types/readline-sync": "^1.4.4",
+      "@types/resolve": "^1.20.2",
+      "@types/sinon": "^10.0.13",
+      "@types/tmp": "^0.2.3",
+      "@types/yargs": "^17.0.20",
+      "chai": "^4.3.7",
+      "cross-env": "^7.0.3",
+      "del-cli": "^5.0.0",
+      "eslint": "^8.32.0",
+      "mocha": "^10.2.0",
+      "nyc": "^15.1.0",
+      "sinon": "^15.0.1",
+      "ts-node": "^10.9.1",
+      "typescript": "~4.9.4"
+    },
+    "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
+    "files": ["dist", "types"],
+    "_id": "@sitecore-jss/sitecore-jss-cli@22.2.0-canary.69",
+    "pkgid": "sitecore-jss-cli@npm:@sitecore-jss/sitecore-jss-cli@22.2.0-canary.69",
+    "location": "../../packages/sitecore-jss-cli",
+    "path": "C:\\workspace\\jss\\packages\\sitecore-jss-cli",
+    "realpath": "C:\\workspace\\jss\\packages\\sitecore-jss-cli",
+    "resolved": null,
+    "from": [],
+    "to": [
+      "../../packages/sitecore-jss-cli/node_modules/@sitecore-jss/sitecore-jss-dev-tools",
+      "../../packages/sitecore-jss-cli/node_modules/chalk",
+      "../../packages/sitecore-jss-cli/node_modules/cross-spawn",
+      "../../packages/sitecore-jss-cli/node_modules/dotenv",
+      "../../packages/sitecore-jss-cli/node_modules/dotenv-expand",
+      "../../packages/sitecore-jss-cli/node_modules/readline-sync",
+      "../../packages/sitecore-jss-cli/node_modules/resolve",
+      "../../packages/sitecore-jss-cli/node_modules/tmp",
+      "../../packages/sitecore-jss-cli/node_modules/yargs",
+      "../../packages/sitecore-jss-cli/node_modules/@types/chai",
+      "../../packages/sitecore-jss-cli/node_modules/@types/cross-spawn",
+      "../../packages/sitecore-jss-cli/node_modules/@types/mocha",
+      "../../packages/sitecore-jss-cli/node_modules/@types/node",
+      "../../packages/sitecore-jss-cli/node_modules/@types/readline-sync",
+      "../../packages/sitecore-jss-cli/node_modules/@types/resolve",
+      "../../packages/sitecore-jss-cli/node_modules/@types/sinon",
+      "../../packages/sitecore-jss-cli/node_modules/@types/tmp",
+      "../../packages/sitecore-jss-cli/node_modules/@types/yargs",
+      "../../packages/sitecore-jss-cli/node_modules/chai",
+      "../../packages/sitecore-jss-cli/node_modules/cross-env",
+      "../../packages/sitecore-jss-cli/node_modules/del-cli",
+      "../../packages/sitecore-jss-cli/node_modules/eslint",
+      "../../packages/sitecore-jss-cli/node_modules/mocha",
+      "../../packages/sitecore-jss-cli/node_modules/nyc",
+      "../../packages/sitecore-jss-cli/node_modules/sinon",
+      "../../packages/sitecore-jss-cli/node_modules/ts-node",
+      "../../packages/sitecore-jss-cli/node_modules/typescript"
+    ],
+    "dev": true,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "name": "@sitecore-jss/sitecore-jss-dev-tools",
+    "version": "22.2.0-canary.69",
+    "description": "Utilities to assist in the development and deployment of Sitecore JSS apps.",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "sideEffects": false,
+    "scripts": {
+      "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+      "watch": "npm run build -- --watch",
+      "clean": "del-cli dist types",
+      "lint": "eslint \"./src/**/*.ts\"",
+      "test": "mocha --require ts-node/register -r tsconfig-paths/register  \"./src/**/metadata.test.ts\" -g \"new test\"",
+      "prepublishOnly": "npm run build",
+      "coverage": "nyc npm test",
+      "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-dev-tools src/index.ts --githubPages false"
+    },
+    "engines": {
+      "node": ">=20"
+    },
+    "bin": {
+      "scjss-deploy": "dist/cjs/bin/deploy.js",
+      "scjss-verify-setup": "dist/cjs/bin/verify-setup.js"
+    },
+    "author": {
+      "name": "Sitecore Corporation",
+      "url": "https://jss.sitecore.com"
+    },
+    "license": "Apache-2.0",
+    "homepage": "https://jss.sitecore.com",
+    "bugs": {
+      "url": "https://github.com/sitecore/jss/issues"
+    },
+    "dependencies": {
+      "@babel/parser": "^7.24.0",
+      "@sitecore-jss/sitecore-jss": "22.2.0-canary.69",
+      "axios": "^1.3.2",
+      "chalk": "^4.1.2",
+      "chokidar": "^3.6.0",
+      "del": "^6.0.0",
+      "express": "^4.18.2",
+      "form-data": "^4.0.0",
+      "fs-extra": "^11.1.0",
+      "glob": "^8.1.0",
+      "import-fresh": "^3.3.0",
+      "joi": "^17.8.4",
+      "js-yaml": "^4.1.0",
+      "jszip": "^3.10.1",
+      "module-alias": "^2.2.2",
+      "readline-sync": "^1.4.10",
+      "recast": "^0.23.5",
+      "resolve": "^1.22.1",
+      "ts-node": "^10.9.1",
+      "url-join": "^4.0.1",
+      "uuid": "^9.0.0",
+      "yargs": "^17.6.2"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.24.4",
+      "@babel/register": "^7.23.7",
+      "@types/chai": "^4.3.4",
+      "@types/chokidar": "^2.1.3",
+      "@types/del": "^4.0.0",
+      "@types/express": "^4.17.1",
+      "@types/fs-extra": "^8.0.0",
+      "@types/glob": "^8.0.1",
+      "@types/js-yaml": "^4.0.5",
+      "@types/mocha": "^10.0.1",
+      "@types/node": "^20.14.2",
+      "@types/readline-sync": "^1.4.4",
+      "@types/resolve": "^1.20.2",
+      "@types/sinon": "^10.0.13",
+      "@types/url-join": "^4.0.1",
+      "@types/uuid": "^9.0.0",
+      "@types/yargs": "^17.0.22",
+      "chai": "^4.3.7",
+      "cross-env": "^7.0.3",
+      "del-cli": "^5.0.0",
+      "eslint": "^8.33.0",
+      "mocha": "^10.2.0",
+      "nock": "^13.3.0",
+      "nyc": "^15.1.0",
+      "sinon": "^15.0.1",
+      "ts-node": "^10.9.1",
+      "tsconfig-paths": "^4.1.2",
+      "typescript": "~4.9.5"
+    },
+    "types": "types/index.d.ts",
+    "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
+    "files": ["dist", "types", "/*.js", "/*.d.ts"],
+    "_id": "@sitecore-jss/sitecore-jss-dev-tools@22.2.0-canary.69",
+    "pkgid": "sitecore-jss-dev-tools@npm:@sitecore-jss/sitecore-jss-dev-tools@22.2.0-canary.69",
+    "location": "../../packages/sitecore-jss-dev-tools",
+    "path": "C:\\workspace\\jss\\packages\\sitecore-jss-dev-tools",
+    "realpath": "C:\\workspace\\jss\\packages\\sitecore-jss-dev-tools",
+    "resolved": null,
+    "from": [],
+    "to": [
+      "../../packages/sitecore-jss-dev-tools/node_modules/@babel/parser",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@sitecore-jss/sitecore-jss",
+      "../../packages/sitecore-jss-dev-tools/node_modules/axios",
+      "../../packages/sitecore-jss-dev-tools/node_modules/chalk",
+      "../../packages/sitecore-jss-dev-tools/node_modules/chokidar",
+      "../../packages/sitecore-jss-dev-tools/node_modules/del",
+      "../../packages/sitecore-jss-dev-tools/node_modules/express",
+      "../../packages/sitecore-jss-dev-tools/node_modules/form-data",
+      "../../packages/sitecore-jss-dev-tools/node_modules/fs-extra",
+      "../../packages/sitecore-jss-dev-tools/node_modules/glob",
+      "../../packages/sitecore-jss-dev-tools/node_modules/import-fresh",
+      "../../packages/sitecore-jss-dev-tools/node_modules/joi",
+      "../../packages/sitecore-jss-dev-tools/node_modules/js-yaml",
+      "../../packages/sitecore-jss-dev-tools/node_modules/jszip",
+      "../../packages/sitecore-jss-dev-tools/node_modules/module-alias",
+      "../../packages/sitecore-jss-dev-tools/node_modules/readline-sync",
+      "../../packages/sitecore-jss-dev-tools/node_modules/recast",
+      "../../packages/sitecore-jss-dev-tools/node_modules/resolve",
+      "../../packages/sitecore-jss-dev-tools/node_modules/url-join",
+      "../../packages/sitecore-jss-dev-tools/node_modules/uuid",
+      "../../packages/sitecore-jss-dev-tools/node_modules/yargs",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@babel/core",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@babel/register",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/chai",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/chokidar",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/del",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/express",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/fs-extra",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/glob",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/js-yaml",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/mocha",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/node",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/readline-sync",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/resolve",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/sinon",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/url-join",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/uuid",
+      "../../packages/sitecore-jss-dev-tools/node_modules/@types/yargs",
+      "../../packages/sitecore-jss-dev-tools/node_modules/chai",
+      "../../packages/sitecore-jss-dev-tools/node_modules/cross-env",
+      "../../packages/sitecore-jss-dev-tools/node_modules/del-cli",
+      "../../packages/sitecore-jss-dev-tools/node_modules/eslint",
+      "../../packages/sitecore-jss-dev-tools/node_modules/mocha",
+      "../../packages/sitecore-jss-dev-tools/node_modules/nock",
+      "../../packages/sitecore-jss-dev-tools/node_modules/nyc",
+      "../../packages/sitecore-jss-dev-tools/node_modules/sinon",
+      "../../packages/sitecore-jss-dev-tools/node_modules/ts-node",
+      "../../packages/sitecore-jss-dev-tools/node_modules/tsconfig-paths",
+      "../../packages/sitecore-jss-dev-tools/node_modules/typescript"
+    ],
+    "dev": false,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "name": "@sitecore-jss/sitecore-jss-nextjs",
+    "version": "22.2.0-canary.69",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "sideEffects": false,
+    "scripts": {
+      "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+      "clean": "del-cli dist types",
+      "lint": "eslint \"./src/**/*.tsx\" \"./src/**/*.ts\"",
+      "test": "mocha --require ./test/setup.js \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\" --exit",
+      "prepublishOnly": "npm run build",
+      "coverage": "nyc npm test",
+      "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-nextjs --entryPoints src/index.ts --entryPoints src/monitoring/index.ts --entryPoints src/editing/index.ts --entryPoints src/middleware/index.ts --entryPoints src/context/index.ts --entryPoints src/utils/index.ts --entryPoints src/site/index.ts --entryPoints src/graphql/index.ts --githubPages false"
+    },
+    "engines": {
+      "node": ">=20"
+    },
+    "author": {
+      "name": "Sitecore Corporation",
+      "url": "https://jss.sitecore.com"
+    },
+    "publishConfig": {
+      "access": "public"
+    },
+    "license": "Apache-2.0",
+    "homepage": "https://jss.sitecore.com",
+    "bugs": {
+      "url": "https://github.com/sitecore/jss/issues"
+    },
+    "devDependencies": {
+      "@sitecore-cloudsdk/personalize": "^0.3.1",
+      "@types/chai": "^4.3.4",
+      "@types/chai-as-promised": "^7.1.5",
+      "@types/chai-string": "^1.4.2",
+      "@types/enzyme": "^3.10.12",
+      "@types/mocha": "^10.0.1",
+      "@types/node": "~20.14.2",
+      "@types/prop-types": "^15.7.5",
+      "@types/react": "^18.2.22",
+      "@types/react-dom": "^18.0.10",
+      "@types/sinon": "^10.0.13",
+      "@types/sinon-chai": "^3.2.9",
+      "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0",
+      "chai": "^4.3.7",
+      "chai-as-promised": "^7.1.1",
+      "chai-string": "^1.5.0",
+      "chalk": "^4.1.2",
+      "cheerio": "1.0.0-rc.12",
+      "cross-fetch": "^3.1.5",
+      "del-cli": "^5.0.0",
+      "enzyme": "^3.11.0",
+      "eslint": "^8.32.0",
+      "eslint-plugin-react": "^7.32.1",
+      "jsdom": "^21.1.0",
+      "mocha": "^10.2.0",
+      "next": "^14.2.7",
+      "nock": "^13.3.0",
+      "nyc": "^15.1.0",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "sinon": "^15.0.1",
+      "sinon-chai": "^3.7.0",
+      "ts-node": "^10.9.1",
+      "typescript": "~4.9.4"
+    },
+    "peerDependencies": {
+      "@sitecore-cloudsdk/events": "^0.3.1",
+      "@sitecore-cloudsdk/personalize": "^0.3.1",
+      "next": "^14.2.7",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0"
+    },
+    "dependencies": {
+      "@sitecore-jss/sitecore-jss": "22.2.0-canary.69",
+      "@sitecore-jss/sitecore-jss-dev-tools": "22.2.0-canary.69",
+      "@sitecore-jss/sitecore-jss-react": "22.2.0-canary.69",
+      "@vercel/kv": "^0.2.1",
+      "prop-types": "^15.8.1",
+      "regex-parser": "^2.2.11",
+      "sync-disk-cache": "^2.1.0"
+    },
+    "description": "",
+    "types": "types/index.d.ts",
+    "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
+    "files": ["dist", "types", "/*.js", "/*.d.ts"],
+    "_id": "@sitecore-jss/sitecore-jss-nextjs@22.2.0-canary.69",
+    "pkgid": "sitecore-jss-nextjs@npm:@sitecore-jss/sitecore-jss-nextjs@22.2.0-canary.69",
+    "location": "../../packages/sitecore-jss-nextjs",
+    "path": "C:\\workspace\\jss\\packages\\sitecore-jss-nextjs",
+    "realpath": "C:\\workspace\\jss\\packages\\sitecore-jss-nextjs",
+    "resolved": null,
+    "from": [],
+    "to": [
+      "../../packages/sitecore-jss-nextjs/node_modules/@sitecore-jss/sitecore-jss",
+      "../../packages/sitecore-jss-nextjs/node_modules/@sitecore-jss/sitecore-jss-dev-tools",
+      "../../packages/sitecore-jss-nextjs/node_modules/@sitecore-jss/sitecore-jss-react",
+      "../../packages/sitecore-jss-nextjs/node_modules/@vercel/kv",
+      "../../packages/sitecore-jss-nextjs/node_modules/prop-types",
+      "../../packages/sitecore-jss-nextjs/node_modules/regex-parser",
+      "../../packages/sitecore-jss-nextjs/node_modules/sync-disk-cache",
+      "../../packages/sitecore-jss-nextjs/node_modules/@sitecore-cloudsdk/personalize",
+      "../../packages/sitecore-jss-nextjs/node_modules/@types/chai",
+      "../../packages/sitecore-jss-nextjs/node_modules/@types/chai-as-promised",
+      "../../packages/sitecore-jss-nextjs/node_modules/@types/chai-string",
+      "../../packages/sitecore-jss-nextjs/node_modules/@types/enzyme",
+      "../../packages/sitecore-jss-nextjs/node_modules/@types/mocha",
+      "../../packages/sitecore-jss-nextjs/node_modules/@types/node",
+      "../../packages/sitecore-jss-nextjs/node_modules/@types/prop-types",
+      "../../packages/sitecore-jss-nextjs/node_modules/@types/react",
+      "../../packages/sitecore-jss-nextjs/node_modules/@types/react-dom",
+      "../../packages/sitecore-jss-nextjs/node_modules/@types/sinon",
+      "../../packages/sitecore-jss-nextjs/node_modules/@types/sinon-chai",
+      "../../packages/sitecore-jss-nextjs/node_modules/@wojtekmaj/enzyme-adapter-react-17",
+      "../../packages/sitecore-jss-nextjs/node_modules/chai",
+      "../../packages/sitecore-jss-nextjs/node_modules/chai-as-promised",
+      "../../packages/sitecore-jss-nextjs/node_modules/chai-string",
+      "../../packages/sitecore-jss-nextjs/node_modules/chalk",
+      "../../packages/sitecore-jss-nextjs/node_modules/cheerio",
+      "../../packages/sitecore-jss-nextjs/node_modules/cross-fetch",
+      "../../packages/sitecore-jss-nextjs/node_modules/del-cli",
+      "../../packages/sitecore-jss-nextjs/node_modules/enzyme",
+      "../../packages/sitecore-jss-nextjs/node_modules/eslint",
+      "../../packages/sitecore-jss-nextjs/node_modules/eslint-plugin-react",
+      "../../packages/sitecore-jss-nextjs/node_modules/jsdom",
+      "../../packages/sitecore-jss-nextjs/node_modules/mocha",
+      "../../packages/sitecore-jss-nextjs/node_modules/next",
+      "../../packages/sitecore-jss-nextjs/node_modules/nock",
+      "../../packages/sitecore-jss-nextjs/node_modules/nyc",
+      "../../packages/sitecore-jss-nextjs/node_modules/react",
+      "../../packages/sitecore-jss-nextjs/node_modules/react-dom",
+      "../../packages/sitecore-jss-nextjs/node_modules/sinon",
+      "../../packages/sitecore-jss-nextjs/node_modules/sinon-chai",
+      "../../packages/sitecore-jss-nextjs/node_modules/ts-node",
+      "../../packages/sitecore-jss-nextjs/node_modules/typescript"
+    ],
+    "dev": false,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "name": "@sitecore-cloudsdk/core",
+    "version": "0.3.1",
+    "license": "Apache-2.0",
+    "main": "dist/cjs/src/index.js",
+    "module": "dist/esm/src/index.js",
+    "types": "dist/esm/src/index.d.ts",
+    "exports": {
+      ".": {
+        "types": {
+          "require": "./dist/cjs/src/index.d.ts",
+          "default": "./dist/esm/src/index.d.ts"
+        },
+        "import": "./dist/esm/src/index.js",
+        "require": "./dist/cjs/src/index.js"
+      }
+    },
+    "dependencies": {
+      "@sitecore-cloudsdk/utils": "^0.3.1",
+      "debug": "^4.3.4"
+    },
+    "scripts": {
+      "build": "npm run build:cjs && npm run build:es",
+      "build:cjs": "tsc -b tsconfig.cjs.json",
+      "build:es": "tsc -b ."
+    },
+    "files": ["dist", "README.md"],
+    "engines": {
+      "node": ">=18"
+    },
+    "devDependencies": {
+      "@types/debug": "^4.1.12"
+    },
+    "_id": "@sitecore-cloudsdk/core@0.3.1",
+    "pkgid": "@sitecore-cloudsdk/core@0.3.1",
+    "location": "../../packages/sitecore-jss-nextjs/node_modules/@sitecore-cloudsdk/core",
+    "path": "C:\\workspace\\jss\\packages\\sitecore-jss-nextjs\\node_modules\\@sitecore-cloudsdk\\core",
+    "realpath": "C:\\workspace\\jss\\packages\\sitecore-jss-nextjs\\node_modules\\@sitecore-cloudsdk\\core",
+    "resolved": null,
+    "from": ["../../packages/sitecore-jss-nextjs/node_modules/@sitecore-cloudsdk/personalize"],
+    "to": [
+      "../../packages/sitecore-jss-nextjs/node_modules/@sitecore-cloudsdk/utils",
+      "../../packages/sitecore-jss-nextjs/node_modules/debug"
+    ],
+    "dev": true,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "name": "@sitecore-cloudsdk/personalize",
+    "version": "0.3.1",
+    "license": "Apache-2.0",
+    "homepage": "https://doc.sitecore.com/xmc/en/developers/sdk/latest/cloud-sdk/index.html",
+    "exports": {
+      "./server": {
+        "import": "./server.js",
+        "require": "./server.cjs",
+        "types": "./server.d.ts"
+      },
+      "./browser": {
+        "import": "./browser.js",
+        "require": "./browser.cjs",
+        "types": "./browser.d.ts"
+      }
+    },
+    "dependencies": {
+      "@sitecore-cloudsdk/core": "^0.3.1",
+      "@sitecore-cloudsdk/utils": "^0.3.1"
+    },
+    "scripts": {
+      "build": "npm run build:cjs && npm run build:es",
+      "build:cjs": "tsc -b tsconfig.cjs.json",
+      "build:es": "tsc -b ."
+    },
+    "files": [
+      "dist",
+      "README.md",
+      "browser.js",
+      "browser.cjs",
+      "browser.d.ts",
+      "server.cjs",
+      "server.js",
+      "server.d.ts"
+    ],
+    "engines": {
+      "node": ">=18"
+    },
+    "_id": "@sitecore-cloudsdk/personalize@0.3.1",
+    "pkgid": "@sitecore-cloudsdk/personalize@0.3.1",
+    "location": "../../packages/sitecore-jss-nextjs/node_modules/@sitecore-cloudsdk/personalize",
+    "path": "C:\\workspace\\jss\\packages\\sitecore-jss-nextjs\\node_modules\\@sitecore-cloudsdk\\personalize",
+    "realpath": "C:\\workspace\\jss\\packages\\sitecore-jss-nextjs\\node_modules\\@sitecore-cloudsdk\\personalize",
+    "resolved": null,
+    "from": ["../../packages/sitecore-jss-nextjs"],
+    "to": [
+      "../../packages/sitecore-jss-nextjs/node_modules/@sitecore-cloudsdk/core",
+      "../../packages/sitecore-jss-nextjs/node_modules/@sitecore-cloudsdk/utils"
+    ],
+    "dev": true,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "name": "@sitecore-cloudsdk/utils",
+    "version": "0.3.1",
+    "license": "Apache-2.0",
+    "main": "dist/cjs/src/index.js",
+    "module": "dist/esm/src/index.js",
+    "types": "dist/esm/src/index.d.ts",
+    "exports": {
+      ".": {
+        "types": {
+          "require": "./dist/cjs/src/index.d.ts",
+          "default": "./dist/esm/src/index.d.ts"
+        },
+        "import": "./dist/esm/src/index.js",
+        "require": "./dist/cjs/src/index.js"
+      }
+    },
+    "scripts": {
+      "build": "npm run build:cjs && npm run build:es",
+      "build:cjs": "tsc -b tsconfig.cjs.json",
+      "build:es": "tsc -b ."
+    },
+    "files": ["dist", "README.md"],
+    "engines": {
+      "node": ">=18"
+    },
+    "_id": "@sitecore-cloudsdk/utils@0.3.1",
+    "pkgid": "@sitecore-cloudsdk/utils@0.3.1",
+    "location": "../../packages/sitecore-jss-nextjs/node_modules/@sitecore-cloudsdk/utils",
+    "path": "C:\\workspace\\jss\\packages\\sitecore-jss-nextjs\\node_modules\\@sitecore-cloudsdk\\utils",
+    "realpath": "C:\\workspace\\jss\\packages\\sitecore-jss-nextjs\\node_modules\\@sitecore-cloudsdk\\utils",
+    "resolved": null,
+    "from": [
+      "../../packages/sitecore-jss-nextjs/node_modules/@sitecore-cloudsdk/personalize",
+      "../../packages/sitecore-jss-nextjs/node_modules/@sitecore-cloudsdk/core"
+    ],
+    "to": [],
+    "dev": true,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "name": "@sitecore-jss/sitecore-jss-react",
+    "version": "22.2.0-canary.69",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "sideEffects": false,
+    "scripts": {
+      "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+      "clean": "del-cli dist types",
+      "lint": "eslint \"./src/**/*.tsx\" \"./src/**/*.ts\"",
+      "test": "mocha --require ts-node/register/transpile-only --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\" --exit",
+      "prepublishOnly": "npm run build",
+      "coverage": "nyc npm test",
+      "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-react src/index.ts --githubPages false"
+    },
+    "engines": {
+      "node": ">=20"
+    },
+    "author": {
+      "name": "Sitecore Corporation",
+      "url": "https://jss.sitecore.com"
+    },
+    "license": "Apache-2.0",
+    "homepage": "https://jss.sitecore.com",
+    "bugs": {
+      "url": "https://github.com/sitecore/jss/issues"
+    },
+    "devDependencies": {
+      "@sitecore-feaas/clientside": "^0.5.6",
+      "@types/chai": "^4.3.4",
+      "@types/chai-string": "^1.4.2",
+      "@types/enzyme": "^3.10.12",
+      "@types/mocha": "^10.0.1",
+      "@types/node": "20.14.2",
+      "@types/prop-types": "^15.7.5",
+      "@types/react": "^18.2.22",
+      "@types/react-dom": "^18.0.10",
+      "@types/sinon": "^10.0.13",
+      "@types/sinon-chai": "^3.2.9",
+      "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0",
+      "chai": "^4.3.7",
+      "chai-string": "^1.5.0",
+      "cheerio": "1.0.0-rc.12",
+      "del-cli": "^5.0.0",
+      "enzyme": "^3.11.0",
+      "eslint": "^8.28.0",
+      "eslint-plugin-react": "^7.31.11",
+      "jsdom": "^20.0.3",
+      "mocha": "^10.2.0",
+      "nyc": "^15.1.0",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "sinon": "^15.0.0",
+      "sinon-chai": "^3.7.0",
+      "ts-node": "^10.9.1",
+      "typescript": "~4.9.3"
+    },
+    "peerDependencies": {
+      "@sitecore-feaas/clientside": "^0.5.6",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0"
+    },
+    "dependencies": {
+      "@sitecore-jss/sitecore-jss": "22.2.0-canary.69",
+      "fast-deep-equal": "^3.1.3",
+      "prop-types": "^15.8.1",
+      "style-attr": "^1.3.0"
+    },
+    "description": "",
+    "types": "types/index.d.ts",
+    "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
+    "files": ["dist", "types"],
+    "_id": "@sitecore-jss/sitecore-jss-react@22.2.0-canary.69",
+    "pkgid": "sitecore-jss-react@npm:@sitecore-jss/sitecore-jss-react@22.2.0-canary.69",
+    "location": "../../packages/sitecore-jss-react",
+    "path": "C:\\workspace\\jss\\packages\\sitecore-jss-react",
+    "realpath": "C:\\workspace\\jss\\packages\\sitecore-jss-react",
+    "resolved": null,
+    "from": [],
+    "to": [
+      "../../packages/sitecore-jss-react/node_modules/@sitecore-jss/sitecore-jss",
+      "../../packages/sitecore-jss-react/node_modules/fast-deep-equal",
+      "../../packages/sitecore-jss-react/node_modules/prop-types",
+      "../../packages/sitecore-jss-react/node_modules/style-attr",
+      "../../packages/sitecore-jss-react/node_modules/@sitecore-feaas/clientside",
+      "../../packages/sitecore-jss-react/node_modules/@types/chai",
+      "../../packages/sitecore-jss-react/node_modules/@types/chai-string",
+      "../../packages/sitecore-jss-react/node_modules/@types/enzyme",
+      "../../packages/sitecore-jss-react/node_modules/@types/mocha",
+      "../../packages/sitecore-jss-react/node_modules/@types/node",
+      "../../packages/sitecore-jss-react/node_modules/@types/prop-types",
+      "../../packages/sitecore-jss-react/node_modules/@types/react",
+      "../../packages/sitecore-jss-react/node_modules/@types/react-dom",
+      "../../packages/sitecore-jss-react/node_modules/@types/sinon",
+      "../../packages/sitecore-jss-react/node_modules/@types/sinon-chai",
+      "../../packages/sitecore-jss-react/node_modules/@wojtekmaj/enzyme-adapter-react-17",
+      "../../packages/sitecore-jss-react/node_modules/chai",
+      "../../packages/sitecore-jss-react/node_modules/chai-string",
+      "../../packages/sitecore-jss-react/node_modules/cheerio",
+      "../../packages/sitecore-jss-react/node_modules/del-cli",
+      "../../packages/sitecore-jss-react/node_modules/enzyme",
+      "../../packages/sitecore-jss-react/node_modules/eslint",
+      "../../packages/sitecore-jss-react/node_modules/eslint-plugin-react",
+      "../../packages/sitecore-jss-react/node_modules/jsdom",
+      "../../packages/sitecore-jss-react/node_modules/mocha",
+      "../../packages/sitecore-jss-react/node_modules/nyc",
+      "../../packages/sitecore-jss-react/node_modules/react",
+      "../../packages/sitecore-jss-react/node_modules/react-dom",
+      "../../packages/sitecore-jss-react/node_modules/sinon",
+      "../../packages/sitecore-jss-react/node_modules/sinon-chai",
+      "../../packages/sitecore-jss-react/node_modules/ts-node",
+      "../../packages/sitecore-jss-react/node_modules/typescript"
+    ],
+    "dev": false,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "name": "@sitecore-feaas/clientside",
+    "version": "0.5.9",
+    "scripts": {
+      "start": "webpack serve --open",
+      "build": "rm -rf dist;npm run types; npm run build:esbuild; npm run build:sourcemaps",
+      "build:esbuild": "node scripts/build.js",
+      "build:sourcemaps": "npx merge-source-maps dist/browser/*.js --inline-sources",
+      "test": "npx vitest ",
+      "test:watch": "npx vitest ",
+      "prepublishOnly": "npm run build",
+      "check": "npx tsc --noEmit",
+      "types": "tsc --build; cd src/ui && tsc --build",
+      "postpublish": "node ../cdn/upload-package.js clientside $npm_package_version"
+    },
+    "license": "ISC",
+    "peerDependencies": {
+      "react-dom": ">=16.8.0"
+    },
+    "dependencies": {
+      "@sitecore/byoc": "^0.2.8"
+    },
+    "main": "./dist/node/index.cjs",
+    "browser": "./dist/browser/index.esm.js",
+    "module": "./dist/node/index.esm.js",
+    "types": "./types/ui/index.d.ts",
+    "type": "module",
+    "exports": {
+      ".": {
+        "localhost": "./build/ui/index.js",
+        "types": "./types/ui/index.d.ts",
+        "browser": "./dist/browser/index.esm.js",
+        "import": "./dist/node/index.esm.js",
+        "require": "./dist/node/index.cjs",
+        "default": "./dist/node/index.esm.js"
+      },
+      "./ui": {
+        "localhost": "./build/ui/index.js",
+        "types": "./types/ui/index.d.ts",
+        "browser": "./dist/browser/index.esm.js",
+        "import": "./dist/node/index.esm.js",
+        "require": "./dist/node/index.cjs",
+        "default": "./dist/node/index.esm.js"
+      },
+      "./headless": {
+        "localhost": "./build/headless.js",
+        "types": "./types/headless.d.ts",
+        "browser": "./dist/browser/headless.esm.js",
+        "import": "./dist/node/headless.esm.js",
+        "require": "./dist/node/headless.cjs",
+        "default": "./dist/node/headless.esm.js"
+      },
+      "./react": {
+        "localhost": "./build/ui/react.js",
+        "types": "./types/ui/react.d.ts",
+        "browser": "./dist/browser/react.esm.js",
+        "import": "./dist/node/react.esm.js",
+        "require": "./dist/node/react.cjs",
+        "default": "./dist/node/react.esm.js"
+      },
+      "./dist/*": {
+        "types": "./types/ui/index.d.ts",
+        "default": "./dist/*"
+      },
+      "./react.cjs": {
+        "types": "./react.d.ts",
+        "default": "./react.cjs"
+      },
+      "./react.mjs": {
+        "types": "./react.d.ts",
+        "default": "./dist/node/react.esm.js"
+      }
+    },
+    "typedoc": {
+      "entryPoint": "./src/index.ts",
+      "readmeFile": "./README.md",
+      "displayName": "FEAAS Clientside"
+    },
+    "devDependencies": {
+      "@sitecore-feaas/sdk": ">=0.3.0",
+      "@types/jsonpath-plus": "^5.0.2",
+      "@vitest/browser": "^0.29.2",
+      "esbuild": "^0.16.17",
+      "esbuild-plugin-replace-regex": "^0.0.2",
+      "htmlparser2": "^8.0.1",
+      "jsonpath-plus": "^7.2.0",
+      "merge-source-maps": "^0.6.1",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0"
+    },
+    "_id": "@sitecore-feaas/clientside@0.5.9",
+    "pkgid": "@sitecore-feaas/clientside@0.5.9",
+    "location": "../../packages/sitecore-jss-react/node_modules/@sitecore-feaas/clientside",
+    "path": "C:\\workspace\\jss\\packages\\sitecore-jss-react\\node_modules\\@sitecore-feaas\\clientside",
+    "realpath": "C:\\workspace\\jss\\packages\\sitecore-jss-react\\node_modules\\@sitecore-feaas\\clientside",
+    "resolved": null,
+    "from": ["../../packages/sitecore-jss-react"],
+    "to": [
+      "../../packages/sitecore-jss-react/node_modules/react-dom",
+      "../../packages/sitecore-jss-react/node_modules/@sitecore/byoc"
+    ],
+    "dev": true,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "type": "module",
+    "name": "@sitecore/byoc",
+    "description": "Bring-Your-Own-Components runtime to register and retrieve react components",
+    "version": "0.2.8",
+    "scripts": {
+      "test": "npx vitest",
+      "types": "tsc -p tsconfig.json",
+      "build:esbuild": "node scripts/build.js",
+      "build": "npm run types && npm run build:esbuild",
+      "prepublishOnly": "npm run build"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@types/jest": "^29.5.6",
+      "@types/json-schema": "^7.0.13",
+      "@types/react": "^18.2.25",
+      "esbuild": "^0.19.4",
+      "glob": "^10.3.10",
+      "jsdom": "^22.1.0",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "vitest": "^0.34.4"
+    },
+    "main": "./dist/node/index.cjs",
+    "browser": "./dist/browser/index.cjs",
+    "module": "./dist/node/index.esm.js",
+    "types": "./types/index.d.ts",
+    "exports": {
+      ".": {
+        "localhost": "./build/index.js",
+        "types": "./types/index.d.ts",
+        "browser": "./dist/browser/index.esm.js",
+        "import": "./dist/node/index.esm.js",
+        "require": "./dist/node/index.cjs",
+        "default": "./dist/node/index.esm.js"
+      },
+      "./react": {
+        "localhost": "./build/react.js",
+        "types": "./types/react.d.ts",
+        "browser": "./dist/browser/react.esm.js",
+        "import": "./dist/node/react.esm.js",
+        "require": "./dist/node/react.cjs",
+        "default": "./dist/node/react.esm.js"
+      }
+    },
+    "dependencies": {
+      "@rjsf/utils": "*",
+      "json-schema": "^0.4.0"
+    },
+    "directories": {
+      "test": "test"
+    },
+    "_id": "@sitecore/byoc@0.2.8",
+    "pkgid": "@sitecore/byoc@0.2.8",
+    "location": "../../packages/sitecore-jss-react/node_modules/@sitecore/byoc",
+    "path": "C:\\workspace\\jss\\packages\\sitecore-jss-react\\node_modules\\@sitecore\\byoc",
+    "realpath": "C:\\workspace\\jss\\packages\\sitecore-jss-react\\node_modules\\@sitecore\\byoc",
+    "resolved": null,
+    "from": ["../../packages/sitecore-jss-react/node_modules/@sitecore-feaas/clientside"],
+    "to": [
+      "../../packages/sitecore-jss-react/node_modules/@rjsf/utils",
+      "../../packages/sitecore-jss-react/node_modules/json-schema"
+    ],
+    "dev": true,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "name": "@sitecore-cloudsdk/core",
+    "version": "0.3.1",
+    "license": "Apache-2.0",
+    "main": "dist/cjs/src/index.js",
+    "module": "dist/esm/src/index.js",
+    "types": "dist/esm/src/index.d.ts",
+    "exports": {
+      ".": {
+        "types": {
+          "require": "./dist/cjs/src/index.d.ts",
+          "default": "./dist/esm/src/index.d.ts"
+        },
+        "import": "./dist/esm/src/index.js",
+        "require": "./dist/cjs/src/index.js"
+      }
+    },
+    "dependencies": {
+      "@sitecore-cloudsdk/utils": "^0.3.1",
+      "debug": "^4.3.4"
+    },
+    "scripts": {
+      "build": "npm run build:cjs && npm run build:es",
+      "build:cjs": "tsc -b tsconfig.cjs.json",
+      "build:es": "tsc -b ."
+    },
+    "files": ["dist", "README.md"],
+    "engines": {
+      "node": ">=18"
+    },
+    "devDependencies": {
+      "@types/debug": "^4.1.12"
+    },
+    "_id": "@sitecore-cloudsdk/core@0.3.1",
+    "pkgid": "@sitecore-cloudsdk/core@0.3.1",
+    "location": "node_modules/@sitecore-cloudsdk/core",
+    "path": "C:\\workspace\\jss\\samples\\next-new-app\\node_modules\\@sitecore-cloudsdk\\core",
+    "realpath": "C:\\workspace\\jss\\samples\\next-new-app\\node_modules\\@sitecore-cloudsdk\\core",
+    "resolved": null,
+    "from": ["node_modules/@sitecore-cloudsdk/events"],
+    "to": ["node_modules/@sitecore-cloudsdk/utils", "node_modules/debug"],
+    "dev": false,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "name": "@sitecore-cloudsdk/events",
+    "version": "0.3.1",
+    "license": "Apache-2.0",
+    "homepage": "https://doc.sitecore.com/xmc/en/developers/sdk/latest/cloud-sdk/index.html",
+    "exports": {
+      "./server": {
+        "import": "./server.js",
+        "require": "./server.cjs",
+        "types": "./server.d.ts"
+      },
+      "./browser": {
+        "import": "./browser.js",
+        "require": "./browser.cjs",
+        "types": "./browser.d.ts"
+      }
+    },
+    "dependencies": {
+      "@sitecore-cloudsdk/core": "^0.3.1",
+      "@sitecore-cloudsdk/utils": "^0.3.1"
+    },
+    "scripts": {
+      "build": "npm run build:cjs && npm run build:es",
+      "build:cjs": "tsc -b tsconfig.cjs.json",
+      "build:es": "tsc -b ."
+    },
+    "files": [
+      "dist",
+      "README.md",
+      "browser.js",
+      "browser.cjs",
+      "browser.d.ts",
+      "server.cjs",
+      "server.js",
+      "server.d.ts"
+    ],
+    "engines": {
+      "node": ">=18"
+    },
+    "_id": "@sitecore-cloudsdk/events@0.3.1",
+    "pkgid": "@sitecore-cloudsdk/events@0.3.1",
+    "location": "node_modules/@sitecore-cloudsdk/events",
+    "path": "C:\\workspace\\jss\\samples\\next-new-app\\node_modules\\@sitecore-cloudsdk\\events",
+    "realpath": "C:\\workspace\\jss\\samples\\next-new-app\\node_modules\\@sitecore-cloudsdk\\events",
+    "resolved": null,
+    "from": [""],
+    "to": ["node_modules/@sitecore-cloudsdk/core", "node_modules/@sitecore-cloudsdk/utils"],
+    "dev": false,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "name": "@sitecore-cloudsdk/utils",
+    "version": "0.3.1",
+    "license": "Apache-2.0",
+    "main": "dist/cjs/src/index.js",
+    "module": "dist/esm/src/index.js",
+    "types": "dist/esm/src/index.d.ts",
+    "exports": {
+      ".": {
+        "types": {
+          "require": "./dist/cjs/src/index.d.ts",
+          "default": "./dist/esm/src/index.d.ts"
+        },
+        "import": "./dist/esm/src/index.js",
+        "require": "./dist/cjs/src/index.js"
+      }
+    },
+    "scripts": {
+      "build": "npm run build:cjs && npm run build:es",
+      "build:cjs": "tsc -b tsconfig.cjs.json",
+      "build:es": "tsc -b ."
+    },
+    "files": ["dist", "README.md"],
+    "engines": {
+      "node": ">=18"
+    },
+    "_id": "@sitecore-cloudsdk/utils@0.3.1",
+    "pkgid": "@sitecore-cloudsdk/utils@0.3.1",
+    "location": "node_modules/@sitecore-cloudsdk/utils",
+    "path": "C:\\workspace\\jss\\samples\\next-new-app\\node_modules\\@sitecore-cloudsdk\\utils",
+    "realpath": "C:\\workspace\\jss\\samples\\next-new-app\\node_modules\\@sitecore-cloudsdk\\utils",
+    "resolved": null,
+    "from": ["node_modules/@sitecore-cloudsdk/events", "node_modules/@sitecore-cloudsdk/core"],
+    "to": [],
+    "dev": false,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "name": "@sitecore-feaas/clientside",
+    "version": "0.5.18",
+    "scripts": {
+      "start": "webpack serve --open",
+      "build": "rm -rf dist;npm run types; npm run build:esbuild; npm run build:sourcemaps",
+      "build:esbuild": "node scripts/build.js",
+      "build:sourcemaps": "npx merge-source-maps dist/browser/*.js --inline-sources",
+      "test": "npx vitest ",
+      "test:watch": "npx vitest ",
+      "prepublishOnly": "npm run build",
+      "check": "npx tsc --noEmit",
+      "types": "tsc --build; cd src/ui && tsc --build",
+      "postpublish": "node ../cdn/upload-package.js clientside $npm_package_version cdn"
+    },
+    "license": "ISC",
+    "peerDependencies": {
+      "react-dom": ">=16.8.0"
+    },
+    "dependencies": {
+      "@sitecore/byoc": "^0.2.15"
+    },
+    "main": "./dist/node/index.cjs",
+    "browser": "./dist/browser/index.esm.js",
+    "module": "./dist/node/index.esm.js",
+    "types": "./types/ui/index.d.ts",
+    "type": "module",
+    "exports": {
+      ".": {
+        "localhost": "./build/ui/index.js",
+        "types": "./types/ui/index.d.ts",
+        "browser": "./dist/browser/index.esm.js",
+        "import": "./dist/node/index.esm.js",
+        "require": "./dist/node/index.cjs",
+        "default": "./dist/node/index.esm.js"
+      },
+      "./ui": {
+        "localhost": "./build/ui/index.js",
+        "types": "./types/ui/index.d.ts",
+        "browser": "./dist/browser/index.esm.js",
+        "import": "./dist/node/index.esm.js",
+        "require": "./dist/node/index.cjs",
+        "default": "./dist/node/index.esm.js"
+      },
+      "./headless": {
+        "localhost": "./build/headless.js",
+        "types": "./types/headless.d.ts",
+        "browser": "./dist/browser/headless.esm.js",
+        "import": "./dist/node/headless.esm.js",
+        "require": "./dist/node/headless.cjs",
+        "default": "./dist/node/headless.esm.js"
+      },
+      "./react": {
+        "localhost": "./build/ui/react.js",
+        "types": "./types/ui/react.d.ts",
+        "browser": "./dist/browser/react.esm.js",
+        "import": "./dist/node/react.esm.js",
+        "require": "./dist/node/react.cjs",
+        "default": "./dist/node/react.esm.js"
+      },
+      "./dist/*": {
+        "types": "./types/ui/index.d.ts",
+        "default": "./dist/*"
+      },
+      "./react.cjs": {
+        "types": "./react.d.ts",
+        "default": "./react.cjs"
+      },
+      "./react.mjs": {
+        "types": "./react.d.ts",
+        "default": "./dist/node/react.esm.js"
+      }
+    },
+    "typedoc": {
+      "entryPoint": "./src/index.ts",
+      "readmeFile": "./README.md",
+      "displayName": "FEAAS Clientside"
+    },
+    "devDependencies": {
+      "@sitecore-feaas/sdk": ">=0.3.0",
+      "@types/jsonpath-plus": "^5.0.2",
+      "@vitest/browser": "^0.29.2",
+      "esbuild": "^0.16.17",
+      "esbuild-plugin-replace-regex": "^0.0.2",
+      "htmlparser2": "^8.0.1",
+      "jsonpath-plus": "^7.2.0",
+      "merge-source-maps": "^0.6.1",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0"
+    },
+    "_id": "@sitecore-feaas/clientside@0.5.18",
+    "pkgid": "@sitecore-feaas/clientside@0.5.18",
+    "location": "node_modules/@sitecore-feaas/clientside",
+    "path": "C:\\workspace\\jss\\samples\\next-new-app\\node_modules\\@sitecore-feaas\\clientside",
+    "realpath": "C:\\workspace\\jss\\samples\\next-new-app\\node_modules\\@sitecore-feaas\\clientside",
+    "resolved": null,
+    "from": [""],
+    "to": ["node_modules/react-dom", "node_modules/@sitecore/byoc"],
+    "dev": false,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "type": "module",
+    "name": "@sitecore/byoc",
+    "description": "Bring-Your-Own-Components runtime to register and retrieve react components",
+    "version": "0.2.15",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Sitecore-PD/sitecore.cloudsdk.byoc.git"
+    },
+    "scripts": {
+      "test": "npx vitest",
+      "types": "tsc -p tsconfig.json",
+      "build:esbuild": "node scripts/build.js",
+      "build": "npm run types && npm run build:esbuild",
+      "prepublishOnly": "npm run build"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@homer0/prettier-plugin-jsdoc": "^8.0.0",
+      "@types/jest": "^29.5.6",
+      "@types/json-schema": "^7.0.13",
+      "@types/react": "^18.2.25",
+      "@vitest/coverage-v8": "^1.2.1",
+      "esbuild": "^0.19.4",
+      "glob": "^10.3.10",
+      "jsdom": "^22.1.0",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "typescript": "^5.3.3",
+      "vitest": "^1.2.1"
+    },
+    "main": "./dist/node/index.cjs",
+    "browser": "./dist/browser/index.cjs",
+    "module": "./dist/node/index.esm.js",
+    "types": "./types/index.d.ts",
+    "exports": {
+      ".": {
+        "localhost": "./build/index.js",
+        "types": "./types/index.d.ts",
+        "browser": "./dist/browser/index.esm.js",
+        "import": "./dist/node/index.esm.js",
+        "require": "./dist/node/index.cjs",
+        "default": "./dist/node/index.esm.js"
+      },
+      "./react": {
+        "localhost": "./build/react.js",
+        "types": "./types/react.d.ts",
+        "browser": "./dist/browser/react.esm.js",
+        "import": "./dist/node/react.esm.js",
+        "require": "./dist/node/react.cjs",
+        "default": "./dist/node/react.esm.js"
+      }
+    },
+    "dependencies": {
+      "@rjsf/utils": "*",
+      "json-schema": "^0.4.0"
+    },
+    "directories": {
+      "test": "test"
+    },
+    "_id": "@sitecore/byoc@0.2.15",
+    "pkgid": "@sitecore/byoc@0.2.15",
+    "location": "node_modules/@sitecore/byoc",
+    "path": "C:\\workspace\\jss\\samples\\next-new-app\\node_modules\\@sitecore\\byoc",
+    "realpath": "C:\\workspace\\jss\\samples\\next-new-app\\node_modules\\@sitecore\\byoc",
+    "resolved": null,
+    "from": ["node_modules/@sitecore/components", "node_modules/@sitecore-feaas/clientside"],
+    "to": ["node_modules/@rjsf/utils", "node_modules/json-schema"],
+    "dev": false,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  },
+  {
+    "type": "module",
+    "name": "@sitecore/components",
+    "description": "A repository of react components authored by Sitecore that offers integration of different products in an easy-to-consume package. The promise of it is that it's mostly plug-and-play business.",
+    "version": "1.1.11",
+    "scripts": {
+      "test": "npx vitest",
+      "types": "tsc",
+      "build:esbuild": "node scripts/build.js",
+      "build": "npm run types && npm run build:esbuild",
+      "prepublishOnly": "npm run build"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@sitecore-cloudsdk/events": "^0.1.1",
+      "esbuild": "^0.19.4",
+      "glob": "^10.3.10",
+      "jsdom": "^22.1.0",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "vitest": "^0.34.4"
+    },
+    "main": "./dist/cjs/browser/index.js",
+    "module": "./dist/esm/browser/index.js",
+    "types": "./types/index.d.ts",
+    "peerDependencies": {
+      "@sitecore/byoc": "^0.2.5"
+    },
+    "exports": {
+      ".": {
+        "types": "./types/index.d.ts",
+        "default": "./build/index.js"
+      },
+      "./dist/*": {
+        "types": "./types/index.d.ts",
+        "default": "./dist/*"
+      },
+      "./form": {
+        "types": "./types/form/index.d.ts",
+        "browser": "./dist/esm/browser/form/index.js",
+        "import": "./dist/esm/node/form/index.js",
+        "require": "./dist/cjs/node/form/index.js",
+        "default": "./dist/esm/node/form/index.js"
+      },
+      "./form/web": {
+        "types": "./types/form/web.d.ts",
+        "browser": "./dist/esm/browser/form/web.js",
+        "import": "./dist/esm/node/form/web.js",
+        "require": "./dist/cjs/node/form/web.js",
+        "default": "./dist/esm/node/form/web.js"
+      },
+      "./context": {
+        "types": "./types/context/index.d.ts",
+        "browser": "./dist/esm/browser/context/index.js",
+        "import": "./dist/esm/node/context/index.js",
+        "require": "./dist/cjs/node/context/index.js",
+        "default": "./dist/esm/node/context/index.js"
+      }
+    },
+    "_id": "@sitecore/components@1.1.11",
+    "pkgid": "@sitecore/components@1.1.11",
+    "location": "node_modules/@sitecore/components",
+    "path": "C:\\workspace\\jss\\samples\\next-new-app\\node_modules\\@sitecore\\components",
+    "realpath": "C:\\workspace\\jss\\samples\\next-new-app\\node_modules\\@sitecore\\components",
+    "resolved": null,
+    "from": [""],
+    "to": ["node_modules/@sitecore/byoc"],
+    "dev": false,
+    "inBundle": false,
+    "deduped": false,
+    "overridden": false,
+    "queryContext": {}
+  }
+]

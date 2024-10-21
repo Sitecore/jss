@@ -1,7 +1,7 @@
 {
   "packages": {
     "@sitecore-cloudsdk/events": "0.3.1",
-    "@sitecore-feaas/clientside": "0.5.9",
+    "@sitecore-feaas/clientside": "0.5.18",
     "@sitecore-jss/sitecore-jss-nextjs": "22.2.0-canary.69",
     "@sitecore/components": "1.1.11",
     "@sitecore-jss/sitecore-jss-cli": "22.2.0-canary.69",
@@ -11,6 +11,6 @@
     "@sitecore-cloudsdk/personalize": "0.3.1",
     "@sitecore-cloudsdk/utils": "0.3.1",
     "@sitecore-cloudsdk/core": "0.3.1",
-    "@sitecore/byoc": "0.2.8"
+    "@sitecore/byoc": "0.2.15"
   }
 }
