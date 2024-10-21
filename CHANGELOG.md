@@ -19,6 +19,7 @@ Our versioning strategy is as follows:
 ### 🎉 New Features & Improvements
 
 * `[sitecore-jss-nextjs]` Expose MiddlewareBase class and MiddlewareBaseConfig type ([#1941](https://github.com/Sitecore/jss/pull/1941))
+* `[react]``[nextjs]``[angular]``[vue]` CacheClient, CacheOptions, MemoryCacheClient classes can now be imported into the app through corresponding a framework package ([#1954](https://github.com/Sitecore/jss/pull/1954))
 
 ## 22.1.3
 
