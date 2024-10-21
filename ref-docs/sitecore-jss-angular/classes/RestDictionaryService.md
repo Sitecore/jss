@@ -119,7 +119,7 @@ ___
 
 ### getCacheClient
 
-▸ `Protected` **getCacheClient**(): `CacheClient`\<`DictionaryPhrases`\>
+▸ `Protected` **getCacheClient**(): [`CacheClient`](../interfaces/CacheClient.md)\<`DictionaryPhrases`\>
 
 Gets a cache client that can cache data. Uses memory-cache as the default
 library for caching (@see MemoryCacheClient). Override this method if you
@@ -127,7 +127,7 @@ want to use something else.
 
 #### Returns
 
-`CacheClient`\<`DictionaryPhrases`\>
+[`CacheClient`](../interfaces/CacheClient.md)\<`DictionaryPhrases`\>
 
 implementation
 

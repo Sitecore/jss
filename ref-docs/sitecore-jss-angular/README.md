@@ -26,6 +26,7 @@
 - [ImageDirective](classes/ImageDirective.md)
 - [JssModule](classes/JssModule.md)
 - [LinkDirective](classes/LinkDirective.md)
+- [MemoryCacheClient](classes/MemoryCacheClient.md)
 - [PlaceholderComponent](classes/PlaceholderComponent.md)
 - [PlaceholderLoadingDirective](classes/PlaceholderLoadingDirective.md)
 - [RenderComponentComponent](classes/RenderComponentComponent.md)
@@ -39,6 +40,8 @@
 
 ### Interfaces
 
+- [CacheClient](interfaces/CacheClient.md)
+- [CacheOptions](interfaces/CacheOptions.md)
 - [CampaignInstance](interfaces/CampaignInstance.md)
 - [ComponentFields](interfaces/ComponentFields.md)
 - [ComponentNameAndModule](interfaces/ComponentNameAndModule.md)
@@ -234,7 +237,7 @@ packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/8987ca112/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -443,7 +446,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/fed0b75cb/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/8987ca112/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
