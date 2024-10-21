@@ -77,6 +77,7 @@ export {
   enableDebug,
   ClientError,
   HTMLLink,
+  debug,
 } from '@sitecore-jss/sitecore-jss';
 export {
   GraphQLPersonalizeService,
