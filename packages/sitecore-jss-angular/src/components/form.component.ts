@@ -1,8 +1,18 @@
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
+import { ComponentRendering, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
 import { getEdgeProxyFormsUrl } from '@sitecore-jss/sitecore-jss/graphql';
-import { Component, OnInit, Input, Inject, ElementRef, PLATFORM_ID } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Inject,
+  ElementRef,
+  PLATFORM_ID,
+  OnDestroy,
+} from '@angular/core';
 import { EDGE_CONFIG, EdgeConfigToken } from '../services/shared.token';
+import { JssStateService } from '../services/jss-state.service';
 import { isPlatformBrowser } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 /**
  * Shape of the Form component rendering data.
@@ -21,20 +31,22 @@ export type FormRendering = {
 @Component({
   selector: 'app-form',
   template: `
-    <ng-container *ngIf="!rendering.params.FormId">
-      <div
-        style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;"
-      >
-        <h2>{{ rendering.componentName }}</h2>
-        <p>JSS component is missing FormId rendering parameter.</p>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="hasError">
-      <div class="sc-jss-placeholder-error">There was a problem loading this section</div>
+    <ng-container *ngIf="isEditing">
+      <ng-container *ngIf="!rendering.params.FormId">
+        <div
+          style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;"
+        >
+          <h2>{{ rendering.componentName }}</h2>
+          <p>JSS component is missing FormId rendering parameter.</p>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="hasError">
+        <div class="sc-jss-placeholder-error">There was a problem loading this section</div>
+      </ng-container>
     </ng-container>
   `,
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, OnDestroy {
   /**
    * The rendering data for the component
    */
@@ -42,15 +54,30 @@ export class FormComponent implements OnInit {
 
   hasError = false;
 
+  isEditing = false;
+
+  private contextSubscription: Subscription;
+
   constructor(
     @Inject(EDGE_CONFIG) private edgeConfig: EdgeConfigToken,
     @Inject(PLATFORM_ID) private platformId: { [key: string]: unknown },
-    private elRef: ElementRef<HTMLElement>
+    private elRef: ElementRef<HTMLElement>,
+    private jssState: JssStateService
   ) {}
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.loadForm();
+
+      this.contextSubscription = this.jssState.state.subscribe(({ sitecore }) => {
+        this.isEditing = sitecore?.context.pageState !== LayoutServicePageState.Normal;
+      });
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.contextSubscription) {
+      this.contextSubscription.unsubscribe();
     }
   }
 

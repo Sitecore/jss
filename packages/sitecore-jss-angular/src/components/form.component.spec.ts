@@ -1,8 +1,10 @@
 /* eslint-disable quotes */
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ElementRef } from '@angular/core';
+import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
 import { FormComponent, FormRendering } from './form.component';
 import { EDGE_CONFIG, EdgeConfigToken } from '../services/shared.token';
-import { ElementRef } from '@angular/core';
+import { JssStateService } from '../services/jss-state.service';
 import { cleanHtml } from '../test-utils';
 
 describe('FormComponent', () => {
@@ -41,6 +43,7 @@ describe('FormComponent', () => {
     TestBed.configureTestingModule({
       declarations: [FormComponent],
       providers: [
+        JssStateService,
         { provide: EDGE_CONFIG, useValue: edgeConfig },
         { provide: ElementRef, useValue: mockElementRef },
       ],
@@ -170,88 +173,274 @@ describe('FormComponent', () => {
     );
   }));
 
-  it('should throw error when FormId is not provided', fakeAsync(() => {
-    const mockRendering = {
-      params: {
-        FormId: '',
-      },
-      componentName: 'test-component',
-      dataSource: 'test-data-source',
-      placeholders: {},
-      uid: 'test-uid',
-    };
+  describe('when FormId is not provided', () => {
+    it('editing mode - should log warning and render error', fakeAsync(() => {
+      const mockRendering = {
+        params: {
+          FormId: '',
+        },
+        componentName: 'test-component',
+        dataSource: 'test-data-source',
+        placeholders: {},
+        uid: 'test-uid',
+      };
 
-    init({
-      rendering: mockRendering,
-    });
+      init({
+        rendering: mockRendering,
+      });
 
-    spyOn(console, 'warn').and.callThrough();
+      const stateService = TestBed.inject(JssStateService);
 
-    fixture.detectChanges();
+      stateService.setState({
+        sitecore: {
+          context: {
+            pageState: LayoutServicePageState.Edit,
+          },
+          route: null,
+        },
+      });
 
-    tick();
+      spyOn(console, 'warn').and.callThrough();
 
-    expect(console.warn).toHaveBeenCalledWith(
-      `Form was not able to render since FormId is not provided in the rendering data`,
-      JSON.stringify(mockRendering, null, 2)
-    );
+      fixture.detectChanges();
 
-    expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
-      `<div style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;">` +
-        `<h2>test-component</h2>` +
-        `<p>JSS component is missing FormId rendering parameter.</p>` +
-        `</div>`
-    );
-  }));
+      tick();
 
-  it('should throw error when fetch fails', fakeAsync(() => {
-    init();
+      expect(console.warn).toHaveBeenCalledWith(
+        `Form was not able to render since FormId is not provided in the rendering data`,
+        JSON.stringify(mockRendering, null, 2)
+      );
 
-    spyOn(console, 'warn').and.callThrough();
+      expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
+        `<div style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;">` +
+          `<h2>test-component</h2>` +
+          `<p>JSS component is missing FormId rendering parameter.</p>` +
+          `</div>`
+      );
+    }));
 
-    spyOn(window, 'fetch').and.throwError('Fetch failed');
+    it('preview mode - should log warning and render error', fakeAsync(() => {
+      const mockRendering = {
+        params: {
+          FormId: '',
+        },
+        componentName: 'test-component',
+        dataSource: 'test-data-source',
+        placeholders: {},
+        uid: 'test-uid',
+      };
 
-    fixture.detectChanges();
+      init({
+        rendering: mockRendering,
+      });
 
-    tick();
+      const stateService = TestBed.inject(JssStateService);
 
-    expect(console.warn).toHaveBeenCalledWith(
-      `Form 'test-form-id' was not able to render with the current rendering data`,
-      JSON.stringify(mockRendering, null, 2),
-      new Error('Fetch failed')
-    );
+      stateService.setState({
+        sitecore: {
+          context: {
+            pageState: LayoutServicePageState.Preview,
+          },
+          route: null,
+        },
+      });
 
-    expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
-      `<div class="sc-jss-placeholder-error">There was a problem loading this section</div>`
-    );
-  }));
+      spyOn(console, 'warn').and.callThrough();
 
-  it('should throw error when fetch returns non-200 status', fakeAsync(() => {
-    init();
+      fixture.detectChanges();
 
-    spyOn(console, 'warn').and.callThrough();
+      tick();
 
-    const mockResponse = {
-      text: () => Promise.resolve('Some error message'),
-      status: 500,
-    };
+      expect(console.warn).toHaveBeenCalledWith(
+        `Form was not able to render since FormId is not provided in the rendering data`,
+        JSON.stringify(mockRendering, null, 2)
+      );
 
-    spyOn(window, 'fetch').and.returnValue(Promise.resolve(mockResponse as Response));
+      expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
+        `<div style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;">` +
+          `<h2>test-component</h2>` +
+          `<p>JSS component is missing FormId rendering parameter.</p>` +
+          `</div>`
+      );
+    }));
 
-    fixture.detectChanges();
+    it('normal mode - should log warning', fakeAsync(() => {
+      const mockRendering = {
+        params: {
+          FormId: '',
+        },
+        componentName: 'test-component',
+        dataSource: 'test-data-source',
+        placeholders: {},
+        uid: 'test-uid',
+      };
 
-    tick();
+      init({
+        rendering: mockRendering,
+      });
 
-    fixture.detectChanges();
+      const stateService = TestBed.inject(JssStateService);
 
-    expect(console.warn).toHaveBeenCalledWith(
-      `Form 'test-form-id' was not able to render with the current rendering data`,
-      JSON.stringify(mockRendering, null, 2),
-      'Some error message'
-    );
+      stateService.setState({
+        sitecore: {
+          context: {
+            pageState: LayoutServicePageState.Normal,
+          },
+          route: null,
+        },
+      });
 
-    expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
-      `<div class="sc-jss-placeholder-error">There was a problem loading this section</div>`
-    );
-  }));
+      spyOn(console, 'warn').and.callThrough();
+
+      fixture.detectChanges();
+
+      tick();
+
+      expect(console.warn).toHaveBeenCalledWith(
+        `Form was not able to render since FormId is not provided in the rendering data`,
+        JSON.stringify(mockRendering, null, 2)
+      );
+
+      expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual('');
+    }));
+  });
+
+  describe('when fetch fails', () => {
+    it('editing mode - should log warning and render error', fakeAsync(() => {
+      init();
+
+      const stateService = TestBed.inject(JssStateService);
+
+      stateService.setState({
+        sitecore: {
+          context: {
+            pageState: LayoutServicePageState.Edit,
+          },
+          route: null,
+        },
+      });
+
+      spyOn(console, 'warn').and.callThrough();
+
+      spyOn(window, 'fetch').and.throwError('Fetch failed');
+
+      fixture.detectChanges();
+
+      tick();
+
+      expect(console.warn).toHaveBeenCalledWith(
+        `Form 'test-form-id' was not able to render with the current rendering data`,
+        JSON.stringify(mockRendering, null, 2),
+        new Error('Fetch failed')
+      );
+
+      expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
+        `<div class="sc-jss-placeholder-error">There was a problem loading this section</div>`
+      );
+    }));
+
+    it('preview mode - should log warning and render error', fakeAsync(() => {
+      init();
+
+      const stateService = TestBed.inject(JssStateService);
+
+      stateService.setState({
+        sitecore: {
+          context: {
+            pageState: LayoutServicePageState.Preview,
+          },
+          route: null,
+        },
+      });
+
+      spyOn(console, 'warn').and.callThrough();
+
+      spyOn(window, 'fetch').and.throwError('Fetch failed');
+
+      fixture.detectChanges();
+
+      tick();
+
+      expect(console.warn).toHaveBeenCalledWith(
+        `Form 'test-form-id' was not able to render with the current rendering data`,
+        JSON.stringify(mockRendering, null, 2),
+        new Error('Fetch failed')
+      );
+
+      expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
+        `<div class="sc-jss-placeholder-error">There was a problem loading this section</div>`
+      );
+    }));
+
+    it('should log warning and render error when fetch returns non-200 status', fakeAsync(() => {
+      init();
+
+      const stateService = TestBed.inject(JssStateService);
+
+      stateService.setState({
+        sitecore: {
+          context: {
+            pageState: LayoutServicePageState.Edit,
+          },
+          route: null,
+        },
+      });
+
+      spyOn(console, 'warn').and.callThrough();
+
+      const mockResponse = {
+        text: () => Promise.resolve('Some error message'),
+        status: 500,
+      };
+
+      spyOn(window, 'fetch').and.returnValue(Promise.resolve(mockResponse as Response));
+
+      fixture.detectChanges();
+
+      tick();
+
+      fixture.detectChanges();
+
+      expect(console.warn).toHaveBeenCalledWith(
+        `Form 'test-form-id' was not able to render with the current rendering data`,
+        JSON.stringify(mockRendering, null, 2),
+        'Some error message'
+      );
+
+      expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
+        `<div class="sc-jss-placeholder-error">There was a problem loading this section</div>`
+      );
+    }));
+
+    it('normal mode - should log warning', fakeAsync(() => {
+      init();
+
+      const stateService = TestBed.inject(JssStateService);
+
+      stateService.setState({
+        sitecore: {
+          context: {
+            pageState: LayoutServicePageState.Normal,
+          },
+          route: null,
+        },
+      });
+
+      spyOn(console, 'warn').and.callThrough();
+
+      spyOn(window, 'fetch').and.throwError('Fetch failed');
+
+      fixture.detectChanges();
+
+      tick();
+
+      expect(console.warn).toHaveBeenCalledWith(
+        `Form 'test-form-id' was not able to render with the current rendering data`,
+        JSON.stringify(mockRendering, null, 2),
+        new Error('Fetch failed')
+      );
+
+      expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual('');
+    }));
+  });
 });
