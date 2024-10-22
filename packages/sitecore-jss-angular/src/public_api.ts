@@ -48,6 +48,7 @@ export {
   LayoutService,
   LayoutServiceData,
   LayoutServiceContextData,
+  LayoutServicePageState,
   GraphQLLayoutService,
   RestLayoutService,
   PlaceholdersData,
@@ -101,3 +102,4 @@ export {
   EventInstance,
   PageViewInstance,
 } from '@sitecore-jss/sitecore-jss/tracking';
+export { CdpHelper } from '@sitecore-jss/sitecore-jss/personalize';
