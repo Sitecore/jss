@@ -61,6 +61,10 @@ Our versioning strategy is as follows:
    - `scRouterLinkEmptyFieldEditingTemplate` for _scRouterLink_
    - `scTextEmptyFieldEditingTemplate` for _scText_
 * `[sitecore-jss-angular]` `[templates/angular-xmcloud]` Render clientScripts / clientData. The new `sc-editing-scripts` component is exposed from `sitecore-jss-angular` package and required to be rendered on the page to enable Metadata Edit mode. ([#1924](https://github.com/Sitecore/jss/pull/1924))([#1948](https://github.com/Sitecore/jss/pull/1948))
+* `[sitecore-jss-angular]` `[templates/angular-xmcloud]` XM Cloud Forms support ([#1951](https://github.com/Sitecore/jss/pull/1951)):
+  * New "Form" component is introduced in the sitecore-jss-angular package.
+  * The Form component is declared in the Angular sample app.
+  * Introduced plugins technique for component factory generation.
 * `[sitecore-jss]` GenericFieldValue model is updated to accept Date type ([#1916](https://github.com/Sitecore/jss/pull/1916))
 * `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/healthz endpoint ([#1928](https://github.com/Sitecore/jss/pull/1928))
 * `[sitecore-jss]` `[sitecore-jss-angular]` Render field metdata chromes in editMode metadata - in edit mode metadata in Pages, angular package field directives will render wrapping `code` elements with field metadata required for editing; ([#1926](https://github.com/Sitecore/jss/pull/1926))
