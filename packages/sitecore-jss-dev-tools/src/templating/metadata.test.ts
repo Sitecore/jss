@@ -17,9 +17,11 @@ describe('metadata', () => {
 
   describe('getMetadata', () => {
     let execSyncStub: SinonStub;
+    let logStub: SinonStub;
 
     afterEach(() => {
       execSyncStub?.restore();
+      logStub?.restore();
     });
 
     it('should return tracked packages with exact versions from result of npm query (nextjs app)', () => {
@@ -40,16 +42,26 @@ describe('metadata', () => {
       expect(metadata).to.deep.equal(metadataAngular);
     });
 
-    it('should throw if result of npm query is not valid', () => {
+    it('should return metadata with empty package object and log error in the console if result of npm query is not valid', () => {
       execSyncStub = sinon.stub(childProcess, 'execSync');
       execSyncStub.withArgs('npm query [name*=@sitecore] --workspaces false').returns('[{"name":}');
-      expect(() => getMetadata()).to.throw;
+      logStub = sinon.stub(console, 'error');
+
+      const metadata = getMetadata();
+      expect(logStub.calledOnceWith('Failed to retrieve sitecore packages using npm query')).to.be
+        .true;
+      expect(metadata).to.deep.equal({ packages: {} });
     });
 
-    it('should thorow if npm query command fails', () => {
+    it('should return metadata with empty package object and log error in the console if npm query command fails', () => {
       execSyncStub = sinon.stub(childProcess, 'execSync');
       execSyncStub.withArgs('npm query [name*=@sitecore] --workspaces false').throws();
-      expect(() => getMetadata()).to.throw;
+      logStub = sinon.stub(console, 'error');
+
+      const metadata = getMetadata();
+      expect(logStub.calledOnceWith('Failed to retrieve sitecore packages using npm query')).to.be
+        .true;
+      expect(metadata).to.deep.equal({ packages: {} });
     });
 
     it('should not return packages for result of npm query not containng tracked packages', () => {
