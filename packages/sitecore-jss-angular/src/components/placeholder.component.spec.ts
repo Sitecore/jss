@@ -29,17 +29,8 @@ import { JssCanActivate, JssCanActivateFn, JssResolve } from '../services/placeh
 import * as lazyLoadingData from '../test-data/lazy-loading/data';
 import { MissingComponentComponent } from './missing-component.component';
 import { JssStateService } from '../services/jss-state.service';
+import { cleanHtml } from '../test-utils';
 
-/**
- * Remove angular comments and angular-specific bindings
- * @param {string} html
- */
-function cleanHtml(html: string): string {
-  return html
-    .replace(/<!--[^>]*-->/g, '')
-    .replace(/\s*ng-reflect-[^=]*="[^"]*"/g, '')
-    .trim();
-}
 @Component({
   selector: 'test-placeholder',
   template: `

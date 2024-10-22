@@ -24,6 +24,7 @@
 - [EditFrameComponent](classes/EditFrameComponent.md)
 - [EditingScriptsComponent](classes/EditingScriptsComponent.md)
 - [FileDirective](classes/FileDirective.md)
+- [FormComponent](classes/FormComponent.md)
 - [GenericLinkDirective](classes/GenericLinkDirective.md)
 - [GraphQLDictionaryService](classes/GraphQLDictionaryService.md)
 - [GraphQLLayoutService](classes/GraphQLLayoutService.md)
@@ -33,6 +34,7 @@
 - [JssModule](classes/JssModule.md)
 - [JssStateService](classes/JssStateService.md)
 - [LinkDirective](classes/LinkDirective.md)
+- [MemoryCacheClient](classes/MemoryCacheClient.md)
 - [PlaceholderComponent](classes/PlaceholderComponent.md)
 - [PlaceholderLoadingDirective](classes/PlaceholderLoadingDirective.md)
 - [RenderComponentComponent](classes/RenderComponentComponent.md)
@@ -46,6 +48,8 @@
 
 ### Interfaces
 
+- [CacheClient](interfaces/CacheClient.md)
+- [CacheOptions](interfaces/CacheOptions.md)
 - [CampaignInstance](interfaces/CampaignInstance.md)
 - [ComponentFields](interfaces/ComponentFields.md)
 - [ComponentNameAndModule](interfaces/ComponentNameAndModule.md)
@@ -97,6 +101,7 @@
 - [DYNAMIC\_COMPONENT](README.md#dynamic_component)
 - [DefaultEditFrameButton](README.md#defaulteditframebutton)
 - [DefaultEditFrameButtons](README.md#defaulteditframebuttons)
+- [EDGE\_CONFIG](README.md#edge_config)
 
 ### Functions
 
@@ -259,7 +264,7 @@ packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/72fbacdd1/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/a0d83f1b9/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -300,6 +305,18 @@ ___
 #### Defined in
 
 packages/sitecore-jss/types/editing/edit-frame.d.ts:32
+
+___
+
+### EDGE\_CONFIG
+
+• `Const` **EDGE\_CONFIG**: `InjectionToken`\<`EdgeConfigToken`\>
+
+Injection token for the Sitecore Edge configuration.
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/services/shared.token.ts:14](https://github.com/Sitecore/jss/blob/a0d83f1b9/packages/sitecore-jss-angular/src/services/shared.token.ts#L14)
 
 ## Functions
 
@@ -519,7 +536,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/72fbacdd1/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/a0d83f1b9/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
