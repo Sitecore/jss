@@ -19,6 +19,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-angular]` Fix default empty field components to not render the unwanted wrapping tags ([#1937](https://github.com/Sitecore/jss/pull/1937)) ([#1940](https://github.com/Sitecore/jss/pull/1940))
 * `[sitecore-jss-angular]` Fix image field style property not rendered properly ([#1944](https://github.com/Sitecore/jss/pull/1944))
 * `[sitecore-jss-angular]` Fix nested dynamic placeholders not being displayed in Pages ([#1947](https://github.com/Sitecore/jss/pull/1947))
+* `[sitecore-jss-dev-tools]` getMetadata() now uses `npm query` command to get the list and exact versions of packages. this solution works for monorepo setups ([#1949](https://github.com/Sitecore/jss/pull/1949))
 * `[templates/nextjs-sxa]` Fix an alignment issue where components using both `me-auto` and `ms-md-auto` classes resulted in inconsistent alignment of elements. ([#1946](https://github.com/Sitecore/jss/pull/1946)) ([#1950](https://github.com/Sitecore/jss/pull/1950)) ([#1955](https://github.com/Sitecore/jss/pull/1955))
 
 ### 🎉 New Features & Improvements
@@ -68,7 +69,6 @@ Our versioning strategy is as follows:
 * `[sitecore-jss]` GenericFieldValue model is updated to accept Date type ([#1916](https://github.com/Sitecore/jss/pull/1916))
 * `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/healthz endpoint ([#1928](https://github.com/Sitecore/jss/pull/1928))
 * `[sitecore-jss]` `[sitecore-jss-angular]` Render field metdata chromes in editMode metadata - in edit mode metadata in Pages, angular package field directives will render wrapping `code` elements with field metadata required for editing; ([#1926](https://github.com/Sitecore/jss/pull/1926))
-* `[sitecore-jss-nextjs]` Expose MiddlewareBase class and MiddlewareBaseConfig type ([#1941](https://github.com/Sitecore/jss/pull/1941))
 * `[angular-xmcloud]``[sitecore-jss-angular]` Analytics and CloudSDK integration
 * `[angular-xmcloud]` Add CloudSDK initialization on client side ([#1952](https://github.com/Sitecore/jss/pull/1952))
 
