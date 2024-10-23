@@ -4,7 +4,7 @@ import {
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { useEffect } from 'react';
-import { pageView } from '@sitecore-cloudsdk/events';
+import { pageView } from '@sitecore-cloudsdk/events/browser';
 import config from 'temp/config';
 
 /**

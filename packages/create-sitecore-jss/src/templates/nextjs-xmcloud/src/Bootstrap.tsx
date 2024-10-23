@@ -1,5 +1,6 @@
 import { SitecorePageProps } from 'lib/page-props';
-import { context } from 'src/lib/context';
+import { CloudSDK } from '@sitecore-cloudsdk/core/browser';
+import '@sitecore-cloudsdk/events/browser';
 import config from 'temp/config';
 
 /**
@@ -7,15 +8,14 @@ import config from 'temp/config';
  * that needs to happen early in the application's lifecycle.
  */
 const Bootstrap = (props: SitecorePageProps): JSX.Element | null => {
-  /**
-   * Initializes the application Context and associated Software Development Kits (SDKs).
-   * This function is the entry point for setting up the application's context and any SDKs that are required for its proper functioning.
-   * It prepares the resources needed to interact with various services and features within the application.
-   */
-  context.init({
-    siteName: props.site?.name || config.sitecoreSiteName,
-    pageState: props.layoutData?.sitecore?.context?.pageState,
-  });
+  // Browser ClientSDK init allows for page view events to be tracked
+  CloudSDK({
+    sitecoreEdgeContextId: config.sitecoreEdgeContextId,
+    siteName: props.site.name || config.sitecoreSiteName,
+    enableBrowserCookie: true,
+  })
+    .addEvents()
+    .initialize();
 
   return null;
 };
