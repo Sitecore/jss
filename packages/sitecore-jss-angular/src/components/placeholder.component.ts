@@ -127,7 +127,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   private placeholderData?: (ComponentRendering<ComponentFields> | HtmlElementRendering)[];
   private destroyed = false;
   private parentStyleAttribute = '';
-  private editMode?: EditMode = undefined;
   private contextSubscription: Subscription;
 
   constructor(
@@ -145,7 +144,11 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     // eslint-disable-next-line @typescript-eslint/ban-types
     @Inject(PLATFORM_ID) private platformId: Object,
     private jssState: JssStateService
-  ) {}
+  ) {
+    this.contextSubscription = this.jssState.state.subscribe(({ sitecore }) => {
+      this.metadataMode = sitecore?.context.editMode === EditMode.Metadata;
+    });
+  }
 
   @Input()
   set inputs(value: { [key: string]: unknown }) {
@@ -170,10 +173,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
       }
     }
     this.placeholderData = this.renderings || this.getPlaceholder() || [];
-    this.contextSubscription = this.jssState.state.subscribe(({ sitecore }) => {
-      this.editMode = sitecore?.context.editMode;
-      this.metadataMode = this.editMode === EditMode.Metadata;
-    });
   }
 
   ngOnDestroy() {
@@ -267,7 +266,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
           ? getDynamicPlaceholderPattern(placeholder)
           : null;
         if (patternPlaceholder && patternPlaceholder.test(phName)) {
-          if (this.editMode === EditMode.Metadata) {
+          if (this.metadataMode) {
             phName = placeholder;
           } else {
             this.rendering.placeholders![phName] = this.rendering.placeholders![placeholder];

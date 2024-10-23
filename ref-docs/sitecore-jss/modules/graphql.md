@@ -34,6 +34,7 @@
 
 - [getAppRootId](graphql.md#getapprootid)
 - [getEdgeProxyContentUrl](graphql.md#getedgeproxycontenturl)
+- [getEdgeProxyFormsUrl](graphql.md#getedgeproxyformsurl)
 
 ## References
 
@@ -95,7 +96,7 @@ The schema of data returned in response to an app root query request
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/app-root-query.ts:27](https://github.com/Sitecore/jss/blob/8cb9651dc/packages/sitecore-jss/src/graphql/app-root-query.ts#L27)
+[packages/sitecore-jss/src/graphql/app-root-query.ts:27](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss/src/graphql/app-root-query.ts#L27)
 
 ___
 
@@ -108,7 +109,7 @@ In cases where an error status was sent back from the server (`!response.ok`), t
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:35](https://github.com/Sitecore/jss/blob/8cb9651dc/packages/sitecore-jss/src/graphql-request-client.ts#L35)
+[packages/sitecore-jss/src/graphql-request-client.ts:35](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss/src/graphql-request-client.ts#L35)
 
 ___
 
@@ -134,7 +135,7 @@ Schema of data returned in response to a "search" query request
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/8cb9651dc/packages/sitecore-jss/src/graphql/search-service.ts#L22)
+[packages/sitecore-jss/src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss/src/graphql/search-service.ts#L22)
 
 ## Functions
 
@@ -174,7 +175,7 @@ leaving that decision up to implementations.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/8cb9651dc/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
+[packages/sitecore-jss/src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
 
 ___
 
@@ -199,4 +200,30 @@ The complete URL for accessing content through the Edge Platform.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts:9](https://github.com/Sitecore/jss/blob/8cb9651dc/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L9)
+[packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts:9](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L9)
+
+___
+
+### getEdgeProxyFormsUrl
+
+▸ **getEdgeProxyFormsUrl**(`sitecoreEdgeContextId`, `formId`, `sitecoreEdgeUrl?`): `string`
+
+Generates a URL for accessing Sitecore Edge Platform Forms using the provided form ID and context ID.
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `sitecoreEdgeContextId` | `string` | `undefined` | The unique context id. |
+| `formId` | `string` | `undefined` | The unique form id. |
+| `sitecoreEdgeUrl?` | `string` | `SITECORE_EDGE_URL_DEFAULT` | The base endpoint URL for the Edge Platform. Default is https://edge-platform.sitecorecloud.io |
+
+#### Returns
+
+`string`
+
+The complete URL for accessing forms through the Edge Platform.
+
+#### Defined in
+
+[packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts:21](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L21)

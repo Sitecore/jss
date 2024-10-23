@@ -190,6 +190,7 @@ describe('<img *scImage />', () => {
         alt: 'my image',
         height: '650',
         width: '300',
+        style: { background: 'white', color: 'black' },
       },
     };
     const eeMedia = {
@@ -222,6 +223,15 @@ describe('<img *scImage />', () => {
       const img = de.nativeElement.getElementsByTagName('img')[0];
       expect(img.height).toBe(100);
       expect(img.width).toBe(150);
+    });
+
+    it('should render img with style prop', () => {
+      comp2.field = media;
+      fixture2.detectChanges();
+
+      const img = de.nativeElement.getElementsByTagName('img')[0];
+      expect(img.style.getPropertyValue('background')).toBe('white');
+      expect(img.style.getPropertyValue('color')).toBe('black');
     });
 
     it('should render img with addtional props in EE mode', () => {
@@ -512,7 +522,7 @@ describe('<img *scImage />', () => {
           comp.field = field;
           fixture.detectChanges();
 
-          const fieldValue = de.query(By.css('sc-default-empty-image-field-editing-placeholder'));
+          const fieldValue = de.query(By.css('[sc-default-empty-image-field-editing-placeholder]'));
           const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
           const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
 

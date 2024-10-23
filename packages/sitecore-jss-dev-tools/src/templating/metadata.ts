@@ -1,31 +1,45 @@
-import fs from 'fs';
-import path from 'path';
 import { Metadata } from '@sitecore-jss/sitecore-jss/editing';
+import { execSync } from 'child_process';
+
+type Package = {
+  name: string;
+  version: string;
+};
+
+const trackedScopes = ['@sitecore', '@sitecore-cloudsdk', '@sitecore-feaas', '@sitecore-jss'];
 
 /**
  * Get application metadata
  */
 export function getMetadata(): Metadata {
   const metadata: Metadata = { packages: {} };
-  const trackedScopes = ['@sitecore', '@sitecore-cloudsdk', '@sitecore-feaas', '@sitecore-jss'];
-  const dirs = fs.readdirSync('node_modules');
 
-  dirs.forEach((dir: any) => {
-    if (trackedScopes.includes(dir)) {
-      const packageNames = fs.readdirSync(path.join('node_modules', dir));
-      packageNames.forEach((pkg: any) => {
-        try {
-          const json = JSON.parse(
-            fs.readFileSync(path.join('node_modules', dir, pkg, 'package.json'), 'utf8')
-          );
+  let queryResult: Package[] = [];
+  try {
+    queryResult = JSON.parse(execSync('npm query [name*=@sitecore] --workspaces false').toString());
+  } catch (error) {
+    console.error('Failed to retrieve sitecore packages using npm query', error);
+    return metadata;
+  }
 
-          metadata.packages[json.name] = json.version;
-        } catch (e) {
-          console.error(`Failed to read/parse package.json for ${pkg}`, e);
-        }
-      });
+  metadata.packages = getPackagesFromQueryResult(queryResult);
+
+  return metadata;
+}
+
+/**
+ * Retrieve all packages of the tracked scopes with their exact versions
+ * @param {Package[]} scPackages list of packages
+ * @returns {Record<string, string>} an object with the packages with their exact versions
+ */
+function getPackagesFromQueryResult(scPackages: Package[]): Record<string, string> {
+  const packages: Record<string, string> = {};
+
+  scPackages.forEach((scPackage) => {
+    if (trackedScopes.some((trackedScope) => scPackage.name.startsWith(trackedScope))) {
+      packages[scPackage.name] = scPackage.version;
     }
   });
 
-  return metadata;
+  return packages;
 }

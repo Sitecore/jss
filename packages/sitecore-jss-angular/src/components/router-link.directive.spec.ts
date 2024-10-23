@@ -25,7 +25,8 @@ class TestComponent {
 
 const emptyLinkFieldEditingTemplateId = 'emptyLinkFieldEditingTemplate';
 const emptyLinkFieldEditingTemplate = '<span>[This is a *custom* empty field template]</span>';
-const emptyLinkFieldEditingTemplateDefaultTestString = '<span>[No text in field]</span>';
+const emptyLinkFieldEditingTemplateDefaultTestString =
+  '<span sc-default-empty-text-field-editing-placeholder="">[No text in field]</span>';
 
 @Component({
   selector: 'test-empty-template-router-link',

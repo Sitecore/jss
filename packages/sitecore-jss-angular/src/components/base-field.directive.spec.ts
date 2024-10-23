@@ -130,7 +130,9 @@ describe('<span *scTestBase />', () => {
         fixture.detectChanges();
 
         const rendered = de.nativeElement.innerHTML;
-        expect(rendered).toContain('<span>[No text in field]</span>');
+        expect(rendered).toContain(
+          '<span sc-default-empty-text-field-editing-placeholder="">[No text in field]</span>'
+        );
       });
 
       it('should render custom empty editing template if provided', () => {
@@ -199,7 +201,9 @@ describe('<span *scTestBase />', () => {
           comp.field = field;
           fixture.detectChanges();
 
-          const fieldValue = de.query(By.css('sc-default-empty-text-field-editing-placeholder'));
+          const fieldValue = de.query(
+            By.css('span[sc-default-empty-text-field-editing-placeholder]')
+          );
           const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
           const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
 
