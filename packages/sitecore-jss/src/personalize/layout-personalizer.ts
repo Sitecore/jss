@@ -34,7 +34,7 @@ export function personalizeLayout(
   layout.sitecore.context.variantId = variantId;
   const placeholders = layout.sitecore.route?.placeholders;
   if (Object.keys(placeholders ?? {}).length === 0) {
-    return;
+    return {};
   }
   const metadataEditing =
     layout.sitecore.context.pageEditing && layout.sitecore.context.editMode === EditMode.Metadata;

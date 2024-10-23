@@ -6,19 +6,23 @@ import {
   GraphQLPersonalizeService,
   GraphQLPersonalizeServiceConfig,
   PersonalizeInfo,
+  getGroomedVariantIds,
+  personalizeLayout,
+  LayoutServiceData,
   debug,
 } from '@sitecore-jss/sitecore-jss-angular';
 import { IncomingHttpHeaders, IncomingMessage, OutgoingMessage } from 'http';
 import { environment as env } from '../../environments/environment';
 import clientFactory from './graphql-client-factory';
 
+// TODO: return defaults to 400
 const defaultPersonalizeConfig: PersonalizeConfig ={
     // Configuration for your Sitecore Experience Edge endpoint
     edgeConfig: {
         clientFactory,
         timeout: (process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT &&
             parseInt(process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT)) ||
-            400,
+            600,
     },
     // Configuration for your Sitecore CDP endpoint
     cdpConfig: {
@@ -26,7 +30,7 @@ const defaultPersonalizeConfig: PersonalizeConfig ={
         sitecoreEdgeContextId: env.sitecoreEdgeContextId,
         timeout: (process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT &&
             parseInt(process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT)) ||
-            400,
+            1200,
     },
     // Optional Sitecore Personalize scope identifier.
     scope: process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE,
@@ -134,11 +138,11 @@ export class PersonalizeHelper {
     });
   }
 
-  protected getLanguage() {
+  protected getLanguage(): string {
     return 'en';
   }
 
-  protected getHostHeader(req: IncomingMessage) {
+  protected getHostHeader(req: IncomingMessage): string {
     return req.headers['host']?.split(':')[0];
   }
 
@@ -146,6 +150,18 @@ export class PersonalizeHelper {
     const headers = {} as { [key: string]: string };
     [].concat(incomingHeaders).forEach((value, key) => (headers[key] = value));
     return headers;
+  }
+
+  personalizeLayout(layoutData: LayoutServiceData,variantIds: string[]) {
+    const personalizeData = getGroomedVariantIds(variantIds);
+    const personalizedPlaceholders = personalizeLayout(
+        layoutData,
+        personalizeData.variantId,
+        personalizeData.componentVariantIds
+      );
+    const personalizedLayout = {...layoutData };
+    personalizedLayout.sitecore.route.placeholders = personalizedPlaceholders;
+    return personalizedLayout;
   }
 
   protected initPersonalizeServer({
@@ -205,7 +221,7 @@ export class PersonalizeHelper {
   }
 
   protected getExperienceParams(req: IncomingMessage): ExperienceParams {
-    const url = new URL(req.url);
+    const url = new URL(req.url, env.proxyHost);
     const utm = {
       campaign: url.searchParams.get('utm_campaign') || undefined,
       content: url.searchParams.get('utm_content') || undefined,
@@ -272,8 +288,8 @@ export class PersonalizeHelper {
     }, results);
   }
 
-  getVarinatIds = async (req: IncomingMessage, res: OutgoingMessage): Promise<string[]> => {
-    const url = new URL(req.url);
+  getVariantIds = async (req: IncomingMessage, res: OutgoingMessage): Promise<string[]> => {
+    const url = new URL(req.url, env.proxyHost);
     const pathname = url.pathname;
     const language = this.getLanguage();
     const hostname = this.getHostHeader(req) || this.config.defaultHostname;
@@ -324,7 +340,7 @@ export class PersonalizeHelper {
     const params = this.getExperienceParams(req);
     const executions = this.getPersonalizeExecutions(personalizeInfo, language);
     const identifiedVariantIds: string[] = [];
-
+    debug.personalize(`CDP timeout is ${timeout}`);
     await Promise.all(
       executions.map((execution) =>
         this.personalize(

@@ -14,6 +14,7 @@ const {
   parseRouteUrl,
   dictionaryServiceFactory,
   layoutServiceFactory,
+  personalizeHelper,
 } = config.serverBundle;
 
 /**
@@ -165,11 +166,14 @@ server.use(async (req, res) => {
     }
 
     // Language is required. In case it's not specified in the requested URL, fallback to the default language from the app configuration.
-    const layoutData = await layoutService.fetchLayoutData(
+    let layoutData = await layoutService.fetchLayoutData(
       route,
       lang || config.serverBundle.defaultLanguage
     );
-
+    const variantIds = await personalizeHelper.getVariantIds(req, res);
+    // console.log(layoutData);
+    layoutData = personalizeHelper.personalizeLayout(layoutData, variantIds);
+    // console.log(layoutData);
     const viewBag = { dictionary: {} };
 
     viewBag.dictionary = await dictionaryService.fetchDictionaryData(
