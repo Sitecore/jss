@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { isServer, CdpHelper } from '@sitecore-jss/sitecore-jss-angular';
+import { Subscription } from 'rxjs';
+import { isServer, CdpHelper, LayoutServicePageState } from '@sitecore-jss/sitecore-jss-angular';
+import { pageView, PageViewData } from '@sitecore-cloudsdk/events/browser';
 import { JssContextService } from '../../jss-context.service';
 import { JssState } from '../../JssState';
-import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss-angular';
-import { Subscription } from 'rxjs';
-import { pageView, PageViewData } from '@sitecore-cloudsdk/events/browser';
 
 /**
  * This is the CDP page view component.
