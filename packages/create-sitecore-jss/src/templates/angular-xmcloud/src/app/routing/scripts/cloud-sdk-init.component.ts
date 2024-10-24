@@ -15,7 +15,7 @@ export class CloudSdkInitComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    if (!isServer) {
+    if (!isServer() && environment.production) {
       CloudSDK({
         siteName: environment.sitecoreSiteName,
         sitecoreEdgeUrl: environment.sitecoreEdgeUrl,
@@ -25,8 +25,8 @@ export class CloudSdkInitComponent implements OnInit {
         // Cookie may be created in personalize middleware (server), but if not we should create it here
         enableBrowserCookie: true,
       })
-      .addEvents()
-      .initialize();
+        .addEvents()
+        .initialize();
     }
   }
 }
