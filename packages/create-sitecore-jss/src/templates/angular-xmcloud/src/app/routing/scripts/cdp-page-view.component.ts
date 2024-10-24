@@ -28,7 +28,7 @@ export class CdpPageViewComponent implements OnInit, OnDestroy {
           route,
           context: { pageState, language, variantId },
         } = newState.sitecore;
-
+// Do not create events in editing or preview mode or if missing route data
         if (pageState !== LayoutServicePageState.Normal || !route?.itemId) {
           return;
         }
