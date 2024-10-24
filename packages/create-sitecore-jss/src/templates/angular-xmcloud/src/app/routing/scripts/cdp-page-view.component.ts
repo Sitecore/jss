@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { isServer, CdpHelper, LayoutServicePageState } from '@sitecore-jss/sitecore-jss-angular';
 import { pageView, PageViewData } from '@sitecore-cloudsdk/events/browser';
 import { JssContextService } from '../../jss-context.service';
 import { JssState } from '../../JssState';
+import { environment } from '../../../environments/environment';
 
 /**
  * This is the CDP page view component.
@@ -15,7 +16,7 @@ import { JssState } from '../../JssState';
   selector: 'app-cdp-page-view',
   template: '',
 })
-export class CdpPageViewComponent implements OnInit {
+export class CdpPageViewComponent implements OnInit, OnDestroy {
   private contextSubscription: Subscription;
 
   constructor(private jssContext: JssContextService) {}
@@ -40,7 +41,7 @@ export class CdpPageViewComponent implements OnInit {
         const scope = process.env.ANGULAR_PUBLIC_PERSONALIZE_SCOPE;
         const pageVariantId = CdpHelper.getPageVariantId(
           route.itemId,
-          language,
+          language || environment.defaultLanguage,
           variantId as string,
           scope
         );
@@ -53,7 +54,7 @@ export class CdpPageViewComponent implements OnInit {
           language,
         };
 
-        pageView(pageViewData);
+        pageView(pageViewData).catch((err) => console.debug(err));
       });
     }
   }
