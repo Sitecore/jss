@@ -1,6 +1,6 @@
 <li [class]="cssClasses" [ngClass]="{ active: isActive }" tabIndex="0">
   <div [ngClass]="{ 'navigation-title': true, child: hasChildren }" (click)="isActive = !isActive">
-    <a *scLink="linkField" (click)="onClick($event)">
+    <a *scRouterLink="linkField" (click)="onClick($event)">
       <ng-container *ngIf="navItemFields.NavigationTitle"
         ><span *scText="navItemFields.NavigationTitle"></span
       ></ng-container>
