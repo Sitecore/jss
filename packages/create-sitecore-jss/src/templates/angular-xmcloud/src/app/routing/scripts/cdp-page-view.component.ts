@@ -68,9 +68,9 @@ export class CdpPageViewComponent implements OnInit, OnDestroy {
   /**
    * Determines if the page view events should be turned off.
    * IMPORTANT: You should implement based on your cookie consent management solution of choice.
-   * By default it is disabled in development mode
+   * By default it is disabled if not in production mode
    */
   disabled = () => {
-    return false;
+    return !environment.production;
   };
 }

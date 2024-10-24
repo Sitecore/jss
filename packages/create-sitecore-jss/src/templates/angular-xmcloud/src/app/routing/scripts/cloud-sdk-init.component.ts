@@ -15,7 +15,7 @@ export class CloudSdkInitComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    if (!isServer()) {
+    if (!isServer() && environment.production) {
       CloudSDK({
         siteName: environment.sitecoreSiteName,
         sitecoreEdgeUrl: environment.sitecoreEdgeUrl,
