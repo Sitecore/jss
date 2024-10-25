@@ -1,11 +1,14 @@
 /* eslint-disable quotes */
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import fs from 'fs';
-import path from 'path';
 import { getMetadata } from './metadata';
 import sinon, { SinonStub } from 'sinon';
-import { Metadata } from '@sitecore-jss/sitecore-jss/editing';
+import childProcess from 'child_process';
+import metadataNextjs from './../test-data/metadata/metadata-nextjs.json';
+import metadataAngular from './../test-data/metadata/metadata-angular.json';
+import npmQueryResultNext from './../test-data/metadata/npm-query-nextjs.json';
+import npmQueryResultAngular from './../test-data/metadata/npm-query-angular.json';
+import npmQueryResultNoSc from './../test-data/metadata/npm-query-no-sc.json';
 
 describe('metadata', () => {
   afterEach(() => {
@@ -13,139 +16,61 @@ describe('metadata', () => {
   });
 
   describe('getMetadata', () => {
-    let readdirSync: SinonStub;
-    let readFileSync: SinonStub;
+    let execSyncStub: SinonStub;
+    let logStub: SinonStub;
 
     afterEach(() => {
-      readdirSync?.restore();
-      readFileSync?.restore();
+      execSyncStub?.restore();
+      logStub?.restore();
     });
 
-    it('should return packages metadata from @sitecore scope', () => {
-      readdirSync = sinon.stub(fs, 'readdirSync');
-      readdirSync.withArgs('node_modules').returns(['@sitecore']);
-      readdirSync.withArgs(path.join('node_modules', '@sitecore')).returns(['byoc', 'components']);
-
-      readFileSync = sinon.stub(fs, 'readFileSync');
-      readFileSync
-        .withArgs(path.join('node_modules', '@sitecore', 'byoc', 'package.json'))
-        .returns('{"name": "@sitecore/byoc","version": "0.2.8"}');
-      readFileSync
-        .withArgs(path.join('node_modules', '@sitecore', 'components', 'package.json'))
-        .returns('{"name": "@sitecore/components","version": "1.1.6"}');
-
-      const expected: Metadata = {
-        packages: {
-          '@sitecore/byoc': '0.2.8',
-          '@sitecore/components': '1.1.6',
-        },
-      };
-
-      const packagesMetadata = getMetadata();
-      expect(packagesMetadata).to.deep.equal(expected);
+    it('should return tracked packages with exact versions from result of npm query (nextjs app)', () => {
+      execSyncStub = sinon.stub(childProcess, 'execSync');
+      execSyncStub
+        .withArgs('npm query [name*=@sitecore] --workspaces false')
+        .returns(JSON.stringify(npmQueryResultNext));
+      const metadata = getMetadata();
+      expect(metadata).to.deep.equal(metadataNextjs);
     });
 
-    it('should return packages metadata from @sitecore-jss scope', () => {
-      readdirSync = sinon.stub(fs, 'readdirSync');
-      readdirSync.withArgs('node_modules').returns(['@sitecore-jss']);
-      readdirSync
-        .withArgs(path.join('node_modules', '@sitecore-jss'))
-        .returns(['sitecore-jss-cli', 'sitecore-jss-nextjs']);
-
-      readFileSync = sinon.stub(fs, 'readFileSync');
-      readFileSync
-        .withArgs(path.join('node_modules', '@sitecore-jss', 'sitecore-jss-cli', 'package.json'))
-        .returns('{"name": "@sitecore-jss/sitecore-jss-cli","version": "21.7.0-canary.55"}');
-      readFileSync
-        .withArgs(path.join('node_modules', '@sitecore-jss', 'sitecore-jss-nextjs', 'package.json'))
-        .returns('{"name": "@sitecore-jss/sitecore-jss-nextjs","version": "21.7.0-canary.55"}');
-
-      const expected: Metadata = {
-        packages: {
-          '@sitecore-jss/sitecore-jss-cli': '21.7.0-canary.55',
-          '@sitecore-jss/sitecore-jss-nextjs': '21.7.0-canary.55',
-        },
-      };
-
-      const packagesMetadata = getMetadata();
-      expect(packagesMetadata).to.deep.equal(expected);
+    it('should return tracked packages with exact versions from result of npm query (angular app)', () => {
+      execSyncStub = sinon.stub(childProcess, 'execSync');
+      execSyncStub
+        .withArgs('npm query [name*=@sitecore] --workspaces false')
+        .returns(JSON.stringify(npmQueryResultAngular));
+      const metadata = getMetadata();
+      expect(metadata).to.deep.equal(metadataAngular);
     });
 
-    it('should return packages metadata from @sitecore-cloudsdk scope', () => {
-      readdirSync = sinon.stub(fs, 'readdirSync');
-      readdirSync.withArgs('node_modules').returns(['@sitecore-cloudsdk']);
-      readdirSync.withArgs(path.join('node_modules', '@sitecore-cloudsdk')).returns(['core']);
+    it('should return metadata with empty package object and log error in the console if result of npm query is not valid', () => {
+      execSyncStub = sinon.stub(childProcess, 'execSync');
+      execSyncStub.withArgs('npm query [name*=@sitecore] --workspaces false').returns('[{"name":}');
+      logStub = sinon.stub(console, 'error');
 
-      readFileSync = sinon.stub(fs, 'readFileSync');
-      readFileSync
-        .withArgs(path.join('node_modules', '@sitecore-cloudsdk', 'core', 'package.json'))
-        .returns('{"name": "@sitecore-cloudsdk/core","version": "0.1.5"}');
-
-      const expected: Metadata = {
-        packages: {
-          '@sitecore-cloudsdk/core': '0.1.5',
-        },
-      };
-
-      const packagesMetadata = getMetadata();
-      expect(packagesMetadata).to.deep.equal(expected);
+      const metadata = getMetadata();
+      expect(logStub.calledOnceWith('Failed to retrieve sitecore packages using npm query')).to.be
+        .true;
+      expect(metadata).to.deep.equal({ packages: {} });
     });
 
-    it('should return packages metadata from @sitecore-feaas scope', () => {
-      readdirSync = sinon.stub(fs, 'readdirSync');
-      readdirSync.withArgs('node_modules').returns(['@sitecore-feaas']);
-      readdirSync.withArgs(path.join('node_modules', '@sitecore-feaas')).returns(['clientside']);
+    it('should return metadata with empty package object and log error in the console if npm query command fails', () => {
+      execSyncStub = sinon.stub(childProcess, 'execSync');
+      execSyncStub.withArgs('npm query [name*=@sitecore] --workspaces false').throws();
+      logStub = sinon.stub(console, 'error');
 
-      readFileSync = sinon.stub(fs, 'readFileSync');
-      readFileSync
-        .withArgs(path.join('node_modules', '@sitecore-feaas', 'clientside', 'package.json'))
-        .returns('{"name": "@sitecore-feaas/clientside","version": "0.5.12"}');
-
-      const expected: Metadata = {
-        packages: {
-          '@sitecore-feaas/clientside': '0.5.12',
-        },
-      };
-
-      const packagesMetadata = getMetadata();
-      expect(packagesMetadata).to.deep.equal(expected);
+      const metadata = getMetadata();
+      expect(logStub.calledOnceWith('Failed to retrieve sitecore packages using npm query')).to.be
+        .true;
+      expect(metadata).to.deep.equal({ packages: {} });
     });
 
-    it('should not return packages metadata for not tracked scopes', () => {
-      const scope = '@nottracked-scope';
-      readdirSync = sinon.stub(fs, 'readdirSync');
-      readdirSync.withArgs('node_modules').returns([scope]);
-
-      const expected: Metadata = { packages: {} };
-
-      const packagesMetadata = getMetadata();
-      expect(packagesMetadata).to.deep.equal(expected);
-    });
-
-    it('should throw if package.json not found', () => {
-      readdirSync = sinon.stub(fs, 'readdirSync');
-      readdirSync.withArgs('node_modules').returns(['@sitecore-feaas']);
-      readdirSync.withArgs(path.join('node_modules', '@sitecore-feaas')).returns(['clientside']);
-
-      readFileSync = sinon.stub(fs, 'readFileSync');
-      readFileSync
-        .withArgs(path.join('node_modules', '@sitecore-feaas', 'clientside', 'package.json'))
-        .returns(null);
-
-      expect(() => getMetadata()).to.throw;
-    });
-
-    it('should throw if json not valid', () => {
-      readdirSync = sinon.stub(fs, 'readdirSync');
-      readdirSync.withArgs('node_modules').returns(['@sitecore-feaas']);
-      readdirSync.withArgs(path.join('node_modules', '@sitecore-feaas')).returns(['clientside']);
-
-      readFileSync = sinon.stub(fs, 'readFileSync');
-      readFileSync
-        .withArgs(path.join('node_modules', '@sitecore-feaas', 'clientside', 'package.json'))
-        .returns('{"name": "@sitecore-feaas/clientside","version": "0.5.12"');
-
-      expect(() => getMetadata()).to.throw;
+    it('should not return packages for result of npm query not containng tracked packages', () => {
+      execSyncStub = sinon.stub(childProcess, 'execSync');
+      execSyncStub
+        .withArgs('npm query [name*=@sitecore] --workspaces false')
+        .returns(JSON.stringify(npmQueryResultNoSc));
+      const metadata = getMetadata();
+      expect(metadata).to.deep.equal({ packages: {} });
     });
   });
 });

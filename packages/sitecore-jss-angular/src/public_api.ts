@@ -11,6 +11,7 @@ export { RenderComponentComponent } from './components/render-component.componen
 export { DateDirective } from './components/date.directive';
 export { EditFrameComponent } from './components/editframe.component';
 export { EditingScriptsComponent } from './components/editing-scripts.component';
+export { FormComponent } from './components/form.component';
 export {
   ComponentNameAndType,
   DYNAMIC_COMPONENT,
@@ -20,6 +21,7 @@ export {
   JssCanActivateFn,
   GuardInput,
 } from './services/placeholder.token';
+export { EDGE_CONFIG } from './services/shared.token';
 export { JssStateService, BaseJssState } from './services/jss-state.service';
 export { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
 export { isRawRendering } from './components/rendering';
@@ -78,6 +80,9 @@ export {
   ClientError,
   HTMLLink,
   debug,
+  CacheClient,
+  CacheOptions,
+  MemoryCacheClient,
 } from '@sitecore-jss/sitecore-jss';
 export {
   GraphQLPersonalizeService,

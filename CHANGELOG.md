@@ -13,16 +13,16 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* `[templates/angular-xmcloud]` Navigation component link forces full page reload ([#1958](https://github.com/Sitecore/jss/pull/1958))
+* `[sitecore-jss-nextjs]` Link component prefetches files ([#1956](https://github.com/Sitecore/jss/pull/1956))
 * `[templates/nextjs]` `[templates/react]` `[templates/angular]` `[templates/vue]` Fixed an issue when environment variable is undefined (not present in .env), that produced an "undefined" value in generated config file ([#1875](https://github.com/Sitecore/jss/pull/1875))
 * `[templates/nextjs]` Fix embedded personalization not rendering correctly after navigation through router links. ([#1911](https://github.com/Sitecore/jss/pull/1911))
 * `[template/angular]` Prevent client-side dictionary API call when SSR data is available ([#1930](https://github.com/Sitecore/jss/pull/1930)) ([#1932](https://github.com/Sitecore/jss/pull/1932))
-* `[sitecore-jss-nextjs]` `[sitecore-jss]` Resolved an issue with Netlify where URL query parameters were being sorted, causing redirect failures. Added a method to generate all possible permutations of query parameters, ensuring proper matching with URL patterns regardless of their order. ([#1935](https://github.com/Sitecore/jss/pull/1935))
 * `[sitecore-jss-angular]` Fix default empty field components to not render the unwanted wrapping tags ([#1937](https://github.com/Sitecore/jss/pull/1937)) ([#1940](https://github.com/Sitecore/jss/pull/1940))
 * `[sitecore-jss-angular]` Fix image field style property not rendered properly ([#1944](https://github.com/Sitecore/jss/pull/1944))
 * `[sitecore-jss-angular]` Fix nested dynamic placeholders not being displayed in Pages ([#1947](https://github.com/Sitecore/jss/pull/1947))
-* `[sitecore-jss-nextjs]` Resolved an issue with Netlify where URL query parameters were being sorted, causing redirect failures. Added a method to generate all possible permutations of query parameters, ensuring proper matching with URL patterns regardless of their order. ([#1935](https://github.com/Sitecore/jss/pull/1935))
-* `[sitecore-jss-nextjs]` Fixed an issue with language-based redirects, ensuring users are correctly redirected to the appropriate language-specific pages rather than defaulting to the primary language. ([#1938](https://github.com/Sitecore/jss/pull/1938))
-* `[templates/nextjs-sxa]` Fix an alignment issue where components using both `me-auto` and `ms-md-auto` classes resulted in inconsistent alignment of elements. ([#1946](https://github.com/Sitecore/jss/pull/1946)) ([#1950](https://github.com/Sitecore/jss/pull/1950))
+* `[sitecore-jss-dev-tools]` getMetadata() now uses `npm query` command to get the list and exact versions of packages. this solution works for monorepo setups ([#1949](https://github.com/Sitecore/jss/pull/1949))
+* `[templates/nextjs-sxa]` Fix an alignment issue where components using both `me-auto` and `ms-md-auto` classes resulted in inconsistent alignment of elements. ([#1946](https://github.com/Sitecore/jss/pull/1946)) ([#1950](https://github.com/Sitecore/jss/pull/1950)) ([#1955](https://github.com/Sitecore/jss/pull/1955))
 
 ### 🎉 New Features & Improvements
 
@@ -64,10 +64,16 @@ Our versioning strategy is as follows:
    - `scRouterLinkEmptyFieldEditingTemplate` for _scRouterLink_
    - `scTextEmptyFieldEditingTemplate` for _scText_
 * `[sitecore-jss-angular]` `[templates/angular-xmcloud]` Render clientScripts / clientData. The new `sc-editing-scripts` component is exposed from `sitecore-jss-angular` package and required to be rendered on the page to enable Metadata Edit mode. ([#1924](https://github.com/Sitecore/jss/pull/1924))([#1948](https://github.com/Sitecore/jss/pull/1948))
+* `[sitecore-jss-angular]` `[templates/angular-xmcloud]` XM Cloud Forms support ([#1951](https://github.com/Sitecore/jss/pull/1951)):
+  * New "Form" component is introduced in the sitecore-jss-angular package.
+  * The Form component is declared in the Angular sample app.
+  * Introduced plugins technique for component factory generation.
 * `[sitecore-jss]` GenericFieldValue model is updated to accept Date type ([#1916](https://github.com/Sitecore/jss/pull/1916))
 * `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/healthz endpoint ([#1928](https://github.com/Sitecore/jss/pull/1928))
 * `[sitecore-jss]` `[sitecore-jss-angular]` Render field metdata chromes in editMode metadata - in edit mode metadata in Pages, angular package field directives will render wrapping `code` elements with field metadata required for editing; ([#1926](https://github.com/Sitecore/jss/pull/1926))
-* `[sitecore-jss-nextjs]` Expose MiddlewareBase class and MiddlewareBaseConfig type ([#1941](https://github.com/Sitecore/jss/pull/1941))
+* `[angular-xmcloud]``[sitecore-jss-angular]` Analytics and CloudSDK integration
+* `[angular-xmcloud]` Add CloudSDK initialization on client side ([#1952](https://github.com/Sitecore/jss/pull/1952))
+
 
 ### 🛠 Breaking Change
 
@@ -81,6 +87,18 @@ Our versioning strategy is as follows:
 ### 🧹 Chores
 
 * `[templates/angular]``[templates/node-xmcloud-proxy]``[templates/node-headless-ssr-proxy]``[templates/node-headless-ssr-experience-edge]` Adjust out of box .gitignore rules
+
+## 22.1.4
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` `[sitecore-jss]` Resolved an issue with Netlify where URL query parameters were being sorted, causing redirect failures. Added a method to generate all possible permutations of query parameters, ensuring proper matching with URL patterns regardless of their order. ([#1935](https://github.com/Sitecore/jss/pull/1935))
+* `[sitecore-jss-nextjs]` Fixed an issue with language-based redirects, ensuring users are correctly redirected to the appropriate language-specific pages rather than defaulting to the primary language. ([#1938](https://github.com/Sitecore/jss/pull/1938))
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-nextjs]` Expose MiddlewareBase class and MiddlewareBaseConfig type ([#1941](https://github.com/Sitecore/jss/pull/1941))
+* `[react]``[nextjs]``[angular]``[vue]` CacheClient, CacheOptions, MemoryCacheClient classes can now be imported into the app through corresponding a framework package ([#1954](https://github.com/Sitecore/jss/pull/1954))
 
 ## 22.1.3
 

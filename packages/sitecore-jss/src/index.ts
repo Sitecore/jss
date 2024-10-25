@@ -14,6 +14,7 @@ export {
   GraphQLRequestClientFactoryConfig,
 } from './graphql-request-client';
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
+export { CacheClient, CacheOptions, MemoryCacheClient } from './cache-client';
 export { AxiosResponse } from 'axios';
 export { ClientError } from 'graphql-request';
 export { NativeDataFetcher, NativeDataFetcherConfig } from './native-fetcher';
