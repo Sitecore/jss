@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express, { Response } from 'express';
 import compression from 'compression';
-import { createProxyMiddleware } from 'http-proxy-middleware';
+import { createProxyMiddleware, responseInterceptor } from 'http-proxy-middleware';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { editingRouter } from '@sitecore-jss/sitecore-jss-proxy';
 import { healthCheck } from '@sitecore-jss/sitecore-jss-proxy';
@@ -126,6 +126,21 @@ server.use(
   createProxyMiddleware({
     target: graphQLEndpoint.target,
     changeOrigin: true,
+    selfHandleResponse: true,
+    on: {
+      proxyRes: responseInterceptor(async (responseBuffer) => {
+        const layoutMatcher = /^{"data":{"layout":{"item":{/;
+        const response = responseBuffer.toString('utf8');
+        if (response.match(layoutMatcher)) {
+          // const variantIds = await personalizeHelper.getVariantIds(req, res);
+          const layoutData = JSON.parse(response);
+          // layoutData = personalizeHelper.personalizeLayout(layoutData, variantIds);
+          console.log(JSON.stringify(layoutData));
+        }
+        // console.log(res);
+        return responseBuffer;
+      }),
+    },
   })
 );
 
