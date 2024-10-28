@@ -13,7 +13,7 @@ const Bootstrap = (props: SitecorePageProps): JSX.Element | null => {
   useEffect(() => {
     CloudSDK({
       sitecoreEdgeContextId: config.sitecoreEdgeContextId,
-      siteName: props.site.name || config.sitecoreSiteName,
+      siteName: props.site?.name || config.sitecoreSiteName,
       enableBrowserCookie: true,
     })
       .addEvents()
