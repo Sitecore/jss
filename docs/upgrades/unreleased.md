@@ -320,3 +320,67 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
 * `express` dependency is marked as a peer dependency, so you need to match the required version "^4.19.2".
 
 * Copy the `.gitignore` file from fresh latest version proxy app into your existing proxy app, if not already present.
+
+# Nextjs - XMCloud
+
+* Update the `@sitecore/components` dependency to `~2.0.0`
+* Update the `@sitecore-cloudsdk/events` dependency to `^0.4.0`
+* Add the dependency on `@sitecore-cloudsdk/core` with version `^0.4.0`. You should now have the below dependencies present:
+```
+    "@sitecore/components": "~2.0.0",
+    "@sitecore-cloudsdk/core": "^0.4.0",
+    "@sitecore-cloudsdk/events": "^0.4.0",
+```
+* Remove the `src/lib/context` folder
+
+* Update `src/Bootstrap.tsx`:
+    * Remove the context import:
+    ```
+        import { context } from 'src/lib/context';
+    ```
+    * Add imports for CloudSDK:
+    ```
+        import { CloudSDK } from '@sitecore-cloudsdk/core/browser';
+        import '@sitecore-cloudsdk/events/browser';
+    ```
+    * Remove the context.init() call:
+    ```
+        context.init({
+            siteName: props.site?.name || config.sitecoreSiteName,
+            pageState: props.layoutData?.sitecore?.context?.pageState,
+        });
+    ```
+    * Replace it with CloudSDK initialization, making sure it is performed within `useEffect()`:
+    ```
+        useEffect(() => {
+            CloudSDK({
+                sitecoreEdgeContextId: config.sitecoreEdgeContextId,
+                siteName: props.site?.name || config.sitecoreSiteName,
+                enableBrowserCookie: true,
+            })
+            .addEvents()
+            .initialize();
+        }, [props.site]);
+    ```
+
+* Update src/byoc/index.ts to make sure Forms are functioning post-upgrade:
+    * Remove the context import:
+    ```
+        import { context } from 'lib/context';
+    ```
+    * Add imports for config and CloudSDK:
+    ```
+        import * as Events from '@sitecore-cloudsdk/events/browser';
+        import config from 'temp/config';
+    ```
+    * Replace the existing `FEAAS.setContextProperties()` call with:
+    ```
+        FEAAS.setContextProperties({
+            sitecoreEdgeUrl: config.sitecoreEdgeUrl,
+            sitecoreEdgeContextId: config.sitecoreEdgeContextId,
+            siteName: config.sitecoreSiteName,
+            eventsSDK: Events,
+        });
+    ``` 
+
+* If you have any other instances of using CloudSDK in your app, follow the CloudSDK 0.4.0 upgrade guide.

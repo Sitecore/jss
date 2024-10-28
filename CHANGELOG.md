@@ -87,6 +87,13 @@ Our versioning strategy is as follows:
 
 * `[templates/angular]``[templates/node-xmcloud-proxy]``[templates/node-headless-ssr-proxy]``[templates/node-headless-ssr-experience-edge]` Adjust out of box .gitignore rules
 
+## 22.2.0
+
+### 🛠 Breaking Change
+
+* `[templates/nextjs-xmcloud]` CloudSDK dependencies have been updated to 0.4.0 ([#1933](https://github.com/Sitecore/jss/pull/1933))
+* `[templates/nextjs-xmcloud]` `@sitecore/components` dependency has been updated to 2.0.0 ([#1933](https://github.com/Sitecore/jss/pull/1933)) 
+
 ## 22.1.4
 
 ### 🐛 Bug Fixes
