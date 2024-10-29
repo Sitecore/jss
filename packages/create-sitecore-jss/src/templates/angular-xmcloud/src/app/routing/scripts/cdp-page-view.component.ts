@@ -39,7 +39,7 @@ export class CdpPageViewComponent implements OnInit, OnDestroy {
           return;
         }
 
-        const scope = process.env.PUBLIC_PERSONALIZE_SCOPE;
+        const scope = process.env.PERSONALIZE_SCOPE;
         const pageVariantId = CdpHelper.getPageVariantId(
           route.itemId,
           language || environment.defaultLanguage,
