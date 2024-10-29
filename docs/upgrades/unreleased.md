@@ -425,6 +425,41 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
         }, [props.site]);
     ```
 
+* Update `src/components/CDPPageView.tsx`:
+    * Remove the context import:
+    ```
+        import { context } from 'lib/context';
+    ```
+    * Add import for CloudSDK:
+    ```
+        import { pageView } from '@sitecore-cloudsdk/events/browser';
+    ```
+    * Replace the context promise code
+    ```
+        context
+        .getSDK('Events')
+        .then((Events) =>
+            Events.pageView({
+                channel: 'WEB',
+                currency: 'USD',
+                page: route.name,
+                pageVariantId,
+                language,
+            })
+        )
+        .catch((e) => console.debug(e));
+      ```
+      with a simplified `pageView` direct call:
+      ```
+        pageView({
+            channel: 'WEB',
+            currency: 'USD',
+            page: route.name,
+            pageVariantId,
+            language,
+        }).catch((e) => console.debug(e));
+      ```
+
 * Update src/byoc/index.ts to make sure Forms are functioning post-upgrade:
     * Remove the context import:
     ```

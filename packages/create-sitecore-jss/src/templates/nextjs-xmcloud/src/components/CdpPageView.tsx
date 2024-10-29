@@ -46,18 +46,14 @@ const CdpPageView = (): JSX.Element => {
       variantId as string,
       scope
     );
-    // there are cases where Events SDK will be absent which are expected to reject
-    try {
-      pageView({
-        channel: 'WEB',
-        currency: 'USD',
-        page: route.name,
-        pageVariantId,
-        language,
-      });
-    } catch (e) {
-      console.debug(e);
-    }
+    // there can be cases where Events are not initialized which are expected to reject
+    pageView({
+      channel: 'WEB',
+      currency: 'USD',
+      page: route.name,
+      pageVariantId,
+      language,
+    }).catch((e) => console.debug(e));
   }, [pageState, route, variantId, site]);
 
   return <></>;
