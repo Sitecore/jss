@@ -15,6 +15,7 @@ import {
 } from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
 import { BaseArgs } from '../args/base';
+const { version } = require('../../../package.json');
 
 const FILE_FOR_COPY_REGEXP = /(index\.html)$|\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf|jar|eot|woff|ttf|woff2)$/;
 
@@ -196,7 +197,7 @@ export const populateEjsData = (answers: BaseArgs, destination?: string) => {
   // pass in helper to answers object
   const ejsData: Data = {
     ...answers,
-    version: process.env.npm_package_version,
+    version,
     helper: {
       isDev: isDevEnvironment(destination || answers.destination),
       getPascalCaseName: getPascalCaseName,
