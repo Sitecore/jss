@@ -87,6 +87,7 @@ Our versioning strategy is as follows:
 ### 🧹 Chores
 
 * `[templates/angular]``[templates/node-xmcloud-proxy]``[templates/node-headless-ssr-proxy]``[templates/node-headless-ssr-experience-edge]` Adjust out of box .gitignore rules
+* `[create-sitecore-jss]` Use version template token instead of exact version number ([#1960](https://github.com/Sitecore/jss/pull/1960))
 
 ## 22.1.4
 
