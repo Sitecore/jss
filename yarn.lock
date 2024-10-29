@@ -5997,6 +5997,44 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sitecore-cloudsdk/core@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@sitecore-cloudsdk/core@npm:0.4.0"
+  dependencies:
+    "@sitecore-cloudsdk/utils": ^0.4.0
+    debug: ^4.3.4
+  checksum: 0640147f4767c6d84f90bbefe011fcc76d2fb47adc078f5017f7c2d686c7eff53a661cd77c4b70315c06b2be0b071c8d279a0db3502bcf5e6e288d1a36dd8896
+  languageName: node
+  linkType: hard
+
+"@sitecore-cloudsdk/events@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@sitecore-cloudsdk/events@npm:0.4.0"
+  dependencies:
+    "@sitecore-cloudsdk/core": ^0.4.0
+    "@sitecore-cloudsdk/utils": ^0.4.0
+  checksum: 0e36c44b4bfd23e71b46f20d9ef852e8a948da3ff9f037e37b8a68f4c36220f48d44c2a032979855a5945ed0b100272f7a477ea1f7fdc6b77eab4a32a1d22657
+  languageName: node
+  linkType: hard
+
+"@sitecore-cloudsdk/personalize@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@sitecore-cloudsdk/personalize@npm:0.4.0"
+  dependencies:
+    "@sitecore-cloudsdk/core": ^0.4.0
+    "@sitecore-cloudsdk/events": ^0.4.0
+    "@sitecore-cloudsdk/utils": ^0.4.0
+  checksum: 62668f95a111c1b25668c20fc7cf0bf1958b3aefaf2b9c6cdb79179de4e508b7b466e25654f8efcaefdbffd86a715f210e76f2fda964650f601b0fc9e0579893
+  languageName: node
+  linkType: hard
+
+"@sitecore-cloudsdk/utils@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@sitecore-cloudsdk/utils@npm:0.4.0"
+  checksum: ec5a0611ad4d6ae4b3c2a7542c2021f0b956d2c78e08cab1ff8bd5e6300c3059d5fff6022d0ed2462cd0b4f127d02b5bfabf34e890cddbb51876aebaca3033dc
+  languageName: node
+  linkType: hard
+
 "@sitecore-feaas/clientside@npm:^0.5.6":
   version: 0.5.9
   resolution: "@sitecore-feaas/clientside@npm:0.5.9"
@@ -6186,6 +6224,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
+    "@sitecore-cloudsdk/core": ^0.4.0
+    "@sitecore-cloudsdk/personalize": ^0.4.0
     "@sitecore-jss/sitecore-jss": 22.2.0-canary.79
     "@sitecore-jss/sitecore-jss-dev-tools": 22.2.0-canary.79
     "@sitecore-jss/sitecore-jss-react": 22.2.0-canary.79
