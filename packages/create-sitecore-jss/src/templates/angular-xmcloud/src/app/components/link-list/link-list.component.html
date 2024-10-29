@@ -5,7 +5,7 @@
   <ul>
     <li *ngFor="let fieldLink of fieldLinks; index as i" [ngClass]="getFieldLinkClass(i)">
       <div class="field-link">
-        <a *scLink="fieldLink"></a>
+        <a *scGenericLink="fieldLink"></a>
       </div>
     </li>
   </ul>

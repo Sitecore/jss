@@ -1,8 +1,6 @@
-[@sitecore-jss/sitecore-jss](../README.md) / [personalize](../modules/personalize.md) / CdpHelper
+[@sitecore-jss/sitecore-jss-angular](../README.md) / CdpHelper
 
 # Class: CdpHelper
-
-[personalize](../modules/personalize.md).CdpHelper
 
 Static utility class for Sitecore CDP
 
@@ -10,14 +8,14 @@ Static utility class for Sitecore CDP
 
 ### Constructors
 
-- [constructor](personalize.CdpHelper.md#constructor)
+- [constructor](CdpHelper.md#constructor)
 
 ### Methods
 
-- [getComponentFriendlyId](personalize.CdpHelper.md#getcomponentfriendlyid)
-- [getPageFriendlyId](personalize.CdpHelper.md#getpagefriendlyid)
-- [getPageVariantId](personalize.CdpHelper.md#getpagevariantid)
-- [normalizeScope](personalize.CdpHelper.md#normalizescope)
+- [getComponentFriendlyId](CdpHelper.md#getcomponentfriendlyid)
+- [getPageFriendlyId](CdpHelper.md#getpagefriendlyid)
+- [getPageVariantId](CdpHelper.md#getpagevariantid)
+- [normalizeScope](CdpHelper.md#normalizescope)
 
 ## Constructors
 
@@ -50,7 +48,7 @@ the friendly id
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:130](https://github.com/Sitecore/jss/blob/892e6d1a5/packages/sitecore-jss/src/personalize/utils.ts#L130)
+packages/sitecore-jss/types/personalize/utils.d.ts:61
 
 ___
 
@@ -76,7 +74,7 @@ the friendly id
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:115](https://github.com/Sitecore/jss/blob/892e6d1a5/packages/sitecore-jss/src/personalize/utils.ts#L115)
+packages/sitecore-jss/types/personalize/utils.d.ts:52
 
 ___
 
@@ -103,7 +101,7 @@ the formatted page variant id
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:92](https://github.com/Sitecore/jss/blob/892e6d1a5/packages/sitecore-jss/src/personalize/utils.ts#L92)
+packages/sitecore-jss/types/personalize/utils.d.ts:44
 
 ___
 
@@ -128,4 +126,4 @@ normalized scope value
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:149](https://github.com/Sitecore/jss/blob/892e6d1a5/packages/sitecore-jss/src/personalize/utils.ts#L149)
+packages/sitecore-jss/types/personalize/utils.d.ts:68
