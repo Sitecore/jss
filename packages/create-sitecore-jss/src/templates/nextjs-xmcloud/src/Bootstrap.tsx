@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { SitecorePageProps } from 'lib/page-props';
 import { CloudSDK } from '@sitecore-cloudsdk/core/browser';
 import '@sitecore-cloudsdk/events/browser';
@@ -11,13 +11,14 @@ import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss-nextjs';
  */
 const Bootstrap = (props: SitecorePageProps): JSX.Element | null => {
   // Browser ClientSDK init allows for page view events to be tracked
+  const [eventsInitDone, setEventsInitDone] = useState(false);
   useEffect(() => {
     const pageState = props.layoutData?.sitecore?.context.pageState;
     if (process.env.NODE_ENV === 'development')
       console.debug('Browser Events SDK is not initialized in development environment');
     else if (pageState !== LayoutServicePageState.Normal)
       console.debug('Browser Events SDK is not initialized in edit and preview modes');
-    else
+    else if (!eventsInitDone) {
       CloudSDK({
         sitecoreEdgeContextId: config.sitecoreEdgeContextId,
         siteName: props.site?.name || config.sitecoreSiteName,
@@ -25,7 +26,9 @@ const Bootstrap = (props: SitecorePageProps): JSX.Element | null => {
       })
         .addEvents()
         .initialize();
-  }, []);
+      setEventsInitDone(true);
+    }
+  }, [props.site?.name]);
 
   return null;
 };
