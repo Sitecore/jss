@@ -195,9 +195,15 @@ export const diffAndWriteFiles = async ({
 
 export const populateEjsData = (answers: BaseArgs, destination?: string) => {
   // pass in helper to answers object
+
+  // Don't expose canary build number in the generated app
+  const jssVersion = version.includes('canary')
+    ? version.replace(/(-canary\.\d+)$/, '-canary')
+    : version;
+
   const ejsData: Data = {
     ...answers,
-    version,
+    version: jssVersion,
     helper: {
       isDev: isDevEnvironment(destination || answers.destination),
       getPascalCaseName: getPascalCaseName,

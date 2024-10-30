@@ -526,7 +526,7 @@ describe('transform', () => {
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
-        version: '22.2.1-canary.33',
+        version: '22.2.1-canary',
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
@@ -655,7 +655,7 @@ describe('transform', () => {
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
-        version: '22.2.1-canary.33',
+        version: '22.2.1-canary',
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
@@ -702,7 +702,7 @@ describe('transform', () => {
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
-        version: '22.2.1-canary.33',
+        version: '22.2.1-canary',
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
@@ -749,7 +749,7 @@ describe('transform', () => {
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
-        version: '22.2.1-canary.33',
+        version: '22.2.1-canary',
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
