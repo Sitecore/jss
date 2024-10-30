@@ -299,18 +299,32 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
         import '@sitecore-cloudsdk/events/browser';
         import { environment } from '../../../environments/environment';
         import { isServer } from '@sitecore-jss/sitecore-jss-angular';
+        import { JssContextService } from '../../jss-context.service';
+        import { JssState } from '../../JssState';
         ...
         ngOnInit(): void {
             if (!isServer() && environment.production) {
-                CloudSDK({
-                    siteName: environment.sitecoreSiteName,
-                    sitecoreEdgeUrl: environment.sitecoreEdgeUrl,
-                    sitecoreEdgeContextId: environment.sitecoreEdgeContextId,
-                    cookieDomain: window.location.hostname.replace(/^www\./, ''),
-                    enableBrowserCookie: true,
-                })
-                .addEvents()
-                .initialize();
+                this.contextSubscription = this.jssContext.state.subscribe((newState: JssState) => {
+                    const {
+                        route,
+                        context: { pageState },
+                    } = newState.sitecore;
+
+                    // Do not initialize CloudSDK in editing or preview mode or if missing route data
+                    if (pageState !== LayoutServicePageState.Normal || !route?.itemId) {
+                        return;
+                    }
+
+                    CloudSDK({
+                        siteName: environment.sitecoreSiteName,
+                        sitecoreEdgeUrl: environment.sitecoreEdgeUrl,
+                        sitecoreEdgeContextId: environment.sitecoreEdgeContextId,
+                        cookieDomain: window.location.hostname.replace(/^www\./, ''),
+                        enableBrowserCookie: true,
+                    })
+                    .addEvents()
+                    .initialize();
+                });
             }
         }
     ```
