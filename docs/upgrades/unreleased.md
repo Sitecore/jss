@@ -400,10 +400,11 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
     ```
         import { context } from 'src/lib/context';
     ```
-    * Add imports for CloudSDK:
+    * Add imports required for CloudSDK setup:
     ```
         import { CloudSDK } from '@sitecore-cloudsdk/core/browser';
         import '@sitecore-cloudsdk/events/browser';
+        import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss-nextjs';
     ```
     * Remove the context.init() call:
     ```
@@ -412,17 +413,23 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
             pageState: props.layoutData?.sitecore?.context?.pageState,
         });
     ```
-    * Replace it with CloudSDK initialization, making sure it is performed within `useEffect()`:
+    * Replace it with CloudSDK initialization, making sure it is performed within `useEffect()` and only in normal, non-dev mode:
     ```
         useEffect(() => {
-            CloudSDK({
-                sitecoreEdgeContextId: config.sitecoreEdgeContextId,
-                siteName: props.site?.name || config.sitecoreSiteName,
-                enableBrowserCookie: true,
-            })
-            .addEvents()
-            .initialize();
-        }, [props.site]);
+            const pageState = props.layoutData?.sitecore?.context.pageState;
+            if (process.env.NODE_ENV === 'development')
+                console.debug('Browser Events SDK is not initialized in development environment');
+            else if (pageState !== LayoutServicePageState.Normal)
+                console.debug('Browser Events SDK is not initialized in edit and preview modes');
+            else
+                CloudSDK({
+                    sitecoreEdgeContextId: config.sitecoreEdgeContextId,
+                    siteName: props.site?.name || config.sitecoreSiteName,
+                    enableBrowserCookie: true,
+                })
+                    .addEvents()
+                    .initialize();
+        }, [props.site, props.layoutData.sitecore.context.pageState]);
     ```
 
 * Update `src/components/CDPPageView.tsx`:
