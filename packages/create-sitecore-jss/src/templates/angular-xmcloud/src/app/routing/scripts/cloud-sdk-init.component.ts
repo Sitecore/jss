@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators';
 import { CloudSDK } from '@sitecore-cloudsdk/core/browser';
 import '@sitecore-cloudsdk/events/browser';
 import { isServer, LayoutServicePageState } from '@sitecore-jss/sitecore-jss-angular';
@@ -14,14 +14,13 @@ import { JssState } from '../../JssState';
   selector: 'app-cloud-sdk-init',
   template: '',
 })
-export class CloudSdkInitComponent implements OnInit, OnDestroy {
-  private contextSubscription: Subscription;
-
+export class CloudSdkInitComponent implements OnInit {
   constructor(private jssContext: JssContextService) {}
 
   ngOnInit(): void {
     if (!isServer() && environment.production) {
-      this.contextSubscription = this.jssContext.state.subscribe((newState: JssState) => {
+      // to ensure that CloudSDK initialization logic runs only once in the browser, take only the first emitted value of state
+      this.jssContext.state.pipe(take(1)).subscribe((newState: JssState) => {
         const {
           route,
           context: { pageState },
@@ -44,12 +43,6 @@ export class CloudSdkInitComponent implements OnInit, OnDestroy {
           .addEvents()
           .initialize();
       });
-    }
-  }
-
-  ngOnDestroy() {
-    if (this.contextSubscription) {
-      this.contextSubscription.unsubscribe();
     }
   }
 }
