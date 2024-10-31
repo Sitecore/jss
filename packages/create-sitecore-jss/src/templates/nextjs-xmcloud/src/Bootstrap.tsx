@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { SitecorePageProps } from 'lib/page-props';
 import { CloudSDK } from '@sitecore-cloudsdk/core/browser';
 import '@sitecore-cloudsdk/events/browser';
@@ -23,6 +23,8 @@ const Bootstrap = (props: SitecorePageProps): JSX.Element | null => {
         sitecoreEdgeContextId: config.sitecoreEdgeContextId,
         siteName: props.site?.name || config.sitecoreSiteName,
         enableBrowserCookie: true,
+        // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
+        cookieDomain: window.location.hostname.replace(/^www\./, ''),
       })
         .addEvents()
         .initialize();
