@@ -19,6 +19,10 @@ const ClientBundle = dynamic(() => import('./index.client'), {
   ssr: false,
 });
 
+// As long as component bundle is exported and rendered on page (as an empty element), client-only BYOC components are registered and become available
+// The rest of components will be regsitered in both server and client-side contexts when this module is imported into Layout
+FEAAS.enableNextClientsideComponents(dynamic, ClientBundle);
+
 // Import your hybrid (server rendering with client hydration) components via index.hybrid.ts
 import './index.hybrid';
 
@@ -33,9 +37,6 @@ const BYOCInit = (): JSX.Element | null => {
     eventsSDK: Events,
   });
 
-  // As long as component bundle is exported and rendered on page (as an empty element), client-only BYOC components are registered and become available
-  // The rest of components will be regsitered in both server and client-side contexts when this module is imported into Layout
-  FEAAS.enableNextClientsideComponents(dynamic, ClientBundle);
   return <FEAAS.ExternalComponentBundle />;
 };
 
