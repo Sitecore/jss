@@ -63,6 +63,7 @@ export {
   ComponentParams,
   getContentStylesheetLink,
   EditMode,
+  LayoutServiceContext,
 } from '@sitecore-jss/sitecore-jss/layout';
 export {
   RetryStrategy,
