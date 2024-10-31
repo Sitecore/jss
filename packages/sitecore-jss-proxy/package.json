@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-proxy",
-  "version": "22.2.0-canary.80",
+  "version": "22.2.0-canary.81",
   "description": "Middlewares, utilities to work in a headless mode",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -27,7 +27,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "22.2.0-canary.80",
+    "@sitecore-jss/sitecore-jss": "22.2.0-canary.81",
     "http-proxy-middleware": "^2.0.6",
     "http-status-codes": "^2.2.0",
     "set-cookie-parser": "^2.5.1"
