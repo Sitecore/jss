@@ -117,7 +117,35 @@ server.use(
     fallthrough: false, // force 404 for unknown assets under /dist
   })
 );
-
+export const personalizePlugin: Plugin = (proxyServer) => {
+  let variantIds: string[] = [];
+  proxyServer.on('proxyReq', async (_, req, res) => {
+    variantIds = await personalizeHelper.getVariantIds(req, res);
+    console.log(`REQ variantIds ${JSON.stringify(variantIds)}`);
+  });
+  proxyServer.on(
+    'proxyRes',
+    responseInterceptor(async (responseBuffer) => {
+      // console.log(`RES variantIds ${JSON.stringify(variantIds)}`);
+      let response = responseBuffer.toString('utf8');
+      let layoutDataRaw = JSON.parse(response);
+      console.log(JSON.stringify(layoutDataRaw));
+      if (layoutDataRaw?.data?.layout?.item?.rendered?.sitecore) {
+        let layoutData = {
+          sitecore: {
+            ...layoutDataRaw?.data?.layout?.item?.rendered?.sitecore,
+          },
+        };
+        // console.log(`BEFORE! ${JSON.stringify(layoutDataRaw)}`);
+        layoutData = personalizeHelper.personalizeLayout(layoutData, variantIds);
+        // console.log(`AFTER! ${JSON.stringify(layoutData)}`);
+        layoutDataRaw.data.layout.item.rendered = layoutData;
+        response = JSON.stringify(layoutDataRaw);
+      }
+      return response;
+    })
+  );
+};
 /**
  * Proxy browser GraphQL requests to the Sitecore GraphQL endpoint
  */
