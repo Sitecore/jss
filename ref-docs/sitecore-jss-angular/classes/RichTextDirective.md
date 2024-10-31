@@ -59,7 +59,7 @@ BaseFieldDirective.constructor
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:36](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L36)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:36](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L36)
 
 ## Properties
 
@@ -75,7 +75,7 @@ BaseFieldDirective.defaultFieldEditingComponent
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:34](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L34)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:34](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L34)
 
 ___
 
@@ -89,7 +89,7 @@ BaseFieldDirective.editable
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:22](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L22)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:22](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L22)
 
 ___
 
@@ -105,7 +105,7 @@ BaseFieldDirective.emptyFieldEditingTemplate
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:29](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L29)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:29](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L29)
 
 ___
 
@@ -119,7 +119,7 @@ BaseFieldDirective.field
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:24](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L24)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:24](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L24)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:39](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L39)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:39](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L39)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:40](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L40)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:40](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L40)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:38](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L38)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:38](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L38)
 
 ___
 
@@ -163,7 +163,7 @@ BaseFieldDirective.viewContainer
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
 
 ___
 
@@ -177,7 +177,7 @@ BaseFieldDirective.viewRef
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
 
 ## Methods
 
@@ -201,7 +201,7 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:46](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L46)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:46](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L46)
 
 ___
 
@@ -221,7 +221,7 @@ BaseFieldDirective.renderEmpty
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
 
 ___
 
@@ -247,7 +247,7 @@ BaseFieldDirective.renderMetadata
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
 
 ___
 
@@ -268,7 +268,7 @@ BaseFieldDirective.shouldRender
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:30](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L30)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:30](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L30)
 
 ___
 
@@ -282,4 +282,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:53](https://github.com/Sitecore/jss/blob/0935408b6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L53)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:53](https://github.com/Sitecore/jss/blob/c27405f28/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L53)
