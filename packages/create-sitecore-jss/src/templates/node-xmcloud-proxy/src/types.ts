@@ -20,7 +20,7 @@ export interface ServerBundle {
   dictionaryServiceFactory: { create: () => DictionaryService };
   personalizeHelper: {
     personalizeLayout: (layoutData: unknown, variantIds: string[]) => LayoutServiceData;
-    getVariantIds: (req: IncomingMessage, res: OutgoingMessage) => Promise<string[]>;
+    getVariantIds: (req: IncomingMessage, res: OutgoingMessage, path?: string) => Promise<string[]>;
   };
   components: string[] | Map<string, unknown>;
   metadata: Metadata;

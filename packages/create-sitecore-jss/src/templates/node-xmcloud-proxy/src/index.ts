@@ -1,7 +1,8 @@
 import 'dotenv/config';
 import express, { Response } from 'express';
 import compression from 'compression';
-import { createProxyMiddleware, responseInterceptor } from 'http-proxy-middleware';
+import { createProxyMiddleware, responseInterceptor, fixRequestBody } from 'http-proxy-middleware';
+import { Plugin } from 'http-proxy-middleware/dist/types';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { editingRouter } from '@sitecore-jss/sitecore-jss-proxy';
 import { healthCheck } from '@sitecore-jss/sitecore-jss-proxy';
@@ -106,6 +107,9 @@ const handleError = (res: Response, err: unknown) => {
 
 // enable gzip compression for appropriate file types
 server.use(compression());
+server.use(graphQLEndpoint.path, express.json());
+// be able to read JSON requests
+// server.use(express.json());
 
 // turn off x-powered-by http header
 server.settings['x-powered-by'] = false;
@@ -118,29 +122,26 @@ server.use(
   })
 );
 export const personalizePlugin: Plugin = (proxyServer) => {
-  let variantIds: string[] = [];
-  proxyServer.on('proxyReq', async (_, req, res) => {
-    variantIds = await personalizeHelper.getVariantIds(req, res);
-    console.log(`REQ variantIds ${JSON.stringify(variantIds)}`);
-  });
   proxyServer.on(
     'proxyRes',
-    responseInterceptor(async (responseBuffer) => {
-      // console.log(`RES variantIds ${JSON.stringify(variantIds)}`);
+    responseInterceptor(async (responseBuffer, _, req, res) => {
       let response = responseBuffer.toString('utf8');
-      let layoutDataRaw = JSON.parse(response);
-      console.log(JSON.stringify(layoutDataRaw));
-      if (layoutDataRaw?.data?.layout?.item?.rendered?.sitecore) {
-        let layoutData = {
-          sitecore: {
-            ...layoutDataRaw?.data?.layout?.item?.rendered?.sitecore,
-          },
-        };
-        // console.log(`BEFORE! ${JSON.stringify(layoutDataRaw)}`);
-        layoutData = personalizeHelper.personalizeLayout(layoutData, variantIds);
-        // console.log(`AFTER! ${JSON.stringify(layoutData)}`);
-        layoutDataRaw.data.layout.item.rendered = layoutData;
-        response = JSON.stringify(layoutDataRaw);
+      const payload = JSON.stringify(((req as unknown) as Request).body);
+      if (payload.includes('jssLayoutQuery')) {
+        const match = [...payload.matchAll(/routePath:\\"(.*?)\\"/g)];
+        const path = match && match[0][1] ? match[0][1] : undefined;
+        let layoutDataRaw = JSON.parse(response);
+        if (layoutDataRaw?.data?.layout?.item?.rendered?.sitecore) {
+          const variantIds = await personalizeHelper.getVariantIds(req, res, path);
+          let layoutData = {
+            sitecore: {
+              ...layoutDataRaw?.data?.layout?.item?.rendered?.sitecore,
+            },
+          };
+          layoutData = personalizeHelper.personalizeLayout(layoutData, variantIds);
+          layoutDataRaw.data.layout.item.rendered = layoutData;
+          response = JSON.stringify(layoutDataRaw);
+        }
       }
       return response;
     })
@@ -156,19 +157,9 @@ server.use(
     changeOrigin: true,
     selfHandleResponse: true,
     on: {
-      proxyRes: responseInterceptor(async (responseBuffer) => {
-        const layoutMatcher = /^{"data":{"layout":{"item":{/;
-        const response = responseBuffer.toString('utf8');
-        if (response.match(layoutMatcher)) {
-          // const variantIds = await personalizeHelper.getVariantIds(req, res);
-          const layoutData = JSON.parse(response);
-          // layoutData = personalizeHelper.personalizeLayout(layoutData, variantIds);
-          console.log(JSON.stringify(layoutData));
-        }
-        // console.log(res);
-        return responseBuffer;
-      }),
+      proxyReq: fixRequestBody,
     },
+    plugins: [personalizePlugin],
   })
 );
 

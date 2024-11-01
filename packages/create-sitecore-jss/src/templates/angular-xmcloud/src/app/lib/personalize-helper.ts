@@ -288,9 +288,9 @@ export class PersonalizeHelper {
     }, results);
   }
 
-  getVariantIds = async (req: IncomingMessage, res: OutgoingMessage): Promise<string[]> => {
+  getVariantIds = async (req: IncomingMessage, res: OutgoingMessage, path?: string): Promise<string[]> => {
     const url = new URL(req.url, env.proxyHost);
-    const pathname = url.pathname;
+    const pathname = path || url.pathname;
     const language = this.getLanguage();
     const hostname = this.getHostHeader(req) || this.config.defaultHostname;
     // const startTimestamp = Date.now();
