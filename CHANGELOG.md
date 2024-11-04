@@ -98,6 +98,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-xmcloud]` `@sitecore/components` dependency has been updated to 2.0.0 ([#1933](https://github.com/Sitecore/jss/pull/1933)) 
 * `[templates/nextjs-xmcloud]` `lib/context` import has been removed. Values from `temp/config` can be used instead. ([#1933](https://github.com/Sitecore/jss/pull/1933)) 
 * `[sitecore-jss-nextjs]` `Context` import and `@sitecore-jss/sitecore-jss-nextjs/context` submodule have been removed. ([#1933](https://github.com/Sitecore/jss/pull/1933)) 
+* `[sitecore-jss-nextjs]` update personalize-middleware for CloudSDK 0.4.0 - pass `enablePersonalizeCookie` to CloudSDK.addPersonalize() function ([#1963](https://github.com/Sitecore/jss/pull/1963))
 
 
 ## 22.1.4
