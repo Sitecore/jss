@@ -41,9 +41,6 @@ class PersonalizePlugin implements MiddlewarePlugin {
       },
       // Optional Sitecore Personalize scope identifier.
       scope: process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE,
-      // sets the enablePersonalizeCookie setting of cloud sdk personalize, which in turn sets the personalize cookie;
-      // set to true to enable A/B testing and personalization
-      enablePersonalizeCookie: true,
       // This function determines if the middleware should be turned off.
       // IMPORTANT: You should implement based on your cookie consent management solution of choice.
       // You may wish to keep it disabled while in development mode.

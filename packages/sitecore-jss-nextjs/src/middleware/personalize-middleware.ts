@@ -46,10 +46,6 @@ export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
    */
   cdpConfig: CdpServiceConfig;
   /**
-   * Flag to set the enablePersonalizeCookie setting of cloud sdk personalize; if omitted, defaults to true
-   */
-  enablePersonalizeCookie?: boolean;
-  /**
    * Optional Sitecore Personalize scope identifier allowing you to isolate your personalization data between XM Cloud environments
    */
   scope?: string;
@@ -131,7 +127,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       cookieDomain: hostname,
       enableServerCookie: true,
     })
-      .addPersonalize({ enablePersonalizeCookie: this.config.enablePersonalizeCookie ?? true })
+      .addPersonalize({ enablePersonalizeCookie: true })
       .initialize();
   }
 
