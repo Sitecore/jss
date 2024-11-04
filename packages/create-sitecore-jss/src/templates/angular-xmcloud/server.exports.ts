@@ -5,7 +5,6 @@ import { layoutServiceFactory } from './src/app/lib/layout-service-factory';
 import { environment } from './src/environments/environment';
 import { components } from './src/app/components/app-components.module';
 import metadata from './src/environments/metadata.json';
-import { personalizeHelper } from './src/app/lib/personalize-helper';
 /**
  * Define the required configuration values to be exported from the server.bundle.ts.
  */
@@ -24,5 +23,4 @@ export {
   components,
   metadata,
   environment,
-  personalizeHelper,
 };

@@ -5,8 +5,9 @@ import { createProxyMiddleware, responseInterceptor, fixRequestBody } from 'http
 import { Plugin } from 'http-proxy-middleware/dist/types';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { editingRouter } from '@sitecore-jss/sitecore-jss-proxy';
-import { healthCheck } from '@sitecore-jss/sitecore-jss-proxy';
-import { config } from './config';
+import { healthCheck, PersonalizeHelper } from '@sitecore-jss/sitecore-jss-proxy';
+import { config, personalizeConfig } from './config';
+import { IncomingMessageWithBody } from '@sitecore-jss/sitecore-jss-proxy/types/types/personalize';
 
 const server = express();
 
@@ -15,7 +16,6 @@ const {
   parseRouteUrl,
   dictionaryServiceFactory,
   layoutServiceFactory,
-  personalizeHelper,
 } = config.serverBundle;
 
 /**
@@ -42,6 +42,8 @@ if (missingProperties.length > 0) {
     )}. Please check your server bundle.`
   );
 }
+
+const personalizeHelper = new PersonalizeHelper(personalizeConfig);
 
 const layoutService = layoutServiceFactory.create();
 
@@ -125,25 +127,16 @@ export const personalizePlugin: Plugin = (proxyServer) => {
   proxyServer.on(
     'proxyRes',
     responseInterceptor(async (responseBuffer, _, req, res) => {
-      let response = responseBuffer.toString('utf8');
-      const payload = JSON.stringify(((req as unknown) as Request).body);
+      let responseText = responseBuffer.toString('utf8');
+      const payload = JSON.stringify((req as IncomingMessageWithBody).body);
       if (payload.includes('jssLayoutQuery')) {
-        const match = [...payload.matchAll(/routePath:\\"(.*?)\\"/g)];
-        const path = match && match[0][1] ? match[0][1] : undefined;
-        let layoutDataRaw = JSON.parse(response);
-        if (layoutDataRaw?.data?.layout?.item?.rendered?.sitecore) {
-          const variantIds = await personalizeHelper.getVariantIds(req, res, path);
-          let layoutData = {
-            sitecore: {
-              ...layoutDataRaw?.data?.layout?.item?.rendered?.sitecore,
-            },
-          };
-          layoutData = personalizeHelper.personalizeLayout(layoutData, variantIds);
-          layoutDataRaw.data.layout.item.rendered = layoutData;
-          response = JSON.stringify(layoutDataRaw);
-        }
+        responseText = await personalizeHelper.personalizeLayoutServiceResponse(
+          req as IncomingMessageWithBody,
+          res,
+          responseText
+        );
       }
-      return response;
+      return responseText;
     })
   );
 };
@@ -204,10 +197,16 @@ server.use(async (req, res) => {
       route,
       lang || config.serverBundle.defaultLanguage
     );
-    const variantIds = await personalizeHelper.getVariantIds(req, res);
-    // console.log(layoutData);
-    layoutData = personalizeHelper.personalizeLayout(layoutData, variantIds);
-    // console.log(layoutData);
+    const personalizedLayoutData = await personalizeHelper.personalizePageLoad(
+      req,
+      res,
+      layoutData
+    );
+    // align types without type casting
+    layoutData = {
+      ...layoutData,
+      ...personalizedLayoutData,
+    };
     const viewBag = { dictionary: {} };
 
     viewBag.dictionary = await dictionaryService.fetchDictionaryData(
