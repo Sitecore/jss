@@ -46,7 +46,7 @@ export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
    */
   cdpConfig: CdpServiceConfig;
   /**
-   * Flag to set the enablePersonalizeCookie setting of cloud sdk personalize; if omitted, defaults to false
+   * Flag to set the enablePersonalizeCookie setting of cloud sdk personalize; if omitted, defaults to true
    */
   enablePersonalizeCookie?: boolean;
   /**
@@ -131,7 +131,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       cookieDomain: hostname,
       enableServerCookie: true,
     })
-      .addPersonalize({ enablePersonalizeCookie: this.config.enablePersonalizeCookie ?? false })
+      .addPersonalize({ enablePersonalizeCookie: this.config.enablePersonalizeCookie ?? true })
       .initialize();
   }
 
