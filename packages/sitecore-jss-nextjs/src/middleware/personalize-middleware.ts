@@ -131,7 +131,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       cookieDomain: hostname,
       enableServerCookie: true,
     })
-      .addPersonalize({ enablePersonalizeCookie: this.config.enablePersonalizeCookie ?? false})
+      .addPersonalize({ enablePersonalizeCookie: this.config.enablePersonalizeCookie ?? false })
       .initialize();
   }
 
