@@ -342,19 +342,37 @@ describe('PersonalizeHelper', () => {
         expect(true).to.be.true;
       });
 
-      // TODO
-      xit('should personalize layout', async () => {
-        expect(true).to.be.true;
-      });
+      it('should exclude route', async () => {
+        const req = createRequest();
+        const res = createResponse();
 
-      // TODO
-      xit('should exclude route, when instructed to', async () => {
-        expect(true).to.be.true;
+        const props = {
+          excludeRoute: (pathname: string) => pathname === '/styleguide',
+        };
+
+        const { helper } = createHelper(props);
+
+        const layoutData = defaultLayoutData;
+
+        const personalizedLayout = await helper.personalizeLayoutData(req, res, layoutData);
+
+        validateDebugLog('personalize layout start: %o', {
+          hostname: 'foo.net',
+          pathname: '/styleguide',
+          language: 'en',
+          headers: {
+            ...req.headers,
+          },
+        });
+
+        validateDebugLog('skipped (route excluded)');
+
+        expect(personalizedLayout).to.deep.equal(defaultLayoutData);
       });
     });
   });
 
-  describe('getLanguge', () => {
+  describe('getLanguage', () => {
     it('should read language from layoutData context', () => {
       const layoutData = {
         sitecore: {
