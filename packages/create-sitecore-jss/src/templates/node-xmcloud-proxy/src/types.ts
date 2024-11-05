@@ -7,6 +7,7 @@ import { DictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
 import { Metadata } from '@sitecore-jss/sitecore-jss/utils';
 import { LayoutService } from '@sitecore-jss/sitecore-jss/layout';
 import { AppRenderer, RouteUrlParser } from '@sitecore-jss/sitecore-jss-proxy';
+import { IncomingMessage } from 'http';
 
 export interface ServerBundle {
   [key: string]: unknown;
@@ -26,3 +27,10 @@ export interface Config {
   port: string | number;
   serverBundle: ServerBundle;
 }
+
+/**
+ * IncomingMessage type modified with exporess.json() call to include request body
+ */
+export type IncomingMessageWithBody = IncomingMessage & {
+  body: ReadableStream<Uint8Array> | null;
+};

@@ -1,13 +1,12 @@
 import 'dotenv/config';
 import express, { Response } from 'express';
 import compression from 'compression';
-import { createProxyMiddleware, responseInterceptor, fixRequestBody } from 'http-proxy-middleware';
-import { Plugin } from 'http-proxy-middleware/dist/types';
+import { createProxyMiddleware, fixRequestBody } from 'http-proxy-middleware';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { editingRouter } from '@sitecore-jss/sitecore-jss-proxy';
-import { healthCheck, PersonalizeHelper } from '@sitecore-jss/sitecore-jss-proxy';
-import { config, personalizeConfig } from './config';
-import { IncomingMessageWithBody } from '@sitecore-jss/sitecore-jss-proxy/types/types/personalize';
+import { healthCheck } from '@sitecore-jss/sitecore-jss-proxy';
+import { config } from './config';
+import { personalizeHelper, personalizePlugin } from './personalize';
 
 const server = express();
 
@@ -42,8 +41,6 @@ if (missingProperties.length > 0) {
     )}. Please check your server bundle.`
   );
 }
-
-const personalizeHelper = new PersonalizeHelper(personalizeConfig);
 
 const layoutService = layoutServiceFactory.create();
 
@@ -109,9 +106,8 @@ const handleError = (res: Response, err: unknown) => {
 
 // enable gzip compression for appropriate file types
 server.use(compression());
+// enable access to req.body
 server.use(graphQLEndpoint.path, express.json());
-// be able to read JSON requests
-// server.use(express.json());
 
 // turn off x-powered-by http header
 server.settings['x-powered-by'] = false;
@@ -123,23 +119,7 @@ server.use(
     fallthrough: false, // force 404 for unknown assets under /dist
   })
 );
-export const personalizePlugin: Plugin = (proxyServer) => {
-  proxyServer.on(
-    'proxyRes',
-    responseInterceptor(async (responseBuffer, _, req, res) => {
-      let responseText = responseBuffer.toString('utf8');
-      const payload = JSON.stringify((req as IncomingMessageWithBody).body);
-      if (payload.includes('jssLayoutQuery')) {
-        responseText = await personalizeHelper.personalizeLayoutServiceResponse(
-          req as IncomingMessageWithBody,
-          res,
-          responseText
-        );
-      }
-      return responseText;
-    })
-  );
-};
+
 /**
  * Proxy browser GraphQL requests to the Sitecore GraphQL endpoint
  */
@@ -197,16 +177,12 @@ server.use(async (req, res) => {
       route,
       lang || config.serverBundle.defaultLanguage
     );
-    const personalizedLayoutData = await personalizeHelper.personalizePageLoad(
+    const personalizedLayoutData = await personalizeHelper.personalizeLayoutData(
       req,
       res,
       layoutData
     );
-    // align types without type casting
-    layoutData = {
-      ...layoutData,
-      ...personalizedLayoutData,
-    };
+    layoutData = personalizedLayoutData;
     const viewBag = { dictionary: {} };
 
     viewBag.dictionary = await dictionaryService.fetchDictionaryData(

@@ -33,7 +33,7 @@ export const personalizeConfig: PersonalizeConfig = {
     timeout:
       (process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT &&
         parseInt(process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT)) ||
-      600,
+      400,
   },
   // Configuration for your Sitecore CDP endpoint
   cdpConfig: {
@@ -42,7 +42,7 @@ export const personalizeConfig: PersonalizeConfig = {
     timeout:
       (process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT &&
         parseInt(process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT)) ||
-      600,
+      400,
   },
   // Optional Sitecore Personalize scope identifier.
   scope: process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE,

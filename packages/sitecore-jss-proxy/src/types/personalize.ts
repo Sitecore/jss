@@ -82,11 +82,3 @@ export type PersonalizeExecution = {
   friendlyId: string;
   variantIds: string[];
 };
-
-/**
- * Modified IncomingMessage type that includes request body
- * Default IncomingMessage does not have access to it, but express can modify the object to include it
- */
-export type IncomingMessageWithBody = IncomingMessage & {
-  body: string;
-};

@@ -107,7 +107,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
       ? this.serviceConfig.formatLayoutQuery(this.serviceConfig.siteName, itemPath, language)
       : `layout(site:"${this.serviceConfig.siteName}", routePath:"${itemPath}"${languageVariable})`;
 
-    return `query jssLayoutQuery {
+    return `query JssLayoutQuery {
       ${layoutQuery}{
         item {
           rendered

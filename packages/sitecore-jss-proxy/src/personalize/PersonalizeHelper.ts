@@ -11,15 +11,8 @@ import {
   personalizeLayout,
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { IncomingHttpHeaders, IncomingMessage, OutgoingMessage } from 'http';
-import {
-  ExperienceParams,
-  IncomingMessageWithBody,
-  PersonalizeConfig,
-  PersonalizeExecution,
-} from '../types/personalize';
+import { ExperienceParams, PersonalizeConfig, PersonalizeExecution } from '../types/personalize';
 import querystring from 'querystring';
-
-// TODO: return defaults to 400
 
 export class PersonalizeHelper {
   private personalizeService: GraphQLPersonalizeService;
@@ -33,89 +26,94 @@ export class PersonalizeHelper {
   }
 
   /**
-   * Personalizes formatted layout data on page request
-   * @param {IncomingMessage} req Incoming page request
-   * @param {OutgoingMessage} res HTML page response
-   * @param {LayoutServiceData} layoutData layoutData for the page
-   * @returns layout data with personalization applied
+   * Init CloudSDK personalization on server side
+   * @param {IncomingMessage} request incoming nodejs request object
+   * @param {OutgoingMessage} response outgoing nodejs response object
+   * @param {string} [hostname] host for cookies. When not provided, host will be read from host header, and fallback to 'localhost' if that fails
    */
-  personalizePageLoad = async (
-    req: IncomingMessage,
-    res: OutgoingMessage,
-    layoutData: LayoutServiceData
-  ) => {
-    const variantIds = await this.getVariantIds(req, res);
-    return this.personalizeLayout(layoutData, variantIds);
-  };
+  async initPersonalizeServer(
+    request: IncomingMessage,
+    response: OutgoingMessage,
+    hostname?: string
+  ): Promise<void> {
+    await CloudSDK(request, response, {
+      sitecoreEdgeUrl: this.config.cdpConfig.sitecoreEdgeUrl,
+      sitecoreEdgeContextId: this.config.cdpConfig.sitecoreEdgeContextId,
+      siteName: this.config.sitecoreSiteName,
+      cookieDomain: hostname || this.getHostHeader(request) || this.defaultHostname,
+      enableServerCookie: true,
+    })
+      .addPersonalize({ enablePersonalizeCookie: true })
+      .initialize();
+  }
 
   /**
-   * Personalzies the data from raw layout service request
-   * @param {IncomingMessage} req request to layout service endpoint
-   * @param {OutgoingMessage} res layout service response
-   * @param {string} rawResponse raw layout service response payload
-   * @returns {string} stringified layout data response with personalization
+   * Performs personalize on layout data before a page is rendered
+   * @param {IncomingMessage} req Incoming request nodejs object
+   * @param {OutgoingMessage} res Outgoing response nodejs object
+   * @param {LayoutServiceData} layoutData layoutData for the page
+   * @param {boolean} [skipInit] skip CDP initialization. Personalization init can be performed separately when intercepting layout service request and response
+   * @returns layout data with personalization applied
    */
-  personalizeLayoutServiceResponse = async (
-    req: IncomingMessageWithBody,
-    res: OutgoingMessage,
-    rawResponse: string
-  ): Promise<string> => {
-    if (!req.body) {
-      debug.personalize('skipped (layout serive request body is empty)');
-      return rawResponse;
-    }
-    const payload = JSON.stringify(req.body);
-    const match = Array.from(payload.matchAll(/routePath:\\"(.*?)\\"/g));
-    // path will be in first catch group
-    const path = match && match[0][1] ? match[0][1] : undefined;
-    const layoutDataRaw = JSON.parse(rawResponse);
-    if (!layoutDataRaw?.data?.layout?.item?.rendered?.sitecore) {
-      debug.personalize('skipped (layout response has no route data)');
-      return rawResponse;
-    }
-
-    const variantIds = await this.getVariantIds(req, res, path);
-    const layoutData = {
-      sitecore: {
-        ...layoutDataRaw?.data?.layout?.item?.rendered?.sitecore,
-      },
-    };
-    const personalizedLayoutData = {
-      ...layoutData,
-      ...this.personalizeLayout(layoutData, variantIds),
-    };
-    layoutDataRaw.data.layout.item.rendered = personalizedLayoutData;
-    return JSON.stringify(layoutDataRaw);
-  };
-
-  protected getVariantIds = async (
+  personalizeLayoutData = async (
     req: IncomingMessage,
     res: OutgoingMessage,
-    path?: string
-  ): Promise<string[]> => {
-    const pathname = path || req.url;
-    // adapt to weird node typings, this case shouldn't happen ever
-    if (!pathname) {
-      return [];
+    layoutData: LayoutServiceData,
+    skipInit?: boolean
+  ) => {
+    if (!layoutData.sitecore?.context) {
+      debug.personalize('skipped (sitecore context is empty)');
+      return layoutData;
     }
-    const language = this.getLanguage();
-    const hostname = this.getHostHeader(req) || this.defaultHostname;
-    // const startTimestamp = Date.now();
-    const timeout = this.config.cdpConfig.timeout;
+    // current method can run for page requests and for layout service requests.
+    // the latter will not have the correct path - so we use path from layoutData instead
+    const pathname = layoutData.sitecore.context.itemPath;
+    const language = this.getLanguage(layoutData);
+    const hostname = this.getHostHeader(req);
+    const startTimestamp = Date.now();
+    if (!pathname) {
+      debug.personalize('skipped (pathname missing from layoutData)');
+      return layoutData;
+    }
 
-    const response = res;
-
-    debug.personalize('personalize middleware start: %o', {
+    debug.personalize('personalize layout start: %o', {
       pathname,
       language,
       hostname,
       headers: this.extractDebugHeaders(req.headers),
     });
 
-    if (this.config.disabled && this.config.disabled(req, response)) {
-      debug.personalize('skipped (personalize is disabled)');
-      return [];
+    if (this.excludeRoute(pathname)) {
+      debug.personalize('skipped (route excluded)');
+      return layoutData;
     }
+    if (this.config.disabled && this.config.disabled(req, res)) {
+      debug.personalize('skipped (personalize is disabled)');
+      return layoutData;
+    }
+
+    if (!skipInit) {
+      await this.initPersonalizeServer(req, res);
+    }
+
+    const variantIds = await this.getVariantIds(req, language, pathname);
+
+    const result = variantIds ? this.personalizeLayout(layoutData, variantIds) : layoutData;
+
+    debug.personalize('personalize layout end in %dms: %o', Date.now() - startTimestamp, {
+      headers: this.extractDebugHeaders(req.headers),
+    });
+
+    return result;
+  };
+
+  protected getVariantIds = async (
+    req: IncomingMessage,
+    language: string,
+    pathname: string
+  ): Promise<string[]> => {
+    // const startTimestamp = Date.now();
+    const timeout = this.config.cdpConfig.timeout;
 
     // Get personalization info from Experience Edge
     const personalizeInfo = await this.personalizeService.getPersonalizeInfo(
@@ -134,17 +132,9 @@ export class PersonalizeHelper {
       return [];
     }
 
-    await this.initPersonalizeServer({
-      hostname,
-      siteName: this.config.sitecoreSiteName,
-      request: req,
-      response,
-    });
-
     const params = this.getExperienceParams(req);
     const executions = this.getPersonalizeExecutions(personalizeInfo, language);
     const identifiedVariantIds: string[] = [];
-    debug.personalize(`CDP timeout is ${timeout}`);
     try {
       await Promise.all(
         executions.map((execution) =>
@@ -181,10 +171,10 @@ export class PersonalizeHelper {
   };
 
   protected personalizeLayout(layoutData: LayoutServiceData, variantIds: string[]) {
-    const personalizedLayout = { ...layoutData };
+    const personalizedLayout = layoutData;
     if (!personalizedLayout.sitecore?.route) {
       debug.personalize('skipped (layout is empty)');
-      return personalizedLayout;
+      return layoutData;
     }
     const personalizeData = getGroomedVariantIds(variantIds);
     const personalizedPlaceholders = personalizeLayout(
@@ -192,20 +182,20 @@ export class PersonalizeHelper {
       personalizeData.variantId,
       personalizeData.componentVariantIds
     );
-    if (!personalizedPlaceholders) {
-      debug.personalize('skipped ()');
-      return;
-    }
     personalizedLayout.sitecore.route.placeholders = personalizedPlaceholders;
     return personalizedLayout;
   }
 
-  protected getLanguage(): string {
-    return 'en';
+  protected getLanguage(layoutData: LayoutServiceData): string {
+    return layoutData.sitecore?.context?.language || 'en';
   }
 
   protected getHostHeader(req: IncomingMessage): string {
     return req.headers.host?.split(':')[0] || '';
+  }
+
+  protected excludeRoute(pathname: string) {
+    return this.config?.excludeRoute && this.config?.excludeRoute(pathname);
   }
 
   protected extractDebugHeaders(incomingHeaders: IncomingHttpHeaders) {
@@ -214,28 +204,6 @@ export class PersonalizeHelper {
       (key) => incomingHeaders[key] && (headers[key] = incomingHeaders[key])
     );
     return headers;
-  }
-
-  protected async initPersonalizeServer({
-    hostname,
-    siteName,
-    request,
-    response,
-  }: {
-    hostname: string;
-    siteName: string;
-    request: IncomingMessage;
-    response: OutgoingMessage;
-  }): Promise<void> {
-    await CloudSDK(request, response, {
-      sitecoreEdgeUrl: this.config.cdpConfig.sitecoreEdgeUrl,
-      sitecoreEdgeContextId: this.config.cdpConfig.sitecoreEdgeContextId,
-      siteName,
-      cookieDomain: hostname,
-      enableServerCookie: true,
-    })
-      .addPersonalize()
-      .initialize();
   }
 
   protected async personalize(
@@ -327,7 +295,7 @@ export class PersonalizeHelper {
         const friendlyId = CdpHelper.getPageFriendlyId(
           personalizeInfo.pageId,
           language,
-          this.config.scope || this.config.edgeConfig.scope
+          this.config.scope
         );
         const execution = results.find((x) => x.friendlyId === friendlyId);
         if (execution) {
