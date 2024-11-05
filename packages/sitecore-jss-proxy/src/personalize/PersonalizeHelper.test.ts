@@ -2,10 +2,12 @@
 /* eslint-disable dot-notation */
 import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 import { PersonalizeHelper } from './PersonalizeHelper';
-import sinon, { spy } from 'sinon';
+import sinon, { spy, stub } from 'sinon';
 import { IncomingMessage, OutgoingMessage } from 'http';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { expect } from 'chai';
+import * as CDPCore from '@sitecore-cloudsdk/core/server';
+import { beforeEach } from 'node:test';
 
 describe('PersonalizeHelper', () => {
   const hostname = 'foo.net';
@@ -17,6 +19,19 @@ describe('PersonalizeHelper', () => {
       [message, ...params],
       'Message not found in debug log: ' + [message, ...params].join(' ') + '\n'
     );
+  };
+
+  const defaultLayoutData = {
+    sitecore: {
+      context: {
+        itemPath: '/styleguide',
+        language: 'en',
+      },
+      route: {
+        name: 'styleguide',
+        placeholders: {},
+      },
+    },
   };
 
   const pageId = 'item-id';
@@ -126,11 +141,55 @@ describe('PersonalizeHelper', () => {
     };
   };
 
+  const cdpCoreStub = stub(CDPCore, 'CloudSDK');
+
   beforeEach(() => {
     debugSpy.resetHistory();
   });
 
-  describe('personalizePageLoad', () => {
+  // TODO: find out why CloudSDK stub is not invoked
+  xdescribe('initPersonalizeServer', () => {
+    beforeEach(() => {
+      cdpCoreStub.reset();
+    });
+    const req = createRequest();
+    const res = createResponse();
+    it('should use provided cookie hostname when provided', async () => {
+      const helperProps = {
+        defaultHostname: 'http://notlocalhost',
+      };
+      const { helper } = createHelper(helperProps);
+      const expectedHost = 'myhost';
+      await helper.initPersonalizeServer(req, res, expectedHost);
+      expect(cdpCoreStub.called).to.be.true;
+      const cdpSettings = cdpCoreStub.callArg(2);
+      expect(cdpSettings).to.equal(expectedHost);
+    });
+
+    it('should use host headers hostname valueas first fallback', async () => {
+      const helperProps = {
+        defaultHostname: 'http://notlocalhost',
+      };
+      const { helper } = createHelper(helperProps);
+      await helper.initPersonalizeServer(req, res);
+      expect(cdpCoreStub.called).to.be.true;
+      const cdpSettings = cdpCoreStub.callArg(2);
+      expect(cdpSettings).to.equal(hostname);
+    });
+
+    it('should default config hostname when all else absent', async () => {
+      const helperProps = {
+        defaultHostname: 'http://notlocalhost',
+      };
+      const { helper } = createHelper(helperProps);
+      await helper.initPersonalizeServer(req, res);
+      expect(cdpCoreStub.called).to.be.true;
+      const cdpSettings = cdpCoreStub.callArg(2);
+      expect(cdpSettings).to.equal(helperProps.defaultHostname);
+    });
+  });
+
+  describe('personalizeLayoutData', () => {
     describe('layout not personalized', () => {
       it('disabled', async () => {
         const req = createRequest();
@@ -142,19 +201,11 @@ describe('PersonalizeHelper', () => {
 
         const { helper } = createHelper(props);
 
-        const layoutData = {
-          sitecore: {
-            context: {},
-            route: {
-              name: 'styleguide',
-              placeholders: {},
-            },
-          },
-        };
+        const layoutData = defaultLayoutData;
 
-        const personalizedLayout = await helper.personalizePageLoad(req, res, layoutData);
+        const personalizedLayout = await helper.personalizeLayoutData(req, res, layoutData);
 
-        validateDebugLog('personalize middleware start: %o', {
+        validateDebugLog('personalize layout start: %o', {
           hostname: 'foo.net',
           pathname: '/styleguide',
           language: 'en',
@@ -175,25 +226,18 @@ describe('PersonalizeHelper', () => {
           personalizeInfo: null,
         });
 
-        const layoutData = {
-          sitecore: {
-            context: {},
-            route: {
-              name: 'styleguide',
-              placeholders: {},
-            },
-          },
-        };
+        const layoutData = defaultLayoutData;
 
-        const personalizedLayout = await helper.personalizePageLoad(req, res, layoutData);
+        const personalizedLayout = await helper.personalizeLayoutData(req, res, layoutData);
         const headers = { ...req.headers };
 
-        validateDebugLog('personalize middleware start: %o', {
+        validateDebugLog('personalize layout start: %o', {
           hostname: 'foo.net',
           pathname: '/styleguide',
           language: 'en',
           headers,
         });
+        console.log(getPersonalizeInfo.getCalls());
         expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
         validateDebugLog('skipped (personalize info not found)');
         expect(personalizedLayout).to.deep.equal(layoutData);
@@ -208,19 +252,11 @@ describe('PersonalizeHelper', () => {
             variantIds: [],
           },
         });
-        const layoutData = {
-          sitecore: {
-            context: {},
-            route: {
-              name: 'styleguide',
-              placeholders: {},
-            },
-          },
-        };
-        const personalizedLayout = await helper.personalizePageLoad(req, res, layoutData);
+        const layoutData = defaultLayoutData;
+        const personalizedLayout = await helper.personalizeLayoutData(req, res, layoutData);
         const headers = { ...req.headers };
 
-        validateDebugLog('personalize middleware start: %o', {
+        validateDebugLog('personalize layout start: %o', {
           hostname: 'foo.net',
           pathname: '/styleguide',
           language: 'en',
@@ -239,19 +275,11 @@ describe('PersonalizeHelper', () => {
         });
         const headers = { ...req.headers };
 
-        const layoutData = {
-          sitecore: {
-            context: {},
-            route: {
-              name: 'styleguide',
-              placeholders: {},
-            },
-          },
-        };
+        const layoutData = defaultLayoutData;
 
-        const personalizedLayout = await helper.personalizePageLoad(req, res, layoutData);
+        const personalizedLayout = await helper.personalizeLayoutData(req, res, layoutData);
 
-        await validateDebugLog('personalize middleware start: %o', {
+        await validateDebugLog('personalize layout start: %o', {
           hostname: 'foo.net',
           pathname: '/styleguide',
           language: 'en',
@@ -278,20 +306,12 @@ describe('PersonalizeHelper', () => {
           variantId: invalidVariant,
         });
 
-        const layoutData = {
-          sitecore: {
-            context: {},
-            route: {
-              name: 'styleguide',
-              placeholders: {},
-            },
-          },
-        };
+        const layoutData = defaultLayoutData;
 
-        const personalizedLayout = await helper.personalizePageLoad(req, res, layoutData);
+        const personalizedLayout = await helper.personalizeLayoutData(req, res, layoutData);
         const headers = { ...req.headers };
 
-        validateDebugLog('personalize middleware start: %o', {
+        validateDebugLog('personalize layout start: %o', {
           hostname: 'foo.net',
           pathname: '/styleguide',
           language: 'en',
@@ -305,10 +325,65 @@ describe('PersonalizeHelper', () => {
         expect(personalizedLayout).to.deep.equal(layoutData);
       });
 
-      it('layout is empty', () => {
-        // TODO
+      it('layout is empty', async () => {
+        const req = createRequest();
+        const res = createResponse();
+        const emptyLayoutData = {
+          ...defaultLayoutData,
+          sitecore: {
+            ...defaultLayoutData.sitecore,
+            route: null,
+          },
+        };
+        const { helper } = createHelper();
+        const personalizedLayout = await helper.personalizeLayoutData(req, res, emptyLayoutData);
+        expect(personalizedLayout).to.deep.equal(emptyLayoutData);
+        validateDebugLog('skipped (layout is empty)');
         expect(true).to.be.true;
       });
+
+      // TODO
+      xit('should personalize layout', async () => {
+        expect(true).to.be.true;
+      });
+
+      // TODO
+      xit('should exclude route, when instructed to', async () => {
+        expect(true).to.be.true;
+      });
+    });
+  });
+
+  describe('getLanguge', () => {
+    it('should read language from layoutData context', () => {
+      const layoutData = {
+        sitecore: {
+          context: {
+            language: 'da-DK',
+          },
+          route: null,
+        },
+      };
+      const { helper } = createHelper();
+      expect(helper['getLanguage'](layoutData)).to.equal('da-DK');
+    });
+    it('should return "en" by default', () => {
+      const layoutData = {
+        sitecore: {
+          context: {},
+          route: null,
+        },
+      };
+      const { helper } = createHelper();
+      expect(helper['getLanguage'](layoutData)).to.equal('en');
+    });
+  });
+
+  describe('getHostHeaders', () => {
+    it('should read host header from request', () => {
+      const req = createRequest();
+      const { helper } = createHelper();
+      expect(helper['getHostHeader'](req)).to.equal(hostname);
     });
   });
 });
