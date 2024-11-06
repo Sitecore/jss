@@ -26,40 +26,16 @@ export class PersonalizeHelper {
   }
 
   /**
-   * Init CloudSDK personalization on server side
-   * @param {IncomingMessage} request incoming nodejs request object
-   * @param {OutgoingMessage} response outgoing nodejs response object
-   * @param {string} [hostname] host for cookies. When not provided, host will be read from host header, and fallback to 'localhost' if that fails
-   */
-  async initPersonalizeServer(
-    request: IncomingMessage,
-    response: OutgoingMessage,
-    hostname?: string
-  ): Promise<void> {
-    await CloudSDK(request, response, {
-      sitecoreEdgeUrl: this.config.cdpConfig.sitecoreEdgeUrl,
-      sitecoreEdgeContextId: this.config.cdpConfig.sitecoreEdgeContextId,
-      siteName: this.config.sitecoreSiteName,
-      cookieDomain: hostname || this.getHostHeader(request) || this.defaultHostname,
-      enableServerCookie: true,
-    })
-      .addPersonalize({ enablePersonalizeCookie: true })
-      .initialize();
-  }
-
-  /**
    * Performs personalize on layout data before a page is rendered
    * @param {IncomingMessage} req Incoming request nodejs object
    * @param {OutgoingMessage} res Outgoing response nodejs object
    * @param {LayoutServiceData} layoutData layoutData for the page
-   * @param {boolean} [skipInit] skip CDP initialization. Personalization init can be performed separately when intercepting layout service request and response
    * @returns layout data with personalization applied
    */
   personalizeLayoutData = async (
     req: IncomingMessage,
     res: OutgoingMessage,
-    layoutData: LayoutServiceData,
-    skipInit?: boolean
+    layoutData: LayoutServiceData
   ) => {
     if (!layoutData.sitecore?.context) {
       debug.personalize('skipped (sitecore context is empty)');
@@ -69,7 +45,7 @@ export class PersonalizeHelper {
     // the latter will not have the correct path - so we use path from layoutData instead
     const pathname = layoutData.sitecore.context.itemPath;
     const language = this.getLanguage(layoutData);
-    const hostname = this.getHostHeader(req);
+    const hostname = this.getHostHeader(req) || this.defaultHostname;
     const startTimestamp = Date.now();
     if (!pathname) {
       debug.personalize('skipped (pathname missing from layoutData)');
@@ -91,21 +67,43 @@ export class PersonalizeHelper {
       debug.personalize('skipped (personalize is disabled)');
       return layoutData;
     }
-
-    if (!skipInit) {
-      await this.initPersonalizeServer(req, res);
+    try {
+      await this.initPersonalizeServer(req, res, hostname);
+    } catch (e) {
+      debug.personalize('skipped (CloudSDK initialization failed), error %o', e);
+      return layoutData;
     }
 
     const variantIds = await this.getVariantIds(req, language, pathname);
 
     const result = variantIds ? this.personalizeLayout(layoutData, variantIds) : layoutData;
-
     debug.personalize('personalize layout end in %dms: %o', Date.now() - startTimestamp, {
       headers: this.extractDebugHeaders(req.headers),
     });
-
     return result;
   };
+
+  /**
+   * Init CloudSDK personalization on server side
+   * @param {IncomingMessage} request incoming nodejs request object
+   * @param {OutgoingMessage} response outgoing nodejs response object
+   * @param {string} [hostname] host for cookies. When not provided, host will be read from host header, and fallback to 'localhost' if that fails
+   */
+  protected async initPersonalizeServer(
+    request: IncomingMessage,
+    response: OutgoingMessage,
+    hostname: string
+  ): Promise<void> {
+    await CloudSDK(request, response, {
+      sitecoreEdgeUrl: this.config.cdpConfig.sitecoreEdgeUrl,
+      sitecoreEdgeContextId: this.config.cdpConfig.sitecoreEdgeContextId,
+      siteName: this.config.sitecoreSiteName,
+      cookieDomain: hostname,
+      enableServerCookie: true,
+    })
+      .addPersonalize({ enablePersonalizeCookie: true })
+      .initialize();
+  }
 
   protected getVariantIds = async (
     req: IncomingMessage,
@@ -160,7 +158,7 @@ export class PersonalizeHelper {
         )
       );
     } catch (e) {
-      debug.personalize('personalization skipped, error %o', e);
+      debug.personalize('skipped, error %o', e);
     }
 
     if (identifiedVariantIds.length === 0) {
@@ -171,8 +169,7 @@ export class PersonalizeHelper {
   };
 
   protected personalizeLayout(layoutData: LayoutServiceData, variantIds: string[]) {
-    const personalizedLayout = layoutData;
-    if (!personalizedLayout.sitecore?.route) {
+    if (!layoutData.sitecore?.route) {
       debug.personalize('skipped (layout is empty)');
       return layoutData;
     }
@@ -182,8 +179,8 @@ export class PersonalizeHelper {
       personalizeData.variantId,
       personalizeData.componentVariantIds
     );
-    personalizedLayout.sitecore.route.placeholders = personalizedPlaceholders;
-    return personalizedLayout;
+    layoutData.sitecore.route.placeholders = personalizedPlaceholders;
+    return layoutData;
   }
 
   protected getLanguage(layoutData: LayoutServiceData): string {
@@ -246,17 +243,17 @@ export class PersonalizeHelper {
     const queryString = querystring.parse(rawQs);
     // also need to account for types (string | string[]) returned by parse()
     const utm = {
-      campaign: [queryString.utm_campaign].join() || undefined,
-      content: [queryString.utm_content].join() || undefined,
-      medium: [queryString.utm_medium].join() || undefined,
-      source: [queryString.utm_source].join() || undefined,
+      campaign: [queryString.utm_campaign].join('') || undefined,
+      content: [queryString.utm_content].join('') || undefined,
+      medium: [queryString.utm_medium].join('') || undefined,
+      source: [queryString.utm_source].join('') || undefined,
     };
 
     return {
       // It's expected that the header name "referer" is actually a misspelling of the word "referrer"
       // req.referrer is used during fetching to determine the value of the Referer header of the request being made,
       // used as a fallback
-      referrer: req.headers.referer || [req.headers.referrer].join(),
+      referrer: req.headers.referer || [''].concat(req.headers.referrer || '').join(''),
       utm: utm,
     };
   }
@@ -277,7 +274,7 @@ export class PersonalizeHelper {
           personalizeInfo.pageId,
           componentId,
           language,
-          this.config.scope || this.config.edgeConfig.scope
+          this.config.scope
         );
         const execution = results.find((x) => x.friendlyId === friendlyId);
         if (execution) {

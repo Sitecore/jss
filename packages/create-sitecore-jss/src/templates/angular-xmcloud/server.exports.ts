@@ -9,9 +9,8 @@ import metadata from './src/environments/metadata.json';
  * Define the required configuration values to be exported from the server.bundle.ts.
  */
 
-//TODO: rework thisfor flexibility ?
-
 const defaultLanguage = environment.defaultLanguage;
+const sitecoreSiteName = environment.sitecoreSiteName;
 const getClientFactoryConfig = getGraphQLClientFactoryConfig;
 
 export {
@@ -20,6 +19,7 @@ export {
   dictionaryServiceFactory,
   layoutServiceFactory,
   defaultLanguage,
+  sitecoreSiteName,
   components,
   metadata,
   environment,

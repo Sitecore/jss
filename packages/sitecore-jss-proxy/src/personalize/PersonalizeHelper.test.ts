@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable dot-notation */
 import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
-import { PersonalizeHelper } from './PersonalizeHelper';
-import sinon, { spy, stub } from 'sinon';
+import sinon, { spy } from 'sinon';
+import proxyquire from 'proxyquire';
 import { IncomingMessage, OutgoingMessage } from 'http';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { expect } from 'chai';
-import * as CDPCore from '@sitecore-cloudsdk/core/server';
-import { beforeEach } from 'node:test';
+import querystring from 'querystring';
+import { CdpHelper } from '@sitecore-jss/sitecore-jss/personalize';
+import { getPersonalizeLayoutData, mountain_bike_audience } from './test-data/personalizeData';
 
 describe('PersonalizeHelper', () => {
   const hostname = 'foo.net';
@@ -19,6 +20,10 @@ describe('PersonalizeHelper', () => {
       [message, ...params],
       'Message not found in debug log: ' + [message, ...params].join(' ') + '\n'
     );
+  };
+  const validateEndDebugLog = (message: string, params: any) => {
+    const logParams = debugSpy.args.find((log) => log[0] === message) as Array<unknown>;
+    expect(logParams[2]).to.deep.equal(params, 'Matching end message not found');
   };
 
   const defaultLayoutData = {
@@ -47,21 +52,6 @@ describe('PersonalizeHelper', () => {
       ...props,
     } as IncomingMessage;
 
-    // Object.defineProperties(req.head, {
-    //   set: {
-    //     value: (key: string, value: any) => {
-    //       req.headers[key] = value;
-    //     },
-    //     enumerable: false,
-    //   },
-    //   forEach: {
-    //     value: (cb: any) => {
-    //       Object.keys(req.headers).forEach((key) => cb(req.headers[key], key, req.headers));
-    //     },
-    //     enumerable: false,
-    //   },
-    // });
-
     return req;
   };
 
@@ -87,6 +77,7 @@ describe('PersonalizeHelper', () => {
       } | null;
       getPersonalizeInfoStub?: sinon.SinonStub;
       personalizeStub?: sinon.SinonStub;
+      initPersonalizeServerStub?: sinon.SinonStub;
     } = {}
   ) => {
     const cdpConfig = {
@@ -103,14 +94,24 @@ describe('PersonalizeHelper', () => {
       ...(props?.edgeConfig || {}),
     };
 
-    const helper = new PersonalizeHelper({
+    const personalizeLayoutStub = sinon.stub();
+    const getComponentFriendlyIdStub = sinon.stub();
+    const getPageFriendlyIdStub = sinon.stub();
+    const PersonalizeHelper = proxyquire('./PersonalizeHelper', {
+      '@sitecore-jss/sitecore-jss/personalize': {
+        personalizeLayout: personalizeLayoutStub,
+      },
+    });
+
+    const helper = new PersonalizeHelper.PersonalizeHelper({
       ...props,
       cdpConfig,
       edgeConfig,
       sitecoreSiteName: siteName,
     });
 
-    const initPersonalizeServer = (helper['initPersonalizeServer'] = sinon.stub());
+    const initPersonalizeServer = (helper['initPersonalizeServer'] =
+      props.initPersonalizeServerStub || sinon.stub());
 
     const personalize = (helper['personalize'] =
       props.personalizeStub ||
@@ -132,61 +133,19 @@ describe('PersonalizeHelper', () => {
               }
         )
       ));
-
     return {
       helper,
       getPersonalizeInfo,
       initPersonalizeServer,
       personalize,
+      personalizeLayoutStub,
+      getComponentFriendlyIdStub,
+      getPageFriendlyIdStub,
     };
   };
 
-  const cdpCoreStub = stub(CDPCore, 'CloudSDK');
-
   beforeEach(() => {
     debugSpy.resetHistory();
-  });
-
-  // TODO: find out why CloudSDK stub is not invoked
-  xdescribe('initPersonalizeServer', () => {
-    beforeEach(() => {
-      cdpCoreStub.reset();
-    });
-    const req = createRequest();
-    const res = createResponse();
-    it('should use provided cookie hostname when provided', async () => {
-      const helperProps = {
-        defaultHostname: 'http://notlocalhost',
-      };
-      const { helper } = createHelper(helperProps);
-      const expectedHost = 'myhost';
-      await helper.initPersonalizeServer(req, res, expectedHost);
-      expect(cdpCoreStub.called).to.be.true;
-      const cdpSettings = cdpCoreStub.callArg(2);
-      expect(cdpSettings).to.equal(expectedHost);
-    });
-
-    it('should use host headers hostname valueas first fallback', async () => {
-      const helperProps = {
-        defaultHostname: 'http://notlocalhost',
-      };
-      const { helper } = createHelper(helperProps);
-      await helper.initPersonalizeServer(req, res);
-      expect(cdpCoreStub.called).to.be.true;
-      const cdpSettings = cdpCoreStub.callArg(2);
-      expect(cdpSettings).to.equal(hostname);
-    });
-
-    it('should default config hostname when all else absent', async () => {
-      const helperProps = {
-        defaultHostname: 'http://notlocalhost',
-      };
-      const { helper } = createHelper(helperProps);
-      await helper.initPersonalizeServer(req, res);
-      expect(cdpCoreStub.called).to.be.true;
-      const cdpSettings = cdpCoreStub.callArg(2);
-      expect(cdpSettings).to.equal(helperProps.defaultHostname);
-    });
   });
 
   describe('personalizeLayoutData', () => {
@@ -370,6 +329,186 @@ describe('PersonalizeHelper', () => {
         expect(personalizedLayout).to.deep.equal(defaultLayoutData);
       });
     });
+    describe('layout is personalized', () => {
+      const variantIds = ['mountain-bike-audience', 'another-variant', 'third-variant'];
+      it('custom fallback hostname is used when request host header is empty', async () => {
+        const req = createRequest();
+        delete req.headers.host;
+        const res = createResponse();
+
+        const props = {
+          defaultHostname: 'myhost',
+        };
+
+        const { helper, initPersonalizeServer } = createHelper(props);
+
+        const layoutData = defaultLayoutData;
+
+        const personalizedLayout = await helper.personalizeLayoutData(req, res, layoutData);
+        expect(initPersonalizeServer.called).to.be.true;
+        expect(initPersonalizeServer.getCall(0).args[2]).to.equal(props.defaultHostname);
+        expect(personalizedLayout).to.deep.equal(defaultLayoutData);
+      });
+
+      it('localhost is used as fallback hostname when request host header is empty and defaultHostname not provided', async () => {
+        const req = createRequest();
+        delete req.headers.host;
+        const res = createResponse();
+
+        const { helper, initPersonalizeServer } = createHelper();
+
+        const layoutData = defaultLayoutData;
+
+        const personalizedLayout = await helper.personalizeLayoutData(req, res, layoutData);
+        expect(initPersonalizeServer.called).to.be.true;
+        expect(initPersonalizeServer.getCall(0).args[2]).to.equal('localhost');
+        expect(personalizedLayout).to.deep.equal(defaultLayoutData);
+      });
+
+      it('locale from context is used', async () => {
+        const req = createRequest();
+        const res = createResponse();
+        const customLang = 'da-DK';
+        const {
+          helper,
+          initPersonalizeServer,
+          personalize,
+          getPersonalizeInfo,
+          personalizeLayoutStub,
+        } = createHelper({
+          personalizeInfo: { pageId, variantIds },
+          variantId: 'mountain-bike-audience',
+        });
+        personalizeLayoutStub.returns(mountain_bike_audience);
+
+        const layoutData = getPersonalizeLayoutData('default', customLang);
+
+        const personalizedLayout = await helper.personalizeLayoutData(req, res, layoutData);
+
+        validateDebugLog('personalize layout start: %o', {
+          headers: {
+            ...req.headers,
+          },
+          hostname: hostname,
+          pathname: '/styleguide',
+          language: customLang,
+        });
+        expect(initPersonalizeServer.calledOnce).to.be.true;
+        expect(getPersonalizeInfo.calledWith('/styleguide', customLang)).to.be.true;
+        expect(personalize.called).to.be.true;
+        expect(personalizeLayoutStub.called).to.be.true;
+        validateEndDebugLog('personalize layout end in %dms: %o', {
+          headers: req.headers,
+        });
+        const expectedLayout = getPersonalizeLayoutData('mountain_bike', customLang);
+        expect(personalizedLayout).to.deep.equal(expectedLayout);
+      });
+
+      it('fallback locale is used', async () => {
+        const req = createRequest();
+        const res = createResponse();
+        const {
+          helper,
+          initPersonalizeServer,
+          personalize,
+          getPersonalizeInfo,
+          personalizeLayoutStub,
+        } = createHelper({
+          personalizeInfo: { pageId, variantIds },
+          variantId: 'mountain-bike-audience',
+        });
+        personalizeLayoutStub.returns(mountain_bike_audience);
+
+        const layoutData = getPersonalizeLayoutData('default');
+
+        await helper.personalizeLayoutData(req, res, layoutData);
+
+        validateDebugLog('personalize layout start: %o', {
+          headers: {
+            ...req.headers,
+          },
+          hostname: hostname,
+          pathname: '/styleguide',
+          language: 'en',
+        });
+        expect(initPersonalizeServer.calledOnce).to.be.true;
+        expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
+        expect(personalize.called).to.be.true;
+        expect(personalizeLayoutStub.called).to.be.true;
+        validateEndDebugLog('personalize layout end in %dms: %o', {
+          headers: req.headers,
+        });
+      });
+
+      it('configured scope is used', async () => {
+        const req = createRequest();
+        const res = createResponse();
+        const scope = 'myscope';
+        const { helper, personalize, personalizeLayoutStub } = createHelper({
+          personalizeInfo: { pageId, variantIds: ['mountain-bike-audience'] },
+          variantId: 'mountain-bike-audience',
+          scope,
+        });
+        personalizeLayoutStub.returns(mountain_bike_audience);
+
+        const layoutData = getPersonalizeLayoutData('default');
+
+        await helper.personalizeLayoutData(req, res, layoutData);
+        expect(
+          personalize.calledWith(
+            sinon.match({ friendlyId: CdpHelper.getPageFriendlyId(pageId, 'en', scope) }),
+            sinon.match.any
+          )
+        ).to.be.true;
+      });
+
+      it('component testing is executed', async () => {
+        const req = createRequest();
+        const res = createResponse();
+        const { helper, personalize, personalizeLayoutStub } = createHelper({
+          personalizeInfo: { pageId, variantIds: ['componentid_variant-id'] },
+          variantId: 'componentid_variant-id',
+        });
+        personalizeLayoutStub.returns(mountain_bike_audience);
+
+        const layoutData = getPersonalizeLayoutData('default');
+
+        await helper.personalizeLayoutData(req, res, layoutData);
+        expect(
+          personalize.calledWith(
+            sinon.match({
+              friendlyId: CdpHelper.getComponentFriendlyId(pageId, 'componentid', 'en'),
+            }),
+            sinon.match.any
+          )
+        ).to.be.true;
+      });
+    });
+    describe('error handling', () => {
+      it('CloudSDK initialization throws', async () => {
+        const error = new Error('init failed');
+        const throwInitPersonalizeServer = sinon.stub().throws(error);
+        const { helper } = createHelper({
+          initPersonalizeServerStub: throwInitPersonalizeServer,
+        });
+        const req = createRequest();
+        const res = createResponse();
+        await helper.personalizeLayoutData(req, res, defaultLayoutData);
+        validateDebugLog('skipped (CloudSDK initialization failed), error %o', error);
+      });
+
+      it('CloudSDK personalize throws', async () => {
+        const error = new Error('personalize failed');
+        const throwPersonalize = sinon.stub().throws(error);
+        const { helper } = createHelper({
+          personalizeStub: throwPersonalize,
+        });
+        const req = createRequest();
+        const res = createResponse();
+        await helper.personalizeLayoutData(req, res, defaultLayoutData);
+        validateDebugLog('skipped, error %o', error);
+      });
+    });
   });
 
   describe('getLanguage', () => {
@@ -402,6 +541,49 @@ describe('PersonalizeHelper', () => {
       const req = createRequest();
       const { helper } = createHelper();
       expect(helper['getHostHeader'](req)).to.equal(hostname);
+    });
+  });
+
+  describe('getExperienceParams', () => {
+    it('should correctly parse utm input values', () => {
+      const utmTest = {
+        utm_campaign: 'campaing',
+        utm_content: 'content',
+        utm_medium: 'medium',
+        utm_source: 'source',
+      };
+      const qs = querystring.stringify(utmTest);
+      const req = createRequest({ url: `/styleguide?${qs}` });
+      const { helper } = createHelper();
+      const result = helper['getExperienceParams'](req);
+      expect(result.utm).to.deep.equal({
+        campaign: utmTest.utm_campaign,
+        content: utmTest.utm_content,
+        medium: utmTest.utm_medium,
+        source: utmTest.utm_source,
+      });
+    });
+
+    it('should correctly parse referer header', () => {
+      const req = createRequest({
+        headers: {
+          referer: 'withoner',
+        },
+      });
+      const { helper } = createHelper();
+      const result = helper['getExperienceParams'](req);
+      expect(result.referrer).to.equal('withoner');
+    });
+
+    it('should correctly parse referrer header', () => {
+      const req = createRequest({
+        headers: {
+          referrer: ['http://', 'withtwors'],
+        },
+      });
+      const { helper } = createHelper();
+      const result = helper['getExperienceParams'](req);
+      expect(result.referrer).to.equal('http://withtwors');
     });
   });
 });

@@ -132,6 +132,7 @@ server.use(
     on: {
       proxyReq: fixRequestBody,
     },
+    // for client-side routing, personalization is performed by modifying layout service response
     plugins: [personalizePlugin],
   })
 );
@@ -177,6 +178,7 @@ server.use(async (req, res) => {
       route,
       lang || config.serverBundle.defaultLanguage
     );
+    // for SSR loading routing, personalization is performed by modifying layoutData directly
     const personalizedLayoutData = await personalizeHelper.personalizeLayoutData(
       req,
       res,
