@@ -129,6 +129,21 @@
 
 If you plan to use the Angular SDK with XMCloud, you will need to perform next steps:
 
+* Add dependencies for CloudSDK libraries in `package.json`:
+    ```
+        "@sitecore-cloudsdk/core": "^0.4.0",
+        "@sitecore-cloudsdk/events": "^0.4.0",
+    ```
+* Add an extra export in `server.exports.ts`:
+    ```
+        const sitecoreSiteName = environment.sitecoreSiteName;
+        ...
+        export {
+            ..
+            sitecoreSiteName,
+            ...
+        }
+    ```
 * On top of existing Angular sample, apply changes from "angular-xmcloud" add-on.
 * Update package.json "build:client" script to use explicit "production" configuration:
 
