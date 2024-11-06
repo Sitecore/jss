@@ -35,7 +35,7 @@ export const component_variant = {
     },
     heading: { value: 'Hybrid Bike' },
   },
-}
+};
 
 const defaultRendering = {
   uid: '0b6d23d8-c50e-4e79-9eca-317ec43e82b0',
