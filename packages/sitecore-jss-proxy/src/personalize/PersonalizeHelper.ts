@@ -84,11 +84,7 @@ export class PersonalizeHelper {
     }
     const personalizeData = getGroomedVariantIds(variantIds);
     // layout will be personalized here
-    layoutData.sitecore.route.placeholders = personalizeLayout(
-      layoutData,
-      personalizeData.variantId,
-      personalizeData.componentVariantIds
-    );
+    personalizeLayout(layoutData, personalizeData.variantId, personalizeData.componentVariantIds);
     debug.personalize('personalize layout end in %dms: %o', Date.now() - startTimestamp, {
       headers: this.extractDebugHeaders(req.headers),
       variantIds: variantIds,

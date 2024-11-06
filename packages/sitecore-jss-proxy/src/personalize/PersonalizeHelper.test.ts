@@ -7,7 +7,7 @@ import { IncomingMessage, OutgoingMessage } from 'http';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { expect } from 'chai';
 import querystring from 'querystring';
-import { CdpHelper } from '@sitecore-jss/sitecore-jss/personalize';
+import { CdpHelper, personalizeLayout } from '@sitecore-jss/sitecore-jss/personalize';
 import { getPersonalizeLayoutData } from './test-data/personalizeData';
 
 describe('PersonalizeHelper', () => {
@@ -100,7 +100,12 @@ describe('PersonalizeHelper', () => {
     const getPageFriendlyIdStub = sinon.stub();
     const PersonalizeHelper = proxyquire('./PersonalizeHelper', {
       '@sitecore-jss/sitecore-jss/personalize': {
-        personalizeLayout: personalizeLayoutStub,
+        // we need to track the method calls, without replacing it with a spy
+        personalizeLayout: personalizeLayoutStub.callsFake(
+          (layoutData, variantId, componentVariantIds) => {
+            return personalizeLayout(layoutData, variantId, componentVariantIds);
+          }
+        ),
       },
     });
 
@@ -330,7 +335,7 @@ describe('PersonalizeHelper', () => {
         expect(personalizedLayout).to.deep.equal(defaultLayoutData);
       });
     });
-    describe('layout is personalized', () => {
+    describe('layout personalization is running', () => {
       const variantIds = ['mountain-bike-audience', 'another-variant', 'third-variant'];
       it('custom fallback hostname is used when request host header is empty', async () => {
         const req = createRequest();
@@ -343,12 +348,10 @@ describe('PersonalizeHelper', () => {
 
         const { helper, initPersonalizeServer } = createHelper(props);
 
-        const layoutData = defaultLayoutData;
+        await helper.personalizeLayoutData(req, res, defaultLayoutData);
 
-        const personalizedLayout = await helper.personalizeLayoutData(req, res, layoutData);
         expect(initPersonalizeServer.called).to.be.true;
         expect(initPersonalizeServer.getCall(0).args[2]).to.equal(props.defaultHostname);
-        expect(personalizedLayout).to.deep.equal(defaultLayoutData);
       });
 
       it('localhost is used as fallback hostname when request host header is empty and defaultHostname not provided', async () => {
@@ -358,12 +361,10 @@ describe('PersonalizeHelper', () => {
 
         const { helper, initPersonalizeServer } = createHelper();
 
-        const layoutData = defaultLayoutData;
-
-        const personalizedLayout = await helper.personalizeLayoutData(req, res, layoutData);
+        await helper.personalizeLayoutData(req, res, defaultLayoutData);
         expect(initPersonalizeServer.called).to.be.true;
+
         expect(initPersonalizeServer.getCall(0).args[2]).to.equal('localhost');
-        expect(personalizedLayout).to.deep.equal(defaultLayoutData);
       });
 
       it('locale from context is used', async () => {
@@ -379,10 +380,6 @@ describe('PersonalizeHelper', () => {
         } = createHelper({
           personalizeInfo: { pageId, variantIds },
           variantId: 'mountain-bike-audience',
-        });
-        personalizeLayoutStub.callsFake((layoutData) => {
-          layoutData = getPersonalizeLayoutData('mountain_bike', customLang);
-          return layoutData.sitecore.route.placeholders;
         });
 
         const layoutData = getPersonalizeLayoutData('default', customLang);
@@ -406,11 +403,55 @@ describe('PersonalizeHelper', () => {
           headers: req.headers,
           variantIds: expectedVariantIds,
         });
-        const expectedLayout = getPersonalizeLayoutData('mountain_bike', customLang);
+        const expectedLayout = getPersonalizeLayoutData('mountain-bike-audience', customLang);
         expect(personalizedLayout).to.deep.equal(expectedLayout);
       });
 
-      it('fallback locale is used', async () => {
+      it('locale from config is used as first fallback when layoutData language is missing', async () => {
+        const req = createRequest();
+        const res = createResponse();
+        const configLang = 'es-ES';
+        const {
+          helper,
+          initPersonalizeServer,
+          personalize,
+          getPersonalizeInfo,
+          personalizeLayoutStub,
+        } = createHelper({
+          personalizeInfo: { pageId, variantIds },
+          variantId: 'mountain-bike-audience',
+          defaultLanguage: configLang,
+        });
+
+        const layoutData = getPersonalizeLayoutData('default');
+        layoutData.sitecore.context.language = '';
+
+        const personalizedLayout = await helper.personalizeLayoutData(req, res, layoutData);
+
+        validateDebugLog('personalize layout start: %o', {
+          headers: {
+            ...req.headers,
+          },
+          hostname: hostname,
+          pathname: '/styleguide',
+          language: configLang,
+        });
+        expect(initPersonalizeServer.calledOnce).to.be.true;
+        expect(getPersonalizeInfo.calledWith('/styleguide', configLang)).to.be.true;
+        expect(personalize.called).to.be.true;
+        expect(personalizeLayoutStub.called).to.be.true;
+        const expectedVariantIds = ['mountain-bike-audience'];
+        validateEndDebugLog('personalize layout end in %dms: %o', {
+          headers: req.headers,
+          variantIds: expectedVariantIds,
+        });
+        const expectedLayout = getPersonalizeLayoutData('mountain-bike-audience');
+        // variantID is populated in layout, but language will not
+        expectedLayout.sitecore.context.language = '';
+        expect(personalizedLayout).to.deep.equal(expectedLayout);
+      });
+
+      it('en locale is used if default fallback is absent', async () => {
         const req = createRequest();
         const res = createResponse();
         const {
@@ -423,14 +464,11 @@ describe('PersonalizeHelper', () => {
           personalizeInfo: { pageId, variantIds },
           variantId: 'mountain-bike-audience',
         });
-        personalizeLayoutStub.callsFake((layoutData) => {
-          layoutData = getPersonalizeLayoutData('mountain_bike');
-          return layoutData.sitecore.route.placeholders;
-        });
 
         const layoutData = getPersonalizeLayoutData('default');
+        layoutData.sitecore.context.language = '';
 
-        await helper.personalizeLayoutData(req, res, layoutData);
+        const personalizedLayout = await helper.personalizeLayoutData(req, res, layoutData);
 
         validateDebugLog('personalize layout start: %o', {
           headers: {
@@ -449,20 +487,19 @@ describe('PersonalizeHelper', () => {
           headers: req.headers,
           variantIds: expectedVariantIds,
         });
+        const expectedLayout = getPersonalizeLayoutData('mountain-bike-audience');
+        expectedLayout.sitecore.context.language = '';
+        expect(personalizedLayout).to.deep.equal(expectedLayout);
       });
 
       it('configured scope is used', async () => {
         const req = createRequest();
         const res = createResponse();
         const scope = 'myscope';
-        const { helper, personalize, personalizeLayoutStub } = createHelper({
+        const { helper, personalize } = createHelper({
           personalizeInfo: { pageId, variantIds: ['mountain-bike-audience'] },
           variantId: 'mountain-bike-audience',
           scope,
-        });
-        personalizeLayoutStub.callsFake((layoutData) => {
-          layoutData = getPersonalizeLayoutData('mountain_bike');
-          return layoutData.sitecore.route.placeholders;
         });
 
         const layoutData = getPersonalizeLayoutData('default');
@@ -479,18 +516,15 @@ describe('PersonalizeHelper', () => {
       it('component testing is executed', async () => {
         const req = createRequest();
         const res = createResponse();
-        const { helper, personalize, personalizeLayoutStub } = createHelper({
+        const { helper, personalize } = createHelper({
           personalizeInfo: { pageId, variantIds: ['componentid_variant-id'] },
           variantId: 'componentid_variant-id',
-        });
-        personalizeLayoutStub.callsFake((layoutData) => {
-          layoutData = getPersonalizeLayoutData('mountain_bike');
-          return layoutData.sitecore.route.placeholders;
         });
 
         const layoutData = getPersonalizeLayoutData('default');
 
-        await helper.personalizeLayoutData(req, res, layoutData);
+        const personalizedLayout = await helper.personalizeLayoutData(req, res, layoutData);
+
         expect(
           personalize.calledWith(
             sinon.match({
@@ -499,8 +533,12 @@ describe('PersonalizeHelper', () => {
             sinon.match.any
           )
         ).to.be.true;
+
+        const expectedLayout = getPersonalizeLayoutData('componentid_variant-id');
+        expect(personalizedLayout).to.deep.equal(expectedLayout);
       });
     });
+
     describe('error handling', () => {
       it('CloudSDK initialization throws', async () => {
         const error = new Error('init failed');
