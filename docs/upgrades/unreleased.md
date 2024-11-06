@@ -129,27 +129,18 @@
 
 If you plan to use the Angular SDK with XMCloud, you will need to perform next steps:
 
-* Add dependencies for CloudSDK libraries in `package.json`:
-    ```
-        "@sitecore-cloudsdk/core": "^0.4.0",
-        "@sitecore-cloudsdk/events": "^0.4.0",
-    ```
-* Add an extra export in `server.exports.ts`:
-    ```
-        const sitecoreSiteName = environment.sitecoreSiteName;
-        ...
-        export {
-            ..
-            sitecoreSiteName,
-            ...
-        }
-    ```
 * On top of existing Angular sample, apply changes from "angular-xmcloud" add-on.
-* Update package.json "build:client" script to use explicit "production" configuration:
+* Update package.json:
+    * Update "build:client" script to use explicit "production" configuration:
 
-    ```shell
-    "build:client": "cross-env-shell ng build --configuration=production --base-href $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/"
-    ```
+        ```shell
+        "build:client": "cross-env-shell ng build --configuration=production --base-href $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/"
+        ```
+    * Add `CloudSDK` dependencies:
+        ```
+            "@sitecore-cloudsdk/core": "^0.4.0",
+            "@sitecore-cloudsdk/events": "^0.4.0",
+        ```
 
 * Update /scripts/bootstrap.ts file to generate a metadata for editing integration:
     Assuming that you have a `generate-metadata.ts` file pulled from the "angular-xmcloud" add-on:
@@ -177,7 +168,7 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
     ```
 
 * Restructure /src/app/lib/client-factory.ts. This is needed in order to separate the GraphQL client factory configuration from the client factory itself, so we have a single source of GraphQL endpoint resolution that can be used in different places. For example node-xmcloud-proxy, scripts/update-graphql-fragment-data.ts, etc.
-  * Introduce /src/app/lib/graphql-client-factory/config.ts. It should expose the _getGraphQLClientFactoryConfig_ that returns the configuration object for the GraphQL client factory, for example (full code snippet you can find in the "angular-xmcloud" add-on):
+  * Introduce /src/app/lib/graphql-client-factory/config.ts. It should expose the _getGraphQLClientFactoryConfig_ that returns the configuration object for the GraphQL client factory. You should refer to the full code snippet with Edge endpoint initalization in the the "angular-xmcloud" add-on, but an example initialization for connected and dev setup would look like this:
 
     ```ts
     import { GraphQLRequestClientFactoryConfig } from '@sitecore-jss/sitecore-jss-angular/cjs';
@@ -188,8 +179,8 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
 
         if (env.graphQLEndpoint && env.sitecoreApiKey) {
             clientConfig = {
-            endpoint: env.graphQLEndpoint,
-            apiKey: env.sitecoreApiKey,
+                endpoint: env.graphQLEndpoint,
+                apiKey: env.sitecoreApiKey,
             };
         }
 
@@ -239,9 +230,10 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
     import { layoutServiceFactory } from './src/app/lib/layout-service-factory';
     import { components } from './src/app/components/app-components.module';
     import metadata from './src/environments/metadata.json';
-
+    
     ...
     const defaultLanguage = environment.defaultLanguage;
+    const sitecoreSiteName = environment.sitecoreSiteName;
     const getClientFactoryConfig = getGraphQLClientFactoryConfig;
 
     export {
@@ -251,6 +243,7 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
         dictionaryServiceFactory,
         layoutServiceFactory,
         defaultLanguage,
+        sitecoreSiteName,
         components,
         metadata
     };
