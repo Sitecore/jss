@@ -53,7 +53,8 @@ export const personalizeConfig: PersonalizeConfig = {
   // This function determines if the personalization should be turned off.
   // IMPORTANT: You should implement based on your cookie consent management solution of choice.
   // You may wish to keep it disabled while in development mode.
-  disabled: () => process.env.NODE_ENV === 'development',
+  // Personalization should also be disabled when edge context id is missing
+  disabled: () => process.env.NODE_ENV === 'development' || !bundleEdgeId,
   // This function determines if a route should be excluded from personalization.
   excludeRoute: () => false,
   sitecoreSiteName: serverBundle.sitecoreSiteName || '',
