@@ -140,7 +140,7 @@ export const config: headlessProxy.ProxyConfig = {
     }
 
     // TODO: fallback language should come from app configuration
-    const language = layoutServiceData.sitecore.context.language ||  'en';
+    const language = layoutServiceData.sitecore.context.language || 'en';
     const site =
       layoutServiceData.sitecore.context.site && layoutServiceData.sitecore.context.site.name;
 
