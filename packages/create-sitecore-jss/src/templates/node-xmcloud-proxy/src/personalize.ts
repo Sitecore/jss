@@ -1,9 +1,8 @@
-import { constants, PersonalizeHelper } from '@sitecore-jss/sitecore-jss-proxy';
+import { GRAPHQL_LAYOUT_QUERY_NAME, PersonalizeHelper } from '@sitecore-jss/sitecore-jss-proxy';
 import { personalizeConfig } from './config';
 import { responseInterceptor } from 'http-proxy-middleware';
 import { Plugin } from 'http-proxy-middleware/dist/types';
 import { IncomingMessageWithBody } from './types';
-
 export const personalizeHelper = new PersonalizeHelper(personalizeConfig);
 
 // personalize plugin to modify intercepted Layout Service request data
@@ -13,7 +12,7 @@ export const personalizePlugin: Plugin = (proxyServer) => {
     responseInterceptor(async (responseBuffer, _, req, res) => {
       let responseText = responseBuffer.toString('utf8');
       const payload = JSON.stringify((req as IncomingMessageWithBody).body);
-      if (payload.includes(constants.GRAPHQL_LAYOUT_QUERY_NAME)) {
+      if (payload.includes(GRAPHQL_LAYOUT_QUERY_NAME)) {
         let layoutDataRaw = JSON.parse(responseText);
         if (layoutDataRaw?.data?.layout?.item?.rendered?.sitecore) {
           const personalizedLayout = await personalizeHelper.personalizeLayoutData(

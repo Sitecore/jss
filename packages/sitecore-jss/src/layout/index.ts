@@ -37,6 +37,10 @@ export {
   DataFetcherResolver,
 } from './rest-layout-service';
 
-export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './graphql-layout-service';
+export {
+  GraphQLLayoutService,
+  GraphQLLayoutServiceConfig,
+  GRAPHQL_LAYOUT_QUERY_NAME,
+} from './graphql-layout-service';
 
 export { getComponentLibraryStylesheetLinks } from './themes';

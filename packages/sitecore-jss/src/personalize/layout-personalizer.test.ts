@@ -32,11 +32,11 @@ describe('layout-personalizer', () => {
       expect(personalizedLayoutResult).to.equal(testLayoutData.sitecore.route.placeholders);
     });
 
-    it('should return undefined if no placeholders', () => {
+    it('should return empty JSON if no placeholders', () => {
       const variant = 'test';
       const testLayoutData = structuredClone(layoutDataWithoutPlaceholder);
       const personalizedLayoutResult = personalizeLayout(testLayoutData, variant);
-      expect(personalizedLayoutResult).to.equal(undefined);
+      expect(personalizedLayoutResult).to.deep.equal({});
     });
 
     it('should set variantId on Sitecore context', () => {

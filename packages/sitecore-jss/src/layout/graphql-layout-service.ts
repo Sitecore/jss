@@ -6,7 +6,8 @@ import {
   GraphQLRequestClientConfig,
 } from '../graphql-request-client';
 import debug from '../debug';
-import { GRAPHQL_LAYOUT_QUERY_NAME } from '../constants';
+
+export const GRAPHQL_LAYOUT_QUERY_NAME = 'JssLayoutQuery';
 
 export interface GraphQLLayoutServiceConfig
   extends Pick<GraphQLRequestClientConfig, 'retries' | 'retryStrategy'> {
