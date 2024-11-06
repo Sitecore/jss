@@ -13,8 +13,8 @@ try {
   throw new Error(`ERROR: The server.bundle.js error. ${error}`);
 }
 const graphQLEndpoint = new URL(serverBundle.getClientFactoryConfig().endpoint);
-const fallbackEdgeEndpoint = `${graphQLEndpoint.protocol}//${graphQLEndpoint.hostname}`;
-const fallbackEdgeId = graphQLEndpoint.searchParams.get('sitecoreContextId');
+const bundleEdgeEndpoint = `${graphQLEndpoint.protocol}//${graphQLEndpoint.hostname}`;
+const bundleEdgeId = graphQLEndpoint.searchParams.get('sitecoreContextId');
 
 const { clientFactory } = serverBundle;
 
@@ -41,8 +41,8 @@ export const personalizeConfig: PersonalizeConfig = {
   // Configuration for your Sitecore CDP endpoint
   // Edge URL and ID can be taken from proxy env, or the base SPA app
   cdpConfig: {
-    sitecoreEdgeUrl: process.env.SITECORE_EDGE_URL || fallbackEdgeEndpoint,
-    sitecoreEdgeContextId: process.env.SITECORE_EDGE_CONTEXT_ID || fallbackEdgeId || '',
+    sitecoreEdgeUrl: bundleEdgeEndpoint,
+    sitecoreEdgeContextId: bundleEdgeId || '',
     timeout:
       (process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT &&
         parseInt(process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT)) ||
@@ -56,7 +56,7 @@ export const personalizeConfig: PersonalizeConfig = {
   disabled: () => process.env.NODE_ENV === 'development',
   // This function determines if a route should be excluded from personalization.
   excludeRoute: () => false,
-  sitecoreSiteName: process.env.SITECORE_SITE_NAME || serverBundle.sitecoreSiteName || '',
+  sitecoreSiteName: serverBundle.sitecoreSiteName || '',
   // defaultLanguage will be used as fallback for personalization, if language cannot be read from layout service data
   defaultLanguage: serverBundle.defaultLanguage,
 };
