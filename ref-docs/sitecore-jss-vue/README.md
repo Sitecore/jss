@@ -165,7 +165,7 @@ packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/Date.ts:14](https://github.com/Sitecore/jss/blob/10078594f/packages/sitecore-jss-vue/src/components/Date.ts#L14)
+[packages/sitecore-jss-vue/src/components/Date.ts:14](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-vue/src/components/Date.ts#L14)
 
 ___
 
@@ -215,7 +215,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/EditFrame.ts:10](https://github.com/Sitecore/jss/blob/10078594f/packages/sitecore-jss-vue/src/components/EditFrame.ts#L10)
+[packages/sitecore-jss-vue/src/components/EditFrame.ts:10](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-vue/src/components/EditFrame.ts#L10)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/File.ts:14](https://github.com/Sitecore/jss/blob/10078594f/packages/sitecore-jss-vue/src/components/File.ts#L14)
+[packages/sitecore-jss-vue/src/components/File.ts:14](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-vue/src/components/File.ts#L14)
 
 ___
 
@@ -235,7 +235,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/Image.ts:55](https://github.com/Sitecore/jss/blob/10078594f/packages/sitecore-jss-vue/src/components/Image.ts#L55)
+[packages/sitecore-jss-vue/src/components/Image.ts:55](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-vue/src/components/Image.ts#L55)
 
 ___
 
@@ -245,7 +245,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/Link.ts:19](https://github.com/Sitecore/jss/blob/10078594f/packages/sitecore-jss-vue/src/components/Link.ts#L19)
+[packages/sitecore-jss-vue/src/components/Link.ts:19](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-vue/src/components/Link.ts#L19)
 
 ___
 
@@ -255,7 +255,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/Placeholder.ts:13](https://github.com/Sitecore/jss/blob/10078594f/packages/sitecore-jss-vue/src/components/Placeholder.ts#L13)
+[packages/sitecore-jss-vue/src/components/Placeholder.ts:13](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-vue/src/components/Placeholder.ts#L13)
 
 ___
 
@@ -265,7 +265,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/RichText.ts:3](https://github.com/Sitecore/jss/blob/10078594f/packages/sitecore-jss-vue/src/components/RichText.ts#L3)
+[packages/sitecore-jss-vue/src/components/RichText.ts:3](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-vue/src/components/RichText.ts#L3)
 
 ___
 
@@ -275,7 +275,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/SitecoreContext.ts:8](https://github.com/Sitecore/jss/blob/10078594f/packages/sitecore-jss-vue/src/components/SitecoreContext.ts#L8)
+[packages/sitecore-jss-vue/src/components/SitecoreContext.ts:8](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-vue/src/components/SitecoreContext.ts#L8)
 
 ___
 
@@ -285,7 +285,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts:30](https://github.com/Sitecore/jss/blob/10078594f/packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts#L30)
+[packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts:30](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts#L30)
 
 ___
 
@@ -295,7 +295,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/components/Text.ts:3](https://github.com/Sitecore/jss/blob/10078594f/packages/sitecore-jss-vue/src/components/Text.ts#L3)
+[packages/sitecore-jss-vue/src/components/Text.ts:3](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-vue/src/components/Text.ts#L3)
 
 ## Functions
 
@@ -465,7 +465,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts:31](https://github.com/Sitecore/jss/blob/10078594f/packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts#L31)
+[packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts:31](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts#L31)
 
 ___
 

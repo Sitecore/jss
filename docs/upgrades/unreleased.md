@@ -293,7 +293,85 @@ If you plan to use the Angular SDK with XMCloud, you will need to perform next s
             ],
             ```
 
+* In XMCloud client side event tracking is done via CloudSDK so you need to make sure that it is initialized before send any event. See the following example of a component that does that; note that it should be added to the scripts.component.html before any other scripts that uses it; for more details take a look at the OOTB cloud-sdk-init.component.ts: 
+    ```ts
+        import { take } from 'rxjs/operators';
+        import { CloudSDK } from '@sitecore-cloudsdk/core/browser';
+        import '@sitecore-cloudsdk/events/browser';
+        import { environment } from '../../../environments/environment';
+        import { isServer } from '@sitecore-jss/sitecore-jss-angular';
+        import { JssContextService } from '../../jss-context.service';
+        import { JssState } from '../../JssState';
+        ...
+        ngOnInit(): void {
+            if (!isServer() && environment.production) {
+                // to ensure that CloudSDK initialization logic runs only once in the browser, take only the first emitted value of state
+                this.jssContext.state.pipe(take(1)).subscribe((newState: JssState) => {
+                const {
+                    route,
+                    context: { pageState },
+                } = newState.sitecore;
+
+                // Do not initialize CloudSDK in editing or preview mode or if missing route data
+                if (pageState !== LayoutServicePageState.Normal || !route?.itemId) {
+                    return;
+                }
+
+                CloudSDK({
+                    siteName: environment.sitecoreSiteName,
+                    sitecoreEdgeUrl: environment.sitecoreEdgeUrl,
+                    sitecoreEdgeContextId: environment.sitecoreEdgeContextId,
+                    cookieDomain: window.location.hostname.replace(/^www\./, ''),
+                    enableBrowserCookie: true,
+                })
+                .addEvents()
+                .initialize();
+                });
+            }
+        }
+    ```
     
+    * scripts.component.html:
+
+        ```html
+            <app-cloud-sdk-init></app-cloud-sdk-init>
+        ```
+
+* In order to be able to track Page View events in XMCloud you have to add a component that executes the page view event and render it in the scripts section; in XMCloud client side event tracking is done via CloudSDK so you need to make sure that it is initialized before firing any tracked event.
+    * see example code below; for more details take a look at the OOTB cdp-page-view.component.ts
+
+        ```ts
+            import { JssContextService } from '../../jss-context.service';
+            import { JssState } from '../../JssState';
+            import { pageView, PageViewData } from '@sitecore-cloudsdk/events/browser';
+            ...
+            ngOnInit(): void {
+                if (!isServer()) {
+                this.contextSubscription = this.jssContext.state.subscribe((newState: JssState) => {
+                        ...
+                        // prepare the required data
+                        ...
+                        
+                        const pageViewData: PageViewData = {
+                            channel: 'WEB',
+                            currency: 'USD',
+                            page: route.name,
+                            pageVariantId,
+                            language,
+                        };
+
+                        pageView(pageViewData).catch((err) => console.debug(err));
+                    });
+                }
+            }
+        ```
+    
+    * add the component to the scripts.component.html after the CloudSdk initialize component:
+
+        ```html
+            <app-cloud-sdk-init></app-cloud-sdk-init>
+            <app-page-view></app-page-view>
+        ```
 
 # @sitecore-jss/sitecore-jss-proxy
 
