@@ -8,7 +8,7 @@ import { debug } from '@sitecore-jss/sitecore-jss';
 import { expect } from 'chai';
 import querystring from 'querystring';
 import { CdpHelper } from '@sitecore-jss/sitecore-jss/personalize';
-import { getPersonalizeLayoutData, mountain_bike_audience } from './test-data/personalizeData';
+import { getPersonalizeLayoutData } from './test-data/personalizeData';
 
 describe('PersonalizeHelper', () => {
   const hostname = 'foo.net';
@@ -21,9 +21,9 @@ describe('PersonalizeHelper', () => {
       'Message not found in debug log: ' + [message, ...params].join(' ') + '\n'
     );
   };
-  const validateEndDebugLog = (message: string, params: any) => {
+  const validateEndDebugLog = (message: string, ...params: any[]) => {
     const logParams = debugSpy.args.find((log) => log[0] === message) as Array<unknown>;
-    expect(logParams[2]).to.deep.equal(params, 'Matching end message not found');
+    expect(logParams.slice(2)).to.deep.equal([...params], 'Matching end message not found');
   };
 
   const defaultLayoutData = {
@@ -75,6 +75,7 @@ describe('PersonalizeHelper', () => {
         pageId: string;
         variantIds: string[];
       } | null;
+      defaultLanguage?: string;
       getPersonalizeInfoStub?: sinon.SinonStub;
       personalizeStub?: sinon.SinonStub;
       initPersonalizeServerStub?: sinon.SinonStub;
@@ -379,7 +380,10 @@ describe('PersonalizeHelper', () => {
           personalizeInfo: { pageId, variantIds },
           variantId: 'mountain-bike-audience',
         });
-        personalizeLayoutStub.returns(mountain_bike_audience);
+        personalizeLayoutStub.callsFake((layoutData) => {
+          layoutData = getPersonalizeLayoutData('mountain_bike', customLang);
+          return layoutData.sitecore.route.placeholders;
+        });
 
         const layoutData = getPersonalizeLayoutData('default', customLang);
 
@@ -397,8 +401,10 @@ describe('PersonalizeHelper', () => {
         expect(getPersonalizeInfo.calledWith('/styleguide', customLang)).to.be.true;
         expect(personalize.called).to.be.true;
         expect(personalizeLayoutStub.called).to.be.true;
+        const expectedVariantIds = ['mountain-bike-audience'];
         validateEndDebugLog('personalize layout end in %dms: %o', {
           headers: req.headers,
+          variantIds: expectedVariantIds,
         });
         const expectedLayout = getPersonalizeLayoutData('mountain_bike', customLang);
         expect(personalizedLayout).to.deep.equal(expectedLayout);
@@ -417,7 +423,10 @@ describe('PersonalizeHelper', () => {
           personalizeInfo: { pageId, variantIds },
           variantId: 'mountain-bike-audience',
         });
-        personalizeLayoutStub.returns(mountain_bike_audience);
+        personalizeLayoutStub.callsFake((layoutData) => {
+          layoutData = getPersonalizeLayoutData('mountain_bike');
+          return layoutData.sitecore.route.placeholders;
+        });
 
         const layoutData = getPersonalizeLayoutData('default');
 
@@ -435,8 +444,10 @@ describe('PersonalizeHelper', () => {
         expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
         expect(personalize.called).to.be.true;
         expect(personalizeLayoutStub.called).to.be.true;
+        const expectedVariantIds = ['mountain-bike-audience'];
         validateEndDebugLog('personalize layout end in %dms: %o', {
           headers: req.headers,
+          variantIds: expectedVariantIds,
         });
       });
 
@@ -449,7 +460,10 @@ describe('PersonalizeHelper', () => {
           variantId: 'mountain-bike-audience',
           scope,
         });
-        personalizeLayoutStub.returns(mountain_bike_audience);
+        personalizeLayoutStub.callsFake((layoutData) => {
+          layoutData = getPersonalizeLayoutData('mountain_bike');
+          return layoutData.sitecore.route.placeholders;
+        });
 
         const layoutData = getPersonalizeLayoutData('default');
 
@@ -469,7 +483,10 @@ describe('PersonalizeHelper', () => {
           personalizeInfo: { pageId, variantIds: ['componentid_variant-id'] },
           variantId: 'componentid_variant-id',
         });
-        personalizeLayoutStub.returns(mountain_bike_audience);
+        personalizeLayoutStub.callsFake((layoutData) => {
+          layoutData = getPersonalizeLayoutData('mountain_bike');
+          return layoutData.sitecore.route.placeholders;
+        });
 
         const layoutData = getPersonalizeLayoutData('default');
 
@@ -524,7 +541,21 @@ describe('PersonalizeHelper', () => {
       const { helper } = createHelper();
       expect(helper['getLanguage'](layoutData)).to.equal('da-DK');
     });
-    it('should return "en" by default', () => {
+
+    it('should return config.defaultLanguage as first fallback', () => {
+      const layoutData = {
+        sitecore: {
+          context: {},
+          route: null,
+        },
+      };
+      const { helper } = createHelper({
+        defaultLanguage: 'es-ES',
+      });
+      expect(helper['getLanguage'](layoutData)).to.equal('es-ES');
+    });
+
+    it('should return "en" as fallback when config value is absent', () => {
       const layoutData = {
         sitecore: {
           context: {},

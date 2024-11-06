@@ -44,6 +44,11 @@ export type PersonalizeConfig = {
    */
   defaultHostname?: string;
   /**
+   * Fallback language in case language can't be read from layout data
+   * @default 'en'
+   */
+  defaultLanguage?: string;
+  /**
    * Site name for current site
    */
   sitecoreSiteName: string;

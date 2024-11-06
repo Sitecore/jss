@@ -57,4 +57,6 @@ export const personalizeConfig: PersonalizeConfig = {
   // This function determines if a route should be excluded from personalization.
   excludeRoute: () => false,
   sitecoreSiteName: process.env.SITECORE_SITE_NAME || serverBundle.sitecoreSiteName || '',
+  // defaultLanguage will be used as fallback for personalization, if language cannot be read from layout service data
+  defaultLanguage: serverBundle.defaultLanguage,
 };

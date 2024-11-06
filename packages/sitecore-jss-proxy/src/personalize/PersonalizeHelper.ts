@@ -41,6 +41,10 @@ export class PersonalizeHelper {
       debug.personalize('skipped (sitecore context is empty)');
       return layoutData;
     }
+    if (!layoutData.sitecore?.route) {
+      debug.personalize('skipped (layout is empty)');
+      return layoutData;
+    }
     // current method can run for page requests and for layout service requests.
     // the latter will not have the correct path - so we use path from layoutData instead
     const pathname = layoutData.sitecore.context.itemPath;
@@ -75,19 +79,28 @@ export class PersonalizeHelper {
     }
 
     const variantIds = await this.getVariantIds(req, language, pathname);
-
-    const result = variantIds ? this.personalizeLayout(layoutData, variantIds) : layoutData;
+    if (!variantIds) {
+      return layoutData;
+    }
+    const personalizeData = getGroomedVariantIds(variantIds);
+    // layout will be personalized here
+    layoutData.sitecore.route.placeholders = personalizeLayout(
+      layoutData,
+      personalizeData.variantId,
+      personalizeData.componentVariantIds
+    );
     debug.personalize('personalize layout end in %dms: %o', Date.now() - startTimestamp, {
       headers: this.extractDebugHeaders(req.headers),
+      variantIds: variantIds,
     });
-    return result;
+    return layoutData;
   };
 
   /**
    * Init CloudSDK personalization on server side
    * @param {IncomingMessage} request incoming nodejs request object
    * @param {OutgoingMessage} response outgoing nodejs response object
-   * @param {string} [hostname] host for cookies. When not provided, host will be read from host header, and fallback to 'localhost' if that fails
+   * @param {string} hostname host for cookies. Usually a host header, or a fallback config
    */
   protected async initPersonalizeServer(
     request: IncomingMessage,
@@ -110,7 +123,6 @@ export class PersonalizeHelper {
     language: string,
     pathname: string
   ): Promise<string[]> => {
-    // const startTimestamp = Date.now();
     const timeout = this.config.cdpConfig.timeout;
 
     // Get personalization info from Experience Edge
@@ -168,23 +180,8 @@ export class PersonalizeHelper {
     return identifiedVariantIds;
   };
 
-  protected personalizeLayout(layoutData: LayoutServiceData, variantIds: string[]) {
-    if (!layoutData.sitecore?.route) {
-      debug.personalize('skipped (layout is empty)');
-      return layoutData;
-    }
-    const personalizeData = getGroomedVariantIds(variantIds);
-    const personalizedPlaceholders = personalizeLayout(
-      layoutData,
-      personalizeData.variantId,
-      personalizeData.componentVariantIds
-    );
-    layoutData.sitecore.route.placeholders = personalizedPlaceholders;
-    return layoutData;
-  }
-
   protected getLanguage(layoutData: LayoutServiceData): string {
-    return layoutData.sitecore?.context?.language || 'en';
+    return layoutData.sitecore?.context?.language || this.config.defaultLanguage || 'en';
   }
 
   protected getHostHeader(req: IncomingMessage): string {

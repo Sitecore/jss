@@ -22,5 +22,4 @@ export {
   sitecoreSiteName,
   components,
   metadata,
-  environment,
 };
