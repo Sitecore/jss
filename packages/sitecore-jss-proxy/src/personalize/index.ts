@@ -1,1 +1,2 @@
-export * from './PersonalizeHelper';
+export { PersonalizeHelper } from './PersonalizeHelper';
+export { PersonalizeConfig } from '../types/personalize';

@@ -41,8 +41,6 @@ describe('PersonalizeHelper', () => {
 
   const pageId = 'item-id';
   const variantIds = ['variant-1', 'variant-2'];
-  // const defaultLang = 'en';
-  // const referrer = 'http://localhost:3000';
   const createRequest = (props: any = {}) => {
     const req = {
       url: '/styleguide',
@@ -66,7 +64,6 @@ describe('PersonalizeHelper', () => {
   const createHelper = (
     props: {
       [key: string]: unknown;
-      language?: string;
       edgeConfig?: any;
       cdpConfig?: any;
       scope?: string;
@@ -202,7 +199,6 @@ describe('PersonalizeHelper', () => {
           language: 'en',
           headers,
         });
-        console.log(getPersonalizeInfo.getCalls());
         expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
         validateDebugLog('skipped (personalize info not found)');
         expect(personalizedLayout).to.deep.equal(layoutData);
@@ -304,7 +300,6 @@ describe('PersonalizeHelper', () => {
         const personalizedLayout = await helper.personalizeLayoutData(req, res, emptyLayoutData);
         expect(personalizedLayout).to.deep.equal(emptyLayoutData);
         validateDebugLog('skipped (layout is empty)');
-        expect(true).to.be.true;
       });
 
       it('should exclude route', async () => {

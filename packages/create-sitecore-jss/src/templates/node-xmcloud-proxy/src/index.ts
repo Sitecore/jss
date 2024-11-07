@@ -3,9 +3,8 @@ import express, { Response } from 'express';
 import compression from 'compression';
 import { createProxyMiddleware, fixRequestBody } from 'http-proxy-middleware';
 import { debug } from '@sitecore-jss/sitecore-jss';
-import { editingRouter } from '@sitecore-jss/sitecore-jss-proxy';
-import { healthCheck } from '@sitecore-jss/sitecore-jss-proxy';
-import { config } from './config';
+import { editingRouter, healthCheck } from '@sitecore-jss/sitecore-jss-proxy';
+import { config, graphQLEndpoint } from './config';
 import { personalizeHelper, personalizePlugin } from './personalize';
 
 const server = express();
@@ -45,31 +44,6 @@ if (missingProperties.length > 0) {
 const layoutService = layoutServiceFactory.create();
 
 const dictionaryService = dictionaryServiceFactory.create();
-
-const clientFactoryConfig = config.serverBundle.getClientFactoryConfig();
-
-/**
- * GraphQL endpoint resolution to meet the requirements of the http-proxy-middleware
- */
-const graphQLEndpoint = (() => {
-  try {
-    const graphQLEndpoint = new URL(clientFactoryConfig.endpoint);
-    // Browser request path to the proxy. Includes only the pathname.
-    const pathname = graphQLEndpoint.pathname;
-    // Target URL for the proxy. Can't include the query string.
-    const target = `${graphQLEndpoint.protocol}//${graphQLEndpoint.hostname}${pathname}`;
-
-    return {
-      target,
-      path: pathname,
-    };
-  } catch (error) {
-    throw new Error(
-      `ERROR: The serverBundle should export a getClientFactoryConfig function with valid GraphQL endpoint URL returned, current value is ${clientFactoryConfig.endpoint}. ` +
-        'Please check your server bundle.'
-    );
-  }
-})();
 
 /**
  * Parse requested url in order to detect current route and language
