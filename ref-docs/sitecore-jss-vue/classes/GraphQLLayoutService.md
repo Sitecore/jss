@@ -51,7 +51,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:39
+packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:40
 
 ## Properties
 
@@ -61,7 +61,7 @@ packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:39
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:34
+packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:35
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:33
+packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:34
 
 ## Methods
 
@@ -100,7 +100,7 @@ LayoutServiceBase.fetchLayoutData
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:46
+packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:47
 
 ___
 
@@ -120,7 +120,7 @@ implementation
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:53
+packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:54
 
 ___
 
@@ -145,4 +145,4 @@ GraphQL query
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:60
+packages/sitecore-jss/types/layout/graphql-layout-service.d.ts:61

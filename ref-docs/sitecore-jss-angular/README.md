@@ -30,6 +30,7 @@
 - [GenericLinkDirective](classes/GenericLinkDirective.md)
 - [GraphQLDictionaryService](classes/GraphQLDictionaryService.md)
 - [GraphQLLayoutService](classes/GraphQLLayoutService.md)
+- [GraphQLPersonalizeService](classes/GraphQLPersonalizeService.md)
 - [GraphQLRequestClient](classes/GraphQLRequestClient.md)
 - [HiddenRenderingComponent](classes/HiddenRenderingComponent.md)
 - [ImageDirective](classes/ImageDirective.md)
@@ -72,6 +73,7 @@
 - [JssCanActivateFn](interfaces/JssCanActivateFn.md)
 - [JssResolve](interfaces/JssResolve.md)
 - [LayoutService](interfaces/LayoutService.md)
+- [LayoutServiceContext](interfaces/LayoutServiceContext.md)
 - [LayoutServiceContextData](interfaces/LayoutServiceContextData.md)
 - [LayoutServiceData](interfaces/LayoutServiceData.md)
 - [LinkField](interfaces/LinkField.md)
@@ -92,18 +94,22 @@
 - [EditFrameDataSource](README.md#editframedatasource)
 - [FieldEditButton](README.md#fieldeditbutton)
 - [GraphQLClientError](README.md#graphqlclienterror)
+- [GraphQLPersonalizeServiceConfig](README.md#graphqlpersonalizeserviceconfig)
 - [GraphQLRequestClientFactoryConfig](README.md#graphqlrequestclientfactoryconfig)
 - [HTMLLink](README.md#htmllink)
 - [HttpDataFetcher](README.md#httpdatafetcher)
+- [PersonalizeInfo](README.md#personalizeinfo)
 - [PlaceholdersData](README.md#placeholdersdata)
 - [WebEditButton](README.md#webeditbutton)
 
 ### Variables
 
+- [DEFAULT\_VARIANT](README.md#default_variant)
 - [DYNAMIC\_COMPONENT](README.md#dynamic_component)
 - [DefaultEditFrameButton](README.md#defaulteditframebutton)
 - [DefaultEditFrameButtons](README.md#defaulteditframebuttons)
 - [EDGE\_CONFIG](README.md#edge_config)
+- [debug](README.md#debug)
 
 ### Functions
 
@@ -112,10 +118,12 @@
 - [getContentStylesheetLink](README.md#getcontentstylesheetlink)
 - [getEdgeProxyContentUrl](README.md#getedgeproxycontenturl)
 - [getFieldValue](README.md#getfieldvalue)
+- [getGroomedVariantIds](README.md#getgroomedvariantids)
 - [handleEditorAnchors](README.md#handleeditoranchors)
 - [isEditorActive](README.md#iseditoractive)
 - [isRawRendering](README.md#israwrendering)
 - [isServer](README.md#isserver)
+- [personalizeLayout](README.md#personalizelayout)
 - [resetEditorChromes](README.md#reseteditorchromes)
 
 ## Type Aliases
@@ -158,6 +166,16 @@ In cases where an error status was sent back from the server (`!response.ok`), t
 #### Defined in
 
 packages/sitecore-jss/types/graphql-request-client.d.ts:28
+
+___
+
+### GraphQLPersonalizeServiceConfig
+
+Ƭ **GraphQLPersonalizeServiceConfig**: [`CacheOptions`](interfaces/CacheOptions.md) & \{ `clientFactory`: `GraphQLRequestClientFactory` ; `fetch?`: typeof `fetch` ; `scope?`: `string` ; `timeout?`: `number`  }
+
+#### Defined in
+
+packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:3
 
 ___
 
@@ -231,6 +249,25 @@ packages/sitecore-jss/types/data-fetcher.d.ts:24
 
 ___
 
+### PersonalizeInfo
+
+Ƭ **PersonalizeInfo**: `Object`
+
+Object model of personlize info
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `pageId` | `string` | The page id |
+| `variantIds` | `string`[] | The configured variant ids |
+
+#### Defined in
+
+packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:26
+
+___
+
 ### PlaceholdersData
 
 Ƭ **PlaceholdersData**\<`TYPEDNAME`\>: \{ [P in TYPEDNAME]: (ComponentRendering \| HtmlElementRendering)[] }
@@ -246,7 +283,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:69
+packages/sitecore-jss/types/layout/models.d.ts:70
 
 ___
 
@@ -260,13 +297,23 @@ packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 ## Variables
 
+### DEFAULT\_VARIANT
+
+• `Const` **DEFAULT\_VARIANT**: ``"_default"``
+
+#### Defined in
+
+packages/sitecore-jss/types/personalize/utils.d.ts:1
+
+___
+
 ### DYNAMIC\_COMPONENT
 
 • `Const` **DYNAMIC\_COMPONENT**: `InjectionToken`\<`Type`\<`unknown`\> \| \{ `[s: string]`: `unknown`;  }\>
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/456b9dfc4/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -318,7 +365,37 @@ Injection token for the Sitecore Edge configuration.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/shared.token.ts:14](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-angular/src/services/shared.token.ts#L14)
+[packages/sitecore-jss-angular/src/services/shared.token.ts:14](https://github.com/Sitecore/jss/blob/456b9dfc4/packages/sitecore-jss-angular/src/services/shared.token.ts#L14)
+
+___
+
+### debug
+
+• `Const` **debug**: `Object`
+
+Default Sitecore JSS 'debug' module debuggers. Uses namespace prefix 'sitecore-jss:'.
+See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) for details.
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `common` | `debug.Debugger` |
+| `dictionary` | `debug.Debugger` |
+| `editing` | `debug.Debugger` |
+| `errorpages` | `debug.Debugger` |
+| `http` | `debug.Debugger` |
+| `layout` | `debug.Debugger` |
+| `multisite` | `debug.Debugger` |
+| `personalize` | `debug.Debugger` |
+| `proxy` | `debug.Debugger` |
+| `redirects` | `debug.Debugger` |
+| `robots` | `debug.Debugger` |
+| `sitemap` | `debug.Debugger` |
+
+#### Defined in
+
+packages/sitecore-jss/types/debug.d.ts:12
 
 ## Functions
 
@@ -476,6 +553,30 @@ packages/sitecore-jss/types/layout/utils.d.ts:10
 
 ___
 
+### getGroomedVariantIds
+
+▸ **getGroomedVariantIds**(`variantIds`): `PersonalizedRewriteData`
+
+Parses a list of variantIds and divides into layout and component variants
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `variantIds` | `string`[] | the list of variant IDs for a page |
+
+#### Returns
+
+`PersonalizedRewriteData`
+
+object with variant IDs sorted
+
+#### Defined in
+
+packages/sitecore-jss/types/personalize/utils.d.ts:25
+
+___
+
 ### handleEditorAnchors
 
 ▸ **handleEditorAnchors**(): `void`
@@ -538,7 +639,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/456b9dfc4/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
@@ -557,6 +658,30 @@ true if executing server-side
 #### Defined in
 
 packages/sitecore-jss/types/utils/is-server.d.ts:5
+
+___
+
+### personalizeLayout
+
+▸ **personalizeLayout**(`layout`, `variantId`, `componentVariantIds?`): [`PlaceholdersData`](README.md#placeholdersdata)\<`string`\> \| `undefined`
+
+Apply personalization to layout data. This will recursively go through all placeholders/components, check experiences nodes and replace default with object from specific experience.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `layout` | [`LayoutServiceData`](interfaces/LayoutServiceData.md) | Layout data |
+| `variantId` | `string` | variant id |
+| `componentVariantIds?` | `string`[] | component variant ids |
+
+#### Returns
+
+[`PlaceholdersData`](README.md#placeholdersdata)\<`string`\> \| `undefined`
+
+#### Defined in
+
+packages/sitecore-jss/types/personalize/layout-personalizer.d.ts:13
 
 ___
 

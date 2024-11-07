@@ -30,7 +30,7 @@
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:116
+sitecore-jss/types/layout/models.d.ts:117
 
 ___
 
@@ -48,7 +48,7 @@ FieldMetadata.metadata
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:122
+sitecore-jss/types/layout/models.d.ts:123
 
 ___
 
@@ -58,4 +58,4 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:115
+sitecore-jss/types/layout/models.d.ts:116

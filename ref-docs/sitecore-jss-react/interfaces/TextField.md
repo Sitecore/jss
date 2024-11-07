@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Text.tsx:11](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-react/src/components/Text.tsx#L11)
+[packages/sitecore-jss-react/src/components/Text.tsx:11](https://github.com/Sitecore/jss/blob/456b9dfc4/packages/sitecore-jss-react/src/components/Text.tsx#L11)
 
 ___
 
@@ -42,7 +42,7 @@ FieldMetadata.metadata
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:122
+packages/sitecore-jss/types/layout/models.d.ts:123
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Text.tsx:10](https://github.com/Sitecore/jss/blob/2674d4583/packages/sitecore-jss-react/src/components/Text.tsx#L10)
+[packages/sitecore-jss-react/src/components/Text.tsx:10](https://github.com/Sitecore/jss/blob/456b9dfc4/packages/sitecore-jss-react/src/components/Text.tsx#L10)
