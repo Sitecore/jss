@@ -13,6 +13,7 @@ export const personalizePlugin: Plugin = (proxyServer) => {
     responseInterceptor(async (responseBuffer, _, req, res) => {
       let responseText = responseBuffer.toString('utf8');
       const payload = JSON.stringify((req as IncomingMessageWithBody).body);
+
       // only apply personalization onto JSS layout service results
       if (payload.includes(GRAPHQL_LAYOUT_QUERY_NAME)) {
         let layoutDataRaw = JSON.parse(responseText);
