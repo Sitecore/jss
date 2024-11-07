@@ -64,6 +64,7 @@ export {
   ComponentParams,
   getContentStylesheetLink,
   EditMode,
+  LayoutServiceContext,
 } from '@sitecore-jss/sitecore-jss/layout';
 export {
   RetryStrategy,
@@ -80,10 +81,20 @@ export {
   enableDebug,
   ClientError,
   HTMLLink,
+  debug,
   CacheClient,
   CacheOptions,
   MemoryCacheClient,
 } from '@sitecore-jss/sitecore-jss';
+export {
+  GraphQLPersonalizeService,
+  GraphQLPersonalizeServiceConfig,
+  PersonalizeInfo,
+  CdpHelper,
+  DEFAULT_VARIANT,
+  getGroomedVariantIds,
+  personalizeLayout,
+} from '@sitecore-jss/sitecore-jss/personalize';
 export { isServer } from '@sitecore-jss/sitecore-jss/utils';
 export {
   isEditorActive,
@@ -104,4 +115,3 @@ export {
   EventInstance,
   PageViewInstance,
 } from '@sitecore-jss/sitecore-jss/tracking';
-export { CdpHelper } from '@sitecore-jss/sitecore-jss/personalize';
