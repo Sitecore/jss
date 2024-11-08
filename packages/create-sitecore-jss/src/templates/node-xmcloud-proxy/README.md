@@ -4,15 +4,25 @@
 
 [Documentation](<TODO>)
 
+This proxy will serve as the backbone for supporting various SPA frameworks by handling server-side rendering (SSR), data queries, and middleware functionalities.
+
 This is a sample setup showing one of how you can configure XM Cloud rendering server.
 
-## Pre-requisites
+## Features Supported
 
-1. SPA sample supports XM Cloud out of the box.
+- Context ID / envoy proxy
 
-1. Build your SPA app bundle with `jss build`. The build output should be placed in the `dist` folder.
+- Pages new editing integration via HTTP render engine endpoint (e.g. editing/render)
 
-## Setup
+- Personalization middleware (can do layout manipulation directly since we are always SSR)
+
+- Rewrites middleware
+
+- Forms support
+
+- Multisite
+
+## Configuration Setup
 
 Open `config.js` and specify your application settings.
 
@@ -24,13 +34,19 @@ The following environment variables can be set to configure the Proxy sample ins
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | `PROXY_BUNDLE_PATH`                        | Path to the JSS SPA app's `server.bundle.js`. Default can be seen in [config.js](./config.js) file.                                                                                                                    |
 | `PROXY_PORT`                              | Optional. Port which will be used when start sample. Default can be seen in [config.js](./config.js) file.                                                             |
-| `DEBUG`                  | Optional. Debug level for the proxy. Set the DEBUG environment variable to 'sitecore-jss:*,proxy*,http-proxy-middleware*' to see all logs.                                                                                                                  |
+| `DEBUG`                  | Optional. Debug level for the proxy. Set the DEBUG environment variable to 'sitecore-jss:*,proxy*,http-proxy-middleware*' to see all logs.
+
+## Pre-requisites
+
+1. SPA sample supports XM Cloud out of the box.
+
+2. Build your SPA app bundle with `jss build`. The build output should be placed in the `dist` folder.            |
 
 ## Build & run
 
 1. Run `npm install`
 
-1. Run `npm run start`
+2. Run `npm run start`
 
 You should be able to see the following message:
 `server listening on port 3000!`.
