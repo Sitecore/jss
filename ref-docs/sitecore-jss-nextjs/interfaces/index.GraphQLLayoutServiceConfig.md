@@ -31,7 +31,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:13
+sitecore-jss/types/layout/graphql-layout-service.d.ts:14
 
 ___
 
@@ -68,7 +68,7 @@ layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:25
+sitecore-jss/types/layout/graphql-layout-service.d.ts:26
 
 ___
 
@@ -113,4 +113,4 @@ The JSS application name
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:8
+sitecore-jss/types/layout/graphql-layout-service.d.ts:9

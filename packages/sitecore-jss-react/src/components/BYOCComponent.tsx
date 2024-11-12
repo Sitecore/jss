@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
+import { ComponentFields, ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { getDataFromFields } from '../utils';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
@@ -43,6 +43,10 @@ export type BYOCComponentParams = {
  * Props for BYOCComponent. Includes components list to load external components from.
  */
 export type BYOCComponentClientProps = {
+  /**
+   * rendering data
+   */
+  rendering: ComponentRendering;
   /**
    * rendering params
    */
@@ -157,6 +161,7 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
     // we render fallback on client to avoid problems with client-only components
     return (
       <FEAAS.ExternalComponent
+        {...props.rendering}
         componentName={componentName}
         clientFallback={fallbackComponent}
         datasources={dataSourcesData}
@@ -172,7 +177,7 @@ export class BYOCComponent extends React.Component<BYOCComponentProps> {
  */
 export async function fetchBYOCComponentServerProps(
   params: BYOCComponentParams
-): Promise<BYOCComponentProps> {
+): Promise<BYOCServerProps> {
   const fetchDataOptions: FEAAS.DataOptions = params.ComponentDataOverride
     ? JSON.parse(params.ComponentDataOverride)
     : {};

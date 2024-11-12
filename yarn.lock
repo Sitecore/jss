@@ -5997,52 +5997,52 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/core@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@sitecore-cloudsdk/core@npm:0.4.0"
+"@sitecore-cloudsdk/core@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@sitecore-cloudsdk/core@npm:0.4.1"
   dependencies:
-    "@sitecore-cloudsdk/utils": ^0.4.0
+    "@sitecore-cloudsdk/utils": ^0.4.1
     debug: ^4.3.4
-  checksum: 0640147f4767c6d84f90bbefe011fcc76d2fb47adc078f5017f7c2d686c7eff53a661cd77c4b70315c06b2be0b071c8d279a0db3502bcf5e6e288d1a36dd8896
+  checksum: c64d45229f90b393fb423972af4fccb455fb6e5a3dd326eb65b42c6690cc5a535672fffa674c58736a530c2c6c77f0e3faf27a69b6fd2832aafbb04d895db151
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/events@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@sitecore-cloudsdk/events@npm:0.4.0"
+"@sitecore-cloudsdk/events@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@sitecore-cloudsdk/events@npm:0.4.1"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.4.0
-    "@sitecore-cloudsdk/utils": ^0.4.0
-  checksum: 0e36c44b4bfd23e71b46f20d9ef852e8a948da3ff9f037e37b8a68f4c36220f48d44c2a032979855a5945ed0b100272f7a477ea1f7fdc6b77eab4a32a1d22657
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/utils": ^0.4.1
+  checksum: 8b4727473bc6dbe0ac70e4c0050e78634303262e3d6d088f1e1225c18835431c1c930921601403074435d4a42ffbcb61bcc06cb0e85210a273c5ebc2025232a4
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/personalize@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@sitecore-cloudsdk/personalize@npm:0.4.0"
+"@sitecore-cloudsdk/personalize@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@sitecore-cloudsdk/personalize@npm:0.4.1"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.4.0
-    "@sitecore-cloudsdk/events": ^0.4.0
-    "@sitecore-cloudsdk/utils": ^0.4.0
-  checksum: 62668f95a111c1b25668c20fc7cf0bf1958b3aefaf2b9c6cdb79179de4e508b7b466e25654f8efcaefdbffd86a715f210e76f2fda964650f601b0fc9e0579893
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/events": ^0.4.1
+    "@sitecore-cloudsdk/utils": ^0.4.1
+  checksum: 2a13fe671aa0319a5e845a15cbf96adbc77a9269b6e18ceb2d813ff5ef88cb0d95332d68db83507d01712e8a19afdddc01fb9a995b508fdd3f0c7dfd49b3e754
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/utils@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@sitecore-cloudsdk/utils@npm:0.4.0"
-  checksum: ec5a0611ad4d6ae4b3c2a7542c2021f0b956d2c78e08cab1ff8bd5e6300c3059d5fff6022d0ed2462cd0b4f127d02b5bfabf34e890cddbb51876aebaca3033dc
+"@sitecore-cloudsdk/utils@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@sitecore-cloudsdk/utils@npm:0.4.1"
+  checksum: 719657350cb6871b28c1b88cc3666496d7cc42d5b85eb503441b79e164b40d80ad22d1bea6330bd415b31c00ac7c0a3c24033ec064caff0637b5621efe820205
   languageName: node
   linkType: hard
 
-"@sitecore-feaas/clientside@npm:^0.5.6":
-  version: 0.5.9
-  resolution: "@sitecore-feaas/clientside@npm:0.5.9"
+"@sitecore-feaas/clientside@npm:^0.5.19":
+  version: 0.5.19
+  resolution: "@sitecore-feaas/clientside@npm:0.5.19"
   dependencies:
-    "@sitecore/byoc": ^0.2.8
+    "@sitecore/byoc": ^0.2.10
   peerDependencies:
     react-dom: ">=16.8.0"
-  checksum: ae5a3c57b104f7ce849341b3b01204210e4f6060f751567aee32a21df77e127bacba970bce2f3eb4f0a4959351f112791d6c7027eb210300e8476defef790115
+  checksum: 63bcc151e9d79cc591c98f2f68cae8feb9b6a368ba9b4f12aa74a418a208e20cd37d682e671bb7a32ed275a78e7dca3034678af5943961afa2b2ce4d8ddc2955
   languageName: node
   linkType: hard
 
@@ -6076,7 +6076,7 @@ __metadata:
     "@angular/platform-browser": ~17.3.11
     "@angular/platform-browser-dynamic": ~17.3.11
     "@angular/router": ~17.3.11
-    "@sitecore-jss/sitecore-jss": 22.3.0-canary.3
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
     "@types/jasmine": ^5.1.4
     "@types/node": ^20.14.10
     codelyzer: ^6.0.1
@@ -6106,7 +6106,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-cli@workspace:packages/sitecore-jss-cli"
   dependencies:
-    "@sitecore-jss/sitecore-jss-dev-tools": 22.3.0-canary.3
+    "@sitecore-jss/sitecore-jss-dev-tools": 22.3.0-canary.5
     "@types/chai": ^4.2.4
     "@types/cross-spawn": ^6.0.2
     "@types/mocha": ^10.0.1
@@ -6138,14 +6138,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-dev-tools@22.3.0-canary.3, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
+"@sitecore-jss/sitecore-jss-dev-tools@22.3.0-canary.5, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools"
   dependencies:
     "@babel/core": ^7.24.4
     "@babel/parser": ^7.24.0
     "@babel/register": ^7.23.7
-    "@sitecore-jss/sitecore-jss": 22.3.0-canary.3
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
     "@types/chai": ^4.3.4
     "@types/chokidar": ^2.1.3
     "@types/del": ^4.0.0
@@ -6197,11 +6197,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-forms@22.3.0-canary.3, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
+"@sitecore-jss/sitecore-jss-forms@22.3.0-canary.5, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss": 22.3.0-canary.3
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
     "@types/lodash.unescape": ^4.0.7
@@ -6224,11 +6224,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.4.0
-    "@sitecore-cloudsdk/personalize": ^0.4.0
-    "@sitecore-jss/sitecore-jss": 22.3.0-canary.3
-    "@sitecore-jss/sitecore-jss-dev-tools": 22.3.0-canary.3
-    "@sitecore-jss/sitecore-jss-react": 22.3.0-canary.3
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/personalize": ^0.4.1
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
+    "@sitecore-jss/sitecore-jss-dev-tools": 22.3.0-canary.5
+    "@sitecore-jss/sitecore-jss-react": 22.3.0-canary.5
     "@types/chai": ^4.3.4
     "@types/chai-as-promised": ^7.1.5
     "@types/chai-string": ^1.4.2
@@ -6267,8 +6267,8 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.4
   peerDependencies:
-    "@sitecore-cloudsdk/core": ^0.4.0
-    "@sitecore-cloudsdk/personalize": ^0.4.0
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/personalize": ^0.4.1
     next: ^14.2.7
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -6279,11 +6279,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-proxy@workspace:packages/sitecore-jss-proxy"
   dependencies:
-    "@sitecore-jss/sitecore-jss": 22.3.0-canary.3
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/personalize": ^0.4.1
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
     "@types/chai": ^4.3.4
     "@types/express": ^4.17.17
     "@types/mocha": ^10.0.1
     "@types/node": ^20.14.2
+    "@types/proxyquire": ^1.3.31
     "@types/set-cookie-parser": ^2.4.2
     "@types/sinon": ^17.0.3
     "@types/supertest": ^6.0.2
@@ -6295,6 +6298,7 @@ __metadata:
     http-status-codes: ^2.2.0
     mocha: ^10.2.0
     nyc: ^15.1.0
+    proxyquire: ^2.1.3
     set-cookie-parser: ^2.5.1
     sinon: ^17.0.1
     supertest: ^7.0.0
@@ -6309,7 +6313,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react-forms@workspace:packages/sitecore-jss-react-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss-forms": 22.3.0-canary.3
+    "@sitecore-jss/sitecore-jss-forms": 22.3.0-canary.5
     "@types/chai": ^4.3.4
     "@types/enzyme": ^3.10.12
     "@types/mocha": ^10.0.1
@@ -6349,7 +6353,7 @@ __metadata:
     "@babel/plugin-proposal-export-default-from": ^7.5.2
     "@babel/preset-env": ^7.6.2
     "@babel/preset-typescript": ^7.6.0
-    "@sitecore-jss/sitecore-jss": 22.3.0-canary.3
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
     "@types/jest": ^24.0.18
     "@types/prop-types": ^15.7.3
     "@types/react": ^16.9.5
@@ -6379,12 +6383,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-react@22.3.0-canary.3, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
+"@sitecore-jss/sitecore-jss-react@22.3.0-canary.5, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
-    "@sitecore-feaas/clientside": ^0.5.6
-    "@sitecore-jss/sitecore-jss": 22.3.0-canary.3
+    "@sitecore-feaas/clientside": ^0.5.19
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
     "@types/enzyme": ^3.10.12
@@ -6416,7 +6420,7 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.3
   peerDependencies:
-    "@sitecore-feaas/clientside": ^0.5.6
+    "@sitecore-feaas/clientside": ^0.5.19
     react: ^18.2.0
     react-dom: ^18.2.0
   languageName: unknown
@@ -6456,7 +6460,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-vue@workspace:packages/sitecore-jss-vue"
   dependencies:
-    "@sitecore-jss/sitecore-jss": 22.3.0-canary.3
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
     "@types/jest": ^29.2.6
     "@types/node": ^20.14.2
     "@vue/compiler-dom": ^3.2.45
@@ -6479,7 +6483,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss@22.3.0-canary.3, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
+"@sitecore-jss/sitecore-jss@22.3.0-canary.5, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss"
   dependencies:
@@ -6516,13 +6520,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore/byoc@npm:^0.2.8":
-  version: 0.2.8
-  resolution: "@sitecore/byoc@npm:0.2.8"
+"@sitecore/byoc@npm:^0.2.10":
+  version: 0.2.15
+  resolution: "@sitecore/byoc@npm:0.2.15"
   dependencies:
     "@rjsf/utils": "*"
     json-schema: ^0.4.0
-  checksum: fb5545021a4e78b05b20d03eb38a663a6bf8453679e0a3fa4ae4477989571c7ce4ece304e4d27c3f1a119d3b2ac20045da9e6eff743c814cebd882b10635642d
+  checksum: 5da0cd994a55e0809433d0534c1ffcf39a306a8e3769d5aecfc95113c7a2f69ada7c27db9e1bb1ac40bc5a7bbf50344689f1096811bdc8c291067044bafd7dbe
   languageName: node
   linkType: hard
 
@@ -7244,6 +7248,13 @@ __metadata:
   version: 15.7.11
   resolution: "@types/prop-types@npm:15.7.11"
   checksum: 7519ff11d06fbf6b275029fe03fff9ec377b4cb6e864cac34d87d7146c7f5a7560fd164bdc1d2dbe00b60c43713631251af1fd3d34d46c69cd354602bc0c7c54
+  languageName: node
+  linkType: hard
+
+"@types/proxyquire@npm:^1.3.31":
+  version: 1.3.31
+  resolution: "@types/proxyquire@npm:1.3.31"
+  checksum: 945024495fc991f6152686795ac6f2f2d0f571834e67fa41c1e84877eeb1a321a24ab8ff67fc5152d9227f5b39f6254213dced15deaf80ed7443059c2257e072
   languageName: node
   linkType: hard
 
@@ -14726,6 +14737,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fill-keys@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "fill-keys@npm:1.0.2"
+  dependencies:
+    is-object: ~1.0.1
+    merge-descriptors: ~1.0.0
+  checksum: 6ac5ff60ff08f2f44d19e919c9ca579f4efaaa8c88232b4aab5a5b5522aeb8ec91501956e780cb2b44574fe4a4a337e9b43187829267d0b66a6bfedbafae893f
+  languageName: node
+  linkType: hard
+
 "fill-range@npm:^4.0.0":
   version: 4.0.0
   resolution: "fill-range@npm:4.0.0"
@@ -16834,6 +16855,13 @@ __metadata:
   version: 2.0.0
   resolution: "is-obj@npm:2.0.0"
   checksum: c9916ac8f4621962a42f5e80e7ffdb1d79a3fab7456ceaeea394cd9e0858d04f985a9ace45be44433bf605673c8be8810540fe4cc7f4266fc7526ced95af5a08
+  languageName: node
+  linkType: hard
+
+"is-object@npm:~1.0.1":
+  version: 1.0.2
+  resolution: "is-object@npm:1.0.2"
+  checksum: 971219c4b1985b9751f65e4c8296d3104f0457b0e8a70849e848a4a2208bc47317d73b3b85d4a369619cb2df8284dc22584cb2695a7d99aca5e8d0aa64fc075a
   languageName: node
   linkType: hard
 
@@ -19733,6 +19761,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"merge-descriptors@npm:~1.0.0":
+  version: 1.0.3
+  resolution: "merge-descriptors@npm:1.0.3"
+  checksum: 52117adbe0313d5defa771c9993fe081e2d2df9b840597e966aadafde04ae8d0e3da46bac7ca4efc37d4d2b839436582659cd49c6a43eacb3fe3050896a105d1
+  languageName: node
+  linkType: hard
+
 "merge-stream@npm:^1.0.1":
   version: 1.0.1
   resolution: "merge-stream@npm:1.0.1"
@@ -20471,6 +20506,13 @@ __metadata:
   version: 2.2.3
   resolution: "module-alias@npm:2.2.3"
   checksum: 6169187f69de8dcf8af8fab4d9e53ada6338a43f7670d38d0b27a089c28f9eb18d85a6fd46f11b54c63079a68449b85d071d7db0ac067f9f7faedbcd6231456d
+  languageName: node
+  linkType: hard
+
+"module-not-found-error@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "module-not-found-error@npm:1.0.1"
+  checksum: ebd65339d4d5980dd55cd32dbf112ec02b8e33f30866312b94caeee4783322259f18cf2270e9d2e600df3bd1876c35612b87f5c2525c21885fb1f83e85a9b9b0
   languageName: node
   linkType: hard
 
@@ -22841,6 +22883,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"proxyquire@npm:^2.1.3":
+  version: 2.1.3
+  resolution: "proxyquire@npm:2.1.3"
+  dependencies:
+    fill-keys: ^1.0.2
+    module-not-found-error: ^1.0.1
+    resolve: ^1.11.1
+  checksum: a320f1a04d65aeb41625bfd6bbf848492523b730b07926b6c1ed48f9342f2a30c4a4c0b399e07391e76691b65f604773327767c33a8578e5e4ab19299ba46a02
+  languageName: node
+  linkType: hard
+
 "prr@npm:~1.0.1":
   version: 1.0.1
   resolution: "prr@npm:1.0.1"
@@ -23816,7 +23869,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:1.22.8, resolve@npm:^1.10.0, resolve@npm:^1.14.2, resolve@npm:^1.20.0, resolve@npm:^1.22.1, resolve@npm:^1.5.0":
+"resolve@npm:1.22.8, resolve@npm:^1.10.0, resolve@npm:^1.11.1, resolve@npm:^1.14.2, resolve@npm:^1.20.0, resolve@npm:^1.22.1, resolve@npm:^1.5.0":
   version: 1.22.8
   resolution: "resolve@npm:1.22.8"
   dependencies:
@@ -23849,7 +23902,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@1.22.8#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.5.0#~builtin<compat/resolve>":
+"resolve@patch:resolve@1.22.8#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.11.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.5.0#~builtin<compat/resolve>":
   version: 1.22.8
   resolution: "resolve@patch:resolve@npm%3A1.22.8#~builtin<compat/resolve>::version=1.22.8&hash=07638b"
   dependencies:

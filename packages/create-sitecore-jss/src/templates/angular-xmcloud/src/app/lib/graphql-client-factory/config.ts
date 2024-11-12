@@ -28,10 +28,9 @@ export const getGraphQLClientFactoryConfig = () => {
           : getEdgeProxyContentUrl(env.sitecoreEdgeContextId, env.proxyHost),
       };
     } else if (env.graphQLEndpoint && env.sitecoreApiKey) {
-      const graphQLEndpointPath = new URL(env.graphQLEndpoint).pathname;
-
+      // we ignore ssr-proxy and query CM directly in case apiKey is used (i.e. in dev docker deployments)
       clientConfig = {
-        endpoint: isServer ? env.graphQLEndpoint : `${env.proxyHost}${graphQLEndpointPath}`,
+        endpoint: env.graphQLEndpoint,
         apiKey: env.sitecoreApiKey,
       };
     }
