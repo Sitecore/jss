@@ -91,6 +91,12 @@ Our versioning strategy is as follows:
 * `[templates/angular]``[templates/node-xmcloud-proxy]``[templates/node-headless-ssr-proxy]``[templates/node-headless-ssr-experience-edge]` Adjust out of box .gitignore rules
 * New Angular add-on's are not scaffolded within build pipeline ([#1962](https://github.com/Sitecore/jss/pull/1962))
 
+## 22.2.1
+
+### 🐛 Bug Fixes
+
+* Updated @sitecore-feaas/clientside to v0.5.19. Passed rendering data to FEAAS.ExternalComponent. Updated @sitecore-cloudsdk to v0.4.1. This update fixes the issue related to BYOC Forms submission/rendering ([#1966](https://github.com/Sitecore/jss/pull/1966))
+
 ## 22.2.0
 
 ### 🛠 Breaking Change
