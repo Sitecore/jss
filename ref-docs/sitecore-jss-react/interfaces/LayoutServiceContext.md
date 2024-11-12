@@ -15,6 +15,7 @@ Shape of context data from the Sitecore Layout Service
 - [clientData](LayoutServiceContext.md#clientdata)
 - [clientScripts](LayoutServiceContext.md#clientscripts)
 - [editMode](LayoutServiceContext.md#editmode)
+- [itemPath](LayoutServiceContext.md#itempath)
 - [language](LayoutServiceContext.md#language)
 - [pageEditing](LayoutServiceContext.md#pageediting)
 - [pageState](LayoutServiceContext.md#pagestate)
@@ -29,7 +30,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:40
+packages/sitecore-jss/types/layout/models.d.ts:41
 
 ___
 
@@ -39,7 +40,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:39
+packages/sitecore-jss/types/layout/models.d.ts:40
 
 ___
 
@@ -49,7 +50,17 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:38
+packages/sitecore-jss/types/layout/models.d.ts:39
+
+___
+
+### itemPath
+
+• `Optional` **itemPath**: `string`
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:33
 
 ___
 
@@ -79,7 +90,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:33
+packages/sitecore-jss/types/layout/models.d.ts:34
 
 ___
 
@@ -95,7 +106,7 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:35
+packages/sitecore-jss/types/layout/models.d.ts:36
 
 ___
 
@@ -105,4 +116,4 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:34
+packages/sitecore-jss/types/layout/models.d.ts:35

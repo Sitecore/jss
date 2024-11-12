@@ -14,8 +14,8 @@ Context information from the Sitecore Layout Service
 
 ### context
 
-• **context**: `LayoutServiceContext`
+• **context**: [`LayoutServiceContext`](LayoutServiceContext.md)
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:46
+packages/sitecore-jss/types/layout/models.d.ts:47

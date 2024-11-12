@@ -33,6 +33,7 @@ export interface LayoutServiceContext {
   [key: string]: unknown;
   pageEditing?: boolean;
   language?: string;
+  itemPath?: string;
   pageState?: LayoutServicePageState;
   visitorIdentificationTimestamp?: number;
   site?: {

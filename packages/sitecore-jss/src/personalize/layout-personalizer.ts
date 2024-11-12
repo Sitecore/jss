@@ -32,9 +32,9 @@ export function personalizeLayout(
 ): PlaceholdersData<string> | undefined {
   // Add (page-level) variantId to Sitecore context so that it is accessible here
   layout.sitecore.context.variantId = variantId;
-  const placeholders = layout.sitecore.route?.placeholders;
-  if (Object.keys(placeholders ?? {}).length === 0) {
-    return;
+  const placeholders = layout.sitecore.route?.placeholders || {};
+  if (Object.keys(placeholders).length === 0) {
+    return undefined;
   }
   const metadataEditing =
     layout.sitecore.context.pageEditing && layout.sitecore.context.editMode === EditMode.Metadata;

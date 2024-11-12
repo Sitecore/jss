@@ -1,8 +1,6 @@
 ﻿[
   {
-    "initializers": [
-      "nextjs"
-    ],
+    "initializers": ["nextjs"],
     "args": {
       "appName": "nextjs-vanilla",
       "fetchWith": "REST",
@@ -11,9 +9,7 @@
     }
   },
   {
-    "initializers": [
-      "nextjs", "nextjs-styleguide", "nextjs-styleguide-tracking"
-    ],
+    "initializers": ["nextjs", "nextjs-styleguide", "nextjs-styleguide-tracking"],
     "args": {
       "appName": "nextjs-styleguide-tracking",
       "fetchWith": "GraphQL",
@@ -21,9 +17,7 @@
     }
   },
   {
-    "initializers": [
-      "nextjs", "nextjs-styleguide", "nextjs-xmcloud"
-    ],
+    "initializers": ["nextjs", "nextjs-styleguide", "nextjs-xmcloud"],
     "args": {
       "appName": "nextjs-styleguide-xmcloud",
       "fetchWith": "GraphQL",
@@ -31,9 +25,7 @@
     }
   },
   {
-    "initializers": [
-      "nextjs", "nextjs-sxa"
-    ],
+    "initializers": ["nextjs", "nextjs-sxa"],
     "args": {
       "appName": "nextjs-sxa",
       "fetchWith": "GraphQL",
@@ -41,27 +33,33 @@
     }
   },
   {
-    "initializers": [
-      "react"
-    ],
+    "initializers": ["react"],
     "args": {
       "appName": "react",
       "fetchWith": "GraphQL"
     }
   },
   {
-    "initializers": [
-      "angular"
-    ],
+    "initializers": ["angular"],
     "args": {
-      "appName": "angular",
+      "appName": "angular-vanilla"
+    }
+  },
+  {
+    "initializers": ["angular", "angular-xmcloud"],
+    "args": {
+      "appName": "angular-xmcloud"
+    }
+  },
+  {
+    "initializers": ["angular", "angular-sxp"],
+    "args": {
+      "appName": "angular-sxp",
       "fetchWith": "GraphQL"
     }
   },
   {
-    "initializers": [
-      "vue"
-    ],
+    "initializers": ["vue"],
     "args": {
       "appName": "vue",
       "fetchWith": "GraphQL"

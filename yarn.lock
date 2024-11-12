@@ -5997,41 +5997,52 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/core@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@sitecore-cloudsdk/core@npm:0.3.1"
+"@sitecore-cloudsdk/core@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@sitecore-cloudsdk/core@npm:0.4.1"
   dependencies:
-    "@sitecore-cloudsdk/utils": ^0.3.1
+    "@sitecore-cloudsdk/utils": ^0.4.1
     debug: ^4.3.4
-  checksum: c19d750b1c194f7575d20b3d46739d7b41545087a9fb794ba44ab9b2d812f2b2035caf19c4f4ba51e6ff628c99f2e4a18b0a7a2578b413c7adb04f3d77f392a3
+  checksum: c64d45229f90b393fb423972af4fccb455fb6e5a3dd326eb65b42c6690cc5a535672fffa674c58736a530c2c6c77f0e3faf27a69b6fd2832aafbb04d895db151
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/personalize@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@sitecore-cloudsdk/personalize@npm:0.3.1"
+"@sitecore-cloudsdk/events@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@sitecore-cloudsdk/events@npm:0.4.1"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.3.1
-    "@sitecore-cloudsdk/utils": ^0.3.1
-  checksum: e48b1429f67be22069bfd8cc6349660ed346877fef5537def5f36c962fd2264969ff02fb2e16333dabc683c4dd0373ae12ce56b97a6850910ab618957b9586d9
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/utils": ^0.4.1
+  checksum: 8b4727473bc6dbe0ac70e4c0050e78634303262e3d6d088f1e1225c18835431c1c930921601403074435d4a42ffbcb61bcc06cb0e85210a273c5ebc2025232a4
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/utils@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@sitecore-cloudsdk/utils@npm:0.3.1"
-  checksum: c6578ec04823a77aaf7cb6f9cdb842c227698507c38b722db0b9fe1c6b21ee169443cc6b9b8ca77f86c9a4dfc835e1c3b85369079c70ef88e555c8243275d9a6
-  languageName: node
-  linkType: hard
-
-"@sitecore-feaas/clientside@npm:^0.5.6":
-  version: 0.5.9
-  resolution: "@sitecore-feaas/clientside@npm:0.5.9"
+"@sitecore-cloudsdk/personalize@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@sitecore-cloudsdk/personalize@npm:0.4.1"
   dependencies:
-    "@sitecore/byoc": ^0.2.8
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/events": ^0.4.1
+    "@sitecore-cloudsdk/utils": ^0.4.1
+  checksum: 2a13fe671aa0319a5e845a15cbf96adbc77a9269b6e18ceb2d813ff5ef88cb0d95332d68db83507d01712e8a19afdddc01fb9a995b508fdd3f0c7dfd49b3e754
+  languageName: node
+  linkType: hard
+
+"@sitecore-cloudsdk/utils@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@sitecore-cloudsdk/utils@npm:0.4.1"
+  checksum: 719657350cb6871b28c1b88cc3666496d7cc42d5b85eb503441b79e164b40d80ad22d1bea6330bd415b31c00ac7c0a3c24033ec064caff0637b5621efe820205
+  languageName: node
+  linkType: hard
+
+"@sitecore-feaas/clientside@npm:^0.5.19":
+  version: 0.5.19
+  resolution: "@sitecore-feaas/clientside@npm:0.5.19"
+  dependencies:
+    "@sitecore/byoc": ^0.2.10
   peerDependencies:
     react-dom: ">=16.8.0"
-  checksum: ae5a3c57b104f7ce849341b3b01204210e4f6060f751567aee32a21df77e127bacba970bce2f3eb4f0a4959351f112791d6c7027eb210300e8476defef790115
+  checksum: 63bcc151e9d79cc591c98f2f68cae8feb9b6a368ba9b4f12aa74a418a208e20cd37d682e671bb7a32ed275a78e7dca3034678af5943961afa2b2ce4d8ddc2955
   languageName: node
   linkType: hard
 
@@ -6065,7 +6076,7 @@ __metadata:
     "@angular/platform-browser": ~17.3.11
     "@angular/platform-browser-dynamic": ~17.3.11
     "@angular/router": ~17.3.11
-    "@sitecore-jss/sitecore-jss": 22.2.0-canary.78
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
     "@types/jasmine": ^5.1.4
     "@types/node": ^20.14.10
     codelyzer: ^6.0.1
@@ -6095,7 +6106,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-cli@workspace:packages/sitecore-jss-cli"
   dependencies:
-    "@sitecore-jss/sitecore-jss-dev-tools": 22.2.0-canary.78
+    "@sitecore-jss/sitecore-jss-dev-tools": 22.3.0-canary.5
     "@types/chai": ^4.2.4
     "@types/cross-spawn": ^6.0.2
     "@types/mocha": ^10.0.1
@@ -6127,14 +6138,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-dev-tools@22.2.0-canary.78, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
+"@sitecore-jss/sitecore-jss-dev-tools@22.3.0-canary.5, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools"
   dependencies:
     "@babel/core": ^7.24.4
     "@babel/parser": ^7.24.0
     "@babel/register": ^7.23.7
-    "@sitecore-jss/sitecore-jss": 22.2.0-canary.78
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
     "@types/chai": ^4.3.4
     "@types/chokidar": ^2.1.3
     "@types/del": ^4.0.0
@@ -6186,11 +6197,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-forms@22.2.0-canary.78, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
+"@sitecore-jss/sitecore-jss-forms@22.3.0-canary.5, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss": 22.2.0-canary.78
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
     "@types/lodash.unescape": ^4.0.7
@@ -6213,10 +6224,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
-    "@sitecore-cloudsdk/personalize": ^0.3.1
-    "@sitecore-jss/sitecore-jss": 22.2.0-canary.78
-    "@sitecore-jss/sitecore-jss-dev-tools": 22.2.0-canary.78
-    "@sitecore-jss/sitecore-jss-react": 22.2.0-canary.78
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/personalize": ^0.4.1
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
+    "@sitecore-jss/sitecore-jss-dev-tools": 22.3.0-canary.5
+    "@sitecore-jss/sitecore-jss-react": 22.3.0-canary.5
     "@types/chai": ^4.3.4
     "@types/chai-as-promised": ^7.1.5
     "@types/chai-string": ^1.4.2
@@ -6255,8 +6267,8 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.4
   peerDependencies:
-    "@sitecore-cloudsdk/events": ^0.3.1
-    "@sitecore-cloudsdk/personalize": ^0.3.1
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/personalize": ^0.4.1
     next: ^14.2.7
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -6267,11 +6279,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-proxy@workspace:packages/sitecore-jss-proxy"
   dependencies:
-    "@sitecore-jss/sitecore-jss": 22.2.0-canary.78
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/personalize": ^0.4.1
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
     "@types/chai": ^4.3.4
     "@types/express": ^4.17.17
     "@types/mocha": ^10.0.1
     "@types/node": ^20.14.2
+    "@types/proxyquire": ^1.3.31
     "@types/set-cookie-parser": ^2.4.2
     "@types/sinon": ^17.0.3
     "@types/supertest": ^6.0.2
@@ -6283,6 +6298,7 @@ __metadata:
     http-status-codes: ^2.2.0
     mocha: ^10.2.0
     nyc: ^15.1.0
+    proxyquire: ^2.1.3
     set-cookie-parser: ^2.5.1
     sinon: ^17.0.1
     supertest: ^7.0.0
@@ -6297,7 +6313,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react-forms@workspace:packages/sitecore-jss-react-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss-forms": 22.2.0-canary.78
+    "@sitecore-jss/sitecore-jss-forms": 22.3.0-canary.5
     "@types/chai": ^4.3.4
     "@types/enzyme": ^3.10.12
     "@types/mocha": ^10.0.1
@@ -6337,7 +6353,7 @@ __metadata:
     "@babel/plugin-proposal-export-default-from": ^7.5.2
     "@babel/preset-env": ^7.6.2
     "@babel/preset-typescript": ^7.6.0
-    "@sitecore-jss/sitecore-jss": 22.2.0-canary.78
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
     "@types/jest": ^24.0.18
     "@types/prop-types": ^15.7.3
     "@types/react": ^16.9.5
@@ -6367,12 +6383,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-react@22.2.0-canary.78, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
+"@sitecore-jss/sitecore-jss-react@22.3.0-canary.5, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
-    "@sitecore-feaas/clientside": ^0.5.6
-    "@sitecore-jss/sitecore-jss": 22.2.0-canary.78
+    "@sitecore-feaas/clientside": ^0.5.19
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
     "@types/enzyme": ^3.10.12
@@ -6404,7 +6420,7 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.3
   peerDependencies:
-    "@sitecore-feaas/clientside": ^0.5.6
+    "@sitecore-feaas/clientside": ^0.5.19
     react: ^18.2.0
     react-dom: ^18.2.0
   languageName: unknown
@@ -6444,7 +6460,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-vue@workspace:packages/sitecore-jss-vue"
   dependencies:
-    "@sitecore-jss/sitecore-jss": 22.2.0-canary.78
+    "@sitecore-jss/sitecore-jss": 22.3.0-canary.5
     "@types/jest": ^29.2.6
     "@types/node": ^20.14.2
     "@vue/compiler-dom": ^3.2.45
@@ -6467,7 +6483,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss@22.2.0-canary.78, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
+"@sitecore-jss/sitecore-jss@22.3.0-canary.5, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss"
   dependencies:
@@ -6504,13 +6520,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore/byoc@npm:^0.2.8":
-  version: 0.2.8
-  resolution: "@sitecore/byoc@npm:0.2.8"
+"@sitecore/byoc@npm:^0.2.10":
+  version: 0.2.15
+  resolution: "@sitecore/byoc@npm:0.2.15"
   dependencies:
     "@rjsf/utils": "*"
     json-schema: ^0.4.0
-  checksum: fb5545021a4e78b05b20d03eb38a663a6bf8453679e0a3fa4ae4477989571c7ce4ece304e4d27c3f1a119d3b2ac20045da9e6eff743c814cebd882b10635642d
+  checksum: 5da0cd994a55e0809433d0534c1ffcf39a306a8e3769d5aecfc95113c7a2f69ada7c27db9e1bb1ac40bc5a7bbf50344689f1096811bdc8c291067044bafd7dbe
   languageName: node
   linkType: hard
 
