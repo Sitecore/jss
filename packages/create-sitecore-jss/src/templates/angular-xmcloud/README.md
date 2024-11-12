@@ -39,11 +39,11 @@ The following environment variables can be set to configure the angular app. You
 | `SITECORE_SITE_NAME`                              | The name of your site. This variable overrides the config.appName defined in the package.json file. You can find this value in the Sites dashboard by opening the actions menu for a site and navigating to Settings > Developer settings. Default value `<%- appName %>`,
 `                  |
 | `DEFAULT_LANGUAGE`                              | The default language of your app. Default value `en`                  |
-| `DEBUG`                  | Optional. Debug level for the proxy. Set the DEBUG environment variable to 'sitecore-jss:*,proxy*,http-proxy-middleware*' to see all logs.
+| `DEBUG`                  | Optional. Debug level for the proxy. Set the DEBUG environment variable to 'sitecore-jss:*,proxy*,http-proxy-middleware*' to see all logs. Refer to the [official docs](https://doc.sitecore.com/xp/en/developers/hd/latest/sitecore-headless-development/debug-logging-in-jss-apps.html#namespaces) for all the available namespaces.
 
 ## Build & run
 
-Build your Angular SPA app bundle with `jss build` or `npm run build`. The build output should be placed in the `dist` folder and will automatically get copied to the proxy app.
+Build your Angular SPA app bundle with `jss build` or `npm run build`. The build output should be placed in the `dist` folder and will automatically get copied to the proxy app. 
 
 To run your app in production mode. Go to the proxy app:
 
