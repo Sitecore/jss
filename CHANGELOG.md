@@ -94,8 +94,7 @@ Our versioning strategy is as follows:
 ## 22.2.1
 
 ### 🐛 Bug Fixes
-
-* Updated @sitecore-feaas/clientside to v0.5.19. Passed rendering data to FEAAS.ExternalComponent. Updated @sitecore-cloudsdk to v0.4.1. This update fixes the issue related to BYOC Forms submission/rendering ([#1966](https://github.com/Sitecore/jss/pull/1966))
+* [BYOC] Form's submission is failing. Updated @sitecore-feaas/clientside to v0.5.19. Passed rendering data to FEAAS.ExternalComponent. Updated @sitecore-cloudsdk to v0.4.1. ([#1966](https://github.com/Sitecore/jss/pull/1966))
 
 ## 22.2.0
 
