@@ -8,8 +8,8 @@
     "prepare:proxy-build": "ts-node --project src/tsconfig.webpack-server.json ./scripts/proxy-build.ts"
   },
   "dependencies": {
-    "@sitecore-cloudsdk/core": "^0.4.0",
-    "@sitecore-cloudsdk/events": "^0.4.0",
+    "@sitecore-cloudsdk/core": "^0.4.1",
+    "@sitecore-cloudsdk/events": "^0.4.1",
     "font-awesome": "^4.7.0",
     "sass": "^1.52.3",
     "sass-alias": "^1.0.5"

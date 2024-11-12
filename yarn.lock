@@ -5997,52 +5997,52 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/core@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@sitecore-cloudsdk/core@npm:0.4.0"
+"@sitecore-cloudsdk/core@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@sitecore-cloudsdk/core@npm:0.4.1"
   dependencies:
-    "@sitecore-cloudsdk/utils": ^0.4.0
+    "@sitecore-cloudsdk/utils": ^0.4.1
     debug: ^4.3.4
-  checksum: 0640147f4767c6d84f90bbefe011fcc76d2fb47adc078f5017f7c2d686c7eff53a661cd77c4b70315c06b2be0b071c8d279a0db3502bcf5e6e288d1a36dd8896
+  checksum: c64d45229f90b393fb423972af4fccb455fb6e5a3dd326eb65b42c6690cc5a535672fffa674c58736a530c2c6c77f0e3faf27a69b6fd2832aafbb04d895db151
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/events@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@sitecore-cloudsdk/events@npm:0.4.0"
+"@sitecore-cloudsdk/events@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@sitecore-cloudsdk/events@npm:0.4.1"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.4.0
-    "@sitecore-cloudsdk/utils": ^0.4.0
-  checksum: 0e36c44b4bfd23e71b46f20d9ef852e8a948da3ff9f037e37b8a68f4c36220f48d44c2a032979855a5945ed0b100272f7a477ea1f7fdc6b77eab4a32a1d22657
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/utils": ^0.4.1
+  checksum: 8b4727473bc6dbe0ac70e4c0050e78634303262e3d6d088f1e1225c18835431c1c930921601403074435d4a42ffbcb61bcc06cb0e85210a273c5ebc2025232a4
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/personalize@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@sitecore-cloudsdk/personalize@npm:0.4.0"
+"@sitecore-cloudsdk/personalize@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@sitecore-cloudsdk/personalize@npm:0.4.1"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.4.0
-    "@sitecore-cloudsdk/events": ^0.4.0
-    "@sitecore-cloudsdk/utils": ^0.4.0
-  checksum: 62668f95a111c1b25668c20fc7cf0bf1958b3aefaf2b9c6cdb79179de4e508b7b466e25654f8efcaefdbffd86a715f210e76f2fda964650f601b0fc9e0579893
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/events": ^0.4.1
+    "@sitecore-cloudsdk/utils": ^0.4.1
+  checksum: 2a13fe671aa0319a5e845a15cbf96adbc77a9269b6e18ceb2d813ff5ef88cb0d95332d68db83507d01712e8a19afdddc01fb9a995b508fdd3f0c7dfd49b3e754
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/utils@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@sitecore-cloudsdk/utils@npm:0.4.0"
-  checksum: ec5a0611ad4d6ae4b3c2a7542c2021f0b956d2c78e08cab1ff8bd5e6300c3059d5fff6022d0ed2462cd0b4f127d02b5bfabf34e890cddbb51876aebaca3033dc
+"@sitecore-cloudsdk/utils@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@sitecore-cloudsdk/utils@npm:0.4.1"
+  checksum: 719657350cb6871b28c1b88cc3666496d7cc42d5b85eb503441b79e164b40d80ad22d1bea6330bd415b31c00ac7c0a3c24033ec064caff0637b5621efe820205
   languageName: node
   linkType: hard
 
-"@sitecore-feaas/clientside@npm:^0.5.6":
-  version: 0.5.9
-  resolution: "@sitecore-feaas/clientside@npm:0.5.9"
+"@sitecore-feaas/clientside@npm:^0.5.19":
+  version: 0.5.19
+  resolution: "@sitecore-feaas/clientside@npm:0.5.19"
   dependencies:
-    "@sitecore/byoc": ^0.2.8
+    "@sitecore/byoc": ^0.2.10
   peerDependencies:
     react-dom: ">=16.8.0"
-  checksum: ae5a3c57b104f7ce849341b3b01204210e4f6060f751567aee32a21df77e127bacba970bce2f3eb4f0a4959351f112791d6c7027eb210300e8476defef790115
+  checksum: 63bcc151e9d79cc591c98f2f68cae8feb9b6a368ba9b4f12aa74a418a208e20cd37d682e671bb7a32ed275a78e7dca3034678af5943961afa2b2ce4d8ddc2955
   languageName: node
   linkType: hard
 
@@ -6224,8 +6224,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.4.0
-    "@sitecore-cloudsdk/personalize": ^0.4.0
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/personalize": ^0.4.1
     "@sitecore-jss/sitecore-jss": 22.3.0-canary.4
     "@sitecore-jss/sitecore-jss-dev-tools": 22.3.0-canary.4
     "@sitecore-jss/sitecore-jss-react": 22.3.0-canary.4
@@ -6267,8 +6267,8 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.4
   peerDependencies:
-    "@sitecore-cloudsdk/core": ^0.4.0
-    "@sitecore-cloudsdk/personalize": ^0.4.0
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/personalize": ^0.4.1
     next: ^14.2.7
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -6279,8 +6279,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-proxy@workspace:packages/sitecore-jss-proxy"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.4.0
-    "@sitecore-cloudsdk/personalize": ^0.4.0
+    "@sitecore-cloudsdk/core": ^0.4.1
+    "@sitecore-cloudsdk/personalize": ^0.4.1
     "@sitecore-jss/sitecore-jss": 22.3.0-canary.4
     "@types/chai": ^4.3.4
     "@types/express": ^4.17.17
@@ -6387,7 +6387,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
-    "@sitecore-feaas/clientside": ^0.5.6
+    "@sitecore-feaas/clientside": ^0.5.19
     "@sitecore-jss/sitecore-jss": 22.3.0-canary.4
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
@@ -6420,7 +6420,7 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.3
   peerDependencies:
-    "@sitecore-feaas/clientside": ^0.5.6
+    "@sitecore-feaas/clientside": ^0.5.19
     react: ^18.2.0
     react-dom: ^18.2.0
   languageName: unknown
@@ -6520,13 +6520,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore/byoc@npm:^0.2.8":
-  version: 0.2.8
-  resolution: "@sitecore/byoc@npm:0.2.8"
+"@sitecore/byoc@npm:^0.2.10":
+  version: 0.2.15
+  resolution: "@sitecore/byoc@npm:0.2.15"
   dependencies:
     "@rjsf/utils": "*"
     json-schema: ^0.4.0
-  checksum: fb5545021a4e78b05b20d03eb38a663a6bf8453679e0a3fa4ae4477989571c7ce4ece304e4d27c3f1a119d3b2ac20045da9e6eff743c814cebd882b10635642d
+  checksum: 5da0cd994a55e0809433d0534c1ffcf39a306a8e3769d5aecfc95113c7a2f69ada7c27db9e1bb1ac40bc5a7bbf50344689f1096811bdc8c291067044bafd7dbe
   languageName: node
   linkType: hard
 
