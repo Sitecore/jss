@@ -140,7 +140,7 @@ Default allowed origins for editing requests. This is used to enforce CORS, CSP 
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:17](https://github.com/Sitecore/jss/blob/07fb39be2/packages/sitecore-jss/src/editing/utils.ts#L17)
+[packages/sitecore-jss/src/editing/utils.ts:17](https://github.com/Sitecore/jss/blob/b9adc36ae/packages/sitecore-jss/src/editing/utils.ts#L17)
 
 ___
 
@@ -153,7 +153,7 @@ Should identify app is in XM Cloud Pages editing mode
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:12](https://github.com/Sitecore/jss/blob/07fb39be2/packages/sitecore-jss/src/editing/utils.ts#L12)
+[packages/sitecore-jss/src/editing/utils.ts:12](https://github.com/Sitecore/jss/blob/b9adc36ae/packages/sitecore-jss/src/editing/utils.ts#L12)
 
 ___
 
@@ -165,7 +165,7 @@ Query parameter for editing secret
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:6](https://github.com/Sitecore/jss/blob/07fb39be2/packages/sitecore-jss/src/editing/utils.ts#L6)
+[packages/sitecore-jss/src/editing/utils.ts:6](https://github.com/Sitecore/jss/blob/b9adc36ae/packages/sitecore-jss/src/editing/utils.ts#L6)
 
 ## Functions
 
@@ -183,4 +183,4 @@ collection of clientData
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:161](https://github.com/Sitecore/jss/blob/07fb39be2/packages/sitecore-jss/src/editing/utils.ts#L161)
+[packages/sitecore-jss/src/editing/utils.ts:161](https://github.com/Sitecore/jss/blob/b9adc36ae/packages/sitecore-jss/src/editing/utils.ts#L161)
