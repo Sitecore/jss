@@ -20,7 +20,32 @@ This is a sample setup showing one of how you can configure XM Cloud rendering s
 
 ## Configuration Setup
 
-Open `config.js` and specify your application settings.
+The config.ts file in this proxy app handles essential configurations for server-side rendering, data queries, and middleware functionalities. Here are the main configurations defined:
+
+- Server Bundle Configuration:
+
+   * The app loads a server.bundle.js file, pre-built from your SPA app, for SSR support.
+   * This file contains the configuration and factory functions essential for rendering and data querying.
+
+- GraphQL Endpoint Setup:
+
+   * Defines a graphQLEndpoint for handling Sitecore GraphQL requests. It differentiates between production (Sitecore Edge) and development (Sitecore CM) endpoints.
+   * Constructs the target URL and path for proxy requests, ensuring compliance with http-proxy-middleware requirements.
+
+- Port Configuration:
+
+   * Configures the port for running the proxy, with a default of 3000 or an environment-specified port.
+
+- Personalization Configuration (personalizeConfig):
+
+   * Sets up Sitecore personalization through PersonalizeConfig, defining settings for both Sitecore Experience Edge and CDP endpoints.
+   * Contains options to control personalization features, including:
+      - Timeouts for Edge and CDP endpoints (default 400ms, configurable via environment variables).
+      - Scope and site name used for Sitecore Personalize.
+      - Enable/Disable Controls: Functions to manage personalization based on environment (e.g., disabled in development mode) and consent      management solutions.
+      - Language Configuration: defaultLanguage serves as a fallback if language data is unavailable.
+
+This configuration is designed to be flexible and secure, with dynamic settings managed via environment variables where appropriate.
 
 ### Environment Variables
 
