@@ -89,7 +89,7 @@ Our versioning strategy is as follows:
 
 * `[templates/angular]``[templates/node-xmcloud-proxy]``[templates/node-headless-ssr-proxy]``[templates/node-headless-ssr-experience-edge]` Adjust out of box .gitignore rules
 * New Angular add-on's are not scaffolded within build pipeline ([#1962](https://github.com/Sitecore/jss/pull/1962))
-* `[create-sitecore-jss]` Use version template token instead of exact version number ([#1960](https://github.com/Sitecore/jss/pull/1960))
+* Release process, maintenance simplification ([#1960](https://github.com/Sitecore/jss/pull/1960))
 
 ## 22.2.1
 
