@@ -9,6 +9,12 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 22.2.1
+
+### 🐛 Bug Fixes
+
+* [BYOC] Form's submission is failing. Updated @sitecore-feaas/clientside to v0.5.19. Passed rendering data to FEAAS.ExternalComponent. Updated @sitecore-cloudsdk to v0.4.1. ([#1966](https://github.com/Sitecore/jss/pull/1966))
+
 ## 22.2.0
 
 ### 🛠 Breaking Change
