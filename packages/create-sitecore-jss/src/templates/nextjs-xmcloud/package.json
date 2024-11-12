@@ -3,6 +3,6 @@
     "@sitecore/components": "~2.0.0",
     "@sitecore-cloudsdk/core": "^0.4.0",
     "@sitecore-cloudsdk/events": "^0.4.0",
-    "@sitecore-feaas/clientside": "^0.5.17"
+    "@sitecore-feaas/clientside": "^0.5.19"
   }
 }
