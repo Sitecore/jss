@@ -313,7 +313,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
 
 ___
 
@@ -365,7 +365,7 @@ Injection token for the Sitecore Edge configuration.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/shared.token.ts:14](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/services/shared.token.ts#L14)
+[packages/sitecore-jss-angular/src/services/shared.token.ts:14](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/services/shared.token.ts#L14)
 
 ___
 
@@ -639,7 +639,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
