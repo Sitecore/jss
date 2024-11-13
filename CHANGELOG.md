@@ -95,7 +95,15 @@ Our versioning strategy is as follows:
 ## 22.2.1
 
 ### 🐛 Bug Fixes
-* [BYOC] Form's submission is failing. Updated @sitecore-feaas/clientside to v0.5.19. Passed rendering data to FEAAS.ExternalComponent. Updated @sitecore-cloudsdk to v0.4.1. ([#1966](https://github.com/Sitecore/jss/pull/1966))
+
+* `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` [BYOC] Form's submission is failing ([#1966](https://github.com/Sitecore/jss/pull/1966)):
+  * Updated @sitecore-feaas/clientside to v0.5.19.
+  * Updated @sitecore/components to v2.0.1.
+  * Passed rendering data to FEAAS.ExternalComponent.
+
+  Make sure to update the relevant dependencies to be able to use the latest fixes.
+
+* `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` Updated @sitecore-cloudsdk to v0.4.1 ([#1966](https://github.com/Sitecore/jss/pull/1966))
 
 ## 22.2.0
 
