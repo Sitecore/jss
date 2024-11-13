@@ -58,7 +58,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/router-link.directive.ts:28](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L28)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:28](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L28)
 
 ## Properties
 
@@ -76,7 +76,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/router-link.directive.ts:17](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L17)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:17](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L17)
 
 ___
 
@@ -92,7 +92,7 @@ Default component to render in Pages in Metadata edit mode if field value is emp
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:33](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/link.directive.ts#L33)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:33](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/link.directive.ts#L33)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/router-link.directive.ts:15](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L15)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:15](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L15)
 
 ___
 
@@ -122,7 +122,7 @@ Custom template to render in Pages in Metadata edit mode if field value is empty
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/router-link.directive.ts:24](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L24)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:24](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L24)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/router-link.directive.ts:19](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L19)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:19](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L19)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:40](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/link.directive.ts#L40)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:40](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/link.directive.ts#L40)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/router-link.directive.ts:33](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L33)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:33](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L33)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:39](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/link.directive.ts#L39)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:39](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/link.directive.ts#L39)
 
 ___
 
@@ -188,7 +188,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
 
 ___
 
@@ -202,7 +202,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
 
 ## Methods
 
@@ -226,7 +226,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:47](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/link.directive.ts#L47)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:47](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/link.directive.ts#L47)
 
 ___
 
@@ -246,7 +246,7 @@ Renders the empty field markup which is required by Pages in editMode 'metadata'
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
 
 ___
 
@@ -272,7 +272,7 @@ Renders a metadata chrome marker for the field. Required by Pages in editMode 'm
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
 
 ___
 
@@ -297,7 +297,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/router-link.directive.ts:38](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L38)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:38](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L38)
 
 ___
 
@@ -320,7 +320,7 @@ The right side of the expression was added to preserve existing functionality
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:102](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/link.directive.ts#L102)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:102](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/link.directive.ts#L102)
 
 ___
 
@@ -346,4 +346,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:73](https://github.com/Sitecore/jss/blob/3ea859f70/packages/sitecore-jss-angular/src/components/link.directive.ts#L73)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:73](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-angular/src/components/link.directive.ts#L73)
