@@ -1,6 +1,6 @@
 {
   "name": "create-sitecore-jss",
-  "version": "22.2.1-canary.4",
+  "version": "22.2.1",
   "description": "Sitecore JSS initializer",
   "bin": "./dist/index.js",
   "scripts": {
