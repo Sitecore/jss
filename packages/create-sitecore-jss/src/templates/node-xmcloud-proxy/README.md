@@ -42,8 +42,8 @@ The config.ts file in this proxy app handles essential configurations for server
    * Contains options to control personalization features, including:
       - Timeouts for Edge and CDP endpoints (default 400ms, configurable via environment variables).
       - Scope and site name used for Sitecore Personalize.
-      - Enable/Disable Controls: Functions to manage personalization based on environment (e.g., disabled in development mode) and consent      management solutions.
-      - Language Configuration: defaultLanguage serves as a fallback if language data is unavailable.
+      - Enable/Disable Switch: Functions that allow you to conditionally disable personalization based on the environment (e.g., disabled in development mode) and cookie consent policy.
+      - Language Configuration: defaultLanguage serves as a fallback if language data is unavailable in layout data.
 
 This configuration is designed to be flexible and secure, with dynamic settings managed via environment variables where appropriate.
 
@@ -74,35 +74,43 @@ You should be able to see the following message:
 
 ## Deploy to Netlify
 
-1. All of the netlify configuration is in `netlify.toml`
-2. proxy/package.json has extra commands, they ensure build and install steps would work:
+`NOTE: If you are using the Angular starter from the XM-Cloud-Foundation repository within a monorepo, please skip to Step 4.`
 
-```
-    "build-all": "cd ../angular && npm run build && cd ../proxy && tsc",
-    "install-all": "cd ../angular && npm i && cd ../proxy"
-```
-3. <%- appName %>/package.json has its own commands that would be used by netlify:
-```
-    "build": "cd ./proxy && npm run build-all && cd ..",
-    "install": "cd ./proxy && npm run install-all && cd ..",
-    "deploy-netlify": "netlify build && netlify deploy --prod"
-```
-4. To ensure that static assets are accessed properly we may need to add redirects statement for them to the toml file: 
-```
-  [[redirects]]
-  from = "/dist/browser/*"
-  status = 200
-  to = "/browser/:splat"
-```
-5. To ensure that static files under /dist are not accessible via browser add `force=true`
-```
-  [[redirects]]
-  from = "/*"
-  status = 200
-  to = "/.netlify/functions/index/:splat"
-  force = true
-```
-6. Create your netlify deployment: [A Step-by-Step Guide: Deploying on Netlify | Netlify](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)
-7. Set up environment variables.
-8. Set up your build settings in Build and Deploy tab.
-9. If proxy/dist folder is not picked up properly by Netlify make sure to add env variable in the netlify site where path is unix style path e.g. `../proxy/dist`
+1. Ensure that your Netlify configuration is specified in `netlify.toml`. If this file does not exist, create it and add the following configuration:
+   - Following functions lets the proxy app to treated as netlify functions. [Functions Overview](https://docs.netlify.com/functions/overview/)
+      ```
+         [functions]
+         directory = "proxy/src"
+         node_bundler = "esbuild"
+         included_files = ["proxy/dist/**"]
+      ```
+   - To ensure that static assets are accessed properly we may need to add redirects statement for them to the toml file:
+      ```
+         [[redirects]]
+         from = "/dist/browser/*"
+         status = 200
+         to = "/browser/:splat"
+      ```
+   - To ensure that static files under /dist are not accessible via browser add `force=true`
+      ```
+         [[redirects]]
+         from = "/*"
+         status = 200
+         to = "/.netlify/functions/index/:splat"
+         force = true
+      ```
+2. Run `npm init` in the root directory and add the following scripts to package.json:
+      ```
+         "build": "cd ./proxy && npm run build-all && cd ..",
+         "install": "cd ./proxy && npm run install-all && cd ..",
+      ```
+3. Ensure that proxy/package.json includes the following commands to handle the build and install steps properly::
+
+      ```
+         "build-all": "cd ../angular && npm run build && cd ../proxy && tsc",
+         "install-all": "cd ../angular && npm i && cd ../proxy"
+      ```
+4. Create your netlify deployment: [A Step-by-Step Guide: Deploying on Netlify | Netlify](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)
+5. Set up environment variables.
+6. Set up your build settings in Build and Deploy tab.
+7. If proxy/dist folder is not picked up properly by Netlify make sure to add env variable in the netlify site where path is unix style path e.g. `../proxy/dist`
