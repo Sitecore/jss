@@ -75,6 +75,7 @@ Our versioning strategy is as follows:
 * `[angular-xmcloud]``[sitecore-jss-angular]` Analytics and CloudSDK integration
   * `[angular-xmcloud]` Add CloudSDK initialization on client side ([#1952](https://github.com/Sitecore/jss/pull/1952))([#1957](https://github.com/Sitecore/jss/pull/1957))([#1961](https://github.com/Sitecore/jss/pull/1961))
   * `[angular-xmcloud]``[sitecore-jss-angular]` Add CDP Page View component to Angular XM Cloud add-on ([#1957](https://github.com/Sitecore/jss/pull/1957))
+* `[templates/vue]``[sitecore-jss-vue]` Vue version has been updated to 3.5
 
 
 ### 🛠 Breaking Change
