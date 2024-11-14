@@ -76,7 +76,7 @@ You should be able to see the following message:
 
 `NOTE: If you are using the Angular starter from the XM-Cloud-Foundation repository within a monorepo, please skip to Step 4.`
 
-1. Ensure that your Netlify configuration is specified in `netlify.toml`. If this file does not exist, create it and add the following configuration:
+1. Ensure that your Netlify configuration is specified in `netlify.toml`. If this file does not exist, create it at the root and add the following configuration:
    - Following functions lets the proxy app to treated as netlify functions. [Functions Overview](https://docs.netlify.com/functions/overview/)
       ```
          [functions]
@@ -91,11 +91,10 @@ You should be able to see the following message:
          status = 200
          to = "/browser/:splat"
       ```
-   - To ensure that static files under /dist are not accessible via browser add `force=true`
+   - To ensure that static files under /dist are not accessible via browser add `force=true` to the above
       ```
          [[redirects]]
-         from = "/*"
-         status = 200
+         ...
          to = "/.netlify/functions/index/:splat"
          force = true
       ```
@@ -105,7 +104,6 @@ You should be able to see the following message:
          "install": "cd ./proxy && npm run install-all && cd ..",
       ```
 3. Ensure that proxy/package.json includes the following commands to handle the build and install steps properly::
-
       ```
          "build-all": "cd ../angular && npm run build && cd ../proxy && tsc",
          "install-all": "cd ../angular && npm i && cd ../proxy"

@@ -6,13 +6,13 @@
 
 This Single Page Application (SPA) built with Angular is designed to be fully compatible with XM Cloud, incorporating several key add-ons and features to streamline the development process and enable seamless integration. The supported key features are as follows:
 
-- Context ID: The Context ID environment variable simplifies setting up and configuring XM Cloud solutions. It's a unified identifier that maps to all your configured resources, such as content, sites, files, forms, and integration settings.
+- `Context ID`: The Context ID environment variable simplifies setting up and configuring XM Cloud solutions. It's a unified identifier that maps to all your configured resources, such as content, sites, files, forms, and integration settings.
 
-- Pages new editing integration via HTTP render engine endpoint: Before JSS 22.1, JSS Next.js apps integrated with Sitecore editors through chromes, where data was sent via a POST request. With the 22.1 release, a new metadata method was introduced, rendering the app inside an iframe in XM Cloud Pages, offering benefits like faster load times, simpler configuration, and direct local host connections without tunneling.
+- `Pages new editing integration via HTTP render engine endpoint`: Before JSS 22.1, JSS Next.js apps integrated with Sitecore editors through chromes, where data was sent via a POST request. With the 22.1 release, a new metadata method was introduced, rendering the app inside an iframe in XM Cloud Pages, offering benefits like faster load times, simpler configuration, and direct local host connections without tunneling.
 
-- XMCloud proxy personalization with embedded personalization and A/B component test support.
+- `XM Cloud proxy personalization` with embedded personalization and A/B Component Test support.
 
-- Forms support: provides the capability to consume and post Sitecore Forms from JSS apps. Sitecore Forms is a form-authoring framework that enables marketers to author their own forms, collect data, and analyze form performance.
+- `Forms support`: provides the capability to consume and post Sitecore Forms from JSS apps. Sitecore Forms is a form-authoring framework that enables marketers to author their own forms, collect data, and analyze form performance.
 
 This SPA is tailored to enhance development workflows and enable full utilization of XM Cloud’s capabilities, providing a seamless and efficient foundation for developers.
 
@@ -20,9 +20,9 @@ This SPA is tailored to enhance development workflows and enable full utilizatio
 
 The following components and supporting applications have been added to the Angular base app to ensure compatibility with XM Cloud:
 
-- `XMCloud Angular`: Adds support for the Sitecore Context data, which simplifies connecting the application to XM Cloud and configuring the integration of multiple composable Sitecore products. Angular app provides components and can be used during development. Once the app is built and its build artifacts are copied into the proxy, the proxy app can be used to connect to an XMCloud instance and render its content (including personalization etc).
+- `XM Cloud Angular`: Adds support for the Sitecore Context data, which simplifies connecting the application to XM Cloud and configuring the integration of multiple composable Sitecore products. Angular app provides components and can be used during development. Once the app is built and its build artifacts are copied into the proxy, the proxy app can be used to connect to an XMCloud instance and render its content (including personalization etc).
 
-- `XMCloud Proxy`: Adds integration with XMCloud for the JSS SPA applications and enables editing, personalization and A/B component testing support.
+- `XM Cloud Proxy`: Adds integration with XMCloud for the JSS SPA applications and enables editing, personalization and A/B component testing support.
 
 ## Environment Variables
 
