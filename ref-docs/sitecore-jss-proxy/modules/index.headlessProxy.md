@@ -37,7 +37,7 @@
 
 #### Defined in
 
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:579](https://github.com/Sitecore/jss/blob/ff173d88b/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L579)
+[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:579](https://github.com/Sitecore/jss/blob/61a0c5a54/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L579)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:23](https://github.com/Sitecore/jss/blob/ff173d88b/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L23)
+[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:23](https://github.com/Sitecore/jss/blob/61a0c5a54/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L23)
 
 ___
 
@@ -80,4 +80,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:349](https://github.com/Sitecore/jss/blob/ff173d88b/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L349)
+[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:349](https://github.com/Sitecore/jss/blob/61a0c5a54/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L349)
