@@ -126,7 +126,7 @@ export const editingRenderMiddleware = (config: EditingRenderEndpointOptions) =>
  * @returns {string} Content-Security-Policy header value
  */
 export const getSCPHeader = () => {
-  return `frame-ancestors 'self' ${[getAllowedOriginsFromEnv(), ...EDITING_ALLOWED_ORIGINS].join(
+  return `frame-ancestors 'self' ${[...getAllowedOriginsFromEnv(), ...EDITING_ALLOWED_ORIGINS].join(
     ' '
   )}`;
 };
