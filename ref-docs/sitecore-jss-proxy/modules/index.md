@@ -71,7 +71,7 @@ AppRenderer is a function that renders a JSS app's markup for a given route and 
 
 #### Defined in
 
-[sitecore-jss-proxy/src/types/AppRenderer.ts:26](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L26)
+[sitecore-jss-proxy/src/types/AppRenderer.ts:26](https://github.com/Sitecore/jss/blob/ff173d88b/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L26)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-proxy/src/types/RouteUrlParser.ts:1](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-proxy/src/types/RouteUrlParser.ts#L1)
+[sitecore-jss-proxy/src/types/RouteUrlParser.ts:1](https://github.com/Sitecore/jss/blob/ff173d88b/packages/sitecore-jss-proxy/src/types/RouteUrlParser.ts#L1)
 
 ## Variables
 
@@ -138,7 +138,7 @@ Editing router
 
 #### Defined in
 
-[sitecore-jss-proxy/src/middleware/editing/index.ts:97](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-proxy/src/middleware/editing/index.ts#L97)
+[sitecore-jss-proxy/src/middleware/editing/index.ts:97](https://github.com/Sitecore/jss/blob/ff173d88b/packages/sitecore-jss-proxy/src/middleware/editing/index.ts#L97)
 
 ___
 
@@ -156,4 +156,4 @@ Editing router
 
 #### Defined in
 
-[sitecore-jss-proxy/src/middleware/healthcheck/index.ts:7](https://github.com/Sitecore/jss/blob/dc1481418/packages/sitecore-jss-proxy/src/middleware/healthcheck/index.ts#L7)
+[sitecore-jss-proxy/src/middleware/healthcheck/index.ts:7](https://github.com/Sitecore/jss/blob/ff173d88b/packages/sitecore-jss-proxy/src/middleware/healthcheck/index.ts#L7)
