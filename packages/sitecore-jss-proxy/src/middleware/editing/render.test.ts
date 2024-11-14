@@ -4,6 +4,7 @@ import sinon from 'sinon';
 import express from 'express';
 import request from 'supertest';
 import { editingRouter, EditingRouterConfig } from './index';
+import { getPersonalizeLayoutData } from '../../personalize/test-data/personalizeData';
 import { debug, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 import {
   GraphQLEditingService,
@@ -321,6 +322,49 @@ describe('editingRouter - /editing/render', () => {
         expect(fetchEditingDataStub.calledOnceWith(fetchEditingDataArgs)).to.be.true;
         expect(
           renderView.calledOnceWith(sinon.match.func, '/', layoutData, {
+            dictionary,
+          })
+        ).to.be.true;
+      })
+      .end(done);
+  });
+
+  it('should response 200 status code when layout is personalized and renderView returns result', (done) => {
+    const layoutData = getPersonalizeLayoutData('default');
+    const dictionary = {};
+    const personalizeQs = {
+      ...validQS,
+      sc_variant: 'mountain-bike-audience',
+    };
+    fetchEditingDataStub.resolves({
+      layoutData,
+      dictionary,
+    });
+
+    renderView.callsFake((callback) => callback(null, { html: '<div>Hello World</div>' }));
+
+    app.use(
+      '/api/editing',
+      editingRouter({
+        ...defaultOptions,
+        render: {
+          ...defaultOptions.render,
+          renderView,
+        },
+      })
+    );
+
+    const personalizedLayoutData = getPersonalizeLayoutData('mountain-bike-audience');
+
+    request(app)
+      .get('/api/editing/render')
+      .query(personalizeQs)
+      .expect(200, '<div>Hello World</div>')
+      .expect('Content-Security-Policy', `${getSCPHeader()}`)
+      .expect(() => {
+        expect(fetchEditingDataStub.calledOnceWith(fetchEditingDataArgs)).to.be.true;
+        expect(
+          renderView.calledOnceWith(sinon.match.func, '/', personalizedLayoutData, {
             dictionary,
           })
         ).to.be.true;
