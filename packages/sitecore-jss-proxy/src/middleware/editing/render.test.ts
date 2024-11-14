@@ -423,7 +423,8 @@ describe('getSCPHeader', () => {
 
   it('should return tha value of the CSP header', () => {
     process.env.JSS_ALLOWED_ORIGINS = 'https://pages-dev.sitecore-staging.cloud';
-    const expectedHeader = `frame-ancestors 'self' https://pages-dev.sitecore-staging.cloud https://pages.sitecorecloud.io`;
+    const expectedHeader =
+      "frame-ancestors 'self' https://pages-dev.sitecore-staging.cloud https://pages.sitecorecloud.io";
     const actualHeader = getSCPHeader();
     expect(actualHeader).to.equal(expectedHeader);
   });
@@ -431,7 +432,8 @@ describe('getSCPHeader', () => {
   it('should return tha value of the CSP header when multiple origins are listed in JSS_ALLOWED_ORIGINS', () => {
     process.env.JSS_ALLOWED_ORIGINS =
       'https://pages-dev.sitecore-staging.cloud,https://pages-staging.sitecore-staging.cloud';
-    const expectedHeader = `frame-ancestors 'self' https://pages-dev.sitecore-staging.cloud https://pages-staging.sitecore-staging.cloud https://pages.sitecorecloud.io`;
+    const expectedHeader =
+      "frame-ancestors 'self' https://pages-dev.sitecore-staging.cloud https://pages-staging.sitecore-staging.cloud https://pages.sitecorecloud.io";
     const actualHeader = getSCPHeader();
     expect(actualHeader).to.equal(expectedHeader);
   });
