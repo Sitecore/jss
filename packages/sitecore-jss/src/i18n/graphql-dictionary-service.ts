@@ -14,6 +14,7 @@ import debug from '../debug';
 export const queryError =
   'Valid value for rootItemId not provided and failed to auto-resolve app root item.';
 
+/** @default */
 const query = /* GraphQL */ `
   query DictionarySearch(
     $rootItemId: String!
@@ -175,7 +176,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
    * Fetches dictionary data with search query
    * This is the default behavior for non-XMCloud deployments
    * @param {string} language the language to fetch
-   * @default query (@see query)
+   * @default [query] @see [query]
    * @returns {Promise<DictionaryPhrases>} dictionary phrases
    * @throws {Error} if the app root was not found for the specified site and language.
    */

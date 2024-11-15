@@ -163,6 +163,14 @@ export abstract class BaseGraphQLSitemapService {
   private _graphQLClient: GraphQLClient;
 
   /**
+   * Creates an instance of graphQL sitemap service with the provided options
+   * @param {GraphQLSitemapServiceConfig} options instance
+   */
+  constructor(public options: BaseGraphQLSitemapServiceConfig) {
+    this._graphQLClient = this.getGraphQLClient();
+  }
+
+  /**
    * GraphQL client accessible by descendant classes when needed
    */
   protected get graphQLClient() {
@@ -174,14 +182,6 @@ export abstract class BaseGraphQLSitemapService {
    */
   protected get query(): string {
     return defaultQuery(this.options.includePersonalizedRoutes);
-  }
-
-  /**
-   * Creates an instance of graphQL sitemap service with the provided options
-   * @param {GraphQLSitemapServiceConfig} options instance
-   */
-  constructor(public options: BaseGraphQLSitemapServiceConfig) {
-    this._graphQLClient = this.getGraphQLClient();
   }
 
   /**

@@ -18,11 +18,11 @@ export class FieldMetadataMarkerComponent {
   @Input()
   metadata?: any;
 
-  get metadataString(): string {
-    return this.metadata ? JSON.stringify(this.metadata) : '';
-  }
-
   @HostBinding('attr.kind')
   @Input()
   kind: MetadataKind = MetadataKind.Open;
+
+  get metadataString(): string {
+    return this.metadata ? JSON.stringify(this.metadata) : '';
+  }
 }

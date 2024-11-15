@@ -18,7 +18,7 @@ export interface GraphQLClient {
   /**
    * Execute graphql request
    * @param {string | DocumentNode} query graphql query
-   * @param {Object} [variables] graphql variables
+   * @param {object} [variables] graphql variables
    * @param {RequestOptions} [options] options for configuring a GraphQL request.
    */
   request<T>(
@@ -121,7 +121,7 @@ export class DefaultRetryStrategy implements RetryStrategy {
   private factor: number;
 
   /**
-   * @param {Object} options Configurable options for retry mechanism.
+   * @param {object} options Configurable options for retry mechanism.
    * @param {number[]} [options.statusCodes] HTTP status codes to trigger retries on. Default is [429].
    * @param {string[]} [options.errorCodes] Node error codes to trigger retries. Default is ['ECONNRESET', 'ETIMEDOUT', 'EPROTO'].
    * @param {number} [options.factor] Factor by which the delay increases with each retry attempt. Default is 2.
@@ -203,7 +203,7 @@ export class GraphQLRequestClient implements GraphQLClient {
 
   /**
    * Factory method for creating a GraphQLRequestClientFactory.
-   * @param {Object} config - client configuration options.
+   * @param {object} config - client configuration options.
    * @param {string} config.endpoint - endpoint
    * @param {string} [config.apiKey] - apikey
    */
@@ -218,7 +218,7 @@ export class GraphQLRequestClient implements GraphQLClient {
   /**
    * Execute graphql request
    * @param {string | DocumentNode} query graphql query
-   * @param {Object} [variables] graphql variables
+   * @param {object} [variables] graphql variables
    * @param {RequestOptions} [options] Options for configuring a GraphQL request.
    */
   async request<T>(

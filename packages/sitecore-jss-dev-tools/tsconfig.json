@@ -1,9 +1,10 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "es2020",
+    "target": "es6",
     "module": "commonjs",
     "outDir": "dist/cjs",
+    "types": ["node", "mocha"],
     "typeRoots": ["node_modules/@types"],
     "declarationDir": "./types"
   },
