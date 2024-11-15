@@ -86,7 +86,11 @@ You should be able to see the following message:
       "build-all": "cd ../angular && npm run build && cd ../<your-proxy-app-name> && tsc",
       "install-all": "cd ../angular && npm i && cd ../<your-proxy-app-name>"
    ```
-3. Create a `netlfiy.toml` file if not already created and ensure that the following Netlify configuration is added there:
+3. Add `serverless-http` to the list of dependencies in `<your-proxy-app-name>/package.json` and then add the following variable to your ``<your-proxy-app-name>/src/index.ts` file.
+    ```
+      export const handler = serverless(server);
+    ```
+4. Create a `netlfiy.toml` file if not already created and ensure that the following Netlify configuration is added there:
    - Following functions lets the proxy app to treated as netlify functions. [Functions Overview](https://docs.netlify.com/functions/overview/)
      ```
         [functions]
@@ -115,8 +119,8 @@ You should be able to see the following message:
      command = "npm run build"
      publish = "<your-proxy-app-name>/dist"
      ```
-4. Create your netlify deployment: [A Step-by-Step Guide: Deploying on Netlify | Netlify](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)
-   a. Set up all your necessary environment variables.
+5. Create your netlify deployment: [A Step-by-Step Guide: Deploying on Netlify | Netlify](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)
+   a. Set up all your necessary environment variables like SITECORE_EDGE_CONTEXT_ID, SITECORE_SITE_NAME etc.
    b. Set up your build settings in Site configuration --> Build and Deploy tab.
       sample configuration:
         Base Directory: /
