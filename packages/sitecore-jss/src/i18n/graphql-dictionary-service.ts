@@ -176,7 +176,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
    * Fetches dictionary data with search query
    * This is the default behavior for non-XMCloud deployments
    * @param {string} language the language to fetch
-   * @default [query] @see [query]
+   * @default
    * @returns {Promise<DictionaryPhrases>} dictionary phrases
    * @throws {Error} if the app root was not found for the specified site and language.
    */
@@ -217,7 +217,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
    * Fetches dictionary data with site query
    * This is the default behavior for XMCloud deployments
    * @param {string} language the language to fetch
-   * @default siteQuery (@see siteQuery)
+   * @default
    * @returns {Promise<DictionaryPhrases>} dictionary phrases
    */
   async fetchWithSiteQuery(language: string): Promise<DictionaryPhrases> {

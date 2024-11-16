@@ -43,7 +43,7 @@ export type EditingRenderMiddlewareConfig = {
    *
    * Function used to determine route/page URL to render.
    * This may be necessary for certain custom Next.js routing configurations.
-   * @param {Object} args Arguments for resolving the page URL
+   * @param {object} args Arguments for resolving the page URL
    * @param {string} args.serverUrl The root server URL e.g. 'http://localhost:3000'. Available in Chromes Edit Mode only.
    * @param {string} itemPath The Sitecore relative item path e.g. '/styleguide'
    * @returns {string} The URL to render
@@ -191,7 +191,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
 
   /**
    * Default page URL resolution.
-   * @param {Object} args Arguments for resolving the page URL
+   * @param {object} args Arguments for resolving the page URL
    * @param {string} args.serverUrl The root server URL e.g. 'http://localhost:3000'
    * @param {string} args.itemPath The Sitecore relative item path e.g. '/styleguide'
    * @returns {string} The URL to render
@@ -289,7 +289,7 @@ export type EditingMetadataPreviewData = {
 
 /**
  * Type guard for EditingMetadataPreviewData
- * @param {Object} data preview data to check
+ * @param {object} data preview data to check
  * @returns true if the data is EditingMetadataPreviewData
  * @see EditingMetadataPreviewData
  */

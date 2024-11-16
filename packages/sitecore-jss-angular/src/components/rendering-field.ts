@@ -6,6 +6,7 @@ export interface RenderingField<V = GenericFieldValue> extends FieldMetadata {
   editable?: string;
 }
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface DateField extends RenderingField<string | number | Date> {}
 
 export interface FileFieldValue {
@@ -41,6 +42,8 @@ export interface LinkField extends LinkFieldValue, RenderingField {
   editableLastPart?: string;
 }
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface RichTextField extends RenderingField<string> {}
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface TextField extends RenderingField<string> {}

@@ -38,7 +38,7 @@
     "chai": "^4.3.7",
     "del-cli": "^5.0.0",
     "enzyme": "^3.11.0",
-    "eslint": "^8.28.0",
+    "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.31.11",
     "jsdom": "^20.0.3",
     "mocha": "^10.2.0",

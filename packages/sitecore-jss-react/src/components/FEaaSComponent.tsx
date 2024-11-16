@@ -158,7 +158,6 @@ async function fetchComponentTemplate(
 /**
  * Fetches component data based on the provided data options.
  * This function asynchronously fetches data using the FEAAS.DataSettings.fetch method.
- *
  * @param {FEAAS.DataOptions} dataOptions - Options to customize data fetching.
  * @returns {Promise<FEAAS.DataScopes>} A promise that resolves with the fetched data,
  * or rejects with an error if data fetching encounters an issue.

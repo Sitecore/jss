@@ -28,7 +28,6 @@ export const traverseItems = (items: any[], callback: (item: any, currentPath: s
  * `items` is the root of the tree, eg routes or nonRoutes
  * the callback gets two arguments: the item definition, and the item type
  * ('item', 'rendering', or 'datasource')
- *
  * @param {any[]} items
  * @param {Function} callback
  */
@@ -96,7 +95,6 @@ export function traverseAllItems(items: any[], callback: (item: any, type: strin
 
 /**
  * Traverses every field value in an item array, including all children, datasource items, etc
- *
  * @param {any} items
  * @param {Function} callback
  */
@@ -112,7 +110,6 @@ export function traverseAllFields(items: any, callback: (field: any) => any) {
 
 /**
  * Traverses all rendering instance definitions in an item tree
- *
  * @param {any} items
  * @param {Function} callback
  */

@@ -11,7 +11,7 @@ import { IncomingHttpHeaders } from 'http';
 export abstract class RenderMiddlewareBase {
   /**
    * Gets query parameters that should be passed along to subsequent requests (e.g. for deployment protection bypass)
-   * @param {Object} query Object of query parameters from incoming URL
+   * @param {object} query Object of query parameters from incoming URL
    * @returns Object of approved query parameters
    */
   protected getQueryParamsForPropagation = (

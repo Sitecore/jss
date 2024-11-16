@@ -46,7 +46,7 @@
     "@types/webpack-dev-server": "3.1.7",
     "chai": "^4.3.0",
     "del-cli": "^5.0.0",
-    "eslint": "^8.33.0",
+    "eslint": "^8.56.0",
     "eslint-plugin-jsdoc": "48.7.0",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",

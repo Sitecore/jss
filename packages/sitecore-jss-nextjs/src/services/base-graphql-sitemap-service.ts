@@ -87,7 +87,8 @@ interface SiteRouteQueryVariables {
    */
   excludedPaths?: string[];
 
-  /** common variable for all GraphQL queries
+  /**
+   * common variable for all GraphQL queries
    * it will be used for every type of query to regulate result batch size
    * Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
    * @default 100

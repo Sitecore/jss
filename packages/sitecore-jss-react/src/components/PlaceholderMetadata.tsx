@@ -27,7 +27,6 @@ export type CodeBlockAttributes = {
  * A React component to generate metadata blocks for a placeholder or rendering.
  * It utilizes dynamic attributes based on whether the component acts as a placeholder
  * or as a rendering to properly render the surrounding code blocks.
- *
  * @param {object} props The properties passed to the component.
  * @param {ComponentRendering} props.rendering The rendering data.
  * @param {string} [props.placeholderName] The name of the placeholder.

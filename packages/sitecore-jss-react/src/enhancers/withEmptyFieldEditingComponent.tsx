@@ -8,7 +8,7 @@ import {
 
 /**
  * The HOC options
- * */
+ */
 export interface WithEmptyFieldEditingComponentOptions {
   /**
    * the default empty field component

@@ -51,7 +51,7 @@ export const getRequiredParams = (qs: { [key: string]: string | undefined }) => 
  * Replace `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
  * Can use `mediaUrlPrefix` in order to use a custom prefix.
  * @param {string} url The URL to replace the media URL prefix in
- * @param {RegExp} [mediaUrlPrefix={mediaUrlPrefixRegex}] The regex to match the media URL prefix
+ * @param {RegExp} [mediaUrlPrefix] The regex to match the media URL prefix
  * @returns {string} The URL with the media URL prefix replaced
  */
 export const replaceMediaUrlPrefix = (
@@ -77,7 +77,7 @@ export const replaceMediaUrlPrefix = (
  * If no `params` are sent, the original media URL is returned.
  * @param {string} url The URL to prepare
  * @param {object} [params] The querystring parameters to use
- * @param {RegExp} [mediaUrlPrefix=mediaUrlPrefixRegex] The regex to match the media URL prefix
+ * @param {RegExp} [mediaUrlPrefix] The regex to match the media URL prefix
  * @returns {string} The prepared URL
  */
 export const updateImageUrl = (
@@ -119,7 +119,6 @@ export const updateImageUrl = (
  * // returns '/ipsum.jpg?h=1000&w=1000 1000w, /ipsum.jpg?mh=250&mw=250 250w'
  * getSrcSet('/ipsum.jpg', [{ h: 1000, w: 1000 }, { mh: 250, mw: 250 } ])
  * More information about `srcSet`: {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img}
- *
  * @param {string} url The URL to prepare
  * @param {Array} srcSet The array of parameters to use
  * @param {object} [imageParams] The querystring parameters to use
