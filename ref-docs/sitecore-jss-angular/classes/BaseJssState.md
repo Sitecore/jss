@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:6](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L6)
+[packages/sitecore-jss-angular/src/services/jss-state.service.ts:6](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L6)
 
 ___
 
@@ -41,4 +41,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:9](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L9)
+[packages/sitecore-jss-angular/src/services/jss-state.service.ts:9](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L9)

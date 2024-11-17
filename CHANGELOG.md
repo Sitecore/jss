@@ -39,7 +39,7 @@ Our versioning strategy is as follows:
   * `proxyAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
 * `[templates/angular]` `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/editing/config endpoint ([#1903](https://github.com/Sitecore/jss/pull/1903))
 * `[templates/angular]` `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/editing/render endpoint ([#1908](https://github.com/Sitecore/jss/pull/1908))
-* `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` Personalization support ([#1964](https://github.com/Sitecore/jss/pull/1964))
+* `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` Personalization support ([#1964](https://github.com/Sitecore/jss/pull/1964)[#1971](https://github.com/Sitecore/jss/pull/1971))
 * `[create-sitecore-jss]``[sitecore-jss-angular]``[template/angular-xmcloud]` Angular SXA components
   * Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))
   * Component styles ([#1917](https://github.com/Sitecore/jss/pull/1917))
@@ -75,6 +75,7 @@ Our versioning strategy is as follows:
 * `[angular-xmcloud]``[sitecore-jss-angular]` Analytics and CloudSDK integration
   * `[angular-xmcloud]` Add CloudSDK initialization on client side ([#1952](https://github.com/Sitecore/jss/pull/1952))([#1957](https://github.com/Sitecore/jss/pull/1957))([#1961](https://github.com/Sitecore/jss/pull/1961))
   * `[angular-xmcloud]``[sitecore-jss-angular]` Add CDP Page View component to Angular XM Cloud add-on ([#1957](https://github.com/Sitecore/jss/pull/1957))
+* `[templates/vue]``[sitecore-jss-vue]` Vue version has been updated to 3.5
 
 
 ### 🛠 Breaking Change
@@ -90,11 +91,20 @@ Our versioning strategy is as follows:
 
 * `[templates/angular]``[templates/node-xmcloud-proxy]``[templates/node-headless-ssr-proxy]``[templates/node-headless-ssr-experience-edge]` Adjust out of box .gitignore rules
 * New Angular add-on's are not scaffolded within build pipeline ([#1962](https://github.com/Sitecore/jss/pull/1962))
+* `[template/angular-xmcloud]``[template/xmcloud-proxy]` Add README.md ([#1965](https://github.com/Sitecore/jss/pull/1965))
 
 ## 22.2.1
 
 ### 🐛 Bug Fixes
-* [BYOC] Form's submission is failing. Updated @sitecore-feaas/clientside to v0.5.19. Passed rendering data to FEAAS.ExternalComponent. Updated @sitecore-cloudsdk to v0.4.1. ([#1966](https://github.com/Sitecore/jss/pull/1966))
+
+* `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` [BYOC] Form's submission is failing ([#1966](https://github.com/Sitecore/jss/pull/1966)):
+  * Updated @sitecore-feaas/clientside to v0.5.19.
+  * Updated @sitecore/components to v2.0.1.
+  * Passed rendering data to FEAAS.ExternalComponent.
+
+  Make sure to update the relevant dependencies to be able to use the latest fixes.
+
+* `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` Updated @sitecore-cloudsdk to v0.4.1 ([#1966](https://github.com/Sitecore/jss/pull/1966))
 
 ## 22.2.0
 

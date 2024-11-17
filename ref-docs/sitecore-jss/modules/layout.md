@@ -84,7 +84,7 @@ Data fetcher resolver in order to provide custom data fetcher
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
 
 ___
 
@@ -96,7 +96,7 @@ Field value data on a component
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:121](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss/src/layout/models.ts#L121)
+[packages/sitecore-jss/src/layout/models.ts:121](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss/src/layout/models.ts#L121)
 
 ___
 
@@ -115,7 +115,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:76](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss/src/layout/models.ts#L76)
+[packages/sitecore-jss/src/layout/models.ts:76](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss/src/layout/models.ts#L76)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
 
 ## Variables
 
@@ -149,7 +149,7 @@ This value is defined as a default one by .NET
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:102](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss/src/layout/utils.ts#L102)
+[packages/sitecore-jss/src/layout/utils.ts:102](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss/src/layout/utils.ts#L102)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/graphql-layout-service.ts:10](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L10)
+[packages/sitecore-jss/src/layout/graphql-layout-service.ts:10](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L10)
 
 ## Functions
 
@@ -184,7 +184,7 @@ child placeholder
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:66](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss/src/layout/utils.ts#L66)
+[packages/sitecore-jss/src/layout/utils.ts:66](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss/src/layout/utils.ts#L66)
 
 ___
 
@@ -210,7 +210,7 @@ library stylesheet links
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/themes.ts:24](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss/src/layout/themes.ts#L24)
+[packages/sitecore-jss/src/layout/themes.ts:24](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss/src/layout/themes.ts#L24)
 
 ___
 
@@ -236,7 +236,7 @@ content styles link, null if no styles are used in layout
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss/src/layout/content-styles.ts#L26)
+[packages/sitecore-jss/src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss/src/layout/content-styles.ts#L26)
 
 ___
 
@@ -260,7 +260,7 @@ Regular expression pattern for the dynamic segment
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:87](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss/src/layout/utils.ts#L87)
+[packages/sitecore-jss/src/layout/utils.ts:87](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss/src/layout/utils.ts#L87)
 
 ___
 
@@ -292,7 +292,7 @@ the field value or null if the field is not defined
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:16](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss/src/layout/utils.ts#L16)
+[packages/sitecore-jss/src/layout/utils.ts:16](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss/src/layout/utils.ts#L16)
 
 ▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -318,7 +318,7 @@ the field value or the default value if the field is not defined
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:21](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss/src/layout/utils.ts#L21)
+[packages/sitecore-jss/src/layout/utils.ts:21](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss/src/layout/utils.ts#L21)
 
 ___
 
@@ -342,7 +342,7 @@ True if the placeholder name is dynamic
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:96](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss/src/layout/utils.ts#L96)
+[packages/sitecore-jss/src/layout/utils.ts:96](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss/src/layout/utils.ts#L96)
 
 ___
 
@@ -364,4 +364,4 @@ Determines if the passed in field object's value is empty.
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:109](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss/src/layout/utils.ts#L109)
+[packages/sitecore-jss/src/layout/utils.ts:109](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss/src/layout/utils.ts#L109)
