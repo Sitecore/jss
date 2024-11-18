@@ -17,6 +17,7 @@ export interface ServerBundle {
   getClientFactoryConfig: () => GraphQLRequestClientFactoryConfig;
   defaultLanguage: string;
   sitecoreSiteName: string;
+  personalizeScope?: string;
   layoutServiceFactory: { create: () => LayoutService };
   dictionaryServiceFactory: { create: () => DictionaryService };
   components: string[] | Map<string, unknown>;
