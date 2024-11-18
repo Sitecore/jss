@@ -57,6 +57,9 @@ const mockResponse = () => {
   res.status = spy(() => {
     return res;
   });
+  res.send = spy(() => {
+    return res;
+  });
   res.json = spy(() => {
     return res;
   });
@@ -105,7 +108,7 @@ describe('EditingRenderMiddleware', () => {
     delete process.env.JSS_ALLOWED_ORIGINS;
   });
 
-  it('should respondWith 405 for unsupported method', async () => {
+  it('should respond with 405 for unsupported method', async () => {
     const query = {} as Query;
     query[QUERY_PARAM_EDITING_SECRET] = secret;
     const req = mockRequest(EE_BODY, query, 'PUT');
@@ -120,6 +123,33 @@ describe('EditingRenderMiddleware', () => {
     expect(res.status).to.have.been.calledOnce;
     expect(res.status).to.have.been.calledWith(405);
     expect(res.json).to.have.been.calledOnce;
+  });
+
+  it('should respond with 204 for OPTIONS method', async () => {
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const req = mockRequest(EE_BODY, query, 'OPTIONS');
+    const res = mockResponse();
+
+    const middleware = new EditingRenderMiddleware();
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(res.status).to.have.been.calledOnceWith(204);
+    expect(res.setHeader.getCall(0).args).to.deep.equal([
+      'Access-Control-Allow-Origin',
+      allowedOrigin,
+    ]);
+    expect(res.setHeader.getCall(1).args).to.deep.equal([
+      'Access-Control-Allow-Methods',
+      'GET, POST, OPTIONS, DELETE, PUT, PATCH',
+    ]);
+    expect(res.setHeader.getCall(2).args).to.deep.equal([
+      'Access-Control-Allow-Headers',
+      'Content-Type, Authorization',
+    ]);
+    expect(res.send).to.have.been.calledOnceWith(null);
   });
 
   it('should respond with 401 for invalid secret', async () => {
