@@ -37,6 +37,7 @@ describe('editingRouter', () => {
     app = express();
 
     process.env.JSS_EDITING_SECRET = 'correct';
+    process.env.JSS_ALLOWED_ORIGINS = 'http://allowed.com';
   });
 
   afterEach(() => {
@@ -91,5 +92,18 @@ describe('editingRouter', () => {
         'Invalid request method or path GET /api/editing/fake-config?secret=correct',
         done
       );
+  });
+
+  it('should response 204 when preflight OPTIONS request is sent', (done) => {
+    app.use('/api/editing', editingRouter(defaultOptions));
+
+    request(app)
+      .options('/api/editing/config')
+      .query({ secret: 'correct' })
+      .set('origin', 'http://allowed.com')
+      .expect(204, '', done)
+      .expect('Access-Control-Allow-Origin', 'http://allowed.com')
+      .expect('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE, PUT, PATCH')
+      .expect('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   });
 });

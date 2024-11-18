@@ -23,6 +23,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-angular]` Fix nested dynamic placeholders not being displayed in Pages ([#1947](https://github.com/Sitecore/jss/pull/1947))
 * `[sitecore-jss-dev-tools]` getMetadata() now uses `npm query` command to get the list and exact versions of packages. this solution works for monorepo setups ([#1949](https://github.com/Sitecore/jss/pull/1949))
 * `[templates/nextjs-sxa]` Fix an alignment issue where components using both `me-auto` and `ms-md-auto` classes resulted in inconsistent alignment of elements. ([#1946](https://github.com/Sitecore/jss/pull/1946)) ([#1950](https://github.com/Sitecore/jss/pull/1950)) ([#1955](https://github.com/Sitecore/jss/pull/1955))
+* `[sitecore-jss-proxy]` Support Editing Host protection by handling OPTIONS preflight requests ([#1976](https://github.com/Sitecore/jss/pull/1976))
 
 ### 🎉 New Features & Improvements
 
@@ -92,6 +93,12 @@ Our versioning strategy is as follows:
 * `[templates/angular]``[templates/node-xmcloud-proxy]``[templates/node-headless-ssr-proxy]``[templates/node-headless-ssr-experience-edge]` Adjust out of box .gitignore rules
 * New Angular add-on's are not scaffolded within build pipeline ([#1962](https://github.com/Sitecore/jss/pull/1962))
 * `[template/angular-xmcloud]``[template/xmcloud-proxy]` Add README.md ([#1965](https://github.com/Sitecore/jss/pull/1965))
+
+## 22.2.2
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Support Editing Host protection by handling OPTIONS preflight requests (#[TBD](TBD))
 
 ## 22.2.1
 

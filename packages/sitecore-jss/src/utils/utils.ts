@@ -114,6 +114,7 @@ export const getAllowedOriginsFromEnv = () =>
  * set in JSS's JSS_ALLOWED_ORIGINS env variable, passed via allowedOrigins param and/or
  * be already set in Access-Control-Allow-Origin by other logic.
  * Applies Access-Control-Allow-Origin and Access-Control-Allow-Methods on match
+ * Also applies Access-Control-Allow-Headers for preflight requests
  * @param {IncomingMessage} req incoming request
  * @param {OutgoingMessage} res response to set CORS headers for
  * @param {string[]} [allowedOrigins] additional list of origins to test against
@@ -149,6 +150,12 @@ export const enforceCors = (
   ) {
     res.setHeader('Access-Control-Allow-Origin', origin);
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE, PUT, PATCH');
+
+    // set the allowed headers for preflight requests
+    if (req.method === 'OPTIONS') {
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    }
+
     return true;
   }
   return false;
