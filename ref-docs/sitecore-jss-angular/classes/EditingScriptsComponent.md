@@ -41,7 +41,7 @@ Only renders scripts when Metadata mode is used.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:17](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L17)
+[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:17](https://github.com/Sitecore/jss/blob/02c4c7d88/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L17)
 
 ## Properties
 
@@ -51,7 +51,7 @@ Only renders scripts when Metadata mode is used.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:20](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L20)
+[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:20](https://github.com/Sitecore/jss/blob/02c4c7d88/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L20)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:18](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L18)
+[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:18](https://github.com/Sitecore/jss/blob/02c4c7d88/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L18)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:19](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L19)
+[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:19](https://github.com/Sitecore/jss/blob/02c4c7d88/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L19)
 
 ## Methods
 
@@ -89,4 +89,4 @@ OnInit.ngOnInit
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:23](https://github.com/Sitecore/jss/blob/ff6900fa4/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L23)
+[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:23](https://github.com/Sitecore/jss/blob/02c4c7d88/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L23)
