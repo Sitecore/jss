@@ -55,7 +55,6 @@ class PersonalizePlugin implements MiddlewarePlugin {
   }
 
   async exec(req: NextRequest, res?: NextResponse): Promise<NextResponse> {
-    // @ts-expect-error A 'Property '[INTERNALS]' is missing' error can occur in monorepo setups with peerDeps.
     return this.personalizeMiddleware.getHandler()(req, res);
   }
 }

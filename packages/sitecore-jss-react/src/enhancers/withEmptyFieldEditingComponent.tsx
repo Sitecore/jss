@@ -55,12 +55,14 @@ export function withEmptyFieldEditingComponent<
 
   if (options.isForwardRef) {
     // eslint-disable-next-line react/display-name
-    return forwardRef((props: FieldComponentProps, ref: React.ForwardedRef<RefElementType>) => {
-      const EmptyFieldEditingComponent = getEmptyFieldEditingComponent(props);
+    return forwardRef<RefElementType, FieldComponentProps>((props, ref) => {
+      const EmptyFieldEditingComponent = getEmptyFieldEditingComponent(
+        props as FieldComponentProps
+      );
       return (
         <>
           {(EmptyFieldEditingComponent && <EmptyFieldEditingComponent />) || (
-            <FieldComponent {...props} ref={ref} />
+            <FieldComponent {...(props as FieldComponentProps)} ref={ref} />
           )}
         </>
       );
