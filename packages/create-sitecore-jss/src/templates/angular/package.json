@@ -108,7 +108,7 @@
     "karma-jasmine": "~4.0.1",
     "karma-jasmine-html-reporter": "~1.5.4",
     "move-cli": "^2.0.0",
-    "npm-run-all2": "^6.0.0",
+    "npm-run-all2": "^7.0.1",
     "protractor": "^7.0.0",
     "ts-node": "~10.9.2",
     "typescript": "~5.2.2"
