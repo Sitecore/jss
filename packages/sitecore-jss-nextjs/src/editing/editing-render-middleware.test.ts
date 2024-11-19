@@ -361,6 +361,22 @@ describe('EditingRenderMiddleware', () => {
         '__next_preview_data=6677889900; Path=/; SameSite=None; Secure',
       ]);
     });
+
+    it('should set allowed origins when multiple allowed origins are provided in env variable', async () => {
+      process.env.JSS_ALLOWED_ORIGINS = 'https://allowed.com,https://anotherallowed.com';
+      const req = mockRequest(EE_BODY, query, 'GET');
+      const res = mockResponse();
+
+      const middleware = new EditingRenderMiddleware();
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(res.setHeader).to.have.been.calledWith(
+        'Content-Security-Policy',
+        `frame-ancestors 'self' https://allowed.com https://anotherallowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
+      );
+    });
   });
 
   describe('chromes handler', () => {
