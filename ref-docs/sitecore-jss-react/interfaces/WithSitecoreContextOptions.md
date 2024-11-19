@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:5](https://github.com/Sitecore/jss/blob/ff09e46a0/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L5)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:5](https://github.com/Sitecore/jss/blob/cf179f5e0/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L5)

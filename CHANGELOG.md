@@ -16,6 +16,14 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Fixed issue with sitecore-jss-nextjs field components using deprecated feature (`.defaultProps`) when using react 18+
 
 
+## 21.8.0
+
+### 🛠 Breaking Changes
+
+`[sitecore-jss-angular]` `[sitecore-jss-schematics]` `[templates/angular]` Upgrade Angular to v17 ([#1939](https://github.com/Sitecore/jss/pull/1939))
+  - Updated Angular and core dependencies to ~17.3.11
+  - Updated Typescript to ~5.2.2
+  - Updated import statements from zone.js/dist/zone-node to zone.js
 
 ## 21.7.1
 
@@ -117,7 +125,6 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` The _GraphQLRequestClient_ import from _@sitecore-jss/sitecore-jss-nextjs_ is deprecated, use import from _@sitecore-jss/sitecore-jss-nextjs/graphql_ submodule instead ([#1650](https://github.com/Sitecore/jss/pull/1650) [#1648](https://github.com/Sitecore/jss/pull/1648))
 * `[create-sitecore-jss]` Introduced `nextjs-xmcloud` initializer template. This will include all base XM Cloud features, including Personalize, FEaaS, BYOC, Sitecore Edge Platform and Context support. ([#1653](https://github.com/Sitecore/jss/pull/1653)) ([#1657](https://github.com/Sitecore/jss/pull/1657)) ([#1658](https://github.com/Sitecore/jss/pull/1658))
 * `[sitecore-jss-nextjs]` `[templates/nextjs-xmcloud]` Page state (preview, edit, normal) is available through shared context. This allows access to the state for integrations such as CloudSDK and FEAAS. ([#1703](https://github.com/Sitecore/jss/pull/1703))
-<<<<<<< HEAD
 * `[sitecore-jss-nextjs] [templates/nextjs-xmcloud]` SDK initialization rejections are now correctly handled. Errors should no longer occur after getSDK() promises resolve when they shouldn't (for example, getting Events SDK in development environment) ([#1712](https://github.com/Sitecore/jss/pull/1712) [#1715](https://github.com/Sitecore/jss/pull/1715) [#1716](https://github.com/Sitecore/jss/pull/1716))
 
 ### 🐛 Bug Fixes
@@ -162,10 +169,6 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-=======
-
-### 🐛 Bug Fixes
-
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Fix making a fetch to a nextjs api route in an editing environment, by adding additional variable publicUrl in runtime config ([#1656](https://github.com/Sitecore/jss/pull/1656))
 * `[templates/nextjs-multisite]` Fix site info fetch errors (now skipped) on XM Cloud rendering/editing host builds. ([#1649](https://github.com/Sitecore/jss/pull/1649)) ([#1653](https://github.com/Sitecore/jss/pull/1653))
 * `[templates/nextjs-xmcloud]` Fix double registration of BYOC components ([#1707](https://github.com/Sitecore/jss/pull/1707)) ([#1709](https://github.com/Sitecore/jss/pull/1709))
@@ -206,7 +209,6 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
->>>>>>> 9ff9c09d8862989de9f45ef68ee95a7efe633457
 * `[sitecore-jss-nextjs]` Fix loop error in redirect middleware when the pattern of redirect has default locale. ([#1696](https://github.com/Sitecore/jss/pull/1696))
 * `[templates/nextjs-sxa]` Fix shown horizontal scrollbar in EE mode. ([#1625](https://github.com/Sitecore/jss/pull/1625)), ([#1626](https://github.com/Sitecore/jss/pull/1626))
 
@@ -726,15 +728,12 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss]` Retry policy to handle transient network errors. Users can pass `retryStrategy` to configure custom retry config to the services. They can customize the error codes and the number of retries. It consist of two functions shouldRetry and getDelay. To determine the back-off time, we employ an exponential strategy with a default factor of 2.([#1731](https://github.com/Sitecore/jss/pull/1731)) ([#1733](https://github.com/Sitecore/jss/pull/1733))
 
-<<<<<<< HEAD
-=======
 ## 20.2.3
 
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Link component does not add anchor to the internal links ([#1226](https://github.com/Sitecore/jss/pull/1226))
 
->>>>>>> 9ff9c09d8862989de9f45ef68ee95a7efe633457
 ## 20.2.2
 
 ### 🧹 Chores
