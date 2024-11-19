@@ -28,7 +28,6 @@ export const getPublicUrl = (): string => {
  * 1. Subscribe on events provided by webpack.
  * 2. Reset editor chromes when build is finished
  * @param {boolean} [forceReload] force page reload instead of reset chromes
- * @default
  */
 export const handleEditorFastRefresh = (forceReload = false): void => {
   if (process.env.NODE_ENV !== 'development' || !isEditorActive()) {

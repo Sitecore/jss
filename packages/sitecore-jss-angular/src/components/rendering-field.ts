@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 import { FieldMetadata, GenericFieldValue } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface RenderingField<V = GenericFieldValue> extends FieldMetadata {
@@ -6,7 +7,6 @@ export interface RenderingField<V = GenericFieldValue> extends FieldMetadata {
   editable?: string;
 }
 
-/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface DateField extends RenderingField<string | number | Date> {}
 
 export interface FileFieldValue {
