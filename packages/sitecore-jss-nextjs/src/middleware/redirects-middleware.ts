@@ -150,7 +150,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
         url.locale = req.nextUrl.locale;
       }
 
-      /** return Response redirect with http code of redirect type **/
+      /** return Response redirect with http code of redirect type */
       switch (existsRedirect.redirectType) {
         case REDIRECT_TYPE_301: {
           return this.createRedirectResponse(url, res, 301, 'Moved Permanently');
@@ -330,7 +330,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
   /**
    * Checks if the current URL query matches the provided pattern, considering all permutations of query parameters.
    * It constructs all possible query parameter permutations and tests them against the pattern.
-   * @param {Object} params - The parameters for the URL match.
+   * @param {object} params - The parameters for the URL match.
    * @param {string} params.pathname - The current URL pathname.
    * @param {string} params.queryString - The current URL query string.
    * @param {string} params.pattern - The regex pattern to test the constructed URLs against.

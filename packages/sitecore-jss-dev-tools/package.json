@@ -16,7 +16,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-dev-tools src/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "bin": {
     "scjss-deploy": "./dist/cjs/bin/deploy.js",
@@ -66,7 +66,7 @@
     "@types/glob": "^8.0.1",
     "@types/js-yaml": "^4.0.5",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^20.14.2",
+    "@types/node": "^22.9.0",
     "@types/readline-sync": "^1.4.4",
     "@types/resolve": "^1.20.2",
     "@types/sinon": "^10.0.13",
@@ -76,14 +76,14 @@
     "chai": "^4.3.7",
     "cross-env": "^7.0.3",
     "del-cli": "^5.0.0",
-    "eslint": "^8.33.0",
+    "eslint": "^8.56.0",
     "mocha": "^10.2.0",
     "nock": "^13.3.0",
     "nyc": "^15.1.0",
     "sinon": "^15.0.1",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.6.3"
   },
   "types": "types/index.d.ts",
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",

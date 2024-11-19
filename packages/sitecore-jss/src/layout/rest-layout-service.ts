@@ -59,7 +59,6 @@ export type DataFetcherResolver = <T>(
  * Fetch layout data using the Sitecore Layout Service REST API.
  * Uses Axios as the default data fetcher (@see AxiosDataFetcher).
  * @augments LayoutServiceBase
- *
  */
 export class RestLayoutService extends LayoutServiceBase {
   constructor(private serviceConfig: RestLayoutServiceConfig) {

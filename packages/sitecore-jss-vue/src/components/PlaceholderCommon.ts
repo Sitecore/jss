@@ -240,7 +240,7 @@ function createRawElement(elem: any) {
 }
 
 /**
- * @param {Object} renderingDefinition
+ * @param {object} renderingDefinition
  * @param {string} renderingDefinition.componentName
  * @param {ComponentFactory} [componentFactory]
  */
