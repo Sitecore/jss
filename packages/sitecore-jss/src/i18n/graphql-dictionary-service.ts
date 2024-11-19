@@ -214,7 +214,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
 
   /**
    * Fetches dictionary data with site query
-   * This is the default behavior for XMCloud deployments. Uses `siteQuery` to retrieve data. 
+   * This is the default behavior for XMCloud deployments. Uses `siteQuery` to retrieve data.
    * @param {string} language the language to fetch
    * @returns {Promise<DictionaryPhrases>} dictionary phrases
    */
