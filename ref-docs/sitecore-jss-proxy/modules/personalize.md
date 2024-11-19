@@ -33,4 +33,4 @@
 
 #### Defined in
 
-[sitecore-jss-proxy/src/types/personalize.ts:28](https://github.com/Sitecore/jss/blob/02c4c7d88/packages/sitecore-jss-proxy/src/types/personalize.ts#L28)
+[sitecore-jss-proxy/src/types/personalize.ts:28](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-proxy/src/types/personalize.ts#L28)
