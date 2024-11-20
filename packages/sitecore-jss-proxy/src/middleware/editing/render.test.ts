@@ -466,7 +466,7 @@ describe('getSCPHeader', () => {
     delete process.env.JSS_ALLOWED_ORIGINS;
   });
 
-  it('should return tha value of the CSP header', () => {
+  it('should return the value of the CSP header', () => {
     process.env.JSS_ALLOWED_ORIGINS = 'https://pages-dev.sitecore-staging.cloud';
     const expectedHeader = `frame-ancestors 'self' https://pages-dev.sitecore-staging.cloud ${EDITING_ALLOWED_ORIGINS.join(
       ' '
