@@ -1,43 +1,39 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / ComponentFile
 
 # Interface: ComponentFile
 
 Describes a file that represents a component definition
 
-## Table of contents
-
-### Properties
-
-- [componentName](ComponentFile.md#componentname)
-- [moduleName](ComponentFile.md#modulename)
-- [path](ComponentFile.md#path)
-
 ## Properties
 
 ### componentName
 
-• **componentName**: `string`
+> **componentName**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/components.ts:9](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/templating/components.ts#L9)
+[sitecore-jss-dev-tools/src/templating/components.ts:9](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/templating/components.ts#L9)
 
-___
+***
 
 ### moduleName
 
-• **moduleName**: `string`
+> **moduleName**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/components.ts:8](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/templating/components.ts#L8)
+[sitecore-jss-dev-tools/src/templating/components.ts:8](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/templating/components.ts#L8)
 
-___
+***
 
 ### path
 
-• **path**: `string`
+> **path**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/components.ts:7](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/templating/components.ts#L7)
+[sitecore-jss-dev-tools/src/templating/components.ts:7](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/templating/components.ts#L7)

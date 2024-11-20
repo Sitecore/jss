@@ -1,3 +1,7 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / LayoutServiceContext
 
 # Interface: LayoutServiceContext
@@ -6,113 +10,97 @@ Shape of context data from the Sitecore Layout Service
 
 ## Indexable
 
-▪ [key: `string`]: `unknown`
-
-## Table of contents
-
-### Properties
-
-- [clientData](LayoutServiceContext.md#clientdata)
-- [clientScripts](LayoutServiceContext.md#clientscripts)
-- [editMode](LayoutServiceContext.md#editmode)
-- [itemPath](LayoutServiceContext.md#itempath)
-- [language](LayoutServiceContext.md#language)
-- [pageEditing](LayoutServiceContext.md#pageediting)
-- [pageState](LayoutServiceContext.md#pagestate)
-- [site](LayoutServiceContext.md#site)
-- [visitorIdentificationTimestamp](LayoutServiceContext.md#visitoridentificationtimestamp)
+ \[`key`: `string`\]: `unknown`
 
 ## Properties
 
-### clientData
+### clientData?
 
-• `Optional` **clientData**: `Record`\<`string`, `Record`\<`string`, `unknown`\>\>
+> `optional` **clientData**: `Record`\<`string`, `Record`\<`string`, `unknown`\>\>
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:41
 
-___
+***
 
-### clientScripts
+### clientScripts?
 
-• `Optional` **clientScripts**: `string`[]
+> `optional` **clientScripts**: `string`[]
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:40
 
-___
+***
 
-### editMode
+### editMode?
 
-• `Optional` **editMode**: [`EditMode`](../enums/EditMode.md)
+> `optional` **editMode**: [`EditMode`](../enumerations/EditMode.md)
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:39
 
-___
+***
 
-### itemPath
+### itemPath?
 
-• `Optional` **itemPath**: `string`
+> `optional` **itemPath**: `string`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:33
 
-___
+***
 
-### language
+### language?
 
-• `Optional` **language**: `string`
+> `optional` **language**: `string`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:32
 
-___
+***
 
-### pageEditing
+### pageEditing?
 
-• `Optional` **pageEditing**: `boolean`
+> `optional` **pageEditing**: `boolean`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:31
 
-___
+***
 
-### pageState
+### pageState?
 
-• `Optional` **pageState**: [`LayoutServicePageState`](../enums/LayoutServicePageState.md)
+> `optional` **pageState**: [`LayoutServicePageState`](../enumerations/LayoutServicePageState.md)
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:34
 
-___
+***
 
-### site
+### site?
 
-• `Optional` **site**: `Object`
+> `optional` **site**: `object`
 
-#### Type declaration
+#### name?
 
-| Name | Type |
-| :------ | :------ |
-| `name?` | `string` |
+> `optional` **name**: `string`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:36
 
-___
+***
 
-### visitorIdentificationTimestamp
+### visitorIdentificationTimestamp?
 
-• `Optional` **visitorIdentificationTimestamp**: `number`
+> `optional` **visitorIdentificationTimestamp**: `number`
 
 #### Defined in
 

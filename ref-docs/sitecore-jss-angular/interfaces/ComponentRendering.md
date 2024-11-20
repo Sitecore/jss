@@ -1,81 +1,72 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / ComponentRendering
 
 # Interface: ComponentRendering\<T\>
 
 Definition of a component instance within a placeholder on a route
 
-## Type parameters
+## Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | [`ComponentFields`](ComponentFields.md) |
-
-## Table of contents
-
-### Properties
-
-- [componentName](ComponentRendering.md#componentname)
-- [dataSource](ComponentRendering.md#datasource)
-- [fields](ComponentRendering.md#fields)
-- [params](ComponentRendering.md#params)
-- [placeholders](ComponentRendering.md#placeholders)
-- [uid](ComponentRendering.md#uid)
+• **T** = [`ComponentFields`](ComponentFields.md)
 
 ## Properties
 
 ### componentName
 
-• **componentName**: `string`
+> **componentName**: `string`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:89
 
-___
+***
 
-### dataSource
+### dataSource?
 
-• `Optional` **dataSource**: `string`
+> `optional` **dataSource**: `string`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:90
 
-___
+***
 
-### fields
+### fields?
 
-• `Optional` **fields**: `T`
+> `optional` **fields**: `T`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:93
 
-___
+***
 
-### params
+### params?
 
-• `Optional` **params**: [`ComponentParams`](ComponentParams.md)
+> `optional` **params**: [`ComponentParams`](ComponentParams.md)
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:94
 
-___
+***
 
-### placeholders
+### placeholders?
 
-• `Optional` **placeholders**: [`PlaceholdersData`](../README.md#placeholdersdata)\<`string`\>
+> `optional` **placeholders**: [`PlaceholdersData`](../type-aliases/PlaceholdersData.md)\<`string`\>
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:92
 
-___
+***
 
-### uid
+### uid?
 
-• `Optional` **uid**: `string`
+> `optional` **uid**: `string`
 
 #### Defined in
 

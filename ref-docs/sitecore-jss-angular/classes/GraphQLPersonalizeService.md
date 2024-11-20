@@ -1,97 +1,62 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / GraphQLPersonalizeService
 
 # Class: GraphQLPersonalizeService
 
-## Table of contents
-
-### Constructors
-
-- [constructor](GraphQLPersonalizeService.md#constructor)
-
-### Properties
-
-- [cache](GraphQLPersonalizeService.md#cache)
-- [config](GraphQLPersonalizeService.md#config)
-- [graphQLClient](GraphQLPersonalizeService.md#graphqlclient)
-
-### Accessors
-
-- [query](GraphQLPersonalizeService.md#query)
-
-### Methods
-
-- [getCacheClient](GraphQLPersonalizeService.md#getcacheclient)
-- [getCacheKey](GraphQLPersonalizeService.md#getcachekey)
-- [getGraphQLClient](GraphQLPersonalizeService.md#getgraphqlclient)
-- [getPersonalizeInfo](GraphQLPersonalizeService.md#getpersonalizeinfo)
-
 ## Constructors
 
-### constructor
+### new GraphQLPersonalizeService()
 
-• **new GraphQLPersonalizeService**(`config`)
+> **new GraphQLPersonalizeService**(`config`): [`GraphQLPersonalizeService`](GraphQLPersonalizeService.md)
 
 Fetch personalize data using the Sitecore GraphQL endpoint.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `config` | [`GraphQLPersonalizeServiceConfig`](../README.md#graphqlpersonalizeserviceconfig) |
+• **config**: [`GraphQLPersonalizeServiceConfig`](../type-aliases/GraphQLPersonalizeServiceConfig.md)
+
+#### Returns
+
+[`GraphQLPersonalizeService`](GraphQLPersonalizeService.md)
 
 #### Defined in
 
-packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:56
+packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:55
 
 ## Properties
 
-### cache
-
-• `Private` **cache**: `any`
-
-#### Defined in
-
-packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:50
-
-___
-
 ### config
 
-• `Protected` **config**: [`GraphQLPersonalizeServiceConfig`](../README.md#graphqlpersonalizeserviceconfig)
+> `protected` **config**: [`GraphQLPersonalizeServiceConfig`](../type-aliases/GraphQLPersonalizeServiceConfig.md)
 
 #### Defined in
 
 packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:48
 
-___
-
-### graphQLClient
-
-• `Private` **graphQLClient**: `any`
-
-#### Defined in
-
-packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:49
-
 ## Accessors
 
 ### query
 
-• `Protected` `get` **query**(): `string`
+#### Get Signature
 
-#### Returns
+> **get** `protected` **query**(): `string`
+
+##### Returns
 
 `string`
 
 #### Defined in
 
-packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:51
+packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:56
 
 ## Methods
 
-### getCacheClient
+### getCacheClient()
 
-▸ `Protected` **getCacheClient**(): [`CacheClient`](../interfaces/CacheClient.md)\<`PersonalizeQueryResult`\>
+> `protected` **getCacheClient**(): [`CacheClient`](../interfaces/CacheClient.md)\<`PersonalizeQueryResult`\>
 
 Gets cache client implementation
 Override this method if custom cache needs to be used
@@ -106,19 +71,19 @@ CacheClient instance
 
 packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:70
 
-___
+***
 
-### getCacheKey
+### getCacheKey()
 
-▸ `Protected` **getCacheKey**(`itemPath`, `language`, `siteName`): `string`
+> `protected` **getCacheKey**(`itemPath`, `language`, `siteName`): `string`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `itemPath` | `string` |
-| `language` | `string` |
-| `siteName` | `string` |
+• **itemPath**: `string`
+
+• **language**: `string`
+
+• **siteName**: `string`
 
 #### Returns
 
@@ -128,11 +93,11 @@ ___
 
 packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:71
 
-___
+***
 
-### getGraphQLClient
+### getGraphQLClient()
 
-▸ `Protected` **getGraphQLClient**(): `GraphQLClient`
+> `protected` **getGraphQLClient**(): `GraphQLClient`
 
 Gets a GraphQL client that can make requests to the API. Uses graphql-request as the default
 library for fetching graphql data (@see GraphQLRequestClient). Override this method if you
@@ -148,25 +113,31 @@ implementation
 
 packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:78
 
-___
+***
 
-### getPersonalizeInfo
+### getPersonalizeInfo()
 
-▸ **getPersonalizeInfo**(`itemPath`, `language`, `siteName`): `Promise`\<`undefined` \| [`PersonalizeInfo`](../README.md#personalizeinfo)\>
+> **getPersonalizeInfo**(`itemPath`, `language`, `siteName`): `Promise`\<`undefined` \| [`PersonalizeInfo`](../type-aliases/PersonalizeInfo.md)\>
 
 Get personalize information for a route
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `itemPath` | `string` | page route |
-| `language` | `string` | language |
-| `siteName` | `string` | site name |
+• **itemPath**: `string`
+
+page route
+
+• **language**: `string`
+
+language
+
+• **siteName**: `string`
+
+site name
 
 #### Returns
 
-`Promise`\<`undefined` \| [`PersonalizeInfo`](../README.md#personalizeinfo)\>
+`Promise`\<`undefined` \| [`PersonalizeInfo`](../type-aliases/PersonalizeInfo.md)\>
 
 the personalize information or undefined (if itemPath / language not found)
 

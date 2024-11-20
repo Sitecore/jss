@@ -1,3 +1,7 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / PlaceholderDefinition
 
 # Interface: PlaceholderDefinition
@@ -6,29 +10,21 @@ Explicitly defines a placeholder name, and allows setting the display name.
 NOTE: placeholders defined on routes that are not explicitly defined are automatically added.
 Explicit definition is only needed when you wish to specify a display name.
 
-## Table of contents
-
-### Properties
-
-- [displayName](PlaceholderDefinition.md#displayname)
-- [id](PlaceholderDefinition.md#id)
-- [name](PlaceholderDefinition.md#name)
-
 ## Properties
 
-### displayName
+### displayName?
 
-• `Optional` **displayName**: `string`
+> `optional` **displayName**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:168](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L168)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:168](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L168)
 
-___
+***
 
-### id
+### id?
 
-• `Optional` **id**: `string`
+> `optional` **id**: `string`
 
 Optionally specify an ID used when importing the rendering item for this component.
 Can be either a GUID, or a string. ID values must be unique app-wide if specified.
@@ -36,14 +32,14 @@ For Sitecore developers only.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:174](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L174)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:174](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L174)
 
-___
+***
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:167](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L167)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:167](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L167)

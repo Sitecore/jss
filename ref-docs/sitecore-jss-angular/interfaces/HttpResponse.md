@@ -1,55 +1,51 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / HttpResponse
 
 # Interface: HttpResponse\<T\>
 
 Response data for an HTTP request sent to an API
 
-## Type parameters
+## Type Parameters
 
-| Name | Description |
-| :------ | :------ |
-| `T` | the type of data model requested |
+• **T**
 
-## Table of contents
-
-### Properties
-
-- [data](HttpResponse.md#data)
-- [status](HttpResponse.md#status)
-- [statusText](HttpResponse.md#statustext)
+the type of data model requested
 
 ## Properties
 
 ### data
 
-• **data**: `T`
+> **data**: `T`
 
 Response content
 
 #### Defined in
 
-packages/sitecore-jss/types/data-fetcher.d.ts:13
+packages/sitecore-jss/types/data-fetcher.d.ts:12
 
-___
+***
 
 ### status
 
-• **status**: `number`
+> **status**: `number`
 
 HTTP status code of the response (i.e. 200, 404)
 
 #### Defined in
 
-packages/sitecore-jss/types/data-fetcher.d.ts:9
+packages/sitecore-jss/types/data-fetcher.d.ts:8
 
-___
+***
 
 ### statusText
 
-• **statusText**: `string`
+> **statusText**: `string`
 
 HTTP status text of the response (i.e. 'OK', 'Bad Request')
 
 #### Defined in
 
-packages/sitecore-jss/types/data-fetcher.d.ts:11
+packages/sitecore-jss/types/data-fetcher.d.ts:10

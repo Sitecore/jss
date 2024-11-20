@@ -1,29 +1,26 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / CacheOptions
 
 # Interface: CacheOptions
 
 Minimum configuration options for classes that implement
 
-**`See`**
+## See
 
 CacheClient
 
-## Table of contents
-
-### Properties
-
-- [cacheEnabled](CacheOptions.md#cacheenabled)
-- [cacheTimeout](CacheOptions.md#cachetimeout)
-
 ## Properties
 
-### cacheEnabled
+### cacheEnabled?
 
-• `Optional` **cacheEnabled**: `boolean`
+> `optional` **cacheEnabled**: `boolean`
 
 Enable/disable caching mechanism
 
-**`Default`**
+#### Default
 
 ```ts
 true
@@ -33,15 +30,15 @@ true
 
 packages/sitecore-jss/types/cache-client.d.ts:28
 
-___
+***
 
-### cacheTimeout
+### cacheTimeout?
 
-• `Optional` **cacheTimeout**: `number`
+> `optional` **cacheTimeout**: `number`
 
 Cache timeout (sec)
 
-**`Default`**
+#### Default
 
 ```ts
 60

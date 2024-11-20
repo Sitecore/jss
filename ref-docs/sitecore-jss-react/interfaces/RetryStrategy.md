@@ -1,34 +1,30 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / RetryStrategy
 
 # Interface: RetryStrategy
 
 Defines the strategy for retrying GraphQL requests based on errors and attempts.
 
-## Implemented by
-
-- [`DefaultRetryStrategy`](../classes/DefaultRetryStrategy.md)
-
-## Table of contents
-
-### Methods
-
-- [getDelay](RetryStrategy.md#getdelay)
-- [shouldRetry](RetryStrategy.md#shouldretry)
-
 ## Methods
 
-### getDelay
+### getDelay()
 
-▸ **getDelay**(`error`, `attempt`): `number`
+> **getDelay**(`error`, `attempt`): `number`
 
 Calculates the delay (in milliseconds) before the next retry based on the given error and attempt count.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `error` | [`GraphQLClientError`](../README.md#graphqlclienterror) | The error received from the GraphQL request. |
-| `attempt` | `number` | The current attempt number. |
+• **error**: [`GraphQLClientError`](../type-aliases/GraphQLClientError.md)
+
+The error received from the GraphQL request.
+
+• **attempt**: `number`
+
+The current attempt number.
 
 #### Returns
 
@@ -40,21 +36,27 @@ The delay in milliseconds before the next retry.
 
 packages/sitecore-jss/types/graphql-request-client.d.ts:49
 
-___
+***
 
-### shouldRetry
+### shouldRetry()
 
-▸ **shouldRetry**(`error`, `attempt`, `retries`): `boolean`
+> **shouldRetry**(`error`, `attempt`, `retries`): `boolean`
 
 Determines whether a request should be retried based on the given error and attempt count.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `error` | [`GraphQLClientError`](../README.md#graphqlclienterror) | The error received from the GraphQL request. |
-| `attempt` | `number` | The current attempt number. |
-| `retries` | `number` | The number of retries configured. |
+• **error**: [`GraphQLClientError`](../type-aliases/GraphQLClientError.md)
+
+The error received from the GraphQL request.
+
+• **attempt**: `number`
+
+The current attempt number.
+
+• **retries**: `number`
+
+The number of retries configured.
 
 #### Returns
 

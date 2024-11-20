@@ -1,124 +1,111 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / FieldDefinition
 
 # Interface: FieldDefinition
 
 Represents a field on a JSS component or template
 
-## Table of contents
-
-### Properties
-
-- [displayName](FieldDefinition.md#displayname)
-- [id](FieldDefinition.md#id)
-- [name](FieldDefinition.md#name)
-- [required](FieldDefinition.md#required)
-- [section](FieldDefinition.md#section)
-- [sortOrder](FieldDefinition.md#sortorder)
-- [source](FieldDefinition.md#source)
-- [standardValue](FieldDefinition.md#standardvalue)
-- [storage](FieldDefinition.md#storage)
-- [type](FieldDefinition.md#type)
-- [validationMessage](FieldDefinition.md#validationmessage)
-- [validationPattern](FieldDefinition.md#validationpattern)
-
 ## Properties
 
-### displayName
+### displayName?
 
-• `Optional` **displayName**: `string`
+> `optional` **displayName**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:112](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L112)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:112](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L112)
 
-___
+***
 
-### id
+### id?
 
-• `Optional` **id**: `string`
+> `optional` **id**: `string`
 
 Optionally specify an ID used when importing. Can be either a GUID, or a string. ID values must be unique app-wide if specified.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:116](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L116)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:116](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L116)
 
-___
+***
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:107](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L107)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:107](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L107)
 
-___
+***
 
-### required
+### required?
 
-• `Optional` **required**: `boolean`
+> `optional` **required**: `boolean`
 
 Whether the field needs required validation in Sitecore. Note: required fields may still not have a value when previewing.
 Default: false
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:133](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L133)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:133](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L133)
 
-___
+***
 
-### section
+### section?
 
-• `Optional` **section**: `string`
+> `optional` **section**: `string`
 
 Template section name used in Sitecore. Defaults to 'Data'
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:128](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L128)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:128](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L128)
 
-___
+***
 
-### sortOrder
+### sortOrder?
 
-• `Optional` **sortOrder**: `number`
+> `optional` **sortOrder**: `number`
 
 Specify a sort order for the field to be used when importing. Defaults to the order defined in the manifest.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:120](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L120)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:120](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L120)
 
-___
+***
 
-### source
+### source?
 
-• `Optional` **source**: `string`
+> `optional` **source**: `string`
 
 Sets the field source in Sitecore.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:146](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L146)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:146](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L146)
 
-___
+***
 
-### standardValue
+### standardValue?
 
-• `Optional` **standardValue**: `string`
+> `optional` **standardValue**: `string`
 
 The value this field will contain when a new item is created with this field on it in Sitecore. '$name' is the name of the item.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:124](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L124)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:124](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L124)
 
-___
+***
 
-### storage
+### storage?
 
-• `Optional` **storage**: [`FieldStorage`](../enums/FieldStorage.md)
+> `optional` **storage**: [`FieldStorage`](../enumerations/FieldStorage.md)
 
 Sets how the field value is stored in Sitecore. For advanced Sitecore developers only.
 Versioned (default) is almost always what you want. Do not change after importing unless using full wipe.
@@ -126,41 +113,41 @@ Content data loss could occur if altered after import.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:152](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L152)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:152](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L152)
 
-___
+***
 
 ### type
 
-• **type**: `string`
+> **type**: `string`
 
 The data type of the field used when importing. Either a CommonFieldTypes enum value, or a string of a Sitecore field type name.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:111](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L111)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:111](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L111)
 
-___
+***
 
-### validationMessage
+### validationMessage?
 
-• `Optional` **validationMessage**: `string`
+> `optional` **validationMessage**: `string`
 
 When used with validationPattern, the message shown when the field fails regex validation in Sitecore.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:142](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L142)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:142](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L142)
 
-___
+***
 
-### validationPattern
+### validationPattern?
 
-• `Optional` **validationPattern**: `string`
+> `optional` **validationPattern**: `string`
 
 A regular expression (evaluated in .NET) to validate the field value in Sitecore.
 Example: '^[A-Za-z ]+$'
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:138](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L138)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:138](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L138)

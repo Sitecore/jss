@@ -1,3 +1,7 @@
+[**@sitecore-jss/sitecore-jss-react-forms**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react-forms](../README.md) / FieldFactory
 
 # Class: FieldFactory
@@ -6,65 +10,31 @@ Maps field type IDs from Sitecore (/sitecore/system/Settings/Forms/Field Types)
 into an implementing React component - this is very similar to the JSS componentFactory,
 but it maps form element components instead of layout components
 
-## Table of contents
-
-### Constructors
-
-- [constructor](FieldFactory.md#constructor)
-
-### Properties
-
-- [\_defaultComponent](FieldFactory.md#_defaultcomponent)
-- [\_fieldMap](FieldFactory.md#_fieldmap)
-
-### Methods
-
-- [get](FieldFactory.md#get)
-- [setComponent](FieldFactory.md#setcomponent)
-- [setComponentNotFoundComponent](FieldFactory.md#setcomponentnotfoundcomponent)
-
 ## Constructors
 
-### constructor
+### new FieldFactory()
 
-• **new FieldFactory**()
+> **new FieldFactory**(): [`FieldFactory`](FieldFactory.md)
 
-#### Defined in
+#### Returns
 
-[src/field-factory.tsx:18](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react-forms/src/field-factory.tsx#L18)
-
-## Properties
-
-### \_defaultComponent
-
-• `Private` **\_defaultComponent**: `ComponentType`\<`FormField`\<`ViewModel`\>\>
+[`FieldFactory`](FieldFactory.md)
 
 #### Defined in
 
-[src/field-factory.tsx:16](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react-forms/src/field-factory.tsx#L16)
-
-___
-
-### \_fieldMap
-
-• `Private` **\_fieldMap**: `Map`\<`string`, `ComponentType`\<`unknown`\>\>
-
-#### Defined in
-
-[src/field-factory.tsx:15](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react-forms/src/field-factory.tsx#L15)
+[src/field-factory.tsx:18](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/field-factory.tsx#L18)
 
 ## Methods
 
-### get
+### get()
 
-▸ **get**(`field`, `props`): `ReactNode`
+> **get**(`field`, `props`): `ReactNode`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `field` | `FormField`\<`ViewModel`\> |
-| `props` | [`FieldProps`](../interfaces/FieldProps.md)\<`FormField`\<`ViewModel`\>\> |
+• **field**: `FormField`\<`ViewModel`\>
+
+• **props**: [`FieldProps`](../interfaces/FieldProps.md)\<`FormField`\<`ViewModel`\>\>
 
 #### Returns
 
@@ -72,26 +42,23 @@ ___
 
 #### Defined in
 
-[src/field-factory.tsx:38](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react-forms/src/field-factory.tsx#L38)
+[src/field-factory.tsx:38](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/field-factory.tsx#L38)
 
-___
+***
 
-### setComponent
+### setComponent()
 
-▸ **setComponent**\<`TProps`\>(`type`, `component`): `void`
+> **setComponent**\<`TProps`\>(`type`, `component`): `void`
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `TProps` | extends [`FieldProps`](../interfaces/FieldProps.md)\<`FormField`\<`ViewModel`\>, `TProps`\> |
+• **TProps** *extends* [`FieldProps`](../interfaces/FieldProps.md)\<`FormField`\<`ViewModel`\>\>
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `type` | `string` |
-| `component` | `FormFieldComponent`\<`TProps`\> |
+• **type**: `string`
+
+• **component**: `FormFieldComponent`\<`TProps`\>
 
 #### Returns
 
@@ -99,19 +66,17 @@ ___
 
 #### Defined in
 
-[src/field-factory.tsx:31](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react-forms/src/field-factory.tsx#L31)
+[src/field-factory.tsx:31](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/field-factory.tsx#L31)
 
-___
+***
 
-### setComponentNotFoundComponent
+### setComponentNotFoundComponent()
 
-▸ **setComponentNotFoundComponent**(`component`): `void`
+> **setComponentNotFoundComponent**(`component`): `void`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `component` | `ComponentType`\<`FormField`\<`ViewModel`\>\> |
+• **component**: `ComponentType`\<`FormField`\<`ViewModel`\>\>
 
 #### Returns
 
@@ -119,4 +84,4 @@ ___
 
 #### Defined in
 
-[src/field-factory.tsx:27](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react-forms/src/field-factory.tsx#L27)
+[src/field-factory.tsx:27](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/field-factory.tsx#L27)

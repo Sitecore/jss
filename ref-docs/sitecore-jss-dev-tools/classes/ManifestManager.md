@@ -1,104 +1,88 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / ManifestManager
 
 # Class: ManifestManager
 
-## Table of contents
-
-### Constructors
-
-- [constructor](ManifestManager.md#constructor)
-
-### Properties
-
-- [initialManifest](ManifestManager.md#initialmanifest)
-- [manifestArgs](ManifestManager.md#manifestargs)
-- [rootPath](ManifestManager.md#rootpath)
-- [watcher](ManifestManager.md#watcher)
-- [watcherSourcePaths](ManifestManager.md#watchersourcepaths)
-
-### Methods
-
-- [getManifest](ManifestManager.md#getmanifest)
-- [getManifestPath](ManifestManager.md#getmanifestpath)
-- [setManifestUpdatedCallback](ManifestManager.md#setmanifestupdatedcallback)
-
 ## Constructors
 
-### constructor
+### new ManifestManager()
 
-• **new ManifestManager**(`«destructured»`)
+> **new ManifestManager**(`__namedParameters`): [`ManifestManager`](ManifestManager.md)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | [`ManifestManagerOptions`](../interfaces/ManifestManagerOptions.md) |
+• **\_\_namedParameters**: [`ManifestManagerOptions`](../interfaces/ManifestManagerOptions.md)
+
+#### Returns
+
+[`ManifestManager`](ManifestManager.md)
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:30](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L30)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:30](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L30)
 
 ## Properties
 
 ### initialManifest
 
-• **initialManifest**: `boolean` = `true`
+> **initialManifest**: `boolean` = `true`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:23](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L23)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:23](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L23)
 
-___
+***
 
 ### manifestArgs
 
-• **manifestArgs**: `any`
+> **manifestArgs**: `any`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:28](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L28)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:28](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L28)
 
-___
+***
 
 ### rootPath
 
-• **rootPath**: `string`
+> **rootPath**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:24](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L24)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:24](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L24)
 
-___
+***
 
-### watcher
+### watcher?
 
-• `Optional` **watcher**: `FSWatcher`
+> `optional` **watcher**: `FSWatcher`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:25](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L25)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:25](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L25)
 
-___
+***
 
 ### watcherSourcePaths
 
-• **watcherSourcePaths**: `string`[]
+> **watcherSourcePaths**: `string`[]
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:26](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L26)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:26](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L26)
 
 ## Methods
 
-### getManifest
+### getManifest()
 
-▸ **getManifest**(`language`): `Promise`\<[`ManifestInstance`](../interfaces/ManifestInstance.md)\>
+> **getManifest**(`language`): `Promise`\<[`ManifestInstance`](../interfaces/ManifestInstance.md)\>
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `language` | `string` |
+• **language**: `string`
 
 #### Returns
 
@@ -106,13 +90,13 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:113](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L113)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:113](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L113)
 
-___
+***
 
-### getManifestPath
+### getManifestPath()
 
-▸ **getManifestPath**(): `string`
+> **getManifestPath**(): `string`
 
 #### Returns
 
@@ -120,19 +104,17 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:109](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L109)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:109](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L109)
 
-___
+***
 
-### setManifestUpdatedCallback
+### setManifestUpdatedCallback()
 
-▸ **setManifestUpdatedCallback**(`callback`): `void`
+> **setManifestUpdatedCallback**(`callback`): `void`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `callback` | (`newManifest`: [`ManifestInstance`](../interfaces/ManifestInstance.md)) => `void` |
+• **callback**
 
 #### Returns
 
@@ -140,4 +122,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:81](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L81)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:81](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L81)

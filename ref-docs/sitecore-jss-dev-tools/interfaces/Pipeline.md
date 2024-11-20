@@ -1,148 +1,119 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / Pipeline
 
 # Interface: Pipeline
 
-## Hierarchy
+## Extends
 
 - [`ExecutablePipeline`](ExecutablePipeline.md)
 
-  ↳ **`Pipeline`**
-
-## Table of contents
-
-### Properties
-
-- [addProcessor](Pipeline.md#addprocessor)
-- [args](Pipeline.md#args)
-- [name](Pipeline.md#name)
-- [processors](Pipeline.md#processors)
-- [run](Pipeline.md#run)
-- [runWithCompilers](Pipeline.md#runwithcompilers)
-
 ## Properties
 
-### addProcessor
+### addProcessor()
 
-• **addProcessor**: (`processor`: [`Processor`](Processor.md)) => `void`
-
-#### Type declaration
-
-▸ (`processor`): `void`
+> **addProcessor**: (`processor`) => `void`
 
 adds a processor to the pipeline
 
-##### Parameters
+#### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `processor` | [`Processor`](Processor.md) |
+• **processor**: [`Processor`](Processor.md)
 
-##### Returns
+#### Returns
 
 `void`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:63](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L63)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:63](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L63)
 
-___
+***
 
 ### args
 
-• **args**: `any`
+> **args**: `any`
 
 Base args object for the pipeline.
 
 #### Overrides
 
-[ExecutablePipeline](ExecutablePipeline.md).[args](ExecutablePipeline.md#args)
+[`ExecutablePipeline`](ExecutablePipeline.md).[`args`](ExecutablePipeline.md#args)
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:55](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L55)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:55](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L55)
 
-___
+***
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
 name of the pipeline
 
 #### Overrides
 
-[ExecutablePipeline](ExecutablePipeline.md).[name](ExecutablePipeline.md#name)
+[`ExecutablePipeline`](ExecutablePipeline.md).[`name`](ExecutablePipeline.md#name)
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:51](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L51)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:51](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L51)
 
-___
+***
 
-### processors
+### processors()
 
-• **processors**: () => [`Processor`](Processor.md)[]
-
-#### Type declaration
-
-▸ (): [`Processor`](Processor.md)[]
+> **processors**: () => [`Processor`](Processor.md)[]
 
 the processors for the pipeline
 
-##### Returns
+#### Returns
 
 [`Processor`](Processor.md)[]
 
 #### Overrides
 
-[ExecutablePipeline](ExecutablePipeline.md).[processors](ExecutablePipeline.md#processors)
+[`ExecutablePipeline`](ExecutablePipeline.md).[`processors`](ExecutablePipeline.md#processors)
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:59](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L59)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:59](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L59)
 
-___
+***
 
-### run
+### run()
 
-• **run**: () => `Promise`\<`any`\>
-
-#### Type declaration
-
-▸ (): `Promise`\<`any`\>
+> **run**: () => `Promise`\<`any`\>
 
 runs the pipeline with the given pipeline args
 
-##### Returns
+#### Returns
 
 `Promise`\<`any`\>
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:67](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L67)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:67](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L67)
 
-___
+***
 
-### runWithCompilers
+### runWithCompilers()
 
-• **runWithCompilers**: (`compilers`: `string`[]) => `Promise`\<`any`\>
-
-#### Type declaration
-
-▸ (`compilers`): `Promise`\<`any`\>
+> **runWithCompilers**: (`compilers`) => `Promise`\<`any`\>
 
 runs the pipeline with the given pipeline args, importing the given compilers first
 
-##### Parameters
+#### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `compilers` | `string`[] |
+• **compilers**: `string`[]
 
-##### Returns
+#### Returns
 
 `Promise`\<`any`\>
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:71](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L71)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:71](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L71)

@@ -1,44 +1,35 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / SitecoreContextState
 
 # Interface: SitecoreContextState
-
-## Table of contents
-
-### Properties
-
-- [context](SitecoreContextState.md#context)
-- [setContext](SitecoreContextState.md#setcontext)
 
 ## Properties
 
 ### context
 
-• **context**: [`SitecoreContextValue`](../README.md#sitecorecontextvalue)
+> **context**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L16)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L16)
 
-___
+***
 
-### setContext
+### setContext()
 
-• **setContext**: (`value`: [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../README.md#sitecorecontextvalue)) => `void`
+> **setContext**: (`value`) => `void`
 
-#### Type declaration
+#### Parameters
 
-▸ (`value`): `void`
+• **value**: [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../README.md#sitecorecontextvalue) |
-
-##### Returns
+#### Returns
 
 `void`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L15)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L15)

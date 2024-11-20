@@ -1,3 +1,7 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / GraphQLRequestClient
 
 # Class: GraphQLRequestClient
@@ -9,148 +13,57 @@ https://github.com/prisma-labs/graphql-request
 
 - `GraphQLClient`
 
-## Table of contents
-
-### Constructors
-
-- [constructor](GraphQLRequestClient.md#constructor)
-
-### Properties
-
-- [abortTimeout](GraphQLRequestClient.md#aborttimeout)
-- [client](GraphQLRequestClient.md#client)
-- [debug](GraphQLRequestClient.md#debug)
-- [endpoint](GraphQLRequestClient.md#endpoint)
-- [headers](GraphQLRequestClient.md#headers)
-- [retries](GraphQLRequestClient.md#retries)
-- [retryStrategy](GraphQLRequestClient.md#retrystrategy)
-- [timeout](GraphQLRequestClient.md#timeout)
-
-### Methods
-
-- [request](GraphQLRequestClient.md#request)
-- [createClientFactory](GraphQLRequestClient.md#createclientfactory)
-
 ## Constructors
 
-### constructor
+### new GraphQLRequestClient()
 
-• **new GraphQLRequestClient**(`endpoint`, `clientConfig?`)
+> **new GraphQLRequestClient**(`endpoint`, `clientConfig`?): [`GraphQLRequestClient`](GraphQLRequestClient.md)
 
 Provides ability to execute graphql query using given `endpoint`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `endpoint` | `string` | The Graphql endpoint |
-| `clientConfig?` | `GraphQLRequestClientConfig` | GraphQL request client configuration. |
+• **endpoint**: `string`
+
+The Graphql endpoint
+
+• **clientConfig?**: `GraphQLRequestClientConfig`
+
+GraphQL request client configuration.
+
+#### Returns
+
+[`GraphQLRequestClient`](GraphQLRequestClient.md)
 
 #### Defined in
 
 packages/sitecore-jss/types/graphql-request-client.d.ts:140
 
-## Properties
-
-### abortTimeout
-
-• `Private` `Optional` **abortTimeout**: `any`
-
-#### Defined in
-
-packages/sitecore-jss/types/graphql-request-client.d.ts:131
-
-___
-
-### client
-
-• `Private` **client**: `any`
-
-#### Defined in
-
-packages/sitecore-jss/types/graphql-request-client.d.ts:128
-
-___
-
-### debug
-
-• `Private` **debug**: `any`
-
-#### Defined in
-
-packages/sitecore-jss/types/graphql-request-client.d.ts:130
-
-___
-
-### endpoint
-
-• `Private` **endpoint**: `any`
-
-#### Defined in
-
-packages/sitecore-jss/types/graphql-request-client.d.ts:127
-
-___
-
-### headers
-
-• `Private` **headers**: `any`
-
-#### Defined in
-
-packages/sitecore-jss/types/graphql-request-client.d.ts:129
-
-___
-
-### retries
-
-• `Private` **retries**: `any`
-
-#### Defined in
-
-packages/sitecore-jss/types/graphql-request-client.d.ts:133
-
-___
-
-### retryStrategy
-
-• `Private` **retryStrategy**: `any`
-
-#### Defined in
-
-packages/sitecore-jss/types/graphql-request-client.d.ts:134
-
-___
-
-### timeout
-
-• `Private` `Optional` **timeout**: `any`
-
-#### Defined in
-
-packages/sitecore-jss/types/graphql-request-client.d.ts:132
-
 ## Methods
 
-### request
+### request()
 
-▸ **request**\<`T`\>(`query`, `variables?`, `options?`): `Promise`\<`T`\>
+> **request**\<`T`\>(`query`, `variables`?, `options`?): `Promise`\<`T`\>
 
 Execute graphql request
 
-#### Type parameters
+#### Type Parameters
 
-| Name |
-| :------ |
-| `T` |
+• **T**
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `query` | `string` \| `DocumentNode` | graphql query |
-| `variables?` | `Object` | graphql variables |
-| `options?` | `RequestOptions` | Options for configuring a GraphQL request. |
+• **query**: `string` \| `DocumentNode`
+
+graphql query
+
+• **variables?**
+
+graphql variables
+
+• **options?**: `RequestOptions`
+
+Options for configuring a GraphQL request.
 
 #### Returns
 
@@ -158,25 +71,25 @@ Execute graphql request
 
 #### Implementation of
 
-GraphQLClient.request
+`GraphQLClient.request`
 
 #### Defined in
 
 packages/sitecore-jss/types/graphql-request-client.d.ts:154
 
-___
+***
 
-### createClientFactory
+### createClientFactory()
 
-▸ `Static` **createClientFactory**(`config`): `GraphQLRequestClientFactory`
+> `static` **createClientFactory**(`config`): `GraphQLRequestClientFactory`
 
 Factory method for creating a GraphQLRequestClientFactory.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `config` | [`GraphQLRequestClientFactoryConfig`](../README.md#graphqlrequestclientfactoryconfig) | client configuration options. |
+• **config**: [`GraphQLRequestClientFactoryConfig`](../type-aliases/GraphQLRequestClientFactoryConfig.md)
+
+client configuration options.
 
 #### Returns
 

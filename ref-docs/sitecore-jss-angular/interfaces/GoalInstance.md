@@ -1,22 +1,20 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / GoalInstance
 
 # Interface: GoalInstance
 
 ## Indexable
 
-▪ [key: `string`]: `unknown`
-
-## Table of contents
-
-### Properties
-
-- [goalId](GoalInstance.md#goalid)
+ \[`key`: `string`\]: `unknown`
 
 ## Properties
 
 ### goalId
 
-• **goalId**: `string`
+> **goalId**: `string`
 
 GUID or alias (name) of goal to trigger
 

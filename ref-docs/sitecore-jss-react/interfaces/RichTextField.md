@@ -1,55 +1,49 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / RichTextField
 
 # Interface: RichTextField
 
-## Hierarchy
+## Extends
 
 - `FieldMetadata`
 
-  ↳ **`RichTextField`**
-
-## Table of contents
-
-### Properties
-
-- [editable](RichTextField.md#editable)
-- [metadata](RichTextField.md#metadata)
-- [value](RichTextField.md#value)
-
 ## Properties
 
-### editable
+### editable?
 
-• `Optional` **editable**: `string`
+> `optional` **editable**: `string`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:11](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react/src/components/RichText.tsx#L11)
+[packages/sitecore-jss-react/src/components/RichText.tsx:11](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/RichText.tsx#L11)
 
-___
+***
 
-### metadata
+### metadata?
 
-• `Optional` **metadata**: `Object`
+> `optional` **metadata**: `object`
 
-#### Index signature
+#### Index Signature
 
-▪ [key: `string`]: `unknown`
+ \[`key`: `string`\]: `unknown`
 
 #### Inherited from
 
-FieldMetadata.metadata
+`FieldMetadata.metadata`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:123
 
-___
+***
 
-### value
+### value?
 
-• `Optional` **value**: `string`
+> `optional` **value**: `string`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react/src/components/RichText.tsx#L10)
+[packages/sitecore-jss-react/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/RichText.tsx#L10)

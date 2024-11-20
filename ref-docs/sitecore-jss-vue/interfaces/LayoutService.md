@@ -1,29 +1,32 @@
+[**@sitecore-jss/sitecore-jss-vue**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-vue](../README.md) / LayoutService
 
 # Interface: LayoutService
 
-## Table of contents
-
-### Methods
-
-- [fetchLayoutData](LayoutService.md#fetchlayoutdata)
-
 ## Methods
 
-### fetchLayoutData
+### fetchLayoutData()
 
-▸ **fetchLayoutData**(`itemPath`, `language?`, `req?`, `res?`): `Promise`\<[`LayoutServiceData`](LayoutServiceData.md)\>
+> **fetchLayoutData**(`itemPath`, `language`?, `req`?, `res`?): `Promise`\<[`LayoutServiceData`](LayoutServiceData.md)\>
 
 Fetch layout data for an item.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `itemPath` | `string` |  |
-| `language?` | `string` |  |
-| `req?` | `IncomingMessage` | Request instance |
-| `res?` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
+• **itemPath**: `string`
+
+• **language?**: `string`
+
+• **req?**: `IncomingMessage`
+
+Request instance
+
+• **res?**: `ServerResponse`\<`IncomingMessage`\>
+
+Response instance
 
 #### Returns
 
@@ -33,4 +36,4 @@ layout data
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/layout-service.d.ts:13
+packages/sitecore-jss/types/layout/layout-service.d.ts:12

@@ -1,116 +1,76 @@
+[**@sitecore-jss/sitecore-jss-react-forms**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react-forms](../README.md) / FileUpload
 
 # Class: FileUpload
 
-## Hierarchy
+## Extends
 
-- `Component`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\>
-
-  ↳ **`FileUpload`**
-
-## Table of contents
-
-### Constructors
-
-- [constructor](FileUpload.md#constructor)
-
-### Properties
-
-- [SIZE\_UNITS](FileUpload.md#size_units)
-- [context](FileUpload.md#context)
-- [fileInputRef](FileUpload.md#fileinputref)
-- [props](FileUpload.md#props)
-- [refs](FileUpload.md#refs)
-- [state](FileUpload.md#state)
-- [contextType](FileUpload.md#contexttype)
-
-### Methods
-
-- [UNSAFE\_componentWillMount](FileUpload.md#unsafe_componentwillmount)
-- [UNSAFE\_componentWillReceiveProps](FileUpload.md#unsafe_componentwillreceiveprops)
-- [UNSAFE\_componentWillUpdate](FileUpload.md#unsafe_componentwillupdate)
-- [componentDidCatch](FileUpload.md#componentdidcatch)
-- [componentDidMount](FileUpload.md#componentdidmount)
-- [componentDidUpdate](FileUpload.md#componentdidupdate)
-- [componentWillMount](FileUpload.md#componentwillmount)
-- [componentWillReceiveProps](FileUpload.md#componentwillreceiveprops)
-- [componentWillUnmount](FileUpload.md#componentwillunmount)
-- [componentWillUpdate](FileUpload.md#componentwillupdate)
-- [forceUpdate](FileUpload.md#forceupdate)
-- [getEnabledValidation](FileUpload.md#getenabledvalidation)
-- [getFileSizeUnitName](FileUpload.md#getfilesizeunitname)
-- [getSnapshotBeforeUpdate](FileUpload.md#getsnapshotbeforeupdate)
-- [onChangeField](FileUpload.md#onchangefield)
-- [render](FileUpload.md#render)
-- [setState](FileUpload.md#setstate)
-- [shouldComponentUpdate](FileUpload.md#shouldcomponentupdate)
+- `Component`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
 
 ## Constructors
 
-### constructor
+### new FileUpload()
 
-• **new FileUpload**(`props`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `props` | [`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\> \| `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
-
-#### Inherited from
-
-Component\<ValueFieldProps\<FileInputViewModel\>\>.constructor
-
-#### Defined in
-
-node_modules/@types/react/ts5.0/index.d.ts:520
-
-• **new FileUpload**(`props`, `context`)
+> **new FileUpload**(`props`): [`FileUpload`](FileUpload.md)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `props` | [`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\> |
-| `context` | `any` |
+• **props**: [`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>
 
-**`Deprecated`**
+#### Returns
 
-**`See`**
-
-https://legacy.reactjs.org/docs/legacy-context.html
+[`FileUpload`](FileUpload.md)
 
 #### Inherited from
 
-Component\<ValueFieldProps\<FileInputViewModel\>\>.constructor
+`Component<ValueFieldProps<FileInputViewModel>>.constructor`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:525
+node\_modules/@types/react/index.d.ts:1008
+
+### new FileUpload()
+
+> **new FileUpload**(`props`, `context`): [`FileUpload`](FileUpload.md)
+
+#### Parameters
+
+• **props**: [`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>
+
+• **context**: `any`
+
+#### Returns
+
+[`FileUpload`](FileUpload.md)
+
+#### Deprecated
+
+#### See
+
+[React Docs](https://legacy.reactjs.org/docs/legacy-context.html)
+
+#### Inherited from
+
+`Component<ValueFieldProps<FileInputViewModel>>.constructor`
+
+#### Defined in
+
+node\_modules/@types/react/index.d.ts:1013
 
 ## Properties
 
-### SIZE\_UNITS
-
-• **SIZE\_UNITS**: `Object`
-
-#### Index signature
-
-▪ [key: `string`]: `string`
-
-#### Defined in
-
-[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
-
-___
-
 ### context
 
-• **context**: `unknown`
+> **context**: `unknown`
 
 If using the new style context, re-declare this in your class to be the
 `React.ContextType` of your `static contextType`.
 Should be used with type annotation or static contextType.
+
+#### Example
 
 ```ts
 static contextType = MyContext
@@ -120,87 +80,103 @@ context!: React.ContextType<typeof MyContext>
 declare context: React.ContextType<typeof MyContext>
 ```
 
-**`See`**
+#### See
 
-https://react.dev/reference/react/Component#context
+[React Docs](https://react.dev/reference/react/Component#context)
 
 #### Inherited from
 
-Component.context
+`Component.context`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:518
+node\_modules/@types/react/index.d.ts:1006
 
-___
+***
 
 ### fileInputRef
 
-• **fileInputRef**: `RefObject`\<`HTMLInputElement`\>
+> **fileInputRef**: `RefObject`\<`HTMLInputElement`\>
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
+[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
 
-___
+***
 
 ### props
 
-• `Readonly` **props**: `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\>
+> `readonly` **props**: `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
 
 #### Inherited from
 
-Component.props
+`Component.props`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:538
+node\_modules/@types/react/index.d.ts:1026
 
-___
+***
 
-### refs
+### ~~refs~~
 
-• **refs**: `Object`
+> **refs**: `object`
 
-**`Deprecated`**
+#### Index Signature
 
-https://legacy.reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs
+ \[`key`: `string`\]: `ReactInstance`
 
-#### Index signature
+#### Deprecated
 
-▪ [key: `string`]: `ReactInstance`
+#### See
+
+[Legacy React Docs](https://legacy.reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs)
 
 #### Inherited from
 
-Component.refs
+`Component.refs`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:544
+node\_modules/@types/react/index.d.ts:1033
 
-___
+***
+
+### SIZE\_UNITS
+
+> **SIZE\_UNITS**: `object`
+
+#### Index Signature
+
+ \[`key`: `string`\]: `string`
+
+#### Defined in
+
+[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
+
+***
 
 ### state
 
-• **state**: `Readonly`\<{}\>
+> **state**: `Readonly`\<`object`\>
 
 #### Inherited from
 
-Component.state
+`Component.state`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:539
+node\_modules/@types/react/index.d.ts:1027
 
-___
+***
 
-### contextType
+### contextType?
 
-▪ `Static` `Optional` **contextType**: `Context`\<`any`\>
+> `static` `optional` **contextType**: `Context`\<`any`\>
 
 If set, `this.context` will be set at runtime to the current value of the given Context.
 
-Usage:
+#### Example
 
 ```ts
 type MyContext = number
@@ -215,157 +191,32 @@ class Foo extends React.Component {
 }
 ```
 
-**`See`**
+#### See
 
-https://react.dev/reference/react/Component#static-contexttype
+[https://react.dev/reference/react/Component#static-contexttype](https://react.dev/reference/react/Component#static-contexttype)
 
 #### Inherited from
 
-Component.contextType
+`Component.contextType`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:501
+node\_modules/@types/react/index.d.ts:988
 
 ## Methods
 
-### UNSAFE\_componentWillMount
+### componentDidCatch()?
 
-▸ `Optional` **UNSAFE_componentWillMount**(): `void`
-
-Called immediately before mounting occurs, and before `Component#render`.
-Avoid introducing any side-effects or subscriptions in this method.
-
-This method will not stop working in React 17.
-
-Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
-prevents this from being invoked.
-
-#### Returns
-
-`void`
-
-**`Deprecated`**
-
-16.3, use componentDidMount or the constructor instead
-
-**`See`**
-
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
-
-#### Inherited from
-
-Component.UNSAFE\_componentWillMount
-
-#### Defined in
-
-node_modules/@types/react/ts5.0/index.d.ts:735
-
-___
-
-### UNSAFE\_componentWillReceiveProps
-
-▸ `Optional` **UNSAFE_componentWillReceiveProps**(`nextProps`, `nextContext`): `void`
-
-Called when the component may be receiving new props.
-React may call this even if props have not changed, so be sure to compare new and existing
-props if you only want to handle changes.
-
-Calling `Component#setState` generally does not trigger this method.
-
-This method will not stop working in React 17.
-
-Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
-prevents this from being invoked.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
-| `nextContext` | `any` |
-
-#### Returns
-
-`void`
-
-**`Deprecated`**
-
-16.3, use static getDerivedStateFromProps instead
-
-**`See`**
-
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
-
-#### Inherited from
-
-Component.UNSAFE\_componentWillReceiveProps
-
-#### Defined in
-
-node_modules/@types/react/ts5.0/index.d.ts:767
-
-___
-
-### UNSAFE\_componentWillUpdate
-
-▸ `Optional` **UNSAFE_componentWillUpdate**(`nextProps`, `nextState`, `nextContext`): `void`
-
-Called immediately before rendering when new props or state is received. Not called for the initial render.
-
-Note: You cannot call `Component#setState` here.
-
-This method will not stop working in React 17.
-
-Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
-prevents this from being invoked.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
-| `nextState` | `Readonly`\<{}\> |
-| `nextContext` | `any` |
-
-#### Returns
-
-`void`
-
-**`Deprecated`**
-
-16.3, use getSnapshotBeforeUpdate instead
-
-**`See`**
-
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
-
-#### Inherited from
-
-Component.UNSAFE\_componentWillUpdate
-
-#### Defined in
-
-node_modules/@types/react/ts5.0/index.d.ts:795
-
-___
-
-### componentDidCatch
-
-▸ `Optional` **componentDidCatch**(`error`, `errorInfo`): `void`
+> `optional` **componentDidCatch**(`error`, `errorInfo`): `void`
 
 Catches exceptions generated in descendant components. Unhandled exceptions will cause
 the entire component tree to unmount.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `error` | `Error` |
-| `errorInfo` | `ErrorInfo` |
+• **error**: `Error`
+
+• **errorInfo**: `ErrorInfo`
 
 #### Returns
 
@@ -373,17 +224,17 @@ the entire component tree to unmount.
 
 #### Inherited from
 
-Component.componentDidCatch
+`Component.componentDidCatch`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:664
+node\_modules/@types/react/index.d.ts:1390
 
-___
+***
 
-### componentDidMount
+### componentDidMount()?
 
-▸ `Optional` **componentDidMount**(): `void`
+> `optional` **componentDidMount**(): `void`
 
 Called immediately after a component is mounted. Setting state here will trigger re-rendering.
 
@@ -393,23 +244,25 @@ Called immediately after a component is mounted. Setting state here will trigger
 
 #### Inherited from
 
-Component.componentDidMount
+`Component.componentDidMount`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:643
+node\_modules/@types/react/index.d.ts:1369
 
-___
+***
 
-### componentDidUpdate
+### componentDidUpdate()
 
-▸ **componentDidUpdate**(`prevProps`): `void`
+> **componentDidUpdate**(`prevProps`): `void`
+
+Called immediately after updating occurs. Not called for the initial render.
+
+The snapshot is only present if [getSnapshotBeforeUpdate](FileUpload.md#getsnapshotbeforeupdate) is present and returns non-null.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `prevProps` | [`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\> |
+• **prevProps**: [`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>
 
 #### Returns
 
@@ -417,93 +270,94 @@ ___
 
 #### Overrides
 
-Component.componentDidUpdate
+`Component.componentDidUpdate`
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
+[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
 
-___
+***
 
-### componentWillMount
+### ~~componentWillMount()?~~
 
-▸ `Optional` **componentWillMount**(): `void`
+> `optional` **componentWillMount**(): `void`
 
-Called immediately before mounting occurs, and before `Component#render`.
+Called immediately before mounting occurs, and before Component.render.
 Avoid introducing any side-effects or subscriptions in this method.
 
-Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
-prevents this from being invoked.
+Note: the presence of NewLifecycle.getSnapshotBeforeUpdate getSnapshotBeforeUpdate
+or StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps prevents
+this from being invoked.
 
 #### Returns
 
 `void`
 
-**`Deprecated`**
+#### Deprecated
 
-16.3, use componentDidMount or the constructor instead; will stop working in React 17
+16.3, use ComponentLifecycle.componentDidMount componentDidMount or the constructor instead; will stop working in React 17
 
-**`See`**
+#### See
 
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state)
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
 
 #### Inherited from
 
-Component.componentWillMount
+`Component.componentWillMount`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:721
+node\_modules/@types/react/index.d.ts:1448
 
-___
+***
 
-### componentWillReceiveProps
+### ~~componentWillReceiveProps()?~~
 
-▸ `Optional` **componentWillReceiveProps**(`nextProps`, `nextContext`): `void`
+> `optional` **componentWillReceiveProps**(`nextProps`, `nextContext`): `void`
 
 Called when the component may be receiving new props.
 React may call this even if props have not changed, so be sure to compare new and existing
 props if you only want to handle changes.
 
-Calling `Component#setState` generally does not trigger this method.
+Calling Component.setState generally does not trigger this method.
 
-Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
-prevents this from being invoked.
+Note: the presence of NewLifecycle.getSnapshotBeforeUpdate getSnapshotBeforeUpdate
+or StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps prevents
+this from being invoked.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
-| `nextContext` | `any` |
+• **nextProps**: `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
+
+• **nextContext**: `any`
 
 #### Returns
 
 `void`
 
-**`Deprecated`**
+#### Deprecated
 
-16.3, use static getDerivedStateFromProps instead; will stop working in React 17
+16.3, use static StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps instead; will stop working in React 17
 
-**`See`**
+#### See
 
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props)
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
 
 #### Inherited from
 
-Component.componentWillReceiveProps
+`Component.componentWillReceiveProps`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:750
+node\_modules/@types/react/index.d.ts:1479
 
-___
+***
 
-### componentWillUnmount
+### componentWillUnmount()?
 
-▸ `Optional` **componentWillUnmount**(): `void`
+> `optional` **componentWillUnmount**(): `void`
 
 Called immediately before a component is destroyed. Perform any necessary cleanup in this method, such as
 cancelled network requests, or cleaning up any DOM elements created in `componentDidMount`.
@@ -514,65 +368,64 @@ cancelled network requests, or cleaning up any DOM elements created in `componen
 
 #### Inherited from
 
-Component.componentWillUnmount
+`Component.componentWillUnmount`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:659
+node\_modules/@types/react/index.d.ts:1385
 
-___
+***
 
-### componentWillUpdate
+### ~~componentWillUpdate()?~~
 
-▸ `Optional` **componentWillUpdate**(`nextProps`, `nextState`, `nextContext`): `void`
+> `optional` **componentWillUpdate**(`nextProps`, `nextState`, `nextContext`): `void`
 
 Called immediately before rendering when new props or state is received. Not called for the initial render.
 
-Note: You cannot call `Component#setState` here.
+Note: You cannot call Component.setState here.
 
-Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
-prevents this from being invoked.
+Note: the presence of NewLifecycle.getSnapshotBeforeUpdate getSnapshotBeforeUpdate
+or StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps prevents
+this from being invoked.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
-| `nextState` | `Readonly`\<{}\> |
-| `nextContext` | `any` |
+• **nextProps**: `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
+
+• **nextState**: `Readonly`\<`object`\>
+
+• **nextContext**: `any`
 
 #### Returns
 
 `void`
 
-**`Deprecated`**
+#### Deprecated
 
 16.3, use getSnapshotBeforeUpdate instead; will stop working in React 17
 
-**`See`**
+#### See
 
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update)
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
 
 #### Inherited from
 
-Component.componentWillUpdate
+`Component.componentWillUpdate`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:780
+node\_modules/@types/react/index.d.ts:1511
 
-___
+***
 
-### forceUpdate
+### forceUpdate()
 
-▸ **forceUpdate**(`callback?`): `void`
+> **forceUpdate**(`callback`?): `void`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `callback?` | () => `void` |
+• **callback?**
 
 #### Returns
 
@@ -580,23 +433,21 @@ ___
 
 #### Inherited from
 
-Component.forceUpdate
+`Component.forceUpdate`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:535
+node\_modules/@types/react/index.d.ts:1023
 
-___
+***
 
-### getEnabledValidation
+### getEnabledValidation()
 
-▸ **getEnabledValidation**(`itemId`): `undefined` \| `ValidationDataModel`
+> **getEnabledValidation**(`itemId`): `undefined` \| `ValidationDataModel`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `itemId` | `string` |
+• **itemId**: `string`
 
 #### Returns
 
@@ -604,19 +455,17 @@ ___
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
+[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
 
-___
+***
 
-### getFileSizeUnitName
+### getFileSizeUnitName()
 
-▸ **getFileSizeUnitName**(`value`): `string`
+> **getFileSizeUnitName**(`value`): `string`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+• **value**: `number`
 
 #### Returns
 
@@ -624,27 +473,26 @@ ___
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
+[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
 
-___
+***
 
-### getSnapshotBeforeUpdate
+### getSnapshotBeforeUpdate()?
 
-▸ `Optional` **getSnapshotBeforeUpdate**(`prevProps`, `prevState`): `any`
+> `optional` **getSnapshotBeforeUpdate**(`prevProps`, `prevState`): `any`
 
-Runs before React applies the result of `render` to the document, and
-returns an object to be given to componentDidUpdate. Useful for saving
-things such as scroll position before `render` causes changes to it.
+Runs before React applies the result of Component.render render to the document, and
+returns an object to be given to [componentDidUpdate](FileUpload.md#componentdidupdate). Useful for saving
+things such as scroll position before Component.render render causes changes to it.
 
-Note: the presence of getSnapshotBeforeUpdate prevents any of the deprecated
+Note: the presence of this method prevents any of the deprecated
 lifecycle events from running.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `prevProps` | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
-| `prevState` | `Readonly`\<{}\> |
+• **prevProps**: `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
+
+• **prevState**: `Readonly`\<`object`\>
 
 #### Returns
 
@@ -652,25 +500,25 @@ lifecycle events from running.
 
 #### Inherited from
 
-Component.getSnapshotBeforeUpdate
+`Component.getSnapshotBeforeUpdate`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:700
+node\_modules/@types/react/index.d.ts:1426
 
-___
+***
 
-### onChangeField
+### onChangeField()
 
-▸ **onChangeField**(`files`, `field`, `cb`): `void`
+> **onChangeField**(`files`, `field`, `cb`): `void`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `files` | ``null`` \| `FileList` |
-| `field` | `ValueFormField`\<`FileInputViewModel`\> |
-| `cb` | [`FieldChangeCallback`](../README.md#fieldchangecallback) |
+• **files**: `null` \| `FileList`
+
+• **field**: `ValueFormField`\<`FileInputViewModel`\>
+
+• **cb**: [`FieldChangeCallback`](../type-aliases/FieldChangeCallback.md)
 
 #### Returns
 
@@ -678,13 +526,13 @@ ___
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
+[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
 
-___
+***
 
-### render
+### render()
 
-▸ **render**(): `Element`
+> **render**(): `Element`
 
 #### Returns
 
@@ -692,30 +540,27 @@ ___
 
 #### Overrides
 
-Component.render
+`Component.render`
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
+[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
 
-___
+***
 
-### setState
+### setState()
 
-▸ **setState**\<`K`\>(`state`, `callback?`): `void`
+> **setState**\<`K`\>(`state`, `callback`?): `void`
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `K` | extends `never` |
+• **K** *extends* `never`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `state` | ``null`` \| {} \| (`prevState`: `Readonly`\<{}\>, `props`: `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\>) => ``null`` \| {} \| `Pick`\<{}, `K`\> \| `Pick`\<{}, `K`\> |
-| `callback?` | () => `void` |
+• **state**: `null` \| `object` \| (`prevState`, `props`) => `null` \| `object` \| `Pick`\<`object`, `K`\> \| `Pick`\<`object`, `K`\>
+
+• **callback?**
 
 #### Returns
 
@@ -723,17 +568,17 @@ ___
 
 #### Inherited from
 
-Component.setState
+`Component.setState`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:530
+node\_modules/@types/react/index.d.ts:1018
 
-___
+***
 
-### shouldComponentUpdate
+### shouldComponentUpdate()?
 
-▸ `Optional` **shouldComponentUpdate**(`nextProps`, `nextState`, `nextContext`): `boolean`
+> `optional` **shouldComponentUpdate**(`nextProps`, `nextState`, `nextContext`): `boolean`
 
 Called to determine whether the change in props and state should trigger a re-render.
 
@@ -741,16 +586,16 @@ Called to determine whether the change in props and state should trigger a re-re
 `PureComponent` implements a shallow comparison on props and state and returns true if any
 props or states have changed.
 
-If false is returned, `Component#render`, `componentWillUpdate`
+If false is returned, Component.render, `componentWillUpdate`
 and `componentDidUpdate` will not be called.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nextProps` | `Readonly`\<[`ValueFieldProps`](../README.md#valuefieldprops)\<`FileInputViewModel`\>\> |
-| `nextState` | `Readonly`\<{}\> |
-| `nextContext` | `any` |
+• **nextProps**: `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
+
+• **nextState**: `Readonly`\<`object`\>
+
+• **nextContext**: `any`
 
 #### Returns
 
@@ -758,8 +603,134 @@ and `componentDidUpdate` will not be called.
 
 #### Inherited from
 
-Component.shouldComponentUpdate
+`Component.shouldComponentUpdate`
 
 #### Defined in
 
-node_modules/@types/react/ts5.0/index.d.ts:654
+node\_modules/@types/react/index.d.ts:1380
+
+***
+
+### ~~UNSAFE\_componentWillMount()?~~
+
+> `optional` **UNSAFE\_componentWillMount**(): `void`
+
+Called immediately before mounting occurs, and before Component.render.
+Avoid introducing any side-effects or subscriptions in this method.
+
+This method will not stop working in React 17.
+
+Note: the presence of NewLifecycle.getSnapshotBeforeUpdate getSnapshotBeforeUpdate
+or StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps prevents
+this from being invoked.
+
+#### Returns
+
+`void`
+
+#### Deprecated
+
+16.3, use ComponentLifecycle.componentDidMount componentDidMount or the constructor instead
+
+#### See
+
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state)
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
+
+#### Inherited from
+
+`Component.UNSAFE_componentWillMount`
+
+#### Defined in
+
+node\_modules/@types/react/index.d.ts:1463
+
+***
+
+### ~~UNSAFE\_componentWillReceiveProps()?~~
+
+> `optional` **UNSAFE\_componentWillReceiveProps**(`nextProps`, `nextContext`): `void`
+
+Called when the component may be receiving new props.
+React may call this even if props have not changed, so be sure to compare new and existing
+props if you only want to handle changes.
+
+Calling Component.setState generally does not trigger this method.
+
+This method will not stop working in React 17.
+
+Note: the presence of NewLifecycle.getSnapshotBeforeUpdate getSnapshotBeforeUpdate
+or StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps prevents
+this from being invoked.
+
+#### Parameters
+
+• **nextProps**: `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
+
+• **nextContext**: `any`
+
+#### Returns
+
+`void`
+
+#### Deprecated
+
+16.3, use static StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps instead
+
+#### See
+
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props)
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
+
+#### Inherited from
+
+`Component.UNSAFE_componentWillReceiveProps`
+
+#### Defined in
+
+node\_modules/@types/react/index.d.ts:1497
+
+***
+
+### ~~UNSAFE\_componentWillUpdate()?~~
+
+> `optional` **UNSAFE\_componentWillUpdate**(`nextProps`, `nextState`, `nextContext`): `void`
+
+Called immediately before rendering when new props or state is received. Not called for the initial render.
+
+Note: You cannot call Component.setState here.
+
+This method will not stop working in React 17.
+
+Note: the presence of NewLifecycle.getSnapshotBeforeUpdate getSnapshotBeforeUpdate
+or StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps prevents
+this from being invoked.
+
+#### Parameters
+
+• **nextProps**: `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
+
+• **nextState**: `Readonly`\<`object`\>
+
+• **nextContext**: `any`
+
+#### Returns
+
+`void`
+
+#### Deprecated
+
+16.3, use getSnapshotBeforeUpdate instead
+
+#### See
+
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update)
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
+
+#### Inherited from
+
+`Component.UNSAFE_componentWillUpdate`
+
+#### Defined in
+
+node\_modules/@types/react/index.d.ts:1527

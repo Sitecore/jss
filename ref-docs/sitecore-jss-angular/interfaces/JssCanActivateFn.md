@@ -1,23 +1,21 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / JssCanActivateFn
 
-# Interface: JssCanActivateFn
+# Interface: JssCanActivateFn()
 
-## Callable
+> **JssCanActivateFn**(`input`): `string` \| `boolean` \| `string`[] \| `UrlTree` \| `Observable`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\> \| `Promise`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\>
 
-### JssCanActivateFn
+## Parameters
 
-▸ **JssCanActivateFn**(`input`): `string` \| `boolean` \| `string`[] \| `UrlTree` \| `Observable`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\> \| `Promise`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\>
+• **input**: [`GuardInput`](GuardInput.md)
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `input` | [`GuardInput`](GuardInput.md) |
-
-#### Returns
+## Returns
 
 `string` \| `boolean` \| `string`[] \| `UrlTree` \| `Observable`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\> \| `Promise`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\>
 
-#### Defined in
+## Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:86](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L86)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:86](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L86)

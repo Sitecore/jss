@@ -1,32 +1,29 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / PackageDefinition
 
 # Interface: PackageDefinition
 
 Describes a package and components to be imported
 
-## Table of contents
-
-### Properties
-
-- [components](PackageDefinition.md#components)
-- [name](PackageDefinition.md#name)
-
 ## Properties
 
 ### components
 
-• **components**: \{ `componentName`: `string` ; `moduleName`: `string`  }[]
+> **components**: `object`[]
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/components.ts:17](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/templating/components.ts#L17)
+[sitecore-jss-dev-tools/src/templating/components.ts:17](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/templating/components.ts#L17)
 
-___
+***
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/components.ts:16](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/templating/components.ts#L16)
+[sitecore-jss-dev-tools/src/templating/components.ts:16](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/templating/components.ts#L16)
