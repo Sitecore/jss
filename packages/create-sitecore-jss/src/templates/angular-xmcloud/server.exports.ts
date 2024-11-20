@@ -11,6 +11,7 @@ import metadata from './src/environments/metadata.json';
 
 const defaultLanguage = environment.defaultLanguage;
 const sitecoreSiteName = environment.sitecoreSiteName;
+const personalizeScope = environment.personalizeScope;
 const getClientFactoryConfig = getGraphQLClientFactoryConfig;
 
 export {
@@ -20,6 +21,7 @@ export {
   layoutServiceFactory,
   defaultLanguage,
   sitecoreSiteName,
+  personalizeScope,
   components,
   metadata,
 };

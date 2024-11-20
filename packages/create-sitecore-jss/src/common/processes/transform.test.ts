@@ -795,7 +795,7 @@ describe('transform', () => {
       const templatePath = path.resolve('templates/next');
       const destinationPath = path.resolve('samples/next');
       const file = 'file.ts';
-      const error = 'Nope!';
+      const error = new Error('Nope!');
 
       globSyncStub = sinon.stub(glob, 'sync').returns([file]);
       ejsRenderFileStub = sinon.stub(ejs, 'renderFile').throws(error);

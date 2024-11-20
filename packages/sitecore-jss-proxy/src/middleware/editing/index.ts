@@ -72,6 +72,13 @@ export const editingMiddleware = async (
     return res.status(401).send('Missing or invalid secret');
   }
 
+  if (req.method === 'OPTIONS') {
+    debug.editing('preflight request');
+
+    // CORS headers are set by enforceCors
+    return res.status(204).send();
+  }
+
   return next();
 };
 

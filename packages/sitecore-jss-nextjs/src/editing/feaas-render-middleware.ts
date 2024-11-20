@@ -67,9 +67,9 @@ export class FEAASRenderMiddleware extends RenderMiddlewareBase {
         );
     }
 
-    if (method !== 'GET') {
-      debug.editing('invalid method - sent %s expected GET', method);
-      res.setHeader('Allow', 'GET');
+    if (!method || !['GET', 'OPTIONS'].includes(method)) {
+      debug.editing('invalid method - sent %s expected GET,OPTIONS', method);
+      res.setHeader('Allow', 'GET, OPTIONS');
       return res.status(405).send(`<html><body>Invalid request method '${method}'</body></html>`);
     }
 
@@ -82,6 +82,14 @@ export class FEAASRenderMiddleware extends RenderMiddlewareBase {
         getJssEditingSecret()
       );
       return res.status(401).send('<html><body>Missing or invalid secret</body></html>');
+    }
+
+    // Handle preflight request
+    if (method === 'OPTIONS') {
+      debug.editing('preflight request');
+
+      // CORS headers are set by enforceCors
+      return res.status(204).send(null);
     }
 
     try {

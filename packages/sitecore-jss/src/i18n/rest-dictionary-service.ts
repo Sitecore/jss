@@ -37,6 +37,10 @@ export type RestDictionaryServiceConfig = CacheOptions & {
  * @augments DictionaryServiceBase
  */
 export class RestDictionaryService extends DictionaryServiceBase {
+  constructor(public options: RestDictionaryServiceConfig) {
+    super(options);
+  }
+
   /**
    * Provides default @see AxiosDataFetcher data fetcher
    */
@@ -47,10 +51,6 @@ export class RestDictionaryService extends DictionaryServiceBase {
       withCredentials: false,
     });
     return (url: string) => dataFetcher.fetch<RestDictionaryServiceData>(url);
-  }
-
-  constructor(public options: RestDictionaryServiceConfig) {
-    super(options);
   }
 
   /**

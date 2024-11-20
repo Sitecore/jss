@@ -86,7 +86,7 @@ function getNestedFieldValue(field: any, templates: any) {
 }
 
 /**
- * @param {Object} param
+ * @param {object} param
  * @param {any} param.field
  * @param {any} param.templates
  */

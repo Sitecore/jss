@@ -52,7 +52,7 @@ export interface PluginDefinition {
  *   name: 'fooPlugin'
  * }
  * @example getPluginList('src/foo/plugins', 'Foo')
- * @param {Object} definition plugin definition
+ * @param {object} definition plugin definition
  * @param {string} definition.path path to get plugin from
  * @param {string} definition.pluginName plugin name
  * @param {boolean} [definition.silent] whether to suppress console output

@@ -8,7 +8,6 @@ export interface SitecoreJssPlaceholderPluginOptions {
 
 /**
  * Vue plugins must export a function named 'install'
- *
  * @param {App} app
  * @param {SitecoreJssPlaceholderPluginOptions} options
  */

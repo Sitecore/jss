@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "22.3.0-canary.8",
+  "version": "22.3.0-canary.13",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -14,7 +14,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-nextjs --entryPoints src/index.ts --entryPoints src/monitoring/index.ts --entryPoints src/editing/index.ts --entryPoints src/middleware/index.ts --entryPoints src/context/index.ts --entryPoints src/utils/index.ts --entryPoints src/site/index.ts --entryPoints src/graphql/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -36,9 +36,9 @@
     "@types/chai-string": "^1.4.2",
     "@types/enzyme": "^3.10.12",
     "@types/mocha": "^10.0.1",
-    "@types/node": "~20.14.2",
+    "@types/node": "~22.9.0",
     "@types/prop-types": "^15.7.5",
-    "@types/react": "^18.2.22",
+    "@types/react": "^18.2.45",
     "@types/react-dom": "^18.0.10",
     "@types/sinon": "^10.0.13",
     "@types/sinon-chai": "^3.2.9",
@@ -51,11 +51,11 @@
     "cross-fetch": "^3.1.5",
     "del-cli": "^5.0.0",
     "enzyme": "^3.11.0",
-    "eslint": "^8.32.0",
+    "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.32.1",
     "jsdom": "^21.1.0",
     "mocha": "^10.2.0",
-    "next": "^14.2.7",
+    "next": "^14.2.18",
     "nock": "^13.3.0",
     "nyc": "^15.1.0",
     "react": "^18.2.0",
@@ -63,19 +63,18 @@
     "sinon": "^15.0.1",
     "sinon-chai": "^3.7.0",
     "ts-node": "^10.9.1",
-    "typescript": "~4.9.4"
+    "typescript": "~5.4.0"
   },
   "peerDependencies": {
     "@sitecore-cloudsdk/core": "^0.4.1",
     "@sitecore-cloudsdk/personalize": "^0.4.1",
-    "next": "^14.2.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "22.3.0-canary.8",
-    "@sitecore-jss/sitecore-jss-dev-tools": "22.3.0-canary.8",
-    "@sitecore-jss/sitecore-jss-react": "22.3.0-canary.8",
+    "@sitecore-jss/sitecore-jss": "22.3.0-canary.13",
+    "@sitecore-jss/sitecore-jss-dev-tools": "22.3.0-canary.13",
+    "@sitecore-jss/sitecore-jss-react": "22.3.0-canary.13",
     "@vercel/kv": "^0.2.1",
     "prop-types": "^15.8.1",
     "regex-parser": "^2.2.11",

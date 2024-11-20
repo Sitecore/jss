@@ -13,6 +13,7 @@ export class InitializerFactory {
         path.resolve(this.rootPath, 'initializers', name, 'index')
       );
       return new Initializer();
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       return undefined;
     }

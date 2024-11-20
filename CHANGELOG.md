@@ -24,6 +24,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-dev-tools]` getMetadata() now uses `npm query` command to get the list and exact versions of packages. this solution works for monorepo setups ([#1949](https://github.com/Sitecore/jss/pull/1949))
 * `[templates/nextjs-sxa]` Fix an alignment issue where components using both `me-auto` and `ms-md-auto` classes resulted in inconsistent alignment of elements. ([#1946](https://github.com/Sitecore/jss/pull/1946)) ([#1950](https://github.com/Sitecore/jss/pull/1950)) ([#1955](https://github.com/Sitecore/jss/pull/1955))
 * `[sitecore-jss-proxy]` Fix for getCSPHeader so that it returns proper value for the CSP header when JSS_ALLOWED_ORIGINS lists multiple origins delimited with comma. ([#1972](https://github.com/Sitecore/jss/pull/1972))
+* `[sitecore-jss-proxy]` Support Editing Host protection by handling OPTIONS preflight requests ([#1976](https://github.com/Sitecore/jss/pull/1976))
 
 ### 🎉 New Features & Improvements
 
@@ -40,7 +41,7 @@ Our versioning strategy is as follows:
   * `proxyAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
 * `[templates/angular]` `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/editing/config endpoint ([#1903](https://github.com/Sitecore/jss/pull/1903))
 * `[templates/angular]` `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/editing/render endpoint ([#1908](https://github.com/Sitecore/jss/pull/1908))
-* `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` Personalization support ([#1964](https://github.com/Sitecore/jss/pull/1964))
+* `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` Personalization support ([#1964](https://github.com/Sitecore/jss/pull/1964)[#1971](https://github.com/Sitecore/jss/pull/1971)[#1973](https://github.com/Sitecore/jss/pull/1973))
 * `[create-sitecore-jss]``[sitecore-jss-angular]``[template/angular-xmcloud]` Angular SXA components
   * Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))
   * Component styles ([#1917](https://github.com/Sitecore/jss/pull/1917))
@@ -87,11 +88,21 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-proxy]` Updated exports of the module for better extensibility ([#1903](https://github.com/Sitecore/jss/pull/1903))
   * `express@^4.19.2` dependency is marked as a peer dependency
   * Default `scProxy` middleware export is replaced by `headlessProxy` object that contains the `middleware`, `ProxyConfig`, `ServerBundle` properties
+* `[all packages][all samples]` Updated packages and apps to use nodejs 22.
+* `[nextjs]`,`[react]``[angular]``[node-headless-ssr-proxy]` Updated `typescript` to latest version
+* `[nextjs]` Updated `@typescript-eslint` to version 8
 
 ### 🧹 Chores
 
 * `[templates/angular]``[templates/node-xmcloud-proxy]``[templates/node-headless-ssr-proxy]``[templates/node-headless-ssr-experience-edge]` Adjust out of box .gitignore rules
 * New Angular add-on's are not scaffolded within build pipeline ([#1962](https://github.com/Sitecore/jss/pull/1962))
+* `[template/angular-xmcloud]``[template/xmcloud-proxy]` Add README.md ([#1965](https://github.com/Sitecore/jss/pull/1965))
+
+## 22.2.2
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Support Editing Host protection by handling OPTIONS preflight requests (#[TBD](TBD))
 
 ## 22.2.1
 

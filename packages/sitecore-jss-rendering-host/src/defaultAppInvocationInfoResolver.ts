@@ -12,8 +12,7 @@ import { AppInvocationInfoResolver, JsonObject } from './ssrMiddleware';
  * `JSSAppName` is the `id` property of the JSON request body that is POSTed to the rendering host by Sitecore.
  *
  * `serverBundleName` is the name of the JavaScript file (typically a bundle) that contains the function for rendering your app.
- *
- * @param {string} [baseAppPath='./dist'] The base path to your JSS app(s), defaults to `./dist`
+ * @param {string} [baseAppPath] The base path to your JSS app(s), defaults to `./dist`
  * @returns {AppInvocationInfoResolver} resolver
  */
 export function getDefaultAppInvocationInfoResolver({

@@ -141,8 +141,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     @Inject(PLACEHOLDER_HIDDEN_RENDERING_COMPONENT) private hiddenRenderingComponent: Type<unknown>,
     @Inject(GUARD_RESOLVER) private guardResolver: GuardResolver,
     @Inject(DATA_RESOLVER) private dataResolver: DataResolver,
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(PLATFORM_ID) private platformId: object,
     private jssState: JssStateService
   ) {
     this.contextSubscription = this.jssState.state.subscribe(({ sitecore }) => {

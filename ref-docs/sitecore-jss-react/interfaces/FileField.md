@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/File.tsx:13](https://github.com/Sitecore/jss/blob/ff173d88b/packages/sitecore-jss-react/src/components/File.tsx#L13)
+[packages/sitecore-jss-react/src/components/File.tsx:13](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-react/src/components/File.tsx#L13)

@@ -26,8 +26,6 @@ export interface GraphQLLayoutServiceConfig
    * @param {string} itemPath
    * @param {string} [locale]
    * @returns {string} custom layout query
-   *
-   * @default
    * Layout query
    * layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
    */

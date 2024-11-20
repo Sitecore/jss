@@ -35,7 +35,8 @@ export type SiteInfo = {
 };
 
 export type GraphQLSiteInfoServiceConfig = CacheOptions & {
-  /** common variable for all GraphQL queries
+  /**
+   * common variable for all GraphQL queries
    * it will be used for every type of query to regulate result batch size
    * Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
    * @default 10
@@ -65,19 +66,19 @@ export class GraphQLSiteInfoService {
   private cache: CacheClient<SiteInfo[]>;
 
   /**
-   * site query is available on XM Cloud and XP 10.4+
-   */
-  protected get siteQuery(): string {
-    return siteQuery;
-  }
-
-  /**
    * Creates an instance of graphQL service to retrieve site configuration list from Sitecore
    * @param {GraphQLSiteInfoServiceConfig} config instance
    */
   constructor(private config: GraphQLSiteInfoServiceConfig) {
     this.graphQLClient = this.getGraphQLClient();
     this.cache = this.getCacheClient();
+  }
+
+  /**
+   * site query is available on XM Cloud and XP 10.4+
+   */
+  protected get siteQuery(): string {
+    return siteQuery;
   }
 
   async fetchSiteInfo(): Promise<SiteInfo[]> {

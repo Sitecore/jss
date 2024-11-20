@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:363](https://github.com/Sitecore/jss/blob/ff173d88b/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L363)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:363](https://github.com/Sitecore/jss/blob/da1ead189/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L363)

@@ -14,7 +14,7 @@ class ContentStylesPlugin implements Plugin {
       config.sitecoreEdgeUrl
     );
 
-    contentStyles && props.headLinks.push(contentStyles);
+    if (contentStyles) props.headLinks.push(contentStyles);
 
     return props;
   }
