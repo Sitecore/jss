@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-proxy",
-  "version": "22.3.0-canary.16",
+  "version": "22.3.0-canary.17",
   "description": "Middlewares, utilities to work in a headless mode",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -29,7 +29,7 @@
   "dependencies": {
     "@sitecore-cloudsdk/core": "^0.4.1",
     "@sitecore-cloudsdk/personalize": "^0.4.1",
-    "@sitecore-jss/sitecore-jss": "22.3.0-canary.16",
+    "@sitecore-jss/sitecore-jss": "22.3.0-canary.17",
     "http-proxy-middleware": "^2.0.6",
     "http-status-codes": "^2.2.0",
     "set-cookie-parser": "^2.5.1"
