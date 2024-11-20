@@ -404,7 +404,9 @@ describe('EditingRenderMiddleware', () => {
 
       expect(res.setHeader).to.have.been.calledWith(
         'Content-Security-Policy',
-        `frame-ancestors 'self' https://allowed.com https://anotherallowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
+        `frame-ancestors 'self' https://allowed.com https://anotherallowed.com ${EDITING_ALLOWED_ORIGINS.join(
+          ' '
+        )}`
       );
     });
   });

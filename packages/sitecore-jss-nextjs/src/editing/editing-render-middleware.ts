@@ -405,9 +405,10 @@ export class MetadataHandler {
    * @returns Content-Security-Policy header value
    */
   getSCPHeader() {
-    return `frame-ancestors 'self' ${[...getAllowedOriginsFromEnv(), ...EDITING_ALLOWED_ORIGINS].join(
-      ' '
-    )}`;
+    return `frame-ancestors 'self' ${[
+      ...getAllowedOriginsFromEnv(),
+      ...EDITING_ALLOWED_ORIGINS,
+    ].join(' ')}`;
   }
 }
 
