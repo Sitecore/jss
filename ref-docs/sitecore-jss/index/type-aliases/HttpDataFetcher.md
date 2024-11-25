@@ -18,13 +18,16 @@ The interface implementation must:
 
 ## Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 ## Parameters
 
-• **url**: `string`
-
-• **data?**: `unknown`
+| Parameter | Type |
+| ------ | ------ |
+| `url` | `string` |
+| `data`? | `unknown` |
 
 ## Returns
 
@@ -32,4 +35,4 @@ The interface implementation must:
 
 ## Defined in
 
-[packages/sitecore-jss/src/data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/data-fetcher.ts#L26)
+[packages/sitecore-jss/src/data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/data-fetcher.ts#L26)

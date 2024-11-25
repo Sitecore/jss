@@ -10,9 +10,9 @@ An interface for cache clients.
 
 ## Type Parameters
 
-• **T**
-
-The type of data being cached.
+| Type Parameter | Description |
+| ------ | ------ |
+| `T` | The type of data being cached. |
 
 ## Methods
 
@@ -24,9 +24,9 @@ Retrieves a value from the cache.
 
 #### Parameters
 
-• **key**: `string`
-
-The cache key.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
 
 #### Returns
 
@@ -48,13 +48,10 @@ Adds a value to the cache for the specified cache key.
 
 #### Parameters
 
-• **key**: `string`
-
-The cache key.
-
-• **value**: `T`
-
-The value to cache.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
+| `value` | `T` | The value to cache. |
 
 #### Returns
 

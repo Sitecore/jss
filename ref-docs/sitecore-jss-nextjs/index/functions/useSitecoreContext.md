@@ -16,9 +16,9 @@ by default JSS includes the following properties in this context:
 
 ## Parameters
 
-• **options?**: [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md)
-
-hook options
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options`? | [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md) | hook options |
 
 ## Returns
 
@@ -36,7 +36,9 @@ hook options
 
 #### Parameters
 
-• **value**: `LayoutServiceData` \| [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
+| Parameter | Type |
+| ------ | ------ |
+| `value` | `LayoutServiceData` \| [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md) |
 
 #### Returns
 

@@ -12,7 +12,9 @@ Configuration for ComponentBuilder
 
 ## Type Parameters
 
-• **Component**
+| Type Parameter |
+| ------ |
+| `Component` |
 
 ## Type declaration
 
@@ -24,4 +26,4 @@ List of components to be stored
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/ComponentBuilder.ts:20](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L20)
+[sitecore-jss-nextjs/src/ComponentBuilder.ts:20](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L20)

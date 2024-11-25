@@ -10,21 +10,17 @@
 
 ## Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 ## Parameters
 
-• **url**: `string`
-
-the URL to request; may include query string
-
-• **fetcher**: [`HttpDataFetcher`](../type-aliases/HttpDataFetcher.md)\<`T`\>
-
-the fetcher to use to perform the request
-
-• **params**: `ParsedUrlQueryInput` = `{}`
-
-the query string parameters to send with the request
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | the URL to request; may include query string |
+| `fetcher` | [`HttpDataFetcher`](../type-aliases/HttpDataFetcher.md)\<`T`\> | the fetcher to use to perform the request |
+| `params` | `ParsedUrlQueryInput` | the query string parameters to send with the request |
 
 ## Returns
 
@@ -32,4 +28,4 @@ the query string parameters to send with the request
 
 ## Defined in
 
-[packages/sitecore-jss/src/data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/data-fetcher.ts#L57)
+[packages/sitecore-jss/src/data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/data-fetcher.ts#L57)

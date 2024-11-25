@@ -10,7 +10,9 @@
 
 ## Parameters
 
-• **options?**: [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options`? | [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md) |  |
 
 ## Returns
 
@@ -18,11 +20,15 @@
 
 ### Type Parameters
 
-• **ComponentProps** *extends* [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)
+| Type Parameter |
+| ------ |
+| `ComponentProps` *extends* [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md) |
 
 ### Parameters
 
-• **Component**: `ComponentType`\<`ComponentProps`\>
+| Parameter | Type |
+| ------ | ------ |
+| `Component` | `ComponentType`\<`ComponentProps`\> |
 
 ### Returns
 
@@ -30,7 +36,9 @@
 
 #### Parameters
 
-• **props**: [`EnhancedOmit`](../type-aliases/EnhancedOmit.md)\<`ComponentProps`, keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\>
+| Parameter | Type |
+| ------ | ------ |
+| `props` | [`EnhancedOmit`](../type-aliases/EnhancedOmit.md)\<`ComponentProps`, keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\> |
 
 #### Returns
 
@@ -38,4 +46,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L24)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L24)

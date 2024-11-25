@@ -18,7 +18,9 @@ Create a pipeline
 
 #### Parameters
 
-• **name?**: `string` = `''`
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `name`? | `string` | `''` |  |
 
 #### Returns
 
@@ -28,4 +30,4 @@ pipeline
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:74](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L74)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:74](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L74)

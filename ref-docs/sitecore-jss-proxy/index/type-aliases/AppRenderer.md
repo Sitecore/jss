@@ -12,15 +12,13 @@ AppRenderer is a function that renders a JSS app's markup for a given route and 
 
 ## Parameters
 
-• **callback**
-
-• **path**: `string`
-
-• **data**: `LayoutServiceData`
-
-• **viewBag**
-
-• **viewBag.dictionary**: `DictionaryPhrases`
+| Parameter | Type |
+| ------ | ------ |
+| `callback` | (`error`, `result`) => `void` |
+| `path` | `string` |
+| `data` | `LayoutServiceData` |
+| `viewBag` | `object` |
+| `viewBag.dictionary` | `DictionaryPhrases` |
 
 ## Returns
 
@@ -28,4 +26,4 @@ AppRenderer is a function that renders a JSS app's markup for a given route and 
 
 ## Defined in
 
-[sitecore-jss-proxy/src/types/AppRenderer.ts:26](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L26)
+[sitecore-jss-proxy/src/types/AppRenderer.ts:26](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L26)

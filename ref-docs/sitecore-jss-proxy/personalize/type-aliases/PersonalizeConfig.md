@@ -48,13 +48,10 @@ function, determines if personalization should be turned off, based on cookie, h
 
 #### Parameters
 
-• **req?**: `IncomingMessage`
-
-request object
-
-• **res?**: `OutgoingMessage`
-
-response object
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `req`? | `IncomingMessage` | request object |
+| `res`? | `OutgoingMessage` | response object |
 
 #### Returns
 
@@ -74,9 +71,9 @@ Function used to determine if route should be excluded.
 
 #### Parameters
 
-• **pathname**: `string`
-
-The pathname
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pathname` | `string` | The pathname |
 
 #### Returns
 
@@ -98,4 +95,4 @@ Site name for current site
 
 ## Defined in
 
-[sitecore-jss-proxy/src/types/personalize.ts:28](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-proxy/src/types/personalize.ts#L28)
+[sitecore-jss-proxy/src/types/personalize.ts:28](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-proxy/src/types/personalize.ts#L28)

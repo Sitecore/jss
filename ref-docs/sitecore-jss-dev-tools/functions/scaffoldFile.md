@@ -14,13 +14,10 @@ Does not overwrite existing files.
 
 ## Parameters
 
-• **filePath**: `string`
-
-the file path
-
-• **fileContent**: `string`
-
-the file content
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `filePath` | `string` | the file path |
+| `fileContent` | `string` | the file content |
 
 ## Returns
 
@@ -30,4 +27,4 @@ the file path if the file was created, otherwise null
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/templating/scaffold.ts:22](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-dev-tools/src/templating/scaffold.ts#L22)
+[sitecore-jss-dev-tools/src/templating/scaffold.ts:22](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-dev-tools/src/templating/scaffold.ts#L22)

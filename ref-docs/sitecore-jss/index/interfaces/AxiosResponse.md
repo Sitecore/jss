@@ -8,7 +8,9 @@
 
 ## Type Parameters
 
-• **T** = `any`
+| Type Parameter | Default type |
+| ------ | ------ |
+| `T` | `any` |
 
 ## Properties
 

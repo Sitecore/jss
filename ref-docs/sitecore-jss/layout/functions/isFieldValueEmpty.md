@@ -12,10 +12,9 @@ Determines if the passed in field object's value is empty.
 
 ## Parameters
 
-• **field**: [`GenericFieldValue`](../type-aliases/GenericFieldValue.md) \| `Partial`\<[`Field`](../interfaces/Field.md)\<[`GenericFieldValue`](../type-aliases/GenericFieldValue.md)\>\>
-
-the field object.
-Partial<T> type is used here because _field.value_ could be required or optional for the different field types
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `field` | [`GenericFieldValue`](../type-aliases/GenericFieldValue.md) \| `Partial`\<[`Field`](../interfaces/Field.md)\<[`GenericFieldValue`](../type-aliases/GenericFieldValue.md)\>\> | the field object. Partial<T> type is used here because _field.value_ could be required or optional for the different field types |
 
 ## Returns
 
@@ -23,4 +22,4 @@ Partial<T> type is used here because _field.value_ could be required or optional
 
 ## Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:109](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/layout/utils.ts#L109)
+[packages/sitecore-jss/src/layout/utils.ts:109](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/layout/utils.ts#L109)

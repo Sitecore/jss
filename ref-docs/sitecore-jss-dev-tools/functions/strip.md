@@ -13,7 +13,9 @@ Compiles each not excluded file starting from current directory (or `settings.so
 
 ## Parameters
 
-• **settings**: `StripSettings` = `{}`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `settings` | `StripSettings` |  |
 
 ## Returns
 
@@ -21,4 +23,4 @@ Compiles each not excluded file starting from current directory (or `settings.so
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/templating/strip.ts:87](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-dev-tools/src/templating/strip.ts#L87)
+[sitecore-jss-dev-tools/src/templating/strip.ts:87](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-dev-tools/src/templating/strip.ts#L87)

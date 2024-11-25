@@ -18,13 +18,16 @@ The interface implementation must:
 
 ## Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 ## Parameters
 
-• **url**: `string`
-
-• **data?**: `unknown`
+| Parameter | Type |
+| ------ | ------ |
+| `url` | `string` |
+| `data`? | `unknown` |
 
 ## Returns
 

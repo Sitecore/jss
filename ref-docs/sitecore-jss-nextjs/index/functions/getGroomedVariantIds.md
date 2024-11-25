@@ -12,9 +12,9 @@ Parses a list of variantIds and divides into layout and component variants
 
 ## Parameters
 
-• **variantIds**: `string`[]
-
-the list of variant IDs for a page
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `variantIds` | `string`[] | the list of variant IDs for a page |
 
 ## Returns
 

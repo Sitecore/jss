@@ -10,7 +10,9 @@ Definition of a component instance within a placeholder on a route
 
 ## Type Parameters
 
-• **T** = [`ComponentFields`](ComponentFields.md)
+| Type Parameter | Default type |
+| ------ | ------ |
+| `T` | [`ComponentFields`](ComponentFields.md) |
 
 ## Properties
 

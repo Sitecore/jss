@@ -34,4 +34,4 @@ Site name
 
 ## Defined in
 
-[packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:18](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L18)
+[packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:18](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L18)

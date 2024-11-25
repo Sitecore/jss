@@ -16,7 +16,9 @@ Defines an editing data cache implementation
 
 #### Parameters
 
-• **key**: `string`
+| Parameter | Type |
+| ------ | ------ |
+| `key` | `string` |
 
 #### Returns
 
@@ -24,7 +26,7 @@ Defines an editing data cache implementation
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L12)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L12)
 
 ***
 
@@ -34,9 +36,10 @@ Defines an editing data cache implementation
 
 #### Parameters
 
-• **key**: `string`
-
-• **editingData**: [`EditingData`](../type-aliases/EditingData.md)
+| Parameter | Type |
+| ------ | ------ |
+| `key` | `string` |
+| `editingData` | [`EditingData`](../type-aliases/EditingData.md) |
 
 #### Returns
 
@@ -44,4 +47,4 @@ Defines an editing data cache implementation
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:11](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L11)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:11](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L11)

@@ -26,9 +26,9 @@ Creates an instance of graphQL dictionary service with the provided options
 
 #### Parameters
 
-• **options**: [`GraphQLDictionaryServiceConfig`](../interfaces/GraphQLDictionaryServiceConfig.md)
-
-instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options` | [`GraphQLDictionaryServiceConfig`](../interfaces/GraphQLDictionaryServiceConfig.md) | instance |
 
 #### Returns
 
@@ -40,7 +40,7 @@ instance
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:147](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L147)
+[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:147](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L147)
 
 ## Properties
 
@@ -56,7 +56,7 @@ instance
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:147](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L147)
+[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:147](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L147)
 
 ## Methods
 
@@ -68,9 +68,9 @@ Fetches dictionary data for internalization. Uses search query by default
 
 #### Parameters
 
-• **language**: `string`
-
-the language to fetch
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `language` | `string` | the language to fetch |
 
 #### Returns
 
@@ -88,7 +88,7 @@ if the app root was not found for the specified site and language.
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:159](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L159)
+[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:159](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L159)
 
 ***
 
@@ -101,9 +101,9 @@ This is the default behavior for non-XMCloud deployments. Uses `query` to retrie
 
 #### Parameters
 
-• **language**: `string`
-
-the language to fetch
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `language` | `string` | the language to fetch |
 
 #### Returns
 
@@ -117,7 +117,7 @@ if the app root was not found for the specified site and language.
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:182](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L182)
+[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:182](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L182)
 
 ***
 
@@ -130,9 +130,9 @@ This is the default behavior for XMCloud deployments. Uses `siteQuery` to retrie
 
 #### Parameters
 
-• **language**: `string`
-
-the language to fetch
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `language` | `string` | the language to fetch |
 
 #### Returns
 
@@ -142,7 +142,7 @@ dictionary phrases
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:221](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L221)
+[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:221](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L221)
 
 ***
 
@@ -166,7 +166,7 @@ implementation
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
 
 ***
 
@@ -178,9 +178,9 @@ Retrieves a
 
 #### Parameters
 
-• **key**: `string`
-
-The cache key.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
 
 #### Returns
 
@@ -199,7 +199,7 @@ The
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
 
 ***
 
@@ -219,7 +219,7 @@ implementation
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:267](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L267)
+[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:267](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L267)
 
 ***
 
@@ -231,13 +231,10 @@ Caches a
 
 #### Parameters
 
-• **key**: `string`
-
-The cache key.
-
-• **value**: [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
-
-The value to cache.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
+| `value` | [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md) | The value to cache. |
 
 #### Returns
 
@@ -259,4 +256,4 @@ CacheClient<DictionaryPhrases>
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)

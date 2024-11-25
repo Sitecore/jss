@@ -14,9 +14,9 @@ Since Sitecore editors do not support Fast Refresh:
 
 ## Parameters
 
-• **forceReload?**: `boolean` = `false`
-
-force page reload instead of reset chromes
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `forceReload`? | `boolean` | `false` | force page reload instead of reset chromes |
 
 ## Returns
 
@@ -24,4 +24,4 @@ force page reload instead of reset chromes
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:32](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-nextjs/src/utils/utils.ts#L32)
+[sitecore-jss-nextjs/src/utils/utils.ts:32](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/utils/utils.ts#L32)

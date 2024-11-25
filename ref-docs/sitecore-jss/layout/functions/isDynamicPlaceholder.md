@@ -12,9 +12,9 @@ Checks if the placeholder name is dynamic.
 
 ## Parameters
 
-• **placeholder**: `string`
-
-Placeholder name
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `placeholder` | `string` | Placeholder name |
 
 ## Returns
 
@@ -24,4 +24,4 @@ True if the placeholder name is dynamic
 
 ## Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:96](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/layout/utils.ts#L96)
+[packages/sitecore-jss/src/layout/utils.ts:96](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/layout/utils.ts#L96)

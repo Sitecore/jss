@@ -10,7 +10,9 @@
 
 ## Type Parameters
 
-• **ComponentProps**
+| Type Parameter |
+| ------ |
+| `ComponentProps` |
 
 ## Defined in
 

@@ -13,9 +13,9 @@ This is used to create every possible combination of URL query parameters.
 
 ## Parameters
 
-• **array**: [`string`, `string`][]
-
-The array of key-value pairs to permute.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `array` | [`string`, `string`][] | The array of key-value pairs to permute. |
 
 ## Returns
 
@@ -25,4 +25,4 @@ The array of key-value pairs to permute.
 
 ## Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:170](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/utils/utils.ts#L170)
+[packages/sitecore-jss/src/utils/utils.ts:170](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/utils/utils.ts#L170)

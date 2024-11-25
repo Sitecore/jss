@@ -12,9 +12,9 @@ Schema of data returned in response to a "search" query request
 
 ## Type Parameters
 
-• **T**
-
-The type of objects being requested.
+| Type Parameter | Description |
+| ------ | ------ |
+| `T` | The type of objects being requested. |
 
 ## Type declaration
 
@@ -34,4 +34,4 @@ Data needed to paginate the search results
 
 ## Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/graphql/search-service.ts#L22)
+[packages/sitecore-jss/src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/graphql/search-service.ts#L22)

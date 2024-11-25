@@ -23,13 +23,10 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Parameters
 
-• **endpoint**: `string`
-
-The Graphql endpoint
-
-• **clientConfig?**: `GraphQLRequestClientConfig`
-
-GraphQL request client configuration.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `endpoint` | `string` | The Graphql endpoint |
+| `clientConfig`? | `GraphQLRequestClientConfig` | GraphQL request client configuration. |
 
 #### Returns
 
@@ -49,21 +46,17 @@ Execute graphql request
 
 #### Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 #### Parameters
 
-• **query**: `string` \| `DocumentNode`
-
-graphql query
-
-• **variables?**
-
-graphql variables
-
-• **options?**: `RequestOptions`
-
-Options for configuring a GraphQL request.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `query` | `string` \| `DocumentNode` | graphql query |
+| `variables`? | `object` | graphql variables |
+| `options`? | `RequestOptions` | Options for configuring a GraphQL request. |
 
 #### Returns
 
@@ -87,9 +80,9 @@ Factory method for creating a GraphQLRequestClientFactory.
 
 #### Parameters
 
-• **config**: [`GraphQLRequestClientFactoryConfig`](../type-aliases/GraphQLRequestClientFactoryConfig.md)
-
-client configuration options.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `config` | [`GraphQLRequestClientFactoryConfig`](../type-aliases/GraphQLRequestClientFactoryConfig.md) | client configuration options. |
 
 #### Returns
 

@@ -14,7 +14,9 @@
 
 #### Parameters
 
-• **pipeline**: [`Pipeline`](Pipeline.md)
+| Parameter | Type |
+| ------ | ------ |
+| `pipeline` | [`Pipeline`](Pipeline.md) |
 
 #### Returns
 
@@ -22,7 +24,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:4](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L4)
+[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:4](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L4)
 
 ***
 
@@ -32,7 +34,9 @@
 
 #### Parameters
 
-• **pipelineName**: `string`
+| Parameter | Type |
+| ------ | ------ |
+| `pipelineName` | `string` |
 
 #### Returns
 
@@ -40,7 +44,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:6](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L6)
+[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:6](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L6)
 
 ***
 
@@ -50,7 +54,9 @@
 
 #### Parameters
 
-• **pipelineName**: `string`
+| Parameter | Type |
+| ------ | ------ |
+| `pipelineName` | `string` |
 
 #### Returns
 
@@ -58,7 +64,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:7](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L7)
+[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:7](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L7)
 
 ***
 
@@ -72,7 +78,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:8](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L8)
+[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:8](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L8)
 
 ***
 
@@ -82,9 +88,10 @@
 
 #### Parameters
 
-• **pipeline**: [`Pipeline`](Pipeline.md)
-
-• **pipelineName?**: `string`
+| Parameter | Type |
+| ------ | ------ |
+| `pipeline` | [`Pipeline`](Pipeline.md) |
+| `pipelineName`? | `string` |
 
 #### Returns
 
@@ -92,4 +99,4 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:5](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L5)
+[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:5](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L5)

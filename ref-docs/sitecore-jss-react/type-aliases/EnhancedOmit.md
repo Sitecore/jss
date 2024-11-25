@@ -13,9 +13,10 @@ Since default `Omit` doesn't support indexing types, we had to introduce this cu
 
 ## Type Parameters
 
-• **T**
-
-• **K** *extends* `PropertyKey`
+| Type Parameter |
+| ------ |
+| `T` |
+| `K` *extends* `PropertyKey` |
 
 ## Defined in
 

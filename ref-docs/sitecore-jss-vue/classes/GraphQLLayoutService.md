@@ -26,9 +26,9 @@ Fetch layout data using the Sitecore GraphQL endpoint.
 
 #### Parameters
 
-• **serviceConfig**: `GraphQLLayoutServiceConfig`
-
-configuration
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `serviceConfig` | `GraphQLLayoutServiceConfig` | configuration |
 
 #### Returns
 
@@ -62,13 +62,10 @@ Fetch layout data for an item.
 
 #### Parameters
 
-• **itemPath**: `string`
-
-item path to fetch layout data for.
-
-• **language?**: `string`
-
-the language to fetch layout data for.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `itemPath` | `string` | item path to fetch layout data for. |
+| `language`? | `string` | the language to fetch layout data for. |
 
 #### Returns
 
@@ -114,13 +111,10 @@ Returns GraphQL Layout query
 
 #### Parameters
 
-• **itemPath**: `string`
-
-page route
-
-• **language?**: `string`
-
-language
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `itemPath` | `string` | page route |
+| `language`? | `string` | language |
 
 #### Returns
 

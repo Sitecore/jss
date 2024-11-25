@@ -30,13 +30,10 @@ function, determines if middleware should be turned off, based on cookie, header
 
 #### Parameters
 
-• **req?**: `NextRequest`
-
-request object from middleware handler
-
-• **res?**: `NextResponse`
-
-response object from middleware handler
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `req`? | `NextRequest` | request object from middleware handler |
+| `res`? | `NextResponse` | response object from middleware handler |
 
 #### Returns
 
@@ -52,9 +49,9 @@ This is an important performance consideration since Next.js Edge middleware run
 
 #### Parameters
 
-• **pathname**: `string`
-
-The pathname
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pathname` | `string` | The pathname |
 
 #### Returns
 
@@ -70,4 +67,4 @@ Site resolution implementation by name/hostname
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:4](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L4)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:4](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L4)

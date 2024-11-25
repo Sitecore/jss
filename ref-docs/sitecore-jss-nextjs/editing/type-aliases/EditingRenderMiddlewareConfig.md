@@ -62,15 +62,11 @@ This may be necessary for certain custom Next.js routing configurations.
 
 #### Parameters
 
-• **args**
-
-Arguments for resolving the page URL
-
-• **args.itemPath**: `string`
-
-• **args.serverUrl?**: `string`
-
-The root server URL e.g. 'http://localhost:3000'. Available in Chromes Edit Mode only.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `args` | `object` | Arguments for resolving the page URL |
+| `args.itemPath` | `string` | - |
+| `args.serverUrl`? | `string` | The root server URL e.g. 'http://localhost:3000'. Available in Chromes Edit Mode only. |
 
 #### Returns
 
@@ -101,9 +97,9 @@ By default, the host header is used, with https protocol on Vercel (due to serve
 
 #### Parameters
 
-• **req**: `NextApiRequest`
-
-The current request.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `req` | `NextApiRequest` | The current request. |
 
 #### Returns
 
@@ -119,4 +115,4 @@ resolvePageUrl
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:21](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L21)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:21](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L21)

@@ -13,13 +13,10 @@ string parameters into a unified string representation.
 
 ## Parameters
 
-• **urlBase**: `string`
-
-the base URL that may contain query string parameters
-
-• **params**: `ParsedUrlQueryInput` = `{}`
-
-query string parameters
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `urlBase` | `string` | the base URL that may contain query string parameters |
+| `params` | `ParsedUrlQueryInput` | query string parameters |
 
 ## Returns
 
@@ -33,4 +30,4 @@ if the provided url is an empty string
 
 ## Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:35](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/utils/utils.ts#L35)
+[packages/sitecore-jss/src/utils/utils.ts:35](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/utils/utils.ts#L35)

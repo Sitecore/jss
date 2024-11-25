@@ -18,9 +18,10 @@
 
 #### Parameters
 
-• **props**: `SitecoreContextProps`
-
-• **context**: `unknown`
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `SitecoreContextProps` |
+| `context` | `unknown` |
 
 #### Returns
 
@@ -32,7 +33,7 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L24)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L24)
 
 ## Properties
 
@@ -42,7 +43,7 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:22](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L22)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:22](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L22)
 
 ***
 
@@ -167,7 +168,7 @@ sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:461
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L20)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L20)
 
 ***
 
@@ -185,7 +186,7 @@ sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:461
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L15)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L15)
 
 ## Methods
 
@@ -198,9 +199,10 @@ the entire component tree to unmount.
 
 #### Parameters
 
-• **error**: `Error`
-
-• **errorInfo**: `ErrorInfo`
+| Parameter | Type |
+| ------ | ------ |
+| `error` | `Error` |
+| `errorInfo` | `ErrorInfo` |
 
 #### Returns
 
@@ -246,11 +248,11 @@ The snapshot is only present if getSnapshotBeforeUpdate is present and returns n
 
 #### Parameters
 
-• **prevProps**: `Readonly`\<`SitecoreContextProps`\>
-
-• **prevState**: `Readonly`\<`object`\>
-
-• **snapshot?**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `prevProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `prevState` | `Readonly`\<`object`\> |
+| `snapshot`? | `any` |
 
 #### Returns
 
@@ -314,9 +316,10 @@ prevents this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<`SitecoreContextProps`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -375,11 +378,11 @@ prevents this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<`SitecoreContextProps`\>
-
-• **nextState**: `Readonly`\<`object`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextState` | `Readonly`\<`object`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -410,7 +413,9 @@ sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:762
 
 #### Parameters
 
-• **callback?**
+| Parameter | Type |
+| ------ | ------ |
+| `callback`? | () => `void` |
 
 #### Returns
 
@@ -439,9 +444,10 @@ lifecycle events from running.
 
 #### Parameters
 
-• **prevProps**: `Readonly`\<`SitecoreContextProps`\>
-
-• **prevState**: `Readonly`\<`object`\>
+| Parameter | Type |
+| ------ | ------ |
+| `prevProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `prevState` | `Readonly`\<`object`\> |
 
 #### Returns
 
@@ -471,7 +477,7 @@ sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:682
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L29)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L29)
 
 ***
 
@@ -481,13 +487,16 @@ sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:682
 
 #### Type Parameters
 
-• **K** *extends* `never`
+| Type Parameter |
+| ------ |
+| `K` *extends* `never` |
 
 #### Parameters
 
-• **state**: `object` \| (`prevState`, `props`) => `object` \| `Pick`\<`object`, `K`\> \| `Pick`\<`object`, `K`\>
-
-• **callback?**
+| Parameter | Type |
+| ------ | ------ |
+| `state` | `object` \| (`prevState`, `props`) => `object` \| `Pick`\<`object`, `K`\> \| `Pick`\<`object`, `K`\> |
+| `callback`? | () => `void` |
 
 #### Returns
 
@@ -518,11 +527,11 @@ and `componentDidUpdate` will not be called.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<`SitecoreContextProps`\>
-
-• **nextState**: `Readonly`\<`object`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextState` | `Readonly`\<`object`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -590,9 +599,10 @@ prevents this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<`SitecoreContextProps`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -632,11 +642,11 @@ prevents this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<`SitecoreContextProps`\>
-
-• **nextState**: `Readonly`\<`object`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextState` | `Readonly`\<`object`\> |
+| `nextContext` | `any` |
 
 #### Returns
 

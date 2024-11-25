@@ -12,13 +12,15 @@ Hook in order to get access to props related to specific component. Data comes f
 
 ## Type Parameters
 
-• **ComponentData**
+| Type Parameter |
+| ------ |
+| `ComponentData` |
 
 ## Parameters
 
-• **componentUid**: `undefined` \| `string`
-
-component uId
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `componentUid` | `undefined` \| `string` | component uId |
 
 ## Returns
 
@@ -32,4 +34,4 @@ ComponentPropsContext
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)

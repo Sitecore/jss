@@ -13,13 +13,10 @@ string parameters into a unified string representation.
 
 ## Parameters
 
-• **urlBase**: `string`
-
-the base URL that may contain query string parameters
-
-• **params?**: `ParsedUrlQueryInput`
-
-query string parameters
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `urlBase` | `string` | the base URL that may contain query string parameters |
+| `params`? | `ParsedUrlQueryInput` | query string parameters |
 
 ## Returns
 

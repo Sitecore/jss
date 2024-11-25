@@ -10,9 +10,9 @@
 
 ## Parameters
 
-• **pipeline**: [`ExecutablePipeline`](../interfaces/ExecutablePipeline.md)
-
-the pipeline to run (optional but must be specified if processors is not specified)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pipeline` | [`ExecutablePipeline`](../interfaces/ExecutablePipeline.md) | the pipeline to run (optional but must be specified if processors is not specified) |
 
 ## Returns
 
@@ -20,4 +20,4 @@ the pipeline to run (optional but must be specified if processors is not specifi
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipeline.ts:90](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L90)
+[sitecore-jss-dev-tools/src/pipelines/pipeline.ts:90](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L90)

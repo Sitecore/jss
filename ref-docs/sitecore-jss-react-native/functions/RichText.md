@@ -10,9 +10,10 @@
 
 ## Parameters
 
-• **props**: `PropsWithChildren`\<`RichTextProps`\>
-
-• **context?**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `PropsWithChildren`\<`RichTextProps`\> |
+| `context`? | `any` |
 
 ## Returns
 
@@ -20,4 +21,4 @@
 
 ## Defined in
 
-[sitecore-jss-react-native/src/components/RichText.tsx:14](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-react-native/src/components/RichText.tsx#L14)
+[sitecore-jss-react-native/src/components/RichText.tsx:14](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-react-native/src/components/RichText.tsx#L14)

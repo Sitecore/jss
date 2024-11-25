@@ -21,11 +21,11 @@ Useful inside templated placeholders.
 
 #### Parameters
 
-• **differs**: `KeyValueDiffers`
-
-• **componentFactory**: `JssComponentFactoryService`
-
-• **missingComponentComponent**: `Type`\<`object`\>
+| Parameter | Type |
+| ------ | ------ |
+| `differs` | `KeyValueDiffers` |
+| `componentFactory` | `JssComponentFactoryService` |
+| `missingComponentComponent` | `Type`\<`object`\> |
 
 #### Returns
 
@@ -33,7 +33,7 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:43](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-angular/src/components/render-component.component.ts#L43)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:43](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-angular/src/components/render-component.component.ts#L43)
 
 ## Properties
 
@@ -47,7 +47,7 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:36](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-angular/src/components/render-component.component.ts#L36)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:36](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-angular/src/components/render-component.component.ts#L36)
 
 ***
 
@@ -57,7 +57,7 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:35](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-angular/src/components/render-component.component.ts#L35)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:35](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-angular/src/components/render-component.component.ts#L35)
 
 ## Accessors
 
@@ -69,7 +69,9 @@ Useful inside templated placeholders.
 
 ##### Parameters
 
-• **value**
+| Parameter | Type |
+| ------ | ------ |
+| `value` | `object` |
 
 ##### Returns
 
@@ -77,7 +79,7 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:51](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-angular/src/components/render-component.component.ts#L51)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:51](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-angular/src/components/render-component.component.ts#L51)
 
 ## Methods
 
@@ -92,9 +94,9 @@ children are checked.
 
 #### Parameters
 
-• **changes**: `SimpleChanges`
-
-The changed properties.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `changes` | `SimpleChanges` | The changed properties. |
 
 #### Returns
 
@@ -106,4 +108,4 @@ The changed properties.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:58](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-angular/src/components/render-component.component.ts#L58)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:58](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-angular/src/components/render-component.component.ts#L58)

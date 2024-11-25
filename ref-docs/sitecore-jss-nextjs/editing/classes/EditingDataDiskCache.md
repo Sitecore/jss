@@ -24,9 +24,9 @@ EditingDataCache
 
 #### Parameters
 
-• **tmpDir?**: `string` = `...`
-
-Temp directory to use. Default is the OS temp directory (os.tmpdir()).
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `tmpDir`? | `string` | Temp directory to use. Default is the OS temp directory (os.tmpdir()). |
 
 #### Returns
 
@@ -34,7 +34,7 @@ Temp directory to use. Default is the OS temp directory (os.tmpdir()).
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:25](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L25)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:25](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L25)
 
 ## Methods
 
@@ -44,7 +44,9 @@ Temp directory to use. Default is the OS temp directory (os.tmpdir()).
 
 #### Parameters
 
-• **key**: `string`
+| Parameter | Type |
+| ------ | ------ |
+| `key` | `string` |
 
 #### Returns
 
@@ -56,7 +58,7 @@ Temp directory to use. Default is the OS temp directory (os.tmpdir()).
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L41)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L41)
 
 ***
 
@@ -66,9 +68,10 @@ Temp directory to use. Default is the OS temp directory (os.tmpdir()).
 
 #### Parameters
 
-• **key**: `string`
-
-• **editingData**: [`EditingData`](../type-aliases/EditingData.md)
+| Parameter | Type |
+| ------ | ------ |
+| `key` | `string` |
+| `editingData` | [`EditingData`](../type-aliases/EditingData.md) |
 
 #### Returns
 
@@ -80,4 +83,4 @@ Temp directory to use. Default is the OS temp directory (os.tmpdir()).
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:30](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L30)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:30](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L30)

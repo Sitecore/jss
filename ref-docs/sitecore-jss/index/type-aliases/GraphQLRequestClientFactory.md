@@ -13,9 +13,9 @@ This factory function is used to create and configure GraphQL clients for making
 
 ## Parameters
 
-• **config?**: `Omit`\<[`GraphQLRequestClientConfig`](GraphQLRequestClientConfig.md), `"apiKey"`\>
-
-The configuration object that specifies how the GraphQL client should be set up.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `config`? | `Omit`\<[`GraphQLRequestClientConfig`](GraphQLRequestClientConfig.md), `"apiKey"`\> | The configuration object that specifies how the GraphQL client should be set up. |
 
 ## Returns
 
@@ -25,4 +25,4 @@ An instance of a GraphQL Request Client ready to send GraphQL requests.
 
 ## Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:101](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/graphql-request-client.ts#L101)
+[packages/sitecore-jss/src/graphql-request-client.ts:101](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/graphql-request-client.ts#L101)

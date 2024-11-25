@@ -12,9 +12,9 @@ Makes a request to Sitecore Content Service for the specified item path.
 
 ## Parameters
 
-• **editorMarkup**: `string`
-
-the markup to parse
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `editorMarkup` | `string` | the markup to parse |
 
 ## Returns
 
@@ -24,4 +24,4 @@ found image tag; null in case if not found
 
 ## Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:18](https://github.com/Sitecore/jss/blob/b5a46b615f5ff23027c5e9a755573e12c4212373/packages/sitecore-jss/src/media/media-api.ts#L18)
+[packages/sitecore-jss/src/media/media-api.ts:18](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/media/media-api.ts#L18)
