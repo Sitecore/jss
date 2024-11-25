@@ -32,4 +32,4 @@ the query string parameters to send with the request
 
 ## Defined in
 
-[packages/sitecore-jss/src/data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/data-fetcher.ts#L57)
+[packages/sitecore-jss/src/data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/afae5c8a8729af8f6d283032473cffb7fb5b43e6/packages/sitecore-jss/src/data-fetcher.ts#L57)

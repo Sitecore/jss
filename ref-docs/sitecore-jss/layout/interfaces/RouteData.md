@@ -20,7 +20,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:61](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/models.ts#L61)
+[packages/sitecore-jss/src/layout/models.ts:61](https://github.com/Sitecore/jss/blob/afae5c8a8729af8f6d283032473cffb7fb5b43e6/packages/sitecore-jss/src/layout/models.ts#L61)
 
 ***
 
@@ -30,7 +30,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:62](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/models.ts#L62)
+[packages/sitecore-jss/src/layout/models.ts:62](https://github.com/Sitecore/jss/blob/afae5c8a8729af8f6d283032473cffb7fb5b43e6/packages/sitecore-jss/src/layout/models.ts#L62)
 
 ***
 
@@ -40,7 +40,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:59](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/models.ts#L59)
+[packages/sitecore-jss/src/layout/models.ts:59](https://github.com/Sitecore/jss/blob/afae5c8a8729af8f6d283032473cffb7fb5b43e6/packages/sitecore-jss/src/layout/models.ts#L59)
 
 ***
 
@@ -50,7 +50,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:60](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/models.ts#L60)
+[packages/sitecore-jss/src/layout/models.ts:60](https://github.com/Sitecore/jss/blob/afae5c8a8729af8f6d283032473cffb7fb5b43e6/packages/sitecore-jss/src/layout/models.ts#L60)
 
 ***
 
@@ -60,7 +60,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:69](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/models.ts#L69)
+[packages/sitecore-jss/src/layout/models.ts:69](https://github.com/Sitecore/jss/blob/afae5c8a8729af8f6d283032473cffb7fb5b43e6/packages/sitecore-jss/src/layout/models.ts#L69)
 
 ***
 
@@ -70,7 +70,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:63](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/models.ts#L63)
+[packages/sitecore-jss/src/layout/models.ts:63](https://github.com/Sitecore/jss/blob/afae5c8a8729af8f6d283032473cffb7fb5b43e6/packages/sitecore-jss/src/layout/models.ts#L63)
 
 ***
 
@@ -80,7 +80,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:64](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/models.ts#L64)
+[packages/sitecore-jss/src/layout/models.ts:64](https://github.com/Sitecore/jss/blob/afae5c8a8729af8f6d283032473cffb7fb5b43e6/packages/sitecore-jss/src/layout/models.ts#L64)
 
 ***
 
@@ -90,7 +90,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:65](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/models.ts#L65)
+[packages/sitecore-jss/src/layout/models.ts:65](https://github.com/Sitecore/jss/blob/afae5c8a8729af8f6d283032473cffb7fb5b43e6/packages/sitecore-jss/src/layout/models.ts#L65)
 
 ***
 
@@ -100,7 +100,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:58](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/models.ts#L58)
+[packages/sitecore-jss/src/layout/models.ts:58](https://github.com/Sitecore/jss/blob/afae5c8a8729af8f6d283032473cffb7fb5b43e6/packages/sitecore-jss/src/layout/models.ts#L58)
 
 ***
 
@@ -110,7 +110,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:68](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/models.ts#L68)
+[packages/sitecore-jss/src/layout/models.ts:68](https://github.com/Sitecore/jss/blob/afae5c8a8729af8f6d283032473cffb7fb5b43e6/packages/sitecore-jss/src/layout/models.ts#L68)
 
 ***
 
@@ -120,7 +120,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:66](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/models.ts#L66)
+[packages/sitecore-jss/src/layout/models.ts:66](https://github.com/Sitecore/jss/blob/afae5c8a8729af8f6d283032473cffb7fb5b43e6/packages/sitecore-jss/src/layout/models.ts#L66)
 
 ***
 
@@ -130,4 +130,4 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:67](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/models.ts#L67)
+[packages/sitecore-jss/src/layout/models.ts:67](https://github.com/Sitecore/jss/blob/afae5c8a8729af8f6d283032473cffb7fb5b43e6/packages/sitecore-jss/src/layout/models.ts#L67)
