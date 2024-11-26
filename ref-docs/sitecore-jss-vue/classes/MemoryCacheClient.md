@@ -13,9 +13,9 @@ This class is meant to be extended or used as a mixin; it's not meant to be used
 
 ## Type Parameters
 
-• **T**
-
-The type of data being cached.
+| Type Parameter | Description |
+| ------ | ------ |
+| `T` | The type of data being cached. |
 
 ## Implements
 
@@ -31,9 +31,9 @@ Initializes a new instance of
 
 #### Parameters
 
-• **options**: [`CacheOptions`](../interfaces/CacheOptions.md)
-
-Configuration options
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options` | [`CacheOptions`](../interfaces/CacheOptions.md) | Configuration options |
 
 #### Returns
 
@@ -68,9 +68,9 @@ Retrieves a value from the cache.
 
 #### Parameters
 
-• **key**: `string`
-
-The cache key.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
 
 #### Returns
 
@@ -96,13 +96,10 @@ Adds a value to the cache for the specified cache key.
 
 #### Parameters
 
-• **key**: `string`
-
-The cache key.
-
-• **value**: `T`
-
-The value to cache.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
+| `value` | `T` | The value to cache. |
 
 #### Returns
 

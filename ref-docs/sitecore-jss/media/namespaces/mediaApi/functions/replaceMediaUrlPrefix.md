@@ -13,13 +13,10 @@ Can use `mediaUrlPrefix` in order to use a custom prefix.
 
 ## Parameters
 
-• **url**: `string`
-
-The URL to replace the media URL prefix in
-
-• **mediaUrlPrefix?**: `RegExp` = `mediaUrlPrefixRegex`
-
-The regex to match the media URL prefix
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `url` | `string` | `undefined` | The URL to replace the media URL prefix in |
+| `mediaUrlPrefix`? | `RegExp` | `mediaUrlPrefixRegex` | The regex to match the media URL prefix |
 
 ## Returns
 
@@ -29,4 +26,4 @@ The URL with the media URL prefix replaced
 
 ## Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:57](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/media/media-api.ts#L57)
+[packages/sitecore-jss/src/media/media-api.ts:57](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/media/media-api.ts#L57)

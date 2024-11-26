@@ -13,9 +13,9 @@ This class is meant to be extended or used as a mixin; it's not meant to be used
 
 ## Type Parameters
 
-• **T**
-
-The type of data being cached.
+| Type Parameter | Description |
+| ------ | ------ |
+| `T` | The type of data being cached. |
 
 ## Implements
 
@@ -31,9 +31,9 @@ Initializes a new instance of
 
 #### Parameters
 
-• **options**: [`CacheOptions`](../interfaces/CacheOptions.md)
-
-Configuration options
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options` | [`CacheOptions`](../interfaces/CacheOptions.md) | Configuration options |
 
 #### Returns
 
@@ -46,7 +46,7 @@ Configuration options
 
 #### Defined in
 
-[packages/sitecore-jss/src/cache-client.ts:61](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/cache-client.ts#L61)
+[packages/sitecore-jss/src/cache-client.ts:61](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/cache-client.ts#L61)
 
 ## Properties
 
@@ -58,7 +58,7 @@ Configuration options
 
 #### Defined in
 
-[packages/sitecore-jss/src/cache-client.ts:61](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/cache-client.ts#L61)
+[packages/sitecore-jss/src/cache-client.ts:61](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/cache-client.ts#L61)
 
 ## Methods
 
@@ -70,9 +70,9 @@ Retrieves a value from the cache.
 
 #### Parameters
 
-• **key**: `string`
-
-The cache key.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
 
 #### Returns
 
@@ -86,7 +86,7 @@ The cache value as {T}, or null if the specified key is not found in the cache.
 
 #### Defined in
 
-[packages/sitecore-jss/src/cache-client.ts:77](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/cache-client.ts#L77)
+[packages/sitecore-jss/src/cache-client.ts:77](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/cache-client.ts#L77)
 
 ***
 
@@ -98,13 +98,10 @@ Adds a value to the cache for the specified cache key.
 
 #### Parameters
 
-• **key**: `string`
-
-The cache key.
-
-• **value**: `T`
-
-The value to cache.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
+| `value` | `T` | The value to cache. |
 
 #### Returns
 
@@ -118,4 +115,4 @@ The value added to the cache.
 
 #### Defined in
 
-[packages/sitecore-jss/src/cache-client.ts:88](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/cache-client.ts#L88)
+[packages/sitecore-jss/src/cache-client.ts:88](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/cache-client.ts#L88)

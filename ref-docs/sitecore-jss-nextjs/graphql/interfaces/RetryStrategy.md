@@ -18,13 +18,10 @@ Calculates the delay (in milliseconds) before the next retry based on the given 
 
 #### Parameters
 
-• **error**: [`GraphQLClientError`](../type-aliases/GraphQLClientError.md)
-
-The error received from the GraphQL request.
-
-• **attempt**: `number`
-
-The current attempt number.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `error` | [`GraphQLClientError`](../type-aliases/GraphQLClientError.md) | The error received from the GraphQL request. |
+| `attempt` | `number` | The current attempt number. |
 
 #### Returns
 
@@ -46,17 +43,11 @@ Determines whether a request should be retried based on the given error and atte
 
 #### Parameters
 
-• **error**: [`GraphQLClientError`](../type-aliases/GraphQLClientError.md)
-
-The error received from the GraphQL request.
-
-• **attempt**: `number`
-
-The current attempt number.
-
-• **retries**: `number`
-
-The number of retries configured.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `error` | [`GraphQLClientError`](../type-aliases/GraphQLClientError.md) | The error received from the GraphQL request. |
+| `attempt` | `number` | The current attempt number. |
+| `retries` | `number` | The number of retries configured. |
 
 #### Returns
 

@@ -12,9 +12,10 @@ Gets rendering definitions in a given child placeholder under a current renderin
 
 ## Parameters
 
-• **rendering**: [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\>
-
-• **placeholderName**: `string`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `rendering` | [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> |  |
+| `placeholderName` | `string` |  |
 
 ## Returns
 
@@ -24,4 +25,4 @@ child placeholder
 
 ## Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:66](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/utils.ts#L66)
+[packages/sitecore-jss/src/layout/utils.ts:66](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/layout/utils.ts#L66)

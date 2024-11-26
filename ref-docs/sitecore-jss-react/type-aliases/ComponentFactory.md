@@ -10,13 +10,10 @@
 
 ## Parameters
 
-• **componentName**: `string`
-
-component to be imported from the component factory
-
-• **exportName?**: `string`
-
-component to be imported in case you export multiple components from the same file
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `componentName` | `string` | component to be imported from the component factory |
+| `exportName`? | `string` | component to be imported in case you export multiple components from the same file |
 
 ## Returns
 
@@ -24,4 +21,4 @@ component to be imported in case you export multiple components from the same fi
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/sharedTypes.ts:7](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/sharedTypes.ts#L7)
+[packages/sitecore-jss-react/src/components/sharedTypes.ts:7](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-react/src/components/sharedTypes.ts#L7)

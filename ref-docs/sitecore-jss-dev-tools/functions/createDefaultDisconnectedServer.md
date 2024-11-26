@@ -10,7 +10,9 @@
 
 ## Parameters
 
-• **options**: [`DisconnectedServerOptions`](../interfaces/DisconnectedServerOptions.md)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options` | [`DisconnectedServerOptions`](../interfaces/DisconnectedServerOptions.md) |  |
 
 ## Returns
 
@@ -18,4 +20,4 @@
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts:99](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L99)
+[sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts:99](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L99)

@@ -10,7 +10,9 @@
 
 ## Parameters
 
-• **options?**: [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options`? | [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md) |  |
 
 ## Returns
 
@@ -18,11 +20,15 @@
 
 ### Type Parameters
 
-• **ComponentProps** *extends* [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)
+| Type Parameter |
+| ------ |
+| `ComponentProps` *extends* [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md) |
 
 ### Parameters
 
-• **Component**: `React.ComponentType`\<`ComponentProps`\>
+| Parameter | Type |
+| ------ | ------ |
+| `Component` | `React.ComponentType`\<`ComponentProps`\> |
 
 ### Returns
 
@@ -30,7 +36,9 @@
 
 #### Parameters
 
-• **props**: `EnhancedOmit`\<`ComponentProps`, keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\>
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `EnhancedOmit`\<`ComponentProps`, keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\> |
 
 #### Returns
 

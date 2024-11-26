@@ -21,7 +21,9 @@ Uses Axios as the default data fetcher (@see AxiosDataFetcher).
 
 #### Parameters
 
-• **serviceConfig**: [`RestLayoutServiceConfig`](../type-aliases/RestLayoutServiceConfig.md)
+| Parameter | Type |
+| ------ | ------ |
+| `serviceConfig` | [`RestLayoutServiceConfig`](../type-aliases/RestLayoutServiceConfig.md) |
 
 #### Returns
 
@@ -33,7 +35,7 @@ Uses Axios as the default data fetcher (@see AxiosDataFetcher).
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:64](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L64)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:64](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/layout/rest-layout-service.ts#L64)
 
 ## Methods
 
@@ -45,21 +47,12 @@ Fetch layout data for an item.
 
 #### Parameters
 
-• **itemPath**: `string`
-
-item path to fetch layout data for.
-
-• **language?**: `string`
-
-the language to fetch layout data for.
-
-• **req?**: `IncomingMessage`
-
-Request instance
-
-• **res?**: `ServerResponse`\<`IncomingMessage`\>
-
-Response instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `itemPath` | `string` | item path to fetch layout data for. |
+| `language`? | `string` | the language to fetch layout data for. |
+| `req`? | `IncomingMessage` | Request instance |
+| `res`? | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
@@ -77,7 +70,7 @@ the item with the specified path is not found
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:77](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L77)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:77](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/layout/rest-layout-service.ts#L77)
 
 ***
 
@@ -91,25 +84,13 @@ a specific route item. Allows you to retrieve rendered data for individual place
 
 #### Parameters
 
-• **placeholderName**: `string`
-
-the name of the placeholder to fetch layout data for.
-
-• **itemPath**: `string`
-
-the path to the item to fetch layout data for.
-
-• **language?**: `string`
-
-the language to fetch data for.
-
-• **req?**: `IncomingMessage`
-
-Request instance
-
-• **res?**: `ServerResponse`\<`IncomingMessage`\>
-
-Response instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `placeholderName` | `string` | the name of the placeholder to fetch layout data for. |
+| `itemPath` | `string` | the path to the item to fetch layout data for. |
+| `language`? | `string` | the language to fetch data for. |
+| `req`? | `IncomingMessage` | Request instance |
+| `res`? | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
@@ -119,7 +100,7 @@ placeholder data
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:132](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L132)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:132](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/layout/rest-layout-service.ts#L132)
 
 ***
 
@@ -131,17 +112,16 @@ Provides default
 
 #### Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 #### Parameters
 
-• **req?**: `IncomingMessage`
-
-Request instance
-
-• **res?**: `ServerResponse`\<`IncomingMessage`\>
-
-Response instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `req`? | `IncomingMessage` | Request instance |
+| `res`? | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
@@ -151,9 +131,10 @@ default fetcher
 
 ##### Parameters
 
-• **url**: `string`
-
-• **data?**: `unknown`
+| Parameter | Type |
+| ------ | ------ |
+| `url` | `string` |
+| `data`? | `unknown` |
 
 ##### Returns
 
@@ -165,7 +146,7 @@ AxiosDataFetcher data fetcher
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:192](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L192)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:192](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/layout/rest-layout-service.ts#L192)
 
 ***
 
@@ -177,9 +158,9 @@ Provides fetch options in order to fetch data
 
 #### Parameters
 
-• **language?**: `string`
-
-language will be applied to `sc_lang` param
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `language`? | `string` | language will be applied to `sc_lang` param |
 
 #### Returns
 
@@ -189,7 +170,7 @@ fetch options
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:166](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L166)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:166](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/layout/rest-layout-service.ts#L166)
 
 ***
 
@@ -201,9 +182,9 @@ Resolves layout service url
 
 #### Parameters
 
-• **apiType**: `"render"` \| `"placeholder"`
-
-which layout service API to call ('render' or 'placeholder')
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `apiType` | `"render"` \| `"placeholder"` | which layout service API to call ('render' or 'placeholder') |
 
 #### Returns
 
@@ -213,7 +194,7 @@ the layout service url
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:180](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L180)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:180](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/layout/rest-layout-service.ts#L180)
 
 ***
 
@@ -225,9 +206,9 @@ Setup request headers
 
 #### Parameters
 
-• **req**: `IncomingMessage`
-
-Request instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `req` | `IncomingMessage` | Request instance |
 
 #### Returns
 
@@ -237,7 +218,9 @@ axios request config
 
 ##### Parameters
 
-• **reqConfig**: `AxiosRequestConfig`
+| Parameter | Type |
+| ------ | ------ |
+| `reqConfig` | `AxiosRequestConfig` |
 
 ##### Returns
 
@@ -245,7 +228,7 @@ axios request config
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:214](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L214)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:214](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/layout/rest-layout-service.ts#L214)
 
 ***
 
@@ -257,9 +240,9 @@ Setup response headers based on response from layout service
 
 #### Parameters
 
-• **res**: `ServerResponse`\<`IncomingMessage`\>
-
-Response instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `res` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
@@ -269,7 +252,9 @@ response
 
 ##### Parameters
 
-• **serverRes**: [`AxiosResponse`](../../index/interfaces/AxiosResponse.md)\<`any`\>
+| Parameter | Type |
+| ------ | ------ |
+| `serverRes` | [`AxiosResponse`](../../index/interfaces/AxiosResponse.md)\<`any`\> |
 
 ##### Returns
 
@@ -277,4 +262,4 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:233](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L233)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:233](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/layout/rest-layout-service.ts#L233)

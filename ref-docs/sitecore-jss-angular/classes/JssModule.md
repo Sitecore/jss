@@ -26,9 +26,9 @@ Instantiates a module for a lazy-loaded JSS component(s)
 
 #### Parameters
 
-• **value**: `Type`\<`unknown`\> \| `object`
-
-component or map of components
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `value` | `Type`\<`unknown`\> \| `object` | component or map of components |
 
 #### Returns
 
@@ -38,7 +38,7 @@ module
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/lib.module.ts:114](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-angular/src/lib.module.ts#L114)
+[packages/sitecore-jss-angular/src/lib.module.ts:114](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/lib.module.ts#L114)
 
 ***
 
@@ -57,7 +57,7 @@ module
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/lib.module.ts:88](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-angular/src/lib.module.ts#L88)
+[packages/sitecore-jss-angular/src/lib.module.ts:88](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/lib.module.ts#L88)
 
 ***
 
@@ -70,9 +70,10 @@ Appropriate when defining the set of JSS components that your app is aware of.
 
 #### Parameters
 
-• **components**: [`ComponentNameAndType`](ComponentNameAndType.md)[]
-
-• **lazyComponents?**: [`ComponentNameAndModule`](../interfaces/ComponentNameAndModule.md)[]
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `components` | [`ComponentNameAndType`](ComponentNameAndType.md)[] |  |
+| `lazyComponents`? | [`ComponentNameAndModule`](../interfaces/ComponentNameAndModule.md)[] |  |
 
 #### Returns
 
@@ -82,4 +83,4 @@ module
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/lib.module.ts:133](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-angular/src/lib.module.ts#L133)
+[packages/sitecore-jss-angular/src/lib.module.ts:133](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/lib.module.ts#L133)

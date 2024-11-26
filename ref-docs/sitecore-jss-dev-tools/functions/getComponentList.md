@@ -12,9 +12,9 @@ Get list of components from
 
 ## Parameters
 
-• **path**: `string`
-
-path to search
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `path` | `string` | path to search |
 
 ## Returns
 
@@ -32,4 +32,4 @@ Returns a list of components in the following format:
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/templating/components.ts:33](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/templating/components.ts#L33)
+[sitecore-jss-dev-tools/src/templating/components.ts:33](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/templating/components.ts#L33)

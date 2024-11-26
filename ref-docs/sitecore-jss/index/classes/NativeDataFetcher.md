@@ -14,7 +14,9 @@
 
 #### Parameters
 
-• **config**: [`NativeDataFetcherConfig`](../type-aliases/NativeDataFetcherConfig.md) = `{}`
+| Parameter | Type |
+| ------ | ------ |
+| `config` | [`NativeDataFetcherConfig`](../type-aliases/NativeDataFetcherConfig.md) |
 
 #### Returns
 
@@ -22,7 +24,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 ## Properties
 
@@ -32,7 +34,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 ## Methods
 
@@ -44,9 +46,9 @@ Safely extract all headers for debug logging
 
 #### Parameters
 
-• **incomingHeaders**: `HeadersInit` = `{}`
-
-Incoming headers
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `incomingHeaders` | `HeadersInit` | Incoming headers |
 
 #### Returns
 
@@ -56,7 +58,7 @@ Object with headers as key/value pairs
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:115](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/native-fetcher.ts#L115)
+[packages/sitecore-jss/src/native-fetcher.ts:115](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/native-fetcher.ts#L115)
 
 ***
 
@@ -68,17 +70,16 @@ Implements a data fetcher.
 
 #### Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 #### Parameters
 
-• **url**: `string`
-
-The URL to request; may include query string
-
-• **data?**: `unknown`
-
-Optional data to POST with the request.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request; may include query string |
+| `data`? | `unknown` | Optional data to POST with the request. |
 
 #### Returns
 
@@ -92,7 +93,7 @@ HttpDataFetcher<T> type for implementation details/notes.
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:33](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/native-fetcher.ts#L33)
+[packages/sitecore-jss/src/native-fetcher.ts:33](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/native-fetcher.ts#L33)
 
 ***
 
@@ -104,13 +105,10 @@ Determines settings for the request
 
 #### Parameters
 
-• **init**: `RequestInit` = `{}`
-
-Custom settings for request
-
-• **data?**: `unknown`
-
-Optional data to POST with the request
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `init` | `RequestInit` | Custom settings for request |
+| `data`? | `unknown` | Optional data to POST with the request |
 
 #### Returns
 
@@ -120,4 +118,4 @@ The final request settings
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:97](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/native-fetcher.ts#L97)
+[packages/sitecore-jss/src/native-fetcher.ts:97](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/native-fetcher.ts#L97)

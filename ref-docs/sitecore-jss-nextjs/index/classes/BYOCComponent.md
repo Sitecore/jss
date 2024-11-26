@@ -25,7 +25,9 @@ component props
 
 #### Parameters
 
-• **props**: [`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)
+| Parameter | Type |
+| ------ | ------ |
+| `props` | [`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md) |
 
 #### Returns
 
@@ -175,7 +177,9 @@ the entire component tree to unmount.
 
 #### Parameters
 
-• **error**: `Error`
+| Parameter | Type |
+| ------ | ------ |
+| `error` | `Error` |
 
 #### Returns
 
@@ -221,11 +225,11 @@ The snapshot is only present if [getSnapshotBeforeUpdate](BYOCComponent.md#getsn
 
 #### Parameters
 
-• **prevProps**: `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\>
-
-• **prevState**: `Readonly`\<`object`\>
-
-• **snapshot?**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `prevProps` | `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\> |
+| `prevState` | `Readonly`\<`object`\> |
+| `snapshot`? | `any` |
 
 #### Returns
 
@@ -291,9 +295,10 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -353,11 +358,11 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\>
-
-• **nextState**: `Readonly`\<`object`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\> |
+| `nextState` | `Readonly`\<`object`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -388,7 +393,9 @@ sitecore-jss-react/node\_modules/@types/react/index.d.ts:1511
 
 #### Parameters
 
-• **callback?**
+| Parameter | Type |
+| ------ | ------ |
+| `callback`? | () => `void` |
 
 #### Returns
 
@@ -417,9 +424,10 @@ lifecycle events from running.
 
 #### Parameters
 
-• **prevProps**: `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\>
-
-• **prevState**: `Readonly`\<`object`\>
+| Parameter | Type |
+| ------ | ------ |
+| `prevProps` | `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\> |
+| `prevState` | `Readonly`\<`object`\> |
 
 #### Returns
 
@@ -459,13 +467,16 @@ sitecore-jss-react/types/components/BYOCComponent.d.ts:84
 
 #### Type Parameters
 
-• **K** *extends* `never`
+| Type Parameter |
+| ------ |
+| `K` *extends* `never` |
 
 #### Parameters
 
-• **state**: `null` \| `object` \| (`prevState`, `props`) => `null` \| `object` \| `Pick`\<`object`, `K`\> \| `Pick`\<`object`, `K`\>
-
-• **callback?**
+| Parameter | Type |
+| ------ | ------ |
+| `state` | `null` \| `object` \| (`prevState`, `props`) => `null` \| `object` \| `Pick`\<`object`, `K`\> \| `Pick`\<`object`, `K`\> |
+| `callback`? | () => `void` |
 
 #### Returns
 
@@ -496,11 +507,11 @@ and `componentDidUpdate` will not be called.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\>
-
-• **nextState**: `Readonly`\<`object`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\> |
+| `nextState` | `Readonly`\<`object`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -570,9 +581,10 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -613,11 +625,11 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\>
-
-• **nextState**: `Readonly`\<`object`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\> |
+| `nextState` | `Readonly`\<`object`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -648,7 +660,9 @@ sitecore-jss-react/node\_modules/@types/react/index.d.ts:1527
 
 #### Parameters
 
-• **error**: `Error`
+| Parameter | Type |
+| ------ | ------ |
+| `error` | `Error` |
 
 #### Returns
 

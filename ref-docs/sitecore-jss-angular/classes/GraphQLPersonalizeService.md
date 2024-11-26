@@ -16,7 +16,9 @@ Fetch personalize data using the Sitecore GraphQL endpoint.
 
 #### Parameters
 
-• **config**: [`GraphQLPersonalizeServiceConfig`](../type-aliases/GraphQLPersonalizeServiceConfig.md)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `config` | [`GraphQLPersonalizeServiceConfig`](../type-aliases/GraphQLPersonalizeServiceConfig.md) |  |
 
 #### Returns
 
@@ -79,11 +81,11 @@ packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:70
 
 #### Parameters
 
-• **itemPath**: `string`
-
-• **language**: `string`
-
-• **siteName**: `string`
+| Parameter | Type |
+| ------ | ------ |
+| `itemPath` | `string` |
+| `language` | `string` |
+| `siteName` | `string` |
 
 #### Returns
 
@@ -123,17 +125,11 @@ Get personalize information for a route
 
 #### Parameters
 
-• **itemPath**: `string`
-
-page route
-
-• **language**: `string`
-
-language
-
-• **siteName**: `string`
-
-site name
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `itemPath` | `string` | page route |
+| `language` | `string` | language |
+| `siteName` | `string` | site name |
 
 #### Returns
 

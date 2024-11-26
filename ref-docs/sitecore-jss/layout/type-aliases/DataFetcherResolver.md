@@ -12,17 +12,16 @@ Data fetcher resolver in order to provide custom data fetcher
 
 ## Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 ## Parameters
 
-• **req?**: `IncomingMessage`
-
-Request instance
-
-• **res?**: `ServerResponse`
-
-Response instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `req`? | `IncomingMessage` | Request instance |
+| `res`? | `ServerResponse` | Response instance |
 
 ## Returns
 
@@ -30,4 +29,4 @@ Response instance
 
 ## Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)

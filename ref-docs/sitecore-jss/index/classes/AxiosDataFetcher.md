@@ -16,11 +16,9 @@ AxisoDataFetcher is a wrapper for axios library.
 
 #### Parameters
 
-• **dataFetcherConfig**: [`AxiosDataFetcherConfig`](../type-aliases/AxiosDataFetcherConfig.md) = `{}`
-
-Axios data fetcher configuration.
-Note `withCredentials` is set to `true` by default in order for Sitecore cookies to
-be included in CORS requests (which is necessary for analytics and such).
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `dataFetcherConfig` | [`AxiosDataFetcherConfig`](../type-aliases/AxiosDataFetcherConfig.md) | Axios data fetcher configuration. Note `withCredentials` is set to `true` by default in order for Sitecore cookies to be included in CORS requests (which is necessary for analytics and such). |
 
 #### Returns
 
@@ -28,7 +26,7 @@ be included in CORS requests (which is necessary for analytics and such).
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:56](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/axios-fetcher.ts#L56)
+[packages/sitecore-jss/src/axios-fetcher.ts:56](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/axios-fetcher.ts#L56)
 
 ## Methods
 
@@ -40,13 +38,10 @@ Perform a DELETE request
 
 #### Parameters
 
-• **url**: `string`
-
-The URL to request; may include query string
-
-• **config?**: `AxiosRequestConfig`
-
-Axios config
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request; may include query string |
+| `config`? | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 
@@ -56,7 +51,7 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:177](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/axios-fetcher.ts#L177)
+[packages/sitecore-jss/src/axios-fetcher.ts:177](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/axios-fetcher.ts#L177)
 
 ***
 
@@ -68,17 +63,16 @@ Implements a data fetcher.
 
 #### Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 #### Parameters
 
-• **url**: `string`
-
-The URL to request; may include query string
-
-• **data?**: `unknown`
-
-Optional data to POST with the request.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request; may include query string |
+| `data`? | `unknown` | Optional data to POST with the request. |
 
 #### Returns
 
@@ -92,7 +86,7 @@ HttpDataFetcher<T> type for implementation details/notes.
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:121](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/axios-fetcher.ts#L121)
+[packages/sitecore-jss/src/axios-fetcher.ts:121](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/axios-fetcher.ts#L121)
 
 ***
 
@@ -104,17 +98,16 @@ Perform a GET request
 
 #### Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 #### Parameters
 
-• **url**: `string`
-
-The URL to request; may include query string
-
-• **config?**: `AxiosRequestConfig`
-
-Axios config
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request; may include query string |
+| `config`? | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 
@@ -124,7 +117,7 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:135](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/axios-fetcher.ts#L135)
+[packages/sitecore-jss/src/axios-fetcher.ts:135](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/axios-fetcher.ts#L135)
 
 ***
 
@@ -136,13 +129,10 @@ Perform a HEAD request
 
 #### Parameters
 
-• **url**: `string`
-
-The URL to request; may include query string
-
-• **config?**: `AxiosRequestConfig`
-
-Axios config
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request; may include query string |
+| `config`? | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 
@@ -152,7 +142,7 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:145](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/axios-fetcher.ts#L145)
+[packages/sitecore-jss/src/axios-fetcher.ts:145](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/axios-fetcher.ts#L145)
 
 ***
 
@@ -164,17 +154,11 @@ Perform a POST request
 
 #### Parameters
 
-• **url**: `string`
-
-The URL to request; may include query string
-
-• **data?**: `unknown`
-
-Data to POST with the request.
-
-• **config?**: `AxiosRequestConfig`
-
-Axios config
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request; may include query string |
+| `data`? | `unknown` | Data to POST with the request. |
+| `config`? | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 
@@ -184,7 +168,7 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:156](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/axios-fetcher.ts#L156)
+[packages/sitecore-jss/src/axios-fetcher.ts:156](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/axios-fetcher.ts#L156)
 
 ***
 
@@ -196,17 +180,11 @@ Perform a PUT request
 
 #### Parameters
 
-• **url**: `string`
-
-The URL to request; may include query string
-
-• **data?**: `unknown`
-
-Data to PUT with the request.
-
-• **config?**: `AxiosRequestConfig`
-
-Axios config
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request; may include query string |
+| `data`? | `unknown` | Data to PUT with the request. |
+| `config`? | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 
@@ -216,4 +194,4 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:167](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/axios-fetcher.ts#L167)
+[packages/sitecore-jss/src/axios-fetcher.ts:167](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/axios-fetcher.ts#L167)

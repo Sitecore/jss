@@ -10,15 +10,10 @@
 
 ## Parameters
 
-• **props**: `TextProps`
-
-• **deprecatedLegacyContext?**: `any`
-
-**Deprecated**
-
-**See**
-
-[React Docs](https://legacy.reactjs.org/docs/legacy-context.html#referencing-context-in-lifecycle-methods)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `props` | `TextProps` | - |
+| `deprecatedLegacyContext`? | `any` | **Deprecated** **See** [React Docs](https://legacy.reactjs.org/docs/legacy-context.html#referencing-context-in-lifecycle-methods) |
 
 ## Returns
 
@@ -26,4 +21,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/Text.tsx:28](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/Text.tsx#L28)
+[packages/sitecore-jss-react/src/components/Text.tsx:28](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-react/src/components/Text.tsx#L28)

@@ -10,13 +10,15 @@
 
 ## Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 ## Parameters
 
-• **response**: [`HttpResponse`](../../../interfaces/HttpResponse.md)\<`T`\>
-
-response from fetch
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `response` | [`HttpResponse`](../../../interfaces/HttpResponse.md)\<`T`\> | response from fetch |
 
 ## Returns
 

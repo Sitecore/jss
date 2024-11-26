@@ -14,15 +14,13 @@
 
 #### Parameters
 
-• **finalDictionary**: `DictionaryServiceOutput`
-
-• **rawDictionary**: `any`
-
-• **currentManifest**: [`ManifestInstance`](ManifestInstance.md)
-
-• **request?**: `any`
-
-• **response?**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `finalDictionary` | `DictionaryServiceOutput` |
+| `rawDictionary` | `any` |
+| `currentManifest` | [`ManifestInstance`](ManifestInstance.md) |
+| `request`? | `any` |
+| `response`? | `any` |
 
 #### Returns
 
@@ -30,7 +28,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:33](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L33)
+[sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:33](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L33)
 
 ***
 
@@ -40,7 +38,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L32)
+[sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L32)
 
 ***
 
@@ -50,7 +48,9 @@
 
 #### Parameters
 
-• **language**: `string`
+| Parameter | Type |
+| ------ | ------ |
+| `language` | `string` |
 
 #### Returns
 
@@ -58,4 +58,4 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L39)
+[sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L39)

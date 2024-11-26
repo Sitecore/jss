@@ -34,9 +34,10 @@ route handler
 
 ##### Parameters
 
-• **req**: `NextApiRequest`
-
-• **res**: `NextApiResponse`
+| Parameter | Type |
+| ------ | ------ |
+| `req` | `NextApiRequest` |
+| `res` | `NextApiResponse` |
 
 ##### Returns
 
@@ -44,4 +45,4 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:11](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L11)
+[sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:11](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L11)

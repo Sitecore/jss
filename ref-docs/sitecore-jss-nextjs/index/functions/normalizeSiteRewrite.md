@@ -12,9 +12,9 @@ Normalize a site rewrite path (remove site data)
 
 ## Parameters
 
-• **pathname**: `string`
-
-the pathname
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pathname` | `string` | the pathname |
 
 ## Returns
 

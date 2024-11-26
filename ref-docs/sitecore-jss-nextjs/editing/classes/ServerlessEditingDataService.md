@@ -22,9 +22,9 @@ Utilizes another Next.js API route ('/api/editing/data/[key]') for storage and r
 
 #### Parameters
 
-• **config?**: [`ServerlessEditingDataServiceConfig`](../interfaces/ServerlessEditingDataServiceConfig.md)
-
-Editing data service config
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `config`? | [`ServerlessEditingDataServiceConfig`](../interfaces/ServerlessEditingDataServiceConfig.md) | Editing data service config |
 
 #### Returns
 
@@ -32,7 +32,7 @@ Editing data service config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:143](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L143)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:143](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L143)
 
 ## Properties
 
@@ -47,9 +47,9 @@ Example generated key: 52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x
 
 #### Parameters
 
-• **data**: [`EditingData`](../type-aliases/EditingData.md)
-
-The editing data
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `data` | [`EditingData`](../type-aliases/EditingData.md) | The editing data |
 
 #### Returns
 
@@ -59,7 +59,7 @@ The unique key
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:136](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L136)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:136](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L136)
 
 ## Methods
 
@@ -71,9 +71,9 @@ Retrieves Sitecore editor payload data by key
 
 #### Parameters
 
-• **previewData**: `PreviewData`
-
-Editing preview data containing the key and serverUrl to use for retrieval
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `previewData` | `PreviewData` | Editing preview data containing the key and serverUrl to use for retrieval |
 
 #### Returns
 
@@ -87,7 +87,7 @@ The [EditingData](../type-aliases/EditingData.md)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:182](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L182)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:182](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L182)
 
 ***
 
@@ -97,11 +97,11 @@ The [EditingData](../type-aliases/EditingData.md)
 
 #### Parameters
 
-• **serverUrl**: `string`
-
-• **key**: `string`
-
-• **params?**
+| Parameter | Type |
+| ------ | ------ |
+| `serverUrl` | `string` |
+| `key` | `string` |
+| `params`? | `object` |
 
 #### Returns
 
@@ -109,7 +109,7 @@ The [EditingData](../type-aliases/EditingData.md)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:199](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L199)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:199](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L199)
 
 ***
 
@@ -121,15 +121,11 @@ Stores Sitecore editor payload data for later retrieval by key
 
 #### Parameters
 
-• **data**: [`EditingData`](../type-aliases/EditingData.md)
-
-Editing data
-
-• **serverUrl**: `string`
-
-The server url to use for subsequent data API requests
-
-• **params?**
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `data` | [`EditingData`](../type-aliases/EditingData.md) | Editing data |
+| `serverUrl` | `string` | The server url to use for subsequent data API requests |
+| `params`? | `object` | - |
 
 #### Returns
 
@@ -143,4 +139,4 @@ The [EditingPreviewData](../interfaces/EditingPreviewData.md) containing the gen
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:157](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L157)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:157](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L157)

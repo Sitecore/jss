@@ -18,7 +18,9 @@ Function used to determine if site should be resolved from sc_site cookie when p
 
 #### Parameters
 
-• **req**: `NextRequest`
+| Parameter | Type |
+| ------ | ------ |
+| `req` | `NextRequest` |
 
 #### Returns
 
@@ -26,4 +28,4 @@ Function used to determine if site should be resolved from sc_site cookie when p
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:21](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L21)
+[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:21](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L21)

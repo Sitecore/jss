@@ -18,9 +18,9 @@ Creates an instance of graphQL robots.txt service with the provided options
 
 #### Parameters
 
-• **options**: [`GraphQLRobotsServiceConfig`](../type-aliases/GraphQLRobotsServiceConfig.md)
-
-instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options` | [`GraphQLRobotsServiceConfig`](../type-aliases/GraphQLRobotsServiceConfig.md) | instance |
 
 #### Returns
 

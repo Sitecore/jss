@@ -10,7 +10,9 @@ Shape of route data returned from Sitecore Layout Service
 
 ## Type Parameters
 
-• **Fields** = `Record`\<`string`, [`Field`](Field.md) \| [`Item`](Item.md) \| [`Item`](Item.md)[]\>
+| Type Parameter | Default type |
+| ------ | ------ |
+| `Fields` | `Record`\<`string`, [`Field`](Field.md) \| [`Item`](Item.md) \| [`Item`](Item.md)[]\> |
 
 ## Properties
 

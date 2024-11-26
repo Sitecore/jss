@@ -16,9 +16,9 @@ Creates an instance of graphQL service to retrieve site configuration list from 
 
 #### Parameters
 
-• **config**: [`GraphQLSiteInfoServiceConfig`](../type-aliases/GraphQLSiteInfoServiceConfig.md)
-
-instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `config` | [`GraphQLSiteInfoServiceConfig`](../type-aliases/GraphQLSiteInfoServiceConfig.md) | instance |
 
 #### Returns
 

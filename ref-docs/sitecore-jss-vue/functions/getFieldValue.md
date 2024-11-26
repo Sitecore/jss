@@ -15,17 +15,16 @@ Null will be returned if the field is not defined.
 
 ### Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 ### Parameters
 
-• **renderingOrFields**: [`ComponentFields`](../interfaces/ComponentFields.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\>
-
-the rendering or fields object to extract the field from
-
-• **fieldName**: `string`
-
-the name of the field to extract
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `renderingOrFields` | [`ComponentFields`](../interfaces/ComponentFields.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> | the rendering or fields object to extract the field from |
+| `fieldName` | `string` | the name of the field to extract |
 
 ### Returns
 
@@ -43,15 +42,17 @@ packages/sitecore-jss/types/layout/utils.d.ts:9
 
 ### Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 ### Parameters
 
-• **renderingOrFields**: [`ComponentFields`](../interfaces/ComponentFields.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\>
-
-• **fieldName**: `string`
-
-• **defaultValue**: `T`
+| Parameter | Type |
+| ------ | ------ |
+| `renderingOrFields` | [`ComponentFields`](../interfaces/ComponentFields.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> |
+| `fieldName` | `string` |
+| `defaultValue` | `T` |
 
 ### Returns
 

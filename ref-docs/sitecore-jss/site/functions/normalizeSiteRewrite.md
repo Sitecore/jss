@@ -12,9 +12,9 @@ Normalize a site rewrite path (remove site data)
 
 ## Parameters
 
-• **pathname**: `string`
-
-the pathname
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pathname` | `string` | the pathname |
 
 ## Returns
 
@@ -24,4 +24,4 @@ the pathname with site data removed
 
 ## Defined in
 
-[packages/sitecore-jss/src/site/utils.ts:45](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/site/utils.ts#L45)
+[packages/sitecore-jss/src/site/utils.ts:45](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/site/utils.ts#L45)

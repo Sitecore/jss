@@ -18,9 +18,9 @@ Creates an instance of graphQL sitemaps service with the provided options
 
 #### Parameters
 
-• **options**: [`GraphQLSitemapXmlServiceConfig`](../type-aliases/GraphQLSitemapXmlServiceConfig.md)
-
-instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options` | [`GraphQLSitemapXmlServiceConfig`](../type-aliases/GraphQLSitemapXmlServiceConfig.md) | instance |
 
 #### Returns
 
@@ -108,9 +108,9 @@ Get sitemap file path for sitemap id
 
 #### Parameters
 
-• **id**: `string`
-
-the sitemap id (can be empty for default 'sitemap.xml' file)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `id` | `string` | the sitemap id (can be empty for default 'sitemap.xml' file) |
 
 #### Returns
 

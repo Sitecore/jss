@@ -12,9 +12,9 @@ Fetches server component props required for server rendering, based on rendering
 
 ## Parameters
 
-• **params**: [`BYOCComponentParams`](../type-aliases/BYOCComponentParams.md)
-
-component params
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | [`BYOCComponentParams`](../type-aliases/BYOCComponentParams.md) | component params |
 
 ## Returns
 
@@ -22,4 +22,4 @@ component params
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:178](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L178)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:178](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L178)

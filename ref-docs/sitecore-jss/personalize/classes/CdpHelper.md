@@ -28,21 +28,12 @@ Gets the friendly id for Component A/B Testing in the required format `component
 
 #### Parameters
 
-• **pageId**: `string`
-
-the page id
-
-• **componentId**: `string`
-
-the component id
-
-• **language**: `string`
-
-the language
-
-• **scope?**: `string`
-
-the scope value
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pageId` | `string` | the page id |
+| `componentId` | `string` | the component id |
+| `language` | `string` | the language |
+| `scope`? | `string` | the scope value |
 
 #### Returns
 
@@ -52,7 +43,7 @@ the friendly id
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:130](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/personalize/utils.ts#L130)
+[packages/sitecore-jss/src/personalize/utils.ts:130](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/personalize/utils.ts#L130)
 
 ***
 
@@ -64,17 +55,11 @@ Gets the friendly id for (page-level) Embedded Personalization in the required f
 
 #### Parameters
 
-• **pageId**: `string`
-
-the page id
-
-• **language**: `string`
-
-the language
-
-• **scope?**: `string`
-
-the scope value
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pageId` | `string` | the page id |
+| `language` | `string` | the language |
+| `scope`? | `string` | the scope value |
 
 #### Returns
 
@@ -84,7 +69,7 @@ the friendly id
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:115](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/personalize/utils.ts#L115)
+[packages/sitecore-jss/src/personalize/utils.ts:115](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/personalize/utils.ts#L115)
 
 ***
 
@@ -96,21 +81,12 @@ Gets the page variant id for CDP in the required format
 
 #### Parameters
 
-• **pageId**: `string`
-
-the page id
-
-• **language**: `string`
-
-the language
-
-• **variantId**: `string`
-
-the variant id
-
-• **scope?**: `string`
-
-the scope value
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pageId` | `string` | the page id |
+| `language` | `string` | the language |
+| `variantId` | `string` | the variant id |
+| `scope`? | `string` | the scope value |
 
 #### Returns
 
@@ -120,7 +96,7 @@ the formatted page variant id
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:92](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/personalize/utils.ts#L92)
+[packages/sitecore-jss/src/personalize/utils.ts:92](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/personalize/utils.ts#L92)
 
 ***
 
@@ -133,9 +109,9 @@ Removes all non-alphanumeric characters
 
 #### Parameters
 
-• **scope?**: `string`
-
-the scope value
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `scope`? | `string` | the scope value |
 
 #### Returns
 
@@ -145,4 +121,4 @@ normalized scope value
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:149](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/personalize/utils.ts#L149)
+[packages/sitecore-jss/src/personalize/utils.ts:149](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/personalize/utils.ts#L149)

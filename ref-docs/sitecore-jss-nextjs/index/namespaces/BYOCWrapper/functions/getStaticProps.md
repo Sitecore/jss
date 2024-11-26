@@ -12,11 +12,11 @@ Will be called during SSG
 
 ## Parameters
 
-• **rendering**: [`ComponentRendering`](../../../interfaces/ComponentRendering.md)\<[`ComponentFields`](../../../interfaces/ComponentFields.md)\>
-
-• **layoutData**: [`LayoutServiceData`](../../../interfaces/LayoutServiceData.md)
-
-• **context**: `GetStaticPropsContext`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `rendering` | [`ComponentRendering`](../../../interfaces/ComponentRendering.md)\<[`ComponentFields`](../../../interfaces/ComponentFields.md)\> |  |
+| `layoutData` | [`LayoutServiceData`](../../../interfaces/LayoutServiceData.md) | - |
+| `context` | `GetStaticPropsContext` | - |
 
 ## Returns
 
@@ -26,4 +26,4 @@ context
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/components/BYOCWrapper.tsx:22](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/components/BYOCWrapper.tsx#L22)
+[sitecore-jss-nextjs/src/components/BYOCWrapper.tsx:22](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-nextjs/src/components/BYOCWrapper.tsx#L22)

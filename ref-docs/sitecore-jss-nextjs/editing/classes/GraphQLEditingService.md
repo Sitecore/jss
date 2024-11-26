@@ -19,9 +19,9 @@ Fetch layout data using the Sitecore GraphQL endpoint.
 
 #### Parameters
 
-• **serviceConfig**: `GraphQLEditingServiceConfig`
-
-configuration
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `serviceConfig` | `GraphQLEditingServiceConfig` | configuration |
 
 #### Returns
 
@@ -51,29 +51,14 @@ Fetches editing data. Provides the layout data and dictionary phrases
 
 #### Parameters
 
-• **variables**
-
-The parameters for fetching editing data.
-
-• **variables.itemId**: `string`
-
-The item id (path) to fetch layout data for.
-
-• **variables.language**: `string`
-
-The language to fetch layout data for.
-
-• **variables.layoutKind?**: `LayoutKind`
-
-The final or shared layout variant.
-
-• **variables.siteName**: `string`
-
-The site name.
-
-• **variables.version?**: `string`
-
-The version of the item (optional).
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `variables` | `object` | The parameters for fetching editing data. |
+| `variables.itemId` | `string` | The item id (path) to fetch layout data for. |
+| `variables.language` | `string` | The language to fetch layout data for. |
+| `variables.layoutKind`? | `LayoutKind` | The final or shared layout variant. |
+| `variables.siteName` | `string` | The site name. |
+| `variables.version`? | `string` | The version of the item (optional). |
 
 #### Returns
 

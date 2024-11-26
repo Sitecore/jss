@@ -16,17 +16,11 @@ If no `params` are sent, the original media URL is returned.
 
 ## Parameters
 
-• **url**: `string`
-
-The URL to prepare
-
-• **params?**: `null` \| `object`
-
-The querystring parameters to use
-
-• **mediaUrlPrefix?**: `RegExp` = `mediaUrlPrefixRegex`
-
-The regex to match the media URL prefix
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `url` | `string` | `undefined` | The URL to prepare |
+| `params`? | `null` \| `object` | `undefined` | The querystring parameters to use |
+| `mediaUrlPrefix`? | `RegExp` | `mediaUrlPrefixRegex` | The regex to match the media URL prefix |
 
 ## Returns
 
@@ -36,4 +30,4 @@ The prepared URL
 
 ## Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:83](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/media/media-api.ts#L83)
+[packages/sitecore-jss/src/media/media-api.ts:83](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/media/media-api.ts#L83)

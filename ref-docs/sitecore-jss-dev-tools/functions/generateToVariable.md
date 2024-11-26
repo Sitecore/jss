@@ -15,7 +15,9 @@ that is designed to get packaged/imported.
 
 ## Parameters
 
-• **config**: `GenerateOptions`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `config` | `GenerateOptions` |  |
 
 ## Returns
 
@@ -23,4 +25,4 @@ that is designed to get packaged/imported.
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/generate.ts:173](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/manifest/generator/generate.ts#L173)
+[sitecore-jss-dev-tools/src/manifest/generator/generate.ts:173](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/manifest/generator/generate.ts#L173)

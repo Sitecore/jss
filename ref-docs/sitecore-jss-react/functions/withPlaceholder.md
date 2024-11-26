@@ -10,9 +10,10 @@
 
 ## Parameters
 
-• **placeholders**: `WithPlaceholderSpec`
-
-• **options?**: `WithPlaceholderOptions`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `placeholders` | `WithPlaceholderSpec` |  |
+| `options`? | `WithPlaceholderOptions` |  |
 
 ## Returns
 
@@ -20,7 +21,9 @@
 
 ### Parameters
 
-• **WrappedComponent**: `ComponentClass`\<`PlaceholderProps`, `any`\> \| `FunctionComponent`\<`PlaceholderProps`\>
+| Parameter | Type |
+| ------ | ------ |
+| `WrappedComponent` | `ComponentClass`\<`PlaceholderProps`, `any`\> \| `FunctionComponent`\<`PlaceholderProps`\> |
 
 ### Returns
 
@@ -28,7 +31,9 @@
 
 #### Parameters
 
-• **props**: [`EnhancedOmit`](../type-aliases/EnhancedOmit.md)\<`PlaceholderProps`, keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\>
+| Parameter | Type |
+| ------ | ------ |
+| `props` | [`EnhancedOmit`](../type-aliases/EnhancedOmit.md)\<`PlaceholderProps`, keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\> |
 
 #### Returns
 
@@ -36,4 +41,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx:46](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L46)
+[packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx:46](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L46)

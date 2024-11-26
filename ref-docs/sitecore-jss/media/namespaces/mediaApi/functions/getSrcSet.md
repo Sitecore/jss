@@ -13,21 +13,12 @@ a corresponding set of updated Sitecore media URLs via
 
 ## Parameters
 
-• **url**: `string`
-
-The URL to prepare
-
-• **srcSet**: `object`[]
-
-The array of parameters to use
-
-• **imageParams?**
-
-The querystring parameters to use
-
-• **mediaUrlPrefix?**: `RegExp`
-
-The regex to match the media URL prefix
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to prepare |
+| `srcSet` | `object`[] | The array of parameters to use |
+| `imageParams`? | `object` | The querystring parameters to use |
+| `mediaUrlPrefix`? | `RegExp` | The regex to match the media URL prefix |
 
 ## Returns
 
@@ -50,4 +41,4 @@ More information about `srcSet`: {@link https://developer.mozilla.org/en-US/docs
 
 ## Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:128](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/media/media-api.ts#L128)
+[packages/sitecore-jss/src/media/media-api.ts:128](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/media/media-api.ts#L128)

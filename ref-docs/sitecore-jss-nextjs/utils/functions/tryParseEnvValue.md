@@ -12,17 +12,16 @@ Method to parse JSON-formatted environment variables
 
 ## Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 ## Parameters
 
-• **envValue**: `undefined` \| `string`
-
-can be undefined when providing values via process.env
-
-• **defaultValue**: `T`
-
-default value
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `envValue` | `undefined` \| `string` | can be undefined when providing values via process.env |
+| `defaultValue` | `T` | default value |
 
 ## Returns
 

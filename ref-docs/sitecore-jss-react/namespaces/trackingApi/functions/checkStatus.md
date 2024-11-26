@@ -10,13 +10,15 @@
 
 ## Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 ## Parameters
 
-• **response**: `HttpResponse`\<`T`\>
-
-response from fetch
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `response` | `HttpResponse`\<`T`\> | response from fetch |
 
 ## Returns
 

@@ -18,21 +18,17 @@ Execute graphql request
 
 #### Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 #### Parameters
 
-• **query**: `string` \| `DocumentNode`
-
-graphql query
-
-• **variables?**
-
-graphql variables
-
-• **options?**: `RequestOptions`
-
-options for configuring a GraphQL request.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `query` | `string` \| `DocumentNode` | graphql query |
+| `variables`? | `object` | graphql variables |
+| `options`? | `RequestOptions` | options for configuring a GraphQL request. |
 
 #### Returns
 
@@ -40,4 +36,4 @@ options for configuring a GraphQL request.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:24](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/graphql-request-client.ts#L24)
+[packages/sitecore-jss/src/graphql-request-client.ts:24](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/graphql-request-client.ts#L24)

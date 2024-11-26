@@ -10,9 +10,9 @@ Response data for an HTTP request sent to an API
 
 ## Type Parameters
 
-• **T**
-
-the type of data model requested
+| Type Parameter | Description |
+| ------ | ------ |
+| `T` | the type of data model requested |
 
 ## Properties
 

@@ -12,9 +12,9 @@ Parses a list of variantIds and divides into layout and component variants
 
 ## Parameters
 
-• **variantIds**: `string`[]
-
-the list of variant IDs for a page
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `variantIds` | `string`[] | the list of variant IDs for a page |
 
 ## Returns
 
@@ -24,4 +24,4 @@ object with variant IDs sorted
 
 ## Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:43](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/personalize/utils.ts#L43)
+[packages/sitecore-jss/src/personalize/utils.ts:43](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/personalize/utils.ts#L43)

@@ -21,7 +21,9 @@ Uses Axios as the default data fetcher (@see AxiosDataFetcher).
 
 #### Parameters
 
-• **serviceConfig**: `RestLayoutServiceConfig`
+| Parameter | Type |
+| ------ | ------ |
+| `serviceConfig` | `RestLayoutServiceConfig` |
 
 #### Returns
 
@@ -45,17 +47,16 @@ Provides default
 
 #### Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 #### Parameters
 
-• **req?**: `IncomingMessage`
-
-Request instance
-
-• **res?**: `ServerResponse`\<`IncomingMessage`\>
-
-Response instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `req`? | `IncomingMessage` | Request instance |
+| `res`? | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
@@ -65,9 +66,10 @@ default fetcher
 
 ##### Parameters
 
-• **url**: `string`
-
-• **data?**: `unknown`
+| Parameter | Type |
+| ------ | ------ |
+| `url` | `string` |
+| `data`? | `unknown` |
 
 ##### Returns
 
@@ -91,9 +93,9 @@ Provides fetch options in order to fetch data
 
 #### Parameters
 
-• **language?**: `string`
-
-language will be applied to `sc_lang` param
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `language`? | `string` | language will be applied to `sc_lang` param |
 
 #### Returns
 
@@ -115,21 +117,12 @@ Fetch layout data for an item.
 
 #### Parameters
 
-• **itemPath**: `string`
-
-item path to fetch layout data for.
-
-• **language?**: `string`
-
-the language to fetch layout data for.
-
-• **req?**: `IncomingMessage`
-
-Request instance
-
-• **res?**: `ServerResponse`\<`IncomingMessage`\>
-
-Response instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `itemPath` | `string` | item path to fetch layout data for. |
+| `language`? | `string` | the language to fetch layout data for. |
+| `req`? | `IncomingMessage` | Request instance |
+| `res`? | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
@@ -161,25 +154,13 @@ a specific route item. Allows you to retrieve rendered data for individual place
 
 #### Parameters
 
-• **placeholderName**: `string`
-
-the name of the placeholder to fetch layout data for.
-
-• **itemPath**: `string`
-
-the path to the item to fetch layout data for.
-
-• **language?**: `string`
-
-the language to fetch data for.
-
-• **req?**: `IncomingMessage`
-
-Request instance
-
-• **res?**: `ServerResponse`\<`IncomingMessage`\>
-
-Response instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `placeholderName` | `string` | the name of the placeholder to fetch layout data for. |
+| `itemPath` | `string` | the path to the item to fetch layout data for. |
+| `language`? | `string` | the language to fetch data for. |
+| `req`? | `IncomingMessage` | Request instance |
+| `res`? | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
@@ -201,9 +182,9 @@ Resolves layout service url
 
 #### Parameters
 
-• **apiType**: `"placeholder"` \| `"render"`
-
-which layout service API to call ('render' or 'placeholder')
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `apiType` | `"placeholder"` \| `"render"` | which layout service API to call ('render' or 'placeholder') |
 
 #### Returns
 
@@ -225,9 +206,9 @@ Setup request headers
 
 #### Parameters
 
-• **req**: `IncomingMessage`
-
-Request instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `req` | `IncomingMessage` | Request instance |
 
 #### Returns
 
@@ -237,7 +218,9 @@ axios request config
 
 ##### Parameters
 
-• **reqConfig**: `AxiosRequestConfig`
+| Parameter | Type |
+| ------ | ------ |
+| `reqConfig` | `AxiosRequestConfig` |
 
 ##### Returns
 
@@ -257,9 +240,9 @@ Setup response headers based on response from layout service
 
 #### Parameters
 
-• **res**: `ServerResponse`\<`IncomingMessage`\>
-
-Response instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `res` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
@@ -269,7 +252,9 @@ response
 
 ##### Parameters
 
-• **serverRes**: `AxiosResponse`\<`any`\>
+| Parameter | Type |
+| ------ | ------ |
+| `serverRes` | `AxiosResponse`\<`any`\> |
 
 ##### Returns
 

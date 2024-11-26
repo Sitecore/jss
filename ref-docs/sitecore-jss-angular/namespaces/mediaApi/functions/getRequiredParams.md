@@ -12,9 +12,9 @@ Get required query string params which should be merged with user params
 
 ## Parameters
 
-• **qs**
-
-layout service parsed query string
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `qs` | `object` | layout service parsed query string |
 
 ## Returns
 

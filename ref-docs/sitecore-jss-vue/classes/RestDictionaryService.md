@@ -21,7 +21,9 @@ Uses Axios as the default data fetcher (@see AxiosDataFetcher).
 
 #### Parameters
 
-• **options**: `RestDictionaryServiceConfig`
+| Parameter | Type |
+| ------ | ------ |
+| `options` | `RestDictionaryServiceConfig` |
 
 #### Returns
 
@@ -81,9 +83,9 @@ Fetch dictionary data for a language.
 
 #### Parameters
 
-• **language**: `string`
-
-the language to be used to fetch the dictionary
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `language` | `string` | the language to be used to fetch the dictionary |
 
 #### Returns
 
@@ -133,9 +135,9 @@ Retrieves a
 
 #### Parameters
 
-• **key**: `string`
-
-The cache key.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
 
 #### Returns
 
@@ -166,9 +168,9 @@ Generate dictionary service url
 
 #### Parameters
 
-• **language**: `string`
-
-the language to be used to fetch the dictionary
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `language` | `string` | the language to be used to fetch the dictionary |
 
 #### Returns
 
@@ -190,13 +192,10 @@ Caches a
 
 #### Parameters
 
-• **key**: `string`
-
-The cache key.
-
-• **value**: `DictionaryPhrases`
-
-The value to cache.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
+| `value` | `DictionaryPhrases` | The value to cache. |
 
 #### Returns
 

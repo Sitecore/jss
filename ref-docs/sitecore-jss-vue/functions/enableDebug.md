@@ -12,9 +12,9 @@ Enable debug logging dynamically
 
 ## Parameters
 
-• **namespaces**: `string`
-
-space-separated list of namespaces to enable
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `namespaces` | `string` | space-separated list of namespaces to enable |
 
 ## Returns
 

@@ -12,9 +12,10 @@ Gets rendering definitions in a given child placeholder under a current renderin
 
 ## Parameters
 
-• **rendering**: [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\>
-
-• **placeholderName**: `string`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `rendering` | [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> |  |
+| `placeholderName` | `string` |  |
 
 ## Returns
 

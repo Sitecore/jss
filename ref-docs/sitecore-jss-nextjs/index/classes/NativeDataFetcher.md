@@ -14,7 +14,9 @@
 
 #### Parameters
 
-• **config?**: [`NativeDataFetcherConfig`](../type-aliases/NativeDataFetcherConfig.md)
+| Parameter | Type |
+| ------ | ------ |
+| `config`? | [`NativeDataFetcherConfig`](../type-aliases/NativeDataFetcherConfig.md) |
 
 #### Returns
 
@@ -44,9 +46,9 @@ Safely extract all headers for debug logging
 
 #### Parameters
 
-• **incomingHeaders?**: `HeadersInit`
-
-Incoming headers
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `incomingHeaders`? | `HeadersInit` | Incoming headers |
 
 #### Returns
 
@@ -68,17 +70,16 @@ Implements a data fetcher.
 
 #### Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 #### Parameters
 
-• **url**: `string`
-
-The URL to request; may include query string
-
-• **data?**: `unknown`
-
-Optional data to POST with the request.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request; may include query string |
+| `data`? | `unknown` | Optional data to POST with the request. |
 
 #### Returns
 
@@ -104,13 +105,10 @@ Determines settings for the request
 
 #### Parameters
 
-• **init?**: `RequestInit`
-
-Custom settings for request
-
-• **data?**: `unknown`
-
-Optional data to POST with the request
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `init`? | `RequestInit` | Custom settings for request |
+| `data`? | `unknown` | Optional data to POST with the request |
 
 #### Returns
 

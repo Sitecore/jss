@@ -16,11 +16,9 @@ AxisoDataFetcher is a wrapper for axios library.
 
 #### Parameters
 
-• **dataFetcherConfig?**: [`AxiosDataFetcherConfig`](../type-aliases/AxiosDataFetcherConfig.md)
-
-Axios data fetcher configuration.
-Note `withCredentials` is set to `true` by default in order for Sitecore cookies to
-be included in CORS requests (which is necessary for analytics and such).
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `dataFetcherConfig`? | [`AxiosDataFetcherConfig`](../type-aliases/AxiosDataFetcherConfig.md) | Axios data fetcher configuration. Note `withCredentials` is set to `true` by default in order for Sitecore cookies to be included in CORS requests (which is necessary for analytics and such). |
 
 #### Returns
 
@@ -40,13 +38,10 @@ Perform a DELETE request
 
 #### Parameters
 
-• **url**: `string`
-
-The URL to request; may include query string
-
-• **config?**: `AxiosRequestConfig`
-
-Axios config
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request; may include query string |
+| `config`? | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 
@@ -68,17 +63,16 @@ Implements a data fetcher.
 
 #### Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 #### Parameters
 
-• **url**: `string`
-
-The URL to request; may include query string
-
-• **data?**: `unknown`
-
-Optional data to POST with the request.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request; may include query string |
+| `data`? | `unknown` | Optional data to POST with the request. |
 
 #### Returns
 
@@ -104,17 +98,16 @@ Perform a GET request
 
 #### Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 #### Parameters
 
-• **url**: `string`
-
-The URL to request; may include query string
-
-• **config?**: `AxiosRequestConfig`
-
-Axios config
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request; may include query string |
+| `config`? | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 
@@ -136,13 +129,10 @@ Perform a HEAD request
 
 #### Parameters
 
-• **url**: `string`
-
-The URL to request; may include query string
-
-• **config?**: `AxiosRequestConfig`
-
-Axios config
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request; may include query string |
+| `config`? | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 
@@ -164,17 +154,11 @@ Perform a POST request
 
 #### Parameters
 
-• **url**: `string`
-
-The URL to request; may include query string
-
-• **data?**: `unknown`
-
-Data to POST with the request.
-
-• **config?**: `AxiosRequestConfig`
-
-Axios config
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request; may include query string |
+| `data`? | `unknown` | Data to POST with the request. |
+| `config`? | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 
@@ -196,17 +180,11 @@ Perform a PUT request
 
 #### Parameters
 
-• **url**: `string`
-
-The URL to request; may include query string
-
-• **data?**: `unknown`
-
-Data to PUT with the request.
-
-• **config?**: `AxiosRequestConfig`
-
-Axios config
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request; may include query string |
+| `data`? | `unknown` | Data to PUT with the request. |
+| `config`? | `AxiosRequestConfig` | Axios config |
 
 #### Returns
 

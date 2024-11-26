@@ -10,13 +10,12 @@
 
 ## Parameters
 
-• **reqPath**: `string`
-
-• **req**: `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\>
-
-• **config**: [`ProxyConfig`](../interfaces/ProxyConfig.md)
-
-• **parseRouteUrl?**: [`RouteUrlParser`](../../../type-aliases/RouteUrlParser.md)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `reqPath` | `string` |  |
+| `req` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |  |
+| `config` | [`ProxyConfig`](../interfaces/ProxyConfig.md) |  |
+| `parseRouteUrl`? | [`RouteUrlParser`](../../../type-aliases/RouteUrlParser.md) |  |
 
 ## Returns
 
@@ -24,4 +23,4 @@
 
 ## Defined in
 
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:349](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L349)
+[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:349](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L349)
