@@ -79,6 +79,7 @@ Our versioning strategy is as follows:
   * `[angular-xmcloud]``[sitecore-jss-angular]` Add CDP Page View component to Angular XM Cloud add-on ([#1957](https://github.com/Sitecore/jss/pull/1957))
 * `[templates/vue]``[sitecore-jss-vue]` Vue version has been updated to 3.5
 * `[templates/angular]` Update dependencies and proxy build path value to be unix style path to support xmcloud deployment and monorepo starter kit in xmcloud foundation head ([#1977](https://github.com/Sitecore/jss/pull/1977))
+* `[templates/angular]``[templates/angular-sxp]``[templates/angular-xmcloud]` Updates for Angular XMC sample to work well with local containers and spa-starters monorepo in xmcloud-foundation ([#1983](https://github.com/Sitecore/jss/pull/1983))
 
 
 ### 🛠 Breaking Change
