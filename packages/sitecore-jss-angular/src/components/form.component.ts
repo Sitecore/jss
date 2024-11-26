@@ -13,6 +13,7 @@ import { EDGE_CONFIG, EdgeConfigToken } from '../services/shared.token';
 import { JssStateService } from '../services/jss-state.service';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { form } from '@sitecore-cloudsdk/events/browser';
 
 /**
  * Shape of the Form component rendering data.
@@ -125,6 +126,7 @@ export class FormComponent implements OnInit, OnDestroy {
       this.elRef.nativeElement.innerHTML = content;
 
       this.executeScriptElements();
+      this.subscribeToFormSubmitEvent();
     } catch (error) {
       console.warn(
         `Form '${this.rendering.params.FormId}' was not able to render with the current rendering data`,
@@ -133,6 +135,32 @@ export class FormComponent implements OnInit, OnDestroy {
       );
 
       this.hasError = true;
+    }
+  }
+
+  /**
+   * Subscribes to the form submit event and sends data to CloudSDK.
+   */
+  subscribeToFormSubmitEvent() {
+    const formElement = this.elRef.nativeElement.querySelector('form');
+
+    if (formElement) {
+      formElement.addEventListener('form:engage', ((
+        e: CustomEvent<{ formId: string; name: 'VIEWED' | 'SUBMITTED' }>
+      ) => {
+        if (this.isEditing) {
+          return;
+        }
+
+        const { formId, name } = e.detail;
+
+        if (formId && name) {
+          console.log(`Sending form event: ${name} for FormId: ${formId}`);
+          form(formId, name, this.rendering.uid?.replace(/-/g, '') || '');
+        }
+      }) as EventListener);
+    } else {
+      console.warn('No form element found to subscribe to submit event.');
     }
   }
 
