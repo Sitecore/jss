@@ -18,9 +18,9 @@ Fetch dictionary data for a language.
 
 #### Parameters
 
-• **language**: `string`
-
-the language to be used to fetch the dictionary
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `language` | `string` | the language to be used to fetch the dictionary |
 
 #### Returns
 

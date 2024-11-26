@@ -10,11 +10,11 @@
 
 ## Parameters
 
-• **contentsPath**: `string`
-
-• **outputPath**: `string`
-
-• **callback**
+| Parameter | Type |
+| ------ | ------ |
+| `contentsPath` | `string` |
+| `outputPath` | `string` |
+| `callback` | () => `void` |
 
 ## Returns
 
@@ -22,4 +22,4 @@
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/update/index.ts:39](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/update/index.ts#L39)
+[sitecore-jss-dev-tools/src/update/index.ts:39](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-dev-tools/src/update/index.ts#L39)

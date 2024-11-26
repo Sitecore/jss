@@ -12,17 +12,16 @@ Method to parse JSON-formatted environment variables
 
 ## Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 ## Parameters
 
-• **envValue**: `undefined` \| `string`
-
-can be undefined when providing values via process.env
-
-• **defaultValue**: `T`
-
-default value
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `envValue` | `undefined` \| `string` | can be undefined when providing values via process.env |
+| `defaultValue` | `T` | default value |
 
 ## Returns
 
@@ -32,4 +31,4 @@ parsed value
 
 ## Defined in
 
-[packages/sitecore-jss/src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/utils/env.ts#L7)
+[packages/sitecore-jss/src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/utils/env.ts#L7)

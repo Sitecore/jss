@@ -12,13 +12,10 @@ Get site data from the rewrite path
 
 ## Parameters
 
-• **pathname**: `string`
-
-the pathname
-
-• **defaultSiteName**: `string`
-
-the default site name
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pathname` | `string` | the pathname |
+| `defaultSiteName` | `string` | the default site name |
 
 ## Returns
 
@@ -28,4 +25,4 @@ the site data from the rewrite
 
 ## Defined in
 
-[packages/sitecore-jss/src/site/utils.ts:25](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/site/utils.ts#L25)
+[packages/sitecore-jss/src/site/utils.ts:25](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/site/utils.ts#L25)

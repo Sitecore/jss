@@ -25,4 +25,4 @@ The JSS application name
 
 ## Defined in
 
-[packages/sitecore-jss/src/site/graphql-robots-service.ts:17](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/site/graphql-robots-service.ts#L17)
+[packages/sitecore-jss/src/site/graphql-robots-service.ts:17](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/site/graphql-robots-service.ts#L17)

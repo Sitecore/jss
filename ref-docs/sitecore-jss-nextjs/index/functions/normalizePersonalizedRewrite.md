@@ -12,9 +12,9 @@ Normalize a personalized rewrite path (remove personalize data)
 
 ## Parameters
 
-• **pathname**: `string`
-
-the pathname
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pathname` | `string` | the pathname |
 
 ## Returns
 

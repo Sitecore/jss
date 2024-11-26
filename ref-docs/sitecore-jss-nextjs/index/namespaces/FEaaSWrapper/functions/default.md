@@ -10,7 +10,9 @@
 
 ## Parameters
 
-• **props**: [`FEaaSComponentProps`](../../../type-aliases/FEaaSComponentProps.md)
+| Parameter | Type |
+| ------ | ------ |
+| `props` | [`FEaaSComponentProps`](../../../type-aliases/FEaaSComponentProps.md) |
 
 ## Returns
 

@@ -12,13 +12,10 @@ Get site data from the rewrite path
 
 ## Parameters
 
-• **pathname**: `string`
-
-the pathname
-
-• **defaultSiteName**: `string`
-
-the default site name
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pathname` | `string` | the pathname |
+| `defaultSiteName` | `string` | the default site name |
 
 ## Returns
 

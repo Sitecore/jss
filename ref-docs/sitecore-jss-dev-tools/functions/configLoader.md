@@ -10,19 +10,15 @@
 
 ## Parameters
 
-• **\_\_namedParameters**
-
-• **\_\_namedParameters.allowEmptyGlobs?**: `boolean` = `false`
-
-• **\_\_namedParameters.createPipelinesRegistryImplementation?**
-
-• **\_\_namedParameters.existingConfig?**: `any` = `{}`
-
-• **\_\_namedParameters.fileGlobs**: `string`[] = `[]`
-
-• **\_\_namedParameters.importModulesImplementation?**
-
-• **\_\_namedParameters.workingDirectory?**: `string` = `''`
+| Parameter | Type |
+| ------ | ------ |
+| `__namedParameters` | `object` |
+| `__namedParameters.allowEmptyGlobs`? | `boolean` |
+| `__namedParameters.createPipelinesRegistryImplementation`? | (`existingConfig`) => `any` |
+| `__namedParameters.existingConfig`? | `any` |
+| `__namedParameters.fileGlobs` | `string`[] |
+| `__namedParameters.importModulesImplementation`? | (`options`) => `any` |
+| `__namedParameters.workingDirectory`? | `string` |
 
 ## Returns
 
@@ -30,4 +26,4 @@
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/configLoader.ts:51](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-dev-tools/src/pipelines/configLoader.ts#L51)
+[sitecore-jss-dev-tools/src/pipelines/configLoader.ts:51](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-dev-tools/src/pipelines/configLoader.ts#L51)

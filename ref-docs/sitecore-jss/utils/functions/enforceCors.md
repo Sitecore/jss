@@ -16,17 +16,11 @@ Also applies Access-Control-Allow-Headers for preflight requests
 
 ## Parameters
 
-• **req**: `IncomingMessage`
-
-incoming request
-
-• **res**: `OutgoingMessage`\<`IncomingMessage`\>
-
-response to set CORS headers for
-
-• **allowedOrigins?**: `string`[]
-
-additional list of origins to test against
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `req` | `IncomingMessage` | incoming request |
+| `res` | `OutgoingMessage`\<`IncomingMessage`\> | response to set CORS headers for |
+| `allowedOrigins`? | `string`[] | additional list of origins to test against |
 
 ## Returns
 
@@ -36,4 +30,4 @@ true if incoming origin matches the allowed lists, false when it does not
 
 ## Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:123](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/utils/utils.ts#L123)
+[packages/sitecore-jss/src/utils/utils.ts:123](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/utils/utils.ts#L123)

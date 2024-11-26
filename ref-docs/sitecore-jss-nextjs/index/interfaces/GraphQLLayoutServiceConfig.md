@@ -33,11 +33,11 @@ Override default layout query
 
 #### Parameters
 
-• **siteName**: `string`
-
-• **itemPath**: `string`
-
-• **locale?**: `string`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `siteName` | `string` |  |
+| `itemPath` | `string` |  |
+| `locale`? | `string` |  |
 
 #### Returns
 

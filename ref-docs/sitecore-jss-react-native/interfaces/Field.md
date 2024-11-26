@@ -12,7 +12,9 @@
 
 ## Type Parameters
 
-• **T** = `GenericFieldValue`
+| Type Parameter | Default type |
+| ------ | ------ |
+| `T` | `GenericFieldValue` |
 
 ## Properties
 

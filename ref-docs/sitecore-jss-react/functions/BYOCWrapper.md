@@ -10,7 +10,9 @@
 
 ## Parameters
 
-• **props**: [`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)
+| Parameter | Type |
+| ------ | ------ |
+| `props` | [`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md) |
 
 ## Returns
 
@@ -18,4 +20,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCWrapper.tsx:6](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/BYOCWrapper.tsx#L6)
+[packages/sitecore-jss-react/src/components/BYOCWrapper.tsx:6](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-react/src/components/BYOCWrapper.tsx#L6)

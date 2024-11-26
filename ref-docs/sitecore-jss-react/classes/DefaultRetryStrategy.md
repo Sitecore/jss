@@ -22,21 +22,12 @@ should be retried and calculates the delay before the next retry attempt.
 
 #### Parameters
 
-• **options?**
-
-Configurable options for retry mechanism.
-
-• **options.errorCodes?**: `string`[]
-
-Node error codes to trigger retries. Default is ['ECONNRESET', 'ETIMEDOUT', 'EPROTO'].
-
-• **options.factor?**: `number`
-
-Factor by which the delay increases with each retry attempt. Default is 2.
-
-• **options.statusCodes?**: `number`[]
-
-HTTP status codes to trigger retries on. Default is [429].
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options`? | `object` | Configurable options for retry mechanism. |
+| `options.errorCodes`? | `string`[] | Node error codes to trigger retries. Default is ['ECONNRESET', 'ETIMEDOUT', 'EPROTO']. |
+| `options.factor`? | `number` | Factor by which the delay increases with each retry attempt. Default is 2. |
+| `options.statusCodes`? | `number`[] | HTTP status codes to trigger retries on. Default is [429]. |
 
 #### Returns
 
@@ -56,13 +47,10 @@ Calculates the delay (in milliseconds) before the next retry based on the given 
 
 #### Parameters
 
-• **error**: [`GraphQLClientError`](../type-aliases/GraphQLClientError.md)
-
-The error received from the GraphQL request.
-
-• **attempt**: `number`
-
-The current attempt number.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `error` | [`GraphQLClientError`](../type-aliases/GraphQLClientError.md) | The error received from the GraphQL request. |
+| `attempt` | `number` | The current attempt number. |
 
 #### Returns
 
@@ -88,17 +76,11 @@ Determines whether a request should be retried based on the given error and atte
 
 #### Parameters
 
-• **error**: [`GraphQLClientError`](../type-aliases/GraphQLClientError.md)
-
-The error received from the GraphQL request.
-
-• **attempt**: `number`
-
-The current attempt number.
-
-• **retries**: `number`
-
-The number of retries configured.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `error` | [`GraphQLClientError`](../type-aliases/GraphQLClientError.md) | The error received from the GraphQL request. |
+| `attempt` | `number` | The current attempt number. |
+| `retries` | `number` | The number of retries configured. |
 
 #### Returns
 

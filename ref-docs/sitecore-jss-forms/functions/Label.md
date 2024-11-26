@@ -10,15 +10,10 @@
 
 ## Parameters
 
-• **props**: [`LabelProps`](../type-aliases/LabelProps.md)
-
-• **deprecatedLegacyContext?**: `any`
-
-**Deprecated**
-
-**See**
-
-[React Docs](https://legacy.reactjs.org/docs/legacy-context.html#referencing-context-in-lifecycle-methods)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `props` | [`LabelProps`](../type-aliases/LabelProps.md) | - |
+| `deprecatedLegacyContext`? | `any` | **Deprecated** **See** [React Docs](https://legacy.reactjs.org/docs/legacy-context.html#referencing-context-in-lifecycle-methods) |
 
 ## Returns
 
@@ -26,4 +21,4 @@
 
 ## Defined in
 
-[src/components/field-templates/label.tsx:4](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/label.tsx#L4)
+[src/components/field-templates/label.tsx:4](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-react-forms/src/components/field-templates/label.tsx#L4)

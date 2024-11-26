@@ -10,7 +10,9 @@
 
 ## Parameters
 
-• **props**: `Omit`\<[`LinkProps`](../type-aliases/LinkProps.md), `"ref"`\> & `RefAttributes`\<`HTMLAnchorElement`\>
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `Omit`\<[`LinkProps`](../type-aliases/LinkProps.md), `"ref"`\> & `RefAttributes`\<`HTMLAnchorElement`\> |
 
 ## Returns
 
@@ -18,4 +20,4 @@
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/components/Link.tsx:25](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/components/Link.tsx#L25)
+[sitecore-jss-nextjs/src/components/Link.tsx:25](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/components/Link.tsx#L25)

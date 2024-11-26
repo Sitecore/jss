@@ -18,9 +18,9 @@ Fetch dictionary data for a language.
 
 #### Parameters
 
-• **language**: `string`
-
-the language to be used to fetch the dictionary
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `language` | `string` | the language to be used to fetch the dictionary |
 
 #### Returns
 
@@ -28,4 +28,4 @@ the language to be used to fetch the dictionary
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:18](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/i18n/dictionary-service.ts#L18)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:18](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/i18n/dictionary-service.ts#L18)

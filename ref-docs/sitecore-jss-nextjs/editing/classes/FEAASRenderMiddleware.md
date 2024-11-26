@@ -21,9 +21,9 @@ which is required for Sitecore editing support.
 
 #### Parameters
 
-• **config?**: [`FEAASRenderMiddlewareConfig`](../interfaces/FEAASRenderMiddlewareConfig.md)
-
-Editing render middleware config
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `config`? | [`FEAASRenderMiddlewareConfig`](../interfaces/FEAASRenderMiddlewareConfig.md) | Editing render middleware config |
 
 #### Returns
 
@@ -35,7 +35,7 @@ Editing render middleware config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:34](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L34)
+[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:34](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L34)
 
 ## Properties
 
@@ -47,7 +47,7 @@ Editing render middleware config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:34](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L34)
+[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:34](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L34)
 
 ## Methods
 
@@ -65,9 +65,10 @@ route handler
 
 ##### Parameters
 
-• **req**: `NextApiRequest`
-
-• **res**: `NextApiResponse`
+| Parameter | Type |
+| ------ | ------ |
+| `req` | `NextApiRequest` |
+| `res` | `NextApiResponse` |
 
 ##### Returns
 
@@ -75,7 +76,7 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:44](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L44)
+[sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts:44](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/editing/feaas-render-middleware.ts#L44)
 
 ***
 
@@ -87,9 +88,9 @@ Get headers that should be passed along to subsequent requests
 
 #### Parameters
 
-• **headers**: `IncomingHttpHeaders`
-
-Incoming HTTP Headers
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `headers` | `IncomingHttpHeaders` | Incoming HTTP Headers |
 
 #### Returns
 
@@ -103,7 +104,7 @@ Object of approved headers
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/render-middleware.ts:39](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L39)
+[sitecore-jss-nextjs/src/editing/render-middleware.ts:39](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L39)
 
 ***
 
@@ -115,9 +116,9 @@ Gets query parameters that should be passed along to subsequent requests (e.g. f
 
 #### Parameters
 
-• **query**: `Partial`\<`object`\>
-
-Object of query parameters from incoming URL
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `query` | `Partial`\<`object`\> | Object of query parameters from incoming URL |
 
 #### Returns
 
@@ -131,4 +132,4 @@ Object of approved query parameters
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/render-middleware.ts:17](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L17)
+[sitecore-jss-nextjs/src/editing/render-middleware.ts:17](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/editing/render-middleware.ts#L17)

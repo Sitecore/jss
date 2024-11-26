@@ -28,21 +28,12 @@ Gets the friendly id for Component A/B Testing in the required format `component
 
 #### Parameters
 
-• **pageId**: `string`
-
-the page id
-
-• **componentId**: `string`
-
-the component id
-
-• **language**: `string`
-
-the language
-
-• **scope?**: `string`
-
-the scope value
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pageId` | `string` | the page id |
+| `componentId` | `string` | the component id |
+| `language` | `string` | the language |
+| `scope`? | `string` | the scope value |
 
 #### Returns
 
@@ -64,17 +55,11 @@ Gets the friendly id for (page-level) Embedded Personalization in the required f
 
 #### Parameters
 
-• **pageId**: `string`
-
-the page id
-
-• **language**: `string`
-
-the language
-
-• **scope?**: `string`
-
-the scope value
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pageId` | `string` | the page id |
+| `language` | `string` | the language |
+| `scope`? | `string` | the scope value |
 
 #### Returns
 
@@ -96,21 +81,12 @@ Gets the page variant id for CDP in the required format
 
 #### Parameters
 
-• **pageId**: `string`
-
-the page id
-
-• **language**: `string`
-
-the language
-
-• **variantId**: `string`
-
-the variant id
-
-• **scope?**: `string`
-
-the scope value
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pageId` | `string` | the page id |
+| `language` | `string` | the language |
+| `variantId` | `string` | the variant id |
+| `scope`? | `string` | the scope value |
 
 #### Returns
 
@@ -133,9 +109,9 @@ Removes all non-alphanumeric characters
 
 #### Parameters
 
-• **scope?**: `string`
-
-the scope value
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `scope`? | `string` | the scope value |
 
 #### Returns
 

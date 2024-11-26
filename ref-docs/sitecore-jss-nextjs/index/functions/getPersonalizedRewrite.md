@@ -12,13 +12,10 @@ Get a personalized rewrite path for given pathname
 
 ## Parameters
 
-• **pathname**: `string`
-
-the pathname
-
-• **variantIds**: `string`[]
-
-the variantIds to include in the rewrite
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pathname` | `string` | the pathname |
+| `variantIds` | `string`[] | the variantIds to include in the rewrite |
 
 ## Returns
 

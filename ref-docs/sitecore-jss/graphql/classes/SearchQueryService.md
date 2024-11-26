@@ -16,9 +16,9 @@ This class is meant to be extended or used as a mixin; it's not meant to be used
 
 ## Type Parameters
 
-• **T**
-
-The type of objects being requested.
+| Type Parameter | Description |
+| ------ | ------ |
+| `T` | The type of objects being requested. |
 
 ## Constructors
 
@@ -30,9 +30,9 @@ Creates an instance of search query service.
 
 #### Parameters
 
-• **client**: [`GraphQLClient`](../../index/interfaces/GraphQLClient.md)
-
-that fetches data from a GraphQL endpoint.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `client` | [`GraphQLClient`](../../index/interfaces/GraphQLClient.md) | that fetches data from a GraphQL endpoint. |
 
 #### Returns
 
@@ -40,7 +40,7 @@ that fetches data from a GraphQL endpoint.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/graphql/search-service.ts#L92)
+[packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/graphql/search-service.ts#L92)
 
 ## Properties
 
@@ -52,7 +52,7 @@ that fetches data from a GraphQL endpoint.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/graphql/search-service.ts#L92)
+[packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/graphql/search-service.ts#L92)
 
 ## Methods
 
@@ -66,13 +66,10 @@ that fetches data from a GraphQL endpoint.
 
 #### Parameters
 
-• **query**: `string` \| `DocumentNode`
-
-the search query.
-
-• **args**: [`SearchQueryVariables`](../interfaces/SearchQueryVariables.md)
-
-search query arguments.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `query` | `string` \| `DocumentNode` | the search query. |
+| `args` | [`SearchQueryVariables`](../interfaces/SearchQueryVariables.md) | search query arguments. |
 
 #### Returns
 
@@ -90,4 +87,4 @@ if the provided language(s) is(are) not valid.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:105](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/graphql/search-service.ts#L105)
+[packages/sitecore-jss/src/graphql/search-service.ts:105](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/graphql/search-service.ts#L105)

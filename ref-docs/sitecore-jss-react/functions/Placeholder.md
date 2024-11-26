@@ -10,7 +10,9 @@
 
 ## Parameters
 
-• **props**: [`EnhancedOmit`](../type-aliases/EnhancedOmit.md)\<[`PlaceholderComponentProps`](../interfaces/PlaceholderComponentProps.md), keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\>
+| Parameter | Type |
+| ------ | ------ |
+| `props` | [`EnhancedOmit`](../type-aliases/EnhancedOmit.md)\<[`PlaceholderComponentProps`](../interfaces/PlaceholderComponentProps.md), keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\> |
 
 ## Returns
 
@@ -18,4 +20,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/Placeholder.tsx:127](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/Placeholder.tsx#L127)
+[packages/sitecore-jss-react/src/components/Placeholder.tsx:127](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-react/src/components/Placeholder.tsx#L127)

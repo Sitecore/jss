@@ -12,9 +12,9 @@ Type guard for EditingMetadataPreviewData
 
 ## Parameters
 
-• **data**: `unknown`
-
-preview data to check
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `data` | `unknown` | preview data to check |
 
 ## Returns
 
@@ -28,4 +28,4 @@ EditingMetadataPreviewData
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:296](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L296)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:296](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L296)

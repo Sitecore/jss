@@ -10,7 +10,9 @@
 
 ## Parameters
 
-• **props**: [`BYOCComponentProps`](../../../type-aliases/BYOCComponentProps.md)
+| Parameter | Type |
+| ------ | ------ |
+| `props` | [`BYOCComponentProps`](../../../type-aliases/BYOCComponentProps.md) |
 
 ## Returns
 

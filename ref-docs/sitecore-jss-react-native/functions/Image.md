@@ -10,9 +10,10 @@
 
 ## Parameters
 
-• **props**: `PropsWithChildren`\<`ImageProps`\>
-
-• **context?**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `PropsWithChildren`\<`ImageProps`\> |
+| `context`? | `any` |
 
 ## Returns
 
@@ -20,4 +21,4 @@
 
 ## Defined in
 
-[sitecore-jss-react-native/src/components/Image.tsx:104](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-native/src/components/Image.tsx#L104)
+[sitecore-jss-react-native/src/components/Image.tsx:104](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-react-native/src/components/Image.tsx#L104)

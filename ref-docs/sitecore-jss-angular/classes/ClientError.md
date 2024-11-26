@@ -18,9 +18,10 @@
 
 #### Parameters
 
-• **response**: `GraphQLResponse`\<`any`\>
-
-• **request**: `GraphQLRequestContext`\<`Variables`\>
+| Parameter | Type |
+| ------ | ------ |
+| `response` | `GraphQLResponse`\<`any`\> |
+| `request` | `GraphQLRequestContext`\<`Variables`\> |
 
 #### Returns
 
@@ -138,9 +139,10 @@ Optional override for formatting stack traces
 
 #### Parameters
 
-• **err**: `Error`
-
-• **stackTraces**: `CallSite`[]
+| Parameter | Type |
+| ------ | ------ |
+| `err` | `Error` |
+| `stackTraces` | `CallSite`[] |
 
 #### Returns
 
@@ -182,9 +184,10 @@ Create .stack property on a target object
 
 #### Parameters
 
-• **targetObject**: `object`
-
-• **constructorOpt?**: `Function`
+| Parameter | Type |
+| ------ | ------ |
+| `targetObject` | `object` |
+| `constructorOpt`? | `Function` |
 
 #### Returns
 

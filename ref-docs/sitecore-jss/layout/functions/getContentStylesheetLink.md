@@ -12,17 +12,11 @@ Get the content styles link to be loaded from the Sitecore Edge Platform
 
 ## Parameters
 
-• **layoutData**: [`LayoutServiceData`](../interfaces/LayoutServiceData.md)
-
-Layout service data
-
-• **sitecoreEdgeContextId**: `string`
-
-Sitecore Edge Context ID
-
-• **sitecoreEdgeUrl?**: `string` = `SITECORE_EDGE_URL_DEFAULT`
-
-Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `layoutData` | [`LayoutServiceData`](../interfaces/LayoutServiceData.md) | `undefined` | Layout service data |
+| `sitecoreEdgeContextId` | `string` | `undefined` | Sitecore Edge Context ID |
+| `sitecoreEdgeUrl`? | `string` | `SITECORE_EDGE_URL_DEFAULT` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
 
 ## Returns
 
@@ -32,4 +26,4 @@ content styles link, null if no styles are used in layout
 
 ## Defined in
 
-[packages/sitecore-jss/src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/content-styles.ts#L26)
+[packages/sitecore-jss/src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss/src/layout/content-styles.ts#L26)

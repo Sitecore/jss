@@ -13,9 +13,9 @@ This factory function is used to create and configure GraphQL clients for making
 
 ## Parameters
 
-• **config?**: `Omit`\<`GraphQLRequestClientConfig`, `"apiKey"`\>
-
-The configuration object that specifies how the GraphQL client should be set up.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `config`? | `Omit`\<`GraphQLRequestClientConfig`, `"apiKey"`\> | The configuration object that specifies how the GraphQL client should be set up. |
 
 ## Returns
 

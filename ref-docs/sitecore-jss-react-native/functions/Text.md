@@ -10,9 +10,10 @@
 
 ## Parameters
 
-• **props**: `PropsWithChildren`\<`TextProps`\>
-
-• **context?**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `PropsWithChildren`\<`TextProps`\> |
+| `context`? | `any` |
 
 ## Returns
 
@@ -20,4 +21,4 @@
 
 ## Defined in
 
-[sitecore-jss-react-native/src/components/Text.tsx:14](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-native/src/components/Text.tsx#L14)
+[sitecore-jss-react-native/src/components/Text.tsx:14](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-react-native/src/components/Text.tsx#L14)

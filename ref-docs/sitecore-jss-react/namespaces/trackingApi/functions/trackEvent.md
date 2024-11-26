@@ -12,13 +12,10 @@ Makes a request to Sitecore Layout Service for the specified route item path.
 
 ## Parameters
 
-• **events**: ([`EventInstance`](../../../interfaces/EventInstance.md) \| [`GoalInstance`](../../../interfaces/GoalInstance.md) \| [`OutcomeInstance`](../../../interfaces/OutcomeInstance.md) \| [`CampaignInstance`](../../../interfaces/CampaignInstance.md) \| [`PageViewInstance`](../../../interfaces/PageViewInstance.md))[]
-
-events to send
-
-• **options**: [`TrackingRequestOptions`](../../../interfaces/TrackingRequestOptions.md)
-
-options for the tracking service
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `events` | ([`EventInstance`](../../../interfaces/EventInstance.md) \| [`GoalInstance`](../../../interfaces/GoalInstance.md) \| [`OutcomeInstance`](../../../interfaces/OutcomeInstance.md) \| [`CampaignInstance`](../../../interfaces/CampaignInstance.md) \| [`PageViewInstance`](../../../interfaces/PageViewInstance.md))[] | events to send |
+| `options` | [`TrackingRequestOptions`](../../../interfaces/TrackingRequestOptions.md) | options for the tracking service |
 
 ## Returns
 

@@ -13,17 +13,11 @@ Component endpoint will either be retrieved from params or from endpointOverride
 
 ## Parameters
 
-• **params**: [`FEaaSComponentParams`](../type-aliases/FEaaSComponentParams.md)
-
-component params
-
-• **pageState?**: [`LayoutServicePageState`](../enumerations/LayoutServicePageState.md)
-
-page state to determine which component variant to use
-
-• **endpointOverride?**: `string`
-
-optional override for component endpoint
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | [`FEaaSComponentParams`](../type-aliases/FEaaSComponentParams.md) | component params |
+| `pageState`? | [`LayoutServicePageState`](../enumerations/LayoutServicePageState.md) | page state to determine which component variant to use |
+| `endpointOverride`? | `string` | optional override for component endpoint |
 
 ## Returns
 
@@ -31,4 +25,4 @@ optional override for component endpoint
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:107](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L107)
+[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:107](https://github.com/Sitecore/jss/blob/e507e97cfa27e316b3c99ba5c513dce49973a5f1/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L107)
