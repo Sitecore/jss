@@ -45,6 +45,17 @@ type PersonalizeQueryResult = {
 export class GraphQLPersonalizeService {
   private graphQLClient: GraphQLClient;
   private cache: CacheClient<PersonalizeQueryResult>;
+
+  /**
+   * Fetch personalize data using the Sitecore GraphQL endpoint.
+   * @param {GraphQLPersonalizeServiceConfig} config
+   */
+  constructor(protected config: GraphQLPersonalizeServiceConfig) {
+    this.config.timeout = config.timeout || 400;
+    this.graphQLClient = this.getGraphQLClient();
+    this.cache = this.getCacheClient();
+  }
+
   protected get query(): string {
     return /* GraphQL */ `
       query($siteName: String!, $language: String!, $itemPath: String!) {
@@ -59,15 +70,6 @@ export class GraphQLPersonalizeService {
         }
       }
     `;
-  }
-  /**
-   * Fetch personalize data using the Sitecore GraphQL endpoint.
-   * @param {GraphQLPersonalizeServiceConfig} config
-   */
-  constructor(protected config: GraphQLPersonalizeServiceConfig) {
-    this.config.timeout = config.timeout || 400;
-    this.graphQLClient = this.getGraphQLClient();
-    this.cache = this.getCacheClient();
   }
 
   /**

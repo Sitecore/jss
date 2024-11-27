@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 import { FieldMetadata, GenericFieldValue } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface RenderingField<V = GenericFieldValue> extends FieldMetadata {
@@ -41,6 +42,8 @@ export interface LinkField extends LinkFieldValue, RenderingField {
   editableLastPart?: string;
 }
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface RichTextField extends RenderingField<string> {}
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface TextField extends RenderingField<string> {}

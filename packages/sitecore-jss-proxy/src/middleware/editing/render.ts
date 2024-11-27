@@ -7,6 +7,12 @@ import {
   EDITING_ALLOWED_ORIGINS,
   RenderMetadataQueryParams,
 } from '@sitecore-jss/sitecore-jss/editing';
+import { PersonalizeHelper } from '../../personalize';
+import {
+  DEFAULT_VARIANT,
+  getGroomedVariantIds,
+  personalizeLayout,
+} from '@sitecore-jss/sitecore-jss/personalize';
 
 /**
  * Configuration for the editing render endpoint
@@ -26,6 +32,10 @@ export type EditingRenderEndpointOptions = {
    * The appRenderer will produce the requested route's html
    */
   renderView: AppRenderer;
+  /**
+   * Personalize helper instance passed from proxy app
+   */
+  personalizeHelper?: PersonalizeHelper;
 };
 
 type MetadataRequest = Request & { query: RenderMetadataQueryParams };
@@ -80,6 +90,14 @@ export const editingRenderMiddleware = (config: EditingRenderEndpointOptions) =>
       throw new Error(`Unable to fetch editing data for ${JSON.stringify(query)}`);
     }
 
+    const variantIds = query.sc_variant?.split(',') || [DEFAULT_VARIANT];
+    const personalizeData = getGroomedVariantIds(variantIds);
+    personalizeLayout(
+      data.layoutData,
+      personalizeData.variantId,
+      personalizeData.componentVariantIds
+    );
+
     const viewBag = { dictionary: data.dictionary };
 
     config.renderView(
@@ -126,7 +144,7 @@ export const editingRenderMiddleware = (config: EditingRenderEndpointOptions) =>
  * @returns {string} Content-Security-Policy header value
  */
 export const getSCPHeader = () => {
-  return `frame-ancestors 'self' ${[getAllowedOriginsFromEnv(), ...EDITING_ALLOWED_ORIGINS].join(
+  return `frame-ancestors 'self' ${[...getAllowedOriginsFromEnv(), ...EDITING_ALLOWED_ORIGINS].join(
     ' '
   )}`;
 };

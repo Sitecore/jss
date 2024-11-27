@@ -1,170 +1,145 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / GenerateRouteItemPipelineArgs
 
 # Interface: GenerateRouteItemPipelineArgs
 
 ## Indexable
 
-▪ [key: `string`]: `any`
-
-## Table of contents
-
-### Properties
-
-- [components](GenerateRouteItemPipelineArgs.md#components)
-- [datasourceDisplayNamer](GenerateRouteItemPipelineArgs.md#datasourcedisplaynamer)
-- [datasourceNamer](GenerateRouteItemPipelineArgs.md#datasourcenamer)
-- [dynamicPlaceholderKeyGenerator](GenerateRouteItemPipelineArgs.md#dynamicplaceholderkeygenerator)
-- [item](GenerateRouteItemPipelineArgs.md#item)
-- [onRenderingProcessed](GenerateRouteItemPipelineArgs.md#onrenderingprocessed)
-- [pipelines](GenerateRouteItemPipelineArgs.md#pipelines)
-- [route](GenerateRouteItemPipelineArgs.md#route)
+ \[`key`: `string`\]: `any`
 
 ## Properties
 
 ### components
 
-• **components**: [`ComponentDefinition`](ComponentDefinition.md)[]
+> **components**: [`ComponentDefinition`](ComponentDefinition.md)[]
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:416](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L416)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:416](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L416)
 
-___
+***
 
-### datasourceDisplayNamer
+### datasourceDisplayNamer()
 
-• **datasourceDisplayNamer**: (`__namedParameters`: \{ `index`: `number` ; `item`: `any` ; `placeholder`: `any` ; `rendering`: `any`  }) => `string`
+> **datasourceDisplayNamer**: (`__namedParameters`) => `string`
 
-#### Type declaration
+#### Parameters
 
-▸ (`«destructured»`): `string`
+| Parameter | Type |
+| ------ | ------ |
+| `__namedParameters` | `object` |
+| `__namedParameters.index` | `number` |
+| `__namedParameters.item` | `any` |
+| `__namedParameters.placeholder` | `any` |
+| `__namedParameters.rendering` | `any` |
 
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | `Object` |
-| › `index` | `number` |
-| › `item` | `any` |
-| › `placeholder` | `any` |
-| › `rendering` | `any` |
-
-##### Returns
+#### Returns
 
 `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:431](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L431)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:431](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L431)
 
-___
+***
 
-### datasourceNamer
+### datasourceNamer()
 
-• **datasourceNamer**: (`__namedParameters`: \{ `index`: `number` ; `item`: `any` ; `placeholder`: `any` ; `rendering`: `any`  }) => `string`
+> **datasourceNamer**: (`__namedParameters`) => `string`
 
-#### Type declaration
+#### Parameters
 
-▸ (`«destructured»`): `string`
+| Parameter | Type |
+| ------ | ------ |
+| `__namedParameters` | `object` |
+| `__namedParameters.index` | `number` |
+| `__namedParameters.item` | `any` |
+| `__namedParameters.placeholder` | `any` |
+| `__namedParameters.rendering` | `any` |
 
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | `Object` |
-| › `index` | `number` |
-| › `item` | `any` |
-| › `placeholder` | `any` |
-| › `rendering` | `any` |
-
-##### Returns
+#### Returns
 
 `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:420](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L420)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:420](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L420)
 
-___
+***
 
-### dynamicPlaceholderKeyGenerator
+### dynamicPlaceholderKeyGenerator()
 
-• **dynamicPlaceholderKeyGenerator**: (`key`: `string`, `rendering`: `any`, `parentKey`: `string`) => `string`
+> **dynamicPlaceholderKeyGenerator**: (`key`, `rendering`, `parentKey`) => `string`
 
-#### Type declaration
+#### Parameters
 
-▸ (`key`, `rendering`, `parentKey`): `string`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Parameter | Type |
+| ------ | ------ |
 | `key` | `string` |
 | `rendering` | `any` |
 | `parentKey` | `string` |
 
-##### Returns
+#### Returns
 
 `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:419](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L419)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:419](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L419)
 
-___
+***
 
 ### item
 
-• **item**: `any`
+> **item**: `any`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:418](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L418)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:418](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L418)
 
-___
+***
 
-### onRenderingProcessed
+### onRenderingProcessed()?
 
-• `Optional` **onRenderingProcessed**: (`rendering`: `any`) => `void`
+> `optional` **onRenderingProcessed**: (`rendering`) => `void`
 
-#### Type declaration
+#### Parameters
 
-▸ (`rendering`): `void`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Parameter | Type |
+| ------ | ------ |
 | `rendering` | `any` |
 
-##### Returns
+#### Returns
 
 `void`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:440](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L440)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:440](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L440)
 
-___
+***
 
 ### pipelines
 
-• **pipelines**: `Object`
+> **pipelines**: `object`
 
-#### Index signature
+#### Index Signature
 
-▪ [key: `string`]: [`ExecutablePipeline`](ExecutablePipeline.md)
+ \[`key`: `string`\]: [`ExecutablePipeline`](ExecutablePipeline.md)
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:417](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L417)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:417](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L417)
 
-___
+***
 
 ### route
 
-• **route**: [`RouteDefinition`](RouteDefinition.md)
+> **route**: [`RouteDefinition`](RouteDefinition.md)
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:415](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L415)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:415](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L415)

@@ -1,52 +1,47 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / MergeFsResult
 
 # Interface: MergeFsResult
-
-## Table of contents
-
-### Properties
-
-- [files](MergeFsResult.md#files)
-- [folders](MergeFsResult.md#folders)
-- [name](MergeFsResult.md#name)
-- [path](MergeFsResult.md#path)
 
 ## Properties
 
 ### files
 
-• **files**: `FileResult`[]
+> **files**: `FileResult`[]
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/mergeFs.ts:121](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L121)
+[sitecore-jss-dev-tools/src/mergeFs.ts:121](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L121)
 
-___
+***
 
 ### folders
 
-• **folders**: [`MergeFsResult`](MergeFsResult.md)[]
+> **folders**: [`MergeFsResult`](MergeFsResult.md)[]
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/mergeFs.ts:122](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L122)
+[sitecore-jss-dev-tools/src/mergeFs.ts:122](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L122)
 
-___
+***
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/mergeFs.ts:120](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L120)
+[sitecore-jss-dev-tools/src/mergeFs.ts:120](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L120)
 
-___
+***
 
 ### path
 
-• **path**: `string`
+> **path**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/mergeFs.ts:119](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L119)
+[sitecore-jss-dev-tools/src/mergeFs.ts:119](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L119)

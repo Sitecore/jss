@@ -1,95 +1,85 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / ImageField
 
 # Interface: ImageField
 
-## Hierarchy
+## Extends
 
-- [`ImageFieldValue`](ImageFieldValue.md)
-
-- [`RenderingField`](RenderingField.md)
-
-  ↳ **`ImageField`**
-
-## Table of contents
-
-### Properties
-
-- [editable](ImageField.md#editable)
-- [metadata](ImageField.md#metadata)
-- [src](ImageField.md#src)
-- [srcSet](ImageField.md#srcset)
-- [value](ImageField.md#value)
+- [`ImageFieldValue`](ImageFieldValue.md).[`RenderingField`](RenderingField.md)
 
 ## Properties
 
-### editable
+### editable?
 
-• `Optional` **editable**: `string`
+> `optional` **editable**: `string`
 
 #### Inherited from
 
-[RenderingField](RenderingField.md).[editable](RenderingField.md#editable)
+[`RenderingField`](RenderingField.md).[`editable`](RenderingField.md#editable)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
 
-___
+***
 
-### metadata
+### metadata?
 
-• `Optional` **metadata**: `Object`
+> `optional` **metadata**: `object`
 
-#### Index signature
+#### Index Signature
 
-▪ [key: `string`]: `unknown`
+ \[`key`: `string`\]: `unknown`
 
 #### Inherited from
 
-[RenderingField](RenderingField.md).[metadata](RenderingField.md#metadata)
+[`RenderingField`](RenderingField.md).[`metadata`](RenderingField.md#metadata)
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:123
 
-___
+***
 
-### src
+### src?
 
-• `Optional` **src**: `string`
-
-#### Inherited from
-
-[ImageFieldValue](ImageFieldValue.md).[src](ImageFieldValue.md#src)
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:21](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rendering-field.ts#L21)
-
-___
-
-### srcSet
-
-• `Optional` **srcSet**: \{ `[key: string]`: `string` \| `number` \| `undefined`;  }[]
+> `optional` **src**: `string`
 
 #### Inherited from
 
-[ImageFieldValue](ImageFieldValue.md).[srcSet](ImageFieldValue.md#srcset)
+[`ImageFieldValue`](ImageFieldValue.md).[`src`](ImageFieldValue.md#src)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:22](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rendering-field.ts#L22)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:22](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rendering-field.ts#L22)
 
-___
+***
 
-### value
+### srcSet?
 
-• `Optional` **value**: [`ImageFieldValue`](ImageFieldValue.md)
+> `optional` **srcSet**: `object`[]
+
+#### Inherited from
+
+[`ImageFieldValue`](ImageFieldValue.md).[`srcSet`](ImageFieldValue.md#srcset)
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:23](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rendering-field.ts#L23)
+
+***
+
+### value?
+
+> `optional` **value**: [`ImageFieldValue`](ImageFieldValue.md)
 
 #### Overrides
 
-[RenderingField](RenderingField.md).[value](RenderingField.md#value)
+[`RenderingField`](RenderingField.md).[`value`](RenderingField.md#value)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:28](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rendering-field.ts#L28)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:29](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rendering-field.ts#L29)

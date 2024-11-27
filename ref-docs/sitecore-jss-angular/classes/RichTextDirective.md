@@ -1,195 +1,150 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / RichTextDirective
 
 # Class: RichTextDirective
 
-## Hierarchy
+## Extends
 
 - `BaseFieldDirective`
-
-  ↳ **`RichTextDirective`**
 
 ## Implements
 
 - `OnChanges`
 
-## Table of contents
-
-### Constructors
-
-- [constructor](RichTextDirective.md#constructor)
-
-### Properties
-
-- [defaultFieldEditingComponent](RichTextDirective.md#defaultfieldeditingcomponent)
-- [editable](RichTextDirective.md#editable)
-- [emptyFieldEditingTemplate](RichTextDirective.md#emptyfieldeditingtemplate)
-- [field](RichTextDirective.md#field)
-- [renderer](RichTextDirective.md#renderer)
-- [router](RichTextDirective.md#router)
-- [templateRef](RichTextDirective.md#templateref)
-- [viewContainer](RichTextDirective.md#viewcontainer)
-- [viewRef](RichTextDirective.md#viewref)
-
-### Methods
-
-- [ngOnChanges](RichTextDirective.md#ngonchanges)
-- [renderEmpty](RichTextDirective.md#renderempty)
-- [renderMetadata](RichTextDirective.md#rendermetadata)
-- [shouldRender](RichTextDirective.md#shouldrender)
-- [updateView](RichTextDirective.md#updateview)
-
 ## Constructors
 
-### constructor
+### new RichTextDirective()
 
-• **new RichTextDirective**(`viewContainer`, `templateRef`, `renderer`, `router`)
+> **new RichTextDirective**(`viewContainer`, `templateRef`, `renderer`, `router`): [`RichTextDirective`](RichTextDirective.md)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Parameter | Type |
+| ------ | ------ |
 | `viewContainer` | `ViewContainerRef` |
 | `templateRef` | `TemplateRef`\<`unknown`\> |
 | `renderer` | `Renderer2` |
 | `router` | `Router` |
 
+#### Returns
+
+[`RichTextDirective`](RichTextDirective.md)
+
 #### Overrides
 
-BaseFieldDirective.constructor
+`BaseFieldDirective.constructor`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:36](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L36)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:36](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L36)
 
 ## Properties
 
 ### defaultFieldEditingComponent
 
-• `Protected` **defaultFieldEditingComponent**: `Type`\<`unknown`\>
+> `protected` **defaultFieldEditingComponent**: `Type`\<`unknown`\>
 
 Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
 
 #### Overrides
 
-BaseFieldDirective.defaultFieldEditingComponent
+`BaseFieldDirective.defaultFieldEditingComponent`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:34](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L34)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:34](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L34)
 
-___
+***
 
 ### editable
 
-• **editable**: `boolean` = `true`
+> **editable**: `boolean` = `true`
 
 #### Overrides
 
-BaseFieldDirective.editable
+`BaseFieldDirective.editable`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:22](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L22)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:22](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L22)
 
-___
+***
 
 ### emptyFieldEditingTemplate
 
-• **emptyFieldEditingTemplate**: `TemplateRef`\<`unknown`\>
+> **emptyFieldEditingTemplate**: `TemplateRef`\<`unknown`\>
 
 Custom template to render in Pages in Metadata edit mode if field value is empty
 
 #### Overrides
 
-BaseFieldDirective.emptyFieldEditingTemplate
+`BaseFieldDirective.emptyFieldEditingTemplate`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:29](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L29)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:29](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L29)
 
-___
+***
 
 ### field
 
-• **field**: [`RichTextField`](../interfaces/RichTextField.md)
+> **field**: [`RichTextField`](../interfaces/RichTextField.md)
 
 #### Overrides
 
-BaseFieldDirective.field
+`BaseFieldDirective.field`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:24](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L24)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:24](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L24)
 
-___
-
-### renderer
-
-• `Private` **renderer**: `Renderer2`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:39](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L39)
-
-___
-
-### router
-
-• `Private` **router**: `Router`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:40](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L40)
-
-___
-
-### templateRef
-
-• `Private` **templateRef**: `TemplateRef`\<`unknown`\>
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:38](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L38)
-
-___
+***
 
 ### viewContainer
 
-• `Protected` **viewContainer**: `ViewContainerRef`
+> `protected` **viewContainer**: `ViewContainerRef`
 
 #### Inherited from
 
-BaseFieldDirective.viewContainer
+`BaseFieldDirective.viewContainer`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
 
-___
+***
 
 ### viewRef
 
-• `Protected` **viewRef**: `EmbeddedViewRef`\<`unknown`\>
+> `protected` **viewRef**: `EmbeddedViewRef`\<`unknown`\>
 
 #### Inherited from
 
-BaseFieldDirective.viewRef
+`BaseFieldDirective.viewRef`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
 
 ## Methods
 
-### ngOnChanges
+### ngOnChanges()
 
-▸ **ngOnChanges**(`changes`): `void`
+> **ngOnChanges**(`changes`): `void`
+
+A callback method that is invoked immediately after the
+default change detector has checked data-bound properties
+if at least one has changed, and before the view and content
+children are checked.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `changes` | `SimpleChanges` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `changes` | `SimpleChanges` | The changed properties. |
 
 #### Returns
 
@@ -197,17 +152,17 @@ BaseFieldDirective.viewRef
 
 #### Implementation of
 
-OnChanges.ngOnChanges
+`OnChanges.ngOnChanges`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:46](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L46)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:46](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L46)
 
-___
+***
 
-### renderEmpty
+### renderEmpty()
 
-▸ `Protected` **renderEmpty**(): `void`
+> `protected` **renderEmpty**(): `void`
 
 Renders the empty field markup which is required by Pages in editMode 'metadata' in case field is empty.
 
@@ -217,24 +172,24 @@ Renders the empty field markup which is required by Pages in editMode 'metadata'
 
 #### Inherited from
 
-BaseFieldDirective.renderEmpty
+`BaseFieldDirective.renderEmpty`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
 
-___
+***
 
-### renderMetadata
+### renderMetadata()
 
-▸ `Protected` **renderMetadata**(`kind`): `void`
+> `protected` **renderMetadata**(`kind`): `void`
 
 Renders a metadata chrome marker for the field. Required by Pages in editMode 'metadata'.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
 | `kind` | `MetadataKind` | 'open' or 'close' to indicate the start or end of the metadata chrome |
 
 #### Returns
@@ -243,17 +198,17 @@ Renders a metadata chrome marker for the field. Required by Pages in editMode 'm
 
 #### Inherited from
 
-BaseFieldDirective.renderMetadata
+`BaseFieldDirective.renderMetadata`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
 
-___
+***
 
-### shouldRender
+### shouldRender()
 
-▸ `Protected` **shouldRender**(): `boolean`
+> `protected` **shouldRender**(): `boolean`
 
 Determines if directive should render the field as is
 Returns true if we are in edit mode 'chromes' (field.editable is present) or field is not empty
@@ -264,22 +219,8 @@ Returns true if we are in edit mode 'chromes' (field.editable is present) or fie
 
 #### Inherited from
 
-BaseFieldDirective.shouldRender
+`BaseFieldDirective.shouldRender`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:30](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L30)
-
-___
-
-### updateView
-
-▸ `Private` **updateView**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:53](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L53)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:30](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L30)

@@ -1,132 +1,119 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / LinkField
 
 # Interface: LinkField
 
-## Hierarchy
+## Extends
 
-- [`LinkFieldValue`](LinkFieldValue.md)
-
-- [`RenderingField`](RenderingField.md)
-
-  ↳ **`LinkField`**
-
-## Table of contents
-
-### Properties
-
-- [anchor](LinkField.md#anchor)
-- [editable](LinkField.md#editable)
-- [editableFirstPart](LinkField.md#editablefirstpart)
-- [editableLastPart](LinkField.md#editablelastpart)
-- [href](LinkField.md#href)
-- [metadata](LinkField.md#metadata)
-- [text](LinkField.md#text)
-- [value](LinkField.md#value)
+- [`LinkFieldValue`](LinkFieldValue.md).[`RenderingField`](RenderingField.md)
 
 ## Properties
 
-### anchor
+### anchor?
 
-• `Optional` **anchor**: `string`
-
-#### Inherited from
-
-[LinkFieldValue](LinkFieldValue.md).[anchor](LinkFieldValue.md#anchor)
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:35](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rendering-field.ts#L35)
-
-___
-
-### editable
-
-• `Optional` **editable**: `string`
+> `optional` **anchor**: `string`
 
 #### Inherited from
 
-[RenderingField](RenderingField.md).[editable](RenderingField.md#editable)
+[`LinkFieldValue`](LinkFieldValue.md).[`anchor`](LinkFieldValue.md#anchor)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:36](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rendering-field.ts#L36)
 
-___
+***
 
-### editableFirstPart
+### editable?
 
-• `Optional` **editableFirstPart**: `string`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:40](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rendering-field.ts#L40)
-
-___
-
-### editableLastPart
-
-• `Optional` **editableLastPart**: `string`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:41](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rendering-field.ts#L41)
-
-___
-
-### href
-
-• `Optional` **href**: `string`
+> `optional` **editable**: `string`
 
 #### Inherited from
 
-[LinkFieldValue](LinkFieldValue.md).[href](LinkFieldValue.md#href)
+[`RenderingField`](RenderingField.md).[`editable`](RenderingField.md#editable)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:33](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rendering-field.ts#L33)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
 
-___
+***
 
-### metadata
+### editableFirstPart?
 
-• `Optional` **metadata**: `Object`
+> `optional` **editableFirstPart**: `string`
 
-#### Index signature
+#### Defined in
 
-▪ [key: `string`]: `unknown`
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:41](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rendering-field.ts#L41)
+
+***
+
+### editableLastPart?
+
+> `optional` **editableLastPart**: `string`
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:42](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rendering-field.ts#L42)
+
+***
+
+### href?
+
+> `optional` **href**: `string`
 
 #### Inherited from
 
-[RenderingField](RenderingField.md).[metadata](RenderingField.md#metadata)
+[`LinkFieldValue`](LinkFieldValue.md).[`href`](LinkFieldValue.md#href)
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:34](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rendering-field.ts#L34)
+
+***
+
+### metadata?
+
+> `optional` **metadata**: `object`
+
+#### Index Signature
+
+ \[`key`: `string`\]: `unknown`
+
+#### Inherited from
+
+[`RenderingField`](RenderingField.md).[`metadata`](RenderingField.md#metadata)
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:123
 
-___
+***
 
-### text
+### text?
 
-• `Optional` **text**: `string`
+> `optional` **text**: `string`
 
 #### Inherited from
 
-[LinkFieldValue](LinkFieldValue.md).[text](LinkFieldValue.md#text)
+[`LinkFieldValue`](LinkFieldValue.md).[`text`](LinkFieldValue.md#text)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:34](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rendering-field.ts#L34)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:35](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rendering-field.ts#L35)
 
-___
+***
 
-### value
+### value?
 
-• `Optional` **value**: [`LinkFieldValue`](LinkFieldValue.md)
+> `optional` **value**: [`LinkFieldValue`](LinkFieldValue.md)
 
 #### Overrides
 
-[RenderingField](RenderingField.md).[value](RenderingField.md#value)
+[`RenderingField`](RenderingField.md).[`value`](RenderingField.md#value)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:39](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rendering-field.ts#L39)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:40](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rendering-field.ts#L40)

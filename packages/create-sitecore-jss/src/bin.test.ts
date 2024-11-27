@@ -453,7 +453,7 @@ describe('bin', () => {
       getBaseTemplatesStub.returns(['foo']);
       fsExistsSyncStub.returns(false);
       fsReaddirSyncStub.returns([]);
-      const error = 'nope';
+      const error = new Error('nope');
       initRunnerStub.throws(error);
       inquirerPromptStub.returns({
         continue: false,

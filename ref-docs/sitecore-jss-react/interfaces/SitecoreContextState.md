@@ -1,44 +1,37 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / SitecoreContextState
 
 # Interface: SitecoreContextState
-
-## Table of contents
-
-### Properties
-
-- [context](SitecoreContextState.md#context)
-- [setContext](SitecoreContextState.md#setcontext)
 
 ## Properties
 
 ### context
 
-• **context**: [`SitecoreContextValue`](../README.md#sitecorecontextvalue)
+> **context**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L16)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L16)
 
-___
+***
 
-### setContext
+### setContext()
 
-• **setContext**: (`value`: [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../README.md#sitecorecontextvalue)) => `void`
+> **setContext**: (`value`) => `void`
 
-#### Type declaration
+#### Parameters
 
-▸ (`value`): `void`
+| Parameter | Type |
+| ------ | ------ |
+| `value` | [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md) |
 
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../README.md#sitecorecontextvalue) |
-
-##### Returns
+#### Returns
 
 `void`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L15)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L15)

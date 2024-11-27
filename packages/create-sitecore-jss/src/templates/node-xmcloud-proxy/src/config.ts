@@ -77,7 +77,7 @@ export const personalizeConfig: PersonalizeConfig = {
       400,
   },
   // Optional Sitecore Personalize scope identifier.
-  scope: process.env.PERSONALIZE_SCOPE,
+  scope: serverBundle.personalizeScope,
   // This function determines if the personalization should be turned off.
   // IMPORTANT: You should implement based on your cookie consent management solution of choice.
   // You may wish to keep it disabled while in development mode.

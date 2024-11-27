@@ -1,3 +1,7 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / EditingScriptsComponent
 
 # Class: EditingScriptsComponent
@@ -9,75 +13,39 @@ Only renders scripts when Metadata mode is used.
 
 - `OnInit`
 
-## Table of contents
-
-### Constructors
-
-- [constructor](EditingScriptsComponent.md#constructor)
-
-### Properties
-
-- [document](EditingScriptsComponent.md#document)
-- [renderer](EditingScriptsComponent.md#renderer)
-- [stateService](EditingScriptsComponent.md#stateservice)
-
-### Methods
-
-- [ngOnInit](EditingScriptsComponent.md#ngoninit)
-
 ## Constructors
 
-### constructor
+### new EditingScriptsComponent()
 
-• **new EditingScriptsComponent**(`renderer`, `stateService`, `document`)
+> **new EditingScriptsComponent**(`renderer`, `stateService`, `document`): [`EditingScriptsComponent`](EditingScriptsComponent.md)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Parameter | Type |
+| ------ | ------ |
 | `renderer` | `Renderer2` |
 | `stateService` | [`JssStateService`](JssStateService.md)\<[`BaseJssState`](BaseJssState.md)\> |
 | `document` | `Document` |
 
-#### Defined in
+#### Returns
 
-[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:17](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L17)
-
-## Properties
-
-### document
-
-• `Private` **document**: `Document`
+[`EditingScriptsComponent`](EditingScriptsComponent.md)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:20](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L20)
-
-___
-
-### renderer
-
-• `Private` **renderer**: `Renderer2`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:18](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L18)
-
-___
-
-### stateService
-
-• `Private` **stateService**: [`JssStateService`](JssStateService.md)\<[`BaseJssState`](BaseJssState.md)\>
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:19](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L19)
+[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:17](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L17)
 
 ## Methods
 
-### ngOnInit
+### ngOnInit()
 
-▸ **ngOnInit**(): `void`
+> **ngOnInit**(): `void`
+
+A callback method that is invoked immediately after the
+default change detector has checked the directive's
+data-bound properties for the first time,
+and before any of the view or content children have been checked.
+It is invoked only once when the directive is instantiated.
 
 #### Returns
 
@@ -85,8 +53,8 @@ ___
 
 #### Implementation of
 
-OnInit.ngOnInit
+`OnInit.ngOnInit`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:23](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L23)
+[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:23](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L23)

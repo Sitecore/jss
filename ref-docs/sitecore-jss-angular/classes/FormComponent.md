@@ -1,3 +1,7 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / FormComponent
 
 # Class: FormComponent
@@ -10,140 +14,66 @@ It fetches the form markup from the Sitecore Edge service and renders it in the 
 - `OnInit`
 - `OnDestroy`
 
-## Table of contents
-
-### Constructors
-
-- [constructor](FormComponent.md#constructor)
-
-### Properties
-
-- [contextSubscription](FormComponent.md#contextsubscription)
-- [edgeConfig](FormComponent.md#edgeconfig)
-- [elRef](FormComponent.md#elref)
-- [hasError](FormComponent.md#haserror)
-- [isEditing](FormComponent.md#isediting)
-- [jssState](FormComponent.md#jssstate)
-- [platformId](FormComponent.md#platformid)
-- [rendering](FormComponent.md#rendering)
-
-### Methods
-
-- [executeScriptElements](FormComponent.md#executescriptelements)
-- [loadForm](FormComponent.md#loadform)
-- [ngOnDestroy](FormComponent.md#ngondestroy)
-- [ngOnInit](FormComponent.md#ngoninit)
-
 ## Constructors
 
-### constructor
+### new FormComponent()
 
-• **new FormComponent**(`edgeConfig`, `platformId`, `elRef`, `jssState`)
+> **new FormComponent**(`edgeConfig`, `platformId`, `elRef`, `jssState`): [`FormComponent`](FormComponent.md)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Parameter | Type |
+| ------ | ------ |
 | `edgeConfig` | `EdgeConfigToken` |
-| `platformId` | `Object` |
+| `platformId` | `object` |
 | `elRef` | `ElementRef`\<`HTMLElement`\> |
 | `jssState` | [`JssStateService`](JssStateService.md)\<[`BaseJssState`](BaseJssState.md)\> |
 
+#### Returns
+
+[`FormComponent`](FormComponent.md)
+
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:61](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/form.component.ts#L61)
+[packages/sitecore-jss-angular/src/components/form.component.ts:61](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/form.component.ts#L61)
 
 ## Properties
 
-### contextSubscription
-
-• `Private` **contextSubscription**: `Subscription`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/form.component.ts:59](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/form.component.ts#L59)
-
-___
-
-### edgeConfig
-
-• `Private` **edgeConfig**: `EdgeConfigToken`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/form.component.ts:62](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/form.component.ts#L62)
-
-___
-
-### elRef
-
-• `Private` **elRef**: `ElementRef`\<`HTMLElement`\>
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/form.component.ts:64](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/form.component.ts#L64)
-
-___
-
 ### hasError
 
-• **hasError**: `boolean` = `false`
+> **hasError**: `boolean` = `false`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:55](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/form.component.ts#L55)
+[packages/sitecore-jss-angular/src/components/form.component.ts:55](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/form.component.ts#L55)
 
-___
+***
 
 ### isEditing
 
-• **isEditing**: `boolean` = `false`
+> **isEditing**: `boolean` = `false`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:57](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/form.component.ts#L57)
+[packages/sitecore-jss-angular/src/components/form.component.ts:57](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/form.component.ts#L57)
 
-___
-
-### jssState
-
-• `Private` **jssState**: [`JssStateService`](JssStateService.md)\<[`BaseJssState`](BaseJssState.md)\>
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/form.component.ts:65](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/form.component.ts#L65)
-
-___
-
-### platformId
-
-• `Private` **platformId**: `Object`
-
-#### Index signature
-
-▪ [key: `string`]: `unknown`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/form.component.ts:63](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/form.component.ts#L63)
-
-___
+***
 
 ### rendering
 
-• **rendering**: `FormRendering`
+> **rendering**: `FormRendering`
 
 The rendering data for the component
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:53](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/form.component.ts#L53)
+[packages/sitecore-jss-angular/src/components/form.component.ts:53](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/form.component.ts#L53)
 
 ## Methods
 
-### executeScriptElements
+### executeScriptElements()
 
-▸ **executeScriptElements**(): `void`
+> **executeScriptElements**(): `void`
 
 When you set the innerHTML property of an element, the browser does not execute any <script> tags included in the HTML string
 This method ensures that any <script> elements within the loaded HTML are executed.
@@ -155,13 +85,13 @@ It re-creates the script elements and appends the to the component's template, t
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:144](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/form.component.ts#L144)
+[packages/sitecore-jss-angular/src/components/form.component.ts:144](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/form.component.ts#L144)
 
-___
+***
 
-### loadForm
+### loadForm()
 
-▸ **loadForm**(): `Promise`\<`void`\>
+> **loadForm**(): `Promise`\<`void`\>
 
 Fetches the form markup from the Sitecore Edge service and renders it in the component's template.
 
@@ -171,31 +101,16 @@ Fetches the form markup from the Sitecore Edge service and renders it in the com
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:87](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/form.component.ts#L87)
+[packages/sitecore-jss-angular/src/components/form.component.ts:87](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/form.component.ts#L87)
 
-___
+***
 
-### ngOnDestroy
+### ngOnDestroy()
 
-▸ **ngOnDestroy**(): `void`
+> **ngOnDestroy**(): `void`
 
-#### Returns
-
-`void`
-
-#### Implementation of
-
-OnDestroy.ngOnDestroy
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/form.component.ts:78](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/form.component.ts#L78)
-
-___
-
-### ngOnInit
-
-▸ **ngOnInit**(): `void`
+A callback method that performs custom clean-up, invoked immediately
+before a directive, pipe, or service instance is destroyed.
 
 #### Returns
 
@@ -203,8 +118,32 @@ ___
 
 #### Implementation of
 
-OnInit.ngOnInit
+`OnDestroy.ngOnDestroy`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:68](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/form.component.ts#L68)
+[packages/sitecore-jss-angular/src/components/form.component.ts:78](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/form.component.ts#L78)
+
+***
+
+### ngOnInit()
+
+> **ngOnInit**(): `void`
+
+A callback method that is invoked immediately after the
+default change detector has checked the directive's
+data-bound properties for the first time,
+and before any of the view or content children have been checked.
+It is invoked only once when the directive is instantiated.
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+`OnInit.ngOnInit`
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/form.component.ts:68](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/form.component.ts#L68)

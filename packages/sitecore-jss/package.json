@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss",
-  "version": "22.3.0-canary.5",
+  "version": "22.3.1-canary.2",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -11,10 +11,10 @@
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
-    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss --entryPoints src/index.ts --entryPoints src/graphql/index.ts --entryPoints src/i18n/index.ts --entryPoints src/layout/index.ts --entryPoints src/media/index.ts --entryPoints src/personalize/index.ts --entryPoints src/site/index.ts --entryPoints src/tracking/index.ts --entryPoints src/utils/index.ts --entryPoints src/editing/index.ts --githubPages false"
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss --entryPoints src/index.ts --entryPoints src/graphql/index.ts --entryPoints src/i18n/index.ts --entryPoints src/layout/index.ts --entryPoints src/media/index.ts --entryPoints src/personalize/index.ts --entryPoints src/site/index.ts --entryPoints src/tracking/index.ts --entryPoints src/utils/index.ts --entryPoints src/editing/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -37,21 +37,22 @@
     "@types/lodash.unescape": "^4.0.6",
     "@types/memory-cache": "^0.2.1",
     "@types/mocha": "^9.0.0",
-    "@types/node": "^20.14.2",
+    "@types/node": "^22.9.0",
     "@types/sinon": "^17.0.3",
     "@types/url-parse": "1.4.8",
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
     "chai-string": "^1.5.0",
     "del-cli": "^5.0.0",
-    "eslint": "^7.15.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-jsdoc": "48.7.0",
     "mocha": "^10.2.0",
     "nock": "^13.0.5",
     "nyc": "^15.1.0",
     "sinon": "^17.0.1",
     "ts-node": "^8.4.1",
     "tslib": "^1.10.0",
-    "typescript": "~4.7.4"
+    "typescript": "~5.6.3"
   },
   "dependencies": {
     "axios": "^0.21.1",

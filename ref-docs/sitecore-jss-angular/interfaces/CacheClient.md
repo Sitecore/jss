@@ -1,43 +1,36 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / CacheClient
 
 # Interface: CacheClient\<T\>
 
 An interface for cache clients.
 
-## Type parameters
+## Type Parameters
 
-| Name | Description |
-| :------ | :------ |
+| Type Parameter | Description |
+| ------ | ------ |
 | `T` | The type of data being cached. |
-
-## Implemented by
-
-- [`MemoryCacheClient`](../classes/MemoryCacheClient.md)
-
-## Table of contents
-
-### Methods
-
-- [getCacheValue](CacheClient.md#getcachevalue)
-- [setCacheValue](CacheClient.md#setcachevalue)
 
 ## Methods
 
-### getCacheValue
+### getCacheValue()
 
-▸ **getCacheValue**(`key`): ``null`` \| `T`
+> **getCacheValue**(`key`): `null` \| `T`
 
 Retrieves a value from the cache.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
 | `key` | `string` | The cache key. |
 
 #### Returns
 
-``null`` \| `T`
+`null` \| `T`
 
 The cache value as {T}, or null if the specified key was not found in the cache.
 
@@ -45,18 +38,18 @@ The cache value as {T}, or null if the specified key was not found in the cache.
 
 packages/sitecore-jss/types/cache-client.d.ts:18
 
-___
+***
 
-### setCacheValue
+### setCacheValue()
 
-▸ **setCacheValue**(`key`, `value`): `T`
+> **setCacheValue**(`key`, `value`): `T`
 
 Adds a value to the cache for the specified cache key.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
 | `key` | `string` | The cache key. |
 | `value` | `T` | The value to cache. |
 

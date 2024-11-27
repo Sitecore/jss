@@ -62,6 +62,14 @@ export class EditingConfigMiddleware {
       return res.status(401).json({ message: 'Missing or invalid editing secret' });
     }
 
+    // Handle preflight request
+    if (_req.method === 'OPTIONS') {
+      debug.editing('preflight request');
+
+      // CORS headers are set by enforceCors
+      return res.status(204).send(null);
+    }
+
     const components = Array.isArray(this.config.components)
       ? this.config.components
       : Array.from(this.config.components.keys());

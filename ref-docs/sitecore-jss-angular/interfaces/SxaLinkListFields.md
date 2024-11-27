@@ -1,29 +1,37 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / SxaLinkListFields
 
 # Interface: SxaLinkListFields
-
-## Table of contents
-
-### Properties
-
-- [data](SxaLinkListFields.md#data)
 
 ## Properties
 
 ### data
 
-• **data**: `Object`
+> **data**: `object`
 
-#### Type declaration
+#### datasource
 
-| Name | Type |
-| :------ | :------ |
-| `datasource` | \{ `children`: \{ `results`: `LayoutServiceLinkField`[]  } ; `field`: \{ `title`: [`TextField`](TextField.md)  }  } |
-| `datasource.children` | \{ `results`: `LayoutServiceLinkField`[]  } |
-| `datasource.children.results` | `LayoutServiceLinkField`[] |
-| `datasource.field` | \{ `title`: [`TextField`](TextField.md)  } |
-| `datasource.field.title` | [`TextField`](TextField.md) |
+> **datasource**: `object`
+
+#### datasource.children
+
+> **children**: `object`
+
+#### datasource.children.results
+
+> **results**: `LayoutServiceLinkField`[]
+
+#### datasource.field
+
+> **field**: `object`
+
+#### datasource.field.title
+
+> **title**: [`TextField`](TextField.md)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field-sxa.ts:10](https://github.com/Sitecore/jss/blob/f4f5c58a8/packages/sitecore-jss-angular/src/components/rendering-field-sxa.ts#L10)
+[packages/sitecore-jss-angular/src/components/rendering-field-sxa.ts:10](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-angular/src/components/rendering-field-sxa.ts#L10)
