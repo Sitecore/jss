@@ -67,4 +67,4 @@ Site resolution implementation by name/hostname
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:4](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L4)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:4](https://github.com/Sitecore/jss/blob/e846f486ba4fde6c8c1b45e6e57475c6839dad97/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L4)
