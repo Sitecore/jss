@@ -14,6 +14,7 @@ import {
 } from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
 import { BaseArgs } from '../args/base';
+const { version } = require('../../../package.json');
 
 const FILE_FOR_COPY_REGEXP = /(index\.html)$|\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf|jar|eot|woff|ttf|woff2)$/;
 
@@ -189,9 +190,15 @@ export const transform = async (
     answers.appPrefix = false;
   }
 
+  // Don't expose canary build number in the generated app
+  const jssVersion = version.includes('canary')
+    ? version.replace(/(-canary\.\d+)$/, '-canary')
+    : version;
+
   // pass in helper to answers object
   const ejsData: Data = {
     ...answers,
+    version: jssVersion,
     helper: {
       isDev: isDevEnvironment(answers.destination),
       getPascalCaseName: getPascalCaseName,
