@@ -12,7 +12,7 @@ This is a sample setup showing one of how you can configure XM Cloud rendering s
 
 - `Context ID`: The Context ID environment variable simplifies setting up and configuring XM Cloud solutions. It's a unified identifier that maps to all your configured resources, such as content, sites, files, forms, and integration settings.
 
-- `Pages new editing integration via HTTP render engine endpoint`: Before JSS 22.1, JSS Next.js apps integrated with Sitecore editors through chromes, where data was sent via a POST request. With the 22.1 release, a new metadata method was introduced, rendering the app inside an iframe in XM Cloud Pages, offering benefits like faster load times, simpler configuration, and direct local host connections without tunneling.
+- `XM Cloud Pages editing integration`: full integration with Pages - the dynamic visual page editor of XM Cloud.
 
 - `XM Cloud proxy personalization` with embedded personalization and A/B Component Test support.
 
