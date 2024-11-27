@@ -14,3 +14,5 @@ coverage/
 /badges
 packages/*/*.tgz
 /samples/react/profiling
+
+.npmrc
