@@ -22,4 +22,4 @@ Component type returned from component builder / factory
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/sharedTypes.ts:15](https://github.com/Sitecore/jss/blob/e846f486ba4fde6c8c1b45e6e57475c6839dad97/packages/sitecore-jss-react/src/components/sharedTypes.ts#L15)
+[packages/sitecore-jss-react/src/components/sharedTypes.ts:15](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/sharedTypes.ts#L15)
