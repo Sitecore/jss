@@ -1,6 +1,6 @@
 # Node XM Cloud Proxy
 
-> Sitecore JSS Proxy for XM Cloud is considered experimental.
+> Sitecore JSS Proxy for XM Cloud is currently in public beta.
 
 [Documentation](TODO)
 

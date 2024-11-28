@@ -1,6 +1,6 @@
 ﻿# Angular for XMCloud
 
-> Sitecore JSS Angular App for XM Cloud. For the current release this feature is experimental.
+> Sitecore JSS Angular App for XM Cloud. For the current release this feature is currently in public beta.
 
 [Documentation](<TODO>)
 
