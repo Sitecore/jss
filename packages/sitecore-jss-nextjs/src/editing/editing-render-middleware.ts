@@ -488,6 +488,12 @@ export class EditingRenderMiddleware extends RenderMiddlewareBase {
         await handler.render(req, res);
         break;
       }
+      case 'OPTIONS': {
+        debug.editing('preflight request');
+
+        // CORS headers are set by enforceCors
+        return res.status(204).send(null);
+      }
       default:
         debug.editing('invalid method - sent %s expected GET/POST', req.method);
         res.setHeader('Allow', 'GET, POST');

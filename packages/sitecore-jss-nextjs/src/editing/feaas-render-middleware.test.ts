@@ -108,6 +108,34 @@ describe('FEAASRenderMiddleware', () => {
     );
   });
 
+  it('should respond with 204 for preflight OPTIONS request', async () => {
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+
+    const req = mockRequest(query, 'OPTIONS');
+    const res = mockResponse();
+
+    const middleware = new FEAASRenderMiddleware();
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(res.setHeader.getCall(0).args).to.deep.equal([
+      'Access-Control-Allow-Origin',
+      allowedOrigin,
+    ]);
+    expect(res.setHeader.getCall(1).args).to.deep.equal([
+      'Access-Control-Allow-Methods',
+      'GET, POST, OPTIONS, DELETE, PUT, PATCH',
+    ]);
+    expect(res.setHeader.getCall(2).args).to.deep.equal([
+      'Access-Control-Allow-Headers',
+      'Content-Type, Authorization',
+    ]);
+    expect(res.status).to.have.been.calledOnceWith(204);
+    expect(res.send).to.have.been.calledOnceWith(null);
+  });
+
   it('should throw error', async () => {
     const query = {} as Query;
     query[QUERY_PARAM_EDITING_SECRET] = secret;
@@ -140,7 +168,7 @@ describe('FEAASRenderMiddleware', () => {
 
     await handler(req, res);
 
-    expect(res.setHeader).to.have.been.calledWithExactly('Allow', 'GET');
+    expect(res.setHeader).to.have.been.calledWithExactly('Allow', 'GET, OPTIONS');
     expect(res.status).to.have.been.calledOnce;
     expect(res.status).to.have.been.calledWith(405);
     expect(res.send).to.have.been.calledOnce;
