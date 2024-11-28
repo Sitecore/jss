@@ -177,7 +177,7 @@ export class RestLayoutService extends LayoutServiceBase {
    * @param {string} apiType which layout service API to call ('render' or 'placeholder')
    * @returns the layout service url
    */
-  protected resolveLayoutServiceUrl(apiType: 'render' | 'placeholder'): string {
+  protected resolveLayoutServiceUrl(apiType: 'render' | 'placeholder' | 'component'): string {
     const { apiHost = '', configurationName = 'jss' } = this.serviceConfig;
 
     return `${apiHost}/sitecore/api/layout/${apiType}/${configurationName}`;

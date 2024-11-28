@@ -18,6 +18,23 @@ export interface RenderMetadataQueryParams {
 }
 
 /**
+ * Query parameters appended for Component Library functionaity.
+ * Used when a single component is rendered in Pages.
+ */
+export interface RenderComponentQueryParams {
+  [key: string]: unknown;
+  secret: string;
+  sc_lang: string;
+  sc_itemid: string;
+  sc_renderingId: string;
+  sc_uid: string;
+  sc_site: string;
+  mode: Exclude<LayoutServicePageState, 'normal'>;
+  sc_variant?: string;
+  sc_version?: string;
+}
+
+/**
  * Represents the Editing Layout variant.
  * - shared - shared layout
  * - final - final layout

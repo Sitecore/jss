@@ -9,11 +9,13 @@ export interface LayoutServiceData {
 
 /**
  * Layout Service page state enum
+ * library mode would render a single component
  */
 export enum LayoutServicePageState {
   Preview = 'preview',
   Edit = 'edit',
   Normal = 'normal',
+  Library = 'library',
 }
 
 /**
@@ -39,6 +41,7 @@ export interface LayoutServiceContext {
   site?: {
     name?: string;
   };
+  renderingType?: 'component';
   editMode?: EditMode;
   clientScripts?: string[];
   clientData?: Record<string, Record<string, unknown>>;

@@ -269,7 +269,7 @@ export type EditingRenderMiddlewareMetadataConfig = Pick<
 /**
  * Next.js API request with Metadata query parameters.
  */
-type MetadataNextApiRequest = NextApiRequest & {
+export type MetadataNextApiRequest = NextApiRequest & {
   query: RenderMetadataQueryParams;
 };
 
@@ -288,6 +288,22 @@ export type EditingMetadataPreviewData = {
 };
 
 /**
+ * Data for Component Library rendering mode
+ */
+export interface ComponentLibraryRenderPreviewData {
+  site: string;
+  itemId: string;
+  renderingId: string;
+  componentUid: string;
+  language: string;
+  pageState: LayoutServicePageState;
+  mode?: 'library';
+  variant?: string;
+  version?: string;
+  dataSourceId?: string;
+}
+
+/**
  * Type guard for EditingMetadataPreviewData
  * @param {object} data preview data to check
  * @returns true if the data is EditingMetadataPreviewData
@@ -299,6 +315,23 @@ export const isEditingMetadataPreviewData = (data: unknown): data is EditingMeta
     data !== null &&
     'editMode' in data &&
     (data as EditingMetadataPreviewData).editMode === EditMode.Metadata
+  );
+};
+
+/**
+ * Type guard for Component Library mode
+ * @param {object} data preview data to check
+ * @returns true if the data is EditingMetadataPreviewData
+ * @see EditingMetadataPreviewData
+ */
+export const isComponentLibraryPreviewData = (
+  data: unknown
+): data is ComponentLibraryRenderPreviewData => {
+  return (
+    typeof data === 'object' &&
+    data !== null &&
+    'mode' in data &&
+    (data as ComponentLibraryRenderPreviewData).mode === 'library'
   );
 };
 
@@ -315,13 +348,20 @@ export class MetadataHandler {
 
     const startTimestamp = Date.now();
 
-    const requiredQueryParams: (keyof RenderMetadataQueryParams)[] = [
+    const mode = query.mode;
+    const metadataDefaultRequiredParams = ['sc_site', 'sc_itemid', 'sc_lang', 'route', 'mode'];
+
+    const metadataComponentRequiredParams = [
       'sc_site',
       'sc_itemid',
+      'sc_renderingId',
+      'sc_datasourceId',
+      'sc_uid',
       'sc_lang',
-      'route',
       'mode',
     ];
+    const requiredQueryParams =
+      mode === 'library' ? metadataComponentRequiredParams : metadataDefaultRequiredParams;
 
     const missingQueryParams = requiredQueryParams.filter((param) => !query[param]);
 
@@ -335,24 +375,47 @@ export class MetadataHandler {
         )}</body></html>`,
       });
     }
-
-    res.setPreviewData(
-      {
-        site: query.sc_site,
-        itemId: query.sc_itemid,
-        language: query.sc_lang,
-        // for sc_variantId we may employ multiple variants (page-layout + component level)
-        variantIds: query.sc_variant?.split(',') || [DEFAULT_VARIANT],
-        version: query.sc_version,
-        editMode: EditMode.Metadata,
-        pageState: query.mode,
-        layoutKind: query.sc_layoutKind,
-      } as EditingMetadataPreviewData,
-      // Cache the preview data for 3 seconds to ensure the page is rendered with the correct preview data not the cached one
-      {
-        maxAge: 3,
-      }
-    );
+    if (mode === 'library') {
+      console.log('setting lib preview');
+      res.setPreviewData(
+        {
+          itemId: query.sc_itemid,
+          componentUid: query.sc_uid,
+          renderingId: query.sc_renderingId,
+          language: query.sc_lang,
+          site: query.sc_site,
+          pageState: 'edit',
+          mode: 'library',
+          dataSourceId: query.sc_datasourceId,
+          editMode: EditMode.Metadata,
+          variant: query.sc_variant || DEFAULT_VARIANT,
+          version: query.sc_version,
+        } as ComponentLibraryRenderPreviewData,
+        // Cache the preview data for 3 seconds to ensure the page is rendered with the correct preview data not the cached one
+        {
+          maxAge: 3,
+        }
+      );
+    } else {
+      console.log('setting meta preview');
+      res.setPreviewData(
+        {
+          site: query.sc_site,
+          itemId: query.sc_itemid,
+          language: query.sc_lang,
+          // for sc_variantId we may employ multiple variants (page-layout + component level)
+          variantIds: query.sc_variant?.split(',') || [DEFAULT_VARIANT],
+          version: query.sc_version,
+          editMode: EditMode.Metadata,
+          pageState: query.mode,
+          layoutKind: query.sc_layoutKind,
+        } as EditingMetadataPreviewData,
+        // Cache the preview data for 3 seconds to ensure the page is rendered with the correct preview data not the cached one
+        {
+          maxAge: 3,
+        }
+      );
+    }
 
     // Cookies with the SameSite=Lax policy set by Next.js setPreviewData function causes CORS issue
     // when Next.js preview mode is activated, resulting the page to render in normal mode instead.

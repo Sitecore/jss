@@ -80,6 +80,8 @@ export { ComponentPropsService } from './services/component-props-service';
 
 export { DisconnectedSitemapService } from './services/disconnected-sitemap-service';
 
+export { RestComponentLibraryService } from './services/component-library-service';
+
 export {
   GraphQLSitemapService,
   GraphQLSitemapServiceConfig,
@@ -121,6 +123,7 @@ export { Link, LinkProps } from './components/Link';
 export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
 export { NextImage } from './components/NextImage';
+export { ComponentLibraryLayout } from './components/ComponentLibraryLayout';
 import * as FEaaSWrapper from './components/FEaaSWrapper';
 import * as BYOCWrapper from './components/BYOCWrapper';
 export { FEaaSWrapper };
