@@ -14,7 +14,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:10](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L10)
+[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:10](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L10)
 
 ***
 
@@ -24,4 +24,4 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:11](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L11)
+[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:11](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L11)

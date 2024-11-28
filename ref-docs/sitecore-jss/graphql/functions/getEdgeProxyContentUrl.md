@@ -25,4 +25,4 @@ The complete URL for accessing content through the Edge Platform.
 
 ## Defined in
 
-[packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts:9](https://github.com/Sitecore/jss/blob/d56062542bc79b861e80260c109b6674c65ef288/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L9)
+[packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts:9](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L9)

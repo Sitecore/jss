@@ -81,7 +81,6 @@ Our versioning strategy is as follows:
 * `[templates/angular]` Update dependencies and proxy build path value to be unix style path to support xmcloud deployment and monorepo starter kit in xmcloud foundation head ([#1977](https://github.com/Sitecore/jss/pull/1977))
 * `[sitecore-jss-angular]``[templates/angular]` Integrate CloudSDK events firing ([#1984](https://github.com/Sitecore/jss/pull/1984))
 
-
 ### 🛠 Breaking Change
 
 * `[sitecore-jss]` Set FETCH_WITH.REST to 'REST' instead of 'Rest' ([#1927](https://github.com/Sitecore/jss/pull/1927)):
@@ -98,6 +97,7 @@ Our versioning strategy is as follows:
 
 * `[templates/angular]``[templates/node-xmcloud-proxy]``[templates/node-headless-ssr-proxy]``[templates/node-headless-ssr-experience-edge]` Adjust out of box .gitignore rules
 * New Angular add-on's are not scaffolded within build pipeline ([#1962](https://github.com/Sitecore/jss/pull/1962))
+* Release process, maintenance simplification ([#1960](https://github.com/Sitecore/jss/pull/1960))
 * `[template/angular-xmcloud]``[template/xmcloud-proxy]` Add README.md ([#1965](https://github.com/Sitecore/jss/pull/1965))
 
 ## 22.2.2

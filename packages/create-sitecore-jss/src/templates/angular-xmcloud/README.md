@@ -8,7 +8,7 @@ This Single Page Application (SPA) built with Angular is designed to be fully co
 
 - `Context ID`: The Context ID environment variable simplifies setting up and configuring XM Cloud solutions. It's a unified identifier that maps to all your configured resources, such as content, sites, files, forms, and integration settings.
 
-- `Pages new editing integration via HTTP render engine endpoint`: Before JSS 22.1, JSS Next.js apps integrated with Sitecore editors through chromes, where data was sent via a POST request. With the 22.1 release, a new metadata method was introduced, rendering the app inside an iframe in XM Cloud Pages, offering benefits like faster load times, simpler configuration, and direct local host connections without tunneling.
+- `XM Cloud Pages editing integration`: full integration with Pages - the dynamic visual page editor of XM Cloud.
 
 - `XM Cloud proxy personalization` with embedded personalization and A/B Component Test support.
 
@@ -43,13 +43,18 @@ The following environment variables can be set to configure the angular app. You
 
 ## Build & run
 
-Build your Angular SPA app bundle with `jss build` or `npm run build`. The build output should be placed in the `dist` folder and will automatically get copied to the proxy app. 
+### Running the application in production mode
 
-To run your app in production mode. Go to the proxy app:
+To build and run in production mode you need to have your angular app side by side with the [Node XM CLoud proxy](https://github.com/Sitecore/jss/tree/dev/packages/create-sitecore-jss/src/templates/node-xmcloud-proxy). For additional information on how to set up and run SPA app in production mode against XM CLoud instance you can check the [spa-starters](https://github.com/sitecorelabs/xmcloud-foundation-head/tree/main/headapps/spa-starter) monoreopo readme.
+
+1. Run `npm install` for both angular and proxy apps
+2. Run `npm run build` in the angular app root; this will build the angular app and copy the the resulting `/dist` folder into the specified proxy app folder
+3. Run `npm run start` in the proxy app root
+
+### Running the application in connected mode
+
+When building and running your app in connected mode the proxy application is not needed. However, please note that certain features, such as personalization, server-side rendering, and editing, will not be available.
 
 1. Run `npm install`
-
-2. Run `npm run start`
-
-You should be able to see the following message:
-`server listening on port 3000!`.
+2. Run `npm run build`
+3. Run `npm run start:connected`
