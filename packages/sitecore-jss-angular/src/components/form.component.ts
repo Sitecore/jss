@@ -139,7 +139,8 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Subscribes to the form submit event and sends data to CloudSDK.
+   * Subscribes to the custom "form:engage" event and sends data to CloudSDK.
+   * This listener captures interactions such as form views or submissions
    */
   subscribeToFormSubmitEvent() {
     const formElement = this.elRef.nativeElement.querySelector('form');
