@@ -1,8 +1,16 @@
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
-import { RestComponentLibraryService } from '@sitecore-jss/sitecore-jss-nextjs';
-import config from 'temp/config';
-import { isComponentLibraryPreviewData } from '@sitecore-jss/sitecore-jss-nextjs/editing';
+import {
+  SiteInfo,
+  personalizeLayout,
+  getGroomedVariantIds,
+} from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  editingDataService,
+  isComponentLibraryPreviewData,
+  isEditingMetadataPreviewData,
+} from '@sitecore-jss/sitecore-jss-nextjs/editing';
 import { SitecorePageProps } from 'lib/page-props';
+import { graphQLEditingService } from 'lib/graphql-editing-service';
 import { Plugin } from '..';
 
 class ComponentLibraryModePlugin implements Plugin {
@@ -10,42 +18,55 @@ class ComponentLibraryModePlugin implements Plugin {
 
   async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
     if (!context.preview) return props;
-    if (isComponentLibraryPreviewData(context.previewData)) {
-      const { itemId, componentUid, site, language, renderingId, dataSourceId, version, variant } =
-        context.previewData;
+    if (isComponentLibraryPreviewData(context.previewData)) return props;
 
-      const componentService = new RestComponentLibraryService({
-        apiHost: config.sitecoreApiHost,
-        apiKey: config.sitecoreApiKey,
-        siteName: site,
-        configurationName: config.layoutServiceConfigurationName,
-      });
+    // If we're in Pages preview (editing) Metadata Edit Mode, prefetch the editing data
+    if (isEditingMetadataPreviewData(context.previewData)) {
+      const { site, itemId, language, version, variantIds, layoutKind } = context.previewData;
 
-      const componentData = await componentService.fetchComponentData({
+      const data = await graphQLEditingService.fetchEditingData({
         siteName: site,
         itemId,
         language,
-        componentUid,
-        renderingId,
-        dataSourceId,
-        variant,
         version,
+        layoutKind,
       });
 
-      if (!componentData) {
+      if (!data) {
         throw new Error(
           `Unable to fetch editing data for preview ${JSON.stringify(context.previewData)}`
         );
       }
 
-      // props.site = componentData.layoutData.sitecore.context.site as SiteInfo;
+      props.site = data.layoutData.sitecore.context.site as SiteInfo;
       props.locale = context.previewData.language;
-      props.layoutData = componentData;
-      // props.dictionary = componentData.dictionary;
+      props.layoutData = data.layoutData;
+      props.dictionary = data.dictionary;
       props.headLinks = [];
+      const personalizeData = getGroomedVariantIds(variantIds);
+      personalizeLayout(
+        props.layoutData,
+        personalizeData.variantId,
+        personalizeData.componentVariantIds
+      );
 
       return props;
     }
+
+    // If we're in preview (editing) Chromes Edit Mode, use data already sent along with the editing request
+    // This mode is used by the Experience Editor.
+    // In Pages it's treated as a legacy mode but still supported for backward compatibility.
+    const data = await editingDataService.getEditingData(context.previewData);
+    if (!data) {
+      throw new Error(
+        `Unable to get editing data for preview ${JSON.stringify(context.previewData)}`
+      );
+    }
+    props.site = data.layoutData.sitecore.context.site as SiteInfo;
+    props.locale = data.language;
+    props.layoutData = data.layoutData;
+    props.dictionary = data.dictionary;
+    props.headLinks = [];
 
     return props;
   }
