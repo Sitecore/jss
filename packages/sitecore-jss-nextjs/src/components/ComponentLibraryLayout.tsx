@@ -2,14 +2,8 @@
 
 import React, { useEffect } from 'react';
 import { Placeholder } from './Placeholder';
-import { LayoutServiceData } from '@sitecore-jss/sitecore-jss/layout';
-import { HTMLLink } from '@sitecore-jss/sitecore-jss';
+import { EDITING_COMPONENT_ID, EDITING_COMPONENT_PLACEHOLDER, LayoutServiceData } from '@sitecore-jss/sitecore-jss/layout';
 // import { Placeholder, LayoutServiceData, HTMLLink } from '@sitecore-jss/sitecore-jss-nextjs';
-
-interface LayoutProps {
-  layoutData: LayoutServiceData;
-  headLinks: HTMLLink[];
-}
 
 export interface UpdatePropsEventArgs {
   uid: string;
@@ -17,7 +11,7 @@ export interface UpdatePropsEventArgs {
   fields: Record<string, unknown>;
 }
 
-export const ComponentLibraryLayout = ({ layoutData }: LayoutProps): JSX.Element => {
+export const ComponentLibraryLayout = (layoutData: LayoutServiceData): JSX.Element => {
   useEffect(() => {
     // useEffect will fire when components are ready - and we inform the wide world of it too
     const readyEvent = new CustomEvent('component:status', { detail: 'ready' });
@@ -30,8 +24,8 @@ export const ComponentLibraryLayout = ({ layoutData }: LayoutProps): JSX.Element
     <>
       <div className={mainClassPageEditing}>
         <main>
-          <div id="component">
-            {route && <Placeholder name="editing-componentmode-placeholder" rendering={route} />}
+          <div id={EDITING_COMPONENT_ID}>
+            {route && <Placeholder name={EDITING_COMPONENT_PLACEHOLDER} rendering={route} />}
           </div>
         </main>
       </div>

@@ -376,7 +376,6 @@ export class MetadataHandler {
       });
     }
     if (mode === 'library') {
-      console.log('setting lib preview');
       res.setPreviewData(
         {
           itemId: query.sc_itemid,
@@ -397,7 +396,6 @@ export class MetadataHandler {
         }
       );
     } else {
-      console.log('setting meta preview');
       res.setPreviewData(
         {
           site: query.sc_site,
