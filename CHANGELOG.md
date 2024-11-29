@@ -13,7 +13,6 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-* `[templates/nextjs]` `[templates/react-native]` `[templates/react]` Make lint use node glob for consistent linting across different OS ([#1959](https://github.com/Sitecore/jss/pull/1959))
 * `[templates/angular-xmcloud]` Navigation component link forces full page reload ([#1958](https://github.com/Sitecore/jss/pull/1958))
 * `[sitecore-jss-nextjs]` Link component prefetches files ([#1956](https://github.com/Sitecore/jss/pull/1956))
 * `[templates/nextjs]` `[templates/react]` `[templates/angular]` `[templates/vue]` Fixed an issue when environment variable is undefined (not present in .env), that produced an "undefined" value in generated config file ([#1875](https://github.com/Sitecore/jss/pull/1875))
