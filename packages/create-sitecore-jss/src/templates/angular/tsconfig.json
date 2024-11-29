@@ -21,6 +21,7 @@
     "noUnusedParameters": true,
     "newLine": "LF",
     "types": ["node"],
+    // add additional type root in case of monorepo where dependencies are hoisted to root node_modules
     "typeRoots": ["node_modules/@types", "../node_modules/@types"],
     "lib": ["es2019", "dom", "esnext.asynciterable"],
     "paths": {
