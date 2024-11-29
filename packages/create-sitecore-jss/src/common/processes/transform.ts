@@ -15,6 +15,7 @@ import {
 } from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
 import { BaseArgs } from '../args/base';
+const { version } = require('../../../package.json');
 
 const FILE_FOR_COPY_REGEXP = /(index\.html)$|\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf|jar|eot|woff|ttf|woff2)$/;
 
@@ -194,8 +195,15 @@ export const diffAndWriteFiles = async ({
 
 export const populateEjsData = (answers: BaseArgs, destination?: string) => {
   // pass in helper to answers object
+
+  // Don't expose canary build number in the generated app
+  const jssVersion = version.includes('canary')
+    ? version.replace(/(-canary\.\d+)$/, '-canary')
+    : version;
+
   const ejsData: Data = {
     ...answers,
+    version: jssVersion,
     helper: {
       isDev: isDevEnvironment(destination || answers.destination),
       getPascalCaseName: getPascalCaseName,
@@ -227,12 +235,12 @@ type TransformOptions = {
 
 /**
  * Handles each template file and applies ejs renderer, also:
- * * determines files for copy
- * * determines files for skip
- * * if some files already exist:
- *   * merges package.json files
- *   * concatenates .env files
- *   * compares diffs
+ * - Determines files for copy.
+ * - Determines files for skip.
+ * if some files already exist:
+ *   - merges package.json files
+ *   - concatenates .env files
+ *   - compares diffs
  * @param {string} templatePath path to the template
  * @param {BaseArgs} answers CLI arguments
  * @param {TransformOptions} options custom options

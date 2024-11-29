@@ -7,6 +7,8 @@ import {
 } from '../graphql-request-client';
 import debug from '../debug';
 
+export const GRAPHQL_LAYOUT_QUERY_NAME = 'JssLayoutQuery';
+
 export interface GraphQLLayoutServiceConfig
   extends Pick<GraphQLRequestClientConfig, 'retries' | 'retryStrategy'> {
   /**
@@ -24,8 +26,6 @@ export interface GraphQLLayoutServiceConfig
    * @param {string} itemPath
    * @param {string} [locale]
    * @returns {string} custom layout query
-   *
-   * @default
    * Layout query
    * layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
    */
@@ -107,7 +107,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
       ? this.serviceConfig.formatLayoutQuery(this.serviceConfig.siteName, itemPath, language)
       : `layout(site:"${this.serviceConfig.siteName}", routePath:"${itemPath}"${languageVariable})`;
 
-    return `query {
+    return `query ${GRAPHQL_LAYOUT_QUERY_NAME} {
       ${layoutQuery}{
         item {
           rendered

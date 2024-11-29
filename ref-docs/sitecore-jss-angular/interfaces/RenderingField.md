@@ -1,71 +1,63 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / RenderingField
 
 # Interface: RenderingField\<V\>
 
-## Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `V` | `GenericFieldValue` |
-
-## Hierarchy
+## Extends
 
 - `FieldMetadata`
 
-  ↳ **`RenderingField`**
+## Extended by
 
-  ↳↳ [`FileField`](FileField.md)
+- [`FileField`](FileField.md)
+- [`ImageField`](ImageField.md)
+- [`LinkField`](LinkField.md)
+- [`RichTextField`](RichTextField.md)
+- [`TextField`](TextField.md)
 
-  ↳↳ [`ImageField`](ImageField.md)
+## Type Parameters
 
-  ↳↳ [`LinkField`](LinkField.md)
-
-  ↳↳ [`RichTextField`](RichTextField.md)
-
-  ↳↳ [`TextField`](TextField.md)
-
-## Table of contents
-
-### Properties
-
-- [editable](RenderingField.md#editable)
-- [metadata](RenderingField.md#metadata)
-- [value](RenderingField.md#value)
+| Type Parameter | Default type |
+| ------ | ------ |
+| `V` | `GenericFieldValue` |
 
 ## Properties
 
-### editable
+### editable?
 
-• `Optional` **editable**: `string`
+> `optional` **editable**: `string`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
 
-___
+***
 
-### metadata
+### metadata?
 
-• `Optional` **metadata**: `Object`
+> `optional` **metadata**: `object`
 
-#### Index signature
+#### Index Signature
 
-▪ [key: `string`]: `unknown`
+ \[`key`: `string`\]: `unknown`
 
 #### Inherited from
 
-FieldMetadata.metadata
+`FieldMetadata.metadata`
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:122
+packages/sitecore-jss/types/layout/models.d.ts:123
 
-___
+***
 
-### value
+### value?
 
-• `Optional` **value**: `V`
+> `optional` **value**: `V`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:5](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-angular/src/components/rendering-field.ts#L5)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)

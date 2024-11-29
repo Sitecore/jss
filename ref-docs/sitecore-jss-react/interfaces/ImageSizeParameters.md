@@ -1,103 +1,95 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / ImageSizeParameters
 
 # Interface: ImageSizeParameters
 
 ## Indexable
 
-▪ [attr: `string`]: `string` \| `number` \| `undefined`
-
-## Table of contents
-
-### Properties
-
-- [as](ImageSizeParameters.md#as)
-- [h](ImageSizeParameters.md#h)
-- [iar](ImageSizeParameters.md#iar)
-- [mh](ImageSizeParameters.md#mh)
-- [mw](ImageSizeParameters.md#mw)
-- [sc](ImageSizeParameters.md#sc)
-- [w](ImageSizeParameters.md#w)
+ \[`attr`: `string`\]: `string` \| `number` \| `undefined`
 
 ## Properties
 
-### as
+### as?
 
-• `Optional` **as**: ``0`` \| ``1``
+> `optional` **as**: `0` \| `1`
 
 Allow stretch
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:37](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/Image.tsx#L37)
+[packages/sitecore-jss-react/src/components/Image.tsx:37](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/Image.tsx#L37)
 
-___
+***
 
-### h
+### h?
 
-• `Optional` **h**: `number`
+> `optional` **h**: `number`
 
 Fixed height of the image
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:29](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/Image.tsx#L29)
+[packages/sitecore-jss-react/src/components/Image.tsx:29](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/Image.tsx#L29)
 
-___
+***
 
-### iar
+### iar?
 
-• `Optional` **iar**: ``0`` \| ``1``
+> `optional` **iar**: `0` \| `1`
 
 Ignore aspect ratio
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:35](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/Image.tsx#L35)
+[packages/sitecore-jss-react/src/components/Image.tsx:35](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/Image.tsx#L35)
 
-___
+***
 
-### mh
+### mh?
 
-• `Optional` **mh**: `number`
+> `optional` **mh**: `number`
 
 Max height of the image
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:33](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/Image.tsx#L33)
+[packages/sitecore-jss-react/src/components/Image.tsx:33](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/Image.tsx#L33)
 
-___
+***
 
-### mw
+### mw?
 
-• `Optional` **mw**: `number`
+> `optional` **mw**: `number`
 
 Max width of the image
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:31](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/Image.tsx#L31)
+[packages/sitecore-jss-react/src/components/Image.tsx:31](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/Image.tsx#L31)
 
-___
+***
 
-### sc
+### sc?
 
-• `Optional` **sc**: `number`
+> `optional` **sc**: `number`
 
 Image scale. Defaults to 1.0
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:39](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/Image.tsx#L39)
+[packages/sitecore-jss-react/src/components/Image.tsx:39](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/Image.tsx#L39)
 
-___
+***
 
-### w
+### w?
 
-• `Optional` **w**: `number`
+> `optional` **w**: `number`
 
 Fixed width of the image
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:27](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/Image.tsx#L27)
+[packages/sitecore-jss-react/src/components/Image.tsx:27](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/Image.tsx#L27)

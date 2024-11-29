@@ -111,7 +111,7 @@ export class GraphQLEditingService {
 
   /**
    * Fetches editing data. Provides the layout data and dictionary phrases
-   * @param {Object} variables - The parameters for fetching editing data.
+   * @param {object} variables - The parameters for fetching editing data.
    * @param {string} variables.siteName - The site name.
    * @param {string} variables.itemId - The item id (path) to fetch layout data for.
    * @param {string} variables.language - The language to fetch layout data for.

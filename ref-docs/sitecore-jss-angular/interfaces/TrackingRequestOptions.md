@@ -1,86 +1,79 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / TrackingRequestOptions
 
 # Interface: TrackingRequestOptions
 
-## Table of contents
-
-### Properties
-
-- [action](TrackingRequestOptions.md#action)
-- [fetcher](TrackingRequestOptions.md#fetcher)
-- [host](TrackingRequestOptions.md#host)
-- [querystringParams](TrackingRequestOptions.md#querystringparams)
-- [serviceUrl](TrackingRequestOptions.md#serviceurl)
-- [test](TrackingRequestOptions.md#test)
-
 ## Properties
 
-### action
+### action?
 
-• `Optional` **action**: `string`
+> `optional` **action**: `string`
 
 Type of tracking request action. Default: 'event'
 
 #### Defined in
 
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:16
+packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:15
 
-___
+***
 
 ### fetcher
 
-• **fetcher**: [`HttpDataFetcher`](../README.md#httpdatafetcher)\<`void`\>
+> **fetcher**: [`HttpDataFetcher`](../type-aliases/HttpDataFetcher.md)\<`void`\>
 
 The fetcher that performs the HTTP request and returns a promise to JSON
 
 #### Defined in
 
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:10
+packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:9
 
-___
+***
 
 ### host
 
-• **host**: `string`
+> **host**: `string`
 
 Hostname of tracking service; e.g. http://my.site.core
 
 #### Defined in
 
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:6
+packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:5
 
-___
+***
 
-### querystringParams
+### querystringParams?
 
-• `Optional` **querystringParams**: `ParsedUrlQueryInput`
+> `optional` **querystringParams**: `ParsedUrlQueryInput`
 
 An object of key:value pairs to be stringified and used as querystring parameters.
 
 #### Defined in
 
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:14
+packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:13
 
-___
+***
 
-### serviceUrl
+### serviceUrl?
 
-• `Optional` **serviceUrl**: `string`
+> `optional` **serviceUrl**: `string`
 
 Relative path from host to tracking service. Default: /sitecore/api/jss/track
 
 #### Defined in
 
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:8
+packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:7
 
-___
+***
 
-### test
+### test?
 
-• `Optional` **test**: `boolean`
+> `optional` **test**: `boolean`
 
 Internal usage only. Ignores SSR check for unit tests.
 
 #### Defined in
 
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:18
+packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:17

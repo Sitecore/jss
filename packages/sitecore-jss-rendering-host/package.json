@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-rendering-host",
-  "version": "22.2.0-canary.77",
+  "version": "22.3.1-canary.6",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -11,10 +11,10 @@
     "test": "mocha --require ts-node/register/transpile-only \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
-    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-rendering-host src/index.ts --githubPages false"
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss-rendering-host src/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -40,17 +40,18 @@
     "@types/express-serve-static-core": "^4.17.33",
     "@types/glob": "^8.0.1",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^20.14.2",
+    "@types/node": "^22.9.0",
     "@types/webpack": "5.28.5",
     "@types/webpack-dev-middleware": "2.0.5",
     "@types/webpack-dev-server": "3.1.7",
     "chai": "^4.3.0",
     "del-cli": "^5.0.0",
-    "eslint": "^8.33.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-jsdoc": "48.7.0",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
     "ts-node": "^10.9.1",
-    "typescript": "~4.9.5"
+    "typescript": "~5.6.3"
   },
   "description": "",
   "types": "types/index.d.ts",

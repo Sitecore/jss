@@ -47,24 +47,20 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
  * - pageEditing - Provided by Layout Service, a boolean indicating whether the route is being accessed via the Experience Editor.
  * - pageState - Like pageEditing, but a string: normal, preview or edit.
  * - site - Provided by Layout Service, an object containing the name of the current Sitecore site context.
- *
  * @see https://jss.sitecore.com/docs/techniques/extending-layout-service/layoutservice-extending-context
- *
  * @param {WithSitecoreContextOptions} [options] hook options
- *
  * @example
  * const EditMode = () => {
  *    const { sitecoreContext } = useSitecoreContext();
  *    return <span>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
  * }
- *
  * @example
  * const EditMode = () => {
  *    const { sitecoreContext, updateSitecoreContext } = useSitecoreContext({ updatable: true });
  *    const onClick = () => updateSitecoreContext({ pageEditing: true });
  *    return <span onClick={onClick}>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
  * }
- * @returns {Object} { sitecoreContext, updateSitecoreContext }
+ * @returns {object} { sitecoreContext, updateSitecoreContext }
  */
 export function useSitecoreContext(options?: WithSitecoreContextOptions) {
   const reactContext = React.useContext(SitecoreContextReactContext);

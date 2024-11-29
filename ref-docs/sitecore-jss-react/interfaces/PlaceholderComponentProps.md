@@ -1,156 +1,135 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / PlaceholderComponentProps
 
 # Interface: PlaceholderComponentProps
 
-## Hierarchy
+## Extends
 
 - `PlaceholderProps`
 
-  ↳ **`PlaceholderComponentProps`**
-
-## Table of contents
-
-### Properties
-
-- [componentFactory](PlaceholderComponentProps.md#componentfactory)
-- [componentLoadingMessage](PlaceholderComponentProps.md#componentloadingmessage)
-- [errorComponent](PlaceholderComponentProps.md#errorcomponent)
-- [fields](PlaceholderComponentProps.md#fields)
-- [hiddenRenderingComponent](PlaceholderComponentProps.md#hiddenrenderingcomponent)
-- [missingComponentComponent](PlaceholderComponentProps.md#missingcomponentcomponent)
-- [modifyComponentProps](PlaceholderComponentProps.md#modifycomponentprops)
-- [name](PlaceholderComponentProps.md#name)
-- [params](PlaceholderComponentProps.md#params)
-- [render](PlaceholderComponentProps.md#render)
-- [renderEach](PlaceholderComponentProps.md#rendereach)
-- [renderEmpty](PlaceholderComponentProps.md#renderempty)
-- [rendering](PlaceholderComponentProps.md#rendering)
-- [sitecoreContext](PlaceholderComponentProps.md#sitecorecontext)
-
 ## Properties
 
-### componentFactory
+### componentFactory?
 
-• `Optional` **componentFactory**: [`ComponentFactory`](../README.md#componentfactory)
+> `optional` **componentFactory**: [`ComponentFactory`](../type-aliases/ComponentFactory.md)
 
 A factory function that will receive a componentName and return an instance of a React component.
 When rendered within a <SitecoreContext> component, defaults to the context componentFactory.
 
 #### Inherited from
 
-PlaceholderProps.componentFactory
+`PlaceholderProps.componentFactory`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:46](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L46)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:46](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L46)
 
-___
+***
 
-### componentLoadingMessage
+### componentLoadingMessage?
 
-• `Optional` **componentLoadingMessage**: `string`
+> `optional` **componentLoadingMessage**: `string`
 
 The message that gets displayed while component is loading
 
 #### Inherited from
 
-PlaceholderProps.componentLoadingMessage
+`PlaceholderProps.componentLoadingMessage`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:91](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L91)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:91](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L91)
 
-___
+***
 
-### errorComponent
+### errorComponent?
 
-• `Optional` **errorComponent**: `ComponentClass`\<`ErrorComponentProps`, `any`\> \| `FC`\<`ErrorComponentProps`\>
+> `optional` **errorComponent**: `ComponentClass`\<`ErrorComponentProps`, `any`\> \| `FC`\<`ErrorComponentProps`\>
 
 A component that is rendered in place of the placeholder when an error occurs rendering
 the placeholder
 
 #### Inherited from
 
-PlaceholderProps.errorComponent
+`PlaceholderProps.errorComponent`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:83](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L83)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:83](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L83)
 
-___
+***
 
-### fields
+### fields?
 
-• `Optional` **fields**: `Object`
+> `optional` **fields**: `object`
 
 An object of field names/values that are aggregated and propagated through the component tree created by a placeholder.
 Any component or placeholder rendered by a placeholder will have access to this data via `props.fields`.
 
-#### Index signature
+#### Index Signature
 
-▪ [name: `string`]: [`Field`](Field.md) \| [`Item`](Item.md)[]
+ \[`name`: `string`\]: [`Field`](Field.md) \| [`Item`](Item.md)[]
 
 #### Inherited from
 
-PlaceholderProps.fields
+`PlaceholderProps.fields`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:51](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L51)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:51](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L51)
 
-___
+***
 
-### hiddenRenderingComponent
+### hiddenRenderingComponent?
 
-• `Optional` **hiddenRenderingComponent**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
+> `optional` **hiddenRenderingComponent**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
 
 A component that is rendered in place of any components that are hidden
 
 #### Inherited from
 
-PlaceholderProps.hiddenRenderingComponent
+`PlaceholderProps.hiddenRenderingComponent`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:77](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L77)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:77](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L77)
 
-___
+***
 
-### missingComponentComponent
+### missingComponentComponent?
 
-• `Optional` **missingComponentComponent**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
+> `optional` **missingComponentComponent**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
 
 A component that is rendered in place of any components that are in this placeholder,
 but do not have a definition in the componentFactory (i.e. don't have a React implementation)
 
 #### Inherited from
 
-PlaceholderProps.missingComponentComponent
+`PlaceholderProps.missingComponentComponent`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:72](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L72)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:72](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L72)
 
-___
+***
 
-### modifyComponentProps
+### modifyComponentProps()?
 
-• `Optional` **modifyComponentProps**: (`componentProps`: `ComponentProps`) => `ComponentProps`
-
-#### Type declaration
-
-▸ (`componentProps`): `ComponentProps`
+> `optional` **modifyComponentProps**: (`componentProps`) => `ComponentProps`
 
 Modify final props of component (before render) provided by rendering data.
 Can be used in case when you need to insert additional data into the component.
 
-##### Parameters
+#### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
 | `componentProps` | `ComponentProps` | component props to be modified |
 
-##### Returns
+#### Returns
 
 `ComponentProps`
 
@@ -158,161 +137,149 @@ modified or initial props
 
 #### Inherited from
 
-PlaceholderProps.modifyComponentProps
+`PlaceholderProps.modifyComponentProps`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:67](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L67)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:67](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L67)
 
-___
+***
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
 Name of the placeholder to render.
 
 #### Inherited from
 
-PlaceholderProps.name
+`PlaceholderProps.name`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:39](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L39)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:39](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L39)
 
-___
+***
 
-### params
+### params?
 
-• `Optional` **params**: `Object`
+> `optional` **params**: `object`
 
 An object of rendering parameter names/values that are aggregated and propagated through the component tree created by a placeholder.
 Any component or placeholder rendered by a placeholder will have access to this data via `props.params`.
 
-#### Index signature
+#### Index Signature
 
-▪ [name: `string`]: `string`
+ \[`name`: `string`\]: `string`
 
 #### Inherited from
 
-PlaceholderProps.params
+`PlaceholderProps.params`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:58](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L58)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:58](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L58)
 
-___
+***
 
-### render
+### render()?
 
-• `Optional` **render**: (`components`: `ReactNode`[], `data`: ([`ComponentRendering`](ComponentRendering.md)\<[`ComponentFields`](ComponentFields.md)\> \| [`HtmlElementRendering`](HtmlElementRendering.md))[], `props`: `PlaceholderProps`) => `ReactNode`
-
-#### Type declaration
-
-▸ (`components`, `data`, `props`): `ReactNode`
+> `optional` **render**: (`components`, `data`, `props`) => `ReactNode`
 
 Render props function that enables control over the rendering of the components in the placeholder.
 Useful for techniques like wrapping each child in a wrapper component.
 
-##### Parameters
+#### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Parameter | Type |
+| ------ | ------ |
 | `components` | `ReactNode`[] |
 | `data` | ([`ComponentRendering`](ComponentRendering.md)\<[`ComponentFields`](ComponentFields.md)\> \| [`HtmlElementRendering`](HtmlElementRendering.md))[] |
 | `props` | `PlaceholderProps` |
 
-##### Returns
+#### Returns
 
 `ReactNode`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Placeholder.tsx:18](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/Placeholder.tsx#L18)
+[packages/sitecore-jss-react/src/components/Placeholder.tsx:18](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/Placeholder.tsx#L18)
 
-___
+***
 
-### renderEach
+### renderEach()?
 
-• `Optional` **renderEach**: (`component`: `ReactNode`, `index`: `number`) => `ReactNode`
-
-#### Type declaration
-
-▸ (`component`, `index`): `ReactNode`
+> `optional` **renderEach**: (`component`, `index`) => `ReactNode`
 
 Render props function that is called for each non-system component added to the placeholder.
 Mutually exclusive with `render`. System components added during Experience Editor are automatically rendered as-is.
 
-##### Parameters
+#### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Parameter | Type |
+| ------ | ------ |
 | `component` | `ReactNode` |
 | `index` | `number` |
 
-##### Returns
+#### Returns
 
 `ReactNode`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Placeholder.tsx:28](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/Placeholder.tsx#L28)
+[packages/sitecore-jss-react/src/components/Placeholder.tsx:28](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/Placeholder.tsx#L28)
 
-___
+***
 
-### renderEmpty
+### renderEmpty()?
 
-• `Optional` **renderEmpty**: (`components`: `ReactNode`[]) => `ReactNode`
-
-#### Type declaration
-
-▸ (`components`): `ReactNode`
+> `optional` **renderEmpty**: (`components`) => `ReactNode`
 
 Render props function that is called when the placeholder contains no content components.
 Can be used to wrap the Sitecore EE empty placeholder markup in something that's visually correct
 
-##### Parameters
+#### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Parameter | Type |
+| ------ | ------ |
 | `components` | `ReactNode`[] |
 
-##### Returns
+#### Returns
 
 `ReactNode`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Placeholder.tsx:13](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/Placeholder.tsx#L13)
+[packages/sitecore-jss-react/src/components/Placeholder.tsx:13](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/Placeholder.tsx#L13)
 
-___
+***
 
 ### rendering
 
-• **rendering**: [`ComponentRendering`](ComponentRendering.md)\<[`ComponentFields`](ComponentFields.md)\> \| [`RouteData`](RouteData.md)\<`Record`\<`string`, [`Field`](Field.md)\<`GenericFieldValue`\> \| [`Item`](Item.md) \| [`Item`](Item.md)[]\>\>
+> **rendering**: [`ComponentRendering`](ComponentRendering.md)\<[`ComponentFields`](ComponentFields.md)\> \| [`RouteData`](RouteData.md)\<`Record`\<`string`, [`Field`](Field.md)\<`GenericFieldValue`\> \| [`Item`](Item.md) \| [`Item`](Item.md)[]\>\>
 
 Rendering data to be used when rendering the placeholder.
 
 #### Inherited from
 
-PlaceholderProps.rendering
+`PlaceholderProps.rendering`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:41](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L41)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:41](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L41)
 
-___
+***
 
 ### sitecoreContext
 
-• **sitecoreContext**: [`SitecoreContextValue`](../README.md#sitecorecontextvalue)
+> **sitecoreContext**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
 Context data from the Sitecore Layout Service
 
 #### Inherited from
 
-PlaceholderProps.sitecoreContext
+`PlaceholderProps.sitecoreContext`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:87](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L87)
+[packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx:87](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx#L87)

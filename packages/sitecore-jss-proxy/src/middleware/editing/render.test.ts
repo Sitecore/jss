@@ -4,11 +4,13 @@ import sinon from 'sinon';
 import express from 'express';
 import request from 'supertest';
 import { editingRouter, EditingRouterConfig } from './index';
+import { getPersonalizeLayoutData } from '../../personalize/test-data/personalizeData';
 import { debug, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 import {
   GraphQLEditingService,
   LayoutKind,
   RenderMetadataQueryParams,
+  EDITING_ALLOWED_ORIGINS,
 } from '@sitecore-jss/sitecore-jss/editing';
 import { EditingRenderEndpointOptions, getSCPHeader } from './render';
 import { LayoutServiceData, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
@@ -328,6 +330,49 @@ describe('editingRouter - /editing/render', () => {
       .end(done);
   });
 
+  it('should response 200 status code when layout is personalized and renderView returns result', (done) => {
+    const layoutData = getPersonalizeLayoutData('default');
+    const dictionary = {};
+    const personalizeQs = {
+      ...validQS,
+      sc_variant: 'mountain-bike-audience',
+    };
+    fetchEditingDataStub.resolves({
+      layoutData,
+      dictionary,
+    });
+
+    renderView.callsFake((callback) => callback(null, { html: '<div>Hello World</div>' }));
+
+    app.use(
+      '/api/editing',
+      editingRouter({
+        ...defaultOptions,
+        render: {
+          ...defaultOptions.render,
+          renderView,
+        },
+      })
+    );
+
+    const personalizedLayoutData = getPersonalizeLayoutData('mountain-bike-audience');
+
+    request(app)
+      .get('/api/editing/render')
+      .query(personalizeQs)
+      .expect(200, '<div>Hello World</div>')
+      .expect('Content-Security-Policy', `${getSCPHeader()}`)
+      .expect(() => {
+        expect(fetchEditingDataStub.calledOnceWith(fetchEditingDataArgs)).to.be.true;
+        expect(
+          renderView.calledOnceWith(sinon.match.func, '/', personalizedLayoutData, {
+            dictionary,
+          })
+        ).to.be.true;
+      })
+      .end(done);
+  });
+
   it('should response 200 status code when renderView return result and custom endpoint path is used', (done) => {
     const layoutData = {
       sitecore: {
@@ -413,5 +458,30 @@ describe('editingRouter - /editing/render', () => {
         ).to.be.true;
       })
       .end(done);
+  });
+});
+
+describe('getSCPHeader', () => {
+  afterEach(() => {
+    delete process.env.JSS_ALLOWED_ORIGINS;
+  });
+
+  it('should return the value of the CSP header', () => {
+    process.env.JSS_ALLOWED_ORIGINS = 'https://pages-dev.sitecore-staging.cloud';
+    const expectedHeader = `frame-ancestors 'self' https://pages-dev.sitecore-staging.cloud ${EDITING_ALLOWED_ORIGINS.join(
+      ' '
+    )}`;
+    const actualHeader = getSCPHeader();
+    expect(actualHeader).to.equal(expectedHeader);
+  });
+
+  it('should return the value of the CSP header when multiple origins are listed in JSS_ALLOWED_ORIGINS', () => {
+    process.env.JSS_ALLOWED_ORIGINS =
+      'https://pages-dev.sitecore-staging.cloud,https://pages-staging.sitecore-staging.cloud';
+    const expectedHeader = `frame-ancestors 'self' https://pages-dev.sitecore-staging.cloud https://pages-staging.sitecore-staging.cloud ${EDITING_ALLOWED_ORIGINS.join(
+      ' '
+    )}`;
+    const actualHeader = getSCPHeader();
+    expect(actualHeader).to.equal(expectedHeader);
   });
 });

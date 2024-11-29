@@ -1,22 +1,20 @@
+[**@sitecore-jss/sitecore-jss-vue**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-vue](../README.md) / EventInstance
 
 # Interface: EventInstance
 
 ## Indexable
 
-▪ [key: `string`]: `unknown`
-
-## Table of contents
-
-### Properties
-
-- [eventId](EventInstance.md#eventid)
+ \[`key`: `string`\]: `unknown`
 
 ## Properties
 
 ### eventId
 
-• **eventId**: `string`
+> **eventId**: `string`
 
 GUID or alias (name) of event to trigger
 

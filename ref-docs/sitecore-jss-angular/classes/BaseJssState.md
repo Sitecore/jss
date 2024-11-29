@@ -1,44 +1,47 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / BaseJssState
 
 # Class: BaseJssState
 
-## Table of contents
-
-### Constructors
-
-- [constructor](BaseJssState.md#constructor)
-
-### Properties
-
-- [sitecore](BaseJssState.md#sitecore)
-- [viewBag](BaseJssState.md#viewbag)
-
 ## Constructors
 
-### constructor
+### new BaseJssState()
 
-• **new BaseJssState**()
+> **new BaseJssState**(): [`BaseJssState`](BaseJssState.md)
+
+#### Returns
+
+[`BaseJssState`](BaseJssState.md)
 
 ## Properties
 
-### sitecore
+### sitecore?
 
-• `Optional` **sitecore**: [`LayoutServiceContextData`](../interfaces/LayoutServiceContextData.md) & \{ `route`: ``null`` \| [`RouteData`](../interfaces/RouteData.md)\<`Record`\<`string`, [`Field`](../interfaces/Field.md)\<`GenericFieldValue`\> \| `Item` \| `Item`[]\>\>  }
+> `optional` **sitecore**: [`LayoutServiceContextData`](../interfaces/LayoutServiceContextData.md) & `object`
 
-#### Defined in
+#### Type declaration
 
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:6](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L6)
+##### route
 
-___
-
-### viewBag
-
-• `Optional` **viewBag**: `Object`
-
-#### Index signature
-
-▪ [key: `string`]: `unknown`
+> **route**: `null` \| [`RouteData`](../interfaces/RouteData.md)\<`Record`\<`string`, [`Field`](../interfaces/Field.md)\<`GenericFieldValue`\> \| `Item` \| `Item`[]\>\>
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:9](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L9)
+[packages/sitecore-jss-angular/src/services/jss-state.service.ts:6](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L6)
+
+***
+
+### viewBag?
+
+> `optional` **viewBag**: `object`
+
+#### Index Signature
+
+ \[`key`: `string`\]: `unknown`
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/services/jss-state.service.ts:9](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L9)

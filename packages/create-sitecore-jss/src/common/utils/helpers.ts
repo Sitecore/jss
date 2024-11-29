@@ -57,7 +57,7 @@ export const openJsonFile = (jsonFilePath: string) => {
 
 /**
  * Creates a .json file and inserts provided data
- * @param {Object} data data to be written into the .json file
+ * @param {object} data data to be written into the .json file
  * @param {string} jsonFilePath a path to a file.
  */
 export const writeJsonFile = (data: { [key: string]: unknown }, jsonFilePath: string) => {

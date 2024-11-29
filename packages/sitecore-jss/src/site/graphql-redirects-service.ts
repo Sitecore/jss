@@ -59,10 +59,6 @@ export class GraphQLRedirectsService {
   private graphQLClient: GraphQLClient;
   private cache: CacheClient<RedirectsQueryResult>;
 
-  protected get query(): string {
-    return defaultQuery;
-  }
-
   /**
    * Creates an instance of graphQL redirects service with the provided options
    * @param {GraphQLRedirectsServiceConfig} options instance
@@ -70,6 +66,10 @@ export class GraphQLRedirectsService {
   constructor(private options: GraphQLRedirectsServiceConfig) {
     this.graphQLClient = this.getGraphQLClient();
     this.cache = this.getCacheClient();
+  }
+
+  protected get query(): string {
+    return defaultQuery;
   }
 
   /**

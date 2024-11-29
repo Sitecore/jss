@@ -1,30 +1,27 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / ContentFieldValue
 
 # Interface: ContentFieldValue
 
-## Table of contents
-
-### Properties
-
-- [editable](ContentFieldValue.md#editable)
-- [value](ContentFieldValue.md#value)
-
 ## Properties
 
-### editable
+### editable?
 
-• `Optional` **editable**: `string`
+> `optional` **editable**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:345](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L345)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:345](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L345)
 
-___
+***
 
 ### value
 
-• **value**: `string` \| `number` \| `boolean` \| ([`ItemDefinition`](ItemDefinition.md) \| [`ItemReference`](ItemReference.md))[] \| [`ImageFieldValue`](ImageFieldValue.md) \| [`LinkFieldValue`](LinkFieldValue.md)
+> **value**: `string` \| `number` \| `boolean` \| ([`ItemDefinition`](ItemDefinition.md) \| [`ItemReference`](ItemReference.md))[] \| [`ImageFieldValue`](ImageFieldValue.md) \| [`LinkFieldValue`](LinkFieldValue.md)
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:338](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L338)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:338](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L338)

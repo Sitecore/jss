@@ -1,148 +1,135 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / RouteData
 
 # Interface: RouteData\<Fields\>
 
 Shape of route data returned from Sitecore Layout Service
 
-## Type parameters
+## Type Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Type Parameter | Default type |
+| ------ | ------ |
 | `Fields` | `Record`\<`string`, [`Field`](Field.md) \| [`Item`](Item.md) \| [`Item`](Item.md)[]\> |
-
-## Table of contents
-
-### Properties
-
-- [databaseName](RouteData.md#databasename)
-- [deviceId](RouteData.md#deviceid)
-- [displayName](RouteData.md#displayname)
-- [fields](RouteData.md#fields)
-- [itemId](RouteData.md#itemid)
-- [itemLanguage](RouteData.md#itemlanguage)
-- [itemVersion](RouteData.md#itemversion)
-- [layoutId](RouteData.md#layoutid)
-- [name](RouteData.md#name)
-- [placeholders](RouteData.md#placeholders)
-- [templateId](RouteData.md#templateid)
-- [templateName](RouteData.md#templatename)
 
 ## Properties
 
-### databaseName
+### databaseName?
 
-• `Optional` **databaseName**: `string`
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:55
-
-___
-
-### deviceId
-
-• `Optional` **deviceId**: `string`
+> `optional` **databaseName**: `string`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:56
 
-___
+***
 
-### displayName
+### deviceId?
 
-• `Optional` **displayName**: `string`
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:53
-
-___
-
-### fields
-
-• `Optional` **fields**: `Fields`
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:54
-
-___
-
-### itemId
-
-• `Optional` **itemId**: `string`
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:63
-
-___
-
-### itemLanguage
-
-• `Optional` **itemLanguage**: `string`
+> `optional` **deviceId**: `string`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:57
 
-___
+***
 
-### itemVersion
+### displayName?
 
-• `Optional` **itemVersion**: `number`
+> `optional` **displayName**: `string`
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:54
+
+***
+
+### fields?
+
+> `optional` **fields**: `Fields`
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:55
+
+***
+
+### itemId?
+
+> `optional` **itemId**: `string`
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:64
+
+***
+
+### itemLanguage?
+
+> `optional` **itemLanguage**: `string`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:58
 
-___
+***
 
-### layoutId
+### itemVersion?
 
-• `Optional` **layoutId**: `string`
+> `optional` **itemVersion**: `number`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:59
 
-___
+***
 
-### name
+### layoutId?
 
-• **name**: `string`
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:52
-
-___
-
-### placeholders
-
-• **placeholders**: `PlaceholdersData`\<`string`\>
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:62
-
-___
-
-### templateId
-
-• `Optional` **templateId**: `string`
+> `optional` **layoutId**: `string`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:60
 
-___
+***
 
-### templateName
+### name
 
-• `Optional` **templateName**: `string`
+> **name**: `string`
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:53
+
+***
+
+### placeholders
+
+> **placeholders**: `PlaceholdersData`\<`string`\>
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:63
+
+***
+
+### templateId?
+
+> `optional` **templateId**: `string`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:61
+
+***
+
+### templateName?
+
+> `optional` **templateName**: `string`
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:62

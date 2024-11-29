@@ -1,95 +1,85 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / ImageField
 
 # Interface: ImageField
 
-## Hierarchy
+## Extends
 
-- [`ImageFieldValue`](ImageFieldValue.md)
-
-- [`RenderingField`](RenderingField.md)
-
-  ↳ **`ImageField`**
-
-## Table of contents
-
-### Properties
-
-- [editable](ImageField.md#editable)
-- [metadata](ImageField.md#metadata)
-- [src](ImageField.md#src)
-- [srcSet](ImageField.md#srcset)
-- [value](ImageField.md#value)
+- [`ImageFieldValue`](ImageFieldValue.md).[`RenderingField`](RenderingField.md)
 
 ## Properties
 
-### editable
+### editable?
 
-• `Optional` **editable**: `string`
-
-#### Inherited from
-
-[RenderingField](RenderingField.md).[editable](RenderingField.md#editable)
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
-
-___
-
-### metadata
-
-• `Optional` **metadata**: `Object`
-
-#### Index signature
-
-▪ [key: `string`]: `unknown`
+> `optional` **editable**: `string`
 
 #### Inherited from
 
-[RenderingField](RenderingField.md).[metadata](RenderingField.md#metadata)
+[`RenderingField`](RenderingField.md).[`editable`](RenderingField.md#editable)
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:122
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
 
-___
+***
 
-### src
+### metadata?
 
-• `Optional` **src**: `string`
+> `optional` **metadata**: `object`
+
+#### Index Signature
+
+ \[`key`: `string`\]: `unknown`
 
 #### Inherited from
 
-[ImageFieldValue](ImageFieldValue.md).[src](ImageFieldValue.md#src)
+[`RenderingField`](RenderingField.md).[`metadata`](RenderingField.md#metadata)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:21](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-angular/src/components/rendering-field.ts#L21)
+packages/sitecore-jss/types/layout/models.d.ts:123
 
-___
+***
 
-### srcSet
+### src?
 
-• `Optional` **srcSet**: \{ `[key: string]`: `string` \| `number` \| `undefined`;  }[]
+> `optional` **src**: `string`
 
 #### Inherited from
 
-[ImageFieldValue](ImageFieldValue.md).[srcSet](ImageFieldValue.md#srcset)
+[`ImageFieldValue`](ImageFieldValue.md).[`src`](ImageFieldValue.md#src)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:22](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-angular/src/components/rendering-field.ts#L22)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:22](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/rendering-field.ts#L22)
 
-___
+***
 
-### value
+### srcSet?
 
-• `Optional` **value**: [`ImageFieldValue`](ImageFieldValue.md)
+> `optional` **srcSet**: `object`[]
+
+#### Inherited from
+
+[`ImageFieldValue`](ImageFieldValue.md).[`srcSet`](ImageFieldValue.md#srcset)
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:23](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/rendering-field.ts#L23)
+
+***
+
+### value?
+
+> `optional` **value**: [`ImageFieldValue`](ImageFieldValue.md)
 
 #### Overrides
 
-[RenderingField](RenderingField.md).[value](RenderingField.md#value)
+[`RenderingField`](RenderingField.md).[`value`](RenderingField.md#value)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:28](https://github.com/Sitecore/jss/blob/fd2c15d9c/packages/sitecore-jss-angular/src/components/rendering-field.ts#L28)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:29](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/rendering-field.ts#L29)
