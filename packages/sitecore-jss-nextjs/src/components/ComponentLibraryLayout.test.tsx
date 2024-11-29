@@ -29,9 +29,9 @@ describe('<ComponentLibraryLayout />', () => {
 
     expect(rendered.html()).to.equal(
       [
-        '<code type="text/sitecore" chrometype="field" class="scpm" kind="open">123</code>',
-        '<a href="/lorem" class="my-link">ipsum</a>',
-        '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        '<p>This is a live set of examples of how to use JSS. For more information on using JSS',
+        'please see <a href="https://jss.sitecore.com" target="_blank" rel="noopener noreferrer">the documentation</a>.',
+        '</p>\r\n<p>The content and layout of this page is defined in <code>/data/routes/styleguide/en.yml</code></p>\r\n'',
       ].join('')
     );
   });

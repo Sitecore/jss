@@ -22,6 +22,7 @@ import {
 } from './editing-render-middleware';
 import { spy, match } from 'sinon';
 import sinonChai from 'sinon-chai';
+import { EditMode } from '@sitecore-jss/sitecore-jss/layout';
 
 use(sinonChai);
 
@@ -226,14 +227,17 @@ describe('EditingRenderMiddleware', () => {
         await handler(req, res);
 
         expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith({
-          site: 'website',
-          itemId: '{11111111-1111-1111-1111-111111111111}',
-          language: 'en',
-          variantIds: ['dev'],
-          version: 'latest',
-          editMode: 'metadata',
+          itemId: query.sc_itemid,
+          componentUid: query.sc_uid,
+          renderingId: query.sc_renderingId,
+          language: query.sc_lang,
+          site: query.sc_site,
           pageState: 'edit',
-          layoutKind: 'shared',
+          mode: 'library',
+          dataSourceId: query.sc_datasourceId,
+          editMode: EditMode.Metadata,
+          variant: query.sc_variant,
+          version: query.sc_version,
         });
 
         expect(res.redirect).to.have.been.calledOnce;
