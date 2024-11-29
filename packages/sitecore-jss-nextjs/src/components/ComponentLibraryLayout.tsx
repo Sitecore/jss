@@ -2,8 +2,11 @@
 
 import React, { useEffect } from 'react';
 import { Placeholder } from './Placeholder';
-import { EDITING_COMPONENT_ID, EDITING_COMPONENT_PLACEHOLDER, LayoutServiceData } from '@sitecore-jss/sitecore-jss/layout';
-// import { Placeholder, LayoutServiceData, HTMLLink } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  EDITING_COMPONENT_ID,
+  EDITING_COMPONENT_PLACEHOLDER,
+  LayoutServiceData,
+} from '@sitecore-jss/sitecore-jss/layout';
 
 export interface UpdatePropsEventArgs {
   uid: string;
