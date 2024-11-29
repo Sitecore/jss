@@ -5799,7 +5799,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/events@npm:^0.4.2":
+"@sitecore-cloudsdk/events@npm:^0.4.1, @sitecore-cloudsdk/events@npm:^0.4.2":
   version: 0.4.2
   resolution: "@sitecore-cloudsdk/events@npm:0.4.2"
   dependencies:
@@ -5868,6 +5868,7 @@ __metadata:
     "@angular/platform-browser": ~17.3.11
     "@angular/platform-browser-dynamic": ~17.3.11
     "@angular/router": ~17.3.11
+    "@sitecore-cloudsdk/events": ^0.4.1
     "@sitecore-jss/sitecore-jss": 22.3.1-canary.4
     "@types/jasmine": ^5.1.4
     "@types/node": ^22.9.0
@@ -5889,6 +5890,7 @@ __metadata:
     typescript: ~5.4.0
     zone.js: ~0.14.7
   peerDependencies:
+    "@sitecore-cloudsdk/events": ^0.4.1
     "@types/debug": ^4.1.12
     rxjs: ~7.8.1
   languageName: unknown

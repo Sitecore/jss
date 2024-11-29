@@ -33,6 +33,7 @@
     "@angular/platform-browser": "~17.3.11",
     "@angular/platform-browser-dynamic": "~17.3.11",
     "@angular/router": "~17.3.11",
+    "@sitecore-cloudsdk/events": "^0.4.1",
     "@types/jasmine": "^5.1.4",
     "@types/node": "^22.9.0",
     "codelyzer": "^6.0.1",
@@ -54,6 +55,7 @@
     "zone.js": "~0.14.7"
   },
   "peerDependencies": {
+    "@sitecore-cloudsdk/events": "^0.4.1",
     "@types/debug": "^4.1.12",
     "rxjs": "~7.8.1"
   },
