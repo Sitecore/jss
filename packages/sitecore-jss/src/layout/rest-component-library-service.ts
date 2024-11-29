@@ -1,11 +1,6 @@
-import {
-  LayoutServiceData,
-  RestLayoutServiceConfig,
-  RestLayoutService,
-  EditMode,
-} from '@sitecore-jss/sitecore-jss/layout';
+import { LayoutServiceData, RestLayoutServiceConfig, RestLayoutService, EditMode } from '../layout';
 import { IncomingMessage, ServerResponse } from 'http';
-import { debug, fetchData } from '@sitecore-jss/sitecore-jss';
+import { debug, fetchData } from '..';
 
 export interface ComponentLibraryRequestParams {
   itemId: string;
@@ -19,7 +14,11 @@ export interface ComponentLibraryRequestParams {
   variant?: string;
 }
 
-// REST
+/**
+ * REST service that enables Component Library functioality
+ * Makes a request to /sitecore/api/layout/component in 'library' mode in Pages.
+ * Returns layoutData for one single rendered component
+ */
 export class RestComponentLibraryService extends RestLayoutService {
   constructor(private config: RestLayoutServiceConfig) {
     super(config);
@@ -39,26 +38,12 @@ export class RestComponentLibraryService extends RestLayoutService {
       params.language,
       params.siteName
     );
-    const fetcher = this.config.dataFetcherResolver
-      ? this.config.dataFetcherResolver<LayoutServiceData>(req, res)
-      : this.getDefaultFetcher<LayoutServiceData>(req, res);
+    const fetcher = this.getFetcher(req, res);
 
     const fetchUrl = this.resolveLayoutServiceUrl('component');
 
     return fetchData(fetchUrl, fetcher, querystringParams).catch((error) => {
       if (error.response?.status === 404) {
-        // Aligned with response of GraphQL Layout Service in case if layout is not found.
-        // When 404 Rest Layout Service returns
-        // {
-        //   sitecore: {
-        //     context: {
-        //       pageEditing: false,
-        //       language
-        //     },
-        //     route: null
-        //   },
-        // }
-        //
         return error.response.data;
       }
 
@@ -67,7 +52,7 @@ export class RestComponentLibraryService extends RestLayoutService {
   }
 
   protected getComponentFetchParams(params: ComponentLibraryRequestParams) {
-    // exclude undefined params
+    // exclude undefined params with this one simple trick
     return JSON.parse(
       JSON.stringify({
         sc_apikey: this.config.apiKey,
@@ -77,7 +62,7 @@ export class RestComponentLibraryService extends RestLayoutService {
         renderingItemId: params.renderingId,
         version: params.version,
         sc_site: params.siteName,
-        sc_lang: params.language || '',
+        sc_lang: params.language || 'en',
         sc_mode: params.editMode,
         sc_variant: params.variant,
         tracking: this.config.tracking ?? true,

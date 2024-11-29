@@ -88,9 +88,7 @@ export class RestLayoutService extends LayoutServiceBase {
       language,
       this.serviceConfig.siteName
     );
-    const fetcher = this.serviceConfig.dataFetcherResolver
-      ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
-      : this.getDefaultFetcher<LayoutServiceData>(req, res);
+    const fetcher = this.getFetcher(req, res);
 
     const fetchUrl = this.resolveLayoutServiceUrl('render');
 
@@ -170,6 +168,12 @@ export class RestLayoutService extends LayoutServiceBase {
       sc_lang: language || '',
       tracking: this.serviceConfig.tracking ?? true,
     };
+  };
+
+  protected getFetcher = (req?: IncomingMessage, res?: ServerResponse) => {
+    return this.serviceConfig.dataFetcherResolver
+      ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
+      : this.getDefaultFetcher<LayoutServiceData>(req, res);
   };
 
   /**

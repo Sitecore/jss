@@ -39,6 +39,7 @@ export {
   ComponentParams,
   getContentStylesheetLink,
   EditMode,
+  RestComponentLibraryService,
 } from '@sitecore-jss/sitecore-jss/layout';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
@@ -79,8 +80,6 @@ export { ModuleFactory, Module } from './sharedTypes/module-factory';
 export { ComponentPropsService } from './services/component-props-service';
 
 export { DisconnectedSitemapService } from './services/disconnected-sitemap-service';
-
-export { RestComponentLibraryService } from './services/component-library-service';
 
 export {
   GraphQLSitemapService,
