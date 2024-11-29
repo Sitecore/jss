@@ -21,7 +21,9 @@ Uses Axios as the default data fetcher (@see AxiosDataFetcher).
 
 #### Parameters
 
-• **options**: [`RestDictionaryServiceConfig`](../type-aliases/RestDictionaryServiceConfig.md)
+| Parameter | Type |
+| ------ | ------ |
+| `options` | [`RestDictionaryServiceConfig`](../type-aliases/RestDictionaryServiceConfig.md) |
 
 #### Returns
 
@@ -33,7 +35,7 @@ Uses Axios as the default data fetcher (@see AxiosDataFetcher).
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:40](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L40)
+[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:40](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L40)
 
 ## Properties
 
@@ -49,7 +51,7 @@ Configuration options
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:40](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L40)
+[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:40](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L40)
 
 ## Accessors
 
@@ -71,7 +73,7 @@ AxiosDataFetcher data fetcher
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:47](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L47)
+[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:47](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L47)
 
 ## Methods
 
@@ -83,9 +85,9 @@ Fetch dictionary data for a language.
 
 #### Parameters
 
-• **language**: `string`
-
-the language to be used to fetch the dictionary
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `language` | `string` | the language to be used to fetch the dictionary |
 
 #### Returns
 
@@ -99,7 +101,7 @@ dictionary phrases
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:61](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L61)
+[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:61](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L61)
 
 ***
 
@@ -123,7 +125,7 @@ implementation
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
 
 ***
 
@@ -135,9 +137,9 @@ Retrieves a
 
 #### Parameters
 
-• **key**: `string`
-
-The cache key.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
 
 #### Returns
 
@@ -156,7 +158,7 @@ The
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
 
 ***
 
@@ -168,9 +170,9 @@ Generate dictionary service url
 
 #### Parameters
 
-• **language**: `string`
-
-the language to be used to fetch the dictionary
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `language` | `string` | the language to be used to fetch the dictionary |
 
 #### Returns
 
@@ -180,7 +182,7 @@ dictionary service url
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:83](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L83)
+[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:83](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L83)
 
 ***
 
@@ -192,13 +194,10 @@ Caches a
 
 #### Parameters
 
-• **key**: `string`
-
-The cache key.
-
-• **value**: [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
-
-The value to cache.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
+| `value` | [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md) | The value to cache. |
 
 #### Returns
 
@@ -220,4 +219,4 @@ CacheClient<DictionaryPhrases>
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)

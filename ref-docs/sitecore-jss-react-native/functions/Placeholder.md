@@ -10,7 +10,9 @@
 
 ## Parameters
 
-• **props**: `PlaceholderProps`
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `PlaceholderProps` |
 
 ## Returns
 
@@ -18,4 +20,4 @@
 
 ## Defined in
 
-[sitecore-jss-react-native/src/components/Placeholder.tsx:103](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-native/src/components/Placeholder.tsx#L103)
+[sitecore-jss-react-native/src/components/Placeholder.tsx:103](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-native/src/components/Placeholder.tsx#L103)

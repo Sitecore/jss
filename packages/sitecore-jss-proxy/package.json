@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-proxy",
-  "version": "22.3.1-canary.1",
+  "version": "22.3.1-canary.5",
   "description": "Middlewares, utilities to work in a headless mode",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -12,7 +12,7 @@
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\" --exit",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
-    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --entryPoints src/personalize/index.ts --out ../../ref-docs/sitecore-jss-proxy src/index.ts --githubPages false"
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --entryPoints src/personalize/index.ts --out ../../ref-docs/sitecore-jss-proxy src/index.ts --githubPages false"
   },
   "engines": {
     "node": ">=22"
@@ -29,7 +29,7 @@
   "dependencies": {
     "@sitecore-cloudsdk/core": "^0.4.1",
     "@sitecore-cloudsdk/personalize": "^0.4.1",
-    "@sitecore-jss/sitecore-jss": "22.3.1-canary.1",
+    "@sitecore-jss/sitecore-jss": "22.3.1-canary.5",
     "http-proxy-middleware": "^2.0.6",
     "http-status-codes": "^2.2.0",
     "set-cookie-parser": "^2.5.1"

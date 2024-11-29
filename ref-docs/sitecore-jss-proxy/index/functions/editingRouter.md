@@ -15,9 +15,9 @@ Supports the following routes:
 
 ## Parameters
 
-• **options**: `EditingRouterConfig`
-
-Editing router configuration
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options` | `EditingRouterConfig` | Editing router configuration |
 
 ## Returns
 
@@ -27,4 +27,4 @@ Editing router
 
 ## Defined in
 
-[sitecore-jss-proxy/src/middleware/editing/index.ts:104](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-proxy/src/middleware/editing/index.ts#L104)
+[sitecore-jss-proxy/src/middleware/editing/index.ts:104](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-proxy/src/middleware/editing/index.ts#L104)

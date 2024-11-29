@@ -13,7 +13,9 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 ## Type Parameters
 
-• **TYPEDNAME** *extends* `string` = `string`
+| Type Parameter | Default type |
+| ------ | ------ |
+| `TYPEDNAME` *extends* `string` | `string` |
 
 ## Defined in
 

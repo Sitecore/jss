@@ -10,7 +10,9 @@
 
 ## Parameters
 
-• **proxyResponse**: `IncomingMessage`
+| Parameter | Type |
+| ------ | ------ |
+| `proxyResponse` | `IncomingMessage` |
 
 ## Returns
 
@@ -18,4 +20,4 @@
 
 ## Defined in
 
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:23](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L23)
+[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:23](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L23)

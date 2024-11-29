@@ -12,17 +12,11 @@ Apply personalization to layout data. This will recursively go through all place
 
 ## Parameters
 
-• **layout**: [`LayoutServiceData`](../interfaces/LayoutServiceData.md)
-
-Layout data
-
-• **variantId**: `string`
-
-variant id
-
-• **componentVariantIds?**: `string`[]
-
-component variant ids
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `layout` | [`LayoutServiceData`](../interfaces/LayoutServiceData.md) | Layout data |
+| `variantId` | `string` | variant id |
+| `componentVariantIds`? | `string`[] | component variant ids |
 
 ## Returns
 

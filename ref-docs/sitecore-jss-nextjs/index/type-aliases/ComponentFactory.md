@@ -10,13 +10,10 @@
 
 ## Parameters
 
-• **componentName**: `string`
-
-component to be imported from the component factory
-
-• **exportName?**: `string`
-
-component to be imported in case you export multiple components from the same file
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `componentName` | `string` | component to be imported from the component factory |
+| `exportName`? | `string` | component to be imported in case you export multiple components from the same file |
 
 ## Returns
 

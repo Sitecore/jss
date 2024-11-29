@@ -27,17 +27,16 @@ Null will be returned if the field is not defined.
 
 ### Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 ### Parameters
 
-• **renderingOrFields**: [`ComponentFields`](../interfaces/ComponentFields.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\>
-
-the rendering or fields object to extract the field from
-
-• **fieldName**: `string`
-
-the name of the field to extract
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `renderingOrFields` | [`ComponentFields`](../interfaces/ComponentFields.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> | the rendering or fields object to extract the field from |
+| `fieldName` | `string` | the name of the field to extract |
 
 ### Returns
 
@@ -61,7 +60,7 @@ the default value to return if the field is not defined
 
 ### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:16](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/utils.ts#L16)
+[packages/sitecore-jss/src/layout/utils.ts:16](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/layout/utils.ts#L16)
 
 ## getFieldValue(renderingOrFields, fieldName, defaultValue)
 
@@ -69,15 +68,17 @@ the default value to return if the field is not defined
 
 ### Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 ### Parameters
 
-• **renderingOrFields**: [`ComponentFields`](../interfaces/ComponentFields.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\>
-
-• **fieldName**: `string`
-
-• **defaultValue**: `T`
+| Parameter | Type |
+| ------ | ------ |
+| `renderingOrFields` | [`ComponentFields`](../interfaces/ComponentFields.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> |
+| `fieldName` | `string` |
+| `defaultValue` | `T` |
 
 ### Returns
 
@@ -97,4 +98,4 @@ the default value to return if the field is not defined
 
 ### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:21](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/layout/utils.ts#L21)
+[packages/sitecore-jss/src/layout/utils.ts:21](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/layout/utils.ts#L21)

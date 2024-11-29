@@ -10,13 +10,15 @@
 
 ## Type Parameters
 
-• **T**
+| Type Parameter |
+| ------ |
+| `T` |
 
 ## Parameters
 
-• **response**: [`HttpResponse`](../../../../index/interfaces/HttpResponse.md)\<`T`\>
-
-response from fetch
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `response` | [`HttpResponse`](../../../../index/interfaces/HttpResponse.md)\<`T`\> | response from fetch |
 
 ## Returns
 
@@ -26,4 +28,4 @@ response
 
 ## Defined in
 
-[packages/sitecore-jss/src/tracking/trackingApi.ts:28](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/tracking/trackingApi.ts#L28)
+[packages/sitecore-jss/src/tracking/trackingApi.ts:28](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/tracking/trackingApi.ts#L28)

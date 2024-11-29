@@ -10,15 +10,10 @@
 
 ## Parameters
 
-• **props**: [`LinkProps`](../type-aliases/LinkProps.md)
-
-• **deprecatedLegacyContext?**: `any`
-
-**Deprecated**
-
-**See**
-
-[React Docs](https://legacy.reactjs.org/docs/legacy-context.html#referencing-context-in-lifecycle-methods)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `props` | [`LinkProps`](../type-aliases/LinkProps.md) | - |
+| `deprecatedLegacyContext`? | `any` | **Deprecated** **See** [React Docs](https://legacy.reactjs.org/docs/legacy-context.html#referencing-context-in-lifecycle-methods) |
 
 ## Returns
 
@@ -26,4 +21,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/Link.tsx:42](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/Link.tsx#L42)
+[packages/sitecore-jss-react/src/components/Link.tsx:42](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/Link.tsx#L42)

@@ -12,13 +12,10 @@ Get a site rewrite path for given pathname
 
 ## Parameters
 
-• **pathname**: `string`
-
-the pathname
-
-• **data**: [`SiteRewriteData`](../type-aliases/SiteRewriteData.md)
-
-the site data to include in the rewrite
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pathname` | `string` | the pathname |
+| `data` | [`SiteRewriteData`](../type-aliases/SiteRewriteData.md) | the site data to include in the rewrite |
 
 ## Returns
 
@@ -28,4 +25,4 @@ the rewrite path
 
 ## Defined in
 
-[packages/sitecore-jss/src/site/utils.ts:13](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/site/utils.ts#L13)
+[packages/sitecore-jss/src/site/utils.ts:13](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/site/utils.ts#L13)

@@ -18,7 +18,9 @@
 
 #### Parameters
 
-• **props**: [`FormProps`](../interfaces/FormProps.md)
+| Parameter | Type |
+| ------ | ------ |
+| `props` | [`FormProps`](../interfaces/FormProps.md) |
 
 #### Returns
 
@@ -30,7 +32,7 @@
 
 #### Defined in
 
-[src/components/form.tsx:68](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/form.tsx#L68)
+[src/components/form.tsx:68](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/form.tsx#L68)
 
 ## Properties
 
@@ -163,7 +165,7 @@ node\_modules/@types/react/index.d.ts:988
 
 #### Defined in
 
-[src/components/form.tsx:328](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/form.tsx#L328)
+[src/components/form.tsx:328](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/form.tsx#L328)
 
 ***
 
@@ -176,9 +178,10 @@ the entire component tree to unmount.
 
 #### Parameters
 
-• **error**: `Error`
-
-• **errorInfo**: `ErrorInfo`
+| Parameter | Type |
+| ------ | ------ |
+| `error` | `Error` |
+| `errorInfo` | `ErrorInfo` |
 
 #### Returns
 
@@ -224,11 +227,11 @@ The snapshot is only present if [getSnapshotBeforeUpdate](Form.md#getsnapshotbef
 
 #### Parameters
 
-• **prevProps**: `Readonly`\<[`FormProps`](../interfaces/FormProps.md)\>
-
-• **prevState**: `Readonly`\<`FormState` & `FieldStateCollection`\>
-
-• **snapshot?**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `prevProps` | `Readonly`\<[`FormProps`](../interfaces/FormProps.md)\> |
+| `prevState` | `Readonly`\<`FormState` & `FieldStateCollection`\> |
+| `snapshot`? | `any` |
 
 #### Returns
 
@@ -294,9 +297,10 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`FormProps`](../interfaces/FormProps.md)\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`FormProps`](../interfaces/FormProps.md)\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -356,11 +360,11 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`FormProps`](../interfaces/FormProps.md)\>
-
-• **nextState**: `Readonly`\<`FormState` & `FieldStateCollection`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`FormProps`](../interfaces/FormProps.md)\> |
+| `nextState` | `Readonly`\<`FormState` & `FieldStateCollection`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -393,7 +397,9 @@ Creates a field component to render a field based on the form schema data
 
 #### Parameters
 
-• **field**: `FormField`\<`ViewModel`\>
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `field` | `FormField`\<`ViewModel`\> |  |
 
 #### Returns
 
@@ -403,7 +409,7 @@ field component
 
 #### Defined in
 
-[src/components/form.tsx:135](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/form.tsx#L135)
+[src/components/form.tsx:135](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/form.tsx#L135)
 
 ***
 
@@ -413,7 +419,9 @@ field component
 
 #### Parameters
 
-• **callback?**
+| Parameter | Type |
+| ------ | ------ |
+| `callback`? | () => `void` |
 
 #### Returns
 
@@ -441,7 +449,9 @@ The field state includes both current value as well as current validity.
 
 #### Parameters
 
-• **field**: `FormField`\<`ViewModel`\>
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `field` | `FormField`\<`ViewModel`\> |  |
 
 #### Returns
 
@@ -451,7 +461,7 @@ field state
 
 #### Defined in
 
-[src/components/form.tsx:167](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/form.tsx#L167)
+[src/components/form.tsx:167](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/form.tsx#L167)
 
 ***
 
@@ -468,9 +478,10 @@ lifecycle events from running.
 
 #### Parameters
 
-• **prevProps**: `Readonly`\<[`FormProps`](../interfaces/FormProps.md)\>
-
-• **prevState**: `Readonly`\<`FormState` & `FieldStateCollection`\>
+| Parameter | Type |
+| ------ | ------ |
+| `prevProps` | `Readonly`\<[`FormProps`](../interfaces/FormProps.md)\> |
+| `prevState` | `Readonly`\<`FormState` & `FieldStateCollection`\> |
 
 #### Returns
 
@@ -495,7 +506,9 @@ This is important for multistep forms to disambiguate between back and next/subm
 
 #### Parameters
 
-• **buttonName**: `string`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `buttonName` | `string` |  |
 
 #### Returns
 
@@ -503,7 +516,7 @@ This is important for multistep forms to disambiguate between back and next/subm
 
 #### Defined in
 
-[src/components/form.tsx:211](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/form.tsx#L211)
+[src/components/form.tsx:211](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/form.tsx#L211)
 
 ***
 
@@ -516,21 +529,12 @@ Handler triggered by child components that updates a given field's current value
 
 #### Parameters
 
-• **key**: `string`
-
-Field's name attribute
-
-• **value**: `string` \| `string`[] \| `File`[]
-
-New field value
-
-• **isValid**: `boolean`
-
-Whether the field is valid or not
-
-• **errors**: `string`[]
-
-Validation error message(s) if field is invalid
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | Field's name attribute |
+| `value` | `string` \| `string`[] \| `File`[] | New field value |
+| `isValid` | `boolean` | Whether the field is valid or not |
+| `errors` | `string`[] | Validation error message(s) if field is invalid |
 
 #### Returns
 
@@ -538,7 +542,7 @@ Validation error message(s) if field is invalid
 
 #### Defined in
 
-[src/components/form.tsx:223](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/form.tsx#L223)
+[src/components/form.tsx:223](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/form.tsx#L223)
 
 ***
 
@@ -551,7 +555,9 @@ steps in a multistep form or handle a final submit.
 
 #### Parameters
 
-• **e**: `FormEvent`\<`Element`\>
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `e` | `FormEvent`\<`Element`\> |  |
 
 #### Returns
 
@@ -559,7 +565,7 @@ steps in a multistep form or handle a final submit.
 
 #### Defined in
 
-[src/components/form.tsx:239](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/form.tsx#L239)
+[src/components/form.tsx:239](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/form.tsx#L239)
 
 ***
 
@@ -577,7 +583,7 @@ steps in a multistep form or handle a final submit.
 
 #### Defined in
 
-[src/components/form.tsx:90](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/form.tsx#L90)
+[src/components/form.tsx:90](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/form.tsx#L90)
 
 ***
 
@@ -595,7 +601,7 @@ across steps in a multistep form.
 
 #### Defined in
 
-[src/components/form.tsx:341](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/form.tsx#L341)
+[src/components/form.tsx:341](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/form.tsx#L341)
 
 ***
 
@@ -605,13 +611,16 @@ across steps in a multistep form.
 
 #### Type Parameters
 
-• **K** *extends* `string` \| `number`
+| Type Parameter |
+| ------ |
+| `K` *extends* `string` \| `number` |
 
 #### Parameters
 
-• **state**: `null` \| `FormState` & `FieldStateCollection` \| (`prevState`, `props`) => `null` \| `FormState` & `FieldStateCollection` \| `Pick`\<`FormState` & `FieldStateCollection`, `K`\> \| `Pick`\<`FormState` & `FieldStateCollection`, `K`\>
-
-• **callback?**
+| Parameter | Type |
+| ------ | ------ |
+| `state` | `null` \| `FormState` & `FieldStateCollection` \| (`prevState`, `props`) => `null` \| `FormState` & `FieldStateCollection` \| `Pick`\<`FormState` & `FieldStateCollection`, `K`\> \| `Pick`\<`FormState` & `FieldStateCollection`, `K`\> |
+| `callback`? | () => `void` |
 
 #### Returns
 
@@ -642,11 +651,11 @@ and `componentDidUpdate` will not be called.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`FormProps`](../interfaces/FormProps.md)\>
-
-• **nextState**: `Readonly`\<`FormState` & `FieldStateCollection`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`FormProps`](../interfaces/FormProps.md)\> |
+| `nextState` | `Readonly`\<`FormState` & `FieldStateCollection`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -716,9 +725,10 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`FormProps`](../interfaces/FormProps.md)\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`FormProps`](../interfaces/FormProps.md)\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -759,11 +769,11 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`FormProps`](../interfaces/FormProps.md)\>
-
-• **nextState**: `Readonly`\<`FormState` & `FieldStateCollection`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`FormProps`](../interfaces/FormProps.md)\> |
+| `nextState` | `Readonly`\<`FormState` & `FieldStateCollection`\> |
+| `nextContext` | `any` |
 
 #### Returns
 

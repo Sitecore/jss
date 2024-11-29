@@ -12,13 +12,10 @@ Get a site rewrite path for given pathname
 
 ## Parameters
 
-• **pathname**: `string`
-
-the pathname
-
-• **data**: `SiteRewriteData`
-
-the site data to include in the rewrite
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `pathname` | `string` | the pathname |
+| `data` | `SiteRewriteData` | the site data to include in the rewrite |
 
 ## Returns
 

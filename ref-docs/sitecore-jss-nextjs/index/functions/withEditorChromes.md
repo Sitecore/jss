@@ -10,7 +10,9 @@
 
 ## Parameters
 
-• **WrappedComponent**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
+| Parameter | Type |
+| ------ | ------ |
+| `WrappedComponent` | `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\> |
 
 ## Returns
 

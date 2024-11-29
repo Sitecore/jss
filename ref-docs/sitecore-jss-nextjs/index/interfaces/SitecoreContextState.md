@@ -24,7 +24,9 @@ sitecore-jss-react/types/components/SitecoreContext.d.ts:13
 
 #### Parameters
 
-• **value**: [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
+| Parameter | Type |
+| ------ | ------ |
+| `value` | [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md) |
 
 #### Returns
 

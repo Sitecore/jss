@@ -22,9 +22,9 @@ Utilizes a cache for storage and retrieval of editing data.
 
 #### Parameters
 
-• **config?**: [`BasicEditingDataServiceConfig`](../interfaces/BasicEditingDataServiceConfig.md)
-
-Editing data service config
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `config`? | [`BasicEditingDataServiceConfig`](../interfaces/BasicEditingDataServiceConfig.md) | Editing data service config |
 
 #### Returns
 
@@ -32,7 +32,7 @@ Editing data service config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:79](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L79)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:79](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L79)
 
 ## Properties
 
@@ -47,9 +47,9 @@ Example generated key: 52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x
 
 #### Parameters
 
-• **data**: [`EditingData`](../type-aliases/EditingData.md)
-
-The editing data
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `data` | [`EditingData`](../type-aliases/EditingData.md) | The editing data |
 
 #### Returns
 
@@ -59,7 +59,7 @@ The unique key
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:73](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L73)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:73](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L73)
 
 ## Methods
 
@@ -71,9 +71,9 @@ Retrieves Sitecore editor payload data by key
 
 #### Parameters
 
-• **previewData**: `PreviewData`
-
-Editing preview data containing the key to use for retrieval
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `previewData` | `PreviewData` | Editing preview data containing the key to use for retrieval |
 
 #### Returns
 
@@ -87,7 +87,7 @@ The [EditingData](../type-aliases/EditingData.md)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:105](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L105)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:105](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L105)
 
 ***
 
@@ -99,9 +99,9 @@ Stores Sitecore editor payload data for later retrieval by key
 
 #### Parameters
 
-• **data**: [`EditingData`](../type-aliases/EditingData.md)
-
-Editing data
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `data` | [`EditingData`](../type-aliases/EditingData.md) | Editing data |
 
 #### Returns
 
@@ -115,4 +115,4 @@ The [EditingPreviewData](../interfaces/EditingPreviewData.md) containing the gen
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:88](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L88)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:88](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L88)

@@ -20,15 +20,12 @@ By default, the resolver assumes a folder structure of:
 
 ## Parameters
 
-• **baseAppPath?**
-
-The base path to your JSS app(s), defaults to `./dist`
-
-• **baseAppPath.appPathResolver?**: `undefined` \| (`requestJson`) => `string` = `...`
-
-• **baseAppPath.baseAppPath?**: `undefined` \| `string` = `'./dist'`
-
-• **baseAppPath.serverBundleName?**: `undefined` \| `string` = `'server.bundle'`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `baseAppPath`? | `object` | The base path to your JSS app(s), defaults to `./dist` |
+| `baseAppPath.appPathResolver`? | `undefined` \| (`requestJson`) => `string` | - |
+| `baseAppPath.baseAppPath`? | `undefined` \| `string` | - |
+| `baseAppPath.serverBundleName`? | `undefined` \| `string` | - |
 
 ## Returns
 
@@ -38,4 +35,4 @@ resolver
 
 ## Defined in
 
-[defaultAppInvocationInfoResolver.ts:18](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L18)
+[defaultAppInvocationInfoResolver.ts:18](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L18)

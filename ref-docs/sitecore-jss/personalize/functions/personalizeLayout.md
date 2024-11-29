@@ -12,17 +12,11 @@ Apply personalization to layout data. This will recursively go through all place
 
 ## Parameters
 
-• **layout**: [`LayoutServiceData`](../../layout/interfaces/LayoutServiceData.md)
-
-Layout data
-
-• **variantId**: `string`
-
-variant id
-
-• **componentVariantIds?**: `string`[]
-
-component variant ids
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `layout` | [`LayoutServiceData`](../../layout/interfaces/LayoutServiceData.md) | Layout data |
+| `variantId` | `string` | variant id |
+| `componentVariantIds`? | `string`[] | component variant ids |
 
 ## Returns
 
@@ -30,4 +24,4 @@ component variant ids
 
 ## Defined in
 
-[packages/sitecore-jss/src/personalize/layout-personalizer.ts:28](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/personalize/layout-personalizer.ts#L28)
+[packages/sitecore-jss/src/personalize/layout-personalizer.ts:28](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/personalize/layout-personalizer.ts#L28)

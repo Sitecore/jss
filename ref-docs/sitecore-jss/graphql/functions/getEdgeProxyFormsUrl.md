@@ -12,17 +12,11 @@ Generates a URL for accessing Sitecore Edge Platform Forms using the provided fo
 
 ## Parameters
 
-• **sitecoreEdgeContextId**: `string`
-
-The unique context id.
-
-• **formId**: `string`
-
-The unique form id.
-
-• **sitecoreEdgeUrl?**: `string` = `SITECORE_EDGE_URL_DEFAULT`
-
-The base endpoint URL for the Edge Platform. Default is https://edge-platform.sitecorecloud.io
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `sitecoreEdgeContextId` | `string` | `undefined` | The unique context id. |
+| `formId` | `string` | `undefined` | The unique form id. |
+| `sitecoreEdgeUrl`? | `string` | `SITECORE_EDGE_URL_DEFAULT` | The base endpoint URL for the Edge Platform. Default is https://edge-platform.sitecorecloud.io |
 
 ## Returns
 
@@ -32,4 +26,4 @@ The complete URL for accessing forms through the Edge Platform.
 
 ## Defined in
 
-[packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts:21](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L21)
+[packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts:21](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L21)

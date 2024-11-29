@@ -12,9 +12,9 @@ Makes a request to Sitecore Content Service for the specified item path.
 
 ## Parameters
 
-• **editorMarkup**: `string`
-
-the markup to parse
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `editorMarkup` | `string` | the markup to parse |
 
 ## Returns
 

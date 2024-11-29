@@ -18,13 +18,10 @@ Calculates the delay (in milliseconds) before the next retry based on the given 
 
 #### Parameters
 
-• **error**: [`GraphQLClientError`](../../graphql/type-aliases/GraphQLClientError.md)
-
-The error received from the GraphQL request.
-
-• **attempt**: `number`
-
-The current attempt number.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `error` | [`GraphQLClientError`](../../graphql/type-aliases/GraphQLClientError.md) | The error received from the GraphQL request. |
+| `attempt` | `number` | The current attempt number. |
 
 #### Returns
 
@@ -34,7 +31,7 @@ The delay in milliseconds before the next retry.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:57](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/graphql-request-client.ts#L57)
+[packages/sitecore-jss/src/graphql-request-client.ts:57](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/graphql-request-client.ts#L57)
 
 ***
 
@@ -46,17 +43,11 @@ Determines whether a request should be retried based on the given error and atte
 
 #### Parameters
 
-• **error**: [`GraphQLClientError`](../../graphql/type-aliases/GraphQLClientError.md)
-
-The error received from the GraphQL request.
-
-• **attempt**: `number`
-
-The current attempt number.
-
-• **retries**: `number`
-
-The number of retries configured.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `error` | [`GraphQLClientError`](../../graphql/type-aliases/GraphQLClientError.md) | The error received from the GraphQL request. |
+| `attempt` | `number` | The current attempt number. |
+| `retries` | `number` | The number of retries configured. |
 
 #### Returns
 
@@ -66,4 +57,4 @@ A boolean indicating whether to retry the request.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:50](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/graphql-request-client.ts#L50)
+[packages/sitecore-jss/src/graphql-request-client.ts:50](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/graphql-request-client.ts#L50)

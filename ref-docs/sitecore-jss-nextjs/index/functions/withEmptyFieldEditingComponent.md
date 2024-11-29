@@ -12,19 +12,17 @@ Returns the passed field component or default component in case field value is e
 
 ## Type Parameters
 
-• **FieldComponentProps** *extends* `WithEmptyFieldEditingComponentProps`
-
-• **RefElementType** = `HTMLElement`
+| Type Parameter | Default type |
+| ------ | ------ |
+| `FieldComponentProps` *extends* `WithEmptyFieldEditingComponentProps` | - |
+| `RefElementType` | `HTMLElement` |
 
 ## Parameters
 
-• **FieldComponent**: `ComponentType`\<`FieldComponentProps`\>
-
-the field component
-
-• **options**: `WithEmptyFieldEditingComponentOptions`
-
-the options of the HOC;
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `FieldComponent` | `ComponentType`\<`FieldComponentProps`\> | the field component |
+| `options` | `WithEmptyFieldEditingComponentOptions` | the options of the HOC; |
 
 ## Returns
 

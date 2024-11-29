@@ -26,9 +26,9 @@ Creates an instance of graphQL dictionary service with the provided options
 
 #### Parameters
 
-• **options**: [`GraphQLDictionaryServiceConfig`](../interfaces/GraphQLDictionaryServiceConfig.md)
-
-instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options` | [`GraphQLDictionaryServiceConfig`](../interfaces/GraphQLDictionaryServiceConfig.md) | instance |
 
 #### Returns
 
@@ -66,9 +66,9 @@ Fetches dictionary data for internalization. Uses search query by default
 
 #### Parameters
 
-• **language**: `string`
-
-the language to fetch
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `language` | `string` | the language to fetch |
 
 #### Returns
 
@@ -99,9 +99,9 @@ This is the default behavior for non-XMCloud deployments. Uses `query` to retrie
 
 #### Parameters
 
-• **language**: `string`
-
-the language to fetch
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `language` | `string` | the language to fetch |
 
 #### Returns
 
@@ -128,9 +128,9 @@ This is the default behavior for XMCloud deployments. Uses `siteQuery` to retrie
 
 #### Parameters
 
-• **language**: `string`
-
-the language to fetch
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `language` | `string` | the language to fetch |
 
 #### Returns
 
@@ -176,9 +176,9 @@ Retrieves a
 
 #### Parameters
 
-• **key**: `string`
-
-The cache key.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
 
 #### Returns
 
@@ -229,13 +229,10 @@ Caches a
 
 #### Parameters
 
-• **key**: `string`
-
-The cache key.
-
-• **value**: [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
-
-The value to cache.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
+| `value` | [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md) | The value to cache. |
 
 #### Returns
 

@@ -13,17 +13,11 @@ Component endpoint will either be retrieved from params or from endpointOverride
 
 ## Parameters
 
-• **params**: [`FEaaSComponentParams`](../type-aliases/FEaaSComponentParams.md)
-
-component params
-
-• **pageState?**: [`LayoutServicePageState`](../enumerations/LayoutServicePageState.md)
-
-page state to determine which component variant to use
-
-• **endpointOverride?**: `string`
-
-optional override for component endpoint
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | [`FEaaSComponentParams`](../type-aliases/FEaaSComponentParams.md) | component params |
+| `pageState`? | [`LayoutServicePageState`](../enumerations/LayoutServicePageState.md) | page state to determine which component variant to use |
+| `endpointOverride`? | `string` | optional override for component endpoint |
 
 ## Returns
 

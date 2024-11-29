@@ -12,19 +12,17 @@ Wraps the field component with metadata markup intended to be used for chromes h
 
 ## Type Parameters
 
-• **FieldComponentProps** *extends* `WithMetadataProps`
-
-• **RefElementType** = `HTMLElement`
+| Type Parameter | Default type |
+| ------ | ------ |
+| `FieldComponentProps` *extends* `WithMetadataProps` | - |
+| `RefElementType` | `HTMLElement` |
 
 ## Parameters
 
-• **FieldComponent**: `ComponentType`\<`FieldComponentProps`\>
-
-the field component
-
-• **isForwardRef?**: `boolean`
-
-set to 'true' if forward reference is needed
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `FieldComponent` | `ComponentType`\<`FieldComponentProps`\> | the field component |
+| `isForwardRef`? | `boolean` | set to 'true' if forward reference is needed |
 
 ## Returns
 

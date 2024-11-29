@@ -10,9 +10,10 @@
 
 ## Parameters
 
-• **placeholders**: `WithPlaceholderSpec`
-
-• **options?**: `WithPlaceholderOptions`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `placeholders` | `WithPlaceholderSpec` |  |
+| `options`? | `WithPlaceholderOptions` |  |
 
 ## Returns
 
@@ -20,7 +21,9 @@
 
 ### Parameters
 
-• **WrappedComponent**: `React.ComponentClass`\<`PlaceholderProps`\> \| `React.FunctionComponent`\<`PlaceholderProps`\>
+| Parameter | Type |
+| ------ | ------ |
+| `WrappedComponent` | `React.ComponentClass`\<`PlaceholderProps`\> \| `React.FunctionComponent`\<`PlaceholderProps`\> |
 
 ### Returns
 
@@ -28,7 +31,9 @@
 
 #### Parameters
 
-• **props**: `EnhancedOmit`
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `EnhancedOmit` |
 
 #### Returns
 

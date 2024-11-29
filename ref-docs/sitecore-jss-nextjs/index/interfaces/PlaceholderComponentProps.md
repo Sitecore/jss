@@ -125,9 +125,9 @@ Can be used in case when you need to insert additional data into the component.
 
 #### Parameters
 
-• **componentProps**: `ComponentProps`
-
-component props to be modified
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `componentProps` | `ComponentProps` | component props to be modified |
 
 #### Returns
 
@@ -191,11 +191,11 @@ Useful for techniques like wrapping each child in a wrapper component.
 
 #### Parameters
 
-• **components**: `ReactNode`[]
-
-• **data**: ([`ComponentRendering`](ComponentRendering.md)\<[`ComponentFields`](ComponentFields.md)\> \| [`HtmlElementRendering`](HtmlElementRendering.md))[]
-
-• **props**: `PlaceholderProps`
+| Parameter | Type |
+| ------ | ------ |
+| `components` | `ReactNode`[] |
+| `data` | ([`ComponentRendering`](ComponentRendering.md)\<[`ComponentFields`](ComponentFields.md)\> \| [`HtmlElementRendering`](HtmlElementRendering.md))[] |
+| `props` | `PlaceholderProps` |
 
 #### Returns
 
@@ -216,9 +216,10 @@ Mutually exclusive with `render`. System components added during Experience Edit
 
 #### Parameters
 
-• **component**: `ReactNode`
-
-• **index**: `number`
+| Parameter | Type |
+| ------ | ------ |
+| `component` | `ReactNode` |
+| `index` | `number` |
 
 #### Returns
 
@@ -239,7 +240,9 @@ Can be used to wrap the Sitecore EE empty placeholder markup in something that's
 
 #### Parameters
 
-• **components**: `ReactNode`[]
+| Parameter | Type |
+| ------ | ------ |
+| `components` | `ReactNode`[] |
 
 #### Returns
 

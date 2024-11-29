@@ -12,23 +12,12 @@ Gets the ID of the JSS App root item for the specified site and language.
 
 ## Parameters
 
-• **client**: [`GraphQLClient`](../../index/interfaces/GraphQLClient.md)
-
-that fetches data from a GraphQL endpoint.
-
-• **siteName**: `string`
-
-the name of the Sitecore site.
-
-• **language**: `string`
-
-the item language version.
-
-• **jssAppTemplateId?**: `string`
-
-optional template ID of the app root item. If not
-specified, the ID of the "/sitecore/templates/Foundation/JavaScript Services/App"
-item is used.
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `client` | [`GraphQLClient`](../../index/interfaces/GraphQLClient.md) | that fetches data from a GraphQL endpoint. |
+| `siteName` | `string` | the name of the Sitecore site. |
+| `language` | `string` | the item language version. |
+| `jssAppTemplateId`? | `string` | optional template ID of the app root item. If not specified, the ID of the "/sitecore/templates/Foundation/JavaScript Services/App" item is used. |
 
 ## Returns
 
@@ -51,4 +40,4 @@ leaving that decision up to implementations.
 
 ## Defined in
 
-[packages/sitecore-jss/src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
+[packages/sitecore-jss/src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)

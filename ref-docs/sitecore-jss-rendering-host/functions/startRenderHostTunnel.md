@@ -10,9 +10,10 @@
 
 ## Parameters
 
-• **renderHostname**: `string`
-
-• **options**: `Options` = `...`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `renderHostname` | `string` |  |
+| `options` | `Options` |  |
 
 ## Returns
 
@@ -20,4 +21,4 @@
 
 ## Defined in
 
-[tunnel.ts:12](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-rendering-host/src/tunnel.ts#L12)
+[tunnel.ts:12](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss-rendering-host/src/tunnel.ts#L12)

@@ -10,9 +10,10 @@
 
 ## Parameters
 
-• **props**: `PropsWithChildren`\<`DateFieldProps`\>
-
-• **context?**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `PropsWithChildren`\<`DateFieldProps`\> |
+| `context`? | `any` |
 
 ## Returns
 
@@ -20,4 +21,4 @@
 
 ## Defined in
 
-[sitecore-jss-react-native/src/components/Date.tsx:22](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-native/src/components/Date.tsx#L22)
+[sitecore-jss-react-native/src/components/Date.tsx:22](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-native/src/components/Date.tsx#L22)

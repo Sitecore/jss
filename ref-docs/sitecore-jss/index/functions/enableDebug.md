@@ -12,9 +12,9 @@ Enable debug logging dynamically
 
 ## Parameters
 
-• **namespaces**: `string`
-
-space-separated list of namespaces to enable
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `namespaces` | `string` | space-separated list of namespaces to enable |
 
 ## Returns
 
@@ -22,4 +22,4 @@ space-separated list of namespaces to enable
 
 ## Defined in
 
-[packages/sitecore-jss/src/debug.ts:24](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/debug.ts#L24)
+[packages/sitecore-jss/src/debug.ts:24](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/debug.ts#L24)

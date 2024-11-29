@@ -22,13 +22,10 @@ Set TTL for cache data in constructor (default: 60 seconds)
 
 #### Parameters
 
-• **redisUrl**: `undefined` \| `string`
-
-KV endpoint URL. Usually stored in process.env.KV_REST_API_URL
-
-• **redisToken**: `undefined` \| `string`
-
-KV endpoint tokem. Usually stored in process.env.KV_REST_API_TOKEN
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `redisUrl` | `undefined` \| `string` | KV endpoint URL. Usually stored in process.env.KV_REST_API_URL |
+| `redisToken` | `undefined` \| `string` | KV endpoint tokem. Usually stored in process.env.KV_REST_API_TOKEN |
 
 #### Returns
 
@@ -36,7 +33,7 @@ KV endpoint tokem. Usually stored in process.env.KV_REST_API_TOKEN
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:19](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L19)
+[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:19](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L19)
 
 ## Properties
 
@@ -46,7 +43,7 @@ KV endpoint tokem. Usually stored in process.env.KV_REST_API_TOKEN
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L12)
+[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L12)
 
 ## Methods
 
@@ -56,7 +53,9 @@ KV endpoint tokem. Usually stored in process.env.KV_REST_API_TOKEN
 
 #### Parameters
 
-• **key**: `string`
+| Parameter | Type |
+| ------ | ------ |
+| `key` | `string` |
 
 #### Returns
 
@@ -68,7 +67,7 @@ KV endpoint tokem. Usually stored in process.env.KV_REST_API_TOKEN
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L41)
+[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L41)
 
 ***
 
@@ -78,9 +77,10 @@ KV endpoint tokem. Usually stored in process.env.KV_REST_API_TOKEN
 
 #### Parameters
 
-• **key**: `string`
-
-• **editingData**: [`EditingData`](../type-aliases/EditingData.md)
+| Parameter | Type |
+| ------ | ------ |
+| `key` | `string` |
+| `editingData` | [`EditingData`](../type-aliases/EditingData.md) |
 
 #### Returns
 
@@ -92,4 +92,4 @@ KV endpoint tokem. Usually stored in process.env.KV_REST_API_TOKEN
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:31](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L31)
+[sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:31](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L31)

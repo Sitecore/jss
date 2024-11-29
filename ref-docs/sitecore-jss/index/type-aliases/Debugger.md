@@ -10,4 +10,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss/src/debug.ts:6](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss/src/debug.ts#L6)
+[packages/sitecore-jss/src/debug.ts:6](https://github.com/Sitecore/jss/blob/ae0d0d6db6f1c053f20f849b7fb170d97fae8446/packages/sitecore-jss/src/debug.ts#L6)

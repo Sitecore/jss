@@ -10,13 +10,12 @@
 
 ## Parameters
 
-• **fieldName**: `string`
-
-• **newValue**: `string` \| `string`[] \| `File`[] \| `boolean`
-
-• **isValid**: `boolean`
-
-• **errorMessages**: `string`[]
+| Parameter | Type |
+| ------ | ------ |
+| `fieldName` | `string` |
+| `newValue` | `string` \| `string`[] \| `File`[] \| `boolean` |
+| `isValid` | `boolean` |
+| `errorMessages` | `string`[] |
 
 ## Returns
 
@@ -24,4 +23,4 @@
 
 ## Defined in
 
-[src/FieldProps.ts:54](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/FieldProps.ts#L54)
+[src/FieldProps.ts:54](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/FieldProps.ts#L54)

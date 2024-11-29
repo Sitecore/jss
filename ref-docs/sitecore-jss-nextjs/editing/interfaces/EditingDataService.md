@@ -18,9 +18,9 @@ Retrieves Sitecore editor payload data
 
 #### Parameters
 
-• **previewData**: `PreviewData`
-
-Editing preview data containing the information to use for retrieval
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `previewData` | `PreviewData` | Editing preview data containing the information to use for retrieval |
 
 #### Returns
 
@@ -30,7 +30,7 @@ The [EditingData](../type-aliases/EditingData.md)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:38](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L38)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:38](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L38)
 
 ***
 
@@ -42,15 +42,11 @@ Stores Sitecore editor payload data for later retrieval
 
 #### Parameters
 
-• **data**: [`EditingData`](../type-aliases/EditingData.md)
-
-Editing data
-
-• **serverUrl**: `string`
-
-The server url e.g. which can be used for further API requests
-
-• **params?**
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `data` | [`EditingData`](../type-aliases/EditingData.md) | Editing data |
+| `serverUrl` | `string` | The server url e.g. which can be used for further API requests |
+| `params`? | `object` | - |
 
 #### Returns
 
@@ -60,4 +56,4 @@ The [EditingPreviewData](EditingPreviewData.md) containing the information to us
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:28](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L28)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:28](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L28)

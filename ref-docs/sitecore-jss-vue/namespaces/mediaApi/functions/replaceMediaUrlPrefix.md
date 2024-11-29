@@ -13,13 +13,10 @@ Can use `mediaUrlPrefix` in order to use a custom prefix.
 
 ## Parameters
 
-• **url**: `string`
-
-The URL to replace the media URL prefix in
-
-• **mediaUrlPrefix?**: `RegExp`
-
-The regex to match the media URL prefix
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to replace the media URL prefix in |
+| `mediaUrlPrefix`? | `RegExp` | The regex to match the media URL prefix |
 
 ## Returns
 

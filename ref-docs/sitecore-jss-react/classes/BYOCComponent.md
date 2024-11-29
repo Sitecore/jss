@@ -25,7 +25,9 @@ component props
 
 #### Parameters
 
-• **props**: [`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)
+| Parameter | Type |
+| ------ | ------ |
+| `props` | [`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md) |
 
 #### Returns
 
@@ -37,7 +39,7 @@ component props
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:91](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L91)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:91](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L91)
 
 ## Properties
 
@@ -127,7 +129,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1033
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:89](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L89)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:89](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L89)
 
 ***
 
@@ -175,7 +177,9 @@ the entire component tree to unmount.
 
 #### Parameters
 
-• **error**: `Error`
+| Parameter | Type |
+| ------ | ------ |
+| `error` | `Error` |
 
 #### Returns
 
@@ -187,7 +191,7 @@ the entire component tree to unmount.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:101](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L101)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:101](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L101)
 
 ***
 
@@ -221,11 +225,11 @@ The snapshot is only present if [getSnapshotBeforeUpdate](BYOCComponent.md#getsn
 
 #### Parameters
 
-• **prevProps**: `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\>
-
-• **prevState**: `Readonly`\<`object`\>
-
-• **snapshot?**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `prevProps` | `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\> |
+| `prevState` | `Readonly`\<`object`\> |
+| `snapshot`? | `any` |
 
 #### Returns
 
@@ -291,9 +295,10 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -353,11 +358,11 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\>
-
-• **nextState**: `Readonly`\<`object`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\> |
+| `nextState` | `Readonly`\<`object`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -388,7 +393,9 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1511
 
 #### Parameters
 
-• **callback?**
+| Parameter | Type |
+| ------ | ------ |
+| `callback`? | () => `void` |
 
 #### Returns
 
@@ -417,9 +424,10 @@ lifecycle events from running.
 
 #### Parameters
 
-• **prevProps**: `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\>
-
-• **prevState**: `Readonly`\<`object`\>
+| Parameter | Type |
+| ------ | ------ |
+| `prevProps` | `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\> |
+| `prevState` | `Readonly`\<`object`\> |
 
 #### Returns
 
@@ -449,7 +457,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1426
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:105](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L105)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:105](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L105)
 
 ***
 
@@ -459,13 +467,16 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1426
 
 #### Type Parameters
 
-• **K** *extends* `never`
+| Type Parameter |
+| ------ |
+| `K` *extends* `never` |
 
 #### Parameters
 
-• **state**: `object` \| (`prevState`, `props`) => `object` \| `Pick`\<`object`, `K`\> \| `Pick`\<`object`, `K`\>
-
-• **callback?**
+| Parameter | Type |
+| ------ | ------ |
+| `state` | `object` \| (`prevState`, `props`) => `object` \| `Pick`\<`object`, `K`\> \| `Pick`\<`object`, `K`\> |
+| `callback`? | () => `void` |
 
 #### Returns
 
@@ -496,11 +507,11 @@ and `componentDidUpdate` will not be called.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\>
-
-• **nextState**: `Readonly`\<`object`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\> |
+| `nextState` | `Readonly`\<`object`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -570,9 +581,10 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -613,11 +625,11 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\>
-
-• **nextState**: `Readonly`\<`object`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`BYOCComponentProps`](../type-aliases/BYOCComponentProps.md)\> |
+| `nextState` | `Readonly`\<`object`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -648,7 +660,9 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1527
 
 #### Parameters
 
-• **error**: `Error`
+| Parameter | Type |
+| ------ | ------ |
+| `error` | `Error` |
 
 #### Returns
 
@@ -660,4 +674,4 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1527
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:96](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L96)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:96](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L96)

@@ -16,9 +16,9 @@ Resolves site based on the provided host or site name
 
 #### Parameters
 
-• **sites**: [`SiteInfo`](../type-aliases/SiteInfo.md)[]
-
-Array of sites to be used in resolution
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `sites` | [`SiteInfo`](../type-aliases/SiteInfo.md)[] | Array of sites to be used in resolution |
 
 #### Returns
 
@@ -38,9 +38,9 @@ Resolve site by host name
 
 #### Parameters
 
-• **hostName**: `string`
-
-the host name
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `hostName` | `string` | the host name |
 
 #### Returns
 
@@ -66,9 +66,9 @@ Resolve site by site name
 
 #### Parameters
 
-• **siteName**: `string`
-
-the site name
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `siteName` | `string` | the site name |
 
 #### Returns
 
@@ -116,9 +116,10 @@ sitecore-jss/types/site/site-resolver.d.ts:6
 
 #### Parameters
 
-• **hostname**: `string`
-
-• **pattern**: `string`
+| Parameter | Type |
+| ------ | ------ |
+| `hostname` | `string` |
+| `pattern` | `string` |
 
 #### Returns
 

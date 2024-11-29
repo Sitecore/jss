@@ -16,9 +16,9 @@ by default JSS includes the following properties in this context:
 
 ## Parameters
 
-• **options?**: [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md)
-
-hook options
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options`? | [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md) | hook options |
 
 ## Returns
 
@@ -36,7 +36,9 @@ hook options
 
 #### Parameters
 
-• **value**: [`LayoutServiceData`](../interfaces/LayoutServiceData.md) \| [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
+| Parameter | Type |
+| ------ | ------ |
+| `value` | [`LayoutServiceData`](../interfaces/LayoutServiceData.md) \| [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md) |
 
 #### Returns
 
@@ -65,4 +67,4 @@ const EditMode = () => {
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:65](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L65)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:65](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L65)

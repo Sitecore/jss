@@ -10,7 +10,9 @@
 
 ## Parameters
 
-• **url**: `string`
+| Parameter | Type |
+| ------ | ------ |
+| `url` | `string` |
 
 ## Returns
 
@@ -30,4 +32,4 @@
 
 ## Defined in
 
-[sitecore-jss-proxy/src/types/RouteUrlParser.ts:1](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-proxy/src/types/RouteUrlParser.ts#L1)
+[sitecore-jss-proxy/src/types/RouteUrlParser.ts:1](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-proxy/src/types/RouteUrlParser.ts#L1)

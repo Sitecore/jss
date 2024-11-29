@@ -12,7 +12,9 @@ Checks whether a Sitecore datasource is present and renders appropriately depend
 
 ## Parameters
 
-• **options?**: `WithDatasourceCheckOptions`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options`? | `WithDatasourceCheckOptions` |  |
 
 ## Returns
 
@@ -23,11 +25,15 @@ The wrapped component, if a datasource is present.
 
 ### Type Parameters
 
-• **ComponentProps** *extends* `WithDatasourceCheckProps`
+| Type Parameter |
+| ------ |
+| `ComponentProps` *extends* `WithDatasourceCheckProps` |
 
 ### Parameters
 
-• **Component**: `React.ComponentType`\<`ComponentProps`\>
+| Parameter | Type |
+| ------ | ------ |
+| `Component` | `React.ComponentType`\<`ComponentProps`\> |
 
 ### Returns
 
@@ -35,7 +41,9 @@ The wrapped component, if a datasource is present.
 
 #### Parameters
 
-• **props**: `ComponentProps`
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `ComponentProps` |
 
 #### Returns
 

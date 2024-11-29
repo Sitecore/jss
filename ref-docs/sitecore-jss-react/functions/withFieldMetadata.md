@@ -12,19 +12,17 @@ Wraps the field component with metadata markup intended to be used for chromes h
 
 ## Type Parameters
 
-• **FieldComponentProps** *extends* `WithMetadataProps`
-
-• **RefElementType** = `HTMLElement`
+| Type Parameter | Default type |
+| ------ | ------ |
+| `FieldComponentProps` *extends* `WithMetadataProps` | - |
+| `RefElementType` | `HTMLElement` |
 
 ## Parameters
 
-• **FieldComponent**: `ComponentType`\<`FieldComponentProps`\>
-
-the field component
-
-• **isForwardRef**: `boolean` = `false`
-
-set to 'true' if forward reference is needed
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `FieldComponent` | `ComponentType`\<`FieldComponentProps`\> | `undefined` | the field component |
+| `isForwardRef` | `boolean` | `false` | set to 'true' if forward reference is needed |
 
 ## Returns
 
@@ -32,4 +30,4 @@ set to 'true' if forward reference is needed
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withFieldMetadata.tsx:16](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react/src/enhancers/withFieldMetadata.tsx#L16)
+[packages/sitecore-jss-react/src/enhancers/withFieldMetadata.tsx:16](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/enhancers/withFieldMetadata.tsx#L16)

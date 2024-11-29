@@ -18,9 +18,9 @@ Creates an instance of graphQL error pages service with the provided options
 
 #### Parameters
 
-• **options**: [`GraphQLErrorPagesServiceConfig`](../interfaces/GraphQLErrorPagesServiceConfig.md)
-
-instance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options` | [`GraphQLErrorPagesServiceConfig`](../interfaces/GraphQLErrorPagesServiceConfig.md) | instance |
 
 #### Returns
 

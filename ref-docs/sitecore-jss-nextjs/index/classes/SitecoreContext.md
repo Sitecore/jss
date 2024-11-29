@@ -18,7 +18,9 @@
 
 #### Parameters
 
-• **props**: `SitecoreContextProps`
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `SitecoreContextProps` |
 
 #### Returns
 
@@ -112,9 +114,9 @@ Update context state. Value can be
 
 #### Parameters
 
-• **value**: [`LayoutServiceData`](../interfaces/LayoutServiceData.md) \| [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
-
-New context value
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `value` | [`LayoutServiceData`](../interfaces/LayoutServiceData.md) \| [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md) | New context value |
 
 #### Returns
 
@@ -216,9 +218,10 @@ the entire component tree to unmount.
 
 #### Parameters
 
-• **error**: `Error`
-
-• **errorInfo**: `ErrorInfo`
+| Parameter | Type |
+| ------ | ------ |
+| `error` | `Error` |
+| `errorInfo` | `ErrorInfo` |
 
 #### Returns
 
@@ -264,7 +267,9 @@ The snapshot is only present if [getSnapshotBeforeUpdate](SitecoreContext.md#get
 
 #### Parameters
 
-• **prevProps**: `SitecoreContextProps`
+| Parameter | Type |
+| ------ | ------ |
+| `prevProps` | `SitecoreContextProps` |
 
 #### Returns
 
@@ -330,9 +335,10 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<`SitecoreContextProps`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -392,11 +398,11 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<`SitecoreContextProps`\>
-
-• **nextState**: `Readonly`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextState` | `Readonly`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -427,7 +433,9 @@ sitecore-jss-react/node\_modules/@types/react/index.d.ts:1511
 
 #### Parameters
 
-• **layoutData?**: [`LayoutServiceData`](../interfaces/LayoutServiceData.md)
+| Parameter | Type |
+| ------ | ------ |
+| `layoutData`? | [`LayoutServiceData`](../interfaces/LayoutServiceData.md) |
 
 #### Returns
 
@@ -445,7 +453,9 @@ sitecore-jss-react/types/components/SitecoreContext.d.ts:34
 
 #### Parameters
 
-• **callback?**
+| Parameter | Type |
+| ------ | ------ |
+| `callback`? | () => `void` |
 
 #### Returns
 
@@ -474,9 +484,10 @@ lifecycle events from running.
 
 #### Parameters
 
-• **prevProps**: `Readonly`\<`SitecoreContextProps`\>
-
-• **prevState**: `Readonly`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>
+| Parameter | Type |
+| ------ | ------ |
+| `prevProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `prevState` | `Readonly`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
 
 #### Returns
 
@@ -516,13 +527,16 @@ sitecore-jss-react/types/components/SitecoreContext.d.ts:42
 
 #### Type Parameters
 
-• **K** *extends* keyof [`SitecoreContextState`](../interfaces/SitecoreContextState.md)
+| Type Parameter |
+| ------ |
+| `K` *extends* keyof [`SitecoreContextState`](../interfaces/SitecoreContextState.md) |
 
 #### Parameters
 
-• **state**: `null` \| [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| (`prevState`, `props`) => `null` \| [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| `Pick`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> \| `Pick`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\>
-
-• **callback?**
+| Parameter | Type |
+| ------ | ------ |
+| `state` | `null` \| [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| (`prevState`, `props`) => `null` \| [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| `Pick`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> \| `Pick`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> |
+| `callback`? | () => `void` |
 
 #### Returns
 
@@ -553,11 +567,11 @@ and `componentDidUpdate` will not be called.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<`SitecoreContextProps`\>
-
-• **nextState**: `Readonly`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextState` | `Readonly`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -627,9 +641,10 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<`SitecoreContextProps`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -670,11 +685,11 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<`SitecoreContextProps`\>
-
-• **nextState**: `Readonly`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`SitecoreContextProps`\> |
+| `nextState` | `Readonly`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\> |
+| `nextContext` | `any` |
 
 #### Returns
 

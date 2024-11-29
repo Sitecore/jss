@@ -16,17 +16,11 @@ If no `params` are sent, the original media URL is returned.
 
 ## Parameters
 
-• **url**: `string`
-
-The URL to prepare
-
-• **params?**: `null` \| `object`
-
-The querystring parameters to use
-
-• **mediaUrlPrefix?**: `RegExp`
-
-The regex to match the media URL prefix
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to prepare |
+| `params`? | `null` \| `object` | The querystring parameters to use |
+| `mediaUrlPrefix`? | `RegExp` | The regex to match the media URL prefix |
 
 ## Returns
 

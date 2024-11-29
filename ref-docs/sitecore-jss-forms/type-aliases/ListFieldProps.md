@@ -10,8 +10,10 @@
 
 ## Type Parameters
 
-• **TViewModel** *extends* `ListViewModel` = `ListViewModel`
+| Type Parameter | Default type |
+| ------ | ------ |
+| `TViewModel` *extends* `ListViewModel` | `ListViewModel` |
 
 ## Defined in
 
-[src/FieldProps.ts:61](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/FieldProps.ts#L61)
+[src/FieldProps.ts:61](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/FieldProps.ts#L61)

@@ -18,7 +18,9 @@
 
 #### Parameters
 
-• **props**: [`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>
+| Parameter | Type |
+| ------ | ------ |
+| `props` | [`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\> |
 
 #### Returns
 
@@ -38,9 +40,10 @@ node\_modules/@types/react/index.d.ts:1008
 
 #### Parameters
 
-• **props**: [`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>
-
-• **context**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `props` | [`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\> |
+| `context` | `any` |
 
 #### Returns
 
@@ -100,7 +103,7 @@ node\_modules/@types/react/index.d.ts:1006
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
+[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
 
 ***
 
@@ -152,7 +155,7 @@ node\_modules/@types/react/index.d.ts:1033
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
+[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
 
 ***
 
@@ -214,9 +217,10 @@ the entire component tree to unmount.
 
 #### Parameters
 
-• **error**: `Error`
-
-• **errorInfo**: `ErrorInfo`
+| Parameter | Type |
+| ------ | ------ |
+| `error` | `Error` |
+| `errorInfo` | `ErrorInfo` |
 
 #### Returns
 
@@ -262,7 +266,9 @@ The snapshot is only present if [getSnapshotBeforeUpdate](FileUpload.md#getsnaps
 
 #### Parameters
 
-• **prevProps**: [`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>
+| Parameter | Type |
+| ------ | ------ |
+| `prevProps` | [`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\> |
 
 #### Returns
 
@@ -274,7 +280,7 @@ The snapshot is only present if [getSnapshotBeforeUpdate](FileUpload.md#getsnaps
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
+[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
 
 ***
 
@@ -328,9 +334,10 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -390,11 +397,11 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
-
-• **nextState**: `Readonly`\<`object`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\> |
+| `nextState` | `Readonly`\<`object`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -425,7 +432,9 @@ node\_modules/@types/react/index.d.ts:1511
 
 #### Parameters
 
-• **callback?**
+| Parameter | Type |
+| ------ | ------ |
+| `callback`? | () => `void` |
 
 #### Returns
 
@@ -447,7 +456,9 @@ node\_modules/@types/react/index.d.ts:1023
 
 #### Parameters
 
-• **itemId**: `string`
+| Parameter | Type |
+| ------ | ------ |
+| `itemId` | `string` |
 
 #### Returns
 
@@ -455,7 +466,7 @@ node\_modules/@types/react/index.d.ts:1023
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
+[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
 
 ***
 
@@ -465,7 +476,9 @@ node\_modules/@types/react/index.d.ts:1023
 
 #### Parameters
 
-• **value**: `number`
+| Parameter | Type |
+| ------ | ------ |
+| `value` | `number` |
 
 #### Returns
 
@@ -473,7 +486,7 @@ node\_modules/@types/react/index.d.ts:1023
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
+[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
 
 ***
 
@@ -490,9 +503,10 @@ lifecycle events from running.
 
 #### Parameters
 
-• **prevProps**: `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
-
-• **prevState**: `Readonly`\<`object`\>
+| Parameter | Type |
+| ------ | ------ |
+| `prevProps` | `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\> |
+| `prevState` | `Readonly`\<`object`\> |
 
 #### Returns
 
@@ -514,11 +528,11 @@ node\_modules/@types/react/index.d.ts:1426
 
 #### Parameters
 
-• **files**: `null` \| `FileList`
-
-• **field**: `ValueFormField`\<`FileInputViewModel`\>
-
-• **cb**: [`FieldChangeCallback`](../type-aliases/FieldChangeCallback.md)
+| Parameter | Type |
+| ------ | ------ |
+| `files` | `null` \| `FileList` |
+| `field` | `ValueFormField`\<`FileInputViewModel`\> |
+| `cb` | [`FieldChangeCallback`](../type-aliases/FieldChangeCallback.md) |
 
 #### Returns
 
@@ -526,7 +540,7 @@ node\_modules/@types/react/index.d.ts:1426
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
+[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
 
 ***
 
@@ -544,7 +558,7 @@ node\_modules/@types/react/index.d.ts:1426
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/ff400466a8d16483c667d9a837e1247d6192035e/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
+[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
 
 ***
 
@@ -554,13 +568,16 @@ node\_modules/@types/react/index.d.ts:1426
 
 #### Type Parameters
 
-• **K** *extends* `never`
+| Type Parameter |
+| ------ |
+| `K` *extends* `never` |
 
 #### Parameters
 
-• **state**: `null` \| `object` \| (`prevState`, `props`) => `null` \| `object` \| `Pick`\<`object`, `K`\> \| `Pick`\<`object`, `K`\>
-
-• **callback?**
+| Parameter | Type |
+| ------ | ------ |
+| `state` | `null` \| `object` \| (`prevState`, `props`) => `null` \| `object` \| `Pick`\<`object`, `K`\> \| `Pick`\<`object`, `K`\> |
+| `callback`? | () => `void` |
 
 #### Returns
 
@@ -591,11 +608,11 @@ and `componentDidUpdate` will not be called.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
-
-• **nextState**: `Readonly`\<`object`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\> |
+| `nextState` | `Readonly`\<`object`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -665,9 +682,10 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -708,11 +726,11 @@ this from being invoked.
 
 #### Parameters
 
-• **nextProps**: `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
-
-• **nextState**: `Readonly`\<`object`\>
-
-• **nextContext**: `any`
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\> |
+| `nextState` | `Readonly`\<`object`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
