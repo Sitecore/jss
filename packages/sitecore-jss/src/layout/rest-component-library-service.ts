@@ -1,4 +1,5 @@
-import { LayoutServiceData, RestLayoutServiceConfig, RestLayoutService, EditMode } from '../layout';
+import { RestLayoutServiceConfig, RestLayoutService } from './rest-layout-service';
+import { LayoutServiceData, EditMode } from './models';
 import { IncomingMessage, ServerResponse } from 'http';
 import { debug, fetchData } from '..';
 
