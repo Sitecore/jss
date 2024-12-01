@@ -38,11 +38,10 @@ class ComponentLibraryModePlugin implements Plugin {
         );
       }
 
-      // props.site = componentData.layoutData.sitecore.context.site as SiteInfo;
       props.locale = context.previewData.language;
       props.layoutData = componentData;
-      // props.dictionary = componentData.dictionary;
       props.headLinks = [];
+      // props.dictionary = componentData.dictionary;
 
       return props;
     }
