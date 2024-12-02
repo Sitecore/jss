@@ -42,7 +42,7 @@ const data = {
   },
 };
 
-data[EDITING_COMPONENT_PLACEHOLDER] = [
+data.layoutData.sitecore.route.placeholders[EDITING_COMPONENT_PLACEHOLDER] = [
   {
     uid: 'e02ddb9b-a062-5e50-924a-1940d7e053ce',
     componentName: 'ContentBlock',

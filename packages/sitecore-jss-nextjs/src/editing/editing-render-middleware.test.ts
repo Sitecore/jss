@@ -206,6 +206,7 @@ describe('EditingRenderMiddleware', () => {
     describe('Component Library handling', () => {
       const query = {
         mode: 'library',
+        route: '/styleguide',
         sc_itemid: '{11111111-1111-1111-1111-111111111111}',
         sc_lang: 'en',
         sc_site: 'website',

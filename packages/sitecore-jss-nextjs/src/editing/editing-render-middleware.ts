@@ -390,7 +390,6 @@ export class MetadataHandler {
           variant: query.sc_variant || DEFAULT_VARIANT,
           version: query.sc_version,
         } as ComponentLibraryRenderPreviewData,
-        // Cache the preview data for 3 seconds to ensure the page is rendered with the correct preview data not the cached one
         {
           maxAge: 3,
         }
