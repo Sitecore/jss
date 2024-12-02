@@ -37,10 +37,10 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
           <link rel={headLink.rel} key={headLink.href} href={headLink.href} />
         ))}
       </Head>
-      <% if (xmcloud) {-%>
       {/* root placeholder for the app, which we add components to using route data */}
+      <% if (xmcloud) {-%>      
       {layoutData.sitecore.context.renderingType === 'component' ? (
-        <ComponentLibraryLayout layoutData={layoutData} config={config} />
+        <ComponentLibraryLayout {...layoutData} />
       ) :  <% } -%> (
         <div className={mainClassPageEditing}>
           <header>
