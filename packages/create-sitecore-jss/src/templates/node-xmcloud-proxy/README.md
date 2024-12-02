@@ -1,6 +1,7 @@
 # Node XM Cloud Proxy
 
-> Sitecore JSS Proxy for XM Cloud is considered experimental.
+> Sitecore JSS Proxy for XM Cloud is currently in public beta.
+> If you encounter any issues or bugs feel free to submit new issue in [Jss GitHub](https://github.com/Sitecore/jss)
 
 [Documentation](TODO)
 
@@ -17,6 +18,11 @@ This is a sample setup showing one of how you can configure XM Cloud rendering s
 - `XM Cloud proxy personalization` with embedded personalization and A/B Component Test support.
 
 - `Forms support`: provides the capability to consume and post Sitecore Forms from JSS apps. Sitecore Forms is a form-authoring framework that enables marketers to author their own forms, collect data, and analyze form performance.
+
+> Features not yet supported:
+> - Multisite
+> - XM CLoud Components
+> - SXA redirects
 
 ## Configuration Setup
 
@@ -72,9 +78,11 @@ The following environment variables can be set to configure the Proxy sample ins
 You should be able to see the following message:
 `server listening on port 3000!`.
 
-## Deploy to Netlify
+## Deployment options
 
-`NOTE: If you are using the Angular starter from the XM-Cloud Foundation repository within a monorepo, please skip to Step 3.`
+### Deploy to Netlify
+
+Follow the steps below to deploy your starter SPA (instructions are for Angular SPA, more to follow in the future). The Neylify deployment has been tested and can be used as editing host in XM Cloud.
 
 1. Run `npm init` in the root directory and add the following scripts to package.json:
    ```
@@ -128,3 +136,7 @@ You should be able to see the following message:
         Publish directory: /proxy/dist
         Functions directory: /proxy/src
    NOTE: If proxy/dist folder is not picked up properly by Netlify make sure that the `PROXY_BUILD_PATH` env variable is unix style path e.g. `../proxy/dist`
+
+### Deploy to Vercel
+
+> Deployment to Vercel is not supported yet.
