@@ -1,7 +1,7 @@
 # Node XM Cloud Proxy
 
-> Sitecore JSS Proxy for XM Cloud is currently in public beta.
-> If you encounter any issues or bugs feel free to submit new issue in [Jss GitHub](https://github.com/Sitecore/jss)
+> Sitecore JSS Proxy for XM Cloud is in public beta.
+> If you encounter any issues or bugs, please submit a new issue in the [Jss GitHub Repo](https://github.com/Sitecore/jss)
 
 [Documentation](TODO)
 
@@ -15,7 +15,7 @@ This is a sample setup showing one of how you can configure XM Cloud rendering s
 
 - `XM Cloud Pages editing integration`: full integration with Pages - the dynamic visual page editor of XM Cloud.
 
-- `XM Cloud proxy personalization` with embedded personalization and A/B Component Test support.
+- `XM Cloud proxy personalization` with embedded personalization and Component A/B Testing support.
 
 - `Forms support`: provides the capability to consume and post Sitecore Forms from JSS apps. Sitecore Forms is a form-authoring framework that enables marketers to author their own forms, collect data, and analyze form performance.
 
@@ -82,7 +82,7 @@ You should be able to see the following message:
 
 ### Deploy to Netlify
 
-Follow the steps below to deploy your starter SPA (instructions are for Angular SPA, more to follow in the future). The Neylify deployment has been tested and can be used as editing host in XM Cloud.
+Follow these steps to deploy your starter SPA to Netlify (instructions are for Angular SPA, with more to follow in the future). The Netlify deployment has been tested and can be used as editing host in XM Cloud.
 
 1. Run `npm init` in the root directory and add the following scripts to package.json:
    ```
@@ -139,4 +139,4 @@ Follow the steps below to deploy your starter SPA (instructions are for Angular 
 
 ### Deploy to Vercel
 
-> Deployment to Vercel is not supported yet.
+> Deployment to Vercel is not yet supported.
