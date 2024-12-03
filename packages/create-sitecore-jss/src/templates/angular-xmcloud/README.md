@@ -15,7 +15,16 @@ This Single Page Application (SPA) built with Angular is designed to be fully co
 
 - `Forms support`: provides the capability to consume and post Sitecore Forms from JSS apps. Sitecore Forms is a form-authoring framework that enables marketers to author their own forms, collect data, and analyze form performance.
 
+- `Internationalization` support
+
 This SPA is tailored to enhance development workflows and enable full utilization of XM Cloud’s capabilities, providing a seamless and efficient foundation for developers.
+
+> The following features and integrations are not yet supported by Angular and Proxy apps for XM Cloud:
+> - Multisite
+> - XM CLoud Components application
+> - BYOC components
+> - SXA sitemap, redirects, error pages
+> - Sitecore Experience Editor
 
 ## Components and Supporting Applications
 
@@ -46,11 +55,13 @@ The following environment variables can be set to configure the angular app. You
 
 ### Running the application in production mode
 
-To build and run in production mode you need to have your angular app side by side with the [Node XM CLoud proxy](https://github.com/Sitecore/jss/tree/dev/packages/create-sitecore-jss/src/templates/node-xmcloud-proxy). For additional information on how to set up and run SPA app in production mode against XM CLoud instance you can check the [spa-starters](https://github.com/sitecorelabs/xmcloud-foundation-head/tree/main/headapps/spa-starter) monoreopo readme.
+To build and run in production mode you need to have your angular app side by side with the [Node XM CLoud proxy](https://github.com/Sitecore/jss/tree/dev/packages/create-sitecore-jss/src/templates/node-xmcloud-proxy). 
 
 1. Run `npm install` for both angular and proxy apps
 2. Run `npm run build` in the angular app root; this will build the angular app and copy the the resulting `/dist` folder into the specified proxy app folder
 3. Run `npm run start` in the proxy app root
+
+For additional information on how to set up and run SPA app in production mode against XM CLoud instance you can check the [spa-starters monorepo](https://github.com/sitecorelabs/xmcloud-foundation-head/tree/main/headapps/spa-starter) in the xmcloud foundation starter kit.
 
 ### Running the application in connected mode
 

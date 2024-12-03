@@ -19,10 +19,14 @@ This is a sample setup showing one of how you can configure XM Cloud rendering s
 
 - `Forms support`: provides the capability to consume and post Sitecore Forms from JSS apps. Sitecore Forms is a form-authoring framework that enables marketers to author their own forms, collect data, and analyze form performance.
 
-> Features not yet supported:
+- `Internationalization` support
+
+> The following features and integrations are not yet supported by Angular and Proxy apps for XM Cloud:
 > - Multisite
-> - XM CLoud Components
-> - SXA redirects
+> - XM CLoud Components application
+> - BYOC components
+> - SXA sitemap, redirects, error pages
+> - Sitecore Experience Editor
 
 ## Configuration Setup
 
