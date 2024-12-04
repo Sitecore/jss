@@ -41,7 +41,6 @@ class ComponentLibraryModePlugin implements Plugin {
       props.locale = context.previewData.language;
       props.layoutData = componentData;
       props.headLinks = [];
-      // props.dictionary = componentData.dictionary;
 
       return props;
     }
