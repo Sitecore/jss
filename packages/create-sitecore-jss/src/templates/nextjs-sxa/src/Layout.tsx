@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import Head from 'next/head';
-import { Placeholder, LayoutServiceData, Field, HTMLLink, ComponentLibraryLayout } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Placeholder, LayoutServiceData, Field, HTMLLink, ComponentLibraryLayout, RenderingType } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 import Scripts from 'src/Scripts';
 
@@ -39,7 +39,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
       </Head>
       {/* root placeholder for the app, which we add components to using route data */}
       <% if (xmcloud) {-%>
-      {layoutData.sitecore.context.renderingType === 'component' ? (
+      {layoutData.sitecore.context.renderingType === RenderingType.Component ? (
         <ComponentLibraryLayout {...layoutData} />
       ) :  <% } -%> (
         <div className={mainClassPageEditing}>

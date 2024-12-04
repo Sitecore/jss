@@ -17,8 +17,7 @@ class PreviewModePlugin implements Plugin {
   order = 1;
 
   async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
-    if (!context.preview) return props;
-    if (isComponentLibraryPreviewData(context.previewData)) return props;
+    if (!context.preview || isComponentLibraryPreviewData(context.previewData)) return props;
 
     // If we're in Pages preview (editing) Metadata Edit Mode, prefetch the editing data
     if (isEditingMetadataPreviewData(context.previewData)) {

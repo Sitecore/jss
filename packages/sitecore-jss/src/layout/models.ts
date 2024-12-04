@@ -41,7 +41,7 @@ export interface LayoutServiceContext {
   site?: {
     name?: string;
   };
-  renderingType?: 'component';
+  renderingType?: RenderingType;
   editMode?: EditMode;
   clientScripts?: string[];
   clientData?: Record<string, Record<string, unknown>>;
