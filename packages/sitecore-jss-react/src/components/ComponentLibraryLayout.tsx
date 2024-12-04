@@ -8,6 +8,9 @@ import {
   GenericFieldValue,
   LayoutServiceData,
 } from '@sitecore-jss/sitecore-jss/layout';
+import {
+  COMPONENT_LIBRARY_READY_MESSAGE,
+} from '@sitecore-jss/sitecore-jss/component-library';
 import { EDITING_ALLOWED_ORIGINS } from '@sitecore-jss/sitecore-jss/editing';
 import { getAllowedOriginsFromEnv } from '@sitecore-jss/sitecore-jss/utils';
 
@@ -25,20 +28,21 @@ export const ComponentLibraryLayout = (layoutData: LayoutServiceData): JSX.Eleme
   let componentReady = false;
   let updateListenerReady = false;
   const allowedOrigins = EDITING_ALLOWED_ORIGINS.concat(getAllowedOriginsFromEnv());
-
   useEffect(() => {
     // useEffect will fire when components are ready - and we inform the whole wide world of it too
     if (!componentReady) {
       componentReady = true;
-      window.postMessage({ name: 'component:status', message: 'ready' });
+      window.postMessage(COMPONENT_LIBRARY_READY_MESSAGE, '*');
     }
     if (!updateListenerReady) {
       window.addEventListener('message', (e) => {
+        alert('event!');
         if (
           !e.origin ||
           !allowedOrigins.find((origin) => origin === e.origin) ||
           e.data.name !== 'component:update'
         ) {
+          console.log('skipped %s %s', e.origin, e.data.name);
           return;
         }
         const eventArgs: ComponentUpdateEventArgs = {
@@ -75,7 +79,6 @@ export const ComponentLibraryLayout = (layoutData: LayoutServiceData): JSX.Eleme
           );
           updateComponent.fields = { ...updateComponent.fields, ...eventArgs.fields };
           updateComponent.params = { ...updateComponent.params, ...eventArgs.params };
-          // trigger re-render
           setRenderSwitch(!renderSwitch);
         } else {
           console.debug('Rendering with uid %s not found', eventArgs.uid);

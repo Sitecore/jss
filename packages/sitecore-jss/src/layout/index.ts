@@ -33,10 +33,6 @@ export {
 export { getContentStylesheetLink } from './content-styles';
 
 export { LayoutService } from './layout-service';
-export {
-  RestComponentLibraryService,
-  ComponentLibraryRequestParams,
-} from './rest-component-library-service';
 
 export {
   RestLayoutService,
