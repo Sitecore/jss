@@ -375,6 +375,7 @@ export class MetadataHandler {
         )}</body></html>`,
       });
     }
+
     if (mode === 'library') {
       res.setPreviewData(
         {
