@@ -64,7 +64,7 @@ describe('FormComponent', () => {
     const mockResponse = {
       text: () =>
         Promise.resolve(
-          '<div>Form Content</div>\n' +
+          '<form id="test-form"><input type="text"></form>\n' +
             '<script type="javascript">console.log(\'script 1\');</script>\n' +
             '<script type="javascript">console.log(\'script 2\');</script>'
         ),
@@ -72,10 +72,10 @@ describe('FormComponent', () => {
     };
     spyOn(window, 'fetch').and.returnValue(Promise.resolve(mockResponse as Response));
     spyOn(component, 'executeScriptElements').and.callThrough();
+    spyOn(component, 'subscribeToFormSubmitEvent').and.callThrough();
 
     const createElementSpy = spyOn(document, 'createElement').and.callThrough();
     const replaceChildSpy = spyOn(elementRef.nativeElement, 'replaceChild').and.callThrough();
-
     fixture.detectChanges();
 
     tick();
@@ -91,11 +91,16 @@ describe('FormComponent', () => {
     );
 
     expect(elementRef.nativeElement.innerHTML).toBe(
-      '<div>Form Content</div>\n' +
+      '<form id="test-form"><input type="text"></form>\n' +
         '<script type="javascript">console.log(\'script 1\');</script>\n' +
         '<script type="javascript">console.log(\'script 2\');</script>'
     );
     expect(component.executeScriptElements).toHaveBeenCalled();
+    expect(component.subscribeToFormSubmitEvent).toHaveBeenCalled();
+
+    const formElement = elementRef.nativeElement.querySelector('form');
+
+    expect(formElement).not.toBeNull();
 
     expect(createElementSpy).toHaveBeenCalledTimes(2);
     expect(createElementSpy.calls.allArgs()).toEqual([['script'], ['script']]);
@@ -133,6 +138,7 @@ describe('FormComponent', () => {
     };
     spyOn(window, 'fetch').and.returnValue(Promise.resolve(mockResponse as Response));
     spyOn(component, 'executeScriptElements').and.callThrough();
+    spyOn(component, 'subscribeToFormSubmitEvent').and.callThrough();
 
     const createElementSpy = spyOn(document, 'createElement').and.callThrough();
     const replaceChildSpy = spyOn(elementRef.nativeElement, 'replaceChild').and.callThrough();
@@ -156,6 +162,7 @@ describe('FormComponent', () => {
         '<script type="javascript">console.log(\'script 2\');</script>'
     );
     expect(component.executeScriptElements).toHaveBeenCalled();
+    expect(component.subscribeToFormSubmitEvent).toHaveBeenCalled();
 
     expect(createElementSpy).toHaveBeenCalledTimes(2);
     expect(createElementSpy.calls.allArgs()).toEqual([['script'], ['script']]);
@@ -172,6 +179,41 @@ describe('FormComponent', () => {
       '<script type="javascript">console.log(\'script 2\');</script>'
     );
   }));
+
+  it('should log a warning if no form element is found', () => {
+    init();
+
+    const consoleWarnSpy = spyOn(console, 'warn').and.callThrough();
+
+    component.subscribeToFormSubmitEvent();
+
+    expect(consoleWarnSpy).toHaveBeenCalledWith(
+      'No form element found to subscribe to submit event.'
+    );
+  });
+
+  it('should not trigger the form event if the component is in editing or preview mode', () => {
+    init();
+
+    component.isEditing = true;
+
+    const mockFormElement = document.createElement('form');
+    mockElementRef.nativeElement.appendChild(mockFormElement);
+
+    const consoleSpy = spyOn(console, 'log');
+    const formSpy = jasmine.createSpy('form');
+
+    (window as any).form = formSpy;
+
+    component.subscribeToFormSubmitEvent();
+
+    const validEvent = new CustomEvent('form:engage', {
+      detail: { formId: 'test-form-id', name: 'SUBMITTED' },
+    });
+    mockFormElement.dispatchEvent(validEvent);
+
+    expect(consoleSpy).not.toHaveBeenCalled();
+  });
 
   describe('when FormId is not provided', () => {
     it('editing mode - should log warning and render error', fakeAsync(() => {

@@ -79,7 +79,8 @@ Our versioning strategy is as follows:
   * `[angular-xmcloud]``[sitecore-jss-angular]` Add CDP Page View component to Angular XM Cloud add-on ([#1957](https://github.com/Sitecore/jss/pull/1957))
 * `[templates/vue]``[sitecore-jss-vue]` Vue version has been updated to 3.5
 * `[templates/angular]` Update dependencies and proxy build path value to be unix style path to support xmcloud deployment and monorepo starter kit in xmcloud foundation head ([#1977](https://github.com/Sitecore/jss/pull/1977))
-
+* `[templates/angular]``[templates/angular-sxp]``[templates/angular-xmcloud]` Updates for Angular XMC sample to work well with local containers and spa-starters monorepo in xmcloud-foundation ([#1983](https://github.com/Sitecore/jss/pull/1983))
+* `[sitecore-jss-angular]``[templates/angular]` Integrate CloudSDK events firing ([#1984](https://github.com/Sitecore/jss/pull/1984))([#1990](https://github.com/Sitecore/jss/pull/1990))
 
 ### 🛠 Breaking Change
 
@@ -97,6 +98,7 @@ Our versioning strategy is as follows:
 
 * `[templates/angular]``[templates/node-xmcloud-proxy]``[templates/node-headless-ssr-proxy]``[templates/node-headless-ssr-experience-edge]` Adjust out of box .gitignore rules
 * New Angular add-on's are not scaffolded within build pipeline ([#1962](https://github.com/Sitecore/jss/pull/1962))
+* Release process, maintenance simplification ([#1960](https://github.com/Sitecore/jss/pull/1960))
 * `[template/angular-xmcloud]``[template/xmcloud-proxy]` Add README.md ([#1965](https://github.com/Sitecore/jss/pull/1965))
 
 ## 22.2.2
