@@ -39,8 +39,8 @@ export {
   ComponentParams,
   getContentStylesheetLink,
   EditMode,
-  RestComponentLibraryService,
 } from '@sitecore-jss/sitecore-jss/layout';
+export { RestComponentLibraryService } from '@sitecore-jss/sitecore-jss/component-library';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
   trackingApi,
@@ -122,7 +122,6 @@ export { Link, LinkProps } from './components/Link';
 export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
 export { NextImage } from './components/NextImage';
-export { ComponentLibraryLayout } from './components/ComponentLibraryLayout';
 import * as FEaaSWrapper from './components/FEaaSWrapper';
 import * as BYOCWrapper from './components/BYOCWrapper';
 export { FEaaSWrapper };
@@ -153,6 +152,7 @@ export {
   File,
   FileField,
   RichTextField,
+  ComponentLibraryLayout,
   DefaultEmptyFieldEditingComponentImage,
   DefaultEmptyFieldEditingComponentText,
   VisitorIdentification,
