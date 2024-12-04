@@ -3,6 +3,7 @@ import { ComponentRendering, Field, GenericFieldValue } from '../layout/models';
 export const COMPONENT_LIBRARY_READY_MESSAGE = { name: 'component:status', message: 'ready' };
 
 export interface ComponentUpdateEventArgs {
+  name: string;
   uid: string;
   params: Record<string, string>;
   fields: Record<string, Field<GenericFieldValue>>;
@@ -18,9 +19,13 @@ export const addComponentUpdateHandler = (
   successCallback?: () => void
 ) => {
   if (!window) return;
-  window.addEventListener('message', (e) =>
-    updateComponentHandler(e, rootComponent, successCallback)
-  );
+  const handler = (e: MessageEvent) => updateComponentHandler(e, rootComponent, successCallback);
+  window.addEventListener('message', handler);
+  // the power to remove handler outside of this function, if needed
+  const unsubscribe = () => {
+    window.removeEventListener('message', handler);
+  };
+  return unsubscribe;
 };
 
 const validateOrigin = (event: MessageEvent) => {
@@ -39,22 +44,18 @@ export const updateComponentHandler = (
   rootComponent: ComponentRendering,
   successCallback?: () => void
 ) => {
-  if (!e.origin || !e.data || e.data.name !== 'component:update') {
+  const eventArgs: ComponentUpdateEventArgs = e.data;
+  if (!e.origin || !eventArgs || eventArgs.name !== 'component:update') {
     // avoid extra noise in logs
     if (!validateOrigin(e)) {
       console.debug(
         'Component Library: event skipped: message %s from origin %s',
-        e.data.name,
+        eventArgs.name,
         e.origin
       );
     }
     return;
   }
-  const eventArgs: ComponentUpdateEventArgs = {
-    uid: e.data.uid,
-    params: e.data.params,
-    fields: e.data.fields,
-  };
   if (!eventArgs.uid) {
     console.debug('Received component:update event without uid, aborting event handler...');
     return;

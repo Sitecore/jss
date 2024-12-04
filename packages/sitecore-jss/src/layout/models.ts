@@ -15,7 +15,6 @@ export enum LayoutServicePageState {
   Preview = 'preview',
   Edit = 'edit',
   Normal = 'normal',
-  Library = 'library',
 }
 
 /**

@@ -13,7 +13,7 @@ import nock from 'nock';
 
 use(spies);
 
-describe('RestLayoutService', () => {
+describe('RestComponentLibraryService', () => {
   type SetHeader = (name: string, value: unknown) => void;
 
   const defaultTestInput: ComponentLibraryRequestParams = {
@@ -40,7 +40,7 @@ describe('RestLayoutService', () => {
   it('should fetch component data', () => {
     nock('http://sctest')
       .get(
-        '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en&tracking=true'
+        '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en'
       )
       .reply(200, (_, requestBody) => ({
         requestBody: requestBody,
@@ -63,7 +63,7 @@ describe('RestLayoutService', () => {
   it('should fetch component data and invoke callbacks', () => {
     nock('http://sctest')
       .get(
-        '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en&tracking=false'
+        '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en'
       )
       .reply(200, (_, requestBody) => ({
         requestBody: requestBody,
@@ -98,7 +98,6 @@ describe('RestLayoutService', () => {
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
-      tracking: false,
     });
 
     return service
@@ -162,7 +161,7 @@ describe('RestLayoutService', () => {
 
     nock('http://sctest')
       .get(
-        '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&dataSourceId=789&sc_site=supersite&sc_lang=en&tracking=true'
+        '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&dataSourceId=789&sc_site=supersite&sc_lang=en'
       )
       .reply(200, (_, requestBody) => ({
         requestBody: requestBody,
@@ -268,7 +267,7 @@ describe('RestLayoutService', () => {
 
     nock('http://sctest')
       .get(
-        '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=mysite&sc_lang=en&tracking=true'
+        '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=mysite&sc_lang=en'
       )
       .reply(200, (_, requestBody) => ({
         requestBody: requestBody,
@@ -332,7 +331,7 @@ describe('RestLayoutService', () => {
   it('should fetch layout data using custom configuration name', () => {
     nock('http://sctest')
       .get(
-        '/sitecore/api/layout/component/listen?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en&tracking=false'
+        '/sitecore/api/layout/component/listen?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en'
       )
       .reply(200, (_, requestBody) => ({
         requestBody: requestBody,
@@ -344,7 +343,6 @@ describe('RestLayoutService', () => {
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
       configurationName: 'listen',
-      tracking: false,
     });
 
     return service
@@ -361,7 +359,7 @@ describe('RestLayoutService', () => {
 
     nock('http://sctest')
       .get(
-        '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en&tracking=true'
+        '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en'
       )
       .reply(200, () => ({
         data: defaultTestData,
@@ -381,7 +379,7 @@ describe('RestLayoutService', () => {
 
         expect(fetcherSpy).to.be.called.once;
         expect(fetcherSpy).to.be.called.with(
-          'http://sctest/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en&tracking=true'
+          'http://sctest/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en'
         );
       });
   });
@@ -389,7 +387,7 @@ describe('RestLayoutService', () => {
   it('should catch 404 when request layout data', () => {
     nock('http://sctest')
       .get(
-        '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en&tracking=true'
+        '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en'
       )
       .reply(404, () => ({
         data: {
@@ -423,7 +421,7 @@ describe('RestLayoutService', () => {
   it('should allow non 404 errors through', () => {
     nock('http://sctest')
       .get(
-        '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en&tracking=true'
+        '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en'
       )
       .reply(401, { message: 'whoops' });
 
@@ -469,7 +467,6 @@ describe('RestLayoutService', () => {
         sc_lang: testParams.language,
         sc_mode: testParams.editMode,
         sc_variant: testParams.variant,
-        tracking: true,
       };
 
       // eslint-disable-next-line dot-notation
@@ -502,7 +499,6 @@ describe('RestLayoutService', () => {
         sc_lang: testParams.language,
         sc_mode: testParams.editMode,
         sc_variant: testParams.variant,
-        tracking: true,
       };
 
       // eslint-disable-next-line dot-notation

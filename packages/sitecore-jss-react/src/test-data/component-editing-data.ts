@@ -14,7 +14,7 @@ const basicPage = {
         site: {
           name: 'JssNextWeb',
         },
-        pageState: LayoutServicePageState.Library,
+        pageState: LayoutServicePageState.Normal,
         language: 'en',
         itemPath: '/Styleguide',
       },

@@ -3,15 +3,46 @@ import { LayoutServiceData, EditMode } from '../layout/models';
 import { IncomingMessage, ServerResponse } from 'http';
 import { debug, fetchData } from '..';
 
+/**
+ * Params for requesting component data from service in Component Library mode
+ */
 export interface ComponentLibraryRequestParams {
+  /**
+   * Item id to be used as context for rendering the component
+   */
   itemId: string;
+  /**
+   * Component identifier. Can be either taken from item's layout details or
+   * an arbitrary one (component renderingId and datasource would be used for identification then)
+   */
   componentUid: string;
+  /**
+   * language to render component in
+   */
   language?: string;
+  /**
+   * optional component datasource
+   */
   dataSourceId?: string;
+  /**
+   * ID of the component definition rendering item in Sitecore
+   */
   renderingId?: string;
+  /**
+   * version of the context item (latest by default)
+   */
   version?: string;
+  /**
+   * edit mode (edit, preview) to be rendered component in. Component is rendered in normal mode by default
+   */
   editMode?: EditMode;
+  /**
+   * site name to be used as context for rendering the component
+   */
   siteName?: string;
+  /**
+   * variant to be rendered for component if set (works with rendering existing component)
+   */
   variant?: string;
 }
 
@@ -66,7 +97,6 @@ export class RestComponentLibraryService extends RestLayoutService {
         sc_lang: params.language || 'en',
         sc_mode: params.editMode,
         sc_variant: params.variant,
-        tracking: this.config.tracking ?? true,
       })
     );
   }

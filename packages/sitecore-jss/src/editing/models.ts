@@ -29,7 +29,7 @@ export interface RenderComponentQueryParams {
   sc_renderingId: string;
   sc_uid: string;
   sc_site: string;
-  mode: Exclude<LayoutServicePageState, 'normal'>;
+  mode: 'library';
   sc_variant?: string;
   sc_version?: string;
 }

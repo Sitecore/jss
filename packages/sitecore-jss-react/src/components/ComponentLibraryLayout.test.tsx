@@ -136,7 +136,7 @@ describe('<ComponentLibraryLayout />', () => {
     (updateEvent as any).data = {
       name: 'component:update',
       uid: 'test-content',
-      field: { content: { value: 'new content!' } },
+      fields: { content: { value: 'new content!' } },
     };
     await window.dispatchEvent(updateEvent);
 
@@ -178,7 +178,7 @@ describe('<ComponentLibraryLayout />', () => {
     (updateEvent as any).data = {
       name: 'component:update',
       uid: 'test-inner',
-      field: { text: { value: 'new inner content!' } },
+      fields: { text: { value: 'new inner content!' } },
     };
     await window.dispatchEvent(updateEvent);
 

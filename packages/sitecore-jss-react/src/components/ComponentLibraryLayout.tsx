@@ -15,20 +15,20 @@ export const ComponentLibraryLayout = (layoutData: LayoutServiceData): JSX.Eleme
   const { route } = layoutData.sitecore;
   const [renderSwitch, setRenderSwitch] = useState(false);
   const rootComponent = route?.placeholders[EDITING_COMPONENT_PLACEHOLDER][0] as ComponentRendering;
-  // useEffect may execute multiple times - but we only want to subscribe and fire the events once
+  // useEffect may execute multiple times on single render (i.e. in dev) - but we only want to fire ready event once
   let componentReady = false;
-  let [updateListenerReady] = useState(false);
 
   useEffect(() => {
     // useEffect will fire when components are ready - and we inform the whole wide world of it too
     if (!componentReady) {
       componentReady = true;
-      window.postMessage(COMPONENT_LIBRARY_READY_MESSAGE, '*');
+      window.top.postMessage(COMPONENT_LIBRARY_READY_MESSAGE, '*');
     }
-    if (!updateListenerReady) {
-      addComponentUpdateHandler(rootComponent, () => setRenderSwitch(!renderSwitch));
-      updateListenerReady = true;
-    }
+    const unsubscribe = addComponentUpdateHandler(rootComponent, () =>
+      setRenderSwitch(!renderSwitch)
+    );
+    // useEffect will cleanup event handler on re-render
+    return unsubscribe;
   }, []);
 
   return (
