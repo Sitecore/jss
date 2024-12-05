@@ -29,59 +29,60 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[create-sitecore-jss]` Introduced "node-xmcloud-proxy" addon ([#1863](https://github.com/Sitecore/jss/pull/1863))
-* `[create-sitecore-jss]` `[template/angular]` `[template/angular-sxp]` `[template/angular-xmcloud]` Introduced "angular-sxp", "angular-xmcloud" addons ([#1838](https://github.com/Sitecore/jss/pull/1838))([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1865](https://github.com/Sitecore/jss/pull/1865)):
+* `[Beta]` Angular support for XM Cloud with SPA Proxy:
+  * `[create-sitecore-jss]` Introduced "node-xmcloud-proxy" addon ([#1863](https://github.com/Sitecore/jss/pull/1863))
+  * `[create-sitecore-jss]` `[template/angular]` `[template/angular-sxp]` `[template/angular-xmcloud]` Introduced "angular-sxp", "angular-xmcloud" addons ([#1838](https://github.com/Sitecore/jss/pull/1838))([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1865](https://github.com/Sitecore/jss/pull/1865)):
     * The Angular app should now be initialized by providing both templates (or using CLI prompts):
       * SXP-based: 'angular,angular-sxp'
       * XMCloud-based: 'angular,angular-xmcloud'
     * Rework Angular initializer to support XMCloud and SXP journeys;
     * Add SXA styles to xmcloud addon
-* `[create-sitecore-jss]` `[template/angular]` `[template/angular-xmcloud]` `[template/node-xmcloud-proxy]` Edge Proxy / Context Id support ([#1875](https://github.com/Sitecore/jss/pull/1875))([#1885](https://github.com/Sitecore/jss/pull/1885))
-* `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1868](https://github.com/Sitecore/jss/pull/1868))([#1881](https://github.com/Sitecore/jss/pull/1881))([#1882](https://github.com/Sitecore/jss/pull/1882))([#1931](https://github.com/Sitecore/jss/pull/1931))
-  * `[create-sitecore-jss]` Allow node-xmcloud-proxy app to be installed alongside Angular SPA application
-  * `proxyAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
-* `[templates/angular]` `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/editing/config endpoint ([#1903](https://github.com/Sitecore/jss/pull/1903))
-* `[templates/angular]` `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/editing/render endpoint ([#1908](https://github.com/Sitecore/jss/pull/1908))
-* `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` Personalization support ([#1964](https://github.com/Sitecore/jss/pull/1964)[#1971](https://github.com/Sitecore/jss/pull/1971)[#1973](https://github.com/Sitecore/jss/pull/1973))
-* `[create-sitecore-jss]` `[sitecore-jss-angular]` `[template/angular-xmcloud]` Angular SXA components
-  * Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))
-  * Component styles ([#1917](https://github.com/Sitecore/jss/pull/1917))
-  * Title component ([#1904](https://github.com/Sitecore/jss/pull/1904))
-  * Richtext component ([#1864](https://github.com/Sitecore/jss/pull/1864))
-  * Container component ([#1872](https://github.com/Sitecore/jss/pull/1872))
-  * Angular SXA layout ([#1873](https://github.com/Sitecore/jss/pull/1873))([#1880](https://github.com/Sitecore/jss/pull/1880))([#1890](https://github.com/Sitecore/jss/pull/1890))([#1906](https://github.com/Sitecore/jss/pull/1906))
-  * RowSplitter component([#1901](https://github.com/Sitecore/jss/pull/1901))
-  * LinkList component([#1898](https://github.com/Sitecore/jss/pull/1898))
-  * ColumnSplitter ([#1889](https://github.com/Sitecore/jss/pull/1889))
-  * PartialDesignDynamicPlaceholder component ([#1902](https://github.com/Sitecore/jss/pull/1902))
-  * Promo component ([#1897](https://github.com/Sitecore/jss/pull/1897))
-  * PageContent component ([#1905](https://github.com/Sitecore/jss/pull/1905))
-  * Navigation component ([#1894](https://github.com/Sitecore/jss/pull/1894))
-* `[sitecore-jss-angular]` Placeholder component will now render metadata code blocks when in Metadata Edit mode ([#1918](https://github.com/Sitecore/jss/pull/1918))
-* `[sitecore-jss]` `[sitecore-jss-angular]` Default Placeholder Content for empty fields in editMode metadata - in edit mode metadata in Pages, angular package field directives will render default or custom placeholder content if the provided field is empty; ([#1916](https://github.com/Sitecore/jss/pull/1916))
-  * custom placeholder content can be provided to field directives by passing the corresponding input:
-   - `scDateEmptyFieldEditingTemplate` for _scDate_
-   - `scGenericLinkEmptyFieldEditingTemplate` for _scGenericLink_
-   - `scImageEmptyFieldEditingTemplate` for _scImage_
-   - `scLinkEmptyFieldEditingTemplate` for _scLink_
-   - `scRichTextEmptyFieldEditingTemplate` for _scRichText_
-   - `scRouterLinkEmptyFieldEditingTemplate` for _scRouterLink_
-   - `scTextEmptyFieldEditingTemplate` for _scText_
-* `[sitecore-jss-angular]` `[templates/angular-xmcloud]` Render clientScripts / clientData. The new `sc-editing-scripts` component is exposed from `sitecore-jss-angular` package and required to be rendered on the page to enable Metadata Edit mode. ([#1924](https://github.com/Sitecore/jss/pull/1924))([#1948](https://github.com/Sitecore/jss/pull/1948))
-* `[sitecore-jss-angular]` `[templates/angular-xmcloud]` XM Cloud Forms support ([#1951](https://github.com/Sitecore/jss/pull/1951)):
-  * New "Form" component is introduced in the sitecore-jss-angular package.
-  * The Form component is declared in the Angular sample app.
-  * Introduced plugins technique for component factory generation.
+  * `[create-sitecore-jss]` `[template/angular]` `[template/angular-xmcloud]` `[template/node-xmcloud-proxy]` Edge Proxy / Context Id support ([#1875](https://github.com/Sitecore/jss/pull/1875))([#1885](https://github.com/Sitecore/jss/pull/1885))
+  * `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1868](https://github.com/Sitecore/jss/pull/1868))([#1881](https://github.com/Sitecore/jss/pull/1881))([#1882](https://github.com/Sitecore/jss/pull/1882))([#1931](https://github.com/Sitecore/jss/pull/1931))
+    * `[create-sitecore-jss]` Allow node-xmcloud-proxy app to be installed alongside Angular SPA application
+    * `proxyAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
+  * `[templates/angular]` `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/editing/config endpoint ([#1903](https://github.com/Sitecore/jss/pull/1903))
+  * `[templates/angular]` `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/editing/render endpoint ([#1908](https://github.com/Sitecore/jss/pull/1908))
+  * `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` Personalization support ([#1964](https://github.com/Sitecore/jss/pull/1964)[#1971](https://github.com/Sitecore/jss/pull/1971)[#1973](https://github.com/Sitecore/jss/pull/1973))
+  * `[create-sitecore-jss]` `[sitecore-jss-angular]` `[template/angular-xmcloud]` Angular SXA components
+    * Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))
+    * Component styles ([#1917](https://github.com/Sitecore/jss/pull/1917))
+    * Title component ([#1904](https://github.com/Sitecore/jss/pull/1904))
+    * Richtext component ([#1864](https://github.com/Sitecore/jss/pull/1864))
+    * Container component ([#1872](https://github.com/Sitecore/jss/pull/1872))
+    * Angular SXA layout ([#1873](https://github.com/Sitecore/jss/pull/1873))([#1880](https://github.com/Sitecore/jss/pull/1880))([#1890](https://github.com/Sitecore/jss/pull/1890))([#1906](https://github.com/Sitecore/jss/pull/1906))
+    * RowSplitter component([#1901](https://github.com/Sitecore/jss/pull/1901))
+    * LinkList component([#1898](https://github.com/Sitecore/jss/pull/1898))
+    * ColumnSplitter ([#1889](https://github.com/Sitecore/jss/pull/1889))
+    * PartialDesignDynamicPlaceholder component ([#1902](https://github.com/Sitecore/jss/pull/1902))
+    * Promo component ([#1897](https://github.com/Sitecore/jss/pull/1897))
+    * PageContent component ([#1905](https://github.com/Sitecore/jss/pull/1905))
+    * Navigation component ([#1894](https://github.com/Sitecore/jss/pull/1894))
+  * `[sitecore-jss-angular]` Placeholder component will now render metadata code blocks when in Metadata Edit mode ([#1918](https://github.com/Sitecore/jss/pull/1918))
+  * `[sitecore-jss]` `[sitecore-jss-angular]` Default Placeholder Content for empty fields in editMode metadata - in edit mode metadata in Pages, angular package field directives will render default or custom placeholder content if the provided field is empty; ([#1916](https://github.com/Sitecore/jss/pull/1916))
+    * custom placeholder content can be provided to field directives by passing the corresponding input:
+    - `scDateEmptyFieldEditingTemplate` for _scDate_
+    - `scGenericLinkEmptyFieldEditingTemplate` for _scGenericLink_
+    - `scImageEmptyFieldEditingTemplate` for _scImage_
+    - `scLinkEmptyFieldEditingTemplate` for _scLink_
+    - `scRichTextEmptyFieldEditingTemplate` for _scRichText_
+    - `scRouterLinkEmptyFieldEditingTemplate` for _scRouterLink_
+    - `scTextEmptyFieldEditingTemplate` for _scText_
+  * `[sitecore-jss-angular]` `[templates/angular-xmcloud]` Render clientScripts / clientData. The new `sc-editing-scripts` component is exposed from `sitecore-jss-angular` package and required to be rendered on the page to enable Metadata Edit mode. ([#1924](https://github.com/Sitecore/jss/pull/1924))([#1948](https://github.com/Sitecore/jss/pull/1948))
+  * `[sitecore-jss-angular]` `[templates/angular-xmcloud]` XM Cloud Forms support ([#1951](https://github.com/Sitecore/jss/pull/1951)):
+    * New "Form" component is introduced in the sitecore-jss-angular package.
+    * The Form component is declared in the Angular sample app.
+    * Introduced plugins technique for component factory generation.
+  * `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/healthz endpoint ([#1928](https://github.com/Sitecore/jss/pull/1928))
+  * `[sitecore-jss]` `[sitecore-jss-angular]` Render field metdata chromes in editMode metadata - in edit mode metadata in Pages, angular package field directives will render wrapping `code` elements with field metadata required for editing; ([#1926](https://github.com/Sitecore/jss/pull/1926))
+  * `[angular-xmcloud]` `[sitecore-jss-angular]` Analytics and CloudSDK integration
+    * `[angular-xmcloud]` Add CloudSDK initialization on client side ([#1952](https://github.com/Sitecore/jss/pull/1952))([#1957](https://github.com/Sitecore/jss/pull/1957))([#1961](https://github.com/Sitecore/jss/pull/1961))
+    * `[angular-xmcloud]` `[sitecore-jss-angular]` Add CDP Page View component to Angular XM Cloud add-on ([#1957](https://github.com/Sitecore/jss/pull/1957))
+  * `[templates/angular]` Update dependencies and proxy build path value to be unix style path to support xmcloud deployment and monorepo starter kit in xmcloud foundation head ([#1977](https://github.com/Sitecore/jss/pull/1977))
+  * `[templates/angular]` `[templates/angular-sxp]` `[templates/angular-xmcloud]` Updates for Angular XMC sample to work well with local containers and spa-starters monorepo in xmcloud-foundation ([#1983](https://github.com/Sitecore/jss/pull/1983))
+  * `[sitecore-jss-angular]` `[templates/angular]` Integrate CloudSDK events firing ([#1984](https://github.com/Sitecore/jss/pull/1984))([#1990](https://github.com/Sitecore/jss/pull/1990))
 * `[sitecore-jss]` GenericFieldValue model is updated to accept Date type ([#1916](https://github.com/Sitecore/jss/pull/1916))
-* `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/healthz endpoint ([#1928](https://github.com/Sitecore/jss/pull/1928))
-* `[sitecore-jss]` `[sitecore-jss-angular]` Render field metdata chromes in editMode metadata - in edit mode metadata in Pages, angular package field directives will render wrapping `code` elements with field metadata required for editing; ([#1926](https://github.com/Sitecore/jss/pull/1926))
-* `[angular-xmcloud]` `[sitecore-jss-angular]` Analytics and CloudSDK integration
-  * `[angular-xmcloud]` Add CloudSDK initialization on client side ([#1952](https://github.com/Sitecore/jss/pull/1952))([#1957](https://github.com/Sitecore/jss/pull/1957))([#1961](https://github.com/Sitecore/jss/pull/1961))
-  * `[angular-xmcloud]` `[sitecore-jss-angular]` Add CDP Page View component to Angular XM Cloud add-on ([#1957](https://github.com/Sitecore/jss/pull/1957))
 * `[templates/vue]` `[sitecore-jss-vue]` Vue version has been updated to 3.5
-* `[templates/angular]` Update dependencies and proxy build path value to be unix style path to support xmcloud deployment and monorepo starter kit in xmcloud foundation head ([#1977](https://github.com/Sitecore/jss/pull/1977))
-* `[templates/angular]` `[templates/angular-sxp]` `[templates/angular-xmcloud]` Updates for Angular XMC sample to work well with local containers and spa-starters monorepo in xmcloud-foundation ([#1983](https://github.com/Sitecore/jss/pull/1983))
-* `[sitecore-jss-angular]` `[templates/angular]` Integrate CloudSDK events firing ([#1984](https://github.com/Sitecore/jss/pull/1984))([#1990](https://github.com/Sitecore/jss/pull/1990))
 
 ### 🛠 Breaking Change
 
