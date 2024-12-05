@@ -6,6 +6,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import {
   editingDataService,
+  isComponentLibraryPreviewData,
   isEditingMetadataPreviewData,
 } from '@sitecore-jss/sitecore-jss-nextjs/editing';
 import { SitecorePageProps } from 'lib/page-props';
@@ -16,7 +17,7 @@ class PreviewModePlugin implements Plugin {
   order = 1;
 
   async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
-    if (!context.preview) return props;
+    if (!context.preview || isComponentLibraryPreviewData(context.previewData)) return props;
 
     // If we're in Pages preview (editing) Metadata Edit Mode, prefetch the editing data
     if (isEditingMetadataPreviewData(context.previewData)) {

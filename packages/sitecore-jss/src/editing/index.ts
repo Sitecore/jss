@@ -23,5 +23,5 @@ export {
   EditButtonTypes,
   mapButtonToCommand,
 } from './edit-frame';
-export { RenderMetadataQueryParams } from './models';
+export { RenderMetadataQueryParams, RenderComponentQueryParams } from './models';
 export { LayoutKind, MetadataKind } from './models';
