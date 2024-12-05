@@ -27,8 +27,8 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-cloudsdk/core": "^0.4.1",
-    "@sitecore-cloudsdk/personalize": "^0.4.1",
+    "@sitecore-cloudsdk/core": "^0.4.2",
+    "@sitecore-cloudsdk/personalize": "^0.4.2",
     "@sitecore-jss/sitecore-jss": "22.3.1-canary.9",
     "http-proxy-middleware": "^2.0.6",
     "http-status-codes": "^2.2.0",

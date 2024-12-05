@@ -94,6 +94,7 @@ Our versioning strategy is as follows:
 * Update to Node.js 22 ([#1975](https://github.com/Sitecore/jss/pull/1975))([#1992](https://github.com/Sitecore/jss/pull/1992)):
   * `[nextjs]` `[react]` `[angular]` `[node-headless-ssr-proxy]` Updated `typescript` to latest version
   * `[nextjs]` Updated `@typescript-eslint` to version 8
+* `[Next.js]` `[Angular]` `[Proxy]` Update CloudSDK to 0.4.2 ([#1994](https://github.com/Sitecore/jss/pull/1994))
 
 ### 🧹 Chores
 
@@ -101,12 +102,6 @@ Our versioning strategy is as follows:
 * New Angular add-on's are not scaffolded within build pipeline ([#1962](https://github.com/Sitecore/jss/pull/1962))
 * Release process, maintenance simplification ([#1960](https://github.com/Sitecore/jss/pull/1960))
 * `[template/angular-xmcloud]` `[template/xmcloud-proxy]` Add README.md ([#1965](https://github.com/Sitecore/jss/pull/1965))
-
-## 22.2.2
-
-### 🐛 Bug Fixes
-
-* `[sitecore-jss-nextjs]` Support Editing Host protection by handling OPTIONS preflight requests (#[TBD](TBD))
 
 ## 22.2.1
 
