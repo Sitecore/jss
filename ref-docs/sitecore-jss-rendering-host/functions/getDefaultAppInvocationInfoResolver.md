@@ -35,4 +35,4 @@ resolver
 
 ## Defined in
 
-[defaultAppInvocationInfoResolver.ts:18](https://github.com/Sitecore/jss/blob/128550df8a6d97c68d280bb21ab377d096352bb5/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L18)
+[defaultAppInvocationInfoResolver.ts:18](https://github.com/Sitecore/jss/blob/af24dc733f2da542fbd685fe19113cb44a99f6ba/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L18)
