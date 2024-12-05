@@ -25,6 +25,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Fix an alignment issue where components using both `me-auto` and `ms-md-auto` classes resulted in inconsistent alignment of elements. ([#1946](https://github.com/Sitecore/jss/pull/1946)) ([#1950](https://github.com/Sitecore/jss/pull/1950)) ([#1955](https://github.com/Sitecore/jss/pull/1955))
 * `[sitecore-jss-proxy]``[sitecore-jss-nextjs]` Fix for getCSPHeader so that it returns proper value for the CSP header when JSS_ALLOWED_ORIGINS lists multiple origins delimited with comma. ([#1972](https://github.com/Sitecore/jss/pull/1972))
 * `[sitecore-jss-proxy]` Support Editing Host protection by handling OPTIONS preflight requests ([#1976](https://github.com/Sitecore/jss/pull/1976))
+* `[templates/nextjs]` Disable x-powered-by header
 
 ### 🎉 New Features & Improvements
 
