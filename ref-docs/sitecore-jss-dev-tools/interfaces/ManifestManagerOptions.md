@@ -14,7 +14,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:19](https://github.com/Sitecore/jss/blob/af24dc733f2da542fbd685fe19113cb44a99f6ba/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L19)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:19](https://github.com/Sitecore/jss/blob/410baa3185964545d070498517cd670bf4efc6d5/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L19)
 
 ***
 
@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:17](https://github.com/Sitecore/jss/blob/af24dc733f2da542fbd685fe19113cb44a99f6ba/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L17)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:17](https://github.com/Sitecore/jss/blob/410baa3185964545d070498517cd670bf4efc6d5/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L17)
 
 ***
 
@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:18](https://github.com/Sitecore/jss/blob/af24dc733f2da542fbd685fe19113cb44a99f6ba/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L18)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:18](https://github.com/Sitecore/jss/blob/410baa3185964545d070498517cd670bf4efc6d5/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L18)
 
 ***
 
@@ -44,7 +44,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:16](https://github.com/Sitecore/jss/blob/af24dc733f2da542fbd685fe19113cb44a99f6ba/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L16)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:16](https://github.com/Sitecore/jss/blob/410baa3185964545d070498517cd670bf4efc6d5/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L16)
 
 ***
 
@@ -54,7 +54,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:13](https://github.com/Sitecore/jss/blob/af24dc733f2da542fbd685fe19113cb44a99f6ba/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L13)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:13](https://github.com/Sitecore/jss/blob/410baa3185964545d070498517cd670bf4efc6d5/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L13)
 
 ***
 
@@ -64,7 +64,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:14](https://github.com/Sitecore/jss/blob/af24dc733f2da542fbd685fe19113cb44a99f6ba/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L14)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:14](https://github.com/Sitecore/jss/blob/410baa3185964545d070498517cd670bf4efc6d5/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L14)
 
 ***
 
@@ -74,4 +74,4 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:15](https://github.com/Sitecore/jss/blob/af24dc733f2da542fbd685fe19113cb44a99f6ba/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L15)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:15](https://github.com/Sitecore/jss/blob/410baa3185964545d070498517cd670bf4efc6d5/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L15)

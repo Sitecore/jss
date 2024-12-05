@@ -27,4 +27,4 @@ the file path if the file was created, otherwise null
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/templating/scaffold.ts:22](https://github.com/Sitecore/jss/blob/af24dc733f2da542fbd685fe19113cb44a99f6ba/packages/sitecore-jss-dev-tools/src/templating/scaffold.ts#L22)
+[sitecore-jss-dev-tools/src/templating/scaffold.ts:22](https://github.com/Sitecore/jss/blob/410baa3185964545d070498517cd670bf4efc6d5/packages/sitecore-jss-dev-tools/src/templating/scaffold.ts#L22)

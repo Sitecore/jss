@@ -30,4 +30,4 @@ true if incoming origin matches the allowed lists, false when it does not
 
 ## Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:123](https://github.com/Sitecore/jss/blob/af24dc733f2da542fbd685fe19113cb44a99f6ba/packages/sitecore-jss/src/utils/utils.ts#L123)
+[packages/sitecore-jss/src/utils/utils.ts:123](https://github.com/Sitecore/jss/blob/410baa3185964545d070498517cd670bf4efc6d5/packages/sitecore-jss/src/utils/utils.ts#L123)
