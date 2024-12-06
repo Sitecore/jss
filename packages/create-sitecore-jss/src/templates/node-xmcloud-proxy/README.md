@@ -23,7 +23,7 @@ This is a sample setup showing one of how you can configure XM Cloud rendering s
 
 > The following features and integrations are not supported by Node XM Cloud Proxy:
 > - Multisite
-> - XM Cloud Components application
+> - The XM Cloud Components application
 > - BYOC components
 > - SXA sitemap, redirects, error pages
 > - Sitecore Experience Editor
