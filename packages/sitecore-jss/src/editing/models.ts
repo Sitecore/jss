@@ -3,6 +3,7 @@ import { LayoutServicePageState } from '../layout';
 /**
  * Query parameters appended to the page route URL
  * Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
+ * `mode` is a special case as it serves editing and component library both
  */
 export interface RenderMetadataQueryParams {
   [key: string]: unknown;
@@ -11,7 +12,7 @@ export interface RenderMetadataQueryParams {
   sc_itemid: string;
   sc_site: string;
   route: string;
-  mode: Exclude<LayoutServicePageState, 'normal'>;
+  mode: Exclude<LayoutServicePageState, 'normal'> | 'library';
   sc_layoutKind?: LayoutKind;
   sc_variant?: string;
   sc_version?: string;

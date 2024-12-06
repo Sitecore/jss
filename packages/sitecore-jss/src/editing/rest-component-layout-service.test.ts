@@ -5,18 +5,18 @@ import { IncomingMessage, ServerResponse } from 'http';
 import { AxiosRequestConfig } from 'axios';
 import { AxiosDataFetcher } from '../axios-fetcher';
 import {
-  ComponentLibraryRequestParams,
-  RestComponentLibraryService,
-} from './rest-component-library-service';
+  ComponentLayoutRequestParams,
+  RestComponentLayoutService,
+} from './rest-component-layout-service';
 import { EditMode, LayoutServiceData } from '../layout/models';
 import nock from 'nock';
 
 use(spies);
 
-describe('RestComponentLibraryService', () => {
+describe('RestComponentLayoutService', () => {
   type SetHeader = (name: string, value: unknown) => void;
 
-  const defaultTestInput: ComponentLibraryRequestParams = {
+  const defaultTestInput: ComponentLayoutRequestParams = {
     itemId: '123',
     componentUid: '456',
   };
@@ -47,7 +47,7 @@ describe('RestComponentLibraryService', () => {
         data: defaultTestData,
       }));
 
-    const service = new RestComponentLibraryService({
+    const service = new RestComponentLayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
@@ -94,7 +94,7 @@ describe('RestComponentLibraryService', () => {
       setHeader: setHeaderSpy,
     } as ServerResponse;
 
-    const service = new RestComponentLibraryService({
+    const service = new RestComponentLayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
@@ -117,7 +117,7 @@ describe('RestComponentLibraryService', () => {
   });
 
   it('should fetch component data when optional params provided', () => {
-    const testInput: ComponentLibraryRequestParams = {
+    const testInput: ComponentLayoutRequestParams = {
       ...defaultTestInput,
       dataSourceId: '789',
     };
@@ -205,7 +205,7 @@ describe('RestComponentLibraryService', () => {
       setHeader: setHeaderSpy,
     } as ServerResponse;
 
-    const service = new RestComponentLibraryService({
+    const service = new RestComponentLayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
@@ -223,7 +223,7 @@ describe('RestComponentLibraryService', () => {
   });
 
   it('should fetch component data with custom site name', () => {
-    const testInput: ComponentLibraryRequestParams = {
+    const testInput: ComponentLayoutRequestParams = {
       ...defaultTestInput,
       siteName: 'mysite',
     };
@@ -311,7 +311,7 @@ describe('RestComponentLibraryService', () => {
       setHeader: setHeaderSpy,
     } as ServerResponse;
 
-    const service = new RestComponentLibraryService({
+    const service = new RestComponentLayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
@@ -338,7 +338,7 @@ describe('RestComponentLibraryService', () => {
         data: defaultTestData,
       }));
 
-    const service = new RestComponentLibraryService({
+    const service = new RestComponentLayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
@@ -365,7 +365,7 @@ describe('RestComponentLibraryService', () => {
         data: defaultTestData,
       }));
 
-    const service = new RestComponentLibraryService({
+    const service = new RestComponentLayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
@@ -395,7 +395,7 @@ describe('RestComponentLibraryService', () => {
         },
       }));
 
-    const service = new RestComponentLibraryService({
+    const service = new RestComponentLayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
@@ -425,7 +425,7 @@ describe('RestComponentLibraryService', () => {
       )
       .reply(401, { message: 'whoops' });
 
-    const service = new RestComponentLibraryService({
+    const service = new RestComponentLayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
@@ -439,7 +439,7 @@ describe('RestComponentLibraryService', () => {
 
   describe('getComponentFetchParams', () => {
     it('should return params', () => {
-      const service = new RestComponentLibraryService({
+      const service = new RestComponentLayoutService({
         apiHost: 'http://sctest',
         apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
         siteName: 'supersite',
@@ -474,7 +474,7 @@ describe('RestComponentLibraryService', () => {
     });
 
     it('should return params with no undefined params', () => {
-      const service = new RestComponentLibraryService({
+      const service = new RestComponentLayoutService({
         apiHost: 'http://sctest',
         apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
         siteName: 'supersite',

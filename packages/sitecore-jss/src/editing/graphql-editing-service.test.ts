@@ -358,6 +358,32 @@ describe('GraphQLEditingService', () => {
     spy.restore(clientFactorySpy);
   });
 
+  it('should request dictionary from scratch when fetchDictionaryData called on its own', async () => {
+    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+      .post(endpointPath, /DictionaryQuery/gi)
+      .reply(200, mockEditingServiceDictionaryResponse.pageOne);
+
+    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+      .post(endpointPath, /DictionaryQuery/gi)
+      .reply(200, mockEditingServiceDictionaryResponse.pageTwo);
+
+    const service = new GraphQLEditingService({
+      clientFactory: clientFactory,
+    });
+
+    const result = await service.fetchDictionaryData({
+      language,
+      siteName,
+    });
+
+    expect(result).to.deep.equal({
+      'foo-one': 'foo-one-phrase',
+      'bar-one': 'bar-one-phrase',
+      'foo-two': 'foo-two-phrase',
+      'bar-two': 'bar-two-phrase',
+    });
+  });
+
   it('should return empty dictionary when dictionary is not provided', async () => {
     const editingData = mockEditingServiceResponse();
 

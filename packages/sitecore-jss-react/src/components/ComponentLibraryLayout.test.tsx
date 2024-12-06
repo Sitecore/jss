@@ -11,8 +11,7 @@ import { SitecoreContext } from './SitecoreContext';
 import { RichText } from './RichText';
 import { Text } from './Text';
 import { Placeholder } from '..';
-import { COMPONENT_LIBRARY_READY_MESSAGE } from '@sitecore-jss/sitecore-jss/component-library';
-import { beforeEach } from 'node:test';
+import { COMPONENT_LIBRARY_READY_MESSAGE, ComponentUpdateEventArgs } from '@sitecore-jss/sitecore-jss/editing';
 
 describe('<ComponentLibraryLayout />', () => {
   const postMessageSpy = sinon.spy(global.window, 'postMessage');
@@ -131,13 +130,16 @@ describe('<ComponentLibraryLayout />', () => {
     // jsdom performs postMessage without origin. We work around, ugly (https://github.com/jsdom/jsdom/issues/2745)
     // jsdom also doesn't consider `new MessageEvent()` to be of class Event - so we go very much around to get it working
     const updateEvent = document.createEvent('Event');
+    const updateEventData: ComponentUpdateEventArgs = {
+      name: 'component:update',
+      details: {
+        uid: 'test-content',
+        fields: { content: { value: 'new content!' } },
+      },
+    };
     updateEvent.initEvent('message', false, true);
     (updateEvent as any).origin = window.location.origin;
-    (updateEvent as any).data = {
-      name: 'component:update',
-      uid: 'test-content',
-      fields: { content: { value: 'new content!' } },
-    };
+    (updateEvent as any).data = updateEventData;
     await window.dispatchEvent(updateEvent);
 
     rendered.update();
@@ -173,13 +175,16 @@ describe('<ComponentLibraryLayout />', () => {
     // jsdom performs postMessage without origin. We work around, ugly (https://github.com/jsdom/jsdom/issues/2745)
     // jsdom also doesn't consider `new MessageEvent()` to be of class Event - so we go very much around to get it working
     const updateEvent = document.createEvent('Event');
+    const updateEventData: ComponentUpdateEventArgs = {
+      name: 'component:update',
+      details: {
+        uid: 'test-inner',
+        fields: { text: { value: 'new inner content!' } },
+      },
+    };
     updateEvent.initEvent('message');
     (updateEvent as any).origin = window.location.origin;
-    (updateEvent as any).data = {
-      name: 'component:update',
-      uid: 'test-inner',
-      fields: { text: { value: 'new inner content!' } },
-    };
+    (updateEvent as any).data = updateEventData;
     await window.dispatchEvent(updateEvent);
 
     rendered.update();

@@ -6,7 +6,7 @@ import { debug, fetchData } from '..';
 /**
  * Params for requesting component data from service in Component Library mode
  */
-export interface ComponentLibraryRequestParams {
+export interface ComponentLayoutRequestParams {
   /**
    * Item id to be used as context for rendering the component
    */
@@ -51,13 +51,13 @@ export interface ComponentLibraryRequestParams {
  * Makes a request to /sitecore/api/layout/component in 'library' mode in Pages.
  * Returns layoutData for one single rendered component
  */
-export class RestComponentLibraryService extends RestLayoutService {
+export class RestComponentLayoutService extends RestLayoutService {
   constructor(private config: RestLayoutServiceConfig) {
     super(config);
   }
 
   fetchComponentData(
-    params: ComponentLibraryRequestParams,
+    params: ComponentLayoutRequestParams,
     req?: IncomingMessage,
     res?: ServerResponse
   ): Promise<LayoutServiceData> {
@@ -83,7 +83,7 @@ export class RestComponentLibraryService extends RestLayoutService {
     });
   }
 
-  protected getComponentFetchParams(params: ComponentLibraryRequestParams) {
+  protected getComponentFetchParams(params: ComponentLayoutRequestParams) {
     // exclude undefined params with this one simple trick
     return JSON.parse(
       JSON.stringify({
