@@ -22,7 +22,6 @@
     "site.d.ts",
     "personalize.d.ts",
     "feaas.d.ts",
-    "component-library.d.ts",
     "src/**/*.test.ts",
     "src/test-data/*"
   ]
