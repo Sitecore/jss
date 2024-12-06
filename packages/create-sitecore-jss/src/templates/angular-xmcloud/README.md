@@ -17,15 +17,15 @@ The supported key features are as follows:
 
 - `XM Cloud Pages editing integration`: full integration with Pages - the dynamic visual page editor of XM Cloud.
 
-- `XM Cloud proxy personalization` with embedded personalization and Component A/B Testing support.
+- `XM Cloud proxy personalization` with embedded personalization and component A/B/n testing.
 
-- `Forms support`: provides the capability to consume and post Sitecore Forms from JSS apps. Sitecore Forms is a form-authoring framework that enables marketers to author their own forms, collect data, and analyze form performance.
+- `Forms support`: consume and post XM Cloud Forms in JSS apps. Using Forms, marketers can create forms, collect data, and analyze form performance.
 
 - `Internationalization` support
 
 > The following features and integrations are not supported by Angular and Proxy apps for XM Cloud:
 > - Multisite
-> - XM CLoud Components application
+> - XM Cloud Components application
 > - BYOC components
 > - SXA sitemap, redirects, error pages
 > - Sitecore Experience Editor
@@ -36,7 +36,7 @@ The supported key features are as follows:
 
 When building and running your app in connected (development) mode the proxy application is not needed.
 
-Execute following commands:
+Execute the following commands:
 ```shell
 npm install
 npm run build
@@ -50,11 +50,11 @@ npm run start:connected
 
 ### Production
 
-To build and run in production mode you need to have your angular app side by side with the [Node XM CLoud proxy](../node-xmcloud-proxy/).
+To build and run in production mode you need to have your angular app side by side with the [Node XM Cloud proxy](../node-xmcloud-proxy/).
 
-Execute the following commands.
+Execute the following commands:
 
-For Angular app:
+For the Angular app:
 ```shell
 npm install
 
@@ -62,14 +62,14 @@ npm install
 npm run build
 ```
 
-For Proxy app:
+For the Proxy app:
 
 ```shell
 npm install
 npm run start
 ```
 
-For additional information on how to set up and run SPA app in production mode against XM CLoud instance you can check the [spa-starters monorepo](https://github.com/sitecorelabs/xmcloud-foundation-head/tree/main/headapps/spa-starter) in the XM CLoud Foundation Starter Kit.
+For additional information on how to set up and run a SPA app in production mode against an XM Cloud instance you can check the [spa-starters monorepo](https://github.com/sitecorelabs/xmcloud-foundation-head/tree/main/headapps/spa-starter) in the XM Cloud Foundation Starter Kit.
 
 ## Environment Variables
 
@@ -79,11 +79,11 @@ The following environment variables can be set to configure the angular app. You
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | `PROXY_HOST`                        | Your XM Cloud Proxy hostname is needed to build the app and execute the client-side requests against the proxy server. Default value `http://localhost:3000`                                                                                                                  |
 | `PROXY_BUILD_PATH`                              | Your XM Cloud Proxy server path is needed to build the app. The build output will be copied to the XM Cloud Proxy application path. Default value `<xmcloud_proxy_path>\dist`.
-| `SITECORE_EDGE_CONTEXT_ID`                              | The Context ID, which covers many system configurations, required for connecting to the XM Cloud back end. This is an XM Cloud system environment variable. When the application runs on the XM Cloud rendering host, this value is always set to the preview Context ID.                   |
-| `SITECORE_API_KEY`                              | The API key for GRAPH_QL_ENDPOINT authentication. It should be used in combination with SITECORE_API_HOST for local development when connecting to local sitecore instance.
+| `SITECORE_EDGE_CONTEXT_ID`                              | The Context ID, which covers many system configurations, required for connecting to the XM Cloud back end. This is an XM Cloud system environment variable. When the application runs on the XM Cloud editing host, this value is always set to the preview Context ID.                   |
+| `SITECORE_API_KEY`                              | The API key for GRAPH_QL_ENDPOINT authentication. It should be used in combination with SITECORE_API_HOST for local development when connecting to a local XM Cloud instance
 | `SITECORE_API_HOST`                              | The API hostname, needed to build the application. This should be used in combination with SITECORE_API_KEY for local development. For example, https://<xmc_cm_host>.sitecorecloud.io.                   |
 | `GRAPH_QL_ENDPOINT`                              | Your GraphQL Edge endpoint. This is typically optional. By default, the endpoint is calculated using the resolved Sitecore API hostname + the `graphQLEndpointPath` defined in your `package.json`. For a preview endpoint (a CM instance on XM Cloud or a local one), the value is <xmc_cm_host>/sitecore/api/graph/edge.  |
-| `SITECORE_SITE_NAME`                              | The name of your site. This variable overrides the config.appName defined in the package.json file. You can find this value in the Sites dashboard by opening the actions menu for a site and navigating to Settings > Developer settings. Default value `<appName>`,
+| `SITECORE_SITE_NAME`                              | The name of your site. This variable overrides the config.appName defined in the package.json file. You can find this value in the Sites dashboard by opening the actions menu for a site and navigating to Settings > Developer settings. The default value is the name of your app. ,
 `                  |
-| `DEFAULT_LANGUAGE`                              | The default language of your app. Default value `en`                  |
+| `DEFAULT_LANGUAGE`                              | The default language of your app. The default value is `en`                  |
 | `DEBUG`                  | Optional. Debug level for the application. Set the DEBUG environment variable to 'sitecore-jss:*' to see all logs. Refer to the [official docs](https://doc.sitecore.com/xmc/en/developers/jss/22/jss-xmc/debug-logging-in-jss-apps.html#namespaces) for all the available namespaces.
