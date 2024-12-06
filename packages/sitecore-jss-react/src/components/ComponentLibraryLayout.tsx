@@ -18,13 +18,14 @@ export const ComponentLibraryLayout = (layoutData: LayoutServiceData): JSX.Eleme
   const rootComponent = route?.placeholders[EDITING_COMPONENT_PLACEHOLDER][0] as ComponentRendering;
   // useEffect may execute multiple times on single render (i.e. in dev) - but we only want to fire ready event once
   let componentReady = false;
-  const applyUpdate = () => {
-    return { ...(rootComponent || {}), ...rootUpdate };
-  };
 
   // have an up-to-date layout state between re-renders (SSR re-render excluded)
-  const persistedRoot = useMemo(() => applyUpdate(), [rootComponent, rootUpdate]);
+  const persistedRoot = useMemo(() => ({ ...(rootComponent || {}), ...rootUpdate }), [
+    rootComponent,
+    rootUpdate,
+  ]);
   route.placeholders[EDITING_COMPONENT_PLACEHOLDER][0] = persistedRoot;
+
   useEffect(() => {
     // useEffect will fire when components are ready - and we inform the whole wide world of it too
     if (!componentReady) {
