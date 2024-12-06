@@ -3,7 +3,7 @@
 > Sitecore JSS Proxy for XM Cloud is in public beta.
 > If you encounter any issues or bugs, please submit a new issue in the [Jss GitHub Repo](https://github.com/Sitecore/jss)
 
-[Documentation](TODO)
+[Documentation](https://doc.sitecore.com/xmc/en/developers/jss/latest/jss-xmc/introducing-sitecore-javascript-rendering-sdk.html)
 
 This proxy will serve as the backbone for supporting various SPA frameworks by handling server-side rendering (SSR), data queries, and middleware functionalities.
 
@@ -75,9 +75,11 @@ The following environment variables can be set to configure the Proxy sample ins
 
 ## Build & run
 
-1. Run `npm install`
-
-2. Run `npm run start`
+Execute following commands:
+```shell
+npm install
+npm run start
+```
 
 You should be able to see the following message:
 `server listening on port 3000!`.

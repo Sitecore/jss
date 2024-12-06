@@ -9,9 +9,7 @@ This Single Page Application (SPA) built with Angular is designed to be fully co
 
 The Angular XM Cloud integration consists of two parts:
 - `XM Cloud Angular`: simplifies connecting the application to XM Cloud and configuring the integration of multiple composable Sitecore products, provides out of the box helper components.
-- `XM Cloud Proxy`: Adds integration with XMCloud for the JSS SPA applications and enables editing, personalization and A/B component testing support. *[TODO] Add a link to the sample*
-
-Once the app is built and its build artifacts are copied into the proxy
+- `XM Cloud Proxy`: Adds integration with XM Cloud for the JSS SPA applications and enables editing, personalization and A/B component testing support, see [XM Cloud Proxy](../node-xmcloud-proxy/)
 
 The supported key features are as follows:
 
@@ -52,7 +50,7 @@ npm run start:connected
 
 ### Production
 
-To build and run in production mode you need to have your angular app side by side with the [Node XM CLoud proxy](https://github.com/Sitecore/jss/tree/dev/packages/create-sitecore-jss/src/templates/node-xmcloud-proxy). - *[TODO] The link should reference to release/22.0.0 branch*
+To build and run in production mode you need to have your angular app side by side with the [Node XM CLoud proxy](../node-xmcloud-proxy/).
 
 Execute the following commands.
 
@@ -71,7 +69,7 @@ npm install
 npm run start
 ```
 
-For additional information on how to set up and run SPA app in production mode against XM CLoud instance you can check the [spa-starters monorepo](https://github.com/sitecorelabs/xmcloud-foundation-head/tree/main/headapps/spa-starter) in the xmcloud foundation starter kit.
+For additional information on how to set up and run SPA app in production mode against XM CLoud instance you can check the [spa-starters monorepo](https://github.com/sitecorelabs/xmcloud-foundation-head/tree/main/headapps/spa-starter) in the XM CLoud Foundation Starter Kit.
 
 ## Environment Variables
 
@@ -80,12 +78,12 @@ The following environment variables can be set to configure the angular app. You
 | Parameter                              | Description                                                                                                                                |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | `PROXY_HOST`                        | Your XM Cloud Proxy hostname is needed to build the app and execute the client-side requests against the proxy server. Default value `http://localhost:3000`                                                                                                                  |
-| `PROXY_BUILD_PATH`                              | Your XM Cloud Proxy server path is needed to build the app. The build output will be copied to the XMCloud Proxy application path. Default value `<xmcloud_proxy_path>\dist`.
+| `PROXY_BUILD_PATH`                              | Your XM Cloud Proxy server path is needed to build the app. The build output will be copied to the XM Cloud Proxy application path. Default value `<xmcloud_proxy_path>\dist`.
 | `SITECORE_EDGE_CONTEXT_ID`                              | The Context ID, which covers many system configurations, required for connecting to the XM Cloud back end. This is an XM Cloud system environment variable. When the application runs on the XM Cloud rendering host, this value is always set to the preview Context ID.                   |
-| `SITECORE_API_KEY`                              | The API key for GRAPH_QL_ENDPOINT authentication. For Experience Edge, you can find the API key in the Sites dashboard by opening the actions menu for a site and navigating to Settings > Developer settings. Copy the value for SITECORE_API_KEY. For a preview endpoint (a CM instance either on XM Cloud or locally), use your preview API Key from the CM instance.
-| `SITECORE_API_HOST`                              | The API hostname, needed to build the application. This should be used in combination with SITECORE_API_KEY for local development or local container setup. For example, https://<xmc_cm_host>.sitecorecloud.io.                   |
+| `SITECORE_API_KEY`                              | The API key for GRAPH_QL_ENDPOINT authentication. It should be used in combination with SITECORE_API_HOST for local development when connecting to local sitecore instance.
+| `SITECORE_API_HOST`                              | The API hostname, needed to build the application. This should be used in combination with SITECORE_API_KEY for local development. For example, https://<xmc_cm_host>.sitecorecloud.io.                   |
 | `GRAPH_QL_ENDPOINT`                              | Your GraphQL Edge endpoint. This is typically optional. By default, the endpoint is calculated using the resolved Sitecore API hostname + the `graphQLEndpointPath` defined in your `package.json`. For a preview endpoint (a CM instance on XM Cloud or a local one), the value is <xmc_cm_host>/sitecore/api/graph/edge.  |
 | `SITECORE_SITE_NAME`                              | The name of your site. This variable overrides the config.appName defined in the package.json file. You can find this value in the Sites dashboard by opening the actions menu for a site and navigating to Settings > Developer settings. Default value `<appName>`,
 `                  |
 | `DEFAULT_LANGUAGE`                              | The default language of your app. Default value `en`                  |
-| `DEBUG`                  | Optional. Debug level for the proxy. Set the DEBUG environment variable to 'sitecore-jss:*,proxy*,http-proxy-middleware*' to see all logs. Refer to the [official docs](https://doc.sitecore.com/xp/en/developers/hd/latest/sitecore-headless-development/debug-logging-in-jss-apps.html#namespaces) for all the available namespaces.
+| `DEBUG`                  | Optional. Debug level for the application. Set the DEBUG environment variable to 'sitecore-jss:*' to see all logs. Refer to the [official docs](https://doc.sitecore.com/xmc/en/developers/jss/22/jss-xmc/debug-logging-in-jss-apps.html#namespaces) for all the available namespaces.
