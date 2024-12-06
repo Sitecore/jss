@@ -1,0 +1,93 @@
+{
+  "name": "@sitecore-jss/sitecore-jss-nextjs-typeguards",
+  "version": "22.2.0-canary.60",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "sideEffects": false,
+  "scripts": {
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+    "clean": "del-cli dist types",
+    "lint": "eslint \"./src/**/*.tsx\" \"./src/**/*.ts\"",
+    "test": "mocha --require ts-node/register/transpile-only --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.tsx\" --exit",
+    "prepublishOnly": "npm run build",
+    "coverage": "nyc npm test",
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-nextjs-typeguards src/index.ts --githubPages false"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": {
+    "name": "Sitecore Corporation",
+    "url": "https://jss.sitecore.com"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://jss.sitecore.com",
+  "bugs": {
+    "url": "https://github.com/sitecore/jss/issues"
+  },
+  "devDependencies": {
+    "@sitecore-cloudsdk/personalize": "^0.3.1",
+    "@types/chai": "^4.3.4",
+    "@types/chai-as-promised": "^7.1.5",
+    "@types/chai-string": "^1.4.2",
+    "@types/enzyme": "^3.10.12",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "~20.14.2",
+    "@types/prop-types": "^15.7.5",
+    "@types/react": "^18.2.22",
+    "@types/react-dom": "^18.0.10",
+    "@types/sinon": "^10.0.13",
+    "@types/sinon-chai": "^3.2.9",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0",
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
+    "chai-string": "^1.5.0",
+    "chalk": "^4.1.2",
+    "cheerio": "1.0.0-rc.12",
+    "cross-fetch": "^3.1.5",
+    "del-cli": "^5.0.0",
+    "enzyme": "^3.11.0",
+    "eslint": "^8.32.0",
+    "eslint-plugin-react": "^7.32.1",
+    "jsdom": "^21.1.0",
+    "mocha": "^10.2.0",
+    "next": "^14.2.7",
+    "nock": "^13.3.0",
+    "nyc": "^15.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sinon": "^15.0.1",
+    "sinon-chai": "^3.7.0",
+    "ts-node": "^10.9.1",
+    "typescript": "~4.9.4"
+  },
+  "peerDependencies": {
+    "@sitecore-cloudsdk/events": "^0.3.1",
+    "@sitecore-cloudsdk/personalize": "^0.3.1",
+    "next": "^14.2.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "@sitecore-jss/sitecore-jss": "22.2.0-canary.60",
+    "@sitecore-jss/sitecore-jss-dev-tools": "22.2.0-canary.60",
+    "@sitecore-jss/sitecore-jss-nextjs": "22.2.0-canary.60",
+    "@sitecore-jss/sitecore-jss-react": "22.2.0-canary.60",
+    "@vercel/kv": "^0.2.1",
+    "prop-types": "^15.8.1",
+    "regex-parser": "^2.2.11",
+    "sync-disk-cache": "^2.1.0"
+  },
+  "description": "",
+  "types": "types/index.d.ts",
+  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
+  "files": [
+    "dist",
+    "types",
+    "/*.js",
+    "/*.d.ts"
+  ]
+}
