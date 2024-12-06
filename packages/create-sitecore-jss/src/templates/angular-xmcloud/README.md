@@ -23,7 +23,7 @@ The supported key features are as follows:
 
 - `Internationalization` support
 
-> The following features and integrations are not yet supported by Angular and Proxy apps for XM Cloud:
+> The following features and integrations are not supported by Angular and Proxy apps for XM Cloud:
 > - Multisite
 > - XM CLoud Components application
 > - BYOC components
