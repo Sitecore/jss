@@ -20,4 +20,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:60](https://github.com/Sitecore/jss/blob/fb8998247eef17ee53f447fd1710b29e1df03c4e/packages/sitecore-jss/src/utils/utils.ts#L60)
+[packages/sitecore-jss/src/utils/utils.ts:60](https://github.com/Sitecore/jss/blob/66dbe29bcafc730605f916c533e5227741eba3b6/packages/sitecore-jss/src/utils/utils.ts#L60)
