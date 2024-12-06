@@ -11,7 +11,10 @@ import { SitecoreContext } from './SitecoreContext';
 import { RichText } from './RichText';
 import { Text } from './Text';
 import { Placeholder } from '..';
-import { COMPONENT_LIBRARY_READY_MESSAGE, ComponentUpdateEventArgs } from '@sitecore-jss/sitecore-jss/editing';
+import {
+  COMPONENT_LIBRARY_READY_MESSAGE,
+  ComponentUpdateEventArgs,
+} from '@sitecore-jss/sitecore-jss/editing';
 
 describe('<ComponentLibraryLayout />', () => {
   const postMessageSpy = sinon.spy(global.window, 'postMessage');
