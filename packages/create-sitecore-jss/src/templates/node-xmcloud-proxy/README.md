@@ -7,7 +7,7 @@
 
 This Node.js-based proxy app is the backbone for enabling seamless integration between XM Cloud and various SPA frameworks like React, Angular, or Vue laying the groundwork for future JSS starter kits built for other front-end JavaScript frameworks. It acts as a middleware layer to handle critical functionalities such as server-side rendering (SSR), enabling editing and personalization, A/B/n component testing, and integrating Sitecore Forms. By serving as the rendering host, it ensures a smooth connection between Sitecore XM Cloud services and your front-end applications, making it easier to build dynamic, personalized, and localized experiences for users.
 
-This is a sample setup showing one of how you can configure XM Cloud rendering server on top of Node.js and Express.js
+This is a sample setup showing how you can configure XM Cloud rendering server on top of Node.js and Express.js
 
 ## Features Supported
 
