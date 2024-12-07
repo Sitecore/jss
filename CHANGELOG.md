@@ -82,7 +82,7 @@ Our versioning strategy is as follows:
   * `[templates/angular]` `[templates/angular-sxp]` `[templates/angular-xmcloud]` Updates for Angular XMC sample to work well with local containers and spa-starters monorepo in xmcloud-foundation ([#1983](https://github.com/Sitecore/jss/pull/1983))
   * `[sitecore-jss-angular]` `[templates/angular]` Integrate CloudSDK events firing ([#1984](https://github.com/Sitecore/jss/pull/1984))([#1990](https://github.com/Sitecore/jss/pull/1990))
 * `[sitecore-jss]` GenericFieldValue model is updated to accept Date type ([#1916](https://github.com/Sitecore/jss/pull/1916))
-* `[templates/vue]` `[sitecore-jss-vue]` Vue version has been updated to 3.5
+* `[templates/vue]` `[sitecore-jss-vue]` Vue version has been updated to 3.5 ([#1995](https://github.com/Sitecore/jss/pull/1995)([#1970](https://github.com/Sitecore/jss/pull/1970)))
 
 ### 🛠 Breaking Change
 
