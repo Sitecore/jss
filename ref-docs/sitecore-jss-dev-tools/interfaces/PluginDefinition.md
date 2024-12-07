@@ -18,7 +18,7 @@ destination path to compile plugins to
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/plugins.ts:28](https://github.com/Sitecore/jss/blob/66dbe29bcafc730605f916c533e5227741eba3b6/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L28)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:28](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L28)
 
 ***
 
@@ -30,7 +30,7 @@ CJS or ESM - which type to compile plugins to
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/plugins.ts:36](https://github.com/Sitecore/jss/blob/66dbe29bcafc730605f916c533e5227741eba3b6/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L36)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:36](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L36)
 
 ***
 
@@ -42,7 +42,7 @@ whether to use relative or absolute paths in the generated file. By default, abs
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/plugins.ts:40](https://github.com/Sitecore/jss/blob/66dbe29bcafc730605f916c533e5227741eba3b6/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L40)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:40](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L40)
 
 ***
 
@@ -54,7 +54,7 @@ source path for where the plugins are defined
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/plugins.ts:32](https://github.com/Sitecore/jss/blob/66dbe29bcafc730605f916c533e5227741eba3b6/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L32)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:32](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L32)
 
 ***
 
@@ -66,4 +66,4 @@ whether to suppress console output
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/plugins.ts:44](https://github.com/Sitecore/jss/blob/66dbe29bcafc730605f916c533e5227741eba3b6/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L44)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:44](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L44)
