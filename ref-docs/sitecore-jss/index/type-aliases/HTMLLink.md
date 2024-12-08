@@ -12,4 +12,4 @@ Html <link> tag data model
 
 ## Defined in
 
-[packages/sitecore-jss/src/models.ts:4](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss/src/models.ts#L4)
+[packages/sitecore-jss/src/models.ts:4](https://github.com/Sitecore/jss/blob/89250cb6aff62e727af20469a4fd43db5c3c8052/packages/sitecore-jss/src/models.ts#L4)

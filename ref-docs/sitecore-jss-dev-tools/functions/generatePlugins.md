@@ -36,4 +36,4 @@ generatePlugins({ distPath: 'src/temp/foo-plugins.js', rootPath: 'src/foo/plugin
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/templating/plugins.ts:90](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L90)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:90](https://github.com/Sitecore/jss/blob/89250cb6aff62e727af20469a4fd43db5c3c8052/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L90)
