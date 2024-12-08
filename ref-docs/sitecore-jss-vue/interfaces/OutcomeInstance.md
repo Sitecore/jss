@@ -1,24 +1,20 @@
+[**@sitecore-jss/sitecore-jss-vue**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-vue](../README.md) / OutcomeInstance
 
 # Interface: OutcomeInstance
 
 ## Indexable
 
-▪ [key: `string`]: `unknown`
-
-## Table of contents
-
-### Properties
-
-- [currencyCode](OutcomeInstance.md#currencycode)
-- [monetaryValue](OutcomeInstance.md#monetaryvalue)
-- [outcomeId](OutcomeInstance.md#outcomeid)
+ \[`key`: `string`\]: `unknown`
 
 ## Properties
 
-### currencyCode
+### currencyCode?
 
-• `Optional` **currencyCode**: `string`
+> `optional` **currencyCode**: `string`
 
 Currency code of outcome monetary value
 
@@ -26,11 +22,11 @@ Currency code of outcome monetary value
 
 packages/sitecore-jss/types/tracking/dataModels.d.ts:21
 
-___
+***
 
-### monetaryValue
+### monetaryValue?
 
-• `Optional` **monetaryValue**: `number`
+> `optional` **monetaryValue**: `number`
 
 Revenue from outcome
 
@@ -38,11 +34,11 @@ Revenue from outcome
 
 packages/sitecore-jss/types/tracking/dataModels.d.ts:23
 
-___
+***
 
 ### outcomeId
 
-• **outcomeId**: `string`
+> **outcomeId**: `string`
 
 GUID or alias (name) of outcome to trigger
 

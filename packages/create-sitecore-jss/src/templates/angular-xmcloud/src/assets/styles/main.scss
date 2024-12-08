@@ -1,0 +1,14 @@
+@import "basic/fonts";
+@import "bootstrap/scss/bootstrap";
+@import "sass/main.scss";
+@import "basic/main.scss";
+
+sc-placeholder {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  &.row {
+    flex-direction: row;
+  }
+}

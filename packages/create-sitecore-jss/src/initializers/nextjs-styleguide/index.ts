@@ -3,7 +3,7 @@ import path, { sep } from 'path';
 import inquirer from 'inquirer';
 import {
   Initializer,
-  openPackageJson,
+  openJsonFile,
   transform,
   DEFAULT_APPNAME,
   styleguidePrompts,
@@ -20,7 +20,7 @@ export default class NextjsStyleguideInitializer implements Initializer {
   }
 
   async init(args: NextjsStyleguideArgs) {
-    const pkg = openPackageJson(`${args.destination}${sep}package.json`);
+    const pkg = openJsonFile(`${args.destination}${sep}package.json`);
 
     const answers = await inquirer.prompt<StyleguideAnswer>(styleguidePrompts, args);
 

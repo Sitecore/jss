@@ -9,9 +9,14 @@ scjssconfig.json
 /dist-server
 /tmp
 /out-tsc
+/.angular
 
 # dependencies
 /node_modules
+
+# local env files
+.env.local
+.env.*.local
 
 # IDEs and editors
 /.idea

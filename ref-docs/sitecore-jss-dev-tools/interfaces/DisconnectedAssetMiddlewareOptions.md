@@ -1,30 +1,27 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / DisconnectedAssetMiddlewareOptions
 
 # Interface: DisconnectedAssetMiddlewareOptions
-
-## Table of contents
-
-### Properties
-
-- [manifestPath](DisconnectedAssetMiddlewareOptions.md#manifestpath)
-- [staticRootPath](DisconnectedAssetMiddlewareOptions.md#staticrootpath)
 
 ## Properties
 
 ### manifestPath
 
-• **manifestPath**: `string`
+> **manifestPath**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:10](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L10)
+[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:10](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L10)
 
-___
+***
 
 ### staticRootPath
 
-• **staticRootPath**: `string`
+> **staticRootPath**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:11](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L11)
+[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:11](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L11)

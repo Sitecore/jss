@@ -79,7 +79,7 @@ export function doFingerprintsMatch(fp1: string, fp2: string): boolean {
 }
 
 /**
- * @param {Object} params
+ * @param {object} params
  * @param {string[]} params.warnings
  * @param {string[]} params.errors
  * @param {Function} params.resolve
@@ -116,7 +116,7 @@ export function finishWatchJobStatusTask({
 }
 
 /**
- * @param {Object} params
+ * @param {object} params
  * @param {string} params.message
  * @param {string} params.entryLevel
  * @param {string[]} params.warnings

@@ -1,153 +1,179 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / DateDirective
 
 # Class: DateDirective
+
+## Extends
+
+- `BaseFieldDirective`
 
 ## Implements
 
 - `OnChanges`
 
-## Table of contents
-
-### Constructors
-
-- [constructor](DateDirective.md#constructor)
-
-### Properties
-
-- [datePipe](DateDirective.md#datepipe)
-- [editable](DateDirective.md#editable)
-- [field](DateDirective.md#field)
-- [format](DateDirective.md#format)
-- [locale](DateDirective.md#locale)
-- [templateRef](DateDirective.md#templateref)
-- [timezone](DateDirective.md#timezone)
-- [viewContainer](DateDirective.md#viewcontainer)
-- [viewRef](DateDirective.md#viewref)
-
-### Methods
-
-- [ngOnChanges](DateDirective.md#ngonchanges)
-- [updateView](DateDirective.md#updateview)
-
 ## Constructors
 
-### constructor
+### new DateDirective()
 
-• **new DateDirective**(`viewContainer`, `templateRef`, `datePipe`)
+> **new DateDirective**(`viewContainer`, `templateRef`, `datePipe`): [`DateDirective`](DateDirective.md)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Parameter | Type |
+| ------ | ------ |
 | `viewContainer` | `ViewContainerRef` |
 | `templateRef` | `TemplateRef`\<`unknown`\> |
 | `datePipe` | `DatePipe` |
 
+#### Returns
+
+[`DateDirective`](DateDirective.md)
+
+#### Overrides
+
+`BaseFieldDirective.constructor`
+
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:29](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/date.directive.ts#L29)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:40](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/date.directive.ts#L40)
 
 ## Properties
 
-### datePipe
+### defaultFieldEditingComponent
 
-• `Private` **datePipe**: `DatePipe`
+> `protected` **defaultFieldEditingComponent**: `Type`\<`unknown`\>
+
+Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
+
+#### Overrides
+
+`BaseFieldDirective.defaultFieldEditingComponent`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:32](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/date.directive.ts#L32)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:38](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/date.directive.ts#L38)
 
-___
+***
 
 ### editable
 
-• **editable**: `boolean` = `true`
+> **editable**: `boolean` = `true`
+
+#### Overrides
+
+`BaseFieldDirective.editable`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:23](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/date.directive.ts#L23)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:26](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/date.directive.ts#L26)
 
-___
+***
+
+### emptyFieldEditingTemplate
+
+> **emptyFieldEditingTemplate**: `TemplateRef`\<`unknown`\>
+
+Custom template to render in Pages in Metadata edit mode if field value is empty
+
+#### Overrides
+
+`BaseFieldDirective.emptyFieldEditingTemplate`
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/date.directive.ts:33](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/date.directive.ts#L33)
+
+***
 
 ### field
 
-• **field**: `DateField`
+> **field**: `DateField`
+
+#### Overrides
+
+`BaseFieldDirective.field`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:25](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/date.directive.ts#L25)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:28](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/date.directive.ts#L28)
 
-___
+***
 
-### format
+### format?
 
-• `Optional` **format**: `string`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/date.directive.ts:17](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/date.directive.ts#L17)
-
-___
-
-### locale
-
-• `Optional` **locale**: `string`
+> `optional` **format**: `string`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:21](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/date.directive.ts#L21)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:20](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/date.directive.ts#L20)
 
-___
+***
 
-### templateRef
+### locale?
 
-• `Private` **templateRef**: `TemplateRef`\<`unknown`\>
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/date.directive.ts:31](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/date.directive.ts#L31)
-
-___
-
-### timezone
-
-• `Optional` **timezone**: `string`
+> `optional` **locale**: `string`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:19](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/date.directive.ts#L19)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:24](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/date.directive.ts#L24)
 
-___
+***
+
+### timezone?
+
+> `optional` **timezone**: `string`
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/date.directive.ts:22](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/date.directive.ts#L22)
+
+***
 
 ### viewContainer
 
-• `Private` **viewContainer**: `ViewContainerRef`
+> `protected` **viewContainer**: `ViewContainerRef`
+
+#### Inherited from
+
+`BaseFieldDirective.viewContainer`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:30](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/date.directive.ts#L30)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
 
-___
+***
 
 ### viewRef
 
-• `Private` **viewRef**: `EmbeddedViewRef`\<`unknown`\>
+> `protected` **viewRef**: `EmbeddedViewRef`\<`unknown`\>
+
+#### Inherited from
+
+`BaseFieldDirective.viewRef`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:27](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/date.directive.ts#L27)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
 
 ## Methods
 
-### ngOnChanges
+### ngOnChanges()
 
-▸ **ngOnChanges**(`changes`): `void`
+> **ngOnChanges**(`changes`): `void`
+
+A callback method that is invoked immediately after the
+default change detector has checked data-bound properties
+if at least one has changed, and before the view and content
+children are checked.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `changes` | `SimpleChanges` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `changes` | `SimpleChanges` | The changed properties. |
 
 #### Returns
 
@@ -155,22 +181,75 @@ ___
 
 #### Implementation of
 
-OnChanges.ngOnChanges
+`OnChanges.ngOnChanges`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:35](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/date.directive.ts#L35)
+[packages/sitecore-jss-angular/src/components/date.directive.ts:49](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/date.directive.ts#L49)
 
-___
+***
 
-### updateView
+### renderEmpty()
 
-▸ `Private` **updateView**(): `void`
+> `protected` **renderEmpty**(): `void`
+
+Renders the empty field markup which is required by Pages in editMode 'metadata' in case field is empty.
 
 #### Returns
 
 `void`
 
+#### Inherited from
+
+`BaseFieldDirective.renderEmpty`
+
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/date.directive.ts:46](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/date.directive.ts#L46)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
+
+***
+
+### renderMetadata()
+
+> `protected` **renderMetadata**(`kind`): `void`
+
+Renders a metadata chrome marker for the field. Required by Pages in editMode 'metadata'.
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `kind` | `MetadataKind` | 'open' or 'close' to indicate the start or end of the metadata chrome |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`BaseFieldDirective.renderMetadata`
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
+
+***
+
+### shouldRender()
+
+> `protected` **shouldRender**(): `boolean`
+
+Determines if directive should render the field as is
+Returns true if we are in edit mode 'chromes' (field.editable is present) or field is not empty
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+`BaseFieldDirective.shouldRender`
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:30](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L30)

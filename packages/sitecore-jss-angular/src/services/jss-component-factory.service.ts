@@ -51,7 +51,7 @@ export class JssComponentFactoryService {
 
     if (loadedComponent) {
       return Promise.resolve({
-        componentDefinition: component,
+        componentDefinition: this.applySXAParams(component),
         componentImplementation: loadedComponent.type,
         canActivate: loadedComponent.canActivate,
         resolve: loadedComponent.resolve,
@@ -85,7 +85,7 @@ export class JssComponentFactoryService {
         }
 
         return {
-          componentDefinition: component,
+          componentDefinition: this.applySXAParams(component),
           componentImplementation: componentType,
           componentModuleRef: moduleRef,
           canActivate: lazyComponent.canActivate,
@@ -115,5 +115,20 @@ export class JssComponentFactoryService {
       componentImplementation: RawComponent,
       componentDefinition: component,
     });
+  }
+
+  private applySXAParams(rendering: ComponentRendering) {
+    // Provide aggregated SXA styles on params 'styles'
+    const styles = [];
+    if (rendering.params?.GridParameters) {
+      styles.push(rendering.params.GridParameters.trim());
+    }
+    if (rendering.params?.Styles) {
+      styles.push(rendering.params.Styles.trim());
+    }
+    if (rendering.params && styles.length > 0) {
+      rendering.params.styles = styles.join(' ');
+    }
+    return rendering;
   }
 }

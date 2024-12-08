@@ -1,7 +1,7 @@
 ﻿import path, { sep } from 'path';
 import {
   Initializer,
-  openPackageJson,
+  openJsonFile,
   transform,
   isDevEnvironment,
   DEFAULT_APPNAME,
@@ -16,7 +16,7 @@ export default class NextjsXMCloudInitializer implements Initializer {
   }
 
   async init(args: ClientAppArgs) {
-    const pkg = openPackageJson(`${args.destination}${sep}package.json`);
+    const pkg = openJsonFile(`${args.destination}${sep}package.json`);
 
     const mergedArgs = {
       ...args,

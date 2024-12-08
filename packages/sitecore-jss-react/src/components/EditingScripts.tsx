@@ -13,7 +13,9 @@ export const EditingScripts = (): JSX.Element => {
   } = useSitecoreContext();
 
   // Don't render anything if not in editing/preview mode
-  if (pageState === LayoutServicePageState.Normal) return <></>;
+  if (pageState === LayoutServicePageState.Normal || pageState === LayoutServicePageState.Preview) {
+    return <></>;
+  }
 
   if (editMode === EditMode.Metadata) {
     const jssClientData = { ...clientData, ...getJssPagesClientData() };

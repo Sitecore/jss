@@ -1,76 +1,75 @@
+[**@sitecore-jss/sitecore-jss-vue**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-vue](../README.md) / ComponentRendering
 
-# Interface: ComponentRendering
+# Interface: ComponentRendering\<T\>
 
 Definition of a component instance within a placeholder on a route
 
-## Table of contents
+## Type Parameters
 
-### Properties
-
-- [componentName](ComponentRendering.md#componentname)
-- [dataSource](ComponentRendering.md#datasource)
-- [fields](ComponentRendering.md#fields)
-- [params](ComponentRendering.md#params)
-- [placeholders](ComponentRendering.md#placeholders)
-- [uid](ComponentRendering.md#uid)
+| Type Parameter | Default type |
+| ------ | ------ |
+| `T` | [`ComponentFields`](ComponentFields.md) |
 
 ## Properties
 
 ### componentName
 
-• **componentName**: `string`
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:88
-
-___
-
-### dataSource
-
-• `Optional` **dataSource**: `string`
+> **componentName**: `string`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:89
 
-___
+***
 
-### fields
+### dataSource?
 
-• `Optional` **fields**: [`ComponentFields`](ComponentFields.md)
+> `optional` **dataSource**: `string`
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:92
+packages/sitecore-jss/types/layout/models.d.ts:90
 
-___
+***
 
-### params
+### fields?
 
-• `Optional` **params**: [`ComponentParams`](ComponentParams.md)
+> `optional` **fields**: `T`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:93
 
-___
+***
 
-### placeholders
+### params?
 
-• `Optional` **placeholders**: `PlaceholdersData`\<`string`\>
+> `optional` **params**: [`ComponentParams`](ComponentParams.md)
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:94
+
+***
+
+### placeholders?
+
+> `optional` **placeholders**: `PlaceholdersData`\<`string`\>
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:92
+
+***
+
+### uid?
+
+> `optional` **uid**: `string`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:91
-
-___
-
-### uid
-
-• `Optional` **uid**: `string`
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:90

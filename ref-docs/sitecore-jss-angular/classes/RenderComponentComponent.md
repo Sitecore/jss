@@ -1,3 +1,7 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / RenderComponentComponent
 
 # Class: RenderComponentComponent
@@ -9,238 +13,90 @@ Useful inside templated placeholders.
 
 - `OnChanges`
 
-## Table of contents
-
-### Constructors
-
-- [constructor](RenderComponentComponent.md#constructor)
-
-### Properties
-
-- [\_differ](RenderComponentComponent.md#_differ)
-- [\_inputs](RenderComponentComponent.md#_inputs)
-- [componentFactory](RenderComponentComponent.md#componentfactory)
-- [destroyed](RenderComponentComponent.md#destroyed)
-- [differs](RenderComponentComponent.md#differs)
-- [missingComponentComponent](RenderComponentComponent.md#missingcomponentcomponent)
-- [outputs](RenderComponentComponent.md#outputs)
-- [rendering](RenderComponentComponent.md#rendering)
-- [view](RenderComponentComponent.md#view)
-
-### Accessors
-
-- [inputs](RenderComponentComponent.md#inputs)
-
-### Methods
-
-- [\_render](RenderComponentComponent.md#_render)
-- [\_setComponentInputs](RenderComponentComponent.md#_setcomponentinputs)
-- [\_subscribeComponentOutputs](RenderComponentComponent.md#_subscribecomponentoutputs)
-- [ngOnChanges](RenderComponentComponent.md#ngonchanges)
-
 ## Constructors
 
-### constructor
+### new RenderComponentComponent()
 
-• **new RenderComponentComponent**(`differs`, `componentFactory`, `missingComponentComponent`)
+> **new RenderComponentComponent**(`differs`, `componentFactory`, `missingComponentComponent`): [`RenderComponentComponent`](RenderComponentComponent.md)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Parameter | Type |
+| ------ | ------ |
 | `differs` | `KeyValueDiffers` |
 | `componentFactory` | `JssComponentFactoryService` |
-| `missingComponentComponent` | `Type`\<\{ `[key: string]`: `unknown`;  }\> |
+| `missingComponentComponent` | `Type`\<`object`\> |
+
+#### Returns
+
+[`RenderComponentComponent`](RenderComponentComponent.md)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:43](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L43)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:43](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/render-component.component.ts#L43)
 
 ## Properties
 
-### \_differ
-
-• `Private` **\_differ**: `KeyValueDiffer`\<`string`, `unknown`\>
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:40](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L40)
-
-___
-
-### \_inputs
-
-• `Private` **\_inputs**: `Object`
-
-#### Index signature
-
-▪ [key: `string`]: `unknown`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:39](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L39)
-
-___
-
-### componentFactory
-
-• `Private` **componentFactory**: `JssComponentFactoryService`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:45](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L45)
-
-___
-
-### destroyed
-
-• `Private` **destroyed**: `boolean` = `false`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:41](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L41)
-
-___
-
-### differs
-
-• `Private` **differs**: `KeyValueDiffers`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:44](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L44)
-
-___
-
-### missingComponentComponent
-
-• `Private` **missingComponentComponent**: `Type`\<\{ `[key: string]`: `unknown`;  }\>
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:47](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L47)
-
-___
-
 ### outputs
 
-• **outputs**: `Object`
+> **outputs**: `object`
 
-#### Index signature
+#### Index Signature
 
-▪ [k: `string`]: (`eventType`: `unknown`) => `void`
+ \[`k`: `string`\]: (`eventType`) => `void`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:36](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L36)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:36](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/render-component.component.ts#L36)
 
-___
+***
 
 ### rendering
 
-• **rendering**: [`ComponentRendering`](../interfaces/ComponentRendering.md) \| [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md)
+> **rendering**: [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> \| [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:35](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L35)
-
-___
-
-### view
-
-• `Private` **view**: `ViewContainerRef`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:37](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L37)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:35](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/render-component.component.ts#L35)
 
 ## Accessors
 
 ### inputs
 
-• `set` **inputs**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **inputs**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `Object` |
+##### Parameters
 
-#### Returns
+| Parameter | Type |
+| ------ | ------ |
+| `value` | `object` |
+
+##### Returns
 
 `void`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:50](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L50)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:51](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/render-component.component.ts#L51)
 
 ## Methods
 
-### \_render
+### ngOnChanges()
 
-▸ `Private` **_render**(): `void`
+> **ngOnChanges**(`changes`): `void`
 
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:89](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L89)
-
-___
-
-### \_setComponentInputs
-
-▸ `Private` **_setComponentInputs**(`componentInstance`, `inputs`): `void`
+A callback method that is invoked immediately after the
+default change detector has checked data-bound properties
+if at least one has changed, and before the view and content
+children are checked.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `componentInstance` | `Object` |
-| `inputs` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:64](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L64)
-
-___
-
-### \_subscribeComponentOutputs
-
-▸ `Private` **_subscribeComponentOutputs**(`componentInstance`, `outputs`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `componentInstance` | `Object` |
-| `outputs` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:74](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L74)
-
-___
-
-### ngOnChanges
-
-▸ **ngOnChanges**(`changes`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `changes` | `SimpleChanges` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `changes` | `SimpleChanges` | The changed properties. |
 
 #### Returns
 
@@ -248,8 +104,8 @@ ___
 
 #### Implementation of
 
-OnChanges.ngOnChanges
+`OnChanges.ngOnChanges`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:58](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/render-component.component.ts#L58)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:58](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/render-component.component.ts#L58)

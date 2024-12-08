@@ -1,17 +1,17 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular",
-  "version": "22.2.2-canary.2",
+  "version": "22.3.1-canary.13",
   "description": "",
   "scripts": {
     "build": "ng-packagr -p ng-package.json",
     "lint": "eslint \"./src/**/*.ts\"",
     "test": "ng test",
-    "test:watch": "ng test --no-single-run --browsers Chrome",
+    "test:watch": "ng test --watch --browsers Chrome",
     "coverage": "ng test --code-coverage",
-    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-angular src/public_api.ts --githubPages false"
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss-angular src/public_api.ts --githubPages false"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -33,8 +33,9 @@
     "@angular/platform-browser": "~17.3.11",
     "@angular/platform-browser-dynamic": "~17.3.11",
     "@angular/router": "~17.3.11",
+    "@sitecore-cloudsdk/events": "^0.4.2",
     "@types/jasmine": "^5.1.4",
-    "@types/node": "^20.14.10",
+    "@types/node": "^22.9.0",
     "codelyzer": "^6.0.1",
     "eslint": "~8.57.0",
     "eslint-plugin-deprecation": "^1.5.0",
@@ -50,15 +51,16 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.8.1",
     "tslib": "^2.3.1",
-    "typescript": "~5.2.2",
+    "typescript": "~5.4.0",
     "zone.js": "~0.14.7"
   },
   "peerDependencies": {
+    "@sitecore-cloudsdk/events": "^0.4.2",
     "@types/debug": "^4.1.12",
     "rxjs": "~7.8.1"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "22.2.2-canary.2"
+    "@sitecore-jss/sitecore-jss": "22.3.1-canary.13"
   },
   "main": "dist/esm2022/sitecore-jss-sitecore-jss-angular.mjs",
   "module": "dist/esm2022/sitecore-jss-sitecore-jss-angular.js",

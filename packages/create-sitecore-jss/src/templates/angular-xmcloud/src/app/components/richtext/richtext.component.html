@@ -1,0 +1,8 @@
+<div class="component-content">
+  <ng-container *ngIf="text; else emptyHint">
+    <div *scRichText="text"></div>
+  </ng-container>
+  <ng-template #emptyHint>
+    <span class="is-empty-hint">Rich text</span>
+  </ng-template>
+</div>

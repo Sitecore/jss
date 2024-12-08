@@ -1,4 +1,4 @@
-import { Component, DebugElement, Input } from '@angular/core';
+import { Component, DebugElement, Input, TemplateRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -41,6 +41,34 @@ class AnotherTestComponent {
   @Input() mediaUrlPrefix?: RegExp;
 }
 
+const emptyImageFieldEditingTemplateId = 'emptyImageFieldEditingTemplate';
+const emptyImageFieldEditingTemplate = '<img src="" alt="Empty image">';
+const emptyImageFieldEditingTemplateDefaultTestString =
+  'M174,54c7.17,0,13,5.83,13,13s-5.83,13-13,13s-13-5.83-13-13S166.83,54,174,54 M174,52 c-8.28,0-15,6.72-15,15s6.72,15,15,15s15-6.72,15-15S182.28,52,174,52L174,52z';
+
+@Component({
+  selector: 'test-empty-template-image',
+  template: `
+    <img
+      class="some"
+      id="another"
+      *scImage="
+        field;
+        editable: editable;
+        emptyFieldEditingTemplate: ${emptyImageFieldEditingTemplateId}
+      "
+    />
+    <ng-template #${emptyImageFieldEditingTemplateId}>
+      ${emptyImageFieldEditingTemplate}
+    </ng-template>
+  `,
+})
+class TestEmptyTemplateComponent {
+  @Input() field: ImageField;
+  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
+  @Input() editable = true;
+}
+
 describe('<img *scImage />', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
@@ -48,7 +76,12 @@ describe('<img *scImage />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ImageDirective, TestComponent, AnotherTestComponent],
+      declarations: [
+        ImageDirective,
+        TestComponent,
+        AnotherTestComponent,
+        TestEmptyTemplateComponent,
+      ],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -157,6 +190,7 @@ describe('<img *scImage />', () => {
         alt: 'my image',
         height: '650',
         width: '300',
+        style: { background: 'white', color: 'black' },
       },
     };
     const eeMedia = {
@@ -189,6 +223,15 @@ describe('<img *scImage />', () => {
       const img = de.nativeElement.getElementsByTagName('img')[0];
       expect(img.height).toBe(100);
       expect(img.width).toBe(150);
+    });
+
+    it('should render img with style prop', () => {
+      comp2.field = media;
+      fixture2.detectChanges();
+
+      const img = de.nativeElement.getElementsByTagName('img')[0];
+      expect(img.style.getPropertyValue('background')).toBe('white');
+      expect(img.style.getPropertyValue('color')).toBe('black');
     });
 
     it('should render img with addtional props in EE mode', () => {
@@ -343,6 +386,199 @@ describe('<img *scImage />', () => {
 
       expect(img.src).toContain(media.value.src); // src also contains <base> href which is OK.
       expect(img.alt).toBe(media.value.alt);
+    });
+  });
+
+  describe('editMode metadata', () => {
+    const testMetadata = {
+      contextItem: {
+        id: '{09A07660-6834-476C-B93B-584248D3003B}',
+        language: 'en',
+        revision: 'a0b36ce0a7db49418edf90eb9621e145',
+        version: 1,
+      },
+      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
+      fieldType: 'image',
+      rawValue: 'Test1',
+    };
+
+    it('should render default empty field component for Image when field value src is not present', () => {
+      const field = {
+        value: { src: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyImageFieldEditingTemplateDefaultTestString);
+    });
+
+    it('should render default empty field component for Image when field src is not present', () => {
+      const field = {
+        src: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyImageFieldEditingTemplateDefaultTestString);
+    });
+
+    it('should render custom empty field component when provided, when field value src is not present', () => {
+      fixture = TestBed.createComponent(TestEmptyTemplateComponent);
+      fixture.detectChanges();
+
+      de = fixture.debugElement;
+      comp = fixture.componentInstance;
+
+      const field = {
+        value: { src: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyImageFieldEditingTemplate);
+    });
+
+    it('should render custom empty field component when provided, when field src is not present', () => {
+      fixture = TestBed.createComponent(TestEmptyTemplateComponent);
+      fixture.detectChanges();
+
+      de = fixture.debugElement;
+      comp = fixture.componentInstance;
+
+      const field = {
+        src: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyImageFieldEditingTemplate);
+    });
+
+    it('should render nothing when field value src is not present, when editing is explicitly disabled', () => {
+      const field = {
+        value: { src: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      comp.editable = false;
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(0);
+    });
+
+    it('should render nothing when field src is not present, when editing is explicitly disabled', () => {
+      const field = {
+        src: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      comp.editable = false;
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(0);
+    });
+
+    describe('with "metadata" property value', () => {
+      describe('and editing enabled', () => {
+        it('should render <img /> with metadata chrome tags', () => {
+          const media = {
+            metadata: { foo: 'bar' },
+            value: {
+              src: '/assets/img/test0.png',
+              alt: 'my image',
+            },
+          };
+          comp.editable = true;
+          comp.field = media;
+          fixture.detectChanges();
+
+          const img = de.query(By.css('img')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = img.previousElementSibling;
+          const metadataCloseTag = img.nextElementSibling;
+
+          expect(metadataOpenTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">{"foo":"bar"}</code>'
+          );
+          expect(metadataCloseTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
+        });
+
+        it('should render empty field with metadata chrome tags', () => {
+          const field = {
+            metadata: { foo: 'bar' },
+            value: { src: undefined },
+          };
+          comp.editable = true;
+          comp.field = field;
+          fixture.detectChanges();
+
+          const fieldValue = de.query(By.css('[sc-default-empty-image-field-editing-placeholder]'));
+          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
+          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
+
+          expect(metadataOpenTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">{"foo":"bar"}</code>'
+          );
+          expect(metadataCloseTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
+        });
+      });
+
+      describe('and editing disabled', () => {
+        it('should render <img /> without metadata chrome tags', () => {
+          const media = {
+            metadata: { foo: 'bar' },
+            value: {
+              src: '/assets/img/test0.png',
+              alt: 'my image',
+            },
+          };
+          comp.editable = false;
+          comp.field = media;
+          fixture.detectChanges();
+
+          const img = de.query(By.css('img')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = img.previousElementSibling;
+          const metadataCloseTag = img.nextElementSibling;
+
+          expect(metadataOpenTag).toBeNull();
+          expect(metadataCloseTag).toBeNull();
+        });
+      });
+    });
+
+    describe('without "metadata" property value', () => {
+      it('should render <img /> without metadata chrome tags', () => {
+        const media = {
+          value: {
+            src: '/assets/img/test0.png',
+            alt: 'my image',
+          },
+        };
+        comp.editable = true;
+        comp.field = media;
+        fixture.detectChanges();
+
+        const img = de.query(By.css('img')).nativeElement as HTMLElement;
+
+        const metadataOpenTag = img.previousElementSibling;
+        const metadataCloseTag = img.nextElementSibling;
+
+        expect(metadataOpenTag).toBeNull();
+        expect(metadataCloseTag).toBeNull();
+      });
     });
   });
 

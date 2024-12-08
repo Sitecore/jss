@@ -1,15 +1,15 @@
-@sitecore-jss/sitecore-jss-nextjs
+**@sitecore-jss/sitecore-jss-nextjs** • **Docs**
+
+***
 
 # @sitecore-jss/sitecore-jss-nextjs
 
-## Table of contents
+## Modules
 
-### Modules
-
-- [editing](modules/editing.md)
-- [graphql](modules/graphql.md)
-- [index](modules/index.md)
-- [middleware](modules/middleware.md)
-- [monitoring](modules/monitoring.md)
-- [site](modules/site.md)
-- [utils](modules/utils.md)
+- [editing](editing/README.md)
+- [graphql](graphql/README.md)
+- [index](index/README.md)
+- [middleware](middleware/README.md)
+- [monitoring](monitoring/README.md)
+- [site](site/README.md)
+- [utils](utils/README.md)

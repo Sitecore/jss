@@ -39,16 +39,16 @@ export type SitemapQueryResult = { site: { siteInfo: { sitemap: string[] } } };
 export class GraphQLSitemapXmlService {
   private graphQLClient: GraphQLClient;
 
-  protected get query(): string {
-    return defaultQuery;
-  }
-
   /**
    * Creates an instance of graphQL sitemaps service with the provided options
    * @param {GraphQLSitemapXmlServiceConfig} options instance
    */
   constructor(public options: GraphQLSitemapXmlServiceConfig) {
     this.graphQLClient = this.getGraphQLClient();
+  }
+
+  protected get query(): string {
+    return defaultQuery;
   }
 
   /**

@@ -1,0 +1,38 @@
+<div class="{{ mainClassPageEditing }}">
+  <ng-container *ngIf="state === LayoutState.Layout">
+    <app-scripts></app-scripts>
+    <header>
+      <div id="header">    
+        <sc-placeholder
+          name="headless-header"
+          [rendering]="route"
+          (loaded)="onPlaceholderLoaded($event)"
+        ></sc-placeholder>
+      </div>
+    </header>
+    <main>
+      <div id="content">
+        <sc-placeholder
+          name="headless-main"
+          [rendering]="route"
+          (loaded)="onPlaceholderLoaded($event)"
+        ></sc-placeholder>
+      </div>
+    </main>
+    <footer>
+      <div id="footer">
+        <sc-placeholder
+          name="headless-footer"
+          [rendering]="route"
+          (loaded)="onPlaceholderLoaded($event)"
+        ></sc-placeholder>
+      </div>
+    </footer>
+  </ng-container>
+
+  <app-not-found
+    *ngIf="state === LayoutState.NotFound"
+    [errorContextData]="errorContextData"
+  ></app-not-found>
+  <app-server-error *ngIf="state === LayoutState.Error"></app-server-error>
+</div>

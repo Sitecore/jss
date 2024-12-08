@@ -1,30 +1,41 @@
-@sitecore-jss/sitecore-jss-angular
+**@sitecore-jss/sitecore-jss-angular** • **Docs**
+
+***
 
 # @sitecore-jss/sitecore-jss-angular
 
-## Table of contents
+## Namespaces
 
-### Namespaces
+- [constants](namespaces/constants/README.md)
+- [mediaApi](namespaces/mediaApi/README.md)
+- [trackingApi](namespaces/trackingApi/README.md)
 
-- [constants](modules/constants.md)
-- [mediaApi](modules/mediaApi.md)
-- [trackingApi](modules/trackingApi.md)
+## Enumerations
 
-### Classes
+- [EditMode](enumerations/EditMode.md)
+- [LayoutServicePageState](enumerations/LayoutServicePageState.md)
 
+## Classes
+
+- [BaseJssState](classes/BaseJssState.md)
+- [CdpHelper](classes/CdpHelper.md)
 - [ClientError](classes/ClientError.md)
 - [ComponentNameAndType](classes/ComponentNameAndType.md)
 - [DateDirective](classes/DateDirective.md)
 - [DefaultRetryStrategy](classes/DefaultRetryStrategy.md)
 - [EditFrameComponent](classes/EditFrameComponent.md)
+- [EditingScriptsComponent](classes/EditingScriptsComponent.md)
 - [FileDirective](classes/FileDirective.md)
+- [FormComponent](classes/FormComponent.md)
 - [GenericLinkDirective](classes/GenericLinkDirective.md)
 - [GraphQLDictionaryService](classes/GraphQLDictionaryService.md)
 - [GraphQLLayoutService](classes/GraphQLLayoutService.md)
+- [GraphQLPersonalizeService](classes/GraphQLPersonalizeService.md)
 - [GraphQLRequestClient](classes/GraphQLRequestClient.md)
 - [HiddenRenderingComponent](classes/HiddenRenderingComponent.md)
 - [ImageDirective](classes/ImageDirective.md)
 - [JssModule](classes/JssModule.md)
+- [JssStateService](classes/JssStateService.md)
 - [LinkDirective](classes/LinkDirective.md)
 - [MemoryCacheClient](classes/MemoryCacheClient.md)
 - [PlaceholderComponent](classes/PlaceholderComponent.md)
@@ -38,7 +49,7 @@
 - [RouterLinkDirective](classes/RouterLinkDirective.md)
 - [TextDirective](classes/TextDirective.md)
 
-### Interfaces
+## Interfaces
 
 - [CacheClient](interfaces/CacheClient.md)
 - [CacheOptions](interfaces/CacheOptions.md)
@@ -47,6 +58,7 @@
 - [ComponentNameAndModule](interfaces/ComponentNameAndModule.md)
 - [ComponentParams](interfaces/ComponentParams.md)
 - [ComponentRendering](interfaces/ComponentRendering.md)
+- [DictionaryPhrases](interfaces/DictionaryPhrases.md)
 - [DictionaryService](interfaces/DictionaryService.md)
 - [EventInstance](interfaces/EventInstance.md)
 - [Field](interfaces/Field.md)
@@ -61,6 +73,7 @@
 - [JssCanActivateFn](interfaces/JssCanActivateFn.md)
 - [JssResolve](interfaces/JssResolve.md)
 - [LayoutService](interfaces/LayoutService.md)
+- [LayoutServiceContext](interfaces/LayoutServiceContext.md)
 - [LayoutServiceContextData](interfaces/LayoutServiceContextData.md)
 - [LayoutServiceData](interfaces/LayoutServiceData.md)
 - [LinkField](interfaces/LinkField.md)
@@ -71,413 +84,44 @@
 - [RetryStrategy](interfaces/RetryStrategy.md)
 - [RichTextField](interfaces/RichTextField.md)
 - [RouteData](interfaces/RouteData.md)
+- [SxaLinkListFields](interfaces/SxaLinkListFields.md)
+- [SxaTitleFields](interfaces/SxaTitleFields.md)
 - [TextField](interfaces/TextField.md)
 - [TrackingRequestOptions](interfaces/TrackingRequestOptions.md)
 
-### Type Aliases
-
-- [EditFrameDataSource](README.md#editframedatasource)
-- [FieldEditButton](README.md#fieldeditbutton)
-- [GraphQLClientError](README.md#graphqlclienterror)
-- [GraphQLRequestClientFactoryConfig](README.md#graphqlrequestclientfactoryconfig)
-- [HttpDataFetcher](README.md#httpdatafetcher)
-- [PlaceholdersData](README.md#placeholdersdata)
-- [WebEditButton](README.md#webeditbutton)
-
-### Variables
-
-- [DYNAMIC\_COMPONENT](README.md#dynamic_component)
-- [DefaultEditFrameButton](README.md#defaulteditframebutton)
-- [DefaultEditFrameButtons](README.md#defaulteditframebuttons)
-
-### Functions
-
-- [enableDebug](README.md#enabledebug)
-- [getChildPlaceholder](README.md#getchildplaceholder)
-- [getFieldValue](README.md#getfieldvalue)
-- [handleEditorAnchors](README.md#handleeditoranchors)
-- [isEditorActive](README.md#iseditoractive)
-- [isRawRendering](README.md#israwrendering)
-- [isServer](README.md#isserver)
-- [resetEditorChromes](README.md#reseteditorchromes)
-
 ## Type Aliases
 
-### EditFrameDataSource
-
-Ƭ **EditFrameDataSource**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `databaseName?` | `string` |
-| `itemId` | `string` |
-| `language?` | `string` |
-
-#### Defined in
-
-packages/sitecore-jss/types/editing/edit-frame.d.ts:43
-
-___
-
-### FieldEditButton
-
-Ƭ **FieldEditButton**: `BaseEditButton` & \{ `fields`: `string`[]  }
-
-#### Defined in
-
-packages/sitecore-jss/types/editing/edit-frame.d.ts:54
-
-___
-
-### GraphQLClientError
-
-Ƭ **GraphQLClientError**: `Partial`\<[`ClientError`](classes/ClientError.md)\> & \{ `code?`: `string`  }
-
-This type represents errors that can occur in a GraphQL client.
-In cases where an error status was sent back from the server (`!response.ok`), the `response` will be populated with details. In cases where a response was never received, the `code` can be populated with the error code (e.g. Node's 'ECONNRESET', 'ETIMEDOUT', etc).
-
-#### Defined in
-
-packages/sitecore-jss/types/graphql-request-client.d.ts:28
-
-___
-
-### GraphQLRequestClientFactoryConfig
-
-Ƭ **GraphQLRequestClientFactoryConfig**: `Object`
-
-Configuration type for
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `apiKey?` | `string` |
-| `endpoint` | `string` |
-
-#### Defined in
-
-packages/sitecore-jss/types/graphql-request-client.d.ts:95
-
-___
-
-### HttpDataFetcher
-
-Ƭ **HttpDataFetcher**\<`T`\>: (`url`: `string`, `data?`: `unknown`) => `Promise`\<[`HttpResponse`](interfaces/HttpResponse.md)\<`T`\>\>
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-
-#### Type declaration
-
-▸ (`url`, `data?`): `Promise`\<[`HttpResponse`](interfaces/HttpResponse.md)\<`T`\>\>
-
-Describes functions that fetch data asynchronously (i.e. from an API endpoint).
-This interface conforms to Axios' public API, but is adaptable to other HTTP libraries and
-fetch polyfills.
-The interface implementation must:
-- Support SSR
-- Comply with the rules of REST by returning appropriate response status codes when there is an error instead of throwing exceptions.
-- Send HTTP POST requests if `data` param is specified; GET is suggested but not required for data-less requests
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `data?` | `unknown` |
-
-##### Returns
-
-`Promise`\<[`HttpResponse`](interfaces/HttpResponse.md)\<`T`\>\>
-
-#### Defined in
-
-packages/sitecore-jss/types/data-fetcher.d.ts:24
-
-___
-
-### PlaceholdersData
-
-Ƭ **PlaceholdersData**\<`TYPEDNAME`\>: \{ [P in TYPEDNAME]: (ComponentRendering \| HtmlElementRendering)[] }
-
-Placeholder contents data (name: placeholder name, then array of components within that placeholder name)
-Note: HtmlElementRendering is used by Sitecore Experience Editor
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `TYPEDNAME` | extends `string` = `string` |
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:69
-
-___
-
-### WebEditButton
-
-Ƭ **WebEditButton**: `BaseEditButton` & \{ `click`: `string` ; `parameters?`: `Record`\<`string`, `string` \| `number` \| `boolean` \| `undefined` \| ``null``\> ; `type?`: `string`  }
-
-#### Defined in
-
-packages/sitecore-jss/types/editing/edit-frame.d.ts:57
+- [EditFrameDataSource](type-aliases/EditFrameDataSource.md)
+- [FieldEditButton](type-aliases/FieldEditButton.md)
+- [GraphQLClientError](type-aliases/GraphQLClientError.md)
+- [GraphQLPersonalizeServiceConfig](type-aliases/GraphQLPersonalizeServiceConfig.md)
+- [GraphQLRequestClientFactoryConfig](type-aliases/GraphQLRequestClientFactoryConfig.md)
+- [HTMLLink](type-aliases/HTMLLink.md)
+- [HttpDataFetcher](type-aliases/HttpDataFetcher.md)
+- [PersonalizeInfo](type-aliases/PersonalizeInfo.md)
+- [PlaceholdersData](type-aliases/PlaceholdersData.md)
+- [WebEditButton](type-aliases/WebEditButton.md)
 
 ## Variables
 
-### DYNAMIC\_COMPONENT
-
-• `Const` **DYNAMIC\_COMPONENT**: `InjectionToken`\<`Type`\<`unknown`\> \| \{ `[s: string]`: `unknown`;  }\>
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:65](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L65)
-
-___
-
-### DefaultEditFrameButton
-
-• `Const` **DefaultEditFrameButton**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `edit` | \{ `fields`: `string`[] ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
-| `edit.fields` | `string`[] |
-| `edit.header` | `string` |
-| `edit.icon` | `string` |
-| `edit.tooltip` | `string` |
-| `editRelatedItem` | \{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
-| `editRelatedItem.click` | `string` |
-| `editRelatedItem.header` | `string` |
-| `editRelatedItem.icon` | `string` |
-| `editRelatedItem.tooltip` | `string` |
-| `insert` | \{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } |
-| `insert.click` | `string` |
-| `insert.header` | `string` |
-| `insert.icon` | `string` |
-| `insert.tooltip` | `string` |
-
-#### Defined in
-
-packages/sitecore-jss/types/editing/edit-frame.d.ts:12
-
-___
-
-### DefaultEditFrameButtons
-
-• `Const` **DefaultEditFrameButtons**: (\{ `click`: `string` ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  } \| \{ `fields`: `string`[] ; `header`: `string` ; `icon`: `string` ; `tooltip`: `string`  })[]
-
-#### Defined in
-
-packages/sitecore-jss/types/editing/edit-frame.d.ts:32
+- [debug](variables/debug.md)
+- [DEFAULT\_VARIANT](variables/DEFAULT_VARIANT.md)
+- [DefaultEditFrameButton](variables/DefaultEditFrameButton.md)
+- [DefaultEditFrameButtons](variables/DefaultEditFrameButtons.md)
+- [DYNAMIC\_COMPONENT](variables/DYNAMIC_COMPONENT.md)
+- [EDGE\_CONFIG](variables/EDGE_CONFIG.md)
 
 ## Functions
 
-### enableDebug
-
-▸ **enableDebug**(`namespaces`): `void`
-
-Enable debug logging dynamically
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `namespaces` | `string` | space-separated list of namespaces to enable |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-packages/sitecore-jss/types/debug.d.ts:7
-
-___
-
-### getChildPlaceholder
-
-▸ **getChildPlaceholder**(`rendering`, `placeholderName`): ([`ComponentRendering`](interfaces/ComponentRendering.md) \| [`HtmlElementRendering`](interfaces/HtmlElementRendering.md))[]
-
-Gets rendering definitions in a given child placeholder under a current rendering.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rendering` | [`ComponentRendering`](interfaces/ComponentRendering.md) |
-| `placeholderName` | `string` |
-
-#### Returns
-
-([`ComponentRendering`](interfaces/ComponentRendering.md) \| [`HtmlElementRendering`](interfaces/HtmlElementRendering.md))[]
-
-child placeholder
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/utils.d.ts:17
-
-___
-
-### getFieldValue
-
-▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`): `T` \| `undefined`
-
-Safely extracts a field value from a rendering or fields object.
-Null will be returned if the field is not defined.
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`ComponentFields`](interfaces/ComponentFields.md) | the rendering or fields object to extract the field from |
-| `fieldName` | `string` | the name of the field to extract |
-
-#### Returns
-
-`T` \| `undefined`
-
-the field value or null if the field is not defined
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/utils.d.ts:9
-
-▸ **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`ComponentFields`](interfaces/ComponentFields.md) |
-| `fieldName` | `string` |
-| `defaultValue` | `T` |
-
-#### Returns
-
-`T`
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/utils.d.ts:10
-
-___
-
-### handleEditorAnchors
-
-▸ **handleEditorAnchors**(): `void`
-
-#### Returns
-
-`void`
-
-**`Description`**
-
-in Experience Editor, anchor tags
-with both onclick and href attributes will use the href, blocking the onclick from firing.
-This function makes it so the anchor tags function as intended in the sample when using Experience Editor
-
-The Mutation Observer API is used to observe changes to the body, then select all elements with href="#" and an onclick,
-and replaces the # value with javascript:void(0); which prevents the anchor tag from blocking the onclick event handler.
-
-**`See`**
-
-Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/MutationObserver
-
-#### Defined in
-
-packages/sitecore-jss/types/editing/utils.d.ts:71
-
-___
-
-### isEditorActive
-
-▸ **isEditorActive**(): `boolean`
-
-Determines whether the current execution context is within a Sitecore editor.
-Sitecore Editor environment can be identified only in the browser
-
-#### Returns
-
-`boolean`
-
-true if executing within a Sitecore editor
-
-#### Defined in
-
-packages/sitecore-jss/types/editing/utils.d.ts:57
-
-___
-
-### isRawRendering
-
-▸ **isRawRendering**(`rendering`): rendering is HtmlElementRendering
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rendering` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| [`HtmlElementRendering`](interfaces/HtmlElementRendering.md) |
-
-#### Returns
-
-rendering is HtmlElementRendering
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
-
-___
-
-### isServer
-
-▸ **isServer**(): `boolean`
-
-Determines whether the current execution context is server-side
-
-#### Returns
-
-`boolean`
-
-true if executing server-side
-
-#### Defined in
-
-packages/sitecore-jss/types/utils/is-server.d.ts:5
-
-___
-
-### resetEditorChromes
-
-▸ **resetEditorChromes**(): `void`
-
-Resets Sitecore editor "chromes"
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-packages/sitecore-jss/types/editing/utils.d.ts:61
+- [enableDebug](functions/enableDebug.md)
+- [getChildPlaceholder](functions/getChildPlaceholder.md)
+- [getContentStylesheetLink](functions/getContentStylesheetLink.md)
+- [getEdgeProxyContentUrl](functions/getEdgeProxyContentUrl.md)
+- [getFieldValue](functions/getFieldValue.md)
+- [getGroomedVariantIds](functions/getGroomedVariantIds.md)
+- [handleEditorAnchors](functions/handleEditorAnchors.md)
+- [isEditorActive](functions/isEditorActive.md)
+- [isRawRendering](functions/isRawRendering.md)
+- [isServer](functions/isServer.md)
+- [personalizeLayout](functions/personalizeLayout.md)
+- [resetEditorChromes](functions/resetEditorChromes.md)

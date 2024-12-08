@@ -1,3 +1,7 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / FileDirective
 
 # Class: FileDirective
@@ -8,92 +12,53 @@ File fields cannot be managed via the EE. We never output "editable."
 
 - `OnChanges`
 
-## Table of contents
-
-### Constructors
-
-- [constructor](FileDirective.md#constructor)
-
-### Properties
-
-- [field](FileDirective.md#field)
-- [templateRef](FileDirective.md#templateref)
-- [viewContainer](FileDirective.md#viewcontainer)
-- [viewRef](FileDirective.md#viewref)
-
-### Methods
-
-- [ngOnChanges](FileDirective.md#ngonchanges)
-- [updateView](FileDirective.md#updateview)
-
 ## Constructors
 
-### constructor
+### new FileDirective()
 
-• **new FileDirective**(`viewContainer`, `templateRef`)
+> **new FileDirective**(`viewContainer`, `templateRef`): [`FileDirective`](FileDirective.md)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Parameter | Type |
+| ------ | ------ |
 | `viewContainer` | `ViewContainerRef` |
 | `templateRef` | `TemplateRef`\<`unknown`\> |
 
+#### Returns
+
+[`FileDirective`](FileDirective.md)
+
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/file.directive.ts:21](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/file.directive.ts#L21)
+[packages/sitecore-jss-angular/src/components/file.directive.ts:21](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/file.directive.ts#L21)
 
 ## Properties
 
 ### field
 
-• **field**: [`FileField`](../interfaces/FileField.md)
+> **field**: [`FileField`](../interfaces/FileField.md)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/file.directive.ts:17](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/file.directive.ts#L17)
-
-___
-
-### templateRef
-
-• `Private` **templateRef**: `TemplateRef`\<`unknown`\>
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/file.directive.ts:21](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/file.directive.ts#L21)
-
-___
-
-### viewContainer
-
-• `Private` **viewContainer**: `ViewContainerRef`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/file.directive.ts:21](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/file.directive.ts#L21)
-
-___
-
-### viewRef
-
-• `Private` **viewRef**: `EmbeddedViewRef`\<`unknown`\>
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/file.directive.ts:19](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/file.directive.ts#L19)
+[packages/sitecore-jss-angular/src/components/file.directive.ts:17](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/file.directive.ts#L17)
 
 ## Methods
 
-### ngOnChanges
+### ngOnChanges()
 
-▸ **ngOnChanges**(`changes`): `void`
+> **ngOnChanges**(`changes`): `void`
+
+A callback method that is invoked immediately after the
+default change detector has checked data-bound properties
+if at least one has changed, and before the view and content
+children are checked.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `changes` | `SimpleChanges` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `changes` | `SimpleChanges` | The changed properties. |
 
 #### Returns
 
@@ -101,22 +66,8 @@ ___
 
 #### Implementation of
 
-OnChanges.ngOnChanges
+`OnChanges.ngOnChanges`
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/file.directive.ts:23](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/file.directive.ts#L23)
-
-___
-
-### updateView
-
-▸ `Private` **updateView**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/file.directive.ts:34](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-angular/src/components/file.directive.ts#L34)
+[packages/sitecore-jss-angular/src/components/file.directive.ts:23](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/file.directive.ts#L23)

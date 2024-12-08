@@ -1,4 +1,4 @@
-import { Component, DebugElement, Input } from '@angular/core';
+import { Component, DebugElement, Input, TemplateRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -18,6 +18,33 @@ class TestComponent {
   @Input() attrs = {};
 }
 
+const emptyLinkFieldEditingTemplateId = 'emptyLinkFieldEditingTemplate';
+const emptyLinkFieldEditingTemplate = '<span>[This is a *custom* empty field template]</span>';
+const emptyLinkFieldEditingTemplateDefaultTestString =
+  '<span sc-default-empty-text-field-editing-placeholder="">[No text in field]</span>';
+
+@Component({
+  selector: 'test-empty-template-link',
+  template: `
+    <a
+      *scLink="
+        field;
+        editable: editable;
+        emptyFieldEditingTemplate: ${emptyLinkFieldEditingTemplateId}
+      "
+    ></a>
+    <ng-template #${emptyLinkFieldEditingTemplateId}>
+      ${emptyLinkFieldEditingTemplate}
+    </ng-template>
+  `,
+})
+class TestEmptyTemplateComponent {
+  @Input() field: LinkField;
+  @Input() editable = true;
+  @Input() attrs = {};
+  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
+}
+
 describe('<a *scLink />', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
@@ -25,7 +52,7 @@ describe('<a *scLink />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LinkDirective, TestComponent],
+      declarations: [LinkDirective, TestComponent, TestEmptyTemplateComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -41,6 +68,16 @@ describe('<a *scLink />', () => {
 
   it('should render nothing with missing editable and value', () => {
     const field = {};
+    comp.field = field;
+    fixture.detectChanges();
+
+    expect(de.children.length).toBe(0);
+  });
+
+  it('should render nothing for empty field', () => {
+    const field = {
+      value: { href: '' },
+    };
     comp.field = field;
     fixture.detectChanges();
 
@@ -218,6 +255,208 @@ describe('<a *scLink />', () => {
       expect(rendered.nativeElement.innerHTML).toBe(field.text);
     });
   });
+
+  describe('editMode metadata', () => {
+    const testMetadata = {
+      contextItem: {
+        id: '{09A07660-6834-476C-B93B-584248D3003B}',
+        language: 'en',
+        revision: 'a0b36ce0a7db49418edf90eb9621e145',
+        version: 1,
+      },
+      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
+      fieldType: 'link',
+      rawValue: 'Test1',
+    };
+
+    it('should render default empty field component when field value href is not present', () => {
+      const field = {
+        value: { src: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplateDefaultTestString);
+    });
+
+    it('should render default empty field component when field href is not present', () => {
+      const field = {
+        hred: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplateDefaultTestString);
+    });
+
+    it('should render custom empty field component when provided, when field value href is not present', () => {
+      fixture = TestBed.createComponent(TestEmptyTemplateComponent);
+      fixture.detectChanges();
+
+      de = fixture.debugElement;
+      comp = fixture.componentInstance;
+
+      const field = {
+        value: { href: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplate);
+    });
+
+    it('should render custom empty field component when provided, when field href is not present', () => {
+      fixture = TestBed.createComponent(TestEmptyTemplateComponent);
+      fixture.detectChanges();
+
+      de = fixture.debugElement;
+      comp = fixture.componentInstance;
+
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplate);
+    });
+
+    it('should render nothing when field value href is not present, when editing is explicitly disabled', () => {
+      const field = {
+        value: { href: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      comp.editable = false;
+      fixture.detectChanges();
+      expect(de.children.length).toBe(0);
+    });
+
+    it('should render nothing when field href is empty, when editing is explicitly disabled', () => {
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      comp.editable = false;
+      fixture.detectChanges();
+      expect(de.children.length).toBe(0);
+    });
+
+    describe('with "metadata" property value', () => {
+      describe('and editing enabled', () => {
+        it('should render <img /> with metadata chrome tags', () => {
+          const linkField = {
+            metadata: { foo: 'bar' },
+            value: {
+              href: '/lorem',
+              text: 'ipsum',
+              class: 'my-link',
+              title: 'My Link',
+              target: '_blank',
+            },
+          };
+          comp.editable = true;
+          comp.field = linkField;
+          fixture.detectChanges();
+
+          const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = link.previousElementSibling;
+          const metadataCloseTag = link.nextElementSibling;
+
+          expect(metadataOpenTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">{"foo":"bar"}</code>'
+          );
+          expect(metadataCloseTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
+        });
+
+        it('should render empty field with metadata chrome tags', () => {
+          const field = {
+            metadata: { foo: 'bar' },
+            value: { src: undefined },
+          };
+          comp.editable = true;
+          comp.field = field;
+          fixture.detectChanges();
+
+          const fieldValue = de.query(
+            By.css('span[sc-default-empty-text-field-editing-placeholder]')
+          );
+          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
+          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
+
+          expect(metadataOpenTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">{"foo":"bar"}</code>'
+          );
+          expect(metadataCloseTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
+        });
+      });
+
+      describe('and editing disabled', () => {
+        it('should render <img /> without metadata chrome tags', () => {
+          const linkField = {
+            metadata: { foo: 'bar' },
+            value: {
+              href: '/lorem',
+              text: 'ipsum',
+              class: 'my-link',
+              title: 'My Link',
+              target: '_blank',
+            },
+          };
+          comp.editable = false;
+          comp.field = linkField;
+          fixture.detectChanges();
+
+          const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = link.previousElementSibling;
+          const metadataCloseTag = link.nextElementSibling;
+
+          expect(metadataOpenTag).toBeNull();
+          expect(metadataCloseTag).toBeNull();
+        });
+      });
+    });
+
+    describe('without "metadata" property value', () => {
+      it('should render <img /> without metadata chrome tags', () => {
+        const linkField = {
+          value: {
+            href: '/lorem',
+            text: 'ipsum',
+            class: 'my-link',
+            title: 'My Link',
+            target: '_blank',
+          },
+        };
+        comp.editable = true;
+        comp.field = linkField;
+        fixture.detectChanges();
+
+        const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+        const metadataOpenTag = link.previousElementSibling;
+        const metadataCloseTag = link.nextElementSibling;
+
+        expect(metadataOpenTag).toBeNull();
+        expect(metadataCloseTag).toBeNull();
+      });
+    });
+  });
 });
 
 @Component({
@@ -234,6 +473,31 @@ class TestWithChildrenComponent {
   @Input() attrs = {};
 }
 
+@Component({
+  selector: 'test-empty-template-link',
+  template: `
+    <a
+      *scLink="
+        field;
+        editable: editable;
+        attrs: attrs;
+        emptyFieldEditingTemplate: ${emptyLinkFieldEditingTemplateId}
+      "
+      id="my-link"
+      ><span *ngIf="true">hello world</span></a
+    >
+    <ng-template #${emptyLinkFieldEditingTemplateId}>
+      ${emptyLinkFieldEditingTemplate}
+    </ng-template>
+  `,
+})
+class TestEmptyTemplateWithChildrenComponent {
+  @Input() field: LinkField;
+  @Input() editable = true;
+  @Input() attrs = {};
+  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
+}
+
 describe('<a *scLink>children</a>', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
@@ -241,7 +505,11 @@ describe('<a *scLink>children</a>', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LinkDirective, TestWithChildrenComponent],
+      declarations: [
+        LinkDirective,
+        TestWithChildrenComponent,
+        TestEmptyTemplateWithChildrenComponent,
+      ],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);
@@ -338,6 +606,208 @@ describe('<a *scLink>children</a>', () => {
 
       expect(rendered.nativeElement.href).toBe('');
       expect(rendered.nativeElement.innerHTML).toContain('<span>hello world</span>');
+    });
+  });
+
+  describe('editMode metadata', () => {
+    const testMetadata = {
+      contextItem: {
+        id: '{09A07660-6834-476C-B93B-584248D3003B}',
+        language: 'en',
+        revision: 'a0b36ce0a7db49418edf90eb9621e145',
+        version: 1,
+      },
+      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
+      fieldType: 'link',
+      rawValue: 'Test1',
+    };
+
+    it('should render default empty field component when field value href is not present', () => {
+      const field = {
+        value: { src: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplateDefaultTestString);
+    });
+
+    it('should render default empty field component when field href is not present', () => {
+      const field = {
+        hred: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplateDefaultTestString);
+    });
+
+    it('should render custom empty field component when provided, when field value href is not present', () => {
+      fixture = TestBed.createComponent(TestEmptyTemplateWithChildrenComponent);
+      fixture.detectChanges();
+
+      de = fixture.debugElement;
+      comp = fixture.componentInstance;
+
+      const field = {
+        value: { href: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplate);
+    });
+
+    it('should render custom empty field component when provided, when field href is not present', () => {
+      fixture = TestBed.createComponent(TestEmptyTemplateWithChildrenComponent);
+      fixture.detectChanges();
+
+      de = fixture.debugElement;
+      comp = fixture.componentInstance;
+
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplate);
+    });
+
+    it('should render nothing when field value href is not present, when editing is explicitly disabled', () => {
+      const field = {
+        value: { href: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      comp.editable = false;
+      fixture.detectChanges();
+      expect(de.children.length).toBe(0);
+    });
+
+    it('should render nothing when field href is empty, when editing is explicitly disabled', () => {
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      comp.editable = false;
+      fixture.detectChanges();
+      expect(de.children.length).toBe(0);
+    });
+
+    describe('with "metadata" property value', () => {
+      describe('and editing enabled', () => {
+        it('should render <img /> with metadata chrome tags', () => {
+          const linkField = {
+            metadata: { foo: 'bar' },
+            value: {
+              href: '/lorem',
+              text: 'ipsum',
+              class: 'my-link',
+              title: 'My Link',
+              target: '_blank',
+            },
+          };
+          comp.editable = true;
+          comp.field = linkField;
+          fixture.detectChanges();
+
+          const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = link.previousElementSibling;
+          const metadataCloseTag = link.nextElementSibling;
+
+          expect(metadataOpenTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">{"foo":"bar"}</code>'
+          );
+          expect(metadataCloseTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
+        });
+
+        it('should render empty field with metadata chrome tags', () => {
+          const field = {
+            metadata: { foo: 'bar' },
+            value: { src: undefined },
+          };
+          comp.editable = true;
+          comp.field = field;
+          fixture.detectChanges();
+
+          const fieldValue = de.query(
+            By.css('span[sc-default-empty-text-field-editing-placeholder]')
+          );
+          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
+          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
+
+          expect(metadataOpenTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">{"foo":"bar"}</code>'
+          );
+          expect(metadataCloseTag?.outerHTML).toEqual(
+            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
+          );
+        });
+      });
+
+      describe('and editing disabled', () => {
+        it('should render <img /> without metadata chrome tags', () => {
+          const linkField = {
+            metadata: { foo: 'bar' },
+            value: {
+              href: '/lorem',
+              text: 'ipsum',
+              class: 'my-link',
+              title: 'My Link',
+              target: '_blank',
+            },
+          };
+          comp.editable = false;
+          comp.field = linkField;
+          fixture.detectChanges();
+
+          const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+          const metadataOpenTag = link.previousElementSibling;
+          const metadataCloseTag = link.nextElementSibling;
+
+          expect(metadataOpenTag).toBeNull();
+          expect(metadataCloseTag).toBeNull();
+        });
+      });
+    });
+
+    describe('without "metadata" property value', () => {
+      it('should render <img /> without metadata chrome tags', () => {
+        const linkField = {
+          value: {
+            href: '/lorem',
+            text: 'ipsum',
+            class: 'my-link',
+            title: 'My Link',
+            target: '_blank',
+          },
+        };
+        comp.editable = true;
+        comp.field = linkField;
+        fixture.detectChanges();
+
+        const link = de.query(By.css('a')).nativeElement as HTMLElement;
+
+        const metadataOpenTag = link.previousElementSibling;
+        const metadataCloseTag = link.nextElementSibling;
+
+        expect(metadataOpenTag).toBeNull();
+        expect(metadataCloseTag).toBeNull();
+      });
     });
   });
 });

@@ -78,7 +78,7 @@ export const addClassName = (otherAttrs: { [key: string]: unknown }): void => {
 
 /**
  * Converts the given tag attributes object to a string
- * @param {Object.<string, unknown>} attributes the attributes object
+ * @param {{[key: string]: unknown}} attributes the attributes object
  * @returns {string} string representation of the attributes
  */
 export const getAttributesString = (attributes: { [key: string]: unknown }): string => {

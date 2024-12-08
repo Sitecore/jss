@@ -10,7 +10,7 @@ import * as helpers from '../utils/helpers';
 describe('install', () => {
   let run: SinonStub;
   let isDevEnvironment: SinonStub;
-  let openPackageJson: SinonStub;
+  let openJsonFile: SinonStub;
   let log: SinonStub;
 
   beforeEach(() => {
@@ -21,7 +21,7 @@ describe('install', () => {
   afterEach(() => {
     run?.restore();
     isDevEnvironment?.restore();
-    openPackageJson?.restore();
+    openJsonFile?.restore();
     log?.restore();
   });
 
@@ -94,7 +94,7 @@ describe('install', () => {
   describe('lintFix', () => {
     it('should run lint script', () => {
       const projectFolder = './some/path';
-      openPackageJson = sinon.stub(helpers, 'openPackageJson').returns({
+      openJsonFile = sinon.stub(helpers, 'openJsonFile').returns({
         scripts: {
           lint: 'lint',
         },
@@ -116,7 +116,7 @@ describe('install', () => {
 
     it('should skip if lint script not defined', () => {
       const projectFolder = './some/path';
-      openPackageJson = sinon.stub(helpers, 'openPackageJson').returns({
+      openJsonFile = sinon.stub(helpers, 'openJsonFile').returns({
         scripts: {},
       });
 
@@ -129,7 +129,7 @@ describe('install', () => {
     it('should respect silent', () => {
       const projectFolder = './some/path';
       const silent = true;
-      openPackageJson = sinon.stub(helpers, 'openPackageJson').returns({
+      openJsonFile = sinon.stub(helpers, 'openJsonFile').returns({
         scripts: {
           lint: 'lint',
         },
@@ -151,11 +151,22 @@ describe('install', () => {
   });
 
   describe('installPrePushHook', () => {
-    const execStub = sinon.stub(childProcess, 'exec');
+    let execStub: SinonStub;
+    beforeEach(() => {
+      execStub = sinon.stub(childProcess, 'exec');
+    });
+
+    afterEach(() => {
+      execStub?.restore();
+    });
 
     it('should run exec function', () => {
       const destination = './some/path';
-
+      openJsonFile = sinon.stub(helpers, 'openJsonFile').returns({
+        scripts: {
+          'install-pre-push-hook': 'stub',
+        },
+      });
       installPrePushHook(destination);
 
       expect(log).to.have.been.calledOnceWith(chalk.cyan('Installing pre-push hook...'));
@@ -167,7 +178,11 @@ describe('install', () => {
     it('should respect silent', () => {
       const destination = './some/path';
       const silent = true;
-
+      openJsonFile = sinon.stub(helpers, 'openJsonFile').returns({
+        scripts: {
+          'install-pre-push-hook': 'stub',
+        },
+      });
       installPrePushHook(destination, silent);
 
       expect(log).to.not.have.been.called;
@@ -176,11 +191,27 @@ describe('install', () => {
       );
     });
 
+    it('should skip if installPrePushHook script not defined', () => {
+      const destination = './some/path';
+      openJsonFile = sinon.stub(helpers, 'openJsonFile').returns({
+        scripts: {},
+      });
+
+      installPrePushHook(destination);
+
+      expect(log).to.not.have.been.called;
+      expect(execStub).to.not.have.been.called;
+    });
+
     it('should log a warning message if there is an error', async () => {
       const destination = './some/path';
       const error = new Error('some error');
       execStub.yields(error);
-
+      openJsonFile = sinon.stub(helpers, 'openJsonFile').returns({
+        scripts: {
+          'install-pre-push-hook': 'stub',
+        },
+      });
       try {
         await installPrePushHook(destination);
       } catch (err) {

@@ -932,22 +932,6 @@ describe('PlaceholderMetadata', () => {
   });
 });
 
-it('isDynamicPlaceholder', () => {
-  expect(isDynamicPlaceholder('container-{*}')).to.be.true;
-  expect(isDynamicPlaceholder('container-1-{*}')).to.be.true;
-  expect(isDynamicPlaceholder('container-1-2')).to.be.false;
-  expect(isDynamicPlaceholder('container-1')).to.be.false;
-  expect(isDynamicPlaceholder('container-1-2-3')).to.be.false;
-  expect(isDynamicPlaceholder('container-1-{*}-3')).to.be.true;
-});
-
-it('getDynamicPlaceholderPattern', () => {
-  expect(getDynamicPlaceholderPattern('container-{*}').test('container-1')).to.be.true;
-  expect(getDynamicPlaceholderPattern('container-{*}').test('container-1-2')).to.be.false;
-  expect(getDynamicPlaceholderPattern('container-1-{*}').test('container-1-2')).to.be.true;
-  expect(getDynamicPlaceholderPattern('container-1-{*}').test('container-1-2-3')).to.be.false;
-});
-
 after(() => {
   (global as any).window.close();
 });

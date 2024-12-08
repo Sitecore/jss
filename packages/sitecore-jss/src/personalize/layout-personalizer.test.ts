@@ -36,7 +36,7 @@ describe('layout-personalizer', () => {
       const variant = 'test';
       const testLayoutData = structuredClone(layoutDataWithoutPlaceholder);
       const personalizedLayoutResult = personalizeLayout(testLayoutData, variant);
-      expect(personalizedLayoutResult).to.equal(undefined);
+      expect(personalizedLayoutResult).to.deep.equal(undefined);
     });
 
     it('should set variantId on Sitecore context', () => {

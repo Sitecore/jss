@@ -2,10 +2,14 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
 import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditMode, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
-import { LayoutKind } from '@sitecore-jss/sitecore-jss/editing';
+import {
+  QUERY_PARAM_EDITING_SECRET,
+  EDITING_ALLOWED_ORIGINS,
+  RenderMetadataQueryParams,
+  LayoutKind,
+} from '@sitecore-jss/sitecore-jss/editing';
 import { EditingData } from './editing-data';
 import { EditingDataService, editingDataService } from './editing-data-service';
-import { EDITING_ALLOWED_ORIGINS, QUERY_PARAM_EDITING_SECRET } from './constants';
 import { getJssEditingSecret } from '../utils/utils';
 import { RenderMiddlewareBase } from './render-middleware';
 import { enforceCors, getAllowedOriginsFromEnv } from '@sitecore-jss/sitecore-jss/utils';
@@ -39,7 +43,7 @@ export type EditingRenderMiddlewareConfig = {
    *
    * Function used to determine route/page URL to render.
    * This may be necessary for certain custom Next.js routing configurations.
-   * @param {Object} args Arguments for resolving the page URL
+   * @param {object} args Arguments for resolving the page URL
    * @param {string} args.serverUrl The root server URL e.g. 'http://localhost:3000'. Available in Chromes Edit Mode only.
    * @param {string} itemPath The Sitecore relative item path e.g. '/styleguide'
    * @returns {string} The URL to render
@@ -187,7 +191,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
 
   /**
    * Default page URL resolution.
-   * @param {Object} args Arguments for resolving the page URL
+   * @param {object} args Arguments for resolving the page URL
    * @param {string} args.serverUrl The root server URL e.g. 'http://localhost:3000'
    * @param {string} args.itemPath The Sitecore relative item path e.g. '/styleguide'
    * @returns {string} The URL to render
@@ -263,26 +267,10 @@ export type EditingRenderMiddlewareMetadataConfig = Pick<
 >;
 
 /**
- * Query parameters appended to the page route URL
- * Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
- */
-export type MetadataQueryParams = {
-  secret: string;
-  sc_lang: string;
-  sc_itemid: string;
-  sc_site: string;
-  route: string;
-  mode: Exclude<LayoutServicePageState, 'normal'>;
-  sc_variant?: string;
-  sc_version?: string;
-  sc_layoutKind?: LayoutKind;
-};
-
-/**
  * Next.js API request with Metadata query parameters.
  */
 type MetadataNextApiRequest = NextApiRequest & {
-  query: MetadataQueryParams;
+  query: RenderMetadataQueryParams;
 };
 
 /**
@@ -301,7 +289,7 @@ export type EditingMetadataPreviewData = {
 
 /**
  * Type guard for EditingMetadataPreviewData
- * @param {Object} data preview data to check
+ * @param {object} data preview data to check
  * @returns true if the data is EditingMetadataPreviewData
  * @see EditingMetadataPreviewData
  */
@@ -327,7 +315,7 @@ export class MetadataHandler {
 
     const startTimestamp = Date.now();
 
-    const requiredQueryParams: (keyof MetadataQueryParams)[] = [
+    const requiredQueryParams: (keyof RenderMetadataQueryParams)[] = [
       'sc_site',
       'sc_itemid',
       'sc_lang',
@@ -417,9 +405,10 @@ export class MetadataHandler {
    * @returns Content-Security-Policy header value
    */
   getSCPHeader() {
-    return `frame-ancestors 'self' ${[getAllowedOriginsFromEnv(), ...EDITING_ALLOWED_ORIGINS].join(
-      ' '
-    )}`;
+    return `frame-ancestors 'self' ${[
+      ...getAllowedOriginsFromEnv(),
+      ...EDITING_ALLOWED_ORIGINS,
+    ].join(' ')}`;
   }
 }
 

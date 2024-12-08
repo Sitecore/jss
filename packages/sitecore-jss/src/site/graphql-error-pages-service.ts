@@ -64,16 +64,16 @@ type ErrorPagesQueryResult = {
 export class GraphQLErrorPagesService {
   private graphQLClient: GraphQLClient;
 
-  protected get query(): string {
-    return defaultQuery;
-  }
-
   /**
    * Creates an instance of graphQL error pages service with the provided options
    * @param {GraphQLErrorPagesServiceConfig} options instance
    */
   constructor(public options: GraphQLErrorPagesServiceConfig) {
     this.graphQLClient = this.getGraphQLClient();
+  }
+
+  protected get query(): string {
+    return defaultQuery;
   }
 
   /**

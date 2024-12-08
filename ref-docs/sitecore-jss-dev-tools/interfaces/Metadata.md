@@ -1,25 +1,23 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / Metadata
 
 # Interface: Metadata
 
 Application metadata
 
-## Table of contents
-
-### Properties
-
-- [packages](Metadata.md#packages)
-
 ## Properties
 
 ### packages
 
-• **packages**: `Object`
+> **packages**: `object`
 
-#### Index signature
+#### Index Signature
 
-▪ [key: `string`]: `string`
+ \[`key`: `string`\]: `string`
 
 #### Defined in
 
-sitecore-jss/types/editing/utils.d.ts:18
+sitecore-jss/types/editing/utils.d.ts:22

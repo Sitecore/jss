@@ -1,77 +1,67 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / DisconnectedLayoutServiceOptions
 
 # Interface: DisconnectedLayoutServiceOptions
 
-## Table of contents
-
-### Properties
-
-- [customizeContext](DisconnectedLayoutServiceOptions.md#customizecontext)
-- [customizeRendering](DisconnectedLayoutServiceOptions.md#customizerendering)
-- [customizeRoute](DisconnectedLayoutServiceOptions.md#customizeroute)
-- [manifest](DisconnectedLayoutServiceOptions.md#manifest)
-- [manifestLanguageChangeCallback](DisconnectedLayoutServiceOptions.md#manifestlanguagechangecallback)
-
 ## Properties
 
-### customizeContext
+### customizeContext?
 
-• `Optional` **customizeContext**: [`CustomizeContextFunction`](../README.md#customizecontextfunction)
-
-#### Defined in
-
-[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:30](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L30)
-
-___
-
-### customizeRendering
-
-• `Optional` **customizeRendering**: [`CustomizeRenderFunction`](../README.md#customizerenderfunction)
+> `optional` **customizeContext**: [`CustomizeContextFunction`](../type-aliases/CustomizeContextFunction.md)
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:32](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L32)
+[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:30](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L30)
 
-___
+***
 
-### customizeRoute
+### customizeRendering?
 
-• `Optional` **customizeRoute**: [`CustomizeRouteFunction`](../README.md#customizeroutefunction)
+> `optional` **customizeRendering**: [`CustomizeRenderFunction`](../type-aliases/CustomizeRenderFunction.md)
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:31](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L31)
+[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:32](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L32)
 
-___
+***
+
+### customizeRoute?
+
+> `optional` **customizeRoute**: [`CustomizeRouteFunction`](../type-aliases/CustomizeRouteFunction.md)
+
+#### Defined in
+
+[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:31](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L31)
+
+***
 
 ### manifest
 
-• **manifest**: [`ManifestInstance`](ManifestInstance.md)
+> **manifest**: [`ManifestInstance`](ManifestInstance.md)
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:29](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L29)
+[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:29](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L29)
 
-___
+***
 
-### manifestLanguageChangeCallback
+### manifestLanguageChangeCallback()?
 
-• `Optional` **manifestLanguageChangeCallback**: (`language`: `string`) => `Promise`\<[`ManifestInstance`](ManifestInstance.md)\>
+> `optional` **manifestLanguageChangeCallback**: (`language`) => `Promise`\<[`ManifestInstance`](ManifestInstance.md)\>
 
-#### Type declaration
+#### Parameters
 
-▸ (`language`): `Promise`\<[`ManifestInstance`](ManifestInstance.md)\>
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Parameter | Type |
+| ------ | ------ |
 | `language` | `string` |
 
-##### Returns
+#### Returns
 
 `Promise`\<[`ManifestInstance`](ManifestInstance.md)\>
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:33](https://github.com/Sitecore/jss/blob/3eff42e53/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L33)
+[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:33](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L33)

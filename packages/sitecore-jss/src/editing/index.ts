@@ -1,5 +1,6 @@
 export { GraphQLEditingService } from './graphql-editing-service';
 export {
+  DEFAULT_PLACEHOLDER_UID,
   ExperienceEditor,
   HorizonEditor,
   isEditorActive,
@@ -22,4 +23,5 @@ export {
   EditButtonTypes,
   mapButtonToCommand,
 } from './edit-frame';
-export { LayoutKind } from './models';
+export { RenderMetadataQueryParams } from './models';
+export { LayoutKind, MetadataKind } from './models';

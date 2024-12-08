@@ -12,7 +12,15 @@ export const parseArgs = (): ParsedArgs => {
   // useful for CI and testing purposes
   const options = {
     boolean: ['appPrefix', 'force', 'noInstall', 'yes', 'silent', 'prePushHook'],
-    string: ['appName', 'destination', 'templates', 'hostName', 'fetchWith', 'language'],
+    string: [
+      'appName',
+      'destination',
+      'proxyAppDestination',
+      'templates',
+      'hostName',
+      'fetchWith',
+      'language',
+    ],
     default: { prePushHook: null },
   };
   const args: ParsedArgs = minimist(process.argv.slice(2), options);
@@ -24,6 +32,37 @@ export const parseArgs = (): ParsedArgs => {
     args[key] === '' && delete args[key];
   });
   return args;
+};
+
+export const getDestination = async (args: ParsedArgs, templates: string[]) => {
+  if (templates.length === 0) {
+    throw new Error('Unable to get destinations, provided templates are empty');
+  }
+  // validate/gather destinations
+  const defaultBaseDestination = `${process.cwd()}${
+    args.appName ? sep + args.appName : `${sep}${templates[0]}`
+  }`;
+  let destination = args.destination;
+  if (!destination) {
+    destination = args.yes
+      ? defaultBaseDestination
+      : await promptDestination(
+          'Where would you like your new app created?',
+          defaultBaseDestination
+        );
+  }
+  return destination;
+};
+
+export const promptDestination = async (prompt: string, defaultDestination: string) => {
+  return (
+    await inquirer.prompt({
+      type: 'input',
+      name: 'destination',
+      message: prompt,
+      default: () => defaultDestination,
+    })
+  ).destination;
 };
 
 export const main = async (args: ParsedArgs) => {
@@ -64,27 +103,7 @@ export const main = async (args: ParsedArgs) => {
     templates.push(answer.template);
   }
 
-  // validate/gather destination
-  const defaultDestination = `${process.cwd()}${
-    args.appName ? sep + args.appName : `${sep}${templates[0]}`
-  }`;
-
-  let destination = args.destination;
-
-  if (!destination) {
-    if (args.yes) {
-      destination = defaultDestination;
-    } else {
-      const answer = await inquirer.prompt({
-        type: 'input',
-        name: 'destination',
-        message: 'Where would you like your new app created?',
-        default: () => defaultDestination,
-      });
-
-      destination = answer.destination;
-    }
-  }
+  const destination = await getDestination(args, templates);
 
   if (!args.force && fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
     const answer = await inquirer.prompt({
