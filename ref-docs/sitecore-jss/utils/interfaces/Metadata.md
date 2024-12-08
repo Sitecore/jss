@@ -20,4 +20,4 @@ Application metadata
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:40](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss/src/editing/utils.ts#L40)
+[packages/sitecore-jss/src/editing/utils.ts:40](https://github.com/Sitecore/jss/blob/89250cb6aff62e727af20469a4fd43db5c3c8052/packages/sitecore-jss/src/editing/utils.ts#L40)

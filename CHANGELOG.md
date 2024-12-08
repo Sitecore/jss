@@ -9,7 +9,80 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
-## Unreleased
+## 22.2.2
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Support Editing Host protection by handling OPTIONS preflight requests ([#1986](https://github.com/Sitecore/jss/pull/1986))
+
+## 22.2.1
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` [BYOC] Form's submission is failing ([#1966](https://github.com/Sitecore/jss/pull/1966)):
+  * Updated @sitecore-feaas/clientside to v0.5.19.
+  * Updated @sitecore/components to v2.0.1.
+  * Passed rendering data to FEAAS.ExternalComponent.
+
+  Make sure to update the relevant dependencies to be able to use the latest fixes.
+
+* `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` Updated @sitecore-cloudsdk to v0.4.1 ([#1966](https://github.com/Sitecore/jss/pull/1966))
+
+## 22.2.0
+
+### 🛠 Breaking Change
+
+* `[templates/nextjs-xmcloud]` CloudSDK dependencies have been updated to 0.4.0 ([#1933](https://github.com/Sitecore/jss/pull/1933))
+* `[templates/nextjs-xmcloud]` `@sitecore/components` dependency has been updated to 2.0.0 ([#1933](https://github.com/Sitecore/jss/pull/1933)) 
+* `[templates/nextjs-xmcloud]` `lib/context` import has been removed. Values from `temp/config` can be used instead. ([#1933](https://github.com/Sitecore/jss/pull/1933)) 
+* `[sitecore-jss-nextjs]` `Context` import and `@sitecore-jss/sitecore-jss-nextjs/context` submodule have been removed. ([#1933](https://github.com/Sitecore/jss/pull/1933)) 
+* `[sitecore-jss-nextjs]` update personalize-middleware for CloudSDK 0.4.0 - pass `enablePersonalizeCookie` to CloudSDK.addPersonalize() function ([#1963](https://github.com/Sitecore/jss/pull/1963))
+
+## 22.1.4
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` `[sitecore-jss]` Resolved an issue with Netlify where URL query parameters were being sorted, causing redirect failures. Added a method to generate all possible permutations of query parameters, ensuring proper matching with URL patterns regardless of their order. ([#1935](https://github.com/Sitecore/jss/pull/1935))
+* `[sitecore-jss-nextjs]` Fixed an issue with language-based redirects, ensuring users are correctly redirected to the appropriate language-specific pages rather than defaulting to the primary language. ([#1938](https://github.com/Sitecore/jss/pull/1938))
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-nextjs]` Expose MiddlewareBase class and MiddlewareBaseConfig type ([#1941](https://github.com/Sitecore/jss/pull/1941))
+* `[react]``[nextjs]``[angular]``[vue]` CacheClient, CacheOptions, MemoryCacheClient classes can now be imported into the app through corresponding a framework package ([#1954](https://github.com/Sitecore/jss/pull/1954))
+
+## 22.1.3
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Addressed an issue where the x-middleware-rewrite header caused redirects to fail during execution on Netlify. ([#1915](https://github.com/Sitecore/jss/pull/1915))
+* `[sitecore-jss-nextjs]` Fixed incorrect behavior of redirects on Netlify service. This fix does not resolve issues related to multilingual redirects. ([#1919](https://github.com/Sitecore/jss/pull/1919))
+
+## 22.1.2
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` `[templates/nextjs]` Update nextjs to 14.2.7 ([#1911](https://github.com/Sitecore/jss/pull/1911))
+  * Make sure to update your app to use the latest Next.js version 14.2.7. It will fix the case when Embedded Personalization / A/B Testing is not executed after navigating through the router links
+* `[sitecore-jss]` Fix isEditorActive returning false in XMCloud Pages ([#1912](https://github.com/Sitecore/jss/pull/1912))
+* `[templates/nextjs]` `[XM Cloud]` FEAAS / BYOC Components are not visible on the page with running A/B test ([#1914](https://github.com/Sitecore/jss/pull/1914))
+  * Make sure to update the _PagePropsFactory_ plugins *order*, these plugins should be executed after the _page-props-factory\plugins\personalize.ts_ plugin to ensure that personalized layout data is used:
+    - _page-props-factory/plugins/component-themes.ts_
+    - _page-props-factory/plugins/component-props.ts_
+* `[sitecore-jss-nextjs]` Resolved an issue with redirects that was caused by the x-middleware-next header in Next.js. This header prevented the flow from being interrupted properly, resulting in redirects not functioning correctly in certain cases. ([#1899](https://github.com/Sitecore/jss/pull/1899))
+
+## 22.1.1
+
+### 🎉 New Features & Improvements
+
+* `[XM Cloud]` `[Metadata Mode]` `[Next.js]` API was changed, next.js preview data provides a new parameter `layoutKind` therefore, please make the necessary updates in the app in `plugins/preview-mode.ts` as shown in the following PR to experience a smooth upgrade.
+* `[sitecore-jss]` `[sitecore-jss-nextjs]` Pass `sc_layoutKind` to GraphQLEditingService request header to support shared/final editing layouts ([#1907](https://github.com/Sitecore/jss/pull/1907))
+* `[sitecore-jss]` `GraphQLRequestClient`'s `request` method now supports dynamic headers based on specific request ([#1907](https://github.com/Sitecore/jss/pull/1907))
+
+```
+  client.request(query, variables, { headers })
+```
+
+## 22.1.0
 
 ### 🐛 Bug Fixes
 
