@@ -11,7 +11,7 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
-## 22.3.1
+## 22.3.0 / 22.3.1
 
 ### 🐛 Bug Fixes
 
