@@ -21,4 +21,4 @@ These should match those in your next.config.js (i18n.locales).
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:23](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L23)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:23](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L23)

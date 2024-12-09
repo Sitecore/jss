@@ -35,7 +35,7 @@ It fetches the form markup from the Sitecore Edge service and renders it in the 
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:61](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/form.component.ts#L61)
+[packages/sitecore-jss-angular/src/components/form.component.ts:62](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-angular/src/components/form.component.ts#L62)
 
 ## Properties
 
@@ -45,7 +45,7 @@ It fetches the form markup from the Sitecore Edge service and renders it in the 
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:55](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/form.component.ts#L55)
+[packages/sitecore-jss-angular/src/components/form.component.ts:56](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-angular/src/components/form.component.ts#L56)
 
 ***
 
@@ -55,7 +55,7 @@ It fetches the form markup from the Sitecore Edge service and renders it in the 
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:57](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/form.component.ts#L57)
+[packages/sitecore-jss-angular/src/components/form.component.ts:58](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-angular/src/components/form.component.ts#L58)
 
 ***
 
@@ -67,7 +67,7 @@ The rendering data for the component
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:53](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/form.component.ts#L53)
+[packages/sitecore-jss-angular/src/components/form.component.ts:54](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-angular/src/components/form.component.ts#L54)
 
 ## Methods
 
@@ -85,7 +85,7 @@ It re-creates the script elements and appends the to the component's template, t
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:144](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/form.component.ts#L144)
+[packages/sitecore-jss-angular/src/components/form.component.ts:173](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-angular/src/components/form.component.ts#L173)
 
 ***
 
@@ -101,7 +101,7 @@ Fetches the form markup from the Sitecore Edge service and renders it in the com
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:87](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/form.component.ts#L87)
+[packages/sitecore-jss-angular/src/components/form.component.ts:88](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-angular/src/components/form.component.ts#L88)
 
 ***
 
@@ -122,7 +122,7 @@ before a directive, pipe, or service instance is destroyed.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:78](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/form.component.ts#L78)
+[packages/sitecore-jss-angular/src/components/form.component.ts:79](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-angular/src/components/form.component.ts#L79)
 
 ***
 
@@ -146,4 +146,21 @@ It is invoked only once when the directive is instantiated.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:68](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/form.component.ts#L68)
+[packages/sitecore-jss-angular/src/components/form.component.ts:69](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-angular/src/components/form.component.ts#L69)
+
+***
+
+### subscribeToFormSubmitEvent()
+
+> **subscribeToFormSubmitEvent**(): `void`
+
+Subscribes to the custom "form:engage" event and sends data to CloudSDK.
+This listener captures interactions such as form views or submissions
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/form.component.ts:145](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-angular/src/components/form.component.ts#L145)
