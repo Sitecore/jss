@@ -104,6 +104,12 @@ Our versioning strategy is as follows:
 * Release process, maintenance simplification ([#1960](https://github.com/Sitecore/jss/pull/1960))
 * `[template/angular-xmcloud]``[template/xmcloud-proxy]` Add README.md ([#1965](https://github.com/Sitecore/jss/pull/1965))([#1989](https://github.com/Sitecore/jss/pull/1989))
 
+## 22.2.2
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Support Editing Host protection by handling OPTIONS preflight requests ([#1986](https://github.com/Sitecore/jss/pull/1986))
+
 ## 22.2.1
 
 ### 🐛 Bug Fixes
