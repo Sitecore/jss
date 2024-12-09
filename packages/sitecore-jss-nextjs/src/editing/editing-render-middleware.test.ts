@@ -232,10 +232,9 @@ describe('EditingRenderMiddleware', () => {
           renderingId: query.sc_renderingId,
           language: query.sc_lang,
           site: query.sc_site,
-          pageState: 'edit',
+          pageState: 'normal',
           mode: 'library',
           dataSourceId: query.sc_datasourceId,
-          editMode: EditMode.Metadata,
           variant: query.sc_variant,
           version: query.sc_version,
         });
