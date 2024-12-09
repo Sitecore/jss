@@ -20,4 +20,4 @@
 
 ## Defined in
 
-[renderingHostServer.ts:47](https://github.com/Sitecore/jss/blob/094c55edd597950938d3fb9f5f2129848bc3c7cb/packages/sitecore-jss-rendering-host/src/renderingHostServer.ts#L47)
+[renderingHostServer.ts:47](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss-rendering-host/src/renderingHostServer.ts#L47)

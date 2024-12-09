@@ -26,4 +26,4 @@ The schema of data returned in response to an app root query request
 
 ## Defined in
 
-[packages/sitecore-jss/src/graphql/app-root-query.ts:27](https://github.com/Sitecore/jss/blob/094c55edd597950938d3fb9f5f2129848bc3c7cb/packages/sitecore-jss/src/graphql/app-root-query.ts#L27)
+[packages/sitecore-jss/src/graphql/app-root-query.ts:27](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/graphql/app-root-query.ts#L27)

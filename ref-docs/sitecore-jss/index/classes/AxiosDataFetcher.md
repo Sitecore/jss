@@ -26,7 +26,7 @@ AxisoDataFetcher is a wrapper for axios library.
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:56](https://github.com/Sitecore/jss/blob/094c55edd597950938d3fb9f5f2129848bc3c7cb/packages/sitecore-jss/src/axios-fetcher.ts#L56)
+[packages/sitecore-jss/src/axios-fetcher.ts:56](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/axios-fetcher.ts#L56)
 
 ## Methods
 
@@ -51,7 +51,7 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:177](https://github.com/Sitecore/jss/blob/094c55edd597950938d3fb9f5f2129848bc3c7cb/packages/sitecore-jss/src/axios-fetcher.ts#L177)
+[packages/sitecore-jss/src/axios-fetcher.ts:177](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/axios-fetcher.ts#L177)
 
 ***
 
@@ -86,7 +86,7 @@ HttpDataFetcher<T> type for implementation details/notes.
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:121](https://github.com/Sitecore/jss/blob/094c55edd597950938d3fb9f5f2129848bc3c7cb/packages/sitecore-jss/src/axios-fetcher.ts#L121)
+[packages/sitecore-jss/src/axios-fetcher.ts:121](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/axios-fetcher.ts#L121)
 
 ***
 
@@ -117,7 +117,7 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:135](https://github.com/Sitecore/jss/blob/094c55edd597950938d3fb9f5f2129848bc3c7cb/packages/sitecore-jss/src/axios-fetcher.ts#L135)
+[packages/sitecore-jss/src/axios-fetcher.ts:135](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/axios-fetcher.ts#L135)
 
 ***
 
@@ -142,7 +142,7 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:145](https://github.com/Sitecore/jss/blob/094c55edd597950938d3fb9f5f2129848bc3c7cb/packages/sitecore-jss/src/axios-fetcher.ts#L145)
+[packages/sitecore-jss/src/axios-fetcher.ts:145](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/axios-fetcher.ts#L145)
 
 ***
 
@@ -168,7 +168,7 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:156](https://github.com/Sitecore/jss/blob/094c55edd597950938d3fb9f5f2129848bc3c7cb/packages/sitecore-jss/src/axios-fetcher.ts#L156)
+[packages/sitecore-jss/src/axios-fetcher.ts:156](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/axios-fetcher.ts#L156)
 
 ***
 
@@ -194,4 +194,4 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/axios-fetcher.ts:167](https://github.com/Sitecore/jss/blob/094c55edd597950938d3fb9f5f2129848bc3c7cb/packages/sitecore-jss/src/axios-fetcher.ts#L167)
+[packages/sitecore-jss/src/axios-fetcher.ts:167](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/axios-fetcher.ts#L167)
