@@ -36,7 +36,7 @@ true
 
 #### Defined in
 
-[packages/sitecore-jss/src/cache-client.ts:40](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/cache-client.ts#L40)
+[packages/sitecore-jss/src/cache-client.ts:40](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/cache-client.ts#L40)
 
 ***
 
@@ -58,7 +58,7 @@ Cache timeout (sec)
 
 #### Defined in
 
-[packages/sitecore-jss/src/cache-client.ts:45](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/cache-client.ts#L45)
+[packages/sitecore-jss/src/cache-client.ts:45](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/cache-client.ts#L45)
 
 ***
 
@@ -71,7 +71,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:95](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L95)
+[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:95](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L95)
 
 ***
 
@@ -89,7 +89,7 @@ Optional. The template ID to use when searching for dictionary entries.
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:101](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L101)
+[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:101](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L101)
 
 ***
 
@@ -107,7 +107,7 @@ Optional. The template ID of a JSS App to use when searching for the appRootId.
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:107](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L107)
+[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:107](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L107)
 
 ***
 
@@ -131,7 +131,7 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:61](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/graphql/search-service.ts#L61)
+[packages/sitecore-jss/src/graphql/search-service.ts:61](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/graphql/search-service.ts#L61)
 
 ***
 
@@ -147,7 +147,7 @@ Number of retries for client. Will use the specified `retryStrategy`.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:83](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/graphql-request-client.ts#L83)
+[packages/sitecore-jss/src/graphql-request-client.ts:83](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/graphql-request-client.ts#L83)
 
 ***
 
@@ -164,7 +164,7 @@ back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:88](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/graphql-request-client.ts#L88)
+[packages/sitecore-jss/src/graphql-request-client.ts:88](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/graphql-request-client.ts#L88)
 
 ***
 
@@ -180,7 +180,7 @@ Optional. The ID of the search root item. Fetch items that have this item as an 
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/graphql/search-service.ts#L48)
+[packages/sitecore-jss/src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/graphql/search-service.ts#L48)
 
 ***
 
@@ -193,7 +193,7 @@ in cases where one is not specified by the caller.
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:89](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L89)
+[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:89](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L89)
 
 ***
 
@@ -209,7 +209,7 @@ Optional. Sitecore template ID(s). Fetch items that inherit from this template(s
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/graphql/search-service.ts#L53)
+[packages/sitecore-jss/src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/graphql/search-service.ts#L53)
 
 ***
 
@@ -221,4 +221,4 @@ Optional. Use site query for dictionary fetch instead of search query (XM Cloud 
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:112](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L112)
+[packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts:112](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L112)

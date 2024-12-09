@@ -47,7 +47,7 @@ Initializes a new instance of
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
 
 ## Properties
 
@@ -59,7 +59,7 @@ Configuration options
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
 
 ## Methods
 
@@ -85,7 +85,7 @@ Fetch dictionary data for a language.
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:71](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/i18n/dictionary-service.ts#L71)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:71](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/i18n/dictionary-service.ts#L71)
 
 ***
 
@@ -105,7 +105,7 @@ implementation
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
 
 ***
 
@@ -138,7 +138,7 @@ The
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
 
 ***
 
@@ -175,4 +175,4 @@ CacheClient<DictionaryPhrases>
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)

@@ -16,7 +16,7 @@ Content data returned from Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:146](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/layout/models.ts#L146)
+[packages/sitecore-jss/src/layout/models.ts:146](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/layout/models.ts#L146)
 
 ***
 
@@ -30,7 +30,7 @@ Content data returned from Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:149](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/layout/models.ts#L149)
+[packages/sitecore-jss/src/layout/models.ts:149](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/layout/models.ts#L149)
 
 ***
 
@@ -40,7 +40,7 @@ Content data returned from Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:147](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/layout/models.ts#L147)
+[packages/sitecore-jss/src/layout/models.ts:147](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/layout/models.ts#L147)
 
 ***
 
@@ -50,7 +50,7 @@ Content data returned from Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:145](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/layout/models.ts#L145)
+[packages/sitecore-jss/src/layout/models.ts:145](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/layout/models.ts#L145)
 
 ***
 
@@ -60,4 +60,4 @@ Content data returned from Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:148](https://github.com/Sitecore/jss/blob/5e7d04b70672d6680b558327616d47fb0250e0f1/packages/sitecore-jss/src/layout/models.ts#L148)
+[packages/sitecore-jss/src/layout/models.ts:148](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/layout/models.ts#L148)
