@@ -10,4 +10,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss/src/layout/graphql-layout-service.ts:10](https://github.com/Sitecore/jss/blob/d00fef6718046b8c406769a72405039bc95ed947/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L10)
+[packages/sitecore-jss/src/layout/graphql-layout-service.ts:10](https://github.com/Sitecore/jss/blob/963da1fb491567dbff60ccc0ae009ad3bd83ae9b/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L10)
