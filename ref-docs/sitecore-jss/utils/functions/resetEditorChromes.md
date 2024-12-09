@@ -16,4 +16,4 @@ Resets Sitecore editor "chromes"
 
 ## Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:115](https://github.com/Sitecore/jss/blob/9cd15ca25619b116ad9c500eef4ef2dc9023209b/packages/sitecore-jss/src/editing/utils.ts#L115)
+[packages/sitecore-jss/src/editing/utils.ts:115](https://github.com/Sitecore/jss/blob/094c55edd597950938d3fb9f5f2129848bc3c7cb/packages/sitecore-jss/src/editing/utils.ts#L115)
