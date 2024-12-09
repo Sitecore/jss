@@ -29,7 +29,7 @@ added to a route dynamically based on layout settings.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:12](https://github.com/Sitecore/jss/blob/128550df8a6d97c68d280bb21ab377d096352bb5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L12)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:12](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L12)
 
 ***
 
@@ -52,7 +52,7 @@ for example global elements or content list target items.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:47](https://github.com/Sitecore/jss/blob/128550df8a6d97c68d280bb21ab377d096352bb5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L47)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:47](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L47)
 
 ***
 
@@ -74,7 +74,7 @@ Adds a translation dictionary entry to the manifest.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:51](https://github.com/Sitecore/jss/blob/128550df8a6d97c68d280bb21ab377d096352bb5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L51)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:51](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L51)
 
 ***
 
@@ -99,7 +99,7 @@ additional metadata (i.e. display names), and is recommended.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:26](https://github.com/Sitecore/jss/blob/128550df8a6d97c68d280bb21ab377d096352bb5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L26)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:26](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L26)
 
 ***
 
@@ -121,7 +121,7 @@ Adds a route definition to the manifest. A route contains a set of components, a
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:42](https://github.com/Sitecore/jss/blob/128550df8a6d97c68d280bb21ab377d096352bb5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L42)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:42](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L42)
 
 ***
 
@@ -147,7 +147,7 @@ route level fields are much more easily queryable and filterable for listings.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:34](https://github.com/Sitecore/jss/blob/128550df8a6d97c68d280bb21ab377d096352bb5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L34)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:34](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L34)
 
 ***
 
@@ -172,7 +172,7 @@ addComponent() or addRouteType() should be used instead.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:19](https://github.com/Sitecore/jss/blob/128550df8a6d97c68d280bb21ab377d096352bb5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L19)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:19](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L19)
 
 ***
 
@@ -188,7 +188,7 @@ Processes all the existing manifest input data and transforms it to a manifest J
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:7](https://github.com/Sitecore/jss/blob/128550df8a6d97c68d280bb21ab377d096352bb5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L7)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:7](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L7)
 
 ***
 
@@ -198,7 +198,7 @@ Processes all the existing manifest input data and transforms it to a manifest J
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:52](https://github.com/Sitecore/jss/blob/128550df8a6d97c68d280bb21ab377d096352bb5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L52)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:52](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L52)
 
 ***
 
@@ -220,4 +220,4 @@ Sets default route type (a template containing a route-level fields definition).
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:38](https://github.com/Sitecore/jss/blob/128550df8a6d97c68d280bb21ab377d096352bb5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L38)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:38](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L38)
