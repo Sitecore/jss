@@ -22,6 +22,7 @@ import {
 } from './editing-render-middleware';
 import { spy, match } from 'sinon';
 import sinonChai from 'sinon-chai';
+import { EditMode } from '@sitecore-jss/sitecore-jss/layout';
 
 use(sinonChai);
 
@@ -202,6 +203,86 @@ describe('EditingRenderMiddleware', () => {
   });
 
   describe('metadata handler', () => {
+    describe('Component Library handling', () => {
+      const query = {
+        mode: 'library',
+        sc_itemid: '{11111111-1111-1111-1111-111111111111}',
+        sc_lang: 'en',
+        sc_site: 'website',
+        sc_variant: 'dev',
+        sc_version: 'latest',
+        secret: secret,
+        sc_renderingId: '123',
+        sc_datasourceId: '456',
+        sc_uid: '789',
+      };
+
+      it('should handle request with mode=library', async () => {
+        const req = mockRequest(EE_BODY, query, 'GET');
+        const res = mockResponse();
+
+        const middleware = new EditingRenderMiddleware();
+        const handler = middleware.getHandler();
+
+        await handler(req, res);
+
+        expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith({
+          itemId: query.sc_itemid,
+          componentUid: query.sc_uid,
+          renderingId: query.sc_renderingId,
+          language: query.sc_lang,
+          site: query.sc_site,
+          pageState: 'normal',
+          mode: 'library',
+          dataSourceId: query.sc_datasourceId,
+          variant: query.sc_variant,
+          version: query.sc_version,
+        });
+
+        expect(res.redirect).to.have.been.calledOnce;
+        expect(res.redirect).to.have.been.calledWith('/component-library/render');
+        expect(res.setHeader).to.have.been.calledWith(
+          'Content-Security-Policy',
+          `frame-ancestors 'self' https://allowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
+        );
+      });
+
+      it('should always use component library path for redirect', async () => {
+        const notQuiteRightQuery = {
+          ...query,
+          route: '/Styleguide',
+        };
+        const req = mockRequest(EE_BODY, notQuiteRightQuery, 'GET');
+        const res = mockResponse();
+
+        const middleware = new EditingRenderMiddleware();
+        const handler = middleware.getHandler();
+
+        await handler(req, res);
+
+        expect(res.redirect).to.have.been.calledOnce;
+        expect(res.redirect).to.have.been.calledWith('/component-library/render');
+      });
+
+      it('should response with 400 for missing query params', async () => {
+        const req = mockRequest(EE_BODY, { sc_site: 'website', secret }, 'GET');
+        const res = mockResponse();
+
+        const middleware = new EditingRenderMiddleware();
+        const handler = middleware.getHandler();
+
+        await handler(req, res);
+
+        expect(res.status).to.have.been.calledOnce;
+        expect(res.status).to.have.been.calledWith(400);
+        expect(res.json).to.have.been.calledOnce;
+        expect(res.json).to.have.been.calledWith({
+          html:
+            '<html><body>Missing required query parameters: sc_itemid, sc_lang, route, mode</body></html>',
+        });
+      });
+    });
+
     const query = {
       mode: 'edit',
       route: '/styleguide',

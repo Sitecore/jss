@@ -40,6 +40,7 @@ export {
   getContentStylesheetLink,
   EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
+export { RestComponentLayoutService } from '@sitecore-jss/sitecore-jss/editing';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
   trackingApi,
@@ -151,6 +152,7 @@ export {
   File,
   FileField,
   RichTextField,
+  ComponentLibraryLayout,
   DefaultEmptyFieldEditingComponentImage,
   DefaultEmptyFieldEditingComponentText,
   VisitorIdentification,
