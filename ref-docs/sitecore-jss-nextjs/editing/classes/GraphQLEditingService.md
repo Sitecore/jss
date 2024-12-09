@@ -43,6 +43,31 @@ sitecore-jss/types/editing/graphql-editing-service.d.ts:51
 
 ## Methods
 
+### fetchDictionaryData()
+
+> **fetchDictionaryData**(`__namedParameters`, `initDictionary`?, `hasNext`?, `after`?): `Promise`\<[`DictionaryPhrases`](../../index/interfaces/DictionaryPhrases.md)\>
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `__namedParameters` | `object` |
+| `__namedParameters.language` | `string` |
+| `__namedParameters.siteName`? | `string` |
+| `initDictionary`? | `object`[] |
+| `hasNext`? | `boolean` |
+| `after`? | `string` |
+
+#### Returns
+
+`Promise`\<[`DictionaryPhrases`](../../index/interfaces/DictionaryPhrases.md)\>
+
+#### Defined in
+
+sitecore-jss/types/editing/graphql-editing-service.d.ts:78
+
+***
+
 ### fetchEditingData()
 
 > **fetchEditingData**(`variables`): `Promise`\<`object`\>
@@ -94,4 +119,4 @@ implementation
 
 #### Defined in
 
-sitecore-jss/types/editing/graphql-editing-service.d.ts:82
+sitecore-jss/types/editing/graphql-editing-service.d.ts:89

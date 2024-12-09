@@ -19,4 +19,4 @@ true if executing within a Sitecore editor
 
 ## Defined in
 
-packages/sitecore-jss/types/editing/utils.d.ts:61
+packages/sitecore-jss/types/editing/utils.d.ts:80

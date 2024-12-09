@@ -8,6 +8,10 @@
 
 ## Index
 
+### Enumerations
+
+- [RenderingType](enumerations/RenderingType.md)
+
 ### Classes
 
 - [BasicEditingDataService](classes/BasicEditingDataService.md)
@@ -39,8 +43,11 @@
 
 ### Variables
 
+- [EDITING\_COMPONENT\_ID](variables/EDITING_COMPONENT_ID.md)
+- [EDITING\_COMPONENT\_PLACEHOLDER](variables/EDITING_COMPONENT_PLACEHOLDER.md)
 - [editingDataService](variables/editingDataService.md)
 
 ### Functions
 
+- [isComponentLibraryPreviewData](functions/isComponentLibraryPreviewData.md)
 - [isEditingMetadataPreviewData](functions/isEditingMetadataPreviewData.md)

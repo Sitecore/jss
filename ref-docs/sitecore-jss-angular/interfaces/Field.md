@@ -24,7 +24,7 @@
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:117
+packages/sitecore-jss/types/layout/models.d.ts:119
 
 ***
 
@@ -42,7 +42,7 @@ packages/sitecore-jss/types/layout/models.d.ts:117
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:123
+packages/sitecore-jss/types/layout/models.d.ts:125
 
 ***
 
@@ -52,4 +52,4 @@ packages/sitecore-jss/types/layout/models.d.ts:123
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:116
+packages/sitecore-jss/types/layout/models.d.ts:118

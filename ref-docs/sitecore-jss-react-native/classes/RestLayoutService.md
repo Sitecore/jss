@@ -81,7 +81,28 @@ AxiosDataFetcher data fetcher
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:96
+sitecore-jss/types/layout/rest-layout-service.d.ts:97
+
+***
+
+### getFetcher()
+
+> `protected` **getFetcher**: (`req`?, `res`?) => `HttpDataFetcher`\<[`LayoutServiceData`](../interfaces/LayoutServiceData.md)\>
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `req`? | `IncomingMessage` |
+| `res`? | `ServerResponse`\<`IncomingMessage`\> |
+
+#### Returns
+
+`HttpDataFetcher`\<[`LayoutServiceData`](../interfaces/LayoutServiceData.md)\>
+
+#### Defined in
+
+sitecore-jss/types/layout/rest-layout-service.d.ts:84
 
 ***
 
@@ -184,7 +205,7 @@ Resolves layout service url
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `apiType` | `"render"` \| `"placeholder"` | which layout service API to call ('render' or 'placeholder') |
+| `apiType` | `"render"` \| `"placeholder"` \| `"component"` | which layout service API to call ('render' or 'placeholder') |
 
 #### Returns
 
@@ -194,7 +215,7 @@ the layout service url
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:89
+sitecore-jss/types/layout/rest-layout-service.d.ts:90
 
 ***
 
@@ -228,7 +249,7 @@ axios request config
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:102
+sitecore-jss/types/layout/rest-layout-service.d.ts:103
 
 ***
 
@@ -262,4 +283,4 @@ response
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:108
+sitecore-jss/types/layout/rest-layout-service.d.ts:109

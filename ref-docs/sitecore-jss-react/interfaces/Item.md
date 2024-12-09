@@ -16,7 +16,7 @@ Content data returned from Layout Service
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:132
+packages/sitecore-jss/types/layout/models.d.ts:134
 
 ***
 
@@ -30,7 +30,7 @@ packages/sitecore-jss/types/layout/models.d.ts:132
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:135
+packages/sitecore-jss/types/layout/models.d.ts:137
 
 ***
 
@@ -40,7 +40,7 @@ packages/sitecore-jss/types/layout/models.d.ts:135
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:133
+packages/sitecore-jss/types/layout/models.d.ts:135
 
 ***
 
@@ -50,7 +50,7 @@ packages/sitecore-jss/types/layout/models.d.ts:133
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:131
+packages/sitecore-jss/types/layout/models.d.ts:133
 
 ***
 
@@ -60,4 +60,4 @@ packages/sitecore-jss/types/layout/models.d.ts:131
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:134
+packages/sitecore-jss/types/layout/models.d.ts:136

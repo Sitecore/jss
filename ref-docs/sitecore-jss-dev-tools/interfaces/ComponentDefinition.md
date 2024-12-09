@@ -21,7 +21,7 @@ NOTE: Setting an allowed placeholder name does not register it with the manifest
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:228](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L228)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:228](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L228)
 
 ***
 
@@ -34,7 +34,7 @@ For Sitecore developers only.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:274](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L274)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:274](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L274)
 
 ***
 
@@ -47,7 +47,7 @@ Default: true
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:247](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L247)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:247](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L247)
 
 ***
 
@@ -57,7 +57,7 @@ Default: true
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:210](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L210)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:210](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L210)
 
 ***
 
@@ -70,7 +70,7 @@ If displayFieldEditorButton is false, has no effect.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:252](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L252)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:252](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L252)
 
 ***
 
@@ -82,7 +82,7 @@ The data fields that provide content data to the component
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:214](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L214)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:214](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L214)
 
 ***
 
@@ -96,7 +96,7 @@ with the results of this GraphQL query, instead of the default datasource serial
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:280](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L280)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:280](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L280)
 
 ***
 
@@ -109,7 +109,7 @@ Example: 'People/16x16/alarmclock.png'
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:238](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L238)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:238](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L238)
 
 ***
 
@@ -121,7 +121,7 @@ Names of other templates or components to inherit from. Inheritance inherits fie
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:242](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L242)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:242](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L242)
 
 ***
 
@@ -133,7 +133,7 @@ Template names to allow as insert options under this template
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:282](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L282)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:282](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L282)
 
 ***
 
@@ -143,7 +143,7 @@ Template names to allow as insert options under this template
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:209](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L209)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:209](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L209)
 
 ***
 
@@ -156,7 +156,7 @@ Parameters are more developer-focused options than fields, such as configurable 
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:233](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L233)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:233](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L233)
 
 ***
 
@@ -169,7 +169,7 @@ The names of JSS placeholders that this component exposes
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:219](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L219)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:219](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L219)
 
 ***
 
@@ -183,7 +183,7 @@ For Sitecore developers only.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:258](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L258)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:258](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L258)
 
 ***
 
@@ -197,7 +197,7 @@ For Sitecore developers only.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:264](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L264)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:264](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L264)
 
 ***
 
@@ -210,4 +210,4 @@ For Sitecore developers only.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:269](https://github.com/Sitecore/jss/blob/b543e221483be0d7e4e3ae7b76785619d291d2d3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L269)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:269](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L269)

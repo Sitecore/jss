@@ -16,7 +16,7 @@ Contents of a single placeholder returned from placeholder service
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:145
+sitecore-jss/types/layout/models.d.ts:147
 
 ***
 
@@ -26,7 +26,7 @@ sitecore-jss/types/layout/models.d.ts:145
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:143
+sitecore-jss/types/layout/models.d.ts:145
 
 ***
 
@@ -36,4 +36,4 @@ sitecore-jss/types/layout/models.d.ts:143
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:144
+sitecore-jss/types/layout/models.d.ts:146

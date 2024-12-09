@@ -36,7 +36,7 @@ sitecore-jss-react/types/components/Text.d.ts:7
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:123
+sitecore-jss/types/layout/models.d.ts:125
 
 ***
 

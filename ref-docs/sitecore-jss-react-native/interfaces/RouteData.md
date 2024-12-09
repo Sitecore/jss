@@ -22,7 +22,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:56
+sitecore-jss/types/layout/models.d.ts:58
 
 ***
 
@@ -32,7 +32,7 @@ sitecore-jss/types/layout/models.d.ts:56
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:57
+sitecore-jss/types/layout/models.d.ts:59
 
 ***
 
@@ -42,7 +42,7 @@ sitecore-jss/types/layout/models.d.ts:57
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:54
+sitecore-jss/types/layout/models.d.ts:56
 
 ***
 
@@ -52,7 +52,7 @@ sitecore-jss/types/layout/models.d.ts:54
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:55
+sitecore-jss/types/layout/models.d.ts:57
 
 ***
 
@@ -62,7 +62,7 @@ sitecore-jss/types/layout/models.d.ts:55
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:64
+sitecore-jss/types/layout/models.d.ts:66
 
 ***
 
@@ -72,7 +72,7 @@ sitecore-jss/types/layout/models.d.ts:64
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:58
+sitecore-jss/types/layout/models.d.ts:60
 
 ***
 
@@ -82,7 +82,7 @@ sitecore-jss/types/layout/models.d.ts:58
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:59
+sitecore-jss/types/layout/models.d.ts:61
 
 ***
 
@@ -92,7 +92,7 @@ sitecore-jss/types/layout/models.d.ts:59
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:60
+sitecore-jss/types/layout/models.d.ts:62
 
 ***
 
@@ -102,7 +102,7 @@ sitecore-jss/types/layout/models.d.ts:60
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:53
+sitecore-jss/types/layout/models.d.ts:55
 
 ***
 
@@ -112,7 +112,7 @@ sitecore-jss/types/layout/models.d.ts:53
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:63
+sitecore-jss/types/layout/models.d.ts:65
 
 ***
 
@@ -122,7 +122,7 @@ sitecore-jss/types/layout/models.d.ts:63
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:61
+sitecore-jss/types/layout/models.d.ts:63
 
 ***
 
@@ -132,4 +132,4 @@ sitecore-jss/types/layout/models.d.ts:61
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:62
+sitecore-jss/types/layout/models.d.ts:64

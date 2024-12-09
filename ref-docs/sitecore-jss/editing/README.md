@@ -16,13 +16,18 @@
 ### Classes
 
 - [GraphQLEditingService](classes/GraphQLEditingService.md)
+- [RestComponentLayoutService](classes/RestComponentLayoutService.md)
 
 ### Interfaces
 
+- [ComponentLayoutRequestParams](interfaces/ComponentLayoutRequestParams.md)
+- [ComponentUpdateEventArgs](interfaces/ComponentUpdateEventArgs.md)
+- [RenderComponentQueryParams](interfaces/RenderComponentQueryParams.md)
 - [RenderMetadataQueryParams](interfaces/RenderMetadataQueryParams.md)
 
 ### Variables
 
+- [COMPONENT\_LIBRARY\_READY\_MESSAGE](variables/COMPONENT_LIBRARY_READY_MESSAGE.md)
 - [DEFAULT\_PLACEHOLDER\_UID](variables/DEFAULT_PLACEHOLDER_UID.md)
 - [EDITING\_ALLOWED\_ORIGINS](variables/EDITING_ALLOWED_ORIGINS.md)
 - [PAGES\_EDITING\_MARKER](variables/PAGES_EDITING_MARKER.md)
@@ -30,6 +35,7 @@
 
 ### Functions
 
+- [addComponentUpdateHandler](functions/addComponentUpdateHandler.md)
 - [getJssPagesClientData](functions/getJssPagesClientData.md)
 
 ## References
