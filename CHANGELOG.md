@@ -15,6 +15,10 @@ Our versioning strategy is as follows:
 
 * `[nextjs][sitecore-jss-nextjs]` Support for Component Library feature in XMCloud ([#1987](https://github.com/Sitecore/jss/pull/1987))
 
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Fixed handling of ? inside square brackets [] in regex patterns to prevent incorrect escaping ([#1999](https://github.com/Sitecore/jss/pull/1999))
+
 ## 22.3.0 / 22.3.1
 
 ### 🐛 Bug Fixes
