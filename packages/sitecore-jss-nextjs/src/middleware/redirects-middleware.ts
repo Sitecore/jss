@@ -199,14 +199,14 @@ export class RedirectsMiddleware extends MiddlewareBase {
     return modifyRedirects.length
       ? modifyRedirects.find((redirect: RedirectInfo & { matchedQueryString?: string }) => {
           // Modify the redirect pattern to ignore the language prefix in the path
-          redirect.pattern = redirect.pattern.replace(RegExp(`^[^]?/${language}/`, 'gi'), '');
+          // And escapes non-special "?" characters in a string or regex.
+          redirect.pattern = this.escapeNonSpecialQuestionMarks(redirect.pattern.replace(RegExp(`^[^]?/${language}/`, 'gi'), ''));
 
           // Prepare the redirect pattern as a regular expression, making it more flexible for matching URLs
           redirect.pattern = `/^\/${redirect.pattern
             .replace(/^\/|\/$/g, '') // Removes leading and trailing slashes
             .replace(/^\^\/|\/\$$/g, '') // Removes unnecessary start (^) and end ($) anchors
             .replace(/^\^|\$$/g, '') // Further cleans up anchors
-            .replace(/(?<!\\)\?/g, '\\?') // Escapes question marks in the pattern
             .replace(/\$\/gi$/g, '')}[\/]?$/i`; // Ensures the pattern allows an optional trailing slash
 
           /**
@@ -272,7 +272,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
      */
     const splittedPathname = url.pathname
       .split('/')
-      .filter((route) => route)
+      .filter((route: string) => route)
       .map((route) => `path=${route}`);
 
     /**
@@ -361,5 +361,52 @@ export class RedirectsMiddleware extends MiddlewareBase {
         regexParser(pattern).test(`/${locale}${normalizedPath}${query}`),
       ].some(Boolean)
     );
+  }
+
+  /**
+   * Escapes non-special "?" characters in a string or regex.
+   * 
+   * - For regular strings, it escapes all unescaped "?" characters by adding a backslash (`\`).
+   * - For regex patterns (strings enclosed in `/.../`), it analyzes each "?" to determine if it has special meaning 
+   *   (e.g., `?` in `(abc)?`, `.*?`) or is just a literal character. Only literal "?" characters are escaped.
+   * @param {string} input - The input string or regex pattern.
+   * @returns {string} - The modified string or regex with non-special "?" characters escaped.
+   **/
+  private escapeNonSpecialQuestionMarks(input: string): string {
+    const regexPattern = /(?<!\\)\?/g; // Find unescaped "?" characters
+    const isRegex = input.startsWith('/') && input.endsWith('/'); // Check if the string is a regex
+
+    if (!isRegex) {
+        // If not a regex, escape all unescaped "?" characters
+        return input.replace(regexPattern, '\\?');
+    }
+
+    // If it's a regex, analyze each "?" character
+    let result = '';
+    let lastIndex = 0;
+
+    let match;
+    while ((match = regexPattern.exec(input)) !== null) {
+        const index = match.index; // Position of "?" in the string
+        const before = input.slice(0, index).replace(/\s+$/, ''); // Context before "?"
+        const lastChar = before.slice(-1); // Last character before "?"
+
+        // Determine if the "?" is a special regex symbol
+        const isSpecialRegexSymbol = /[\.\*\+\)\[\]]$/.test(lastChar);
+
+        if (isSpecialRegexSymbol) {
+            // If it's special, keep it as is
+            result += input.slice(lastIndex, index + 1);
+        } else {
+            // If it's not special, escape it
+            result += input.slice(lastIndex, index) + '\\?';
+        }
+        lastIndex = index + 1;
+    }
+
+    // Append the remaining part of the string
+    result += input.slice(lastIndex);
+
+    return result;
   }
 }
