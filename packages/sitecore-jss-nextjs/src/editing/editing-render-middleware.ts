@@ -355,7 +355,6 @@ export class MetadataHandler {
       'sc_site',
       'sc_itemid',
       'sc_renderingId',
-      'sc_datasourceId',
       'sc_uid',
       'sc_lang',
       'mode',
