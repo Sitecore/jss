@@ -18,7 +18,7 @@ The rendered HTML to return to the client
 
 #### Defined in
 
-[sitecore-jss-proxy/src/types/AppRenderer.ts:11](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L11)
+[sitecore-jss-proxy/src/types/AppRenderer.ts:11](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L11)
 
 ***
 
@@ -31,7 +31,7 @@ Note: when using this you must set the status code to 301 or 302.
 
 #### Defined in
 
-[sitecore-jss-proxy/src/types/AppRenderer.ts:20](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L20)
+[sitecore-jss-proxy/src/types/AppRenderer.ts:20](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L20)
 
 ***
 
@@ -43,4 +43,4 @@ Set the HTTP status code. If not set, the status code returned from Layout Servi
 
 #### Defined in
 
-[sitecore-jss-proxy/src/types/AppRenderer.ts:15](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L15)
+[sitecore-jss-proxy/src/types/AppRenderer.ts:15](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L15)

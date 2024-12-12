@@ -25,4 +25,4 @@ Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
 
 ## Defined in
 
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:36](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L36)
+[packages/sitecore-jss/src/site/graphql-redirects-service.ts:36](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L36)

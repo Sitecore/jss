@@ -17,4 +17,4 @@ This script is only rendered when EditMode is Metadata, otherwise it renders not
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/EditingScripts.tsx:10](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-react/src/components/EditingScripts.tsx#L10)
+[packages/sitecore-jss-react/src/components/EditingScripts.tsx:10](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-react/src/components/EditingScripts.tsx#L10)

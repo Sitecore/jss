@@ -21,7 +21,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:33](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L33)
+[packages/sitecore-jss/src/editing/models.ts:33](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss/src/editing/models.ts#L33)
 
 ***
 
@@ -31,7 +31,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:29](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L29)
+[packages/sitecore-jss/src/editing/models.ts:29](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss/src/editing/models.ts#L29)
 
 ***
 
@@ -41,7 +41,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:28](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L28)
+[packages/sitecore-jss/src/editing/models.ts:28](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss/src/editing/models.ts#L28)
 
 ***
 
@@ -51,7 +51,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:30](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L30)
+[packages/sitecore-jss/src/editing/models.ts:30](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss/src/editing/models.ts#L30)
 
 ***
 
@@ -61,7 +61,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:32](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L32)
+[packages/sitecore-jss/src/editing/models.ts:32](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss/src/editing/models.ts#L32)
 
 ***
 
@@ -71,7 +71,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:31](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L31)
+[packages/sitecore-jss/src/editing/models.ts:31](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss/src/editing/models.ts#L31)
 
 ***
 
@@ -81,7 +81,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:34](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L34)
+[packages/sitecore-jss/src/editing/models.ts:34](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss/src/editing/models.ts#L34)
 
 ***
 
@@ -91,7 +91,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:35](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L35)
+[packages/sitecore-jss/src/editing/models.ts:35](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss/src/editing/models.ts#L35)
 
 ***
 
@@ -101,4 +101,4 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:27](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L27)
+[packages/sitecore-jss/src/editing/models.ts:27](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss/src/editing/models.ts#L27)

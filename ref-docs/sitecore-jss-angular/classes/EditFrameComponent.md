@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editframe.component.ts:32](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/editframe.component.ts#L32)
+[packages/sitecore-jss-angular/src/components/editframe.component.ts:32](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-angular/src/components/editframe.component.ts#L32)
 
 ***
 
@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editframe.component.ts:48](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/editframe.component.ts#L48)
+[packages/sitecore-jss-angular/src/components/editframe.component.ts:48](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-angular/src/components/editframe.component.ts#L48)
 
 ***
 
@@ -48,7 +48,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editframe.component.ts:38](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/editframe.component.ts#L38)
+[packages/sitecore-jss-angular/src/components/editframe.component.ts:38](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-angular/src/components/editframe.component.ts#L38)
 
 ***
 
@@ -58,7 +58,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editframe.component.ts:30](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/editframe.component.ts#L30)
+[packages/sitecore-jss-angular/src/components/editframe.component.ts:30](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-angular/src/components/editframe.component.ts#L30)
 
 ***
 
@@ -68,7 +68,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editframe.component.ts:47](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/editframe.component.ts#L47)
+[packages/sitecore-jss-angular/src/components/editframe.component.ts:47](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-angular/src/components/editframe.component.ts#L47)
 
 ***
 
@@ -78,7 +78,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editframe.component.ts:46](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/editframe.component.ts#L46)
+[packages/sitecore-jss-angular/src/components/editframe.component.ts:46](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-angular/src/components/editframe.component.ts#L46)
 
 ***
 
@@ -88,7 +88,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editframe.component.ts:40](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/editframe.component.ts#L40)
+[packages/sitecore-jss-angular/src/components/editframe.component.ts:40](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-angular/src/components/editframe.component.ts#L40)
 
 ***
 
@@ -104,7 +104,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editframe.component.ts:42](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/editframe.component.ts#L42)
+[packages/sitecore-jss-angular/src/components/editframe.component.ts:42](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-angular/src/components/editframe.component.ts#L42)
 
 ***
 
@@ -114,7 +114,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editframe.component.ts:34](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/editframe.component.ts#L34)
+[packages/sitecore-jss-angular/src/components/editframe.component.ts:34](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-angular/src/components/editframe.component.ts#L34)
 
 ***
 
@@ -124,7 +124,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editframe.component.ts:36](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/editframe.component.ts#L36)
+[packages/sitecore-jss-angular/src/components/editframe.component.ts:36](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-angular/src/components/editframe.component.ts#L36)
 
 ## Methods
 
@@ -138,7 +138,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editframe.component.ts:72](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/editframe.component.ts#L72)
+[packages/sitecore-jss-angular/src/components/editframe.component.ts:72](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-angular/src/components/editframe.component.ts#L72)
 
 ***
 
@@ -161,4 +161,4 @@ children are checked.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editframe.component.ts:50](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/editframe.component.ts#L50)
+[packages/sitecore-jss-angular/src/components/editframe.component.ts:50](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-angular/src/components/editframe.component.ts#L50)

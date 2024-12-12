@@ -36,7 +36,7 @@ The cache value as {T}, or null if the specified key was not found in the cache.
 
 #### Defined in
 
-[packages/sitecore-jss/src/cache-client.ts:21](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/cache-client.ts#L21)
+[packages/sitecore-jss/src/cache-client.ts:21](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss/src/cache-client.ts#L21)
 
 ***
 
@@ -61,4 +61,4 @@ The value added to the cache.
 
 #### Defined in
 
-[packages/sitecore-jss/src/cache-client.ts:14](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/cache-client.ts#L14)
+[packages/sitecore-jss/src/cache-client.ts:14](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss/src/cache-client.ts#L14)
