@@ -22,7 +22,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:15](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss/src/editing/models.ts#L15)
+[packages/sitecore-jss/src/editing/models.ts:15](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L15)
 
 ***
 
@@ -32,7 +32,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:14](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss/src/editing/models.ts#L14)
+[packages/sitecore-jss/src/editing/models.ts:14](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L14)
 
 ***
 
@@ -42,7 +42,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:12](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss/src/editing/models.ts#L12)
+[packages/sitecore-jss/src/editing/models.ts:12](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L12)
 
 ***
 
@@ -52,7 +52,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:11](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss/src/editing/models.ts#L11)
+[packages/sitecore-jss/src/editing/models.ts:11](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L11)
 
 ***
 
@@ -62,7 +62,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:16](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss/src/editing/models.ts#L16)
+[packages/sitecore-jss/src/editing/models.ts:16](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L16)
 
 ***
 
@@ -72,7 +72,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:13](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss/src/editing/models.ts#L13)
+[packages/sitecore-jss/src/editing/models.ts:13](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L13)
 
 ***
 
@@ -82,7 +82,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:17](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss/src/editing/models.ts#L17)
+[packages/sitecore-jss/src/editing/models.ts:17](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L17)
 
 ***
 
@@ -92,7 +92,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:18](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss/src/editing/models.ts#L18)
+[packages/sitecore-jss/src/editing/models.ts:18](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L18)
 
 ***
 
@@ -102,4 +102,4 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:10](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss/src/editing/models.ts#L10)
+[packages/sitecore-jss/src/editing/models.ts:10](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/editing/models.ts#L10)

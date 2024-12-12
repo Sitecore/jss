@@ -39,7 +39,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:36](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L36)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:36](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L36)
 
 ## Properties
 
@@ -55,7 +55,7 @@ Default component to render in Pages in Metadata edit mode if field value is emp
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:34](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L34)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:34](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L34)
 
 ***
 
@@ -69,7 +69,7 @@ Default component to render in Pages in Metadata edit mode if field value is emp
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:22](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L22)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:22](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L22)
 
 ***
 
@@ -85,7 +85,7 @@ Custom template to render in Pages in Metadata edit mode if field value is empty
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:29](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L29)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:29](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L29)
 
 ***
 
@@ -99,7 +99,7 @@ Custom template to render in Pages in Metadata edit mode if field value is empty
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:24](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L24)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:24](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L24)
 
 ***
 
@@ -113,7 +113,7 @@ Custom template to render in Pages in Metadata edit mode if field value is empty
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
 
 ***
 
@@ -127,7 +127,7 @@ Custom template to render in Pages in Metadata edit mode if field value is empty
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
 
 ## Methods
 
@@ -156,7 +156,7 @@ children are checked.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:46](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L46)
+[packages/sitecore-jss-angular/src/components/rich-text.directive.ts:46](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L46)
 
 ***
 
@@ -176,7 +176,7 @@ Renders the empty field markup which is required by Pages in editMode 'metadata'
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
 
 ***
 
@@ -202,7 +202,7 @@ Renders a metadata chrome marker for the field. Required by Pages in editMode 'm
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
 
 ***
 
@@ -223,4 +223,4 @@ Returns true if we are in edit mode 'chromes' (field.editable is present) or fie
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:30](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L30)
+[packages/sitecore-jss-angular/src/components/base-field.directive.ts:30](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L30)

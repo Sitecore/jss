@@ -26,7 +26,7 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:133](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss/src/layout/models.ts#L133)
+[packages/sitecore-jss/src/layout/models.ts:133](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/layout/models.ts#L133)
 
 ***
 
@@ -44,7 +44,7 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:140](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss/src/layout/models.ts#L140)
+[packages/sitecore-jss/src/layout/models.ts:140](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/layout/models.ts#L140)
 
 ***
 
@@ -54,4 +54,4 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:132](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss/src/layout/models.ts#L132)
+[packages/sitecore-jss/src/layout/models.ts:132](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/layout/models.ts#L132)

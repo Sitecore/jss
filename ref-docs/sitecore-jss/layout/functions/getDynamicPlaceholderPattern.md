@@ -24,4 +24,4 @@ Regular expression pattern for the dynamic segment
 
 ## Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:87](https://github.com/Sitecore/jss/blob/5454a428df58963ed2d13614972a821a22191cb6/packages/sitecore-jss/src/layout/utils.ts#L87)
+[packages/sitecore-jss/src/layout/utils.ts:87](https://github.com/Sitecore/jss/blob/4a0927fbf2da75c0716c3495b24fb0fa0a87da51/packages/sitecore-jss/src/layout/utils.ts#L87)
