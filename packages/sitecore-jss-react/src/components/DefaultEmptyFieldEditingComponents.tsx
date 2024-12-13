@@ -1,14 +1,20 @@
 import React from 'react';
 
 export interface DefaultEmptyFieldEditingComponentProps {
-  field: unknown
+  field: unknown;
 }
 
-export const DefaultEmptyFieldEditingComponentText: React.FC<DefaultEmptyFieldEditingComponentProps> = ({field, ...props}) => {
+export const DefaultEmptyFieldEditingComponentText: React.FC<DefaultEmptyFieldEditingComponentProps> = ({
+  field,
+  ...props
+}) => {
   return <span {...props}>[No text in field]</span>;
 };
 
-export const DefaultEmptyFieldEditingComponentImage: React.FC<DefaultEmptyFieldEditingComponentProps> = ({field, ...props}) => {
+export const DefaultEmptyFieldEditingComponentImage: React.FC<DefaultEmptyFieldEditingComponentProps> = ({
+  field,
+  ...props
+}) => {
   const inlineStyles = {
     minWidth: '48px',
     minHeight: '48px',
