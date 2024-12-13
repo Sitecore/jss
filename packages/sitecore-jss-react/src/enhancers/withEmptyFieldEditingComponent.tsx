@@ -44,7 +44,7 @@ export function withEmptyFieldEditingComponent<
 ) {
   const getEmptyFieldEditingComponent = (
     props: FieldComponentProps
-  ): React.ComponentClass | React.FC => {
+  ): React.ComponentType<WithEmptyFieldEditingComponentProps> => {
     const { editable = true } = props;
     if (props.field?.metadata && editable && isFieldValueEmpty(props.field)) {
       return props.emptyFieldEditingComponent || options.defaultEmptyFieldEditingComponent;
@@ -61,7 +61,7 @@ export function withEmptyFieldEditingComponent<
       );
       return (
         <>
-          {(EmptyFieldEditingComponent && <EmptyFieldEditingComponent />) || (
+          {(EmptyFieldEditingComponent && <EmptyFieldEditingComponent {...props} />) || (
             <FieldComponent {...(props as FieldComponentProps)} ref={ref} />
           )}
         </>
@@ -74,7 +74,7 @@ export function withEmptyFieldEditingComponent<
     const EmptyFieldEditingComponent = getEmptyFieldEditingComponent(props);
     return (
       <>
-        {(EmptyFieldEditingComponent && <EmptyFieldEditingComponent />) || (
+        {(EmptyFieldEditingComponent && <EmptyFieldEditingComponent {...props} />) || (
           <FieldComponent {...props} />
         )}
       </>
