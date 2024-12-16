@@ -1,4 +1,3 @@
-// default setup for placeholder-less component
 const contentBlock = {
   uid: 'test-content',
   componentName: 'ContentBlock',
