@@ -10,4 +10,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss-vue/src/components/EditFrame.ts:10](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-vue/src/components/EditFrame.ts#L10)
+[packages/sitecore-jss-vue/src/components/EditFrame.ts:10](https://github.com/Sitecore/jss/blob/20c393219fcc37eebfc5f9ac86576745ab661982/packages/sitecore-jss-vue/src/components/EditFrame.ts#L10)

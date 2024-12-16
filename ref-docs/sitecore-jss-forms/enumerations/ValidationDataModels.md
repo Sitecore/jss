@@ -14,7 +14,7 @@
 
 #### Defined in
 
-[src/ValidationDataModels.ts:4](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-react-forms/src/ValidationDataModels.ts#L4)
+[src/ValidationDataModels.ts:4](https://github.com/Sitecore/jss/blob/20c393219fcc37eebfc5f9ac86576745ab661982/packages/sitecore-jss-react-forms/src/ValidationDataModels.ts#L4)
 
 ***
 
@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[src/ValidationDataModels.ts:2](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-react-forms/src/ValidationDataModels.ts#L2)
+[src/ValidationDataModels.ts:2](https://github.com/Sitecore/jss/blob/20c393219fcc37eebfc5f9ac86576745ab661982/packages/sitecore-jss-react-forms/src/ValidationDataModels.ts#L2)
 
 ***
 
@@ -34,4 +34,4 @@
 
 #### Defined in
 
-[src/ValidationDataModels.ts:3](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss-react-forms/src/ValidationDataModels.ts#L3)
+[src/ValidationDataModels.ts:3](https://github.com/Sitecore/jss/blob/20c393219fcc37eebfc5f9ac86576745ab661982/packages/sitecore-jss-react-forms/src/ValidationDataModels.ts#L3)

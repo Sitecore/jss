@@ -25,4 +25,4 @@ This is used to create every possible combination of URL query parameters.
 
 ## Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:170](https://github.com/Sitecore/jss/blob/79b72df335ab50517e6c3357c25dd7db1965274d/packages/sitecore-jss/src/utils/utils.ts#L170)
+[packages/sitecore-jss/src/utils/utils.ts:170](https://github.com/Sitecore/jss/blob/20c393219fcc37eebfc5f9ac86576745ab661982/packages/sitecore-jss/src/utils/utils.ts#L170)
