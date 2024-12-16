@@ -257,13 +257,17 @@ export const updateComponentHandler = (
 
   if (updateComponent) {
     console.debug(
-      'Found rendering with uid %s to update. Updating with fields %o and params %o',
+      'Found component with uid %s to update. Update fields: %o. Update params: %o.',
       eventArgs.details.uid,
       eventArgs.details.fields,
       eventArgs.details.params
     );
-    updateComponent.fields = { ...updateComponent.fields, ...eventArgs.details.fields };
-    updateComponent.params = { ...updateComponent.params, ...eventArgs.details.params };
+    if (eventArgs.details.fields) {
+      updateComponent.fields = { ...updateComponent.fields, ...eventArgs.details.fields };
+    }
+    if (eventArgs.details.params) {
+      updateComponent.params = { ...updateComponent.params, ...eventArgs.details.params };
+    }
     if (successCallback) successCallback(rootComponent);
   } else {
     console.debug('Rendering with uid %s not found', eventArgs.details.uid);
