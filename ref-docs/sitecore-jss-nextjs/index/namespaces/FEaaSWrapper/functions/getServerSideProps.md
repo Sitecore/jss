@@ -26,4 +26,4 @@ context
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/components/FEaaSWrapper.tsx:41](https://github.com/Sitecore/jss/blob/20c393219fcc37eebfc5f9ac86576745ab661982/packages/sitecore-jss-nextjs/src/components/FEaaSWrapper.tsx#L41)
+[sitecore-jss-nextjs/src/components/FEaaSWrapper.tsx:41](https://github.com/Sitecore/jss/blob/32e43cec490a623a675f03f30cb52f47552c878c/packages/sitecore-jss-nextjs/src/components/FEaaSWrapper.tsx#L41)
