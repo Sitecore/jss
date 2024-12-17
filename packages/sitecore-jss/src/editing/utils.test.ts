@@ -212,6 +212,24 @@ describe('component library utils', () => {
       expect(changedComponent.params).to.deep.equal(expectedParams);
     });
 
+    it('should not update fields or params when update fields and params are undefined', () => {
+      const changedComponent = JSON.parse(JSON.stringify(testComponent));
+      changedComponent.fields = undefined;
+      changedComponent.params = undefined;
+      const message = new MessageEvent('message', {
+        origin: 'http://localhost',
+        data: {
+          name: 'component:update',
+          details: {
+            uid: 'test-content',
+          },
+        },
+      });
+      updateComponentHandler(message, changedComponent);
+      expect(changedComponent.fields).to.be.undefined;
+      expect(changedComponent.params).to.be.undefined;
+    });
+
     it('should debug log when component not found', () => {
       const message = new MessageEvent('message', {
         origin: 'http://localhost',
