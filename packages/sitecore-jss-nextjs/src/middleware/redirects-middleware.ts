@@ -1,4 +1,4 @@
-import { debug } from '@sitecore-jss/sitecore-jss';
+import { CacheClient, debug, MemoryCacheClient } from '@sitecore-jss/sitecore-jss';
 import {
   GraphQLRedirectsService,
   GraphQLRedirectsServiceConfig,
@@ -9,13 +9,15 @@ import {
   SiteInfo,
 } from '@sitecore-jss/sitecore-jss/site';
 import { getPermutations } from '@sitecore-jss/sitecore-jss/utils';
+import { NextURL } from 'next/dist/server/web/next-url';
 import { NextRequest, NextResponse } from 'next/server';
 import regexParser from 'regex-parser';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
-import { NextURL } from 'next/dist/server/web/next-url';
 
 const REGEXP_CONTEXT_SITE_LANG = new RegExp(/\$siteLang/, 'i');
 const REGEXP_ABSOLUTE_URL = new RegExp('^(?:[a-z]+:)?//', 'i');
+
+type RedirectResult = RedirectInfo & { matchedQueryString?: string };
 
 /**
  * extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
@@ -35,6 +37,7 @@ export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fet
 export class RedirectsMiddleware extends MiddlewareBase {
   private redirectsService: GraphQLRedirectsService;
   private locales: string[];
+  private cache: CacheClient<RedirectResult | boolean | undefined>;
 
   /**
    * @param {RedirectsMiddlewareConfig} [config] redirects middleware config
@@ -46,6 +49,10 @@ export class RedirectsMiddleware extends MiddlewareBase {
     // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
     this.redirectsService = new GraphQLRedirectsService({ ...config, fetch: fetch });
     this.locales = config.locales;
+    this.cache = new MemoryCacheClient<RedirectResult | boolean | undefined>({
+      cacheEnabled: config.cacheEnabled,
+      cacheTimeout: config.cacheTimeout,
+    });
   }
 
   /**
@@ -188,20 +195,37 @@ export class RedirectsMiddleware extends MiddlewareBase {
   private async getExistsRedirect(
     req: NextRequest,
     siteName: string
-  ): Promise<(RedirectInfo & { matchedQueryString?: string }) | undefined> {
-    const redirects = await this.redirectsService.fetchRedirects(siteName);
+  ): Promise<RedirectResult | undefined> {
     const { pathname: targetURL, search: targetQS = '', locale } = this.normalizeUrl(
       req.nextUrl.clone()
     );
+    const cacheKey = `${targetURL}-${targetQS}-${locale}`;
+    const cachedRedirect = this.cache.getCacheValue(cacheKey);
+
+    if (cachedRedirect !== null) {
+      return typeof cachedRedirect === 'boolean' ? undefined : cachedRedirect;
+    }
+
+    const redirects = await this.redirectsService.fetchRedirects(siteName);
+
     const language = this.getLanguage(req);
     const modifyRedirects = structuredClone(redirects);
 
-    return modifyRedirects.length
-      ? modifyRedirects.find((redirect: RedirectInfo & { matchedQueryString?: string }) => {
+    const result = modifyRedirects.length
+      ? modifyRedirects.find((redirect: RedirectResult) => {
+          // generate cache key for the current pattern
+          const chachedPatternResultKey = `${cacheKey}-${redirect.pattern}-${redirect.target}`;
+          // Check if the result is already cached
+          const chachedPatternResult = this.cache.getCacheValue(chachedPatternResultKey);
+
+          if (chachedPatternResult !== null) {
+            return chachedPatternResult;
+          }
+
           // Modify the redirect pattern to ignore the language prefix in the path
           // And escapes non-special "?" characters in a string or regex.
           redirect.pattern = this.escapeNonSpecialQuestionMarks(
-            redirect.pattern.replace(RegExp(`^[^]?/${language}/`, 'gi'), '')
+            redirect.pattern.replace(new RegExp(`^[^]?/${language}/`, 'gi'), '')
           );
 
           // Prepare the redirect pattern as a regular expression, making it more flexible for matching URLs
@@ -246,15 +270,24 @@ export class RedirectsMiddleware extends MiddlewareBase {
           // Save the matched query string (if found) into the redirect object
           redirect.matchedQueryString = matchedQueryString || '';
 
-          // Return the redirect if the URL path or any query string permutation matches the pattern
-          return (
-            (regexParser(redirect.pattern).test(targetURL) ||
+          const matchedPatterResult =
+            !!(
+              regexParser(redirect.pattern).test(targetURL) ||
               regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${targetURL}`) ||
-              matchedQueryString) &&
-            (redirect.locale ? redirect.locale.toLowerCase() === locale.toLowerCase() : true)
-          );
+              matchedQueryString
+            ) && (redirect.locale ? redirect.locale.toLowerCase() === locale.toLowerCase() : true);
+
+          // Save cache the result for the current pattern
+          this.cache.setCacheValue(chachedPatternResultKey, matchedPatterResult);
+
+          // Return the redirect if the URL path or any query string permutation matches the pattern
+          return matchedPatterResult;
         })
       : undefined;
+
+    this.cache.setCacheValue(cacheKey, result ? result : undefined);
+
+    return result;
   }
 
   /**
@@ -373,7 +406,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
    *   (e.g., `?` in `(abc)?`, `.*?`) or is just a literal character. Only literal "?" characters are escaped.
    * @param {string} input - The input string or regex pattern.
    * @returns {string} - The modified string or regex with non-special "?" characters escaped.
-   **/
+   */
   private escapeNonSpecialQuestionMarks(input: string): string {
     const regexPattern = /(?<!\\)\?/g; // Find unescaped "?" characters
     const isRegex = input.startsWith('/') && input.endsWith('/'); // Check if the string is a regex
