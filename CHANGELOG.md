@@ -18,10 +18,8 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[templates/nextjs-sxa]` Fixed font-awesome import issue in custom workspace configuration ([#1998](https://github.com/Sitecore/jss/pull/1998))
-
-### 🐛 Bug Fixes
-
 * `[sitecore-jss-nextjs]` Fixed handling of ? inside square brackets [] in regex patterns to prevent incorrect escaping ([#1999](https://github.com/Sitecore/jss/pull/1999))
+* `[sitecore-jss-nextjs]` Improve performance for redirect middleware ([#2003](https://github.com/Sitecore/jss/pull/2003))
 
 ## 22.3.0 / 22.3.1
 
