@@ -23,6 +23,10 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-nextjs]` Fixed handling of ? inside square brackets [] in regex patterns to prevent incorrect escaping ([#1999](https://github.com/Sitecore/jss/pull/1999))
 
+### 🐛 Bug Fixes
+
+* `[templates/nextjs-sxa]` Fixed an issue in the `Container` component where `background-image` was not rendering correctly in `pageState === 'edit'` ([#1997](https://github.com/Sitecore/jss/pull/1997))
+
 ## 22.3.0 / 22.3.1
 
 ### 🐛 Bug Fixes

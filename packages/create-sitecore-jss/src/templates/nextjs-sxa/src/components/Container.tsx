@@ -2,8 +2,11 @@ import {
   ComponentParams,
   ComponentRendering,
   Placeholder,
+  useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import React from 'react';
+import config from 'temp/config';
+
+const MEDIA_URL_PATTERN = /mediaurl="([^"]*)"/i;
 
 interface ComponentProps {
   rendering: ComponentRendering & { params: ComponentParams };
@@ -11,19 +14,20 @@ interface ComponentProps {
 }
 
 const DefaultContainer = (props: ComponentProps): JSX.Element => {
+  const { sitecoreContext } = useSitecoreContext();
+  const isEditMode = sitecoreContext.pageState === 'edit';
   const containerStyles = props.params && props.params.Styles ? props.params.Styles : '';
   const styles = `${props.params.GridParameters} ${containerStyles}`.trimEnd();
   const phKey = `container-${props.params.DynamicPlaceholderId}`;
   const id = props.params.RenderingIdentifier;
-  const mediaUrlPattern = new RegExp(/mediaurl=\"([^"]*)\"/, 'i');
-  let backgroundImage = props.params.BackgroundImage as string;
+  const backgroundImage = props.params.BackgroundImage as string;
   let backgroundStyle: { [key: string]: string } = {};
 
-  if (backgroundImage && backgroundImage.match(mediaUrlPattern)) {
-    const mediaUrl = backgroundImage.match(mediaUrlPattern)?.[1] || '';
+  if (backgroundImage && backgroundImage.match(MEDIA_URL_PATTERN)) {
+    const mediaUrl = backgroundImage.match(MEDIA_URL_PATTERN)?.[1] || '';
 
     backgroundStyle = {
-      backgroundImage: `url('${mediaUrl}')`,
+      backgroundImage: `url('${isEditMode ? config.sitecoreApiHost : ''}${mediaUrl}')`,
     };
   }
 
