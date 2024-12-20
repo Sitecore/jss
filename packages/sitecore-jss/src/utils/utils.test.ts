@@ -5,9 +5,12 @@ import { isServer, resolveUrl } from '.';
 import {
   enforceCors,
   getAllowedOriginsFromEnv,
-  getPermutations,
   isAbsoluteUrl,
   isTimeoutError,
+  isRegexOrUrl,
+  areURLSearchParamsEqual,
+  escapeNonSpecialQuestionMarks,
+  mergeURLSearchParams,
 } from './utils';
 
 // must make TypeScript happy with `global` variable modification
@@ -227,35 +230,134 @@ describe('utils', () => {
     });
   });
 
-  describe('getPermutations', () => {
-    it('should return all permutations of an array with one pair', () => {
-      const input: [string, string][] = [['key1', 'value1']];
-      const expectedOutput = [[['key1', 'value1']]];
-      expect(getPermutations(input)).to.deep.equal(expectedOutput);
+  describe('isRegexOrUrl', () => {
+    it('should return "url" for valid URL-like strings', () => {
+      expect(isRegexOrUrl('/path/to/resource?param=value')).to.equal('url');
+      expect(isRegexOrUrl('/another/path')).to.equal('url');
     });
 
-    it('should return all permutations of an array with two pairs', () => {
-      const input: [string, string][] = [
-        ['key1', 'value1'],
-        ['key2', 'value2'],
-      ];
-      const expectedOutput = [
-        [
-          ['key1', 'value1'],
-          ['key2', 'value2'],
-        ],
-        [
-          ['key2', 'value2'],
-          ['key1', 'value1'],
-        ],
-      ];
-      expect(getPermutations(input)).to.deep.equal(expectedOutput);
+    it('should return "regex" for non-URL strings', () => {
+      expect(isRegexOrUrl('/path/.*')).to.equal('regex');
+      expect(isRegexOrUrl('^/path/(\\d+)$')).to.equal('regex');
+    });
+  });
+
+  describe('areURLSearchParamsEqual', () => {
+    it('should return true for equal URLSearchParams objects', () => {
+      const params1 = new URLSearchParams('a=1&b=2&c=3');
+      const params2 = new URLSearchParams('c=3&b=2&a=1');
+      expect(areURLSearchParamsEqual(params1, params2)).to.be.true;
     });
 
-    it('should return an empty array when input is empty', () => {
-      const input: [string, string][] = [];
-      const expectedOutput = [[]];
-      expect(getPermutations(input)).to.deep.equal(expectedOutput);
+    it('should return false for different URLSearchParams objects', () => {
+      const params1 = new URLSearchParams('a=1&b=2');
+      const params2 = new URLSearchParams('a=1&b=3');
+      expect(areURLSearchParamsEqual(params1, params2)).to.be.false;
+    });
+
+    it('should return false if one of the URLSearchParams objects is empty', () => {
+      const params1 = new URLSearchParams('a=1&b=2');
+      const params2 = new URLSearchParams();
+      expect(areURLSearchParamsEqual(params1, params2)).to.be.false;
+    });
+  });
+
+  describe('mergeURLSearchParams', () => {
+    it('should merge two URLSearchParams objects with unique keys', () => {
+      const params1 = new URLSearchParams('a=1&b=2');
+      const params2 = new URLSearchParams('c=3&d=4');
+
+      expect(mergeURLSearchParams(params1, params2)).to.equal('a=1&b=2&c=3&d=4');
+    });
+
+    it('should override keys from the first object with keys from the second', () => {
+      const params1 = new URLSearchParams('a=1&b=2');
+      const params2 = new URLSearchParams('b=3&c=4');
+
+      expect(mergeURLSearchParams(params1, params2)).to.equal('a=1&b=3&c=4');
+    });
+
+    it('should return only the second object if the first is empty', () => {
+      const params1 = new URLSearchParams();
+      const params2 = new URLSearchParams('a=1&b=2');
+
+      expect(mergeURLSearchParams(params1, params2)).to.equal('a=1&b=2');
+    });
+
+    it('should return only the first object if the second is empty', () => {
+      const params1 = new URLSearchParams('a=1&b=2');
+      const params2 = new URLSearchParams();
+
+      expect(mergeURLSearchParams(params1, params2)).to.equal('a=1&b=2');
+    });
+
+    it('should return an empty string if both objects are empty', () => {
+      const params1 = new URLSearchParams();
+      const params2 = new URLSearchParams();
+
+      expect(mergeURLSearchParams(params1, params2)).to.equal('');
+    });
+  });
+
+  describe('escapeNonSpecialQuestionMarks', () => {
+    it('should escape unescaped "?" in a regular string', () => {
+      const input = 'What? Where? Why?';
+      const expected = 'What\\? Where\\? Why\\?';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should not escape already escaped "?" in a regular string', () => {
+      const input = 'What\\? Where\\? Why\\?';
+      const expected = 'What\\? Where\\? Why\\?';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should handle strings without "?" correctly', () => {
+      const input = 'No questions here!';
+      const expected = 'No questions here!';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should escape non-special "?" in a regex pattern', () => {
+      const input = '/abc?def/g';
+      const expected = '/abc\\?def/g';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should not escape special regex "?" characters in a regex pattern', () => {
+      const input = '/(abc)?|.*?/';
+      const expected = '/(abc)?|.*?/';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should escape mixed special and non-special "?" characters in a regex pattern', () => {
+      const input = '/abc?def(ghi)?jkl?/';
+      const expected = '/abc\\?def(ghi)?jkl\\?/';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should handle regex patterns without "?" correctly', () => {
+      const input = '/noQuestionMarksHere/';
+      const expected = '/noQuestionMarksHere/';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should handle an empty string correctly', () => {
+      const input = '';
+      const expected = '';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should handle edge case of a single unescaped "?"', () => {
+      const input = '?';
+      const expected = '\\?';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should handle edge case of a single escaped "?"', () => {
+      const input = '\\?';
+      const expected = '\\?';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
     });
   });
 });

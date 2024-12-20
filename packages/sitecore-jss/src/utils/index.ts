@@ -4,9 +4,12 @@ export {
   isAbsoluteUrl,
   isTimeoutError,
   enforceCors,
-  getPermutations,
   EnhancedOmit,
   getAllowedOriginsFromEnv,
+  isRegexOrUrl,
+  areURLSearchParamsEqual,
+  escapeNonSpecialQuestionMarks,
+  mergeURLSearchParams,
 } from './utils';
 export { tryParseEnvValue } from './env';
 // @deprecated - import editing utils from 'editing' submodule instead. Will be removed in a future major release.
