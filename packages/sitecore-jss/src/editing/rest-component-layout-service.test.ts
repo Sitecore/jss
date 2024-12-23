@@ -466,7 +466,6 @@ describe('RestComponentLayoutService', () => {
         sc_site: testParams.siteName,
         sc_lang: testParams.language,
         sc_mode: testParams.editMode,
-        sc_variant: testParams.variant,
       };
 
       // eslint-disable-next-line dot-notation
@@ -498,7 +497,6 @@ describe('RestComponentLayoutService', () => {
         renderingItemId: testParams.renderingId,
         sc_lang: testParams.language,
         sc_mode: testParams.editMode,
-        sc_variant: testParams.variant,
       };
 
       // eslint-disable-next-line dot-notation
