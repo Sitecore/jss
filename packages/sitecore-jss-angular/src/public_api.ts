@@ -115,3 +115,4 @@ export {
   EventInstance,
   PageViewInstance,
 } from '@sitecore-jss/sitecore-jss/tracking';
+export { SitecoreConfig, NextjsConfig, SPAConfig } from '@sitecore-jss/sitecore-jss';

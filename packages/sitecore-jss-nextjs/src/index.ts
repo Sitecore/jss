@@ -174,3 +174,5 @@ export {
   withEmptyFieldEditingComponent,
   EditingScripts,
 } from '@sitecore-jss/sitecore-jss-react';
+export { SitecoreConfig, NextjsConfig } from '@sitecore-jss/sitecore-jss';
+export { sitecoreConfig, initApp, SitecoreNextjsConfig } from './init-app';

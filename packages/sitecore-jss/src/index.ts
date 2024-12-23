@@ -20,3 +20,4 @@ export { ClientError } from 'graphql-request';
 export { NativeDataFetcher, NativeDataFetcherConfig } from './native-fetcher';
 export { HTMLLink } from './models';
 export { constants };
+export { SitecoreConfig, NextjsConfig, SPAConfig } from './config/SitecoreConfig';
