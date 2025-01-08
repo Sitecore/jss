@@ -25,7 +25,6 @@ describe('trackEvent', () => {
 
   it('should fetch with host', () => {
     nock('https://www.myhost.net')
-      .persist()
       .post('/sitecore/api/jss/track/event')
       .reply(200, (_, requestBody) => requestBody);
 

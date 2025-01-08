@@ -9,15 +9,7 @@ import {
 import { TrackingRequestOptions } from './trackingRequestOptions';
 import querystring from 'querystring';
 import { HttpDataFetcher, HttpResponse } from '../data-fetcher';
-
-/**
- * Checks if the given data is of type `RequestInit`.
- * @param {unknown} data - The data to check.
- * @returns {data is RequestInit} - Returns `true` if the data is a `RequestInit` object, otherwise `false`.
- */
-function isRequestInit(data: unknown): data is RequestInit {
-  return typeof data === 'object' && data !== null && 'credentials' in data;
-}
+import { NativeDataFetcherFunction } from '../native-fetcher';
 
 /**
  * Note: fetch api needs to use `credentials: include` in order for Sitecore cookies to be included in CORS requests
@@ -30,11 +22,20 @@ function isRequestInit(data: unknown): data is RequestInit {
 async function fetchData<T>(
   url: string,
   data: unknown,
-  fetcher: HttpDataFetcher<T>,
+  fetcher: HttpDataFetcher<T> | NativeDataFetcherFunction<T>,
   params: querystring.ParsedUrlQueryInput = {}
 ): Promise<T> {
-  // Check if the data can be safely treated as RequestInit
-  const requestData = isRequestInit(data) ? data : {};
+  const requestData = {
+    ...(typeof data === 'object' && data !== null ? data : {}),
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      ...(typeof data === 'object' && data !== null && 'headers' in data
+        ? (data as { headers: Record<string, string> }).headers
+        : {}),
+    },
+    body: JSON.stringify(data),
+  };
 
   return fetcher(resolveUrl(url, params), requestData).then((response: HttpResponse<unknown>) => {
     return response.data as T;

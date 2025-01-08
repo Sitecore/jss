@@ -19,8 +19,8 @@ const mockFetch = (
     responseType,
   }: { jsonError?: string; textError?: string; responseType?: 'text' | 'json' } = {}
 ) => {
-  return (input: RequestInfo, init?: RequestInit) => {
-    fetchInput = input;
+  return (input: URL | RequestInfo, init?: RequestInit) => {
+    fetchInput = input instanceof URL ? input.toString() : input;
     fetchInit = init;
     return Promise.resolve({
       ok: status === 200,
