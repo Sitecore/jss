@@ -71,73 +71,53 @@ export class NativeDataFetcher {
     const startTimestamp = Date.now();
     const fetchImpl = fetchOverride || fetch;
     const debug = debugOverride || debuggers.http;
-    // merge options from fetcher config and fetch call
+
     const requestInit = this.getRequestInit({ ...init, ...options });
 
-    const fetchWithOptionalTimeout = [fetchImpl(url, requestInit)];
-    if (init.timeout) {
-      this.abortTimeout = new TimeoutPromise(init.timeout);
-      fetchWithOptionalTimeout.push(this.abortTimeout.start as Promise<Response>);
-    }
+    const fetchPromise = fetchImpl(url, requestInit);
+    const timeoutPromise = init.timeout ? this.createTimeoutPromise(init.timeout) : null;
 
-    // Note a goal here is to provide consistent debug logging and error handling
-    // as we do in GraphQLRequestClient
+    debug('Request initiated: %o', {
+      url,
+      headers: this.extractDebugHeaders(requestInit.headers),
+      ...requestInit,
+    });
 
-    const { headers: reqHeaders, ...rest } = requestInit;
+    try {
+      const response = await Promise.race([
+        fetchPromise,
+        ...(timeoutPromise ? [timeoutPromise] : []),
+      ]);
+      this.abortTimeout?.clear();
 
-    debug('request: %o', { url, headers: this.extractDebugHeaders(reqHeaders), ...rest });
-    const response = await Promise.race(fetchWithOptionalTimeout)
-      .then((res) => {
-        this.abortTimeout?.clear();
-        return res;
-      })
-      .catch((error) => {
-        this.abortTimeout?.clear();
-        debug('request error: %o', error);
-        console.error('Fetch failed with:', error.message, 'Stack:', error.stack);
+      const respData = await this.parseResponse(response, debug);
+      if (!response.ok) {
+        const error = this.createError(response, respData);
+        debug('Response error: %o', error.response);
         throw error;
+      }
+
+      debug('Response in %dms: %o', Date.now() - startTimestamp, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: this.extractDebugHeaders(response.headers),
+        url: response.url,
+        data: respData,
       });
 
-    // Note even an error status may send useful json data in response (which we want for logging)
-    let respData: unknown = undefined;
-    const isJson = response.headers.get('Content-Type')?.includes('application/json');
-    if (isJson) {
-      respData = await response.json().catch((error) => {
-        debug('response.json() error: %o', error);
-      });
-    } else {
-      // if not JSON, just read the response as text
-      respData = await response.text().catch((error) => {
-        debug('response.text() error: %o', error);
-      });
-    }
-
-    const debugResponse = {
-      status: response.status,
-      statusText: response.statusText,
-      headers: this.extractDebugHeaders(response.headers),
-      url: response.url,
-      redirected: response.redirected,
-      data: respData,
-    };
-
-    if (!response.ok) {
-      debug('response error: %o', debugResponse);
-      const error: NativeDataFetcherError = {
-        ...new Error(`HTTP ${response.status} ${response.statusText}`),
-        response: {
-          ...debugResponse,
-          ...response,
-        },
-      };
+      return { ...response, data: respData as T };
+    } catch (error) {
+      this.abortTimeout?.clear();
+      debug('Request failed: %o', error);
+      console.error(
+        'Fetch failed with:',
+        'status:',
+        error.response.status,
+        ', statusText:',
+        error.response.statusText
+      );
       throw error;
     }
-
-    debug('response in %dms: %o', Date.now() - startTimestamp, debugResponse);
-    return {
-      ...response,
-      data: respData as T,
-    };
   }
 
   /**
@@ -233,5 +213,59 @@ export class NativeDataFetcher {
     }
 
     return headers;
+  }
+
+  /**
+   * Parses the response data.
+   * @param {Response} response - The fetch response object.
+   * @param {Function} debug - The debug logger function.
+   * @returns {Promise<unknown>} - The parsed response data.
+   */
+  private async parseResponse(
+    response: Response,
+    debug: (message: string, ...optionalParams: any[]) => void
+  ): Promise<unknown> {
+    const contentType = response.headers.get('Content-Type') || '';
+    try {
+      if (contentType.includes('application/json')) {
+        return await response.json();
+      }
+      return await response.text();
+    } catch (error) {
+      debug('Response parsing error: %o', error);
+      return undefined;
+    }
+  }
+
+  /**
+   * Creates a custom error for fetch failures.
+   * @param {Response} response - The fetch response object.
+   * @param {unknown} data - The parsed response data.
+   * @returns {NativeDataFetcherError} - The constructed error object.
+   */
+  private createError(response: Response, data: unknown): NativeDataFetcherError {
+    return {
+      ...new Error(`HTTP ${response.status} ${response.statusText}`),
+      response: {
+        status: response.status,
+        statusText: response.statusText,
+        headers: this.extractDebugHeaders(response.headers) as HeadersInit,
+        data,
+      },
+    };
+  }
+
+  /**
+   * Creates a promise that rejects after a timeout.
+   * @param {number} timeout - The timeout duration in milliseconds.
+   * @returns {Promise<Response>} - A promise that rejects when the timeout is reached.
+   */
+  private createTimeoutPromise(timeout: number): Promise<Response> {
+    this.abortTimeout = new TimeoutPromise(timeout);
+    return new Promise((_, reject) => {
+      setTimeout(() => {
+        reject(new Error(`Request timed out after ${timeout}ms`));
+      }, timeout);
+    });
   }
 }

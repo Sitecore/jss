@@ -191,30 +191,44 @@ export class RestLayoutService extends LayoutServiceBase {
   }
 
   /**
+   * Returns a fetcher function pre-configured with headers from the incoming request.
    * Provides default @see NativeDataFetcher data fetcher
    * @param {IncomingMessage} [req] Request instance
    * @returns default fetcher
    */
   protected getDefaultFetcher = <T>(req?: IncomingMessage) => {
-    const config = {
-      debugger: debug.layout,
-    } as NativeDataFetcherConfig;
+    const config: NativeDataFetcherConfig = { debugger: debug.layout };
 
-    const headers = req && {
-      ...req.headers,
-      ...(req.headers.cookie && { cookie: req.headers.cookie }),
-      ...(req.headers.referer && { referer: req.headers.referer }),
-      ...(req.headers['user-agent'] && { 'user-agent': req.headers['user-agent'] }),
-      ...(req.socket.remoteAddress && { 'X-Forwarded-For': req.socket.remoteAddress }),
-    };
+    const headers = this.getHeaders(req);
 
     const nativeFetcher = new NativeDataFetcher(config);
 
-    const fetcher = (url: string, data?: RequestInit) => {
-      data = { ...data, ...{ headers: headers as HeadersInit } };
-      return nativeFetcher.fetch<T>(url, data);
-    };
-
-    return fetcher;
+    return (url: string, data?: RequestInit) => nativeFetcher.fetch<T>(url, { ...data, headers });
   };
+
+  /**
+   * Creates an HTTP `Headers` object populated with headers from the incoming request.
+   * @param {IncomingMessage} [req] - The incoming HTTP request, used to extract headers.
+   * @returns {Headers} - An instance of the `Headers` object populated with the extracted headers.
+   */
+  private getHeaders(req?: IncomingMessage): Headers {
+    const headers = new Headers();
+
+    if (req?.headers) {
+      // Copy all headers from req.headers
+      Object.entries(req.headers).forEach(([key, value]) => {
+        if (value) {
+          headers.set(key, Array.isArray(value) ? value.join(', ') : value);
+        }
+      });
+
+      // Add or override specific headers
+      req.headers.cookie && headers.set('cookie', req.headers.cookie);
+      req.headers.referer && headers.set('referer', req.headers.referer);
+      req.headers['user-agent'] && headers.set('user-agent', req.headers['user-agent']);
+      req.socket.remoteAddress && headers.set('X-Forwarded-For', req.socket.remoteAddress);
+    }
+
+    return headers;
+  }
 }
