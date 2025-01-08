@@ -22,6 +22,8 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-nextjs]` Fixed handling of ? inside square brackets [] in regex patterns to prevent incorrect escaping ([#1999](https://github.com/Sitecore/jss/pull/1999))
+* `[sitecore-jss]``[create-sitecore-jss]``[sitecore-jss-nextjs]``[sitecore-jss-react]``[sitecore-jss-dev-tools]``[sitecore-jss-vue]` Remove Axios ([#2006](https://github.com/Sitecore/jss/pull/2006))
+
 
 ## 22.3.0 / 22.3.1
 
