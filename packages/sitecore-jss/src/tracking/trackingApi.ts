@@ -9,7 +9,6 @@ import {
 import { TrackingRequestOptions } from './trackingRequestOptions';
 import querystring from 'querystring';
 import { HttpDataFetcher, HttpResponse } from '../data-fetcher';
-// import { NativeDataFetcherFunction } from '../native-fetcher';
 
 /**
  * Checks if the given data is of type `RequestInit`.

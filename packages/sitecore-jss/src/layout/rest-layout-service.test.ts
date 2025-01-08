@@ -50,13 +50,6 @@ describe('RestLayoutService', () => {
       )
       .reply(200, () => ({
         sitecore: { context: {}, route: { name: 'xxx' } },
-        headers: {
-          Accept: 'application/json, text/plain, */*',
-          cookie: 'test-cookie-value',
-          referer: 'http://sctest',
-          'user-agent': 'test-user-agent-value',
-          'X-Forwarded-For': '192.168.1.10',
-        },
       }));
 
     const req = {
@@ -93,9 +86,11 @@ describe('RestLayoutService', () => {
           expect(layoutServiceData.headers.get('X-Forwarded-For')).to.equal('192.168.1.10');
         }
 
-        expect(layoutServiceData.sitecore).to.deep.equal({
-          context: {},
-          route: { name: 'xxx' },
+        expect(layoutServiceData).to.deep.equal({
+          sitecore: {
+            context: {},
+            route: { name: 'xxx' },
+          },
         });
       });
   });
@@ -107,13 +102,6 @@ describe('RestLayoutService', () => {
       )
       .reply(200, () => ({
         sitecore: { context: {}, route: { name: 'xxx' } },
-        headers: {
-          Accept: 'application/json, text/plain, */*',
-          cookie: 'test-cookie-value',
-          referer: 'http://sctest',
-          'user-agent': 'test-user-agent-value',
-          'X-Forwarded-For': '192.168.1.10',
-        },
       }));
 
     const req = {
@@ -149,9 +137,11 @@ describe('RestLayoutService', () => {
           expect(layoutServiceData.headers.get('user-agent')).to.equal('test-user-agent-value');
           expect(layoutServiceData.headers.get('X-Forwarded-For')).to.equal('192.168.1.10');
         }
-        expect(layoutServiceData.sitecore).to.deep.equal({
-          context: {},
-          route: { name: 'xxx' },
+        expect(layoutServiceData).to.deep.equal({
+          sitecore: {
+            context: {},
+            route: { name: 'xxx' },
+          },
         });
       });
   });

@@ -148,7 +148,7 @@ export class RestLayoutService extends LayoutServiceBase {
     );
     const fetcher = this.serviceConfig.dataFetcherResolver
       ? this.serviceConfig.dataFetcherResolver<PlaceholderData>(req, res)
-      : this.getDefaultFetcher<PlaceholderData>();
+      : this.getDefaultFetcher<PlaceholderData>(req);
 
     const fetchUrl = this.resolveLayoutServiceUrl('placeholder');
 

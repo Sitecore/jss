@@ -1,4 +1,4 @@
-import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss-nextjs';
+import { NativeDataFetcher, NativeDataFetcherResponse } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
  * Implements a data fetcher using NativeDataFetcher - replace with your favorite
@@ -10,13 +10,6 @@ import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss-nextjs';
 export async function dataFetcher<ResponseType>(
   url: string,
   data?: unknown
-): Promise<{ status: number; statusText: string; data: ResponseType }> {
-  const fetcher = new NativeDataFetcher();
-  if (data) {
-    const response = await fetcher.post<ResponseType>(url, data);
-    return response;
-  } else {
-    const response = await fetcher.get<ResponseType>(url);
-    return response;
-  }
+): Promise<NativeDataFetcherResponse> {
+  return new NativeDataFetcher().fetch<ResponseType>(url, data);
 }

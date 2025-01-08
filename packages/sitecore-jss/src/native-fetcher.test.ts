@@ -244,13 +244,13 @@ describe('NativeDataFetcher', () => {
       expect(debug.personalize.log, 'request and response log').to.be.called.twice;
     });
 
-    // it('should use fetch override', async () => {
-    //   const fetchOverride = spy(mockFetch(200));
-    //   const fetcher = new NativeDataFetcher({ fetch: fetchOverride });
+    it('should use fetch override', async () => {
+      const fetchOverride = spy(mockFetch(200));
+      const fetcher = new NativeDataFetcher({ fetch: fetchOverride });
 
-    //   await fetcher.fetch('http://test.com/api');
-    //   expect(fetchOverride).to.be.called;
-    // });
+      await fetcher.fetch('http://test.com/api');
+      expect(fetchOverride).to.be.called;
+    });
 
     it('should handle response.json() error', async () => {
       const fetcher = new NativeDataFetcher();

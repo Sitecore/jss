@@ -2,12 +2,13 @@ import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 
 /**
  * Implements a data fetcher using NativeDataFetcher - replace with your favorite
- * SSR-capable HTTP or fetch library if you like.
+ * SSR-capable HTTP or fetch library if you like. See HttpDataFetcher<T> type
+ * in sitecore-jss library for implementation details/notes.
  * @param {string} url The URL to request; may include query string
  * @param {any} data Optional data to POST with the request.
  */
 export async function dataFetcher(url, data) {
-  const fetcher = new NativeDataFetcher();
+  const fetcher = new NativeDataFetcher({ credentials: 'include' });
 
   try {
     if (data) {

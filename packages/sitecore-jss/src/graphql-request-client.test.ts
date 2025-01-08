@@ -14,7 +14,7 @@ use(spies);
 const nodeStatusCode = ['ECONNRESET', 'ETIMEDOUT', 'EPROTO'];
 const statusErrorCodes = [429, 502, 503, 504, 520, 521, 522, 523, 524];
 
-describe.only('GraphQLRequestClient', () => {
+describe('GraphQLRequestClient', () => {
   const endpoint = 'http://jssnextweb/graphql';
   let debugNamespaces: string;
 

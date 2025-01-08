@@ -7,7 +7,7 @@ import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
  * @param {any} data Optional data to POST with the request.
  */
 export async function dataFetcher(url, data) {
-  const fetcher = new NativeDataFetcher();
+  const fetcher = new NativeDataFetcher({ credentials: 'include' });
 
   try {
     if (data) {
