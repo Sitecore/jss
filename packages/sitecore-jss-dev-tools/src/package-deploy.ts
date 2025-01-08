@@ -3,10 +3,14 @@ import fs from 'fs';
 import https, { Agent as HttpsAgent } from 'https';
 import path from 'path';
 import FormData from 'form-data';
-import axios, { AxiosRequestConfig, AxiosError } from 'axios';
 import { TLSSocket } from 'tls';
 import { digest, hmac } from './digest';
 import { ClientRequest, IncomingMessage } from 'http';
+import {
+  ResponseError,
+  NativeDataFetcher,
+  NativeDataFetcherConfig,
+} from '@sitecore-jss/sitecore-jss';
 
 export interface PackageDeployOptions {
   packagePath: string;
@@ -194,7 +198,7 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
      * Send job status request
      */
     function sendJobStatusRequest() {
-      axios
+      new NativeDataFetcher()
         .get(
           `${options.importServiceUrl}/status?appName=${options.appName}&jobName=${taskName}&after=${logOffset}`,
           requestBaseOptions
@@ -203,7 +207,7 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
           const body = response.data;
 
           try {
-            const { state, messages }: { state: string; messages: string[] } = body;
+            const { state, messages } = body as { state: string; messages: string[] };
 
             messages.forEach((entry) => {
               logOffset++;
@@ -243,7 +247,7 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
             reject(error);
           }
         })
-        .catch((error: AxiosError) => {
+        .catch((error: ResponseError) => {
           console.error(
             chalk.red(
               'Unexpected response from import status service. The import task is probably still running; check the Sitecore logs for details.'
@@ -325,19 +329,19 @@ export async function packageDeploy(options: PackageDeployOptions) {
         })
       : undefined,
     maxRedirects: 0,
-  } as AxiosRequestConfig;
+  } as NativeDataFetcherConfig;
 
   console.log(`Sending package ${packageFile} to ${options.importServiceUrl}...`);
   return new Promise<string>((resolve, reject) => {
-    axios
+    new NativeDataFetcher()
       .post(options.importServiceUrl, formData, requestBaseOptions)
       .then((response) => {
         const body = response.data;
 
         console.log(chalk.green(`Sitecore has accepted import task ${body}`));
-        resolve(body);
+        resolve(body as string);
       })
-      .catch((error: AxiosError) => {
+      .catch((error: ResponseError) => {
         console.error(chalk.red('Unexpected response from import service:'));
         if (error.response) {
           console.error(chalk.red(`Status message: ${error.response.statusText}`));
@@ -352,7 +356,7 @@ export async function packageDeploy(options: PackageDeployOptions) {
 }
 
 /**
- * Creates valid proxy object which fit to axios configuration
+ * Creates valid proxy object
  * @param {string} [proxy] proxy url
  */
 export function extractProxy(proxy?: string) {
@@ -373,9 +377,7 @@ export function extractProxy(proxy?: string) {
 }
 
 /**
- * Provides way to customize axios request adapter
- * in order to execute certificate pinning before request sent:
- * {@link https://github.com/axios/axios/issues/2808}
+ * Provides way to customize request adapter
  * @param {PackageDeployOptions} options
  */
 export function getHttpsTransport(options: PackageDeployOptions) {

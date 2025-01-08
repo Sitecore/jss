@@ -1,13 +1,9 @@
 export {
   constants,
   // generic data access
-  HttpDataFetcher,
-  HttpResponse,
-  AxiosResponse,
-  AxiosDataFetcher,
-  AxiosDataFetcherConfig,
   NativeDataFetcher,
   NativeDataFetcherConfig,
+  NativeDataFetcherResponse,
   HTMLLink,
   enableDebug,
   debug,

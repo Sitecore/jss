@@ -1,7 +1,6 @@
-import { AxiosError } from 'axios';
+import { ClientError } from 'graphql-request';
 import { IncomingMessage, OutgoingMessage } from 'http';
 import { ParsedUrlQueryInput } from 'querystring';
-import { ResponseError } from '../data-fetcher';
 import isServer from './is-server';
 
 /**
@@ -75,13 +74,7 @@ export const isAbsoluteUrl = (url: string) => {
  * @returns {boolean} is timeout error
  */
 export const isTimeoutError = (error: unknown) => {
-  return (
-    (error as AxiosError).code === '408' ||
-    (error as AxiosError).code === 'ECONNABORTED' ||
-    (error as AxiosError).code === 'ETIMEDOUT' ||
-    (error as ResponseError).response?.status === 408 ||
-    (error as Error).name === 'AbortError'
-  );
+  return (error as ClientError).response?.status === 408 || (error as Error).name === 'AbortError';
 };
 
 /**

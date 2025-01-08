@@ -1,19 +1,24 @@
-import axios from 'axios';
+import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 
 /**
- * Implements a data fetcher using Axios - replace with your favorite
- * SSR-capable HTTP or fetch library if you like. See HttpDataFetcher<T> type
- * in sitecore-jss library for implementation details/notes.
+ * Implements a data fetcher using NativeDataFetcher - replace with your favorite
+ * SSR-capable HTTP or fetch library if you like.
  * @param {string} url The URL to request; may include query string
  * @param {any} data Optional data to POST with the request.
  */
-export function dataFetcher(url, data) {
-  return axios({
-    url,
-    method: data ? 'POST' : 'GET',
-    data,
-    // note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
-    // which is necessary for analytics and such
-    withCredentials: true,
-  });
+export async function dataFetcher(url, data) {
+  const fetcher = new NativeDataFetcher();
+
+  try {
+    if (data) {
+      const response = await fetcher.post(url, data);
+      return response.data;
+    } else {
+      const response = await fetcher.get(url);
+      return response.data;
+    }
+  } catch (error) {
+    console.error('Data fetching error:', error);
+    throw error;
+  }
 }

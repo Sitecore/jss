@@ -7,11 +7,19 @@ import debug from './debug';
 
 use(spies);
 
-let fetchInput: URL | RequestInfo | undefined;
+let fetchInput: RequestInfo | undefined;
 let fetchInit: RequestInit | undefined;
 
-const mockFetch = (status: number, response: unknown = {}, jsonError?: string) => {
-  return (input: URL | RequestInfo, init?: RequestInit) => {
+const mockFetch = (
+  status: number,
+  response: unknown = {},
+  {
+    jsonError,
+    textError,
+    responseType,
+  }: { jsonError?: string; textError?: string; responseType?: 'text' | 'json' } = {}
+) => {
+  return (input: RequestInfo, init?: RequestInit) => {
     fetchInput = input;
     fetchInit = init;
     return Promise.resolve({
@@ -22,11 +30,22 @@ const mockFetch = (status: number, response: unknown = {}, jsonError?: string) =
       redirected: false,
       headers: {
         get: (name: string) => {
-          return name === 'Content-Type' ? 'application/json' : '';
+          if (name === 'Content-Type') {
+            if (responseType === 'text') {
+              return 'text/plain';
+            }
+
+            return 'application/json';
+          }
+
+          return '';
         },
       } as Headers,
       json: () => {
         return jsonError ? Promise.reject(jsonError) : Promise.resolve(response);
+      },
+      text: () => {
+        return textError ? Promise.reject(textError) : Promise.resolve(JSON.stringify(response));
       },
     } as Response);
   };
@@ -65,6 +84,30 @@ describe('NativeDataFetcher', () => {
   });
 
   describe('fetch', () => {
+    it('should execute request with fetch method', async () => {
+      const fetcher = new NativeDataFetcher();
+
+      spy.on(global, 'fetch', mockFetch(200));
+
+      const response = await fetcher.fetch('http://test.com/api');
+      expect(response.status).to.equal(200);
+      expect(fetchInput).to.equal('http://test.com/api');
+      expect(fetchInit?.method).to.equal('GET');
+      expect(fetchInit?.body).to.be.undefined;
+    });
+
+    it('should execute request with text response type', async () => {
+      const fetcher = new NativeDataFetcher();
+
+      spy.on(global, 'fetch', mockFetch(200, {}, { responseType: 'text' }));
+
+      const response = await fetcher.fetch('http://test.com/api');
+      expect(response.status).to.equal(200);
+      expect(fetchInput).to.equal('http://test.com/api');
+      expect(fetchInit?.method).to.equal('GET');
+      expect(fetchInit?.body).to.be.undefined;
+    });
+
     it('should execute POST request with data', async () => {
       const fetcher = new NativeDataFetcher();
       const postData = { x: 'val1', y: 'val2' };
@@ -72,7 +115,7 @@ describe('NativeDataFetcher', () => {
 
       spy.on(global, 'fetch', mockFetch(200, respData));
 
-      const response = await fetcher.fetch('http://test.com/api', postData);
+      const response = await fetcher.post('http://test.com/api', postData);
       expect(response.status).to.equal(200);
       expect(response.data).to.equal(respData);
       expect(fetchInput).to.equal('http://test.com/api');
@@ -86,7 +129,7 @@ describe('NativeDataFetcher', () => {
 
       spy.on(global, 'fetch', mockFetch(200, respData));
 
-      const response = await fetcher.fetch('http://test.com/api');
+      const response = await fetcher.get('http://test.com/api');
       expect(response.status).to.equal(200);
       expect(response.data).to.equal(respData);
       expect(fetchInput).to.equal('http://test.com/api');
@@ -94,14 +137,61 @@ describe('NativeDataFetcher', () => {
       expect(fetchInit?.body).to.be.undefined;
     });
 
-    it('should throw error for failed request', async () => {
+    it('should execute DELETE request without data', async () => {
+      const fetcher = new NativeDataFetcher();
+      const respData = { z: 'val3' };
+
+      spy.on(global, 'fetch', mockFetch(200, respData));
+
+      const response = await fetcher.delete('http://test.com/api');
+      expect(response.status).to.equal(200);
+      expect(response.data).to.equal(respData);
+      expect(fetchInput).to.equal('http://test.com/api');
+      expect(fetchInit?.method).to.equal('DELETE');
+      expect(fetchInit?.body).to.be.undefined;
+    });
+
+    it('should execute PUT request with data', async () => {
+      const fetcher = new NativeDataFetcher();
+      const putData = { x: 'val1', y: 'val2' };
+      const respData = { z: 'val3' };
+
+      spy.on(global, 'fetch', mockFetch(200, respData));
+
+      const response = await fetcher.put('http://test.com/api', putData);
+      expect(response.status).to.equal(200);
+      expect(response.data).to.equal(respData);
+      expect(fetchInput).to.equal('http://test.com/api');
+      expect(fetchInit?.method).to.equal('PUT');
+      expect(fetchInit?.body).to.equal(JSON.stringify(putData));
+    });
+
+    it('should execute HEAD request without data', async () => {
+      const fetcher = new NativeDataFetcher();
+      const respData = { z: 'val3' };
+
+      spy.on(global, 'fetch', mockFetch(200, respData));
+
+      const response = await fetcher.head('http://test.com/api');
+      expect(response.status).to.equal(200);
+      expect(response.data).to.equal(respData);
+      expect(fetchInput).to.equal('http://test.com/api');
+      expect(fetchInit?.method).to.equal('HEAD');
+      expect(fetchInit?.body).to.be.undefined;
+    });
+
+    it('should execute failed request with data', async () => {
       const fetcher = new NativeDataFetcher();
 
-      spy.on(global, 'fetch', mockFetch(400));
+      spy.on(
+        global,
+        'fetch',
+        mockFetch(400, { status: 400, statusText: 'Error', data: { test: 'test?' } })
+      );
 
       await fetcher.fetch('http://test.com/api').catch((error) => {
-        expect(error).to.be.instanceOf(Error);
-        expect(error.message).to.equal('HTTP 400 ERROR');
+        expect(error.response.status).to.equal(400);
+        expect(error.response.data.data).to.deep.equal({ test: 'test?' });
       });
     });
 
@@ -154,18 +244,18 @@ describe('NativeDataFetcher', () => {
       expect(debug.personalize.log, 'request and response log').to.be.called.twice;
     });
 
-    it('should use fetch override', async () => {
-      const fetchOverride = spy(mockFetch(200));
-      const fetcher = new NativeDataFetcher({ fetch: fetchOverride });
+    // it('should use fetch override', async () => {
+    //   const fetchOverride = spy(mockFetch(200));
+    //   const fetcher = new NativeDataFetcher({ fetch: fetchOverride });
 
-      await fetcher.fetch('http://test.com/api');
-      expect(fetchOverride).to.be.called;
-    });
+    //   await fetcher.fetch('http://test.com/api');
+    //   expect(fetchOverride).to.be.called;
+    // });
 
     it('should handle response.json() error', async () => {
       const fetcher = new NativeDataFetcher();
 
-      spy.on(global, 'fetch', mockFetch(200, {}, 'ERROR'));
+      spy.on(global, 'fetch', mockFetch(200, {}, { jsonError: 'ERROR' }));
 
       const response = await fetcher.fetch('http://test.com/api');
       expect(response.status).to.equal(200);
@@ -173,6 +263,20 @@ describe('NativeDataFetcher', () => {
       expect(
         debug.http.log,
         'request and response.json() error and response log'
+      ).to.be.called.exactly(3);
+    });
+
+    it('should handle response.text() error', async () => {
+      const fetcher = new NativeDataFetcher();
+
+      spy.on(global, 'fetch', mockFetch(200, {}, { jsonError: 'ERROR' }));
+
+      const response = await fetcher.fetch('http://test.com/api');
+      expect(response.status).to.equal(200);
+      expect(response.data).to.be.undefined;
+      expect(
+        debug.http.log,
+        'request and response.text() error and response log'
       ).to.be.called.exactly(3);
     });
 

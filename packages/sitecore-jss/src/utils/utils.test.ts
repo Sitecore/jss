@@ -101,9 +101,6 @@ describe('utils', () => {
 
   describe('isTimeoutError', () => {
     it('should return true when error is timeout error', () => {
-      expect(isTimeoutError({ code: '408' })).to.be.true;
-      expect(isTimeoutError({ code: 'ECONNABORTED' })).to.be.true;
-      expect(isTimeoutError({ code: 'ETIMEDOUT' })).to.be.true;
       expect(isTimeoutError({ response: { status: 408 } })).to.be.true;
       expect(isTimeoutError({ name: 'AbortError' })).to.be.true;
     });

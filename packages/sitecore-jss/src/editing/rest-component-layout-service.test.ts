@@ -2,8 +2,7 @@
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import { IncomingMessage, ServerResponse } from 'http';
-import { AxiosRequestConfig } from 'axios';
-import { AxiosDataFetcher } from '../axios-fetcher';
+import { NativeDataFetcher, NativeDataFetcherConfig } from '../native-fetcher';
 import {
   ComponentLayoutRequestParams,
   RestComponentLayoutService,
@@ -42,10 +41,7 @@ describe('RestComponentLayoutService', () => {
       .get(
         '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en'
       )
-      .reply(200, (_, requestBody) => ({
-        requestBody: requestBody,
-        data: defaultTestData,
-      }));
+      .reply(200, () => defaultTestData);
 
     const service = new RestComponentLayoutService({
       apiHost: 'http://sctest',
@@ -55,8 +51,8 @@ describe('RestComponentLayoutService', () => {
 
     return service
       .fetchComponentData(defaultTestInput)
-      .then((layoutServiceData: LayoutServiceData & AxiosRequestConfig) => {
-        expect(layoutServiceData.data).to.deep.equal(defaultTestData);
+      .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
+        expect(layoutServiceData).to.deep.equal(defaultTestData);
       });
   });
 
@@ -65,20 +61,12 @@ describe('RestComponentLayoutService', () => {
       .get(
         '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en'
       )
-      .reply(200, (_, requestBody) => ({
-        requestBody: requestBody,
-        data: { sitecore: { context: {}, route: { name: 'xxx' } } },
-        headers: {
-          Accept: 'application/json, text/plain, */*',
-          cookie: 'test-cookie-value',
-          referer: 'http://sctest',
-          'user-agent': 'test-user-agent-value',
-          'X-Forwarded-For': '192.168.1.10',
-        },
+      .reply(200, () => ({
+        sitecore: { context: {}, route: { name: 'xxx' } },
       }));
 
     const req = {
-      connection: {
+      socket: {
         remoteAddress: '192.168.1.10',
       },
       headers: {
@@ -102,12 +90,14 @@ describe('RestComponentLayoutService', () => {
 
     return service
       .fetchComponentData(defaultTestInput, req, res)
-      .then((layoutServiceData: LayoutServiceData & AxiosRequestConfig) => {
-        expect(layoutServiceData.headers.cookie).to.equal('test-cookie-value');
-        expect(layoutServiceData.headers.referer).to.equal('http://sctest');
-        expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
-        expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
-        expect(layoutServiceData.data).to.deep.equal({
+      .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
+        if (layoutServiceData.headers instanceof Headers) {
+          expect(layoutServiceData.headers.get('cookie')).to.equal('test-cookie-value');
+          expect(layoutServiceData.headers.get('referer')).to.equal('http://sctest');
+          expect(layoutServiceData.headers.get('user-agent')).to.equal('test-user-agent-value');
+          expect(layoutServiceData.headers.get('X-Forwarded-For')).to.equal('192.168.1.10');
+        }
+        expect(layoutServiceData).to.deep.equal({
           sitecore: {
             context: {},
             route: { name: 'xxx' },
@@ -163,17 +153,7 @@ describe('RestComponentLayoutService', () => {
       .get(
         '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&dataSourceId=789&sc_site=supersite&sc_lang=en'
       )
-      .reply(200, (_, requestBody) => ({
-        requestBody: requestBody,
-        data: testExpectedData,
-        headers: {
-          Accept: 'application/json, text/plain, */*',
-          cookie: 'test-cookie-value',
-          referer: 'http://sctest',
-          'user-agent': 'test-user-agent-value',
-          'X-Forwarded-For': '192.168.1.10',
-        },
-      }))
+      .reply(200, () => testExpectedData)
       .get('/sitecore/api/layout/component/jss')
       .query(true)
       .reply(200, (_, requestBody) => ({
@@ -189,7 +169,7 @@ describe('RestComponentLayoutService', () => {
       }));
 
     const req = {
-      connection: {
+      socket: {
         remoteAddress: '192.168.1.10',
       },
       headers: {
@@ -213,12 +193,14 @@ describe('RestComponentLayoutService', () => {
 
     return service
       .fetchComponentData(testInput, req, res)
-      .then((layoutServiceData: LayoutServiceData & AxiosRequestConfig) => {
-        expect(layoutServiceData.headers.cookie).to.equal('test-cookie-value');
-        expect(layoutServiceData.headers.referer).to.equal('http://sctest');
-        expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
-        expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
-        expect(layoutServiceData.data).to.deep.equal(testExpectedData);
+      .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
+        if (layoutServiceData.headers instanceof Headers) {
+          expect(layoutServiceData.headers.get('cookie')).to.equal('test-cookie-value');
+          expect(layoutServiceData.headers.get('referer')).to.equal('http://sctest');
+          expect(layoutServiceData.headers.get('user-agent')).to.equal('test-user-agent-value');
+          expect(layoutServiceData.headers.get('X-Forwarded-For')).to.equal('192.168.1.10');
+        }
+        expect(layoutServiceData).to.deep.equal(testExpectedData);
       });
   });
 
@@ -269,17 +251,7 @@ describe('RestComponentLayoutService', () => {
       .get(
         '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=mysite&sc_lang=en'
       )
-      .reply(200, (_, requestBody) => ({
-        requestBody: requestBody,
-        data: testExpectedData,
-        headers: {
-          Accept: 'application/json, text/plain, */*',
-          cookie: 'test-cookie-value',
-          referer: 'http://sctest',
-          'user-agent': 'test-user-agent-value',
-          'X-Forwarded-For': '192.168.1.10',
-        },
-      }))
+      .reply(200, () => testExpectedData)
       .get('/sitecore/api/layout/component/jss')
       .query(true)
       .reply(200, (_, requestBody) => ({
@@ -295,7 +267,7 @@ describe('RestComponentLayoutService', () => {
       }));
 
     const req = {
-      connection: {
+      socket: {
         remoteAddress: '192.168.1.10',
       },
       headers: {
@@ -319,12 +291,14 @@ describe('RestComponentLayoutService', () => {
 
     return service
       .fetchComponentData(testInput, req, res)
-      .then((layoutServiceData: LayoutServiceData & AxiosRequestConfig) => {
-        expect(layoutServiceData.headers.cookie).to.equal('test-cookie-value');
-        expect(layoutServiceData.headers.referer).to.equal('http://sctest');
-        expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
-        expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
-        expect(layoutServiceData.data).to.deep.equal(testExpectedData);
+      .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
+        if (layoutServiceData.headers instanceof Headers) {
+          expect(layoutServiceData.headers.get('cookie')).to.equal('test-cookie-value');
+          expect(layoutServiceData.headers.get('referer')).to.equal('http://sctest');
+          expect(layoutServiceData.headers.get('user-agent')).to.equal('test-user-agent-value');
+          expect(layoutServiceData.headers.get('X-Forwarded-For')).to.equal('192.168.1.10');
+        }
+        expect(layoutServiceData).to.deep.equal(testExpectedData);
       });
   });
 
@@ -333,10 +307,7 @@ describe('RestComponentLayoutService', () => {
       .get(
         '/sitecore/api/layout/component/listen?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=supersite&sc_lang=en'
       )
-      .reply(200, (_, requestBody) => ({
-        requestBody: requestBody,
-        data: defaultTestData,
-      }));
+      .reply(200, () => defaultTestData);
 
     const service = new RestComponentLayoutService({
       apiHost: 'http://sctest',
@@ -347,14 +318,14 @@ describe('RestComponentLayoutService', () => {
 
     return service
       .fetchComponentData(defaultTestInput)
-      .then((layoutServiceData: LayoutServiceData & AxiosRequestConfig) => {
-        expect(layoutServiceData.data).to.deep.equal(defaultTestData);
+      .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
+        expect(layoutServiceData).to.deep.equal(defaultTestData);
       });
   });
 
   it('should fetch layout data using custom fetcher resolver', () => {
     const fetcherSpy = spy((url: string) => {
-      return new AxiosDataFetcher().fetch<never>(url);
+      return new NativeDataFetcher().fetch<never>(url);
     });
 
     nock('http://sctest')

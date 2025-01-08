@@ -8,52 +8,38 @@ import {
 } from './dataModels';
 import { TrackingRequestOptions } from './trackingRequestOptions';
 import querystring from 'querystring';
-import { HttpDataFetcher, HttpResponse } from './../data-fetcher';
-
-class ResponseError extends Error {
-  response: HttpResponse<unknown>;
-
-  constructor(message: string, response: HttpResponse<unknown>) {
-    super(message);
-
-    Object.setPrototypeOf(this, ResponseError.prototype);
-    this.response = response;
-  }
-}
+import { HttpDataFetcher, HttpResponse } from '../data-fetcher';
+// import { NativeDataFetcherFunction } from '../native-fetcher';
 
 /**
- * @param {HttpResponse<T>} response response from fetch
- * @returns {HttpResponse<T>} response
+ * Checks if the given data is of type `RequestInit`.
+ * @param {unknown} data - The data to check.
+ * @returns {data is RequestInit} - Returns `true` if the data is a `RequestInit` object, otherwise `false`.
  */
-export function checkStatus<T>(response: HttpResponse<T>) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
-
-  const error = new ResponseError(response.statusText, response);
-  throw error;
+function isRequestInit(data: unknown): data is RequestInit {
+  return typeof data === 'object' && data !== null && 'credentials' in data;
 }
 
 /**
- * Note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
+ * Note: fetch api needs to use `credentials: include` in order for Sitecore cookies to be included in CORS requests
  * which is necessary for analytics and such
  * @param {string} url url to fetch
  * @param {unknown[]} data data to send
  * @param {HttpDataFetcher<T>} fetcher data fetcher
  * @param {querystring.ParsedUrlQueryInput} params additional params to send
  */
-function fetchData<T>(
+async function fetchData<T>(
   url: string,
-  data: unknown[],
+  data: unknown,
   fetcher: HttpDataFetcher<T>,
   params: querystring.ParsedUrlQueryInput = {}
-) {
-  return fetcher(resolveUrl(url, params), data)
-    .then(checkStatus)
-    .then((response: HttpResponse<unknown>) => {
-      // axios auto-parses JSON responses, don't need to JSON.parse
-      return response.data as T;
-    });
+): Promise<T> {
+  // Check if the data can be safely treated as RequestInit
+  const requestData = isRequestInit(data) ? data : {};
+
+  return fetcher(resolveUrl(url, params), requestData).then((response: HttpResponse<unknown>) => {
+    return response.data as T;
+  });
 }
 
 /**

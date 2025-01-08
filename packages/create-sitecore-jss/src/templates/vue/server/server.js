@@ -1,7 +1,6 @@
 import { renderToString } from '@vue/server-renderer';
 import serializeJavascript from 'serialize-javascript';
 import { renderMetaToString } from 'vue-meta/ssr';
-import axios from 'axios';
 import http from 'http';
 import https from 'https';
 import i18ninit from '../src/i18n';
@@ -29,9 +28,6 @@ function assertReplace(string, value, replacement) {
 
 // Setup Http/Https agents for keep-alive. Used in headless-proxy
 export const setUpDefaultAgents = (httpAgent, httpsAgent) => {
-  axios.defaults.httpAgent = httpAgent;
-  axios.defaults.httpsAgent = httpsAgent;
-
   http.globalAgent = httpAgent;
   https.globalAgent = httpsAgent;
 };

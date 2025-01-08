@@ -55,7 +55,6 @@
       "typescript": "~4.7.4"
     },
     "dependencies": {
-      "axios": "^0.21.1",
       "chalk": "^4.1.0",
       "debug": "^4.3.1",
       "graphql": "^16.5.0",
@@ -76,7 +75,6 @@
     "resolved": null,
     "from": [],
     "to": [
-      "../../packages/sitecore-jss/node_modules/axios",
       "../../packages/sitecore-jss/node_modules/chalk",
       "../../packages/sitecore-jss/node_modules/debug",
       "../../packages/sitecore-jss/node_modules/graphql",
@@ -446,7 +444,6 @@
     "dependencies": {
       "@babel/parser": "^7.24.0",
       "@sitecore-jss/sitecore-jss": "22.2.0-canary.69",
-      "axios": "^1.3.2",
       "chalk": "^4.1.2",
       "chokidar": "^3.6.0",
       "del": "^6.0.0",
@@ -510,7 +507,6 @@
     "to": [
       "../../packages/sitecore-jss-dev-tools/node_modules/@babel/parser",
       "../../packages/sitecore-jss-dev-tools/node_modules/@sitecore-jss/sitecore-jss",
-      "../../packages/sitecore-jss-dev-tools/node_modules/axios",
       "../../packages/sitecore-jss-dev-tools/node_modules/chalk",
       "../../packages/sitecore-jss-dev-tools/node_modules/chokidar",
       "../../packages/sitecore-jss-dev-tools/node_modules/del",

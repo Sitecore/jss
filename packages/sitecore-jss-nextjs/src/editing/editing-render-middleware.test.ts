@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect, use } from 'chai';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingDataService, EditingPreviewData } from './editing-data-service';
 import {
   EDITING_ALLOWED_ORIGINS,
@@ -22,7 +22,6 @@ import {
 } from './editing-render-middleware';
 import { spy, match } from 'sinon';
 import sinonChai from 'sinon-chai';
-import { EditMode } from '@sitecore-jss/sitecore-jss/layout';
 
 use(sinonChai);
 
@@ -81,7 +80,7 @@ const mockResponse = () => {
 };
 
 const mockFetcher = (html?: string) => {
-  const fetcher = {} as AxiosDataFetcher;
+  const fetcher = {} as NativeDataFetcher;
   fetcher.get = spy<any>(() => {
     return Promise.resolve({ data: html ?? '' });
   });
@@ -537,7 +536,7 @@ describe('EditingRenderMiddleware', () => {
       query[QUERY_PARAM_EDITING_SECRET] = secret;
       const previewData = { key: 'key1234' } as EditingPreviewData;
 
-      const fetcher = {} as AxiosDataFetcher;
+      const fetcher = {} as NativeDataFetcher;
       fetcher.get = spy<any>(() => {
         return Promise.reject({ response: { data: html, status: 404 } });
       });
@@ -580,7 +579,7 @@ describe('EditingRenderMiddleware', () => {
       query[QUERY_PARAM_EDITING_SECRET] = secret;
       const previewData = { key: 'key1234' } as EditingPreviewData;
 
-      const fetcher = {} as AxiosDataFetcher;
+      const fetcher = {} as NativeDataFetcher;
       fetcher.get = spy<any>(() => {
         return Promise.reject({ response: { data: html, status: 500 } });
       });

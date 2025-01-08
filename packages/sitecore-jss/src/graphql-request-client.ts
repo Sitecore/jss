@@ -230,7 +230,7 @@ export class GraphQLRequestClient implements GraphQLClient {
 
     const retryer = async (): Promise<T> => {
       // Note we don't have access to raw request/response with graphql-request
-      // (or nice hooks like we have with Axios), but we should log whatever we have.
+      // but we should log whatever we have.
       this.debug('request: %o', {
         url: this.endpoint,
         headers: { ...this.headers, ...options?.headers },

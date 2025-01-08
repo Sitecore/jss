@@ -1,5 +1,5 @@
 import { QUERY_PARAM_EDITING_SECRET } from '@sitecore-jss/sitecore-jss/editing';
-import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
+import { NativeDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from './editing-data';
 import { EditingDataCache, editingDataDiskCache } from './editing-data-cache';
 import { getJssEditingSecret } from '../utils/utils';
@@ -120,11 +120,11 @@ export interface ServerlessEditingDataServiceConfig {
    */
   apiRoute?: string;
   /**
-   * The `AxiosDataFetcher` instance to use for API requests.
-   * @default new AxiosDataFetcher()
-   * @see AxiosDataFetcher
+   * The `NativeDataFetcher` instance to use for API requests.
+   * @default new NativeDataFetcher()
+   * @see NativeDataFetcher
    */
-  dataFetcher?: AxiosDataFetcher;
+  dataFetcher?: NativeDataFetcher;
 }
 
 /**
@@ -135,7 +135,7 @@ export interface ServerlessEditingDataServiceConfig {
 export class ServerlessEditingDataService implements EditingDataService {
   protected generateKey = generateKey;
   private apiRoute: string;
-  private dataFetcher: AxiosDataFetcher;
+  private dataFetcher: NativeDataFetcher;
 
   /**
    * @param {ServerlessEditingDataServiceConfig} [config] Editing data service config
@@ -145,7 +145,7 @@ export class ServerlessEditingDataService implements EditingDataService {
     if (!this.apiRoute.includes('[key]')) {
       throw new Error(`The specified apiRoute '${this.apiRoute}' is missing '[key]'.`);
     }
-    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.editing });
+    this.dataFetcher = config?.dataFetcher ?? new NativeDataFetcher({ debugger: debug.editing });
   }
 
   /**
