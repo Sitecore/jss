@@ -109,13 +109,7 @@ export class NativeDataFetcher {
     } catch (error) {
       this.abortTimeout?.clear();
       debug('Request failed: %o', error);
-      console.error(
-        'Fetch failed with:',
-        'status:',
-        error.response.status,
-        ', statusText:',
-        error.response.statusText
-      );
+      console.error('Fetch error:', error.message, error.stack);
       throw error;
     }
   }

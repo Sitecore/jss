@@ -42,10 +42,12 @@ const mockFetch = (
         },
       } as Headers,
       json: () => {
-        return jsonError ? Promise.reject(jsonError) : Promise.resolve(response);
+        return jsonError ? Promise.reject(new Error(jsonError)) : Promise.resolve(response);
       },
       text: () => {
-        return textError ? Promise.reject(textError) : Promise.resolve(JSON.stringify(response));
+        return textError
+          ? Promise.reject(new Error(textError))
+          : Promise.resolve(JSON.stringify(response));
       },
     } as Response);
   };
@@ -231,7 +233,7 @@ describe('NativeDataFetcher', () => {
       spy.on(global, 'fetch', mockFetch(400));
 
       await fetcher.fetch('http://test.com/api').catch(() => {
-        expect(debug.http.log, 'request and response error log').to.be.called.twice;
+        expect(debug.http.log, 'request and response error log').to.be.called.exactly(3);
       });
     });
 
