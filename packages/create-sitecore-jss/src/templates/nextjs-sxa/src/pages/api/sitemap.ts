@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { NativeDataFetcher , GraphQLSitemapXmlService} from '@sitecore-jss/sitecore-jss-nextjs';
+import { NativeDataFetcher, GraphQLSitemapXmlService } from '@sitecore-jss/sitecore-jss-nextjs'
 import { siteResolver } from 'lib/site-resolver';
 import config from 'temp/config';
 import clientFactory from 'lib/graphql-client-factory';
@@ -33,34 +33,13 @@ const sitemapApi = async (
     const sitemapUrl = isAbsoluteUrl ? sitemapPath : `${config.sitecoreApiHost}${sitemapPath}`;
     res.setHeader('Content-Type', 'text/xml;charset=utf-8');
 
-    try {
-      const fetcher = new NativeDataFetcher();
-      const response = await fetcher.get(sitemapUrl, { headers: { Accept: 'application/xml' } });
-
-      // Stream the response to the client
-      if (response.data instanceof ReadableStream) {
-        const reader = response.data.getReader();
-        const writer = res.writeHead(response.status, response.statusText);
-
-        const pump = async () => {
-          while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
-            writer.write(value);
-          }
-          writer.end();
-        };
-
-        await pump();
-      } else {
-        throw new Error('Expected a stream response but received different data.');
-      }
-    } catch (error) {
-      console.error('Error fetching sitemap:', error);
-      return res.redirect('/404');
-    }
-
-    return;
+    // need to prepare stream from sitemap url
+    return new NativeDataFetcher()
+      .get(sitemapUrl)
+      .then((response: { data: string }) => {
+        res.send(response.data);
+      })
+      .catch(() => res.redirect('/404'));
   }
 
   // this approache if user go to /sitemap.xml - under it generate xml page with list of sitemaps
@@ -69,11 +48,11 @@ const sitemapApi = async (
   if (!sitemaps.length) {
     return res.redirect('/404');
   }
-  
+
   const reqtHost = req.headers.host;
   const reqProtocol = req.headers['x-forwarded-proto'] || 'https';
   const SitemapLinks = sitemaps
-    .map((item) => {
+    .map((item: string) => {
       const parseUrl = item.split('/');
       const lastSegment = parseUrl[parseUrl.length - 1];
 
