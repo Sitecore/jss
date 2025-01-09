@@ -4,12 +4,10 @@ import { HttpResponse } from '@sitecore-jss/sitecore-jss-angular';
 import { Observable, lastValueFrom } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class JssDataFetcherService {
-  constructor(
-    private readonly httpClient: HttpClient,
-  ) {
+  constructor(private readonly httpClient: HttpClient) {
     this.fetch = this.fetch.bind(this);
   }
 
@@ -17,7 +15,7 @@ export class JssDataFetcherService {
     let result: Observable<T>;
 
     const options = {
-      withCredentials: true,
+      credentials: 'include',
     };
 
     if (data) {
@@ -28,9 +26,9 @@ export class JssDataFetcherService {
 
     return lastValueFrom(result)
       .then((responseData) => ({
-          data: responseData as T,
-          status: 200,
-          statusText: 'OK'
+        data: responseData as T,
+        status: 200,
+        statusText: 'OK',
       }))
       .catch((error: HttpErrorResponse) => {
         if (error instanceof Error) {
@@ -40,7 +38,7 @@ export class JssDataFetcherService {
         return {
           data: error.error as T,
           status: error.status,
-          statusText: error.statusText
+          statusText: error.statusText,
         };
       });
   }

@@ -54,11 +54,7 @@ export type NativeDataFetcherConfig = NativeDataFetcherOptions & RequestInit;
 export class NativeDataFetcher {
   private abortTimeout?: TimeoutPromise;
 
-  constructor(protected config: NativeDataFetcherConfig = {}) {
-    if (config.credentials === undefined) {
-      config.credentials = 'include';
-    }
-  }
+  constructor(protected config: NativeDataFetcherConfig = {}) {}
 
   /**
    * Implements a data fetcher.
