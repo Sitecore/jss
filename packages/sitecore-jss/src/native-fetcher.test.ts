@@ -59,7 +59,7 @@ const mockHeaders = () => {
   });
 };
 
-describe.only('NativeDataFetcher', () => {
+describe('NativeDataFetcher', () => {
   let debugNamespaces: string;
 
   before(() => {
