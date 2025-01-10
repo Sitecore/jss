@@ -70,8 +70,11 @@ export class NativeDataFetcher {
 
     const requestInit = this.getRequestInit({ ...init, ...options });
 
-    const fetchPromise = fetchImpl(url, requestInit);
-    const timeoutPromise = init.timeout ? this.createTimeoutPromise(init.timeout) : null;
+    const fetchWithOptionalTimeout = [fetchImpl(url, requestInit)];
+    if (init.timeout) {
+      this.abortTimeout = new TimeoutPromise(init.timeout);
+      fetchWithOptionalTimeout.push(this.abortTimeout.start as Promise<Response>);
+    }
 
     debug('Request initiated: %o', {
       url,
@@ -80,11 +83,10 @@ export class NativeDataFetcher {
     });
 
     try {
-      const response = await Promise.race([
-        fetchPromise,
-        ...(timeoutPromise ? [timeoutPromise] : []),
-      ]);
-      this.abortTimeout?.clear();
+      const response = await Promise.race(fetchWithOptionalTimeout).then((res) => {
+        this.abortTimeout?.clear();
+        return res;
+      });
 
       const respData = await this.parseResponse(response, debug);
       if (!response.ok) {
@@ -103,6 +105,7 @@ export class NativeDataFetcher {
 
       return { ...response, data: respData as T };
     } catch (error) {
+      console.log(error);
       this.abortTimeout?.clear();
       debug('Request failed: %o', error);
       console.error('Fetch error:', error.message, error.stack);
@@ -243,19 +246,5 @@ export class NativeDataFetcher {
         data,
       },
     };
-  }
-
-  /**
-   * Creates a promise that rejects after a timeout.
-   * @param {number} timeout - The timeout duration in milliseconds.
-   * @returns {Promise<Response>} - A promise that rejects when the timeout is reached.
-   */
-  private createTimeoutPromise(timeout: number): Promise<Response> {
-    this.abortTimeout = new TimeoutPromise(timeout);
-    return new Promise((_, reject) => {
-      setTimeout(() => {
-        reject(new Error(`Request timed out after ${timeout}ms`));
-      }, timeout);
-    });
   }
 }

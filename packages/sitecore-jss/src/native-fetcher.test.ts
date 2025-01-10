@@ -7,7 +7,7 @@ import debug from './debug';
 
 use(spies);
 
-let fetchInput: RequestInfo | undefined;
+let fetchInput: RequestInfo | URL | undefined;
 let fetchInit: RequestInit | undefined;
 
 const mockFetch = (
@@ -20,7 +20,7 @@ const mockFetch = (
   }: { jsonError?: string; textError?: string; responseType?: 'text' | 'json' } = {}
 ) => {
   return (input: URL | RequestInfo, init?: RequestInit) => {
-    fetchInput = input instanceof URL ? input.toString() : input;
+    fetchInput = input;
     fetchInit = init;
     return Promise.resolve({
       ok: status === 200,
@@ -59,7 +59,7 @@ const mockHeaders = () => {
   });
 };
 
-describe('NativeDataFetcher', () => {
+describe.only('NativeDataFetcher', () => {
   let debugNamespaces: string;
 
   before(() => {

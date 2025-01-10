@@ -133,14 +133,14 @@ export class ChromesHandler extends RenderMiddlewareBase {
       }
       requestUrl.searchParams.append('timestamp', Date.now().toString());
 
-      const normalizedHeaders: HeadersInit = Object.entries(headers).reduce((acc, [key, value]) => {
-        acc[key] = Array.isArray(value) ? value.join(', ') : value;
-        return acc;
-      }, {} as Record<string, string>);
+      // const normalizedHeaders: HeadersInit = Object.entries(headers).reduce((acc, [key, value]) => {
+      //   acc[key] = Array.isArray(value) ? value.join(', ') : value;
+      //   return acc;
+      // }, {} as Record<string, string>);
 
       const pageRes = await this.dataFetcher
         .get<string>(requestUrl.toString(), {
-          headers: normalizedHeaders,
+          headers,
         })
         .catch((err) => {
           // We need to handle not found error provided by Vercel

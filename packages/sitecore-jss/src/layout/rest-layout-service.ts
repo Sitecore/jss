@@ -92,13 +92,14 @@ export class RestLayoutService extends LayoutServiceBase {
       this.serviceConfig.siteName
     );
     const fetcher = this.getFetcher(req, res);
-
     const fetchUrl = this.resolveLayoutServiceUrl('render');
 
-    return fetchData<LayoutServiceData>(fetchUrl, fetcher, {
-      item: itemPath,
-      ...querystringParams,
-    }).catch((error) => {
+    try {
+      return await fetchData<LayoutServiceData>(fetchUrl, fetcher, {
+        item: itemPath,
+        ...querystringParams,
+      });
+    } catch (error) {
       if (error.response?.status === 404) {
         // Aligned with response of GraphQL Layout Service in case if layout is not found.
         // When 404 Rest Layout Service returns
@@ -114,9 +115,8 @@ export class RestLayoutService extends LayoutServiceBase {
         //
         return error.response.data;
       }
-
       throw error;
-    });
+    }
   }
 
   /**

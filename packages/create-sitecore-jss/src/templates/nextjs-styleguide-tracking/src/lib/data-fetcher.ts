@@ -7,7 +7,7 @@ import { NativeDataFetcher, NativeDataFetcherResponse } from '@sitecore-jss/site
  * @param {string} url The URL to request; may include query string
  * @param {unknown} data Optional data to POST with the request.
  */
-export async function dataFetcher<ResponseType>(
+export function dataFetcher<ResponseType>(
   url: string,
   data?: unknown
 ): Promise<NativeDataFetcherResponse> {

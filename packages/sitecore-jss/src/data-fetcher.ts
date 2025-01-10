@@ -46,8 +46,7 @@ export async function fetchData<T>(
   url: string,
   fetcher: HttpDataFetcher<T> | NativeDataFetcherFunction<T>,
   params: ParsedUrlQueryInput = {}
-) {
-  return fetcher(resolveUrl(url, params)).then((response) => {
-    return response.data;
-  });
+): Promise<T> {
+  const response = await fetcher(resolveUrl(url, params));
+  return response.data;
 }
