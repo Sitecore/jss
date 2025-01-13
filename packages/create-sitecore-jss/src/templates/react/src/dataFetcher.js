@@ -10,16 +10,13 @@ import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 export async function dataFetcher(url, data) {
   const fetcher = new NativeDataFetcher({ credentials: 'include' });
 
-  try {
-    if (data) {
-      const response = await fetcher.post(url, data);
-      return response.data;
-    } else {
-      const response = await fetcher.get(url);
-      return response.data;
-    }
-  } catch (error) {
-    console.error('Data fetching error:', error);
-    throw error;
-  }
+  const response = await fetcher.fetch(url, {
+    method: data ? 'POST' : 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: data ? JSON.stringify(data) : undefined,
+  });
+
+  return response.data;
 }

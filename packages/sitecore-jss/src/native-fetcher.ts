@@ -27,7 +27,7 @@ export interface NativeDataFetcherResponse<T> {
   statusText: string;
   /** Response content */
   data: T;
-  /** header */
+  /** Response headers */
   headers?: HeadersInit;
 }
 
@@ -105,10 +105,8 @@ export class NativeDataFetcher {
 
       return { ...response, data: respData as T };
     } catch (error) {
-      console.log(error);
       this.abortTimeout?.clear();
       debug('Request failed: %o', error);
-      console.error('Fetch error:', error.message, error.stack);
       throw error;
     }
   }
@@ -236,7 +234,7 @@ export class NativeDataFetcher {
    * @param {unknown} data - The parsed response data.
    * @returns {NativeDataFetcherError} - The constructed error object.
    */
-  private createError(response: Response, data: unknown): NativeDataFetcherError {
+  private createError(response: Response, data?: unknown): NativeDataFetcherError {
     return {
       ...new Error(`HTTP ${response.status} ${response.statusText}`),
       response: {

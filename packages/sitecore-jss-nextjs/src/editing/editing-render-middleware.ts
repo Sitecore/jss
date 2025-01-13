@@ -133,11 +133,6 @@ export class ChromesHandler extends RenderMiddlewareBase {
       }
       requestUrl.searchParams.append('timestamp', Date.now().toString());
 
-      // const normalizedHeaders: HeadersInit = Object.entries(headers).reduce((acc, [key, value]) => {
-      //   acc[key] = Array.isArray(value) ? value.join(', ') : value;
-      //   return acc;
-      // }, {} as Record<string, string>);
-
       const pageRes = await this.dataFetcher
         .get<string>(requestUrl.toString(), {
           headers,
@@ -183,6 +178,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
       console.error(error);
 
       if (error.response || error.request) {
+        // Axios error, which could mean the server or page URL isn't quite right, so provide a more helpful hint
         console.info(
           // eslint-disable-next-line quotes
           "Hint: for non-standard server or Next.js route configurations, you may need to override the 'resolveServerUrl' or 'resolvePageUrl' available on the 'EditingRenderMiddleware' config."

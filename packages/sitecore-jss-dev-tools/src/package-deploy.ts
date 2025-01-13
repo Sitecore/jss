@@ -10,6 +10,7 @@ import {
   ResponseError,
   NativeDataFetcher,
   NativeDataFetcherConfig,
+  NativeDataFetcherResponse,
 } from '@sitecore-jss/sitecore-jss';
 
 export interface PackageDeployOptions {
@@ -20,6 +21,22 @@ export interface PackageDeployOptions {
   debugSecurity?: boolean;
   acceptCertificate?: string;
   proxy?: string;
+}
+
+/**
+ * Represents the response from the job status service.
+ */
+interface JobStatusResponse {
+  /**
+   * The current state of the job (e.g., 'InProgress', 'Finished', etc.).
+   */
+  state: string;
+
+  /**
+   * A list of messages related to the job's execution.
+   * Each message typically contains log entries or status details.
+   */
+  messages: string[];
 }
 
 // Node does not use system level trusted CAs. This causes issues because SIF likes to install
@@ -199,7 +216,7 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
      */
     function sendJobStatusRequest() {
       new NativeDataFetcher()
-        .get(
+        .get<NativeDataFetcherResponse<JobStatusResponse>>(
           `${options.importServiceUrl}/status?appName=${options.appName}&jobName=${taskName}&after=${logOffset}`,
           requestBaseOptions
         )
@@ -207,13 +224,12 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
           const body = response.data;
 
           try {
-            const { state, messages } = body as { state: string; messages: string[] };
+            const { state, messages } = body.data;
 
             messages.forEach((entry) => {
               logOffset++;
 
               const entryBits = /^(\[([A-Z]+)\] )?(.+)/.exec(entry);
-
               let entryLevel = 'INFO';
               let message = entry;
 
