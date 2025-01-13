@@ -22,7 +22,15 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-nextjs]` Fixed handling of ? inside square brackets [] in regex patterns to prevent incorrect escaping ([#1999](https://github.com/Sitecore/jss/pull/1999))
+
+### 🛠 Breaking Change
+
 * `[sitecore-jss]``[create-sitecore-jss]``[sitecore-jss-nextjs]``[sitecore-jss-react]``[sitecore-jss-dev-tools]``[sitecore-jss-vue]` Remove Axios ([#2006](https://github.com/Sitecore/jss/pull/2006))
+    * `AxiosDataFetcher` is replaced by the `NativeDataFetcher`.
+    * `AxiosDataFetcherConfig` is replaced by `NativeDataFetcherConfig`.
+    * `AxiosResponse` is replaced by `NativeDataFetcherResponse`.
+    * `NativeDataFetcherError`: a new error type introduced for native data fetching operations.
+    * Default `NativeDataFetcher` is of type `NativeDataFetcherFunction<T>` but can be overridden by custom fetcher using the existing `HttpDataFetcher<T>` type.
 
 
 ## 22.3.0 / 22.3.1
