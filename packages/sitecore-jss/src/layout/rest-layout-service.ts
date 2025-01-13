@@ -5,6 +5,7 @@ import {
   NativeDataFetcher,
   NativeDataFetcherConfig,
   NativeDataFetcherFunction,
+  NativeDataFetcherResponse,
 } from '../native-fetcher';
 import { HttpDataFetcher, fetchData } from '../data-fetcher';
 import debug from '../debug';
@@ -148,7 +149,7 @@ export class RestLayoutService extends LayoutServiceBase {
     );
     const fetcher = this.serviceConfig.dataFetcherResolver
       ? this.serviceConfig.dataFetcherResolver<PlaceholderData>(req, res)
-      : this.getDefaultFetcher<PlaceholderData>(req);
+      : this.getDefaultFetcher<PlaceholderData>(req, res);
 
     const fetchUrl = this.resolveLayoutServiceUrl('placeholder');
 
@@ -176,7 +177,7 @@ export class RestLayoutService extends LayoutServiceBase {
   protected getFetcher = (req?: IncomingMessage, res?: ServerResponse) => {
     return this.serviceConfig.dataFetcherResolver
       ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
-      : this.getDefaultFetcher<LayoutServiceData>(req);
+      : this.getDefaultFetcher<LayoutServiceData>(req, res);
   };
 
   /**
@@ -194,16 +195,26 @@ export class RestLayoutService extends LayoutServiceBase {
    * Returns a fetcher function pre-configured with headers from the incoming request.
    * Provides default @see NativeDataFetcher data fetcher
    * @param {IncomingMessage} [req] Request instance
+   * @param {ServerResponse} [res] Response instance
    * @returns default fetcher
    */
-  protected getDefaultFetcher = <T>(req?: IncomingMessage) => {
+  protected getDefaultFetcher = <T>(req?: IncomingMessage, res?: ServerResponse) => {
     const config: NativeDataFetcherConfig = { debugger: debug.layout };
 
-    const headers = this.getHeaders(req);
+    const headers = this.setupReqHeaders(req);
 
     const nativeFetcher = new NativeDataFetcher(config);
 
-    return (url: string, data?: RequestInit) => nativeFetcher.fetch<T>(url, { ...data, headers });
+    return async (url: string, data?: RequestInit) => {
+      const response = await nativeFetcher.fetch<T>(url, { ...data, headers });
+
+      // If res is present, call setupResHeaders
+      if (res) {
+        this.setupResHeaders(res)(response);
+      }
+
+      return response;
+    };
   };
 
   /**
@@ -211,7 +222,7 @@ export class RestLayoutService extends LayoutServiceBase {
    * @param {IncomingMessage} [req] - The incoming HTTP request, used to extract headers.
    * @returns {Headers} - An instance of the `Headers` object populated with the extracted headers.
    */
-  private getHeaders(req?: IncomingMessage): Headers {
+  protected setupReqHeaders(req?: IncomingMessage): Headers {
     const headers = new Headers();
 
     if (req?.headers) {
@@ -230,5 +241,29 @@ export class RestLayoutService extends LayoutServiceBase {
     }
 
     return headers;
+  }
+
+  /**
+   * Setup response headers based on response from layout service
+   * @param {ServerResponse} res Response instance
+   * @returns {AxiosResponse} response
+   */
+  protected setupResHeaders<T>(res: ServerResponse) {
+    return (serverRes: NativeDataFetcherResponse<T>) => {
+      debug.layout('performing response header passing');
+
+      const headers = serverRes.headers;
+
+      if (headers) {
+        if (headers instanceof Headers) {
+          const setCookieHeader = headers.get('set-cookie');
+          if (setCookieHeader) {
+            res.setHeader('set-cookie', setCookieHeader);
+          }
+        }
+      }
+
+      return serverRes;
+    };
   }
 }

@@ -36,7 +36,7 @@ const sitemapApi = async (
     // need to prepare stream from sitemap url
     return new NativeDataFetcher()
       .get(sitemapUrl)
-      .then((response: { data: string }) => {
+      .then((response: { data: unknown}) => {
         res.send(response.data);
       })
       .catch(() => res.redirect('/404'));

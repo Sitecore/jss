@@ -16,9 +16,11 @@ export {
   CacheClient,
   CacheOptions,
   MemoryCacheClient,
+  HttpDataFetcher,
   NativeDataFetcher,
-  NativeDataFetcherResponse,
   NativeDataFetcherConfig,
+  NativeDataFetcherResponse,
+  NativeDataFetcherError,
 } from '@sitecore-jss/sitecore-jss';
 export {
   trackingApi,

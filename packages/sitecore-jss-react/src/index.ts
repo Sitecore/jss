@@ -5,7 +5,9 @@ export {
   CacheClient,
   CacheOptions,
   MemoryCacheClient,
+  HttpDataFetcher,
   NativeDataFetcher,
+  NativeDataFetcherError,
   NativeDataFetcherResponse,
   NativeDataFetcherConfig,
 } from '@sitecore-jss/sitecore-jss';

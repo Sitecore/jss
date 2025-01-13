@@ -1,9 +1,11 @@
 export {
   constants,
   // generic data access
+  HttpDataFetcher,
   NativeDataFetcher,
   NativeDataFetcherConfig,
   NativeDataFetcherResponse,
+  NativeDataFetcherError,
   HTMLLink,
   enableDebug,
   debug,

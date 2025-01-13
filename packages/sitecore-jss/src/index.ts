@@ -17,6 +17,7 @@ export { CacheClient, CacheOptions, MemoryCacheClient } from './cache-client';
 export { ClientError } from 'graphql-request';
 export {
   NativeDataFetcher,
+  NativeDataFetcherError,
   NativeDataFetcherConfig,
   NativeDataFetcherResponse,
 } from './native-fetcher';

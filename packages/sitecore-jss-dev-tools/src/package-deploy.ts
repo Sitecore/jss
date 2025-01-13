@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import fs from 'fs';
-import https, { Agent as HttpsAgent } from 'https';
+import https from 'https';
 import path from 'path';
 import FormData from 'form-data';
 import { TLSSocket } from 'tls';
@@ -184,26 +184,13 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
   const factors = [options.appName, taskName, `${options.importServiceUrl}/status`];
   const mac = hmac(factors, options.secret);
 
-  const isHttps = options.importServiceUrl.startsWith('https');
-
   const requestBaseOptions = {
-    transport: isHttps ? getHttpsTransport(options) : undefined,
     headers: {
       'User-Agent': 'Sitecore/JSS-Import',
       'Cache-Control': 'no-cache',
       'X-JSS-Auth': mac,
     },
-    proxy: extractProxy(options.proxy),
-    maxRedirects: 0,
-    httpsAgent: isHttps
-      ? new HttpsAgent({
-          // we turn off normal CA cert validation when we are whitelisting a single cert thumbprint
-          rejectUnauthorized: options.acceptCertificate ? false : true,
-          // needed to allow whitelisting a cert thumbprint if a connection is reused
-          maxCachedSessions: options.acceptCertificate ? 0 : undefined,
-        })
-      : undefined,
-  };
+  } as NativeDataFetcherConfig;
 
   if (options.debugSecurity) {
     console.log(`Deployment status security factors: ${factors}`);
@@ -325,26 +312,13 @@ export async function packageDeploy(options: PackageDeployOptions) {
   formData.append('path', fs.createReadStream(packageFile));
   formData.append('appName', options.appName);
 
-  const isHttps = options.importServiceUrl.startsWith('https');
-
   const requestBaseOptions = {
-    transport: isHttps ? getHttpsTransport(options) : undefined,
     headers: {
       'User-Agent': 'Sitecore/JSS-Import',
       'Cache-Control': 'no-cache',
       'X-JSS-Auth': hmac(factors, options.secret),
       ...formData.getHeaders(),
     },
-    proxy: extractProxy(options.proxy),
-    httpsAgent: isHttps
-      ? new HttpsAgent({
-          // we turn off normal CA cert validation when we are whitelisting a single cert thumbprint
-          rejectUnauthorized: options.acceptCertificate ? false : true,
-          // needed to allow whitelisting a cert thumbprint if a connection is reused
-          maxCachedSessions: options.acceptCertificate ? 0 : undefined,
-        })
-      : undefined,
-    maxRedirects: 0,
   } as NativeDataFetcherConfig;
 
   console.log(`Sending package ${packageFile} to ${options.importServiceUrl}...`);
