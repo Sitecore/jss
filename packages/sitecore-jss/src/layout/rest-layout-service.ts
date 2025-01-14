@@ -208,9 +208,8 @@ export class RestLayoutService extends LayoutServiceBase {
     return async (url: string, data?: RequestInit) => {
       const response = await nativeFetcher.fetch<T>(url, { ...data, headers });
 
-      // If res is present, call setupResHeaders
       if (res) {
-        this.setupResHeaders(res)(response);
+        this.setupResHeaders(res, response);
       }
 
       return response;
@@ -246,24 +245,24 @@ export class RestLayoutService extends LayoutServiceBase {
   /**
    * Setup response headers based on response from layout service
    * @param {ServerResponse} res Response instance
-   * @returns {AxiosResponse} response
+   * @param {NativeDataFetcherResponse<T>} serverRes
+   * @returns {NativeDataFetcherResponse} response
    */
-  protected setupResHeaders<T>(res: ServerResponse) {
-    return (serverRes: NativeDataFetcherResponse<T>) => {
-      debug.layout('performing response header passing');
+  protected setupResHeaders<T>(
+    res: ServerResponse,
+    serverRes: NativeDataFetcherResponse<T>
+  ): NativeDataFetcherResponse<T> {
+    debug.layout('performing response header passing');
 
-      const headers = serverRes.headers;
+    const headers = serverRes.headers;
 
-      if (headers) {
-        if (headers instanceof Headers) {
-          const setCookieHeader = headers.get('set-cookie');
-          if (setCookieHeader) {
-            res.setHeader('set-cookie', setCookieHeader);
-          }
-        }
+    if (headers instanceof Headers) {
+      const setCookieHeader = headers.get('set-cookie');
+      if (setCookieHeader) {
+        res.setHeader('set-cookie', setCookieHeader);
       }
+    }
 
-      return serverRes;
-    };
+    return serverRes;
   }
 }
