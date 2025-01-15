@@ -10,6 +10,7 @@ import nock from 'nock';
 use(spies);
 
 describe('RestLayoutService', () => {
+  type SetHeader = (name: string, value: unknown) => void;
   afterEach(() => {
     nock.cleanAll();
   });
@@ -48,6 +49,67 @@ describe('RestLayoutService', () => {
       )
       .reply(200, () => ({
         sitecore: { context: {}, route: { name: 'xxx' } },
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          cookie: 'test-cookie-value',
+          referer: 'http://sctest',
+          'user-agent': 'test-user-agent-value',
+          'X-Forwarded-For': '192.168.1.10',
+        },
+      }));
+
+    const req = {
+      socket: {
+        remoteAddress: '192.168.1.10',
+      },
+    } as IncomingMessage;
+
+    const setHeaderSpy: SetHeader = spy();
+
+    const res = {
+      setHeader: setHeaderSpy,
+    } as ServerResponse;
+
+    const service = new RestLayoutService({
+      apiHost: 'http://sctest',
+      apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
+      siteName: 'supersite',
+      tracking: false,
+    });
+
+    return service
+      .fetchLayoutData('/home', 'da-DK', req, res)
+      .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
+        expect(layoutServiceData).to.deep.equal({
+          sitecore: {
+            context: {},
+            route: { name: 'xxx' },
+          },
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            cookie: 'test-cookie-value',
+            referer: 'http://sctest',
+            'user-agent': 'test-user-agent-value',
+            'X-Forwarded-For': '192.168.1.10',
+          },
+        });
+      });
+  });
+
+  it('should fetch layout data', () => {
+    nock('http://sctest')
+      .get(
+        '/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
+      )
+      .reply(200, () => ({
+        sitecore: { context: {}, route: { name: 'xxx' } },
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          cookie: 'test-cookie-value',
+          referer: 'http://sctest',
+          'user-agent': 'test-user-agent-value',
+          'X-Forwarded-For': '192.168.1.10',
+        },
       }));
 
     const req = {
@@ -73,41 +135,12 @@ describe('RestLayoutService', () => {
             context: {},
             route: { name: 'xxx' },
           },
-        });
-      });
-  });
-
-  it('should fetch layout data', () => {
-    nock('http://sctest')
-      .get(
-        '/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
-      )
-      .reply(200, () => ({
-        sitecore: { context: {}, route: { name: 'xxx' } },
-      }));
-
-    const req = {
-      socket: {
-        remoteAddress: '192.168.1.10',
-      },
-    } as IncomingMessage;
-
-    const res = {} as ServerResponse;
-
-    const service = new RestLayoutService({
-      apiHost: 'http://sctest',
-      apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
-      siteName: 'supersite',
-      tracking: false,
-    });
-
-    return service
-      .fetchLayoutData('/home', 'da-DK', req, res)
-      .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
-        expect(layoutServiceData).to.deep.equal({
-          sitecore: {
-            context: {},
-            route: { name: 'xxx' },
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            cookie: 'test-cookie-value',
+            referer: 'http://sctest',
+            'user-agent': 'test-user-agent-value',
+            'X-Forwarded-For': '192.168.1.10',
           },
         });
       });

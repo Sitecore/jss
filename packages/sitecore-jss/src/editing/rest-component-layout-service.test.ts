@@ -12,7 +12,9 @@ import nock from 'nock';
 
 use(spies);
 
-describe.only('RestComponentLayoutService', () => {
+describe('RestComponentLayoutService', () => {
+  type SetHeader = (name: string, value: unknown) => void;
+
   const defaultTestInput: ComponentLayoutRequestParams = {
     itemId: '123',
     componentUid: '456',
@@ -61,6 +63,13 @@ describe.only('RestComponentLayoutService', () => {
       )
       .reply(200, () => ({
         sitecore: { context: {}, route: { name: 'xxx' } },
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          cookie: 'test-cookie-value',
+          referer: 'http://sctest',
+          'user-agent': 'test-user-agent-value',
+          'X-Forwarded-For': '192.168.1.10',
+        },
       }));
 
     const req = {
@@ -69,7 +78,11 @@ describe.only('RestComponentLayoutService', () => {
       },
     } as IncomingMessage;
 
-    const res = {} as ServerResponse;
+    const setHeaderSpy: SetHeader = spy();
+
+    const res = {
+      setHeader: setHeaderSpy,
+    } as ServerResponse;
 
     const service = new RestComponentLayoutService({
       apiHost: 'http://sctest',
@@ -84,6 +97,13 @@ describe.only('RestComponentLayoutService', () => {
           sitecore: {
             context: {},
             route: { name: 'xxx' },
+          },
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            cookie: 'test-cookie-value',
+            referer: 'http://sctest',
+            'user-agent': 'test-user-agent-value',
+            'X-Forwarded-For': '192.168.1.10',
           },
         });
       });
@@ -136,12 +156,28 @@ describe.only('RestComponentLayoutService', () => {
       .get(
         '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&dataSourceId=789&sc_site=supersite&sc_lang=en'
       )
-      .reply(200, () => testExpectedData)
+      .reply(200, () => ({
+        ...testExpectedData,
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          cookie: 'test-cookie-value',
+          referer: 'http://sctest',
+          'user-agent': 'test-user-agent-value',
+          'X-Forwarded-For': '192.168.1.10',
+        },
+      }))
       .get('/sitecore/api/layout/component/jss')
       .query(true)
       .reply(200, (_, requestBody) => ({
         requestBody: requestBody,
         data: testUnexpectedData,
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          cookie: 'test-cookie-value',
+          referer: 'http://sctest',
+          'user-agent': 'test-user-agent-value',
+          'X-Forwarded-For': '192.168.1.10',
+        },
       }));
 
     const req = {
@@ -161,7 +197,16 @@ describe.only('RestComponentLayoutService', () => {
     return service
       .fetchComponentData(testInput, req, res)
       .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
-        expect(layoutServiceData).to.deep.equal(testExpectedData);
+        expect(layoutServiceData).to.deep.equal({
+          ...testExpectedData,
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            cookie: 'test-cookie-value',
+            referer: 'http://sctest',
+            'user-agent': 'test-user-agent-value',
+            'X-Forwarded-For': '192.168.1.10',
+          },
+        });
       });
   });
 
@@ -212,12 +257,28 @@ describe.only('RestComponentLayoutService', () => {
       .get(
         '/sitecore/api/layout/component/jss?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&item=123&uid=456&sc_site=mysite&sc_lang=en'
       )
-      .reply(200, () => testExpectedData)
+      .reply(200, () => ({
+        ...testExpectedData,
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          cookie: 'test-cookie-value',
+          referer: 'http://sctest',
+          'user-agent': 'test-user-agent-value',
+          'X-Forwarded-For': '192.168.1.10',
+        },
+      }))
       .get('/sitecore/api/layout/component/jss')
       .query(true)
       .reply(200, (_, requestBody) => ({
         requestBody: requestBody,
         data: testUnexpectedData,
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          cookie: 'test-cookie-value',
+          referer: 'http://sctest',
+          'user-agent': 'test-user-agent-value',
+          'X-Forwarded-For': '192.168.1.10',
+        },
       }));
 
     const req = {
@@ -237,7 +298,16 @@ describe.only('RestComponentLayoutService', () => {
     return service
       .fetchComponentData(testInput, req, res)
       .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
-        expect(layoutServiceData).to.deep.equal(testExpectedData);
+        expect(layoutServiceData).to.deep.equal({
+          ...testExpectedData,
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            cookie: 'test-cookie-value',
+            referer: 'http://sctest',
+            'user-agent': 'test-user-agent-value',
+            'X-Forwarded-For': '192.168.1.10',
+          },
+        });
       });
   });
 

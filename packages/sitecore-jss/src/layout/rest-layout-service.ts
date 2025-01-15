@@ -201,7 +201,10 @@ export class RestLayoutService extends LayoutServiceBase {
   protected getDefaultFetcher = <T>(req?: IncomingMessage, res?: ServerResponse) => {
     const config: NativeDataFetcherConfig = { debugger: debug.layout };
 
-    const headers = this.setupReqHeaders(req);
+    let headers: HeadersInit;
+    if (req) {
+      headers = this.setupReqHeaders(req);
+    }
 
     const nativeFetcher = new NativeDataFetcher(config);
 
