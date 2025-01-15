@@ -120,7 +120,6 @@ describe('NativeDataFetcher', () => {
         set: (name: string, value: string) => void;
       };
 
-      headers.set('Authorization', 'Bearer token');
       headers.set('X-New-Header', 'NewValue');
 
       // Validate headers
