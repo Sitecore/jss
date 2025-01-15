@@ -116,6 +116,11 @@ describe('RestLayoutService', () => {
       socket: {
         remoteAddress: '192.168.1.10',
       },
+      headers: {
+        cookie: 'test-cookie-value',
+        referer: 'http://sctest',
+        'user-agent': 'test-user-agent-value',
+      },
     } as IncomingMessage;
 
     const res = {} as ServerResponse;
@@ -284,9 +289,18 @@ describe('RestLayoutService', () => {
       socket: {
         remoteAddress: '192.168.1.10',
       },
+      headers: {
+        cookie: 'test-cookie-value',
+        referer: 'http://sctest',
+        'user-agent': 'test-user-agent-value',
+      },
     } as IncomingMessage;
 
-    const res = {} as ServerResponse;
+    const setHeaderSpy: SetHeader = spy();
+
+    const res = {
+      setHeader: setHeaderSpy,
+    } as ServerResponse;
 
     const service = new RestLayoutService({
       apiHost: 'http://sctest',

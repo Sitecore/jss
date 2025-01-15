@@ -28,7 +28,7 @@ Our versioning strategy is as follows:
     * `AxiosDataFetcherConfig` is replaced by `NativeDataFetcherConfig`.
     * `AxiosResponse` is replaced by `NativeDataFetcherResponse`.
     * `NativeDataFetcherError`: a new error type introduced for native data fetching operations.
-    * Default `NativeDataFetcher` is of type `NativeDataFetcherFunction<T>` but can be overridden by custom fetcher using the existing `HttpDataFetcher<T>` type.
+    * Default fetcher i.e. `NativeDataFetcher.fetch` is of type `NativeDataFetcherFunction<T>` but can be overridden by custom fetcher using the existing `HttpDataFetcher<T>` type.
     * `NativeDataFetcher` now exposes `fetch`, `get`, `post`, `delete`, `put`, `head` methods.
     * `NativedDataFetcher.fetch` now accepts second parameter of type `RequestInit` instead of `unknown`.
 

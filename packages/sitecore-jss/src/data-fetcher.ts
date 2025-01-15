@@ -39,7 +39,7 @@ export class ResponseError extends Error {
 
 /**
  * @param {string} url the URL to request; may include query string
- * @param {HttpDataFetcher} fetcher the fetcher to use to perform the request
+ * @param {HttpDataFetcher<T> | NativeDataFetcherFunction<T>} fetcher the fetcher to use to perform the request
  * @param {ParsedUrlQueryInput} params the query string parameters to send with the request
  */
 export async function fetchData<T>(

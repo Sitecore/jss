@@ -17,30 +17,36 @@ const mockFetch = (
     jsonError,
     textError,
     responseType,
-  }: { jsonError?: string; textError?: string; responseType?: 'text' | 'json' } = {}
+    customHeaders = {},
+  }: {
+    jsonError?: string;
+    textError?: string;
+    responseType?: 'text' | 'json';
+    customHeaders?: Record<string, string>;
+  } = {}
 ) => {
   return (input: URL | RequestInfo, init?: RequestInit) => {
     fetchInput = input;
     fetchInit = init;
+
+    const allHeaders: Record<string, string> = {
+      'Content-Type': responseType === 'text' ? 'text/plain' : 'application/json',
+      ...customHeaders,
+    };
+
     return Promise.resolve({
       ok: status === 200,
       status,
       statusText: status === 200 ? 'OK' : 'ERROR',
       url: input,
       redirected: false,
-      headers: {
-        get: (name: string) => {
-          if (name === 'Content-Type') {
-            if (responseType === 'text') {
-              return 'text/plain';
-            }
-
-            return 'application/json';
-          }
-
-          return '';
+      headers: ({
+        get: (name: string) => allHeaders[name] || '',
+        set: (name: string, value: string) => {
+          allHeaders[name] = value;
         },
-      } as Headers,
+        entries: () => Object.entries(allHeaders),
+      } as unknown) as Headers,
       json: () => {
         return jsonError ? Promise.reject(new Error(jsonError)) : Promise.resolve(response);
       },
@@ -96,6 +102,31 @@ describe('NativeDataFetcher', () => {
       expect(fetchInput).to.equal('http://test.com/api');
       expect(fetchInit?.method).to.equal('GET');
       expect(fetchInit?.body).to.be.undefined;
+    });
+
+    it('should add headers dynamically and validate them', async () => {
+      const fetcher = new NativeDataFetcher();
+
+      spy.on(
+        global,
+        'fetch',
+        mockFetch(200, {}, { customHeaders: { 'X-Test-Header': 'InitialValue' } })
+      );
+
+      const response = await fetcher.fetch('http://test.com/api');
+
+      const headers = (response.headers as unknown) as {
+        get: (name: string) => string;
+        set: (name: string, value: string) => void;
+      };
+
+      headers.set('Authorization', 'Bearer token');
+      headers.set('X-New-Header', 'NewValue');
+
+      // Validate headers
+      expect(headers.get('X-Test-Header')).to.equal('InitialValue');
+      expect(headers.get('Authorization')).to.equal('Bearer token');
+      expect(headers.get('X-New-Header')).to.equal('NewValue');
     });
 
     it('should execute request with text response type', async () => {
