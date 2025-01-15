@@ -8,14 +8,21 @@ import {
   RedirectInfo,
   SiteInfo,
 } from '@sitecore-jss/sitecore-jss/site';
-import { getPermutations } from '@sitecore-jss/sitecore-jss/utils';
+import {
+  areURLSearchParamsEqual,
+  escapeNonSpecialQuestionMarks,
+  isRegexOrUrl,
+  mergeURLSearchParams,
+} from '@sitecore-jss/sitecore-jss/utils';
+import { NextURL } from 'next/dist/server/web/next-url';
 import { NextRequest, NextResponse } from 'next/server';
 import regexParser from 'regex-parser';
 import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
-import { NextURL } from 'next/dist/server/web/next-url';
 
 const REGEXP_CONTEXT_SITE_LANG = new RegExp(/\$siteLang/, 'i');
 const REGEXP_ABSOLUTE_URL = new RegExp('^(?:[a-z]+:)?//', 'i');
+
+type RedirectResult = RedirectInfo & { matchedQueryString?: string };
 
 /**
  * extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
@@ -78,15 +85,25 @@ export class RedirectsMiddleware extends MiddlewareBase {
     });
 
     const createResponse = async () => {
+      const response = res || NextResponse.next();
+
       if (this.config.disabled && this.config.disabled(req, res || NextResponse.next())) {
         debug.redirects('skipped (redirects middleware is disabled)');
-        return res || NextResponse.next();
+        return response;
       }
 
       if (this.isPreview(req) || this.excludeRoute(pathname)) {
         debug.redirects('skipped (%s)', this.isPreview(req) ? 'preview' : 'route excluded');
 
-        return res || NextResponse.next();
+        return response;
+      }
+
+      // Skip prefetch requests from Next.js, which are not original client requests
+      // as they load unnecessary requests that burden the redirects middleware with meaningless traffic
+      if (this.isPrefetch(req)) {
+        debug.redirects('skipped (prefetch)');
+        response.headers.set('x-middleware-cache', 'no-cache');
+        return response;
       }
 
       site = this.getSite(req, res);
@@ -97,7 +114,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
       if (!existsRedirect) {
         debug.redirects('skipped (redirect does not exist)');
 
-        return res || NextResponse.next();
+        return response;
       }
 
       // Find context site language and replace token
@@ -120,29 +137,37 @@ export class RedirectsMiddleware extends MiddlewareBase {
       if (REGEXP_ABSOLUTE_URL.test(existsRedirect.target)) {
         url.href = existsRedirect.target;
       } else {
-        const source = `${url.pathname.replace(/\/*$/gi, '')}${existsRedirect.matchedQueryString}`;
-        const urlFirstPart = existsRedirect.target.split('/')[1];
+        const isUrl = isRegexOrUrl(existsRedirect.pattern) === 'url';
+        const targetParts = existsRedirect.target.split('/');
+        const urlFirstPart = targetParts[1];
 
         if (this.locales.includes(urlFirstPart)) {
           req.nextUrl.locale = urlFirstPart;
           existsRedirect.target = existsRedirect.target.replace(`/${urlFirstPart}`, '');
         }
 
-        const target = source
-          .replace(regexParser(existsRedirect.pattern), existsRedirect.target)
-          .replace(/^\/\//, '/')
-          .split('?');
+        const targetSegments = isUrl
+          ? existsRedirect.target.split('?')
+          : url.pathname.replace(/\/*$/gi, '') + existsRedirect.matchedQueryString;
 
-        if (url.search && existsRedirect.isQueryStringPreserved) {
-          const targetQueryString = target[1] ?? '';
-          url.search = '?' + new URLSearchParams(`${url.search}&${targetQueryString}`).toString();
-        } else if (target[1]) {
-          url.search = '?' + target[1];
-        } else {
-          url.search = '';
-        }
+        const [targetPath, targetQueryString] = isUrl
+          ? targetSegments
+          : (targetSegments as string)
+              .replace(regexParser(existsRedirect.pattern), existsRedirect.target)
+              .replace(/^\/\//, '/')
+              .split('?');
 
-        const prepareNewURL = new URL(`${target[0]}${url.search}`, url.origin);
+        const mergedQueryString = existsRedirect.isQueryStringPreserved
+          ? mergeURLSearchParams(
+              new URLSearchParams(url.search ?? ''),
+              new URLSearchParams(targetQueryString || '')
+            )
+          : targetQueryString || '';
+
+        const prepareNewURL = new URL(
+          `${targetPath}${mergedQueryString ? '?' + mergedQueryString : ''}`,
+          url.origin
+        );
 
         url.href = prepareNewURL.href;
         url.pathname = prepareNewURL.pathname;
@@ -153,16 +178,16 @@ export class RedirectsMiddleware extends MiddlewareBase {
       /** return Response redirect with http code of redirect type */
       switch (existsRedirect.redirectType) {
         case REDIRECT_TYPE_301: {
-          return this.createRedirectResponse(url, res, 301, 'Moved Permanently');
+          return this.createRedirectResponse(url, response, 301, 'Moved Permanently');
         }
         case REDIRECT_TYPE_302: {
-          return this.createRedirectResponse(url, res, 302, 'Found');
+          return this.createRedirectResponse(url, response, 302, 'Found');
         }
         case REDIRECT_TYPE_SERVER_TRANSFER: {
-          return this.rewrite(url.href, req, res || NextResponse.next());
+          return this.rewrite(url.href, req, response);
         }
         default:
-          return res || NextResponse.next();
+          return response;
       }
     };
 
@@ -188,20 +213,37 @@ export class RedirectsMiddleware extends MiddlewareBase {
   private async getExistsRedirect(
     req: NextRequest,
     siteName: string
-  ): Promise<(RedirectInfo & { matchedQueryString?: string }) | undefined> {
-    const redirects = await this.redirectsService.fetchRedirects(siteName);
+  ): Promise<RedirectResult | undefined> {
     const { pathname: targetURL, search: targetQS = '', locale } = this.normalizeUrl(
       req.nextUrl.clone()
     );
+    const normalizedPath = targetURL.replace(/\/*$/gi, '');
+    const redirects = await this.redirectsService.fetchRedirects(siteName);
     const language = this.getLanguage(req);
     const modifyRedirects = structuredClone(redirects);
+    let matchedQueryString: string | undefined;
 
     return modifyRedirects.length
-      ? modifyRedirects.find((redirect: RedirectInfo & { matchedQueryString?: string }) => {
+      ? modifyRedirects.find((redirect: RedirectResult) => {
+          if (isRegexOrUrl(redirect.pattern) === 'url') {
+            const parseUrlPattern = redirect.pattern.endsWith('/')
+              ? redirect.pattern.slice(0, -1).split('?')
+              : redirect.pattern.split('?');
+
+            return (
+              (parseUrlPattern[0] === normalizedPath ||
+                parseUrlPattern[0] === `/${locale}${normalizedPath}`) &&
+              areURLSearchParamsEqual(
+                new URLSearchParams(parseUrlPattern[1] ?? ''),
+                new URLSearchParams(targetQS)
+              )
+            );
+          }
+
           // Modify the redirect pattern to ignore the language prefix in the path
           // And escapes non-special "?" characters in a string or regex.
-          redirect.pattern = this.escapeNonSpecialQuestionMarks(
-            redirect.pattern.replace(RegExp(`^[^]?/${language}/`, 'gi'), '')
+          redirect.pattern = escapeNonSpecialQuestionMarks(
+            redirect.pattern.replace(new RegExp(`^[^]?/${language}/`, 'gi'), '')
           );
 
           // Prepare the redirect pattern as a regular expression, making it more flexible for matching URLs
@@ -211,47 +253,22 @@ export class RedirectsMiddleware extends MiddlewareBase {
             .replace(/^\^|\$$/g, '') // Further cleans up anchors
             .replace(/\$\/gi$/g, '')}[\/]?$/i`; // Ensures the pattern allows an optional trailing slash
 
-          /**
-           * This line checks whether the current URL query string (and all its possible permutations)
-           * matches the redirect pattern.
-           *
-           * Query parameters in URLs can come in different orders, but logically they represent the
-           * same information (e.g., "key1=value1&key2=value2" is the same as "key2=value2&key1=value1").
-           * To account for this, the method `isPermutedQueryMatch` generates all possible permutations
-           * of the query parameters and checks if any of those permutations match the regex pattern for the redirect.
-           *
-           * NOTE: This fix is specifically implemented for Netlify, where query parameters are sometimes
-           * automatically sorted, which can cause issues with matching redirects if the order of query
-           * parameters is important. By checking every possible permutation, we ensure that redirects
-           * work correctly on Netlify despite this behavior.
-           *
-           * It passes several pieces of information to the function:
-           * 1. `pathname`: The normalized URL path without query parameters (e.g., '/about').
-           * 2. `queryString`: The current query string from the URL, which will be permuted and matched (e.g., '?key1=value1&key2=value2').
-           * 3. `pattern`: The regex pattern for the redirect that we are trying to match against the URL (e.g., '/about?key1=value1').
-           * 4. `locale`: The locale part of the URL (if any), which helps support multilingual URLs.
-           *
-           * If one of the permutations of the query string matches the redirect pattern, the function
-           * returns the matched query string, which is stored in `matchedQueryString`. If no match is found,
-           * it returns `undefined`. The `matchedQueryString` is later used to indicate whether the query
-           * string contributed to a successful redirect match.
-           */
-          const matchedQueryString = this.isPermutedQueryMatch({
-            pathname: targetURL,
-            queryString: targetQS,
-            pattern: redirect.pattern,
-            locale,
-          });
+          matchedQueryString = [
+            regexParser(redirect.pattern).test(`${normalizedPath}${targetQS}`),
+            regexParser(redirect.pattern).test(`/${locale}${normalizedPath}${targetQS}`),
+          ].some(Boolean)
+            ? targetQS
+            : undefined;
 
           // Save the matched query string (if found) into the redirect object
           redirect.matchedQueryString = matchedQueryString || '';
 
-          // Return the redirect if the URL path or any query string permutation matches the pattern
           return (
-            (regexParser(redirect.pattern).test(targetURL) ||
+            !!(
+              regexParser(redirect.pattern).test(targetURL) ||
               regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${targetURL}`) ||
-              matchedQueryString) &&
-            (redirect.locale ? redirect.locale.toLowerCase() === locale.toLowerCase() : true)
+              matchedQueryString
+            ) && (redirect.locale ? redirect.locale.toLowerCase() === locale.toLowerCase() : true)
           );
         })
       : undefined;
@@ -327,88 +344,5 @@ export class RedirectsMiddleware extends MiddlewareBase {
       redirect.headers.delete('x-middleware-rewrite');
     }
     return redirect;
-  }
-
-  /**
-   * Checks if the current URL query matches the provided pattern, considering all permutations of query parameters.
-   * It constructs all possible query parameter permutations and tests them against the pattern.
-   * @param {object} params - The parameters for the URL match.
-   * @param {string} params.pathname - The current URL pathname.
-   * @param {string} params.queryString - The current URL query string.
-   * @param {string} params.pattern - The regex pattern to test the constructed URLs against.
-   * @param {string} [params.locale] - The locale prefix to include in the URL if present.
-   * @returns {string | undefined} - return query string if any of the query permutations match the provided pattern, undefined otherwise.
-   */
-  private isPermutedQueryMatch({
-    pathname,
-    queryString,
-    pattern,
-    locale,
-  }: {
-    pathname: string;
-    queryString: string;
-    pattern: string;
-    locale?: string;
-  }): string | undefined {
-    const paramsArray = Array.from(new URLSearchParams(queryString).entries());
-    const listOfPermuted = getPermutations(paramsArray).map(
-      (permutation: [string, string][]) =>
-        '?' + permutation.map(([key, value]) => `${key}=${value}`).join('&')
-    );
-
-    const normalizedPath = pathname.replace(/\/*$/gi, '');
-    return listOfPermuted.find((query: string) =>
-      [
-        regexParser(pattern).test(`${normalizedPath}${query}`),
-        regexParser(pattern).test(`/${locale}${normalizedPath}${query}`),
-      ].some(Boolean)
-    );
-  }
-
-  /**
-   * Escapes non-special "?" characters in a string or regex.
-   *
-   * - For regular strings, it escapes all unescaped "?" characters by adding a backslash (`\`).
-   * - For regex patterns (strings enclosed in `/.../`), it analyzes each "?" to determine if it has special meaning
-   *   (e.g., `?` in `(abc)?`, `.*?`) or is just a literal character. Only literal "?" characters are escaped.
-   * @param {string} input - The input string or regex pattern.
-   * @returns {string} - The modified string or regex with non-special "?" characters escaped.
-   **/
-  private escapeNonSpecialQuestionMarks(input: string): string {
-    const regexPattern = /(?<!\\)\?/g; // Find unescaped "?" characters
-    const isRegex = input.startsWith('/') && input.endsWith('/'); // Check if the string is a regex
-
-    if (!isRegex) {
-      // If not a regex, escape all unescaped "?" characters
-      return input.replace(regexPattern, '\\?');
-    }
-
-    // If it's a regex, analyze each "?" character
-    let result = '';
-    let lastIndex = 0;
-
-    let match;
-    while ((match = regexPattern.exec(input)) !== null) {
-      const index = match.index; // Position of "?" in the string
-      const before = input.slice(0, index).replace(/\s+$/, ''); // Context before "?"
-      const lastChar = before.slice(-1); // Last character before "?"
-
-      // Determine if the "?" is a special regex symbol
-      const isSpecialRegexSymbol = /[\.\*\+\)\[\]]$/.test(lastChar);
-
-      if (isSpecialRegexSymbol) {
-        // If it's special, keep it as is
-        result += input.slice(lastIndex, index + 1);
-      } else {
-        // If it's not special, escape it
-        result += input.slice(lastIndex, index) + '\\?';
-      }
-      lastIndex = index + 1;
-    }
-
-    // Append the remaining part of the string
-    result += input.slice(lastIndex);
-
-    return result;
   }
 }

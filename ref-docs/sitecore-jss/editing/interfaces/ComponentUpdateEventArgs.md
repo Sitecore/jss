@@ -28,7 +28,7 @@ Event args for Component Library `update` event
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:47](https://github.com/Sitecore/jss/blob/7ddd22dfa8f8d76cfb96e977ac1a0d48c3a13d89/packages/sitecore-jss/src/editing/utils.ts#L47)
+[packages/sitecore-jss/src/editing/utils.ts:47](https://github.com/Sitecore/jss/blob/add785323e917338873098dc44b8af984c4e7c9a/packages/sitecore-jss/src/editing/utils.ts#L47)
 
 ***
 
@@ -38,4 +38,4 @@ Event args for Component Library `update` event
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:46](https://github.com/Sitecore/jss/blob/7ddd22dfa8f8d76cfb96e977ac1a0d48c3a13d89/packages/sitecore-jss/src/editing/utils.ts#L46)
+[packages/sitecore-jss/src/editing/utils.ts:46](https://github.com/Sitecore/jss/blob/add785323e917338873098dc44b8af984c4e7c9a/packages/sitecore-jss/src/editing/utils.ts#L46)

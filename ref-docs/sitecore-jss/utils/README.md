@@ -34,15 +34,18 @@
 
 ### Functions
 
+- [areURLSearchParamsEqual](functions/areURLSearchParamsEqual.md)
 - [enforceCors](functions/enforceCors.md)
+- [escapeNonSpecialQuestionMarks](functions/escapeNonSpecialQuestionMarks.md)
 - [getAllowedOriginsFromEnv](functions/getAllowedOriginsFromEnv.md)
-- [getPermutations](functions/getPermutations.md)
 - [handleEditorAnchors](functions/handleEditorAnchors.md)
 - [isAbsoluteUrl](functions/isAbsoluteUrl.md)
 - [isEditorActive](functions/isEditorActive.md)
+- [isRegexOrUrl](functions/isRegexOrUrl.md)
 - [isServer](functions/isServer.md)
 - [isTimeoutError](functions/isTimeoutError.md)
 - [mapButtonToCommand](functions/mapButtonToCommand.md)
+- [mergeURLSearchParams](functions/mergeURLSearchParams.md)
 - [resetEditorChromes](functions/resetEditorChromes.md)
 - [resolveUrl](functions/resolveUrl.md)
 - [tryParseEnvValue](functions/tryParseEnvValue.md)
