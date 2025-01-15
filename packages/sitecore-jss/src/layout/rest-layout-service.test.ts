@@ -123,7 +123,11 @@ describe('RestLayoutService', () => {
       },
     } as IncomingMessage;
 
-    const res = {} as ServerResponse;
+    const setHeaderSpy: SetHeader = spy();
+
+    const res = {
+      setHeader: setHeaderSpy,
+    } as ServerResponse;
 
     const service = new RestLayoutService({
       apiHost: 'http://sctest',
