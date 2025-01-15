@@ -47,7 +47,6 @@ const sitemapApi = async (
       }
       res.end();
     } catch (error) {
-      console.error('Failed to fetch sitemap:', error);
       return res.redirect('/404');
     }
     return;

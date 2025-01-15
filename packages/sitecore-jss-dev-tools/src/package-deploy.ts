@@ -189,7 +189,7 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
       'X-JSS-Auth': mac,
     },
     dispatcher: new ProxyAgent({
-      uri: options.proxy ? options.proxy : '',
+      uri: options.proxy || '',
       maxRedirections: 0,
       connect: {
         rejectUnauthorized: options.acceptCertificate ? false : true,
