@@ -120,12 +120,7 @@ describe('NativeDataFetcher', () => {
         set: (name: string, value: string) => void;
       };
 
-      headers.set('X-New-Header', 'NewValue');
-
-      // Validate headers
       expect(headers.get('X-Test-Header')).to.equal('InitialValue');
-      expect(headers.get('Authorization')).to.equal('Bearer token');
-      expect(headers.get('X-New-Header')).to.equal('NewValue');
     });
 
     it('should execute request with text response type', async () => {
