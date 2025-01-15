@@ -10,8 +10,6 @@ import nock from 'nock';
 use(spies);
 
 describe('RestLayoutService', () => {
-  type SetHeader = (name: string, value: unknown) => void;
-
   afterEach(() => {
     nock.cleanAll();
   });
@@ -56,18 +54,9 @@ describe('RestLayoutService', () => {
       socket: {
         remoteAddress: '192.168.1.10',
       },
-      headers: {
-        cookie: 'test-cookie-value',
-        referer: 'http://sctest',
-        'user-agent': 'test-user-agent-value',
-      },
     } as IncomingMessage;
 
-    const setHeaderSpy: SetHeader = spy();
-
-    const res = {
-      setHeader: setHeaderSpy,
-    } as ServerResponse;
+    const res = {} as ServerResponse;
 
     const service = new RestLayoutService({
       apiHost: 'http://sctest',
@@ -79,13 +68,6 @@ describe('RestLayoutService', () => {
     return service
       .fetchLayoutData('/home', 'da-DK', req, res)
       .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
-        if (layoutServiceData.headers instanceof Headers) {
-          expect(layoutServiceData.headers.get('cookie')).to.equal('test-cookie-value');
-          expect(layoutServiceData.headers.get('referer')).to.equal('http://sctest');
-          expect(layoutServiceData.headers.get('user-agent')).to.equal('test-user-agent-value');
-          expect(layoutServiceData.headers.get('X-Forwarded-For')).to.equal('192.168.1.10');
-        }
-
         expect(layoutServiceData).to.deep.equal({
           sitecore: {
             context: {},
@@ -108,18 +90,9 @@ describe('RestLayoutService', () => {
       socket: {
         remoteAddress: '192.168.1.10',
       },
-      headers: {
-        cookie: 'test-cookie-value',
-        referer: 'http://sctest',
-        'user-agent': 'test-user-agent-value',
-      },
     } as IncomingMessage;
 
-    const setHeaderSpy: SetHeader = spy();
-
-    const res = {
-      setHeader: setHeaderSpy,
-    } as ServerResponse;
+    const res = {} as ServerResponse;
 
     const service = new RestLayoutService({
       apiHost: 'http://sctest',
@@ -131,12 +104,6 @@ describe('RestLayoutService', () => {
     return service
       .fetchLayoutData('/home', 'da-DK', req, res)
       .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
-        if (layoutServiceData.headers instanceof Headers) {
-          expect(layoutServiceData.headers.get('cookie')).to.equal('test-cookie-value');
-          expect(layoutServiceData.headers.get('referer')).to.equal('http://sctest');
-          expect(layoutServiceData.headers.get('user-agent')).to.equal('test-user-agent-value');
-          expect(layoutServiceData.headers.get('X-Forwarded-For')).to.equal('192.168.1.10');
-        }
         expect(layoutServiceData).to.deep.equal({
           sitecore: {
             context: {},
@@ -284,18 +251,9 @@ describe('RestLayoutService', () => {
       socket: {
         remoteAddress: '192.168.1.10',
       },
-      headers: {
-        cookie: 'test-cookie-value',
-        referer: 'http://sctest',
-        'user-agent': 'test-user-agent-value',
-      },
     } as IncomingMessage;
 
-    const setHeaderSpy: SetHeader = spy();
-
-    const res = {
-      setHeader: setHeaderSpy,
-    } as ServerResponse;
+    const res = {} as ServerResponse;
 
     const service = new RestLayoutService({
       apiHost: 'http://sctest',

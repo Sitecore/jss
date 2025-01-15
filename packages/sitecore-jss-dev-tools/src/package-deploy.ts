@@ -6,11 +6,8 @@ import FormData from 'form-data';
 import { TLSSocket } from 'tls';
 import { digest, hmac } from './digest';
 import { ClientRequest, IncomingMessage } from 'http';
-import {
-  ResponseError,
-  NativeDataFetcher,
-  NativeDataFetcherConfig,
-} from '@sitecore-jss/sitecore-jss';
+import { ResponseError, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { ProxyAgent } from 'undici';
 
 export interface PackageDeployOptions {
   packagePath: string;
@@ -191,7 +188,15 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
       'Cache-Control': 'no-cache',
       'X-JSS-Auth': mac,
     },
-  } as NativeDataFetcherConfig;
+    dispatcher: new ProxyAgent({
+      uri: options.proxy ? options.proxy : '',
+      maxRedirections: 0,
+      connect: {
+        rejectUnauthorized: options.acceptCertificate ? false : true,
+        maxCachedSessions: options.acceptCertificate ? 0 : undefined,
+      },
+    }),
+  };
 
   if (options.debugSecurity) {
     console.log(`Deployment status security factors: ${factors}`);
@@ -320,7 +325,15 @@ export async function packageDeploy(options: PackageDeployOptions) {
       'X-JSS-Auth': hmac(factors, options.secret),
       ...formData.getHeaders(),
     },
-  } as NativeDataFetcherConfig;
+    dispatcher: new ProxyAgent({
+      uri: options.proxy ? options.proxy : '',
+      maxRedirections: 0,
+      connect: {
+        rejectUnauthorized: options.acceptCertificate ? false : true,
+        maxCachedSessions: options.acceptCertificate ? 0 : undefined,
+      },
+    }),
+  };
 
   console.log(`Sending package ${packageFile} to ${options.importServiceUrl}...`);
   return new Promise<string>((resolve, reject) => {

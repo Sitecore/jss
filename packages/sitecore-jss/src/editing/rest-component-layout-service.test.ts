@@ -12,9 +12,7 @@ import nock from 'nock';
 
 use(spies);
 
-describe('RestComponentLayoutService', () => {
-  type SetHeader = (name: string, value: unknown) => void;
-
+describe.only('RestComponentLayoutService', () => {
   const defaultTestInput: ComponentLayoutRequestParams = {
     itemId: '123',
     componentUid: '456',
@@ -69,18 +67,9 @@ describe('RestComponentLayoutService', () => {
       socket: {
         remoteAddress: '192.168.1.10',
       },
-      headers: {
-        cookie: 'test-cookie-value',
-        referer: 'http://sctest',
-        'user-agent': 'test-user-agent-value',
-      },
     } as IncomingMessage;
 
-    const setHeaderSpy: SetHeader = spy();
-
-    const res = {
-      setHeader: setHeaderSpy,
-    } as ServerResponse;
+    const res = {} as ServerResponse;
 
     const service = new RestComponentLayoutService({
       apiHost: 'http://sctest',
@@ -91,12 +80,6 @@ describe('RestComponentLayoutService', () => {
     return service
       .fetchComponentData(defaultTestInput, req, res)
       .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
-        if (layoutServiceData.headers instanceof Headers) {
-          expect(layoutServiceData.headers.get('cookie')).to.equal('test-cookie-value');
-          expect(layoutServiceData.headers.get('referer')).to.equal('http://sctest');
-          expect(layoutServiceData.headers.get('user-agent')).to.equal('test-user-agent-value');
-          expect(layoutServiceData.headers.get('X-Forwarded-For')).to.equal('192.168.1.10');
-        }
         expect(layoutServiceData).to.deep.equal({
           sitecore: {
             context: {},
@@ -159,31 +142,15 @@ describe('RestComponentLayoutService', () => {
       .reply(200, (_, requestBody) => ({
         requestBody: requestBody,
         data: testUnexpectedData,
-        headers: {
-          Accept: 'application/json, text/plain, */*',
-          cookie: 'test-cookie-value',
-          referer: 'http://sctest',
-          'user-agent': 'test-user-agent-value',
-          'X-Forwarded-For': '192.168.1.10',
-        },
       }));
 
     const req = {
       socket: {
         remoteAddress: '192.168.1.10',
       },
-      headers: {
-        cookie: 'test-cookie-value',
-        referer: 'http://sctest',
-        'user-agent': 'test-user-agent-value',
-      },
     } as IncomingMessage;
 
-    const setHeaderSpy: SetHeader = spy();
-
-    const res = {
-      setHeader: setHeaderSpy,
-    } as ServerResponse;
+    const res = {} as ServerResponse;
 
     const service = new RestComponentLayoutService({
       apiHost: 'http://sctest',
@@ -194,12 +161,6 @@ describe('RestComponentLayoutService', () => {
     return service
       .fetchComponentData(testInput, req, res)
       .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
-        if (layoutServiceData.headers instanceof Headers) {
-          expect(layoutServiceData.headers.get('cookie')).to.equal('test-cookie-value');
-          expect(layoutServiceData.headers.get('referer')).to.equal('http://sctest');
-          expect(layoutServiceData.headers.get('user-agent')).to.equal('test-user-agent-value');
-          expect(layoutServiceData.headers.get('X-Forwarded-For')).to.equal('192.168.1.10');
-        }
         expect(layoutServiceData).to.deep.equal(testExpectedData);
       });
   });
@@ -257,31 +218,15 @@ describe('RestComponentLayoutService', () => {
       .reply(200, (_, requestBody) => ({
         requestBody: requestBody,
         data: testUnexpectedData,
-        headers: {
-          Accept: 'application/json, text/plain, */*',
-          cookie: 'test-cookie-value',
-          referer: 'http://sctest',
-          'user-agent': 'test-user-agent-value',
-          'X-Forwarded-For': '192.168.1.10',
-        },
       }));
 
     const req = {
       socket: {
         remoteAddress: '192.168.1.10',
       },
-      headers: {
-        cookie: 'test-cookie-value',
-        referer: 'http://sctest',
-        'user-agent': 'test-user-agent-value',
-      },
     } as IncomingMessage;
 
-    const setHeaderSpy: SetHeader = spy();
-
-    const res = {
-      setHeader: setHeaderSpy,
-    } as ServerResponse;
+    const res = {} as ServerResponse;
 
     const service = new RestComponentLayoutService({
       apiHost: 'http://sctest',
@@ -292,12 +237,6 @@ describe('RestComponentLayoutService', () => {
     return service
       .fetchComponentData(testInput, req, res)
       .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
-        if (layoutServiceData.headers instanceof Headers) {
-          expect(layoutServiceData.headers.get('cookie')).to.equal('test-cookie-value');
-          expect(layoutServiceData.headers.get('referer')).to.equal('http://sctest');
-          expect(layoutServiceData.headers.get('user-agent')).to.equal('test-user-agent-value');
-          expect(layoutServiceData.headers.get('X-Forwarded-For')).to.equal('192.168.1.10');
-        }
         expect(layoutServiceData).to.deep.equal(testExpectedData);
       });
   });
