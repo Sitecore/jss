@@ -329,7 +329,9 @@ export async function packageDeploy(options: PackageDeployOptions) {
       uri: options.proxy ? options.proxy : '',
       maxRedirections: 0,
       connect: {
+        // we turn off normal CA cert validation when we are whitelisting a single cert thumbprint
         rejectUnauthorized: options.acceptCertificate ? false : true,
+        // needed to allow whitelisting a cert thumbprint if a connection is reused
         maxCachedSessions: options.acceptCertificate ? 0 : undefined,
       },
     }),
@@ -338,12 +340,12 @@ export async function packageDeploy(options: PackageDeployOptions) {
   console.log(`Sending package ${packageFile} to ${options.importServiceUrl}...`);
   return new Promise<string>((resolve, reject) => {
     new NativeDataFetcher()
-      .post(options.importServiceUrl, formData, requestBaseOptions)
+      .post<string>(options.importServiceUrl, formData, requestBaseOptions)
       .then((response) => {
         const body = response.data;
 
         console.log(chalk.green(`Sitecore has accepted import task ${body}`));
-        resolve(body as string);
+        resolve(body);
       })
       .catch((error: ResponseError) => {
         console.error(chalk.red('Unexpected response from import service:'));

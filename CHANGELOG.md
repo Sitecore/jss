@@ -25,7 +25,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Change
 
-* `[sitecore-jss]``[create-sitecore-jss]``[sitecore-jss-nextjs]``[sitecore-jss-react]``[sitecore-jss-dev-tools]``[sitecore-jss-vue]` Remove Axios ([#2006](https://github.com/Sitecore/jss/pull/2006))
+* `[all packages]` `[all samples]` Remove Axios ([#2006](https://github.com/Sitecore/jss/pull/2006))
     * `AxiosDataFetcher` is replaced by the `NativeDataFetcher`.
     * `AxiosDataFetcherConfig` is replaced by `NativeDataFetcherConfig`.
     * `AxiosResponse` is replaced by `NativeDataFetcherResponse`.
@@ -33,7 +33,6 @@ Our versioning strategy is as follows:
     * Default `NativeDataFetcher` is of type `NativeDataFetcherFunction<T>` but can be overridden by custom fetcher using the existing `HttpDataFetcher<T>` type.
     * `NativeDataFetcher` now exposes `fetch`, `get`, `post`, `delete`, `put`, `head` methods.
     * `NativedDataFetcher.fetch` now accepts second parameter of type `RequestInit` instead of `unknown`.
-
 
 ## 22.3.0 / 22.3.1
 
