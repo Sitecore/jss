@@ -37,7 +37,7 @@ const sitemapApi = async (
       const fetcher = new NativeDataFetcher();
       const response = await fetcher.fetch(sitemapUrl);
 
-      const reader = response.data?.getReader();
+      const reader = (response?.data as ReadableStream<Uint8Array>).getReader();
       if (reader) {
         while (true) {
           const { done, value } = await reader.read();
