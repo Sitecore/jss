@@ -23,7 +23,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Change
 
-* `[all packages]` `[all samples]` Remove Axios ([#2006](https://github.com/Sitecore/jss/pull/2006))
+* `[all packages]` `[all samples]` Remove Axios ([#2006](https://github.com/Sitecore/jss/pull/2006)) ([#2008](https://github.com/Sitecore/jss/pull/2008))
     * `AxiosDataFetcher` is replaced by the `NativeDataFetcher`.
     * `AxiosDataFetcherConfig` is replaced by `NativeDataFetcherConfig`.
     * `AxiosResponse` is replaced by `NativeDataFetcherResponse`.
