@@ -1,4 +1,4 @@
-import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss-vue';
 
 /**
  * Implements a data fetcher using NativeDataFetcher - replace with your favorite
