@@ -450,8 +450,8 @@ export function setProxy(reqOptions: RequestOptions, proxy: string, targetUrl: s
     const proxyUrl = new URL(proxy);
 
     reqOptions.hostname = proxyUrl.hostname;
-    reqOptions.port = +proxyUrl.port;
-    reqOptions.protocol = proxyUrl.protocol.slice(0, -1);
+    reqOptions.port = proxyUrl.port || (proxyUrl.protocol === 'https:' ? '443' : '80');
+    reqOptions.protocol = proxyUrl.protocol;
     reqOptions.path = targetUrl;
   } catch (error) {
     console.error(chalk.red(`Invalid proxy url provided ${proxy}`));
