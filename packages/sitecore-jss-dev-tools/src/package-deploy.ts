@@ -93,7 +93,7 @@ export function finishWatchJobStatusTask({
 }: {
   warnings: string[];
   errors: string[];
-  resolve: (value?: any) => void;
+  resolve: (value?: unknown) => void;
   reject: () => void;
 }) {
   console.log();
