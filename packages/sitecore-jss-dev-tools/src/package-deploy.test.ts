@@ -10,8 +10,10 @@ import {
   applyCertPinning,
   finishWatchJobStatusTask,
   logJobStatus,
+  setProxy,
 } from './package-deploy';
 import { Socket } from 'net';
+import { RequestOptions } from 'https';
 
 describe('package-deploy', () => {
   beforeEach(() => {
@@ -264,6 +266,73 @@ describe('package-deploy', () => {
       const fp2 = '5E:D1:5E:D4:D4:42:71:CC:30:A5:B6:A2:DA:A4:79:06:67:CB:F6:36';
 
       expect(doFingerprintsMatch(fp1, fp2)).to.equal(false);
+    });
+  });
+
+  describe('setProxy', () => {
+    const reqOptions: RequestOptions = {};
+    it('should set hostname, port, protocol, and path for a valid HTTP proxy', () => {
+      const proxy = 'http://proxy.example.com:8080';
+      const targetUrl = 'https://targetsite.com/resource';
+
+      setProxy(reqOptions, proxy, targetUrl);
+
+      expect(reqOptions).to.deep.include({
+        hostname: 'proxy.example.com',
+        port: '8080',
+        protocol: 'http:',
+        path: targetUrl,
+      });
+    });
+
+    it('should set default port 443 for HTTPS proxy when port is not provided', () => {
+      const proxy = 'https://proxy.example.com';
+      const targetUrl = 'https://targetsite.com/resource';
+
+      setProxy(reqOptions, proxy, targetUrl);
+
+      expect(reqOptions).to.deep.include({
+        hostname: 'proxy.example.com',
+        port: '443',
+        protocol: 'https:',
+        path: targetUrl,
+      });
+    });
+
+    it('should set default port 80 for HTTP proxy when port is not provided', () => {
+      const proxy = 'http://proxy.example.com';
+      const targetUrl = 'http://targetsite.com/resource';
+
+      setProxy(reqOptions, proxy, targetUrl);
+
+      expect(reqOptions).to.deep.include({
+        hostname: 'proxy.example.com',
+        port: '80',
+        protocol: 'http:',
+        path: targetUrl,
+      });
+    });
+
+    it('should handle invalid proxy URL gracefully', () => {
+      const proxy = 'invalid-proxy-url';
+      const targetUrl = 'https://targetsite.com/resource';
+
+      let exitCode: number | undefined;
+      const originalExit = process.exit;
+
+      process.exit = ((code?: number) => {
+        exitCode = code;
+        throw new Error('process.exit called');
+      }) as typeof process.exit;
+
+      try {
+        setProxy(reqOptions, proxy, targetUrl);
+      } catch (error) {
+        expect((error as Error).message).to.equal('process.exit called');
+        expect(exitCode).to.equal(1);
+      } finally {
+        process.exit = originalExit;
+      }
     });
   });
 

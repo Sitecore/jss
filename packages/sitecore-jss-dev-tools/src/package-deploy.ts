@@ -93,7 +93,7 @@ export function finishWatchJobStatusTask({
 }: {
   warnings: string[];
   errors: string[];
-  resolve: (value?: void | PromiseLike<void>) => void;
+  resolve: (value?: void) => void;
   reject: () => void;
 }) {
   console.log();
