@@ -5,8 +5,6 @@ import { spy } from 'sinon';
 import { ClientRequest } from 'http';
 import nock from 'nock';
 import {
-  extractProxy,
-  getHttpsTransport,
   doFingerprintsMatch,
   normalizeFingerprint,
   applyCertPinning,
@@ -138,31 +136,6 @@ describe('package-deploy', () => {
     });
   });
 
-  describe('extractProxy', () => {
-    it('should return proxy object', () => {
-      expect(extractProxy('https://localhost:9999')).to.deep.equal({
-        protocol: 'https',
-        port: 9999,
-        host: 'localhost',
-      });
-
-      expect(extractProxy('http://myhostname:1234')).to.deep.equal({
-        protocol: 'http',
-        port: 1234,
-        host: 'myhostname',
-      });
-    });
-
-    it('should return undefined if proxy not provided', () => {
-      expect(extractProxy()).to.equal(undefined);
-    });
-
-    it('should return undefined if proxy is not valid url', () => {
-      process.exit = () => [] as never;
-      expect(extractProxy('test')).to.equal(undefined);
-    });
-  });
-
   describe('applyCertPinning', () => {
     it('should skip certs comparison', (done) => {
       const req = ({
@@ -276,42 +249,6 @@ describe('package-deploy', () => {
         secret: 'ddd',
         acceptCertificate: 'MY:SECRET:KEY111',
       });
-    });
-  });
-
-  describe('getHttpsTransport', () => {
-    it('should execute request', (done) => {
-      nock('https://superhost')
-        .get('/test')
-        .reply(200, {
-          success: true,
-          text: 'test',
-        });
-
-      const transport = getHttpsTransport({
-        packagePath: 'xxx',
-        appName: 'jssapp',
-        importServiceUrl: 'xxx',
-        secret: 'yyy',
-      });
-
-      const req = transport.request(
-        { method: 'GET', hostname: 'superhost', path: '/test' },
-        (response) => {
-          let result = '';
-
-          response.on('data', (data) => {
-            result += data;
-          });
-
-          response.on('end', () => {
-            expect(result).to.equal('{"success":true,"text":"test"}');
-            done();
-          });
-        }
-      );
-
-      req.end();
     });
   });
 

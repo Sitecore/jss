@@ -7,7 +7,6 @@ import FormData from 'form-data';
 import { TLSSocket } from 'tls';
 import { digest, hmac } from './digest';
 import { ClientRequest } from 'http';
-import { ResponseError, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 
 export interface PackageDeployOptions {
   packagePath: string;
@@ -17,22 +16,6 @@ export interface PackageDeployOptions {
   debugSecurity?: boolean;
   acceptCertificate?: string;
   proxy?: string;
-}
-
-/**
- * Represents the response from the job status service.
- */
-interface JobStatusResponse {
-  /**
-   * The current state of the job (e.g., 'InProgress', 'Finished', etc.).
-   */
-  state: string;
-
-  /**
-   * A list of messages related to the job's execution.
-   * Each message typically contains log entries or status details.
-   */
-  messages: string[];
 }
 
 // Node does not use system level trusted CAs. This causes issues because SIF likes to install
@@ -110,7 +93,7 @@ export function finishWatchJobStatusTask({
 }: {
   warnings: string[];
   errors: string[];
-  resolve: (value?: unknown) => void;
+  resolve: (value?: void | PromiseLike<void>) => void;
   reject: () => void;
 }) {
   console.log();
@@ -180,12 +163,31 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
   const factors = [options.appName, taskName, `${options.importServiceUrl}/status`];
   const mac = hmac(factors, options.secret);
 
-  const requestBaseOptions = {
+  const url = new URL(
+    `${options.importServiceUrl}/status?appName=${options.appName}&jobName=${taskName}&after=${logOffset}`
+  );
+
+  const isHttps = options.importServiceUrl.startsWith('https');
+  const client = isHttps ? https : http;
+
+  const reqOptions: RequestOptions = {
     headers: {
       'User-Agent': 'Sitecore/JSS-Import',
       'Cache-Control': 'no-cache',
       'X-JSS-Auth': mac,
     },
+    method: 'GET',
+    hostname: url.hostname,
+    protocol: url.protocol,
+    path: url.pathname + url.search,
+    agent: isHttps
+      ? new https.Agent({
+          // we turn off normal CA cert validation when we are whitelisting a single cert thumbprint
+          rejectUnauthorized: options.acceptCertificate ? false : true,
+          // needed to allow whitelisting a cert thumbprint if a connection is reused
+          maxCachedSessions: options.acceptCertificate ? 0 : undefined,
+        })
+      : undefined,
   };
 
   if (options.debugSecurity) {
@@ -193,78 +195,101 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
     console.log(`Deployment status HMAC: ${mac}`);
   }
 
-  return new Promise((resolve, reject) => {
-    /**
-     * Send job status request
-     */
-    function sendJobStatusRequest() {
-      new NativeDataFetcher()
-        .get<JobStatusResponse>(
-          `${options.importServiceUrl}/status?appName=${options.appName}&jobName=${taskName}&after=${logOffset}`,
-          requestBaseOptions
-        )
-        .then((response) => {
-          const { data } = response;
+  if (options.proxy) {
+    setProxy(reqOptions, options.proxy, options.importServiceUrl);
+  }
 
-          try {
-            const { state, messages } = data;
+  const req = client.request(reqOptions);
 
-            messages.forEach((entry) => {
-              logOffset++;
+  let responseData = '';
 
-              const entryBits = /^(\[([A-Z]+)\] )?(.+)/.exec(entry);
-              let entryLevel = 'INFO';
-              let message = entry;
+  req.on('response', (res) => {
+    if (res.statusCode !== 200) {
+      let errorData = '';
 
-              if (entryBits && entryBits[2]) {
-                entryLevel = entryBits[2];
-                // 3 = '[] ' in say [INFO] My log message
-                // we're not using the capture group as the message might be multi-line
-                message = entry.substring(entryLevel.length + 3);
-              }
+      res.on('data', (chunk) => {
+        errorData += chunk;
+      });
 
-              if (message.startsWith('[JSS] - ')) {
-                message = message.substring(8);
-              }
+      res.on('end', () => {
+        console.error(
+          chalk.red(
+            'Unexpected response from import status service. The import task is probably still running; check the Sitecore logs for details.'
+          )
+        );
+        console.error(chalk.red(`Status message: ${res.statusMessage}`));
+        console.error(chalk.red(`Status: ${res.statusCode}`));
+        process.exit(1);
+      });
 
-              logJobStatus({ message, entryLevel, warnings, errors });
-            });
-
-            if (state === 'Finished') {
-              finishWatchJobStatusTask({ warnings, errors, resolve, reject });
-
-              return;
-            }
-
-            setTimeout(sendJobStatusRequest, 1000);
-          } catch (error) {
-            console.error(
-              chalk.red(`Unexpected error processing reply from import status service: ${error}`)
-            );
-            console.error(chalk.red(`Response: ${data}`));
-            console.error(chalk.red('Consult the Sitecore logs for details.'));
-            reject(error);
-          }
-        })
-        .catch((error: ResponseError) => {
-          console.error(
-            chalk.red(
-              'Unexpected response from import status service. The import task is probably still running; check the Sitecore logs for details.'
-            )
-          );
-          if (error.response) {
-            console.error(chalk.red(`Status message: ${error.response.statusText}`));
-            console.error(chalk.red(`Status: ${error.response.status}`));
-          } else {
-            console.error(chalk.red(error.message));
-          }
-
-          reject();
-        });
+      return;
     }
 
-    setTimeout(sendJobStatusRequest, 1000);
+    res.on('error', (err) => {
+      console.error(
+        chalk.red(
+          'Unexpected response from import status service. The import task is probably still running; check the Sitecore logs for details.'
+        )
+      );
+      console.error(chalk.red(`Status message: ${err.message}`));
+      console.error(chalk.red(`Status: ${res.statusCode}`));
+      process.exit(1);
+    });
+
+    res.on('data', (chunk) => {
+      responseData += chunk;
+    });
+
+    res.on('end', () => {
+      try {
+        const body = JSON.parse(responseData);
+        const { state, messages }: { state: string; messages: string[] } = body;
+
+        messages.forEach((entry) => {
+          logOffset++;
+
+          const entryBits = /^(\[([A-Z]+)\] )?(.+)/.exec(entry);
+
+          let entryLevel = 'INFO';
+          let message = entry;
+
+          if (entryBits && entryBits[2]) {
+            entryLevel = entryBits[2];
+            // 3 = '[] ' in say [INFO] My log message
+            // we're not using the capture group as the message might be multi-line
+            message = entry.substring(entryLevel.length + 3);
+          }
+
+          if (message.startsWith('[JSS] - ')) {
+            message = message.substring(8);
+          }
+
+          logJobStatus({ message, entryLevel, warnings, errors });
+        });
+
+        if (state === 'Finished') {
+          finishWatchJobStatusTask({ warnings, errors, resolve: () => {}, reject: () => {} });
+          return;
+        }
+
+        setTimeout(() => watchJobStatus(options, taskName), 1000);
+      } catch (error) {
+        console.error(
+          chalk.red(`Unexpected error processing reply from import status service: ${error}`)
+        );
+        console.error(chalk.red(`Response: ${responseData}`));
+        console.error(chalk.red('Consult the Sitecore logs for details.'));
+        process.exit(1);
+      }
+    });
   });
+
+  req.on('error', (err) => {
+    console.error(chalk.red(`Request error: ${err.message}`));
+    process.exit(1);
+  });
+
+  req.end();
 }
 
 /**
@@ -400,6 +425,7 @@ export async function packageDeploy(options: PackageDeployOptions) {
 
     res.on('end', () => {
       const taskName = responseData;
+      console.log('we are in packageDeploy', responseData);
 
       console.log(chalk.green(`Package uploaded. Import task name: ${taskName}`));
 
