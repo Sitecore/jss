@@ -1,13 +1,13 @@
 import chalk from 'chalk';
 import fs from 'fs';
-import https from 'https';
+import https, { RequestOptions } from 'https';
+import http from 'http';
 import path from 'path';
 import FormData from 'form-data';
 import { TLSSocket } from 'tls';
 import { digest, hmac } from './digest';
-import { ClientRequest, IncomingMessage } from 'http';
+import { ClientRequest } from 'http';
 import { ResponseError, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
-import { ProxyAgent } from 'undici';
 
 export interface PackageDeployOptions {
   packagePath: string;
@@ -23,18 +23,16 @@ export interface PackageDeployOptions {
  * Represents the response from the job status service.
  */
 interface JobStatusResponse {
-  data: {
-    /**
-     * The current state of the job (e.g., 'InProgress', 'Finished', etc.).
-     */
-    state: string;
+  /**
+   * The current state of the job (e.g., 'InProgress', 'Finished', etc.).
+   */
+  state: string;
 
-    /**
-     * A list of messages related to the job's execution.
-     * Each message typically contains log entries or status details.
-     */
-    messages: string[];
-  };
+  /**
+   * A list of messages related to the job's execution.
+   * Each message typically contains log entries or status details.
+   */
+  messages: string[];
 }
 
 // Node does not use system level trusted CAs. This causes issues because SIF likes to install
@@ -188,14 +186,6 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
       'Cache-Control': 'no-cache',
       'X-JSS-Auth': mac,
     },
-    dispatcher: new ProxyAgent({
-      uri: options.proxy || '',
-      maxRedirections: 0,
-      connect: {
-        rejectUnauthorized: options.acceptCertificate ? false : true,
-        maxCachedSessions: options.acceptCertificate ? 0 : undefined,
-      },
-    }),
   };
 
   if (options.debugSecurity) {
@@ -214,10 +204,10 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
           requestBaseOptions
         )
         .then((response) => {
-          const body = response.data;
+          const { data } = response;
 
           try {
-            const { state, messages } = body.data;
+            const { state, messages } = data;
 
             messages.forEach((entry) => {
               logOffset++;
@@ -251,7 +241,7 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
             console.error(
               chalk.red(`Unexpected error processing reply from import status service: ${error}`)
             );
-            console.error(chalk.red(`Response: ${body}`));
+            console.error(chalk.red(`Response: ${data}`));
             console.error(chalk.red('Consult the Sitecore logs for details.'));
             reject(error);
           }
@@ -293,7 +283,7 @@ export async function packageDeploy(options: PackageDeployOptions) {
     );
   }
 
-  let packageFile = null;
+  let packageFile = '';
   fs.readdirSync(options.packagePath).forEach((file) => {
     if (file.startsWith(options.appName) && file.endsWith('.manifest.zip')) {
       packageFile = path.join(options.packagePath, file);
@@ -315,90 +305,130 @@ export async function packageDeploy(options: PackageDeployOptions) {
 
   const formData = new FormData();
 
-  formData.append('path', fs.createReadStream(packageFile));
-  formData.append('appName', options.appName);
+  const fileStream = fs.createReadStream(packageFile);
 
-  const requestBaseOptions = {
+  const url = new URL(options.importServiceUrl);
+
+  formData.append('appName', options.appName);
+  formData.append('path', fileStream);
+
+  const isHttps = options.importServiceUrl.startsWith('https');
+
+  const client = isHttps ? https : http;
+
+  const reqOptions: RequestOptions = {
     headers: {
       'User-Agent': 'Sitecore/JSS-Import',
       'Cache-Control': 'no-cache',
       'X-JSS-Auth': hmac(factors, options.secret),
       ...formData.getHeaders(),
     },
-    dispatcher: new ProxyAgent({
-      uri: options.proxy ? options.proxy : '',
-      maxRedirections: 0,
-      connect: {
-        // we turn off normal CA cert validation when we are whitelisting a single cert thumbprint
-        rejectUnauthorized: options.acceptCertificate ? false : true,
-        // needed to allow whitelisting a cert thumbprint if a connection is reused
-        maxCachedSessions: options.acceptCertificate ? 0 : undefined,
-      },
-    }),
+    method: 'POST',
+    hostname: url.hostname,
+    protocol: url.protocol,
+    path: url.pathname,
+    agent: isHttps
+      ? new https.Agent({
+          // we turn off normal CA cert validation when we are whitelisting a single cert thumbprint
+          rejectUnauthorized: options.acceptCertificate ? false : true,
+          // needed to allow whitelisting a cert thumbprint if a connection is reused
+          maxCachedSessions: options.acceptCertificate ? 0 : undefined,
+        })
+      : undefined,
   };
 
-  console.log(`Sending package ${packageFile} to ${options.importServiceUrl}...`);
-  return new Promise<string>((resolve, reject) => {
-    new NativeDataFetcher()
-      .post<string>(options.importServiceUrl, formData, requestBaseOptions)
-      .then((response) => {
-        const body = response.data;
+  if (options.proxy) {
+    setProxy(reqOptions, options.proxy, options.importServiceUrl);
+  }
 
-        console.log(chalk.green(`Sitecore has accepted import task ${body}`));
-        resolve(body);
-      })
-      .catch((error: ResponseError) => {
-        console.error(chalk.red('Unexpected response from import service:'));
-        if (error.response) {
-          console.error(chalk.red(`Status message: ${error.response.statusText}`));
-          console.error(chalk.red(`Status: ${error.response.status}`));
-        } else {
-          console.error(chalk.red(error.message));
-        }
+  const req = client.request(reqOptions);
 
-        reject();
+  if (https) {
+    applyCertPinning(req, options);
+  }
+
+  let ended = false;
+  let errored = false;
+
+  formData.on('end', () => {
+    ended = true;
+  });
+
+  formData.once('error', (err) => {
+    errored = true;
+    console.log('Error when uploading package:', err);
+    req.destroy(err);
+  });
+
+  formData.on('close', () => {
+    if (!ended && !errored) {
+      new Error('Request stream has been aborted');
+    }
+  });
+
+  formData.pipe(req);
+
+  req.on('response', (res) => {
+    if (res.statusCode !== 200) {
+      let errorData = '';
+
+      res.on('data', (chunk) => {
+        errorData += chunk;
       });
-  }).then((taskName) => watchJobStatus(options, taskName));
+
+      res.on('end', () => {
+        console.error(
+          chalk.red(`Error while uploading package: ${res.statusCode} ${res.statusMessage}`)
+        );
+        console.error(chalk.red(errorData));
+        process.exit(1);
+      });
+
+      return;
+    }
+
+    let responseData = '';
+
+    res.on('error', (err) => {
+      console.error(chalk.red(`Response error when uploading package: ${err.message}`));
+      process.exit(1);
+    });
+
+    res.on('data', (chunk) => {
+      responseData += chunk;
+    });
+
+    res.on('end', () => {
+      const taskName = responseData;
+
+      console.log(chalk.green(`Package uploaded. Import task name: ${taskName}`));
+
+      watchJobStatus(options, taskName);
+    });
+  });
+
+  req.on('error', (err) => {
+    console.error(chalk.red(`Error while uploading package: ${err.message}`));
+    process.exit(1);
+  });
 }
 
 /**
  * Creates valid proxy object
- * @param {string} [proxy] proxy url
+ * @param {RequestOptions} reqOptions
+ * @param {string} proxy proxy url
+ * @param {string} targetUrl target url
  */
-export function extractProxy(proxy?: string) {
-  if (!proxy) return undefined;
-
+export function setProxy(reqOptions: RequestOptions, proxy: string, targetUrl: string) {
   try {
     const proxyUrl = new URL(proxy);
 
-    return {
-      protocol: proxyUrl.protocol.slice(0, -1),
-      host: proxyUrl.hostname,
-      port: +proxyUrl.port,
-    };
+    reqOptions.hostname = proxyUrl.hostname;
+    reqOptions.port = +proxyUrl.port;
+    reqOptions.protocol = proxyUrl.protocol.slice(0, -1);
+    reqOptions.path = targetUrl;
   } catch (error) {
     console.error(chalk.red(`Invalid proxy url provided ${proxy}`));
     process.exit(1);
   }
-}
-
-/**
- * Provides way to customize request adapter
- * @param {PackageDeployOptions} options
- */
-export function getHttpsTransport(options: PackageDeployOptions) {
-  return {
-    ...https,
-    request: (reqOptions: https.RequestOptions, callback: (res: IncomingMessage) => void) => {
-      const req = https.request(
-        {
-          ...reqOptions,
-        },
-        callback
-      );
-      applyCertPinning(req, options);
-
-      return req;
-    },
-  };
 }

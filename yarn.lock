@@ -5981,7 +5981,6 @@ __metadata:
     ts-node: ^10.9.1
     tsconfig-paths: ^4.1.2
     typescript: ~5.6.3
-    undici: ^7.2.1
     url-join: ^4.0.1
     uuid: ^9.0.0
     yargs: ^17.6.2
@@ -26625,13 +26624,6 @@ __metadata:
   version: 6.11.1
   resolution: "undici@npm:6.11.1"
   checksum: ad46014e06dac536dc36d538b32e4f4dc36eb591a6a38bf0b1f1369ec51ca9362d823a685025e42b646d897bc991628c6db37040ed1ff7ee8d6b3d7906f9ac60
-  languageName: node
-  linkType: hard
-
-"undici@npm:^7.2.1":
-  version: 7.2.1
-  resolution: "undici@npm:7.2.1"
-  checksum: 794af34a40ef1a27dca44070e5bb9e69ce1221fb5f1690b4a21d91654e616064a96f7d7867b4df6e32e78c5e90cd63ebd5850a6a90321c2e60efb77aa3fc5e80
   languageName: node
   linkType: hard
 
