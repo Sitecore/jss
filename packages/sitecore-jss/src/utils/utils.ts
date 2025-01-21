@@ -197,34 +197,38 @@ export const areURLSearchParamsEqual = (params1: URLSearchParams, params2: URLSe
  * Escapes non-special "?" characters in a string or regex.
  * - For regular strings, it escapes all unescaped "?" characters by adding a backslash (`\`).
  * - For regex patterns (strings enclosed in `/.../`), it analyzes each "?" to determine if it has special meaning
- *   (e.g., `?` in `(abc)?`, `.*?`) or is just a literal character. Only literal "?" characters are escaped.
+ *   (e.g., `?` in `(abc)?`, `.*?`, `(?!...)`) or is just a literal character. Only literal "?" characters are escaped.
  * @param {string} input - The input string or regex pattern.
  * @returns {string} - The modified string or regex with non-special "?" characters escaped.
  */
 export const escapeNonSpecialQuestionMarks = (input: string): string => {
-  const regexPattern = /(?<!\\)\?/g; // Find unescaped "?" characters
+  const regexPattern = /(?<!\\)\?/g; // Match unescaped "?" characters
+  const negativeLookaheadPattern = /\(\?!$/; // Detect the start of a Negative Lookahead pattern
+  const specialRegexSymbols = /[.*+)\[\]|\(]$/; // Check for special regex symbols before "?"
 
-  // If it's a regex, analyze each "?" character
   let result = '';
   let lastIndex = 0;
 
-  let match;
+  let match: RegExpExecArray | null;
   while ((match = regexPattern.exec(input)) !== null) {
-    const index = match.index; // Position of "?" in the string
-    const before = input.slice(0, index).replace(/\s+$/, ''); // Context before "?"
-    const lastChar = before.slice(-1); // Last character before "?"
+    const index = match.index; // Position of the "?" in the string
+    const before = input.slice(lastIndex, index); // Context before the "?"
 
-    // Determine if the "?" is a special regex symbol
-    const isSpecialRegexSymbol = /[\.\*\+\)\[\]]$/.test(lastChar);
+    // Check if "?" is part of a Negative Lookahead
+    const isNegativeLookahead = negativeLookaheadPattern.test(before.slice(-3));
 
-    if (isSpecialRegexSymbol) {
-      // If it's special, keep it as is
+    // Check if "?" follows a special regex symbol
+    const isSpecialRegexSymbol = specialRegexSymbols.test(before.slice(-1));
+
+    if (isNegativeLookahead || isSpecialRegexSymbol) {
+      // If it's a special case, keep the "?" as is
       result += input.slice(lastIndex, index + 1);
     } else {
-      // If it's not special, escape it
+      // Otherwise, escape the "?"
       result += input.slice(lastIndex, index) + '\\?';
     }
-    lastIndex = index + 1;
+
+    lastIndex = index + 1; // Move to the next part of the string
   }
 
   // Append the remaining part of the string
