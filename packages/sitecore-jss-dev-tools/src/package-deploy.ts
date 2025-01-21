@@ -93,7 +93,7 @@ export function finishWatchJobStatusTask({
 }: {
   warnings: string[];
   errors: string[];
-  resolve: (value?: void) => void;
+  resolve: (value?: any) => void;
   reject: () => void;
 }) {
   console.log();
@@ -155,7 +155,7 @@ export function logJobStatus({
  * @param {PackageDeployOptions} options
  * @param {string} taskName
  */
-async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
+export async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
   let logOffset = 0;
   const errors: string[] = [];
   const warnings: string[] = [];
