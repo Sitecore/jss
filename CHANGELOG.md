@@ -21,6 +21,8 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Fixed handling of ? inside square brackets [] in regex patterns to prevent incorrect escaping ([#1999](https://github.com/Sitecore/jss/pull/1999))
 * `[sitecore-jss-nextjs]` Improve performance for redirect middleware ([#2003](https://github.com/Sitecore/jss/pull/2003))
 * `[templates/nextjs]` `[templates/nextjs-sxa]` Fixed condition of DISABLE_FETCH_SSG ([#2007](https://github.com/Sitecore/jss/pull/2007))
+* `[sitecore-jss]` Fixed incorrect escaping of question marks in negative lookahead patterns in `escapeNonSpecialQuestionMarks` function ([#2014](https://github.com/Sitecore/jss/pull/2014))
+
 
 ### 🛠 Breaking Change
 
