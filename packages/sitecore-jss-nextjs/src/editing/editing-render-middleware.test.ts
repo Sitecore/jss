@@ -234,6 +234,7 @@ describe('EditingRenderMiddleware', () => {
           pageState: 'normal',
           mode: 'library',
           dataSourceId: query.sc_datasourceId,
+          variant: query.sc_variant,
           version: query.sc_version,
         });
 
