@@ -92,7 +92,10 @@ export class RestLayoutService extends LayoutServiceBase {
       language,
       this.serviceConfig.siteName
     );
-    const fetcher = this.getFetcher(req, res);
+    const fetcher = this.serviceConfig.dataFetcherResolver
+      ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
+      : this.getDefaultFetcher<LayoutServiceData>(req, res);
+
     const fetchUrl = this.resolveLayoutServiceUrl('render');
 
     try {
@@ -174,18 +177,12 @@ export class RestLayoutService extends LayoutServiceBase {
     };
   };
 
-  protected getFetcher = (req?: IncomingMessage, res?: ServerResponse) => {
-    return this.serviceConfig.dataFetcherResolver
-      ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
-      : this.getDefaultFetcher<LayoutServiceData>(req, res);
-  };
-
   /**
    * Resolves layout service url
    * @param {string} apiType which layout service API to call ('render' or 'placeholder')
    * @returns the layout service url
    */
-  protected resolveLayoutServiceUrl(apiType: 'render' | 'placeholder' | 'component'): string {
+  protected resolveLayoutServiceUrl(apiType: 'render' | 'placeholder'): string {
     const { apiHost = '', configurationName = 'jss' } = this.serviceConfig;
 
     return `${apiHost}/sitecore/api/layout/${apiType}/${configurationName}`;

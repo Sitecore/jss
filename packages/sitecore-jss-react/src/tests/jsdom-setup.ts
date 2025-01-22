@@ -10,9 +10,7 @@ declare var global: NodeJS.Global;
 
 const { JSDOM } = require('jsdom');
 
-const jsdom = new JSDOM('<!doctype html><html><body></body></html>', {
-  url: 'http://localhost',
-});
+const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
 const jsDomWindow = jsdom.window;
 
 /**
@@ -36,7 +34,6 @@ function copyProps(src: unknown, target: { [key: string]: unknown }) {
 global.window = jsDomWindow;
 global.document = jsDomWindow.document;
 global.navigator['#userAgent'] = 'node.js';
-global.jsdom = jsdom;
 
 global.HTMLElement = jsDomWindow.HTMLElement; // makes chai "happy" https://github.com/chaijs/chai/issues/1029
 copyProps(jsDomWindow, global);
