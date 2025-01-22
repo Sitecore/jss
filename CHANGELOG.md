@@ -11,13 +11,15 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 22.4.0
+
 ### 🐛 Bug Fixes
 
-* `[templates/nextjs-sxa]` Fixed font-awesome import issue in custom workspace configuration ([#1998](https://github.com/Sitecore/jss/pull/1998))
-* `[sitecore-jss-nextjs]` Fixed handling of ? inside square brackets [] in regex patterns to prevent incorrect escaping ([#1999](https://github.com/Sitecore/jss/pull/1999))
-* `[sitecore-jss-nextjs]` Improve performance for redirect middleware ([#2003](https://github.com/Sitecore/jss/pull/2003))
-* `[templates/nextjs]` `[templates/nextjs-sxa]` Fixed condition of DISABLE_FETCH_SSG ([#2007](https://github.com/Sitecore/jss/pull/2007))
-* `[sitecore-jss]` Fixed incorrect escaping of question marks in negative lookahead patterns in `escapeNonSpecialQuestionMarks` function ([#2014](https://github.com/Sitecore/jss/pull/2014))
+* `[sitecore-jss-nextjs]` Improve performance for redirect middleware. ([#2003](https://github.com/Sitecore/jss/pull/2003))
+* `[sitecore-jss-nextjs]` Fix unnecessary escaping of valid regex operators in SXA rewrite patterns ([#1999](https://github.com/Sitecore/jss/pull/1999))
+* `[sitecore-jss]` Fixed question marks not being handled correctly in `escapeNonSpecialQuestionMarks` method, when parsing regular expressions ([#2014](https://github.com/Sitecore/jss/pull/2014))
+* `[templates/nextjs-sxa]` Fix font-awesome imports in custom workspaces. ([#1998](https://github.com/Sitecore/jss/pull/1998))
+* `[templates/nextjs]` `[templates/nextjs-sxa]` Ensure DISABLE_SSG_FETCH variable is correctly handled in error pages([#2007](https://github.com/Sitecore/jss/pull/2007))
 
 
 ### 🛠 Breaking Change
