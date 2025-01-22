@@ -15,7 +15,7 @@ export class JssDataFetcherService {
     let result: Observable<T>;
 
     const options = {
-      credentials: 'include',
+      withCredentials: true,
     };
 
     if (data) {
