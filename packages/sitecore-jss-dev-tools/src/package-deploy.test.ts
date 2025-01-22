@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect } from 'chai';
 import chalk from 'chalk';
-import { spy } from 'sinon';
+import { SinonSpy, spy } from 'sinon';
 import { ClientRequest } from 'http';
 import nock from 'nock';
 import {
@@ -11,13 +11,46 @@ import {
   finishWatchJobStatusTask,
   logJobStatus,
   setProxy,
+  attachFormDataHandlers,
 } from './package-deploy';
 import { Socket } from 'net';
+import FormData from 'form-data';
 import { RequestOptions } from 'https';
 
 describe('package-deploy', () => {
   beforeEach(() => {
     nock.cleanAll();
+  });
+
+  describe('attachFormDataHandlers', () => {
+    it('should attach event handlers', () => {
+      const req = ({
+        destroy: spy(),
+      } as unknown) as ClientRequest;
+
+      const form = ({
+        events: {},
+        on: spy((event: string, _cb: () => void) => {
+          form.events[event] = spy();
+        }),
+        once: spy((event: string, _cb: () => void) => {
+          form.events[event] = spy();
+        }),
+        emit(event: string) {
+          form.events[event]();
+        },
+      } as unknown) as FormData & { events: { [key: string]: SinonSpy } };
+
+      attachFormDataHandlers(req, form);
+
+      form.emit('error');
+      form.emit('end');
+      form.emit('close');
+
+      expect(form.events.error.called).to.equal(true);
+      expect(form.events.end.called).to.equal(true);
+      expect(form.events.close.called).to.equal(true);
+    });
   });
 
   describe('finishWatchJobStatusTask', () => {

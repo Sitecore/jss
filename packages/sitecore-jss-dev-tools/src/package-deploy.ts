@@ -376,24 +376,7 @@ export async function packageDeploy(options: PackageDeployOptions) {
     applyCertPinning(req, options);
   }
 
-  let ended = false;
-  let errored = false;
-
-  formData.on('end', () => {
-    ended = true;
-  });
-
-  formData.once('error', (err) => {
-    errored = true;
-    console.log('Error when uploading package:', err);
-    req.destroy(err);
-  });
-
-  formData.on('close', () => {
-    if (!ended && !errored) {
-      new Error('Request stream has been aborted');
-    }
-  });
+  attachFormDataHandlers(req, formData);
 
   formData.pipe(req);
 
@@ -461,4 +444,30 @@ export function setProxy(reqOptions: RequestOptions, proxy: string, targetUrl: s
     console.error(chalk.red(`Invalid proxy url provided ${proxy}`));
     process.exit(1);
   }
+}
+
+/**
+ * Attach form data handlers to handle errors and close events
+ * @param {ClientRequest} req request object
+ * @param {FormData} formData FormData object
+ */
+export function attachFormDataHandlers(req: ClientRequest, formData: FormData) {
+  let ended = false;
+  let errored = false;
+
+  formData.on('end', () => {
+    ended = true;
+  });
+
+  formData.once('error', (err) => {
+    errored = true;
+    console.log('Error when uploading package:', err);
+    req.destroy(err);
+  });
+
+  formData.on('close', () => {
+    if (!ended && !errored) {
+      new Error('Request stream has been aborted');
+    }
+  });
 }
