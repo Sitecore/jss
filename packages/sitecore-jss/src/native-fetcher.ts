@@ -183,7 +183,6 @@ export class NativeDataFetcher {
       init.method = init.body ? 'POST' : 'GET';
     }
 
-    headers.set('Content-Type', 'application/json');
     init.headers = headers;
 
     return init;
