@@ -201,6 +201,10 @@ export async function watchJobStatus(options: PackageDeployOptions, taskName: st
 
   const req = client.request(reqOptions);
 
+  if (isHttps) {
+    applyCertPinning(req, options);
+  }
+
   let responseData = '';
 
   req.on('response', (res) => {
