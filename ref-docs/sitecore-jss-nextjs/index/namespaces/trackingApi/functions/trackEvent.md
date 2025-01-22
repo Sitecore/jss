@@ -25,4 +25,4 @@ void
 
 ## Defined in
 
-sitecore-jss/types/tracking/trackingApi.d.ts:15
+sitecore-jss/types/tracking/trackingApi.d.ts:9

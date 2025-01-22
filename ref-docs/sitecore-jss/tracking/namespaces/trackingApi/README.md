@@ -10,5 +10,4 @@
 
 ### Functions
 
-- [checkStatus](functions/checkStatus.md)
 - [trackEvent](functions/trackEvent.md)

@@ -10,4 +10,4 @@
 
 ## Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:17
+sitecore-jss/types/native-fetcher.d.ts:43

@@ -7,7 +7,7 @@
 # Class: RestDictionaryService
 
 Fetch dictionary data using the Sitecore Dictionary Service REST API.
-Uses Axios as the default data fetcher (@see AxiosDataFetcher).
+Uses NativeDataFetcher as the default data fetcher (@see NativeDataFetcher).
 
 ## Extends
 
@@ -63,7 +63,7 @@ Provides default
 
 ##### See
 
-AxiosDataFetcher data fetcher
+NativeDataFetcher data fetcher
 
 ##### Returns
 

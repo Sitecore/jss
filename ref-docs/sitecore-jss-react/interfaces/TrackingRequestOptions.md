@@ -22,7 +22,7 @@ packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:15
 
 ### fetcher
 
-> **fetcher**: `HttpDataFetcher`\<`void`\>
+> **fetcher**: [`HttpDataFetcher`](../type-aliases/HttpDataFetcher.md)\<`void`\>
 
 The fetcher that performs the HTTP request and returns a promise to JSON
 

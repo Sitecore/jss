@@ -1,7 +1,7 @@
 @import '@sass/abstracts/vars';
 @import '@sass/abstracts/mixins';
-@import '@fontawesome/scss/mixins';
-@import '@fontawesome/scss/variables';
+@import '~font-awesome/scss/mixins';
+@import '~font-awesome/scss/variables';
 
 .navigation.sitemap-navigation {
   .level2 a {

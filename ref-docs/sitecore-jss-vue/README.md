@@ -18,6 +18,7 @@
 - [GraphQLLayoutService](classes/GraphQLLayoutService.md)
 - [GraphQLRequestClient](classes/GraphQLRequestClient.md)
 - [MemoryCacheClient](classes/MemoryCacheClient.md)
+- [NativeDataFetcher](classes/NativeDataFetcher.md)
 - [RestDictionaryService](classes/RestDictionaryService.md)
 - [RestLayoutService](classes/RestLayoutService.md)
 
@@ -37,6 +38,7 @@
 - [LayoutService](interfaces/LayoutService.md)
 - [LayoutServiceContextData](interfaces/LayoutServiceContextData.md)
 - [LayoutServiceData](interfaces/LayoutServiceData.md)
+- [NativeDataFetcherResponse](interfaces/NativeDataFetcherResponse.md)
 - [OutcomeInstance](interfaces/OutcomeInstance.md)
 - [PageViewInstance](interfaces/PageViewInstance.md)
 - [RetryStrategy](interfaces/RetryStrategy.md)
@@ -50,6 +52,9 @@
 - [FieldEditButton](type-aliases/FieldEditButton.md)
 - [GraphQLClientError](type-aliases/GraphQLClientError.md)
 - [GraphQLRequestClientFactoryConfig](type-aliases/GraphQLRequestClientFactoryConfig.md)
+- [HttpDataFetcher](type-aliases/HttpDataFetcher.md)
+- [NativeDataFetcherConfig](type-aliases/NativeDataFetcherConfig.md)
+- [NativeDataFetcherError](type-aliases/NativeDataFetcherError.md)
 - [WebEditButton](type-aliases/WebEditButton.md)
 
 ## Variables

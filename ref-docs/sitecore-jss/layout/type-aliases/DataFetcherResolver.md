@@ -6,7 +6,7 @@
 
 # Type Alias: DataFetcherResolver()
 
-> **DataFetcherResolver**: \<`T`\>(`req`?, `res`?) => [`HttpDataFetcher`](../../index/type-aliases/HttpDataFetcher.md)\<`T`\>
+> **DataFetcherResolver**: \<`T`\>(`req`?, `res`?) => [`HttpDataFetcher`](../../index/type-aliases/HttpDataFetcher.md)\<`T`\> \| `NativeDataFetcherFunction`\<`T`\>
 
 Data fetcher resolver in order to provide custom data fetcher
 
@@ -25,8 +25,8 @@ Data fetcher resolver in order to provide custom data fetcher
 
 ## Returns
 
-[`HttpDataFetcher`](../../index/type-aliases/HttpDataFetcher.md)\<`T`\>
+[`HttpDataFetcher`](../../index/type-aliases/HttpDataFetcher.md)\<`T`\> \| `NativeDataFetcherFunction`\<`T`\>
 
 ## Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:57](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L57)

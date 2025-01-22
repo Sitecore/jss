@@ -7,7 +7,7 @@
 # Class: RestLayoutService
 
 Fetch layout data using the Sitecore Layout Service REST API.
-Uses Axios as the default data fetcher (@see AxiosDataFetcher).
+Uses NativeDataFetcher as the default data fetcher (@see NativeDataFetcher).
 
 ## Extends
 
@@ -35,7 +35,7 @@ Uses Axios as the default data fetcher (@see AxiosDataFetcher).
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:64](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/layout/rest-layout-service.ts#L64)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:68](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L68)
 
 ## Methods
 
@@ -70,7 +70,7 @@ the item with the specified path is not found
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:77](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/layout/rest-layout-service.ts#L77)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:81](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L81)
 
 ***
 
@@ -100,14 +100,15 @@ placeholder data
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:132](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/layout/rest-layout-service.ts#L132)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:137](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L137)
 
 ***
 
 ### getDefaultFetcher()
 
-> `protected` **getDefaultFetcher**\<`T`\>(`req`?, `res`?): (`url`, `data`?) => `Promise`\<[`AxiosResponse`](../../index/interfaces/AxiosResponse.md)\<`T`\>\>
+> `protected` **getDefaultFetcher**\<`T`\>(`req`?, `res`?): (`url`, `data`?) => `Promise`\<[`NativeDataFetcherResponse`](../../index/interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
 
+Returns a fetcher function pre-configured with headers from the incoming request.
 Provides default
 
 #### Type Parameters
@@ -134,19 +135,19 @@ default fetcher
 | Parameter | Type |
 | ------ | ------ |
 | `url` | `string` |
-| `data`? | `unknown` |
+| `data`? | `RequestInit` |
 
 ##### Returns
 
-`Promise`\<[`AxiosResponse`](../../index/interfaces/AxiosResponse.md)\<`T`\>\>
+`Promise`\<[`NativeDataFetcherResponse`](../../index/interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
 
 #### See
 
-AxiosDataFetcher data fetcher
+NativeDataFetcher data fetcher
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:192](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/layout/rest-layout-service.ts#L192)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:198](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L198)
 
 ***
 
@@ -170,7 +171,7 @@ fetch options
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:166](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/layout/rest-layout-service.ts#L166)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:171](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L171)
 
 ***
 
@@ -194,72 +195,59 @@ the layout service url
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:180](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/layout/rest-layout-service.ts#L180)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:185](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L185)
 
 ***
 
 ### setupReqHeaders()
 
-> `protected` **setupReqHeaders**(`req`): (`reqConfig`) => `AxiosRequestConfig`
+> `protected` **setupReqHeaders**(`req`?): `Headers`
 
-Setup request headers
+Creates an HTTP `Headers` object populated with headers from the incoming request.
 
 #### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `req` | `IncomingMessage` | Request instance |
+| `req`? | `IncomingMessage` | The incoming HTTP request, used to extract headers. |
 
 #### Returns
 
-`Function`
+`Headers`
 
-axios request config
-
-##### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `reqConfig` | `AxiosRequestConfig` |
-
-##### Returns
-
-`AxiosRequestConfig`
+- An instance of the `Headers` object populated with the extracted headers.
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:214](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/layout/rest-layout-service.ts#L214)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:224](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L224)
 
 ***
 
 ### setupResHeaders()
 
-> `protected` **setupResHeaders**(`res`): (`serverRes`) => [`AxiosResponse`](../../index/interfaces/AxiosResponse.md)\<`any`\>
+> `protected` **setupResHeaders**\<`T`\>(`res`, `serverRes`): [`NativeDataFetcherResponse`](../../index/interfaces/NativeDataFetcherResponse.md)\<`T`\>
 
 Setup response headers based on response from layout service
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` |
 
 #### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `res` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
+| `serverRes` | [`NativeDataFetcherResponse`](../../index/interfaces/NativeDataFetcherResponse.md)\<`T`\> |  |
 
 #### Returns
 
-`Function`
+[`NativeDataFetcherResponse`](../../index/interfaces/NativeDataFetcherResponse.md)\<`T`\>
 
 response
 
-##### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `serverRes` | [`AxiosResponse`](../../index/interfaces/AxiosResponse.md)\<`any`\> |
-
-##### Returns
-
-[`AxiosResponse`](../../index/interfaces/AxiosResponse.md)\<`any`\>
-
 #### Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:233](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/layout/rest-layout-service.ts#L233)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:251](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/layout/rest-layout-service.ts#L251)

@@ -23,7 +23,6 @@
 
 ### Classes
 
-- [AxiosDataFetcher](classes/AxiosDataFetcher.md)
 - [BYOCComponent](classes/BYOCComponent.md)
 - [CdpHelper](classes/CdpHelper.md)
 - [ComponentBuilder](classes/ComponentBuilder.md)
@@ -46,7 +45,6 @@
 
 ### Interfaces
 
-- [AxiosResponse](interfaces/AxiosResponse.md)
 - [CacheClient](interfaces/CacheClient.md)
 - [CacheOptions](interfaces/CacheOptions.md)
 - [CampaignInstance](interfaces/CampaignInstance.md)
@@ -64,7 +62,6 @@
 - [GraphQLLayoutServiceConfig](interfaces/GraphQLLayoutServiceConfig.md)
 - [GraphQLSitemapServiceConfig](interfaces/GraphQLSitemapServiceConfig.md)
 - [HtmlElementRendering](interfaces/HtmlElementRendering.md)
-- [HttpResponse](interfaces/HttpResponse.md)
 - [ImageField](interfaces/ImageField.md)
 - [ImageFieldValue](interfaces/ImageFieldValue.md)
 - [ImageProps](interfaces/ImageProps.md)
@@ -77,6 +74,7 @@
 - [LinkField](interfaces/LinkField.md)
 - [LinkFieldValue](interfaces/LinkFieldValue.md)
 - [MultisiteGraphQLSitemapServiceConfig](interfaces/MultisiteGraphQLSitemapServiceConfig.md)
+- [NativeDataFetcherResponse](interfaces/NativeDataFetcherResponse.md)
 - [OutcomeInstance](interfaces/OutcomeInstance.md)
 - [PageViewInstance](interfaces/PageViewInstance.md)
 - [PlaceholderComponentProps](interfaces/PlaceholderComponentProps.md)
@@ -91,7 +89,6 @@
 
 ### Type Aliases
 
-- [AxiosDataFetcherConfig](type-aliases/AxiosDataFetcherConfig.md)
 - [BYOCComponentParams](type-aliases/BYOCComponentParams.md)
 - [BYOCComponentProps](type-aliases/BYOCComponentProps.md)
 - [ComponentBuilderConfig](type-aliases/ComponentBuilderConfig.md)
@@ -113,6 +110,7 @@
 - [Module](type-aliases/Module.md)
 - [ModuleFactory](type-aliases/ModuleFactory.md)
 - [NativeDataFetcherConfig](type-aliases/NativeDataFetcherConfig.md)
+- [NativeDataFetcherError](type-aliases/NativeDataFetcherError.md)
 - [PlaceholdersData](type-aliases/PlaceholdersData.md)
 - [RestDictionaryServiceConfig](type-aliases/RestDictionaryServiceConfig.md)
 - [RestLayoutServiceConfig](type-aliases/RestLayoutServiceConfig.md)

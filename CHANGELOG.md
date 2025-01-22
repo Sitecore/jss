@@ -11,6 +11,27 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🐛 Bug Fixes
+
+* `[templates/nextjs-sxa]` Fixed font-awesome import issue in custom workspace configuration ([#1998](https://github.com/Sitecore/jss/pull/1998))
+* `[sitecore-jss-nextjs]` Fixed handling of ? inside square brackets [] in regex patterns to prevent incorrect escaping ([#1999](https://github.com/Sitecore/jss/pull/1999))
+* `[sitecore-jss-nextjs]` Improve performance for redirect middleware ([#2003](https://github.com/Sitecore/jss/pull/2003))
+* `[templates/nextjs]` `[templates/nextjs-sxa]` Fixed condition of DISABLE_FETCH_SSG ([#2007](https://github.com/Sitecore/jss/pull/2007))
+* `[sitecore-jss]` Fixed incorrect escaping of question marks in negative lookahead patterns in `escapeNonSpecialQuestionMarks` function ([#2014](https://github.com/Sitecore/jss/pull/2014))
+
+
+### 🛠 Breaking Change
+
+* `[all packages]` `[all samples]` Remove Axios ([#2006](https://github.com/Sitecore/jss/pull/2006)) ([#2008](https://github.com/Sitecore/jss/pull/2008)) ([#2011](https://github.com/Sitecore/jss/pull/2011))([#2013](https://github.com/Sitecore/jss/pull/2013))([#2015](https://github.com/Sitecore/jss/pull/2015))
+([#2016](https://github.com/Sitecore/jss/pull/2016))
+    * `AxiosDataFetcher` is replaced by the `NativeDataFetcher`.
+    * `AxiosDataFetcherConfig` is replaced by `NativeDataFetcherConfig`.
+    * `AxiosResponse` is replaced by `NativeDataFetcherResponse`.
+    * `NativeDataFetcherError`: a new error type introduced for native data fetching operations.
+    * Default fetcher i.e. `NativeDataFetcher.fetch` is of type `NativeDataFetcherFunction<T>` but can be overridden by custom fetcher using the existing `HttpDataFetcher<T>` type.
+    * `NativeDataFetcher` now exposes `fetch`, `get`, `post`, `delete`, `put`, `head` methods.
+    * `NativedDataFetcher.fetch` now accepts second parameter of type `RequestInit` instead of `unknown`.
+
 ## 22.3.0 / 22.3.1
 
 ### 🐛 Bug Fixes

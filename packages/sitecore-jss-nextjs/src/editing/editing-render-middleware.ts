@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
-import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
+import { NativeDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditMode, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
 import {
   QUERY_PARAM_EDITING_SECRET,
@@ -22,11 +22,11 @@ export type EditingRenderMiddlewareConfig = {
   /**
    * -- Edit Mode Chromes --
    *
-   * The `AxiosDataFetcher` instance to use for API requests.
-   * @default new AxiosDataFetcher()
-   * @see AxiosDataFetcher
+   * The `NativeDataFetcher` instance to use for API requests.
+   * @default new NativeDataFetcher()
+   * @see NativeDataFetcher
    */
-  dataFetcher?: AxiosDataFetcher;
+  dataFetcher?: NativeDataFetcher;
   /**
    * -- Edit Mode Chromes --
    *
@@ -75,7 +75,7 @@ export type EditingRenderMiddlewareChromesConfig = EditingRenderMiddlewareConfig
  */
 export class ChromesHandler extends RenderMiddlewareBase {
   private editingDataService: EditingDataService;
-  private dataFetcher: AxiosDataFetcher;
+  private dataFetcher: NativeDataFetcher;
   private resolvePageUrl: (args: { serverUrl: string; itemPath: string }) => string;
   private resolveServerUrl: (req: NextApiRequest) => string;
 
@@ -83,7 +83,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
     super();
 
     this.editingDataService = config?.editingDataService ?? editingDataService;
-    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.editing });
+    this.dataFetcher = config?.dataFetcher ?? new NativeDataFetcher({ debugger: debug.editing });
     this.resolvePageUrl = config?.resolvePageUrl ?? this.defaultResolvePageUrl;
     this.resolveServerUrl = config?.resolveServerUrl ?? this.defaultResolveServerUrl;
   }
@@ -123,7 +123,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
       headers.cookie = `${headers.cookie ? headers.cookie + ';' : ''}${cookies.join(';')}`;
 
       // Make actual render request for page route, passing on preview cookies as well as any approved query string parameters.
-      // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
+      // Note timestamp effectively disables caching the request (no amount of cache headers seemed to do it)
       debug.editing('fetching page route for %s', editingData.path);
       const requestUrl = new URL(this.resolvePageUrl({ serverUrl, itemPath: editingData.path }));
       for (const key in params) {
@@ -132,6 +132,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
         }
       }
       requestUrl.searchParams.append('timestamp', Date.now().toString());
+
       const pageRes = await this.dataFetcher
         .get<string>(requestUrl.toString(), {
           headers,
@@ -176,8 +177,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
 
       console.error(error);
 
-      if (error.response || error.request) {
-        // Axios error, which could mean the server or page URL isn't quite right, so provide a more helpful hint
+      if (error.response) {
         console.info(
           // eslint-disable-next-line quotes
           "Hint: for non-standard server or Next.js route configurations, you may need to override the 'resolveServerUrl' or 'resolvePageUrl' available on the 'EditingRenderMiddleware' config."

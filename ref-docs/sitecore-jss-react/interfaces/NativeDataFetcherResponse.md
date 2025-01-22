@@ -1,10 +1,10 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
 
 ***
 
-[@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [index](../README.md) / HttpResponse
+[@sitecore-jss/sitecore-jss-react](../README.md) / NativeDataFetcherResponse
 
-# Interface: HttpResponse\<T\>
+# Interface: NativeDataFetcherResponse\<T\>
 
 Response data for an HTTP request sent to an API
 
@@ -24,7 +24,19 @@ Response content
 
 #### Defined in
 
-sitecore-jss/types/data-fetcher.d.ts:12
+packages/sitecore-jss/types/native-fetcher.d.ts:26
+
+***
+
+### headers?
+
+> `optional` **headers**: `HeadersInit`
+
+Response headers
+
+#### Defined in
+
+packages/sitecore-jss/types/native-fetcher.d.ts:28
 
 ***
 
@@ -36,7 +48,7 @@ HTTP status code of the response (i.e. 200, 404)
 
 #### Defined in
 
-sitecore-jss/types/data-fetcher.d.ts:8
+packages/sitecore-jss/types/native-fetcher.d.ts:22
 
 ***
 
@@ -48,4 +60,4 @@ HTTP status text of the response (i.e. 'OK', 'Bad Request')
 
 #### Defined in
 
-sitecore-jss/types/data-fetcher.d.ts:10
+packages/sitecore-jss/types/native-fetcher.d.ts:24

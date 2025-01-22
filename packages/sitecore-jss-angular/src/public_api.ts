@@ -77,6 +77,10 @@ export {
 export {
   constants,
   HttpDataFetcher,
+  NativeDataFetcher,
+  NativeDataFetcherConfig,
+  NativeDataFetcherResponse,
+  NativeDataFetcherError,
   HttpResponse,
   enableDebug,
   ClientError,

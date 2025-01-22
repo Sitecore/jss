@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[packages/sitecore-jss/src/native-fetcher.ts:57](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/native-fetcher.ts#L57)
 
 ## Properties
 
@@ -34,9 +34,40 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[packages/sitecore-jss/src/native-fetcher.ts:57](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/native-fetcher.ts#L57)
 
 ## Methods
+
+### delete()
+
+> **delete**\<`T`\>(`url`, `options`?): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+Perform a DELETE request
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` |
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request (may include query string) |
+| `options`? | `RequestInit` | Fetch options |
+
+#### Returns
+
+`Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+response
+
+#### Defined in
+
+[packages/sitecore-jss/src/native-fetcher.ts:145](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/native-fetcher.ts#L145)
+
+***
 
 ### extractDebugHeaders()
 
@@ -58,13 +89,13 @@ Object with headers as key/value pairs
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:115](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/native-fetcher.ts#L115)
+[packages/sitecore-jss/src/native-fetcher.ts:196](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/native-fetcher.ts#L196)
 
 ***
 
 ### fetch()
 
-> **fetch**\<`T`\>(`url`, `data`?): `Promise`\<[`HttpResponse`](../interfaces/HttpResponse.md)\<`T`\>\>
+> **fetch**\<`T`\>(`url`, `options`?): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
 
 Implements a data fetcher.
 
@@ -78,28 +109,55 @@ Implements a data fetcher.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `url` | `string` | The URL to request; may include query string |
-| `data`? | `unknown` | Optional data to POST with the request. |
+| `url` | `string` | The URL to request (may include query string) |
+| `options`? | `RequestInit` | Optional fetch options |
 
 #### Returns
 
-`Promise`\<[`HttpResponse`](../interfaces/HttpResponse.md)\<`T`\>\>
+`Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
 
 response
 
-#### See
+#### Defined in
 
-HttpDataFetcher<T> type for implementation details/notes.
+[packages/sitecore-jss/src/native-fetcher.ts:65](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/native-fetcher.ts#L65)
+
+***
+
+### get()
+
+> **get**\<`T`\>(`url`, `options`?): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+Perform a GET request
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` |
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request (may include query string) |
+| `options`? | `RequestInit` | Fetch options |
+
+#### Returns
+
+`Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+response
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:33](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/native-fetcher.ts#L33)
+[packages/sitecore-jss/src/native-fetcher.ts:120](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/native-fetcher.ts#L120)
 
 ***
 
 ### getRequestInit()
 
-> `protected` **getRequestInit**(`init`, `data`?): `RequestInit`
+> `protected` **getRequestInit**(`init`): `RequestInit`
 
 Determines settings for the request
 
@@ -108,7 +166,6 @@ Determines settings for the request
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `init` | `RequestInit` | Custom settings for request |
-| `data`? | `unknown` | Optional data to POST with the request |
 
 #### Returns
 
@@ -118,4 +175,99 @@ The final request settings
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:97](https://github.com/Sitecore/jss/blob/50bf04579b0cca04c7059f30ccf34e73b26a07bf/packages/sitecore-jss/src/native-fetcher.ts#L97)
+[packages/sitecore-jss/src/native-fetcher.ts:179](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/native-fetcher.ts#L179)
+
+***
+
+### head()
+
+> **head**\<`T`\>(`url`, `options`?): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+Perform a HEAD request
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` |
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request (may include query string) |
+| `options`? | `RequestInit` | Fetch options |
+
+#### Returns
+
+`Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+response
+
+#### Defined in
+
+[packages/sitecore-jss/src/native-fetcher.ts:170](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/native-fetcher.ts#L170)
+
+***
+
+### post()
+
+> **post**\<`T`\>(`url`, `body`, `options`?): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+Perform a POST request
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` |
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request (may include query string) |
+| `body` | `unknown` | The data to send with the request |
+| `options`? | `RequestInit` | Fetch options |
+
+#### Returns
+
+`Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+response
+
+#### Defined in
+
+[packages/sitecore-jss/src/native-fetcher.ts:131](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/native-fetcher.ts#L131)
+
+***
+
+### put()
+
+> **put**\<`T`\>(`url`, `body`, `options`?): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+Perform a PUT request
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` |
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request (may include query string) |
+| `body` | `unknown` | The data to send with the request |
+| `options`? | `RequestInit` | Fetch options |
+
+#### Returns
+
+`Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+response
+
+#### Defined in
+
+[packages/sitecore-jss/src/native-fetcher.ts:156](https://github.com/Sitecore/jss/blob/82ba9acfab1c96dd12c5ff801d8b5672e4f3018e/packages/sitecore-jss/src/native-fetcher.ts#L156)

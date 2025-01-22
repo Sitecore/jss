@@ -24,7 +24,7 @@
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:21
+sitecore-jss/types/native-fetcher.d.ts:47
 
 ## Properties
 
@@ -34,9 +34,40 @@ sitecore-jss/types/native-fetcher.d.ts:21
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:19
+sitecore-jss/types/native-fetcher.d.ts:45
 
 ## Methods
+
+### delete()
+
+> **delete**\<`T`\>(`url`, `options`?): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+Perform a DELETE request
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` |
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request (may include query string) |
+| `options`? | `RequestInit` | Fetch options |
+
+#### Returns
+
+`Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+response
+
+#### Defined in
+
+sitecore-jss/types/native-fetcher.d.ts:76
+
+***
 
 ### extractDebugHeaders()
 
@@ -58,13 +89,13 @@ Object with headers as key/value pairs
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:41
+sitecore-jss/types/native-fetcher.d.ts:103
 
 ***
 
 ### fetch()
 
-> **fetch**\<`T`\>(`url`, `data`?): `Promise`\<[`HttpResponse`](../interfaces/HttpResponse.md)\<`T`\>\>
+> **fetch**\<`T`\>(`url`, `options`?): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
 
 Implements a data fetcher.
 
@@ -78,28 +109,55 @@ Implements a data fetcher.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `url` | `string` | The URL to request; may include query string |
-| `data`? | `unknown` | Optional data to POST with the request. |
+| `url` | `string` | The URL to request (may include query string) |
+| `options`? | `RequestInit` | Optional fetch options |
 
 #### Returns
 
-`Promise`\<[`HttpResponse`](../interfaces/HttpResponse.md)\<`T`\>\>
+`Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
 
 response
 
-#### See
+#### Defined in
 
-HttpDataFetcher<T> type for implementation details/notes.
+sitecore-jss/types/native-fetcher.d.ts:54
+
+***
+
+### get()
+
+> **get**\<`T`\>(`url`, `options`?): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+Perform a GET request
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` |
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request (may include query string) |
+| `options`? | `RequestInit` | Fetch options |
+
+#### Returns
+
+`Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+response
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:28
+sitecore-jss/types/native-fetcher.d.ts:61
 
 ***
 
 ### getRequestInit()
 
-> `protected` **getRequestInit**(`init`?, `data`?): `RequestInit`
+> `protected` **getRequestInit**(`init`?): `RequestInit`
 
 Determines settings for the request
 
@@ -108,7 +166,6 @@ Determines settings for the request
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `init`? | `RequestInit` | Custom settings for request |
-| `data`? | `unknown` | Optional data to POST with the request |
 
 #### Returns
 
@@ -118,4 +175,99 @@ The final request settings
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:35
+sitecore-jss/types/native-fetcher.d.ts:97
+
+***
+
+### head()
+
+> **head**\<`T`\>(`url`, `options`?): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+Perform a HEAD request
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` |
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request (may include query string) |
+| `options`? | `RequestInit` | Fetch options |
+
+#### Returns
+
+`Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+response
+
+#### Defined in
+
+sitecore-jss/types/native-fetcher.d.ts:91
+
+***
+
+### post()
+
+> **post**\<`T`\>(`url`, `body`, `options`?): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+Perform a POST request
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` |
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request (may include query string) |
+| `body` | `unknown` | The data to send with the request |
+| `options`? | `RequestInit` | Fetch options |
+
+#### Returns
+
+`Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+response
+
+#### Defined in
+
+sitecore-jss/types/native-fetcher.d.ts:69
+
+***
+
+### put()
+
+> **put**\<`T`\>(`url`, `body`, `options`?): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+Perform a PUT request
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` |
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `url` | `string` | The URL to request (may include query string) |
+| `body` | `unknown` | The data to send with the request |
+| `options`? | `RequestInit` | Fetch options |
+
+#### Returns
+
+`Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+
+response
+
+#### Defined in
+
+sitecore-jss/types/native-fetcher.d.ts:84

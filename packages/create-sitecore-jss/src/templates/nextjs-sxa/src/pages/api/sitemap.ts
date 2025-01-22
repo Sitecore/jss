@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { AxiosDataFetcher, GraphQLSitemapXmlService, AxiosResponse } from '@sitecore-jss/sitecore-jss-nextjs';
+import { NativeDataFetcher, GraphQLSitemapXmlService } from '@sitecore-jss/sitecore-jss-nextjs'
 import { siteResolver } from 'lib/site-resolver';
 import config from 'temp/config';
 import clientFactory from 'lib/graphql-client-factory';
@@ -33,16 +33,27 @@ const sitemapApi = async (
     const sitemapUrl = isAbsoluteUrl ? sitemapPath : `${config.sitecoreApiHost}${sitemapPath}`;
     res.setHeader('Content-Type', 'text/xml;charset=utf-8');
 
-    // need to prepare stream from sitemap url
-    return new AxiosDataFetcher()
-      .get(sitemapUrl, {
-        responseType: 'stream',
-      })
-      .then((response: AxiosResponse) => {
-        response.data.pipe(res);
-      })
-      .catch(() => res.redirect('/404'));
+    try {
+      const fetcher = new NativeDataFetcher();
+      const response = await fetcher.fetch(sitemapUrl);
+
+      const reader = (response?.data as ReadableStream<Uint8Array>).getReader();
+      if (reader) {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          if (value) res.write(value);
+        }
+      }
+      res.end();
+    } catch (error) {
+      return res.redirect('/404');
+    }
+    return;
   }
+
+
+
 
   // this approache if user go to /sitemap.xml - under it generate xml page with list of sitemaps
   const sitemaps = await sitemapXmlService.fetchSitemaps();
@@ -50,11 +61,11 @@ const sitemapApi = async (
   if (!sitemaps.length) {
     return res.redirect('/404');
   }
-  
+
   const reqtHost = req.headers.host;
   const reqProtocol = req.headers['x-forwarded-proto'] || 'https';
   const SitemapLinks = sitemaps
-    .map((item) => {
+    .map((item: string) => {
       const parseUrl = item.split('/');
       const lastSegment = parseUrl[parseUrl.length - 1];
 

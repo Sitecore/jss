@@ -29,7 +29,6 @@
   "dependencies": {
     "@apollo/client": "^3.7.1",
     "@sitecore-jss/sitecore-jss-react": "~<%- version %>",
-    "axios": "^1.2.0",
     "bootstrap": "^5.2.3",
     "cross-fetch": "^3.1.5",
     "fast-deep-equal": "^3.1.3",
