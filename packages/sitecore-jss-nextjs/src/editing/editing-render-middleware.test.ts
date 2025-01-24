@@ -597,6 +597,29 @@ describe('EditingRenderMiddleware', () => {
       expect(fetcher.get).to.have.been.calledWithMatch('https://vercel.com');
     });
 
+    it('resolveServerUrl should return https address when authorization header present', async () => {
+      const html = '<html><body>Something amazing</body></html>';
+      const fetcher = mockFetcher(html);
+      const dataService = mockDataService();
+      const query = {} as Query;
+      query[QUERY_PARAM_EDITING_SECRET] = secret;
+      const req = mockRequest(EE_BODY, query, undefined, {
+        authorization: '123',
+        host: 'testhostheader.com',
+      });
+      const res = mockResponse();
+
+      const middleware = new EditingRenderMiddleware({
+        dataFetcher: fetcher,
+        editingDataService: dataService,
+      });
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(fetcher.get).to.have.been.calledWithMatch('https://testhostheader.com');
+    });
+
     it('should use custom resolveServerUrl', async () => {
       const html = '<html><body>Something amazing</body></html>';
       const fetcher = mockFetcher(html);
@@ -731,7 +754,7 @@ describe('EditingRenderMiddleware', () => {
 
       expect(fetcher.get).to.have.been.calledOnce;
       expect(fetcher.get).to.have.been.calledWith(
-        match('http://localhost:3000/test/path?timestamp'),
+        match('https://localhost:3000/test/path?timestamp'),
         {
           headers: {
             authorization: mockAuthValue,

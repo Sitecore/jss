@@ -77,7 +77,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
   private editingDataService: EditingDataService;
   private dataFetcher: NativeDataFetcher;
   private resolvePageUrl: (args: { serverUrl: string; itemPath: string }) => string;
-  private resolveServerUrl: (req: NextApiRequest) => string;
+  private resolveServerUrl: (req: NextApiRequest, secure?: boolean) => string;
 
   constructor(public config?: EditingRenderMiddlewareChromesConfig) {
     super();
@@ -96,9 +96,10 @@ export class ChromesHandler extends RenderMiddlewareBase {
     try {
       // Extract data from EE payload
       const editingData = this.extractEditingData(req);
-
+      // use https for requests with auth but also support unsecured http rendering hosts
+      const secure = req.headers.authorization || process.env.VERCEL ? true : false;
       // Resolve server URL
-      const serverUrl = this.resolveServerUrl(req);
+      const serverUrl = this.resolveServerUrl(req, secure);
 
       // Get query string parameters to propagate on subsequent requests (e.g. for deployment protection bypass)
       const params = this.getQueryParamsForPropagation(query);
@@ -216,8 +217,8 @@ export class ChromesHandler extends RenderMiddlewareBase {
    * https://vercel.com/docs/environment-variables#system-environment-variables
    * @param {NextApiRequest} req
    */
-  private defaultResolveServerUrl = (req: NextApiRequest) => {
-    return `${process.env.VERCEL ? 'https' : 'http'}://${req.headers.host}`;
+  private defaultResolveServerUrl = (req: NextApiRequest, secure?: boolean) => {
+    return `${secure ? 'https' : 'http'}://${req.headers.host}`;
   };
 
   private extractEditingData(req: NextApiRequest): EditingData {
