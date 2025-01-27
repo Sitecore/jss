@@ -12,7 +12,7 @@ let fetchInit: RequestInit | undefined;
 
 const mockFetch = (
   status: number,
-  response: unknown = {},
+  response: { [key: string]: unknown } = {},
   {
     jsonError,
     textError,
@@ -55,6 +55,7 @@ const mockFetch = (
           ? Promise.reject(new Error(textError))
           : Promise.resolve(JSON.stringify(response));
       },
+      body: response.body,
     } as Response);
   };
 };
@@ -65,7 +66,7 @@ const mockHeaders = () => {
   });
 };
 
-describe('NativeDataFetcher', () => {
+describe.only('NativeDataFetcher', () => {
   let debugNamespaces: string;
 
   before(() => {
@@ -130,6 +131,30 @@ describe('NativeDataFetcher', () => {
 
       const response = await fetcher.fetch('http://test.com/api');
       expect(response.status).to.equal(200);
+      expect(fetchInput).to.equal('http://test.com/api');
+      expect(fetchInit?.method).to.equal('GET');
+      expect(fetchInit?.body).to.be.undefined;
+    });
+
+    it.only('should execute request with stream response type', async () => {
+      const fetcher = new NativeDataFetcher();
+
+      const fakeRes = { body: new ReadableStream() };
+
+      spy.on(
+        global,
+        'fetch',
+        mockFetch(200, fakeRes, {
+          customHeaders: {
+            'Content-Type': 'text/xml',
+          },
+        })
+      );
+
+      const response = await fetcher.fetch('http://test.com/api');
+
+      expect(response.status).to.equal(200);
+      expect(response.data instanceof ReadableStream).to.be.true;
       expect(fetchInput).to.equal('http://test.com/api');
       expect(fetchInit?.method).to.equal('GET');
       expect(fetchInit?.body).to.be.undefined;

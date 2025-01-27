@@ -220,6 +220,11 @@ export class NativeDataFetcher {
       if (contentType.includes('application/json')) {
         return await response.json();
       }
+
+      if (response.body instanceof ReadableStream) {
+        return response.body;
+      }
+
       return await response.text();
     } catch (error) {
       debug('Response parsing error: %o', error);
