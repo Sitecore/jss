@@ -11,10 +11,12 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 22.4.1
+
 ### 🐛 Bug Fixes
 
-* `[sitecore-jss-nextj]` Fix Chromes editing mode when rendering host URL is internally redirected in XMCloud [#2019](https://github.com/Sitecore/jss/pull/2019)
-
+* `[sitecore-jss-nextjs]` Fix Chromes editing mode when rendering host URL is internally redirected in XMCloud ([#2019](https://github.com/Sitecore/jss/pull/2019))
+* `[sitecore-jss]` NativeDataFetcher doesn't return stream response ([#2020](https://github.com/Sitecore/jss/pull/2020))
 
 ## 22.4.0
 
