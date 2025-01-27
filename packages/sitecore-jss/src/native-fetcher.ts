@@ -1,5 +1,6 @@
 import debuggers, { Debugger } from './debug';
 import TimeoutPromise from './utils/timeout-promise';
+import packageJson from '../package.json';
 
 type NativeDataFetcherOptions = {
   /**
@@ -182,6 +183,7 @@ export class NativeDataFetcher {
     if (!init.method) {
       init.method = init.body ? 'POST' : 'GET';
     }
+    headers.set('User-Agent', `jss/${packageJson.version}`);
 
     init.headers = headers;
 

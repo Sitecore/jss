@@ -4,6 +4,7 @@ import spies from 'chai-spies';
 import { NativeDataFetcher } from './native-fetcher';
 import debugApi from 'debug';
 import debug from './debug';
+import packageJson from '../package.json';
 
 use(spies);
 
@@ -224,6 +225,7 @@ describe('NativeDataFetcher', () => {
 
     it('should execute request with custom init', async () => {
       const headers = {
+        'User-Agent': `jss/${packageJson.version}`,
         x: 'x',
         y: 'y',
       };

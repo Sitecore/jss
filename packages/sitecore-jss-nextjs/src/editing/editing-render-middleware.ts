@@ -135,6 +135,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
 
       const pageRes = await this.dataFetcher
         .get<string>(requestUrl.toString(), {
+          credentials: 'include',
           headers,
         })
         .catch((err) => {
@@ -217,10 +218,11 @@ export class ChromesHandler extends RenderMiddlewareBase {
    * @param {NextApiRequest} req
    */
   private defaultResolveServerUrl = (req: NextApiRequest) => {
+    // to preserve auth headers, use https if we're in our 3 main hosting options
+    const useHttps =
+      (process.env.VERCEL || process.env.SITECORE || process.env.NETLIFY) !== undefined;
     // use https for requests with auth but also support unsecured http rendering hosts
-    return `${req.headers.authorization || process.env.VERCEL ? 'https' : 'http'}://${
-      req.headers.host
-    }`;
+    return `${useHttps ? 'https' : 'http'}://${req.headers.host}`;
   };
 
   private extractEditingData(req: NextApiRequest): EditingData {

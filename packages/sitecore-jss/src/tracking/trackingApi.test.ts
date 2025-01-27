@@ -33,7 +33,7 @@ describe('trackEvent', () => {
       test: true,
       fetcher: dataFetcher,
     }).then((data) => {
-      expect(data).to.deep.equal([{ eventId: 'porgs' }]);
+      expect(JSON.parse(JSON.stringify(data))).to.deep.equal([{ eventId: 'porgs' }]);
     });
   });
 
