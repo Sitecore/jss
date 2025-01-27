@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:57](https://github.com/Sitecore/jss/blob/e262abe22bc8a139a1918b5a0c59cdb2b7252133/packages/sitecore-jss/src/native-fetcher.ts#L57)
+[packages/sitecore-jss/src/native-fetcher.ts:57](https://github.com/Sitecore/jss/blob/d160f1095278a16ea5872cd77afb8f20ec721b2a/packages/sitecore-jss/src/native-fetcher.ts#L57)
 
 ## Properties
 
@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:57](https://github.com/Sitecore/jss/blob/e262abe22bc8a139a1918b5a0c59cdb2b7252133/packages/sitecore-jss/src/native-fetcher.ts#L57)
+[packages/sitecore-jss/src/native-fetcher.ts:57](https://github.com/Sitecore/jss/blob/d160f1095278a16ea5872cd77afb8f20ec721b2a/packages/sitecore-jss/src/native-fetcher.ts#L57)
 
 ## Methods
 
@@ -65,7 +65,7 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:145](https://github.com/Sitecore/jss/blob/e262abe22bc8a139a1918b5a0c59cdb2b7252133/packages/sitecore-jss/src/native-fetcher.ts#L145)
+[packages/sitecore-jss/src/native-fetcher.ts:145](https://github.com/Sitecore/jss/blob/d160f1095278a16ea5872cd77afb8f20ec721b2a/packages/sitecore-jss/src/native-fetcher.ts#L145)
 
 ***
 
@@ -89,7 +89,7 @@ Object with headers as key/value pairs
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:196](https://github.com/Sitecore/jss/blob/e262abe22bc8a139a1918b5a0c59cdb2b7252133/packages/sitecore-jss/src/native-fetcher.ts#L196)
+[packages/sitecore-jss/src/native-fetcher.ts:196](https://github.com/Sitecore/jss/blob/d160f1095278a16ea5872cd77afb8f20ec721b2a/packages/sitecore-jss/src/native-fetcher.ts#L196)
 
 ***
 
@@ -120,7 +120,7 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:65](https://github.com/Sitecore/jss/blob/e262abe22bc8a139a1918b5a0c59cdb2b7252133/packages/sitecore-jss/src/native-fetcher.ts#L65)
+[packages/sitecore-jss/src/native-fetcher.ts:65](https://github.com/Sitecore/jss/blob/d160f1095278a16ea5872cd77afb8f20ec721b2a/packages/sitecore-jss/src/native-fetcher.ts#L65)
 
 ***
 
@@ -151,7 +151,7 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:120](https://github.com/Sitecore/jss/blob/e262abe22bc8a139a1918b5a0c59cdb2b7252133/packages/sitecore-jss/src/native-fetcher.ts#L120)
+[packages/sitecore-jss/src/native-fetcher.ts:120](https://github.com/Sitecore/jss/blob/d160f1095278a16ea5872cd77afb8f20ec721b2a/packages/sitecore-jss/src/native-fetcher.ts#L120)
 
 ***
 
@@ -175,7 +175,7 @@ The final request settings
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:179](https://github.com/Sitecore/jss/blob/e262abe22bc8a139a1918b5a0c59cdb2b7252133/packages/sitecore-jss/src/native-fetcher.ts#L179)
+[packages/sitecore-jss/src/native-fetcher.ts:179](https://github.com/Sitecore/jss/blob/d160f1095278a16ea5872cd77afb8f20ec721b2a/packages/sitecore-jss/src/native-fetcher.ts#L179)
 
 ***
 
@@ -206,7 +206,7 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:170](https://github.com/Sitecore/jss/blob/e262abe22bc8a139a1918b5a0c59cdb2b7252133/packages/sitecore-jss/src/native-fetcher.ts#L170)
+[packages/sitecore-jss/src/native-fetcher.ts:170](https://github.com/Sitecore/jss/blob/d160f1095278a16ea5872cd77afb8f20ec721b2a/packages/sitecore-jss/src/native-fetcher.ts#L170)
 
 ***
 
@@ -238,7 +238,7 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:131](https://github.com/Sitecore/jss/blob/e262abe22bc8a139a1918b5a0c59cdb2b7252133/packages/sitecore-jss/src/native-fetcher.ts#L131)
+[packages/sitecore-jss/src/native-fetcher.ts:131](https://github.com/Sitecore/jss/blob/d160f1095278a16ea5872cd77afb8f20ec721b2a/packages/sitecore-jss/src/native-fetcher.ts#L131)
 
 ***
 
@@ -270,4 +270,4 @@ response
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:156](https://github.com/Sitecore/jss/blob/e262abe22bc8a139a1918b5a0c59cdb2b7252133/packages/sitecore-jss/src/native-fetcher.ts#L156)
+[packages/sitecore-jss/src/native-fetcher.ts:156](https://github.com/Sitecore/jss/blob/d160f1095278a16ea5872cd77afb8f20ec721b2a/packages/sitecore-jss/src/native-fetcher.ts#L156)

@@ -13,7 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-* `[sitecore-jss-nextj]` Fix Chromes editing mode when rendering host URL is internally redirected in XMCloud
+* `[sitecore-jss-nextj]` Fix Chromes editing mode when rendering host URL is internally redirected in XMCloud [#2019](https://github.com/Sitecore/jss/pull/2019)
 
 
 ## 22.4.0

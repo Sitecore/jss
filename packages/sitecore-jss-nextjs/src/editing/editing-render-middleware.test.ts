@@ -102,11 +102,15 @@ describe('EditingRenderMiddleware', () => {
     process.env.JSS_EDITING_SECRET = secret;
     process.env.JSS_ALLOWED_ORIGINS = allowedOrigin;
     delete process.env.VERCEL;
+    delete process.env.SITECORE;
+    delete process.env.NETLIFY;
   });
 
   after(() => {
     delete process.env.JSS_EDITING_SECRET;
     delete process.env.VERCEL;
+    delete process.env.SITECORE;
+    delete process.env.NETLIFY;
     delete process.env.JSS_ALLOWED_ORIGINS;
   });
 
@@ -435,7 +439,7 @@ describe('EditingRenderMiddleware', () => {
       expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
       expect(res.getHeader, 'get preview cookies').to.have.been.calledWith('Set-Cookie');
       expect(fetcher.get).to.have.been.calledOnce;
-      expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWith(
+      expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWithMatch(
         match('http://localhost:3000/test/path?timestamp'),
         {
           headers: {
@@ -478,7 +482,7 @@ describe('EditingRenderMiddleware', () => {
       expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
       expect(res.getHeader, 'get preview cookies').to.have.been.calledWith('Set-Cookie');
       expect(fetcher.get).to.have.been.calledOnce;
-      expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWith(
+      expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWithMatch(
         match('http://localhost:3000/test/path?timestamp'),
         {
           headers: {
@@ -521,7 +525,7 @@ describe('EditingRenderMiddleware', () => {
       expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
       expect(res.getHeader, 'get preview cookies').to.have.been.calledWith('Set-Cookie');
       expect(fetcher.get).to.have.been.calledOnce;
-      expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWith(
+      expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWithMatch(
         match('http://localhost:3000/test/path?timestamp'),
         {
           headers: {
@@ -597,17 +601,15 @@ describe('EditingRenderMiddleware', () => {
       expect(fetcher.get).to.have.been.calledWithMatch('https://vercel.com');
     });
 
-    it('resolveServerUrl should return https address when authorization header present', async () => {
+    it('should use https for serverUrl on XM Cloud', async () => {
       const html = '<html><body>Something amazing</body></html>';
       const fetcher = mockFetcher(html);
       const dataService = mockDataService();
       const query = {} as Query;
       query[QUERY_PARAM_EDITING_SECRET] = secret;
-      const req = mockRequest(EE_BODY, query, undefined, {
-        authorization: '123',
-        host: 'testhostheader.com',
-      });
+      const req = mockRequest(EE_BODY, query, undefined, { host: 'xmc.com' });
       const res = mockResponse();
+      process.env.SITECORE = '1';
 
       const middleware = new EditingRenderMiddleware({
         dataFetcher: fetcher,
@@ -617,7 +619,28 @@ describe('EditingRenderMiddleware', () => {
 
       await handler(req, res);
 
-      expect(fetcher.get).to.have.been.calledWithMatch('https://testhostheader.com');
+      expect(fetcher.get).to.have.been.calledWithMatch('https://xmc.com');
+    });
+
+    it('should use https for serverUrl on Netlify', async () => {
+      const html = '<html><body>Something amazing</body></html>';
+      const fetcher = mockFetcher(html);
+      const dataService = mockDataService();
+      const query = {} as Query;
+      query[QUERY_PARAM_EDITING_SECRET] = secret;
+      const req = mockRequest(EE_BODY, query, undefined, { host: 'netlify.com' });
+      const res = mockResponse();
+      process.env.NETLIFY = '1';
+
+      const middleware = new EditingRenderMiddleware({
+        dataFetcher: fetcher,
+        editingDataService: dataService,
+      });
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(fetcher.get).to.have.been.calledWithMatch('https://netlify.com');
     });
 
     it('should use custom resolveServerUrl', async () => {
@@ -754,8 +777,9 @@ describe('EditingRenderMiddleware', () => {
 
       expect(fetcher.get).to.have.been.calledOnce;
       expect(fetcher.get).to.have.been.calledWith(
-        match('https://localhost:3000/test/path?timestamp'),
+        match('http://localhost:3000/test/path?timestamp'),
         {
+          credentials: 'include',
           headers: {
             authorization: mockAuthValue,
             cookie: mockCookies.concat(mockNextJsPreviewCookies).join(';'),
