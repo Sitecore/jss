@@ -136,6 +136,15 @@ describe('NativeDataFetcher', () => {
       expect(fetchInit?.body).to.be.undefined;
     });
 
+    it('should execute request with custom response parser', async () => {
+      const fetcher = new NativeDataFetcher();
+
+      spy.on(global, 'fetch', mockFetch(200, {}, { responseType: 'text' }));
+
+      const response = await fetcher.fetch('http://test.com/api', {}, () => 'response override');
+      expect(response.data).to.equal('response override');
+    });
+
     it('should execute request with stream response type', async () => {
       const fetcher = new NativeDataFetcher();
 
@@ -151,7 +160,7 @@ describe('NativeDataFetcher', () => {
         })
       );
 
-      const response = await fetcher.fetch('http://test.com/api');
+      const response = await fetcher.fetchStream('http://test.com/api');
 
       expect(response.status).to.equal(200);
       expect(response.data instanceof ReadableStream).to.be.true;

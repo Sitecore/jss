@@ -49,6 +49,11 @@ export type NativeDataFetcherFunction<T> = (
   data?: RequestInit
 ) => Promise<NativeDataFetcherResponse<T>>;
 
+export type ResponseParserFunc = (
+  response: Response,
+  debug: (message: string, ...optionalParams: any[]) => void
+) => Promise<unknown> | unknown;
+
 export type NativeDataFetcherConfig = NativeDataFetcherOptions & RequestInit;
 
 export class NativeDataFetcher {
@@ -60,14 +65,19 @@ export class NativeDataFetcher {
    * Implements a data fetcher.
    * @param {string} url The URL to request (may include query string)
    * @param {RequestInit} [options] Optional fetch options
+   * @param {ResponseParserFunc} [responseParser] Optionally specifies custom way to parse fetch response
    * @returns {Promise<NativeDataFetcherResponse<T>>} response
    */
-  async fetch<T>(url: string, options: RequestInit = {}): Promise<NativeDataFetcherResponse<T>> {
+  async fetch<T>(
+    url: string,
+    options: RequestInit = {},
+    responseParser?: ResponseParserFunc
+  ): Promise<NativeDataFetcherResponse<T>> {
     const { debugger: debugOverride, fetch: fetchOverride, ...init } = this.config;
     const startTimestamp = Date.now();
     const fetchImpl = fetchOverride || fetch;
     const debug = debugOverride || debuggers.http;
-
+    responseParser = responseParser || this.parseResponse;
     const requestInit = this.getRequestInit({ ...init, ...options });
 
     const fetchWithOptionalTimeout = [fetchImpl(url, requestInit)];
@@ -88,7 +98,7 @@ export class NativeDataFetcher {
         return res;
       });
 
-      const respData = await this.parseResponse(response, debug);
+      const respData = await responseParser(response, debug);
       if (!response.ok) {
         const error = this.createError(response, respData);
         debug('Response error: %o', error.response);
@@ -109,6 +119,16 @@ export class NativeDataFetcher {
       debug('Request failed: %o', error);
       throw error;
     }
+  }
+
+  async fetchStream<T>(
+    url: string,
+    options: RequestInit = {}
+  ): Promise<NativeDataFetcherResponse<ReadableStream<T>>> {
+    const parseStreamResponse = (response: Response) => {
+      return response.body;
+    };
+    return this.fetch<ReadableStream<T>>(url, options, parseStreamResponse);
   }
 
   /**
@@ -220,11 +240,6 @@ export class NativeDataFetcher {
       if (contentType.includes('application/json')) {
         return await response.json();
       }
-
-      if (response.body instanceof ReadableStream) {
-        return response.body;
-      }
-
       return await response.text();
     } catch (error) {
       debug('Response parsing error: %o', error);
