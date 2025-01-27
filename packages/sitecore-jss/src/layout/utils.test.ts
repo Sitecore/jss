@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import { ComponentRendering } from '../../layout';
+import { ComponentRendering } from './models';
 import {
   getFieldValue,
   getChildPlaceholder,
