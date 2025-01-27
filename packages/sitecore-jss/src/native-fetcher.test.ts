@@ -224,7 +224,6 @@ describe('NativeDataFetcher', () => {
 
     it('should execute request with custom init', async () => {
       const headers = {
-        'User-Agent': 'Sitecore JSS',
         x: 'x',
         y: 'y',
       };

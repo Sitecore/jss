@@ -182,7 +182,6 @@ export class NativeDataFetcher {
     if (!init.method) {
       init.method = init.body ? 'POST' : 'GET';
     }
-    headers.set('User-Agent', 'Sitecore JSS');
 
     init.headers = headers;
 
