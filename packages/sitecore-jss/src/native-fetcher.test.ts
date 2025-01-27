@@ -66,7 +66,7 @@ const mockHeaders = () => {
   });
 };
 
-describe.only('NativeDataFetcher', () => {
+describe('NativeDataFetcher', () => {
   let debugNamespaces: string;
 
   before(() => {
@@ -136,7 +136,7 @@ describe.only('NativeDataFetcher', () => {
       expect(fetchInit?.body).to.be.undefined;
     });
 
-    it.only('should execute request with stream response type', async () => {
+    it('should execute request with stream response type', async () => {
       const fetcher = new NativeDataFetcher();
 
       const fakeRes = { body: new ReadableStream() };
