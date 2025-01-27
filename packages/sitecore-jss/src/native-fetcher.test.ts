@@ -145,6 +145,15 @@ describe('NativeDataFetcher', () => {
       expect(response.data).to.equal('response override');
     });
 
+    it('fetchStream should return response.body', async () => {
+      const fetcher = new NativeDataFetcher();
+
+      spy.on(global, 'fetch', mockFetch(200, { body: 'response body' }, { responseType: 'text' }));
+
+      const response = await fetcher.fetch('http://test.com/api');
+      expect(response.data).to.equal('response body');
+    });
+
     it('should execute request with stream response type', async () => {
       const fetcher = new NativeDataFetcher();
 

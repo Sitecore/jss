@@ -49,6 +49,9 @@ export type NativeDataFetcherFunction<T> = (
   data?: RequestInit
 ) => Promise<NativeDataFetcherResponse<T>>;
 
+/**
+ * Type describing oprional response parser for fetch requests
+ */
 export type ResponseParserFunc = (
   response: Response,
   debug: (message: string, ...optionalParams: any[]) => void
@@ -121,6 +124,12 @@ export class NativeDataFetcher {
     }
   }
 
+  /**
+   * performs a fetch call with that returns fetch's response.body as a ReadableStream
+   * @param {string} url The URL to request (may include query string)
+   * @param {RequestInit} [options] Optional fetch options
+   * @returns {Promise<NativeDataFetcherResponse<ReadableStream<T>>>} response
+   */
   async fetchStream<T>(
     url: string,
     options: RequestInit = {}
