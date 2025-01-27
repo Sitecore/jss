@@ -33,7 +33,7 @@ Only renders scripts when Metadata mode is used.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:17](https://github.com/Sitecore/jss/blob/8dfc30480738a6477e61c78f1cd69e312022dcef/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L17)
+[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:17](https://github.com/Sitecore/jss/blob/0742cd78e1188259fedacbc3f3e1eb1c491204a1/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L17)
 
 ## Methods
 
@@ -57,4 +57,4 @@ It is invoked only once when the directive is instantiated.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:23](https://github.com/Sitecore/jss/blob/8dfc30480738a6477e61c78f1cd69e312022dcef/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L23)
+[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:23](https://github.com/Sitecore/jss/blob/0742cd78e1188259fedacbc3f3e1eb1c491204a1/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L23)
