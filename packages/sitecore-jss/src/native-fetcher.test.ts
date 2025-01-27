@@ -150,7 +150,7 @@ describe('NativeDataFetcher', () => {
 
       spy.on(global, 'fetch', mockFetch(200, { body: 'response body' }, { responseType: 'text' }));
 
-      const response = await fetcher.fetch('http://test.com/api');
+      const response = await fetcher.fetchStream('http://test.com/api');
       expect(response.data).to.equal('response body');
     });
 
