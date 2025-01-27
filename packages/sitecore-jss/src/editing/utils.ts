@@ -12,9 +12,28 @@ export const DEFAULT_PLACEHOLDER_UID = '00000000-0000-0000-0000-000000000000';
 export const QUERY_PARAM_EDITING_SECRET = 'secret';
 
 /**
- * Event contents to be sent when component library page is ready and rendered
+ * Event to be sent when report status to component library
  */
-export const COMPONENT_LIBRARY_READY_MESSAGE = { name: 'component:status', message: 'ready' };
+export const COMPONENT_LIBRARY_STATUS_EVENT_NAME = 'component:status';
+
+/**
+ * Represents an event indicating the status of a component in the library.
+ */
+export interface ComponentLibraryStatusEvent {
+  name: typeof COMPONENT_LIBRARY_STATUS_EVENT_NAME;
+  message: {
+    status: 'ready' | 'rendered';
+    uid: string;
+  };
+}
+
+/**
+ * Enumeration of statuses for the component library.
+ */
+export enum ComponentLibraryStatus {
+  READY = 'ready',
+  RENDERED = 'rendered',
+}
 
 /**
  * ID to be used as a marker for a script rendered in XMC Pages
@@ -275,3 +294,22 @@ export const updateComponentHandler = (
   // strictly for testing
   return rootComponent;
 };
+
+/**
+ * Generates a ComponentLibraryStatusEvent with the given status and uid.
+ * @param {ComponentLibraryStatus} status - The status of rendering.
+ * @param {string} uid - The unique identifier for the event.
+ * @returns An object representing the ComponentLibraryStatusEvent.
+ */
+export function getComponentLibraryStatusEvent(
+  status: ComponentLibraryStatus,
+  uid: string
+): ComponentLibraryStatusEvent {
+  return {
+    name: COMPONENT_LIBRARY_STATUS_EVENT_NAME,
+    message: {
+      status,
+      uid,
+    },
+  };
+}

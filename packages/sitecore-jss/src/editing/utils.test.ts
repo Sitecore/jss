@@ -7,6 +7,8 @@ import {
   ChromeRediscoveryGlobalFunctionName,
   PAGES_EDITING_MARKER,
   updateComponentHandler,
+  getComponentLibraryStatusEvent,
+  ComponentLibraryStatus,
 } from './utils';
 import testComponent from '../test-data/component-editing-data';
 
@@ -260,6 +262,19 @@ describe('component library utils', () => {
       });
       updateComponentHandler(message, changedComponent, callbackStub);
       expect(callbackStub.called).to.be.true;
+    });
+  });
+
+  describe('getComponentLibraryStatusEvent', () => {
+    it('should return a valid status event', () => {
+      const statusEvent = getComponentLibraryStatusEvent(ComponentLibraryStatus.READY, 'uid-1');
+      expect(statusEvent).to.deep.equal({
+        name: 'component:status',
+        message: {
+          status: ComponentLibraryStatus.READY,
+          uid: 'uid-1',
+        },
+      });
     });
   });
 
