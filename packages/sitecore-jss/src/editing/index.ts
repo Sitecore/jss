@@ -8,14 +8,10 @@ export {
   handleEditorAnchors,
   Metadata,
   getJssPagesClientData,
-  addComponentUpdateHandler,
   EDITING_ALLOWED_ORIGINS,
   QUERY_PARAM_EDITING_SECRET,
   PAGES_EDITING_MARKER,
-  ComponentLibraryStatus,
-  ComponentLibraryStatusEvent,
   ComponentUpdateEventArgs,
-  getComponentLibraryStatusEvent,
 } from './utils';
 export {
   RestComponentLayoutService,
@@ -34,3 +30,9 @@ export {
 } from './edit-frame';
 export { RenderMetadataQueryParams, RenderComponentQueryParams } from './models';
 export { LayoutKind, MetadataKind } from './models';
+export {
+  addComponentUpdateHandler,
+  ComponentLibraryStatus,
+  ComponentLibraryStatusEvent,
+  getComponentLibraryStatusEvent,
+} from './component-library';
