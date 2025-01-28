@@ -40,7 +40,7 @@ describe('<VisitorIdentification />', () => {
     const meta = document.head.getElementsByTagName('meta')[0];
     expect(script).to.not.be.equal(undefined);
     expect(meta).to.not.be.equal(undefined);
-    expect(script.src).to.equal('/layouts/system/VisitorIdentification.js');
+    expect(script.src).to.equal('http://localhost/layouts/system/VisitorIdentification.js');
     expect(script.defer).to.be.equal(false);
     expect(rendered.html()).to.be.null;
   });
