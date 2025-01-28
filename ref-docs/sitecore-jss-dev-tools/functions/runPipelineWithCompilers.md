@@ -34,4 +34,4 @@ pipeline result
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipeline.ts:118](https://github.com/Sitecore/jss/blob/0742cd78e1188259fedacbc3f3e1eb1c491204a1/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L118)
+[sitecore-jss-dev-tools/src/pipelines/pipeline.ts:118](https://github.com/Sitecore/jss/blob/d5a348de45495731b4551f12a8db18ea9a72a20d/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L118)
