@@ -38,12 +38,10 @@ const sitemapApi = async (
       const fetcher = new NativeDataFetcher();
       const xmlResponse = await fetcher.fetch<string>(sitemapUrl);
 
-      res.send(xmlResponse.data);
+      return res.send(xmlResponse.data);
     } catch (error) {
       return res.redirect('/404');
     }
-
-    return;
   }
 
   // index /sitemap.xml that includes links to all sitemaps
