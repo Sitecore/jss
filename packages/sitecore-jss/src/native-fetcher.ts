@@ -216,6 +216,7 @@ export class NativeDataFetcher {
     debug: (message: string, ...optionalParams: any[]) => void
   ): Promise<unknown> {
     const contentType = response.headers.get('Content-Type') || '';
+
     try {
       if (contentType.includes('application/json')) {
         return await response.json();
