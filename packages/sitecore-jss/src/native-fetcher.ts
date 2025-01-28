@@ -216,13 +216,10 @@ export class NativeDataFetcher {
     debug: (message: string, ...optionalParams: any[]) => void
   ): Promise<unknown> {
     const contentType = response.headers.get('Content-Type') || '';
+
     try {
       if (contentType.includes('application/json')) {
         return await response.json();
-      }
-
-      if (response.body instanceof ReadableStream) {
-        return response.body;
       }
 
       return await response.text();

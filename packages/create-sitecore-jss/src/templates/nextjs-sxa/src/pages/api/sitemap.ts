@@ -36,19 +36,9 @@ const sitemapApi = async (
 
     try {
       const fetcher = new NativeDataFetcher();
-      const response = await fetcher.fetch<ReadableStream<Uint8Array>>(sitemapUrl);
+      const xmlResponse = await fetcher.fetch<string>(sitemapUrl);
 
-      const reader = response.data.getReader();
-      if (reader) {
-        while (true) {
-          const { done, value } = await reader.read();
-
-          if (done) break;
-          if (value) res.write(value);
-        }
-      }
-
-      res.end();
+      res.send(xmlResponse.data);
     } catch (error) {
       return res.redirect('/404');
     }

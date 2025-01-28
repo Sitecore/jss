@@ -136,30 +136,6 @@ describe('NativeDataFetcher', () => {
       expect(fetchInit?.body).to.be.undefined;
     });
 
-    it('should execute request with stream response type', async () => {
-      const fetcher = new NativeDataFetcher();
-
-      const fakeRes = { body: new ReadableStream() };
-
-      spy.on(
-        global,
-        'fetch',
-        mockFetch(200, fakeRes, {
-          customHeaders: {
-            'Content-Type': 'text/xml',
-          },
-        })
-      );
-
-      const response = await fetcher.fetch('http://test.com/api');
-
-      expect(response.status).to.equal(200);
-      expect(response.data instanceof ReadableStream).to.be.true;
-      expect(fetchInput).to.equal('http://test.com/api');
-      expect(fetchInit?.method).to.equal('GET');
-      expect(fetchInit?.body).to.be.undefined;
-    });
-
     it('should execute POST request with data', async () => {
       const fetcher = new NativeDataFetcher();
       const postData = { x: 'val1', y: 'val2' };
