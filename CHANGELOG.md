@@ -16,7 +16,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-nextjs]` Fix Chromes editing mode when rendering host URL is internally redirected in XMCloud ([#2019](https://github.com/Sitecore/jss/pull/2019))
-* `[templates/next.js]` Simplify sitemap.xml handling ([#2023](https://github.com/Sitecore/jss/pull/2023))
+* `[templates/next.js]` sitemap.xml endpoint returns 404 ([#2023](https://github.com/Sitecore/jss/pull/2023))
 
 ## 22.4.0
 
