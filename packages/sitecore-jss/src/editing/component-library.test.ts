@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import { expect, spy } from 'chai';
+import { expect } from 'chai';
 import sinon from 'sinon';
 import {
   updateComponentHandler,
