@@ -60,11 +60,12 @@ export class RestComponentLayoutService extends RestLayoutService {
     params.siteName = params.siteName || this.config.siteName;
     const querystringParams = this.getComponentFetchParams(params);
     debug.layout(
-      'fetching component with uid %s for %s %s %s',
+      'fetching component with uid %s for %s %s %s %s',
       params.componentUid,
       params.itemId,
       params.language,
-      params.siteName
+      params.siteName,
+      params.dataSourceId
     );
     const fetcher = this.getFetcher(req, res);
 
