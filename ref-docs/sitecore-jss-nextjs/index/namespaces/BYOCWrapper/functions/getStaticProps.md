@@ -26,4 +26,4 @@ context
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/components/BYOCWrapper.tsx:22](https://github.com/Sitecore/jss/blob/92f5707a5f98736d13ac70a08e503789a36d5deb/packages/sitecore-jss-nextjs/src/components/BYOCWrapper.tsx#L22)
+[sitecore-jss-nextjs/src/components/BYOCWrapper.tsx:22](https://github.com/Sitecore/jss/blob/5b2807c6abc1164e25161bd05afe62e34becab3d/packages/sitecore-jss-nextjs/src/components/BYOCWrapper.tsx#L22)

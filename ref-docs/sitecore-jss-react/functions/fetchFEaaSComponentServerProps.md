@@ -25,4 +25,4 @@ Component endpoint will either be retrieved from params or from endpointOverride
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:107](https://github.com/Sitecore/jss/blob/92f5707a5f98736d13ac70a08e503789a36d5deb/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L107)
+[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:107](https://github.com/Sitecore/jss/blob/5b2807c6abc1164e25161bd05afe62e34becab3d/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L107)
