@@ -196,10 +196,8 @@ export const diffAndWriteFiles = async ({
 export const populateEjsData = (answers: BaseArgs, destination?: string) => {
   // pass in helper to answers object
 
-  // Don't expose canary build number in the generated app
-  const jssVersion = version.includes('canary')
-    ? version.replace(/(-canary\.\d+)$/, '-canary')
-    : version;
+  // Don't expose prerelease build number in the generated app
+  const jssVersion = version.replace(/(\.\d+)$/, '');
 
   const ejsData: Data = {
     ...answers,

@@ -12,8 +12,9 @@ import { RichText } from './RichText';
 import { Text } from './Text';
 import { Placeholder } from '..';
 import {
-  COMPONENT_LIBRARY_READY_MESSAGE,
+  ComponentLibraryStatus,
   ComponentUpdateEventArgs,
+  getComponentLibraryStatusEvent,
 } from '@sitecore-jss/sitecore-jss/editing';
 
 describe('<ComponentLibraryLayout />', () => {
@@ -47,6 +48,23 @@ describe('<ComponentLibraryLayout />', () => {
 
     return components.get(componentName) || null;
   };
+
+  // eslint-disable-next-line jsdoc/require-jsdoc
+  async function sendUpdateEvent(
+    eventDataDetails: ComponentUpdateEventArgs['details']
+  ): Promise<void> {
+    // jsdom performs postMessage without origin. We work around, ugly (https://github.com/jsdom/jsdom/issues/2745)
+    // jsdom also doesn't consider `new MessageEvent()` to be of class Event - so we go very much around to get it working
+    const updateEvent = document.createEvent('Event');
+    const updateEventData: ComponentUpdateEventArgs = {
+      name: 'component:update',
+      details: eventDataDetails,
+    };
+    updateEvent.initEvent('message', false, true);
+    (updateEvent as any).origin = window.location.origin;
+    (updateEvent as any).data = updateEventData;
+    await window.dispatchEvent(updateEvent);
+  }
 
   it('should render', () => {
     const basicPage = getTestLayoutData();
@@ -90,6 +108,10 @@ describe('<ComponentLibraryLayout />', () => {
 
   it('should fire component:ready event', () => {
     const basicPage = getTestLayoutData();
+    const expectedReadyMessage = getComponentLibraryStatusEvent(
+      ComponentLibraryStatus.READY,
+      'test-content'
+    );
     const rendered = mount(
       <SitecoreContext componentFactory={componentFactory}>
         <ComponentLibraryLayout {...basicPage.layoutData} />
@@ -108,9 +130,7 @@ describe('<ComponentLibraryLayout />', () => {
     expect(
       postMessageSpy
         .getCalls()
-        .some(
-          (call) => JSON.stringify(call.args[0]) === JSON.stringify(COMPONENT_LIBRARY_READY_MESSAGE)
-        )
+        .some((call) => JSON.stringify(call.args[0]) === JSON.stringify(expectedReadyMessage))
     ).to.be.true;
   });
 
@@ -130,20 +150,11 @@ describe('<ComponentLibraryLayout />', () => {
         '</div></div></div></main>',
       ].join('')
     );
-    // jsdom performs postMessage without origin. We work around, ugly (https://github.com/jsdom/jsdom/issues/2745)
-    // jsdom also doesn't consider `new MessageEvent()` to be of class Event - so we go very much around to get it working
-    const updateEvent = document.createEvent('Event');
-    const updateEventData: ComponentUpdateEventArgs = {
-      name: 'component:update',
-      details: {
-        uid: 'test-content',
-        fields: { content: { value: 'new content!' } },
-      },
-    };
-    updateEvent.initEvent('message', false, true);
-    (updateEvent as any).origin = window.location.origin;
-    (updateEvent as any).data = updateEventData;
-    await window.dispatchEvent(updateEvent);
+
+    await sendUpdateEvent({
+      uid: 'test-content',
+      fields: { content: { value: 'new content!' } },
+    });
 
     rendered.update();
     expect(rendered.html()).to.equal(
@@ -175,20 +186,11 @@ describe('<ComponentLibraryLayout />', () => {
         '</main>',
       ].join('')
     );
-    // jsdom performs postMessage without origin. We work around, ugly (https://github.com/jsdom/jsdom/issues/2745)
-    // jsdom also doesn't consider `new MessageEvent()` to be of class Event - so we go very much around to get it working
-    const updateEvent = document.createEvent('Event');
-    const updateEventData: ComponentUpdateEventArgs = {
-      name: 'component:update',
-      details: {
-        uid: 'test-inner',
-        fields: { text: { value: 'new inner content!' } },
-      },
-    };
-    updateEvent.initEvent('message');
-    (updateEvent as any).origin = window.location.origin;
-    (updateEvent as any).data = updateEventData;
-    await window.dispatchEvent(updateEvent);
+
+    await sendUpdateEvent({
+      uid: 'test-inner',
+      fields: { text: { value: 'new inner content!' } },
+    });
 
     rendered.update();
 
@@ -204,5 +206,33 @@ describe('<ComponentLibraryLayout />', () => {
         '</main>',
       ].join('')
     );
+  });
+
+  it('should send render event when component is updated', async () => {
+    const basicPage = getTestLayoutData();
+    const rendered = mount(
+      <SitecoreContext componentFactory={componentFactory}>
+        <ComponentLibraryLayout {...basicPage.layoutData} />
+      </SitecoreContext>
+    );
+
+    await sendUpdateEvent({
+      uid: 'test-content',
+      fields: { content: { value: 'new content!' } },
+    });
+
+    rendered.update();
+
+    expect(
+      postMessageSpy
+        .getCalls()
+        .some((call) =>
+          JSON.stringify(call.args[0]).includes(
+            JSON.stringify(
+              getComponentLibraryStatusEvent(ComponentLibraryStatus.RENDERED, 'test-content')
+            )
+          )
+        )
+    ).to.be.true;
   });
 });

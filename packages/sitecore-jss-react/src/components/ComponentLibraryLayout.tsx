@@ -7,13 +7,15 @@ import {
   LayoutServiceData,
 } from '@sitecore-jss/sitecore-jss/layout';
 import {
+  ComponentLibraryStatus,
+  getComponentLibraryStatusEvent,
   addComponentUpdateHandler,
-  COMPONENT_LIBRARY_READY_MESSAGE,
 } from '@sitecore-jss/sitecore-jss/editing';
 import { EditingScripts } from './EditingScripts';
 
 export const ComponentLibraryLayout = (layoutData: LayoutServiceData): JSX.Element => {
   const { route } = layoutData.sitecore;
+  const [renderKey, setRenderKey] = useState(0);
   const [rootUpdate, setRootUpdate] = useState(null);
   const rootComponent = route?.placeholders[EDITING_COMPONENT_PLACEHOLDER][0] as ComponentRendering;
   // useEffect may execute multiple times on single render (i.e. in dev) - but we only want to fire ready event once
@@ -30,21 +32,39 @@ export const ComponentLibraryLayout = (layoutData: LayoutServiceData): JSX.Eleme
     // useEffect will fire when components are ready - and we inform the whole wide world of it too
     if (!componentReady) {
       componentReady = true;
-      window.top.postMessage(COMPONENT_LIBRARY_READY_MESSAGE, '*');
+      window.top.postMessage(
+        getComponentLibraryStatusEvent(ComponentLibraryStatus.READY, rootComponent.uid),
+        '*'
+      );
     }
-    const unsubscribe = addComponentUpdateHandler(persistedRoot, (updatedRoot) =>
-      setRootUpdate({ ...updatedRoot })
-    );
+    const unsubscribe = addComponentUpdateHandler(persistedRoot, (updatedRoot) => {
+      setRootUpdate({ ...updatedRoot });
+      setRenderKey((key) => key + 1);
+    });
     // useEffect will cleanup event handler on re-render
     return unsubscribe;
   }, []);
+
+  useEffect(() => {
+    // Send a rendered event only as effect of a component update command
+    if (renderKey === 0) {
+      return;
+    }
+
+    window.top.postMessage(
+      getComponentLibraryStatusEvent(ComponentLibraryStatus.RENDERED, rootComponent.uid),
+      '*'
+    );
+  }, [renderKey, rootComponent.uid]);
 
   return (
     <>
       <EditingScripts />
       <main>
         <div id={EDITING_COMPONENT_ID}>
-          {route && <Placeholder name={EDITING_COMPONENT_PLACEHOLDER} rendering={route} />}
+          {route && (
+            <Placeholder name={EDITING_COMPONENT_PLACEHOLDER} rendering={route} key={renderKey} />
+          )}
         </div>
       </main>
     </>

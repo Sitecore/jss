@@ -476,7 +476,6 @@ describe('transform', () => {
     let mergeStub: SinonStub;
     let diffAndWriteFilesStub: SinonStub;
     let writeFileToPathStub: SinonStub;
-    let transformFilenameStub: SinonStub;
     let openJsonFileStub: SinonStub;
     let log: SinonStub;
 
@@ -495,7 +494,6 @@ describe('transform', () => {
       mergeStub?.restore();
       diffAndWriteFilesStub?.restore();
       writeFileToPathStub?.restore();
-      transformFilenameStub?.restore();
       openJsonFileStub?.restore();
       log?.restore();
     });
@@ -839,6 +837,26 @@ describe('transform', () => {
       expect(log.getCall(1).args[0]).to.equal(
         `Error occurred when trying to render to ${chalk.yellow(path.resolve(file))}`
       );
+    });
+  });
+
+  describe('populateEjsData', () => {
+    it('should remove prerelease build number from version', () => {
+      const destinationPath = path.resolve('samples/next');
+      const answers = {
+        destination: destinationPath,
+        templates: [],
+        appPrefix: false,
+        force: false,
+      };
+
+      const transformModule = proxyquire('./transform', {
+        '../../../package.json': { version: '22.4.1-beta.33' },
+      });
+
+      const result = transformModule.populateEjsData(answers);
+
+      expect(result.version).to.equal('22.4.1-beta');
     });
   });
 });
