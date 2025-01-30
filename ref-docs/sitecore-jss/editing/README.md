@@ -10,15 +10,21 @@
 
 ### Enumerations
 
+- [ComponentLibraryStatus](enumerations/ComponentLibraryStatus.md)
 - [LayoutKind](enumerations/LayoutKind.md)
 - [MetadataKind](enumerations/MetadataKind.md)
 
 ### Classes
 
 - [GraphQLEditingService](classes/GraphQLEditingService.md)
+- [RestComponentLayoutService](classes/RestComponentLayoutService.md)
 
 ### Interfaces
 
+- [ComponentLayoutRequestParams](interfaces/ComponentLayoutRequestParams.md)
+- [ComponentLibraryStatusEvent](interfaces/ComponentLibraryStatusEvent.md)
+- [ComponentUpdateEventArgs](interfaces/ComponentUpdateEventArgs.md)
+- [RenderComponentQueryParams](interfaces/RenderComponentQueryParams.md)
 - [RenderMetadataQueryParams](interfaces/RenderMetadataQueryParams.md)
 
 ### Variables
@@ -30,6 +36,8 @@
 
 ### Functions
 
+- [addComponentUpdateHandler](functions/addComponentUpdateHandler.md)
+- [getComponentLibraryStatusEvent](functions/getComponentLibraryStatusEvent.md)
 - [getJssPagesClientData](functions/getJssPagesClientData.md)
 
 ## References

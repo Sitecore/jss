@@ -7,6 +7,7 @@
 # Enumeration: LayoutServicePageState
 
 Layout Service page state enum
+library mode would render a single component
 
 ## Enumeration Members
 
@@ -16,7 +17,7 @@ Layout Service page state enum
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:14
+sitecore-jss/types/layout/models.d.ts:15
 
 ***
 
@@ -26,7 +27,7 @@ sitecore-jss/types/layout/models.d.ts:14
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:15
+sitecore-jss/types/layout/models.d.ts:16
 
 ***
 
@@ -36,4 +37,4 @@ sitecore-jss/types/layout/models.d.ts:15
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:13
+sitecore-jss/types/layout/models.d.ts:14

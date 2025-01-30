@@ -106,6 +106,7 @@
 ## Functions
 
 - [BYOCWrapper](functions/BYOCWrapper.md)
+- [ComponentLibraryLayout](functions/ComponentLibraryLayout.md)
 - [DateField](functions/DateField.md)
 - [DefaultEmptyFieldEditingComponentImage](functions/DefaultEmptyFieldEditingComponentImage.md)
 - [DefaultEmptyFieldEditingComponentText](functions/DefaultEmptyFieldEditingComponentText.md)

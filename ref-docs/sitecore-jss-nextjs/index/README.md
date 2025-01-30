@@ -38,6 +38,7 @@
 - [MemoryCacheClient](classes/MemoryCacheClient.md)
 - [MultisiteGraphQLSitemapService](classes/MultisiteGraphQLSitemapService.md)
 - [NativeDataFetcher](classes/NativeDataFetcher.md)
+- [RestComponentLayoutService](classes/RestComponentLayoutService.md)
 - [RestDictionaryService](classes/RestDictionaryService.md)
 - [RestLayoutService](classes/RestLayoutService.md)
 - [SitecoreContext](classes/SitecoreContext.md)
@@ -129,6 +130,7 @@
 
 ### Functions
 
+- [ComponentLibraryLayout](functions/ComponentLibraryLayout.md)
 - [ComponentPropsContext](functions/ComponentPropsContext.md)
 - [DateField](functions/DateField.md)
 - [DefaultEmptyFieldEditingComponentImage](functions/DefaultEmptyFieldEditingComponentImage.md)

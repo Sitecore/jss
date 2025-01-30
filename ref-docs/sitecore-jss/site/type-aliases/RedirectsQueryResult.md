@@ -22,4 +22,4 @@ The schema of data returned in response to redirects array request
 
 ## Defined in
 
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:51](https://github.com/Sitecore/jss/blob/aada8f2ba5c16b0e3ec15bd9f2808f35e24c280f/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L51)
+[packages/sitecore-jss/src/site/graphql-redirects-service.ts:51](https://github.com/Sitecore/jss/blob/92f5707a5f98736d13ac70a08e503789a36d5deb/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L51)
