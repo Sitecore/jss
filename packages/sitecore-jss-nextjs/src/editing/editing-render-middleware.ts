@@ -392,7 +392,7 @@ export class MetadataHandler {
           site: query.sc_site,
           pageState: LayoutServicePageState.Normal,
           mode: 'library',
-          dataSourceId: query.sc_datasourceId,
+          dataSourceId: query.dataSourceId,
           version: query.sc_version,
         } as ComponentLibraryRenderPreviewData,
         {

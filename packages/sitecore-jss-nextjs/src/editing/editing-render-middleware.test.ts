@@ -216,7 +216,7 @@ describe('EditingRenderMiddleware', () => {
         sc_version: 'latest',
         secret: secret,
         sc_renderingId: '123',
-        sc_datasourceId: '456',
+        dataSourceId: '456',
         sc_uid: '789',
       };
 
@@ -237,7 +237,7 @@ describe('EditingRenderMiddleware', () => {
           site: query.sc_site,
           pageState: 'normal',
           mode: 'library',
-          dataSourceId: query.sc_datasourceId,
+          dataSourceId: query.dataSourceId,
           version: query.sc_version,
         });
 
