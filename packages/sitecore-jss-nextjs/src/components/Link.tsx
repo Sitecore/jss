@@ -21,7 +21,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   (props: LinkProps, ref): JSX.Element | null => {
     const {
       field,
-      editable,
+      editable = true,
       children,
       internalLinkMatcher = /^\//g,
       showLinkTextWithChildrenPresent,
@@ -71,10 +71,6 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     return <ReactLink {...reactLinkProps} ref={ref} />;
   }
 );
-
-Link.defaultProps = {
-  editable: true,
-};
 
 Link.displayName = 'NextLink';
 

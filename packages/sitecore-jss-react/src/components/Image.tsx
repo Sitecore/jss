@@ -150,7 +150,7 @@ export const getEEMarkup = (
 
 export const Image: React.FC<ImageProps> = ({
   media,
-  editable,
+  editable = true,
   imageParams,
   field,
   mediaUrlPrefix,
@@ -216,10 +216,6 @@ Image.propTypes = {
   imageParams: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]).isRequired
   ),
-};
-
-Image.defaultProps = {
-  editable: true,
 };
 
 Image.displayName = 'Image';
