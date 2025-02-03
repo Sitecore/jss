@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss",
-  "version": "22.5.0-beta.2",
+  "version": "22.5.0-feature.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
