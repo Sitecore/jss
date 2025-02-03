@@ -45,7 +45,7 @@
   "dependencies": {
     "@apollo/client": "^3.7.4",
     "@panter/vue-i18next": "~0.15.2",
-    "@sitecore-jss/sitecore-jss-vue": "~<%- version %>",
+    "@sitecore-jss/sitecore-jss-vue": "beta",
     "@vue/apollo-composable": "4.0.0-beta.2",
     "@vue/apollo-option": "^4.0.0",
     "@vue/apollo-ssr": "^4.0.0",
@@ -62,8 +62,8 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
     "@babel/register": "7.18.9",
-    "@sitecore-jss/sitecore-jss-cli": "~<%- version %>",
-    "@sitecore-jss/sitecore-jss-dev-tools": "~<%- version %>",
+    "@sitecore-jss/sitecore-jss-cli": "beta",
+    "@sitecore-jss/sitecore-jss-dev-tools": "beta",
     "@vue/cli-plugin-babel": "~5.0.8",
     "@vue/cli-plugin-eslint": "~5.0.8",
     "@vue/cli-service": "~5.0.8",
@@ -83,5 +83,8 @@
     "null-loader": "~4.0.1",
     "prettier": "^3.0.0",
     "tslib": "2.5.1"
+  },
+  "overrides": {
+    "@sitecore-jss/sitecore-jss": "beta"
   }
 }
