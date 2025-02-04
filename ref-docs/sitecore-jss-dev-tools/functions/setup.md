@@ -23,4 +23,4 @@
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/setup/setup.ts:69](https://github.com/Sitecore/jss/blob/aada8f2ba5c16b0e3ec15bd9f2808f35e24c280f/packages/sitecore-jss-dev-tools/src/setup/setup.ts#L69)
+[sitecore-jss-dev-tools/src/setup/setup.ts:69](https://github.com/Sitecore/jss/blob/2c037b1db9e09367420bc13389995d0890265712/packages/sitecore-jss-dev-tools/src/setup/setup.ts#L69)

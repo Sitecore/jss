@@ -39,7 +39,7 @@ component props
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:91](https://github.com/Sitecore/jss/blob/aada8f2ba5c16b0e3ec15bd9f2808f35e24c280f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L91)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:91](https://github.com/Sitecore/jss/blob/2c037b1db9e09367420bc13389995d0890265712/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L91)
 
 ## Properties
 
@@ -129,7 +129,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1033
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:89](https://github.com/Sitecore/jss/blob/aada8f2ba5c16b0e3ec15bd9f2808f35e24c280f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L89)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:89](https://github.com/Sitecore/jss/blob/2c037b1db9e09367420bc13389995d0890265712/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L89)
 
 ***
 
@@ -191,7 +191,7 @@ the entire component tree to unmount.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:101](https://github.com/Sitecore/jss/blob/aada8f2ba5c16b0e3ec15bd9f2808f35e24c280f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L101)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:101](https://github.com/Sitecore/jss/blob/2c037b1db9e09367420bc13389995d0890265712/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L101)
 
 ***
 
@@ -457,7 +457,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1426
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:105](https://github.com/Sitecore/jss/blob/aada8f2ba5c16b0e3ec15bd9f2808f35e24c280f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L105)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:105](https://github.com/Sitecore/jss/blob/2c037b1db9e09367420bc13389995d0890265712/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L105)
 
 ***
 
@@ -674,4 +674,4 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1527
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:96](https://github.com/Sitecore/jss/blob/aada8f2ba5c16b0e3ec15bd9f2808f35e24c280f/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L96)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:96](https://github.com/Sitecore/jss/blob/2c037b1db9e09367420bc13389995d0890265712/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L96)
