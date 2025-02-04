@@ -6430,16 +6430,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/core@npm:^0.4.1":
-  version: 0.4.4
-  resolution: "@sitecore-cloudsdk/core@npm:0.4.4"
-  dependencies:
-    "@sitecore-cloudsdk/utils": ^0.4.4
-    debug: ^4.3.4
-  checksum: b03072b2860df42ec64cc6dcf2145c77268c2ff6adea78f9723317c4bd24c01551ba888a94085076b7d56a93bbc3a3f933992aec347693bcecb99dc86b894c8e
-  languageName: node
-  linkType: hard
-
 "@sitecore-cloudsdk/core@npm:^0.4.2":
   version: 0.4.2
   resolution: "@sitecore-cloudsdk/core@npm:0.4.2"
@@ -6447,16 +6437,6 @@ __metadata:
     "@sitecore-cloudsdk/utils": ^0.4.2
     debug: ^4.3.4
   checksum: d66d9c86851b7d4eca78880cab8c0a65f2db303faf77d24d1d725f053030f93914f891d8b959d82a1d426c09f0857a344577c696319c51f38192349a34f8fa0f
-  languageName: node
-  linkType: hard
-
-"@sitecore-cloudsdk/events@npm:0.4.1":
-  version: 0.4.1
-  resolution: "@sitecore-cloudsdk/events@npm:0.4.1"
-  dependencies:
-    "@sitecore-cloudsdk/core": ^0.4.1
-    "@sitecore-cloudsdk/utils": ^0.4.1
-  checksum: 8b4727473bc6dbe0ac70e4c0050e78634303262e3d6d088f1e1225c18835431c1c930921601403074435d4a42ffbcb61bcc06cb0e85210a273c5ebc2025232a4
   languageName: node
   linkType: hard
 
@@ -6478,13 +6458,6 @@ __metadata:
     "@sitecore-cloudsdk/events": ^0.4.2
     "@sitecore-cloudsdk/utils": ^0.4.2
   checksum: 97ae52692bfabf1b53b26a4be83bad15b034cee1205605c4a68a2e80e1fe35f0bb7cd1665ede8807c131e26cf77e9917199981c720fd71e34292caee36669df2
-  languageName: node
-  linkType: hard
-
-"@sitecore-cloudsdk/utils@npm:^0.4.1, @sitecore-cloudsdk/utils@npm:^0.4.4":
-  version: 0.4.4
-  resolution: "@sitecore-cloudsdk/utils@npm:0.4.4"
-  checksum: 2433396f8ad94afd0da24fd3755b9d04149b7ab871f314562cf4cf566e164efd54ce1a2f7bb3ebf6c10112c2e12f1fd15a875d392e4d9843b5e86aa0c31cf895
   languageName: node
   linkType: hard
 
@@ -6536,7 +6509,7 @@ __metadata:
     "@angular/platform-browser": ~18.2.13
     "@angular/platform-browser-dynamic": ~18.2.13
     "@angular/router": ~18.2.13
-    "@sitecore-cloudsdk/events": 0.4.1
+    "@sitecore-cloudsdk/events": ^0.4.2
     "@sitecore-jss/sitecore-jss": 22.5.0-canary.6
     "@types/jasmine": ^5.1.4
     "@types/node": ^22.9.0
