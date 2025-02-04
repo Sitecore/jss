@@ -14,7 +14,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:7](https://github.com/Sitecore/jss/blob/d5a348de45495731b4551f12a8db18ea9a72a20d/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L7)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:7](https://github.com/Sitecore/jss/blob/14151f477bc063e5e56ed6c6c7cac5f881ce3240/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L7)
 
 ***
 
@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:5](https://github.com/Sitecore/jss/blob/d5a348de45495731b4551f12a8db18ea9a72a20d/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L5)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:5](https://github.com/Sitecore/jss/blob/14151f477bc063e5e56ed6c6c7cac5f881ce3240/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L5)
 
 ***
 
@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:4](https://github.com/Sitecore/jss/blob/d5a348de45495731b4551f12a8db18ea9a72a20d/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L4)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:4](https://github.com/Sitecore/jss/blob/14151f477bc063e5e56ed6c6c7cac5f881ce3240/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L4)
 
 ***
 
@@ -44,7 +44,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:6](https://github.com/Sitecore/jss/blob/d5a348de45495731b4551f12a8db18ea9a72a20d/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L6)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:6](https://github.com/Sitecore/jss/blob/14151f477bc063e5e56ed6c6c7cac5f881ce3240/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L6)
 
 ***
 
@@ -54,7 +54,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:8](https://github.com/Sitecore/jss/blob/d5a348de45495731b4551f12a8db18ea9a72a20d/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L8)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:8](https://github.com/Sitecore/jss/blob/14151f477bc063e5e56ed6c6c7cac5f881ce3240/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L8)
 
 ***
 
@@ -64,4 +64,4 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:9](https://github.com/Sitecore/jss/blob/d5a348de45495731b4551f12a8db18ea9a72a20d/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L9)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:9](https://github.com/Sitecore/jss/blob/14151f477bc063e5e56ed6c6c7cac5f881ce3240/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L9)
