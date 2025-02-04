@@ -1,6 +1,6 @@
 ﻿import { TestBed, fakeAsync, flush } from '@angular/core/testing';
 import { JssStateService, BaseJssState } from './jss-state.service';
-import { TransferState } from '@angular/platform-browser';
+import { TransferState } from '@angular/core';
 
 describe('JssStateService', () => {
   let service: JssStateService;
