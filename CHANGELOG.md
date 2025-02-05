@@ -9,6 +9,18 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 22.5.0
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-angular]` Support `CanActivate` `RedirectCommand` API ([#2029](https://github.com/Sitecore/jss/pull/2029))
+* `[sitecore-jss-angular]` `CanActivate` and `CanResolve` now additionally accept `router` as a parameter ([#2029](https://github.com/Sitecore/jss/pull/2029))
+
+### 🛠 Breaking Change
+
+* Upgrade Angular to v18 ([#2029](https://github.com/Sitecore/jss/pull/2029))
+  * Updated Angular and core dependencies to ~18.2.13
+
 ## 22.4.1
 
 ### 🐛 Bug Fixes
