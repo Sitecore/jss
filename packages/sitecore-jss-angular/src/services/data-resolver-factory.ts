@@ -54,6 +54,7 @@ export function dataResolverFactory(
       activatedRoute: activatedRoute.snapshot,
       routerState: router.routerState.snapshot,
       rendering: factory.componentDefinition as ComponentRendering,
+      router,
     });
     const data$ = wrapIntoObservable(data);
 

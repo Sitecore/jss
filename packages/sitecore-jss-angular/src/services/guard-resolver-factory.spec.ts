@@ -2,7 +2,7 @@
 
 import { Injectable, Injector } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, RedirectCommand, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of } from 'rxjs';
 import { guardResolverFactory } from './guard-resolver-factory';
@@ -73,6 +73,15 @@ class MockUrlTreeGuard implements JssCanActivate {
 }
 
 @Injectable()
+class MockRedirectCommandGuard implements JssCanActivate {
+  constructor(private readonly router: Router) {}
+
+  canActivate() {
+    return new RedirectCommand(this.router.parseUrl('/404'));
+  }
+}
+
+@Injectable()
 class MockUrlGuard implements JssCanActivate {
   canActivate() {
     return '/404';
@@ -100,6 +109,7 @@ describe('guardResolverFactory', () => {
           MockService,
           MockInjectableGuard,
           MockUrlTreeGuard,
+          MockRedirectCommandGuard,
           MockUrlGuard,
           MockUrlsGuard,
           {
@@ -165,6 +175,18 @@ describe('guardResolverFactory', () => {
       resolver([
         {
           canActivate: MockUrlTreeGuard,
+          componentDefinition: {} as any,
+        },
+      ])
+      // eslint-disable-next-line quotes
+    ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '/404' is a redirect value");
+  });
+
+  it('Throws JssCanActivateRedirectError when returning RedirectCommand', () => {
+    return expectAsync(
+      resolver([
+        {
+          canActivate: MockRedirectCommandGuard,
           componentDefinition: {} as any,
         },
       ])
