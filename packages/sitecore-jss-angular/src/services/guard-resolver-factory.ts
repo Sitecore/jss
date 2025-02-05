@@ -1,5 +1,5 @@
 import { Injector, Type } from '@angular/core';
-import { ActivatedRoute, Router, UrlTree } from '@angular/router';
+import { ActivatedRoute, RedirectCommand, Router, UrlTree } from '@angular/router';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { lastValueFrom, of } from 'rxjs';
 import { mergeMap, take } from 'rxjs/operators';
@@ -9,13 +9,18 @@ import { JssCanActivateRedirectError } from './jss-can-activate-error';
 import { JssCanActivate, JssCanActivateFn } from './placeholder.token';
 
 /**
- * @param {boolean | string | string[] | UrlTree} value
+ * @param {boolean | string | string[] | UrlTree | RedirectCommand} value
  * @returns instance of value
  */
 function isRedirectValue(
-  value: boolean | string | string[] | UrlTree
-): value is string | string[] | UrlTree {
-  return value instanceof UrlTree || typeof value === 'string' || Array.isArray(value);
+  value: boolean | string | string[] | UrlTree | RedirectCommand
+): value is string | string[] | UrlTree | RedirectCommand {
+  return (
+    value instanceof UrlTree ||
+    value instanceof RedirectCommand ||
+    typeof value === 'string' ||
+    Array.isArray(value)
+  );
 }
 
 /**
@@ -78,6 +83,7 @@ export function guardResolverFactory(
       activatedRoute: activatedRoute.snapshot,
       routerState: router.routerState.snapshot,
       rendering: factory.componentDefinition as ComponentRendering,
+      router,
     });
 
     const canActivate$ = wrapIntoObservable(guardValue);
@@ -87,8 +93,16 @@ export function guardResolverFactory(
         take(1),
         mergeMap((value) => {
           if (isRedirectValue(value)) {
+            let message;
+
+            if (value instanceof RedirectCommand) {
+              message = value.redirectTo;
+            } else {
+              message = value;
+            }
+
             throw new JssCanActivateRedirectError(
-              `Value: '${value.toString()}' is a redirect value`,
+              `Value: '${message.toString()}' is a redirect value`,
               value
             );
           } else {
