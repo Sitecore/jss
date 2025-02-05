@@ -43,7 +43,7 @@ the friendly id
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:130](https://github.com/Sitecore/jss/blob/14151f477bc063e5e56ed6c6c7cac5f881ce3240/packages/sitecore-jss/src/personalize/utils.ts#L130)
+[packages/sitecore-jss/src/personalize/utils.ts:130](https://github.com/Sitecore/jss/blob/b68906c35e56e52c9d0b01a2e05fd92e568acd7b/packages/sitecore-jss/src/personalize/utils.ts#L130)
 
 ***
 
@@ -69,7 +69,7 @@ the friendly id
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:115](https://github.com/Sitecore/jss/blob/14151f477bc063e5e56ed6c6c7cac5f881ce3240/packages/sitecore-jss/src/personalize/utils.ts#L115)
+[packages/sitecore-jss/src/personalize/utils.ts:115](https://github.com/Sitecore/jss/blob/b68906c35e56e52c9d0b01a2e05fd92e568acd7b/packages/sitecore-jss/src/personalize/utils.ts#L115)
 
 ***
 
@@ -96,7 +96,7 @@ the formatted page variant id
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:92](https://github.com/Sitecore/jss/blob/14151f477bc063e5e56ed6c6c7cac5f881ce3240/packages/sitecore-jss/src/personalize/utils.ts#L92)
+[packages/sitecore-jss/src/personalize/utils.ts:92](https://github.com/Sitecore/jss/blob/b68906c35e56e52c9d0b01a2e05fd92e568acd7b/packages/sitecore-jss/src/personalize/utils.ts#L92)
 
 ***
 
@@ -121,4 +121,4 @@ normalized scope value
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:149](https://github.com/Sitecore/jss/blob/14151f477bc063e5e56ed6c6c7cac5f881ce3240/packages/sitecore-jss/src/personalize/utils.ts#L149)
+[packages/sitecore-jss/src/personalize/utils.ts:149](https://github.com/Sitecore/jss/blob/b68906c35e56e52c9d0b01a2e05fd92e568acd7b/packages/sitecore-jss/src/personalize/utils.ts#L149)

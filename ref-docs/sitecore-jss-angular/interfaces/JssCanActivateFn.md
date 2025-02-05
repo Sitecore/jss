@@ -6,7 +6,7 @@
 
 # Interface: JssCanActivateFn()
 
-> **JssCanActivateFn**(`input`): `string` \| `boolean` \| `string`[] \| `UrlTree` \| `Observable`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\> \| `Promise`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\>
+> **JssCanActivateFn**(`input`): `string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand` \| `Observable`\<`string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand`\> \| `Promise`\<`string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand`\>
 
 ## Parameters
 
@@ -16,8 +16,8 @@
 
 ## Returns
 
-`string` \| `boolean` \| `string`[] \| `UrlTree` \| `Observable`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\> \| `Promise`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\>
+`string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand` \| `Observable`\<`string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand`\> \| `Promise`\<`string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand`\>
 
 ## Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:86](https://github.com/Sitecore/jss/blob/14151f477bc063e5e56ed6c6c7cac5f881ce3240/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L86)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:94](https://github.com/Sitecore/jss/blob/b68906c35e56e52c9d0b01a2e05fd92e568acd7b/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L94)
