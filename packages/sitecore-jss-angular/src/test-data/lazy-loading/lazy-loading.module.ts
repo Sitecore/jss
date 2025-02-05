@@ -10,6 +10,7 @@ import { LazyComponent } from './lazy-component.component';
  * - with resolve
  * - with canActivate
  * - with canActivate returning UrlTree
+ * - with canActivate returning RedirectCommand
  * - with canActivate returning url string
  * - with canActivate returning unknown
  */
@@ -22,6 +23,7 @@ import { LazyComponent } from './lazy-component.component';
       JumbotronResolve: LazyComponent,
       JumbotronCanActivate: LazyComponent,
       JumbotronCanActivateUrlTree: LazyComponent,
+      JumbotronCanActivateRedirectCommand: LazyComponent,
       JumbotronCanActivateUrlString: LazyComponent,
       JumbotronCanActivateUnknown: LazyComponent,
     }),

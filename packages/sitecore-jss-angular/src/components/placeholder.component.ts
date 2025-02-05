@@ -23,7 +23,7 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { Data, Router, UrlTree } from '@angular/router';
+import { Data, RedirectCommand, Router, UrlTree } from '@angular/router';
 import {
   ComponentRendering,
   HtmlElementRendering,
@@ -383,7 +383,9 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
         this.isLoading = false;
         if (e instanceof JssCanActivateRedirectError) {
           const redirectValue = e.redirectValue;
-          if (redirectValue instanceof UrlTree) {
+          if (redirectValue instanceof RedirectCommand) {
+            this.router.navigateByUrl(redirectValue.redirectTo);
+          } else if (redirectValue instanceof UrlTree) {
             this.router.navigateByUrl(redirectValue);
           } else if (typeof redirectValue === 'string') {
             this.router.navigate([redirectValue]);
