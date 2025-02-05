@@ -196,12 +196,13 @@ export const diffAndWriteFiles = async ({
 export const populateEjsData = (answers: BaseArgs, destination?: string) => {
   // pass in helper to answers object
 
-  // Don't expose prerelease build number in the generated app
-  const jssVersion = version.replace(/(\.\d+)$/, '');
+  // Use exact version for jss dependencies in beta and canary versions
+  const jssDepVersion: string = version.match(/beta|canary/) ? version : `~${version}`;
 
   const ejsData: Data = {
     ...answers,
-    version: jssVersion,
+    appVersion: version,
+    jssDepVersion,
     helper: {
       isDev: isDevEnvironment(destination || answers.destination),
       getPascalCaseName: getPascalCaseName,
