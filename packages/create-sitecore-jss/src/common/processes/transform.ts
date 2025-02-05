@@ -197,12 +197,11 @@ export const populateEjsData = (answers: BaseArgs, destination?: string) => {
   // pass in helper to answers object
 
   // Use exact version for jss dependencies in beta and canary versions
-  const jssDepVersion: string = version.match(/beta|canary/) ? version : `~${version}`;
+  const jssVersion: string = version.match(/(\-[a-zA-Z]+\.\d+)$/) ? version : `~${version}`;
 
   const ejsData: Data = {
     ...answers,
-    appVersion: version,
-    jssDepVersion,
+    version: jssVersion,
     helper: {
       isDev: isDevEnvironment(destination || answers.destination),
       getPascalCaseName: getPascalCaseName,

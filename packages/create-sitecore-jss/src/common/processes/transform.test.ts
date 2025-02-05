@@ -526,8 +526,7 @@ describe('transform', () => {
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
-        appVersion: pkgVersion,
-        jssDepVersion: pkgVersion,
+        version: pkgVersion,
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
@@ -656,8 +655,7 @@ describe('transform', () => {
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
-        appVersion: pkgVersion,
-        jssDepVersion: pkgVersion,
+        version: pkgVersion,
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
@@ -704,8 +702,7 @@ describe('transform', () => {
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
-        appVersion: pkgVersion,
-        jssDepVersion: pkgVersion,
+        version: pkgVersion,
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
@@ -752,8 +749,7 @@ describe('transform', () => {
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
-        appVersion: pkgVersion,
-        jssDepVersion: pkgVersion,
+        version: pkgVersion,
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
@@ -863,8 +859,7 @@ describe('transform', () => {
 
       const result = transformModule.populateEjsData(answers);
 
-      expect(result.appVersion).to.equal(pkgVersionBeta);
-      expect(result.jssDepVersion).to.equal(pkgVersionBeta);
+      expect(result.version).to.equal(pkgVersionBeta);
     });
 
     it('should use exact version for app and dependency versions for canary', () => {
@@ -883,8 +878,7 @@ describe('transform', () => {
 
       const result = transformModule.populateEjsData(answers);
 
-      expect(result.appVersion).to.equal(pkgVersionCanary);
-      expect(result.jssDepVersion).to.equal(pkgVersionCanary);
+      expect(result.version).to.equal(pkgVersionCanary);
     });
 
     it('should use exact version for app and ~ version for dependencies for release', () => {
@@ -903,8 +897,7 @@ describe('transform', () => {
 
       const result = transformModule.populateEjsData(answers);
 
-      expect(result.appVersion).to.equal(pkgVersionRelease);
-      expect(result.jssDepVersion).to.equal(`~${pkgVersionRelease}`);
+      expect(result.version).to.equal(`~${pkgVersionRelease}`);
     });
   });
 });
