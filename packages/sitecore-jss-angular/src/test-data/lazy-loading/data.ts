@@ -73,6 +73,23 @@ export const testDataNavigation: { label: string; data: ComponentRendering }[] =
     },
   },
   {
+    label: 'jumbotron with canActivate with returning RedirectCommand',
+    data: {
+      componentName: 'dummy',
+      uid: 'dummy',
+      placeholders: {
+        main: [
+          {
+            componentName: 'JumbotronCanActivateRedirectCommand',
+            fields: {},
+            params: {},
+            uid: 'jumbotron-can-activate-url-tree',
+          },
+        ],
+      },
+    },
+  },
+  {
     label: 'jumbotron with canActivate with returning url string',
     data: {
       componentName: 'dummy',
