@@ -8,6 +8,7 @@
 
 - [activatedRoute](GuardInput.md#activatedroute)
 - [rendering](GuardInput.md#rendering)
+- [router](GuardInput.md#router)
 - [routerState](GuardInput.md#routerstate)
 
 ## Properties
@@ -18,7 +19,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:80](https://github.com/Sitecore/jss/blob/13d61543e4/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L80)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:87](https://github.com/Sitecore/jss/blob/bcb255fbda/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L87)
 
 ___
 
@@ -28,7 +29,17 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:82](https://github.com/Sitecore/jss/blob/13d61543e4/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L82)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:89](https://github.com/Sitecore/jss/blob/bcb255fbda/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L89)
+
+___
+
+### router
+
+• **router**: `Router`
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:90](https://github.com/Sitecore/jss/blob/bcb255fbda/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L90)
 
 ___
 
@@ -38,4 +49,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:81](https://github.com/Sitecore/jss/blob/13d61543e4/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L81)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:88](https://github.com/Sitecore/jss/blob/bcb255fbda/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L88)
