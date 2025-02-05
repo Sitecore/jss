@@ -1,6 +1,6 @@
 {
   "name": "<%- appName %>",
-  "version": "<%- version %>",
+  "version": "0.1.0",
   "description": "Application utilizing Sitecore JavaScript Services and Vue (vue-cli).",
   "private": true,
   "config": {
@@ -45,7 +45,7 @@
   "dependencies": {
     "@apollo/client": "^3.7.4",
     "@panter/vue-i18next": "~0.15.2",
-    "@sitecore-jss/sitecore-jss-vue": "~<%- version %>",
+    "@sitecore-jss/sitecore-jss-vue": "<%- version %>",
     "@vue/apollo-composable": "4.0.0-beta.2",
     "@vue/apollo-option": "^4.0.0",
     "@vue/apollo-ssr": "^4.0.0",
@@ -62,8 +62,8 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
     "@babel/register": "7.18.9",
-    "@sitecore-jss/sitecore-jss-cli": "~<%- version %>",
-    "@sitecore-jss/sitecore-jss-dev-tools": "~<%- version %>",
+    "@sitecore-jss/sitecore-jss-cli": "<%- version %>",
+    "@sitecore-jss/sitecore-jss-dev-tools": "<%- version %>",
     "@vue/cli-plugin-babel": "~5.0.8",
     "@vue/cli-plugin-eslint": "~5.0.8",
     "@vue/cli-service": "~5.0.8",
