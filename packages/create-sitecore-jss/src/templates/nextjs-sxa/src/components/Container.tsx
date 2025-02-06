@@ -11,12 +11,12 @@ interface ComponentProps {
 }
 
 const DefaultContainer = (props: ComponentProps): JSX.Element => {
-  const containerStyles = props.params && props.params.Styles ? props.params.Styles : '';
-  const styles = `${props.params.GridParameters} ${containerStyles}`.trimEnd();
-  const phKey = `container-${props.params.DynamicPlaceholderId}`;
-  const id = props.params.RenderingIdentifier;
+  const containerStyles = props?.params?.Styles ?? '';
+  const styles = `${props?.params?.GridParameters} ${containerStyles}`.trimEnd();
+  const phKey = `container-${props?.params?.DynamicPlaceholderId}`;
+  const id = props?.params?.RenderingIdentifier;
   const mediaUrlPattern = new RegExp(/mediaurl=\"([^"]*)\"/, 'i');
-  let backgroundImage = props.params.BackgroundImage as string;
+  let backgroundImage = props?.params?.BackgroundImage as string;
   let backgroundStyle: { [key: string]: string } = {};
 
   if (backgroundImage && backgroundImage.match(mediaUrlPattern)) {
