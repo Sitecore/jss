@@ -7,6 +7,7 @@ import ejs from 'ejs';
 import glob from 'glob';
 import { expect } from 'chai';
 import sinon, { SinonStub } from 'sinon';
+import proxyquire from 'proxyquire';
 import { currentPkg, partialPkg } from '../test-data/pkg';
 import * as transform from './transform';
 import * as helpers from '../utils/helpers';
@@ -507,7 +508,6 @@ describe('transform', () => {
 
       globSyncStub = sinon.stub(glob, 'sync').returns([file]);
       ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(renderFileOutput));
-      diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
 
       const answers = {
         destination: destinationPath,
@@ -516,10 +516,17 @@ describe('transform', () => {
         force: false,
       };
 
-      await transformFunc(templatePath, answers);
+      const transformModule = proxyquire('./transform', {
+        '../../../package.json': { version: '22.2.1-canary.33' },
+      });
+
+      diffAndWriteFilesStub = sinon.stub(transformModule, 'diffAndWriteFiles');
+
+      await transformModule.transform(templatePath, answers);
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
+        version: '22.2.1-canary',
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
@@ -629,8 +636,6 @@ describe('transform', () => {
       fsExistsSyncStub = sinon.stub(fs, 'existsSync').returns(true);
       openPackageJsonStub = sinon.stub(helpers, 'openPackageJson').returns(currentPkg);
       ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(renderFileOutput));
-      mergeStub = sinon.stub(transform, 'merge').returns(mergedPkg);
-      diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
 
       const answers = {
         destination: destinationPath,
@@ -639,10 +644,18 @@ describe('transform', () => {
         force: false,
       };
 
-      await transformFunc(templatePath, answers);
+      const transformModule = proxyquire('./transform', {
+        '../../../package.json': { version: '22.2.1-canary.33' },
+      });
+
+      diffAndWriteFilesStub = sinon.stub(transformModule, 'diffAndWriteFiles');
+      mergeStub = sinon.stub(transformModule, 'merge').returns(mergedPkg);
+
+      await transformModule.transform(templatePath, answers);
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
+        version: '22.2.1-canary',
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
@@ -669,8 +682,13 @@ describe('transform', () => {
       fsExistsSyncStub = sinon.stub(fs, 'existsSync').returns(true);
       fsReadFileSunc = sinon.stub(fs, 'readFileSync').returns(currentDotEnv);
       ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(templateDotEnv));
-      mergeEnvStub = sinon.stub(transform, 'mergeEnv').returns(concatDotEnv);
-      diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
+
+      const transformModule = proxyquire('./transform', {
+        '../../../package.json': { version: '22.2.1-canary.33' },
+      });
+
+      mergeEnvStub = sinon.stub(transformModule, 'mergeEnv').returns(concatDotEnv);
+      diffAndWriteFilesStub = sinon.stub(transformModule, 'diffAndWriteFiles');
 
       const answers = {
         destination: destinationPath,
@@ -679,10 +697,11 @@ describe('transform', () => {
         force: false,
       };
 
-      await transformFunc(templatePath, answers);
+      await transformModule.transform(templatePath, answers);
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
+        version: '22.2.1-canary',
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,

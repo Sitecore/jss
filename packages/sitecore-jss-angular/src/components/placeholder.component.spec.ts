@@ -1,5 +1,5 @@
 import { Component, DebugElement, EventEmitter, Injectable, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { RedirectCommand, Router } from '@angular/router';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Location } from '@angular/common';
 import { By } from '@angular/platform-browser';
@@ -509,6 +509,15 @@ class MockUrlTreeGuard implements JssCanActivate {
   }
 }
 
+@Injectable()
+class MockRedirectCommandGuard implements JssCanActivate {
+  constructor(private readonly router: Router) {}
+
+  canActivate() {
+    return new RedirectCommand(this.router.parseUrl('/404'));
+  }
+}
+
 @Component({
   selector: 'not-found',
   template: `
@@ -578,6 +587,11 @@ describe('<sc-placeholder /> with lazy loaded modules', () => {
                 canActivate: [MockUrlTreeGuard],
               },
               {
+                path: 'JumbotronCanActivateRedirectCommand',
+                loadChildren: loadChildrenFunc,
+                canActivate: [MockRedirectCommandGuard],
+              },
+              {
                 path: 'JumbotronCanActivateUrlString',
                 loadChildren: loadChildrenFunc,
                 canActivate: [createFunctionGuard('/404')],
@@ -590,7 +604,7 @@ describe('<sc-placeholder /> with lazy loaded modules', () => {
             ]
           ),
         ],
-        providers: [MockUrlTreeGuard, MockUnexpectedErrorGuard],
+        providers: [MockUrlTreeGuard, MockRedirectCommandGuard, MockUnexpectedErrorGuard],
       }).compileComponents();
     })
   );

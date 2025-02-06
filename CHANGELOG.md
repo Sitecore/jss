@@ -15,6 +15,17 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-nextjs]` Fixed issue with sitecore-jss-nextjs field components using deprecated feature (`.defaultProps`) when using react 18+
 
+## 21.9.0
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-angular]` Support `CanActivate` `RedirectCommand` API ([#2031](https://github.com/Sitecore/jss/pull/2031))
+* `[sitecore-jss-angular]` `CanActivate` and `CanResolve` now additionally accept `router` as a parameter ([#2031](https://github.com/Sitecore/jss/pull/2031))
+
+### 🛠 Breaking Change
+
+* Upgrade Angular to v18 ([#2031](https://github.com/Sitecore/jss/pull/2031))
+  * Updated Angular and core dependencies to ~18.2.13
 
 ## 21.8.0
 
