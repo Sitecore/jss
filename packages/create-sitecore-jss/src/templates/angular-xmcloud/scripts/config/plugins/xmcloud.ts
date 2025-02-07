@@ -12,7 +12,6 @@ class XMCloudPlugin implements ConfigPlugin {
 
   async exec(config: JssConfig) {
     const proxyBuildPath = process.env[`${constantCase('proxyBuildPath')}`]?.replace(/\/$/, '');
-    const proxyHost = process.env[`${constantCase('proxyHost')}`];
 
     const sitecoreEdgeUrl =
       process.env[`${constantCase('sitecoreEdgeUrl')}`]?.replace(/\/$/, '') ||
@@ -30,7 +29,6 @@ class XMCloudPlugin implements ConfigPlugin {
 
     return Object.assign({}, config, {
       proxyBuildPath,
-      proxyHost,
       sitecoreEdgeUrl,
       sitecoreEdgeContextId,
       personalizeScope,
