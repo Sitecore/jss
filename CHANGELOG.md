@@ -17,6 +17,7 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-angular]` Support `CanActivate` `RedirectCommand` API ([#2029](https://github.com/Sitecore/jss/pull/2029))
 * `[sitecore-jss-angular]` `CanActivate` and `CanResolve` now additionally accept `router` as a parameter ([#2029](https://github.com/Sitecore/jss/pull/2029))
+* `[templates/angular]` Remove unnecessary PROXY_HOST setting ([#2036](https://github.com/Sitecore/jss/pull/2036))
 
 ### 🛠 Breaking Change
 
