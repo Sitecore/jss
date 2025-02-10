@@ -19,6 +19,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-angular]` `CanActivate` and `CanResolve` now additionally accept `router` as a parameter ([#2029](https://github.com/Sitecore/jss/pull/2029))
 * `[templates/angular]` Remove unnecessary PROXY_HOST setting ([#2036](https://github.com/Sitecore/jss/pull/2036)):
   * The environment variable `PROXY_HOST` is no longer required and can be fully removed from the application.
+* `[node-xmcloud-proxy]` Update Netlify deployment guide ([#2041](https://github.com/Sitecore/jss/pull/2041))
 
 ### 🛠 Breaking Change
 
