@@ -103,11 +103,11 @@ Follow these steps to deploy your application to Netlify. The deployed site can 
     ```
 3. Configure `serverless-http`:
     - Install the serverless-http package :
-        - in case you are deploying standalone angular + proxy run the following from the inside of `<your-proxy-app-folder>`:
+        - If you're deploying a standalone Angular app with the Node proxy, run the following command inside your proxy app folder:
           ```
           npm i serverless-http
           ```
-        - in case you are in the context of [xmcloud-foundation-head](https://github.com/sitecorelabs/xmcloud-foundation-head), it has a pnpm monorepo setup, so if run the following from the inside of `<your-proxy-app-folder>`:
+        - If you're working within the pnpm setup context of the [xmcloud-foundation-head](https://github.com/sitecorelabs/xmcloud-foundation-head), run the following command inside your proxy app folder:
           ```
           pnpm add serverless-http
           ```
@@ -137,23 +137,23 @@ Follow these steps to deploy your application to Netlify. The deployed site can 
     publish = "<your-proxy-app-folder>/dist"
     ```
    - The `[functions]` section allows the proxy app to be treated as Netlify functions. [Functions Overview](https://docs.netlify.com/functions/overview/)
-   - The first `[[redirects]]` section is to ensure that static assets are accessed properly.
-   - The second `[[redirects]]` section: by default, redirects won’t be applied if there’s a file with the same path as the one defined in the `from` property. Setting `force` to `true` will make the redirect rule take precedence over any existing files, thus preventing files in the deploy folder to be publicly accessible.
+   - The first `[[redirects]]` section ensures that static assets are accessed properly.
+   - The second `[[redirects]]` section means that, by default, redirects aren't applied if a file exists at the same path as the one defined in the `from` property. Setting `force` to `true` ensures the redirect rule takes precedence over existing files, preventing files in the deploy folder from being publicly accessible.
 
 5. Create your [Netlify deployment](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/):
    - Set up all your necessary environment variables like `SITECORE_EDGE_CONTEXT_ID`, `SITECORE_SITE_NAME` etc.
-   - Make sure to configure Netlify to use latest LTS version of Node.js
+   - Configure Netlify to use the latest LTS version of Node.js.
    - Configure your build settings in the Build and Deploy tab under Site configuration.
-      - sample configuration for standalone angular + proxy deployment:
+      - sample configuration for standalone Angular + proxy deployment:
       ```
-      Base Directory: /
+      Base directory: /
       Build command: npm run build
       Publish directory: /proxy/dist
       Functions directory: /proxy/src
       ```
-      - sample configuration in case you are in the context of [xmcloud-foundation-head](https://github.com/sitecorelabs/xmcloud-foundation-head): 
+      - Sample configuration for use within the context of [xmcloud-foundation-head](https://github.com/sitecorelabs/xmcloud-foundation-head): 
       ```
-      Base Directory: /headapps/spa-starters/
+      Base directory: /headapps/spa-starters/
       Build command: npm run build
       Publish directory:  /headapps/spa-starters/proxy/dist
       Functions directory:  /headapps/spa-starters/proxy/src
