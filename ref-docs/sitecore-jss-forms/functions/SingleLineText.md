@@ -21,4 +21,4 @@
 
 ## Defined in
 
-[src/components/field-templates/single-line-text.tsx:7](https://github.com/Sitecore/jss/blob/2b9c41e8e111bf717a3587f724be62c4f4e42bc6/packages/sitecore-jss-react-forms/src/components/field-templates/single-line-text.tsx#L7)
+[src/components/field-templates/single-line-text.tsx:7](https://github.com/Sitecore/jss/blob/4283425a61de0eb441d8e2909e7d848642eab8dd/packages/sitecore-jss-react-forms/src/components/field-templates/single-line-text.tsx#L7)
