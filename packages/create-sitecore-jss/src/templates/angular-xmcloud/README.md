@@ -77,7 +77,6 @@ The following environment variables can be used to configure the angular app. Yo
 
 | Parameter                              | Description                                                                                                                                |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `PROXY_HOST`                        | Your XM Cloud Proxy hostname is needed to build the app and execute the client-side requests against the proxy server. Default value `http://localhost:3000`                                                                                                                  |
 | `PROXY_BUILD_PATH`                              | Your XM Cloud Proxy server path is needed to build the app. The build output will be copied to the XM Cloud Proxy application path. Default value `<xmcloud_proxy_path>\dist`.
 | `SITECORE_EDGE_CONTEXT_ID`                              | The Context ID, which covers many system configurations, is required for connecting to the XM Cloud back end. This is an XM Cloud system environment variable. When the application runs on the XM Cloud editing host, this value is always set to the preview Context ID.                   |
 | `SITECORE_API_KEY`                              | The API key for GRAPH_QL_ENDPOINT authentication. It should be used in combination with SITECORE_API_HOST for local development when connecting to a local XM Cloud instance

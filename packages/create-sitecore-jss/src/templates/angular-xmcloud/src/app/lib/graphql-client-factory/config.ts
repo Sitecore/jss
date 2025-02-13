@@ -17,15 +17,11 @@ export const getGraphQLClientFactoryConfig = () => {
   const isProduction = env.production === 'true';
 
   if (isProduction) {
-    if (!env.proxyHost) {
-      throw new Error('Please configure your proxyHost.');
-    }
-
     if (env.sitecoreEdgeContextId) {
       clientConfig = {
         endpoint: isServer
           ? getEdgeProxyContentUrl(env.sitecoreEdgeContextId, env.sitecoreEdgeUrl)
-          : getEdgeProxyContentUrl(env.sitecoreEdgeContextId, env.proxyHost),
+          : getEdgeProxyContentUrl(env.sitecoreEdgeContextId, ''),
       };
     } else if (env.graphQLEndpoint && env.sitecoreApiKey) {
       // we ignore ssr-proxy and query CM directly in case apiKey is used (i.e. in dev docker deployments)

@@ -24,4 +24,4 @@ the personalize data from the rewrite
 
 ## Defined in
 
-[packages/sitecore-jss/src/personalize/utils.ts:25](https://github.com/Sitecore/jss/blob/f0f6e64d75797af01d12051025c04b2b5c3ecf36/packages/sitecore-jss/src/personalize/utils.ts#L25)
+[packages/sitecore-jss/src/personalize/utils.ts:25](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/personalize/utils.ts#L25)
