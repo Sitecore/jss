@@ -1,4 +1,4 @@
-import React, { createContext, useContext, ReactNode } from 'react';
+import React, { createContext, useContext, ReactNode, JSX } from 'react';
 import { ComponentPropsCollection } from '../sharedTypes/component-props';
 
 /**
