@@ -11,7 +11,6 @@ import * as metadataData from '../test-data/metadata-data';
 import { withPlaceholder } from '../enhancers/withPlaceholder';
 import { SitecoreContext } from '../components/SitecoreContext';
 import { PlaceholderProps } from '../components/PlaceholderCommon';
-import PropTypes from 'prop-types';
 import { ComponentFactory } from '../components/sharedTypes';
 import {
   ComponentRendering,
@@ -38,14 +37,6 @@ const DownloadCallout: React.FC<CalloutProps> = (props) => (
     {props.fields?.message ? props.fields.message.value : ''}
   </div>
 );
-
-DownloadCallout.propTypes = {
-  fields: PropTypes.shape({
-    message: PropTypes.shape({
-      value: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
 
 const Home: React.FC<HomeProps> = ({ rendering, name, subProp, ...otherProps }: HomeProps) => {
   if (subProp && !otherProps.reset) {

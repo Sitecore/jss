@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { useSitecoreContext } from './withSitecoreContext';
 

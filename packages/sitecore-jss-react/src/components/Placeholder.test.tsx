@@ -5,7 +5,6 @@
 import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import { expect } from 'chai';
 import { mount, shallow } from 'enzyme';
-import PropTypes from 'prop-types';
 import React from 'react';
 import { stub } from 'sinon';
 import { convertedData as eeData, emptyPlaceholderData } from '../test-data/ee-data';
@@ -55,9 +54,6 @@ const componentFactory: ComponentFactory = (componentName: string) => {
       <Placeholder name="page-content" rendering={rendering} {...otherProps} />
     </div>
   );
-  Home.propTypes = {
-    placeholders: PropTypes.object,
-  };
 
   components.set('Home', Home);
 
@@ -69,13 +65,6 @@ const componentFactory: ComponentFactory = (componentName: string) => {
       {props.fields.message ? props.fields.message.value : ''}
     </div>
   );
-  DownloadCallout.propTypes = {
-    fields: PropTypes.shape({
-      message: PropTypes.shape({
-        value: PropTypes.string,
-      }),
-    }).isRequired,
-  };
 
   components.set('DownloadCallout', DownloadCallout);
   components.set('Jumbotron', () => <div className="jumbotron-mock" />);
