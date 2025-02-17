@@ -6828,8 +6828,8 @@ __metadata:
     "@types/mocha": ^10.0.1
     "@types/node": 20.14.2
     "@types/prop-types": ^15.7.5
-    "@types/react": ^18.2.45
-    "@types/react-dom": ^18.0.10
+    "@types/react": ^19.0.10
+    "@types/react-dom": ^19.0.4
     "@types/sinon": ^10.0.13
     "@types/sinon-chai": ^3.2.9
     "@wojtekmaj/enzyme-adapter-react-17": ^0.8.0
@@ -6854,8 +6854,8 @@ __metadata:
     typescript: ~4.9.3
   peerDependencies:
     "@sitecore-feaas/clientside": ^0.5.19
-    react: ^18.2.0
-    react-dom: ^18.2.0
+    react: ^19.0.0
+    react-dom: ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -7803,6 +7803,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:^19.0.4":
+  version: 19.0.4
+  resolution: "@types/react-dom@npm:19.0.4"
+  peerDependencies:
+    "@types/react": ^19.0.0
+  checksum: 2d0c74769ddcb4a9f404a62b3241d3e550ca962ff80c8c5b624f6626cd39f8b18aadee8e447424b52cffdd9165b1f02eb51020fc486584c8395236d97d4abedf
+  languageName: node
+  linkType: hard
+
 "@types/react-native-htmlview@npm:^0.12.2":
   version: 0.12.3
   resolution: "@types/react-native-htmlview@npm:0.12.3"
@@ -7871,6 +7880,15 @@ __metadata:
     "@types/scheduler": ^0.16
     csstype: ^3.0.2
   checksum: 6bb8b4f912d42cbf29c684f50db94c766263f46056cda6d8b4813b2989afd577a11f9a1a69c9a094e55268655139d8ab8625848072c91ca1b624e7b2ec90c099
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^19.0.10":
+  version: 19.0.10
+  resolution: "@types/react@npm:19.0.10"
+  dependencies:
+    csstype: ^3.0.2
+  checksum: e257e87bc3464825014523aecc700540a9da41c3c23136c03da9b2b7999251ac70ef9e594febdefeea6abe51da2475b42e5d96af6559d76f8d54bffc0b0ddacd
   languageName: node
   linkType: hard
 
