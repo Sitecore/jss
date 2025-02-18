@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { expect, use } from 'chai';
-import { mount } from 'enzyme';
+import { fireEvent, render } from '@testing-library/react';
 import { spy } from 'sinon';
 import sinonChai from 'sinon-chai';
 
@@ -30,29 +30,29 @@ describe('withSitecoreContext', () => {
 
     let TestComponentWithContext: React.FC<any> = withSitecoreContext()(TestComponent);
 
-    let wrapper = mount(
+    let wrapper = render(
       <SitecoreContextReactContext.Provider value={testComponentProps}>
         <TestComponentWithContext customProp="xxx" />
       </SitecoreContextReactContext.Provider>
     );
 
-    expect(wrapper).to.have.length(1);
-
-    expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'xxx');
-    wrapper.find('div').simulate('click');
+    expect(wrapper.container.querySelector('div')?.textContent).equal(
+      testComponentProps.context.text + 'xxx'
+    );
+    fireEvent.click(wrapper.container.querySelector('div') as Element);
 
     // eslint-disable-next-line no-unused-expressions
     expect(testComponentProps.setContext).not.to.be.called;
 
     TestComponentWithContext = withSitecoreContext({ updatable: true })(TestComponent);
 
-    wrapper = mount(
+    wrapper = render(
       <SitecoreContextReactContext.Provider value={testComponentProps}>
         <TestComponentWithContext customProp="xxx" />
       </SitecoreContextReactContext.Provider>
     );
 
-    wrapper.find('div').simulate('click');
+    fireEvent.click(wrapper.container.querySelector('div') as Element);
 
     // eslint-disable-next-line no-unused-expressions
     expect(testComponentProps.setContext).to.have.been.called;
@@ -81,16 +81,16 @@ describe('withSitecoreContext', () => {
         );
       };
 
-      const wrapper = mount(
+      const wrapper = render(
         <SitecoreContextReactContext.Provider value={testComponentProps}>
           <TestComponent customProp="xxx" />
         </SitecoreContextReactContext.Provider>
       );
 
-      expect(wrapper).to.have.length(1);
-
-      expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'xxx');
-      wrapper.find('div').simulate('click');
+      expect(wrapper.container.querySelector('div')?.textContent).equal(
+        testComponentProps.context.text + 'xxx'
+      );
+      fireEvent.click(wrapper.container.querySelector('div') as Element);
 
       // eslint-disable-next-line no-unused-expressions
       expect(testComponentProps.setContext).to.not.have.been.called;
@@ -118,16 +118,16 @@ describe('withSitecoreContext', () => {
         );
       };
 
-      const wrapper = mount(
+      const wrapper = render(
         <SitecoreContextReactContext.Provider value={testComponentProps}>
           <TestComponent customProp="bbb" />
         </SitecoreContextReactContext.Provider>
       );
 
-      expect(wrapper).to.have.length(1);
-
-      expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'bbb');
-      wrapper.find('div').simulate('click');
+      expect(wrapper.container.querySelector('div')?.textContent).equal(
+        testComponentProps.context.text + 'bbb'
+      );
+      fireEvent.click(wrapper.container.querySelector('div') as Element);
 
       // eslint-disable-next-line no-unused-expressions
       expect(testComponentProps.setContext).to.have.been.called;

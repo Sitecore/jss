@@ -4,9 +4,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import { expect } from 'chai';
-import { mount, shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import React from 'react';
-import { stub } from 'sinon';
+import { spy, stub } from 'sinon';
 import { convertedData as eeData, emptyPlaceholderData } from '../test-data/ee-data';
 import {
   byocWrapperData,
@@ -25,14 +25,10 @@ import * as BYOCComponent from './BYOCComponent';
 import * as BYOCWrapper from './BYOCWrapper';
 import * as FEAASComponent from './FEaaSComponent';
 import * as FEAASWrapper from './FEaaSWrapper';
-import { HiddenRendering } from './HiddenRendering';
+import * as HiddenRendering from './HiddenRendering';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import { Placeholder } from './Placeholder';
-import {
-  ComponentProps,
-  getDynamicPlaceholderPattern,
-  isDynamicPlaceholder,
-} from './PlaceholderCommon';
+import { ComponentProps } from './PlaceholderCommon';
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
@@ -60,9 +56,11 @@ const componentFactory: ComponentFactory = (componentName: string) => {
   const DownloadCallout: React.FC<{
     [prop: string]: unknown;
     fields?: { message?: { value?: string } };
+    extraDiv?: boolean;
   }> = (props) => (
     <div className="download-callout-mock">
       {props.fields.message ? props.fields.message.value : ''}
+      {props.extraDiv ? <div className="extra">extra!</div> : null}
     </div>
   );
 
