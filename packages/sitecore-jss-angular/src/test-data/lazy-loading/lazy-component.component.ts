@@ -14,6 +14,7 @@ import { Component, Input } from '@angular/core';
 })
 export class LazyComponent {
   @Input() rendering: ComponentRendering;
+  @Input() data: unknown;
 
   constructor(private mockService: MockService) {}
 

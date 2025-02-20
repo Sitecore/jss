@@ -1,5 +1,6 @@
 import {
   Component,
+  ComponentRef,
   Inject,
   Input,
   KeyValueDiffer,
@@ -62,12 +63,11 @@ export class RenderComponentComponent implements OnChanges {
   }
 
   private _setComponentInputs(
-    componentInstance: { [key: string]: unknown },
+    componentRef: ComponentRef<unknown>,
     inputs: { [key: string]: unknown }
   ) {
-    Object.entries(inputs).forEach(
-      ([input, inputValue]) =>
-        ((componentInstance as { [prop: string]: unknown })[input] = inputValue)
+    Object.entries(inputs).forEach(([input, inputValue]) =>
+      componentRef.setInput(input, inputValue)
     );
   }
 
@@ -114,14 +114,13 @@ export class RenderComponentComponent implements OnChanges {
         rendering.componentImplementation = this.missingComponentComponent;
       }
 
-      const componentInstance = this.view.createComponent(rendering.componentImplementation)
-        .instance;
-      componentInstance.rendering = rendering.componentDefinition;
+      const componentRef = this.view.createComponent(rendering.componentImplementation);
+      componentRef.setInput('rendering', rendering.componentDefinition);
       if (this._inputs) {
-        this._setComponentInputs(componentInstance, this._inputs);
+        this._setComponentInputs(componentRef, this._inputs);
       }
       if (this.outputs) {
-        this._subscribeComponentOutputs(componentInstance, this.outputs);
+        this._subscribeComponentOutputs(componentRef.instance, this.outputs);
       }
     });
   }

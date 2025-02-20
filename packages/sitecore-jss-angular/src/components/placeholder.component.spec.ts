@@ -42,6 +42,7 @@ import { cleanHtml } from '../test-utils';
 class TestPlaceholderComponent {
   @Input() rendering: ComponentRendering;
   @Input() name: string;
+  @Input() data: unknown;
 }
 
 @Component({
@@ -52,6 +53,7 @@ class TestPlaceholderComponent {
 })
 class TestDownloadCalloutComponent {
   @Input() rendering: ComponentRendering;
+  @Input() data: unknown;
 }
 
 @Component({
@@ -64,13 +66,17 @@ class TestDownloadCalloutComponent {
 })
 class TestHomeComponent {
   @Input() rendering: ComponentRendering;
+  @Input() data: unknown;
 }
 
 @Component({
   selector: 'test-jumbotron',
   template: '',
 })
-class TestJumbotronComponent {}
+class TestJumbotronComponent {
+  @Input() rendering: ComponentRendering;
+  @Input() data: unknown;
+}
 
 describe('<sc-placeholder />', () => {
   let fixture: ComponentFixture<TestPlaceholderComponent>;
@@ -345,6 +351,7 @@ describe('<sc-placeholder />', () => {
 })
 class TestParentComponent {
   @Input() rendering: ComponentRendering;
+  @Input() data: unknown;
   @Input() name: string;
   clickMessage = '';
   public inputs = {
@@ -370,6 +377,8 @@ class TestParentComponent {
   `,
 })
 class TestChildComponent {
+  @Input() rendering: ComponentRendering;
+  @Input() data: unknown;
   @Input() childMessage: string;
   @Input() childNumber: number;
   @Output() childEvent: EventEmitter<string> = new EventEmitter<string>();
@@ -725,6 +734,7 @@ describe('<sc-placeholder /> with lazy loaded modules', () => {
 })
 class TestRichTextComponent {
   @Input() rendering: ComponentRendering;
+  @Input() data: unknown;
   @ViewChild('default', { static: true }) defaultVariant: TemplateRef<any>;
   @ViewChild('withTitle', { static: true }) withTitleVariant: TemplateRef<any>;
   public get variant(): TemplateRef<any> {
@@ -880,6 +890,7 @@ describe('Placeholder Metadata:', () => {
   })
   class TestNestingComponent {
     @Input() rendering: ComponentRendering;
+    @Input() data: unknown;
     nestedRendering: ComponentRendering = layoutData.sitecore.route.placeholders.main[0];
   }
 
@@ -891,6 +902,7 @@ describe('Placeholder Metadata:', () => {
   })
   class LogoComponent {
     @Input() rendering: ComponentRendering;
+    @Input() data: unknown;
   }
 
   let fixture: ComponentFixture<TestPlaceholderComponent>;
@@ -1091,6 +1103,7 @@ describe('Placeholder Metadata: dynamic placeholder:', () => {
   })
   class TestNestingComponent {
     @Input() rendering: ComponentRendering;
+    @Input() data: unknown;
     nestedRendering: ComponentRendering = layoutData.sitecore.route.placeholders.main[0];
   }
 
@@ -1102,6 +1115,7 @@ describe('Placeholder Metadata: dynamic placeholder:', () => {
   })
   class LogoComponent {
     @Input() rendering: ComponentRendering;
+    @Input() data: unknown;
   }
 
   let fixture: ComponentFixture<TestPlaceholderComponent>;

@@ -7,6 +7,7 @@ import { HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 })
 export class RawComponent implements OnInit {
   @Input() rendering: HtmlElementRendering;
+  @Input() data: unknown;
 
   constructor(private renderer: Renderer2, private elementRef: ElementRef) {}
 

@@ -52,6 +52,7 @@ export class FormComponent implements OnInit, OnDestroy {
    * The rendering data for the component
    */
   @Input() rendering: FormRendering;
+  @Input() data: unknown;
 
   hasError = false;
 
