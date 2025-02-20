@@ -1,35 +1,36 @@
+import { Location } from '@angular/common';
 import {
   Component,
   DebugElement,
   EventEmitter,
   Injectable,
+  input,
   Input,
   Output,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { RedirectCommand, Router } from '@angular/router';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { Location } from '@angular/common';
 import { By } from '@angular/platform-browser';
+import { RedirectCommand, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { JssModule } from '../lib.module';
+import { JssStateService } from '../services/jss-state.service';
+import { JssCanActivate, JssCanActivateFn, JssResolve } from '../services/placeholder.token';
 import { convertedData as eeData } from '../test-data/ee-data';
+import * as lazyLoadingData from '../test-data/lazy-loading/data';
+import { LazyComponent } from '../test-data/lazy-loading/lazy-component.component';
+import * as metadataData from '../test-data/metadata-data';
 import {
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
   sxaRenderingData,
-  sxaRenderingDynamicPlaceholderData,
   sxaRenderingDoubleDigitDynamicPlaceholderData,
+  sxaRenderingDynamicPlaceholderData,
 } from '../test-data/non-ee-data';
-import * as metadataData from '../test-data/metadata-data';
-import { LazyComponent } from '../test-data/lazy-loading/lazy-component.component';
-import { JssCanActivate, JssCanActivateFn, JssResolve } from '../services/placeholder.token';
-import * as lazyLoadingData from '../test-data/lazy-loading/data';
-import { MissingComponentComponent } from './missing-component.component';
-import { JssStateService } from '../services/jss-state.service';
 import { cleanHtml } from '../test-utils';
+import { MissingComponentComponent } from './missing-component.component';
 
 @Component({
   selector: 'test-placeholder',
@@ -47,13 +48,14 @@ class TestPlaceholderComponent {
 
 @Component({
   selector: 'test-download-callout',
+  standalone: true,
   template: `
-    {{ rendering?.fields?.linkText?.value }}
+    {{ rendering()?.fields?.linkText?.value }}
   `,
 })
 class TestDownloadCalloutComponent {
-  @Input() rendering: ComponentRendering;
-  @Input() data: unknown;
+  rendering = input.required<ComponentRendering>();
+  data = input();
 }
 
 @Component({
@@ -86,13 +88,9 @@ describe('<sc-placeholder />', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [
-          TestPlaceholderComponent,
-          TestDownloadCalloutComponent,
-          TestHomeComponent,
-          TestJumbotronComponent,
-        ],
+        declarations: [TestPlaceholderComponent, TestHomeComponent, TestJumbotronComponent],
         imports: [
+          TestDownloadCalloutComponent,
           RouterTestingModule,
           JssModule.withComponents(
             [
