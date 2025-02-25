@@ -91,64 +91,73 @@ If the operation is successful, you’ll see the following message:
 
 Follow these steps to deploy your application to Netlify. The deployed site can be used as an editing host in XM Cloud.
 
-1. Run `npm init` in the root directory (which contains SPA and Node XM Cloud Proxy app folder) and add the following scripts to package.json:
-   ```
-      "build": "cd ./<your-proxy-app-name> && npm run build-all && cd ..",
-      "install": "cd ./<your-proxy-app-name> && npm install && npm run install-all && cd ..",
-   ```
-2. Ensure that `<your-proxy-app-name>/package.json` includes the following commands to handle the build and install steps properly:
-   ```
-      "build-all": "cd ../angular && npm run build && cd ../<your-proxy-app-name> && tsc",
-      "install-all": "cd ../angular && npm i && cd ../<your-proxy-app-name>"
-   ```
+1. Run `npm init` in the root directory (which contains SPA and Node XM Cloud Proxy app folders) and add the following scripts to package.json:
+    ```
+    "build": "cd ./<your-proxy-app-folder> && npm run build-all && cd ..",
+    "install": "cd ./<your-proxy-app-folder> && npm install && npm run install-all && cd .."
+    ```
+2. Ensure that `<your-proxy-app-folder>/package.json` includes the following commands to handle the build and install steps properly:
+    ```
+    "build-all": "cd ../angular && npm run build && cd ../<your-proxy-app-folder> && tsc",
+    "install-all": "cd ../angular && npm i && cd ../<your-proxy-app-folder> && npm i"
+    ```
 3. Configure `serverless-http`:
-    - Install the npm package
-      ```
-        npm i serverless-http
+    - Install the serverless-http package :
+        - If you're deploying a standalone Angular app with the Node proxy, run the following command inside your proxy app folder:
+          ```
+          npm i serverless-http
+          ```
+        - If you're working within the pnpm setup context of the [xmcloud-foundation-head](https://github.com/sitecorelabs/xmcloud-foundation-head), run the following command inside your proxy app folder:
+          ```
+          pnpm add serverless-http
+          ```
+    - Import serverless-http in `<your-proxy-app-folder>/src/index.ts` file and export the serverless handler:
         ```
-    - Import serverless-http in `<your-proxy-app-name>/src/index.ts` file.
-        ```
-          export const handler = serverless(server);
+        import serverless from 'serverless-http';
+        ...
+        export const handler = serverless(server);
         ```
 4. Create a `netlify.toml` file and ensure that the following Netlify configuration is added there:
-   - The following allows the proxy app to be treated as Netlify functions. [Functions Overview](https://docs.netlify.com/functions/overview/)
-     ```
-        [functions]
-        directory = "<your-proxy-app-name>/src"
-        node_bundler = "esbuild"
-        included_files = ["<your-proxy-app-name>/dist/**"]
-     ```
-   - To ensure that static assets are accessed properly, you might need to add the following redirects statement to the toml file:
-     ```
-        [[redirects]]
-        from = "/dist/browser/*"
-        status = 200
-        to = "/browser/:splat"
-     ```
-   - By default, redirects won’t be applied if there’s a file with the same path as the one defined in the `from` property. Setting `force` to `true` will make the redirect rule take precedence over any existing files.
-     ```
-       [[redirects]]
-       from = "/*"
-       status = 200
-       to = "/.netlify/functions/index/:splat"
-       force = true
-     ```
-   - Add the following build command:
-     ```
-     [build]
-     command = "npm run build"
-     publish = "<your-proxy-app-name>/dist"
-     ```
+    ```
+    [functions]
+    directory = "<your-proxy-app-folder>/src"
+    node_bundler = "esbuild"
+    included_files = ["<your-proxy-app-folder>/dist/**"]
+    [[redirects]]
+    from = "/dist/browser/*"
+    status = 200
+    to = "/browser/:splat"
+    [[redirects]]
+    from = "/*"
+    status = 200
+    to = "/.netlify/functions/index/:splat"
+    force = true
+    [build]
+    command = "npm run build"
+    publish = "<your-proxy-app-folder>/dist"
+    ```
+   - The `[functions]` section allows the proxy app to be treated as Netlify functions. [Functions Overview](https://docs.netlify.com/functions/overview/)
+   - The first `[[redirects]]` section ensures that static assets are accessed properly.
+   - The second `[[redirects]]` section means that, by default, redirects aren't applied if a file exists at the same path as the one defined in the `from` property. Setting `force` to `true` ensures the redirect rule takes precedence over existing files, preventing files in the deploy folder from being publicly accessible.
+
 5. Create your [Netlify deployment](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/):
    - Set up all your necessary environment variables like `SITECORE_EDGE_CONTEXT_ID`, `SITECORE_SITE_NAME` etc.
+   - Configure Netlify to use the latest LTS version of Node.js.
    - Configure your build settings in the Build and Deploy tab under Site configuration.
-      - sample configuration:
-       ```
-        Base Directory: /
-        Build command: npm run build
-        Publish directory: /proxy/dist
-        Functions directory: /proxy/src
-        ```
+      - sample configuration for standalone Angular + proxy deployment:
+      ```
+      Base directory: /
+      Build command: npm run build
+      Publish directory: /proxy/dist
+      Functions directory: /proxy/src
+      ```
+      - Sample configuration for use within the context of [xmcloud-foundation-head](https://github.com/sitecorelabs/xmcloud-foundation-head): 
+      ```
+      Base directory: /headapps/spa-starters/
+      Build command: npm run build
+      Publish directory:  /headapps/spa-starters/proxy/dist
+      Functions directory:  /headapps/spa-starters/proxy/src
+      ```
    NOTE: If `proxy/dist` folder is not picked up properly by Netlify make sure that the `PROXY_BUILD_PATH` env variable is unix style path e.g. `../proxy/dist`
 
 ### Deploy to Vercel

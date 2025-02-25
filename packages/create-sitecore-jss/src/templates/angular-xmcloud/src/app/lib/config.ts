@@ -11,7 +11,6 @@ export interface JssConfig extends Record<string, string | boolean | undefined> 
   graphQLEndpointPath?: string;
   defaultServerRoute?: string;
   proxyBuildPath?: string;
-  proxyHost?: string;
   sitecoreEdgeUrl?: string;
   sitecoreEdgeContextId?: string;
 }
