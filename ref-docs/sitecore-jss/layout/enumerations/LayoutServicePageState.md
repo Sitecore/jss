@@ -16,7 +16,7 @@ Layout Service page state enum
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:15](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L15)
+[packages/sitecore-jss/src/layout/models.ts:15](https://github.com/Sitecore/jss/blob/0898ba5e0be5a5b86f660faaea11ee020504c644/packages/sitecore-jss/src/layout/models.ts#L15)
 
 ***
 
@@ -26,7 +26,7 @@ Layout Service page state enum
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:16](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L16)
+[packages/sitecore-jss/src/layout/models.ts:16](https://github.com/Sitecore/jss/blob/0898ba5e0be5a5b86f660faaea11ee020504c644/packages/sitecore-jss/src/layout/models.ts#L16)
 
 ***
 
@@ -36,4 +36,4 @@ Layout Service page state enum
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:14](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L14)
+[packages/sitecore-jss/src/layout/models.ts:14](https://github.com/Sitecore/jss/blob/0898ba5e0be5a5b86f660faaea11ee020504c644/packages/sitecore-jss/src/layout/models.ts#L14)

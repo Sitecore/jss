@@ -12,4 +12,4 @@ Default allowed origins for editing requests. This is used to enforce CORS, CSP 
 
 ## Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:22](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/editing/utils.ts#L22)
+[packages/sitecore-jss/src/editing/utils.ts:22](https://github.com/Sitecore/jss/blob/0898ba5e0be5a5b86f660faaea11ee020504c644/packages/sitecore-jss/src/editing/utils.ts#L22)
