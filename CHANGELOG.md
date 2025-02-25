@@ -13,7 +13,8 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[sitecore-jss-nextjs]` Refactor RedirectsMiddleware for Better Extensibility ([#2040](https://github.com/Sitecore/jss/pull/2040))
+* `[sitecore-jss-nextjs]` Refactor RedirectsMiddleware for better extensibility ([#2040](https://github.com/Sitecore/jss/pull/2040))([#2048](https://github.com/Sitecore/jss/pull/2048)):
+  * Introduced `processRedirectRequest` that can be overridden in custom middleware.
 * `[sitecore-jss-nextjs]` Link component supports prefetch property ([#2039](https://github.com/Sitecore/jss/pull/2039))([#2046](https://github.com/Sitecore/jss/pull/2046))
 
 ### 🐛 Bug Fixes
