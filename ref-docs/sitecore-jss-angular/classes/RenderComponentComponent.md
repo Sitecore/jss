@@ -33,7 +33,7 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:43](https://github.com/Sitecore/jss/blob/0898ba5e0be5a5b86f660faaea11ee020504c644/packages/sitecore-jss-angular/src/components/render-component.component.ts#L43)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:43](https://github.com/Sitecore/jss/blob/c2bf4af7955ae6502bbd82bd590ced28dee62ffa/packages/sitecore-jss-angular/src/components/render-component.component.ts#L43)
 
 ## Properties
 
@@ -47,7 +47,7 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:36](https://github.com/Sitecore/jss/blob/0898ba5e0be5a5b86f660faaea11ee020504c644/packages/sitecore-jss-angular/src/components/render-component.component.ts#L36)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:36](https://github.com/Sitecore/jss/blob/c2bf4af7955ae6502bbd82bd590ced28dee62ffa/packages/sitecore-jss-angular/src/components/render-component.component.ts#L36)
 
 ***
 
@@ -57,7 +57,7 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:35](https://github.com/Sitecore/jss/blob/0898ba5e0be5a5b86f660faaea11ee020504c644/packages/sitecore-jss-angular/src/components/render-component.component.ts#L35)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:35](https://github.com/Sitecore/jss/blob/c2bf4af7955ae6502bbd82bd590ced28dee62ffa/packages/sitecore-jss-angular/src/components/render-component.component.ts#L35)
 
 ## Accessors
 
@@ -79,7 +79,7 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:51](https://github.com/Sitecore/jss/blob/0898ba5e0be5a5b86f660faaea11ee020504c644/packages/sitecore-jss-angular/src/components/render-component.component.ts#L51)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:51](https://github.com/Sitecore/jss/blob/c2bf4af7955ae6502bbd82bd590ced28dee62ffa/packages/sitecore-jss-angular/src/components/render-component.component.ts#L51)
 
 ## Methods
 
@@ -108,4 +108,4 @@ children are checked.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:58](https://github.com/Sitecore/jss/blob/0898ba5e0be5a5b86f660faaea11ee020504c644/packages/sitecore-jss-angular/src/components/render-component.component.ts#L58)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:58](https://github.com/Sitecore/jss/blob/c2bf4af7955ae6502bbd82bd590ced28dee62ffa/packages/sitecore-jss-angular/src/components/render-component.component.ts#L58)

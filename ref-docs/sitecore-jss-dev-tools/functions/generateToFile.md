@@ -23,4 +23,4 @@ is also copied to the directory.
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/generate.ts:215](https://github.com/Sitecore/jss/blob/0898ba5e0be5a5b86f660faaea11ee020504c644/packages/sitecore-jss-dev-tools/src/manifest/generator/generate.ts#L215)
+[sitecore-jss-dev-tools/src/manifest/generator/generate.ts:215](https://github.com/Sitecore/jss/blob/c2bf4af7955ae6502bbd82bd590ced28dee62ffa/packages/sitecore-jss-dev-tools/src/manifest/generator/generate.ts#L215)

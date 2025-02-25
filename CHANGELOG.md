@@ -13,7 +13,9 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[sitecore-jss-nextjs]` Link component supports prefetch property ([#2039](https://github.com/Sitecore/jss/pull/2039))([#2046](https://github.com/Sitecore/jss/pull/2046))
+* `[sitecore-jss-nextjs]` Refactor RedirectsMiddleware for better extensibility ([#2040](https://github.com/Sitecore/jss/pull/2040))([#2048](https://github.com/Sitecore/jss/pull/2048)):
+  * Introduced `processRedirectRequest` that can be overridden in custom middleware.
+* `[sitecore-jss-nextjs]` Link component supports `prefetch` property ([#2039](https://github.com/Sitecore/jss/pull/2039))([#2046](https://github.com/Sitecore/jss/pull/2046))
 * `[create-sitecore-jss]` Create apps with exact jss dependency versions for prerelease versions; all apps are now created with v0.1.0 instead of the version of JSS ([#2033](https://github.com/Sitecore/jss/pull/2033))
 
 ### 🐛 Bug Fixes
