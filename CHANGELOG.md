@@ -20,6 +20,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[templates/nextjs-sxa]` Fixed unsafe property access by replacing direct calls with optional chaining ([#2035](https://github.com/Sitecore/jss/pull/2035))
+* `[sitecore-jss-react]` Extend `PlaceholderProps` to support `Item` type field [#2043](https://github.com/Sitecore/jss/pull/2043)
 
 ## 22.5.0
 
