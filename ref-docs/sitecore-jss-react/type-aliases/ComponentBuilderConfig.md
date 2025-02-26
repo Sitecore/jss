@@ -26,4 +26,4 @@ List of components to be stored
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/ComponentBuilder.ts:7](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-react/src/ComponentBuilder.ts#L7)
+[packages/sitecore-jss-react/src/ComponentBuilder.ts:7](https://github.com/Sitecore/jss/blob/c2bf4af7955ae6502bbd82bd590ced28dee62ffa/packages/sitecore-jss-react/src/ComponentBuilder.ts#L7)

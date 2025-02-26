@@ -16,7 +16,7 @@ Registers a lazily loaded component by name and module to lazy load when it's ne
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:36](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L36)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:36](https://github.com/Sitecore/jss/blob/c2bf4af7955ae6502bbd82bd590ced28dee62ffa/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L36)
 
 ***
 
@@ -33,7 +33,7 @@ e.g. () => import('./path/to/lazyloadedcomponent.module').then(m => m.LazyLoaded
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:35](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L35)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:35](https://github.com/Sitecore/jss/blob/c2bf4af7955ae6502bbd82bd590ced28dee62ffa/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L35)
 
 ***
 
@@ -45,7 +45,7 @@ Name of the component
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:30](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L30)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:30](https://github.com/Sitecore/jss/blob/c2bf4af7955ae6502bbd82bd590ced28dee62ffa/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L30)
 
 ***
 
@@ -59,4 +59,4 @@ Name of the component
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:41](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L41)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:41](https://github.com/Sitecore/jss/blob/c2bf4af7955ae6502bbd82bd590ced28dee62ffa/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L41)

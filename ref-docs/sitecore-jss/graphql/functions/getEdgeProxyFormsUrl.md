@@ -26,4 +26,4 @@ The complete URL for accessing forms through the Edge Platform.
 
 ## Defined in
 
-[packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts:21](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L21)
+[packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts:21](https://github.com/Sitecore/jss/blob/c2bf4af7955ae6502bbd82bd590ced28dee62ffa/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L21)

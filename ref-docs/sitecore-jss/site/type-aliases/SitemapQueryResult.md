@@ -26,4 +26,4 @@ The schema of data returned in response to sitemaps request
 
 ## Defined in
 
-[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:34](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L34)
+[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:34](https://github.com/Sitecore/jss/blob/c2bf4af7955ae6502bbd82bd590ced28dee62ffa/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L34)

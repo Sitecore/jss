@@ -19,4 +19,4 @@ true if executing within a Sitecore editor
 
 ## Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:108](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/editing/utils.ts#L108)
+[packages/sitecore-jss/src/editing/utils.ts:108](https://github.com/Sitecore/jss/blob/c2bf4af7955ae6502bbd82bd590ced28dee62ffa/packages/sitecore-jss/src/editing/utils.ts#L108)

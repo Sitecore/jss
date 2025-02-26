@@ -165,6 +165,28 @@ describe('<Link />', () => {
     expect(c.find(ReactLink).length).to.equal(0);
   });
 
+  it('should render with prefetch prop provided', () => {
+    const field = {
+      href: '/lorem',
+      text: 'ipsum',
+    };
+    const c = mount(
+      <Page>
+        <Link field={field} prefetch={false} />
+      </Page>
+    );
+
+    const link = c.find('a');
+
+    expect(link.html()).to.contain(field.href);
+    expect(link.html()).to.contain(field.text);
+
+    expect(c.find(NextLink).length).to.equal(1);
+    expect(c.find(ReactLink).length).to.equal(0);
+
+    expect(c.find(NextLink).props().prefetch).to.equal(false);
+  });
+
   it('should render other attributes with other props provided', () => {
     const field = {
       value: {
