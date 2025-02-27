@@ -31,6 +31,8 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Fix Chromes editing mode when rendering host URL is internally redirected in XMCloud ([#2019](https://github.com/Sitecore/jss/pull/2019))
 * `[templates/next.js]` sitemap.xml endpoint returns 404 ([#2023](https://github.com/Sitecore/jss/pull/2023))
 
+## 22.5.1
+
 ### 🎉 New Features & Improvements
 
 * `[sitecore-jss-nextjs]` [RichText] Add support for the "prefetch on hover" ([#2049](https://github.com/Sitecore/jss/pull/2049)):
