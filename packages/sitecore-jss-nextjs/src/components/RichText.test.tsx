@@ -416,13 +416,19 @@ describe('RichText', () => {
 
     const main = document.querySelector('main');
     const links = main && main.querySelectorAll('a');
-    const link1 = links && links[0];
-    const link2 = links && links[1];
+    const link1 = (links && links[0])!;
+    const link2 = (links && links[1])!;
 
-    link1 && link1.dispatchEvent(new MouseEvent('mouseover'));
-    link2 && link2.dispatchEvent(new MouseEvent('mouseover'));
+    link1.dispatchEvent(new MouseEvent('mouseover'));
+    link2.dispatchEvent(new MouseEvent('mouseover'));
+
+    // Verify that prefetch called only once for each link
+    link1.dispatchEvent(new MouseEvent('mouseover'));
+    link2.dispatchEvent(new MouseEvent('mouseover'));
 
     expect(router.prefetch).callCount(2);
+    expect(prefetched['/hoverprefetched1']).to.equal(true);
+    expect(prefetched['/hoverprefetched2']).to.equal(true);
   });
 
   describe('editMode metadata', () => {
