@@ -26,4 +26,4 @@ List of components to be stored
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/ComponentBuilder.ts:20](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L20)
+[sitecore-jss-nextjs/src/ComponentBuilder.ts:20](https://github.com/Sitecore/jss/blob/c0046df95acf392be5efda080da1785a4b8d202f/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L20)

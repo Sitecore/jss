@@ -25,4 +25,4 @@ NOTE: when in Sitecore Experience Editor, this setting is ignored due to technic
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/Link.tsx:29](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss-react/src/components/Link.tsx#L29)
+[packages/sitecore-jss-react/src/components/Link.tsx:29](https://github.com/Sitecore/jss/blob/c0046df95acf392be5efda080da1785a4b8d202f/packages/sitecore-jss-react/src/components/Link.tsx#L29)

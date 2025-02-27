@@ -24,10 +24,13 @@ Selector which should be used in order to prefetch it and attach event listeners
 
 ### prefetchLinks?
 
-> `optional` **prefetchLinks**: `boolean`
+> `optional` **prefetchLinks**: `boolean` \| `"hover"`
 
 Controls the prefetch of internal links. This can be beneficial if you have RichText fields
 with large numbers of internal links in them.
+- `true` (default): The full route & its data will be prefetched.
+- `hover`: Prefetching will happen on hover.
+- `false`: Prefetching will not happen.
 
 #### Default
 
@@ -37,4 +40,4 @@ true
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)
+[sitecore-jss-nextjs/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/c0046df95acf392be5efda080da1785a4b8d202f/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)

@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:33](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L33)
+[sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:33](https://github.com/Sitecore/jss/blob/c0046df95acf392be5efda080da1785a4b8d202f/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L33)
 
 ***
 
@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L32)
+[sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/c0046df95acf392be5efda080da1785a4b8d202f/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L32)
 
 ***
 
@@ -58,4 +58,4 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L39)
+[sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/c0046df95acf392be5efda080da1785a4b8d202f/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L39)

@@ -26,4 +26,4 @@ AppRenderer is a function that renders a JSS app's markup for a given route and 
 
 ## Defined in
 
-[sitecore-jss-proxy/src/types/AppRenderer.ts:26](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L26)
+[sitecore-jss-proxy/src/types/AppRenderer.ts:26](https://github.com/Sitecore/jss/blob/c0046df95acf392be5efda080da1785a4b8d202f/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L26)

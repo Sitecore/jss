@@ -29,7 +29,7 @@ Fetch layout data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:108](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L108)
+[packages/sitecore-jss/src/editing/graphql-editing-service.ts:108](https://github.com/Sitecore/jss/blob/c0046df95acf392be5efda080da1785a4b8d202f/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L108)
 
 ## Properties
 
@@ -41,7 +41,7 @@ configuration
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:108](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L108)
+[packages/sitecore-jss/src/editing/graphql-editing-service.ts:108](https://github.com/Sitecore/jss/blob/c0046df95acf392be5efda080da1785a4b8d202f/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L108)
 
 ## Methods
 
@@ -78,7 +78,7 @@ The layout data and dictionary phrases.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:122](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L122)
+[packages/sitecore-jss/src/editing/graphql-editing-service.ts:122](https://github.com/Sitecore/jss/blob/c0046df95acf392be5efda080da1785a4b8d202f/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L122)
 
 ***
 
@@ -96,4 +96,4 @@ implementation
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:216](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L216)
+[packages/sitecore-jss/src/editing/graphql-editing-service.ts:216](https://github.com/Sitecore/jss/blob/c0046df95acf392be5efda080da1785a4b8d202f/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L216)

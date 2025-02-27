@@ -12,7 +12,7 @@ let fetchInit: RequestInit | undefined;
 
 const mockFetch = (
   status: number,
-  response: unknown = {},
+  response: { [key: string]: unknown } = {},
   {
     jsonError,
     textError,
@@ -55,6 +55,7 @@ const mockFetch = (
           ? Promise.reject(new Error(textError))
           : Promise.resolve(JSON.stringify(response));
       },
+      body: response.body,
     } as Response);
   };
 };

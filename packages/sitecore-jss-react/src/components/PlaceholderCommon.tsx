@@ -49,7 +49,7 @@ export interface PlaceholderProps {
    * Any component or placeholder rendered by a placeholder will have access to this data via `props.fields`.
    */
   fields?: {
-    [name: string]: Field | Item[];
+    [name: string]: Field | Item | Item[];
   };
   /**
    * An object of rendering parameter names/values that are aggregated and propagated through the component tree created by a placeholder.

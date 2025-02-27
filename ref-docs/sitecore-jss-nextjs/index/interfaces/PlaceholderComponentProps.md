@@ -71,7 +71,7 @@ Any component or placeholder rendered by a placeholder will have access to this 
 
 #### Index Signature
 
- \[`name`: `string`\]: [`Field`](Field.md) \| [`Item`](Item.md)[]
+ \[`name`: `string`\]: [`Field`](Field.md) \| [`Item`](Item.md) \| [`Item`](Item.md)[]
 
 #### Inherited from
 
