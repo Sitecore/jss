@@ -21,4 +21,4 @@
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/components/NextImage.tsx:18](https://github.com/Sitecore/jss/blob/4283425a61de0eb441d8e2909e7d848642eab8dd/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L18)
+[sitecore-jss-nextjs/src/components/NextImage.tsx:18](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L18)

@@ -30,4 +30,4 @@ Optional Sitecore Personalize scope identifier allowing you to isolate your pers
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:39](https://github.com/Sitecore/jss/blob/4283425a61de0eb441d8e2909e7d848642eab8dd/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L39)
+[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:39](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L39)

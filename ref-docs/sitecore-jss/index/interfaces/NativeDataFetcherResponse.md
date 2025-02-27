@@ -24,7 +24,7 @@ Response content
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:29](https://github.com/Sitecore/jss/blob/4283425a61de0eb441d8e2909e7d848642eab8dd/packages/sitecore-jss/src/native-fetcher.ts#L29)
+[packages/sitecore-jss/src/native-fetcher.ts:29](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss/src/native-fetcher.ts#L29)
 
 ***
 
@@ -36,7 +36,7 @@ Response headers
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:31](https://github.com/Sitecore/jss/blob/4283425a61de0eb441d8e2909e7d848642eab8dd/packages/sitecore-jss/src/native-fetcher.ts#L31)
+[packages/sitecore-jss/src/native-fetcher.ts:31](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss/src/native-fetcher.ts#L31)
 
 ***
 
@@ -48,7 +48,7 @@ HTTP status code of the response (i.e. 200, 404)
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/4283425a61de0eb441d8e2909e7d848642eab8dd/packages/sitecore-jss/src/native-fetcher.ts#L25)
+[packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 ***
 
@@ -60,4 +60,4 @@ HTTP status text of the response (i.e. 'OK', 'Bad Request')
 
 #### Defined in
 
-[packages/sitecore-jss/src/native-fetcher.ts:27](https://github.com/Sitecore/jss/blob/4283425a61de0eb441d8e2909e7d848642eab8dd/packages/sitecore-jss/src/native-fetcher.ts#L27)
+[packages/sitecore-jss/src/native-fetcher.ts:27](https://github.com/Sitecore/jss/blob/248cfb3b6e540977fc39821ffa637a51548d4f43/packages/sitecore-jss/src/native-fetcher.ts#L27)
