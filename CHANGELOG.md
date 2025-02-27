@@ -13,6 +13,8 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
+* `[sitecore-jss-nextjs]` [RichText] Add support for the "prefetch on hover" ([#2049](https://github.com/Sitecore/jss/pull/2049)):
+  * The `prefetchLinks` property now supports the `hover` value, that allows prefetching internal links on hover.
 * `[sitecore-jss-nextjs]` Refactor RedirectsMiddleware for better extensibility ([#2040](https://github.com/Sitecore/jss/pull/2040))([#2048](https://github.com/Sitecore/jss/pull/2048)):
   * Introduced `processRedirectRequest` that can be overridden in custom middleware.
 * `[sitecore-jss-nextjs]` Link component supports `prefetch` property ([#2039](https://github.com/Sitecore/jss/pull/2039))([#2046](https://github.com/Sitecore/jss/pull/2046))
@@ -21,7 +23,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[templates/nextjs-sxa]` Fixed unsafe property access by replacing direct calls with optional chaining ([#2035](https://github.com/Sitecore/jss/pull/2035))
-* `[sitecore-jss-react]` Extend `PlaceholderProps` to support `Item` type field [#2043](https://github.com/Sitecore/jss/pull/2043)
+* `[sitecore-jss-react]` Extend `PlaceholderProps` to support `Item` type field ([#2043](https://github.com/Sitecore/jss/pull/2043))
 
 ## 22.5.0
 
