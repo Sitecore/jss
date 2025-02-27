@@ -31,4 +31,4 @@
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:17](https://github.com/Sitecore/jss/blob/c0046df95acf392be5efda080da1785a4b8d202f/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L17)
+[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:17](https://github.com/Sitecore/jss/blob/04e015cd7f987caa41c1bd60fc1445e251995b75/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L17)
