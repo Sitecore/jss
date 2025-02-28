@@ -1,6 +1,8 @@
 import { SiteInfo, SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { NextRequest, NextResponse } from 'next/server';
 
+export const REWRITE_HEADER_NAME = 'x-sc-rewrite';
+
 export type MiddlewareBaseConfig = {
   /**
    * function, determines if middleware should be turned off, based on cookie, header, or other considerations
@@ -29,7 +31,6 @@ export type MiddlewareBaseConfig = {
 
 export abstract class MiddlewareBase {
   protected SITE_SYMBOL = 'sc_site';
-  protected REWRITE_HEADER_NAME = 'x-sc-rewrite';
   protected defaultHostname: string;
 
   constructor(protected config: MiddlewareBaseConfig) {
@@ -129,7 +130,7 @@ export abstract class MiddlewareBase {
     const response = NextResponse.rewrite(rewriteUrl, res);
 
     // Share rewrite path with following executed middlewares
-    response.headers.set(this.REWRITE_HEADER_NAME, rewritePath);
+    response.headers.set(REWRITE_HEADER_NAME, rewritePath);
 
     return response;
   }
