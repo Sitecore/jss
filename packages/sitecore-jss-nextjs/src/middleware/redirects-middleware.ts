@@ -269,7 +269,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
           return this.createRedirectResponse(url, response, 302, 'Found');
         }
         case REDIRECT_TYPE_SERVER_TRANSFER: {
-          return this.rewrite(url.href, req, response);
+          return this.rewrite(url.href, req, response, true);
         }
         default:
           return response;

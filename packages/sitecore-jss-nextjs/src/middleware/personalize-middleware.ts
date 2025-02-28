@@ -8,7 +8,7 @@ import {
   DEFAULT_VARIANT,
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { debug } from '@sitecore-jss/sitecore-jss';
-import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
+import { MiddlewareBase, MiddlewareBaseConfig, REWRITE_HEADER_NAME } from './middleware';
 import { CloudSDK } from '@sitecore-cloudsdk/core/server';
 import { personalize } from '@sitecore-cloudsdk/personalize/server';
 
@@ -347,7 +347,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     }
 
     // Path can be rewritten by previously executed middleware
-    const basePath = res?.headers.get('x-sc-rewrite') || pathname;
+    const basePath = res?.headers.get(REWRITE_HEADER_NAME) || pathname;
 
     // Rewrite to persononalized path
     const rewritePath = getPersonalizedRewrite(basePath, identifiedVariantIds);
