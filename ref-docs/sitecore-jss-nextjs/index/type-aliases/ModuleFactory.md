@@ -22,4 +22,4 @@ Represents a module factory
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:34](https://github.com/Sitecore/jss/blob/286045d68de67a1a91f002efe772714c421d3f5c/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L34)
+[sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:34](https://github.com/Sitecore/jss/blob/a9ed7a79aa84b880bf091f297457fa587c645671/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L34)
