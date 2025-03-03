@@ -9,6 +9,23 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 22.5.2
+
+### 🐛 Bug Fixes
+* `[sitecore-jss-nextjs]` When redirect rule was not using regex and was only matching a path (without query string), incoming matching URLs were ignored when query string is present. This has been fixed ([#2050](https://github.com/Sitecore/jss/pull/2050))
+* `[sitecore-jss-nextjs]` Fixed redirect header from previous middleware execution not being cleaned up correctly. ([#2050](https://github.com/Sitecore/jss/pull/2050))
+
+## 22.5.1
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-nextjs]` [RichText] Add support for the "prefetch on hover" ([#2049](https://github.com/Sitecore/jss/pull/2049)):
+  * The `prefetchLinks` property now supports the `hover` value, that allows prefetching internal links on hover.
+* `[sitecore-jss-nextjs]` Refactor RedirectsMiddleware for better extensibility ([#2040](https://github.com/Sitecore/jss/pull/2040))([#2048](https://github.com/Sitecore/jss/pull/2048)):
+  * Introduced `processRedirectRequest` that can be overridden in custom middleware.
+* `[sitecore-jss-nextjs]` Link component supports `prefetch` property ([#2039](https://github.com/Sitecore/jss/pull/2039))([#2046](https://github.com/Sitecore/jss/pull/2046))
+* `[create-sitecore-jss]` Create apps with exact jss dependency versions for prerelease versions; all apps are now created with v0.1.0 instead of the version of JSS ([#2033](https://github.com/Sitecore/jss/pull/2033))
+
 ## 22.5.0
 
 ### 🎉 New Features & Improvements
