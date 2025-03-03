@@ -17,7 +17,7 @@ Used for internal links.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:317](https://github.com/Sitecore/jss/blob/a9ed7a79aa84b880bf091f297457fa587c645671/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L317)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:317](https://github.com/Sitecore/jss/blob/ca2bbae0e26127adb7fe959386ede22f71167690/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L317)
 
 ***
 
@@ -29,7 +29,7 @@ The CSS class of the link tag
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:321](https://github.com/Sitecore/jss/blob/a9ed7a79aa84b880bf091f297457fa587c645671/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L321)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:321](https://github.com/Sitecore/jss/blob/ca2bbae0e26127adb7fe959386ede22f71167690/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L321)
 
 ***
 
@@ -42,7 +42,7 @@ Otherwise, the value is used literally.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:308](https://github.com/Sitecore/jss/blob/a9ed7a79aa84b880bf091f297457fa587c645671/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L308)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:308](https://github.com/Sitecore/jss/blob/ca2bbae0e26127adb7fe959386ede22f71167690/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L308)
 
 ***
 
@@ -55,7 +55,7 @@ Used for internal links.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:326](https://github.com/Sitecore/jss/blob/a9ed7a79aa84b880bf091f297457fa587c645671/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L326)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:326](https://github.com/Sitecore/jss/blob/ca2bbae0e26127adb7fe959386ede22f71167690/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L326)
 
 ***
 
@@ -67,7 +67,7 @@ The target attribute of the link tag
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:330](https://github.com/Sitecore/jss/blob/a9ed7a79aa84b880bf091f297457fa587c645671/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L330)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:330](https://github.com/Sitecore/jss/blob/ca2bbae0e26127adb7fe959386ede22f71167690/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L330)
 
 ***
 
@@ -79,7 +79,7 @@ The text shown as the body of the link
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:312](https://github.com/Sitecore/jss/blob/a9ed7a79aa84b880bf091f297457fa587c645671/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L312)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:312](https://github.com/Sitecore/jss/blob/ca2bbae0e26127adb7fe959386ede22f71167690/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L312)
 
 ***
 
@@ -91,4 +91,4 @@ The title attribute of the link tag
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:334](https://github.com/Sitecore/jss/blob/a9ed7a79aa84b880bf091f297457fa587c645671/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L334)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:334](https://github.com/Sitecore/jss/blob/ca2bbae0e26127adb7fe959386ede22f71167690/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L334)
