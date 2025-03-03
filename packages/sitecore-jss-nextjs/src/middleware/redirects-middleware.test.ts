@@ -498,9 +498,7 @@ describe('RedirectsMiddleware', () => {
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
-          headers: {
-            'x-sc-rewrite': 'http://localhost:3000/found',
-          },
+          headers: {},
           redirected: undefined,
           status: 200,
           url,
@@ -551,9 +549,7 @@ describe('RedirectsMiddleware', () => {
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
-          headers: {
-            'x-sc-rewrite': 'http://localhost:3000/found?abc=def',
-          },
+          headers: {},
           redirected: undefined,
           status: 200,
           url,
@@ -995,9 +991,7 @@ describe('RedirectsMiddleware', () => {
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
-          headers: {
-            'x-sc-rewrite': 'http://localhost:3000/found',
-          },
+          headers: {},
           redirected: undefined,
           status: 200,
           url,
