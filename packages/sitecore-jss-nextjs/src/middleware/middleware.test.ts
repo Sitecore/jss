@@ -3,7 +3,7 @@ import chai, { use } from 'chai';
 import sinonChai from 'sinon-chai';
 import sinon from 'sinon';
 import chaiString from 'chai-string';
-import { MiddlewareBase } from './middleware';
+import { MiddlewareBase, REWRITE_HEADER_NAME } from './middleware';
 import { NextRequest, NextResponse } from 'next/server';
 import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 
@@ -280,5 +280,59 @@ describe('MiddlewareBase', () => {
 
     expect(middleware['getSite'](req, res).hostName).to.equal('yyy.net');
     expect(siteResolver.getByHost).to.be.calledWith('yyy.net');
+  });
+  xdescribe('rewrite', () => {
+    let rewriteStub = sinon.stub();
+    before(() => {
+      rewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((rewritePath) => {
+        return createRes({
+          url: typeof rewritePath === 'string' ? rewritePath : rewritePath.pathname,
+          headers: new Map<string, unknown>(),
+        });
+      });
+    });
+
+    after(() => {
+      rewriteStub.restore();
+    });
+
+    it('should rewrite path and add header by default', () => {
+      const middleware = new SampleMiddleware({ siteResolver: new MockSiteResolver([]) });
+      const cloneUrl = () => Object.assign({}, req.nextUrl);
+      const url = {
+        clone: cloneUrl,
+        href: 'http://localhost:3000/not-found',
+        locale: 'en',
+        pathname: 'http://localhost:3000/found',
+      };
+      const req = createReq({
+        nextUrl: url,
+      });
+      const res = createRes();
+
+      const response = middleware['rewrite']('/new', req, res);
+
+      expect(response.headers.get(REWRITE_HEADER_NAME)).to.equal('/new');
+      expect(response.url).to.endWith('/new');
+    });
+
+    it('should rewrite path and not rewrite header when skipHeader is true', () => {
+      const middleware = new SampleMiddleware({ siteResolver: new MockSiteResolver([]) });
+      const cloneUrl = () => Object.assign({}, req.nextUrl);
+      const url = {
+        clone: cloneUrl,
+        href: 'http://localhost:3000/not-found',
+        locale: 'en',
+        pathname: 'http://localhost:3000/found',
+      };
+      const req = createReq({
+        nextUrl: url,
+      });
+      const res = createRes();
+
+      const response = middleware['rewrite']('/new', req, res, true);
+      expect(response.headers.get(REWRITE_HEADER_NAME)).to.be.undefined;
+      expect(response.url).to.endWith('/new');
+    });
   });
 });

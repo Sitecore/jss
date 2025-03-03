@@ -17,7 +17,7 @@ import {
 import { NextURL } from 'next/dist/server/web/next-url';
 import { NextRequest, NextResponse } from 'next/server';
 import regexParser from 'regex-parser';
-import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
+import { MiddlewareBase, MiddlewareBaseConfig, REWRITE_HEADER_NAME } from './middleware';
 
 const REGEXP_CONTEXT_SITE_LANG = new RegExp(/\$siteLang/, 'i');
 const REGEXP_ABSOLUTE_URL = new RegExp('^(?:[a-z]+:)?//', 'i');
@@ -94,17 +94,16 @@ export class RedirectsMiddleware extends MiddlewareBase {
     return modifyRedirects.length
       ? modifyRedirects.find((redirect: RedirectResult) => {
           if (isRegexOrUrl(redirect.pattern) === 'url') {
-            const parseUrlPattern = redirect.pattern.endsWith('/')
+            const [patternPath, patternQS] = redirect.pattern.endsWith('/')
               ? redirect.pattern.slice(0, -1).split('?')
               : redirect.pattern.split('?');
-
             return (
-              (parseUrlPattern[0] === normalizedPath ||
-                parseUrlPattern[0] === `/${locale}${normalizedPath}`) &&
-              areURLSearchParamsEqual(
-                new URLSearchParams(parseUrlPattern[1] ?? ''),
-                new URLSearchParams(targetQS)
-              )
+              (patternPath === normalizedPath || patternPath === `/${locale}${normalizedPath}`) &&
+              (!patternQS ||
+                areURLSearchParamsEqual(
+                  new URLSearchParams(patternQS),
+                  new URLSearchParams(targetQS)
+                ))
             );
           }
 
@@ -121,6 +120,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
             .replace(/^\^|\$$/g, '') // Further cleans up anchors
             .replace(/\$\/gi$/g, '')}[\/]?$/i`; // Ensures the pattern allows an optional trailing slash
 
+          // Redirect pattern matches the full incoming URL with query string present
           matchedQueryString = [
             regexParser(redirect.pattern).test(`${normalizedPath}${targetQS}`),
             regexParser(redirect.pattern).test(`/${locale}${normalizedPath}${targetQS}`),
@@ -130,7 +130,12 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
           // Save the matched query string (if found) into the redirect object
           redirect.matchedQueryString = matchedQueryString || '';
-
+          debug.redirects('All info: %o', {
+            matchedQueryString,
+            patern: redirect.pattern,
+            targetURL,
+            targetQS,
+          });
           return (
             !!(
               regexParser(redirect.pattern).test(targetURL) ||
@@ -189,6 +194,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
       // Find the redirect from result of RedirectService
       const existsRedirect = await this.getExistsRedirect(req, site.name);
+      debug.redirects('Existing redirect: %o', { existsRedirect });
 
       if (!existsRedirect) {
         debug.redirects('skipped (redirect does not exist)');
@@ -263,7 +269,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
           return this.createRedirectResponse(url, response, 302, 'Found');
         }
         case REDIRECT_TYPE_SERVER_TRANSFER: {
-          return this.rewrite(url.href, req, response);
+          return this.rewrite(url.href, req, response, true);
         }
         default:
           return response;
@@ -350,6 +356,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
     if (res?.headers) {
       redirect.headers.delete('x-middleware-next');
       redirect.headers.delete('x-middleware-rewrite');
+      redirect.headers.delete(REWRITE_HEADER_NAME);
     }
     return redirect;
   }
