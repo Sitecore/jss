@@ -281,7 +281,7 @@ describe('MiddlewareBase', () => {
     expect(middleware['getSite'](req, res).hostName).to.equal('yyy.net');
     expect(siteResolver.getByHost).to.be.calledWith('yyy.net');
   });
-  xdescribe('rewrite', () => {
+  describe('rewrite', () => {
     let rewriteStub = sinon.stub();
     before(() => {
       rewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((rewritePath) => {
