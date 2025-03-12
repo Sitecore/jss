@@ -101,7 +101,8 @@ export class FormComponent implements OnInit, OnDestroy {
       );
 
       this.elRef.nativeElement.innerHTML = content;
-      this.elRef.nativeElement.className = this.rendering.params.styles?.trimEnd() || '';
+      this.elRef.nativeElement.className = this.rendering.params?.styles?.trimEnd() || '';
+      this.elRef.nativeElement.id = this.rendering.params?.RenderingIdentifier || '';
 
       const form = this.elRef.nativeElement.querySelector('form');
 
