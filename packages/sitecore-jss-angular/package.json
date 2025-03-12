@@ -33,7 +33,6 @@
     "@angular/platform-browser": "~18.2.13",
     "@angular/platform-browser-dynamic": "~18.2.13",
     "@angular/router": "~18.2.13",
-    "@sitecore-cloudsdk/events": "^0.4.2",
     "@types/jasmine": "^5.1.4",
     "@types/node": "^22.9.0",
     "codelyzer": "^6.0.1",

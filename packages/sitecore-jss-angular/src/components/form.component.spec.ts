@@ -1,6 +1,7 @@
 /* eslint-disable quotes */
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ElementRef } from '@angular/core';
+import * as formUtils from '@sitecore-jss/sitecore-jss/form';
 import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
 import { FormComponent, FormRendering } from './form.component';
 import { EDGE_CONFIG, EdgeConfigToken } from '../services/shared.token';
@@ -58,54 +59,52 @@ describe('FormComponent', () => {
   it('should load form', fakeAsync(() => {
     init();
 
-    spyOn(component, 'loadForm').and.callThrough();
+    const stateService = TestBed.inject(JssStateService);
 
-    // Mock request to Forms API
-    const mockResponse = {
-      text: () =>
-        Promise.resolve(
-          '<form id="test-form"><input type="text"></form>\n' +
-            '<script type="javascript">console.log(\'script 1\');</script>\n' +
-            '<script type="javascript">console.log(\'script 2\');</script>'
-        ),
-      status: 200,
-    };
-    spyOn(window, 'fetch').and.returnValue(Promise.resolve(mockResponse as Response));
-    spyOn(component, 'executeScriptElements').and.callThrough();
-    spyOn(component, 'subscribeToFormSubmitEvent').and.callThrough();
+    const execScriptElementsSpy = spyOnProperty(formUtils, 'executeScriptElements').and.returnValue(
+      jasmine.createSpy()
+    );
+    const subscribeSpy = spyOnProperty(formUtils, 'subscribeToFormSubmitEvent').and.returnValue(
+      jasmine.createSpy()
+    );
+    const loadFormSpy = spyOnProperty(formUtils, 'loadForm').and.returnValue(
+      jasmine
+        .createSpy()
+        .and.returnValue(
+          Promise.resolve(
+            '<form id="test-form">\n' +
+              '<script type="javascript">console.log(\'script 1\');</script>\n' +
+              '<script type="javascript">console.log(\'script 2\');</script></form>'
+          )
+        )
+    );
 
-    const createElementSpy = spyOn(document, 'createElement').and.callThrough();
-    const replaceChildSpy = spyOn(elementRef.nativeElement, 'replaceChild').and.callThrough();
+    stateService.setState({
+      sitecore: {
+        context: {
+          pageState: LayoutServicePageState.Normal,
+        },
+        route: null,
+      },
+    });
+
     fixture.detectChanges();
 
     tick();
 
-    expect(component.loadForm).toHaveBeenCalled();
-
-    expect(window.fetch).toHaveBeenCalledWith(
-      'http://test-url.com/v1/forms/publisher/test-form-id?sitecoreContextId=test-context-id',
-      {
-        method: 'GET',
-        cache: 'no-cache',
-      }
-    );
-
     expect(elementRef.nativeElement.innerHTML).toBe(
-      '<form id="test-form"><input type="text"></form>\n' +
+      '<form id="test-form">\n' +
         '<script type="javascript">console.log(\'script 1\');</script>\n' +
-        '<script type="javascript">console.log(\'script 2\');</script>'
+        '<script type="javascript">console.log(\'script 2\');</script></form>'
     );
-    expect(component.executeScriptElements).toHaveBeenCalled();
-    expect(component.subscribeToFormSubmitEvent).toHaveBeenCalled();
+
+    expect(loadFormSpy).toHaveBeenCalled();
+    expect(execScriptElementsSpy).toHaveBeenCalled();
+    expect(subscribeSpy).toHaveBeenCalled();
 
     const formElement = elementRef.nativeElement.querySelector('form');
 
     expect(formElement).not.toBeNull();
-
-    expect(createElementSpy).toHaveBeenCalledTimes(2);
-    expect(createElementSpy.calls.allArgs()).toEqual([['script'], ['script']]);
-
-    expect(replaceChildSpy).toHaveBeenCalledTimes(2);
 
     const scriptElements = elementRef.nativeElement.querySelectorAll('script');
 
@@ -125,49 +124,47 @@ describe('FormComponent', () => {
       },
     });
 
-    spyOn(component, 'loadForm').and.callThrough();
+    const stateService = TestBed.inject(JssStateService);
 
-    const mockResponse = {
-      text: () =>
-        Promise.resolve(
-          '<div>Form Content</div>\n' +
-            '<script type="javascript">console.log(\'script 1\');</script>\n' +
-            '<script type="javascript">console.log(\'script 2\');</script>'
-        ),
-      status: 200,
-    };
-    spyOn(window, 'fetch').and.returnValue(Promise.resolve(mockResponse as Response));
-    spyOn(component, 'executeScriptElements').and.callThrough();
-    spyOn(component, 'subscribeToFormSubmitEvent').and.callThrough();
+    const execScriptElementsSpy = spyOnProperty(formUtils, 'executeScriptElements').and.returnValue(
+      jasmine.createSpy()
+    );
+    const subscribeSpy = spyOnProperty(formUtils, 'subscribeToFormSubmitEvent').and.returnValue(
+      jasmine.createSpy()
+    );
+    const loadFormSpy = spyOnProperty(formUtils, 'loadForm').and.returnValue(
+      jasmine
+        .createSpy()
+        .and.returnValue(
+          Promise.resolve(
+            '<form id="test-form">\n' +
+              '<script type="javascript">console.log(\'script 1\');</script>\n' +
+              '<script type="javascript">console.log(\'script 2\');</script></form>'
+          )
+        )
+    );
 
-    const createElementSpy = spyOn(document, 'createElement').and.callThrough();
-    const replaceChildSpy = spyOn(elementRef.nativeElement, 'replaceChild').and.callThrough();
+    stateService.setState({
+      sitecore: {
+        context: {
+          pageState: LayoutServicePageState.Normal,
+        },
+        route: null,
+      },
+    });
 
     fixture.detectChanges();
 
     tick();
 
-    expect(component.loadForm).toHaveBeenCalled();
-
-    expect(window.fetch).toHaveBeenCalledWith(
-      'https://edge-platform.sitecorecloud.io/v1/forms/publisher/test-form-id?sitecoreContextId=test-context-id',
-      {
-        method: 'GET',
-        cache: 'no-cache',
-      }
-    );
     expect(elementRef.nativeElement.innerHTML).toBe(
-      '<div>Form Content</div>\n' +
+      '<form id="test-form">\n' +
         '<script type="javascript">console.log(\'script 1\');</script>\n' +
-        '<script type="javascript">console.log(\'script 2\');</script>'
+        '<script type="javascript">console.log(\'script 2\');</script></form>'
     );
-    expect(component.executeScriptElements).toHaveBeenCalled();
-    expect(component.subscribeToFormSubmitEvent).toHaveBeenCalled();
-
-    expect(createElementSpy).toHaveBeenCalledTimes(2);
-    expect(createElementSpy.calls.allArgs()).toEqual([['script'], ['script']]);
-
-    expect(replaceChildSpy).toHaveBeenCalledTimes(2);
+    expect(loadFormSpy).toHaveBeenCalled();
+    expect(execScriptElementsSpy).toHaveBeenCalled();
+    expect(subscribeSpy).toHaveBeenCalled();
 
     const scriptElements = elementRef.nativeElement.querySelectorAll('script');
 
@@ -180,175 +177,69 @@ describe('FormComponent', () => {
     );
   }));
 
-  it('should log a warning if no form element is found', () => {
+  it('should not subscribe on form event if the component is in editing or preview mode', fakeAsync(() => {
     init();
 
-    const consoleWarnSpy = spyOn(console, 'warn').and.callThrough();
+    const stateService = TestBed.inject(JssStateService);
 
-    component.subscribeToFormSubmitEvent();
-
-    expect(consoleWarnSpy).toHaveBeenCalledWith(
-      'No form element found to subscribe to submit event.'
+    const execScriptElementsSpy = spyOnProperty(formUtils, 'executeScriptElements').and.returnValue(
+      jasmine.createSpy()
     );
-  });
+    const subscribeSpy = spyOnProperty(formUtils, 'subscribeToFormSubmitEvent').and.returnValue(
+      jasmine.createSpy()
+    );
+    const loadFormSpy = spyOnProperty(formUtils, 'loadForm').and.returnValue(
+      jasmine
+        .createSpy()
+        .and.returnValue(
+          Promise.resolve(
+            '<form id="test-form">\n' +
+              '<script type="javascript">console.log(\'script 1\');</script>\n' +
+              '<script type="javascript">console.log(\'script 2\');</script></form>'
+          )
+        )
+    );
 
-  it('should not trigger the form event if the component is in editing or preview mode', () => {
-    init();
-
-    component.isEditing = true;
-
-    const mockFormElement = document.createElement('form');
-    mockElementRef.nativeElement.appendChild(mockFormElement);
-
-    const consoleSpy = spyOn(console, 'log');
-    const formSpy = jasmine.createSpy('form');
-
-    (window as any).form = formSpy;
-
-    component.subscribeToFormSubmitEvent();
-
-    const validEvent = new CustomEvent('form:engage', {
-      detail: { formId: 'test-form-id', name: 'SUBMITTED' },
+    stateService.setState({
+      sitecore: {
+        context: {
+          pageState: LayoutServicePageState.Edit,
+        },
+        route: null,
+      },
     });
-    mockFormElement.dispatchEvent(validEvent);
 
-    expect(consoleSpy).not.toHaveBeenCalled();
-  });
+    fixture.detectChanges();
 
-  describe('when FormId is not provided', () => {
-    it('editing mode - should log warning and render error', fakeAsync(() => {
-      const mockRendering = {
-        params: {
-          FormId: '',
-        },
-        componentName: 'test-component',
-        dataSource: 'test-data-source',
-        placeholders: {},
-        uid: 'test-uid',
-      };
+    tick();
 
-      init({
-        rendering: mockRendering,
-      });
+    expect(elementRef.nativeElement.innerHTML).toBe(
+      '<form id="test-form">\n' +
+        '<script type="javascript">console.log(\'script 1\');</script>\n' +
+        '<script type="javascript">console.log(\'script 2\');</script></form>'
+    );
 
-      const stateService = TestBed.inject(JssStateService);
+    expect(loadFormSpy).toHaveBeenCalled();
+    expect(execScriptElementsSpy).toHaveBeenCalled();
+    expect(subscribeSpy).not.toHaveBeenCalled();
 
-      stateService.setState({
-        sitecore: {
-          context: {
-            pageState: LayoutServicePageState.Edit,
-          },
-          route: null,
-        },
-      });
+    const formElement = elementRef.nativeElement.querySelector('form');
 
-      spyOn(console, 'warn').and.callThrough();
+    expect(formElement).not.toBeNull();
 
-      fixture.detectChanges();
+    const scriptElements = elementRef.nativeElement.querySelectorAll('script');
 
-      tick();
-
-      expect(console.warn).toHaveBeenCalledWith(
-        `Form was not able to render since FormId is not provided in the rendering data`,
-        JSON.stringify(mockRendering, null, 2)
-      );
-
-      expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
-        `<div style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;">` +
-          `<h2>test-component</h2>` +
-          `<p>JSS component is missing FormId rendering parameter.</p>` +
-          `</div>`
-      );
-    }));
-
-    it('preview mode - should log warning and render error', fakeAsync(() => {
-      const mockRendering = {
-        params: {
-          FormId: '',
-        },
-        componentName: 'test-component',
-        dataSource: 'test-data-source',
-        placeholders: {},
-        uid: 'test-uid',
-      };
-
-      init({
-        rendering: mockRendering,
-      });
-
-      const stateService = TestBed.inject(JssStateService);
-
-      stateService.setState({
-        sitecore: {
-          context: {
-            pageState: LayoutServicePageState.Preview,
-          },
-          route: null,
-        },
-      });
-
-      spyOn(console, 'warn').and.callThrough();
-
-      fixture.detectChanges();
-
-      tick();
-
-      expect(console.warn).toHaveBeenCalledWith(
-        `Form was not able to render since FormId is not provided in the rendering data`,
-        JSON.stringify(mockRendering, null, 2)
-      );
-
-      expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
-        `<div style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;">` +
-          `<h2>test-component</h2>` +
-          `<p>JSS component is missing FormId rendering parameter.</p>` +
-          `</div>`
-      );
-    }));
-
-    it('normal mode - should log warning', fakeAsync(() => {
-      const mockRendering = {
-        params: {
-          FormId: '',
-        },
-        componentName: 'test-component',
-        dataSource: 'test-data-source',
-        placeholders: {},
-        uid: 'test-uid',
-      };
-
-      init({
-        rendering: mockRendering,
-      });
-
-      const stateService = TestBed.inject(JssStateService);
-
-      stateService.setState({
-        sitecore: {
-          context: {
-            pageState: LayoutServicePageState.Normal,
-          },
-          route: null,
-        },
-      });
-
-      spyOn(console, 'warn').and.callThrough();
-
-      fixture.detectChanges();
-
-      tick();
-
-      expect(console.warn).toHaveBeenCalledWith(
-        `Form was not able to render since FormId is not provided in the rendering data`,
-        JSON.stringify(mockRendering, null, 2)
-      );
-
-      expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual('');
-    }));
-  });
+    expect(scriptElements.length).toBe(2);
+    expect(scriptElements[0].outerHTML).toBe(
+      '<script type="javascript">console.log(\'script 1\');</script>'
+    );
+    expect(scriptElements[1].outerHTML).toBe(
+      '<script type="javascript">console.log(\'script 2\');</script>'
+    );
+  }));
 
   describe('when fetch fails', () => {
-    it('editing mode - should log warning and render error', fakeAsync(() => {
+    it('editing mode - should render error', fakeAsync(() => {
       init();
 
       const stateService = TestBed.inject(JssStateService);
@@ -362,26 +253,22 @@ describe('FormComponent', () => {
         },
       });
 
-      spyOn(console, 'warn').and.callThrough();
-
-      spyOn(window, 'fetch').and.throwError('Fetch failed');
+      const loadFormSpy = spyOnProperty(formUtils, 'loadForm').and.returnValue(
+        jasmine.createSpy().and.throwError('Fetch failed')
+      );
 
       fixture.detectChanges();
 
       tick();
 
-      expect(console.warn).toHaveBeenCalledWith(
-        `Form 'test-form-id' was not able to render with the current rendering data`,
-        JSON.stringify(mockRendering, null, 2),
-        new Error('Fetch failed')
-      );
+      expect(loadFormSpy).toHaveBeenCalled();
 
       expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
         `<div class="sc-jss-placeholder-error">There was a problem loading this section</div>`
       );
     }));
 
-    it('preview mode - should log warning and render error', fakeAsync(() => {
+    it('preview mode - render error', fakeAsync(() => {
       init();
 
       const stateService = TestBed.inject(JssStateService);
@@ -395,66 +282,22 @@ describe('FormComponent', () => {
         },
       });
 
-      spyOn(console, 'warn').and.callThrough();
-
-      spyOn(window, 'fetch').and.throwError('Fetch failed');
+      const loadFormSpy = spyOnProperty(formUtils, 'loadForm').and.returnValue(
+        jasmine.createSpy().and.throwError('Fetch failed')
+      );
 
       fixture.detectChanges();
 
       tick();
 
-      expect(console.warn).toHaveBeenCalledWith(
-        `Form 'test-form-id' was not able to render with the current rendering data`,
-        JSON.stringify(mockRendering, null, 2),
-        new Error('Fetch failed')
-      );
+      expect(loadFormSpy).toHaveBeenCalled();
 
       expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
         `<div class="sc-jss-placeholder-error">There was a problem loading this section</div>`
       );
     }));
 
-    it('should log warning and render error when fetch returns non-200 status', fakeAsync(() => {
-      init();
-
-      const stateService = TestBed.inject(JssStateService);
-
-      stateService.setState({
-        sitecore: {
-          context: {
-            pageState: LayoutServicePageState.Edit,
-          },
-          route: null,
-        },
-      });
-
-      spyOn(console, 'warn').and.callThrough();
-
-      const mockResponse = {
-        text: () => Promise.resolve('Some error message'),
-        status: 500,
-      };
-
-      spyOn(window, 'fetch').and.returnValue(Promise.resolve(mockResponse as Response));
-
-      fixture.detectChanges();
-
-      tick();
-
-      fixture.detectChanges();
-
-      expect(console.warn).toHaveBeenCalledWith(
-        `Form 'test-form-id' was not able to render with the current rendering data`,
-        JSON.stringify(mockRendering, null, 2),
-        'Some error message'
-      );
-
-      expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
-        `<div class="sc-jss-placeholder-error">There was a problem loading this section</div>`
-      );
-    }));
-
-    it('normal mode - should log warning', fakeAsync(() => {
+    it('normal mode - should render nothing', fakeAsync(() => {
       init();
 
       const stateService = TestBed.inject(JssStateService);
@@ -468,19 +311,15 @@ describe('FormComponent', () => {
         },
       });
 
-      spyOn(console, 'warn').and.callThrough();
-
-      spyOn(window, 'fetch').and.throwError('Fetch failed');
+      const loadFormSpy = spyOnProperty(formUtils, 'loadForm').and.returnValue(
+        jasmine.createSpy().and.throwError('Fetch failed')
+      );
 
       fixture.detectChanges();
 
       tick();
 
-      expect(console.warn).toHaveBeenCalledWith(
-        `Form 'test-form-id' was not able to render with the current rendering data`,
-        JSON.stringify(mockRendering, null, 2),
-        new Error('Fetch failed')
-      );
+      expect(loadFormSpy).toHaveBeenCalled();
 
       expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual('');
     }));
