@@ -30,4 +30,4 @@ Data sent from Sitecore editors
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
+[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)

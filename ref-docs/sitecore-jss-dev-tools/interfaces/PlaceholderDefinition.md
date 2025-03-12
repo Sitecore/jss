@@ -18,7 +18,7 @@ Explicit definition is only needed when you wish to specify a display name.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:168](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L168)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:168](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L168)
 
 ***
 
@@ -32,7 +32,7 @@ For Sitecore developers only.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:174](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L174)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:174](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L174)
 
 ***
 
@@ -42,4 +42,4 @@ For Sitecore developers only.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:167](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L167)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:167](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L167)

@@ -21,4 +21,4 @@
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:72](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L72)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:72](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L72)

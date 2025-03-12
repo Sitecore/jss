@@ -26,7 +26,7 @@ Fetch personalize data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:53](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L53)
+[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:53](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L53)
 
 ## Properties
 
@@ -36,7 +36,7 @@ Fetch personalize data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:53](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L53)
+[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:53](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L53)
 
 ## Accessors
 
@@ -52,7 +52,7 @@ Fetch personalize data using the Sitecore GraphQL endpoint.
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:59](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L59)
+[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:59](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L59)
 
 ## Methods
 
@@ -71,7 +71,7 @@ CacheClient instance
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:121](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L121)
+[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:121](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L121)
 
 ***
 
@@ -93,7 +93,7 @@ CacheClient instance
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:128](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L128)
+[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:128](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L128)
 
 ***
 
@@ -113,7 +113,7 @@ implementation
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:138](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L138)
+[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:138](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L138)
 
 ***
 
@@ -139,4 +139,4 @@ the personalize information or undefined (if itemPath / language not found)
 
 #### Defined in
 
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:82](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L82)
+[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:82](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L82)

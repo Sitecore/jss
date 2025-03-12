@@ -30,7 +30,7 @@ adds a processor to the pipeline
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:63](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L63)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:63](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L63)
 
 ***
 
@@ -46,7 +46,7 @@ Base args object for the pipeline.
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:55](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L55)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:55](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L55)
 
 ***
 
@@ -62,7 +62,7 @@ name of the pipeline
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:51](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L51)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:51](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L51)
 
 ***
 
@@ -82,7 +82,7 @@ the processors for the pipeline
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:59](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L59)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:59](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L59)
 
 ***
 
@@ -98,7 +98,7 @@ runs the pipeline with the given pipeline args
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:67](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L67)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:67](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L67)
 
 ***
 
@@ -120,4 +120,4 @@ runs the pipeline with the given pipeline args, importing the given compilers fi
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:71](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L71)
+[sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:71](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L71)

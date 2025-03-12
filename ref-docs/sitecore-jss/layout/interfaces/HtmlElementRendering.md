@@ -20,7 +20,7 @@ HTML content used to support Sitecore Experience Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:113](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/layout/models.ts#L113)
+[packages/sitecore-jss/src/layout/models.ts:113](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/layout/models.ts#L113)
 
 ***
 
@@ -30,7 +30,7 @@ HTML content used to support Sitecore Experience Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:112](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/layout/models.ts#L112)
+[packages/sitecore-jss/src/layout/models.ts:112](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/layout/models.ts#L112)
 
 ***
 
@@ -40,7 +40,7 @@ HTML content used to support Sitecore Experience Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:110](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/layout/models.ts#L110)
+[packages/sitecore-jss/src/layout/models.ts:110](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/layout/models.ts#L110)
 
 ***
 
@@ -50,4 +50,4 @@ HTML content used to support Sitecore Experience Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:111](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/layout/models.ts#L111)
+[packages/sitecore-jss/src/layout/models.ts:111](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/layout/models.ts#L111)

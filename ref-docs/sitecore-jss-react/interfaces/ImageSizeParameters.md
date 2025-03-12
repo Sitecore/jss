@@ -20,7 +20,7 @@ Allow stretch
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:37](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-react/src/components/Image.tsx#L37)
+[packages/sitecore-jss-react/src/components/Image.tsx:37](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-react/src/components/Image.tsx#L37)
 
 ***
 
@@ -32,7 +32,7 @@ Fixed height of the image
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:29](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-react/src/components/Image.tsx#L29)
+[packages/sitecore-jss-react/src/components/Image.tsx:29](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-react/src/components/Image.tsx#L29)
 
 ***
 
@@ -44,7 +44,7 @@ Ignore aspect ratio
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:35](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-react/src/components/Image.tsx#L35)
+[packages/sitecore-jss-react/src/components/Image.tsx:35](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-react/src/components/Image.tsx#L35)
 
 ***
 
@@ -56,7 +56,7 @@ Max height of the image
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:33](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-react/src/components/Image.tsx#L33)
+[packages/sitecore-jss-react/src/components/Image.tsx:33](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-react/src/components/Image.tsx#L33)
 
 ***
 
@@ -68,7 +68,7 @@ Max width of the image
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:31](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-react/src/components/Image.tsx#L31)
+[packages/sitecore-jss-react/src/components/Image.tsx:31](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-react/src/components/Image.tsx#L31)
 
 ***
 
@@ -80,7 +80,7 @@ Image scale. Defaults to 1.0
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:39](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-react/src/components/Image.tsx#L39)
+[packages/sitecore-jss-react/src/components/Image.tsx:39](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-react/src/components/Image.tsx#L39)
 
 ***
 
@@ -92,4 +92,4 @@ Fixed width of the image
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Image.tsx:27](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-react/src/components/Image.tsx#L27)
+[packages/sitecore-jss-react/src/components/Image.tsx:27](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-react/src/components/Image.tsx#L27)

@@ -25,4 +25,4 @@ An instance of a GraphQL Request Client ready to send GraphQL requests.
 
 ## Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:101](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/graphql-request-client.ts#L101)
+[packages/sitecore-jss/src/graphql-request-client.ts:101](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/graphql-request-client.ts#L101)

@@ -50,7 +50,7 @@ array of requests
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:115](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L115)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:115](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L115)
 
 ***
 
@@ -80,7 +80,7 @@ requests result
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:163](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L163)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:163](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L163)
 
 ***
 
@@ -113,7 +113,7 @@ component props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:88](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L88)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:88](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L88)
 
 ***
 
@@ -138,7 +138,7 @@ props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:38](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L38)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:38](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L38)
 
 ***
 
@@ -163,7 +163,7 @@ props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:62](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L62)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:62](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L62)
 
 ***
 
@@ -200,4 +200,4 @@ RESULT: [{ uid: 1 }, { uid: 2 }, { uid: 11 }, { uid: 22 }]
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/component-props-service.ts:217](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L217)
+[sitecore-jss-nextjs/src/services/component-props-service.ts:217](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L217)

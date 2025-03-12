@@ -33,7 +33,7 @@ Referenced by the SDK to get the current state of the app.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:20](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L20)
+[packages/sitecore-jss-angular/src/services/jss-state.service.ts:20](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L20)
 
 ## Properties
 
@@ -43,7 +43,7 @@ Referenced by the SDK to get the current state of the app.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:20](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L20)
+[packages/sitecore-jss-angular/src/services/jss-state.service.ts:20](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L20)
 
 ## Accessors
 
@@ -61,7 +61,7 @@ Observable JSS state to subscribe to
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:27](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L27)
+[packages/sitecore-jss-angular/src/services/jss-state.service.ts:27](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L27)
 
 ***
 
@@ -79,7 +79,7 @@ The 'here and now' state value, usable without subscribing
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:34](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L34)
+[packages/sitecore-jss-angular/src/services/jss-state.service.ts:34](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L34)
 
 ## Methods
 
@@ -101,4 +101,4 @@ Set new JSS state
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:42](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L42)
+[packages/sitecore-jss-angular/src/services/jss-state.service.ts:42](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L42)

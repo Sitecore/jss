@@ -35,7 +35,7 @@ Uses NativeDataFetcher as the default data fetcher (@see NativeDataFetcher).
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:40](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L40)
+[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:40](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L40)
 
 ## Properties
 
@@ -51,7 +51,7 @@ Configuration options
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:40](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L40)
+[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:40](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L40)
 
 ## Accessors
 
@@ -73,7 +73,7 @@ NativeDataFetcher data fetcher
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:47](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L47)
+[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:47](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L47)
 
 ## Methods
 
@@ -101,7 +101,7 @@ dictionary phrases
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:61](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L61)
+[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:61](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L61)
 
 ***
 
@@ -125,7 +125,7 @@ implementation
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
 
 ***
 
@@ -158,7 +158,7 @@ The
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
 
 ***
 
@@ -182,7 +182,7 @@ dictionary service url
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:83](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L83)
+[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:83](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L83)
 
 ***
 
@@ -219,4 +219,4 @@ CacheClient<DictionaryPhrases>
 
 #### Defined in
 
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/606a26837a7f11141fc22e0d0ee89bd07129c0db/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
+[packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
