@@ -40,9 +40,14 @@ export const Form = ({ params, rendering }: FormProps) => {
 
   useEffect(() => {
     if (!content) {
-      loadForm(context.api.edge.contextId, params.FormId, context.api.edge.edgeUrl)
+      loadForm(context.api?.edge?.contextId, params.FormId, context.api?.edge?.edgeUrl)
         .then(setContent)
         .catch(() => {
+          if (isEditing) {
+            console.error(
+              `Failed to load form with id ${params.FormId}. Check debug logs for sitecore-jss:form for more details.`
+            );
+          }
           setError(true);
         });
     } else {
