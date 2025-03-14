@@ -93,12 +93,22 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
     return modifyRedirects.length
       ? modifyRedirects.find((redirect: RedirectResult) => {
+          // process static URL (non-regex) rules
           if (isRegexOrUrl(redirect.pattern) === 'url') {
+            const localePath = `/${locale}${normalizedPath}`.toLowerCase();
             const [patternPath, patternQS] = redirect.pattern.endsWith('/')
               ? redirect.pattern.slice(0, -1).split('?')
               : redirect.pattern.split('?');
+            debug.redirects('Static URL path, rule and locale: %o', {
+              redirect,
+              normalizedPath,
+              locale,
+              patternPath,
+              localePath,
+              patternQS,
+            });
             return (
-              (patternPath === normalizedPath || patternPath === `/${locale}${normalizedPath}`) &&
+              (patternPath === localePath || patternPath === normalizedPath) &&
               (!patternQS ||
                 areURLSearchParamsEqual(
                   new URLSearchParams(patternQS),
@@ -106,6 +116,8 @@ export class RedirectsMiddleware extends MiddlewareBase {
                 ))
             );
           }
+
+          // process regex rules
 
           // Modify the redirect pattern to ignore the language prefix in the path
           // And escapes non-special "?" characters in a string or regex.
@@ -122,8 +134,8 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
           // Redirect pattern matches the full incoming URL with query string present
           matchedQueryString = [
-            regexParser(redirect.pattern).test(`${normalizedPath}${targetQS}`),
             regexParser(redirect.pattern).test(`/${locale}${normalizedPath}${targetQS}`),
+            regexParser(redirect.pattern).test(`${normalizedPath}${targetQS}`),
           ].some(Boolean)
             ? targetQS
             : undefined;
