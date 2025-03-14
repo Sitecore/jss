@@ -1,4 +1,4 @@
-import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs';
+import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql';
 import fs from 'fs';
 import { getIntrospectionQuery } from 'graphql';
 
@@ -26,11 +26,11 @@ const client = new GraphQLRequestClient(jssConfig.graphQLEndpoint, {
 
 client
   .request(getIntrospectionQuery())
-  .then((result) => {
+  .then(result => {
     fs.writeFile(
       './src/temp/GraphQLIntrospectionResult.json',
       JSON.stringify(result, null, 2),
-      (err) => {
+      err => {
         if (err) {
           console.error('Error writing GraphQLIntrospectionResult file', err);
           return;
@@ -40,7 +40,7 @@ client
       }
     );
   })
-  .catch((e) => {
+  .catch(e => {
     console.error(e);
     process.exit(1);
   });

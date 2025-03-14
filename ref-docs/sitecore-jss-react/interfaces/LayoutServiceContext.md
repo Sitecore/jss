@@ -1,3 +1,7 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / LayoutServiceContext
 
 # Interface: LayoutServiceContext
@@ -6,81 +10,98 @@ Shape of context data from the Sitecore Layout Service
 
 ## Indexable
 
-▪ [key: `string`]: `unknown`
-
-## Table of contents
-
-### Properties
-
-- [language](LayoutServiceContext.md#language)
-- [pageEditing](LayoutServiceContext.md#pageediting)
-- [pageState](LayoutServiceContext.md#pagestate)
-- [renderingType](LayoutServiceContext.md#renderingtype)
-- [site](LayoutServiceContext.md#site)
-- [visitorIdentificationTimestamp](LayoutServiceContext.md#visitoridentificationtimestamp)
+ \[`key`: `string`\]: `unknown`
 
 ## Properties
 
-### language
+### clientData?
 
-• `Optional` **language**: `string`
-
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:38
-
-___
-
-### pageEditing
-
-• `Optional` **pageEditing**: `boolean`
+> `optional` **clientData**: `Record`\<`string`, `Record`\<`string`, `unknown`\>\>
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:37
+packages/sitecore-jss/types/layout/models.d.ts:41
 
-___
+***
 
-### pageState
+### clientScripts?
 
-• `Optional` **pageState**: [`LayoutServicePageState`](../enums/LayoutServicePageState.md)
-
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:39
-
-___
-
-### renderingType
-
-• `Optional` **renderingType**: `Component`
+> `optional` **clientScripts**: `string`[]
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:36
+packages/sitecore-jss/types/layout/models.d.ts:40
 
-___
+***
 
-### site
+### editMode?
 
-• `Optional` **site**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `name?` | `string` |
+> `optional` **editMode**: [`EditMode`](../enumerations/EditMode.md)
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:41
+packages/sitecore-jss/types/layout/models.d.ts:39
 
-___
+***
 
-### visitorIdentificationTimestamp
+### itemPath?
 
-• `Optional` **visitorIdentificationTimestamp**: `number`
+> `optional` **itemPath**: `string`
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:40
+packages/sitecore-jss/types/layout/models.d.ts:33
+
+***
+
+### language?
+
+> `optional` **language**: `string`
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:32
+
+***
+
+### pageEditing?
+
+> `optional` **pageEditing**: `boolean`
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:31
+
+***
+
+### pageState?
+
+> `optional` **pageState**: [`LayoutServicePageState`](../enumerations/LayoutServicePageState.md)
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:34
+
+***
+
+### site?
+
+> `optional` **site**: `object`
+
+#### name?
+
+> `optional` **name**: `string`
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:36
+
+***
+
+### visitorIdentificationTimestamp?
+
+> `optional` **visitorIdentificationTimestamp**: `number`
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:35

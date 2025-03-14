@@ -1,13 +1,27 @@
 export { default as isServer } from './is-server';
-export { resolveUrl, isAbsoluteUrl, isTimeoutError } from './utils';
+export {
+  resolveUrl,
+  isAbsoluteUrl,
+  isTimeoutError,
+  enforceCors,
+  EnhancedOmit,
+  getAllowedOriginsFromEnv,
+  isRegexOrUrl,
+  areURLSearchParamsEqual,
+  escapeNonSpecialQuestionMarks,
+  mergeURLSearchParams,
+} from './utils';
 export { tryParseEnvValue } from './env';
+// @deprecated - import editing utils from 'editing' submodule instead. Will be removed in a future major release.
 export {
   ExperienceEditor,
   HorizonEditor,
   isEditorActive,
   resetEditorChromes,
   handleEditorAnchors,
-} from './editing';
+  Metadata,
+} from '../editing/utils';
+// @deprecated - import editing utils from 'editing' submodule instead. Will be removed in a future major release.
 export {
   DefaultEditFrameButton,
   DefaultEditFrameButtons,
@@ -18,4 +32,4 @@ export {
   WebEditButton,
   EditButtonTypes,
   mapButtonToCommand,
-} from './edit-frame';
+} from '../editing/edit-frame';

@@ -1,6 +1,6 @@
-import * as fetch from 'isomorphic-fetch';
 import * as fs from 'fs';
-import { generateConfig } from './generate-config';
+import clientFactory from 'lib/graphql-client-factory';
+import { getGraphQLClientFactoryConfig } from 'lib/graphql-client-factory/config';
 
 // Apollo Client supports caching GraphQL responses, which can greatly reduce network traffic needs.
 // In order to work correctly with interfaces in GraphQL, it needs to know some basic information about
@@ -9,28 +9,23 @@ import { generateConfig } from './generate-config';
 //
 // The `jss graphql:update` command should be executed when Sitecore templates related to the site are altered.
 
-generateConfig();
+import './generate-config';
 
-let jssConfig;
+const clientFactoryConfig = getGraphQLClientFactoryConfig();
 
-try {
-  jssConfig = require('../src/environments/environment').environment;
-} catch (e) {
-  console.error(
-    'Unable to require JSS config. Ensure `jss setup` has been run, and the app has been started at least once after setup.'
-  );
-  console.error(e);
-  process.exit(1);
-}
+console.log(`Updating GraphQL fragment type data from ${clientFactoryConfig.endpoint}...`);
 
-console.log(`Updating GraphQL fragment type data from ${jssConfig.graphQLEndpoint}...`);
-
-fetch(jssConfig.graphQLEndpoint, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json', sc_apikey: jssConfig.sitecoreApiKey },
-  body: JSON.stringify({
-    query: `
-      {
+clientFactory()
+  .request<{
+    [key: string]: unknown;
+    __schema: {
+      kind: string;
+      name: string;
+      types: { possibleTypes?: { name: string } }[];
+    };
+  }>(
+    `
+      { 
         __schema {
           types {
             kind
@@ -41,20 +36,18 @@ fetch(jssConfig.graphQLEndpoint, {
           }
         }
       }
-    `,
-  }),
-})
-  .then((result) => result.json())
+    `
+  )
   .then((result) => {
     // here we're filtering out any type information unrelated to unions or interfaces
-    const filteredData = result.data.__schema.types.filter((type: { possibleTypes: Array<string>; }) => type.possibleTypes !== null);
+    const filteredData = result.__schema.types.filter((type) => type.possibleTypes !== null);
 
     const filteredResult = { ...result };
-    filteredResult.data.__schema.types = filteredData;
+    filteredResult.__schema.types = filteredData;
 
     fs.writeFile(
       './src/graphql-fragment-types.ts',
-      `export default ${JSON.stringify(filteredResult.data, null, 2)}`,
+      `export default ${JSON.stringify(filteredResult, null, 2)}`,
       (err) => {
         if (err) {
           console.error('Error writing GraphQLFragmentTypes file', err);

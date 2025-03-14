@@ -1,0 +1,20 @@
+<app-styleguide-specimen [rendering]="rendering" e2eId="styleguide-edit-frame">
+  <sc-edit-frame [dataSource]="editFrameProps.dataSource"
+    [buttons]="editFrameProps.buttons"
+    [title]="editFrameProps.title"
+    [tooltip]="editFrameProps.tooltip"
+    [cssClass]="editFrameProps.cssClass"
+    [parameters]="editFrameProps.parameters"
+    [sitecore]="context">
+    This is the content that will be wrapped by edit frame in Experience Editor.<br/>
+    Try out the custom webedit buttons for a variety of tasks like executing javascript, or webedit commands. <br/>
+    Or use field edit buttons to author fields that are not usually editable in Experience Editor.<br/>
+    <br/>
+    <p [ngStyle]="{'color': (applyRed ? 'red': 'blue')}">This text will change color. Use the field edit button to change its appearance</p>
+    This list can be changed via field editor:
+    <ul>
+      <li *ngFor="let contentItem of rendering.fields.sampleList">{{contentItem.fields.title?.value}}</li>
+    </ul>
+    <ng-content></ng-content>
+  </sc-edit-frame>
+</app-styleguide-specimen>

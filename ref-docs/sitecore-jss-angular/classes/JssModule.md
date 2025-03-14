@@ -1,38 +1,34 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / JssModule
 
 # Class: JssModule
 
-## Table of contents
-
-### Constructors
-
-- [constructor](JssModule.md#constructor)
-
-### Methods
-
-- [forChild](JssModule.md#forchild)
-- [forRoot](JssModule.md#forroot)
-- [withComponents](JssModule.md#withcomponents)
-
 ## Constructors
 
-### constructor
+### new JssModule()
 
-• **new JssModule**()
+> **new JssModule**(): [`JssModule`](JssModule.md)
+
+#### Returns
+
+[`JssModule`](JssModule.md)
 
 ## Methods
 
-### forChild
+### forChild()
 
-▸ `Static` **forChild**(`component`): `ModuleWithProviders`\<[`JssModule`](JssModule.md)\>
+> `static` **forChild**(`value`): `ModuleWithProviders`\<[`JssModule`](JssModule.md)\>
 
-Instantiates a module for a lazy-loaded JSS component
+Instantiates a module for a lazy-loaded JSS component(s)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `component` | `Type`\<`unknown`\> |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `value` | `Type`\<`unknown`\> \| `object` | component or map of components |
 
 #### Returns
 
@@ -42,13 +38,13 @@ module
 
 #### Defined in
 
-[sitecore-jss-angular/src/lib.module.ts:106](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-angular/src/lib.module.ts#L106)
+[packages/sitecore-jss-angular/src/lib.module.ts:114](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/lib.module.ts#L114)
 
-___
+***
 
-### forRoot
+### forRoot()
 
-▸ `Static` **forRoot**(): `ModuleWithProviders`\<[`JssModule`](JssModule.md)\>
+> `static` **forRoot**(): `ModuleWithProviders`\<[`JssModule`](JssModule.md)\>
 
 Instantiates the JSS module with no component factory.
 Useful for using it from libraries. Most of the time you'd want withComponents()
@@ -61,23 +57,23 @@ module
 
 #### Defined in
 
-[sitecore-jss-angular/src/lib.module.ts:81](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-angular/src/lib.module.ts#L81)
+[packages/sitecore-jss-angular/src/lib.module.ts:88](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/lib.module.ts#L88)
 
-___
+***
 
-### withComponents
+### withComponents()
 
-▸ `Static` **withComponents**(`components`, `lazyComponents?`): `ModuleWithProviders`\<[`JssModule`](JssModule.md)\>
+> `static` **withComponents**(`components`, `lazyComponents`?): `ModuleWithProviders`\<[`JssModule`](JssModule.md)\>
 
 Instantiates the JSS module and specifies the mapping from component name to component implementation.
 Appropriate when defining the set of JSS components that your app is aware of.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `components` | [`ComponentNameAndType`](ComponentNameAndType.md)[] |
-| `lazyComponents?` | [`ComponentNameAndModule`](../interfaces/ComponentNameAndModule.md)[] |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `components` | [`ComponentNameAndType`](ComponentNameAndType.md)[] |  |
+| `lazyComponents`? | [`ComponentNameAndModule`](../interfaces/ComponentNameAndModule.md)[] |  |
 
 #### Returns
 
@@ -87,4 +83,4 @@ module
 
 #### Defined in
 
-[sitecore-jss-angular/src/lib.module.ts:123](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-angular/src/lib.module.ts#L123)
+[packages/sitecore-jss-angular/src/lib.module.ts:133](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/lib.module.ts#L133)

@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import chalk from 'chalk';
 import { constantCase } from 'constant-case';
 import { JssConfig } from 'lib/config';

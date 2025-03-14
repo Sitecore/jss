@@ -1,23 +1,21 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / ScJssConfig
 
 # Interface: ScJssConfig
 
 ## Indexable
 
-▪ [configName: `string`]: [`JssConfiguration`](JssConfiguration.md)
-
-## Table of contents
-
-### Properties
-
-- [sitecore](ScJssConfig.md#sitecore)
+ \[`configName`: `string`\]: [`JssConfiguration`](JssConfiguration.md)
 
 ## Properties
 
 ### sitecore
 
-• **sitecore**: [`JssConfiguration`](JssConfiguration.md)
+> **sitecore**: [`JssConfiguration`](JssConfiguration.md)
 
 #### Defined in
 
-[resolve-scjssconfig.ts:14](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L14)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:14](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L14)

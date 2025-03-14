@@ -48,7 +48,7 @@ ${componentFiles
   })
   .join('\n')}
 
-const components = new Map();
+export const components = new Map();
 ${packages
   .map((p) =>
     p.components.map(

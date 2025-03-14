@@ -6,6 +6,7 @@ import {
 } from '@sitecore-jss/sitecore-jss/layout';
 import { PlaceholderProps, PlaceholderCommon } from '../components/PlaceholderCommon';
 import { withComponentFactory } from './withComponentFactory';
+import { withSitecoreContext } from './withSitecoreContext';
 
 export interface WithPlaceholderOptions {
   /**
@@ -94,7 +95,8 @@ export function withPlaceholder(
           if (typeof placeholder !== 'string' && placeholder.placeholder && placeholder.prop) {
             placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
               renderingData,
-              placeholder.placeholder
+              placeholder.placeholder,
+              childProps.sitecoreContext.editMode
             );
             if (placeholderData) {
               childProps[placeholder.prop] = this.getComponentsForRenderingData(placeholderData);
@@ -102,7 +104,8 @@ export function withPlaceholder(
           } else {
             placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
               renderingData,
-              placeholder as string
+              placeholder as string,
+              childProps.sitecoreContext.editMode
             );
             if (placeholderData) {
               childProps[placeholder as string] = this.getComponentsForRenderingData(
@@ -116,6 +119,6 @@ export function withPlaceholder(
       }
     }
 
-    return withComponentFactory(WithPlaceholder);
+    return withSitecoreContext()(withComponentFactory(WithPlaceholder));
   };
 }

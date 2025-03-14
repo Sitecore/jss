@@ -14,9 +14,12 @@ describe('GraphQLPersonalizeService', () => {
   const id = 'itemid';
   const version = '1';
   const variantIds = ['variant-1', 'variant-2'];
-  const config = {
+  const clientFactory = GraphQLRequestClient.createClientFactory({
     endpoint,
     apiKey,
+  });
+  const config = {
+    clientFactory,
   };
   const personalizeQueryResult = {
     layout: {
@@ -71,41 +74,7 @@ describe('GraphQLPersonalizeService', () => {
     );
 
     expect(personalizeData).to.deep.equal({
-      contentId: `embedded_${id}_en`.toLowerCase(),
-      variantIds,
-    });
-  });
-
-  it('should return personalize info for a route using clientFactory', async () => {
-    mockNonEmptyResponse();
-
-    const clientFactory = GraphQLRequestClient.createClientFactory(config);
-
-    const service = new GraphQLPersonalizeService({ clientFactory });
-    const personalizeData = await service.getPersonalizeInfo(
-      '/sitecore/content/home',
-      'en',
-      siteName
-    );
-
-    expect(personalizeData).to.deep.equal({
-      contentId: `embedded_${id}_en`.toLowerCase(),
-      variantIds,
-    });
-  });
-
-  it('should return personalize info for a route when scope is provided', async () => {
-    mockNonEmptyResponse();
-
-    const service = new GraphQLPersonalizeService({ ...config, scope: 'myscope123' });
-    const personalizeData = await service.getPersonalizeInfo(
-      '/sitecore/content/home',
-      'en',
-      siteName
-    );
-
-    expect(personalizeData).to.deep.equal({
-      contentId: `embedded_myscope123_${id}_en`.toLowerCase(),
+      pageId: id,
       variantIds,
     });
   });
@@ -194,7 +163,7 @@ describe('GraphQLPersonalizeService', () => {
     const firstResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
 
     expect(firstResult).to.deep.equal({
-      contentId: `embedded_${id}_en`.toLowerCase(),
+      pageId: id,
       variantIds,
     });
 
@@ -218,7 +187,7 @@ describe('GraphQLPersonalizeService', () => {
     const firstResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
 
     expect(firstResult).to.deep.equal({
-      contentId: `embedded_${id}_en`.toLowerCase(),
+      pageId: id,
       variantIds,
     });
 

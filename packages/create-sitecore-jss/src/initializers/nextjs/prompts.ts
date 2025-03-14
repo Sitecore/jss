@@ -1,7 +1,7 @@
 import { QuestionCollection } from 'inquirer';
 import CheckboxPrompt from 'inquirer/lib/prompts/checkbox';
 
-import { clientAppPrompts, ClientAppAnswer, incompatibleAddonsMsg } from '../../common';
+import { clientAppPrompts, ClientAppAnswer, incompatibleAddonsMsg, sxpPrompts } from '../../common';
 import { NextjsArgs } from './args';
 
 export enum Prerender {
@@ -16,8 +16,10 @@ export type NextjsAnswer = ClientAppAnswer & {
 
 const DEFAULT_PRERENDER = Prerender.SSG;
 
+// still need sxp prompts here until sitecore/config is no longer added to xmc app
 export const prompts: QuestionCollection<NextjsAnswer> = [
   ...clientAppPrompts,
+  ...sxpPrompts,
   {
     type: 'list',
     name: 'prerender',

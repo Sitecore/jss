@@ -1,71 +1,62 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / ComponentNameAndModule
 
 # Interface: ComponentNameAndModule
 
 Registers a lazily loaded component by name and module to lazy load when it's needed
 
-## Table of contents
-
-### Properties
-
-- [canActivate](ComponentNameAndModule.md#canactivate)
-- [loadChildren](ComponentNameAndModule.md#loadchildren)
-- [path](ComponentNameAndModule.md#path)
-- [resolve](ComponentNameAndModule.md#resolve)
-
 ## Properties
 
-### canActivate
+### canActivate?
 
-• `Optional` **canActivate**: [`JssCanActivate`](JssCanActivate.md) \| `Type`\<[`JssCanActivate`](JssCanActivate.md)\> \| [`JssCanActivateFn`](JssCanActivateFn.md) \| ([`JssCanActivate`](JssCanActivate.md) \| `Type`\<[`JssCanActivate`](JssCanActivate.md)\> \| [`JssCanActivateFn`](JssCanActivateFn.md))[]
+> `optional` **canActivate**: [`JssCanActivate`](JssCanActivate.md) \| `Type`\<[`JssCanActivate`](JssCanActivate.md)\> \| [`JssCanActivateFn`](JssCanActivateFn.md) \| ([`JssCanActivate`](JssCanActivate.md) \| `Type`\<[`JssCanActivate`](JssCanActivate.md)\> \| [`JssCanActivateFn`](JssCanActivateFn.md))[]
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:29](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L29)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:36](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L36)
 
-___
+***
 
-### loadChildren
+### loadChildren()
 
-• **loadChildren**: () => `Promise`\<`Type`\<`unknown`\>\>
-
-#### Type declaration
-
-▸ (): `Promise`\<`Type`\<`unknown`\>\>
+> **loadChildren**: () => `Promise`\<`Type`\<`unknown`\>\>
 
 Dynamic import of the component,
 e.g. () => import('./path/to/lazyloadedcomponent.module').then(m => m.LazyLoadedComponentModuleExportName)
 
-##### Returns
+#### Returns
 
 `Promise`\<`Type`\<`unknown`\>\>
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:28](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L28)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:35](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L35)
 
-___
+***
 
 ### path
 
-• **path**: `string`
+> **path**: `string`
 
 Name of the component
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:23](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L23)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:30](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L30)
 
-___
+***
 
-### resolve
+### resolve?
 
-• `Optional` **resolve**: `Object`
+> `optional` **resolve**: `object`
 
-#### Index signature
+#### Index Signature
 
-▪ [key: `string`]: [`JssResolve`](JssResolve.md)\<`unknown`\> \| `Type`\<[`JssResolve`](JssResolve.md)\<`unknown`\>\>
+ \[`key`: `string`\]: [`JssResolve`](JssResolve.md)\<`unknown`\> \| `Type`\<[`JssResolve`](JssResolve.md)\<`unknown`\>\>
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:34](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L34)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:41](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L41)

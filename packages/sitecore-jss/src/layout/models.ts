@@ -1,14 +1,4 @@
 /**
- * Static placeholder name used for component rendering
- */
-export const EDITING_COMPONENT_PLACEHOLDER = 'editing-componentmode-placeholder';
-
-/**
- * Id of wrapper for component rendering
- */
-export const EDITING_COMPONENT_ID = 'editing-component';
-
-/**
  * A reply from the Sitecore Layout Service
  */
 export interface LayoutServiceData {
@@ -27,10 +17,13 @@ export enum LayoutServicePageState {
 }
 
 /**
- * Editing rendering type
+ * Represents the possible modes for rendering content in Sitecore Editor
+ * - chromes - supported by Sitecore Experience Editor / Pages
+ * - metadata - supported by Sitecore Pages
  */
-export enum RenderingType {
-  Component = 'component',
+export enum EditMode {
+  Chromes = 'chromes',
+  Metadata = 'metadata',
 }
 
 /**
@@ -38,14 +31,17 @@ export enum RenderingType {
  */
 export interface LayoutServiceContext {
   [key: string]: unknown;
-  renderingType?: RenderingType;
   pageEditing?: boolean;
   language?: string;
+  itemPath?: string;
   pageState?: LayoutServicePageState;
   visitorIdentificationTimestamp?: number;
   site?: {
     name?: string;
   };
+  editMode?: EditMode;
+  clientScripts?: string[];
+  clientData?: Record<string, Record<string, unknown>>;
 }
 
 /**
@@ -98,12 +94,12 @@ export interface ComponentParams {
 /**
  * Definition of a component instance within a placeholder on a route
  */
-export interface ComponentRendering {
+export interface ComponentRendering<T = ComponentFields> {
   componentName: string;
   dataSource?: string;
   uid?: string;
   placeholders?: PlaceholdersData;
-  fields?: ComponentFields;
+  fields?: T;
   params?: ComponentParams;
 }
 
@@ -126,16 +122,24 @@ export type GenericFieldValue =
   | string
   | boolean
   | number
+  | Date
   | { [key: string]: unknown }
   | Array<{ [key: string]: unknown }>;
 
-export interface Field<T = GenericFieldValue> {
+export interface Field<T = GenericFieldValue> extends FieldMetadata {
   value: T;
   editable?: string;
 }
 
 /**
- * Content data returned from Content Service
+ * represents the field metadata provided by layout service in editMode 'metadata'
+ */
+export interface FieldMetadata {
+  metadata?: { [key: string]: unknown };
+}
+
+/**
+ * Content data returned from Layout Service
  */
 export interface Item {
   name: string;

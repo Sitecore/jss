@@ -1,39 +1,37 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / RenderEachDirective
 
 # Class: RenderEachDirective
 
-## Table of contents
-
-### Constructors
-
-- [constructor](RenderEachDirective.md#constructor)
-
-### Properties
-
-- [templateRef](RenderEachDirective.md#templateref)
-
 ## Constructors
 
-### constructor
+### new RenderEachDirective()
 
-• **new RenderEachDirective**(`templateRef`)
+> **new RenderEachDirective**(`templateRef`): [`RenderEachDirective`](RenderEachDirective.md)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Parameter | Type |
+| ------ | ------ |
 | `templateRef` | `TemplateRef`\<`unknown`\> |
+
+#### Returns
+
+[`RenderEachDirective`](RenderEachDirective.md)
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)
+[packages/sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)
 
 ## Properties
 
 ### templateRef
 
-• **templateRef**: `TemplateRef`\<`unknown`\>
+> **templateRef**: `TemplateRef`\<`unknown`\>
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)
+[packages/sitecore-jss-angular/src/components/render-each.directive.ts:7](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/components/render-each.directive.ts#L7)

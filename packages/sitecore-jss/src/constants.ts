@@ -8,7 +8,7 @@ export enum SitecoreTemplateId {
 
 export const FETCH_WITH = {
   GRAPHQL: 'GraphQL',
-  REST: 'Rest',
+  REST: 'REST',
 };
 
 export const JSS_MODE = {
@@ -19,3 +19,5 @@ export const JSS_MODE = {
 export const siteNameError = 'The siteName cannot be empty';
 
 export const SITECORE_EDGE_URL_DEFAULT = 'https://edge-platform.sitecorecloud.io';
+
+export const HIDDEN_RENDERING_NAME = 'Hidden Rendering';

@@ -6,6 +6,7 @@
     "jsx": "react",
     "skipLibCheck": true,
     "outDir": "dist/cjs",
+    "types": ["node"],
     "typeRoots": ["node_modules/@types"],
     "declarationDir": "./types"
   },
@@ -18,7 +19,6 @@
     "middleware.d.ts",
     "editing.d.ts",
     "monitoring.d.ts",
-    "revalidate.d.ts",
     "site.d.ts",
     "graphql.d.ts",
     "utils.d.ts",

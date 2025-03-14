@@ -10,6 +10,8 @@ export { RenderEmptyDirective } from './components/render-empty.directive';
 export { RenderComponentComponent } from './components/render-component.component';
 export { DateDirective } from './components/date.directive';
 export { EditFrameComponent } from './components/editframe.component';
+export { EditingScriptsComponent } from './components/editing-scripts.component';
+export { FormComponent } from './components/form.component';
 export {
   ComponentNameAndType,
   DYNAMIC_COMPONENT,
@@ -18,7 +20,9 @@ export {
   JssCanActivate,
   JssCanActivateFn,
   GuardInput,
-} from './components/placeholder.token';
+} from './services/placeholder.token';
+export { EDGE_CONFIG } from './services/shared.token';
+export { JssStateService, BaseJssState } from './services/jss-state.service';
 export { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
 export { isRawRendering } from './components/rendering';
 export {
@@ -31,6 +35,7 @@ export {
   RichTextField,
   TextField,
 } from './components/rendering-field';
+export { SxaLinkListFields, SxaTitleFields } from './components/rendering-field-sxa';
 export { RichTextDirective } from './components/rich-text.directive';
 export { TextDirective } from './components/text.directive';
 export { JssModule } from './lib.module';
@@ -39,11 +44,13 @@ export {
   DictionaryService,
   GraphQLDictionaryService,
   RestDictionaryService,
+  DictionaryPhrases,
 } from '@sitecore-jss/sitecore-jss/i18n';
 export {
   LayoutService,
   LayoutServiceData,
   LayoutServiceContextData,
+  LayoutServicePageState,
   GraphQLLayoutService,
   RestLayoutService,
   PlaceholdersData,
@@ -55,10 +62,45 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+  getContentStylesheetLink,
+  EditMode,
+  LayoutServiceContext,
 } from '@sitecore-jss/sitecore-jss/layout';
-export { constants, HttpDataFetcher, HttpResponse, enableDebug } from '@sitecore-jss/sitecore-jss';
 export {
-  isServer,
+  RetryStrategy,
+  DefaultRetryStrategy,
+  GraphQLClientError,
+  GraphQLRequestClientFactoryConfig,
+  GraphQLRequestClient,
+  getEdgeProxyContentUrl,
+} from '@sitecore-jss/sitecore-jss/graphql';
+export {
+  constants,
+  HttpDataFetcher,
+  NativeDataFetcher,
+  NativeDataFetcherConfig,
+  NativeDataFetcherResponse,
+  NativeDataFetcherError,
+  HttpResponse,
+  enableDebug,
+  ClientError,
+  HTMLLink,
+  debug,
+  CacheClient,
+  CacheOptions,
+  MemoryCacheClient,
+} from '@sitecore-jss/sitecore-jss';
+export {
+  GraphQLPersonalizeService,
+  GraphQLPersonalizeServiceConfig,
+  PersonalizeInfo,
+  CdpHelper,
+  DEFAULT_VARIANT,
+  getGroomedVariantIds,
+  personalizeLayout,
+} from '@sitecore-jss/sitecore-jss/personalize';
+export { isServer } from '@sitecore-jss/sitecore-jss/utils';
+export {
   isEditorActive,
   resetEditorChromes,
   handleEditorAnchors,
@@ -67,7 +109,7 @@ export {
   EditFrameDataSource,
   FieldEditButton,
   WebEditButton,
-} from '@sitecore-jss/sitecore-jss/utils';
+} from '@sitecore-jss/sitecore-jss/editing';
 export {
   trackingApi,
   TrackingRequestOptions,

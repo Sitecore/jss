@@ -1,5 +1,8 @@
 export { getAppRootId, AppRootQueryResult } from './app-root-query';
 export {
+  RetryStrategy,
+  DefaultRetryStrategy,
+  GraphQLClientError,
   GraphQLClient,
   GraphQLRequestClient,
   GraphQLRequestClientConfig,
@@ -13,4 +16,4 @@ export {
   SearchQueryService,
   PageInfo,
 } from './search-service';
-export { getEdgeProxyContentUrl } from './graphql-edge-proxy';
+export { getEdgeProxyContentUrl, getEdgeProxyFormsUrl } from './graphql-edge-proxy';

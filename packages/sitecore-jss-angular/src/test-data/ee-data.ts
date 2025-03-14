@@ -199,6 +199,60 @@ export const convertedData = {
                     class: 'scpm',
                   },
                 },
+
+                {
+                  name: 'code',
+                  type: 'text/sitecore',
+                  contents:
+                    '{"commands":[{"click":"chrome:rendering:sort","header":"Change position","icon":"/temp/iconcache/office/16x16/document_size.png","disabledIcon":"/temp/document_size_disabled16x16.png","isDivider":false,"tooltip":"Move component.","type":""},{"click":"javascript:Sitecore.PageModes.PageEditor.postRequest(\'webedit:componentoptions(referenceId={6701AC71-845D-4DE4-BF8E-1F4FEDDF8908},renderingId={6C254609-5347-4768-9FFB-1FF620320CE9},id={199C8794-311F-4B50-9BDC-88AEFB3EE172})\',null,false)","header":"Edit Experience Editor Options","icon":"/temp/iconcache/office/16x16/clipboard_check_edit.png","disabledIcon":"/temp/clipboard_check_edit_disabled16x16.png","isDivider":false,"tooltip":"Edit the Experience Editor options for the component.","type":"common"},{"click":"chrome:rendering:properties","header":"Edit component properties","icon":"/temp/iconcache/office/16x16/elements_branch.png","disabledIcon":"/temp/elements_branch_disabled16x16.png","isDivider":false,"tooltip":"Edit the properties for the component.","type":"common"},{"click":"javascript:Sitecore.PageModes.PageEditor.postRequest(\'webedit:setdatasource(referenceId={6701AC71-845D-4DE4-BF8E-1F4FEDDF8908},renderingId={6C254609-5347-4768-9FFB-1FF620320CE9},id={199C8794-311F-4B50-9BDC-88AEFB3EE172})\',null,false)","header":"{dsHeader}","icon":"/temp/iconcache/office/16x16/data.png","disabledIcon":"/temp/data_disabled16x16.png","isDivider":false,"tooltip":"{dsTooltip}","type":"datasourcesmenu"},{"click":"chrome:rendering:personalize({command:\\"webedit:personalize\\"})","header":"Personalize","icon":"/temp/iconcache/office/16x16/users_family.png","disabledIcon":"/temp/users_family_disabled16x16.png","isDivider":false,"tooltip":"Create or edit personalization for this component.","type":"sticky"},{"click":"chrome:rendering:editvariations({command:\\"webedit:editvariations\\"})","header":"Edit variations","icon":"/temp/iconcache/office/16x16/windows.png","disabledIcon":"/temp/windows_disabled16x16.png","isDivider":false,"tooltip":"Test the component.","type":"sticky"},{"click":"chrome:common:edititem({command:\\"webedit:open\\"})","header":"Edit the related item","icon":"/temp/iconcache/office/16x16/cubes.png","disabledIcon":"/temp/cubes_disabled16x16.png","isDivider":false,"tooltip":"Edit the related item in the Content Editor.","type":"datasourcesmenu"},{"click":"chrome:rendering:delete","header":"Delete","icon":"/temp/iconcache/office/16x16/delete.png","disabledIcon":"/temp/delete_disabled16x16.png","isDivider":false,"tooltip":"Remove component.","type":"sticky"}],"contextItemUri":"sitecore://master/{199C8794-311F-4B50-9BDC-88AEFB3EE172}?lang=en&ver=1","custom":{"renderingID":"6C254609534747689FFB1FF620320CE9","editable":"true"},"displayName":"DownloadCalloutRendering","expandedDisplayName":null}',
+                  attributes: {
+                    type: 'text/sitecore',
+                    chrometype: 'rendering',
+                    kind: 'open',
+                    hintname: 'LazyComponentRendering',
+                    id: 'r_6701AC71845D4DE4BF8E1F4FEDDF8908',
+                    class: 'scpm',
+                    'data-selectable': 'true',
+                  },
+                },
+                {
+                  uid: '6701ac71-845d-4de4-bf8e-1f4feddf8908',
+                  componentName: 'LazyComponent',
+                  fields: {
+                    linkText: {
+                      value: 'Push',
+                      editable:
+                        '<input id=\'fld_199C8794311F4B509BDC88AEFB3EE172_B752EEA49E994A239012CD5DE3F9191E_en_1_600c022f8135451ebff5d4f98fa36a8e_20\' class=\'scFieldValue\' name=\'fld_199C8794311F4B509BDC88AEFB3EE172_B752EEA49E994A239012CD5DE3F9191E_en_1_600c022f8135451ebff5d4f98fa36a8e_20\' type=\'hidden\' value="Download" /><span class="scChromeData">{"commands":[{"click":"chrome:common:edititem({command:\\"webedit:open\\"})","header":"Edit the related item","icon":"/temp/iconcache/office/16x16/cubes.png","disabledIcon":"/temp/cubes_disabled16x16.png","isDivider":false,"tooltip":"Edit the related item in the Content Editor.","type":"common"},{"click":"chrome:rendering:personalize({command:\\"webedit:personalize\\"})","header":"Personalize","icon":"/temp/iconcache/office/16x16/users_family.png","disabledIcon":"/temp/users_family_disabled16x16.png","isDivider":false,"tooltip":"Create or edit personalization for this component.","type":"sticky"},{"click":"chrome:rendering:editvariations({command:\\"webedit:editvariations\\"})","header":"Edit variations","icon":"/temp/iconcache/office/16x16/windows.png","disabledIcon":"/temp/windows_disabled16x16.png","isDivider":false,"tooltip":"Edit the variations.","type":"sticky"}],"contextItemUri":"sitecore://master/{199C8794-311F-4B50-9BDC-88AEFB3EE172}?lang=en&ver=1","custom":{},"displayName":"LinkText","expandedDisplayName":null}</span><span id="fld_199C8794311F4B509BDC88AEFB3EE172_B752EEA49E994A239012CD5DE3F9191E_en_1_600c022f8135451ebff5d4f98fa36a8e_20_edit" sc_parameters="prevent-line-break=true" contenteditable="true" class="scWebEditInput" scFieldType="single-line text" scDefaultText="[No text in field]">Push</span>',
+                    },
+                  },
+                  params: {},
+                },
+                {
+                  name: 'div',
+                  type: '',
+                  contents:
+                    '<div style="height:50px;background: transparent url(\'/sitecore/shell/themes/standard/images/pageeditor/bg_hidden_rendering.png\') repeat;"></div>',
+                  attributes: {
+                    style: {
+                      backgroundColor: 'white',
+                      opacity: 0.35,
+                      filter: 'alpha(opacity=35)',
+                    },
+                  },
+                },
+                {
+                  name: 'code',
+                  type: 'text/sitecore',
+                  contents: '',
+                  attributes: {
+                    type: 'text/sitecore',
+                    id: 'scEnclosingTag_r_',
+                    chrometype: 'rendering',
+                    kind: 'close',
+                    hintkey: 'LazyComponentRendering',
+                    class: 'scpm',
+                  },
+                },
                 {
                   name: 'code',
                   type: 'text/sitecore',

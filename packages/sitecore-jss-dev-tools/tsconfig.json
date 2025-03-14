@@ -4,6 +4,7 @@
     "target": "es6",
     "module": "commonjs",
     "outDir": "dist/cjs",
+    "types": ["node", "mocha"],
     "typeRoots": ["node_modules/@types"],
     "declarationDir": "./types"
   },
@@ -14,6 +15,7 @@
     "src/test",
     "src/**/*.test.ts",
     "react.d.ts",
-    "nextjs.d.ts"
+    "nextjs.d.ts",
+    "nextjs-component-props-loader.d.ts",
   ]
 }

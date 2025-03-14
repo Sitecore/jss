@@ -1,75 +1,69 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / PluginDefinition
 
 # Interface: PluginDefinition
 
 Definition to be used for plugin registration during bootstrap
 
-## Table of contents
-
-### Properties
-
-- [distPath](PluginDefinition.md#distpath)
-- [moduleType](PluginDefinition.md#moduletype)
-- [relative](PluginDefinition.md#relative)
-- [rootPath](PluginDefinition.md#rootpath)
-- [silent](PluginDefinition.md#silent)
-
 ## Properties
 
 ### distPath
 
-• **distPath**: `string`
+> **distPath**: `string`
 
 destination path to compile plugins to
 
 #### Defined in
 
-[templating/plugins.ts:28](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L28)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:28](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L28)
 
-___
+***
 
 ### moduleType
 
-• **moduleType**: [`ModuleType`](../enums/ModuleType.md)
+> **moduleType**: [`ModuleType`](../enumerations/ModuleType.md)
 
 CJS or ESM - which type to compile plugins to
 
 #### Defined in
 
-[templating/plugins.ts:36](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L36)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:36](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L36)
 
-___
+***
 
-### relative
+### relative?
 
-• `Optional` **relative**: `boolean`
+> `optional` **relative**: `boolean`
 
 whether to use relative or absolute paths in the generated file. By default, absolute paths are used.
 
 #### Defined in
 
-[templating/plugins.ts:40](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L40)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:40](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L40)
 
-___
+***
 
 ### rootPath
 
-• **rootPath**: `string`
+> **rootPath**: `string`
 
 source path for where the plugins are defined
 
 #### Defined in
 
-[templating/plugins.ts:32](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L32)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:32](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L32)
 
-___
+***
 
-### silent
+### silent?
 
-• `Optional` **silent**: `boolean`
+> `optional` **silent**: `boolean`
 
 whether to suppress console output
 
 #### Defined in
 
-[templating/plugins.ts:44](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L44)
+[sitecore-jss-dev-tools/src/templating/plugins.ts:44](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L44)

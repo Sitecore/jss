@@ -162,7 +162,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
    * - This component's state (the mutated state of the field after user changes)
    * The field state includes both current value as well as current validity.
    * @param {FormField} field
-   * @returns {Object | null} field state
+   * @returns {object | null} field state
    */
   getCurrentFieldState(field: FormField) {
     // non-valued fields, i.e. text, section, do not have a value or validity state

@@ -1,4 +1,4 @@
-import { ProxyConfig, ServerBundle } from '@sitecore-jss/sitecore-jss-proxy';
+import { headlessProxy } from '@sitecore-jss/sitecore-jss-proxy';
 import fs from 'fs';
 import { RestDictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
 import { httpAgentsConfig } from './httpAgents';
@@ -13,7 +13,7 @@ let siteName = process.env.SITECORE_SITE_NAME || appName;
 
 const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `../dist/${appName}/server.bundle`;
 
-const serverBundle = require(bundlePath) as ServerBundle;
+const serverBundle = require(bundlePath) as headlessProxy.ServerBundle;
 
 httpAgentsConfig.setUpDefaultAgents(serverBundle);
 
@@ -33,7 +33,7 @@ const dictionaryService = new RestDictionaryService({
 /**
  * @type {ProxyConfig}
  */
-export const config: ProxyConfig = {
+export const config: headlessProxy.ProxyConfig = {
   /**
    * The require'd server.bundle.js file from your pre-built JSS app
    */

@@ -1,36 +1,27 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / WithSitecoreContextProps
 
 # Interface: WithSitecoreContextProps
-
-## Hierarchy
-
-- **`WithSitecoreContextProps`**
-
-  ↳ [`ComponentConsumerProps`](ComponentConsumerProps.md)
-
-## Table of contents
-
-### Properties
-
-- [sitecoreContext](WithSitecoreContextProps.md#sitecorecontext)
-- [updateSitecoreContext](WithSitecoreContextProps.md#updatesitecorecontext)
 
 ## Properties
 
 ### sitecoreContext
 
-• **sitecoreContext**: [`SitecoreContextValue`](../README.md#sitecorecontextvalue)
+> **sitecoreContext**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:9](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L9)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:11](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L11)
 
-___
+***
 
-### updateSitecoreContext
+### updateSitecoreContext?
 
-• `Optional` **updateSitecoreContext**: ``false`` \| (`value`: [`SitecoreContextValue`](../README.md#sitecorecontextvalue)) => `void`
+> `optional` **updateSitecoreContext**: `false` \| (`value`) => `void`
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:10](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L10)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:12](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L12)

@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "es6",
+    "useUnknownInCatchVariables": false,
     "module": "commonjs",
     "outDir": "dist/cjs",
     "typeRoots": ["node_modules/@types"],
@@ -11,6 +12,7 @@
     "node_modules",
     "types",
     "dist",
+    "editing.d.ts",
     "layout.d.ts",
     "media.d.ts",
     "utils.d.ts",

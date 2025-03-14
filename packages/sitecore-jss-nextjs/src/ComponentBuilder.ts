@@ -1,19 +1,18 @@
-import { ComponentFactory } from '@sitecore-jss/sitecore-jss-react';
+import { ComponentFactory, JssComponentType } from '@sitecore-jss/sitecore-jss-react';
 import { Module, ModuleFactory } from './sharedTypes/module-factory';
-import { ComponentType } from 'react';
 
 /**
  * Represents a component that can be imported dynamically
  */
 export type LazyModule = {
   module: () => Promise<Module>;
-  element: (isEditing?: boolean) => ComponentType;
+  element: (isEditing?: boolean) => JssComponentType;
 };
 
 /**
  * Component is a module or a lazy module
  */
-type Component = Module | LazyModule | ComponentType;
+type Component = Module | LazyModule | JssComponentType;
 
 /**
  * Configuration for ComponentBuilder
@@ -74,7 +73,7 @@ export class ComponentBuilder {
   /**
    * Creates a new instance of component factory
    * Component can be imported dynamically or statically.
-   * @param {Object} [config] Component factory configuration
+   * @param {object} [config] Component factory configuration
    * @param {boolean} [config.isEditing] Indicates if component factory is used in editing mode
    * @returns {ComponentFactory} Component factory implementation
    */
@@ -100,7 +99,7 @@ export class ComponentBuilder {
       return (
         (component as Module).Default ||
         (component as Module).default ||
-        (component as ComponentType)
+        (component as JssComponentType)
       );
     };
   }

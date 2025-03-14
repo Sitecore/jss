@@ -5,8 +5,9 @@
     "module": "commonjs",
     "outDir": "dist/cjs",
     "strictBindCallApply": false,
+    "skipLibCheck": true,
     "typeRoots": ["node_modules/@types"],
     "declarationDir": "./types"
   },
-  "exclude": ["node_modules", "types", "dist", "src/**/*.test.ts", "src/test-data/*.ts"]
+  "exclude": ["node_modules", "types", "dist", "src/**/*.test.ts", "src/test-data/*.ts", "personalize.d.ts"]
 }

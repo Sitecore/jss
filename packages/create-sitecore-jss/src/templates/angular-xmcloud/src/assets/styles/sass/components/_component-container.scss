@@ -1,0 +1,27 @@
+@import 'sass/abstracts/mixins';
+
+$size-padding: 8px;
+.container-wrapper {
+  width: 100%;
+}
+
+.component {
+  position: relative;
+  padding: 0 $size-padding;
+
+  @include respond-to(all-mobile) {
+    padding: 0;
+  }
+}
+
+.container {
+  padding: 0;
+
+  &.fullwidth-container {
+    max-width: unset;
+  }
+
+  .component-content {
+    @include clearfix();
+  }
+}

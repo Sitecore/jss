@@ -2,55 +2,17 @@ export {
   constants,
   // generic data access
   HttpDataFetcher,
-  HttpResponse,
-  AxiosResponse,
-  AxiosDataFetcher,
-  AxiosDataFetcherConfig,
   NativeDataFetcher,
   NativeDataFetcherConfig,
+  NativeDataFetcherResponse,
+  NativeDataFetcherError,
   HTMLLink,
   enableDebug,
   debug,
+  CacheClient,
+  CacheOptions,
+  MemoryCacheClient,
 } from '@sitecore-jss/sitecore-jss';
-
-// we will remove the root exports for these later
-// we cannot mark exports as deprected directly, so we're using this hack instead
-import { GraphQLRequestClient as GraphQLRequestClientDep } from './graphql';
-import {
-  isEditorActive as isEditorActiveDep,
-  resetEditorChromes as resetEditorChromesDep,
-  resolveUrl as resolveUrlDep,
-  tryParseEnvValue as tryParseEnvValueDep,
-} from '@sitecore-jss/sitecore-jss/utils';
-import {
-  handleEditorFastRefresh as handleEditorFastRefreshDep,
-  getPublicUrl as getPublicUrlDep,
-} from './utils';
-
-/** @deprecated use import from '@sitecore-jss/sitecore-jss-nextjs/utils' instead */
-const {
-  isEditorActiveDep: isEditorActive,
-  resetEditorChromesDep: resetEditorChromes,
-  resolveUrlDep: resolveUrl,
-  tryParseEnvValueDep: tryParseEnvValue,
-  handleEditorFastRefreshDep: handleEditorFastRefresh,
-  getPublicUrlDep: getPublicUrl,
-} = {
-  isEditorActiveDep,
-  resetEditorChromesDep,
-  resolveUrlDep,
-  tryParseEnvValueDep,
-  handleEditorFastRefreshDep,
-  getPublicUrlDep,
-};
-/** @deprecated use import from '@sitecore-jss/sitecore-jss-nextjs/graphql' instead */
-const { GraphQLRequestClientDep: GraphQLRequestClient } = {
-  GraphQLRequestClientDep,
-};
-
-export { GraphQLRequestClient };
-export { handleEditorFastRefresh, getPublicUrl };
-export { isEditorActive, resetEditorChromes, resolveUrl, tryParseEnvValue };
 
 export {
   LayoutService,
@@ -73,10 +35,8 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-  RenderingType,
-  EDITING_COMPONENT_PLACEHOLDER,
-  EDITING_COMPONENT_ID,
   getContentStylesheetLink,
+  EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
@@ -100,6 +60,7 @@ export {
   personalizeLayout,
   getPersonalizedRewrite,
   getPersonalizedRewriteData,
+  getGroomedVariantIds,
   normalizePersonalizedRewrite,
   CdpHelper,
 } from '@sitecore-jss/sitecore-jss/personalize';
@@ -157,7 +118,6 @@ export {
 export { Link, LinkProps } from './components/Link';
 export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
-export { EditingComponentPlaceholder } from './components/EditingComponentPlaceholder';
 export { NextImage } from './components/NextImage';
 import * as FEaaSWrapper from './components/FEaaSWrapper';
 import * as BYOCWrapper from './components/BYOCWrapper';
@@ -165,8 +125,6 @@ export { FEaaSWrapper };
 export { BYOCWrapper };
 
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
-
-export { Context, ContextConfig, SDK } from './context';
 
 export {
   ComponentFactory,
@@ -187,10 +145,12 @@ export {
   BYOCComponentParams,
   BYOCComponent,
   BYOCComponentProps,
-  getFEAASLibraryStylesheetLinks,
+  getComponentLibraryStylesheetLinks,
   File,
   FileField,
   RichTextField,
+  DefaultEmptyFieldEditingComponentImage,
+  DefaultEmptyFieldEditingComponentText,
   VisitorIdentification,
   PlaceholderComponentProps,
   SitecoreContext,
@@ -203,7 +163,10 @@ export {
   withPlaceholder,
   withDatasourceCheck,
   ImageSizeParameters,
-  ComponentConsumerProps,
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
+  WithSitecoreContextHocProps,
+  withFieldMetadata,
+  withEmptyFieldEditingComponent,
+  EditingScripts,
 } from '@sitecore-jss/sitecore-jss-react';

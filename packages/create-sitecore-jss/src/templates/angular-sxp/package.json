@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel start:angular start:proxy start:watch-components\"",
+    "start:proxy": "ts-node --project src/tsconfig.webpack-server.json scripts/disconnected-mode-proxy.ts",
+    "lint:yml": "ts-node ./scripts/lint-yml.ts",
+    "lint": "ng lint <%- appName %> --fix && npm run lint:yml",
+    "scaffold": "ng generate @sitecore-jss/sitecore-jss-angular-schematics:jss-component"
+  },
+  "devDependencies": {
+    "yaml-lint": "^1.2.4"
+  }
+}

@@ -1,30 +1,16 @@
-import {
-  GraphQLClient,
-  GraphQLRequestClient,
-  GraphQLRequestClientFactory,
-} from '../graphql-request-client';
+import { GraphQLClient, GraphQLRequestClientFactory } from '../graphql-request-client';
 import debug from '../debug';
 import { isTimeoutError } from '../utils';
-import { CdpHelper } from './utils';
 import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
 
 export type GraphQLPersonalizeServiceConfig = CacheOptions & {
-  /**
-   * Your Graphql endpoint
-   * @deprecated use @param clientFactory property instead
-   */
-  endpoint?: string;
-  /**
-   * The API key to use for authentication
-   * @deprecated use @param clientFactory property instead
-   */
-  apiKey?: string;
   /**
    * Timeout (ms) for the Personalize request. Default is 400.
    */
   timeout?: number;
   /**
    * Optional Sitecore Personalize scope identifier allowing you to isolate your personalization data between XM Cloud environments
+   * @deprecated Will be removed in a future release.
    */
   scope?: string;
   /**
@@ -35,7 +21,7 @@ export type GraphQLPersonalizeServiceConfig = CacheOptions & {
    * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
    * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
    */
-  clientFactory?: GraphQLRequestClientFactory;
+  clientFactory: GraphQLRequestClientFactory;
 };
 
 /**
@@ -43,9 +29,9 @@ export type GraphQLPersonalizeServiceConfig = CacheOptions & {
  */
 export type PersonalizeInfo = {
   /**
-   * The (CDP-friendly) content id
+   * The page id
    */
-  contentId: string;
+  pageId: string;
   /**
    * The configured variant ids
    */
@@ -59,6 +45,17 @@ type PersonalizeQueryResult = {
 export class GraphQLPersonalizeService {
   private graphQLClient: GraphQLClient;
   private cache: CacheClient<PersonalizeQueryResult>;
+
+  /**
+   * Fetch personalize data using the Sitecore GraphQL endpoint.
+   * @param {GraphQLPersonalizeServiceConfig} config
+   */
+  constructor(protected config: GraphQLPersonalizeServiceConfig) {
+    this.config.timeout = config.timeout || 400;
+    this.graphQLClient = this.getGraphQLClient();
+    this.cache = this.getCacheClient();
+  }
+
   protected get query(): string {
     return /* GraphQL */ `
       query($siteName: String!, $language: String!, $itemPath: String!) {
@@ -73,15 +70,6 @@ export class GraphQLPersonalizeService {
         }
       }
     `;
-  }
-  /**
-   * Fetch personalize data using the Sitecore GraphQL endpoint.
-   * @param {GraphQLPersonalizeServiceConfig} config
-   */
-  constructor(protected config: GraphQLPersonalizeServiceConfig) {
-    this.config.timeout = config.timeout || 400;
-    this.graphQLClient = this.getGraphQLClient();
-    this.cache = this.getCacheClient();
   }
 
   /**
@@ -119,8 +107,7 @@ export class GraphQLPersonalizeService {
     }
     return data?.layout?.item
       ? {
-          // CDP expects content id format `embedded_[<scope>_]<id>_<lang>` (lowercase)
-          contentId: CdpHelper.getContentId(data.layout.item.id, language, this.config.scope),
+          pageId: data.layout.item.id,
           variantIds: data.layout.item.personalization.variantIds,
         }
       : undefined;
@@ -149,20 +136,11 @@ export class GraphQLPersonalizeService {
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(): GraphQLClient {
-    if (!this.config.endpoint) {
-      if (!this.config.clientFactory) {
-        throw new Error('You should provide either an endpoint and apiKey, or a clientFactory.');
-      }
-
-      return this.config.clientFactory({
-        debugger: debug.personalize,
-        fetch: this.config.fetch,
-        timeout: this.config.timeout,
-      });
+    if (!this.config.clientFactory) {
+      throw new Error('clientFactory needs to be provided when initializing GraphQL client.');
     }
 
-    return new GraphQLRequestClient(this.config.endpoint, {
-      apiKey: this.config.apiKey,
+    return this.config.clientFactory({
       debugger: debug.personalize,
       fetch: this.config.fetch,
       timeout: this.config.timeout,

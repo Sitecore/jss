@@ -16,8 +16,8 @@ import { takeWhile } from 'rxjs/operators';
 import {
   ComponentFactoryResult,
   JssComponentFactoryService,
-} from '../jss-component-factory.service';
-import { PLACEHOLDER_MISSING_COMPONENT_COMPONENT } from './placeholder.token';
+} from '../services/jss-component-factory.service';
+import { PLACEHOLDER_MISSING_COMPONENT_COMPONENT } from '../services/placeholder.token';
 import { RawComponent } from './raw.component';
 import { isRawRendering } from './rendering';
 

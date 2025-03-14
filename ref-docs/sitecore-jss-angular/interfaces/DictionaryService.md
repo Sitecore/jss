@@ -1,33 +1,31 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / DictionaryService
 
 # Interface: DictionaryService
 
 Service that fetches dictionary data using Sitecore's GraphQL API.
 
-## Table of contents
-
-### Methods
-
-- [fetchDictionaryData](DictionaryService.md#fetchdictionarydata)
-
 ## Methods
 
-### fetchDictionaryData
+### fetchDictionaryData()
 
-▸ **fetchDictionaryData**(`language`): `Promise`\<`DictionaryPhrases`\>
+> **fetchDictionaryData**(`language`): `Promise`\<[`DictionaryPhrases`](DictionaryPhrases.md)\>
 
 Fetch dictionary data for a language.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
 | `language` | `string` | the language to be used to fetch the dictionary |
 
 #### Returns
 
-`Promise`\<`DictionaryPhrases`\>
+`Promise`\<[`DictionaryPhrases`](DictionaryPhrases.md)\>
 
 #### Defined in
 
-sitecore-jss/types/i18n/dictionary-service.d.ts:16
+packages/sitecore-jss/types/i18n/dictionary-service.d.ts:16

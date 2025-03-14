@@ -2,7 +2,7 @@ import React from 'react';
 import { Placeholder, VisitorIdentification } from '@sitecore-jss/sitecore-jss-react';
 import { NavLink } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
-import deepEqual from 'deep-equal';
+import fastDeepEqual from 'fast-deep-equal/es6/react';
 import Helmet from 'react-helmet';
 
 // Using bootstrap is completely optional. It's used here to provide a clean layout for samples,
@@ -82,7 +82,7 @@ const Layout = ({ route }) => (
 // We don't want to re-render `Layout` when route is changed but layout data is not loaded
 // Layout will be re-rendered only when layout data is changed
 const propsAreEqual = (prevProps, nextProps) => {
-  if (deepEqual(prevProps.route, nextProps.route)) return true;
+  if (fastDeepEqual(prevProps.route, nextProps.route)) return true;
 
   return false;
 };

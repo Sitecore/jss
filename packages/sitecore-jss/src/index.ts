@@ -3,16 +3,23 @@
 
 import * as constants from './constants';
 export { default as debug, Debugger, enableDebug } from './debug';
-export { HttpDataFetcher, HttpResponse, fetchData } from './data-fetcher';
+export { HttpDataFetcher, HttpResponse, fetchData, ResponseError } from './data-fetcher';
 export {
+  RetryStrategy,
+  DefaultRetryStrategy,
   GraphQLClient,
   GraphQLRequestClient,
   GraphQLRequestClientConfig,
   GraphQLRequestClientFactory,
   GraphQLRequestClientFactoryConfig,
 } from './graphql-request-client';
-export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
-export { AxiosResponse } from 'axios';
-export { NativeDataFetcher, NativeDataFetcherConfig } from './native-fetcher';
+export { CacheClient, CacheOptions, MemoryCacheClient } from './cache-client';
+export { ClientError } from 'graphql-request';
+export {
+  NativeDataFetcher,
+  NativeDataFetcherError,
+  NativeDataFetcherConfig,
+  NativeDataFetcherResponse,
+} from './native-fetcher';
 export { HTMLLink } from './models';
 export { constants };

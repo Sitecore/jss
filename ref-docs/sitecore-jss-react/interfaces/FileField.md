@@ -1,19 +1,17 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / FileField
 
 # Interface: FileField
-
-## Table of contents
-
-### Properties
-
-- [value](FileField.md#value)
 
 ## Properties
 
 ### value
 
-• **value**: `FileFieldValue`
+> **value**: `FileFieldValue`
 
 #### Defined in
 
-[sitecore-jss-react/src/components/File.tsx:12](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-react/src/components/File.tsx#L12)
+[packages/sitecore-jss-react/src/components/File.tsx:13](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-react/src/components/File.tsx#L13)

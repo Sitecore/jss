@@ -11,7 +11,7 @@ interface ComponentProps {
 }
 
 export const Default = (props: ComponentProps): JSX.Element => {
-  const styles = `${props.params.GridParameters ?? ''} ${props.params.Styles ?? ''}`.trimEnd();
+  const styles = `${props?.params?.GridParameters ?? ''} ${props?.params?.Styles ?? ''}`.trimEnd();
   const rowStyles = [
     props.params.Styles1,
     props.params.Styles2,

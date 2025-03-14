@@ -1,44 +1,57 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / TextField
 
 # Interface: TextField
 
-## Hierarchy
+## Extends
 
 - [`RenderingField`](RenderingField.md)\<`string`\>
 
-  ↳ **`TextField`**
-
-## Table of contents
-
-### Properties
-
-- [editable](TextField.md#editable)
-- [value](TextField.md#value)
-
 ## Properties
 
-### editable
+### editable?
 
-• `Optional` **editable**: `string`
-
-#### Inherited from
-
-[RenderingField](RenderingField.md).[editable](RenderingField.md#editable)
-
-#### Defined in
-
-[sitecore-jss-angular/src/components/rendering-field.ts:4](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-angular/src/components/rendering-field.ts#L4)
-
-___
-
-### value
-
-• `Optional` **value**: `string`
+> `optional` **editable**: `string`
 
 #### Inherited from
 
-[RenderingField](RenderingField.md).[value](RenderingField.md#value)
+[`RenderingField`](RenderingField.md).[`editable`](RenderingField.md#editable)
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering-field.ts:3](https://github.com/Sitecore/jss/blob/1255a19d1/packages/sitecore-jss-angular/src/components/rendering-field.ts#L3)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
+
+***
+
+### metadata?
+
+> `optional` **metadata**: `object`
+
+#### Index Signature
+
+ \[`key`: `string`\]: `unknown`
+
+#### Inherited from
+
+[`RenderingField`](RenderingField.md).[`metadata`](RenderingField.md#metadata)
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:123
+
+***
+
+### value?
+
+> `optional` **value**: `string`
+
+#### Inherited from
+
+[`RenderingField`](RenderingField.md).[`value`](RenderingField.md#value)
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)

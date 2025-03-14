@@ -1,7 +1,7 @@
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import { RestDictionaryService, RestDictionaryServiceData } from './rest-dictionary-service';
-import { AxiosDataFetcher } from '../axios-fetcher';
+import { NativeDataFetcher } from '../native-fetcher';
 import nock from 'nock';
 
 use(spies);
@@ -143,7 +143,7 @@ describe('RestDictionaryService', () => {
 
   it('should fetch dictionary data using custom data fetcher', () => {
     const fetcherSpy = spy((url: string) => {
-      return new AxiosDataFetcher().fetch<RestDictionaryServiceData>(url);
+      return new NativeDataFetcher().fetch<RestDictionaryServiceData>(url);
     });
 
     nock('http://sctest')

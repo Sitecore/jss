@@ -46,7 +46,7 @@ describe('generate-component-builder', () => {
           "import * as Text from 'src/custom-components/Text';\n" +
           "import * as barModule from 'bar';\n" +
           '\n' +
-          'const components = new Map();\n' +
+          'export const components = new Map();\n' +
           "components.set('Foo', Foo);\n" +
           '\n' +
           "components.set('TextComponent', Text);\n" +
@@ -129,7 +129,7 @@ describe('generate-component-builder', () => {
           "  element: (isEditing?: boolean) => isEditing ? require('car.dynamic')?.default : dynamic(carModule.module)\n" +
           '}\n' +
           '\n' +
-          'const components = new Map();\n' +
+          'export const components = new Map();\n' +
           "components.set('Foo', Foo);\n" +
           '\n' +
           "components.set('TextComponent', Text);\n" +

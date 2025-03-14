@@ -6,26 +6,43 @@ import {
   Renderer2,
   SimpleChanges,
   TemplateRef,
+  Type,
   ViewContainerRef,
 } from '@angular/core';
 import { LinkField } from './rendering-field';
+import { BaseFieldDirective } from './base-field.directive';
+import { DefaultEmptyFieldEditingComponent } from './default-empty-text-field-editing-placeholder.component';
+import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 @Directive({ selector: '[scLink]' })
-export class LinkDirective implements OnChanges {
+export class LinkDirective extends BaseFieldDirective implements OnChanges {
   @Input('scLinkEditable') editable = true;
 
   @Input('scLinkAttrs') attrs: { [attr: string]: string } = {};
 
   @Input('scLink') field: LinkField;
 
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
+  @Input('scLinkEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
+
+  /**
+   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
+   */
+  protected defaultFieldEditingComponent: Type<unknown>;
+
   private inlineRef: HTMLSpanElement | null = null;
 
   constructor(
-    protected viewContainer: ViewContainerRef,
+    viewContainer: ViewContainerRef,
     protected templateRef: TemplateRef<unknown>,
     protected renderer: Renderer2,
     private elementRef: ElementRef
-  ) {}
+  ) {
+    super(viewContainer);
+    this.defaultFieldEditingComponent = DefaultEmptyFieldEditingComponent;
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.attrs) {
@@ -76,11 +93,29 @@ export class LinkDirective implements OnChanges {
     }
   }
 
+  /**
+   * Determines if directive should render the field as is
+   * Returns true if we are in edit mode 'chromes' (field.editable is present) or field is not empty
+   * or link field text is present and we are not in edit mode 'metadata'
+   * The right side of the expression was added to preserve existing functionality
+   */
+  protected shouldRender() {
+    return (
+      super.shouldRender() ||
+      !!((this.field?.text || this.field?.value?.text) && !this.field?.metadata)
+    );
+  }
+
   private updateView() {
     const field = this.field;
     if (this.editable && field && field.editableFirstPart && field.editableLastPart) {
       this.renderInlineWrapper(field.editableFirstPart, field.editableLastPart);
-    } else if (field && (field.href || field.value)) {
+    } else {
+      if (!this.shouldRender()) {
+        super.renderEmpty();
+        return;
+      }
+
       const props = field.href ? field : field.value;
 
       const linkText = field.text || field.value?.text || field.href || field.value?.href;
@@ -90,8 +125,9 @@ export class LinkDirective implements OnChanges {
       const mergedAttrs = { ...props, ...this.attrs, href };
 
       delete mergedAttrs.anchor;
-
+      this.renderMetadata(MetadataKind.Open);
       this.renderTemplate(mergedAttrs, linkText);
+      this.renderMetadata(MetadataKind.Close);
     }
   }
 

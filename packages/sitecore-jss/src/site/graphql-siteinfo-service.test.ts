@@ -4,7 +4,7 @@ import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
 import { GraphQLSiteInfoService, GraphQLSiteInfoResult } from './graphql-siteinfo-service';
-import { GraphQLRequestClient, PageInfo } from '../graphql';
+import { GraphQLRequestClient } from '../graphql';
 import debugApi from 'debug';
 import debug from '../debug';
 
@@ -14,6 +14,10 @@ describe('GraphQLSiteInfoService', () => {
   let debugNamespaces: string;
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';
+  const clientFactory = GraphQLRequestClient.createClientFactory({
+    endpoint,
+    apiKey,
+  });
 
   const site = ({
     name,
@@ -24,29 +28,24 @@ describe('GraphQLSiteInfoService', () => {
     hostName: string;
     language: string;
   }): GraphQLSiteInfoResult => ({
-    name: { value: name },
-    hostName: { value: hostName },
-    language: { value: language },
+    name: name,
+    hostName: hostName,
+    language: language,
   });
 
   const nonEmptyResponse = ({
     count = 1,
-    start = 0,
-    pageInfo = { hasNext: false, endCursor: '' },
     sites = [],
   }: {
     count?: number;
-    start?: number;
-    pageInfo?: PageInfo;
     sites?: GraphQLSiteInfoResult[];
   } = {}) => ({
     data: {
-      search: {
-        pageInfo,
-        results: [
+      site: {
+        siteInfoCollection: [
           ...[...Array(count).keys()].map((n) =>
             site({
-              name: `site ${start + n}`,
+              name: `site ${n}`,
               hostName: 'restricted.gov',
               language: 'en',
             })
@@ -59,9 +58,8 @@ describe('GraphQLSiteInfoService', () => {
 
   const emptyResponse = {
     data: {
-      search: {
-        pageInfo: {},
-        results: [],
+      site: {
+        siteInfoCollection: [],
       },
     },
   };
@@ -103,7 +101,7 @@ describe('GraphQLSiteInfoService', () => {
         ],
       })
     );
-    const service = new GraphQLSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+    const service = new GraphQLSiteInfoService({ clientFactory });
     const result = await service.fetchSiteInfo();
     expect(result).to.be.deep.equal([
       {
@@ -150,64 +148,18 @@ describe('GraphQLSiteInfoService', () => {
       },
     ]);
   });
-
-  it('should return correct result using custom pageSize', async () => {
-    mockSiteInfoRequest(nonEmptyResponse({ count: 2, pageInfo: { hasNext: true, endCursor: '' } }));
-    mockSiteInfoRequest(
-      nonEmptyResponse({ count: 2, start: 2, pageInfo: { hasNext: true, endCursor: '' } })
-    );
-    mockSiteInfoRequest(
-      nonEmptyResponse({ count: 2, start: 4, pageInfo: { hasNext: false, endCursor: '' } })
-    );
-
-    const service = new GraphQLSiteInfoService({ apiKey: apiKey, endpoint: endpoint, pageSize: 2 });
-    const result = await service.fetchSiteInfo();
-    expect(result).to.be.deep.equal([
-      {
-        name: 'site 0',
-        hostName: 'restricted.gov',
-        language: 'en',
-      },
-      {
-        name: 'site 1',
-        hostName: 'restricted.gov',
-        language: 'en',
-      },
-      {
-        name: 'site 2',
-        hostName: 'restricted.gov',
-        language: 'en',
-      },
-      {
-        name: 'site 3',
-        hostName: 'restricted.gov',
-        language: 'en',
-      },
-      {
-        name: 'site 4',
-        hostName: 'restricted.gov',
-        language: 'en',
-      },
-      {
-        name: 'site 5',
-        hostName: 'restricted.gov',
-        language: 'en',
-      },
-    ]);
-  });
-
   it('should return empty array when empty result received', async () => {
     nock(endpoint)
       .post('/')
       .reply(200, emptyResponse);
-    const service = new GraphQLSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+    const service = new GraphQLSiteInfoService({ clientFactory });
     const result = await service.fetchSiteInfo();
     expect(result).to.deep.equal([]);
   });
 
   it('should use caching by default', async () => {
     mockSiteInfoRequest(nonEmptyResponse());
-    const service = new GraphQLSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+    const service = new GraphQLSiteInfoService({ clientFactory });
     const result = await service.fetchSiteInfo();
     nock.cleanAll();
     nock(endpoint)
@@ -230,8 +182,7 @@ describe('GraphQLSiteInfoService', () => {
       })
     );
     const service = new GraphQLSiteInfoService({
-      apiKey: apiKey,
-      endpoint: endpoint,
+      clientFactory,
       cacheEnabled: false,
     });
     const result = await service.fetchSiteInfo();
@@ -260,10 +211,33 @@ describe('GraphQLSiteInfoService', () => {
     nock(endpoint)
       .post('/')
       .reply(200, emptyResponse);
-    const service = new GraphQLSiteInfoService({ apiKey: apiKey, endpoint: endpoint });
+    const service = new GraphQLSiteInfoService({ clientFactory });
     const result = await service.fetchSiteInfo();
     expect(result).to.deep.equal([]);
     expect(debug.multisite.log, 'log debug message').to.be.called.once;
     expect(nock.isDone(), 'skip request').to.be.false;
+  });
+
+  it('should filter out default website', async () => {
+    mockSiteInfoRequest(
+      nonEmptyResponse({
+        sites: [
+          site({
+            name: 'website',
+            hostName: 'notheadless.org',
+            language: '',
+          }),
+        ],
+      })
+    );
+    const service = new GraphQLSiteInfoService({ clientFactory });
+    const result = await service.fetchSiteInfo();
+    expect(result).to.be.deep.equal([
+      {
+        name: 'site 0',
+        hostName: 'restricted.gov',
+        language: 'en',
+      },
+    ]);
   });
 });
