@@ -82,9 +82,8 @@ export class RedirectsMiddleware extends MiddlewareBase {
     req: NextRequest,
     siteName: string
   ): Promise<RedirectResult | undefined> {
-    const { pathname: targetURL, search: targetQS = '', locale } = this.normalizeUrl(
-      req.nextUrl.clone()
-    );
+    const { pathname: targetURL, search: targetQS = '' } = this.normalizeUrl(req.nextUrl.clone());
+    const locale = this.getLanguage(req);
     const normalizedPath = targetURL.replace(/\/*$/gi, '');
     const redirects = await this.redirectsService.fetchRedirects(siteName);
     const language = this.getLanguage(req);
