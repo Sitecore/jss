@@ -11,6 +11,9 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🐛 Bug Fixes
+* `[sitecore-jss-nextjs]` Fixes an issue where a more specific redirect rule with locale is not activating when a less specific rule is present. ([#2054](https://github.com/Sitecore/jss/pull/2054))
+
 ## 22.5.2
 
 ### 🐛 Bug Fixes
