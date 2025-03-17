@@ -150,7 +150,7 @@ export {
   File,
   FileField,
   RichTextField,
-  ComponentLibraryLayout,
+  ComponentLibrary,
   DefaultEmptyFieldEditingComponentImage,
   DefaultEmptyFieldEditingComponentText,
   VisitorIdentification,

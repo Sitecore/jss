@@ -12,9 +12,12 @@
     "language": "da-DK",
     "fetchWith": "GraphQL",
     "prerender": "SSG",
+    // when using the "nextjs-xmcloud" add-on, set "xmcloud" to true
+    "xmcloud": false,
     "hostName": "sitecore-jss-nextjs.dev.local",
     // if you're developing packages i.e installing dependencies in packages before initializing an app.
     // Set 'restoreLockfile' to false or else your yarn.lock will get restored.
     "restoreLockfile": true
+
   }
 }

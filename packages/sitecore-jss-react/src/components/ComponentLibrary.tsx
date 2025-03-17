@@ -11,10 +11,12 @@ import {
   getComponentLibraryStatusEvent,
   addComponentUpdateHandler,
 } from '@sitecore-jss/sitecore-jss/editing';
-import { EditingScripts } from './EditingScripts';
 
-export const ComponentLibraryLayout = (layoutData: LayoutServiceData): JSX.Element => {
+export const ComponentLibrary = (layoutData: LayoutServiceData): JSX.Element => {
   const { route } = layoutData.sitecore;
+  if (!route) {
+    return <></>;
+  }
   const [renderKey, setRenderKey] = useState(0);
   const [rootUpdate, setRootUpdate] = useState(null);
   const rootComponent = route?.placeholders[EDITING_COMPONENT_PLACEHOLDER][0] as ComponentRendering;
@@ -59,7 +61,6 @@ export const ComponentLibraryLayout = (layoutData: LayoutServiceData): JSX.Eleme
 
   return (
     <>
-      <EditingScripts />
       <main>
         <div id={EDITING_COMPONENT_ID}>
           {route && (

@@ -86,7 +86,7 @@ export {
   fetchFEaaSComponentServerProps,
 } from './components/FEaaSComponent';
 export { FEaaSWrapper } from './components/FEaaSWrapper';
-export { ComponentLibraryLayout } from './components/ComponentLibraryLayout';
+export { ComponentLibrary } from './components/ComponentLibrary';
 export {
   BYOCComponent,
   BYOCComponentParams,
