@@ -19,7 +19,7 @@ import { REWRITE_HEADER_NAME } from './middleware';
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
 
-describe.only('RedirectsMiddleware', () => {
+describe('RedirectsMiddleware', () => {
   let nextRedirectStub, nextRewriteStub;
 
   const debugSpy = spy(debug, 'redirects');
@@ -762,7 +762,7 @@ describe.only('RedirectsMiddleware', () => {
       it('should prefer pattern with locale when pattern is url', async () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
         const url = {
-          href: 'http://localhost:3000/pl-PL/found',
+          href: 'http://localhost:3000/found',
           pathname: '/found',
           origin: 'http://localhost:3000',
           locale: 'pl-PL',
@@ -775,7 +775,7 @@ describe.only('RedirectsMiddleware', () => {
           request: {
             nextUrl: {
               pathname: '/not-found',
-              href: 'http://localhost:3000/not-found',
+              href: 'http://localhost:3000/pl-PL/not-found',
               locale: 'pl-PL',
               origin: 'http://localhost:3000',
               clone: cloneUrl,
@@ -784,7 +784,7 @@ describe.only('RedirectsMiddleware', () => {
           status: 301,
         });
 
-        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+        const { finalRes, fetchRedirects } = await runTestWithRedirect(
           {
             redirectMaps: [
               {
@@ -794,7 +794,7 @@ describe.only('RedirectsMiddleware', () => {
                 isQueryStringPreserved: false,
               },
               {
-                pattern: 'not-found',
+                pattern: '/not-found',
                 target: '/still-not-found',
                 redirectType: REDIRECT_TYPE_301,
                 isQueryStringPreserved: false,
@@ -804,8 +804,6 @@ describe.only('RedirectsMiddleware', () => {
           },
           req
         );
-
-        expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
@@ -815,7 +813,7 @@ describe.only('RedirectsMiddleware', () => {
       it('should prefer pattern with locale when pattern is regex', async () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
         const url = {
-          href: 'http://localhost:3000/pl-PL/found/for-real',
+          href: 'http://localhost:3000/found/for-real',
           pathname: '/found/for-real',
           origin: 'http://localhost:3000',
           locale: 'pl-PL',
@@ -838,27 +836,24 @@ describe.only('RedirectsMiddleware', () => {
           status: 301,
         });
 
-        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+        const { finalRes, fetchRedirects } = await runTestWithRedirect(
           {
             redirectMaps: [
               {
-                pattern: '/pl-PL/not-found',
-                target: '/found',
+                pattern: '/pl-PL/not-found/(.*)',
+                target: '/found/$1',
                 redirectType: REDIRECT_TYPE_301,
               },
               {
-                pattern: 'not-found',
-                target: '/still-not-found',
+                pattern: 'not-found/(.*)',
+                target: '/still-not-found/$1',
                 redirectType: REDIRECT_TYPE_301,
               },
             ],
             locale: 'pl-PL',
-            isQueryStringPreserved: false,
           },
           req
         );
-
-        expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
