@@ -86,7 +86,7 @@ sitecore-jss/types/layout/models.d.ts:35
 
 ### renderingType?
 
-> `optional` **renderingType**: [`Component`](../../editing/enumerations/RenderingType.md#component)
+> `optional` **renderingType**: [`Component`](../enumerations/RenderingType.md#component)
 
 #### Defined in
 

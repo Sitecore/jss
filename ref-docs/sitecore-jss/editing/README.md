@@ -10,7 +10,7 @@
 
 ### Enumerations
 
-- [ComponentLibraryStatus](enumerations/ComponentLibraryStatus.md)
+- [DesignLibraryStatus](enumerations/DesignLibraryStatus.md)
 - [LayoutKind](enumerations/LayoutKind.md)
 - [MetadataKind](enumerations/MetadataKind.md)
 
@@ -22,8 +22,8 @@
 ### Interfaces
 
 - [ComponentLayoutRequestParams](interfaces/ComponentLayoutRequestParams.md)
-- [ComponentLibraryStatusEvent](interfaces/ComponentLibraryStatusEvent.md)
 - [ComponentUpdateEventArgs](interfaces/ComponentUpdateEventArgs.md)
+- [DesignLibraryStatusEvent](interfaces/DesignLibraryStatusEvent.md)
 - [RenderComponentQueryParams](interfaces/RenderComponentQueryParams.md)
 - [RenderMetadataQueryParams](interfaces/RenderMetadataQueryParams.md)
 
@@ -37,7 +37,7 @@
 ### Functions
 
 - [addComponentUpdateHandler](functions/addComponentUpdateHandler.md)
-- [getComponentLibraryStatusEvent](functions/getComponentLibraryStatusEvent.md)
+- [getDesignLibraryStatusEvent](functions/getDesignLibraryStatusEvent.md)
 - [getJssPagesClientData](functions/getJssPagesClientData.md)
 
 ## References

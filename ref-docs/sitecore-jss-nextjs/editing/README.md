@@ -8,10 +8,6 @@
 
 ## Index
 
-### Enumerations
-
-- [RenderingType](enumerations/RenderingType.md)
-
 ### Classes
 
 - [BasicEditingDataService](classes/BasicEditingDataService.md)
@@ -49,5 +45,11 @@
 
 ### Functions
 
-- [isComponentLibraryPreviewData](functions/isComponentLibraryPreviewData.md)
+- [isDesignLibraryPreviewData](functions/isDesignLibraryPreviewData.md)
 - [isEditingMetadataPreviewData](functions/isEditingMetadataPreviewData.md)
+
+## References
+
+### RenderingType
+
+Re-exports [RenderingType](../index/enumerations/RenderingType.md)

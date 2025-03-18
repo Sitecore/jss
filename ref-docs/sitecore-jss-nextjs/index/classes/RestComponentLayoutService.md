@@ -6,7 +6,7 @@
 
 # Class: RestComponentLayoutService
 
-REST service that enables Component Library functioality
+REST service that enables design Library functionality
 Makes a request to /sitecore/api/layout/component in 'library' mode in Pages.
 Returns layoutData for one single rendered component
 

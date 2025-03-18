@@ -24,4 +24,4 @@ Determines whether the given input is a regular expression or resembles a URL.
 
 ## Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:162](https://github.com/Sitecore/jss/blob/ed24c4d11f2e3ff52b345adb5974a63b542f6a15/packages/sitecore-jss/src/utils/utils.ts#L162)
+[packages/sitecore-jss/src/utils/utils.ts:162](https://github.com/Sitecore/jss/blob/89df8ed4416bbf2a9b63bc8c31fcb45dd2e16192/packages/sitecore-jss/src/utils/utils.ts#L162)

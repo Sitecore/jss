@@ -6,7 +6,7 @@
 
 # Interface: RenderComponentQueryParams
 
-Query parameters appended for Component Library functionaity.
+Query parameters appended for Design Library functionaity.
 Used when a single component is rendered in Pages.
 
 ## Indexable
@@ -21,7 +21,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:33](https://github.com/Sitecore/jss/blob/ed24c4d11f2e3ff52b345adb5974a63b542f6a15/packages/sitecore-jss/src/editing/models.ts#L33)
+[packages/sitecore-jss/src/editing/models.ts:33](https://github.com/Sitecore/jss/blob/89df8ed4416bbf2a9b63bc8c31fcb45dd2e16192/packages/sitecore-jss/src/editing/models.ts#L33)
 
 ***
 
@@ -31,7 +31,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:29](https://github.com/Sitecore/jss/blob/ed24c4d11f2e3ff52b345adb5974a63b542f6a15/packages/sitecore-jss/src/editing/models.ts#L29)
+[packages/sitecore-jss/src/editing/models.ts:29](https://github.com/Sitecore/jss/blob/89df8ed4416bbf2a9b63bc8c31fcb45dd2e16192/packages/sitecore-jss/src/editing/models.ts#L29)
 
 ***
 
@@ -41,7 +41,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:28](https://github.com/Sitecore/jss/blob/ed24c4d11f2e3ff52b345adb5974a63b542f6a15/packages/sitecore-jss/src/editing/models.ts#L28)
+[packages/sitecore-jss/src/editing/models.ts:28](https://github.com/Sitecore/jss/blob/89df8ed4416bbf2a9b63bc8c31fcb45dd2e16192/packages/sitecore-jss/src/editing/models.ts#L28)
 
 ***
 
@@ -51,7 +51,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:30](https://github.com/Sitecore/jss/blob/ed24c4d11f2e3ff52b345adb5974a63b542f6a15/packages/sitecore-jss/src/editing/models.ts#L30)
+[packages/sitecore-jss/src/editing/models.ts:30](https://github.com/Sitecore/jss/blob/89df8ed4416bbf2a9b63bc8c31fcb45dd2e16192/packages/sitecore-jss/src/editing/models.ts#L30)
 
 ***
 
@@ -61,7 +61,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:32](https://github.com/Sitecore/jss/blob/ed24c4d11f2e3ff52b345adb5974a63b542f6a15/packages/sitecore-jss/src/editing/models.ts#L32)
+[packages/sitecore-jss/src/editing/models.ts:32](https://github.com/Sitecore/jss/blob/89df8ed4416bbf2a9b63bc8c31fcb45dd2e16192/packages/sitecore-jss/src/editing/models.ts#L32)
 
 ***
 
@@ -71,7 +71,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:31](https://github.com/Sitecore/jss/blob/ed24c4d11f2e3ff52b345adb5974a63b542f6a15/packages/sitecore-jss/src/editing/models.ts#L31)
+[packages/sitecore-jss/src/editing/models.ts:31](https://github.com/Sitecore/jss/blob/89df8ed4416bbf2a9b63bc8c31fcb45dd2e16192/packages/sitecore-jss/src/editing/models.ts#L31)
 
 ***
 
@@ -81,7 +81,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:34](https://github.com/Sitecore/jss/blob/ed24c4d11f2e3ff52b345adb5974a63b542f6a15/packages/sitecore-jss/src/editing/models.ts#L34)
+[packages/sitecore-jss/src/editing/models.ts:34](https://github.com/Sitecore/jss/blob/89df8ed4416bbf2a9b63bc8c31fcb45dd2e16192/packages/sitecore-jss/src/editing/models.ts#L34)
 
 ***
 
@@ -91,7 +91,7 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:35](https://github.com/Sitecore/jss/blob/ed24c4d11f2e3ff52b345adb5974a63b542f6a15/packages/sitecore-jss/src/editing/models.ts#L35)
+[packages/sitecore-jss/src/editing/models.ts:35](https://github.com/Sitecore/jss/blob/89df8ed4416bbf2a9b63bc8c31fcb45dd2e16192/packages/sitecore-jss/src/editing/models.ts#L35)
 
 ***
 
@@ -101,4 +101,4 @@ Used when a single component is rendered in Pages.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:27](https://github.com/Sitecore/jss/blob/ed24c4d11f2e3ff52b345adb5974a63b542f6a15/packages/sitecore-jss/src/editing/models.ts#L27)
+[packages/sitecore-jss/src/editing/models.ts:27](https://github.com/Sitecore/jss/blob/89df8ed4416bbf2a9b63bc8c31fcb45dd2e16192/packages/sitecore-jss/src/editing/models.ts#L27)
