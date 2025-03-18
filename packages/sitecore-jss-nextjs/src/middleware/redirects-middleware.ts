@@ -82,7 +82,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
     req: NextRequest,
     siteName: string
   ): Promise<RedirectResult | undefined> {
-    const { pathname: incomingURL, search: targetQS = '', locale } = this.normalizeUrl(
+    const { pathname: incomingURL, search: incomingQS = '', locale } = this.normalizeUrl(
       req.nextUrl.clone()
     );
     const normalizedPath = incomingURL.replace(/\/*$/gi, '');
@@ -91,6 +91,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
     const modifyRedirects = structuredClone(redirects);
     let matchedQueryString: string | undefined;
     const localePath = `/${locale}${normalizedPath}`.toLowerCase();
+
     return modifyRedirects.length
       ? modifyRedirects.find((redirect: RedirectResult) => {
           // process static URL (non-regex) rules
@@ -106,7 +107,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
               (!patternQS ||
                 areURLSearchParamsEqual(
                   new URLSearchParams(patternQS),
-                  new URLSearchParams(targetQS)
+                  new URLSearchParams(incomingQS)
                 ))
             );
           }
@@ -128,10 +129,10 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
           // Redirect pattern matches the full incoming URL with query string present
           matchedQueryString = [
-            regexParser(redirect.pattern).test(`${localePath}${targetQS}`),
-            regexParser(redirect.pattern).test(`${normalizedPath}${targetQS}`),
+            regexParser(redirect.pattern).test(`${localePath}${incomingQS}`),
+            regexParser(redirect.pattern).test(`${normalizedPath}${incomingQS}`),
           ].some(Boolean)
-            ? targetQS
+            ? incomingQS
             : undefined;
           // Save the matched query string (if found) into the redirect object
           redirect.matchedQueryString = matchedQueryString || '';
