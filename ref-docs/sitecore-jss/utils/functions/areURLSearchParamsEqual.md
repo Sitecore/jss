@@ -25,4 +25,4 @@ Compares two URLSearchParams objects to determine if they are equal.
 
 ## Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:183](https://github.com/Sitecore/jss/blob/2035e7cefc77abe95fd5f7a0c8d848c119e7acb4/packages/sitecore-jss/src/utils/utils.ts#L183)
+[packages/sitecore-jss/src/utils/utils.ts:183](https://github.com/Sitecore/jss/blob/acfa78bff81ef95071ebe13ed7b07af5332737dc/packages/sitecore-jss/src/utils/utils.ts#L183)

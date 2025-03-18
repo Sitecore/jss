@@ -14,6 +14,8 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 * `[sitecore-jss-nextjs]` Fixes an issue where a more specific redirect rule with locale is not activating when a less specific rule is present. ([#2054](https://github.com/Sitecore/jss/pull/2054))
 
+* `[sitecore-jss-nextjs]` Fix an endless redirect issue with [/default/(.*) -> /en/$1] redirect rule when nextjs default locale is set to default. ([#2055](https://github.com/Sitecore/jss/pull/2055))
+
 ## 22.5.2
 
 ### 🐛 Bug Fixes

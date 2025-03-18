@@ -7,6 +7,7 @@
 ## Modules
 
 - [editing](editing/README.md)
+- [form](form/README.md)
 - [graphql](graphql/README.md)
 - [i18n](i18n/README.md)
 - [index](index/README.md)
