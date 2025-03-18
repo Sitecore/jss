@@ -381,8 +381,6 @@ export class MetadataHandler {
     }
 
     if (mode === 'library') {
-      // dedicated route and layout to SSR component library
-
       res.setPreviewData(
         {
           itemId: query.sc_itemid,

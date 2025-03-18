@@ -33,7 +33,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
       <Scripts />
       <Head>
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={`${publicUrl}/favicon.ico`} />
         {headLinks.map((headLink) => (
           <link rel={headLink.rel} key={headLink.href} href={headLink.href} />
         ))}
@@ -41,28 +41,29 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
 
       {/* root placeholder for the app, which we add components to using route data */}
       <div className={mainClassPageEditing}>
-      <% if (templates.includes('nextjs-xmcloud')) {-%>
-      {layoutData.sitecore.context.renderingType === 'component' ? (
-        <DesignLibrary {...layoutData} />
-      ) : <% } -%>(
-          <>
-            <header>
-              <div id="header">
-                {route && <Placeholder name="headless-header" rendering={route} />}
-              </div>
-            </header>
-            <main>
-              <div id="content">
-                {route && <Placeholder name="headless-main" rendering={route} />}
-              </div>
-            </main>
-            <footer>
-              <div id="footer">
-                {route && <Placeholder name="headless-footer" rendering={route} />}
-              </div>
-            </footer>
-          </>
-        )}
+        <% if (templates.includes('nextjs-xmcloud')) { %>
+          {layoutData.sitecore.context.renderingType === 'component' ? (
+            <DesignLibrary {...layoutData} />
+          ) : (
+            <>
+              <header>
+                <div id="header">
+                  {route && <Placeholder name="headless-header" rendering={route} />}
+                </div>
+              </header>
+              <main>
+                <div id="content">
+                  {route && <Placeholder name="headless-main" rendering={route} />}
+                </div>
+              </main>
+              <footer>
+                <div id="footer">
+                  {route && <Placeholder name="headless-footer" rendering={route} />}
+                </div>
+              </footer>
+            </>
+          )}
+        <% } %>
       </div>
     </>
   );

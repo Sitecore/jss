@@ -35,4 +35,4 @@ export {
   DesignLibraryStatus,
   DesignLibraryStatusEvent,
   getDesignLibraryStatusEvent,
-} from './component-library';
+} from './design-library';

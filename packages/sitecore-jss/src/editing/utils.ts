@@ -35,7 +35,7 @@ type ExtendedWindow = Window &
   };
 
 /**
- * Event args for Component Library `update` event
+ * Event args for Design Library `update` event
  */
 export interface ComponentUpdateEventArgs {
   name: string;

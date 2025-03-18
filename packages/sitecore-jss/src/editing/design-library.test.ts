@@ -5,10 +5,10 @@ import {
   updateComponentHandler,
   getDesignLibraryStatusEvent,
   DesignLibraryStatus,
-} from './component-library';
+} from './design-library';
 import testComponent from '../test-data/component-editing-data';
 
-describe('component library utils', () => {
+describe('Design library utils', () => {
   const debugSpy = sinon.spy(console, 'debug');
   describe('updateComponentHandler', () => {
     it('should abort when origin is empty', () => {
