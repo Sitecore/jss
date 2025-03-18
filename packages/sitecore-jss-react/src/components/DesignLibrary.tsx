@@ -5,19 +5,28 @@ import {
   EDITING_COMPONENT_ID,
   EDITING_COMPONENT_PLACEHOLDER,
   LayoutServiceData,
+  RenderingType,
 } from '@sitecore-jss/sitecore-jss/layout';
 import {
-  ComponentLibraryStatus,
-  getComponentLibraryStatusEvent,
+  DesignLibraryStatus,
+  getDesignLibraryStatusEvent,
   addComponentUpdateHandler,
 } from '@sitecore-jss/sitecore-jss/editing';
-import { EditingScripts } from './EditingScripts';
+9;
 
-export const ComponentLibraryLayout = (layoutData: LayoutServiceData): JSX.Element => {
+export const DesignLibrary = (layoutData: LayoutServiceData): JSX.Element => {
   const { route } = layoutData.sitecore;
+  const isDesignLibrary = layoutData.sitecore.context.renderingType === RenderingType.Component;
+
+  if (!isDesignLibrary) {
+    return <></>;
+  }
+
   const [renderKey, setRenderKey] = useState(0);
   const [rootUpdate, setRootUpdate] = useState(null);
+
   const rootComponent = route?.placeholders[EDITING_COMPONENT_PLACEHOLDER][0] as ComponentRendering;
+
   // useEffect may execute multiple times on single render (i.e. in dev) - but we only want to fire ready event once
   let componentReady = false;
 
@@ -33,7 +42,7 @@ export const ComponentLibraryLayout = (layoutData: LayoutServiceData): JSX.Eleme
     if (!componentReady) {
       componentReady = true;
       window.top.postMessage(
-        getComponentLibraryStatusEvent(ComponentLibraryStatus.READY, rootComponent.uid),
+        getDesignLibraryStatusEvent(DesignLibraryStatus.READY, rootComponent.uid),
         '*'
       );
     }
@@ -52,14 +61,13 @@ export const ComponentLibraryLayout = (layoutData: LayoutServiceData): JSX.Eleme
     }
 
     window.top.postMessage(
-      getComponentLibraryStatusEvent(ComponentLibraryStatus.RENDERED, rootComponent.uid),
+      getDesignLibraryStatusEvent(DesignLibraryStatus.RENDERED, rootComponent.uid),
       '*'
     );
   }, [renderKey, rootComponent.uid]);
 
   return (
     <>
-      <EditingScripts />
       <main>
         <div id={EDITING_COMPONENT_ID}>
           {route && (

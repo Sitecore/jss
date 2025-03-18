@@ -1,15 +1,15 @@
 import { ComponentRendering, Field, GenericFieldValue } from '../layout/models';
 
 /**
- * Event to be sent when report status to component library
+ * Event to be sent when report status to design library
  */
-export const COMPONENT_LIBRARY_STATUS_EVENT_NAME = 'component:status';
+export const DESIGN_LIBRARY_STATUS_EVENT_NAME = 'component:status';
 
 /**
  * Represents an event indicating the status of a component in the library.
  */
-export interface ComponentLibraryStatusEvent {
-  name: typeof COMPONENT_LIBRARY_STATUS_EVENT_NAME;
+export interface DesignLibraryStatusEvent {
+  name: typeof DESIGN_LIBRARY_STATUS_EVENT_NAME;
   message: {
     status: 'ready' | 'rendered';
     uid: string;
@@ -17,15 +17,15 @@ export interface ComponentLibraryStatusEvent {
 }
 
 /**
- * Enumeration of statuses for the component library.
+ * Enumeration of statuses for the Design Library.
  */
-export enum ComponentLibraryStatus {
+export enum DesignLibraryStatus {
   READY = 'ready',
   RENDERED = 'rendered',
 }
 
 /**
- * Event args for Component Library `update` event
+ * Event args for Design Library `update` event
  */
 export interface ComponentUpdateEventArgs {
   name: string;
@@ -37,9 +37,9 @@ export interface ComponentUpdateEventArgs {
 }
 
 /**
- * Adds the browser-side event handler for 'component:update' message used in Component Library
+ * Adds the browser-side event handler for 'component:update' message used in Design Library
  * The event should update a component on page by uid, with fields and params from event args
- * @param {ComponentRendering} rootComponent root component displayed for Component Library page
+ * @param {ComponentRendering} rootComponent root component displayed for Design Library page
  * @param {Function} successCallback  callback to be called after successful component update
  */
 export const addComponentUpdateHandler = (
@@ -77,7 +77,7 @@ export const updateComponentHandler = (
     // avoid extra noise in logs
     if (!validateOrigin(e)) {
       console.debug(
-        'Component Library: event skipped: message %s from origin %s',
+        'Design Library: event skipped: message %s from origin %s',
         eventArgs.name,
         e.origin
       );
@@ -126,17 +126,17 @@ export const updateComponentHandler = (
 };
 
 /**
- * Generates a ComponentLibraryStatusEvent with the given status and uid.
- * @param {ComponentLibraryStatus} status - The status of rendering.
+ * Generates a DesignLibraryStatusEvent with the given status and uid.
+ * @param {DesignLibraryStatus} status - The status of rendering.
  * @param {string} uid - The unique identifier for the event.
- * @returns An object representing the ComponentLibraryStatusEvent.
+ * @returns An object representing the DesignLibraryStatusEvent.
  */
-export function getComponentLibraryStatusEvent(
-  status: ComponentLibraryStatus,
+export function getDesignLibraryStatusEvent(
+  status: DesignLibraryStatus,
   uid: string
-): ComponentLibraryStatusEvent {
+): DesignLibraryStatusEvent {
   return {
-    name: COMPONENT_LIBRARY_STATUS_EVENT_NAME,
+    name: DESIGN_LIBRARY_STATUS_EVENT_NAME,
     message: {
       status,
       uid,

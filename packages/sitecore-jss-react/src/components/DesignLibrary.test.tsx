@@ -4,7 +4,7 @@ import React from 'react';
 import sinon from 'sinon';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { ComponentLibraryLayout } from './ComponentLibraryLayout';
+import { DesignLibrary } from './DesignLibrary';
 import { getTestLayoutData } from '../test-data/component-editing-data';
 import { ComponentFactory } from './sharedTypes';
 import { SitecoreContext } from './SitecoreContext';
@@ -12,12 +12,12 @@ import { RichText } from './RichText';
 import { Text } from './Text';
 import { Placeholder } from '..';
 import {
-  ComponentLibraryStatus,
+  DesignLibraryStatus,
   ComponentUpdateEventArgs,
-  getComponentLibraryStatusEvent,
+  getDesignLibraryStatusEvent,
 } from '@sitecore-jss/sitecore-jss/editing';
 
-describe('<ComponentLibraryLayout />', () => {
+describe('<DesignLibrary />', () => {
   const postMessageSpy = sinon.spy(global.window, 'postMessage');
   let rendered = mount(<div />);
 
@@ -70,7 +70,7 @@ describe('<ComponentLibraryLayout />', () => {
     const basicPage = getTestLayoutData();
     rendered = mount(
       <SitecoreContext componentFactory={componentFactory}>
-        <ComponentLibraryLayout {...basicPage.layoutData} />
+        <DesignLibrary {...basicPage.layoutData} />
       </SitecoreContext>
     );
 
@@ -84,11 +84,24 @@ describe('<ComponentLibraryLayout />', () => {
     );
   });
 
+  it('should render null when renderingType is not "component"', () => {
+    const basicPage = getTestLayoutData(false, 'page');
+    rendered = mount(
+      <SitecoreContext componentFactory={componentFactory}>
+        <DesignLibrary {...basicPage.layoutData} />
+      </SitecoreContext>
+    );
+
+    console.log(rendered.html());
+
+    expect(rendered.html()).to.equal('');
+  });
+
   it('should render component with placeholders', () => {
     const placeholderPage = getTestLayoutData(true);
     const rendered = mount(
       <SitecoreContext componentFactory={componentFactory}>
-        <ComponentLibraryLayout {...placeholderPage.layoutData} />
+        <DesignLibrary {...placeholderPage.layoutData} />
       </SitecoreContext>
     );
 
@@ -108,13 +121,13 @@ describe('<ComponentLibraryLayout />', () => {
 
   it('should fire component:ready event', () => {
     const basicPage = getTestLayoutData();
-    const expectedReadyMessage = getComponentLibraryStatusEvent(
-      ComponentLibraryStatus.READY,
+    const expectedReadyMessage = getDesignLibraryStatusEvent(
+      DesignLibraryStatus.READY,
       'test-content'
     );
     const rendered = mount(
       <SitecoreContext componentFactory={componentFactory}>
-        <ComponentLibraryLayout {...basicPage.layoutData} />
+        <DesignLibrary {...basicPage.layoutData} />
       </SitecoreContext>
     );
 
@@ -138,7 +151,7 @@ describe('<ComponentLibraryLayout />', () => {
     const basicPage = getTestLayoutData();
     const rendered = mount(
       <SitecoreContext componentFactory={componentFactory}>
-        <ComponentLibraryLayout {...basicPage.layoutData} />
+        <DesignLibrary {...basicPage.layoutData} />
       </SitecoreContext>
     );
 
@@ -171,7 +184,7 @@ describe('<ComponentLibraryLayout />', () => {
     const placeholderPage = getTestLayoutData(true);
     const rendered = mount(
       <SitecoreContext componentFactory={componentFactory}>
-        <ComponentLibraryLayout {...placeholderPage.layoutData} />
+        <DesignLibrary {...placeholderPage.layoutData} />
       </SitecoreContext>
     );
     expect(rendered.html()).to.equal(
@@ -212,7 +225,7 @@ describe('<ComponentLibraryLayout />', () => {
     const basicPage = getTestLayoutData();
     const rendered = mount(
       <SitecoreContext componentFactory={componentFactory}>
-        <ComponentLibraryLayout {...basicPage.layoutData} />
+        <DesignLibrary {...basicPage.layoutData} />
       </SitecoreContext>
     );
 
@@ -229,7 +242,7 @@ describe('<ComponentLibraryLayout />', () => {
         .some((call) =>
           JSON.stringify(call.args[0]).includes(
             JSON.stringify(
-              getComponentLibraryStatusEvent(ComponentLibraryStatus.RENDERED, 'test-content')
+              getDesignLibraryStatusEvent(DesignLibraryStatus.RENDERED, 'test-content')
             )
           )
         )

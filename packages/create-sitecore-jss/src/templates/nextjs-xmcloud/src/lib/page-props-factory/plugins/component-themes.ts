@@ -1,5 +1,5 @@
 import { SitecorePageProps } from 'lib/page-props';
-import { getComponentLibraryStylesheetLinks } from '@sitecore-jss/sitecore-jss-nextjs';
+import { getDesignLibraryStylesheetLinks } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Plugin } from '..';
 import config from 'temp/config';
 
@@ -10,7 +10,7 @@ class ComponentThemesPlugin implements Plugin {
   async exec(props: SitecorePageProps) {
     // Collect FEAAS, BYOC, SXA component themes
     props.headLinks.push(
-      ...getComponentLibraryStylesheetLinks(
+      ...getDesignLibraryStylesheetLinks(
         props.layoutData,
         config.sitecoreEdgeContextId,
         config.sitecoreEdgeUrl
