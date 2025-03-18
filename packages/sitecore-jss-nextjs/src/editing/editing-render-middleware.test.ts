@@ -206,7 +206,7 @@ describe('EditingRenderMiddleware', () => {
   });
 
   describe('metadata handler', () => {
-    describe('Component Library handling', () => {
+    describe('Design Library handling', () => {
       const query = {
         mode: 'library',
         sc_itemid: '{11111111-1111-1111-1111-111111111111}',
@@ -242,28 +242,10 @@ describe('EditingRenderMiddleware', () => {
         });
 
         expect(res.redirect).to.have.been.calledOnce;
-        expect(res.redirect).to.have.been.calledWith('/component-library/render');
         expect(res.setHeader).to.have.been.calledWith(
           'Content-Security-Policy',
           `frame-ancestors 'self' https://allowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
         );
-      });
-
-      it('should always use component library path for redirect', async () => {
-        const notQuiteRightQuery = {
-          ...query,
-          route: '/Styleguide',
-        };
-        const req = mockRequest(EE_BODY, notQuiteRightQuery, 'GET');
-        const res = mockResponse();
-
-        const middleware = new EditingRenderMiddleware();
-        const handler = middleware.getHandler();
-
-        await handler(req, res);
-
-        expect(res.redirect).to.have.been.calledOnce;
-        expect(res.redirect).to.have.been.calledWith('/component-library/render');
       });
 
       it('should response with 400 for missing query params', async () => {

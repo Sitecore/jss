@@ -41,10 +41,10 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
 
       {/* root placeholder for the app, which we add components to using route data */}
       <div className={mainClassPageEditing}>
-      <% if (xmcloud) {-%>
+      <% if (templates.includes('nextjs-xmcloud')) {-%>
       {layoutData.sitecore.context.renderingType === 'component' ? (
         <DesignLibrary {...layoutData} />
-      ) :  <% } -%> (
+      ) : <% } -%>(
           <>
             <header>
               <div id="header">
