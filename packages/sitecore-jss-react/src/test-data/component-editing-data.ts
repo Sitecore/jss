@@ -73,13 +73,15 @@ const innerBlock = [
   },
 ];
 
-export const getTestLayoutData = (placeholder?: boolean) => {
+export const getTestLayoutData = (placeholder?: boolean, renderingType: string = 'component') => {
   // making hard copies to not have layout modified
   const layout = JSON.parse(JSON.stringify(basicPage));
   const content = JSON.parse(JSON.stringify(contentBlock));
   if (placeholder) {
     content[0].placeholders.inner = innerBlock;
   }
+
+  layout.layoutData.sitecore.context.renderingType = renderingType;
   layout.layoutData.sitecore.route.placeholders[EDITING_COMPONENT_PLACEHOLDER] = content;
   return layout;
 };

@@ -12,9 +12,9 @@ import { RichText } from './RichText';
 import { Text } from './Text';
 import { Placeholder } from '..';
 import {
-  ComponentLibraryStatus,
+  DesignLibraryStatus,
   ComponentUpdateEventArgs,
-  getComponentLibraryStatusEvent,
+  getDesignLibraryStatusEvent,
 } from '@sitecore-jss/sitecore-jss/editing';
 
 describe('<DesignLibrary />', () => {
@@ -74,6 +74,8 @@ describe('<DesignLibrary />', () => {
       </SitecoreContext>
     );
 
+    console.log(rendered.html());
+
     expect(rendered.html()).to.equal(
       [
         '<main><div id="editing-component">',
@@ -82,6 +84,19 @@ describe('<DesignLibrary />', () => {
         '</div></div></div></main>',
       ].join('')
     );
+  });
+
+  it('should render null when renderType is not "component"', () => {
+    const basicPage = getTestLayoutData(false, 'page');
+    rendered = mount(
+      <SitecoreContext componentFactory={componentFactory}>
+        <DesignLibrary {...basicPage.layoutData} />
+      </SitecoreContext>
+    );
+
+    console.log(rendered.html());
+
+    expect(rendered.html()).to.equal('');
   });
 
   it('should render component with placeholders', () => {
@@ -108,8 +123,8 @@ describe('<DesignLibrary />', () => {
 
   it('should fire component:ready event', () => {
     const basicPage = getTestLayoutData();
-    const expectedReadyMessage = getComponentLibraryStatusEvent(
-      ComponentLibraryStatus.READY,
+    const expectedReadyMessage = getDesignLibraryStatusEvent(
+      DesignLibraryStatus.READY,
       'test-content'
     );
     const rendered = mount(
@@ -229,7 +244,7 @@ describe('<DesignLibrary />', () => {
         .some((call) =>
           JSON.stringify(call.args[0]).includes(
             JSON.stringify(
-              getComponentLibraryStatusEvent(ComponentLibraryStatus.RENDERED, 'test-content')
+              getDesignLibraryStatusEvent(DesignLibraryStatus.RENDERED, 'test-content')
             )
           )
         )
