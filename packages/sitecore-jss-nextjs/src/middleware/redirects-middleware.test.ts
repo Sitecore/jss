@@ -100,6 +100,14 @@ describe('RedirectsMiddleware', () => {
   const createMiddleware = (
     props: {
       [key: string]: unknown;
+      // for multiple rules
+      redirectMaps?: {
+        pattern: string;
+        target: string;
+        redirectType?: string;
+        isQueryStringPreserved?: boolean;
+      }[];
+      // for single rule
       pattern?: string;
       target?: string;
       redirectType?: string;
@@ -138,20 +146,18 @@ describe('RedirectsMiddleware', () => {
       clientFactory,
       locales: ['en', 'ua'],
     });
-
+    const redirectMaps = props.redirectMaps || [];
+    if (props.pattern && props.target) {
+      redirectMaps.push({
+        pattern: props.pattern,
+        target: props.target,
+        redirectType: props.redirectType,
+        isQueryStringPreserved: props.isQueryStringPreserved,
+      });
+    }
     const fetchRedirects = (middleware['redirectsService']['fetchRedirects'] =
       props.fetchRedirectsStub ||
-      sinon.stub().returns(
-        Promise.resolve(
-          Object.keys(props).length
-            ? [
-                {
-                  ...props,
-                },
-              ]
-            : []
-        )
-      ));
+      sinon.stub().returns(Promise.resolve(Object.keys(props).length ? redirectMaps : [])));
 
     return { middleware, fetchRedirects, siteResolver };
   };
@@ -186,7 +192,7 @@ describe('RedirectsMiddleware', () => {
 
     validateDebugLog('redirects middleware start: %o', {
       hostname: _hostname,
-      language: 'en',
+      language: middlewareOptions.locale || 'en',
       pathname: req.nextUrl.pathname,
     });
 
@@ -747,6 +753,107 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+      });
+
+      it('should prefer pattern with locale when pattern is url', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          href: 'http://localhost:3000/found',
+          pathname: '/found',
+          origin: 'http://localhost:3000',
+          locale: 'pl-PL',
+          search: '',
+          clone: cloneUrl,
+        };
+        setupRedirectStub(301);
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/not-found',
+              href: 'http://localhost:3000/pl-PL/not-found',
+              locale: 'pl-PL',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+
+        const { finalRes, fetchRedirects } = await runTestWithRedirect(
+          {
+            redirectMaps: [
+              {
+                pattern: '/pl-PL/not-found',
+                target: '/found',
+                redirectType: REDIRECT_TYPE_301,
+                isQueryStringPreserved: false,
+              },
+              {
+                pattern: '/not-found',
+                target: '/still-not-found',
+                redirectType: REDIRECT_TYPE_301,
+                isQueryStringPreserved: false,
+              },
+            ],
+            locale: 'pl-PL',
+          },
+          req
+        );
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+      });
+
+      it('should prefer pattern with locale when pattern is regex', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          href: 'http://localhost:3000/found/for-real',
+          pathname: '/found/for-real',
+          origin: 'http://localhost:3000',
+          locale: 'pl-PL',
+          search: '',
+          clone: cloneUrl,
+        };
+        setupRedirectStub(301);
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/not-found/for-real',
+              search: '',
+              href: 'http://localhost:3000/not-found',
+              locale: 'pl-PL',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+
+        const { finalRes, fetchRedirects } = await runTestWithRedirect(
+          {
+            redirectMaps: [
+              {
+                pattern: '/pl-PL/not-found/(.*)',
+                target: '/found/$1',
+                redirectType: REDIRECT_TYPE_301,
+              },
+              {
+                pattern: 'not-found/(.*)',
+                target: '/still-not-found/$1',
+                redirectType: REDIRECT_TYPE_301,
+              },
+            ],
+            locale: 'pl-PL',
+          },
+          req
+        );
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
