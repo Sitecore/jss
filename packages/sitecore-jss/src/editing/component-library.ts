@@ -3,13 +3,13 @@ import { ComponentRendering, Field, GenericFieldValue } from '../layout/models';
 /**
  * Event to be sent when report status to component library
  */
-export const COMPONENT_LIBRARY_STATUS_EVENT_NAME = 'component:status';
+export const DESIGN_LIBRARY_STATUS_EVENT_NAME = 'component:status';
 
 /**
  * Represents an event indicating the status of a component in the library.
  */
-export interface ComponentLibraryStatusEvent {
-  name: typeof COMPONENT_LIBRARY_STATUS_EVENT_NAME;
+export interface DesignLibraryStatusEvent {
+  name: typeof DESIGN_LIBRARY_STATUS_EVENT_NAME;
   message: {
     status: 'ready' | 'rendered';
     uid: string;
@@ -19,7 +19,7 @@ export interface ComponentLibraryStatusEvent {
 /**
  * Enumeration of statuses for the component library.
  */
-export enum ComponentLibraryStatus {
+export enum DesignLibraryStatus {
   READY = 'ready',
   RENDERED = 'rendered',
 }
@@ -126,17 +126,17 @@ export const updateComponentHandler = (
 };
 
 /**
- * Generates a ComponentLibraryStatusEvent with the given status and uid.
- * @param {ComponentLibraryStatus} status - The status of rendering.
+ * Generates a DesignLibraryStatusEvent with the given status and uid.
+ * @param {DesignLibraryStatus} status - The status of rendering.
  * @param {string} uid - The unique identifier for the event.
- * @returns An object representing the ComponentLibraryStatusEvent.
+ * @returns An object representing the DesignLibraryStatusEvent.
  */
-export function getComponentLibraryStatusEvent(
-  status: ComponentLibraryStatus,
+export function getDesignLibraryStatusEvent(
+  status: DesignLibraryStatus,
   uid: string
-): ComponentLibraryStatusEvent {
+): DesignLibraryStatusEvent {
   return {
-    name: COMPONENT_LIBRARY_STATUS_EVENT_NAME,
+    name: DESIGN_LIBRARY_STATUS_EVENT_NAME,
     message: {
       status,
       uid,

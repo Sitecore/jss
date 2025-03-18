@@ -24,7 +24,7 @@ export {
 } from '@sitecore-jss/sitecore-jss/editing';
 export {
   getContentStylesheetLink,
-  getComponentLibraryStylesheetLinks,
+  getDesignLibraryStylesheetLinks,
   LayoutService,
   LayoutServiceData,
   LayoutServicePageState,
@@ -86,7 +86,7 @@ export {
   fetchFEaaSComponentServerProps,
 } from './components/FEaaSComponent';
 export { FEaaSWrapper } from './components/FEaaSWrapper';
-export { ComponentLibrary } from './components/ComponentLibrary';
+export { DesignLibrary } from './components/DesignLibrary';
 export {
   BYOCComponent,
   BYOCComponentParams,

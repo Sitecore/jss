@@ -32,7 +32,7 @@ export { RenderMetadataQueryParams, RenderComponentQueryParams } from './models'
 export { LayoutKind, MetadataKind } from './models';
 export {
   addComponentUpdateHandler,
-  ComponentLibraryStatus,
-  ComponentLibraryStatusEvent,
-  getComponentLibraryStatusEvent,
+  DesignLibraryStatus,
+  DesignLibraryStatusEvent,
+  getDesignLibraryStatusEvent,
 } from './component-library';

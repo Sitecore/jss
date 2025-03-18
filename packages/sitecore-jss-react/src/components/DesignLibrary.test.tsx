@@ -4,7 +4,7 @@ import React from 'react';
 import sinon from 'sinon';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { ComponentLibrary } from './ComponentLibrary';
+import { DesignLibrary } from './DesignLibrary';
 import { getTestLayoutData } from '../test-data/component-editing-data';
 import { ComponentFactory } from './sharedTypes';
 import { SitecoreContext } from './SitecoreContext';
@@ -17,7 +17,7 @@ import {
   getComponentLibraryStatusEvent,
 } from '@sitecore-jss/sitecore-jss/editing';
 
-describe('<ComponentLibrary />', () => {
+describe('<DesignLibrary />', () => {
   const postMessageSpy = sinon.spy(global.window, 'postMessage');
   let rendered = mount(<div />);
 
@@ -70,7 +70,7 @@ describe('<ComponentLibrary />', () => {
     const basicPage = getTestLayoutData();
     rendered = mount(
       <SitecoreContext componentFactory={componentFactory}>
-        <ComponentLibrary {...basicPage.layoutData} />
+        <DesignLibrary {...basicPage.layoutData} />
       </SitecoreContext>
     );
 
@@ -88,7 +88,7 @@ describe('<ComponentLibrary />', () => {
     const placeholderPage = getTestLayoutData(true);
     const rendered = mount(
       <SitecoreContext componentFactory={componentFactory}>
-        <ComponentLibrary {...placeholderPage.layoutData} />
+        <DesignLibrary {...placeholderPage.layoutData} />
       </SitecoreContext>
     );
 
@@ -114,7 +114,7 @@ describe('<ComponentLibrary />', () => {
     );
     const rendered = mount(
       <SitecoreContext componentFactory={componentFactory}>
-        <ComponentLibrary {...basicPage.layoutData} />
+        <DesignLibrary {...basicPage.layoutData} />
       </SitecoreContext>
     );
 
@@ -138,7 +138,7 @@ describe('<ComponentLibrary />', () => {
     const basicPage = getTestLayoutData();
     const rendered = mount(
       <SitecoreContext componentFactory={componentFactory}>
-        <ComponentLibrary {...basicPage.layoutData} />
+        <DesignLibrary {...basicPage.layoutData} />
       </SitecoreContext>
     );
 
@@ -171,7 +171,7 @@ describe('<ComponentLibrary />', () => {
     const placeholderPage = getTestLayoutData(true);
     const rendered = mount(
       <SitecoreContext componentFactory={componentFactory}>
-        <ComponentLibrary {...placeholderPage.layoutData} />
+        <DesignLibrary {...placeholderPage.layoutData} />
       </SitecoreContext>
     );
     expect(rendered.html()).to.equal(
@@ -212,7 +212,7 @@ describe('<ComponentLibrary />', () => {
     const basicPage = getTestLayoutData();
     const rendered = mount(
       <SitecoreContext componentFactory={componentFactory}>
-        <ComponentLibrary {...basicPage.layoutData} />
+        <DesignLibrary {...basicPage.layoutData} />
       </SitecoreContext>
     );
 

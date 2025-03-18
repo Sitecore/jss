@@ -3,8 +3,8 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import {
   updateComponentHandler,
-  getComponentLibraryStatusEvent,
-  ComponentLibraryStatus,
+  getDesignLibraryStatusEvent,
+  DesignLibraryStatus,
 } from './component-library';
 import testComponent from '../test-data/component-editing-data';
 
@@ -151,13 +151,13 @@ describe('component library utils', () => {
     });
   });
 
-  describe('getComponentLibraryStatusEvent', () => {
+  describe('getDesignLibraryStatusEvent', () => {
     it('should return a valid status event', () => {
-      const statusEvent = getComponentLibraryStatusEvent(ComponentLibraryStatus.READY, 'uid-1');
+      const statusEvent = getDesignLibraryStatusEvent(DesignLibraryStatus.READY, 'uid-1');
       expect(statusEvent).to.deep.equal({
         name: 'component:status',
         message: {
-          status: ComponentLibraryStatus.READY,
+          status: DesignLibraryStatus.READY,
           uid: 'uid-1',
         },
       });

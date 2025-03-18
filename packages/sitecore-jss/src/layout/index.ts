@@ -46,4 +46,4 @@ export {
   GRAPHQL_LAYOUT_QUERY_NAME,
 } from './graphql-layout-service';
 
-export { getComponentLibraryStylesheetLinks } from './themes';
+export { getDesignLibraryStylesheetLinks } from './themes';

@@ -7,16 +7,14 @@ import {
   LayoutServiceData,
 } from '@sitecore-jss/sitecore-jss/layout';
 import {
-  ComponentLibraryStatus,
-  getComponentLibraryStatusEvent,
+  DesignLibraryStatus,
+  getDesignLibraryStatusEvent,
   addComponentUpdateHandler,
 } from '@sitecore-jss/sitecore-jss/editing';
+9;
 
-export const ComponentLibrary = (layoutData: LayoutServiceData): JSX.Element => {
+export const DesignLibrary = (layoutData: LayoutServiceData): JSX.Element => {
   const { route } = layoutData.sitecore;
-  if (!route) {
-    return <></>;
-  }
   const [renderKey, setRenderKey] = useState(0);
   const [rootUpdate, setRootUpdate] = useState(null);
   const rootComponent = route?.placeholders[EDITING_COMPONENT_PLACEHOLDER][0] as ComponentRendering;
@@ -35,7 +33,7 @@ export const ComponentLibrary = (layoutData: LayoutServiceData): JSX.Element => 
     if (!componentReady) {
       componentReady = true;
       window.top.postMessage(
-        getComponentLibraryStatusEvent(ComponentLibraryStatus.READY, rootComponent.uid),
+        getDesignLibraryStatusEvent(DesignLibraryStatus.READY, rootComponent.uid),
         '*'
       );
     }
@@ -54,7 +52,7 @@ export const ComponentLibrary = (layoutData: LayoutServiceData): JSX.Element => 
     }
 
     window.top.postMessage(
-      getComponentLibraryStatusEvent(ComponentLibraryStatus.RENDERED, rootComponent.uid),
+      getDesignLibraryStatusEvent(DesignLibraryStatus.RENDERED, rootComponent.uid),
       '*'
     );
   }, [renderKey, rootComponent.uid]);

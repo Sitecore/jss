@@ -7,7 +7,7 @@ import {
   Placeholder,
   LayoutServiceData,
   Field,
-  ComponentLibrary,
+  DesignLibrary,
   HTMLLink,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import Scripts from 'src/Scripts';
@@ -51,7 +51,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
       <div className={mainClassPageEditing}>
       <% if (xmcloud) {-%>
       {layoutData.sitecore.context.renderingType === 'component' ? (
-        <ComponentLibrary {...layoutData} />
+        <DesignLibrary {...layoutData} />
       ) :  <% } -%> (
           <>
             <header>
