@@ -15,9 +15,17 @@ import {
 
 export const DesignLibrary = (layoutData: LayoutServiceData): JSX.Element => {
   const { route } = layoutData.sitecore;
+  const isDesignLibrary = layoutData.sitecore.context.renderingType === 'component';
+
+  if (!isDesignLibrary) {
+    return <></>;
+  }
+
   const [renderKey, setRenderKey] = useState(0);
   const [rootUpdate, setRootUpdate] = useState(null);
+
   const rootComponent = route?.placeholders[EDITING_COMPONENT_PLACEHOLDER][0] as ComponentRendering;
+
   // useEffect may execute multiple times on single render (i.e. in dev) - but we only want to fire ready event once
   let componentReady = false;
 

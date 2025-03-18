@@ -32,15 +32,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
     <>
       <Scripts />
       <Head>
-        <title>
-        <% if (xmcloud) {-%>
-          {layoutData.sitecore.context.renderingType === 'component'
-            ? 'Sitecore Component Library'
-            : fields?.Title?.value?.toString() || 'Page'}
-          <% } else { -%>
-          {fields?.Title?.value?.toString() || 'Page'}
-        <% } -%>
-        </title>
+        <title>{fields?.Title?.value?.toString() || 'Page'}</title>
         <link rel="icon" href="/favicon.ico" />
         {headLinks.map((headLink) => (
           <link rel={headLink.rel} key={headLink.href} href={headLink.href} />
