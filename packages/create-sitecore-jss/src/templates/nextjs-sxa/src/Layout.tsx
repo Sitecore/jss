@@ -9,8 +9,14 @@ import {
   Field,
   DesignLibrary,
   HTMLLink,
+  RenderingType
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import config from 'temp/config';
 import Scripts from 'src/Scripts';
+
+// Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
+// If you're not supporting the Experience Editor, you can remove this.
+const publicUrl = config.publicUrl;
 
 interface LayoutProps {
   layoutData: LayoutServiceData;
@@ -41,8 +47,8 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
 
       {/* root placeholder for the app, which we add components to using route data */}
       <div className={mainClassPageEditing}>
-        <% if (templates.includes('nextjs-xmcloud')) { %>
-          {layoutData.sitecore.context.renderingType === 'component' ? (
+        <% if (templates.includes('nextjs-xmcloud') || templates.includes('nextjs-sxa')) { %>
+          {layoutData.sitecore.context.renderingType === RenderingType.Component ? (
             <DesignLibrary {...layoutData} />
           ) : (
             <>

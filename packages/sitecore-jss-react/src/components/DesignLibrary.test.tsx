@@ -74,8 +74,6 @@ describe('<DesignLibrary />', () => {
       </SitecoreContext>
     );
 
-    console.log(rendered.html());
-
     expect(rendered.html()).to.equal(
       [
         '<main><div id="editing-component">',
@@ -86,7 +84,7 @@ describe('<DesignLibrary />', () => {
     );
   });
 
-  it('should render null when renderType is not "component"', () => {
+  it('should render null when renderingType is not "component"', () => {
     const basicPage = getTestLayoutData(false, 'page');
     rendered = mount(
       <SitecoreContext componentFactory={componentFactory}>

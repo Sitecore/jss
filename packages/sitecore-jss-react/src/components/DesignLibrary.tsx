@@ -5,6 +5,7 @@ import {
   EDITING_COMPONENT_ID,
   EDITING_COMPONENT_PLACEHOLDER,
   LayoutServiceData,
+  RenderingType,
 } from '@sitecore-jss/sitecore-jss/layout';
 import {
   DesignLibraryStatus,
@@ -15,7 +16,7 @@ import {
 
 export const DesignLibrary = (layoutData: LayoutServiceData): JSX.Element => {
   const { route } = layoutData.sitecore;
-  const isDesignLibrary = layoutData.sitecore.context.renderingType === 'component';
+  const isDesignLibrary = layoutData.sitecore.context.renderingType === RenderingType.Component;
 
   if (!isDesignLibrary) {
     return <></>;
