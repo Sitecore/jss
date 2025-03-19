@@ -34,4 +34,4 @@ Data needed to paginate the search results
 
 ## Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/ca2bbae0e26127adb7fe959386ede22f71167690/packages/sitecore-jss/src/graphql/search-service.ts#L22)
+[packages/sitecore-jss/src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/6fb09cc660a5c5b249132d2e036a99117d20433f/packages/sitecore-jss/src/graphql/search-service.ts#L22)

@@ -23,4 +23,4 @@
 
 ## Defined in
 
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:349](https://github.com/Sitecore/jss/blob/ca2bbae0e26127adb7fe959386ede22f71167690/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L349)
+[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:349](https://github.com/Sitecore/jss/blob/6fb09cc660a5c5b249132d2e036a99117d20433f/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L349)

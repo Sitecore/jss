@@ -20,4 +20,4 @@
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:4](https://github.com/Sitecore/jss/blob/ca2bbae0e26127adb7fe959386ede22f71167690/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L4)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:4](https://github.com/Sitecore/jss/blob/6fb09cc660a5c5b249132d2e036a99117d20433f/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L4)
