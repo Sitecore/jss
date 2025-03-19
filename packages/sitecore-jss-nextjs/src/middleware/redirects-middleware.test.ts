@@ -144,7 +144,7 @@ describe('RedirectsMiddleware', () => {
       siteResolver,
       ...props,
       clientFactory,
-      locales: ['en', 'ua'],
+      locales: ['en', 'ua', 'pl-PL'],
     });
     const redirectMaps = props.redirectMaps || [];
     if (props.pattern && props.target) {
@@ -775,7 +775,7 @@ describe('RedirectsMiddleware', () => {
           request: {
             nextUrl: {
               pathname: '/not-found',
-              href: 'http://localhost:3000/pl-PL/not-found',
+              href: 'http://localhost:3000/pl-pl/not-found',
               locale: 'pl-PL',
               origin: 'http://localhost:3000',
               clone: cloneUrl,
@@ -788,7 +788,7 @@ describe('RedirectsMiddleware', () => {
           {
             redirectMaps: [
               {
-                pattern: '/pl-PL/not-found',
+                pattern: '/pl-pl/not-found',
                 target: '/found',
                 redirectType: REDIRECT_TYPE_301,
                 isQueryStringPreserved: false,
