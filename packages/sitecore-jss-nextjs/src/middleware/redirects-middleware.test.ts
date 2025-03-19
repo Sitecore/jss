@@ -144,7 +144,7 @@ describe('RedirectsMiddleware', () => {
       siteResolver,
       ...props,
       clientFactory,
-      locales: ['en', 'ua'],
+      locales: ['en', 'ua', 'pl-PL'],
     });
     const redirectMaps = props.redirectMaps || [];
     if (props.pattern && props.target) {
@@ -788,7 +788,8 @@ describe('RedirectsMiddleware', () => {
           {
             redirectMaps: [
               {
-                pattern: '/pl-PL/not-found',
+                // note: lowercase locale in pattern should still match
+                pattern: '/pl-pl/not-found',
                 target: '/found',
                 redirectType: REDIRECT_TYPE_301,
                 isQueryStringPreserved: false,

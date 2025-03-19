@@ -91,18 +91,24 @@ export class RedirectsMiddleware extends MiddlewareBase {
     const language = this.getLanguage(req);
     const modifyRedirects = structuredClone(redirects);
     let matchedQueryString: string | undefined;
-    const localePath = `/${locale}${normalizedPath}`.toLowerCase();
+    const localePath = `/${locale.toLowerCase()}${normalizedPath}`;
 
     return modifyRedirects.length
       ? modifyRedirects.find((redirect: RedirectResult) => {
           // process static URL (non-regex) rules
           if (isRegexOrUrl(redirect.pattern) === 'url') {
-            const [patternPath, patternQS] = redirect.pattern.endsWith('/')
-              ? redirect.pattern
-                  .toLowerCase()
-                  .slice(0, -1)
-                  .split('?')
-              : redirect.pattern.toLowerCase().split('?');
+            const urlArray = redirect.pattern.endsWith('/')
+              ? redirect.pattern.slice(0, -1).split('?')
+              : redirect.pattern.split('?');
+            const patternQS = urlArray[1];
+            let patternPath = urlArray[0];
+            // nextjs routes are case-sensitive, but locales should be compared case-insensitively
+            const patternParts = patternPath.split('/');
+            const maybeLocale = patternParts[1].toLowerCase();
+            // case insensitive lookup of locales
+            if (new RegExp(this.locales.join('|'), 'i').test(maybeLocale)) {
+              patternPath = patternPath.replace(`/${patternParts[1]}`, `/${maybeLocale}`);
+            }
             return (
               (patternPath === localePath || patternPath === normalizedPath) &&
               (!patternQS ||
