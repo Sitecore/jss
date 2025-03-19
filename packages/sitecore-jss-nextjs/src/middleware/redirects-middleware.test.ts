@@ -775,7 +775,7 @@ describe('RedirectsMiddleware', () => {
           request: {
             nextUrl: {
               pathname: '/not-found',
-              href: 'http://localhost:3000/pl-pl/not-found',
+              href: 'http://localhost:3000/pl-PL/not-found',
               locale: 'pl-PL',
               origin: 'http://localhost:3000',
               clone: cloneUrl,
@@ -788,6 +788,7 @@ describe('RedirectsMiddleware', () => {
           {
             redirectMaps: [
               {
+                // note: lowercase locale in pattern should still match
                 pattern: '/pl-pl/not-found',
                 target: '/found',
                 redirectType: REDIRECT_TYPE_301,
