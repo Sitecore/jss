@@ -1,8 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { debug } from '@sitecore-jss/sitecore-jss';
-import { QUERY_PARAM_EDITING_SECRET } from './constants';
+import {
+  EDITING_ALLOWED_ORIGINS,
+  QUERY_PARAM_EDITING_SECRET,
+} from '@sitecore-jss/sitecore-jss/editing';
 import { getJssEditingSecret } from '../utils/utils';
 import { RenderMiddlewareBase } from './render-middleware';
+import { enforceCors } from '@sitecore-jss/sitecore-jss/utils';
 
 /**
  * Configuration for `FEAASRenderMiddleware`.
@@ -52,9 +56,20 @@ export class FEAASRenderMiddleware extends RenderMiddlewareBase {
       headers,
     });
 
-    if (method !== 'GET') {
-      debug.editing('invalid method - sent %s expected GET', method);
-      res.setHeader('Allow', 'GET');
+    if (!enforceCors(req, res, EDITING_ALLOWED_ORIGINS)) {
+      debug.editing(
+        'invalid origin host - set allowed origins in JSS_ALLOWED_ORIGINS environment variable'
+      );
+      return res
+        .status(401)
+        .send(
+          `<html><body>Requests from origin ${req.headers?.origin} are not allowed</body></html>`
+        );
+    }
+
+    if (!method || !['GET', 'OPTIONS'].includes(method)) {
+      debug.editing('invalid method - sent %s expected GET,OPTIONS', method);
+      res.setHeader('Allow', 'GET, OPTIONS');
       return res.status(405).send(`<html><body>Invalid request method '${method}'</body></html>`);
     }
 
@@ -67,6 +82,14 @@ export class FEAASRenderMiddleware extends RenderMiddlewareBase {
         getJssEditingSecret()
       );
       return res.status(401).send('<html><body>Missing or invalid secret</body></html>');
+    }
+
+    // Handle preflight request
+    if (method === 'OPTIONS') {
+      debug.editing('preflight request');
+
+      // CORS headers are set by enforceCors
+      return res.status(204).send(null);
     }
 
     try {

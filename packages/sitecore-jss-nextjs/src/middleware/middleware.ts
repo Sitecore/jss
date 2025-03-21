@@ -1,6 +1,8 @@
 import { SiteInfo, SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { NextRequest, NextResponse } from 'next/server';
 
+export const REWRITE_HEADER_NAME = 'x-sc-rewrite';
+
 export type MiddlewareBaseConfig = {
   /**
    * function, determines if middleware should be turned off, based on cookie, header, or other considerations
@@ -29,7 +31,6 @@ export type MiddlewareBaseConfig = {
 
 export abstract class MiddlewareBase {
   protected SITE_SYMBOL = 'sc_site';
-  protected REWRITE_HEADER_NAME = 'x-sc-rewrite';
   protected defaultHostname: string;
 
   constructor(protected config: MiddlewareBaseConfig) {
@@ -44,6 +45,19 @@ export abstract class MiddlewareBase {
   protected isPreview(req: NextRequest) {
     return !!(
       req.cookies.get('__prerender_bypass')?.value || req.cookies.get('__next_preview_data')?.value
+    );
+  }
+
+  /**
+   * Determines if the request is a Next.js (next/link) prefetch request
+   * @param {NextRequest} req request
+   * @returns {boolean} is prefetch
+   */
+  protected isPrefetch(req: NextRequest): boolean {
+    return (
+      // eslint-disable-next-line prettier/prettier
+      req.headers.get('purpose') === 'prefetch' || // Pages Router
+      req.headers.get('Next-Router-Prefetch') === '1' // App Router
     );
   }
 
@@ -107,16 +121,23 @@ export abstract class MiddlewareBase {
    * @param {string} rewritePath the destionation path
    * @param {NextRequest} req the current request
    * @param {NextResponse} res the current response
+   * @param {boolean} [skipHeader] don't write 'x-sc-rewrite' header
    */
-  protected rewrite(rewritePath: string, req: NextRequest, res: NextResponse): NextResponse {
+  protected rewrite(
+    rewritePath: string,
+    req: NextRequest,
+    res: NextResponse,
+    skipHeader?: boolean
+  ): NextResponse {
     // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
     const rewriteUrl = req.nextUrl.clone();
     rewriteUrl.pathname = rewritePath;
-
     const response = NextResponse.rewrite(rewriteUrl, res);
 
     // Share rewrite path with following executed middlewares
-    response.headers.set(this.REWRITE_HEADER_NAME, rewritePath);
+    if (!skipHeader) {
+      response.headers.set(REWRITE_HEADER_NAME, rewritePath);
+    }
 
     return response;
   }

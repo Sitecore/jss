@@ -8,8 +8,20 @@ export {
   FieldEditButton,
   WebEditButton,
   EditButtonTypes,
-} from '@sitecore-jss/sitecore-jss/utils';
-export { constants, enableDebug, ClientError } from '@sitecore-jss/sitecore-jss';
+} from '@sitecore-jss/sitecore-jss/editing';
+export {
+  constants,
+  enableDebug,
+  ClientError,
+  CacheClient,
+  CacheOptions,
+  MemoryCacheClient,
+  HttpDataFetcher,
+  NativeDataFetcher,
+  NativeDataFetcherConfig,
+  NativeDataFetcherResponse,
+  NativeDataFetcherError,
+} from '@sitecore-jss/sitecore-jss';
 export {
   trackingApi,
   TrackingRequestOptions,
@@ -43,6 +55,8 @@ export {
   RetryStrategy,
   DefaultRetryStrategy,
   GraphQLClientError,
+  GraphQLRequestClientFactoryConfig,
+  GraphQLRequestClient,
 } from '@sitecore-jss/sitecore-jss/graphql';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export { EditFrame } from './components/EditFrame';

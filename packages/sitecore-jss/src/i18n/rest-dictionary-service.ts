@@ -1,4 +1,4 @@
-import { AxiosDataFetcher } from '../axios-fetcher';
+import { NativeDataFetcher } from '../native-fetcher';
 import { HttpDataFetcher, fetchData } from '../data-fetcher';
 import { DictionaryPhrases, DictionaryServiceBase } from './dictionary-service';
 import { CacheOptions } from '../cache-client';
@@ -33,24 +33,24 @@ export type RestDictionaryServiceConfig = CacheOptions & {
 
 /**
  * Fetch dictionary data using the Sitecore Dictionary Service REST API.
- * Uses Axios as the default data fetcher (@see AxiosDataFetcher).
+ * Uses NativeDataFetcher as the default data fetcher (@see NativeDataFetcher).
  * @augments DictionaryServiceBase
  */
 export class RestDictionaryService extends DictionaryServiceBase {
-  /**
-   * Provides default @see AxiosDataFetcher data fetcher
-   */
-  get defaultFetcher(): HttpDataFetcher<RestDictionaryServiceData> {
-    const dataFetcher = new AxiosDataFetcher({
-      debugger: debug.dictionary,
-      // CORS issue: Sitecore provides 'Access-Control-Allow-Origin' as wildcard '*', so we can't include credentials for the dictionary service
-      withCredentials: false,
-    });
-    return (url: string) => dataFetcher.fetch<RestDictionaryServiceData>(url);
-  }
-
   constructor(public options: RestDictionaryServiceConfig) {
     super(options);
+  }
+
+  /**
+   * Provides default @see NativeDataFetcher data fetcher
+   */
+  get defaultFetcher(): HttpDataFetcher<RestDictionaryServiceData> {
+    const dataFetcher = new NativeDataFetcher({
+      debugger: debug.dictionary,
+      // CORS issue: Sitecore provides 'Access-Control-Allow-Origin' as wildcard '*', so we can't include credentials for the dictionary service
+      credentials: 'omit',
+    });
+    return (url: string) => dataFetcher.fetch<RestDictionaryServiceData>(url);
   }
 
   /**

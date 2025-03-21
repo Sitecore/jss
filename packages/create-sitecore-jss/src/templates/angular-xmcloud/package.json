@@ -1,0 +1,17 @@
+{
+  "config": {
+    "sitecoreDistPath": "/dist"
+  },
+  "scripts": {
+    "postbuild:server": "npm-run-all --serial prepare:build prepare:proxy-build",
+    "prepare:build": "move-cli ./dist/main.js ./dist/server.bundle.js",
+    "prepare:proxy-build": "ts-node --project src/tsconfig.webpack-server.json ./scripts/proxy-build.ts"
+  },
+  "dependencies": {
+    "@sitecore-cloudsdk/core": "^0.4.2",
+    "@sitecore-cloudsdk/events": "^0.4.2",
+    "font-awesome": "^4.7.0",
+    "sass": "^1.52.3",
+    "sass-alias": "^1.0.5"
+  }
+}

@@ -168,7 +168,6 @@ export interface GenerateToFileOptions extends GenerateOptions {
  * NOTE: media is not copied into the manifest when using this method,
  * and no files are written to disk. Use generateToFile() to make a manifest
  * that is designed to get packaged/imported.
- *
  * @param {GenerateOptions} config
  */
 export async function generateToVariable({
@@ -211,7 +210,6 @@ export async function generateToVariable({
 /**
  * generates a JSON manifest and writes its contents to a directory. Media referenced in the manifest
  * is also copied to the directory.
- *
  * @param {GenerateToFileOptions} config
  */
 export async function generateToFile({

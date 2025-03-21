@@ -4,16 +4,37 @@ import PropTypes from 'prop-types';
 import fastDeepEqual from 'fast-deep-equal/es6/react';
 import { ComponentFactory } from './sharedTypes';
 import { LayoutServiceContext, LayoutServiceData, RouteData } from '../index';
+import { constants } from '@sitecore-jss/sitecore-jss';
 
 export interface SitecoreContextProps {
   componentFactory: ComponentFactory;
   layoutData?: LayoutServiceData;
+  /**
+   * API settings to connect to Sitecore.
+   */
+  api?: {
+    /**
+     * Sitecore XM Cloud Edge endpoint credentials for Sitecore connection.
+     */
+    edge?: {
+      /**
+       * A unified identifier used to connect and retrieve data from XM Cloud instance
+       */
+      contextId: string;
+      /**
+       * XM Cloud endpoint that the app will communicate and retrieve data from
+       * @default https://edge-platform.sitecorecloud.io
+       */
+      edgeUrl?: string;
+    };
+  };
   children: React.ReactNode;
 }
 
 export interface SitecoreContextState {
   setContext: (value: SitecoreContextValue | LayoutServiceData) => void;
   context: SitecoreContextValue;
+  api?: SitecoreContextProps['api'];
 }
 
 export const SitecoreContextReactContext = React.createContext<SitecoreContextState>(
@@ -47,9 +68,22 @@ export class SitecoreContext extends React.Component<SitecoreContextProps, Sitec
 
     const context: SitecoreContextValue = this.constructContext(props.layoutData);
 
+    let api = props.api;
+
+    if (props.api?.edge?.contextId && !props.api?.edge?.edgeUrl) {
+      api = {
+        ...props.api,
+        edge: {
+          ...props.api.edge,
+          edgeUrl: constants.SITECORE_EDGE_URL_DEFAULT,
+        },
+      };
+    }
+
     this.state = {
       context,
       setContext: this.setContext,
+      api,
     };
   }
 

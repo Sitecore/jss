@@ -68,7 +68,41 @@ describe('GraphQLRequestClient', () => {
       });
 
     const graphQLClient = new GraphQLRequestClient(endpoint, { apiKey });
-    await graphQLClient.request('test');
+    const result = await graphQLClient.request('test');
+
+    expect(result).to.deep.equal({ result: 'Hello world...' });
+  });
+
+  it('should send additional request headers configured through options', async () => {
+    const apiKey = 'cjhNRWNVOHRFTklwUjhYa0RSTnBhSStIam1mNE1KN1pyeW13c3FnRVExTT18bXRzdC1kLTAxOQ==';
+    const customHeader = 'Custom-Header-Value';
+    nock('http://jssnextweb', {
+      reqheaders: {
+        sc_apikey: apiKey,
+      },
+    })
+      .post('/graphql')
+      .reply(200, function() {
+        const receivedHeaders = this.req.headers;
+
+        expect(receivedHeaders['sc_apikey']).to.deep.equal([apiKey]);
+        expect(receivedHeaders['custom-header']).to.deep.equal([customHeader]);
+
+        return {
+          data: {
+            result: 'Hello world...',
+          },
+        };
+      });
+
+    const graphQLClient = new GraphQLRequestClient(endpoint, { apiKey });
+    const result = await graphQLClient.request('test', undefined, {
+      headers: {
+        'Custom-Header': customHeader,
+      },
+    });
+
+    expect(result).to.deep.equal({ result: 'Hello world...' });
   });
 
   it('should debug log request and response', async () => {
@@ -163,11 +197,12 @@ describe('GraphQLRequestClient', () => {
         apiKey: 'bar',
       });
 
-      const client = clientFactory({ retries: 5, timeout: 300 });
+      const client = clientFactory({ retries: 5, timeout: 300, headers: { foo: 'foo-value' } });
 
       expect(client instanceof GraphQLRequestClient).to.equal(true);
       expect(client['retries']).to.equal(5);
       expect(client['timeout']).to.equal(300);
+      expect(client['headers']).to.deep.equal({ foo: 'foo-value', sc_apikey: 'bar' });
     });
   });
 
@@ -344,7 +379,7 @@ describe('GraphQLRequestClient', () => {
       }
     });
 
-    describe('Retrayable status codes', () => {
+    describe('Retryable status codes', () => {
       const retryableStatusCodeThrowError = async (statusCode: number) => {
         nock('http://jssnextweb')
           .post('/graphql')

@@ -1,0 +1,18 @@
+﻿name: Notify Teams (Release)
+on:
+  release:
+    types: [published]
+
+jobs:
+  notify_teams:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Send Notification
+        run: node ./scripts/notify-teams.js
+        env:
+          GITHUB: ${{ toJson(github) }}
+          TEAMS_WEBHOOK_URL: ${{ vars.TEAMS_WEBHOOK_URL }}

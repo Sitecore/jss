@@ -8,13 +8,14 @@ import inquirer from 'inquirer';
 import {
   getPascalCaseName,
   getAppPrefix,
-  openPackageJson,
+  openJsonFile,
   sortKeys,
   writeFileToPath,
   isDevEnvironment,
 } from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
 import { BaseArgs } from '../args/base';
+const { version } = require('../../../package.json');
 
 const FILE_FOR_COPY_REGEXP = /(index\.html)$|\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf|jar|eot|woff|ttf|woff2)$/;
 
@@ -192,6 +193,24 @@ export const diffAndWriteFiles = async ({
   }
 };
 
+export const populateEjsData = (answers: BaseArgs, destination?: string) => {
+  // pass in helper to answers object
+
+  // Use exact version for jss dependencies in beta and canary versions
+  const jssVersion: string = version.match(/(\-[a-zA-Z]+\.\d+)$/) ? version : `~${version}`;
+
+  const ejsData: Data = {
+    ...answers,
+    version: jssVersion,
+    helper: {
+      isDev: isDevEnvironment(destination || answers.destination),
+      getPascalCaseName: getPascalCaseName,
+      getAppPrefix: getAppPrefix,
+    },
+  };
+  return ejsData;
+};
+
 type TransformOptions = {
   /**
    * Determines whether a file should be copied only (not rendered through ejs)
@@ -214,12 +233,12 @@ type TransformOptions = {
 
 /**
  * Handles each template file and applies ejs renderer, also:
- * * determines files for copy
- * * determines files for skip
- * * if some files already exist:
- *   * merges package.json files
- *   * concatenates .env files
- *   * compares diffs
+ * - Determines files for copy.
+ * - Determines files for skip.
+ * if some files already exist:
+ *   - merges package.json files
+ *   - concatenates .env files
+ *   - compares diffs
  * @param {string} templatePath path to the template
  * @param {BaseArgs} answers CLI arguments
  * @param {TransformOptions} options custom options
@@ -237,16 +256,7 @@ export const transform = async (
     answers.appPrefix = false;
   }
 
-  // pass in helper to answers object
-  const ejsData: Data = {
-    ...answers,
-    helper: {
-      isDev: isDevEnvironment(answers.destination),
-      getPascalCaseName: getPascalCaseName,
-      getAppPrefix: getAppPrefix,
-    },
-  };
-
+  const ejsData: Data = populateEjsData(answers);
   // the templates to be run through ejs render or copied directly
   const files = glob.sync('**/*', { cwd: templatePath, dot: true, nodir: true });
 
@@ -278,13 +288,13 @@ export const transform = async (
         continue;
       }
 
-      if (file.endsWith('package.json') && fs.existsSync(pathToNewFile)) {
-        // we treat package.json a bit differently
-        // read the current package.json and the template package.json (rendered with ejs)
-        const currentPkg = openPackageJson(pathToNewFile);
-        const templatePkg = JSON.parse(await renderFile(path.resolve(pathToTemplate), ejsData));
+      if (file.endsWith('.json') && fs.existsSync(pathToNewFile)) {
+        // we treat a .json a bit differently
+        // read the current .json and the template .json (rendered with ejs)
+        const currentJson = openJsonFile(pathToNewFile);
+        const templateJson = JSON.parse(await renderFile(path.resolve(pathToTemplate), ejsData));
         // merge them and set the result to str which will then go through diff
-        const merged = merge(currentPkg, templatePkg);
+        const merged = merge(currentJson, templateJson);
         str = JSON.stringify(merged, null, 2);
       }
 

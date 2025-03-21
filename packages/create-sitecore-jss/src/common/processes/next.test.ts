@@ -1,7 +1,7 @@
-import chalk from 'chalk';
 import { expect } from 'chai';
 import sinon, { SinonStub } from 'sinon';
 import { nextSteps } from './next';
+import chalk from 'chalk';
 
 describe('next', () => {
   describe('nextSteps', () => {
@@ -15,21 +15,41 @@ describe('next', () => {
       log?.restore();
     });
 
-    it('displays appName in output', async () => {
-      const appName = 'my-cool-app';
-
-      await nextSteps(appName, []);
+    it('displays appNames in output', async () => {
+      const appNames = ['my-cool-app', 'second-app'];
+      await nextSteps(appNames, []);
 
       const calls = log.getCalls();
+      calls.forEach((call) => {
+        console.log(call.args[0]);
+      });
       expect(
-        calls.some((call) => call.args[0] === `JSS application ${chalk.green(appName)} is ready!`)
-      );
+        calls.some(
+          (call) =>
+            call.args[0] === `JSS applications ${chalk.green('my-cool-app, second-app')} are ready!`
+        )
+      ).to.equal(true);
+    });
+
+    it('displays single app name with single item wording in output', async () => {
+      const appNames = ['my-cool-app'];
+      await nextSteps(appNames, []);
+
+      const calls = log.getCalls();
+      calls.forEach((call) => {
+        console.log(call.args[0]);
+      });
+      expect(
+        calls.some(
+          (call) => call.args[0] === `JSS application ${chalk.green('my-cool-app')} is ready!`
+        )
+      ).to.equal(true);
     });
 
     it('displays next steps in output', async () => {
       const nextStepsArr = ['first, do this', 'then, do this', 'finally, do this!'];
 
-      await nextSteps('my-cool-app', nextStepsArr);
+      await nextSteps(['my-cool-app'], nextStepsArr);
 
       const calls = log.getCalls();
       const fistStepIndex = calls.findIndex((call) => call.args[0] === nextStepsArr[0]);

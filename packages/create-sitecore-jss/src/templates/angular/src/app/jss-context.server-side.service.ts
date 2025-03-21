@@ -2,8 +2,8 @@ import { Injectable, Inject, TransferState } from '@angular/core';
 import { JssContextService, jssKey } from './jss-context.service';
 import { JssState } from './JssState';
 import { Observable, of as observableOf } from 'rxjs';
-import { JssDataFetcherService } from './jss-data-fetcher.service';
 import { JssLayoutService } from './layout/jss-layout.service';
+import { JssStateService } from '@sitecore-jss/sitecore-jss-angular';
 
 /**
  * Stores the JSS app's context (current route and Sitecore context data).
@@ -15,11 +15,11 @@ export class JssContextServerSideService extends JssContextService {
   constructor(
     protected transferState: TransferState,
     protected layoutService: JssLayoutService,
-    protected dataFetcher: JssDataFetcherService,
+    protected stateService: JssStateService<JssState>,
     // this initial state from sitecore is injected by server.bundle for "integrated" mode
     @Inject('JSS_SERVER_LAYOUT_DATA') private serverToSsrState: JssState
   ) {
-    super(transferState, layoutService);
+    super(transferState, layoutService, stateService);
   }
   changeRoute(_route: string, _language: string): Observable<JssState> {
     // console.log('Server route change to ' + route);
@@ -36,7 +36,7 @@ export class JssContextServerSideService extends JssContextService {
     }
 
     // read initial state from data injected via server.bundle wrapper
-    this.state.next(this.serverToSsrState);
+    this.stateService.setState(this.serverToSsrState);
 
     // place the initial state into TransferState for the client
     this.transferState.set<JssState>(jssKey, this.serverToSsrState);

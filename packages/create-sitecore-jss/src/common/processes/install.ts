@@ -2,7 +2,7 @@ import { exec } from 'child_process';
 import path from 'path';
 import chalk from 'chalk';
 import { run } from '../utils/cmd';
-import { isDevEnvironment, openPackageJson } from '../utils/helpers';
+import { isDevEnvironment, openJsonFile } from '../utils/helpers';
 
 /**
  * Executes packages installation, depending on the environment
@@ -43,8 +43,7 @@ export const installPackages = (projectFolder: string, silent?: boolean) => {
  * @param {boolean} [silent] suppress logs
  */
 export const lintFix = (projectFolder: string, silent?: boolean) => {
-  const packagePath = path.join(projectFolder, 'package.json');
-  const pkg = openPackageJson(packagePath);
+  const pkg = getPackageJson(projectFolder);
   if (!pkg?.scripts?.lint) {
     return;
   }
@@ -67,8 +66,12 @@ export const lintFix = (projectFolder: string, silent?: boolean) => {
  * @param {boolean} [silent] suppress logs
  */
 export const installPrePushHook = async (destination: string, silent?: boolean) => {
-  silent || console.log(chalk.cyan('Installing pre-push hook...'));
+  const pkg = getPackageJson(destination);
+  if (!pkg?.scripts || !pkg.scripts['install-pre-push-hook']) {
+    return;
+  }
 
+  silent || console.log(chalk.cyan('Installing pre-push hook...'));
   await new Promise<void>((resolve, reject) => {
     exec(`cd ${destination} && git init && npm run install-pre-push-hook`, (err) => {
       if (err) {
@@ -80,4 +83,9 @@ export const installPrePushHook = async (destination: string, silent?: boolean) 
       }
     });
   });
+};
+
+const getPackageJson = (projectFolder: string) => {
+  const packagePath = path.join(projectFolder, 'package.json');
+  return openJsonFile(packagePath);
 };

@@ -1,0 +1,19 @@
+<app-styleguide-specimen [rendering]="rendering" e2eId="styleguide-componentparams">
+  <p class="{{ cssClass }}">
+    The CSS class of this paragraph (<code>{{ cssClass }}</code>) is set using a param
+  </p>
+  <div>
+    <!-- Note that all params come in as string values, like this boolean-like param here: -->
+    useCallToAction param: <code>{{ useCta }}</code>
+    <br />
+    param type: <code>{{ useCtaType }}</code>
+    <!-- because the param is a string, you need to compare it as a string - if(`useCta`) won't work correctly. -->
+    <div *ngIf="useCta === 'true'" class="alert alert-info">the call to action is shown</div>
+  </div>
+  <p>columns param: {{ columns }}</p>
+  <div class="row">
+    <div class="col-sm" *ngFor="let column of columnsArray">
+      Column {{ column }}
+    </div>
+  </div>
+</app-styleguide-specimen>

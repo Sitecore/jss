@@ -6,8 +6,8 @@ import {
   Initializer,
   transform,
   isDevEnvironment,
-  openPackageJson,
-  writePackageJson,
+  openJsonFile,
+  writeJsonFile,
 } from '../../common';
 import { removeDevDependencies } from './remove-dev-dependencies';
 import { NextjsArgs } from './args';
@@ -90,11 +90,11 @@ export default class NextjsInitializer implements Initializer {
       !addInitializers.includes('nextjs-styleguide') &&
       !args.templates.includes('nextjs-styleguide')
     ) {
-      const pkg = openPackageJson(pkgPath);
+      const pkg = openJsonFile(pkgPath);
 
       pkg.scripts.bootstrap = pkg.scripts.bootstrap.replace(' && graphql-let', '');
 
-      writePackageJson(pkg, pkgPath);
+      writeJsonFile(pkg, pkgPath);
     }
 
     const response = {

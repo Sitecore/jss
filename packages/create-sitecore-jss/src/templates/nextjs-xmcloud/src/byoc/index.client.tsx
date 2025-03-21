@@ -5,10 +5,6 @@ import * as FEAAS from '@sitecore-feaas/clientside/react';
  * to reduce javascript bundle size.
  */
 
-// SitecoreForm component displays forms created in XM Forms as individual components to be embedded into Pages.
-// Sitecore Forms for Sitecore XP are still available separately via @sitecore-jss-forms package
-import '@sitecore/components/form';
-
 /**
  * End of built-in JSS imports
  * You can import your own client component below

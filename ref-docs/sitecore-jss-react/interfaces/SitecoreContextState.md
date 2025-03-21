@@ -1,44 +1,71 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / SitecoreContextState
 
 # Interface: SitecoreContextState
 
-## Table of contents
-
-### Properties
-
-- [context](SitecoreContextState.md#context)
-- [setContext](SitecoreContextState.md#setcontext)
-
 ## Properties
 
-### context
+### api?
 
-• **context**: [`SitecoreContextValue`](../README.md#sitecorecontextvalue)
+> `optional` **api**: `object`
+
+#### edge?
+
+> `optional` **edge**: `object`
+
+Sitecore XM Cloud Edge endpoint credentials for Sitecore connection.
+
+#### edge.contextId
+
+> **contextId**: `string`
+
+A unified identifier used to connect and retrieve data from XM Cloud instance
+
+#### edge.edgeUrl?
+
+> `optional` **edgeUrl**: `string`
+
+XM Cloud endpoint that the app will communicate and retrieve data from
+
+##### Default
+
+```ts
+https://edge-platform.sitecorecloud.io
+```
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/305c0be54/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L16)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:37](https://github.com/Sitecore/jss/blob/92baaf60324963bfd9229cad117d7365014cbee2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L37)
 
-___
+***
 
-### setContext
+### context
 
-• **setContext**: (`value`: [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../README.md#sitecorecontextvalue)) => `void`
+> **context**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-#### Type declaration
+#### Defined in
 
-▸ (`value`): `void`
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:36](https://github.com/Sitecore/jss/blob/92baaf60324963bfd9229cad117d7365014cbee2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L36)
 
-##### Parameters
+***
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../README.md#sitecorecontextvalue) |
+### setContext()
 
-##### Returns
+> **setContext**: (`value`) => `void`
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `value` | [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md) |
+
+#### Returns
 
 `void`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/305c0be54/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L15)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:35](https://github.com/Sitecore/jss/blob/92baaf60324963bfd9229cad117d7365014cbee2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L35)

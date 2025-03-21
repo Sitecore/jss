@@ -1,30 +1,27 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / DictionaryDefinition
 
 # Interface: DictionaryDefinition
-
-## Table of contents
-
-### Properties
-
-- [key](DictionaryDefinition.md#key)
-- [value](DictionaryDefinition.md#value)
 
 ## Properties
 
 ### key
 
-• **key**: `string`
+> **key**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:286](https://github.com/Sitecore/jss/blob/305c0be54/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L286)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:286](https://github.com/Sitecore/jss/blob/92baaf60324963bfd9229cad117d7365014cbee2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L286)
 
-___
+***
 
 ### value
 
-• **value**: `string`
+> **value**: `string`
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:287](https://github.com/Sitecore/jss/blob/305c0be54/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L287)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:287](https://github.com/Sitecore/jss/blob/92baaf60324963bfd9229cad117d7365014cbee2/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L287)

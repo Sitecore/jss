@@ -1,6 +1,5 @@
 import {
   GraphQLClient,
-  GraphQLRequestClient,
   GraphQLRequestClientFactory,
   PageInfo,
 } from '@sitecore-jss/sitecore-jss/graphql';
@@ -88,7 +87,8 @@ interface SiteRouteQueryVariables {
    */
   excludedPaths?: string[];
 
-  /** common variable for all GraphQL queries
+  /**
+   * common variable for all GraphQL queries
    * it will be used for every type of query to regulate result batch size
    * Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
    * @default 100
@@ -132,27 +132,16 @@ export type RouteListQueryResult = {
 export interface BaseGraphQLSitemapServiceConfig
   extends Omit<SiteRouteQueryVariables, 'language' | 'siteName'> {
   /**
-   * Your Graphql endpoint
-   * @deprecated use @param clientFactory property instead
-   */
-  endpoint?: string;
-
-  /**
-   * The API key to use for authentication.
-   * @deprecated use @param clientFactory property instead
-   */
-  apiKey?: string;
-
-  /**
-   * A flag for whether to include personalized routes in service output - only works on XM Cloud
-   * turned off by default
+   * A flag for whether to include personalized routes in service output.
+   * Only works on XM Cloud for pages using Embedded Personalization (not Component A/B testing).
+   * Turned off by default.
    */
   includePersonalizedRoutes?: boolean;
   /**
    * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
    * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
    */
-  clientFactory?: GraphQLRequestClientFactory;
+  clientFactory: GraphQLRequestClientFactory;
 }
 
 /**
@@ -175,6 +164,14 @@ export abstract class BaseGraphQLSitemapService {
   private _graphQLClient: GraphQLClient;
 
   /**
+   * Creates an instance of graphQL sitemap service with the provided options
+   * @param {GraphQLSitemapServiceConfig} options instance
+   */
+  constructor(public options: BaseGraphQLSitemapServiceConfig) {
+    this._graphQLClient = this.getGraphQLClient();
+  }
+
+  /**
    * GraphQL client accessible by descendant classes when needed
    */
   protected get graphQLClient() {
@@ -186,14 +183,6 @@ export abstract class BaseGraphQLSitemapService {
    */
   protected get query(): string {
     return defaultQuery(this.options.includePersonalizedRoutes);
-  }
-
-  /**
-   * Creates an instance of graphQL sitemap service with the provided options
-   * @param {GraphQLSitemapServiceConfig} options instance
-   */
-  constructor(public options: BaseGraphQLSitemapServiceConfig) {
-    this._graphQLClient = this.getGraphQLClient();
   }
 
   /**
@@ -271,12 +260,12 @@ export abstract class BaseGraphQLSitemapService {
 
       aggregatedPaths.push(formatPath(item.path));
 
-      // check for type safety's sake - personalize may be empty depending on query type
-      if (item.route?.personalization?.variantIds.length) {
+      const variantIds = item.route?.personalization?.variantIds?.filter(
+        (variantId) => !variantId.includes('_') // exclude component A/B test variants
+      );
+      if (variantIds?.length) {
         aggregatedPaths.push(
-          ...(item.route?.personalization?.variantIds.map((varId) =>
-            formatPath(getPersonalizedRewrite(item.path, { variantId: varId }))
-          ) || {})
+          ...variantIds.map((varId) => formatPath(getPersonalizedRewrite(item.path, [varId])))
         );
       }
     });
@@ -326,18 +315,11 @@ export abstract class BaseGraphQLSitemapService {
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(): GraphQLClient {
-    if (!this.options.endpoint) {
-      if (!this.options.clientFactory) {
-        throw new Error('You should provide either an endpoint and apiKey, or a clientFactory.');
-      }
-
-      return this.options.clientFactory({
-        debugger: debug.sitemap,
-      });
+    if (!this.options.clientFactory) {
+      throw new Error('clientFactory needs to be provided when initializing GraphQL client.');
     }
 
-    return new GraphQLRequestClient(this.options.endpoint, {
-      apiKey: this.options.apiKey,
+    return this.options.clientFactory({
       debugger: debug.sitemap,
     });
   }

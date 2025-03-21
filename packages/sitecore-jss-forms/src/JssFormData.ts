@@ -35,7 +35,7 @@ export class JssFormData {
 
   /**
    * Merges form data from a client-side state store (i.e. the user-specified values), overwriting any existing values for the keys
-   * @param {Object} values
+   * @param {object} values
    */
   public mergeOverwritingExisting(values: { [key: string]: string | string[] | boolean | File[] }) {
     Object.keys(values).forEach((key) => {
@@ -66,7 +66,7 @@ export class JssFormData {
 
   /**
    * Gets all key/values in the store. Duplicate keys with different values are possible.
-   * @returns {Object} data
+   * @returns {object} data
    */
   public get() {
     return [...this.data];

@@ -9,13 +9,11 @@ const { jssConfigFactory } = require('./config');
 /**
  * REACT_APP is the default prefix for environment variables that will be made available to the app.
  */
-// REACT_APP_JSS_APP_NAME env variable has been deprecated since v.21.6, REACT_APP_SITE_NAME should be used instead
 const defaultConfig = {
   sitecoreApiKey: process.env[`${constantCase('reactAppSitecoreApiKey')}`],
   sitecoreApiHost: process.env[`${constantCase('reactAppSitecoreApiHost')}`],
   sitecoreSiteName:
-    process.env[`${constantCase('reactAppSitecoreSiteName')}`] ||
-    process.env[`${constantCase('reactAppJssAppName')}`],
+    process.env[`${constantCase('reactAppSitecoreSiteName')}`],
   graphQLEndpointPath: process.env[`${constantCase('reactAppGraphQLEndpointPath')}`],
   defaultLanguage: process.env[`${constantCase('reactAppDefaultLanguage')}`],
   graphQLEndpoint: process.env[`${constantCase('reactAppGraphQLEndpoint')}`],
@@ -33,6 +31,11 @@ generateConfig();
  * NOTE! Any configs returned here will be written into the client-side JS bundle. DO NOT PUT SECRETS HERE.
  */
 function generateConfig() {
+  // Handle undefined values
+  Object.keys(defaultConfig).forEach((prop) => {
+    defaultConfig[prop] = defaultConfig[prop] || '';
+  });
+
   try {
     config = jssConfigFactory.create(defaultConfig);
   } catch (error) {
@@ -52,9 +55,11 @@ const config = {};\n`;
 
   // Set base configuration values, allowing override with environment variables
   Object.keys(config).forEach(prop => {
-    configText += `config.${prop} = process.env.REACT_APP_${constantCase(prop)} || "${
-      config[prop]
-    }",\n`;
+    // Handle undefined values
+    const value = config[prop] || '';
+    configText += `config.${prop} = process.env.REACT_APP_${constantCase(
+      prop
+    )} || "${value.trim()}";\n`;
   });
   configText += 'module.exports = config;';
 

@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
-export interface RenderingField<V = unknown> {
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+import { FieldMetadata, GenericFieldValue } from '@sitecore-jss/sitecore-jss/layout';
+
+export interface RenderingField<V = GenericFieldValue> extends FieldMetadata {
   value?: V;
   editable?: string;
 }
 
-export interface DateField {
-  value?: string | number | Date;
-  editable?: string;
-}
+export interface DateField extends RenderingField<string | number | Date> {}
 
 export interface FileFieldValue {
   src?: string;
@@ -15,9 +15,7 @@ export interface FileFieldValue {
   displayName?: string;
 }
 
-export interface FileField extends FileFieldValue, RenderingField {
-  value?: FileFieldValue;
-}
+export interface FileField extends FileFieldValue, RenderingField<FileFieldValue> {}
 
 export interface ImageFieldValue {
   [key: string]: unknown;
@@ -44,6 +42,8 @@ export interface LinkField extends LinkFieldValue, RenderingField {
   editableLastPart?: string;
 }
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface RichTextField extends RenderingField<string> {}
 
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface TextField extends RenderingField<string> {}

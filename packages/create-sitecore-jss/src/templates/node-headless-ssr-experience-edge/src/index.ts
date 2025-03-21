@@ -4,18 +4,17 @@ import 'dotenv/config';
 import { GraphQLLayoutService } from '@sitecore-jss/sitecore-jss/layout';
 import { GraphQLDictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
 import { config } from './config';
+import { clientFactory } from './client-factory';
 
 const server = express();
 
 const layoutService = new GraphQLLayoutService({
-  endpoint: config.endpoint,
-  apiKey: config.apiKey,
+  clientFactory,
   siteName: config.siteName,
 });
 
 const dictionaryService = new GraphQLDictionaryService({
-  endpoint: config.endpoint,
-  apiKey: config.apiKey,
+  clientFactory,
   siteName: config.siteName,
   /*
     The Dictionary Service needs a root item ID in order to fetch dictionary phrases for the current

@@ -1,36 +1,55 @@
+[**@sitecore-jss/sitecore-jss-vue**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-vue](../README.md) / Field
 
 # Interface: Field\<T\>
 
-## Type parameters
+## Extends
 
-| Name | Type |
-| :------ | :------ |
+- `FieldMetadata`
+
+## Type Parameters
+
+| Type Parameter | Default type |
+| ------ | ------ |
 | `T` | `GenericFieldValue` |
-
-## Table of contents
-
-### Properties
-
-- [editable](Field.md#editable)
-- [value](Field.md#value)
 
 ## Properties
 
-### editable
+### editable?
 
-• `Optional` **editable**: `string`
+> `optional` **editable**: `string`
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:119
+packages/sitecore-jss/types/layout/models.d.ts:117
 
-___
+***
+
+### metadata?
+
+> `optional` **metadata**: `object`
+
+#### Index Signature
+
+ \[`key`: `string`\]: `unknown`
+
+#### Inherited from
+
+`FieldMetadata.metadata`
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:123
+
+***
 
 ### value
 
-• **value**: `T`
+> **value**: `T`
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:118
+packages/sitecore-jss/types/layout/models.d.ts:116

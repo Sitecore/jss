@@ -1,36 +1,61 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / WithSitecoreContextProps
 
 # Interface: WithSitecoreContextProps
 
-## Hierarchy
-
-- **`WithSitecoreContextProps`**
-
-  ↳ [`ComponentConsumerProps`](ComponentConsumerProps.md)
-
-## Table of contents
-
-### Properties
-
-- [sitecoreContext](WithSitecoreContextProps.md#sitecorecontext)
-- [updateSitecoreContext](WithSitecoreContextProps.md#updatesitecorecontext)
-
 ## Properties
+
+### api?
+
+> `optional` **api**: `object`
+
+#### edge?
+
+> `optional` **edge**: `object`
+
+Sitecore XM Cloud Edge endpoint credentials for Sitecore connection.
+
+#### edge.contextId
+
+> **contextId**: `string`
+
+A unified identifier used to connect and retrieve data from XM Cloud instance
+
+#### edge.edgeUrl?
+
+> `optional` **edgeUrl**: `string`
+
+XM Cloud endpoint that the app will communicate and retrieve data from
+
+##### Default
+
+```ts
+https://edge-platform.sitecorecloud.io
+```
+
+#### Defined in
+
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/92baaf60324963bfd9229cad117d7365014cbee2/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L16)
+
+***
 
 ### sitecoreContext
 
-• **sitecoreContext**: [`SitecoreContextValue`](../README.md#sitecorecontextvalue)
+> **sitecoreContext**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:9](https://github.com/Sitecore/jss/blob/305c0be54/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L9)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/92baaf60324963bfd9229cad117d7365014cbee2/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L15)
 
-___
+***
 
-### updateSitecoreContext
+### updateSitecoreContext?
 
-• `Optional` **updateSitecoreContext**: ``false`` \| (`value`: [`SitecoreContextValue`](../README.md#sitecorecontextvalue)) => `void`
+> `optional` **updateSitecoreContext**: `false` \| (`value`) => `void`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:10](https://github.com/Sitecore/jss/blob/305c0be54/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L10)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:17](https://github.com/Sitecore/jss/blob/92baaf60324963bfd9229cad117d7365014cbee2/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L17)

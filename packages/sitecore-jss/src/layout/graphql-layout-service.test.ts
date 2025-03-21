@@ -3,71 +3,22 @@ import { expect, use } from 'chai';
 import sinon, { SinonSpy } from 'sinon';
 import spies from 'chai-spies';
 import nock from 'nock';
-import { GraphQLLayoutService } from './graphql-layout-service';
+import { GRAPHQL_LAYOUT_QUERY_NAME, GraphQLLayoutService } from './graphql-layout-service';
 import { GraphQLRequestClient, GraphQLRequestClientFactory } from '../graphql-request-client';
 
 use(spies);
 
 describe('GraphQLLayoutService', () => {
   const apiKey = '0FBFF61E-267A-43E3-9252-B77E71CEE4BA';
+  const endpoint = 'http://sctest/graphql';
+
+  const clientFactory = GraphQLRequestClient.createClientFactory({
+    endpoint,
+    apiKey,
+  });
 
   afterEach(() => {
     nock.cleanAll();
-  });
-
-  it('should fetch layout data', async () => {
-    nock('http://sctest', {
-      reqheaders: {
-        sc_apikey: apiKey,
-      },
-    })
-      .post('/graphql', (body) => {
-        return (
-          body.query.replace(/\n|\s/g, '') ===
-          'query{layout(site:"supersite",routePath:"/styleguide",language:"da-DK"){item{rendered}}}'
-        );
-      })
-      .reply(200, {
-        data: {
-          layout: {
-            item: {
-              rendered: {
-                sitecore: {
-                  context: {
-                    pageEditing: false,
-                    site: { name: 'JssNextWeb' },
-                  },
-                  route: {
-                    name: 'styleguide',
-                    layoutId: 'xxx',
-                  },
-                },
-              },
-            },
-          },
-        },
-      });
-
-    const service = new GraphQLLayoutService({
-      endpoint: 'http://sctest/graphql',
-      apiKey: apiKey,
-      siteName: 'supersite',
-    });
-
-    const data = await service.fetchLayoutData('/styleguide', 'da-DK');
-
-    expect(data).to.deep.equal({
-      sitecore: {
-        context: {
-          pageEditing: false,
-          site: { name: 'JssNextWeb' },
-        },
-        route: {
-          name: 'styleguide',
-          layoutId: 'xxx',
-        },
-      },
-    });
   });
 
   it('should fetch layout data using clientFactory', async () => {
@@ -79,7 +30,7 @@ describe('GraphQLLayoutService', () => {
       .post('/graphql', (body) => {
         return (
           body.query.replace(/\n|\s/g, '') ===
-          'query{layout(site:"supersite",routePath:"/styleguide",language:"da-DK"){item{rendered}}}'
+          `query${GRAPHQL_LAYOUT_QUERY_NAME}{layout(site:"supersite",routePath:"/styleguide",language:"da-DK"){item{rendered}}}`
         );
       })
       .reply(200, {
@@ -138,7 +89,7 @@ describe('GraphQLLayoutService', () => {
       .post('/graphql', (body) => {
         return (
           body.query.replace(/\n|\s/g, '') ===
-          'query{layout(site:"supersite",routePath:"/styleguide"){item{rendered}}}'
+          `query${GRAPHQL_LAYOUT_QUERY_NAME}{layout(site:"supersite",routePath:"/styleguide"){item{rendered}}}`
         );
       })
       .reply(200, {
@@ -163,8 +114,7 @@ describe('GraphQLLayoutService', () => {
       });
 
     const service = new GraphQLLayoutService({
-      endpoint: 'http://sctest/graphql',
-      apiKey: apiKey,
+      clientFactory,
       siteName: 'supersite',
     });
 
@@ -193,7 +143,7 @@ describe('GraphQLLayoutService', () => {
       .post('/graphql', (body) => {
         return (
           body.query.replace(/\n|\s/g, '') ===
-          'query{layout111(site:"supersite",route:"/styleguide",language:"en"){item{rendered}}}'
+          `query${GRAPHQL_LAYOUT_QUERY_NAME}{layout111(site:"supersite",route:"/styleguide",language:"en"){item{rendered}}}`
         );
       })
       .reply(200, {
@@ -218,8 +168,7 @@ describe('GraphQLLayoutService', () => {
       });
 
     const service = new GraphQLLayoutService({
-      endpoint: 'http://sctest/graphql',
-      apiKey: apiKey,
+      clientFactory,
       siteName: 'supersite',
       formatLayoutQuery: (siteName, itemPath, locale) =>
         `layout111(site:"${siteName}",route:"${itemPath}",language:"${locale || 'en'}")`,
@@ -246,7 +195,7 @@ describe('GraphQLLayoutService', () => {
       .post('/graphql', (body) => {
         return (
           body.query.replace(/\n|\s/g, '') ===
-          'query{layout(site:"supersite",routePath:"/styleguide",language:"da-DK"){item{rendered}}}'
+          `query${GRAPHQL_LAYOUT_QUERY_NAME}{layout(site:"supersite",routePath:"/styleguide",language:"da-DK"){item{rendered}}}`
         );
       })
       .reply(200, {
@@ -256,9 +205,8 @@ describe('GraphQLLayoutService', () => {
       });
 
     const service = new GraphQLLayoutService({
-      endpoint: 'http://sctest/graphql',
+      clientFactory,
       siteName: 'supersite',
-      apiKey: apiKey,
     });
 
     const data = await service.fetchLayoutData('/styleguide', 'da-DK');
@@ -286,8 +234,7 @@ describe('GraphQLLayoutService', () => {
       });
 
     const service = new GraphQLLayoutService({
-      endpoint: 'http://sctest/graphql',
-      apiKey: apiKey,
+      clientFactory,
       siteName: 'supersite',
     });
 

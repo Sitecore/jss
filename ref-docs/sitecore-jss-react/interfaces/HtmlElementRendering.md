@@ -1,58 +1,53 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / HtmlElementRendering
 
 # Interface: HtmlElementRendering
 
 HTML content used to support Sitecore Experience Editor
 
-## Table of contents
-
-### Properties
-
-- [attributes](HtmlElementRendering.md#attributes)
-- [contents](HtmlElementRendering.md#contents)
-- [name](HtmlElementRendering.md#name)
-- [type](HtmlElementRendering.md#type)
-
 ## Properties
 
 ### attributes
 
-• **attributes**: `Object`
+> **attributes**: `object`
 
-#### Index signature
+#### Index Signature
 
-▪ [name: `string`]: `string` \| `undefined`
+ \[`name`: `string`\]: `string` \| `undefined`
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:105
+packages/sitecore-jss/types/layout/models.d.ts:103
 
-___
+***
 
 ### contents
 
-• **contents**: `string`
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:104
-
-___
-
-### name
-
-• **name**: `string`
+> **contents**: `string`
 
 #### Defined in
 
 packages/sitecore-jss/types/layout/models.d.ts:102
 
-___
+***
 
-### type
+### name
 
-• `Optional` **type**: `string`
+> **name**: `string`
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:103
+packages/sitecore-jss/types/layout/models.d.ts:100
+
+***
+
+### type?
+
+> `optional` **type**: `string`
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:101

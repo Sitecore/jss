@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, TransferState } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
@@ -18,11 +18,14 @@ import { JssTranslationServerLoaderService } from './i18n/jss-translation-server
       // <-- *Important* to get translation values server-side
       loader: {
         provide: TranslateLoader,
-        useFactory: (ssrViewBag: {
-          [key: string]: unknown;
-          dictionary: { [key: string]: string };
-        }) => new JssTranslationServerLoaderService(ssrViewBag),
-        deps: ['JSS_SERVER_VIEWBAG'],
+        useFactory: (
+          ssrViewBag: {
+            [key: string]: unknown;
+            dictionary: { [key: string]: string };
+          },
+          transferState: TransferState
+        ) => new JssTranslationServerLoaderService(ssrViewBag, transferState),
+        deps: ['JSS_SERVER_VIEWBAG', TransferState],
       },
     }),
   ],

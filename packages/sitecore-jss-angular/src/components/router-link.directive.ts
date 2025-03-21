@@ -18,6 +18,13 @@ export class RouterLinkDirective extends LinkDirective {
 
   @Input('scRouterLink') declare field: LinkField;
 
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
+  @Input('scRouterLinkEmptyFieldEditingTemplate') declare emptyFieldEditingTemplate: TemplateRef<
+    unknown
+  >;
+
   constructor(
     viewContainer: ViewContainerRef,
     templateRef: TemplateRef<unknown>,

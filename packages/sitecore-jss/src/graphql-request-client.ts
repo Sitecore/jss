@@ -5,15 +5,27 @@ import debuggers, { Debugger } from './debug';
 import TimeoutPromise from './utils/timeout-promise';
 
 /**
+ * Options for configuring a GraphQL request.
+ */
+interface RequestOptions {
+  headers?: Record<string, string>;
+}
+
+/**
  * An interface for GraphQL clients for Sitecore APIs
  */
 export interface GraphQLClient {
   /**
    * Execute graphql request
    * @param {string | DocumentNode} query graphql query
-   * @param {Object} variables graphql variables
+   * @param {object} [variables] graphql variables
+   * @param {RequestOptions} [options] options for configuring a GraphQL request.
    */
-  request<T>(query: string | DocumentNode, variables?: { [key: string]: unknown }): Promise<T>;
+  request<T>(
+    query: string | DocumentNode,
+    variables?: { [key: string]: unknown },
+    options?: RequestOptions
+  ): Promise<T>;
 }
 
 /**
@@ -74,6 +86,10 @@ export type GraphQLRequestClientConfig = {
    * back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
    */
   retryStrategy?: RetryStrategy;
+  /**
+   * Custom headers to be sent with each request.
+   */
+  headers?: Record<string, string>;
 };
 
 /**
@@ -83,7 +99,7 @@ export type GraphQLRequestClientConfig = {
  * @returns An instance of a GraphQL Request Client ready to send GraphQL requests.
  */
 export type GraphQLRequestClientFactory = (
-  config: Omit<GraphQLRequestClientConfig, 'apiKey'>
+  config?: Omit<GraphQLRequestClientConfig, 'apiKey'>
 ) => GraphQLRequestClient;
 
 /**
@@ -105,7 +121,7 @@ export class DefaultRetryStrategy implements RetryStrategy {
   private factor: number;
 
   /**
-   * @param {Object} options Configurable options for retry mechanism.
+   * @param {object} options Configurable options for retry mechanism.
    * @param {number[]} [options.statusCodes] HTTP status codes to trigger retries on. Default is [429].
    * @param {string[]} [options.errorCodes] Node error codes to trigger retries. Default is ['ECONNRESET', 'ETIMEDOUT', 'EPROTO'].
    * @param {number} [options.factor] Factor by which the delay increases with each retry attempt. Default is 2.
@@ -163,6 +179,10 @@ export class GraphQLRequestClient implements GraphQLClient {
       this.headers.sc_apikey = clientConfig.apiKey;
     }
 
+    if (clientConfig.headers) {
+      this.headers = { ...this.headers, ...clientConfig.headers };
+    }
+
     if (!endpoint || !parse(endpoint).hostname) {
       throw new Error(
         `Invalid GraphQL endpoint '${endpoint}'. Verify that 'layoutServiceHost' property in 'scjssconfig.json' file or appropriate environment variable is set`
@@ -183,7 +203,7 @@ export class GraphQLRequestClient implements GraphQLClient {
 
   /**
    * Factory method for creating a GraphQLRequestClientFactory.
-   * @param {Object} config - client configuration options.
+   * @param {object} config - client configuration options.
    * @param {string} config.endpoint - endpoint
    * @param {string} [config.apiKey] - apikey
    */
@@ -198,25 +218,27 @@ export class GraphQLRequestClient implements GraphQLClient {
   /**
    * Execute graphql request
    * @param {string | DocumentNode} query graphql query
-   * @param {Object} variables graphql variables
+   * @param {object} [variables] graphql variables
+   * @param {RequestOptions} [options] Options for configuring a GraphQL request.
    */
   async request<T>(
     query: string | DocumentNode,
-    variables?: { [key: string]: unknown }
+    variables?: { [key: string]: unknown },
+    options?: RequestOptions
   ): Promise<T> {
     let attempt = 1;
 
     const retryer = async (): Promise<T> => {
       // Note we don't have access to raw request/response with graphql-request
-      // (or nice hooks like we have with Axios), but we should log whatever we have.
+      // but we should log whatever we have.
       this.debug('request: %o', {
         url: this.endpoint,
-        headers: this.headers,
+        headers: { ...this.headers, ...options?.headers },
         query,
         variables,
       });
       const startTimestamp = Date.now();
-      const fetchWithOptionalTimeout = [this.client.request(query, variables)];
+      const fetchWithOptionalTimeout = [this.client.request(query, variables, options?.headers)];
       if (this.timeout) {
         this.abortTimeout = new TimeoutPromise(this.timeout);
         fetchWithOptionalTimeout.push(this.abortTimeout.start);

@@ -1,16 +1,17 @@
-import React, { CSSProperties } from 'react';
 import {
-  Image as JssImage,
-  Link as JssLink,
-  ImageField,
+  EditMode,
   Field,
+  ImageField,
+  NextImage as JssImage,
+  Link as JssLink,
   LinkField,
   Text,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import React, { CSSProperties } from 'react';
 
 interface Fields {
-  Image: ImageField;
+  Image: ImageField & { metadata?: { [key: string]: unknown } };
   ImageCaption: Field<string>;
   TargetUrl: LinkField;
 }
@@ -21,7 +22,7 @@ type ImageProps = {
 };
 
 const ImageDefault = (props: ImageProps): JSX.Element => (
-  <div className={`component image ${props.params.styles}`.trimEnd()}>
+  <div className={`component image ${props?.params?.styles}`.trimEnd()}>
     <div className="component-content">
       <span className="is-empty-hint">Image</span>
     </div>
@@ -29,8 +30,10 @@ const ImageDefault = (props: ImageProps): JSX.Element => (
 );
 
 export const Banner = (props: ImageProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
+  const isMetadataMode = sitecoreContext?.editMode === EditMode.Metadata;
   const classHeroBannerEmpty =
     isPageEditing && props.fields?.Image?.value?.class === 'scEmptyImage'
       ? 'hero-banner-empty'
@@ -38,17 +41,24 @@ export const Banner = (props: ImageProps): JSX.Element => {
   const backgroundStyle = (props?.fields?.Image?.value?.src && {
     backgroundImage: `url('${props.fields.Image.value.src}')`,
   }) as CSSProperties;
-  const modifyImageProps = {
-    ...props.fields.Image,
-    editable: props?.fields?.Image?.editable
-      ?.replace(`width="${props?.fields?.Image?.value?.width}"`, 'width="100%"')
-      .replace(`height="${props?.fields?.Image?.value?.height}"`, 'height="100%"'),
-  };
-  const id = props.params.RenderingIdentifier;
+  const modifyImageProps = !isMetadataMode
+    ? {
+        ...props.fields.Image,
+        editable: props?.fields?.Image?.editable
+          ?.replace(`width="${props?.fields?.Image?.value?.width}"`, 'width="100%"')
+          .replace(`height="${props?.fields?.Image?.value?.height}"`, 'height="100%"'),
+      }
+    : {
+        ...props.fields.Image,
+        value: {
+          ...props.fields.Image.value,
+          style: { width: '100%', height: '100%' },
+        },
+      };
 
   return (
     <div
-      className={`component hero-banner ${props.params.styles} ${classHeroBannerEmpty}`}
+      className={`component hero-banner ${props?.params?.styles} ${classHeroBannerEmpty}`}
       id={id ? id : undefined}
     >
       <div className="component-content sc-sxa-image-hero-banner" style={backgroundStyle}>
@@ -66,7 +76,7 @@ export const Default = (props: ImageProps): JSX.Element => {
     const id = props.params.RenderingIdentifier;
 
     return (
-      <div className={`component image ${props.params.styles}`} id={id ? id : undefined}>
+      <div className={`component image ${props?.params?.styles}`} id={id ? id : undefined}>
         <div className="component-content">
           {sitecoreContext.pageState === 'edit' || !props.fields.TargetUrl?.value?.href ? (
             <Image />

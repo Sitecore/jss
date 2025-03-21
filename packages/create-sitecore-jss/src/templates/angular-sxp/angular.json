@@ -1,0 +1,13 @@
+{
+  "projects": {
+    "<%- appName %>": {
+      "architect": {
+        "build": {
+          "options": {
+            "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css"]
+          }
+        }
+      }
+    }
+  }
+}

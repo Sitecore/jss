@@ -2,7 +2,8 @@ import React from 'react';
 import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
-import { HorizonEditor } from '@sitecore-jss/sitecore-jss/utils';
+import { HorizonEditor } from '@sitecore-jss/sitecore-jss/editing';
+import { withSitecoreContext } from '../enhancers/withSitecoreContext';
 
 export interface PlaceholderComponentProps extends PlaceholderProps {
   /**
@@ -87,14 +88,15 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
 
     const placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
       renderingData,
-      this.props.name
+      this.props.name,
+      this.props.sitecoreContext?.editMode
     );
-
-    const components = this.getComponentsForRenderingData(placeholderData);
 
     this.isEmpty = placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>
       isRawRendering(rendering)
     );
+
+    const components = this.getComponentsForRenderingData(placeholderData);
 
     if (this.props.renderEmpty && this.isEmpty) {
       const rendered = this.props.renderEmpty(components);
@@ -120,4 +122,6 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
   }
 }
 
-export const Placeholder = withComponentFactory(PlaceholderComponent);
+const PlaceholderWithComponentFactory = withComponentFactory(PlaceholderComponent);
+
+export const Placeholder = withSitecoreContext()(PlaceholderWithComponentFactory);

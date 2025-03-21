@@ -1,5 +1,12 @@
 import { InjectionToken, Type } from '@angular/core';
-import { ActivatedRouteSnapshot, Data, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  Data,
+  RouterStateSnapshot,
+  UrlTree,
+  RedirectCommand,
+  Router,
+} from '@angular/router';
 import { Observable } from 'rxjs';
 import { ComponentFactoryResult } from './jss-component-factory.service';
 import { ComponentRendering } from '../public_api';
@@ -80,14 +87,16 @@ export interface GuardInput {
   activatedRoute: ActivatedRouteSnapshot;
   routerState: RouterStateSnapshot;
   rendering: ComponentRendering;
+  router: Router;
 }
 
 export interface JssCanActivateFn {
   (input: GuardInput):
-    | Observable<boolean | UrlTree | string | string[]>
-    | Promise<boolean | UrlTree | string | string[]>
+    | Observable<boolean | UrlTree | RedirectCommand | string | string[]>
+    | Promise<boolean | UrlTree | RedirectCommand | string | string[]>
     | boolean
     | UrlTree
+    | RedirectCommand
     | string
     | string[];
 }

@@ -32,6 +32,9 @@ import { RichTextDirective } from './components/rich-text.directive';
 import { RouterLinkDirective } from './components/router-link.directive';
 import { TextDirective } from './components/text.directive';
 import { JssComponentFactoryService } from './services/jss-component-factory.service';
+import { JssStateService } from './services/jss-state.service';
+import { EditingScriptsComponent } from './components/editing-scripts.component';
+import { FormComponent } from './components/form.component';
 
 @NgModule({
   imports: [CommonModule],
@@ -53,6 +56,8 @@ import { JssComponentFactoryService } from './services/jss-component-factory.ser
     MissingComponentComponent,
     HiddenRenderingComponent,
     EditFrameComponent,
+    EditingScriptsComponent,
+    FormComponent,
   ],
   exports: [
     FileDirective,
@@ -70,6 +75,8 @@ import { JssComponentFactoryService } from './services/jss-component-factory.ser
     RichTextDirective,
     TextDirective,
     EditFrameComponent,
+    EditingScriptsComponent,
+    FormComponent,
   ],
 })
 export class JssModule {
@@ -83,6 +90,7 @@ export class JssModule {
       ngModule: JssModule,
       providers: [
         DatePipe,
+        JssStateService,
         JssComponentFactoryService,
         {
           provide: GUARD_RESOLVER,

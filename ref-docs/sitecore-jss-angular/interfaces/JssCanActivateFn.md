@@ -1,23 +1,23 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / JssCanActivateFn
 
-# Interface: JssCanActivateFn
+# Interface: JssCanActivateFn()
 
-## Callable
+> **JssCanActivateFn**(`input`): `string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand` \| `Observable`\<`string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand`\> \| `Promise`\<`string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand`\>
 
-### JssCanActivateFn
+## Parameters
 
-▸ **JssCanActivateFn**(`input`): `string` \| `boolean` \| `string`[] \| `UrlTree` \| `Observable`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\> \| `Promise`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Parameter | Type |
+| ------ | ------ |
 | `input` | [`GuardInput`](GuardInput.md) |
 
-#### Returns
+## Returns
 
-`string` \| `boolean` \| `string`[] \| `UrlTree` \| `Observable`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\> \| `Promise`\<`string` \| `boolean` \| `string`[] \| `UrlTree`\>
+`string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand` \| `Observable`\<`string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand`\> \| `Promise`\<`string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand`\>
 
-#### Defined in
+## Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:86](https://github.com/Sitecore/jss/blob/305c0be54/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L86)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:94](https://github.com/Sitecore/jss/blob/92baaf60324963bfd9229cad117d7365014cbee2/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L94)

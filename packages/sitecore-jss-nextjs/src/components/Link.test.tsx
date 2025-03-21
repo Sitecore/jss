@@ -165,6 +165,28 @@ describe('<Link />', () => {
     expect(c.find(ReactLink).length).to.equal(0);
   });
 
+  it('should render with prefetch prop provided', () => {
+    const field = {
+      href: '/lorem',
+      text: 'ipsum',
+    };
+    const c = mount(
+      <Page>
+        <Link field={field} prefetch={false} />
+      </Page>
+    );
+
+    const link = c.find('a');
+
+    expect(link.html()).to.contain(field.href);
+    expect(link.html()).to.contain(field.text);
+
+    expect(c.find(NextLink).length).to.equal(1);
+    expect(c.find(ReactLink).length).to.equal(0);
+
+    expect(c.find(NextLink).props().prefetch).to.equal(false);
+  });
+
   it('should render other attributes with other props provided', () => {
     const field = {
       value: {
@@ -226,6 +248,50 @@ describe('<Link />', () => {
     );
     expect(rendered.find(NextLink).length).to.equal(1);
     expect(rendered.find(ReactLink).length).to.equal(0);
+  });
+
+  describe('relative file url', () => {
+    it('should not render Next link when file url is provided', () => {
+      const field = {
+        value: {
+          href: '/foo/bar/test.html',
+          text: 'ipsum',
+          class: 'my-link',
+          title: 'My Link',
+          target: '_blank',
+        },
+      };
+      const rendered = mount(
+        <Page>
+          <Link field={field} showLinkTextWithChildrenPresent>
+            <p>Hello world...</p>
+          </Link>
+        </Page>
+      );
+      expect(rendered.find(NextLink).length).to.equal(0);
+      expect(rendered.find(ReactLink).length).to.equal(1);
+    });
+
+    it('should not render Next link when file url is provided in the root', () => {
+      const field = {
+        value: {
+          href: '/test.png',
+          text: 'ipsum',
+          class: 'my-link',
+          title: 'My Link',
+          target: '_blank',
+        },
+      };
+      const rendered = mount(
+        <Page>
+          <Link field={field} showLinkTextWithChildrenPresent>
+            <p>Hello world...</p>
+          </Link>
+        </Page>
+      );
+      expect(rendered.find(NextLink).length).to.equal(0);
+      expect(rendered.find(ReactLink).length).to.equal(1);
+    });
   });
 
   it('should render ReactLink if link is external', () => {
@@ -355,9 +421,184 @@ describe('<Link />', () => {
     expect(rendered).to.have.length(0);
   });
 
-  it('should render nothing with missing editable and value', () => {
+  it('should render nothing with missing field', () => {
     const field = {};
     const rendered = mount(<Link field={field} />).children();
     expect(rendered).to.have.length(0);
+  });
+
+  describe('editMode metadata', () => {
+    const testMetadata = {
+      contextItem: {
+        id: '{09A07660-6834-476C-B93B-584248D3003B}',
+        language: 'en',
+        revision: 'a0b36ce0a7db49418edf90eb9621e145',
+        version: 1,
+      },
+      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
+      fieldType: 'single-line',
+      rawValue: 'Test1',
+    };
+
+    it('should render field metadata component when metadata property is present', () => {
+      const field = {
+        value: {
+          href: '/lorem',
+          text: 'ipsum',
+          class: 'my-link',
+        },
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(
+        <Page>
+          <Link field={field} />
+        </Page>
+      );
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<a href="/lorem" class="my-link">ipsum</a>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render default empty field component when field value href is not present', () => {
+      const field = {
+        value: {
+          href: undefined,
+        },
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(
+        <Page>
+          <Link field={field} />
+        </Page>
+      );
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span>[No text in field]</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render default empty field component when field href is not present', () => {
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(
+        <Page>
+          <Link field={field} />
+        </Page>
+      );
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span>[No text in field]</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render custom empty field component when provided, when field value href is not present', () => {
+      const field = {
+        value: {
+          href: undefined,
+        },
+        metadata: testMetadata,
+      };
+
+      const EmptyFieldEditingComponent: React.FC = () => (
+        <span className="empty-field-value-placeholder">Custom Empty field value</span>
+      );
+
+      const rendered = mount(
+        <Page>
+          <Link field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
+        </Page>
+      );
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render custom empty field component when provided, when field href is not present', () => {
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+
+      const EmptyFieldEditingComponent: React.FC = () => (
+        <span className="empty-field-value-placeholder">Custom Empty field value</span>
+      );
+
+      const rendered = mount(
+        <Page>
+          <Link field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
+        </Page>
+      );
+
+      expect(rendered.html()).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render nothing when field value href is not present and editing is explicitly disabled', () => {
+      const field = {
+        value: { href: undefined },
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(
+        <Page>
+          <Link field={field} editable={false} />
+        </Page>
+      );
+
+      expect(rendered.html()).to.equal('');
+    });
+
+    it('should render nothing when field href is not present and editing is explicitly disabled', () => {
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+
+      const rendered = mount(
+        <Page>
+          <Link field={field} editable={false} />
+        </Page>
+      );
+
+      expect(rendered.html()).to.equal('');
+    });
   });
 });

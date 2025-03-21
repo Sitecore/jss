@@ -13,6 +13,12 @@ const sitemapQueryResultNull = {
 describe('GraphQLSitemapXmlService', () => {
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';
+
+  const clientFactory = GraphQLRequestClient.createClientFactory({
+    endpoint,
+    apiKey,
+  });
+
   const siteName = 'site-name';
   const mockSitemap = ['sitemap.xml'];
   const mockSitemaps = ['sitemap-1.xml', 'sitemap-2.xml', 'sitemap-3.xml'];
@@ -46,7 +52,7 @@ describe('GraphQLSitemapXmlService', () => {
     it('should get error if sitemap has empty sitename', async () => {
       mockSitemapRequest();
 
-      const service = new GraphQLSitemapXmlService({ endpoint, apiKey, siteName: '' });
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName: '' });
       await service.fetchSitemaps().catch((error: Error) => {
         expect(error.message).to.equal(siteNameError);
       });
@@ -57,24 +63,7 @@ describe('GraphQLSitemapXmlService', () => {
     it('should fetch sitemap', async () => {
       mockSitemapRequest(mockSitemap);
 
-      const service = new GraphQLSitemapXmlService({ endpoint, apiKey, siteName });
-      const sitemaps = await service.fetchSitemaps();
-
-      expect(sitemaps.length).to.equal(1);
-      expect(sitemaps).to.deep.equal(mockSitemap);
-
-      return expect(nock.isDone()).to.be.true;
-    });
-
-    it('should fetch sitemap using clientFactory', async () => {
-      mockSitemapRequest(mockSitemap);
-
-      const clientFactory = GraphQLRequestClient.createClientFactory({
-        endpoint,
-        apiKey,
-      });
-
-      const service = new GraphQLSitemapXmlService({ siteName, clientFactory });
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
       const sitemaps = await service.fetchSitemaps();
 
       expect(sitemaps.length).to.equal(1);
@@ -86,7 +75,7 @@ describe('GraphQLSitemapXmlService', () => {
     it('should fetch sitemaps', async () => {
       mockSitemapRequest(mockSitemaps);
 
-      const service = new GraphQLSitemapXmlService({ endpoint, apiKey, siteName });
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
       const sitemaps = await service.fetchSitemaps();
 
       expect(sitemaps.length).to.equal(3);
@@ -99,7 +88,7 @@ describe('GraphQLSitemapXmlService', () => {
       const mockIdSitemap = '-3';
       mockSitemapRequest(mockSitemaps);
 
-      const service = new GraphQLSitemapXmlService({ endpoint, apiKey, siteName });
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
       const sitemap = await service.getSitemap(mockIdSitemap);
 
       expect(sitemap).to.deep.equal(mockSitemaps[2]);
@@ -111,7 +100,7 @@ describe('GraphQLSitemapXmlService', () => {
       const mockIdSitemap = '-5';
       mockSitemapRequest(mockSitemaps);
 
-      const service = new GraphQLSitemapXmlService({ endpoint, apiKey, siteName });
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
       const sitemap = await service.getSitemap(mockIdSitemap);
 
       // eslint-disable-next-line no-unused-expressions

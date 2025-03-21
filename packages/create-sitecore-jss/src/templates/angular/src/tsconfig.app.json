@@ -3,8 +3,7 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
-    "newLine": "LF",
-    "types": []
+    "newLine": "LF"
   },
   "lib": [
     "esnext.asynciterable"
