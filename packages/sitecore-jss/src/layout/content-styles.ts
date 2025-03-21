@@ -60,8 +60,8 @@ export const traversePlaceholder = (
 };
 
 export const traverseField = (field: Field | Item | Item[] | undefined, config: Config) => {
-  if (!field || config.loadStyles) return;
-  if (typeof field === 'string' && field) return;
+  if (!field || typeof field !== 'object' || config.loadStyles) return;
+
   if ('editable' in field && field.editable) {
     config.loadStyles = CLASS_REGEXP.test(field.editable);
   } else if ('value' in field && typeof field.value === 'string') {
