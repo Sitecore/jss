@@ -46,4 +46,4 @@ Data for Next.js Preview (Editing) Metadata Edit Mode.
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:284](https://github.com/Sitecore/jss/blob/6e9c59ae56ffb464a1216b97cc0e1c953c5f4fb2/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L284)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:284](https://github.com/Sitecore/jss/blob/7cd5f70c820c608aacd9a5de16ad48fc06c34c15/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L284)

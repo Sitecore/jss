@@ -20,4 +20,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss/src/constants.ts:14](https://github.com/Sitecore/jss/blob/6e9c59ae56ffb464a1216b97cc0e1c953c5f4fb2/packages/sitecore-jss/src/constants.ts#L14)
+[packages/sitecore-jss/src/constants.ts:14](https://github.com/Sitecore/jss/blob/7cd5f70c820c608aacd9a5de16ad48fc06c34c15/packages/sitecore-jss/src/constants.ts#L14)
