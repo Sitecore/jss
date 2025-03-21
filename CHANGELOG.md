@@ -9,6 +9,12 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 22.5.4
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss]` Cannot use 'in' operator to search for 'editable' ([#1768](https://github.com/Sitecore/jss/pull/1768))
+
 ## 22.5.3
 
 ### 🐛 Bug Fixes
