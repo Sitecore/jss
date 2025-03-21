@@ -14,7 +14,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:87](https://github.com/Sitecore/jss/blob/7cd5f70c820c608aacd9a5de16ad48fc06c34c15/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L87)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:87](https://github.com/Sitecore/jss/blob/58599084d7bfee56e7c4ff72e452c13418541e0c/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L87)
 
 ***
 
@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:89](https://github.com/Sitecore/jss/blob/7cd5f70c820c608aacd9a5de16ad48fc06c34c15/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L89)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:89](https://github.com/Sitecore/jss/blob/58599084d7bfee56e7c4ff72e452c13418541e0c/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L89)
 
 ***
 
@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:90](https://github.com/Sitecore/jss/blob/7cd5f70c820c608aacd9a5de16ad48fc06c34c15/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L90)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:90](https://github.com/Sitecore/jss/blob/58599084d7bfee56e7c4ff72e452c13418541e0c/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L90)
 
 ***
 
@@ -44,4 +44,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:88](https://github.com/Sitecore/jss/blob/7cd5f70c820c608aacd9a5de16ad48fc06c34c15/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L88)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:88](https://github.com/Sitecore/jss/blob/58599084d7bfee56e7c4ff72e452c13418541e0c/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L88)

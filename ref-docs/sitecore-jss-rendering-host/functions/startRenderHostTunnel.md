@@ -21,4 +21,4 @@
 
 ## Defined in
 
-[tunnel.ts:12](https://github.com/Sitecore/jss/blob/7cd5f70c820c608aacd9a5de16ad48fc06c34c15/packages/sitecore-jss-rendering-host/src/tunnel.ts#L12)
+[tunnel.ts:12](https://github.com/Sitecore/jss/blob/58599084d7bfee56e7c4ff72e452c13418541e0c/packages/sitecore-jss-rendering-host/src/tunnel.ts#L12)

@@ -32,7 +32,7 @@ Utilizes a cache for storage and retrieval of editing data.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:79](https://github.com/Sitecore/jss/blob/7cd5f70c820c608aacd9a5de16ad48fc06c34c15/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L79)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:79](https://github.com/Sitecore/jss/blob/58599084d7bfee56e7c4ff72e452c13418541e0c/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L79)
 
 ## Properties
 
@@ -59,7 +59,7 @@ The unique key
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:73](https://github.com/Sitecore/jss/blob/7cd5f70c820c608aacd9a5de16ad48fc06c34c15/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L73)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:73](https://github.com/Sitecore/jss/blob/58599084d7bfee56e7c4ff72e452c13418541e0c/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L73)
 
 ## Methods
 
@@ -87,7 +87,7 @@ The [EditingData](../type-aliases/EditingData.md)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:105](https://github.com/Sitecore/jss/blob/7cd5f70c820c608aacd9a5de16ad48fc06c34c15/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L105)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:105](https://github.com/Sitecore/jss/blob/58599084d7bfee56e7c4ff72e452c13418541e0c/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L105)
 
 ***
 
@@ -115,4 +115,4 @@ The [EditingPreviewData](../interfaces/EditingPreviewData.md) containing the gen
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:88](https://github.com/Sitecore/jss/blob/7cd5f70c820c608aacd9a5de16ad48fc06c34c15/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L88)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:88](https://github.com/Sitecore/jss/blob/58599084d7bfee56e7c4ff72e452c13418541e0c/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L88)
