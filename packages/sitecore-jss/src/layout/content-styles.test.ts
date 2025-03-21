@@ -198,6 +198,17 @@ describe('content-styles', () => {
       expect(config.loadStyles).to.be.false;
     });
 
+    it('should skip when field is not an object', () => {
+      const config = { loadStyles: false };
+
+      traverseField('foo' as any, config);
+      traverseField(123 as any, config);
+      traverseField(true as any, config);
+      traverseField(null as any, config);
+
+      expect(config.loadStyles).to.be.false;
+    });
+
     it('should skip when loadStyles is true', () => {
       const config = { loadStyles: true };
       const field = falsyValue;
