@@ -18,13 +18,14 @@ Our versioning strategy is as follows:
 ## 22.5.3
 
 ### 🐛 Bug Fixes
-* `[sitecore-jss-nextjs]` Fixes an issue where a more specific redirect rule with locale is not activating when a less specific rule is present. ([#2054](https://github.com/Sitecore/jss/pull/2054)[#2056](https://github.com/Sitecore/jss/pull/2056))
 
+* `[sitecore-jss-nextjs]` Fixes an issue where a more specific redirect rule with locale is not activating when a less specific rule is present. ([#2054](https://github.com/Sitecore/jss/pull/2054)[#2056](https://github.com/Sitecore/jss/pull/2056))
 * `[sitecore-jss-nextjs]` Fix an endless redirect issue with [/default/(.*) -> /en/$1] redirect rule when nextjs default locale is set to default. ([#2055](https://github.com/Sitecore/jss/pull/2055))
 
 ## 22.5.2
 
 ### 🐛 Bug Fixes
+
 * `[sitecore-jss-nextjs]` When redirect rule was not using regex and was only matching a path (without query string), incoming matching URLs were ignored when query string is present. This has been fixed ([#2050](https://github.com/Sitecore/jss/pull/2050))
 * `[sitecore-jss-nextjs]` Fixed redirect header from previous middleware execution not being cleaned up correctly. ([#2050](https://github.com/Sitecore/jss/pull/2050))
 
