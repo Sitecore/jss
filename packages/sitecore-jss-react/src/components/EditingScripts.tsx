@@ -35,7 +35,7 @@ export const EditingScripts = (props: EditingScriptsProps): JSX.Element => {
     return <></>;
   }
 
-  // In case of Design Libnrary - render only the script required for the Design Library
+  // In case of RenderingType.Component - render only the script for Design Libnrary
   if (renderingType === RenderingType.Component) {
     return (
       <>
