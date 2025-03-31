@@ -84,18 +84,6 @@ describe('GraphQLSitemapXmlService', () => {
       return expect(nock.isDone()).to.be.true;
     });
 
-    it('should get exists sitemap', async () => {
-      const mockIdSitemap = '-3';
-      mockSitemapRequest(mockSitemaps);
-
-      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
-      const sitemap = await service.getSitemap(mockIdSitemap);
-
-      expect(sitemap).to.deep.equal(mockSitemaps[2]);
-
-      return expect(nock.isDone()).to.be.true;
-    });
-
     it('should get null if sitemap not exists', async () => {
       const mockIdSitemap = '-5';
       mockSitemapRequest(mockSitemaps);
@@ -105,6 +93,18 @@ describe('GraphQLSitemapXmlService', () => {
 
       // eslint-disable-next-line no-unused-expressions
       expect(sitemap).to.be.undefined;
+
+      return expect(nock.isDone()).to.be.true;
+    });
+
+    it('should fetch specific sitemap when id is provided', async () => {
+      const mockIdSitemap = '3';
+      mockSitemapRequest(mockSitemaps);
+
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
+      const sitemaps = await service.getSitemap(mockIdSitemap);
+
+      expect(sitemaps).to.deep.equal(mockSitemaps[2]);
 
       return expect(nock.isDone()).to.be.true;
     });
