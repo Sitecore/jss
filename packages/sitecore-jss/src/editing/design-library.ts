@@ -6,6 +6,11 @@ import { ComponentRendering, Field, GenericFieldValue } from '../layout/models';
 export const DESIGN_LIBRARY_STATUS_EVENT_NAME = 'component:status';
 
 /**
+ * Default url for the design library
+ */
+export const DESIGN_LIBRARY_URL_DEFAULT = 'https://designlibrary.sitecore.cloud';
+
+/**
  * Represents an event indicating the status of a component in the library.
  */
 export interface DesignLibraryStatusEvent {
@@ -142,4 +147,13 @@ export function getDesignLibraryStatusEvent(
       uid,
     },
   };
+}
+
+/**
+ * Generates the URL for the design library script link.
+ * @param {string} designLibraryUrl - The base URL of the design library. Defaults to `https://designlibrary.sitecore.cloud` if not provided.
+ * @returns The full URL to the design library script.
+ */
+export function getDesignLibraryScriptLink(designLibraryUrl = DESIGN_LIBRARY_URL_DEFAULT): string {
+  return `${designLibraryUrl}/lib/rh-lib-script.js`;
 }

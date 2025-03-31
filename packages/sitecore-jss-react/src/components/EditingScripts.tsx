@@ -1,20 +1,47 @@
 import React from 'react';
-import { EditMode, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
+import { EditMode, LayoutServicePageState, RenderingType } from '@sitecore-jss/sitecore-jss/layout';
 import { useSitecoreContext } from '../enhancers/withSitecoreContext';
 import { getJssPagesClientData } from '@sitecore-jss/sitecore-jss/editing';
+import { getDesignLibraryScriptLink } from '@sitecore-jss/sitecore-jss/editing';
 
 /**
- * Renders client scripts and data for editing/preview mode in Pages.
- * This script is only rendered when EditMode is Metadata, otherwise it renders nothing.
+ * Props for the EditingScripts component.
  */
-export const EditingScripts = (): JSX.Element => {
+export type EditingScriptsProps = {
+  /**
+   * The URL of the design library.
+   */
+  designLibraryUrl?: string;
+};
+
+/**
+ * - Renders client scripts and data for editing/preview mode for Pages
+ * - Renders script required for the Design Library (when RenderingType is `component`).
+ * This script is only rendered when EditMode is Metadata or RenderingType is `component`, otherwise it renders nothing.
+ * @param {EditingScriptsProps} props - The props for the EditingScripts component.
+ * @param {string} props.designLibraryUrl - The URL of the design library.
+ * @returns A JSX element containing the editing scripts or an empty fragment if not in editing/preview mode.
+ */
+export const EditingScripts = (props: EditingScriptsProps): JSX.Element => {
   const {
-    sitecoreContext: { pageState, editMode, clientData, clientScripts },
+    sitecoreContext: { pageState, editMode, clientData, clientScripts, renderingType },
   } = useSitecoreContext();
 
-  // Don't render anything if not in editing/preview mode
-  if (pageState === LayoutServicePageState.Normal || pageState === LayoutServicePageState.Preview) {
+  // Don't render anything if not in editing/preview mode and rendering type is not component
+  if (
+    renderingType !== RenderingType.Component &&
+    (pageState === LayoutServicePageState.Normal || pageState === LayoutServicePageState.Preview)
+  ) {
     return <></>;
+  }
+
+  // In case of Design Libnrary - render only the script required for the Design Library
+  if (renderingType === RenderingType.Component) {
+    return (
+      <>
+        <script src={getDesignLibraryScriptLink(props.designLibraryUrl)}></script>
+      </>
+    );
   }
 
   if (editMode === EditMode.Metadata) {

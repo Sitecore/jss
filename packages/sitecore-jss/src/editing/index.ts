@@ -35,4 +35,5 @@ export {
   DesignLibraryStatus,
   DesignLibraryStatusEvent,
   getDesignLibraryStatusEvent,
+  getDesignLibraryScriptLink,
 } from './design-library';

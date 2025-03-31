@@ -5,6 +5,8 @@ import {
   updateComponentHandler,
   getDesignLibraryStatusEvent,
   DesignLibraryStatus,
+  getDesignLibraryScriptLink,
+  DESIGN_LIBRARY_URL_DEFAULT,
 } from './design-library';
 import testComponent from '../test-data/component-editing-data';
 
@@ -161,6 +163,19 @@ describe('Design library utils', () => {
           uid: 'uid-1',
         },
       });
+    });
+  });
+
+  describe('getDesignLibraryScriptLink', () => {
+    it('should return the default design library script link when no URL is provided', () => {
+      const scriptLink = getDesignLibraryScriptLink();
+      expect(scriptLink).to.equal(DESIGN_LIBRARY_URL_DEFAULT);
+    });
+
+    it('should return the correct script link when a custom URL is provided', () => {
+      const customUrl = 'https://custom-designlibrary.com';
+      const scriptLink = getDesignLibraryScriptLink(customUrl);
+      expect(scriptLink).to.equal(`${customUrl}/lib/rh-lib-script.js`);
     });
   });
 
