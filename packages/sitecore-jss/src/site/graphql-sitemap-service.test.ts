@@ -108,5 +108,17 @@ describe('GraphQLSitemapXmlService', () => {
 
       return expect(nock.isDone()).to.be.true;
     });
+
+    it('should fetch default sitemap when no id is provided', async () => {
+      const defaultSitemap = 'sitemap.xml';
+      const mockSitemapsWithDefault = [...mockSitemaps, defaultSitemap];
+      mockSitemapRequest(mockSitemapsWithDefault);
+
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
+      const sitemaps = await service.getSitemap('');
+
+      expect(sitemaps).to.deep.equal(defaultSitemap);
+      return expect(nock.isDone()).to.be.true;
+    });
   });
 });

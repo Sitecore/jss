@@ -79,7 +79,7 @@ export class GraphQLSitemapXmlService {
    * @returns {string | undefined} the sitemap file path or undefined if one doesn't exist
    */
   async getSitemap(id: string): Promise<string | undefined> {
-    const searchSitemap = `${PREFIX_NAME_SITEMAP}-${id}.xml`;
+    const searchSitemap = `${PREFIX_NAME_SITEMAP}${id ? `-${id}` : ''}.xml`;
     const sitemaps = await this.fetchSitemaps();
 
     return sitemaps.find((sitemap: string) => sitemap.includes(searchSitemap));
