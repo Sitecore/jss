@@ -169,7 +169,7 @@ describe('Design library utils', () => {
   describe('getDesignLibraryScriptLink', () => {
     it('should return the default design library script link when no URL is provided', () => {
       const scriptLink = getDesignLibraryScriptLink();
-      expect(scriptLink).to.equal(DESIGN_LIBRARY_URL_DEFAULT);
+      expect(scriptLink).to.equal(`${DESIGN_LIBRARY_URL_DEFAULT}/lib/rh-lib-script.js`);
     });
 
     it('should return the correct script link when a custom URL is provided', () => {
