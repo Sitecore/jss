@@ -1,4 +1,5 @@
 import { ComponentRendering, Field, GenericFieldValue } from '../layout/models';
+import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
 
 /**
  * Event to be sent when report status to design library
@@ -142,4 +143,13 @@ export function getDesignLibraryStatusEvent(
       uid,
     },
   };
+}
+
+/**
+ * Generates the URL for the design library script link.
+ * @param {string} [sitecoreEdgeUrl] Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io
+ * @returns The full URL to the design library script.
+ */
+export function getDesignLibraryScriptLink(sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT): string {
+  return `${sitecoreEdgeUrl}/v1/files/designlibrary/lib/rh-lib-script.js`;
 }
