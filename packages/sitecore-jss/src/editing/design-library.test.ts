@@ -6,9 +6,9 @@ import {
   getDesignLibraryStatusEvent,
   DesignLibraryStatus,
   getDesignLibraryScriptLink,
-  DESIGN_LIBRARY_URL_DEFAULT,
 } from './design-library';
 import testComponent from '../test-data/component-editing-data';
+import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
 
 describe('Design library utils', () => {
   const debugSpy = sinon.spy(console, 'debug');
@@ -169,7 +169,7 @@ describe('Design library utils', () => {
   describe('getDesignLibraryScriptLink', () => {
     it('should return the default design library script link when no URL is provided', () => {
       const scriptLink = getDesignLibraryScriptLink();
-      expect(scriptLink).to.equal(`${DESIGN_LIBRARY_URL_DEFAULT}/lib/rh-lib-script.js`);
+      expect(scriptLink).to.equal(`${SITECORE_EDGE_URL_DEFAULT}/lib/rh-lib-script.js`);
     });
 
     it('should return the correct script link when a custom URL is provided', () => {

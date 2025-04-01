@@ -9,9 +9,9 @@ import { getDesignLibraryScriptLink } from '@sitecore-jss/sitecore-jss/editing';
  */
 export type EditingScriptsProps = {
   /**
-   * The URL of the design library.
+   * Sitecore Edge Platform URL.
    */
-  designLibraryUrl?: string;
+  sitecoreEdgeUrl?: string;
 };
 
 /**
@@ -19,7 +19,7 @@ export type EditingScriptsProps = {
  * - Renders script required for the Design Library (when RenderingType is `component`).
  * This script is only rendered when EditMode is Metadata or RenderingType is `component`, otherwise it renders nothing.
  * @param {EditingScriptsProps} props - The props for the EditingScripts component.
- * @param {string} props.designLibraryUrl - The URL of the design library.
+ * @param {string} props.sitecoreEdgeUrl - Sitecore Edge Platform URL.
  * @returns A JSX element containing the editing scripts or an empty fragment if not in editing/preview mode.
  */
 export const EditingScripts = (props: EditingScriptsProps): JSX.Element => {
@@ -39,7 +39,7 @@ export const EditingScripts = (props: EditingScriptsProps): JSX.Element => {
   if (renderingType === RenderingType.Component) {
     return (
       <>
-        <script src={getDesignLibraryScriptLink(props.designLibraryUrl)}></script>
+        <script src={getDesignLibraryScriptLink(props.sitecoreEdgeUrl)}></script>
       </>
     );
   }
