@@ -3,7 +3,7 @@ import { JssConfig } from 'lib/config';
 import { ConfigPlugin } from '..';
 
 /**
- * This plugin will setthe design library url config prop.
+ * This plugin will set the design library url config prop.
  */
 class DesignLibraryPlugin implements ConfigPlugin {
   order = 3;
