@@ -120,5 +120,26 @@ describe('GraphQLSitemapXmlService', () => {
       expect(sitemaps).to.deep.equal(defaultSitemap);
       return expect(nock.isDone()).to.be.true;
     });
+
+    it('should normalize IDs with leading hyphens (e.g., "-1" → "1")', async () => {
+      const mockSitemapsWithHyphenId = [...mockSitemaps, 'sitemap-1.xml'];
+      mockSitemapRequest(mockSitemapsWithHyphenId);
+
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
+      const result = await service.getSitemap('-1');
+
+      expect(result).to.deep.equal('sitemap-1.xml');
+      expect(nock.isDone()).to.be.true;
+    });
+
+    it('should return undefined if sitemap does not exist', async () => {
+      mockSitemapRequest(mockSitemaps);
+
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
+      const result = await service.getSitemap('999');
+
+      expect(result).to.be.undefined;
+      expect(nock.isDone()).to.be.true;
+    });
   });
 });
