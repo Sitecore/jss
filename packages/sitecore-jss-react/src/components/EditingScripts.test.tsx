@@ -206,11 +206,11 @@ describe('<EditingScripts />', () => {
         clientScripts: [],
       });
 
-      const customDesignLibraryUrl = 'http://designlibrary-staging';
+      const stagingEdgeUrl = 'http://edge-staging';
 
       const component = mount(
         <SitecoreContext componentFactory={mockComponentFactory} layoutData={layoutData}>
-          <EditingScripts designLibraryUrl={customDesignLibraryUrl} />
+          <EditingScripts sitecoreEdgeUrl={stagingEdgeUrl} />
         </SitecoreContext>
       );
 
@@ -218,7 +218,7 @@ describe('<EditingScripts />', () => {
       expect(scripts.find('script')).to.have.length(1);
 
       const script1 = scripts.find('script').at(0);
-      expect(script1.prop('src')).to.equal(getDesignLibraryScriptLink(customDesignLibraryUrl));
+      expect(script1.prop('src')).to.equal(getDesignLibraryScriptLink(stagingEdgeUrl));
     });
   });
 });
