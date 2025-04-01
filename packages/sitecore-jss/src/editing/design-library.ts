@@ -151,5 +151,5 @@ export function getDesignLibraryStatusEvent(
  * @returns The full URL to the design library script.
  */
 export function getDesignLibraryScriptLink(sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT): string {
-  return `${sitecoreEdgeUrl}/lib/rh-lib-script.js`;
+  return `${sitecoreEdgeUrl}/v1/files/designlibrary/lib/rh-lib-script.js`;
 }

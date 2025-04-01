@@ -169,13 +169,15 @@ describe('Design library utils', () => {
   describe('getDesignLibraryScriptLink', () => {
     it('should return the default design library script link when no URL is provided', () => {
       const scriptLink = getDesignLibraryScriptLink();
-      expect(scriptLink).to.equal(`${SITECORE_EDGE_URL_DEFAULT}/lib/rh-lib-script.js`);
+      expect(scriptLink).to.equal(
+        `${SITECORE_EDGE_URL_DEFAULT}/v1/files/designlibrary/lib/rh-lib-script.js`
+      );
     });
 
     it('should return the correct script link when a custom URL is provided', () => {
       const customUrl = 'https://custom-designlibrary.com';
       const scriptLink = getDesignLibraryScriptLink(customUrl);
-      expect(scriptLink).to.equal(`${customUrl}/lib/rh-lib-script.js`);
+      expect(scriptLink).to.equal(`${customUrl}/v1/files/designlibrary/lib/rh-lib-script.js`);
     });
   });
 
