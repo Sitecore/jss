@@ -16,4 +16,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss/src/site/utils.ts:3](https://github.com/Sitecore/jss/blob/89df8ed4416bbf2a9b63bc8c31fcb45dd2e16192/packages/sitecore-jss/src/site/utils.ts#L3)
+[packages/sitecore-jss/src/site/utils.ts:3](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss/src/site/utils.ts#L3)

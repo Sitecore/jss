@@ -16,7 +16,7 @@ Describes a package and components to be imported
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/components.ts:17](https://github.com/Sitecore/jss/blob/89df8ed4416bbf2a9b63bc8c31fcb45dd2e16192/packages/sitecore-jss-dev-tools/src/templating/components.ts#L17)
+[sitecore-jss-dev-tools/src/templating/components.ts:17](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss-dev-tools/src/templating/components.ts#L17)
 
 ***
 
@@ -26,4 +26,4 @@ Describes a package and components to be imported
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/templating/components.ts:16](https://github.com/Sitecore/jss/blob/89df8ed4416bbf2a9b63bc8c31fcb45dd2e16192/packages/sitecore-jss-dev-tools/src/templating/components.ts#L16)
+[sitecore-jss-dev-tools/src/templating/components.ts:16](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss-dev-tools/src/templating/components.ts#L16)

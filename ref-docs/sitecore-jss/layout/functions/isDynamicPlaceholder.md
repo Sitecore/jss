@@ -24,4 +24,4 @@ True if the placeholder name is dynamic
 
 ## Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:96](https://github.com/Sitecore/jss/blob/89df8ed4416bbf2a9b63bc8c31fcb45dd2e16192/packages/sitecore-jss/src/layout/utils.ts#L96)
+[packages/sitecore-jss/src/layout/utils.ts:96](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss/src/layout/utils.ts#L96)
