@@ -194,7 +194,6 @@ describe('<EditingScripts />', () => {
 
       const script1 = scripts.find('script').at(0);
       expect(script1.prop('src')).to.equal(getDesignLibraryScriptLink());
-      // https://designlibrary-staging.sitecore-staging.cloud/
     });
 
     it('should render Design Library script with custom design library url when rendering type is component', () => {
