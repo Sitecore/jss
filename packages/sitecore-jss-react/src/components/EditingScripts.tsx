@@ -37,9 +37,12 @@ export const EditingScripts = (props: EditingScriptsProps): JSX.Element => {
 
   // In case of RenderingType.Component - render only the script for Design Libnrary
   if (renderingType === RenderingType.Component) {
+    // Add cache buster to the script URL
+    const scriptUrl = `${getDesignLibraryScriptLink(props.sitecoreEdgeUrl)}?cb=${Date.now()}`;
+
     return (
       <>
-        <script src={getDesignLibraryScriptLink(props.sitecoreEdgeUrl)}></script>
+        <script src={scriptUrl} suppressHydrationWarning></script>
       </>
     );
   }

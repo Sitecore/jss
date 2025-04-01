@@ -193,7 +193,7 @@ describe('<EditingScripts />', () => {
       expect(scripts.find('script')).to.have.length(1);
 
       const script1 = scripts.find('script').at(0);
-      expect(script1.prop('src')).to.equal(getDesignLibraryScriptLink());
+      expect(script1.prop('src')).to.contain(`${getDesignLibraryScriptLink()}?cb=`);
     });
 
     it('should render Design Library script with custom design library url when rendering type is component', () => {
@@ -218,7 +218,7 @@ describe('<EditingScripts />', () => {
       expect(scripts.find('script')).to.have.length(1);
 
       const script1 = scripts.find('script').at(0);
-      expect(script1.prop('src')).to.equal(getDesignLibraryScriptLink(stagingEdgeUrl));
+      expect(script1.prop('src')).to.contain(`${getDesignLibraryScriptLink(stagingEdgeUrl)}?cb=`);
     });
   });
 });
