@@ -18,6 +18,7 @@ Our versioning strategy is as follows:
   * The `Form` component must be registered in the app to enable non-BYOC Forms support.
   * `SitecoreContext` now supports an `api` property for passing XM Cloud Edge endpoint settings, enabling the `Form` component to access the configured endpoint.
   * Added shared `Form` functionality via the `sitecore-jss/form` submodule.
+* `[sitecore-jss-nextjs]` Fix React warning from Link component when using custom emptyFieldEditingComponent prop ([#2061](https://github.com/Sitecore/jss/pull/2061)):
 
 ## 22.5.4
 
