@@ -19,12 +19,14 @@ Our versioning strategy is as follows:
   * `SitecoreContext` now supports an `api` property for passing XM Cloud Edge endpoint settings, enabling the `Form` component to access the configured endpoint.
   * Added shared `Form` functionality via the `sitecore-jss/form` submodule.
 
-  ### 🐛 Bug Fixes
-* `[sitecore-jss]``[template/nextjs-sxa]` Fix `/api/sitemap` endpoint ([#2058](https://github.com/Sitecore/jss/pull/2058))
+### 🐛 Bug Fixes
+
+* `[sitecore-jss]` `[template/nextjs-sxa]` Fix `/api/sitemap` endpoint ([#2058](https://github.com/Sitecore/jss/pull/2058))
+* `[sitecore-jss]` Handle trailing slash in sitecoreEdgeUrl to prevent request failures ([#2062](https://github.com/Sitecore/jss/pull/2062))
 
 ### 🛠 Breaking Changes
 
-* Upgrade cloudsdk to 0.5 ([#2060](https://github.com/Sitecore/jss/pull/2060)): 
+* Upgrade cloudsdk to 0.5 ([#2060](https://github.com/Sitecore/jss/pull/2060)):
   * This upgrade doesn't introduce any breaking changes, however you will have to upgrade your cloudsdk dependencies to meet peer dependencies requirements
 
 ## 22.5.4
