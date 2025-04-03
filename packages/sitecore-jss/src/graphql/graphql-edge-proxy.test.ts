@@ -24,6 +24,16 @@ describe('graphql-edge-proxy', () => {
         'https://test.com/v1/content/api/graphql/v1?sitecoreContextId=0730fc5a-3333-5555-5555-08db6d7ddb49'
       );
     });
+
+    it('should return url when sitecoreEdgeUrl ends with /', () => {
+      const sitecoreEdgeUrl = 'https://test.com/';
+
+      const url = getEdgeProxyContentUrl(sitecoreEdgeContextId, sitecoreEdgeUrl);
+
+      expect(url).to.equal(
+        'https://test.com/v1/content/api/graphql/v1?sitecoreContextId=0730fc5a-3333-5555-5555-08db6d7ddb49'
+      );
+    });
   });
 
   describe('getEdgeProxyFormsUrl', () => {
@@ -39,6 +49,16 @@ describe('graphql-edge-proxy', () => {
 
     it('should return url when custom sitecoreEdgeUrl is provided', () => {
       const sitecoreEdgeUrl = 'https://test.com';
+
+      const url = getEdgeProxyFormsUrl(sitecoreEdgeContextId, formId, sitecoreEdgeUrl);
+
+      expect(url).to.equal(
+        `https://test.com/v1/forms/publisher/${formId}?sitecoreContextId=${sitecoreEdgeContextId}`
+      );
+    });
+
+    it('should return url when sitecoreEdgeUrl ends with /', () => {
+      const sitecoreEdgeUrl = 'https://test.com/';
 
       const url = getEdgeProxyFormsUrl(sitecoreEdgeContextId, formId, sitecoreEdgeUrl);
 
