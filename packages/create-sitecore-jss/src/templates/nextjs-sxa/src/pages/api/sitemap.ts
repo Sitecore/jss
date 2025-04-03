@@ -31,6 +31,12 @@ const sitemapApi = async (
       const fetcher = new NativeDataFetcher();
       const xmlResponse = await fetcher.fetch<string>(sitemapPath);
 
+      if (!xmlResponse) {
+        return res.redirect('/404');
+      }
+
+      res.setHeader('Content-Type', 'text/xml;charset=utf-8');
+
       return res.send(xmlResponse.data);
     } catch (error) {
       return res.redirect('/404');
@@ -61,7 +67,7 @@ const sitemapApi = async (
   res.setHeader('Content-Type', 'text/xml;charset=utf-8');
 
   return res.send(`<?xml version="1.0" encoding="UTF-8"?>
-  <sitemapindex xmlns="http://sitemaps.org/schemas/sitemap/0.9" encoding="UTF-8">${SitemapLinks}</sitemapindex>
+  <sitemapindex xmlns="http://sitemaps.org/schemas/sitemap/0.9">${SitemapLinks}</sitemapindex>
   `);
 };
 

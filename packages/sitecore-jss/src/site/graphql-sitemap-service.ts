@@ -79,8 +79,16 @@ export class GraphQLSitemapXmlService {
    * @returns {string | undefined} the sitemap file path or undefined if one doesn't exist
    */
   async getSitemap(id: string): Promise<string | undefined> {
-    const normalizedId = id?.startsWith('-') ? id.slice(1) : id || '';
-    const searchSitemap = `${PREFIX_NAME_SITEMAP}${normalizedId ? `-${normalizedId}` : ''}.xml`;
+    let searchSitemap: string;
+
+    if (id === undefined) {
+      return undefined;
+    } else if (id === '') {
+      searchSitemap = `${PREFIX_NAME_SITEMAP}.xml`;
+    } else {
+      const normalizedId = id.startsWith('-') ? id.slice(1) : id;
+      searchSitemap = `${PREFIX_NAME_SITEMAP}-${normalizedId}.xml`;
+    }
     const sitemaps = await this.fetchSitemaps();
 
     return sitemaps.find((sitemap: string) => sitemap.includes(searchSitemap));

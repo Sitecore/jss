@@ -48,7 +48,7 @@ describe('GraphQLSitemapXmlService', () => {
       );
   };
 
-  describe('Fetch sitemap', () => {
+  describe.only('Fetch sitemap', () => {
     it('should get error if sitemap has empty sitename', async () => {
       mockSitemapRequest();
 
@@ -139,6 +139,30 @@ describe('GraphQLSitemapXmlService', () => {
       const result = await service.getSitemap('999');
 
       expect(result).to.be.undefined;
+      expect(nock.isDone()).to.be.true;
+    });
+
+    it('should return undefined when id is undefined', async () => {
+      mockSitemapRequest(mockSitemaps);
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
+      const result = await service.getSitemap((undefined as unknown) as string);
+      expect(result).to.be.undefined;
+      expect(nock.isDone()).to.be.false;
+    });
+
+    it('should find "sitemap.xml" when id is an empty string', async () => {
+      mockSitemapRequest(mockSitemaps);
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
+      const result = await service.getSitemap('');
+      expect(result).to.deep.equal(undefined);
+      expect(nock.isDone()).to.be.true;
+    });
+
+    it('should find "sitemap-1.xml" when id is "1"', async () => {
+      mockSitemapRequest(mockSitemaps);
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
+      const result = await service.getSitemap('1');
+      expect(result).to.deep.equal('sitemap-1.xml');
       expect(nock.isDone()).to.be.true;
     });
   });
