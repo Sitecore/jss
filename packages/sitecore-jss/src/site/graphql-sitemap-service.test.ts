@@ -48,7 +48,7 @@ describe('GraphQLSitemapXmlService', () => {
       );
   };
 
-  describe.only('Fetch sitemap', () => {
+  describe('Fetch sitemap', () => {
     it('should get error if sitemap has empty sitename', async () => {
       mockSitemapRequest();
 
