@@ -21,7 +21,14 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-- `[sitecore-jss-nextjs]` Fix React warning from Link component when using custom emptyFieldEditingComponent prop ([#2061](https://github.com/Sitecore/jss/pull/2061)):
+* `[sitecore-jss-nextjs]` Fix React warning from Link component when using custom emptyFieldEditingComponent prop ([#2061](https://github.com/Sitecore/jss/pull/2061)):
+* `[sitecore-jss]` `[template/nextjs-sxa]` Fix `/api/sitemap` endpoint ([#2058](https://github.com/Sitecore/jss/pull/2058)) ([#2063](https://github.com/Sitecore/jss/pull/2063))
+* `[sitecore-jss]` Handle trailing slash in sitecoreEdgeUrl to prevent request failures ([#2062](https://github.com/Sitecore/jss/pull/2062))
+
+### 🛠 Breaking Changes
+
+* Upgrade cloudsdk to 0.5 ([#2060](https://github.com/Sitecore/jss/pull/2060)):
+  * This upgrade doesn't introduce any breaking changes, however you will have to upgrade your cloudsdk dependencies to meet peer dependencies requirements
 
 ## 22.5.4
 

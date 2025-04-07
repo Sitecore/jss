@@ -10,4 +10,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:59](https://github.com/Sitecore/jss/blob/40f0c335888b832c299de2e95656f17610bc06a6/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L59)
+[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:59](https://github.com/Sitecore/jss/blob/a3f9b7b54a030838a28594f59d310fde477b83ba/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L59)
