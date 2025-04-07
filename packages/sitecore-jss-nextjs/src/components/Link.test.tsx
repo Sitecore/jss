@@ -1,7 +1,11 @@
 import React, { createRef, ReactNode } from 'react';
 import { NextRouter } from 'next/router';
 import NextLink from 'next/link';
-import { Link as ReactLink, LinkField } from '@sitecore-jss/sitecore-jss-react';
+import {
+  Link as ReactLink,
+  LinkField,
+  DefaultEmptyFieldEditingComponentText,
+} from '@sitecore-jss/sitecore-jss-react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
@@ -341,6 +345,39 @@ describe('<Link />', () => {
 
     const link = rendered.find('a');
     expect(link.html()).not.to.contain('internallinkmatcher');
+  });
+
+  it('should prevent passing emptyFieldEditingComponent to NextLink', () => {
+    const field = {
+      value: {
+        href: '/lorem',
+        text: 'ipsum',
+        class: 'my-link',
+        title: 'My Link',
+        target: '_blank',
+      },
+    };
+    const customEmptyFieldEditingComponentText = DefaultEmptyFieldEditingComponentText;
+    // Spy on console.warn
+    const consoleErrorSpy = spy(console, 'error');
+
+    const rendered = mount(
+      <Page>
+        <Link field={field} emptyFieldEditingComponent={customEmptyFieldEditingComponentText}>
+          <p>Hello world...</p>
+        </Link>
+      </Page>
+    );
+
+    expect(rendered.find(NextLink).length).to.equal(1);
+    expect(rendered.find(ReactLink).length).to.equal(0);
+
+    // Assert that the specific warning was not logged
+    expect(consoleErrorSpy.calledWithMatch(/React does not recognize the .* prop on a DOM element/))
+      .to.be.false;
+
+    // Restore the original console.error
+    consoleErrorSpy.restore();
   });
 
   it('should render ReactLink if href not exists', () => {

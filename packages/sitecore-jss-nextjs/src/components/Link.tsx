@@ -66,6 +66,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
       // determine if a link is a route or not. File extensions are not routes and should not be pre-fetched.
       if (isMatching && !isFileUrl) {
+        delete htmlLinkProps.emptyFieldEditingComponent;
         return (
           <NextLink
             href={{ pathname: href, query: querystring, hash: anchor }}
