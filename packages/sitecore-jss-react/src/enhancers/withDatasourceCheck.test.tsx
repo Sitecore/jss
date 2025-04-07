@@ -10,10 +10,11 @@ import {
   DefaultEditingError,
 } from '../enhancers/withDatasourceCheck';
 import { SitecoreContextReactContext } from '../components/SitecoreContext';
+import { RenderingType } from '@sitecore-jss/sitecore-jss/layout';
 
-const mockContext = (editing: boolean) => {
+const mockContext = (editing: boolean, renderingType?: RenderingType) => {
   return {
-    context: { pageEditing: editing },
+    context: { pageEditing: editing, renderingType },
     setContext: spy(),
   };
 };
@@ -99,6 +100,26 @@ describe('withDatasourceCheck', () => {
 
     expect(wrapper.find(CustomEditingError)).to.have.length(1);
     expect(wrapper.html()).to.contain('Better than yours');
+  });
+
+  it('should return wrapped component if rendered in DesignLibrary', () => {
+    const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
+    const props = {
+      rendering: {
+        componentName: 'TestComponent',
+        dataSource: '',
+      },
+    };
+
+    const wrapper = mount(
+      <SitecoreContextReactContext.Provider value={mockContext(false, RenderingType.Component)}>
+        <TestComponentWithDatasourceCheck {...props} />
+      </SitecoreContextReactContext.Provider>
+    );
+
+    expect(wrapper.find(TestComponent)).to.have.length(1);
+    expect(wrapper.html()).to.contain(props.rendering.componentName);
+    expect(wrapper.html()).to.contain(props.rendering.dataSource);
   });
 
   it('should return wrapped component if datasource present in normal mode', () => {
