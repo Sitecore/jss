@@ -19,7 +19,7 @@ Required. The language versions to search for. Fetch pages that have versions in
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:43](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss/src/graphql/search-service.ts#L43)
+[packages/sitecore-jss/src/graphql/search-service.ts:43](https://github.com/Sitecore/jss/blob/4faf93340e933e716750ea2d53247ee9dee173ff/packages/sitecore-jss/src/graphql/search-service.ts#L43)
 
 ***
 
@@ -39,7 +39,7 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:61](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss/src/graphql/search-service.ts#L61)
+[packages/sitecore-jss/src/graphql/search-service.ts:61](https://github.com/Sitecore/jss/blob/4faf93340e933e716750ea2d53247ee9dee173ff/packages/sitecore-jss/src/graphql/search-service.ts#L61)
 
 ***
 
@@ -51,7 +51,7 @@ Optional. The ID of the search root item. Fetch items that have this item as an 
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss/src/graphql/search-service.ts#L48)
+[packages/sitecore-jss/src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/4faf93340e933e716750ea2d53247ee9dee173ff/packages/sitecore-jss/src/graphql/search-service.ts#L48)
 
 ***
 
@@ -63,4 +63,4 @@ Optional. Sitecore template ID(s). Fetch items that inherit from this template(s
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss/src/graphql/search-service.ts#L53)
+[packages/sitecore-jss/src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/4faf93340e933e716750ea2d53247ee9dee173ff/packages/sitecore-jss/src/graphql/search-service.ts#L53)

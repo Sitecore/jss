@@ -63,4 +63,4 @@ See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) f
 
 ## Defined in
 
-[packages/sitecore-jss/src/debug.ts:30](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss/src/debug.ts#L30)
+[packages/sitecore-jss/src/debug.ts:30](https://github.com/Sitecore/jss/blob/4faf93340e933e716750ea2d53247ee9dee173ff/packages/sitecore-jss/src/debug.ts#L30)

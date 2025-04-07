@@ -28,7 +28,7 @@ Event args for Design Library `update` event
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:42](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss/src/editing/utils.ts#L42)
+[packages/sitecore-jss/src/editing/utils.ts:42](https://github.com/Sitecore/jss/blob/4faf93340e933e716750ea2d53247ee9dee173ff/packages/sitecore-jss/src/editing/utils.ts#L42)
 
 ***
 
@@ -38,4 +38,4 @@ Event args for Design Library `update` event
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:41](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss/src/editing/utils.ts#L41)
+[packages/sitecore-jss/src/editing/utils.ts:41](https://github.com/Sitecore/jss/blob/4faf93340e933e716750ea2d53247ee9dee173ff/packages/sitecore-jss/src/editing/utils.ts#L41)

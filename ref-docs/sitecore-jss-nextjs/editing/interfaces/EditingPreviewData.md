@@ -17,7 +17,7 @@ Used in Chromes Edit Mode only
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:13](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L13)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:13](https://github.com/Sitecore/jss/blob/4faf93340e933e716750ea2d53247ee9dee173ff/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L13)
 
 ***
 
@@ -31,7 +31,7 @@ Used in Chromes Edit Mode only
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:15](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L15)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:15](https://github.com/Sitecore/jss/blob/4faf93340e933e716750ea2d53247ee9dee173ff/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L15)
 
 ***
 
@@ -41,4 +41,4 @@ Used in Chromes Edit Mode only
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:14](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L14)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:14](https://github.com/Sitecore/jss/blob/4faf93340e933e716750ea2d53247ee9dee173ff/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L14)

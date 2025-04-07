@@ -33,4 +33,4 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 
 ## Defined in
 
-[packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:37](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L37)
+[packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:37](https://github.com/Sitecore/jss/blob/4faf93340e933e716750ea2d53247ee9dee173ff/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L37)

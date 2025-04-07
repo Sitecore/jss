@@ -26,4 +26,4 @@ content styles link, null if no styles are used in layout
 
 ## Defined in
 
-[packages/sitecore-jss/src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/9ab3ece4faaed005b0df56fed7a6f9f87cf75ebc/packages/sitecore-jss/src/layout/content-styles.ts#L26)
+[packages/sitecore-jss/src/layout/content-styles.ts:26](https://github.com/Sitecore/jss/blob/4faf93340e933e716750ea2d53247ee9dee173ff/packages/sitecore-jss/src/layout/content-styles.ts#L26)
