@@ -22,7 +22,6 @@
     "site.d.ts",
     "personalize.d.ts",
     "feaas.d.ts",
-    "form.d.ts",
     "src/**/*.test.ts",
     "src/test-data/*"
   ]

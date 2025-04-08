@@ -1,11 +1,21 @@
+/* eslint-disable prefer-const */
+
 import React, { useEffect, useRef, useState } from 'react';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
-import {
-  executeScriptElements,
-  loadForm,
-  subscribeToFormSubmitEvent,
-} from '@sitecore-jss/sitecore-jss/form';
+import { form } from '@sitecore-jss/sitecore-jss';
 import { useSitecoreContext } from '../enhancers/withSitecoreContext';
+
+let { executeScriptElements, loadForm, subscribeToFormSubmitEvent } = form;
+
+/**
+ * Mock function to replace the form module functions for `testing` purposes.
+ * @param {any} formModule - The form module to mock
+ */
+export const mockFormModule = (formModule: any) => {
+  executeScriptElements = formModule.executeScriptElements;
+  loadForm = formModule.loadForm;
+  subscribeToFormSubmitEvent = formModule.subscribeToFormSubmitEvent;
+};
 
 /**
  * Shape of the Form component rendering data.

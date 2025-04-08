@@ -1,8 +1,8 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import { expect } from 'chai';
-import proxyquire from 'proxyquire';
 import { SitecoreContext } from './SitecoreContext';
+import { Form, mockFormModule } from './Form';
 import sinon from 'sinon';
 
 describe('Form', () => {
@@ -65,12 +65,10 @@ describe('Form', () => {
     const subscribeToFormSubmitEventSpy = sinon.spy();
     const executeScriptElementsSpy = sinon.spy();
 
-    const { Form } = proxyquire('./Form', {
-      '@sitecore-jss/sitecore-jss/form': {
-        loadForm: loadFormSpy,
-        subscribeToFormSubmitEvent: subscribeToFormSubmitEventSpy,
-        executeScriptElements: executeScriptElementsSpy,
-      },
+    mockFormModule({
+      loadForm: loadFormSpy,
+      subscribeToFormSubmitEvent: subscribeToFormSubmitEventSpy,
+      executeScriptElements: executeScriptElementsSpy,
     });
 
     const rendered = await mount(
@@ -109,12 +107,10 @@ describe('Form', () => {
     const subscribeToFormSubmitEventSpy = sinon.spy();
     const executeScriptElementsSpy = sinon.spy();
 
-    const { Form } = proxyquire('./Form', {
-      '@sitecore-jss/sitecore-jss/form': {
-        loadForm: loadFormSpy,
-        subscribeToFormSubmitEvent: subscribeToFormSubmitEventSpy,
-        executeScriptElements: executeScriptElementsSpy,
-      },
+    mockFormModule({
+      loadForm: loadFormSpy,
+      subscribeToFormSubmitEvent: subscribeToFormSubmitEventSpy,
+      executeScriptElements: executeScriptElementsSpy,
     });
 
     const rendered = await mount(
@@ -154,12 +150,10 @@ describe('Form', () => {
     const subscribeToFormSubmitEventSpy = sinon.spy();
     const executeScriptElementsSpy = sinon.spy();
 
-    const { Form } = proxyquire('./Form', {
-      '@sitecore-jss/sitecore-jss/form': {
-        loadForm: loadFormSpy,
-        subscribeToFormSubmitEvent: subscribeToFormSubmitEventSpy,
-        executeScriptElements: executeScriptElementsSpy,
-      },
+    mockFormModule({
+      loadForm: loadFormSpy,
+      subscribeToFormSubmitEvent: subscribeToFormSubmitEventSpy,
+      executeScriptElements: executeScriptElementsSpy,
     });
 
     const rendered = await mount(
@@ -190,12 +184,10 @@ describe('Form', () => {
     const subscribeToFormSubmitEventSpy = sinon.spy();
     const executeScriptElementsSpy = sinon.spy();
 
-    const { Form } = proxyquire('./Form', {
-      '@sitecore-jss/sitecore-jss/form': {
-        loadForm: loadFormSpy,
-        subscribeToFormSubmitEvent: subscribeToFormSubmitEventSpy,
-        executeScriptElements: executeScriptElementsSpy,
-      },
+    mockFormModule({
+      loadForm: loadFormSpy,
+      subscribeToFormSubmitEvent: subscribeToFormSubmitEventSpy,
+      executeScriptElements: executeScriptElementsSpy,
     });
 
     const rendered = await mount(

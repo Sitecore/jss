@@ -1,9 +1,8 @@
 /* eslint-disable quotes */
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ElementRef } from '@angular/core';
-import * as formUtils from '@sitecore-jss/sitecore-jss/form';
 import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
-import { FormComponent, FormRendering } from './form.component';
+import { FormComponent, FormRendering, mockFormModule } from './form.component';
 import { EDGE_CONFIG, EdgeConfigToken } from '../services/shared.token';
 import { JssStateService } from '../services/jss-state.service';
 import { cleanHtml } from '../test-utils';
@@ -57,27 +56,28 @@ describe('FormComponent', () => {
   };
 
   it('should load form', fakeAsync(() => {
+    const loadFormSpy = jasmine
+      .createSpy('loadForm')
+      .and.returnValue(
+        Promise.resolve(
+          '<form id="test-form">\n' +
+            '<script type="javascript">console.log(\'script 1\');</script>\n' +
+            '<script type="javascript">console.log(\'script 2\');</script></form>'
+        )
+      );
+
+    const executeScriptElementsSpy = jasmine.createSpy('executeScriptElements');
+    const subscribeToFormSubmitEventSpy = jasmine.createSpy('subscribeToFormSubmitEvent');
+
+    mockFormModule({
+      loadForm: loadFormSpy,
+      executeScriptElements: executeScriptElementsSpy,
+      subscribeToFormSubmitEvent: subscribeToFormSubmitEventSpy,
+    });
+
     init();
 
     const stateService = TestBed.inject(JssStateService);
-
-    const execScriptElementsSpy = spyOnProperty(formUtils, 'executeScriptElements').and.returnValue(
-      jasmine.createSpy()
-    );
-    const subscribeSpy = spyOnProperty(formUtils, 'subscribeToFormSubmitEvent').and.returnValue(
-      jasmine.createSpy()
-    );
-    const loadFormSpy = spyOnProperty(formUtils, 'loadForm').and.returnValue(
-      jasmine
-        .createSpy()
-        .and.returnValue(
-          Promise.resolve(
-            '<form id="test-form">\n' +
-              '<script type="javascript">console.log(\'script 1\');</script>\n' +
-              '<script type="javascript">console.log(\'script 2\');</script></form>'
-          )
-        )
-    );
 
     stateService.setState({
       sitecore: {
@@ -99,8 +99,8 @@ describe('FormComponent', () => {
     );
 
     expect(loadFormSpy).toHaveBeenCalled();
-    expect(execScriptElementsSpy).toHaveBeenCalled();
-    expect(subscribeSpy).toHaveBeenCalled();
+    expect(executeScriptElementsSpy).toHaveBeenCalled();
+    expect(subscribeToFormSubmitEventSpy).toHaveBeenCalled();
 
     const formElement = elementRef.nativeElement.querySelector('form');
 
@@ -118,6 +118,25 @@ describe('FormComponent', () => {
   }));
 
   it('should load form with no sitecoreEdgeUrl', fakeAsync(() => {
+    const loadFormSpy = jasmine
+      .createSpy()
+      .and.returnValue(
+        Promise.resolve(
+          '<form id="test-form">\n' +
+            '<script type="javascript">console.log(\'script 1\');</script>\n' +
+            '<script type="javascript">console.log(\'script 2\');</script></form>'
+        )
+      );
+
+    const executeScriptElementsSpy = jasmine.createSpy('executeScriptElements');
+    const subscribeToFormSubmitEventSpy = jasmine.createSpy('subscribeToFormSubmitEvent');
+
+    mockFormModule({
+      loadForm: loadFormSpy,
+      executeScriptElements: executeScriptElementsSpy,
+      subscribeToFormSubmitEvent: subscribeToFormSubmitEventSpy,
+    });
+
     init({
       edgeConfig: {
         sitecoreEdgeContextId: 'test-context-id',
@@ -125,24 +144,6 @@ describe('FormComponent', () => {
     });
 
     const stateService = TestBed.inject(JssStateService);
-
-    const execScriptElementsSpy = spyOnProperty(formUtils, 'executeScriptElements').and.returnValue(
-      jasmine.createSpy()
-    );
-    const subscribeSpy = spyOnProperty(formUtils, 'subscribeToFormSubmitEvent').and.returnValue(
-      jasmine.createSpy()
-    );
-    const loadFormSpy = spyOnProperty(formUtils, 'loadForm').and.returnValue(
-      jasmine
-        .createSpy()
-        .and.returnValue(
-          Promise.resolve(
-            '<form id="test-form">\n' +
-              '<script type="javascript">console.log(\'script 1\');</script>\n' +
-              '<script type="javascript">console.log(\'script 2\');</script></form>'
-          )
-        )
-    );
 
     stateService.setState({
       sitecore: {
@@ -163,8 +164,8 @@ describe('FormComponent', () => {
         '<script type="javascript">console.log(\'script 2\');</script></form>'
     );
     expect(loadFormSpy).toHaveBeenCalled();
-    expect(execScriptElementsSpy).toHaveBeenCalled();
-    expect(subscribeSpy).toHaveBeenCalled();
+    expect(executeScriptElementsSpy).toHaveBeenCalled();
+    expect(subscribeToFormSubmitEventSpy).toHaveBeenCalled();
 
     const scriptElements = elementRef.nativeElement.querySelectorAll('script');
 
@@ -178,27 +179,28 @@ describe('FormComponent', () => {
   }));
 
   it('should not subscribe on form event if the component is in editing or preview mode', fakeAsync(() => {
+    const loadFormSpy = jasmine
+      .createSpy()
+      .and.returnValue(
+        Promise.resolve(
+          '<form id="test-form">\n' +
+            '<script type="javascript">console.log(\'script 1\');</script>\n' +
+            '<script type="javascript">console.log(\'script 2\');</script></form>'
+        )
+      );
+
+    const executeScriptElementsSpy = jasmine.createSpy('executeScriptElements');
+    const subscribeToFormSubmitEventSpy = jasmine.createSpy('subscribeToFormSubmitEvent');
+
+    mockFormModule({
+      loadForm: loadFormSpy,
+      executeScriptElements: executeScriptElementsSpy,
+      subscribeToFormSubmitEvent: subscribeToFormSubmitEventSpy,
+    });
+
     init();
 
     const stateService = TestBed.inject(JssStateService);
-
-    const execScriptElementsSpy = spyOnProperty(formUtils, 'executeScriptElements').and.returnValue(
-      jasmine.createSpy()
-    );
-    const subscribeSpy = spyOnProperty(formUtils, 'subscribeToFormSubmitEvent').and.returnValue(
-      jasmine.createSpy()
-    );
-    const loadFormSpy = spyOnProperty(formUtils, 'loadForm').and.returnValue(
-      jasmine
-        .createSpy()
-        .and.returnValue(
-          Promise.resolve(
-            '<form id="test-form">\n' +
-              '<script type="javascript">console.log(\'script 1\');</script>\n' +
-              '<script type="javascript">console.log(\'script 2\');</script></form>'
-          )
-        )
-    );
 
     stateService.setState({
       sitecore: {
@@ -220,8 +222,8 @@ describe('FormComponent', () => {
     );
 
     expect(loadFormSpy).toHaveBeenCalled();
-    expect(execScriptElementsSpy).toHaveBeenCalled();
-    expect(subscribeSpy).not.toHaveBeenCalled();
+    expect(executeScriptElementsSpy).toHaveBeenCalled();
+    expect(subscribeToFormSubmitEventSpy).not.toHaveBeenCalled();
 
     const formElement = elementRef.nativeElement.querySelector('form');
 
@@ -240,6 +242,12 @@ describe('FormComponent', () => {
 
   describe('when fetch fails', () => {
     it('editing mode - should render error', fakeAsync(() => {
+      const loadFormSpy = jasmine.createSpy().and.throwError('Fetch failed');
+
+      mockFormModule({
+        loadForm: loadFormSpy,
+      });
+
       init();
 
       const stateService = TestBed.inject(JssStateService);
@@ -253,10 +261,6 @@ describe('FormComponent', () => {
         },
       });
 
-      const loadFormSpy = spyOnProperty(formUtils, 'loadForm').and.returnValue(
-        jasmine.createSpy().and.throwError('Fetch failed')
-      );
-
       fixture.detectChanges();
 
       tick();
@@ -269,6 +273,12 @@ describe('FormComponent', () => {
     }));
 
     it('preview mode - render error', fakeAsync(() => {
+      const loadFormSpy = jasmine.createSpy().and.throwError('Fetch failed');
+
+      mockFormModule({
+        loadForm: loadFormSpy,
+      });
+
       init();
 
       const stateService = TestBed.inject(JssStateService);
@@ -282,10 +292,6 @@ describe('FormComponent', () => {
         },
       });
 
-      const loadFormSpy = spyOnProperty(formUtils, 'loadForm').and.returnValue(
-        jasmine.createSpy().and.throwError('Fetch failed')
-      );
-
       fixture.detectChanges();
 
       tick();
@@ -298,6 +304,12 @@ describe('FormComponent', () => {
     }));
 
     it('normal mode - should render nothing', fakeAsync(() => {
+      const loadFormSpy = jasmine.createSpy().and.throwError('Fetch failed');
+
+      mockFormModule({
+        loadForm: loadFormSpy,
+      });
+
       init();
 
       const stateService = TestBed.inject(JssStateService);
@@ -310,10 +322,6 @@ describe('FormComponent', () => {
           route: null,
         },
       });
-
-      const loadFormSpy = spyOnProperty(formUtils, 'loadForm').and.returnValue(
-        jasmine.createSpy().and.throwError('Fetch failed')
-      );
 
       fixture.detectChanges();
 

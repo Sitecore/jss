@@ -1,9 +1,6 @@
+/* eslint-disable prefer-const */
 import { ComponentRendering, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
-import {
-  executeScriptElements,
-  loadForm,
-  subscribeToFormSubmitEvent,
-} from '@sitecore-jss/sitecore-jss/form';
+import { form, debug } from '@sitecore-jss/sitecore-jss';
 import {
   Component,
   OnInit,
@@ -17,7 +14,18 @@ import { EDGE_CONFIG, EdgeConfigToken } from '../services/shared.token';
 import { JssStateService } from '../services/jss-state.service';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
-import { debug } from '@sitecore-jss/sitecore-jss';
+
+let { executeScriptElements, loadForm, subscribeToFormSubmitEvent } = form;
+
+/**
+ * Mock function to replace the form module functions for `testing` purposes.
+ * @param {any} formModule - The form module to mock
+ */
+export const mockFormModule = (formModule: any) => {
+  executeScriptElements = formModule.executeScriptElements;
+  loadForm = formModule.loadForm;
+  subscribeToFormSubmitEvent = formModule.subscribeToFormSubmitEvent;
+};
 
 /**
  * Shape of the Form component rendering data.
