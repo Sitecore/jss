@@ -204,7 +204,7 @@ export const areURLSearchParamsEqual = (params1: URLSearchParams, params2: URLSe
 export const escapeNonSpecialQuestionMarks = (input: string): string => {
   const regexPattern = /(\\)?\?/g; // Match "?" that may or may not be preceded by a backslash
   const negativeLookaheadPattern = /\(\?!$/; // Detect the start of a Negative Lookahead pattern
-  const specialRegexSymbols = /[.*+)\[\]|\(]$/; // Check for special regex symbols before "?" 
+  const specialRegexSymbols = /[.*+)\[\]|\(]$/; // Check for special regex symbols before "?"
 
   let result = '';
   let lastIndex = 0;
