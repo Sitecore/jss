@@ -202,7 +202,7 @@ export const areURLSearchParamsEqual = (params1: URLSearchParams, params2: URLSe
  * @returns {string} - The modified string or regex with non-special "?" characters escaped.
  */
 export const escapeNonSpecialQuestionMarks = (input: string): string => {
-  const regexPattern = /(?<!\\)\?/g; // Match unescaped "?" characters
+  const regexPattern = /((?:^|[^\\])\?)/g; // Match unescaped "?" characters
   const negativeLookaheadPattern = /\(\?!$/; // Detect the start of a Negative Lookahead pattern
   const specialRegexSymbols = /[.*+)\[\]|\(]$/; // Check for special regex symbols before "?"
 
