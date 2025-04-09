@@ -13,11 +13,11 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[Next.js]` XM Cloud Forms support without BYOC ([#2052](https://github.com/Sitecore/jss/pull/2052)):
+* `[Next.js]` XM Cloud Forms support without BYOC ([#2052](https://github.com/Sitecore/jss/pull/2052))([#2066](https://github.com/Sitecore/jss/pull/2066)):
   * Introduced a new `Form` component in the `sitecore-jss-react` package.
   * The `Form` component must be registered in the app to enable non-BYOC Forms support.
   * `SitecoreContext` now supports an `api` property for passing XM Cloud Edge endpoint settings, enabling the `Form` component to access the configured endpoint.
-  * Added shared `Form` functionality via the `sitecore-jss/form` submodule.
+  * Added shared `Form` functionality via the `sitecore-jss` package.
 
 ### 🐛 Bug Fixes
 
