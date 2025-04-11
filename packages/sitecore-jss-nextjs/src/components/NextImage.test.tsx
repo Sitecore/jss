@@ -10,7 +10,7 @@ import {
   LayoutServicePageState,
   SitecoreContextReactContext,
 } from '@sitecore-jss/sitecore-jss-react';
-import { RenderingType } from '@sitecore-jss/sitecore-jss/src/layout';
+import { RenderingType } from '@sitecore-jss/sitecore-jss/layout';
 import Image, { ImageLoader } from 'next/image';
 import { spy, match } from 'sinon';
 import sinonChai from 'sinon-chai';
