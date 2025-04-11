@@ -10,6 +10,7 @@ import {
   LayoutServicePageState,
   SitecoreContextReactContext,
 } from '@sitecore-jss/sitecore-jss-react';
+import { RenderingType } from '@sitecore-jss/sitecore-jss/src/layout';
 import Image, { ImageLoader } from 'next/image';
 import { spy, match } from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -553,6 +554,22 @@ describe('<NextImage />', () => {
         ...testContextProps,
         context: {
           pageState: LayoutServicePageState.Preview,
+        },
+      };
+      const rendered = mount(
+        <SitecoreContextReactContext.Provider value={testEditingContext}>
+          <NextImage loader={mockLoader} {...props} />
+        </SitecoreContextReactContext.Provider>
+      ).find(Image);
+      expect(rendered.prop('unoptimized')).to.equal(true);
+    });
+
+    it('should render unoptimized image in component rendering type', () => {
+      const testEditingContext = {
+        ...testContextProps,
+        context: {
+          ...testContextProps.context,
+          renderingType: RenderingType.Component,
         },
       };
       const rendered = mount(
