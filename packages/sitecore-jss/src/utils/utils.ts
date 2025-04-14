@@ -202,7 +202,7 @@ export const areURLSearchParamsEqual = (params1: URLSearchParams, params2: URLSe
  * @returns {string} - The modified string or regex with non-special "?" characters escaped.
  */
 export const escapeNonSpecialQuestionMarks = (input: string): string => {
-  const regexPattern = /(?<!\\)\?/g; // Match unescaped "?" characters
+  const regexPattern = /(\\)?\?/g; // Match "?" that may or may not be preceded by a backslash
   const negativeLookaheadPattern = /\(\?!$/; // Detect the start of a Negative Lookahead pattern
   const specialRegexSymbols = /[.*+)\[\]|\(]$/; // Check for special regex symbols before "?"
 
@@ -214,14 +214,17 @@ export const escapeNonSpecialQuestionMarks = (input: string): string => {
     const index = match.index; // Position of the "?" in the string
     const before = input.slice(lastIndex, index); // Context before the "?"
 
+    // Check if "?" is preceded by a backslash (escaped)
+    const isEscaped = match[1] !== undefined; // match[1] is the backslash group
+
     // Check if "?" is part of a Negative Lookahead
     const isNegativeLookahead = negativeLookaheadPattern.test(before.slice(-3));
 
     // Check if "?" follows a special regex symbol
     const isSpecialRegexSymbol = specialRegexSymbols.test(before.slice(-1));
 
-    if (isNegativeLookahead || isSpecialRegexSymbol) {
-      // If it's a special case, keep the "?" as is
+    if (isEscaped || isNegativeLookahead || isSpecialRegexSymbol) {
+      // If it's escaped, part of a Negative Lookahead, or follows a special regex symbol, keep the "?" as is
       result += input.slice(lastIndex, index + 1);
     } else {
       // Otherwise, escape the "?"

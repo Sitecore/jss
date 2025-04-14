@@ -9,6 +9,12 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 22.5.5
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss]` Fix for lookbehind regex. (not supported on ios 16) [#2057](https://github.com/Sitecore/jss/issues/2057)
+
 ## 22.5.4
 
 ### 🐛 Bug Fixes
