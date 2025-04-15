@@ -1,26 +1,22 @@
-﻿import path, { sep } from 'path';
+﻿import { NextjsArgs } from './../nextjs/args';
+import path, { sep } from 'path';
 import {
   Initializer,
   openJsonFile,
   transform,
   isDevEnvironment,
   DEFAULT_APPNAME,
-  ClientAppArgs,
   incompatibleAddonsMsg,
 } from '../../common';
 import { removeDevDependencies } from './remove-dev-dependencies';
-import { sharedPrerender, Prerender } from '../nextjs/prompts';
-
-type ExtendedClientAppArgs = ClientAppArgs & {
-  prerender?: Prerender;
-};
+import { sharedPrerender } from '../nextjs/prompts';
 
 export default class NextjsXMCloudInitializer implements Initializer {
   get isBase(): boolean {
     return false;
   }
 
-  async init(args: ExtendedClientAppArgs) {
+  async init(args: NextjsArgs) {
     const pkg = openJsonFile(`${args.destination}${sep}package.json`);
 
     const mergedArgs = {
