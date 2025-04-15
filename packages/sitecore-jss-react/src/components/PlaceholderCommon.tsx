@@ -287,6 +287,13 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         if (!isEmpty) {
           // assign type based on passed element - type='text/sitecore' should be ignored when renderEach Placeholder prop function is being used
           const type = rendered.props.type === 'text/sitecore' ? rendered.props.type : '';
+
+          // the registered BYOC components are imported using dynamic(), so we need to account for that when passing the isDynamic prop to ErrorBoundary
+          const isByocWrapper = componentRendering.componentName === BYOC_WRAPPER_RENDERING_NAME;
+
+          // all dynamic elements will have a separate render prop
+          const isDynamicComponent = !!(component as JssComponentType).render?.preload;
+
           // wrapping with error boundary could cause problems in case where parent component uses withPlaceholder HOC and tries to access its children props
           // that's why we need to expose element's props here
           rendered = (
@@ -295,7 +302,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
               errorComponent={this.props.errorComponent}
               componentLoadingMessage={this.props.componentLoadingMessage}
               type={type}
-              isDynamic={(component as JssComponentType).render?.preload ? true : false}
+              isDynamic={isDynamicComponent || isByocWrapper}
               {...rendered.props}
             >
               {rendered}

@@ -410,6 +410,39 @@ export const byocWrapperData = {
   },
 };
 
+export const byocWrapperOnlyData = {
+  sitecore: {
+    context: {
+      pageEditing: false,
+    },
+    route: {
+      name: 'Home',
+      displayName: 'Home',
+      fields: {
+        key: {
+          value: 'This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;',
+        },
+      },
+      placeholders: {
+        main: [
+          {
+            uid: '278b99a7-8d73-4362-ac05-53e7c35154d5',
+            componentName: 'BYOCWrapper',
+            dataSource: '',
+            params: {
+              ComponentName: 'Foo',
+              ComponentProps: '{ "columns": 7 }',
+              GridParameters: 'col-12',
+              DynamicPlaceholderId: '1',
+              FieldNames: 'Default',
+            },
+          },
+        ],
+      },
+    },
+  },
+};
+
 export const feaasWrapperData = {
   sitecore: {
     context: {

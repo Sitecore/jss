@@ -11,6 +11,7 @@ import { stub } from 'sinon';
 import { convertedData as eeData, emptyPlaceholderData } from '../test-data/ee-data';
 import {
   byocWrapperData,
+  byocWrapperOnlyData,
   feaasWrapperData,
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
@@ -29,11 +30,7 @@ import * as FEAASWrapper from './FEaaSWrapper';
 import { HiddenRendering } from './HiddenRendering';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import { Placeholder } from './Placeholder';
-import {
-  ComponentProps,
-  getDynamicPlaceholderPattern,
-  isDynamicPlaceholder,
-} from './PlaceholderCommon';
+import { ComponentProps } from './PlaceholderCommon';
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
@@ -437,8 +434,39 @@ describe('<Placeholder />', () => {
         </SitecoreContext>
       );
 
+      console.log('renderedComponent');
+      console.log(renderedComponent.find('ErrorBoundary').length);
+      console.log(renderedComponent.find('Suspense').length);
+
       expect(renderedComponent.find('.byoc-component').length).to.equal(2);
       expect(renderedComponent.find('.byoc-wrapper').length).to.equal(1);
+
+      byocComponentStub.restore();
+      byocWrapperStub.restore();
+    });
+
+    it('should not render ErrorBoundary without Suspense for byoc wrapper', () => {
+      const component = byocWrapperOnlyData.sitecore.route as RouteData;
+      const phKey = 'main';
+
+      byocComponentStub = stub(BYOCComponent, 'BYOCComponent').callsFake(() => (
+        <p className="byoc-component">Foo</p>
+      ));
+
+      byocWrapperStub = stub(BYOCWrapper, 'BYOCWrapper').callsFake(() => (
+        <div className="byoc-wrapper">
+          <BYOCComponent.BYOCComponent />
+        </div>
+      ));
+
+      const renderedComponent = mount(
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
+      );
+
+      expect(renderedComponent.find('ErrorBoundary').length).to.equal(1);
+      expect(renderedComponent.find('Suspense').length).to.equal(0);
 
       byocComponentStub.restore();
       byocWrapperStub.restore();
