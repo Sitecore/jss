@@ -28,7 +28,7 @@ Creates an instance of graphQL redirects service with the provided options
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:66](https://github.com/Sitecore/jss/blob/751eea0eec65619be80fbc1648c2b9864999d081/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L66)
+[packages/sitecore-jss/src/site/graphql-redirects-service.ts:66](https://github.com/Sitecore/jss/blob/8d80ded991891a848a3a0b07806683864fddae51/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L66)
 
 ## Accessors
 
@@ -44,7 +44,7 @@ Creates an instance of graphQL redirects service with the provided options
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:71](https://github.com/Sitecore/jss/blob/751eea0eec65619be80fbc1648c2b9864999d081/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L71)
+[packages/sitecore-jss/src/site/graphql-redirects-service.ts:71](https://github.com/Sitecore/jss/blob/8d80ded991891a848a3a0b07806683864fddae51/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L71)
 
 ## Methods
 
@@ -72,7 +72,7 @@ if the siteName is empty.
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:81](https://github.com/Sitecore/jss/blob/751eea0eec65619be80fbc1648c2b9864999d081/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L81)
+[packages/sitecore-jss/src/site/graphql-redirects-service.ts:81](https://github.com/Sitecore/jss/blob/8d80ded991891a848a3a0b07806683864fddae51/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L81)
 
 ***
 
@@ -91,7 +91,7 @@ CacheClient instance
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:121](https://github.com/Sitecore/jss/blob/751eea0eec65619be80fbc1648c2b9864999d081/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L121)
+[packages/sitecore-jss/src/site/graphql-redirects-service.ts:121](https://github.com/Sitecore/jss/blob/8d80ded991891a848a3a0b07806683864fddae51/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L121)
 
 ***
 
@@ -111,4 +111,4 @@ implementation
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:105](https://github.com/Sitecore/jss/blob/751eea0eec65619be80fbc1648c2b9864999d081/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L105)
+[packages/sitecore-jss/src/site/graphql-redirects-service.ts:105](https://github.com/Sitecore/jss/blob/8d80ded991891a848a3a0b07806683864fddae51/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L105)

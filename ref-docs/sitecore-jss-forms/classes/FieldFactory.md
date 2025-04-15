@@ -22,7 +22,7 @@ but it maps form element components instead of layout components
 
 #### Defined in
 
-[src/field-factory.tsx:18](https://github.com/Sitecore/jss/blob/751eea0eec65619be80fbc1648c2b9864999d081/packages/sitecore-jss-react-forms/src/field-factory.tsx#L18)
+[src/field-factory.tsx:18](https://github.com/Sitecore/jss/blob/8d80ded991891a848a3a0b07806683864fddae51/packages/sitecore-jss-react-forms/src/field-factory.tsx#L18)
 
 ## Methods
 
@@ -43,7 +43,7 @@ but it maps form element components instead of layout components
 
 #### Defined in
 
-[src/field-factory.tsx:38](https://github.com/Sitecore/jss/blob/751eea0eec65619be80fbc1648c2b9864999d081/packages/sitecore-jss-react-forms/src/field-factory.tsx#L38)
+[src/field-factory.tsx:38](https://github.com/Sitecore/jss/blob/8d80ded991891a848a3a0b07806683864fddae51/packages/sitecore-jss-react-forms/src/field-factory.tsx#L38)
 
 ***
 
@@ -70,7 +70,7 @@ but it maps form element components instead of layout components
 
 #### Defined in
 
-[src/field-factory.tsx:31](https://github.com/Sitecore/jss/blob/751eea0eec65619be80fbc1648c2b9864999d081/packages/sitecore-jss-react-forms/src/field-factory.tsx#L31)
+[src/field-factory.tsx:31](https://github.com/Sitecore/jss/blob/8d80ded991891a848a3a0b07806683864fddae51/packages/sitecore-jss-react-forms/src/field-factory.tsx#L31)
 
 ***
 
@@ -90,4 +90,4 @@ but it maps form element components instead of layout components
 
 #### Defined in
 
-[src/field-factory.tsx:27](https://github.com/Sitecore/jss/blob/751eea0eec65619be80fbc1648c2b9864999d081/packages/sitecore-jss-react-forms/src/field-factory.tsx#L27)
+[src/field-factory.tsx:27](https://github.com/Sitecore/jss/blob/8d80ded991891a848a3a0b07806683864fddae51/packages/sitecore-jss-react-forms/src/field-factory.tsx#L27)

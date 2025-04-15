@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-forms",
-  "version": "22.6.0-canary.32",
+  "version": "22.6.0-canary.33",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -42,7 +42,7 @@
     "typescript": "~5.6.3"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "22.6.0-canary.32"
+    "@sitecore-jss/sitecore-jss": "22.6.0-canary.33"
   },
   "description": "",
   "types": "types/index.d.ts",

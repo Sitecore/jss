@@ -40,4 +40,4 @@ leaving that decision up to implementations.
 
 ## Defined in
 
-[packages/sitecore-jss/src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/751eea0eec65619be80fbc1648c2b9864999d081/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
+[packages/sitecore-jss/src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/8d80ded991891a848a3a0b07806683864fddae51/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
