@@ -11,7 +11,6 @@ import { stub } from 'sinon';
 import { convertedData as eeData, emptyPlaceholderData } from '../test-data/ee-data';
 import {
   byocWrapperData,
-  byocWrapperOnlyData,
   feaasWrapperData,
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
@@ -442,7 +441,7 @@ describe('<Placeholder />', () => {
     });
 
     it('should render ErrorBoundary without Suspense for byoc wrapper', () => {
-      const component = byocWrapperOnlyData.sitecore.route as RouteData;
+      const component = byocWrapperData.sitecore.route as RouteData;
       const phKey = 'main';
 
       byocComponentStub = stub(BYOCComponent, 'BYOCComponent').callsFake(() => (
@@ -461,8 +460,8 @@ describe('<Placeholder />', () => {
         </SitecoreContext>
       );
 
-      expect(renderedComponent.find('ErrorBoundary').length).to.equal(1);
-      expect(renderedComponent.find('Suspense').length).to.equal(0);
+      expect(renderedComponent.find('ErrorBoundary').length).to.equal(2);
+      expect(renderedComponent.find('Suspense').length).to.equal(1);
 
       byocComponentStub.restore();
       byocWrapperStub.restore();
