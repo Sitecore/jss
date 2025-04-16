@@ -10,5 +10,6 @@ import * as deploy from './deploy';
 import * as manifest from './manifest';
 import * as pkg from './package';
 import * as setup from './setup';
+import * as extractComponents from './extract-components';
 
-export { easterEgg, elephant, environment, setup, deploy, pkg, manifest, clean };
+export { easterEgg, elephant, environment, extractComponents, setup, deploy, pkg, manifest, clean };

@@ -31,6 +31,7 @@ export {
 } from './disconnected-server/create-default-disconnected-server';
 export { ScJssConfig, JssConfiguration, resolveScJssConfig } from './resolve-scjssconfig';
 export { Metadata } from '@sitecore-jss/sitecore-jss/editing';
+export { constants } from '@sitecore-jss/sitecore-jss';
 
 export * from './templating';
 export * from './manifest';
