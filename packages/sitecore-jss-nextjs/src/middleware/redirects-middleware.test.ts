@@ -1783,9 +1783,17 @@ describe('RedirectsMiddleware', () => {
       });
 
       it('should redirect regardless of case in pattern and target', async () => {
-        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        // Set up a clone function (used by both req and res)
+        const cloneUrl = () => ({
+          href: 'http://localhost:3000/Found',
+          pathname: '/Found',
+          origin: 'http://localhost:3000',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        });
 
-        const url = {
+        const redirectUrl = {
           href: 'http://localhost:3000/Found',
           pathname: '/Found',
           origin: 'http://localhost:3000',
@@ -1796,8 +1804,9 @@ describe('RedirectsMiddleware', () => {
 
         setupRedirectStub(301);
 
+        // Create the test request and response
         const { res, req } = createTestRequestResponse({
-          response: { url },
+          response: { url: redirectUrl },
           request: {
             nextUrl: {
               pathname: '/About',
@@ -1812,8 +1821,8 @@ describe('RedirectsMiddleware', () => {
 
         const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
           {
-            pattern: '/about',
-            target: '/Found',
+            pattern: '/about', // Lowercase pattern
+            target: '/Found', // Mixed-case target
             redirectType: REDIRECT_TYPE_301,
             isQueryStringPreserved: false,
             locale: 'en',
@@ -1822,15 +1831,14 @@ describe('RedirectsMiddleware', () => {
           res
         );
 
-        // Skip the annoying part — only validate the end log
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {},
           redirected: undefined,
           status: 301,
-          url,
+          url: redirectUrl,
         });
 
-        // Only care about what's relevant
+        expect(siteResolver.getByHost).to.have.been.called;
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes.status).to.equal(301);
         expect(finalRes.headers.get('location')).to.equal('http://localhost:3000/Found');
