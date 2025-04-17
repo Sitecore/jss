@@ -1782,6 +1782,62 @@ describe('RedirectsMiddleware', () => {
         expect(finalRes.status).to.equal(res.status);
       });
 
+      it('should redirect regardless of case in pattern and target', async () => {
+        // Set up a clone function (used by both req and res)
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          href: 'http://localhost:3000/Found',
+          pathname: '/Found',
+          origin: 'http://localhost:3000',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        };
+
+        // Create the test request and response
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/About',
+              href: 'http://localhost:3000/About',
+              locale: 'en',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+
+        setupRedirectStub(301);
+        res.headers.set('x-middleware-next', '1');
+        res.headers.set('x-middleware-rewrite', '1');
+        res.headers.set(REWRITE_HEADER_NAME, 1);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: '/About',
+            target: '/Found',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req
+        );
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url,
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        expect(siteResolver.getByHost).to.have.been.called;
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes.status).to.equal(301);
+      });
+
       // TODO: This test is failing because of this bug https://sitecore.atlassian.net/browse/JSS-3955
       xit('should return rewrite', async () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
