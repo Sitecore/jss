@@ -1782,6 +1782,60 @@ describe('RedirectsMiddleware', () => {
         expect(finalRes.status).to.equal(res.status);
       });
 
+      it('should redirect regardless of case in pattern and target', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+
+        const url = {
+          href: 'http://localhost:3000/Found',
+          pathname: '/Found',
+          origin: 'http://localhost:3000',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        };
+
+        setupRedirectStub(301);
+
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/About',
+              href: 'http://localhost:3000/About',
+              locale: 'en',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: '/about',
+            target: '/Found',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        // Skip the annoying part — only validate the end log
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url,
+        });
+
+        // Only care about what's relevant
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes.status).to.equal(301);
+        expect(finalRes.headers.get('location')).to.equal('http://localhost:3000/Found');
+      });
+
       // TODO: This test is failing because of this bug https://sitecore.atlassian.net/browse/JSS-3955
       xit('should return rewrite', async () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
