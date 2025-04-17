@@ -36,7 +36,7 @@ export default function builder(yargs: Argv) {
 }
 
 /**
- * Handler fo the extract-component API command
+ * Handler for the extract-component API command
  * Reads imports from the componentBuilder.ts file and posts the code to the mesh endpoint
  * @param {object} args - The arguments passed to the command, with optional appName string
  * @returns {Promise<void>} void
