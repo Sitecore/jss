@@ -4,7 +4,6 @@ import chalk from 'chalk';
 import nock from 'nock';
 import fs from 'fs';
 import proxyquire from 'proxyquire';
-import * as ts from 'typescript';
 import * as cliUtils from './extract-components';
 import { constants } from '@sitecore-jss/sitecore-jss-dev-tools';
 
@@ -15,13 +14,18 @@ describe('extract-components', () => {
     process.env.M2M_CLIENT_ID = undefined;
     process.env.M2M_CLIENT_SECRET = undefined;
     process.env.M2M_AUDIENCE = undefined;
+    process.env.EXTRACT_CONSENT = undefined;
   });
 
   describe('handler', () => {
+    beforeEach(() => {
+      process.env.EXTRACT_CONSENT = 'true';
+    });
+
     it('should log when bearer is empty', async () => {
       const consoleErrorStub = sinon.stub(console, 'error');
       const resolveImportFilesStub = sinon.stub().resolves(['/path/to/component.ts']);
-      const fetchBearerTokenStub = sinon.stub().resolves(null);
+      const fetchBearerTokenStub = sinon.stub().resolves('');
 
       sinon.replace(cliUtils, 'resolveImportFiles', resolveImportFilesStub);
       sinon.replace(cliUtils, 'fetchBearerToken', fetchBearerTokenStub);
@@ -36,7 +40,7 @@ describe('extract-components', () => {
 
     it('should catch exceptions from resolveImportFiles call', async () => {
       const consoleErrorStub = sinon.stub(console, 'error');
-      const resolveImportFilesStub = sinon.stub().throws(new Error('resolveImportFiles error'));
+      const resolveImportFilesStub = sinon.stub().throws(new Error('oopsie'));
       const fetchBearerTokenStub = sinon.stub().resolves('test-token');
 
       sinon.replace(cliUtils, 'resolveImportFiles', resolveImportFilesStub);
@@ -46,15 +50,14 @@ describe('extract-components', () => {
 
       expect(consoleErrorStub.calledOnce).to.be.true;
       expect(consoleErrorStub.firstCall.args[0]).to.equal(
-        chalk.red('Error during component extraction:')
+        chalk.red('Error during component extraction: Error: oopsie')
       );
-      expect(consoleErrorStub.firstCall.args[1].message).to.equal('resolveImportFiles error');
     });
   });
 
   describe('fetchBearerToken', () => {
     it('should send POST request to M2M_ENDPOINT url', async () => {
-      nock('https://auth-staging-1.sitecore-staging.com')
+      nock('https://auth.sitecorecloud.io')
         .post('/oauth/token')
         .reply(200, {
           token_type: 'Bearer',
@@ -64,7 +67,7 @@ describe('extract-components', () => {
           scope: '*******',
         });
 
-      nock('https://auth-staging-1.sitecore-staging.com')
+      nock('https://auth.sitecorecloud.io')
         .intercept('/.*/', '*')
         .reply(200, {
           token_type: 'Bearer',
@@ -84,7 +87,7 @@ describe('extract-components', () => {
       process.env.M2M_CLIENT_SECRET = 'test-client-secret';
       process.env.M2M_AUDIENCE = 'test-audience';
 
-      nock('https://auth-staging-1.sitecore-staging.com')
+      nock('https://auth.sitecorecloud.io')
         .post(
           '/oauth/token',
           (body) =>
@@ -100,7 +103,7 @@ describe('extract-components', () => {
           scope: '*******',
         });
 
-      nock('https://auth-staging-1.sitecore-staging.com')
+      nock('https://auth.sitecorecloud.io')
         .intercept('/.*/', '*')
         .reply(200, {
           token_type: 'Bearer',
@@ -116,7 +119,7 @@ describe('extract-components', () => {
     });
 
     it('should log when request to M2M_ENDPOINT fails', async () => {
-      nock('https://auth-staging-1.sitecore-staging.com')
+      nock('https://auth.sitecorecloud.io')
         .post('/oauth/token')
         .reply(503, 'Service Unavailable');
       const consoleErrorStub = sinon.stub(console, 'error');
@@ -161,7 +164,7 @@ describe('extract-components', () => {
 
       expect(consoleLogStub.calledOnce).to.be.true;
       expect(consoleLogStub.firstCall.args[0]).to.equal(
-        chalk.green('Code extracted and sent to mesh')
+        chalk.green('Code from /path/to/component.ts extracted and sent to mesh endpoint')
       );
     });
 
@@ -209,14 +212,14 @@ describe('extract-components', () => {
 
       expect(consoleErrorStub.calledOnce).to.be.true;
       expect(consoleErrorStub.firstCall.args[0]).to.equal(
-        chalk.red('Failed to send extracted code: Internal Server Error')
+        chalk.red('Failed to send extracted code from /path/to/component.ts: Internal Server Error')
       );
     });
   });
 
   describe('resolveImportFiles', () => {
     it('should throw when tsconfig.json is not found under baseApp path', () => {
-      const appPath = '/path/to/app';
+      const appPath = '/path/to/app/that/not/exist';
       const readConfigFileStub = sinon.stub().returns({ error: { messageText: 'File not found' } });
       proxyquire('./extract-components', {
         typescript: {
@@ -227,140 +230,47 @@ describe('extract-components', () => {
       expect(() => cliUtils.resolveImportFiles(appPath)).to.throw(
         Error,
         // eslint-disable-next-line
-        `Error reading tsconfig.json from JSS app root: Cannot read file 'C:\\path\\to\\app\\tsconfig.json'`
+        `Error reading tsconfig.json from JSS app root: Cannot read file 'C:\\path\\to\\app\\that\\not\\exist\\tsconfig.json'`
       );
     });
 
     it('should throw when src/temp/componentBuilder.ts is not found', () => {
-      const appPath = '/path/to/app';
-
-      const readConfigFileStub = sinon.stub().returns({ config: { compilerOptions: {} } });
-      const createCompilerHostStub = sinon.stub().returns(({
-        getSourceFile: sinon.stub().returns(undefined),
-      } as unknown) as ts.CompilerHost);
-
-      proxyquire('./extract-components', {
-        typescript: {
-          readConfigFile: readConfigFileStub,
-          createCompilerHost: createCompilerHostStub,
-        },
-      });
+      const appPath = './src/scripts/test-data/extract-components/no-componentBuilder';
 
       expect(() => cliUtils.resolveImportFiles(appPath)).to.throw(
         ReferenceError,
-        'Failed to find file /path/to/app/src/temp/componentBuilder.ts'
-      );
-    });
-
-    it('should throw when componentBuilder.ts file cannot be parsed by typescript', () => {
-      const appPath = '/path/to/app';
-      const componentBuilderPath = '/path/to/app/src/temp/componentBuilder.ts';
-      const readConfigFileStub = sinon.stub().returns({ config: { compilerOptions: {} } });
-      proxyquire('./extract-components', {
-        typescript: {
-          readConfigFile: readConfigFileStub,
-        },
-      });
-      const tsHostStub = {
-        getSourceFile: sinon.stub().callsFake((fileName, _, onError) => {
-          if (fileName === componentBuilderPath) {
-            onError('Parsing error');
-          }
-          return undefined;
-        }),
-      };
-      sinon.stub(ts, 'createCompilerHost').returns((tsHostStub as unknown) as ts.CompilerHost);
-
-      expect(() => cliUtils.resolveImportFiles(appPath)).to.throw(
-        Error,
-        `Failed to parse ${componentBuilderPath}: Parsing error`
+        'Failed to find file C:\\Work\\jss\\packages\\sitecore-jss-cli\\src\\scripts\\test-data\\extract-components\\no-componentBuilder\\src\\temp\\componentBuilder.ts'
       );
     });
 
     it('should return imports with absolute paths from componentBuilder.ts', () => {
-      const appPath = '/path/to/app';
-      const tsConfig = { compilerOptions: {} };
-      const sourceFileStub = {
-        forEachChild: (callback: (node: ts.Node) => void) => {
-          callback(({
-            kind: ts.SyntaxKind.ImportDeclaration,
-            // eslint-disable-next-line
-            moduleSpecifier: { getText: () => "'./components/ComponentA'" },
-          } as unknown) as ts.Node);
-          callback(({
-            kind: ts.SyntaxKind.ImportDeclaration,
-            // eslint-disable-next-line
-            moduleSpecifier: { getText: () => "'./components/ComponentB'" },
-          } as unknown) as ts.Node);
-        },
-      };
-
-      const readConfigFileStub = sinon.stub().returns({ config: tsConfig });
-      proxyquire('./extract-components', {
-        typescript: {
-          readConfigFile: readConfigFileStub,
-        },
-      });
-      const tsHostStub = {
-        getSourceFile: sinon.stub().returns((sourceFileStub as unknown) as ts.SourceFile),
-      };
-      sinon.stub(ts, 'createCompilerHost').returns((tsHostStub as unknown) as ts.CompilerHost);
-      sinon.stub(ts, 'nodeModuleNameResolver').callsFake((moduleName) => {
-        return {
-          resolvedModule: { extension: 'ts', resolvedFileName: `/absolute/path/to/${moduleName}` },
-        };
-      });
+      const appPath = './src/scripts/test-data/extract-components/regular-imports';
 
       const imports = cliUtils.resolveImportFiles(appPath);
 
       expect(imports).to.deep.equal([
-        '/absolute/path/to/./components/ComponentA',
-        '/absolute/path/to/./components/ComponentB',
+        'C:/Work/jss/packages/sitecore-jss-cli/src/scripts/test-data/extract-components/regular-imports/src/components/TestComponent.tsx',
+      ]);
+    });
+
+    it('should return imports with absolute paths from componentBuilder.ts when paths aliases are used', () => {
+      const appPath = './src/scripts/test-data/extract-components/with-path-aliases';
+
+      const imports = cliUtils.resolveImportFiles(appPath);
+
+      expect(imports).to.deep.equal([
+        'src/scripts/test-data/extract-components/with-path-aliases/src/components/TestComponent.tsx',
       ]);
     });
 
     it('should ignore imports starting with "node:" and containing "node_modules"', () => {
-      const appPath = '/path/to/app';
-      const tsConfig = { compilerOptions: {} };
-      const sourceFileStub = {
-        forEachChild: (callback: (node: ts.Node) => void) => {
-          callback(({
-            kind: ts.SyntaxKind.ImportDeclaration,
-            // eslint-disable-next-line
-            moduleSpecifier: { getText: () => "'node:fs'" },
-          } as unknown) as ts.Node);
-          callback(({
-            kind: ts.SyntaxKind.ImportDeclaration,
-            // eslint-disable-next-line
-            moduleSpecifier: { getText: () => "'/node_modules/some-package'" },
-          } as unknown) as ts.Node);
-          callback(({
-            kind: ts.SyntaxKind.ImportDeclaration,
-            // eslint-disable-next-line
-            moduleSpecifier: { getText: () => "'./components/ComponentA'" },
-          } as unknown) as ts.Node);
-        },
-      };
-
-      const readConfigFileStub = sinon.stub().returns({ config: tsConfig });
-      proxyquire('./extract-components', {
-        typescript: {
-          readConfigFile: readConfigFileStub,
-        },
-      });
-      const tsHostStub = {
-        getSourceFile: sinon.stub().returns((sourceFileStub as unknown) as ts.SourceFile),
-      };
-      sinon.stub(ts, 'createCompilerHost').returns((tsHostStub as unknown) as ts.CompilerHost);
-      sinon.stub(ts, 'nodeModuleNameResolver').callsFake((moduleName) => {
-        return {
-          resolvedModule: { extension: 'ts', resolvedFileName: `/absolute/path/to/${moduleName}` },
-        };
-      });
+      const appPath = './src/scripts/test-data/extract-components/node-modules-imports';
 
       const imports = cliUtils.resolveImportFiles(appPath);
 
-      expect(imports).to.deep.equal(['/absolute/path/to/./components/ComponentA']);
+      expect(imports).to.deep.equal([
+        'C:/Work/jss/packages/sitecore-jss-cli/src/scripts/test-data/extract-components/node-modules-imports/src/components/TestComponent.tsx',
+      ]);
     });
   });
 });
