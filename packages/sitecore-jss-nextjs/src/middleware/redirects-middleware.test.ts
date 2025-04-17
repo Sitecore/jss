@@ -1369,6 +1369,7 @@ describe('RedirectsMiddleware', () => {
           href: 'http://localhost:3000/found/',
           locale: 'en',
           origin: 'http://localhost:3000',
+          search: '',
           pathname: '/not-found/',
         };
         const { res, req } = createTestRequestResponse({
@@ -1388,7 +1389,7 @@ describe('RedirectsMiddleware', () => {
         const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
           {
             pattern: '/not-found/',
-            target: 'http://localhost:3000/found/',
+            target: '/found/',
             redirectType: REDIRECT_TYPE_301,
             isQueryStringPreserved: true,
             locale: 'en',
