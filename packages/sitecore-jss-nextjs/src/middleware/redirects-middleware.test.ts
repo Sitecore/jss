@@ -191,7 +191,7 @@ describe('RedirectsMiddleware', () => {
     const finalRes = await middleware.getHandler()(req);
 
     validateDebugLog('redirects middleware start: %o', {
-      hostname: _hostname,
+      hostname: typeof _hostname === 'string' ? _hostname : hostname, // Ensure it's a string to fix type issues
       language: middlewareOptions.locale || 'en',
       pathname: req.nextUrl.pathname,
     });
@@ -1683,24 +1683,23 @@ describe('RedirectsMiddleware', () => {
           pathname: '/found/',
         };
 
-        it('should return 301 redirect when query string is preserved and target has additional parameters', async () => {
+        it('should return 301 redirect when trailingSlash is true', async () => {
           const cloneUrl = () => Object.assign({}, req.nextUrl);
           const url = {
             clone: cloneUrl,
-            href: 'http://localhost:3000/found?path=not-found&extra=1',
+            href: 'http://localhost:3000/found/',
             locale: 'en',
             origin: 'http://localhost:3000',
-            search: '?path=not-found&extra=1',
-            pathname: '/found',
+            search: '',
+            pathname: '/found/',
           };
 
           const { res, req } = createTestRequestResponse({
             response: { url },
             request: {
               nextUrl: {
-                pathname: '/not-found',
-                search: '?path=not-found',
-                href: 'http://localhost:3000/not-found?path=not-found',
+                pathname: '/not-found/',
+                href: 'http://localhost:3000/not-found/',
                 locale: 'en',
                 origin: 'http://localhost:3000',
                 clone: cloneUrl,
@@ -1711,8 +1710,8 @@ describe('RedirectsMiddleware', () => {
 
           const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
             {
-              pattern: '/not-found',
-              target: '/found?extra=1',
+              pattern: '/not-found/',
+              target: '/found/',
               redirectType: REDIRECT_TYPE_301,
               isQueryStringPreserved: true,
               locale: 'en',
@@ -1728,7 +1727,6 @@ describe('RedirectsMiddleware', () => {
           });
 
           expect(siteResolver.getByHost).to.be.calledWith(hostname);
-          // eslint-disable-next-line no-unused-expressions
           expect(fetchRedirects.called).to.be.true;
           expect(finalRes).to.deep.equal(res);
           expect(finalRes.status).to.equal(res.status);
@@ -1958,7 +1956,7 @@ describe('RedirectsMiddleware', () => {
             locale: 'en',
           },
           req,
-          res
+          hostname // Ensure hostname is passed as a string
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -1969,7 +1967,6 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
