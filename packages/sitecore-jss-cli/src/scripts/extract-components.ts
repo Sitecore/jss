@@ -71,9 +71,10 @@ const resolveAppPath = (appFolder: string) => {
 };
 
 export const fetchBearerToken = async () => {
+  const m2mEndpoint = process.env.M2M_ENDPOINT || M2M_ENDPOINT;
   try {
     // TODO:adjust when M2M endpoint is live
-    const authenticateResponse = await fetch(M2M_ENDPOINT, {
+    const authenticateResponse = await fetch(m2mEndpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -113,7 +114,12 @@ export const resolveImportFiles = (appPath: string) => {
     if (ts.isImportDeclaration(node)) {
       const moduleName = node.moduleSpecifier.getText().replace(/['"]/g, '');
       if (!moduleName.startsWith('node:') && moduleName.indexOf('/node_modules') === -1) {
-        const resolvedModule = ts.nodeModuleNameResolver(moduleName, __filename, tsOptions, tsHost);
+        const resolvedModule = ts.nodeModuleNameResolver(
+          moduleName,
+          componentBuilderPath,
+          tsOptions,
+          tsHost
+        );
         if (resolvedModule?.resolvedModule?.resolvedFileName) {
           importing.push(resolvedModule.resolvedModule.resolvedFileName);
         }
