@@ -64,9 +64,11 @@ export async function handler(args: any) {
       return;
     }
 
-    for (const componentPath of componentPaths!) {
-      await sendCode(componentPath, bearer);
-    }
+    const codeDispatches = componentPaths.map((componentPath) => {
+      return sendCode(componentPath, bearer);
+    });
+
+    Promise.all(codeDispatches);
   } catch (error) {
     console.error(chalk.red('Error during component extraction:', error));
   }
