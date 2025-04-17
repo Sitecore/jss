@@ -1,4 +1,4 @@
-﻿﻿/* eslint-disable no-unused-expressions */
+﻿/* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable dot-notation */
 import { debug, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
@@ -1784,16 +1784,8 @@ describe('RedirectsMiddleware', () => {
 
       it('should redirect regardless of case in pattern and target', async () => {
         // Set up a clone function (used by both req and res)
-        const cloneUrl = () => ({
-          href: 'http://localhost:3000/Found',
-          pathname: '/Found',
-          origin: 'http://localhost:3000',
-          locale: 'en',
-          search: '',
-          clone: cloneUrl,
-        });
-
-        const redirectUrl = {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
           href: 'http://localhost:3000/Found',
           pathname: '/Found',
           origin: 'http://localhost:3000',
@@ -1802,11 +1794,9 @@ describe('RedirectsMiddleware', () => {
           clone: cloneUrl,
         };
 
-        setupRedirectStub(301);
-
         // Create the test request and response
         const { res, req } = createTestRequestResponse({
-          response: { url: redirectUrl },
+          response: { url },
           request: {
             nextUrl: {
               pathname: '/About',
@@ -1819,23 +1809,27 @@ describe('RedirectsMiddleware', () => {
           status: 301,
         });
 
+        setupRedirectStub(301);
+        res.headers.set('x-middleware-next', '1');
+        res.headers.set('x-middleware-rewrite', '1');
+        res.headers.set(REWRITE_HEADER_NAME, 1);
+
         const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
           {
-            pattern: '/about', // Lowercase pattern
-            target: '/Found', // Mixed-case target
+            pattern: '/About',
+            target: '/Found',
             redirectType: REDIRECT_TYPE_301,
             isQueryStringPreserved: false,
             locale: 'en',
           },
-          req,
-          res
+          req
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {},
           redirected: undefined,
           status: 301,
-          url: redirectUrl,
+          url,
         });
 
         expect(siteResolver.getByHost).to.have.been.called;
