@@ -1782,6 +1782,59 @@ describe('RedirectsMiddleware', () => {
         expect(finalRes.status).to.equal(res.status);
       });
 
+      // Test cases for case-insensitive redirects
+      it('should redirect regardless of case in pattern and target', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          href: 'http://localhost:3000/found',
+          pathname: '/found',
+          origin: 'http://localhost:3000',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        };
+        setupRedirectStub(301);
+
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/About', // Mixed case
+              href: 'http://localhost:3000/About',
+              locale: 'en',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: '/about', // Lowercase pattern
+            target: '/Found', // Mixed case target
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url,
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+      });
+
       // TODO: This test is failing because of this bug https://sitecore.atlassian.net/browse/JSS-3955
       xit('should return rewrite', async () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
