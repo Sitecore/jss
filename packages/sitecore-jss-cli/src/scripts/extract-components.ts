@@ -6,7 +6,8 @@ import * as ts from 'typescript';
 import { readConfigFile } from 'typescript';
 import { constants } from '@sitecore-jss/sitecore-jss-dev-tools';
 
-const M2M_ENDPOINT = 'https://auth-staging-1.sitecore-staging.com/oauth/token';
+export const DEFAULT_M2M_ENDPOINT = 'https://auth.sitecorecloud.io/oauth/token';
+export const DEFAULT_M2M_AUDIENCE = 'https://api.sitecorecloud.io';
 
 // TODO:adjust when mesh endpoint is live
 const meshEndpoint = `${process.env.SITECORE_EDGE_URL ||
@@ -16,11 +17,17 @@ const meshEndpoint = `${process.env.SITECORE_EDGE_URL ||
  * @param {Argv} yargs
  */
 export function args(yargs: Argv) {
-  return yargs.option('appFolder', {
-    requiresArg: false,
-    type: 'string',
-    describe: 'Path to app folder to get components from',
-  });
+  return yargs
+    .option('environment', {
+      requiresArg: false,
+      type: 'string',
+      describe: 'Environment to authenticate into. Default: prod',
+    })
+    .option('appFolder', {
+      requiresArg: false,
+      type: 'string',
+      describe: 'Path to app folder to get components from. Default: current folder',
+    });
 }
 
 /**
@@ -71,18 +78,20 @@ const resolveAppPath = (appFolder: string) => {
 };
 
 export const fetchBearerToken = async () => {
-  const m2mEndpoint = process.env.M2M_ENDPOINT || M2M_ENDPOINT;
+  const audience = process.env.M2M_AUDIENCE || DEFAULT_M2M_AUDIENCE;
+  const m2mEndpoint = process.env.M2M_ENDPOINT || DEFAULT_M2M_ENDPOINT;
+
   try {
     // TODO:adjust when M2M endpoint is live
     const authenticateResponse = await fetch(m2mEndpoint, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         client_id: process.env.M2M_CLIENT_ID,
         client_secret: process.env.M2M_CLIENT_SECRET,
-        audience: process.env.M2M_AUDIENCE,
+        audience: audience,
         grant_type: 'client_credentials',
       }),
     });
@@ -101,7 +110,10 @@ export const resolveImportFiles = (appPath: string) => {
     throw new Error(`Error reading tsconfig.json from JSS app root: ${tsConfig.error.messageText}`);
   }
 
-  const tsOptions = tsConfig.config.compilerOptions;
+  const tsOptions = {
+    ...tsConfig.config.compilerOptions,
+    baseUrl: appPath,
+  };
 
   const componentBuilderPath = path.resolve(appPath, 'src', 'temp', 'componentBuilder.ts');
 
@@ -149,8 +161,10 @@ export const sendCode = async (componentPath: string, token: string) => {
   });
 
   if (!response.ok) {
-    console.error(chalk.red('Failed to send extracted code:', response.statusText));
+    console.error(
+      chalk.red(`Failed to send extracted code from ${componentPath}: ${response.statusText}`)
+    );
   } else {
-    console.log(chalk.green('Code extracted and sent to mesh'));
+    console.log(chalk.green(`Code from ${componentPath} extracted and sent to mesh endpoint`));
   }
 };
