@@ -8,5 +8,12 @@
     "typeRoots": ["node_modules/@types"],
     "declarationDir": "./types"
   },
-  "exclude": ["node_modules", "types", "dist", "src/test", "src/**/*.test.ts", "src/scripts/test-data/extract-components"],
+  "exclude": [
+    "node_modules",
+    "types",
+    "dist",
+    "src/test",
+    "src/**/*.test.ts",
+    "src/scripts/test-data/extract-components",
+  ],
 }
