@@ -14,6 +14,5 @@
     "dist",
     "src/test",
     "src/**/*.test.ts",
-    "src/scripts/test-data/extract-components",
   ],
 }

@@ -1,17 +1,11 @@
+import {
+  fetchBearerToken,
+  resolveComponentImportFiles,
+  sendCode,
+} from '@sitecore-jss/sitecore-jss-dev-tools';
 import chalk from 'chalk';
 import path from 'path';
 import { Argv } from 'yargs';
-import fs from 'fs';
-import * as ts from 'typescript';
-import { readConfigFile } from 'typescript';
-import { constants } from '@sitecore-jss/sitecore-jss-dev-tools';
-
-export const DEFAULT_M2M_ENDPOINT = 'https://auth.sitecorecloud.io/oauth/token';
-export const DEFAULT_M2M_AUDIENCE = 'https://api.sitecorecloud.io';
-
-// TODO:adjust when mesh endpoint is live
-const meshEndpoint = `${process.env.SITECORE_EDGE_URL ||
-  constants.SITECORE_EDGE_URL_DEFAULT}/api/v1/mesh`;
 
 /**
  * @param {Argv} yargs
@@ -55,18 +49,23 @@ export async function handler(args: any) {
     console.log(chalk.yellow('Skipping code extraction, EXTRACT_CONSENT is not set'));
     return;
   }
+  if (!isBuildContext()) {
+    console.log(chalk.yellow('Skipping code extraction, not in build context'));
+    return;
+  }
   const basePath = args.appFolder ? resolveAppPath(args.appFolder) : process.cwd();
   try {
-    const componentPaths = resolveImportFiles(basePath);
     const bearer = await fetchBearerToken();
     if (!bearer) {
       console.error(chalk.red('Failed to get bearer token, aborting code extraction'));
       return;
     }
 
-    const codeDispatches = componentPaths.map((componentPath) => {
-      return sendCode(componentPath, bearer);
-    });
+    const componentPaths = await resolveComponentImportFiles(basePath);
+
+    const codeDispatches = Array.from(componentPaths, (mapEntry) =>
+      sendCode(mapEntry[0], mapEntry[1], bearer)
+    );
 
     Promise.all(codeDispatches);
   } catch (error) {
@@ -79,94 +78,16 @@ const resolveAppPath = (appFolder: string) => {
   return path.resolve(process.cwd(), appFolder);
 };
 
-export const fetchBearerToken = async () => {
-  const audience = process.env.M2M_AUDIENCE || DEFAULT_M2M_AUDIENCE;
-  const m2mEndpoint = process.env.M2M_ENDPOINT || DEFAULT_M2M_ENDPOINT;
-
-  try {
-    // TODO:adjust when M2M endpoint is live
-    const authenticateResponse = await fetch(m2mEndpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        client_id: process.env.M2M_CLIENT_ID,
-        client_secret: process.env.M2M_CLIENT_SECRET,
-        audience: audience,
-        grant_type: 'client_credentials',
-      }),
-    });
-    const jsonResponse = await authenticateResponse.json();
-    return jsonResponse.access_token;
-  } catch (error) {
-    console.error(chalk.red('Error authenticating with M2M token endpoint:', error));
-    return null;
+const isBuildContext = () => {
+  if (process.env.NETLIFY && process.env.BUILD_ID) {
+    return true;
   }
-};
-
-export const resolveImportFiles = (appPath: string) => {
-  const tsConfig = readConfigFile(path.resolve(appPath, 'tsconfig.json'), ts.sys.readFile);
-
-  if (tsConfig.error) {
-    throw new Error(`Error reading tsconfig.json from JSS app root: ${tsConfig.error.messageText}`);
+  // workaround, Vercel does not have variables that are only accessible at build time
+  if (process.env.VERCEL && !process.env.VERCEL_REGION) {
+    return true;
   }
-
-  const tsOptions = {
-    ...tsConfig.config.compilerOptions,
-    baseUrl: appPath,
-  };
-
-  const componentBuilderPath = path.resolve(appPath, 'src', 'temp', 'componentBuilder.ts');
-
-  const tsHost = ts.createCompilerHost(tsOptions, true);
-  const sourceFile = tsHost.getSourceFile(componentBuilderPath, ts.ScriptTarget.Latest, (msg) => {
-    throw new Error(`Failed to parse ${componentBuilderPath}: ${msg}`);
-  });
-
-  const parseNodes = (node: ts.Node) => {
-    if (ts.isImportDeclaration(node)) {
-      const moduleName = node.moduleSpecifier.getText().replace(/['"]/g, '');
-      if (!moduleName.startsWith('node:') && moduleName.indexOf('/node_modules') === -1) {
-        const resolvedModule = ts.nodeModuleNameResolver(
-          moduleName,
-          componentBuilderPath,
-          tsOptions,
-          tsHost
-        );
-        if (resolvedModule?.resolvedModule?.resolvedFileName) {
-          importing.push(resolvedModule.resolvedModule.resolvedFileName);
-        }
-      }
-    } else ts.forEachChild(node, parseNodes);
-  };
-
-  if (!sourceFile) throw ReferenceError(`Failed to find file ${componentBuilderPath}`);
-  const importing: string[] = [];
-  parseNodes(sourceFile);
-  return importing;
-};
-
-export const sendCode = async (componentPath: string, token: string) => {
-  if (!fs.existsSync(componentPath)) {
-    console.error(chalk.red(`Component file not found: ${componentPath}`));
-    return;
+  if (process.env.XMCLOUD) {
+    return true;
   }
-  const code = fs.readFileSync(componentPath);
-  const response = await fetch(meshEndpoint, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-    body: code,
-  });
-
-  if (!response.ok) {
-    console.error(
-      chalk.red(`Failed to send extracted code from ${componentPath}: ${response.statusText}`)
-    );
-  } else {
-    console.log(chalk.green(`Code from ${componentPath} extracted and sent to mesh endpoint`));
-  }
+  return false;
 };

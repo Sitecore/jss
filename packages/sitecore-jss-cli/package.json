@@ -12,8 +12,8 @@
     "lint": "eslint \"./src/**/*.ts\"",
     "prepublishOnly": "npm run build",
     "jss": "node ./dist/cjs/bin/jss.js",
-    "test": "mocha --require ts-node/register/transpile-only \"./src/**/*.test.ts\"",
-    "coverage": "nyc --require ts-node/register/transpile-only npm test"
+    "test": "mocha --require ts-node/register/transpile-only -r tsconfig-paths/register \"./src/**/*.test.ts\"",
+    "coverage": "nyc --require ts-node/register/transpile-only -r tsconfig-paths/register npm test"
   },
   "engines": {
     "node": ">=22"
@@ -63,6 +63,7 @@
     "proxyquire": "^2.1.3",
     "sinon": "^15.0.1",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.2",
     "typescript": "~5.6.3"
   },
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
