@@ -98,12 +98,12 @@ describe('codegen-utils', () => {
 
   describe('resolveComponentImportFiles', () => {
     it('should throw when tsconfig.json is not found under baseApp path', () => {
-      const appPath = '/path/to/app/that/not/exist';
+      const appPath = './path/to/app/that/not/exist';
 
       expect(() => codegenUtils.resolveComponentImportFiles(appPath)).to.throw(
         Error,
         // eslint-disable-next-line
-        `Error reading tsconfig.json from JSS app root: Cannot read file 'C:\\path\\to\\app\\that\\not\\exist\\tsconfig.json'`
+        `Error reading tsconfig.json from JSS app root: Cannot read file '${path.resolve(process.cwd(),'./path/to/app/that/not/exist/tsconfig.json')}'`
       );
     });
 
