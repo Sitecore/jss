@@ -12,8 +12,8 @@
     "lint": "eslint \"./src/**/*.ts\"",
     "prepublishOnly": "npm run build",
     "jss": "node ./dist/cjs/bin/jss.js",
-    "test": "mocha --require ts-node/register/transpile-only \"./src/**/*.test.ts\"",
-    "coverage": "nyc --require ts-node/register/transpile-only npm test"
+    "test": "mocha --require ts-node/register/transpile-only -r tsconfig-paths/register \"./src/**/*.test.ts\"",
+    "coverage": "nyc --require ts-node/register/transpile-only -r tsconfig-paths/register npm test"
   },
   "engines": {
     "node": ">=22"
@@ -47,6 +47,7 @@
     "@types/cross-spawn": "^6.0.2",
     "@types/mocha": "^10.0.1",
     "@types/node": "^22.9.0",
+    "@types/proxyquire": "^1.3.31",
     "@types/readline-sync": "^1.4.4",
     "@types/resolve": "^1.20.2",
     "@types/sinon": "^10.0.13",
@@ -57,9 +58,12 @@
     "del-cli": "^5.0.0",
     "eslint": "^8.56.0",
     "mocha": "^10.2.0",
+    "nock": "14.0.0-beta.7",
     "nyc": "^15.1.0",
+    "proxyquire": "^2.1.3",
     "sinon": "^15.0.1",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.2",
     "typescript": "~5.6.3"
   },
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",

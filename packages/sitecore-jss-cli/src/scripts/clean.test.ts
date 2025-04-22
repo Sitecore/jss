@@ -32,7 +32,7 @@ describe('clean script', () => {
     const argv = { path: '' };
 
     // ensure clean is not executed - since we stub process.exit - and the script execution will continue
-    const stub = sinon.stub(devTools, 'clean');
+    sinon.stub(devTools, 'clean');
     sinon.stub(resolvePackage, 'default').resolves({ config: { buildArtifactsPath: '' } });
     const cleanImpl = require('./clean');
 

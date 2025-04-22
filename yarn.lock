@@ -5905,6 +5905,7 @@ __metadata:
     "@types/cross-spawn": ^6.0.2
     "@types/mocha": ^10.0.1
     "@types/node": ^22.9.0
+    "@types/proxyquire": ^1.3.31
     "@types/readline-sync": ^1.4.4
     "@types/resolve": ^1.20.2
     "@types/sinon": ^10.0.13
@@ -5919,12 +5920,15 @@ __metadata:
     dotenv-expand: ^10.0.0
     eslint: ^8.56.0
     mocha: ^10.2.0
+    nock: 14.0.0-beta.7
     nyc: ^15.1.0
+    proxyquire: ^2.1.3
     readline-sync: ^1.4.10
     resolve: ^1.22.1
     sinon: ^15.0.1
     tmp: ^0.2.1
     ts-node: ^10.9.1
+    tsconfig-paths: ^4.1.2
     typescript: ~5.6.3
     yargs: ^17.6.2
   bin:
@@ -5972,7 +5976,7 @@ __metadata:
     jszip: ^3.10.1
     mocha: ^10.2.0
     module-alias: ^2.2.2
-    nock: ^13.3.0
+    nock: 14.0.0-beta.7
     nyc: ^15.1.0
     readline-sync: ^1.4.10
     recast: ^0.23.5

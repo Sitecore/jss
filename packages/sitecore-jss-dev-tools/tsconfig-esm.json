@@ -14,5 +14,6 @@
     "react.d.ts",
     "nextjs.d.ts",
     "nextjs-component-props-loader.d.ts",
+    "src/test-data/extract-components",
   ]
 }

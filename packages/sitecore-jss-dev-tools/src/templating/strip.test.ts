@@ -92,7 +92,6 @@ describe('strip', () => {
   describe('strip', () => {
     it('should process files and strip code', () => {
       const sourceDirPath = process.cwd();
-
       const globStub = sinon.stub(glob, 'sync');
       const writeFileSyncStub = sinon.stub(fs, 'writeFileSync');
       const readFileSyncStub = sinon.stub(fs, 'readFileSync');
