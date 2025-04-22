@@ -69,7 +69,7 @@ describe('extract-components', () => {
 
     it('should skip code extraction when not in build context', async () => {
       const consoleLogStub = sandbox.stub(console, 'log');
-      delete process.env.XMCLOUD;
+      delete process.env.BuildMetadata_BuildId;
 
       await handler({ appFolder: '/path/to/app' });
 
