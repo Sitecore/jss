@@ -67,22 +67,21 @@ export const resolveComponentImportFiles = (appPath: string) => {
       // get component map export variable
       mapExportName = childNode.expression.getText();
     }
-    for (const mapAssignment of mapAssignments) {
-      // only consider exported map
-      if (mapAssignment.getText().startsWith(mapExportName)) {
-        const componentKey = mapAssignment.arguments[1].getText();
-        const componentImport = Object.keys(importNodesMap).find((importStatement) => {
-          const matcher = new RegExp(`\\b(${componentKey})\\b`);
-          return importStatement.match(matcher) !== null;
-        });
-        if (componentImport) {
-          const componentValue = importNodesMap[componentImport];
-          componentImportsMap.set(componentKey, componentValue);
-        }
+  });
+  for (const mapAssignment of mapAssignments) {
+    // only consider exported map
+    if (mapAssignment.getText().startsWith(mapExportName)) {
+      const componentKey = mapAssignment.arguments[1].getText();
+      const componentImport = Object.keys(importNodesMap).find((importStatement) => {
+        const matcher = new RegExp(`\\b(${componentKey})\\b`);
+        return importStatement.match(matcher) !== null;
+      });
+      if (componentImport) {
+        const componentValue = importNodesMap[componentImport];
+        componentImportsMap.set(componentKey, componentValue);
       }
     }
-  });
-
+  }
   return componentImportsMap;
 };
 export const sendCode = async (componentName: string, componentPath: string, token: string) => {
