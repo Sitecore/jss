@@ -15,6 +15,7 @@ Our versioning strategy is as follows:
 
 * `[nextjs][sitecore-jss-nextjs]` Support for Component Library in XMCloud ([#1987](https://github.com/Sitecore/jss/pull/1987))([#2000](https://github.com/Sitecore/jss/pull/2000))([#2002](https://github.com/Sitecore/jss/pull/2002))([#2005](https://github.com/Sitecore/jss/pull/2005))([#2024](https://github.com/Sitecore/jss/pull/2024))([#2053](https://github.com/Sitecore/jss/pull/2053))([#2059](https://github.com/Sitecore/jss/pull/2059))([#2064](https://github.com/Sitecore/jss/pull/2064))([#2068](https://github.com/Sitecore/jss/pull/2068))
 * `[create-sitecore-jss]` Create apps with exact jss dependency versions for canary and beta releases; all apps are now created with v0.1.0 instead of the version of JSS ([#2032](https://github.com/Sitecore/jss/pull/2032))
+* `[sitecore-jss-cli]` Code extraction feature for XMCloud code generation is added ([#2075](https://github.com/Sitecore/jss/pull/2075))
 
 ### 🐛 Bug Fixes
 
