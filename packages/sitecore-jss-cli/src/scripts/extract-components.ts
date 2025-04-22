@@ -86,7 +86,7 @@ const isBuildContext = () => {
   if (process.env.VERCEL && !process.env.VERCEL_REGION) {
     return true;
   }
-  if (process.env.XMCLOUD) {
+  if (process.env.SITECORE && process.env.BuildMetadata_BuildId) {
     return true;
   }
   return false;

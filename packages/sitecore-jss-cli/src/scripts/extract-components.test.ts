@@ -10,13 +10,15 @@ describe('extract-components', () => {
 
     beforeEach(() => {
       process.env.EXTRACT_CONSENT = 'true';
-      process.env.XMCLOUD = '1';
+      process.env.SITECORE = 'true';
+      process.env.BuildMetadata_BuildId = '0451';
     });
 
     afterEach(() => {
       sandbox.restore();
       delete process.env.EXTRACT_CONSENT;
-      delete process.env.XMCLOUD;
+      delete process.env.SITECORE;
+      delete process.env.BuildMetadata_BuildId;
     });
 
     it('should log when bearer is empty', async () => {
