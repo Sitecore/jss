@@ -3,7 +3,7 @@ import { expect, use } from 'chai';
 import sinon, { SinonSpy } from 'sinon';
 import spies from 'chai-spies';
 import nock from 'nock';
-import { GraphQLLayoutService } from './graphql-layout-service';
+import { GRAPHQL_LAYOUT_QUERY_NAME, GraphQLLayoutService } from './graphql-layout-service';
 import { GraphQLRequestClient, GraphQLRequestClientFactory } from '../graphql-request-client';
 
 use(spies);
@@ -30,7 +30,7 @@ describe('GraphQLLayoutService', () => {
       .post('/graphql', (body) => {
         return (
           body.query.replace(/\n|\s/g, '') ===
-          'query{layout(site:"supersite",routePath:"/styleguide",language:"da-DK"){item{rendered}}}'
+          `query${GRAPHQL_LAYOUT_QUERY_NAME}{layout(site:"supersite",routePath:"/styleguide",language:"da-DK"){item{rendered}}}`
         );
       })
       .reply(200, {
@@ -89,7 +89,7 @@ describe('GraphQLLayoutService', () => {
       .post('/graphql', (body) => {
         return (
           body.query.replace(/\n|\s/g, '') ===
-          'query{layout(site:"supersite",routePath:"/styleguide"){item{rendered}}}'
+          `query${GRAPHQL_LAYOUT_QUERY_NAME}{layout(site:"supersite",routePath:"/styleguide"){item{rendered}}}`
         );
       })
       .reply(200, {
@@ -143,7 +143,7 @@ describe('GraphQLLayoutService', () => {
       .post('/graphql', (body) => {
         return (
           body.query.replace(/\n|\s/g, '') ===
-          'query{layout111(site:"supersite",route:"/styleguide",language:"en"){item{rendered}}}'
+          `query${GRAPHQL_LAYOUT_QUERY_NAME}{layout111(site:"supersite",route:"/styleguide",language:"en"){item{rendered}}}`
         );
       })
       .reply(200, {
@@ -195,7 +195,7 @@ describe('GraphQLLayoutService', () => {
       .post('/graphql', (body) => {
         return (
           body.query.replace(/\n|\s/g, '') ===
-          'query{layout(site:"supersite",routePath:"/styleguide",language:"da-DK"){item{rendered}}}'
+          `query${GRAPHQL_LAYOUT_QUERY_NAME}{layout(site:"supersite",routePath:"/styleguide",language:"da-DK"){item{rendered}}}`
         );
       })
       .reply(200, {

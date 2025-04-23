@@ -37,16 +37,16 @@ export type RobotsQueryResult = { site: { siteInfo: { robots: string } } };
 export class GraphQLRobotsService {
   private graphQLClient: GraphQLClient;
 
-  protected get query(): string {
-    return defaultQuery;
-  }
-
   /**
    * Creates an instance of graphQL robots.txt service with the provided options
    * @param {GraphQLRobotsServiceConfig} options instance
    */
   constructor(public options: GraphQLRobotsServiceConfig) {
     this.graphQLClient = this.getGraphQLClient();
+  }
+
+  protected get query(): string {
+    return defaultQuery;
   }
 
   /**

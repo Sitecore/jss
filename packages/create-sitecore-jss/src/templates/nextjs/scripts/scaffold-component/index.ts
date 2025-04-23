@@ -23,7 +23,7 @@ generatePlugins({
   Edit this script if you wish to use your own conventions for component storage in your JSS app.
 */
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const plugins = require('scripts/temp/scaffold-component-plugins');
 
 export interface ScaffoldComponentPluginConfig {

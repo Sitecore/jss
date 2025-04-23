@@ -29,11 +29,7 @@ import * as FEAASWrapper from './FEaaSWrapper';
 import { HiddenRendering } from './HiddenRendering';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import { Placeholder } from './Placeholder';
-import {
-  ComponentProps,
-  getDynamicPlaceholderPattern,
-  isDynamicPlaceholder,
-} from './PlaceholderCommon';
+import { ComponentProps } from './PlaceholderCommon';
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
@@ -439,6 +435,33 @@ describe('<Placeholder />', () => {
 
       expect(renderedComponent.find('.byoc-component').length).to.equal(2);
       expect(renderedComponent.find('.byoc-wrapper').length).to.equal(1);
+
+      byocComponentStub.restore();
+      byocWrapperStub.restore();
+    });
+
+    it('should render ErrorBoundary without Suspense for byoc wrapper', () => {
+      const component = byocWrapperData.sitecore.route as RouteData;
+      const phKey = 'main';
+
+      byocComponentStub = stub(BYOCComponent, 'BYOCComponent').callsFake(() => (
+        <p className="byoc-component">Foo</p>
+      ));
+
+      byocWrapperStub = stub(BYOCWrapper, 'BYOCWrapper').callsFake(() => (
+        <div className="byoc-wrapper">
+          <BYOCComponent.BYOCComponent />
+        </div>
+      ));
+
+      const renderedComponent = mount(
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
+      );
+
+      expect(renderedComponent.find('ErrorBoundary').length).to.equal(2);
+      expect(renderedComponent.find('Suspense').length).to.equal(1);
 
       byocComponentStub.restore();
       byocWrapperStub.restore();
@@ -930,22 +953,6 @@ describe('PlaceholderMetadata', () => {
 
     expect(wrapper.find(PlaceholderMetadata).length).to.equal(4);
   });
-});
-
-it('isDynamicPlaceholder', () => {
-  expect(isDynamicPlaceholder('container-{*}')).to.be.true;
-  expect(isDynamicPlaceholder('container-1-{*}')).to.be.true;
-  expect(isDynamicPlaceholder('container-1-2')).to.be.false;
-  expect(isDynamicPlaceholder('container-1')).to.be.false;
-  expect(isDynamicPlaceholder('container-1-2-3')).to.be.false;
-  expect(isDynamicPlaceholder('container-1-{*}-3')).to.be.true;
-});
-
-it('getDynamicPlaceholderPattern', () => {
-  expect(getDynamicPlaceholderPattern('container-{*}').test('container-1')).to.be.true;
-  expect(getDynamicPlaceholderPattern('container-{*}').test('container-1-2')).to.be.false;
-  expect(getDynamicPlaceholderPattern('container-1-{*}').test('container-1-2')).to.be.true;
-  expect(getDynamicPlaceholderPattern('container-1-{*}').test('container-1-2-3')).to.be.false;
 });
 
 after(() => {

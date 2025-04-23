@@ -8,6 +8,10 @@ import { MissingComponent, MissingComponentProps } from './MissingComponent';
 describe('BYOCComponent', () => {
   it('should render with props when ComponentProps is provided', () => {
     const mockProps = {
+      rendering: {
+        uid: '1111-2222-3333-4444',
+        componentName: 'BYOCWrapper',
+      },
       params: {
         ComponentName: 'Foo',
         ComponentProps: JSON.stringify({ prop1: 'value1' }),
@@ -29,6 +33,7 @@ describe('BYOCComponent', () => {
     expect(fooComponent.prop('prop1')).to.equal('value1');
     expect(fooComponent.prop('data-external-id')).to.equal('Foo');
     expect(fooComponent.find('#foo-content')).to.have.length(1);
+    expect(fooComponent.prop('uid')).to.equal('1111-2222-3333-4444');
   });
 
   it('should use datasource fields when provided', () => {

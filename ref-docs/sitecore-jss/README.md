@@ -1,18 +1,18 @@
-@sitecore-jss/sitecore-jss
+**@sitecore-jss/sitecore-jss** • **Docs**
+
+***
 
 # @sitecore-jss/sitecore-jss
 
-## Table of contents
+## Modules
 
-### Modules
-
-- [editing](modules/editing.md)
-- [graphql](modules/graphql.md)
-- [i18n](modules/i18n.md)
-- [index](modules/index.md)
-- [layout](modules/layout.md)
-- [media](modules/media.md)
-- [personalize](modules/personalize.md)
-- [site](modules/site.md)
-- [tracking](modules/tracking.md)
-- [utils](modules/utils.md)
+- [editing](editing/README.md)
+- [graphql](graphql/README.md)
+- [i18n](i18n/README.md)
+- [index](index/README.md)
+- [layout](layout/README.md)
+- [media](media/README.md)
+- [personalize](personalize/README.md)
+- [site](site/README.md)
+- [tracking](tracking/README.md)
+- [utils](utils/README.md)

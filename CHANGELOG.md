@@ -11,6 +11,281 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🎉 New Features & Improvements
+
+* `[Next.js]` XM Cloud Forms support without BYOC ([#2052](https://github.com/Sitecore/jss/pull/2052))([#2066](https://github.com/Sitecore/jss/pull/2066)):
+  * Introduced a new `Form` component in the `sitecore-jss-react` package.
+  * The `Form` component must be registered in the app to enable non-BYOC Forms support.
+  * `SitecoreContext` now supports an `api` property for passing XM Cloud Edge endpoint settings, enabling the `Form` component to access the configured endpoint.
+  * Added shared `Form` functionality via the `sitecore-jss` package.
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Fix for case sensitive redirects (make all redirects case-insensitive) [#2074](https://github.com/Sitecore/jss/pull/2074)
+* `[sitecore-jss]` Fix for lookbehind regex. (not supported on ios 16) [#2057](https://github.com/Sitecore/jss/issues/2057)
+* `[sitecore-jss-nextjs]` Fix React warning from Link component when using custom emptyFieldEditingComponent prop ([#2061](https://github.com/Sitecore/jss/pull/2061))
+* `[sitecore-jss]` `[template/nextjs-sxa]` Fix `/api/sitemap` endpoint ([#2058](https://github.com/Sitecore/jss/pull/2058)) ([#2063](https://github.com/Sitecore/jss/pull/2063))
+* `[sitecore-jss]` Handle trailing slash in sitecoreEdgeUrl to prevent request failures ([#2062](https://github.com/Sitecore/jss/pull/2062))
+* `[create-sitecore-jss]` Fix nextjs(xmcloud) app initialization ([#2070](https://github.com/Sitecore/jss/pull/2070))
+* `[sitecore-jss-react]` Suspense in ErrorBoundary component is not rendered when it is wrapping a BYOCWrapper to prevent client side hydration errors ([#2071](https://github.com/Sitecore/jss/pull/2071))
+* `[sitecore-jss-react]` Fix link component is not checking if href is undefined. ([#1856](https://github.com/Sitecore/jss/pull/1856))
+
+### 🛠 Breaking Changes
+
+* Upgrade cloudsdk to 0.5 ([#2060](https://github.com/Sitecore/jss/pull/2060)):
+  * This upgrade doesn't introduce any breaking changes, however you will have to upgrade your cloudsdk dependencies to meet peer dependencies requirements
+
+## 22.5.4
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss]` Cannot use 'in' operator to search for 'editable' ([#1768](https://github.com/Sitecore/jss/pull/1768))
+
+## 22.5.3
+
+### 🐛 Bug Fixes
+* `[sitecore-jss-nextjs]` Fixes an issue where a more specific redirect rule with locale is not activating when a less specific rule is present. ([#2054](https://github.com/Sitecore/jss/pull/2054)[#2056](https://github.com/Sitecore/jss/pull/2056))
+
+* `[sitecore-jss-nextjs]` Fix an endless redirect issue with [/default/(.*) -> /en/$1] redirect rule when nextjs default locale is set to default. ([#2055](https://github.com/Sitecore/jss/pull/2055))
+
+## 22.5.2
+
+### 🐛 Bug Fixes
+* `[sitecore-jss-nextjs]` When redirect rule was not using regex and was only matching a path (without query string), incoming matching URLs were ignored when query string is present. This has been fixed ([#2050](https://github.com/Sitecore/jss/pull/2050))
+* `[sitecore-jss-nextjs]` Fixed redirect header from previous middleware execution not being cleaned up correctly. ([#2050](https://github.com/Sitecore/jss/pull/2050))
+
+## 22.5.1
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-nextjs]` [RichText] Add support for the "prefetch on hover" ([#2049](https://github.com/Sitecore/jss/pull/2049)):
+  * The `prefetchLinks` property now supports the `hover` value, that allows prefetching internal links on hover.
+* `[sitecore-jss-nextjs]` Refactor RedirectsMiddleware for better extensibility ([#2040](https://github.com/Sitecore/jss/pull/2040))([#2048](https://github.com/Sitecore/jss/pull/2048)):
+  * Introduced `processRedirectRequest` that can be overridden in custom middleware.
+* `[sitecore-jss-nextjs]` Link component supports `prefetch` property ([#2039](https://github.com/Sitecore/jss/pull/2039))([#2046](https://github.com/Sitecore/jss/pull/2046))
+* `[create-sitecore-jss]` Create apps with exact jss dependency versions for prerelease versions; all apps are now created with v0.1.0 instead of the version of JSS ([#2033](https://github.com/Sitecore/jss/pull/2033))
+
+### 🐛 Bug Fixes
+
+* `[templates/nextjs-sxa]` Fixed unsafe property access by replacing direct calls with optional chaining ([#2035](https://github.com/Sitecore/jss/pull/2035))
+* `[sitecore-jss-react]` Extend `PlaceholderProps` to support `Item` type field ([#2043](https://github.com/Sitecore/jss/pull/2043))
+
+## 22.5.0
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-angular]` Support `CanActivate` `RedirectCommand` API ([#2029](https://github.com/Sitecore/jss/pull/2029))
+* `[sitecore-jss-angular]` `CanActivate` and `CanResolve` now additionally accept `router` as a parameter ([#2029](https://github.com/Sitecore/jss/pull/2029))
+* `[templates/angular]` Remove unnecessary PROXY_HOST setting ([#2036](https://github.com/Sitecore/jss/pull/2036)):
+  * The environment variable `PROXY_HOST` is no longer required and can be fully removed from the application.
+* `[node-xmcloud-proxy]` Update Netlify deployment guide ([#2041](https://github.com/Sitecore/jss/pull/2041))
+
+### 🛠 Breaking Change
+
+* Upgrade Angular to v18 ([#2029](https://github.com/Sitecore/jss/pull/2029))
+  * Updated Angular and core dependencies to ~18.2.13
+
+## 22.4.1
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Fix Chromes editing mode when rendering host URL is internally redirected in XMCloud ([#2019](https://github.com/Sitecore/jss/pull/2019))
+* `[templates/next.js]` sitemap.xml endpoint returns 404 ([#2023](https://github.com/Sitecore/jss/pull/2023))
+
+## 22.4.0
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Improve performance for redirect middleware. ([#2003](https://github.com/Sitecore/jss/pull/2003))
+* `[sitecore-jss-nextjs]` Fix unnecessary escaping of valid regex operators in SXA rewrite patterns ([#1999](https://github.com/Sitecore/jss/pull/1999))
+* `[sitecore-jss]` Fixed question marks not being handled correctly in `escapeNonSpecialQuestionMarks` method, when parsing regular expressions ([#2014](https://github.com/Sitecore/jss/pull/2014))
+* `[templates/nextjs-sxa]` Fix font-awesome imports in custom workspaces. ([#1998](https://github.com/Sitecore/jss/pull/1998))
+* `[templates/nextjs]` `[templates/nextjs-sxa]` Ensure DISABLE_SSG_FETCH variable is correctly handled in error pages([#2007](https://github.com/Sitecore/jss/pull/2007))
+
+
+### 🛠 Breaking Change
+
+* `[all packages]` `[all samples]` Remove Axios ([#2006](https://github.com/Sitecore/jss/pull/2006)) ([#2008](https://github.com/Sitecore/jss/pull/2008)) ([#2011](https://github.com/Sitecore/jss/pull/2011))([#2013](https://github.com/Sitecore/jss/pull/2013))([#2015](https://github.com/Sitecore/jss/pull/2015))
+([#2016](https://github.com/Sitecore/jss/pull/2016))
+    * `AxiosDataFetcher` is replaced by the `NativeDataFetcher`.
+    * `AxiosDataFetcherConfig` is replaced by `NativeDataFetcherConfig`.
+    * `AxiosResponse` is replaced by `NativeDataFetcherResponse`.
+    * `NativeDataFetcherError`: a new error type introduced for native data fetching operations.
+    * Default fetcher i.e. `NativeDataFetcher.fetch` is of type `NativeDataFetcherFunction<T>` but can be overridden by custom fetcher using the existing `HttpDataFetcher<T>` type.
+    * `NativeDataFetcher` now exposes `fetch`, `get`, `post`, `delete`, `put`, `head` methods.
+    * `NativedDataFetcher.fetch` now accepts second parameter of type `RequestInit` instead of `unknown`.
+
+## 22.3.0 / 22.3.1
+
+### 🐛 Bug Fixes
+
+* `[templates/angular-xmcloud]` Navigation component link forces full page reload ([#1958](https://github.com/Sitecore/jss/pull/1958))
+* `[sitecore-jss-nextjs]` Link component prefetches files ([#1956](https://github.com/Sitecore/jss/pull/1956))
+* `[templates/nextjs]` `[templates/react]` `[templates/angular]` `[templates/vue]` Fixed an issue when environment variable is undefined (not present in .env), that produced an "undefined" value in generated config file ([#1875](https://github.com/Sitecore/jss/pull/1875))
+* `[templates/nextjs]` Fix embedded personalization not rendering correctly after navigation through router links. ([#1911](https://github.com/Sitecore/jss/pull/1911))
+* `[template/angular]` Prevent client-side dictionary API call when SSR data is available ([#1930](https://github.com/Sitecore/jss/pull/1930)) ([#1932](https://github.com/Sitecore/jss/pull/1932))
+* `[sitecore-jss-angular]` Fix default empty field components to not render the unwanted wrapping tags ([#1937](https://github.com/Sitecore/jss/pull/1937)) ([#1940](https://github.com/Sitecore/jss/pull/1940))
+* `[sitecore-jss-angular]` Fix image field style property not rendered properly ([#1944](https://github.com/Sitecore/jss/pull/1944))
+* `[sitecore-jss-angular]` Fix nested dynamic placeholders not being displayed in Pages ([#1947](https://github.com/Sitecore/jss/pull/1947))
+* `[sitecore-jss-dev-tools]` getMetadata() now uses `npm query` command to get the list and exact versions of packages. this solution works for monorepo setups ([#1949](https://github.com/Sitecore/jss/pull/1949))
+* `[templates/nextjs-sxa]` Fix an alignment issue where components using both `me-auto` and `ms-md-auto` classes resulted in inconsistent alignment of elements. ([#1946](https://github.com/Sitecore/jss/pull/1946)) ([#1950](https://github.com/Sitecore/jss/pull/1950)) ([#1955](https://github.com/Sitecore/jss/pull/1955))
+* `[sitecore-jss-proxy]``[sitecore-jss-nextjs]` Fix for getCSPHeader so that it returns proper value for the CSP header when JSS_ALLOWED_ORIGINS lists multiple origins delimited with comma. ([#1972](https://github.com/Sitecore/jss/pull/1972))
+* `[sitecore-jss-proxy]` Support Editing Host protection by handling OPTIONS preflight requests ([#1976](https://github.com/Sitecore/jss/pull/1976))
+* `[templates/nextjs]` Disable x-powered-by header
+
+### 🎉 New Features & Improvements
+
+* `[Beta]` Angular support for XM Cloud with SPA Proxy:
+  * `[create-sitecore-jss]` Introduced "node-xmcloud-proxy" addon ([#1863](https://github.com/Sitecore/jss/pull/1863))
+  * `[create-sitecore-jss]` `[template/angular]` `[template/angular-sxp]` `[template/angular-xmcloud]` Introduced "angular-sxp", "angular-xmcloud" addons ([#1838](https://github.com/Sitecore/jss/pull/1838))([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1865](https://github.com/Sitecore/jss/pull/1865)):
+    * The Angular app should now be initialized by providing both templates (or using CLI prompts):
+      * SXP-based: 'angular,angular-sxp'
+      * XMCloud-based: 'angular,angular-xmcloud'
+    * Rework Angular initializer to support XMCloud and SXP journeys;
+    * Add SXA styles to xmcloud addon
+  * `[create-sitecore-jss]` `[template/angular]` `[template/angular-xmcloud]` `[template/node-xmcloud-proxy]` Edge Proxy / Context Id support ([#1875](https://github.com/Sitecore/jss/pull/1875))([#1885](https://github.com/Sitecore/jss/pull/1885))
+  * `[create-sitecore-jss]` Rework Angular initializer to support XMCloud and SXP journeys ([#1845](https://github.com/Sitecore/jss/pull/1845))([#1858](https://github.com/Sitecore/jss/pull/1858))([#1868](https://github.com/Sitecore/jss/pull/1868))([#1881](https://github.com/Sitecore/jss/pull/1881))([#1882](https://github.com/Sitecore/jss/pull/1882))([#1931](https://github.com/Sitecore/jss/pull/1931))
+    * `[create-sitecore-jss]` Allow node-xmcloud-proxy app to be installed alongside Angular SPA application
+    * `proxyAppDestination` arg can be passed into `create-sitecore-jss` command to define path for proxy to be installed in
+  * `[templates/angular]` `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/editing/config endpoint ([#1903](https://github.com/Sitecore/jss/pull/1903))
+  * `[templates/angular]` `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/editing/render endpoint ([#1908](https://github.com/Sitecore/jss/pull/1908))
+  * `[templates/angular-xmcloud]` `[template/node-xmcloud-proxy]` Personalization support ([#1964](https://github.com/Sitecore/jss/pull/1964)[#1971](https://github.com/Sitecore/jss/pull/1971)[#1973](https://github.com/Sitecore/jss/pull/1973))
+  * `[create-sitecore-jss]` `[sitecore-jss-angular]` `[template/angular-xmcloud]` Angular SXA components
+    * Angular placeholder now supports SXA components ([#1870](https://github.com/Sitecore/jss/pull/1870))
+    * Component styles ([#1917](https://github.com/Sitecore/jss/pull/1917))
+    * Title component ([#1904](https://github.com/Sitecore/jss/pull/1904))
+    * Richtext component ([#1864](https://github.com/Sitecore/jss/pull/1864))
+    * Container component ([#1872](https://github.com/Sitecore/jss/pull/1872))
+    * Angular SXA layout ([#1873](https://github.com/Sitecore/jss/pull/1873))([#1880](https://github.com/Sitecore/jss/pull/1880))([#1890](https://github.com/Sitecore/jss/pull/1890))([#1906](https://github.com/Sitecore/jss/pull/1906))
+    * RowSplitter component([#1901](https://github.com/Sitecore/jss/pull/1901))
+    * LinkList component([#1898](https://github.com/Sitecore/jss/pull/1898))
+    * ColumnSplitter ([#1889](https://github.com/Sitecore/jss/pull/1889))
+    * PartialDesignDynamicPlaceholder component ([#1902](https://github.com/Sitecore/jss/pull/1902))
+    * Promo component ([#1897](https://github.com/Sitecore/jss/pull/1897))
+    * PageContent component ([#1905](https://github.com/Sitecore/jss/pull/1905))
+    * Navigation component ([#1894](https://github.com/Sitecore/jss/pull/1894))
+  * `[sitecore-jss-angular]` Placeholder component will now render metadata code blocks when in Metadata Edit mode ([#1918](https://github.com/Sitecore/jss/pull/1918))
+  * `[sitecore-jss]` `[sitecore-jss-angular]` Default Placeholder Content for empty fields in editMode metadata - in edit mode metadata in Pages, angular package field directives will render default or custom placeholder content if the provided field is empty; ([#1916](https://github.com/Sitecore/jss/pull/1916))
+    * custom placeholder content can be provided to field directives by passing the corresponding input:
+    - `scDateEmptyFieldEditingTemplate` for _scDate_
+    - `scGenericLinkEmptyFieldEditingTemplate` for _scGenericLink_
+    - `scImageEmptyFieldEditingTemplate` for _scImage_
+    - `scLinkEmptyFieldEditingTemplate` for _scLink_
+    - `scRichTextEmptyFieldEditingTemplate` for _scRichText_
+    - `scRouterLinkEmptyFieldEditingTemplate` for _scRouterLink_
+    - `scTextEmptyFieldEditingTemplate` for _scText_
+  * `[sitecore-jss-angular]` `[templates/angular-xmcloud]` Render clientScripts / clientData. The new `sc-editing-scripts` component is exposed from `sitecore-jss-angular` package and required to be rendered on the page to enable Metadata Edit mode. ([#1924](https://github.com/Sitecore/jss/pull/1924))([#1948](https://github.com/Sitecore/jss/pull/1948))
+  * `[sitecore-jss-angular]` `[templates/angular-xmcloud]` XM Cloud Forms support ([#1951](https://github.com/Sitecore/jss/pull/1951)):
+    * New "Form" component is introduced in the sitecore-jss-angular package.
+    * The Form component is declared in the Angular sample app.
+    * Introduced plugins technique for component factory generation.
+  * `[template/node-xmcloud-proxy]` `[sitecore-jss-proxy]` Introduced /api/healthz endpoint ([#1928](https://github.com/Sitecore/jss/pull/1928))
+  * `[sitecore-jss]` `[sitecore-jss-angular]` Render field metdata chromes in editMode metadata - in edit mode metadata in Pages, angular package field directives will render wrapping `code` elements with field metadata required for editing; ([#1926](https://github.com/Sitecore/jss/pull/1926))
+  * `[angular-xmcloud]` `[sitecore-jss-angular]` Analytics and CloudSDK integration
+    * `[angular-xmcloud]` Add CloudSDK initialization on client side ([#1952](https://github.com/Sitecore/jss/pull/1952))([#1957](https://github.com/Sitecore/jss/pull/1957))([#1961](https://github.com/Sitecore/jss/pull/1961))
+    * `[angular-xmcloud]` `[sitecore-jss-angular]` Add CDP Page View component to Angular XM Cloud add-on ([#1957](https://github.com/Sitecore/jss/pull/1957))
+  * `[templates/angular]` Update dependencies and proxy build path value to be unix style path to support xmcloud deployment and monorepo starter kit in xmcloud foundation head ([#1977](https://github.com/Sitecore/jss/pull/1977))
+  * `[templates/angular]` `[templates/angular-sxp]` `[templates/angular-xmcloud]` Updates for Angular XMC sample to work well with local containers and spa-starters monorepo in xmcloud-foundation ([#1983](https://github.com/Sitecore/jss/pull/1983))
+  * `[sitecore-jss-angular]` `[templates/angular]` Integrate CloudSDK events firing ([#1984](https://github.com/Sitecore/jss/pull/1984))([#1990](https://github.com/Sitecore/jss/pull/1990))
+* `[sitecore-jss]` GenericFieldValue model is updated to accept Date type ([#1916](https://github.com/Sitecore/jss/pull/1916))
+* `[templates/vue]` `[sitecore-jss-vue]` Vue version has been updated to 3.5 ([#1995](https://github.com/Sitecore/jss/pull/1995)([#1970](https://github.com/Sitecore/jss/pull/1970)))
+
+### 🛠 Breaking Change
+
+* `[sitecore-jss]` Set FETCH_WITH.REST to 'REST' instead of 'Rest' ([#1927](https://github.com/Sitecore/jss/pull/1927)):
+  * The `FETCH_WITH.REST` constant has been updated to 'REST' instead of 'Rest' to match the value that we mention in the documentation. If you are using this constant in your code, please update your FETCH_WITH env variable to 'REST'.
+*  `[templates/angular]` `[sitecore-jss-angular]` A new `JssStateService` has been introduced in the `sitecore-jss-angular` package, enhancing type safety and enabling state sharing across the application and SDK components. As a result, the JssContextService now relies on JssStateService for state management.([#1918](https://github.com/Sitecore/jss/pull/1918))
+* `[sitecore-jss-proxy]` Updated exports of the module for better extensibility ([#1903](https://github.com/Sitecore/jss/pull/1903))
+  * `express@^4.19.2` dependency is marked as a peer dependency
+  * Default `scProxy` middleware export is replaced by `headlessProxy` object that contains the `middleware`, `ProxyConfig`, `ServerBundle` properties
+* Update to Node.js 22 ([#1975](https://github.com/Sitecore/jss/pull/1975))([#1992](https://github.com/Sitecore/jss/pull/1992)):
+  * `[nextjs]` `[react]` `[angular]` `[node-headless-ssr-proxy]` Updated `typescript` to latest version
+  * `[nextjs]` Updated `@typescript-eslint` to version 8
+* `[Next.js]` `[Angular]` `[Proxy]` Update CloudSDK to 0.4.2 ([#1994](https://github.com/Sitecore/jss/pull/1994))
+
+### 🧹 Chores
+
+* `[templates/angular]` `[templates/node-xmcloud-proxy]` `[templates/node-headless-ssr-proxy]` `[templates/node-headless-ssr-experience-edge]` Adjust out of box .gitignore rules
+* New Angular add-on's are not scaffolded within build pipeline ([#1962](https://github.com/Sitecore/jss/pull/1962))
+* Release process, maintenance simplification ([#1960](https://github.com/Sitecore/jss/pull/1960))
+* `[template/angular-xmcloud]``[template/xmcloud-proxy]` Add README.md ([#1965](https://github.com/Sitecore/jss/pull/1965))([#1989](https://github.com/Sitecore/jss/pull/1989))
+
+## 22.2.2
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Support Editing Host protection by handling OPTIONS preflight requests ([#1986](https://github.com/Sitecore/jss/pull/1986))
+
+## 22.2.1
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` [BYOC] Form's submission is failing ([#1966](https://github.com/Sitecore/jss/pull/1966)):
+  * Updated @sitecore-feaas/clientside to v0.5.19.
+  * Updated @sitecore/components to v2.0.1.
+  * Passed rendering data to FEAAS.ExternalComponent.
+
+  Make sure to update the relevant dependencies to be able to use the latest fixes.
+
+* `[sitecore-jss-react]` `[templates/nextjs-xmcloud]` Updated @sitecore-cloudsdk to v0.4.1 ([#1966](https://github.com/Sitecore/jss/pull/1966))
+
+## 22.2.0
+
+### 🛠 Breaking Change
+
+* `[templates/nextjs-xmcloud]` CloudSDK dependencies have been updated to 0.4.0 ([#1933](https://github.com/Sitecore/jss/pull/1933))
+* `[templates/nextjs-xmcloud]` `@sitecore/components` dependency has been updated to 2.0.0 ([#1933](https://github.com/Sitecore/jss/pull/1933)) 
+* `[templates/nextjs-xmcloud]` `lib/context` import has been removed. Values from `temp/config` can be used instead. ([#1933](https://github.com/Sitecore/jss/pull/1933)) 
+* `[sitecore-jss-nextjs]` `Context` import and `@sitecore-jss/sitecore-jss-nextjs/context` submodule have been removed. ([#1933](https://github.com/Sitecore/jss/pull/1933)) 
+* `[sitecore-jss-nextjs]` update personalize-middleware for CloudSDK 0.4.0 - pass `enablePersonalizeCookie` to CloudSDK.addPersonalize() function ([#1963](https://github.com/Sitecore/jss/pull/1963))
+
+
+## 22.1.4
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` `[sitecore-jss]` Resolved an issue with Netlify where URL query parameters were being sorted, causing redirect failures. Added a method to generate all possible permutations of query parameters, ensuring proper matching with URL patterns regardless of their order. ([#1935](https://github.com/Sitecore/jss/pull/1935))
+* `[sitecore-jss-nextjs]` Fixed an issue with language-based redirects, ensuring users are correctly redirected to the appropriate language-specific pages rather than defaulting to the primary language. ([#1938](https://github.com/Sitecore/jss/pull/1938))
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-nextjs]` Expose MiddlewareBase class and MiddlewareBaseConfig type ([#1941](https://github.com/Sitecore/jss/pull/1941))
+* `[react]``[nextjs]``[angular]``[vue]` CacheClient, CacheOptions, MemoryCacheClient classes can now be imported into the app through corresponding a framework package ([#1954](https://github.com/Sitecore/jss/pull/1954))
+
+## 22.1.3
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Addressed an issue where the x-middleware-rewrite header caused redirects to fail during execution on Netlify. ([#1915](https://github.com/Sitecore/jss/pull/1915))
+* `[sitecore-jss-nextjs]` Fixed incorrect behavior of redirects on Netlify service. This fix does not resolve issues related to multilingual redirects. ([#1919](https://github.com/Sitecore/jss/pull/1919))
+
+## 22.1.2
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` `[templates/nextjs]` Update nextjs to 14.2.7 ([#1911](https://github.com/Sitecore/jss/pull/1911))
+  * Make sure to update your app to use the latest Next.js version 14.2.7. It will fix the case when Embedded Personalization / A/B Testing is not executed after navigating through the router links
+* `[sitecore-jss]` Fix isEditorActive returning false in XMCloud Pages ([#1912](https://github.com/Sitecore/jss/pull/1912))
+* `[templates/nextjs]` `[XM Cloud]` FEAAS / BYOC Components are not visible on the page with running A/B test ([#1914](https://github.com/Sitecore/jss/pull/1914))
+  * Make sure to update the _PagePropsFactory_ plugins *order*, these plugins should be executed after the _page-props-factory\plugins\personalize.ts_ plugin to ensure that personalized layout data is used:
+    - _page-props-factory/plugins/component-themes.ts_
+    - _page-props-factory/plugins/component-props.ts_
+* `[sitecore-jss-nextjs]` Resolved an issue with redirects that was caused by the x-middleware-next header in Next.js. This header prevented the flow from being interrupted properly, resulting in redirects not functioning correctly in certain cases. ([#1899](https://github.com/Sitecore/jss/pull/1899))
+
+## 22.1.1
+
+### 🎉 New Features & Improvements
+
+* `[XM Cloud]` `[Metadata Mode]` `[Next.js]` API was changed, next.js preview data provides a new parameter `layoutKind` therefore, please make the necessary updates in the app in `plugins/preview-mode.ts` as shown in the following PR to experience a smooth upgrade.
+* `[sitecore-jss]` `[sitecore-jss-nextjs]` Pass `sc_layoutKind` to GraphQLEditingService request header to support shared/final editing layouts ([#1907](https://github.com/Sitecore/jss/pull/1907))
+* `[sitecore-jss]` `GraphQLRequestClient`'s `request` method now supports dynamic headers based on specific request ([#1907](https://github.com/Sitecore/jss/pull/1907))
+
+```
+  client.request(query, variables, { headers })
+```
+
+## 22.1.0
+
 ### 🐛 Bug Fixes
 
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Changed formatting in temp/config to prevent parse issues in Unix systems ([#1787](https://github.com/Sitecore/jss/pull/1787))([#1791](https://github.com/Sitecore/jss/pull/1791))
@@ -19,8 +294,10 @@ Our versioning strategy is as follows:
 * `[sitecore-jss]` `[sitecore-jss-react]` DateField empty value is not treated as empty ([#1836](https://github.com/Sitecore/jss/pull/1836))
 * `[templates/nextjs-sxa]` Fix styles of title component in metadata mode. ([#1839](https://github.com/Sitecore/jss/pull/1839))
 * `[templates/nextjs-sxa]` Fix missing value of field property in Title component. ([#1842](https://github.com/Sitecore/jss/pull/1842))
-* `[packages/sitecore-jss-react/src/components/Link.tsx]` Fix link component is not checking if href is undefined. ([#1856](https://github.com/Sitecore/jss/pull/1856))
-
+* `[templates/nextjs-sxa]` The background image in the Container component was being generated from the image ID instead of the mediaUrl parameter. This fix changes that behavior. ([#1879](https://github.com/Sitecore/jss/pull/1879))
+* `[templates/nextjs-sxa]` The caption of image component has been fixed. ([#1874](https://github.com/Sitecore/jss/pull/1874))
+* `[sitecore-jss-nextjs]` A bug has been fixed in the redirect middleware that occurred when a user clicked on a link rendered by the Link component from the Next.js library(next/link). ([#1876](https://github.com/Sitecore/jss/pull/1876)) ([#1891](https://github.com/Sitecore/jss/pull/1891)) ([#1893](https://github.com/Sitecore/jss/pull/1893))(#[1895](https://github.com/Sitecore/jss/pull/1895))
+* `[sitecore-jss-nextjs]` Disable nextjs image optimization in edit and preview modes. This prevents rendering issues in XM Cloud Pages Edit and Preview.
 
 ### 🎉 New Features & Improvements
 
@@ -29,14 +306,15 @@ Our versioning strategy is as follows:
 * `[sitecore-jss]` _GraphQLRequestClient_ now can accept custom 'headers' in the constructor or via _createClientFactory_ ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[templates/nextjs]` Removed cors header for API endpoints from _lib/next-config/plugins/cors-header_ plugin since cors is handled by API handlers / middlewares ([#1806](https://github.com/Sitecore/jss/pull/1806))
 * `[sitecore-jss-nextjs]` Updates to Next.js editing integration to further support secure hosting scenarios (on XM Cloud & Vercel) ([#1832](https://github.com/Sitecore/jss/pull/1832))
-* `[templates/nextjs-xmcloud]` `[sitecore-jss]` A/B testing and component-level personalization support. ([#1844](https://github.com/Sitecore/jss/pull/1844))([#1847](https://github.com/Sitecore/jss/pull/1847))([#1848](https://github.com/Sitecore/jss/pull/1848))
+* `[templates/nextjs-xmcloud]` `[sitecore-jss]` JSS is now ready to support A/B testing and component-level personalization. This feature will be enabled in Pages after the current release. ([#1844](https://github.com/Sitecore/jss/pull/1844))([#1847](https://github.com/Sitecore/jss/pull/1847))([#1848](https://github.com/Sitecore/jss/pull/1848))
 * `[sitecore-jss]` `[nextjs-xmcloud]` DictionaryService can now use a `site` GraphQL query instead of `search` one to improve performance. This is currently only available for XMCloud deployments and is enabled with `nextjs-xmcloud` add-on by default ([#1804](https://github.com/Sitecore/jss/pull/1804))([#1846](https://github.com/Sitecore/jss/pull/1846))([commit](https://github.com/Sitecore/jss/commit/5813a2df8ad6a9ee63dd74d5f206ed4b4f758753))([commit](https://github.com/Sitecore/jss/commit/d0ea3ac02c78343b5dd60277dbf7403410794a49))([commit](https://github.com/Sitecore/jss/commit/307b905ed60d7fff44b2dc799fd78c0842af6fbd))([commit](https://github.com/Sitecore/jss/commit/66164a42263aac8b55f0c5e47eda4bd4d7a72e87))
-* `[templates/nextjs-sxa]` SXA components now use the NextImage component instead of the Image component from JSS lib for image optimization ([#1843](https://github.com/Sitecore/jss/pull/1843))([#1850](https://github.com/Sitecore/jss/pull/1850))
+* `[templates/nextjs-sxa]` SXA components now use the NextImage component instead of the Image component from JSS lib for image optimization ([#1843](https://github.com/Sitecore/jss/pull/1843))([#1850](https://github.com/Sitecore/jss/pull/1850))([#1860](https://github.com/Sitecore/jss/pull/1860))
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[sitecore-jss-angular]` `[sitecore-jss-vue]` The default Hidden Rendering component now contains the text 'The component is hidden' ([#1857](https://github.com/Sitecore/jss/pull/1857))
 
 
 ### 🛠 Breaking Change
 
-* Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792))([#1773](https://github.com/Sitecore/jss/pull/1773))([#1797](https://github.com/Sitecore/jss/pull/1797))([#1800](https://github.com/Sitecore/jss/pull/1800))([#1803](https://github.com/Sitecore/jss/pull/1803))([#1806](https://github.com/Sitecore/jss/pull/1806))([#1809](https://github.com/Sitecore/jss/pull/1809))([#1814](https://github.com/Sitecore/jss/pull/1814))([#1816](https://github.com/Sitecore/jss/pull/1816))([#1819](https://github.com/Sitecore/jss/pull/1819))([#1828](https://github.com/Sitecore/jss/pull/1828))([#1835](https://github.com/Sitecore/jss/pull/1835))([#1849](https://github.com/Sitecore/jss/pull/1849))([#1831](https://github.com/Sitecore/jss/pull/1831))([#1853](https://github.com/Sitecore/jss/pull/1853))([#1854](https://github.com/Sitecore/jss/pull/1854))
+* Editing Integration Support: ([#1776](https://github.com/Sitecore/jss/pull/1776))([#1792](https://github.com/Sitecore/jss/pull/1792))([#1773](https://github.com/Sitecore/jss/pull/1773))([#1797](https://github.com/Sitecore/jss/pull/1797))([#1800](https://github.com/Sitecore/jss/pull/1800))([#1803](https://github.com/Sitecore/jss/pull/1803))([#1806](https://github.com/Sitecore/jss/pull/1806))([#1809](https://github.com/Sitecore/jss/pull/1809))([#1814](https://github.com/Sitecore/jss/pull/1814))([#1816](https://github.com/Sitecore/jss/pull/1816))([#1819](https://github.com/Sitecore/jss/pull/1819))([#1828](https://github.com/Sitecore/jss/pull/1828))([#1835](https://github.com/Sitecore/jss/pull/1835))([#1849](https://github.com/Sitecore/jss/pull/1849))([#1831](https://github.com/Sitecore/jss/pull/1831))([#1853](https://github.com/Sitecore/jss/pull/1853))([#1854](https://github.com/Sitecore/jss/pull/1854))([#1857](https://github.com/Sitecore/jss/pull/1857))([#1862](https://github.com/Sitecore/jss/pull/1862))([#1883](https://github.com/Sitecore/jss/pull/1883))
   * `[sitecore-jss-react]` Introduces `PlaceholderMetadata` component which supports the hydration of chromes on Pages by rendering  the components and placeholders with required metadata.
   * `[sitecore-jss]` Chromes are hydrated based on the basis of new `editMode` property derived from LayoutData, which is defined as an enum consisting of `metadata` and `chromes`.
   * `ComponentConsumerProps` is removed. You might need to reuse `WithSitecoreContextProps` type.
@@ -62,6 +340,7 @@ Our versioning strategy is as follows:
 
 * Update node/types to version 20 in all packages and samples ([#1810](https://github.com/Sitecore/jss/pull/1810))
 * Github - Teams integration ([#1823](https://github.com/Sitecore/jss/pull/1823))
+* [nextjs] Add `sharp` dependency to be in-line with nextjs's Image Optimizaion best practices: https://nextjs.org/docs/messages/install-sharp
 
 ## 22.0.0
 
@@ -82,6 +361,27 @@ Our versioning strategy is as follows:
   * Removed deprecated _defaultProps_ react component property
 * `[templates/nextjs]` GraphQL-based services can now only be initialized with clientFactory parameter. Previously deprecated option of providing endpoint and apiKey has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Deprecated JSS_APP_NAME environment variable has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
+
+## 21.9.0
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-angular]` Support `CanActivate` `RedirectCommand` API ([#2031](https://github.com/Sitecore/jss/pull/2031))
+* `[sitecore-jss-angular]` `CanActivate` and `CanResolve` now additionally accept `router` as a parameter ([#2031](https://github.com/Sitecore/jss/pull/2031))
+
+### 🛠 Breaking Change
+
+* Upgrade Angular to v18 ([#2031](https://github.com/Sitecore/jss/pull/2031))
+  * Updated Angular and core dependencies to ~18.2.13
+
+## 21.8.0
+
+### 🛠 Breaking Changes
+
+`[sitecore-jss-angular]` `[sitecore-jss-schematics]` `[templates/angular]` Upgrade Angular to v17 ([#1939](https://github.com/Sitecore/jss/pull/1939))
+  - Updated Angular and core dependencies to ~17.3.11
+  - Updated Typescript to ~5.2.2
+  - Updated import statements from zone.js/dist/zone-node to zone.js
 
 ### 🧹 Chores
 

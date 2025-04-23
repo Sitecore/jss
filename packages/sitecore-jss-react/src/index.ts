@@ -1,4 +1,16 @@
-export { constants, enableDebug, ClientError } from '@sitecore-jss/sitecore-jss';
+export {
+  constants,
+  enableDebug,
+  ClientError,
+  CacheClient,
+  CacheOptions,
+  MemoryCacheClient,
+  HttpDataFetcher,
+  NativeDataFetcher,
+  NativeDataFetcherError,
+  NativeDataFetcherResponse,
+  NativeDataFetcherConfig,
+} from '@sitecore-jss/sitecore-jss';
 export { EnhancedOmit } from '@sitecore-jss/sitecore-jss/utils';
 export {
   isEditorActive,
@@ -56,6 +68,7 @@ export {
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export { ComponentFactory, JssComponentType } from './components/sharedTypes';
 export { Placeholder, PlaceholderComponentProps } from './components/Placeholder';
+export { Form } from './components/Form';
 export {
   Image,
   ImageProps,

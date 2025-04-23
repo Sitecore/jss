@@ -5,8 +5,7 @@
     "baseUrl": "./",
     "target": "ES2022",
     "module": "commonjs",
-    "newLine": "LF",
-    "types": []
+    "newLine": "LF"
   },
   "lib": [
     "esnext.asynciterable"

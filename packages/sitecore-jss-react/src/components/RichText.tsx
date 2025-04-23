@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { ForwardedRef, forwardRef } from 'react';
 import PropTypes, { Requireable } from 'prop-types';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
@@ -25,8 +25,11 @@ export interface RichTextProps extends EditableFieldProps {
 export const RichText: React.FC<RichTextProps> = withFieldMetadata<RichTextProps>(
   withEmptyFieldEditingComponent<RichTextProps>(
     // eslint-disable-next-line react/display-name
-    forwardRef<HTMLElement, RichTextProps>(
-      ({ field, tag = 'div', editable = true, ...otherProps }, ref) => {
+    forwardRef(
+      (
+        { field, tag = 'div', editable = true, ...otherProps }: RichTextProps,
+        ref: ForwardedRef<HTMLElement>
+      ) => {
         if (!field || (!field.editable && isFieldValueEmpty(field))) {
           return null;
         }

@@ -10,7 +10,7 @@ const defaultComponentRootPath = 'src/components';
 
 /**
  * Generate component builder based on provided settings
- * @param {Object} [settings] settings for component builder generation
+ * @param {object} [settings] settings for component builder generation
  * @param {string} [settings.componentRootPath] path to components root
  * @param {string} [settings.componentBuilderOutputPath] path to component builder output
  * @param {PackageDefinition[]} [settings.packages] list of packages to include in component builder
@@ -39,7 +39,7 @@ export function generateComponentBuilder({
 
 /**
  * Watch for changes to component builder sources
- * @param {Object} settings settings for component builder generation
+ * @param {object} settings settings for component builder generation
  * @param {string} settings.componentRootPath path to components root
  * @param {string} settings.componentBuilderOutputPath path to component builder output
  * @param {PackageDefinition[]} settings.packages list of packages to include in component builder
@@ -71,7 +71,7 @@ export function watchComponentBuilder({
 
 /**
  * Write component builder to file
- * @param {Object} settings settings for component builder generation
+ * @param {object} settings settings for component builder generation
  * @param {string} settings.componentRootPath path to components root
  * @param {string} settings.componentBuilderOutputPath path to component builder output
  * @param {PackageDefinition[]} settings.packages list of packages to include in component builder

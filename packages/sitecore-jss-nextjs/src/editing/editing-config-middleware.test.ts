@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { spy } from 'sinon';
 import { expect } from 'chai';
 import { EditingConfigMiddleware } from './editing-config-middleware';
-import { QUERY_PARAM_EDITING_SECRET } from './constants';
+import { QUERY_PARAM_EDITING_SECRET } from '@sitecore-jss/sitecore-jss/editing';
 import { EditMode } from '@sitecore-jss/sitecore-jss/layout';
 
 type Query = {
@@ -26,6 +26,9 @@ const mockRequest = (method: string, query?: Query, headers?: { [key: string]: s
 const mockResponse = () => {
   const res = {} as NextApiResponse;
   res.status = spy(() => {
+    return res;
+  });
+  res.send = spy(() => {
     return res;
   });
   res.json = spy(() => {
@@ -118,6 +121,33 @@ describe('EditingConfigMiddleware', () => {
     expect(res.status).to.have.been.calledWith(401);
     expect(res.json).to.have.been.calledOnce;
     expect(res.json).to.have.been.calledWith(expectedResultForbidden);
+  });
+
+  it('should respond with 204 for preflight OPTIONS request', async () => {
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const req = mockRequest('OPTIONS', query);
+    const res = mockResponse();
+
+    const middleware = new EditingConfigMiddleware({ components: componentsArray, metadata });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(res.setHeader.getCall(0).args).to.deep.equal([
+      'Access-Control-Allow-Origin',
+      allowedOrigin,
+    ]);
+    expect(res.setHeader.getCall(1).args).to.deep.equal([
+      'Access-Control-Allow-Methods',
+      'GET, POST, OPTIONS, DELETE, PUT, PATCH',
+    ]);
+    expect(res.setHeader.getCall(2).args).to.deep.equal([
+      'Access-Control-Allow-Headers',
+      'Content-Type, Authorization',
+    ]);
+    expect(res.status).to.have.been.calledWith(204);
+    expect(res.send).to.have.been.calledOnceWith(null);
   });
 
   const testEditingConfig = async (

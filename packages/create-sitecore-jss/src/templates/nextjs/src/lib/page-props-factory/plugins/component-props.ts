@@ -7,7 +7,8 @@ import { Plugin, isServerSidePropsContext } from '..';
 class ComponentPropsPlugin implements Plugin {
   private componentPropsService: ComponentPropsService;
 
-  order = 2;
+  // Make sure to run this plugin last to ensure that the updated layout data is used
+  order = 10;
 
   constructor() {
     this.componentPropsService = new ComponentPropsService();

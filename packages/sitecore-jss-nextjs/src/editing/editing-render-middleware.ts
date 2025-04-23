@@ -1,10 +1,15 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
-import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
+import { NativeDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditMode, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
+import {
+  QUERY_PARAM_EDITING_SECRET,
+  EDITING_ALLOWED_ORIGINS,
+  RenderMetadataQueryParams,
+  LayoutKind,
+} from '@sitecore-jss/sitecore-jss/editing';
 import { EditingData } from './editing-data';
 import { EditingDataService, editingDataService } from './editing-data-service';
-import { EDITING_ALLOWED_ORIGINS, QUERY_PARAM_EDITING_SECRET } from './constants';
 import { getJssEditingSecret } from '../utils/utils';
 import { RenderMiddlewareBase } from './render-middleware';
 import { enforceCors, getAllowedOriginsFromEnv } from '@sitecore-jss/sitecore-jss/utils';
@@ -17,11 +22,11 @@ export type EditingRenderMiddlewareConfig = {
   /**
    * -- Edit Mode Chromes --
    *
-   * The `AxiosDataFetcher` instance to use for API requests.
-   * @default new AxiosDataFetcher()
-   * @see AxiosDataFetcher
+   * The `NativeDataFetcher` instance to use for API requests.
+   * @default new NativeDataFetcher()
+   * @see NativeDataFetcher
    */
-  dataFetcher?: AxiosDataFetcher;
+  dataFetcher?: NativeDataFetcher;
   /**
    * -- Edit Mode Chromes --
    *
@@ -38,7 +43,7 @@ export type EditingRenderMiddlewareConfig = {
    *
    * Function used to determine route/page URL to render.
    * This may be necessary for certain custom Next.js routing configurations.
-   * @param {Object} args Arguments for resolving the page URL
+   * @param {object} args Arguments for resolving the page URL
    * @param {string} args.serverUrl The root server URL e.g. 'http://localhost:3000'. Available in Chromes Edit Mode only.
    * @param {string} itemPath The Sitecore relative item path e.g. '/styleguide'
    * @returns {string} The URL to render
@@ -70,7 +75,7 @@ export type EditingRenderMiddlewareChromesConfig = EditingRenderMiddlewareConfig
  */
 export class ChromesHandler extends RenderMiddlewareBase {
   private editingDataService: EditingDataService;
-  private dataFetcher: AxiosDataFetcher;
+  private dataFetcher: NativeDataFetcher;
   private resolvePageUrl: (args: { serverUrl: string; itemPath: string }) => string;
   private resolveServerUrl: (req: NextApiRequest) => string;
 
@@ -78,7 +83,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
     super();
 
     this.editingDataService = config?.editingDataService ?? editingDataService;
-    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.editing });
+    this.dataFetcher = config?.dataFetcher ?? new NativeDataFetcher({ debugger: debug.editing });
     this.resolvePageUrl = config?.resolvePageUrl ?? this.defaultResolvePageUrl;
     this.resolveServerUrl = config?.resolveServerUrl ?? this.defaultResolveServerUrl;
   }
@@ -118,7 +123,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
       headers.cookie = `${headers.cookie ? headers.cookie + ';' : ''}${cookies.join(';')}`;
 
       // Make actual render request for page route, passing on preview cookies as well as any approved query string parameters.
-      // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
+      // Note timestamp effectively disables caching the request (no amount of cache headers seemed to do it)
       debug.editing('fetching page route for %s', editingData.path);
       const requestUrl = new URL(this.resolvePageUrl({ serverUrl, itemPath: editingData.path }));
       for (const key in params) {
@@ -127,8 +132,10 @@ export class ChromesHandler extends RenderMiddlewareBase {
         }
       }
       requestUrl.searchParams.append('timestamp', Date.now().toString());
+
       const pageRes = await this.dataFetcher
         .get<string>(requestUrl.toString(), {
+          credentials: 'include',
           headers,
         })
         .catch((err) => {
@@ -171,8 +178,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
 
       console.error(error);
 
-      if (error.response || error.request) {
-        // Axios error, which could mean the server or page URL isn't quite right, so provide a more helpful hint
+      if (error.response) {
         console.info(
           // eslint-disable-next-line quotes
           "Hint: for non-standard server or Next.js route configurations, you may need to override the 'resolveServerUrl' or 'resolvePageUrl' available on the 'EditingRenderMiddleware' config."
@@ -186,7 +192,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
 
   /**
    * Default page URL resolution.
-   * @param {Object} args Arguments for resolving the page URL
+   * @param {object} args Arguments for resolving the page URL
    * @param {string} args.serverUrl The root server URL e.g. 'http://localhost:3000'
    * @param {string} args.itemPath The Sitecore relative item path e.g. '/styleguide'
    * @returns {string} The URL to render
@@ -212,7 +218,11 @@ export class ChromesHandler extends RenderMiddlewareBase {
    * @param {NextApiRequest} req
    */
   private defaultResolveServerUrl = (req: NextApiRequest) => {
-    return `${process.env.VERCEL ? 'https' : 'http'}://${req.headers.host}`;
+    // to preserve auth headers, use https if we're in our 3 main hosting options
+    const useHttps =
+      (process.env.VERCEL || process.env.SITECORE || process.env.NETLIFY) !== undefined;
+    // use https for requests with auth but also support unsecured http rendering hosts
+    return `${useHttps ? 'https' : 'http'}://${req.headers.host}`;
   };
 
   private extractEditingData(req: NextApiRequest): EditingData {
@@ -262,25 +272,10 @@ export type EditingRenderMiddlewareMetadataConfig = Pick<
 >;
 
 /**
- * Query parameters appended to the page route URL
- * Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
- */
-export type MetadataQueryParams = {
-  secret: string;
-  sc_lang: string;
-  sc_itemid: string;
-  sc_site: string;
-  route: string;
-  mode: Exclude<LayoutServicePageState, 'normal'>;
-  sc_variant?: string;
-  sc_version?: string;
-};
-
-/**
  * Next.js API request with Metadata query parameters.
  */
 type MetadataNextApiRequest = NextApiRequest & {
-  query: MetadataQueryParams;
+  query: RenderMetadataQueryParams;
 };
 
 /**
@@ -294,11 +289,12 @@ export type EditingMetadataPreviewData = {
   pageState: Exclude<LayoutServicePageState, 'Normal'>;
   variantIds: string[];
   version?: string;
+  layoutKind?: LayoutKind;
 };
 
 /**
  * Type guard for EditingMetadataPreviewData
- * @param {Object} data preview data to check
+ * @param {object} data preview data to check
  * @returns true if the data is EditingMetadataPreviewData
  * @see EditingMetadataPreviewData
  */
@@ -324,7 +320,7 @@ export class MetadataHandler {
 
     const startTimestamp = Date.now();
 
-    const requiredQueryParams: (keyof MetadataQueryParams)[] = [
+    const requiredQueryParams: (keyof RenderMetadataQueryParams)[] = [
       'sc_site',
       'sc_itemid',
       'sc_lang',
@@ -355,10 +351,10 @@ export class MetadataHandler {
         version: query.sc_version,
         editMode: EditMode.Metadata,
         pageState: query.mode,
+        layoutKind: query.sc_layoutKind,
       } as EditingMetadataPreviewData,
       // Cache the preview data for 3 seconds to ensure the page is rendered with the correct preview data not the cached one
       {
-        path: query.route,
         maxAge: 3,
       }
     );
@@ -414,9 +410,10 @@ export class MetadataHandler {
    * @returns Content-Security-Policy header value
    */
   getSCPHeader() {
-    return `frame-ancestors 'self' ${[getAllowedOriginsFromEnv(), ...EDITING_ALLOWED_ORIGINS].join(
-      ' '
-    )}`;
+    return `frame-ancestors 'self' ${[
+      ...getAllowedOriginsFromEnv(),
+      ...EDITING_ALLOWED_ORIGINS,
+    ].join(' ')}`;
   }
 }
 
@@ -484,6 +481,12 @@ export class EditingRenderMiddleware extends RenderMiddlewareBase {
 
         await handler.render(req, res);
         break;
+      }
+      case 'OPTIONS': {
+        debug.editing('preflight request');
+
+        // CORS headers are set by enforceCors
+        return res.status(204).send(null);
       }
       default:
         debug.editing('invalid method - sent %s expected GET/POST', req.method);

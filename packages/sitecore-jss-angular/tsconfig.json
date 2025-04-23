@@ -5,5 +5,6 @@
     "module": "es2022",
     "strictPropertyInitialization": false,
     "typeRoots": ["./node_modules/@types", "./typings"],
+    "skipLibCheck": true,
   }
 }

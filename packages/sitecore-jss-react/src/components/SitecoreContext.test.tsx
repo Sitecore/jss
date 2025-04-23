@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
+import { constants } from '@sitecore-jss/sitecore-jss';
+
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
 import { WithSitecoreContextProps, withSitecoreContext } from '../enhancers/withSitecoreContext';
@@ -37,10 +39,21 @@ const mockLayoutData: LayoutServiceData = {
   },
 };
 
+const api = {
+  edge: {
+    contextId: 'id',
+    edgeUrl: 'url',
+  },
+};
+
 describe('SitecoreContext', () => {
   it('should update context', () => {
     const component = shallow<SitecoreContext>(
-      <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockLayoutData}>
+      <SitecoreContext
+        componentFactory={mockComponentFactory}
+        layoutData={mockLayoutData}
+        api={api}
+      >
         <NestedComponentWithContext />
       </SitecoreContext>
     );
@@ -58,6 +71,13 @@ describe('SitecoreContext', () => {
       },
       site: {
         name: 'JssTestWeb',
+      },
+    });
+
+    expect(component.state().api).to.deep.equal({
+      edge: {
+        contextId: 'id',
+        edgeUrl: 'url',
       },
     });
 
@@ -140,6 +160,22 @@ describe('SitecoreContext', () => {
 
     expect(component.state().context).deep.equal({
       pageEditing: false,
+    });
+    expect(component.state().api).to.be.undefined;
+  });
+
+  it('should set default edge url', () => {
+    const component = shallow<SitecoreContext>(
+      <SitecoreContext componentFactory={mockComponentFactory} api={{ edge: { contextId: 'id' } }}>
+        <NestedComponentWithContext />
+      </SitecoreContext>
+    );
+
+    expect(component.state().api).to.deep.equal({
+      edge: {
+        contextId: 'id',
+        edgeUrl: constants.SITECORE_EDGE_URL_DEFAULT,
+      },
     });
   });
 

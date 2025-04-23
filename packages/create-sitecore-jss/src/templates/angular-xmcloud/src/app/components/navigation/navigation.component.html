@@ -1,0 +1,21 @@
+<label class="menu-mobile-navigate-wrapper">
+  <input
+    type="checkbox"
+    class="menu-mobile-navigate"
+    [checked]="isOpenMenu"
+    (change)="toggleMenu($event)"
+  />
+  <div class="menu-humburger"></div>
+  <div class="component-content">
+    <nav>
+      <ul class="clearfix">
+        <app-navigation-item
+          *ngFor="let navItemFields of rendering.fields"
+          [navItemFields]="navItemFields"
+          [relativeLevel]="baseLevel"
+          (childLinkClickEvent)="toggleMenu($event, false)"
+        ></app-navigation-item>
+      </ul>
+    </nav>
+  </div>
+</label>

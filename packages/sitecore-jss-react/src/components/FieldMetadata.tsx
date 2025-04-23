@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 interface FieldMetadataProps {
   metadata: { [key: string]: unknown };
@@ -18,8 +19,8 @@ export const FieldMetadata = (props: FieldMetadataProps): JSX.Element => {
     chrometype: 'field',
     className: 'scpm',
   };
-  const codeOpenAttributes = { ...attributes, kind: 'open' };
-  const codeCloseAttributes = { ...attributes, kind: 'close' };
+  const codeOpenAttributes = { ...attributes, kind: MetadataKind.Open };
+  const codeCloseAttributes = { ...attributes, kind: MetadataKind.Close };
 
   return (
     <>

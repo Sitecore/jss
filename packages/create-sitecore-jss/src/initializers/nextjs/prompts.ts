@@ -1,7 +1,7 @@
 import { QuestionCollection } from 'inquirer';
 import CheckboxPrompt from 'inquirer/lib/prompts/checkbox';
 
-import { clientAppPrompts, ClientAppAnswer, incompatibleAddonsMsg } from '../../common';
+import { clientAppPrompts, ClientAppAnswer, incompatibleAddonsMsg, sxpPrompts } from '../../common';
 import { NextjsArgs } from './args';
 
 export enum Prerender {
@@ -16,8 +16,21 @@ export type NextjsAnswer = ClientAppAnswer & {
 
 const DEFAULT_PRERENDER = Prerender.SSG;
 
+/*
+ * Shared prerender configuration for the selected prerendering strategy (SSG or SSR).
+ *
+ * This object is initialized with a default prerender value (`SSG`) and is updated
+ * dynamically after the primary Next.js initializer's initialization process based on
+ * user input collected via prompts without having to re-prompt or duplicate logic.
+ */
+export const sharedPrerender = {
+  prerender: DEFAULT_PRERENDER,
+};
+
+// still need sxp prompts here until sitecore/config is no longer added to xmc app
 export const prompts: QuestionCollection<NextjsAnswer> = [
   ...clientAppPrompts,
+  ...sxpPrompts,
   {
     type: 'list',
     name: 'prerender',

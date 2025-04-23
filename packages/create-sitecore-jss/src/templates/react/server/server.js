@@ -3,7 +3,6 @@ import React from 'react';
 import { StaticRouter } from 'react-router-dom/server';
 import { renderToStringWithData } from '@apollo/client/react/ssr';
 import Helmet from 'react-helmet';
-import axios from 'axios';
 import http from 'http';
 import https from 'https';
 import GraphQLClientFactory from '../src/lib/GraphQLClientFactory';
@@ -31,9 +30,6 @@ function assertReplace(string, value, replacement) {
 
 // Setup Http/Https agents for keep-alive. Used in headless-proxy
 export const setUpDefaultAgents = (httpAgent, httpsAgent) => {
-  axios.defaults.httpAgent = httpAgent;
-  axios.defaults.httpsAgent = httpsAgent;
-
   http.globalAgent = httpAgent;
   https.globalAgent = httpsAgent;
 };

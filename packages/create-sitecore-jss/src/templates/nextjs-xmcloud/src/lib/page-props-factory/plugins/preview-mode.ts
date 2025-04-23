@@ -20,13 +20,14 @@ class PreviewModePlugin implements Plugin {
 
     // If we're in Pages preview (editing) Metadata Edit Mode, prefetch the editing data
     if (isEditingMetadataPreviewData(context.previewData)) {
-      const { site, itemId, language, version, variantIds } = context.previewData;
+      const { site, itemId, language, version, variantIds, layoutKind } = context.previewData;
 
       const data = await graphQLEditingService.fetchEditingData({
         siteName: site,
         itemId,
         language,
         version,
+        layoutKind,
       });
 
       if (!data) {

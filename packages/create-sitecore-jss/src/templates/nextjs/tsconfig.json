@@ -10,6 +10,7 @@
       "react": ["node_modules/react"]
     },
     "target": "es5",
+    "types": ["node"],
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,

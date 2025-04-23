@@ -1,0 +1,23 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
+[@sitecore-jss/sitecore-jss-dev-tools](../README.md) / packageGenerate
+
+# Function: packageGenerate()
+
+> **packageGenerate**(`options`): `Promise`\<`unknown`\>
+
+## Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options` | `PackageGenerateOptions` |  |
+
+## Returns
+
+`Promise`\<`unknown`\>
+
+## Defined in
+
+[sitecore-jss-dev-tools/src/package-generate.ts:14](https://github.com/Sitecore/jss/blob/ce39496469c8050644cdf9885d96077f5205543e/packages/sitecore-jss-dev-tools/src/package-generate.ts#L14)

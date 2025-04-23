@@ -2,15 +2,16 @@ export {
   constants,
   // generic data access
   HttpDataFetcher,
-  HttpResponse,
-  AxiosResponse,
-  AxiosDataFetcher,
-  AxiosDataFetcherConfig,
   NativeDataFetcher,
   NativeDataFetcherConfig,
+  NativeDataFetcherResponse,
+  NativeDataFetcherError,
   HTMLLink,
   enableDebug,
   debug,
+  CacheClient,
+  CacheOptions,
+  MemoryCacheClient,
 } from '@sitecore-jss/sitecore-jss';
 
 export {
@@ -125,10 +126,9 @@ export { BYOCWrapper };
 
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
 
-export { Context, ContextConfig, SDK } from './context';
-
 export {
   ComponentFactory,
+  Form,
   Image,
   ImageField,
   ImageFieldValue,

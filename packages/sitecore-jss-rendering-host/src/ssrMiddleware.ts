@@ -127,7 +127,7 @@ export function respondWithError(res: ServerResponse, errorValue: Error) {
 }
 
 /**
- * @param {Object} dataWriter
+ * @param {object} dataWriter
  * @param {Buffer} dataWriter.output
  */
 export function onReadableStreamDataHandler(dataWriter: { output: Buffer }) {

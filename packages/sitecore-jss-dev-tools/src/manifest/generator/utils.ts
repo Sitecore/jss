@@ -2,9 +2,9 @@ import { ComponentDefinition, ItemDefinition, TemplateDefinition } from './manif
 
 /**
  * Iterates the keys of the given object and constructs a new object with keys that satisfy the given filter function.
- * @param {Object} obj
+ * @param {object} obj
  * @param {Function} filter
- * @returns {Object} filtered object
+ * @returns {object} filtered object
  */
 export const filterObject = (obj: any, filter: (key: string, value: any) => boolean) =>
   Object.keys(obj).reduce((res, key) => {
@@ -239,11 +239,11 @@ export function findTemplateForComponent(
 
 /**
  * Validates that a set of field values are defined on their template definitions
- * @param {Object} fields
+ * @param {object} fields
  * @param {TemplateDefinition | ComponentDefinition} template
  * @param {Function} handleError
  * @param {...Array<Array<TemplateDefinition | ComponentDefinition>>} inheritedTemplates
- * @returns {Object} validated fields
+ * @returns {object} validated fields
  */
 export function validateFieldDefinitions(
   fields: { [key: string]: any },

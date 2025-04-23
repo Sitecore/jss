@@ -39,16 +39,16 @@ export type SitemapQueryResult = { site: { siteInfo: { sitemap: string[] } } };
 export class GraphQLSitemapXmlService {
   private graphQLClient: GraphQLClient;
 
-  protected get query(): string {
-    return defaultQuery;
-  }
-
   /**
    * Creates an instance of graphQL sitemaps service with the provided options
    * @param {GraphQLSitemapXmlServiceConfig} options instance
    */
   constructor(public options: GraphQLSitemapXmlServiceConfig) {
     this.graphQLClient = this.getGraphQLClient();
+  }
+
+  protected get query(): string {
+    return defaultQuery;
   }
 
   /**
@@ -79,7 +79,16 @@ export class GraphQLSitemapXmlService {
    * @returns {string | undefined} the sitemap file path or undefined if one doesn't exist
    */
   async getSitemap(id: string): Promise<string | undefined> {
-    const searchSitemap = `${PREFIX_NAME_SITEMAP}${id}.xml`;
+    let searchSitemap: string;
+
+    if (id === undefined) {
+      return undefined;
+    } else if (id === '') {
+      searchSitemap = `${PREFIX_NAME_SITEMAP}.xml`;
+    } else {
+      const normalizedId = id.startsWith('-') ? id.slice(1) : id;
+      searchSitemap = `${PREFIX_NAME_SITEMAP}-${normalizedId}.xml`;
+    }
     const sitemaps = await this.fetchSitemaps();
 
     return sitemaps.find((sitemap: string) => sitemap.includes(searchSitemap));

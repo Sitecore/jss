@@ -36,7 +36,7 @@ describe('layout-personalizer', () => {
       const variant = 'test';
       const testLayoutData = structuredClone(layoutDataWithoutPlaceholder);
       const personalizedLayoutResult = personalizeLayout(testLayoutData, variant);
-      expect(personalizedLayoutResult).to.equal(undefined);
+      expect(personalizedLayoutResult).to.deep.equal(undefined);
     });
 
     it('should set variantId on Sitecore context', () => {
@@ -358,6 +358,16 @@ describe('layout-personalizer', () => {
         );
         expect(personalizedComponentResult).to.equal(null);
       });
+    });
+
+    it('should return HIDDEN_RENDERING variant in metadata mode with uid preserved', () => {
+      const variant = 'mountain_bike_audience';
+      const personalizedComponentResult = personalizeComponent(
+        (variantIsHidden as unknown) as ComponentRenderingWithExperiences,
+        [variant],
+        true
+      );
+      expect(personalizedComponentResult?.uid).to.equal(variantIsHidden.uid);
     });
 
     it('should return HIDDEN_RENDERING variant in metadata edit mode when non-default variant is hidden', () => {

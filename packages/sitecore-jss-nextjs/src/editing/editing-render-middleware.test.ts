@@ -3,11 +3,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect, use } from 'chai';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingDataService, EditingPreviewData } from './editing-data-service';
 import {
   EDITING_ALLOWED_ORIGINS,
   QUERY_PARAM_EDITING_SECRET,
+  RenderMetadataQueryParams,
+} from '@sitecore-jss/sitecore-jss/editing';
+import {
   QUERY_PARAM_VERCEL_PROTECTION_BYPASS,
   QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE,
 } from './constants';
@@ -15,7 +18,6 @@ import { EE_PATH, EE_LANGUAGE, EE_LAYOUT, EE_DICTIONARY, EE_BODY } from '../test
 import {
   ChromesHandler,
   EditingRenderMiddleware,
-  MetadataQueryParams,
   isEditingMetadataPreviewData,
 } from './editing-render-middleware';
 import { spy, match } from 'sinon';
@@ -36,7 +38,7 @@ const allowedOrigin = 'https://allowed.com';
 
 const mockRequest = (
   body?: any,
-  query?: Query | MetadataQueryParams,
+  query?: Query | RenderMetadataQueryParams,
   method?: string,
   headers?: { [key: string]: string }
 ) => {
@@ -57,6 +59,9 @@ const mockResponse = () => {
   res.status = spy(() => {
     return res;
   });
+  res.send = spy(() => {
+    return res;
+  });
   res.json = spy(() => {
     return res;
   });
@@ -75,7 +80,7 @@ const mockResponse = () => {
 };
 
 const mockFetcher = (html?: string) => {
-  const fetcher = {} as AxiosDataFetcher;
+  const fetcher = {} as NativeDataFetcher;
   fetcher.get = spy<any>(() => {
     return Promise.resolve({ data: html ?? '' });
   });
@@ -97,15 +102,19 @@ describe('EditingRenderMiddleware', () => {
     process.env.JSS_EDITING_SECRET = secret;
     process.env.JSS_ALLOWED_ORIGINS = allowedOrigin;
     delete process.env.VERCEL;
+    delete process.env.SITECORE;
+    delete process.env.NETLIFY;
   });
 
   after(() => {
     delete process.env.JSS_EDITING_SECRET;
     delete process.env.VERCEL;
+    delete process.env.SITECORE;
+    delete process.env.NETLIFY;
     delete process.env.JSS_ALLOWED_ORIGINS;
   });
 
-  it('should respondWith 405 for unsupported method', async () => {
+  it('should respond with 405 for unsupported method', async () => {
     const query = {} as Query;
     query[QUERY_PARAM_EDITING_SECRET] = secret;
     const req = mockRequest(EE_BODY, query, 'PUT');
@@ -120,6 +129,33 @@ describe('EditingRenderMiddleware', () => {
     expect(res.status).to.have.been.calledOnce;
     expect(res.status).to.have.been.calledWith(405);
     expect(res.json).to.have.been.calledOnce;
+  });
+
+  it('should respond with 204 for OPTIONS method', async () => {
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const req = mockRequest(EE_BODY, query, 'OPTIONS');
+    const res = mockResponse();
+
+    const middleware = new EditingRenderMiddleware();
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(res.status).to.have.been.calledOnceWith(204);
+    expect(res.setHeader.getCall(0).args).to.deep.equal([
+      'Access-Control-Allow-Origin',
+      allowedOrigin,
+    ]);
+    expect(res.setHeader.getCall(1).args).to.deep.equal([
+      'Access-Control-Allow-Methods',
+      'GET, POST, OPTIONS, DELETE, PUT, PATCH',
+    ]);
+    expect(res.setHeader.getCall(2).args).to.deep.equal([
+      'Access-Control-Allow-Headers',
+      'Content-Type, Authorization',
+    ]);
+    expect(res.send).to.have.been.calledOnceWith(null);
   });
 
   it('should respond with 401 for invalid secret', async () => {
@@ -179,7 +215,8 @@ describe('EditingRenderMiddleware', () => {
       sc_variant: 'dev',
       sc_version: 'latest',
       secret: secret,
-    } as MetadataQueryParams;
+      sc_layoutKind: 'shared',
+    } as RenderMetadataQueryParams;
 
     it('should handle request', async () => {
       const req = mockRequest(EE_BODY, query, 'GET');
@@ -198,6 +235,7 @@ describe('EditingRenderMiddleware', () => {
         version: 'latest',
         editMode: 'metadata',
         pageState: 'edit',
+        layoutKind: 'shared',
       });
 
       expect(res.redirect).to.have.been.calledOnce;
@@ -217,7 +255,7 @@ describe('EditingRenderMiddleware', () => {
         sc_site: 'website',
         secret: secret,
         sc_variant: 'id-1,id-2,id-3',
-      } as MetadataQueryParams;
+      } as RenderMetadataQueryParams;
 
       const req = mockRequest(EE_BODY, query, 'GET');
       const res = mockResponse();
@@ -235,6 +273,7 @@ describe('EditingRenderMiddleware', () => {
         version: undefined,
         editMode: 'metadata',
         pageState: 'edit',
+        layoutKind: undefined,
       });
     });
 
@@ -246,7 +285,7 @@ describe('EditingRenderMiddleware', () => {
         sc_lang: 'en',
         sc_site: 'website',
         secret: secret,
-      } as MetadataQueryParams;
+      } as RenderMetadataQueryParams;
       const req = mockRequest(EE_BODY, queryWithoutOptionalParams, 'GET');
       const res = mockResponse();
 
@@ -263,6 +302,7 @@ describe('EditingRenderMiddleware', () => {
         version: undefined,
         editMode: 'metadata',
         pageState: 'edit',
+        layoutKind: undefined,
       });
 
       expect(res.redirect).to.have.been.calledOnce;
@@ -295,6 +335,7 @@ describe('EditingRenderMiddleware', () => {
         version: 'latest',
         editMode: 'metadata',
         pageState: 'edit',
+        layoutKind: 'shared',
       });
 
       expect(res.redirect).to.have.been.calledOnce;
@@ -354,6 +395,24 @@ describe('EditingRenderMiddleware', () => {
         '__next_preview_data=6677889900; Path=/; SameSite=None; Secure',
       ]);
     });
+
+    it('should set allowed origins when multiple allowed origins are provided in env variable', async () => {
+      process.env.JSS_ALLOWED_ORIGINS = 'https://allowed.com,https://anotherallowed.com';
+      const req = mockRequest(EE_BODY, query, 'GET');
+      const res = mockResponse();
+
+      const middleware = new EditingRenderMiddleware();
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(res.setHeader).to.have.been.calledWith(
+        'Content-Security-Policy',
+        `frame-ancestors 'self' https://allowed.com https://anotherallowed.com ${EDITING_ALLOWED_ORIGINS.join(
+          ' '
+        )}`
+      );
+    });
   });
 
   describe('chromes handler', () => {
@@ -380,7 +439,7 @@ describe('EditingRenderMiddleware', () => {
       expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
       expect(res.getHeader, 'get preview cookies').to.have.been.calledWith('Set-Cookie');
       expect(fetcher.get).to.have.been.calledOnce;
-      expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWith(
+      expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWithMatch(
         match('http://localhost:3000/test/path?timestamp'),
         {
           headers: {
@@ -402,7 +461,7 @@ describe('EditingRenderMiddleware', () => {
       query[QUERY_PARAM_EDITING_SECRET] = secret;
       const previewData = { key: 'key1234' } as EditingPreviewData;
 
-      const fetcher = {} as AxiosDataFetcher;
+      const fetcher = {} as NativeDataFetcher;
       fetcher.get = spy<any>(() => {
         return Promise.reject({ response: { data: html, status: 404 } });
       });
@@ -423,7 +482,7 @@ describe('EditingRenderMiddleware', () => {
       expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
       expect(res.getHeader, 'get preview cookies').to.have.been.calledWith('Set-Cookie');
       expect(fetcher.get).to.have.been.calledOnce;
-      expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWith(
+      expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWithMatch(
         match('http://localhost:3000/test/path?timestamp'),
         {
           headers: {
@@ -445,7 +504,7 @@ describe('EditingRenderMiddleware', () => {
       query[QUERY_PARAM_EDITING_SECRET] = secret;
       const previewData = { key: 'key1234' } as EditingPreviewData;
 
-      const fetcher = {} as AxiosDataFetcher;
+      const fetcher = {} as NativeDataFetcher;
       fetcher.get = spy<any>(() => {
         return Promise.reject({ response: { data: html, status: 500 } });
       });
@@ -466,7 +525,7 @@ describe('EditingRenderMiddleware', () => {
       expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
       expect(res.getHeader, 'get preview cookies').to.have.been.calledWith('Set-Cookie');
       expect(fetcher.get).to.have.been.calledOnce;
-      expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWith(
+      expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWithMatch(
         match('http://localhost:3000/test/path?timestamp'),
         {
           headers: {
@@ -540,6 +599,48 @@ describe('EditingRenderMiddleware', () => {
       await handler(req, res);
 
       expect(fetcher.get).to.have.been.calledWithMatch('https://vercel.com');
+    });
+
+    it('should use https for serverUrl on XM Cloud', async () => {
+      const html = '<html><body>Something amazing</body></html>';
+      const fetcher = mockFetcher(html);
+      const dataService = mockDataService();
+      const query = {} as Query;
+      query[QUERY_PARAM_EDITING_SECRET] = secret;
+      const req = mockRequest(EE_BODY, query, undefined, { host: 'xmc.com' });
+      const res = mockResponse();
+      process.env.SITECORE = '1';
+
+      const middleware = new EditingRenderMiddleware({
+        dataFetcher: fetcher,
+        editingDataService: dataService,
+      });
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(fetcher.get).to.have.been.calledWithMatch('https://xmc.com');
+    });
+
+    it('should use https for serverUrl on Netlify', async () => {
+      const html = '<html><body>Something amazing</body></html>';
+      const fetcher = mockFetcher(html);
+      const dataService = mockDataService();
+      const query = {} as Query;
+      query[QUERY_PARAM_EDITING_SECRET] = secret;
+      const req = mockRequest(EE_BODY, query, undefined, { host: 'netlify.com' });
+      const res = mockResponse();
+      process.env.NETLIFY = '1';
+
+      const middleware = new EditingRenderMiddleware({
+        dataFetcher: fetcher,
+        editingDataService: dataService,
+      });
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(fetcher.get).to.have.been.calledWithMatch('https://netlify.com');
     });
 
     it('should use custom resolveServerUrl', async () => {
@@ -678,6 +779,7 @@ describe('EditingRenderMiddleware', () => {
       expect(fetcher.get).to.have.been.calledWith(
         match('http://localhost:3000/test/path?timestamp'),
         {
+          credentials: 'include',
           headers: {
             authorization: mockAuthValue,
             cookie: mockCookies.concat(mockNextJsPreviewCookies).join(';'),

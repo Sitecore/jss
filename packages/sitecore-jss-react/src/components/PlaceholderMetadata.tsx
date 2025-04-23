@@ -1,6 +1,10 @@
 ﻿import React, { ReactNode } from 'react';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
-import { getDynamicPlaceholderPattern, isDynamicPlaceholder } from './PlaceholderCommon';
+import {
+  ComponentRendering,
+  getDynamicPlaceholderPattern,
+  isDynamicPlaceholder,
+} from '@sitecore-jss/sitecore-jss/layout';
+import { MetadataKind, DEFAULT_PLACEHOLDER_UID } from '@sitecore-jss/sitecore-jss/editing';
 
 /**
  *  Props containing the component data to render.
@@ -20,15 +24,9 @@ export type CodeBlockAttributes = {
 };
 
 /**
- * default value of uid for root placeholder when uid is not present.
- */
-const DEFAULT_PLACEHOLDER_UID = '00000000-0000-0000-0000-000000000000';
-
-/**
  * A React component to generate metadata blocks for a placeholder or rendering.
  * It utilizes dynamic attributes based on whether the component acts as a placeholder
  * or as a rendering to properly render the surrounding code blocks.
- *
  * @param {object} props The properties passed to the component.
  * @param {ComponentRendering} props.rendering The rendering data.
  * @param {string} [props.placeholderName] The name of the placeholder.
@@ -41,7 +39,7 @@ export const PlaceholderMetadata = ({
   children,
 }: PlaceholderMetadataProps): JSX.Element => {
   const getCodeBlockAttributes = (
-    kind: string,
+    kind: MetadataKind,
     id: string,
     placeholderName?: string
   ): CodeBlockAttributes => {
@@ -54,7 +52,7 @@ export const PlaceholderMetadata = ({
       kind: kind,
     };
 
-    if (kind === 'open') {
+    if (kind === MetadataKind.Open) {
       if (chrometype === 'placeholder' && placeholderName) {
         let phId = '';
 
@@ -89,9 +87,9 @@ export const PlaceholderMetadata = ({
 
   const renderComponent = (uid: string, placeholderName?: string) => (
     <>
-      <code {...getCodeBlockAttributes('open', uid, placeholderName)} />
+      <code {...getCodeBlockAttributes(MetadataKind.Open, uid, placeholderName)} />
       {children}
-      <code {...getCodeBlockAttributes('close', uid, placeholderName)} />
+      <code {...getCodeBlockAttributes(MetadataKind.Close, uid, placeholderName)} />
     </>
   );
 

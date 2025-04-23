@@ -29,6 +29,7 @@ class DisconnectedPlugin implements ConfigPlugin {
 
     return Object.assign({}, config, {
       sitecoreApiHost: `http://localhost:${port}`,
+      sitecoreApiKey: config.sitecoreApiKey || 'no-api-key-set',
     });
   }
 }

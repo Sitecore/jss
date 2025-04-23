@@ -87,7 +87,8 @@ interface SiteRouteQueryVariables {
    */
   excludedPaths?: string[];
 
-  /** common variable for all GraphQL queries
+  /**
+   * common variable for all GraphQL queries
    * it will be used for every type of query to regulate result batch size
    * Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
    * @default 100
@@ -163,6 +164,14 @@ export abstract class BaseGraphQLSitemapService {
   private _graphQLClient: GraphQLClient;
 
   /**
+   * Creates an instance of graphQL sitemap service with the provided options
+   * @param {GraphQLSitemapServiceConfig} options instance
+   */
+  constructor(public options: BaseGraphQLSitemapServiceConfig) {
+    this._graphQLClient = this.getGraphQLClient();
+  }
+
+  /**
    * GraphQL client accessible by descendant classes when needed
    */
   protected get graphQLClient() {
@@ -174,14 +183,6 @@ export abstract class BaseGraphQLSitemapService {
    */
   protected get query(): string {
     return defaultQuery(this.options.includePersonalizedRoutes);
-  }
-
-  /**
-   * Creates an instance of graphQL sitemap service with the provided options
-   * @param {GraphQLSitemapServiceConfig} options instance
-   */
-  constructor(public options: BaseGraphQLSitemapServiceConfig) {
-    this._graphQLClient = this.getGraphQLClient();
   }
 
   /**

@@ -71,7 +71,41 @@ describe('initRunner', () => {
     );
     expect(installPackagesStub).to.be.calledOnceWith(args.destination, args.silent);
     expect(lintFixStub).to.be.calledOnceWith(args.destination, args.silent);
-    expect(nextStepsStub).to.be.calledOnceWith(appName, []);
+    expect(nextStepsStub).to.be.calledOnceWith([appName], []);
+  });
+
+  it('should run for both base and proxy path when latter is provided', async () => {
+    const templates = ['foo', 'bar'];
+    const appName = 'test-app';
+    const args = {
+      silent: false,
+      destination: 'samples/next',
+      proxyAppDestination: 'samples/proxy',
+      templates,
+    };
+
+    const mockFoo = mockInitializer(true, { appName });
+    const mockBar = mockInitializer(false, { appName });
+    createStub = sinon.stub(InitializerFactory.prototype, 'create');
+    createStub.withArgs('foo').returns(mockFoo);
+    createStub.withArgs('bar').returns(mockBar);
+
+    await initRunner(templates, args);
+
+    expect(log.getCalls().length).to.equal(2);
+    templates.forEach((template, i) => {
+      expect(log.getCall(i).args[0]).to.equal(chalk.cyan(`Initializing '${template}'...`));
+    });
+    expect(mockFoo.init).to.be.calledOnceWith(args);
+    expect(mockBar.init).to.be.calledOnceWith(args);
+
+    expect(installPackagesStub).to.be.calledTwice;
+    expect(installPackagesStub.getCall(0).args[0]).to.equal(args.destination);
+    expect(installPackagesStub.getCall(1).args[0]).to.equal(args.proxyAppDestination);
+
+    expect(lintFixStub).to.be.calledTwice;
+    expect(lintFixStub.getCall(0).args[0]).to.equal(args.destination);
+    expect(lintFixStub.getCall(1).args[0]).to.equal(args.proxyAppDestination);
   });
 
   it('should process returned initializers', async () => {
@@ -128,12 +162,56 @@ describe('initRunner', () => {
 
     await initRunner(templates, args);
 
-    expect(nextStepsStub).to.be.calledOnceWith(appName, [
-      'foo step 1',
-      'bar step 1',
-      'bar step 2',
-      'baz step 1',
-    ]);
+    expect(nextStepsStub).to.be.calledOnceWith(
+      [appName],
+      ['foo step 1', 'bar step 1', 'bar step 2', 'baz step 1']
+    );
+  });
+
+  it('should aggregate nextSteps when using non base, post-initializer template', async () => {
+    const templates = ['bar'];
+    const appName = 'test-app-bar';
+    const args = {
+      silent: false,
+      destination: 'samples/next',
+      templates,
+    };
+
+    const mockBar = mockInitializer(false, {
+      appName,
+      nextSteps: ['bar step 1', 'bar step 2'],
+      initializers: ['baz'],
+    });
+    const mockBaz = mockInitializer(false, { appName, nextSteps: ['baz step 1'] });
+    createStub = sinon.stub(InitializerFactory.prototype, 'create');
+    createStub.withArgs('bar').returns(mockBar);
+    createStub.withArgs('baz').returns(mockBaz);
+
+    await initRunner(templates, args);
+
+    expect(nextStepsStub).to.be.calledOnceWith(
+      [appName],
+      ['bar step 1', 'bar step 2', 'baz step 1']
+    );
+  });
+
+  it('should pass two appNames when two main apps initialized', async () => {
+    const templates = ['foo', 'bar'];
+    const args = {
+      silent: false,
+      destination: 'samples/next',
+      templates,
+    };
+
+    const mockFoo = mockInitializer(true, { appName: templates[0] });
+    const mockBar = mockInitializer(true, { appName: templates[1] });
+    createStub = sinon.stub(InitializerFactory.prototype, 'create');
+    createStub.withArgs('foo').returns(mockFoo);
+    createStub.withArgs('bar').returns(mockBar);
+
+    await initRunner(templates, args);
+
+    expect(nextStepsStub).to.be.calledOnceWith(['foo', 'bar']);
   });
 
   it('should respect silent', async () => {

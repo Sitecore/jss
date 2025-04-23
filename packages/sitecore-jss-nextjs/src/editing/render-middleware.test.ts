@@ -1,9 +1,9 @@
 /* eslint-disable dot-notation */
 import chai from 'chai';
 import chaiString from 'chai-string';
+import { QUERY_PARAM_EDITING_SECRET } from '@sitecore-jss/sitecore-jss/editing';
 import { RenderMiddlewareBase } from './render-middleware';
 import {
-  QUERY_PARAM_EDITING_SECRET,
   QUERY_PARAM_VERCEL_PROTECTION_BYPASS,
   QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE,
   EDITING_PASS_THROUGH_HEADERS,

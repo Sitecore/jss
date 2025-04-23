@@ -7,13 +7,13 @@ import { from as fromPromise, Observable, throwError as observableThrow } from '
 import { catchError, map } from 'rxjs/operators';
 import { layoutServiceFactory } from '../lib/layout-service-factory';
 
-const layoutServiceInstance = layoutServiceFactory.create();
-
 export class LayoutServiceError {
   status: number;
   statusText: string;
   data?: { sitecore?: LayoutServiceContextData };
 }
+
+const layoutServiceInstance = layoutServiceFactory.create();
 
 @Injectable()
 export class JssLayoutService {

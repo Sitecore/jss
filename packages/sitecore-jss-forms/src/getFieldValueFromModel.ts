@@ -1,7 +1,8 @@
 import { FormField } from './FormField';
 import { instanceOfInputViewModel, instanceOfListViewModel } from './ViewModel';
 
-/** Retrieves the current value of a form field from the form model returned from the JSON API
+/**
+ * Retrieves the current value of a form field from the form model returned from the JSON API
  * @param {FormField} field
  * @returns {string | string[] | boolean} field value
  */

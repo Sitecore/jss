@@ -1,55 +1,49 @@
+[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-react](../README.md) / TextField
 
 # Interface: TextField
 
-## Hierarchy
+## Extends
 
 - `FieldMetadata`
 
-  ↳ **`TextField`**
-
-## Table of contents
-
-### Properties
-
-- [editable](TextField.md#editable)
-- [metadata](TextField.md#metadata)
-- [value](TextField.md#value)
-
 ## Properties
 
-### editable
+### editable?
 
-• `Optional` **editable**: `string`
+> `optional` **editable**: `string`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Text.tsx:11](https://github.com/Sitecore/jss/blob/d45567dcf/packages/sitecore-jss-react/src/components/Text.tsx#L11)
+[packages/sitecore-jss-react/src/components/Text.tsx:11](https://github.com/Sitecore/jss/blob/ce39496469c8050644cdf9885d96077f5205543e/packages/sitecore-jss-react/src/components/Text.tsx#L11)
 
-___
+***
 
-### metadata
+### metadata?
 
-• `Optional` **metadata**: `Object`
+> `optional` **metadata**: `object`
 
-#### Index signature
+#### Index Signature
 
-▪ [key: `string`]: `unknown`
+ \[`key`: `string`\]: `unknown`
 
 #### Inherited from
 
-FieldMetadata.metadata
+`FieldMetadata.metadata`
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:122
+packages/sitecore-jss/types/layout/models.d.ts:123
 
-___
+***
 
-### value
+### value?
 
-• `Optional` **value**: `string` \| `number`
+> `optional` **value**: `string` \| `number`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Text.tsx:10](https://github.com/Sitecore/jss/blob/d45567dcf/packages/sitecore-jss-react/src/components/Text.tsx#L10)
+[packages/sitecore-jss-react/src/components/Text.tsx:10](https://github.com/Sitecore/jss/blob/ce39496469c8050644cdf9885d96077f5205543e/packages/sitecore-jss-react/src/components/Text.tsx#L10)

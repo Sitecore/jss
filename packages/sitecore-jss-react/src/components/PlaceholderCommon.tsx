@@ -9,6 +9,8 @@ import {
   Item,
   HtmlElementRendering,
   EditMode,
+  isDynamicPlaceholder,
+  getDynamicPlaceholderPattern,
 } from '@sitecore-jss/sitecore-jss/layout';
 import { constants } from '@sitecore-jss/sitecore-jss';
 import { convertAttributesToReactProps } from '../utils';
@@ -31,22 +33,6 @@ export type ComponentProps = {
   rendering: ComponentRendering;
 };
 
-/**
- * Returns a regular expression pattern for a dynamic placeholder name.
- * @param {string} placeholder Placeholder name with a dynamic segment (e.g. 'main-{*}')
- * @returns Regular expression pattern for the dynamic segment
- */
-export const getDynamicPlaceholderPattern = (placeholder: string) => {
-  return new RegExp(`^${placeholder.replace(/\{\*\}+/i, '\\d+')}$`);
-};
-
-/**
- * Checks if the placeholder name is dynamic.
- * @param {string} placeholder Placeholder name
- * @returns True if the placeholder name is dynamic
- */
-export const isDynamicPlaceholder = (placeholder: string) => placeholder.indexOf('{*}') !== -1;
-
 export interface PlaceholderProps {
   [key: string]: unknown;
   /** Name of the placeholder to render. */
@@ -63,7 +49,7 @@ export interface PlaceholderProps {
    * Any component or placeholder rendered by a placeholder will have access to this data via `props.fields`.
    */
   fields?: {
-    [name: string]: Field | Item[];
+    [name: string]: Field | Item | Item[];
   };
   /**
    * An object of rendering parameter names/values that are aggregated and propagated through the component tree created by a placeholder.
@@ -155,9 +141,9 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     let phName = name.slice();
 
     /**
-     * [Chromes Mode]: [SXA] it needs for deleting dynamics placeholder when we set him number(props.name) of container.
-     * from backend side we get common name of placeholder is called 'nameOfContainer-{*}' where '{*}' marker for replacing.
-     * [Metadata Mode]: We need to keep the raw placeholder name. e.g 'nameOfContainer-{*}' instead of 'nameOfContainer-1'
+     * Process (SXA) dynamic placeholders
+     * Find and replace the matching dynamic placeholder e.g 'nameOfContainer-{*}' with the requested e.g. 'nameOfContainer-1'.
+     * For Metadata EditMode, we need to keep the raw placeholder name in place.
      */
     if (rendering?.placeholders) {
       Object.keys(rendering.placeholders).forEach((placeholder) => {
@@ -301,6 +287,13 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         if (!isEmpty) {
           // assign type based on passed element - type='text/sitecore' should be ignored when renderEach Placeholder prop function is being used
           const type = rendered.props.type === 'text/sitecore' ? rendered.props.type : '';
+
+          // the registered BYOC components are imported using dynamic(), so we need to account for that when passing the isDynamic prop to ErrorBoundary
+          const isByocWrapper = componentRendering.componentName === BYOC_WRAPPER_RENDERING_NAME;
+
+          // all dynamic elements will have a separate render prop
+          const isDynamicComponent = !!(component as JssComponentType).render?.preload;
+
           // wrapping with error boundary could cause problems in case where parent component uses withPlaceholder HOC and tries to access its children props
           // that's why we need to expose element's props here
           rendered = (
@@ -309,7 +302,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
               errorComponent={this.props.errorComponent}
               componentLoadingMessage={this.props.componentLoadingMessage}
               type={type}
-              isDynamic={(component as JssComponentType).render?.preload ? true : false}
+              isDynamic={isDynamicComponent || isByocWrapper}
               {...rendered.props}
             >
               {rendered}

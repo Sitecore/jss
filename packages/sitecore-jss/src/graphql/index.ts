@@ -16,4 +16,4 @@ export {
   SearchQueryService,
   PageInfo,
 } from './search-service';
-export { getEdgeProxyContentUrl } from './graphql-edge-proxy';
+export { getEdgeProxyContentUrl, getEdgeProxyFormsUrl } from './graphql-edge-proxy';

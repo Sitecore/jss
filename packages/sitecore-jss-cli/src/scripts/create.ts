@@ -24,7 +24,7 @@ export const builder = {};
 
 /**
  * Handle `jss create` command
- * @param {Object} argv cli arguments
+ * @param {object} argv cli arguments
  */
 export function handler(argv: { [key: string]: unknown }) {
   console.log(getDeprecationMessage(argv));

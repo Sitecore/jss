@@ -9,7 +9,7 @@ import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { NavigationComponent } from './navigation/navigation.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { VisitorIdentificationComponent } from './visitor-identification/visitor-identification.component';
+import { ScriptsModule } from './scripts/scripts.module';
 
 export function jssRouteMatcher(url: UrlSegment[]): UrlMatchResult {
   // use the route builder to parse out language / server route
@@ -27,7 +27,7 @@ export function jssRouteMatcher(url: UrlSegment[]): UrlMatchResult {
 
   return {
     consumed: url,
-    posParams
+    posParams,
   };
 }
 
@@ -39,32 +39,25 @@ const routes: Routes = [
     matcher: jssRouteMatcher,
     component: LayoutComponent,
     resolve: {
-      jssState: jssRouteResolver
+      jssState: jssRouteResolver,
     },
     runGuardsAndResolvers: 'always',
-  }
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot(routes, {
+      onSameUrlNavigation: 'reload',
+      initialNavigation: 'enabledBlocking',
+    }),
     JssModule,
     TranslateModule,
-    BrowserModule
+    BrowserModule,
+    ScriptsModule,
   ],
-  exports: [
-    RouterModule,
-    TranslateModule,
-  ],
-  declarations: [
-    NotFoundComponent,
-    ServerErrorComponent,
-    LayoutComponent,
-    NavigationComponent,
-    VisitorIdentificationComponent
-  ],
-  providers: [
-    JssRouteBuilderService,
-  ]
+  exports: [RouterModule, TranslateModule],
+  declarations: [NotFoundComponent, ServerErrorComponent, LayoutComponent, NavigationComponent],
+  providers: [JssRouteBuilderService],
 })
-export class RoutingModule { }
+export class RoutingModule {}

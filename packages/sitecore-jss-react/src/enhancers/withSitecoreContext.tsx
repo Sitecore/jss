@@ -1,6 +1,10 @@
 import React from 'react';
 import { EnhancedOmit } from '@sitecore-jss/sitecore-jss/utils';
-import { SitecoreContextReactContext, SitecoreContextValue } from '../components/SitecoreContext';
+import {
+  SitecoreContextReactContext,
+  SitecoreContextState,
+  SitecoreContextValue,
+} from '../components/SitecoreContext';
 
 export interface WithSitecoreContextOptions {
   updatable?: boolean;
@@ -9,6 +13,7 @@ export interface WithSitecoreContextOptions {
 // The props that HOC will inject
 export interface WithSitecoreContextProps {
   sitecoreContext: SitecoreContextValue;
+  api?: SitecoreContextState['api'];
   updateSitecoreContext?: ((value: SitecoreContextValue) => void) | false;
 }
 
@@ -32,6 +37,7 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
             <Component
               {...(props as ComponentProps)}
               sitecoreContext={context.context}
+              api={context.api}
               updateSitecoreContext={options && options.updatable && context.setContext}
             />
           )}
@@ -47,30 +53,27 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
  * - pageEditing - Provided by Layout Service, a boolean indicating whether the route is being accessed via the Experience Editor.
  * - pageState - Like pageEditing, but a string: normal, preview or edit.
  * - site - Provided by Layout Service, an object containing the name of the current Sitecore site context.
- *
  * @see https://jss.sitecore.com/docs/techniques/extending-layout-service/layoutservice-extending-context
- *
  * @param {WithSitecoreContextOptions} [options] hook options
- *
  * @example
  * const EditMode = () => {
  *    const { sitecoreContext } = useSitecoreContext();
  *    return <span>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
  * }
- *
  * @example
  * const EditMode = () => {
  *    const { sitecoreContext, updateSitecoreContext } = useSitecoreContext({ updatable: true });
  *    const onClick = () => updateSitecoreContext({ pageEditing: true });
  *    return <span onClick={onClick}>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
  * }
- * @returns {Object} { sitecoreContext, updateSitecoreContext }
+ * @returns {object} { sitecoreContext, updateSitecoreContext }
  */
-export function useSitecoreContext(options?: WithSitecoreContextOptions) {
+export function useSitecoreContext(options?: WithSitecoreContextOptions): WithSitecoreContextProps {
   const reactContext = React.useContext(SitecoreContextReactContext);
   const updatable = options?.updatable;
 
   return {
+    api: reactContext.api,
     sitecoreContext: reactContext.context,
     updateSitecoreContext: updatable ? reactContext.setContext : undefined,
   };

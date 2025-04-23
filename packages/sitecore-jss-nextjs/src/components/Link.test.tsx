@@ -1,7 +1,11 @@
 import React, { createRef, ReactNode } from 'react';
 import { NextRouter } from 'next/router';
 import NextLink from 'next/link';
-import { Link as ReactLink, LinkField } from '@sitecore-jss/sitecore-jss-react';
+import {
+  Link as ReactLink,
+  LinkField,
+  DefaultEmptyFieldEditingComponentText,
+} from '@sitecore-jss/sitecore-jss-react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
@@ -165,6 +169,28 @@ describe('<Link />', () => {
     expect(c.find(ReactLink).length).to.equal(0);
   });
 
+  it('should render with prefetch prop provided', () => {
+    const field = {
+      href: '/lorem',
+      text: 'ipsum',
+    };
+    const c = mount(
+      <Page>
+        <Link field={field} prefetch={false} />
+      </Page>
+    );
+
+    const link = c.find('a');
+
+    expect(link.html()).to.contain(field.href);
+    expect(link.html()).to.contain(field.text);
+
+    expect(c.find(NextLink).length).to.equal(1);
+    expect(c.find(ReactLink).length).to.equal(0);
+
+    expect(c.find(NextLink).props().prefetch).to.equal(false);
+  });
+
   it('should render other attributes with other props provided', () => {
     const field = {
       value: {
@@ -228,6 +254,50 @@ describe('<Link />', () => {
     expect(rendered.find(ReactLink).length).to.equal(0);
   });
 
+  describe('relative file url', () => {
+    it('should not render Next link when file url is provided', () => {
+      const field = {
+        value: {
+          href: '/foo/bar/test.html',
+          text: 'ipsum',
+          class: 'my-link',
+          title: 'My Link',
+          target: '_blank',
+        },
+      };
+      const rendered = mount(
+        <Page>
+          <Link field={field} showLinkTextWithChildrenPresent>
+            <p>Hello world...</p>
+          </Link>
+        </Page>
+      );
+      expect(rendered.find(NextLink).length).to.equal(0);
+      expect(rendered.find(ReactLink).length).to.equal(1);
+    });
+
+    it('should not render Next link when file url is provided in the root', () => {
+      const field = {
+        value: {
+          href: '/test.png',
+          text: 'ipsum',
+          class: 'my-link',
+          title: 'My Link',
+          target: '_blank',
+        },
+      };
+      const rendered = mount(
+        <Page>
+          <Link field={field} showLinkTextWithChildrenPresent>
+            <p>Hello world...</p>
+          </Link>
+        </Page>
+      );
+      expect(rendered.find(NextLink).length).to.equal(0);
+      expect(rendered.find(ReactLink).length).to.equal(1);
+    });
+  });
+
   it('should render ReactLink if link is external', () => {
     const field = {
       value: {
@@ -275,6 +345,39 @@ describe('<Link />', () => {
 
     const link = rendered.find('a');
     expect(link.html()).not.to.contain('internallinkmatcher');
+  });
+
+  it('should prevent passing emptyFieldEditingComponent to NextLink', () => {
+    const field = {
+      value: {
+        href: '/lorem',
+        text: 'ipsum',
+        class: 'my-link',
+        title: 'My Link',
+        target: '_blank',
+      },
+    };
+    const customEmptyFieldEditingComponentText = DefaultEmptyFieldEditingComponentText;
+    // Spy on console.warn
+    const consoleErrorSpy = spy(console, 'error');
+
+    const rendered = mount(
+      <Page>
+        <Link field={field} emptyFieldEditingComponent={customEmptyFieldEditingComponentText}>
+          <p>Hello world...</p>
+        </Link>
+      </Page>
+    );
+
+    expect(rendered.find(NextLink).length).to.equal(1);
+    expect(rendered.find(ReactLink).length).to.equal(0);
+
+    // Assert that the specific warning was not logged
+    expect(consoleErrorSpy.calledWithMatch(/React does not recognize the .* prop on a DOM element/))
+      .to.be.false;
+
+    // Restore the original console.error
+    consoleErrorSpy.restore();
   });
 
   it('should render ReactLink if href not exists', () => {

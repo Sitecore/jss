@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import NextLink from 'next/link';
+import { LinkProps as NextLinkProps } from 'next/link';
 import {
   Link as ReactLink,
   LinkFieldValue,
@@ -15,7 +16,17 @@ export type LinkProps = ReactLinkProps & {
    * @default /^\//g
    */
   internalLinkMatcher?: RegExp;
+
+  /**
+   * Next.js Link prefetch.
+   */
+  prefetch?: NextLinkProps['prefetch'];
 };
+
+/**
+ * Matches relative URLs that end with a file extension.
+ */
+const FILE_EXTENSION_MATCHER = /^\/.*\.\w+$/;
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   (props: LinkProps, ref): JSX.Element | null => {
@@ -50,8 +61,12 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     if (href && !isEditing) {
       const text = showLinkTextWithChildrenPresent || !children ? value.text || value.href : null;
 
-      // determine if a link is a route or not.
-      if (internalLinkMatcher.test(href)) {
+      const isMatching = internalLinkMatcher.test(href);
+      const isFileUrl = FILE_EXTENSION_MATCHER.test(href);
+
+      // determine if a link is a route or not. File extensions are not routes and should not be pre-fetched.
+      if (isMatching && !isFileUrl) {
+        delete htmlLinkProps.emptyFieldEditingComponent;
         return (
           <NextLink
             href={{ pathname: href, query: querystring, hash: anchor }}
@@ -60,6 +75,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             title={value.title}
             target={value.target}
             className={value.class}
+            prefetch={props.prefetch}
             {...htmlLinkProps}
             ref={ref}
           >
@@ -70,9 +86,10 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       }
     }
 
-    // prevent passing internalLinkMatcher as it is an invalid DOM element prop
+    // prevent passing internalLinkMatcher or prefetch as it is an invalid DOM element prop
     const reactLinkProps = { ...props };
     delete reactLinkProps.internalLinkMatcher;
+    delete reactLinkProps.prefetch;
 
     return <ReactLink {...reactLinkProps} ref={ref} />;
   }

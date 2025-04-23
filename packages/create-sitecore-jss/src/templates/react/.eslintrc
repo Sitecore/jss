@@ -14,6 +14,8 @@
     "ecmaFeatures": {
       "jsx": true
     },
+    //prevent 'ImportDeclaration should appear when the mode is ES6' error when running lint
+    "ecmaVersion": 13,
     "babelOptions": {
       "presets": ["@babel/preset-react"]
     }

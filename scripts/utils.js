@@ -4,4 +4,6 @@
  * @returns unique app name
  */
 module.exports.getAppName = (args) =>
-  `sample-${args.appName}-${args.fetchWith || ''}-${args.prerender || ''}`;
+  `sample-${args.appName}${args.fetchWith ? `-${args.fetchWith}` : ''}${
+    args.prerender ? `-${args.prerender}` : ''
+  }`;

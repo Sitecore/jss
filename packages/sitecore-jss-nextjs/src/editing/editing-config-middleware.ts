@@ -1,5 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { EDITING_ALLOWED_ORIGINS, QUERY_PARAM_EDITING_SECRET } from './constants';
+import {
+  EDITING_ALLOWED_ORIGINS,
+  QUERY_PARAM_EDITING_SECRET,
+} from '@sitecore-jss/sitecore-jss/editing';
 import { getJssEditingSecret } from '../utils/utils';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { EditMode } from '@sitecore-jss/sitecore-jss/layout';
@@ -57,6 +60,14 @@ export class EditingConfigMiddleware {
       );
 
       return res.status(401).json({ message: 'Missing or invalid editing secret' });
+    }
+
+    // Handle preflight request
+    if (_req.method === 'OPTIONS') {
+      debug.editing('preflight request');
+
+      // CORS headers are set by enforceCors
+      return res.status(204).send(null);
     }
 
     const components = Array.isArray(this.config.components)

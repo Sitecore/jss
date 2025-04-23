@@ -21,7 +21,6 @@ class PersonalizePlugin implements MiddlewarePlugin {
   order = 1;
 
   constructor() {
-
     this.personalizeMiddleware = new PersonalizeMiddleware({
       // Configuration for your Sitecore Experience Edge endpoint
       edgeConfig: {

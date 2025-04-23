@@ -73,7 +73,7 @@ export class ComponentBuilder {
   /**
    * Creates a new instance of component factory
    * Component can be imported dynamically or statically.
-   * @param {Object} [config] Component factory configuration
+   * @param {object} [config] Component factory configuration
    * @param {boolean} [config.isEditing] Indicates if component factory is used in editing mode
    * @returns {ComponentFactory} Component factory implementation
    */

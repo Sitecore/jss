@@ -5,7 +5,7 @@ import { RichText as ReactRichText } from '@sitecore-jss/sitecore-jss-react';
 import { NextRouter } from 'next/router';
 import { mount } from 'enzyme';
 import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
-import { RichText } from './RichText';
+import { prefetched, RichText } from './RichText';
 import { SinonSpy, spy } from 'sinon';
 import sinonChai from 'sinon-chai';
 
@@ -38,6 +38,14 @@ const Page = ({ children, value }: { children: ReactNode; value?: any }) => (
 );
 
 describe('RichText', () => {
+  beforeEach(() => {
+    // Clear prefetched links state
+    Object.keys(prefetched).forEach((key) => delete prefetched[key]);
+
+    // Clear the document body
+    document.body.innerHTML = '';
+  });
+
   it('should initialize links', () => {
     const app = document.createElement('main');
 
@@ -351,7 +359,7 @@ describe('RichText', () => {
     expect(c.find(ReactRichText).length).to.equal(1);
   });
 
-  it('Should not call prefetch when prefetchLinks is set to false', () => {
+  it('should not call prefetch when prefetchLinks is set to false', () => {
     const app = document.createElement('main');
 
     document.body.appendChild(app);
@@ -378,6 +386,49 @@ describe('RichText', () => {
     expect(c.html()).contains('<a href="/notprefetched2">2</a>');
 
     expect(router.prefetch).callCount(0);
+  });
+
+  it('should call prefetch when prefetchLinks is set to hover', () => {
+    const app = document.createElement('main');
+
+    document.body.appendChild(app);
+
+    const router = Router();
+
+    const props = {
+      field: {
+        value:
+          '<div id="test"><h1>Prefetch test!</h1><a href="/hoverprefetched1">1</a><a href="/hoverprefetched2">2</a></div>',
+      },
+    };
+
+    const c = mount(
+      <Page value={router}>
+        <RichText {...props} prefetchLinks="hover" />
+      </Page>,
+      { attachTo: app }
+    );
+
+    expect(c.html()).contains('<div id="test">');
+    expect(c.html()).contains('<h1>Prefetch test!</h1>');
+    expect(c.html()).contains('<a href="/hoverprefetched1">1</a>');
+    expect(c.html()).contains('<a href="/hoverprefetched2">2</a>');
+
+    const main = document.querySelector('main');
+    const links = main && main.querySelectorAll('a');
+    const link1 = (links && links[0])!;
+    const link2 = (links && links[1])!;
+
+    link1.dispatchEvent(new MouseEvent('mouseover'));
+    link2.dispatchEvent(new MouseEvent('mouseover'));
+
+    // Verify that prefetch called only once for each link
+    link1.dispatchEvent(new MouseEvent('mouseover'));
+    link2.dispatchEvent(new MouseEvent('mouseover'));
+
+    expect(router.prefetch).callCount(2);
+    expect(prefetched['/hoverprefetched1']).to.equal(true);
+    expect(prefetched['/hoverprefetched2']).to.equal(true);
   });
 
   describe('editMode metadata', () => {

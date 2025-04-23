@@ -1,19 +1,17 @@
+[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+
+***
+
 [@sitecore-jss/sitecore-jss-angular](../README.md) / JssCanActivate
 
 # Interface: JssCanActivate
-
-## Table of contents
-
-### Properties
-
-- [canActivate](JssCanActivate.md#canactivate)
 
 ## Properties
 
 ### canActivate
 
-• **canActivate**: [`JssCanActivateFn`](JssCanActivateFn.md)
+> **canActivate**: [`JssCanActivateFn`](JssCanActivateFn.md)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:96](https://github.com/Sitecore/jss/blob/d45567dcf/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L96)
+[packages/sitecore-jss-angular/src/services/placeholder.token.ts:105](https://github.com/Sitecore/jss/blob/ce39496469c8050644cdf9885d96077f5205543e/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L105)
