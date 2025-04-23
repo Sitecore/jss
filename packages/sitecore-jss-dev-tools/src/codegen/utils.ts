@@ -84,6 +84,7 @@ export const resolveComponentImportFiles = (appPath: string) => {
   }
   return componentImportsMap;
 };
+
 export const sendCode = async (componentName: string, componentPath: string, token: string) => {
   if (!fs.existsSync(componentPath)) {
     console.error(chalk.red(`Component file not found: ${componentPath}`));

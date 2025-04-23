@@ -67,7 +67,7 @@ export async function handler(args: any) {
       sendCode(mapEntry[0], mapEntry[1], bearer)
     );
 
-    Promise.all(codeDispatches);
+    await Promise.all(codeDispatches);
   } catch (error) {
     console.error(chalk.red('Error during component extraction:', error));
   }
