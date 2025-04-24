@@ -11,7 +11,7 @@ const meshEndpoint = `${process.env.SITECORE_EDGE_URL ||
 /**
  * Description properties for the files sent to the mesh endpoint
  */
-export type ExcractedFile = {
+export type ExtractedFile = {
   name: string;
   path: string;
   type: ExtractedFileType;
@@ -58,10 +58,14 @@ export const resolveComponentImportFiles = (appPath: string) => {
   );
 
   if (!builderSourceFile) throw ReferenceError(`Failed to find file ${componentBuilderPath}`);
-
+  // this map matches all raw import strings (i.e. * as component) to import strings
+  const importStringsMap: Record<string, string> = {};
+  // this map will match component names only to full resolved source file paths
   const componentImportsMap: Map<string, string> = new Map();
-  const importNodesMap: Record<string, string> = {};
+
+  // name of the export from componentBuilder.ts
   let mapExportName: string = '';
+  // all map.set() assignments in file
   const mapAssignments: ts.CallExpression[] = [];
 
   // step 1: get all import statements and map assignments (map.set) from componentBuilder file
@@ -83,7 +87,7 @@ export const resolveComponentImportFiles = (appPath: string) => {
       const resolvedFile = resolvedModule?.resolvedModule?.resolvedFileName;
       // module imports paths will be resolved to /node_modules location - we don't support that yet
       if (resolvedFile && resolvedFile.indexOf('node_modules') === -1) {
-        importNodesMap[childNode.importClause.getText()] = path.resolve(resolvedFile);
+        importStringsMap[childNode.importClause.getText()] = path.resolve(resolvedFile);
       }
     } else if (ts.isExpressionStatement(childNode)) {
       // parse map assignments (map.set(..)) to get registered components
@@ -109,12 +113,12 @@ export const resolveComponentImportFiles = (appPath: string) => {
     // only consider the map variable that is exported
     if (mapAssignment.getText().startsWith(mapExportName)) {
       const componentKey = mapAssignment.arguments[1].getText();
-      const componentImport = Object.keys(importNodesMap).find((importStatement) => {
+      const componentImport = Object.keys(importStringsMap).find((importStatement) => {
         const matcher = new RegExp(`\\b(${componentKey})\\b`);
         return importStatement.match(matcher) !== null;
       });
       if (componentImport) {
-        const componentValue = importNodesMap[componentImport];
+        const componentValue = importStringsMap[componentImport];
         componentImportsMap.set(componentKey, componentValue);
       }
     }
@@ -127,7 +131,7 @@ export const resolveComponentImportFiles = (appPath: string) => {
  * @param {ExcractedFile} file properties of the file to be sent
  * @param {string} token bearer token for authentication into mesh endpoint
  */
-export const sendCode = async (file: ExcractedFile, token: string) => {
+export const sendCode = async (file: ExtractedFile, token: string) => {
   if (!fs.existsSync(file.path)) {
     console.error(chalk.red(`File planned for code extraction not found: ${file.path}`));
     return;

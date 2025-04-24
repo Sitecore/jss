@@ -50,7 +50,7 @@ export async function handler(args: any) {
     return;
   }
   const basePath = args.appFolder ? resolveAppPath(args.appFolder) : process.cwd();
-  if (!fs.existsSync(path.join(basePath, 'package.json'))) {
+  if (!fs.existsSync(path.resolve(basePath))) {
     console.error(chalk.red('Skipping code extraction, no app folder found at ', basePath));
     return;
   }

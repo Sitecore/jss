@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import chalk from 'chalk';
 import fs from 'fs';
+import path from 'path';
 import { handler } from './extract-components';
 import * as cliUtils from '@sitecore-jss/sitecore-jss-dev-tools';
 
@@ -66,6 +67,24 @@ describe('extract-components', () => {
       expect(consoleLogStub.calledOnce).to.be.true;
       expect(consoleLogStub.firstCall.args[0]).to.equal(
         chalk.yellow('Skipping code extraction, EXTRACT_CONSENT is not set')
+      );
+    });
+
+    it('should abort when appPath does not exist', async () => {
+      sandbox.restore();
+      const consoleErrorStub = sandbox.stub(console, 'error');
+      const fullPath = path.resolve(process.cwd(), './non/existent/path');
+      sandbox
+        .stub(fs, 'existsSync')
+        .returns(true)
+        .withArgs(fullPath)
+        .returns(false);
+
+      await handler({ appFolder: './non/existent/path' });
+
+      expect(consoleErrorStub.calledOnce).to.be.true;
+      expect(consoleErrorStub.firstCall.args[0]).to.equal(
+        chalk.red('Skipping code extraction, no app folder found at ', fullPath)
       );
     });
 

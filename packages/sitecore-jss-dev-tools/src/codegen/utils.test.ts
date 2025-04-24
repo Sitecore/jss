@@ -163,7 +163,7 @@ describe('codegen-utils', () => {
       );
     });
 
-    it('should return imports with absolute paths from componentBuilder.ts', () => {
+    it('should return TS imports with absolute paths from componentBuilder.ts', () => {
       const appPath = './src/test-data/extract-components/regular-imports';
 
       const imports = codegenUtils.resolveComponentImportFiles(appPath);
