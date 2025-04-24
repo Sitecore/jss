@@ -35,7 +35,7 @@ describe('codegen-utils', () => {
       const file = {
         name: componentName,
         path: componentPath,
-        type: codegenUtils.ExcractedFileType.Component,
+        type: codegenUtils.ExtractedFileType.Component,
       };
 
       nock(meshEndpoint)
@@ -78,7 +78,7 @@ describe('codegen-utils', () => {
       const file = {
         name: componentName,
         path: componentPath,
-        type: codegenUtils.ExcractedFileType.Component,
+        type: codegenUtils.ExtractedFileType.Component,
       };
 
       await codegenUtils.sendCode(file, token);
@@ -97,7 +97,7 @@ describe('codegen-utils', () => {
       const file = {
         name: componentName,
         path: componentPath,
-        type: codegenUtils.ExcractedFileType.Component,
+        type: codegenUtils.ExtractedFileType.Component,
       };
 
       sandbox
@@ -173,6 +173,21 @@ describe('codegen-utils', () => {
           path.resolve(
             process.cwd(),
             './src/test-data/extract-components/regular-imports/src/components/TestComponent.tsx'
+          ),
+        ],
+      ]);
+    });
+
+    it('should return JS imports with absolute paths from componentBuilder.ts', () => {
+      const appPath = './src/test-data/extract-components/js-imports';
+
+      const imports = codegenUtils.resolveComponentImportFiles(appPath);
+      expect(Array.from(imports)).to.deep.equal([
+        [
+          'TestComponent',
+          path.resolve(
+            process.cwd(),
+            './src/test-data/extract-components/js-imports/src/components/TestComponent.jsx'
           ),
         ],
       ]);
