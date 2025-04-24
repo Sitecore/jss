@@ -34,7 +34,7 @@ export { Metadata } from '@sitecore-jss/sitecore-jss/editing';
 export { constants } from '@sitecore-jss/sitecore-jss';
 
 export { fetchBearerToken } from './auth/fetch-bearer-token';
-export { sendCode, resolveComponentImportFiles } from './codegen/utils';
+export { sendCode, resolveComponentImportFiles, ExtractedFileType } from './codegen/utils';
 
 export * from './templating';
 export * from './manifest';

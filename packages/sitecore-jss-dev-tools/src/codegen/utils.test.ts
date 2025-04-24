@@ -32,14 +32,31 @@ describe('codegen-utils', () => {
         .withArgs(componentPath)
         .returns(fileContent);
 
+      const file = {
+        name: componentName,
+        path: componentPath,
+        type: codegenUtils.ExcractedFileType.Component,
+      };
+
       nock(meshEndpoint)
-        .post('/api/v1/mesh', JSON.stringify({ componentName: componentName, code: fileContent }))
+        .post(
+          '/api/v1/mesh',
+          JSON.stringify({
+            name: file.name,
+            content: fileContent,
+            labels: {
+              properties: {
+                type: file.type,
+              },
+            },
+          })
+        )
         .matchHeader('Authorization', `Bearer ${token}`)
         .reply(200);
 
       const consoleLogStub = sandbox.spy(console, 'log');
 
-      await codegenUtils.sendCode(componentName, componentPath, token);
+      await codegenUtils.sendCode(file, token);
 
       expect(consoleLogStub.called).to.be.true;
       expect(consoleLogStub.firstCall.args[0]).to.equal(
@@ -58,11 +75,17 @@ describe('codegen-utils', () => {
 
       const consoleErrorStub = sandbox.stub(console, 'error');
 
-      await codegenUtils.sendCode(componentName, componentPath, token);
+      const file = {
+        name: componentName,
+        path: componentPath,
+        type: codegenUtils.ExcractedFileType.Component,
+      };
+
+      await codegenUtils.sendCode(file, token);
 
       expect(consoleErrorStub.calledOnce).to.be.true;
       expect(consoleErrorStub.firstCall.args[0]).to.equal(
-        chalk.red(`Component file not found: ${componentPath}`)
+        chalk.red(`File planned for code extraction not found: ${componentPath}`)
       );
     });
 
@@ -70,6 +93,12 @@ describe('codegen-utils', () => {
       const componentPath = '/path/to/component.ts';
       const token = 'test-token';
       const fileContent = 'export const test = () => {};';
+
+      const file = {
+        name: componentName,
+        path: componentPath,
+        type: codegenUtils.ExcractedFileType.Component,
+      };
 
       sandbox
         .stub(fs, 'existsSync')
@@ -81,13 +110,24 @@ describe('codegen-utils', () => {
         .returns(fileContent);
 
       nock(meshEndpoint)
-        .post('/api/v1/mesh', JSON.stringify({ componentName: componentName, code: fileContent }))
+        .post(
+          '/api/v1/mesh',
+          JSON.stringify({
+            name: file.name,
+            content: fileContent,
+            labels: {
+              properties: {
+                type: file.type,
+              },
+            },
+          })
+        )
         .matchHeader('Authorization', `Bearer ${token}`)
         .reply(500, 'Internal Server Error');
 
       const consoleErrorStub = sandbox.stub(console, 'error');
 
-      await codegenUtils.sendCode(componentName, componentPath, token);
+      await codegenUtils.sendCode(file, token);
 
       expect(consoleErrorStub.calledOnce).to.be.true;
       expect(consoleErrorStub.firstCall.args[0]).to.equal(
@@ -103,7 +143,10 @@ describe('codegen-utils', () => {
       expect(() => codegenUtils.resolveComponentImportFiles(appPath)).to.throw(
         Error,
         // eslint-disable-next-line
-        `Error reading tsconfig.json from JSS app root: Cannot read file '${path.resolve(process.cwd(),'./path/to/app/that/not/exist/tsconfig.json')}'`
+        `Error reading tsconfig.json from JSS app root: Cannot read file '${path.resolve(
+          process.cwd(),
+          './path/to/app/that/not/exist/tsconfig.json'
+        )}'`
       );
     });
 

@@ -1,9 +1,11 @@
 import {
+  ExtractedFileType,
   fetchBearerToken,
   resolveComponentImportFiles,
   sendCode,
 } from '@sitecore-jss/sitecore-jss-dev-tools';
 import chalk from 'chalk';
+import fs from 'fs';
 import path from 'path';
 import { Argv } from 'yargs';
 
@@ -11,17 +13,11 @@ import { Argv } from 'yargs';
  * @param {Argv} yargs
  */
 export function args(yargs: Argv) {
-  return yargs
-    .option('environment', {
-      requiresArg: false,
-      type: 'string',
-      describe: 'Environment to authenticate into. Default: prod',
-    })
-    .option('appFolder', {
-      requiresArg: false,
-      type: 'string',
-      describe: 'Path to app folder to get components from. Default: current folder',
-    });
+  return yargs.option('appFolder', {
+    requiresArg: false,
+    type: 'string',
+    describe: 'Path to app folder to get components from. Default: current folder',
+  });
 }
 
 /**
@@ -44,16 +40,20 @@ export default function builder(yargs: Argv) {
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function handler(args: any) {
+  if (!isDeployContext()) {
+    console.log(chalk.yellow('Skipping code extraction, not in deploy context'));
+    return;
+  }
   // TODO: add alternative consent procedure when refining later
   if (!process.env.EXTRACT_CONSENT) {
     console.log(chalk.yellow('Skipping code extraction, EXTRACT_CONSENT is not set'));
     return;
   }
-  if (!isBuildContext()) {
-    console.log(chalk.yellow('Skipping code extraction, not in build context'));
+  const basePath = args.appFolder ? resolveAppPath(args.appFolder) : process.cwd();
+  if (!fs.existsSync(path.join(basePath, 'package.json'))) {
+    console.error(chalk.red('Skipping code extraction, no app folder found at ', basePath));
     return;
   }
-  const basePath = args.appFolder ? resolveAppPath(args.appFolder) : process.cwd();
   try {
     const bearer = await fetchBearerToken();
     if (!bearer) {
@@ -64,7 +64,14 @@ export async function handler(args: any) {
     const componentPaths = await resolveComponentImportFiles(basePath);
 
     const codeDispatches = Array.from(componentPaths, (mapEntry) =>
-      sendCode(mapEntry[0], mapEntry[1], bearer)
+      sendCode(
+        {
+          name: mapEntry[0],
+          path: mapEntry[1],
+          type: ExtractedFileType.Component,
+        },
+        bearer
+      )
     );
 
     await Promise.all(codeDispatches);
@@ -78,7 +85,7 @@ const resolveAppPath = (appFolder: string) => {
   return path.resolve(process.cwd(), appFolder);
 };
 
-const isBuildContext = () => {
+const isDeployContext = () => {
   if (process.env.NETLIFY && process.env.BUILD_ID) {
     return true;
   }

@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 import chalk from 'chalk';
+import fs from 'fs';
 import { handler } from './extract-components';
 import * as cliUtils from '@sitecore-jss/sitecore-jss-dev-tools';
 
@@ -12,6 +13,7 @@ describe('extract-components', () => {
       process.env.EXTRACT_CONSENT = 'true';
       process.env.SITECORE = 'true';
       process.env.BuildMetadata_BuildId = '0451';
+      sandbox.stub(fs, 'existsSync').returns(true);
     });
 
     afterEach(() => {
@@ -67,7 +69,7 @@ describe('extract-components', () => {
       );
     });
 
-    it('should skip code extraction when not in build context', async () => {
+    it('should skip code extraction when not in deploy context', async () => {
       const consoleLogStub = sandbox.stub(console, 'log');
       delete process.env.BuildMetadata_BuildId;
 
@@ -75,7 +77,7 @@ describe('extract-components', () => {
 
       expect(consoleLogStub.calledOnce).to.be.true;
       expect(consoleLogStub.firstCall.args[0]).to.equal(
-        chalk.yellow('Skipping code extraction, not in build context')
+        chalk.yellow('Skipping code extraction, not in deploy context')
       );
     });
 

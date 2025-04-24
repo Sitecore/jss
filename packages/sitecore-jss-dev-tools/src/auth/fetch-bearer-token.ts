@@ -3,6 +3,11 @@ import chalk from 'chalk';
 export const DEFAULT_M2M_ENDPOINT = 'https://auth.sitecorecloud.io/oauth/token';
 export const DEFAULT_M2M_AUDIENCE = 'https://api.sitecorecloud.io';
 
+/**
+ * Connects to M2M endpoint and fetches the bearer token
+ * Uses client_id and client_secret from environment variables
+ * @returns {string} bearer token string
+ */
 export const fetchBearerToken = async () => {
   const audience = process.env.M2M_AUDIENCE || DEFAULT_M2M_AUDIENCE;
   const m2mEndpoint = process.env.M2M_ENDPOINT || DEFAULT_M2M_ENDPOINT;
@@ -25,6 +30,11 @@ export const fetchBearerToken = async () => {
     return jsonResponse.access_token;
   } catch (error) {
     console.error(chalk.red('Error authenticating with M2M token endpoint:', error));
+    console.log(
+      chalk.yellow(
+        'Please ensure your M2M_CLIENT_ID and M2M_CLIENT_SECRET environment variables are set correctly.'
+      )
+    );
     return null;
   }
 };
