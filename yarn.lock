@@ -5919,7 +5919,6 @@ __metadata:
     dotenv-expand: ^10.0.0
     eslint: ^8.56.0
     mocha: ^10.2.0
-    nock: 14.0.0-beta.7
     nyc: ^15.1.0
     readline-sync: ^1.4.10
     resolve: ^1.22.1
