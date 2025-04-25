@@ -21,6 +21,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* `[sitecore-jss-nextjs]` Experience Editor and Preview render 500 when using Vercel Editing Host ([#2077](https://github.com/Sitecore/jss/pull/2077))
 * `[sitecore-jss-nextjs]` Fix for case sensitive redirects (make all redirects case-insensitive) [#2074](https://github.com/Sitecore/jss/pull/2074)
 * `[sitecore-jss]` Fix for lookbehind regex. (not supported on ios 16) [#2057](https://github.com/Sitecore/jss/issues/2057)
 * `[sitecore-jss-nextjs]` Fix React warning from Link component when using custom emptyFieldEditingComponent prop ([#2061](https://github.com/Sitecore/jss/pull/2061))
