@@ -30,9 +30,13 @@ export enum ExtractedFileType {
  * Parses the componentBuilder.ts file and returns a map of component names
  * and their respective import strings
  * @param {string} appPath path to the JSS app root
+ * @param {string} componentBuilderPath path to the app's component builder file. Default: 'src/temp/componentBuilder.ts'
  * @returns map of component names and their respective import strings
  */
-export const resolveComponentImportFiles = (appPath: string) => {
+export const resolveComponentImportFiles = (
+  appPath: string,
+  componentBuilderPath: string = './src/temp/componentBuilder.ts'
+) => {
   appPath = path.isAbsolute(appPath) ? appPath : path.resolve(process.cwd(), appPath);
   const tsConfig = ts.readConfigFile(path.resolve(appPath, 'tsconfig.json'), ts.sys.readFile);
 
@@ -45,19 +49,21 @@ export const resolveComponentImportFiles = (appPath: string) => {
     baseUrl: appPath,
   };
 
-  const componentBuilderPath = path.resolve(appPath, 'src', 'temp', 'componentBuilder.ts');
+  const componentBuilderFullPath = path.isAbsolute(componentBuilderPath)
+    ? componentBuilderPath
+    : path.resolve(appPath, componentBuilderPath);
 
   // compiler host to process the componentBuilder.ts file and component sources
   const tsHost = ts.createCompilerHost(tsOptions, true);
   const builderSourceFile = tsHost.getSourceFile(
-    componentBuilderPath,
+    componentBuilderFullPath,
     ts.ScriptTarget.Latest,
     (msg) => {
-      throw new Error(`Failed to parse ${componentBuilderPath}: ${msg}`);
+      throw new Error(`Failed to parse ${componentBuilderFullPath}: ${msg}`);
     }
   );
 
-  if (!builderSourceFile) throw ReferenceError(`Failed to find file ${componentBuilderPath}`);
+  if (!builderSourceFile) throw ReferenceError(`Failed to find file ${componentBuilderFullPath}`);
   // this map matches all raw import strings (i.e. * as component) to import strings
   const importStringsMap: Record<string, string> = {};
   // this map will match component names only to full resolved source file paths
@@ -80,7 +86,7 @@ export const resolveComponentImportFiles = (appPath: string) => {
       }
       const resolvedModule = ts.nodeModuleNameResolver(
         moduleName,
-        componentBuilderPath,
+        componentBuilderFullPath,
         tsOptions,
         tsHost
       );

@@ -3,11 +3,12 @@ import sinon from 'sinon';
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
-import { handler } from './extract-components';
-import * as cliUtils from '@sitecore-jss/sitecore-jss-dev-tools';
+import { extractComponents } from './extract-components';
+import * as cliUtils from './utils';
+import * as authUtils from '../auth/fetch-bearer-token';
 
 describe('extract-components', () => {
-  describe('handler', () => {
+  describe('extractComponents', () => {
     const sandbox = sinon.createSandbox();
 
     beforeEach(() => {
@@ -26,19 +27,34 @@ describe('extract-components', () => {
 
     it('should log when bearer is empty', async () => {
       const consoleErrorStub = sandbox.stub(console, 'error');
-      const resolveImportFilesStub = sandbox
-        .stub(cliUtils, 'resolveComponentImportFiles')
-        .resolves(['/path/to/component.ts']);
-      const fetchBearerTokenStub = sandbox.stub(cliUtils, 'fetchBearerToken').resolves('');
+      const resolveImportFilesStub = sandbox.stub().resolves(['/path/to/component.ts']);
+      const fetchBearerTokenStub = sandbox.stub(authUtils, 'fetchBearerToken').resolves('');
 
-      sandbox.replaceGetter(cliUtils, 'resolveComponentImportFiles', () => resolveImportFilesStub);
-      sandbox.replaceGetter(cliUtils, 'fetchBearerToken', () => fetchBearerTokenStub);
+      sandbox.replace(cliUtils, 'resolveComponentImportFiles', resolveImportFilesStub);
+      sandbox.replace(authUtils, 'fetchBearerToken', fetchBearerTokenStub);
 
-      await handler({ appFolder: '/path/to/app' });
+      await extractComponents({ appFolder: '/path/to/app' });
 
       expect(consoleErrorStub.calledOnce).to.be.true;
       expect(consoleErrorStub.firstCall.args[0]).to.equal(
         chalk.red('Failed to get bearer token, aborting code extraction')
+      );
+    });
+
+    it('should pass custom component builder path to resolve resolveComponentImportFiles', async () => {
+      const resolveImportFilesStub = sandbox.stub().resolves(['/path/to/component.ts']);
+      const fetchBearerTokenStub = sandbox.stub().resolves('test-token');
+      sandbox.replace(cliUtils, 'resolveComponentImportFiles', resolveImportFilesStub);
+      sandbox.replace(authUtils, 'fetchBearerToken', fetchBearerTokenStub);
+
+      await extractComponents({
+        appFolder: '/path/to/app',
+        componentBuilderPath: '/custom/path/to/component-builder',
+      });
+
+      expect(resolveImportFilesStub.calledOnce).to.be.true;
+      expect(resolveImportFilesStub.firstCall.args[1]).to.equal(
+        '/custom/path/to/component-builder'
       );
     });
 
@@ -47,10 +63,10 @@ describe('extract-components', () => {
       const resolveImportFilesStub = sandbox.stub().throws(new Error('oopsie'));
       const fetchBearerTokenStub = sandbox.stub().resolves('test-token');
 
-      sandbox.replaceGetter(cliUtils, 'resolveComponentImportFiles', () => resolveImportFilesStub);
-      sandbox.replaceGetter(cliUtils, 'fetchBearerToken', () => fetchBearerTokenStub);
+      sandbox.replace(cliUtils, 'resolveComponentImportFiles', resolveImportFilesStub);
+      sandbox.replace(authUtils, 'fetchBearerToken', fetchBearerTokenStub);
 
-      await handler({ appFolder: '/path/to/app' });
+      await extractComponents({ appFolder: '/path/to/app' });
 
       expect(consoleErrorStub.calledOnce).to.be.true;
       expect(consoleErrorStub.firstCall.args[0]).to.equal(
@@ -62,7 +78,7 @@ describe('extract-components', () => {
       const consoleLogStub = sandbox.stub(console, 'log');
       delete process.env.EXTRACT_CONSENT;
 
-      await handler({ appFolder: '/path/to/app' });
+      await extractComponents({ appFolder: '/path/to/app' });
 
       expect(consoleLogStub.calledOnce).to.be.true;
       expect(consoleLogStub.firstCall.args[0]).to.equal(
@@ -80,7 +96,7 @@ describe('extract-components', () => {
         .withArgs(fullPath)
         .returns(false);
 
-      await handler({ appFolder: './non/existent/path' });
+      await extractComponents({ appFolder: './non/existent/path' });
 
       expect(consoleErrorStub.calledOnce).to.be.true;
       expect(consoleErrorStub.firstCall.args[0]).to.equal(
@@ -92,7 +108,7 @@ describe('extract-components', () => {
       const consoleLogStub = sandbox.stub(console, 'log');
       delete process.env.BuildMetadata_BuildId;
 
-      await handler({ appFolder: '/path/to/app' });
+      await extractComponents({ appFolder: '/path/to/app' });
 
       expect(consoleLogStub.calledOnce).to.be.true;
       expect(consoleLogStub.firstCall.args[0]).to.equal(
@@ -109,11 +125,11 @@ describe('extract-components', () => {
       const fetchBearerTokenStub = sandbox.stub().resolves('test-token');
       const resolveImportFilesStub = sandbox.stub().resolves(componentMap);
 
-      sandbox.replaceGetter(cliUtils, 'resolveComponentImportFiles', () => resolveImportFilesStub);
-      sandbox.replaceGetter(cliUtils, 'fetchBearerToken', () => fetchBearerTokenStub);
-      sandbox.replaceGetter(cliUtils, 'sendCode', () => sendCodeStub);
+      sandbox.replace(cliUtils, 'resolveComponentImportFiles', resolveImportFilesStub);
+      sandbox.replace(authUtils, 'fetchBearerToken', fetchBearerTokenStub);
+      sandbox.replace(cliUtils, 'sendCode', sendCodeStub);
 
-      await handler({ appFolder: '/path/to/app' });
+      await extractComponents({ appFolder: '/path/to/app' });
 
       expect(fetchBearerTokenStub.calledOnce).to.be.true;
       expect(resolveImportFilesStub.calledOnce).to.be.true;

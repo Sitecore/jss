@@ -1,36 +1,13 @@
-import {
-  ExtractedFileType,
-  fetchBearerToken,
-  resolveComponentImportFiles,
-  sendCode,
-} from '@sitecore-jss/sitecore-jss-dev-tools';
+import { ExtractedFileType, resolveComponentImportFiles, sendCode } from './utils';
+import { fetchBearerToken } from '../auth/fetch-bearer-token';
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
-import { Argv } from 'yargs';
 
-/**
- * @param {Argv} yargs
- */
-export function args(yargs: Argv) {
-  return yargs.option('appFolder', {
-    requiresArg: false,
-    type: 'string',
-    describe: 'Path to app folder to get components from. Default: current folder',
-  });
-}
-
-/**
- * @param {Argv} yargs
- */
-export default function builder(yargs: Argv) {
-  return yargs.command(
-    'extract-components',
-    'Reads component files and posts their code for AI learning',
-    args,
-    handler
-  );
-}
+type ExtractComponentArgs = {
+  appFolder?: string;
+  componentBuilderPath?: string;
+};
 
 /**
  * Handler for the extract-component API command
@@ -38,8 +15,7 @@ export default function builder(yargs: Argv) {
  * @param {object} args - The arguments passed to the command, with optional appName string
  * @returns {Promise<void>} void
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function handler(args: any) {
+export async function extractComponents(args: ExtractComponentArgs) {
   if (!isDeployContext()) {
     console.log(chalk.yellow('Skipping code extraction, not in deploy context'));
     return;
@@ -49,7 +25,7 @@ export async function handler(args: any) {
     console.log(chalk.yellow('Skipping code extraction, EXTRACT_CONSENT is not set'));
     return;
   }
-  const basePath = args.appFolder ? resolveAppPath(args.appFolder) : process.cwd();
+  const basePath = args.appFolder ? parsePath(args.appFolder) : process.cwd();
   if (!fs.existsSync(path.resolve(basePath))) {
     console.error(chalk.red('Skipping code extraction, no app folder found at ', basePath));
     return;
@@ -61,7 +37,7 @@ export async function handler(args: any) {
       return;
     }
 
-    const componentPaths = await resolveComponentImportFiles(basePath);
+    const componentPaths = await resolveComponentImportFiles(basePath, args.componentBuilderPath);
 
     const codeDispatches = Array.from(componentPaths, (mapEntry) =>
       sendCode(
@@ -80,9 +56,9 @@ export async function handler(args: any) {
   }
 }
 
-const resolveAppPath = (appFolder: string) => {
-  if (path.isAbsolute(appFolder)) return appFolder;
-  return path.resolve(process.cwd(), appFolder);
+const parsePath = (input: string) => {
+  if (path.isAbsolute(input)) return input;
+  return path.resolve(process.cwd(), input);
 };
 
 const isDeployContext = () => {

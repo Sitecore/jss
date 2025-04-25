@@ -163,6 +163,21 @@ describe('codegen-utils', () => {
       );
     });
 
+    it('should accept custom componentBuilder path and work with js', () => {
+      const appPath = './src/test-data/extract-components/regular-imports';
+      const builderPath = './src/non-standard-path/componentBuilder.js';
+      const imports = codegenUtils.resolveComponentImportFiles(appPath, builderPath);
+      expect(Array.from(imports)).to.deep.equal([
+        [
+          'TestComponentNonStandard',
+          path.resolve(
+            process.cwd(),
+            './src/test-data/extract-components/regular-imports/src/components/TestComponent.tsx'
+          ),
+        ],
+      ]);
+    });
+
     it('should return TS imports with absolute paths from componentBuilder.ts', () => {
       const appPath = './src/test-data/extract-components/regular-imports';
 
