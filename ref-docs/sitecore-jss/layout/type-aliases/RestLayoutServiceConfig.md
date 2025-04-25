@@ -56,4 +56,4 @@ true
 
 ## Defined in
 
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:21](https://github.com/Sitecore/jss/blob/58599084d7bfee56e7c4ff72e452c13418541e0c/packages/sitecore-jss/src/layout/rest-layout-service.ts#L21)
+[packages/sitecore-jss/src/layout/rest-layout-service.ts:21](https://github.com/Sitecore/jss/blob/2fed01e638c9921055ea981b743a0be6b6491b64/packages/sitecore-jss/src/layout/rest-layout-service.ts#L21)

@@ -20,4 +20,4 @@
 
 ## Defined in
 
-[sitecore-jss-react-native/src/components/Placeholder.tsx:103](https://github.com/Sitecore/jss/blob/58599084d7bfee56e7c4ff72e452c13418541e0c/packages/sitecore-jss-react-native/src/components/Placeholder.tsx#L103)
+[sitecore-jss-react-native/src/components/Placeholder.tsx:103](https://github.com/Sitecore/jss/blob/2fed01e638c9921055ea981b743a0be6b6491b64/packages/sitecore-jss-react-native/src/components/Placeholder.tsx#L103)
