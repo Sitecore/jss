@@ -169,9 +169,15 @@ export class ServerlessEditingDataService implements EditingDataService {
     } as EditingPreviewData;
 
     debug.editing('storing editing data for %o: %o', previewData, data);
-    return this.dataFetcher.put(url, data).then(() => {
-      return previewData;
-    });
+    return this.dataFetcher
+      .put(url, data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(() => {
+        return previewData;
+      });
   }
 
   /**
