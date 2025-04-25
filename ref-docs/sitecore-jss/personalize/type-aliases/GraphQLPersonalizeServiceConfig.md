@@ -41,4 +41,4 @@ Timeout (ms) for the Personalize request. Default is 400.
 
 ## Defined in
 
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:6](https://github.com/Sitecore/jss/blob/58599084d7bfee56e7c4ff72e452c13418541e0c/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L6)
+[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:6](https://github.com/Sitecore/jss/blob/2fed01e638c9921055ea981b743a0be6b6491b64/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L6)
