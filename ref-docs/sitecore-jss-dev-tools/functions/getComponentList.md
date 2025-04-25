@@ -32,4 +32,4 @@ Returns a list of components in the following format:
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/templating/components.ts:33](https://github.com/Sitecore/jss/blob/2fed01e638c9921055ea981b743a0be6b6491b64/packages/sitecore-jss-dev-tools/src/templating/components.ts#L33)
+[sitecore-jss-dev-tools/src/templating/components.ts:33](https://github.com/Sitecore/jss/blob/ba3fd744ad70b8c25b046dee6c203dc708cd1f8b/packages/sitecore-jss-dev-tools/src/templating/components.ts#L33)

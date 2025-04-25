@@ -21,4 +21,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts:31](https://github.com/Sitecore/jss/blob/2fed01e638c9921055ea981b743a0be6b6491b64/packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts#L31)
+[packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts:31](https://github.com/Sitecore/jss/blob/ba3fd744ad70b8c25b046dee6c203dc708cd1f8b/packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts#L31)
