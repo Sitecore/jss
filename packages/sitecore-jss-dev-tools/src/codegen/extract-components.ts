@@ -9,7 +9,7 @@ type ExtractComponentOptions = {
 /**
  * Handler for the extract-component API command
  * Reads imports from the componentBuilder.ts file and posts the code to the mesh endpoint
- * @param {ExtractComponentOptions} args - The arguments passed to the command, with optional appName string
+ * @param {ExtractComponentOptions} [args] - The options for code extraction
  * @returns {Promise<void>} void
  */
 export async function extractComponents(args: ExtractComponentOptions = {}) {
