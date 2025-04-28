@@ -1,21 +1,18 @@
 import { ExtractedFileType, resolveComponentImportFiles, sendCode } from './utils';
 import { fetchBearerToken } from '../auth/fetch-bearer-token';
 import chalk from 'chalk';
-import fs from 'fs';
-import path from 'path';
 
-type ExtractComponentArgs = {
-  appFolder?: string;
+type ExtractComponentOptions = {
   componentBuilderPath?: string;
 };
 
 /**
  * Handler for the extract-component API command
  * Reads imports from the componentBuilder.ts file and posts the code to the mesh endpoint
- * @param {object} args - The arguments passed to the command, with optional appName string
+ * @param {ExtractComponentOptions} args - The arguments passed to the command, with optional appName string
  * @returns {Promise<void>} void
  */
-export async function extractComponents(args: ExtractComponentArgs) {
+export async function extractComponents(args: ExtractComponentOptions = {}) {
   if (!isDeployContext()) {
     console.log(chalk.yellow('Skipping code extraction, not in deploy context'));
     return;
@@ -25,11 +22,9 @@ export async function extractComponents(args: ExtractComponentArgs) {
     console.log(chalk.yellow('Skipping code extraction, EXTRACT_CONSENT is not set'));
     return;
   }
-  const basePath = args.appFolder ? parsePath(args.appFolder) : process.cwd();
-  if (!fs.existsSync(path.resolve(basePath))) {
-    console.error(chalk.red('Skipping code extraction, no app folder found at ', basePath));
-    return;
-  }
+
+  const basePath = process.cwd();
+
   try {
     const bearer = await fetchBearerToken();
     if (!bearer) {
@@ -55,11 +50,6 @@ export async function extractComponents(args: ExtractComponentArgs) {
     console.error(chalk.red('Error during component extraction:', error));
   }
 }
-
-const parsePath = (input: string) => {
-  if (path.isAbsolute(input)) return input;
-  return path.resolve(process.cwd(), input);
-};
 
 const isDeployContext = () => {
   if (process.env.NETLIFY && process.env.BUILD_ID) {

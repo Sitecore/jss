@@ -2,7 +2,6 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import chalk from 'chalk';
 import fs from 'fs';
-import path from 'path';
 import { extractComponents } from './extract-components';
 import * as cliUtils from './utils';
 import * as authUtils from '../auth/fetch-bearer-token';
@@ -32,8 +31,9 @@ describe('extract-components', () => {
 
       sandbox.replace(cliUtils, 'resolveComponentImportFiles', resolveImportFilesStub);
       sandbox.replace(authUtils, 'fetchBearerToken', fetchBearerTokenStub);
+      sandbox.stub(process, 'cwd').returns('/path/to/app');
 
-      await extractComponents({ appFolder: '/path/to/app' });
+      await extractComponents();
 
       expect(consoleErrorStub.calledOnce).to.be.true;
       expect(consoleErrorStub.firstCall.args[0]).to.equal(
@@ -46,9 +46,9 @@ describe('extract-components', () => {
       const fetchBearerTokenStub = sandbox.stub().resolves('test-token');
       sandbox.replace(cliUtils, 'resolveComponentImportFiles', resolveImportFilesStub);
       sandbox.replace(authUtils, 'fetchBearerToken', fetchBearerTokenStub);
+      sandbox.stub(process, 'cwd').returns('/path/to/app');
 
       await extractComponents({
-        appFolder: '/path/to/app',
         componentBuilderPath: '/custom/path/to/component-builder',
       });
 
@@ -65,8 +65,9 @@ describe('extract-components', () => {
 
       sandbox.replace(cliUtils, 'resolveComponentImportFiles', resolveImportFilesStub);
       sandbox.replace(authUtils, 'fetchBearerToken', fetchBearerTokenStub);
+      sandbox.stub(process, 'cwd').returns('/path/to/app');
 
-      await extractComponents({ appFolder: '/path/to/app' });
+      await extractComponents();
 
       expect(consoleErrorStub.calledOnce).to.be.true;
       expect(consoleErrorStub.firstCall.args[0]).to.equal(
@@ -77,8 +78,9 @@ describe('extract-components', () => {
     it('should abort when EXTRACT_CONSENT is not set', async () => {
       const consoleLogStub = sandbox.stub(console, 'log');
       delete process.env.EXTRACT_CONSENT;
+      sandbox.stub(process, 'cwd').returns('/path/to/app');
 
-      await extractComponents({ appFolder: '/path/to/app' });
+      await extractComponents();
 
       expect(consoleLogStub.calledOnce).to.be.true;
       expect(consoleLogStub.firstCall.args[0]).to.equal(
@@ -86,29 +88,12 @@ describe('extract-components', () => {
       );
     });
 
-    it('should abort when appPath does not exist', async () => {
-      sandbox.restore();
-      const consoleErrorStub = sandbox.stub(console, 'error');
-      const fullPath = path.resolve(process.cwd(), './non/existent/path');
-      sandbox
-        .stub(fs, 'existsSync')
-        .returns(true)
-        .withArgs(fullPath)
-        .returns(false);
-
-      await extractComponents({ appFolder: './non/existent/path' });
-
-      expect(consoleErrorStub.calledOnce).to.be.true;
-      expect(consoleErrorStub.firstCall.args[0]).to.equal(
-        chalk.red('Skipping code extraction, no app folder found at ', fullPath)
-      );
-    });
-
     it('should skip code extraction when not in deploy context', async () => {
       const consoleLogStub = sandbox.stub(console, 'log');
       delete process.env.BuildMetadata_BuildId;
+      sandbox.stub(process, 'cwd').returns('/path/to/app');
 
-      await extractComponents({ appFolder: '/path/to/app' });
+      await extractComponents();
 
       expect(consoleLogStub.calledOnce).to.be.true;
       expect(consoleLogStub.firstCall.args[0]).to.equal(
@@ -128,8 +113,9 @@ describe('extract-components', () => {
       sandbox.replace(cliUtils, 'resolveComponentImportFiles', resolveImportFilesStub);
       sandbox.replace(authUtils, 'fetchBearerToken', fetchBearerTokenStub);
       sandbox.replace(cliUtils, 'sendCode', sendCodeStub);
+      sandbox.stub(process, 'cwd').returns('/path/to/app');
 
-      await extractComponents({ appFolder: '/path/to/app' });
+      await extractComponents();
 
       expect(fetchBearerTokenStub.calledOnce).to.be.true;
       expect(resolveImportFilesStub.calledOnce).to.be.true;
