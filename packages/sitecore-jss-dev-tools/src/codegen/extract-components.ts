@@ -13,7 +13,7 @@ type ExtractComponentOptions = {
  * @returns {Promise<void>} void
  */
 export async function extractComponents(args: ExtractComponentOptions = {}) {
-  if (!isDeployContext()) {
+  if (!validateDeployContext()) {
     console.log(chalk.yellow('Skipping code extraction, not in deploy context'));
     return;
   }
@@ -51,7 +51,7 @@ export async function extractComponents(args: ExtractComponentOptions = {}) {
   }
 }
 
-const isDeployContext = () => {
+const validateDeployContext = () => {
   if (process.env.NETLIFY && process.env.BUILD_ID) {
     return true;
   }
