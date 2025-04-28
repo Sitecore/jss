@@ -11,9 +11,69 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🎉 New Features & Improvements
+
+* `[Next.js]` XM Cloud Forms support without BYOC ([#2052](https://github.com/Sitecore/jss/pull/2052))([#2066](https://github.com/Sitecore/jss/pull/2066)):
+  * Introduced a new `Form` component in the `sitecore-jss-react` package.
+  * The `Form` component must be registered in the app to enable non-BYOC Forms support.
+  * `SitecoreContext` now supports an `api` property for passing XM Cloud Edge endpoint settings, enabling the `Form` component to access the configured endpoint.
+  * Added shared `Form` functionality via the `sitecore-jss` package.
+
 ### 🐛 Bug Fixes
 
-* `[templates/nextjs-sxa]`Fixed unsafe property access by replacing direct calls with optional chaining ([#2035](https://github.com/Sitecore/jss/pull/2035))
+* `[sitecore-jss]` `[template/nextjs-sxa]` Fix `/api/sitemap` endpoint ([#2058](https://github.com/Sitecore/jss/pull/2058)) ([#2063](https://github.com/Sitecore/jss/pull/2063))
+
+### 🛠 Breaking Changes
+
+* Upgrade cloudsdk to 0.5 ([#2060](https://github.com/Sitecore/jss/pull/2060)):
+  * This upgrade doesn't introduce any breaking changes, however you will have to upgrade your cloudsdk dependencies to meet peer dependencies requirements
+ 
+## 22.5.5
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Experience Editor and Preview render 500 when using Vercel Editing Host ([#2077](https://github.com/Sitecore/jss/pull/2077))
+* `[sitecore-jss-nextjs]` Fix for case sensitive redirects (make all redirects case-insensitive) [#2074](https://github.com/Sitecore/jss/pull/2074)
+* `[sitecore-jss]` Fix for lookbehind regex. (not supported on ios 16) [#2057](https://github.com/Sitecore/jss/issues/2057)
+* `[sitecore-jss-nextjs]` Fix React warning from Link component when using custom emptyFieldEditingComponent prop ([#2061](https://github.com/Sitecore/jss/pull/2061)):
+* `[sitecore-jss]` Handle trailing slash in sitecoreEdgeUrl to prevent request failures ([#2062](https://github.com/Sitecore/jss/pull/2062))
+* `[create-sitecore-jss]` Fix nextjs(xmcloud) app initialization ([#2070](https://github.com/Sitecore/jss/pull/2070))
+* `[sitecore-jss-react]` Suspense in ErrorBoundary component is not rendered when it is wrapping a BYOCWrapper to prevent client side hydration errors ([#2071](https://github.com/Sitecore/jss/pull/2071))
+
+## 22.5.4
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss]` Cannot use 'in' operator to search for 'editable' ([#1768](https://github.com/Sitecore/jss/pull/1768))
+
+## 22.5.3
+
+### 🐛 Bug Fixes
+* `[sitecore-jss-nextjs]` Fixes an issue where a more specific redirect rule with locale is not activating when a less specific rule is present. ([#2054](https://github.com/Sitecore/jss/pull/2054)[#2056](https://github.com/Sitecore/jss/pull/2056))
+
+* `[sitecore-jss-nextjs]` Fix an endless redirect issue with [/default/(.*) -> /en/$1] redirect rule when nextjs default locale is set to default. ([#2055](https://github.com/Sitecore/jss/pull/2055))
+
+## 22.5.2
+
+### 🐛 Bug Fixes
+* `[sitecore-jss-nextjs]` When redirect rule was not using regex and was only matching a path (without query string), incoming matching URLs were ignored when query string is present. This has been fixed ([#2050](https://github.com/Sitecore/jss/pull/2050))
+* `[sitecore-jss-nextjs]` Fixed redirect header from previous middleware execution not being cleaned up correctly. ([#2050](https://github.com/Sitecore/jss/pull/2050))
+
+## 22.5.1
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-nextjs]` [RichText] Add support for the "prefetch on hover" ([#2049](https://github.com/Sitecore/jss/pull/2049)):
+  * The `prefetchLinks` property now supports the `hover` value, that allows prefetching internal links on hover.
+* `[sitecore-jss-nextjs]` Refactor RedirectsMiddleware for better extensibility ([#2040](https://github.com/Sitecore/jss/pull/2040))([#2048](https://github.com/Sitecore/jss/pull/2048)):
+  * Introduced `processRedirectRequest` that can be overridden in custom middleware.
+* `[sitecore-jss-nextjs]` Link component supports `prefetch` property ([#2039](https://github.com/Sitecore/jss/pull/2039))([#2046](https://github.com/Sitecore/jss/pull/2046))
+* `[create-sitecore-jss]` Create apps with exact jss dependency versions for prerelease versions; all apps are now created with v0.1.0 instead of the version of JSS ([#2033](https://github.com/Sitecore/jss/pull/2033))
+
+### 🐛 Bug Fixes
+
+* `[templates/nextjs-sxa]` Fixed unsafe property access by replacing direct calls with optional chaining ([#2035](https://github.com/Sitecore/jss/pull/2035))
+* `[sitecore-jss-react]` Extend `PlaceholderProps` to support `Item` type field ([#2043](https://github.com/Sitecore/jss/pull/2043))
 
 ## 22.5.0
 

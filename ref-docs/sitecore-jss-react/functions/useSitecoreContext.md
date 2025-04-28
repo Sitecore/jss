@@ -6,7 +6,7 @@
 
 # Function: useSitecoreContext()
 
-> **useSitecoreContext**(`options`?): `object`
+> **useSitecoreContext**(`options`?): [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)
 
 This hook grants acсess to the current Sitecore page context
 by default JSS includes the following properties in this context:
@@ -22,27 +22,9 @@ by default JSS includes the following properties in this context:
 
 ## Returns
 
-`object`
+[`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)
 
 { sitecoreContext, updateSitecoreContext }
-
-### sitecoreContext
-
-> **sitecoreContext**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md) = `reactContext.context`
-
-### updateSitecoreContext()
-
-> **updateSitecoreContext**: (`value`) => `void`
-
-#### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `value` | [`LayoutServiceData`](../interfaces/LayoutServiceData.md) \| [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md) |
-
-#### Returns
-
-`void`
 
 ## See
 
@@ -67,4 +49,4 @@ const EditMode = () => {
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:65](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L65)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:71](https://github.com/Sitecore/jss/blob/6217e2e71367ae392fe1df0895780151e0676f93/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L71)

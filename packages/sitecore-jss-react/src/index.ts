@@ -68,6 +68,7 @@ export {
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export { ComponentFactory, JssComponentType } from './components/sharedTypes';
 export { Placeholder, PlaceholderComponentProps } from './components/Placeholder';
+export { Form } from './components/Form';
 export {
   Image,
   ImageProps,

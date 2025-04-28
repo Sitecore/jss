@@ -133,7 +133,7 @@ steps:
   #
 - script: |
     echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-    npm exec -- lerna publish from-git --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
+    npm exec -- lerna publish from-git --exact --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
   displayName: 'pre-release canary publish'
   condition: and(succeeded(), eq(variables.shouldPublish, true))
   env:

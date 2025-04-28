@@ -14,6 +14,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import sinon, { spy } from 'sinon';
 import sinonChai from 'sinon-chai';
 import { RedirectsMiddleware } from './redirects-middleware';
+import { REWRITE_HEADER_NAME } from './middleware';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
@@ -99,6 +100,14 @@ describe('RedirectsMiddleware', () => {
   const createMiddleware = (
     props: {
       [key: string]: unknown;
+      // for multiple rules
+      redirectMaps?: {
+        pattern: string;
+        target: string;
+        redirectType?: string;
+        isQueryStringPreserved?: boolean;
+      }[];
+      // for single rule
       pattern?: string;
       target?: string;
       redirectType?: string;
@@ -135,22 +144,20 @@ describe('RedirectsMiddleware', () => {
       siteResolver,
       ...props,
       clientFactory,
-      locales: ['en', 'ua'],
+      locales: ['en', 'ua', 'pl-PL'],
     });
-
+    const redirectMaps = props.redirectMaps || [];
+    if (props.pattern && props.target) {
+      redirectMaps.push({
+        pattern: props.pattern,
+        target: props.target,
+        redirectType: props.redirectType,
+        isQueryStringPreserved: props.isQueryStringPreserved,
+      });
+    }
     const fetchRedirects = (middleware['redirectsService']['fetchRedirects'] =
       props.fetchRedirectsStub ||
-      sinon.stub().returns(
-        Promise.resolve(
-          Object.keys(props).length
-            ? [
-                {
-                  ...props,
-                },
-              ]
-            : []
-        )
-      ));
+      sinon.stub().returns(Promise.resolve(Object.keys(props).length ? redirectMaps : [])));
 
     return { middleware, fetchRedirects, siteResolver };
   };
@@ -185,7 +192,7 @@ describe('RedirectsMiddleware', () => {
 
     validateDebugLog('redirects middleware start: %o', {
       hostname: _hostname,
-      language: 'en',
+      language: middlewareOptions.locale || 'en',
       pathname: req.nextUrl.pathname,
     });
 
@@ -497,9 +504,7 @@ describe('RedirectsMiddleware', () => {
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
-          headers: {
-            'x-sc-rewrite': 'http://localhost:3000/found',
-          },
+          headers: {},
           redirected: undefined,
           status: 200,
           url,
@@ -550,9 +555,7 @@ describe('RedirectsMiddleware', () => {
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
-          headers: {
-            'x-sc-rewrite': 'http://localhost:3000/found?abc=def',
-          },
+          headers: {},
           redirected: undefined,
           status: 200,
           url,
@@ -699,6 +702,159 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+      });
+
+      it('should redirect without QS, when url has query string, pattern doesnt and query string not preserved', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          href: 'http://localhost:3000/found',
+          pathname: '/found',
+          origin: 'http://localhost:3000',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        };
+        setupRedirectStub(301);
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/not-found',
+              search: '?abc=def',
+              href: 'http://localhost:3000/not-found?abc=def',
+              locale: 'en',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: 'not-found',
+            target: '/found',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req
+        );
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url,
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+      });
+
+      it('should prefer pattern with locale when pattern is url', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          href: 'http://localhost:3000/found',
+          pathname: '/found',
+          origin: 'http://localhost:3000',
+          locale: 'pl-PL',
+          search: '',
+          clone: cloneUrl,
+        };
+        setupRedirectStub(301);
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/not-found',
+              href: 'http://localhost:3000/pl-PL/not-found',
+              locale: 'pl-PL',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+
+        const { finalRes, fetchRedirects } = await runTestWithRedirect(
+          {
+            redirectMaps: [
+              {
+                // note: lowercase locale in pattern should still match
+                pattern: '/pl-pl/not-found',
+                target: '/found',
+                redirectType: REDIRECT_TYPE_301,
+                isQueryStringPreserved: false,
+              },
+              {
+                pattern: '/not-found',
+                target: '/still-not-found',
+                redirectType: REDIRECT_TYPE_301,
+                isQueryStringPreserved: false,
+              },
+            ],
+            locale: 'pl-PL',
+          },
+          req
+        );
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+      });
+
+      it('should prefer pattern with locale when pattern is regex', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          href: 'http://localhost:3000/found/for-real',
+          pathname: '/found/for-real',
+          origin: 'http://localhost:3000',
+          locale: 'pl-PL',
+          search: '',
+          clone: cloneUrl,
+        };
+        setupRedirectStub(301);
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/not-found/for-real',
+              search: '',
+              href: 'http://localhost:3000/not-found',
+              locale: 'pl-PL',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+
+        const { finalRes, fetchRedirects } = await runTestWithRedirect(
+          {
+            redirectMaps: [
+              {
+                pattern: '/pl-PL/not-found/(.*)',
+                target: '/found/$1',
+                redirectType: REDIRECT_TYPE_301,
+              },
+              {
+                pattern: 'not-found/(.*)',
+                target: '/still-not-found/$1',
+                redirectType: REDIRECT_TYPE_301,
+              },
+            ],
+            locale: 'pl-PL',
+          },
+          req
+        );
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
@@ -943,9 +1099,7 @@ describe('RedirectsMiddleware', () => {
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
-          headers: {
-            'x-sc-rewrite': 'http://localhost:3000/found',
-          },
+          headers: {},
           redirected: undefined,
           status: 200,
           url,
@@ -1306,7 +1460,7 @@ describe('RedirectsMiddleware', () => {
         expect(finalRes.status).to.equal(res.status);
       });
 
-      it('should remove x-middleware-next/x-middleware-rewrite headers and redirect 301', async () => {
+      it('should remove rewrite headers and redirect 301', async () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
         const url = {
           clone: cloneUrl,
@@ -1332,6 +1486,7 @@ describe('RedirectsMiddleware', () => {
         setupRedirectStub(301);
         res.headers.set('x-middleware-next', '1');
         res.headers.set('x-middleware-rewrite', '1');
+        res.headers.set(REWRITE_HEADER_NAME, 1);
 
         const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
           {
@@ -1354,6 +1509,7 @@ describe('RedirectsMiddleware', () => {
         // Check that the headers were not removed
         expect(finalRes.headers.has('x-middleware-next')).to.equal(false);
         expect(finalRes.headers.has('x-middleware-rewrite')).to.equal(false);
+        expect(finalRes.headers.has(REWRITE_HEADER_NAME)).to.equal(false);
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
@@ -1566,7 +1722,7 @@ describe('RedirectsMiddleware', () => {
         expect(finalRes.status).to.equal(res.status);
       });
 
-      it('should return a 302 redirect', async () => {
+      it('should clean redirect headers and return a 302 redirect', async () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
         const url = {
           clone: cloneUrl,
@@ -1592,6 +1748,9 @@ describe('RedirectsMiddleware', () => {
           status: 302,
         });
         setupRedirectStub(302);
+        res.headers.set('x-middleware-next', '1');
+        res.headers.set('x-middleware-rewrite', '1');
+        res.headers.set(REWRITE_HEADER_NAME, 1);
 
         const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
           {
@@ -1611,11 +1770,72 @@ describe('RedirectsMiddleware', () => {
           url,
         });
 
+        // Check that the headers were not removed
+        expect(finalRes.headers.has('x-middleware-next')).to.equal(false);
+        expect(finalRes.headers.has('x-middleware-rewrite')).to.equal(false);
+        expect(finalRes.headers.has(REWRITE_HEADER_NAME)).to.equal(false);
+
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
+      });
+
+      it('should redirect regardless of case in pattern and target', async () => {
+        // Set up a clone function (used by both req and res)
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          href: 'http://localhost:3000/Found',
+          pathname: '/Found',
+          origin: 'http://localhost:3000',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        };
+
+        // Create the test request and response
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/About',
+              href: 'http://localhost:3000/About',
+              locale: 'en',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+
+        setupRedirectStub(301);
+        res.headers.set('x-middleware-next', '1');
+        res.headers.set('x-middleware-rewrite', '1');
+        res.headers.set(REWRITE_HEADER_NAME, 1);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: '/About',
+            target: '/Found',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req
+        );
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url,
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        expect(siteResolver.getByHost).to.have.been.called;
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes.status).to.equal(301);
       });
 
       // TODO: This test is failing because of this bug https://sitecore.atlassian.net/browse/JSS-3955

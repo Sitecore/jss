@@ -21,6 +21,8 @@ const {
   transform: transformFunc,
 } = transform;
 
+const pkgVersion = '22.2.1-canary.33';
+
 describe('transform', () => {
   describe('transformFilename', () => {
     it('should replace placeholder filename with appropriate key', () => {
@@ -517,7 +519,7 @@ describe('transform', () => {
       };
 
       const transformModule = proxyquire('./transform', {
-        '../../../package.json': { version: '22.2.1-canary.33' },
+        '../../../package.json': { version: pkgVersion },
       });
 
       diffAndWriteFilesStub = sinon.stub(transformModule, 'diffAndWriteFiles');
@@ -526,7 +528,7 @@ describe('transform', () => {
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
-        version: '22.2.1-canary',
+        version: pkgVersion,
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
@@ -645,7 +647,7 @@ describe('transform', () => {
       };
 
       const transformModule = proxyquire('./transform', {
-        '../../../package.json': { version: '22.2.1-canary.33' },
+        '../../../package.json': { version: pkgVersion },
       });
 
       diffAndWriteFilesStub = sinon.stub(transformModule, 'diffAndWriteFiles');
@@ -655,7 +657,7 @@ describe('transform', () => {
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
-        version: '22.2.1-canary',
+        version: pkgVersion,
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
@@ -692,7 +694,7 @@ describe('transform', () => {
       };
 
       const transformModule = proxyquire('./transform', {
-        '../../../package.json': { version: '22.2.1-canary.33' },
+        '../../../package.json': { version: pkgVersion },
       });
 
       mergeStub = sinon.stub(transformModule, 'merge').returns(mergedPkg);
@@ -702,7 +704,7 @@ describe('transform', () => {
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
-        version: '22.2.1-canary',
+        version: pkgVersion,
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
@@ -732,7 +734,7 @@ describe('transform', () => {
       ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(templateDotEnv));
 
       const transformModule = proxyquire('./transform', {
-        '../../../package.json': { version: '22.2.1-canary.33' },
+        '../../../package.json': { version: pkgVersion },
       });
 
       mergeEnvStub = sinon.stub(transformModule, 'mergeEnv').returns(concatDotEnv);
@@ -749,7 +751,7 @@ describe('transform', () => {
 
       expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
         ...answers,
-        version: '22.2.1-canary',
+        version: pkgVersion,
         helper: {
           isDev: false,
           getPascalCaseName: helpers.getPascalCaseName,
@@ -839,6 +841,65 @@ describe('transform', () => {
       expect(log.getCall(1).args[0]).to.equal(
         `Error occurred when trying to render to ${chalk.yellow(path.resolve(file))}`
       );
+    });
+  });
+
+  describe('populateEjsData', () => {
+    it('should use exact version for app and dependency versions for beta', () => {
+      const destinationPath = path.resolve('samples/next');
+      const answers = {
+        destination: destinationPath,
+        templates: [],
+        appPrefix: false,
+        force: false,
+      };
+      const pkgVersionBeta = '22.4.1-beta.33';
+
+      const transformModule = proxyquire('./transform', {
+        '../../../package.json': { version: pkgVersionBeta },
+      });
+
+      const result = transformModule.populateEjsData(answers);
+
+      expect(result.version).to.equal(pkgVersionBeta);
+    });
+
+    it('should use exact version for app and dependency versions for canary', () => {
+      const destinationPath = path.resolve('samples/next');
+      const answers = {
+        destination: destinationPath,
+        templates: [],
+        appPrefix: false,
+        force: false,
+      };
+      const pkgVersionCanary = '22.4.1-canary.33';
+
+      const transformModule = proxyquire('./transform', {
+        '../../../package.json': { version: pkgVersionCanary },
+      });
+
+      const result = transformModule.populateEjsData(answers);
+
+      expect(result.version).to.equal(pkgVersionCanary);
+    });
+
+    it('should use exact version for app and ~ version for dependencies for release', () => {
+      const destinationPath = path.resolve('samples/next');
+      const answers = {
+        destination: destinationPath,
+        templates: [],
+        appPrefix: false,
+        force: false,
+      };
+      const pkgVersionRelease = '22.4.1';
+
+      const transformModule = proxyquire('./transform', {
+        '../../../package.json': { version: pkgVersionRelease },
+      });
+
+      const result = transformModule.populateEjsData(answers);
+
+      expect(result.version).to.equal(`~${pkgVersionRelease}`);
     });
   });
 });

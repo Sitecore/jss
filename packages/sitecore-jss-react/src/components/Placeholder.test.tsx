@@ -432,6 +432,33 @@ describe('BYOC fallback', () => {
     byocComponentStub.restore();
     byocWrapperStub.restore();
   });
+
+  it('should render ErrorBoundary without Suspense for byoc wrapper', () => {
+    const component = byocWrapperData.sitecore.route as RouteData;
+    const phKey = 'main';
+
+    byocComponentStub = stub(BYOCComponent, 'BYOCComponent').callsFake(() => (
+      <p className="byoc-component">Foo</p>
+    ));
+
+    byocWrapperStub = stub(BYOCWrapper, 'BYOCWrapper').callsFake(() => (
+      <div className="byoc-wrapper">
+        <BYOCComponent.BYOCComponent />
+      </div>
+    ));
+
+    const renderedComponent = mount(
+      <SitecoreContext componentFactory={componentFactory}>
+        <Placeholder name={phKey} rendering={component} />
+      </SitecoreContext>
+    );
+
+    expect(renderedComponent.find('ErrorBoundary').length).to.equal(2);
+    expect(renderedComponent.find('Suspense').length).to.equal(1);
+
+    byocComponentStub.restore();
+    byocWrapperStub.restore();
+  });
 });
 
 describe('FEaaS fallback', () => {

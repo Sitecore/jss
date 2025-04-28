@@ -1,10 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { NativeDataFetcher, GraphQLSitemapXmlService } from '@sitecore-jss/sitecore-jss-nextjs';
 import { siteResolver } from 'lib/site-resolver';
-import config from 'temp/config';
 import clientFactory from 'lib/graphql-client-factory';
-
-const ABSOLUTE_URL_REGEXP = '^(?:[a-z]+:)?//';
 
 const sitemapApi = async (
   req: NextApiRequest,
@@ -30,13 +27,15 @@ const sitemapApi = async (
 
   // regular sitemap
   if (sitemapPath) {
-    const isAbsoluteUrl = sitemapPath.match(ABSOLUTE_URL_REGEXP);
-    const sitemapUrl = isAbsoluteUrl ? sitemapPath : `${config.sitecoreApiHost}${sitemapPath}`;
-    res.setHeader('Content-Type', 'text/xml;charset=utf-8');
-
     try {
       const fetcher = new NativeDataFetcher();
-      const xmlResponse = await fetcher.fetch<string>(sitemapUrl);
+      const xmlResponse = await fetcher.fetch<string>(sitemapPath);
+
+      if (!xmlResponse?.data) {
+        return res.redirect('/404');
+      }
+
+      res.setHeader('Content-Type', 'text/xml;charset=utf-8');
 
       return res.send(xmlResponse.data);
     } catch (error) {
@@ -51,23 +50,24 @@ const sitemapApi = async (
     return res.redirect('/404');
   }
 
-  const reqtHost = req.headers.host;
+  const reqHost = req.headers.host;
   const reqProtocol = req.headers['x-forwarded-proto'] || 'https';
   const SitemapLinks = sitemaps
     .map((item: string) => {
       const parseUrl = item.split('/');
       const lastSegment = parseUrl[parseUrl.length - 1];
+      const escapedUrl = `${reqProtocol}://${reqHost}/${lastSegment}`.replace(/&/g, '&amp;');
 
       return `<sitemap>
-        <loc>${reqProtocol}://${reqtHost}/${lastSegment}</loc>
+        <loc>${escapedUrl}</loc>
       </sitemap>`;
     })
     .join('');
 
   res.setHeader('Content-Type', 'text/xml;charset=utf-8');
 
-  return res.send(`
-  <sitemapindex xmlns="http://sitemaps.org/schemas/sitemap/0.9" encoding="UTF-8">${SitemapLinks}</sitemapindex>
+  return res.send(`<?xml version="1.0" encoding="UTF-8"?>
+  <sitemapindex xmlns="http://sitemaps.org/schemas/sitemap/0.9">${SitemapLinks}</sitemapindex>
   `);
 };
 

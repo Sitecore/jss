@@ -17,7 +17,7 @@ import {
 import { NextURL } from 'next/dist/server/web/next-url';
 import { NextRequest, NextResponse } from 'next/server';
 import regexParser from 'regex-parser';
-import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
+import { MiddlewareBase, MiddlewareBaseConfig, REWRITE_HEADER_NAME } from './middleware';
 
 const REGEXP_CONTEXT_SITE_LANG = new RegExp(/\$siteLang/, 'i');
 const REGEXP_ABSOLUTE_URL = new RegExp('^(?:[a-z]+:)?//', 'i');
@@ -62,7 +62,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
   public getHandler(): (req: NextRequest, res?: NextResponse) => Promise<NextResponse> {
     return async (req, res) => {
       try {
-        return await this.handler(req, res);
+        return this.processRedirectRequest(req, res);
       } catch (error) {
         console.log('Redirect middleware failed:');
         console.log(error);
@@ -71,7 +71,98 @@ export class RedirectsMiddleware extends MiddlewareBase {
     };
   }
 
-  private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
+  /**
+   * Method returns RedirectInfo when matches
+   * @param {NextRequest} req request
+   * @param {string} siteName site name
+   * @returns Promise<RedirectInfo | undefined> The redirect info or undefined if no redirect is found
+   * @protected
+   */
+  protected async getExistsRedirect(
+    req: NextRequest,
+    siteName: string
+  ): Promise<RedirectResult | undefined> {
+    const { pathname: incomingURL, search: incomingQS = '' } = this.normalizeUrl(
+      req.nextUrl.clone()
+    );
+    const locale = this.getLanguage(req);
+    const normalizedPath = incomingURL.replace(/\/*$/gi, '');
+    const redirects = await this.redirectsService.fetchRedirects(siteName);
+    const language = this.getLanguage(req);
+    const modifyRedirects = structuredClone(redirects);
+    let matchedQueryString: string | undefined;
+    const localePath = `/${locale.toLowerCase()}${normalizedPath}`;
+
+    return modifyRedirects.length
+      ? modifyRedirects.find((redirect: RedirectResult) => {
+          // process static URL (non-regex) rules
+          if (isRegexOrUrl(redirect.pattern) === 'url') {
+            const urlArray = redirect.pattern.endsWith('/')
+              ? redirect.pattern.slice(0, -1).split('?')
+              : redirect.pattern.split('?');
+            const patternQS = urlArray[1];
+            let patternPath = urlArray[0];
+            // nextjs routes are case-sensitive, but locales should be compared case-insensitively
+            const patternParts = patternPath.split('/');
+            const maybeLocale = patternParts[1].toLowerCase();
+            // case insensitive lookup of locales
+            if (new RegExp(this.locales.join('|'), 'i').test(maybeLocale)) {
+              patternPath = patternPath.replace(`/${patternParts[1]}`, `/${maybeLocale}`);
+            }
+            return (
+              (patternPath === localePath || patternPath === normalizedPath) &&
+              (!patternQS ||
+                areURLSearchParamsEqual(
+                  new URLSearchParams(patternQS),
+                  new URLSearchParams(incomingQS)
+                ))
+            );
+          }
+
+          // process regex rules
+
+          // Modify the redirect pattern to ignore the language prefix in the path
+          // And escapes non-special "?" characters in a string or regex.
+          redirect.pattern = escapeNonSpecialQuestionMarks(
+            redirect.pattern.replace(new RegExp(`^[^]?/${language}/`, 'gi'), '')
+          );
+
+          // Prepare the redirect pattern as a regular expression, making it more flexible for matching URLs
+          redirect.pattern = `/^\/${redirect.pattern
+            .replace(/^\/|\/$/g, '') // Removes leading and trailing slashes
+            .replace(/^\^\/|\/\$$/g, '') // Removes unnecessary start (^) and end ($) anchors
+            .replace(/^\^|\$$/g, '') // Further cleans up anchors
+            .replace(/\$\/gi$/g, '')}[\/]?$/i`; // Ensures the pattern allows an optional trailing slash
+
+          // Redirect pattern matches the full incoming URL with query string present
+          matchedQueryString = [
+            regexParser(redirect.pattern).test(`${localePath}${incomingQS}`),
+            regexParser(redirect.pattern).test(`${normalizedPath}${incomingQS}`),
+          ].some(Boolean)
+            ? incomingQS
+            : undefined;
+          // Save the matched query string (if found) into the redirect object
+          redirect.matchedQueryString = matchedQueryString || '';
+          return (
+            !!(
+              regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${incomingURL}`) ||
+              regexParser(redirect.pattern).test(incomingURL) ||
+              matchedQueryString
+            ) && (redirect.locale ? redirect.locale.toLowerCase() === locale.toLowerCase() : true)
+          );
+        })
+      : undefined;
+  }
+
+  /**
+   * @param {NextRequest} req request
+   * @param {Response} res response
+   * @returns {Promise<NextResponse>} The redirect response.
+   */
+  protected async processRedirectRequest(
+    req: NextRequest,
+    res?: NextResponse
+  ): Promise<NextResponse> {
     const pathname = req.nextUrl.pathname;
     const language = this.getLanguage(req);
     const hostname = this.getHostHeader(req) || this.defaultHostname;
@@ -116,6 +207,8 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
         return response;
       }
+
+      debug.redirects('Matched redirect rule: %o', { existsRedirect });
 
       // Find context site language and replace token
       if (
@@ -184,7 +277,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
           return this.createRedirectResponse(url, response, 302, 'Found');
         }
         case REDIRECT_TYPE_SERVER_TRANSFER: {
-          return this.rewrite(url.href, req, response);
+          return this.rewrite(url.href, req, response, true);
         }
         default:
           return response;
@@ -201,77 +294,6 @@ export class RedirectsMiddleware extends MiddlewareBase {
     });
 
     return response;
-  };
-
-  /**
-   * Method returns RedirectInfo when matches
-   * @param {NextRequest} req request
-   * @param {string} siteName site name
-   * @returns Promise<RedirectInfo | undefined>
-   * @private
-   */
-  private async getExistsRedirect(
-    req: NextRequest,
-    siteName: string
-  ): Promise<RedirectResult | undefined> {
-    const { pathname: targetURL, search: targetQS = '', locale } = this.normalizeUrl(
-      req.nextUrl.clone()
-    );
-    const normalizedPath = targetURL.replace(/\/*$/gi, '');
-    const redirects = await this.redirectsService.fetchRedirects(siteName);
-    const language = this.getLanguage(req);
-    const modifyRedirects = structuredClone(redirects);
-    let matchedQueryString: string | undefined;
-
-    return modifyRedirects.length
-      ? modifyRedirects.find((redirect: RedirectResult) => {
-          if (isRegexOrUrl(redirect.pattern) === 'url') {
-            const parseUrlPattern = redirect.pattern.endsWith('/')
-              ? redirect.pattern.slice(0, -1).split('?')
-              : redirect.pattern.split('?');
-
-            return (
-              (parseUrlPattern[0] === normalizedPath ||
-                parseUrlPattern[0] === `/${locale}${normalizedPath}`) &&
-              areURLSearchParamsEqual(
-                new URLSearchParams(parseUrlPattern[1] ?? ''),
-                new URLSearchParams(targetQS)
-              )
-            );
-          }
-
-          // Modify the redirect pattern to ignore the language prefix in the path
-          // And escapes non-special "?" characters in a string or regex.
-          redirect.pattern = escapeNonSpecialQuestionMarks(
-            redirect.pattern.replace(new RegExp(`^[^]?/${language}/`, 'gi'), '')
-          );
-
-          // Prepare the redirect pattern as a regular expression, making it more flexible for matching URLs
-          redirect.pattern = `/^\/${redirect.pattern
-            .replace(/^\/|\/$/g, '') // Removes leading and trailing slashes
-            .replace(/^\^\/|\/\$$/g, '') // Removes unnecessary start (^) and end ($) anchors
-            .replace(/^\^|\$$/g, '') // Further cleans up anchors
-            .replace(/\$\/gi$/g, '')}[\/]?$/i`; // Ensures the pattern allows an optional trailing slash
-
-          matchedQueryString = [
-            regexParser(redirect.pattern).test(`${normalizedPath}${targetQS}`),
-            regexParser(redirect.pattern).test(`/${locale}${normalizedPath}${targetQS}`),
-          ].some(Boolean)
-            ? targetQS
-            : undefined;
-
-          // Save the matched query string (if found) into the redirect object
-          redirect.matchedQueryString = matchedQueryString || '';
-
-          return (
-            !!(
-              regexParser(redirect.pattern).test(targetURL) ||
-              regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${targetURL}`) ||
-              matchedQueryString
-            ) && (redirect.locale ? redirect.locale.toLowerCase() === locale.toLowerCase() : true)
-          );
-        })
-      : undefined;
   }
 
   /**
@@ -311,10 +333,10 @@ export class RedirectsMiddleware extends MiddlewareBase {
       })
       .join('&');
 
-    const newUrl = new URL(`${url.pathname}?${newQueryString}`, url.origin);
+    const newUrl = new URL(`${url.pathname.toLowerCase()}?${newQueryString}`, url.origin);
 
     url.search = newUrl.search;
-    url.pathname = newUrl.pathname;
+    url.pathname = newUrl.pathname.toLowerCase();
     url.href = newUrl.href;
 
     return url;
@@ -342,6 +364,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
     if (res?.headers) {
       redirect.headers.delete('x-middleware-next');
       redirect.headers.delete('x-middleware-rewrite');
+      redirect.headers.delete(REWRITE_HEADER_NAME);
     }
     return redirect;
   }

@@ -41,4 +41,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx:46](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L46)
+[packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx:46](https://github.com/Sitecore/jss/blob/6217e2e71367ae392fe1df0895780151e0676f93/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L46)

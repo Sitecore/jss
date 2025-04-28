@@ -454,6 +454,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@asamuzakjp/css-color@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@asamuzakjp/css-color@npm:3.1.1"
+  dependencies:
+    "@csstools/css-calc": ^2.1.2
+    "@csstools/css-color-parser": ^3.0.8
+    "@csstools/css-parser-algorithms": ^3.0.4
+    "@csstools/css-tokenizer": ^3.0.3
+    lru-cache: ^10.4.3
+  checksum: b6aaa20d069d038a5540421646ee2a8c5422103b9f2ddfb3e1f8d5d609ea91423609025fb52a39bfd9b3f9ad16b923965daaea774d58740eb7d67bf1212430da
+  languageName: node
+  linkType: hard
+
 "@babel/cli@npm:^7.6.2":
   version: 7.25.9
   resolution: "@babel/cli@npm:7.25.9"
@@ -2418,6 +2431,52 @@ __metadata:
   dependencies:
     "@jridgewell/trace-mapping": 0.3.9
   checksum: 5718f267085ed8edb3e7ef210137241775e607ee18b77d95aa5bd7514f47f5019aa2d82d96b3bf342ef7aa890a346fa1044532ff7cc3009e7d24fce3ce6200fa
+  languageName: node
+  linkType: hard
+
+"@csstools/color-helpers@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "@csstools/color-helpers@npm:5.0.2"
+  checksum: 76753f9823579af959630be5f7682e1abe5ae13b75621532927cfc1ff601cc1e31b78547fe387699980820bb7353e20e8cab258fab590aac9d19aa44984283d5
+  languageName: node
+  linkType: hard
+
+"@csstools/css-calc@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "@csstools/css-calc@npm:2.1.2"
+  peerDependencies:
+    "@csstools/css-parser-algorithms": ^3.0.4
+    "@csstools/css-tokenizer": ^3.0.3
+  checksum: 34f4e138c0b61bb45db864961479c4f24371de45c049c4555d0e05f2ed491f7fe8d0683af4a86cba45b0e41fac174d24ab48bfb67a4362c3d716fa3a10cf5550
+  languageName: node
+  linkType: hard
+
+"@csstools/css-color-parser@npm:^3.0.8":
+  version: 3.0.8
+  resolution: "@csstools/css-color-parser@npm:3.0.8"
+  dependencies:
+    "@csstools/color-helpers": ^5.0.2
+    "@csstools/css-calc": ^2.1.2
+  peerDependencies:
+    "@csstools/css-parser-algorithms": ^3.0.4
+    "@csstools/css-tokenizer": ^3.0.3
+  checksum: 7e04e821b8ad422c888ed03d5d9d7960a54bc19c5386dd1796da3b782940c3ea90136971d374b42fe7d7111f096941f8bbe7520fa591fb716c73b5b2f4f0cedb
+  languageName: node
+  linkType: hard
+
+"@csstools/css-parser-algorithms@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "@csstools/css-parser-algorithms@npm:3.0.4"
+  peerDependencies:
+    "@csstools/css-tokenizer": ^3.0.3
+  checksum: 5b6b2b97fbe0a0c5652e44613bcf62ec89a93f64069a48f6cd63b5757c7dc227970c54c50a8212b9feb90aff399490636a58366df3ca733d490d911768eaddaf
+  languageName: node
+  linkType: hard
+
+"@csstools/css-tokenizer@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "@csstools/css-tokenizer@npm:3.0.3"
+  checksum: 6b300beba1b29c546b720887be18a40bafded5dc96550fb87d61fbc2c550e9632e7baafa2bf34a66e0f25fb6b70558ee67ef3b45856aa5e621febc2124cf5039
   languageName: node
   linkType: hard
 
@@ -6616,41 +6675,41 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/core@npm:^0.4.2":
-  version: 0.4.2
-  resolution: "@sitecore-cloudsdk/core@npm:0.4.2"
+"@sitecore-cloudsdk/core@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@sitecore-cloudsdk/core@npm:0.5.0"
   dependencies:
-    "@sitecore-cloudsdk/utils": ^0.4.2
+    "@sitecore-cloudsdk/utils": ^0.5.0
     debug: ^4.3.4
-  checksum: d66d9c86851b7d4eca78880cab8c0a65f2db303faf77d24d1d725f053030f93914f891d8b959d82a1d426c09f0857a344577c696319c51f38192349a34f8fa0f
+  checksum: 6f853bb7860446aa3d15538ccfa1b9313f1bedc3f83c6599897548a2fa03566ee5ef2554e2ddf1092300d6f1c0f551e4d20444cd27501f4a6cd7a0e3a9882f9e
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/events@npm:^0.4.2":
-  version: 0.4.2
-  resolution: "@sitecore-cloudsdk/events@npm:0.4.2"
+"@sitecore-cloudsdk/events@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@sitecore-cloudsdk/events@npm:0.5.0"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.4.2
-    "@sitecore-cloudsdk/utils": ^0.4.2
-  checksum: b8d66c59a266ca3a98e0d7433aecc5a0cdfd549dddffb92c10c3355dae4998ccf466496374b9bdb03ef0bc0f15784ffed3ae2638cc72ba8a8c7dbb2f50f66647
+    "@sitecore-cloudsdk/core": ^0.5.0
+    "@sitecore-cloudsdk/utils": ^0.5.0
+  checksum: 35a8b36320d3a92d8f38b8579f265ff2666e90c0d550c29c2b15eabffc31cd389dc5888c096d86b27028137f1c9f5623c9d4a5328fbfc29b1bf0bde8f75515ac
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/personalize@npm:^0.4.2":
-  version: 0.4.2
-  resolution: "@sitecore-cloudsdk/personalize@npm:0.4.2"
+"@sitecore-cloudsdk/personalize@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@sitecore-cloudsdk/personalize@npm:0.5.0"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.4.2
-    "@sitecore-cloudsdk/events": ^0.4.2
-    "@sitecore-cloudsdk/utils": ^0.4.2
-  checksum: 97ae52692bfabf1b53b26a4be83bad15b034cee1205605c4a68a2e80e1fe35f0bb7cd1665ede8807c131e26cf77e9917199981c720fd71e34292caee36669df2
+    "@sitecore-cloudsdk/core": ^0.5.0
+    "@sitecore-cloudsdk/events": ^0.5.0
+    "@sitecore-cloudsdk/utils": ^0.5.0
+  checksum: f7f16eb522d2c6e70d5e58dba7b953dedafc7b4ae5d8a04c4a699688657950b7c3277cf1a337dd035f82b9c29a3366d85d4c35a1edc8c5d95da18b3e7b7bc261
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/utils@npm:^0.4.2":
-  version: 0.4.2
-  resolution: "@sitecore-cloudsdk/utils@npm:0.4.2"
-  checksum: f6444c606aad16a32bebc9b4273affcb97b33fdc322c557774b7ba7ee00d1ae588c67c99b0aa52fb41bb6d547a1edea053c5028512186bb7f4a016613e1e648b
+"@sitecore-cloudsdk/utils@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@sitecore-cloudsdk/utils@npm:0.5.0"
+  checksum: 4223c6e9f7d43dc4f65088213b15b18f89ddd311be40dbc8271f791f2bc515dc1eb0130f97fc1bed78270562760f552bfbdea38707dc806c213e447ef8410dfe
   languageName: node
   linkType: hard
 
@@ -6695,8 +6754,7 @@ __metadata:
     "@angular/platform-browser": ~18.2.13
     "@angular/platform-browser-dynamic": ~18.2.13
     "@angular/router": ~18.2.13
-    "@sitecore-cloudsdk/events": ^0.4.2
-    "@sitecore-jss/sitecore-jss": 22.6.0-canary.5
+    "@sitecore-jss/sitecore-jss": 22.6.0-canary.38
     "@types/jasmine": ^5.1.4
     "@types/node": ^22.9.0
     codelyzer: ^6.0.1
@@ -6717,7 +6775,7 @@ __metadata:
     typescript: ~5.4.0
     zone.js: ~0.14.7
   peerDependencies:
-    "@sitecore-cloudsdk/events": ^0.4.2
+    "@sitecore-cloudsdk/events": ^0.5.0
     "@types/debug": ^4.1.12
     rxjs: ~7.8.1
   languageName: unknown
@@ -6727,7 +6785,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-cli@workspace:packages/sitecore-jss-cli"
   dependencies:
-    "@sitecore-jss/sitecore-jss-dev-tools": 22.6.0-canary.5
+    "@sitecore-jss/sitecore-jss-dev-tools": 22.6.0-canary.38
     "@types/chai": ^4.2.4
     "@types/cross-spawn": ^6.0.2
     "@types/mocha": ^10.0.1
@@ -6759,14 +6817,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-dev-tools@22.6.0-canary.5, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
+"@sitecore-jss/sitecore-jss-dev-tools@22.6.0-canary.38, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools"
   dependencies:
     "@babel/core": ^7.24.4
     "@babel/parser": ^7.24.0
     "@babel/register": ^7.23.7
-    "@sitecore-jss/sitecore-jss": 22.6.0-canary.5
+    "@sitecore-jss/sitecore-jss": 22.6.0-canary.38
     "@types/chai": ^4.3.4
     "@types/chokidar": ^2.1.3
     "@types/del": ^4.0.0
@@ -6817,11 +6875,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-forms@22.6.0-canary.5, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
+"@sitecore-jss/sitecore-jss-forms@22.6.0-canary.38, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss": 22.6.0-canary.5
+    "@sitecore-jss/sitecore-jss": 22.6.0-canary.38
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
     "@types/lodash.unescape": ^4.0.7
@@ -6843,11 +6901,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.4.2
-    "@sitecore-cloudsdk/personalize": ^0.4.2
-    "@sitecore-jss/sitecore-jss": 22.6.0-canary.5
-    "@sitecore-jss/sitecore-jss-dev-tools": 22.6.0-canary.5
-    "@sitecore-jss/sitecore-jss-react": 22.6.0-canary.5
+    "@sitecore-cloudsdk/core": ^0.5.0
+    "@sitecore-cloudsdk/personalize": ^0.5.0
+    "@sitecore-jss/sitecore-jss": 22.6.0-canary.38
+    "@sitecore-jss/sitecore-jss-dev-tools": 22.6.0-canary.38
+    "@sitecore-jss/sitecore-jss-react": 22.6.0-canary.38
     "@types/chai": ^4.3.4
     "@types/chai-as-promised": ^7.1.5
     "@types/chai-string": ^1.4.2
@@ -6898,9 +6956,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-proxy@workspace:packages/sitecore-jss-proxy"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.4.2
-    "@sitecore-cloudsdk/personalize": ^0.4.2
-    "@sitecore-jss/sitecore-jss": 22.6.0-canary.5
+    "@sitecore-cloudsdk/core": ^0.5.0
+    "@sitecore-cloudsdk/personalize": ^0.5.0
+    "@sitecore-jss/sitecore-jss": 22.6.0-canary.38
     "@types/chai": ^4.3.4
     "@types/express": ^4.17.17
     "@types/mocha": ^10.0.1
@@ -6932,7 +6990,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react-forms@workspace:packages/sitecore-jss-react-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss-forms": 22.6.0-canary.5
+    "@sitecore-jss/sitecore-jss-forms": 22.6.0-canary.38
     "@types/chai": ^4.3.4
     "@types/enzyme": ^3.10.12
     "@types/mocha": ^10.0.1
@@ -6972,7 +7030,7 @@ __metadata:
     "@babel/plugin-proposal-export-default-from": ^7.5.2
     "@babel/preset-env": ^7.6.2
     "@babel/preset-typescript": ^7.6.0
-    "@sitecore-jss/sitecore-jss": 22.6.0-canary.5
+    "@sitecore-jss/sitecore-jss": 22.6.0-canary.38
     "@types/jest": ^24.0.18
     "@types/prop-types": ^15.7.3
     "@types/react": ^16.9.5
@@ -7002,7 +7060,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-react@22.6.0-canary.5, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
+"@sitecore-jss/sitecore-jss-react@22.6.0-canary.38, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
@@ -7039,6 +7097,7 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.3
   peerDependencies:
+    "@sitecore-cloudsdk/events": ^0.5.0
     "@sitecore-feaas/clientside": ^0.5.19
     react: ^19.0.0
     react-dom: ^19.0.0
@@ -7080,7 +7139,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-vue@workspace:packages/sitecore-jss-vue"
   dependencies:
-    "@sitecore-jss/sitecore-jss": 22.6.0-canary.5
+    "@sitecore-jss/sitecore-jss": 22.6.0-canary.38
     "@types/jest": ^29.2.6
     "@types/node": ^22.9.0
     "@vue/compiler-dom": ^3.5.12
@@ -7102,14 +7161,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss@22.6.0-canary.5, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
+"@sitecore-jss/sitecore-jss@22.6.0-canary.38, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss"
   dependencies:
+    "@sitecore-cloudsdk/events": ^0.5.0
     "@types/chai": ^4.2.3
     "@types/chai-spies": ^1.0.3
     "@types/chai-string": ^1.4.2
     "@types/debug": ^4.1.5
+    "@types/jsdom": ^21.1.7
     "@types/lodash.unescape": ^4.0.6
     "@types/memory-cache": ^0.2.1
     "@types/mocha": ^9.0.0
@@ -7126,6 +7187,7 @@ __metadata:
     eslint-plugin-jsdoc: 48.7.0
     graphql: ^16.5.0
     graphql-request: ^4.2.0
+    jsdom: ^26.0.0
     lodash.unescape: ^4.0.1
     memory-cache: ^0.2.0
     mocha: ^10.2.0
@@ -7136,6 +7198,8 @@ __metadata:
     tslib: ^1.10.0
     typescript: ~5.6.3
     url-parse: ^1.5.9
+  peerDependencies:
+    "@sitecore-cloudsdk/events": ^0.5.0
   languageName: unknown
   linkType: soft
 
@@ -7803,6 +7867,17 @@ __metadata:
     "@types/tough-cookie": "*"
     parse5: ^7.0.0
   checksum: d55402c5256ef451f93a6e3d3881f98339fe73a5ac2030588df056d6835df8367b5a857b48d27528289057e26dcdd3f502edc00cb877c79174cb3a4c7f2198c1
+  languageName: node
+  linkType: hard
+
+"@types/jsdom@npm:^21.1.7":
+  version: 21.1.7
+  resolution: "@types/jsdom@npm:21.1.7"
+  dependencies:
+    "@types/node": "*"
+    "@types/tough-cookie": "*"
+    parse5: ^7.0.0
+  checksum: b7465d5a471ed4e68a54e2639c534d364134674598687be69645736731215e7407fe37a4af66dc616ef03be9c5515cb355df2eda5c8080146c05bd569ea8810d
   languageName: node
   linkType: hard
 
@@ -9398,6 +9473,13 @@ __metadata:
   dependencies:
     debug: ^4.3.4
   checksum: 51c158769c5c051482f9ca2e6e1ec085ac72b5a418a9b31b4e82fe6c0a6699adb94c1c42d246699a587b3335215037091c79e0de512c516f73b6ea844202f037
+  languageName: node
+  linkType: hard
+
+"agent-base@npm:^7.1.2":
+  version: 7.1.3
+  resolution: "agent-base@npm:7.1.3"
+  checksum: 87bb7ee54f5ecf0ccbfcba0b07473885c43ecd76cb29a8db17d6137a19d9f9cd443a2a7c5fd8a3f24d58ad8145f9eb49116344a66b107e1aeab82cf2383f4753
   languageName: node
   linkType: hard
 
@@ -11544,6 +11626,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"call-bind-apply-helpers@npm:^1.0.1, call-bind-apply-helpers@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "call-bind-apply-helpers@npm:1.0.2"
+  dependencies:
+    es-errors: ^1.3.0
+    function-bind: ^1.1.2
+  checksum: b2863d74fcf2a6948221f65d95b91b4b2d90cfe8927650b506141e669f7d5de65cea191bf788838bc40d13846b7886c5bc5c84ab96c3adbcf88ad69a72fcdc6b
+  languageName: node
+  linkType: hard
+
 "call-bind@npm:^1.0.2, call-bind@npm:^1.0.5, call-bind@npm:^1.0.6, call-bind@npm:^1.0.7":
   version: 1.0.7
   resolution: "call-bind@npm:1.0.7"
@@ -13002,6 +13094,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cssstyle@npm:^4.2.1":
+  version: 4.3.0
+  resolution: "cssstyle@npm:4.3.0"
+  dependencies:
+    "@asamuzakjp/css-color": ^3.1.1
+    rrweb-cssom: ^0.8.0
+  checksum: d7e8c728d75d9288642aaf3f44ec061151bb19821ef3f3a420b26e75f416a9f53837aa4facac9e7596237cb61536e0115d576d60b09a4338c81478b833638826
+  languageName: node
+  linkType: hard
+
 "csstype@npm:^3.0.2, csstype@npm:^3.1.3":
   version: 3.1.3
   resolution: "csstype@npm:3.1.3"
@@ -13840,6 +13942,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dunder-proto@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "dunder-proto@npm:1.0.1"
+  dependencies:
+    call-bind-apply-helpers: ^1.0.1
+    es-errors: ^1.3.0
+    gopd: ^1.2.0
+  checksum: 149207e36f07bd4941921b0ca929e3a28f1da7bd6b6ff8ff7f4e2f2e460675af4576eeba359c635723dc189b64cdd4787e0255897d5b135ccc5d15cb8685fc90
+  languageName: node
+  linkType: hard
+
 "duplexer@npm:^0.1.1":
   version: 0.1.2
   resolution: "duplexer@npm:0.1.2"
@@ -14237,6 +14350,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"es-define-property@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "es-define-property@npm:1.0.1"
+  checksum: 0512f4e5d564021c9e3a644437b0155af2679d10d80f21adaf868e64d30efdfbd321631956f20f42d655fedb2e3a027da479fad3fa6048f768eb453a80a5f80a
+  languageName: node
+  linkType: hard
+
 "es-errors@npm:^1.2.1, es-errors@npm:^1.3.0":
   version: 1.3.0
   resolution: "es-errors@npm:1.3.0"
@@ -14290,6 +14410,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"es-object-atoms@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "es-object-atoms@npm:1.1.1"
+  dependencies:
+    es-errors: ^1.3.0
+  checksum: 214d3767287b12f36d3d7267ef342bbbe1e89f899cfd67040309fc65032372a8e60201410a99a1645f2f90c1912c8c49c8668066f6bdd954bcd614dda2e3da97
+  languageName: node
+  linkType: hard
+
 "es-set-tostringtag@npm:^2.0.3":
   version: 2.0.3
   resolution: "es-set-tostringtag@npm:2.0.3"
@@ -14298,6 +14427,18 @@ __metadata:
     has-tostringtag: ^1.0.2
     hasown: ^2.0.1
   checksum: 7227fa48a41c0ce83e0377b11130d324ac797390688135b8da5c28994c0165be8b252e15cd1de41e1325e5a5412511586960213e88f9ab4a5e7d028895db5129
+  languageName: node
+  linkType: hard
+
+"es-set-tostringtag@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "es-set-tostringtag@npm:2.1.0"
+  dependencies:
+    es-errors: ^1.3.0
+    get-intrinsic: ^1.2.6
+    has-tostringtag: ^1.0.2
+    hasown: ^2.0.2
+  checksum: 789f35de4be3dc8d11fdcb91bc26af4ae3e6d602caa93299a8c45cf05d36cc5081454ae2a6d3afa09cceca214b76c046e4f8151e092e6fc7feeb5efb9e794fc6
   languageName: node
   linkType: hard
 
@@ -15714,6 +15855,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"form-data@npm:^4.0.1":
+  version: 4.0.2
+  resolution: "form-data@npm:4.0.2"
+  dependencies:
+    asynckit: ^0.4.0
+    combined-stream: ^1.0.8
+    es-set-tostringtag: ^2.1.0
+    mime-types: ^2.1.12
+  checksum: e887298b22c13c7c9c5a8ba3716f295a479a13ca78bfd855ef11cbce1bcf22bc0ae2062e94808e21d46e5c667664a1a1a8a7f57d7040193c1fefbfb11af58aab
+  languageName: node
+  linkType: hard
+
 "form-data@npm:~2.3.2":
   version: 2.3.3
   resolution: "form-data@npm:2.3.3"
@@ -15980,6 +16133,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"get-intrinsic@npm:^1.2.6":
+  version: 1.3.0
+  resolution: "get-intrinsic@npm:1.3.0"
+  dependencies:
+    call-bind-apply-helpers: ^1.0.2
+    es-define-property: ^1.0.1
+    es-errors: ^1.3.0
+    es-object-atoms: ^1.1.1
+    function-bind: ^1.1.2
+    get-proto: ^1.0.1
+    gopd: ^1.2.0
+    has-symbols: ^1.1.0
+    hasown: ^2.0.2
+    math-intrinsics: ^1.1.0
+  checksum: 301008e4482bb9a9cb49e132b88fee093bff373b4e6def8ba219b1e96b60158a6084f273ef5cafe832e42cd93462f4accb46a618d35fe59a2b507f2388c5b79d
+  languageName: node
+  linkType: hard
+
 "get-package-type@npm:^0.1.0":
   version: 0.1.0
   resolution: "get-package-type@npm:0.1.0"
@@ -16005,6 +16176,16 @@ __metadata:
   version: 5.1.1
   resolution: "get-port@npm:5.1.1"
   checksum: 0162663ffe5c09e748cd79d97b74cd70e5a5c84b760a475ce5767b357fb2a57cb821cee412d646aa8a156ed39b78aab88974eddaa9e5ee926173c036c0713787
+  languageName: node
+  linkType: hard
+
+"get-proto@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "get-proto@npm:1.0.1"
+  dependencies:
+    dunder-proto: ^1.0.1
+    es-object-atoms: ^1.0.0
+  checksum: 4fc96afdb58ced9a67558698b91433e6b037aaa6f1493af77498d7c85b141382cf223c0e5946f334fb328ee85dfe6edd06d218eaf09556f4bc4ec6005d7f5f7b
   languageName: node
   linkType: hard
 
@@ -16297,6 +16478,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gopd@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "gopd@npm:1.2.0"
+  checksum: cc6d8e655e360955bdccaca51a12a474268f95bb793fc3e1f2bdadb075f28bfd1fd988dab872daf77a61d78cbaf13744bc8727a17cfb1d150d76047d805375f3
+  languageName: node
+  linkType: hard
+
 "got@npm:^11.8.5":
   version: 11.8.6
   resolution: "got@npm:11.8.6"
@@ -16456,6 +16644,13 @@ __metadata:
   version: 1.0.3
   resolution: "has-symbols@npm:1.0.3"
   checksum: a054c40c631c0d5741a8285010a0777ea0c068f99ed43e5d6eb12972da223f8af553a455132fdb0801bdcfa0e0f443c0c03a68d8555aa529b3144b446c3f2410
+  languageName: node
+  linkType: hard
+
+"has-symbols@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "has-symbols@npm:1.1.0"
+  checksum: b2316c7302a0e8ba3aaba215f834e96c22c86f192e7310bdf689dd0e6999510c89b00fbc5742571507cebf25764d68c988b3a0da217369a73596191ac0ce694b
   languageName: node
   linkType: hard
 
@@ -16935,6 +17130,16 @@ __metadata:
     agent-base: 6
     debug: 4
   checksum: 571fccdf38184f05943e12d37d6ce38197becdd69e58d03f43637f7fa1269cf303a7d228aa27e5b27bbd3af8f09fd938e1c91dcfefff2df7ba77c20ed8dfc765
+  languageName: node
+  linkType: hard
+
+"https-proxy-agent@npm:^7.0.6":
+  version: 7.0.6
+  resolution: "https-proxy-agent@npm:7.0.6"
+  dependencies:
+    agent-base: ^7.1.2
+    debug: 4
+  checksum: b882377a120aa0544846172e5db021fa8afbf83fea2a897d397bd2ddd8095ab268c24bc462f40a15f2a8c600bf4aa05ce52927f70038d4014e68aefecfa94e8d
   languageName: node
   linkType: hard
 
@@ -19388,6 +19593,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsdom@npm:^26.0.0":
+  version: 26.0.0
+  resolution: "jsdom@npm:26.0.0"
+  dependencies:
+    cssstyle: ^4.2.1
+    data-urls: ^5.0.0
+    decimal.js: ^10.4.3
+    form-data: ^4.0.1
+    html-encoding-sniffer: ^4.0.0
+    http-proxy-agent: ^7.0.2
+    https-proxy-agent: ^7.0.6
+    is-potential-custom-element-name: ^1.0.1
+    nwsapi: ^2.2.16
+    parse5: ^7.2.1
+    rrweb-cssom: ^0.8.0
+    saxes: ^6.0.0
+    symbol-tree: ^3.2.4
+    tough-cookie: ^5.0.0
+    w3c-xmlserializer: ^5.0.0
+    webidl-conversions: ^7.0.0
+    whatwg-encoding: ^3.1.1
+    whatwg-mimetype: ^4.0.0
+    whatwg-url: ^14.1.0
+    ws: ^8.18.0
+    xml-name-validator: ^5.0.0
+  peerDependencies:
+    canvas: ^3.0.0
+  peerDependenciesMeta:
+    canvas:
+      optional: true
+  checksum: 566993558f36450fab2839dca5a5bf7353a0558dbf8e04fccd8d97cd62b58b7cd027ebe6214a4210a27dd8df602d0a79d28976d54e7af55eb42f2c8f5a5d5fc2
+  languageName: node
+  linkType: hard
+
 "jsesc@npm:^1.3.0":
   version: 1.3.0
   resolution: "jsesc@npm:1.3.0"
@@ -20369,7 +20608,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0":
+"lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0, lru-cache@npm:^10.4.3":
   version: 10.4.3
   resolution: "lru-cache@npm:10.4.3"
   checksum: 6476138d2125387a6d20f100608c2583d415a4f64a0fecf30c9e2dda976614f09cad4baa0842447bd37dd459a7bd27f57d9d8f8ce558805abd487c583f3d774a
@@ -20576,6 +20815,13 @@ __metadata:
   bin:
     markdown-it: bin/markdown-it.mjs
   checksum: 07296b45ebd0b13a55611a24d1b1ad002c6729ec54f558f597846994b0b7b1de79d13cd99ff3e7b6e9e027f36b63125cdcf69174da294ecabdd4e6b9fff39e5d
+  languageName: node
+  linkType: hard
+
+"math-intrinsics@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "math-intrinsics@npm:1.1.0"
+  checksum: 0e513b29d120f478c85a70f49da0b8b19bc638975eca466f2eeae0071f3ad00454c621bf66e16dd435896c208e719fc91ad79bbfba4e400fe0b372e7c1c9c9a2
   languageName: node
   linkType: hard
 
@@ -22408,6 +22654,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nwsapi@npm:^2.2.16":
+  version: 2.2.18
+  resolution: "nwsapi@npm:2.2.18"
+  checksum: 19dab3b9e86d45c6b856540fa55058b2a13d7dbd4b4b9d05232435879cc3449917fcac4855574d5fa49186caf78ead2103b53f96b76dd0181e13b61444668add
+  languageName: node
+  linkType: hard
+
 "nx@npm:15.9.7, nx@npm:>=14.8.1 < 16":
   version: 15.9.7
   resolution: "nx@npm:15.9.7"
@@ -23284,7 +23537,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parse5@npm:^7.0.0, parse5@npm:^7.1.1, parse5@npm:^7.1.2":
+"parse5@npm:^7.0.0, parse5@npm:^7.1.1, parse5@npm:^7.1.2, parse5@npm:^7.2.1":
   version: 7.2.1
   resolution: "parse5@npm:7.2.1"
   dependencies:
@@ -25317,6 +25570,13 @@ __metadata:
   version: 0.7.1
   resolution: "rrweb-cssom@npm:0.7.1"
   checksum: 62e410ddbaaba6abc196c3bbfa8de4952e0a134d9f2b454ee293039bf9931322d806e14d52ed122a5c2bd332a868b9da2e99358fb6232c33758b5ede86d992c8
+  languageName: node
+  linkType: hard
+
+"rrweb-cssom@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "rrweb-cssom@npm:0.8.0"
+  checksum: b84912cd1fbab9c972bf3fd5ca27b492efb442cacb23b6fd5a5ef6508572a91e411d325692609bf758865bc38a01b876e343c552d0e2ae87d0ff9907d96ef622
   languageName: node
   linkType: hard
 
@@ -29027,6 +29287,16 @@ __metadata:
     tr46: ^5.0.0
     webidl-conversions: ^7.0.0
   checksum: 4b5887e50f786583bead70916413e67a381d2126899b9eb5c67ce664bba1e7ec07cdff791404581ce73c6190d83c359c9ca1d50711631217905db3877dec075c
+  languageName: node
+  linkType: hard
+
+"whatwg-url@npm:^14.1.0":
+  version: 14.1.1
+  resolution: "whatwg-url@npm:14.1.1"
+  dependencies:
+    tr46: ^5.0.0
+    webidl-conversions: ^7.0.0
+  checksum: d44667005e35b545587b49371e0c75ddc6355407c07d9c6aaafc01d8ed3dfadf44393fa74c74cda3d8d5f41d3860acf408b4e81820c6de7cc5a17d9eb274349f
   languageName: node
   linkType: hard
 
