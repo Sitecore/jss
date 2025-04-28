@@ -8,13 +8,13 @@ describe('fetchBearerToken', () => {
   afterEach(() => {
     sinon.restore();
     nock.cleanAll();
-    process.env.M2M_CLIENT_ID = undefined;
-    process.env.M2M_CLIENT_SECRET = undefined;
-    process.env.M2M_AUDIENCE = undefined;
+    process.env.SITECORE_AUTH_CLIENT_ID = undefined;
+    process.env.SITECORE_AUTH_CLIENT_SECRET = undefined;
+    process.env.SITECORE_AUTH_AUDIENCE = undefined;
     process.env.EXTRACT_CONSENT = undefined;
   });
 
-  it('should send POST request to M2M_ENDPOINT url', async () => {
+  it('should send POST request to SITECORE_AUTH_ENDPOINT url', async () => {
     nock('https://auth.sitecorecloud.io')
       .post('/oauth/token')
       .reply(200, {
@@ -41,9 +41,9 @@ describe('fetchBearerToken', () => {
   });
 
   it('should use client_id, client_secret and audience values from process.env', async () => {
-    process.env.M2M_CLIENT_ID = 'test-client-id';
-    process.env.M2M_CLIENT_SECRET = 'test-client-secret';
-    process.env.M2M_AUDIENCE = 'test-audience';
+    process.env.SITECORE_AUTH_CLIENT_ID = 'test-client-id';
+    process.env.SITECORE_AUTH_CLIENT_SECRET = 'test-client-secret';
+    process.env.SITECORE_AUTH_AUDIENCE = 'test-audience';
 
     nock('https://auth.sitecorecloud.io')
       .post(
@@ -76,7 +76,7 @@ describe('fetchBearerToken', () => {
     expect(token).to.equal('correct-token');
   });
 
-  it('should log when request to M2M_ENDPOINT fails', async () => {
+  it('should log when request to SITECORE_AUTH_ENDPOINT fails', async () => {
     nock('https://auth.sitecorecloud.io')
       .post('/oauth/token')
       .reply(503, 'Service Unavailable');
@@ -88,7 +88,7 @@ describe('fetchBearerToken', () => {
     expect(consoleErrorStub.firstCall.args[0]).to.equal(
       chalk.red(
         // eslint-disable-next-line
-        `Error authenticating with M2M token endpoint: SyntaxError: Unexpected token 'S', "Service Unavailable" is not valid JSON`
+        `Error authenticating with Sitecore Auth endpoint: SyntaxError: Unexpected token 'S', "Service Unavailable" is not valid JSON`
       )
     );
   });
