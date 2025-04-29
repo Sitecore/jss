@@ -82,7 +82,13 @@ export const NextImage: React.FC<NextImageProps> = withFieldMetadata<NextImagePr
       }
 
       if (attrs) {
-        return <Image alt="" {...imageProps} />;
+        return (
+          <Image
+            alt=""
+            {...imageProps}
+            {...(process.env.TEST ? { 'data-unoptimized': unoptimized } : {})}
+          />
+        );
       }
 
       return null; // we can't handle the truth

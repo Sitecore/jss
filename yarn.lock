@@ -6906,10 +6906,11 @@ __metadata:
     "@sitecore-jss/sitecore-jss": 22.6.0-canary.38
     "@sitecore-jss/sitecore-jss-dev-tools": 22.6.0-canary.38
     "@sitecore-jss/sitecore-jss-react": 22.6.0-canary.38
+    "@testing-library/dom": ^10.4.0
+    "@testing-library/react": ^16.3.0
     "@types/chai": ^4.3.4
     "@types/chai-as-promised": ^7.1.5
     "@types/chai-string": ^1.4.2
-    "@types/enzyme": ^3.10.12
     "@types/mocha": ^10.0.1
     "@types/node": ~22.9.0
     "@types/prop-types": ^15.7.5
@@ -6918,15 +6919,12 @@ __metadata:
     "@types/sinon": ^10.0.13
     "@types/sinon-chai": ^3.2.9
     "@vercel/kv": ^0.2.1
-    "@wojtekmaj/enzyme-adapter-react-17": ^0.8.0
     chai: ^4.3.7
     chai-as-promised: ^7.1.1
     chai-string: ^1.5.0
     chalk: ^4.1.2
-    cheerio: 1.0.0-rc.12
     cross-fetch: ^3.1.5
     del-cli: ^5.0.0
-    enzyme: ^3.11.0
     eslint: ^8.56.0
     eslint-plugin-react: ^7.32.1
     jsdom: ^21.1.0
@@ -7292,6 +7290,26 @@ __metadata:
     "@types/react-dom":
       optional: true
   checksum: 4a687200e4d5dc7c7bd83c01f847a26e2c78f08acf54e5dbde8132969221401c6c595f624f5bd47e758346edc5f516d0bb07bffaae8a2e149910343eed4ae39f
+  languageName: node
+  linkType: hard
+
+"@testing-library/react@npm:^16.3.0":
+  version: 16.3.0
+  resolution: "@testing-library/react@npm:16.3.0"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+  peerDependencies:
+    "@testing-library/dom": ^10.0.0
+    "@types/react": ^18.0.0 || ^19.0.0
+    "@types/react-dom": ^18.0.0 || ^19.0.0
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    "@types/react-dom":
+      optional: true
+  checksum: 85728ea8a1bcc9d865782a3d3bcc1db6632cb77907b47fb99c7f338e3ebdfc74dc6d21dfc5526a215a4f4f7b7d8a6392de87f48da3848866ab088f327ebb3e92
   languageName: node
   linkType: hard
 

@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { ReactNode } from 'react';
 import { use, expect } from 'chai';
-import { RichText as ReactRichText } from '@sitecore-jss/sitecore-jss-react';
 import { NextRouter } from 'next/router';
-import { mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
-import { prefetched, RichText } from './RichText';
+import { RichText, prefetched } from './RichText';
 import { SinonSpy, spy } from 'sinon';
 import sinonChai from 'sinon-chai';
 
@@ -38,14 +37,6 @@ const Page = ({ children, value }: { children: ReactNode; value?: any }) => (
 );
 
 describe('RichText', () => {
-  beforeEach(() => {
-    // Clear prefetched links state
-    Object.keys(prefetched).forEach((key) => delete prefetched[key]);
-
-    // Clear the document body
-    document.body.innerHTML = '';
-  });
-
   it('should initialize links', () => {
     const app = document.createElement('main');
 
@@ -65,18 +56,18 @@ describe('RichText', () => {
       },
     };
 
-    const c = mount(
+    const c = render(
       <Page value={router}>
         <RichText {...props} />
       </Page>,
-      { attachTo: app }
-    );
+      { baseElement: app }
+    ).baseElement;
 
-    expect(c.html()).contains('<div id="test">');
-    expect(c.html()).contains('<h1>Hello!</h1>');
-    expect(c.html()).contains('<a href="/t10">1</a>');
-    expect(c.html()).contains('<a href="/t10">2</a>');
-    expect(c.html()).contains('<a href="/contains-children"><span id="child">Title</span></a>');
+    expect(c.innerHTML).contains('<div id="test">');
+    expect(c.innerHTML).contains('<h1>Hello!</h1>');
+    expect(c.innerHTML).contains('<a href="/t10">1</a>');
+    expect(c.innerHTML).contains('<a href="/t10">2</a>');
+    expect(c.innerHTML).contains('<a href="/contains-children"><span id="child">Title</span></a>');
 
     expect(router.prefetch).callCount(2);
 
@@ -112,8 +103,6 @@ describe('RichText', () => {
       true
     );
 
-    expect(c.find(ReactRichText).length).to.equal(1);
-
     document.body.removeChild(app);
   });
 
@@ -136,17 +125,17 @@ describe('RichText', () => {
       },
     };
 
-    const initialMountedComponent = mount(
+    const initialMountedComponent = render(
       <Page value={router}>
         <RichText {...props} />
       </Page>,
-      { attachTo: app }
+      { baseElement: app }
     );
 
-    expect(initialMountedComponent.html()).contains('<div id="test">');
-    expect(initialMountedComponent.html()).contains('<h1>Hello!</h1>');
-    expect(initialMountedComponent.html()).contains('<a href="/t100">1</a>');
-    expect(initialMountedComponent.html()).contains('<a href="/t100">2</a>');
+    expect(initialMountedComponent.baseElement.innerHTML).contains('<div id="test">');
+    expect(initialMountedComponent.baseElement.innerHTML).contains('<h1>Hello!</h1>');
+    expect(initialMountedComponent.baseElement.innerHTML).contains('<a href="/t100">1</a>');
+    expect(initialMountedComponent.baseElement.innerHTML).contains('<a href="/t100">2</a>');
 
     expect(router.prefetch).callCount(1);
 
@@ -168,21 +157,19 @@ describe('RichText', () => {
 
     expect(router.push).callCount(2);
 
-    expect(initialMountedComponent.find(ReactRichText).length).to.equal(1);
-
     initialMountedComponent.unmount();
 
-    const remountedComponent = mount(
+    const remountedComponent = render(
       <Page value={router}>
         <RichText {...props2} />
       </Page>,
-      { attachTo: app }
+      { baseElement: app }
     );
 
-    expect(remountedComponent.html()).contains('<div id="test">');
-    expect(remountedComponent.html()).contains('<h1>Hello!</h1>');
-    expect(remountedComponent.html()).contains('<a href="/t20">1</a>');
-    expect(remountedComponent.html()).contains('<a href="/t20">2</a>');
+    expect(remountedComponent.baseElement.innerHTML).contains('<div id="test">');
+    expect(remountedComponent.baseElement.innerHTML).contains('<h1>Hello!</h1>');
+    expect(remountedComponent.baseElement.innerHTML).contains('<a href="/t20">1</a>');
+    expect(remountedComponent.baseElement.innerHTML).contains('<a href="/t20">2</a>');
 
     expect(router.prefetch).callCount(2);
 
@@ -202,8 +189,6 @@ describe('RichText', () => {
 
     expect(router.push).callCount(4);
 
-    expect(remountedComponent.find(ReactRichText).length).to.equal(1);
-
     document.body.removeChild(app);
   });
 
@@ -222,15 +207,15 @@ describe('RichText', () => {
       internalLinksSelector: 'a[href^="/testpath"]',
     };
 
-    const c = mount(
+    const c = render(
       <Page value={router}>
         <RichText {...props} />
       </Page>,
-      { attachTo: app }
+      { baseElement: app }
     );
 
-    expect(c.html()).contains('<div id="test">');
-    expect(c.html()).contains('<h1>Hello!</h1>');
+    expect(c.baseElement.innerHTML).contains('<div id="test">');
+    expect(c.baseElement.innerHTML).contains('<h1>Hello!</h1>');
 
     expect(router.prefetch).callCount(1);
 
@@ -239,7 +224,7 @@ describe('RichText', () => {
     const link1 = links && links[0];
     const link2 = links && links[1];
 
-    expect(link1!.href).to.endsWith('/testpath/t1?test=sample1');
+    expect(link1!.href.endsWith('/testpath/t1?test=sample1')).to.be.true;
     expect(link2!.pathname).to.equal('/t2');
 
     link1 && link1.click();
@@ -251,8 +236,6 @@ describe('RichText', () => {
     // Check that push not invoked, because second link don't have event listener
     expect(router.push).callCount(1);
 
-    expect(c.find(ReactRichText).length).to.equal(1);
-
     document.body.removeChild(app);
   });
 
@@ -263,15 +246,13 @@ describe('RichText', () => {
       field: {},
     };
 
-    const c = mount(
+    render(
       <Page value={router}>
         <RichText {...props} />
       </Page>
     );
 
     expect(router.prefetch).callCount(0);
-
-    expect(c.find(ReactRichText).length).to.equal(1);
   });
 
   it('should not initialize links if no links in markup', () => {
@@ -283,18 +264,16 @@ describe('RichText', () => {
       },
     };
 
-    const c = mount(
+    const c = render(
       <Page value={router}>
         <RichText {...props} />
       </Page>
     );
 
-    expect(c.html()).contains('<div id="test">');
-    expect(c.html()).contains('<h1>Hello!</h1>');
+    expect(c.container.innerHTML).contains('<div id="test">');
+    expect(c.container.innerHTML).contains('<h1>Hello!</h1>');
 
     expect(router.prefetch).callCount(0);
-
-    expect(c.find(ReactRichText).length).to.equal(1);
   });
 
   it('should not initialize links when editable', () => {
@@ -306,20 +285,18 @@ describe('RichText', () => {
       },
     };
 
-    const c = mount(
+    const c = render(
       <Page value={router}>
         <RichText {...props} />
       </Page>
     );
 
-    expect(c.html()).contains('<div id="test">');
-    expect(c.html()).contains('<h1>Hello!</h1>');
-    expect(c.html()).contains('<a href="/t1">t1</a>');
-    expect(c.html()).contains('<a href="/t2">t2</a>');
+    expect(c.container.innerHTML).contains('<div id="test">');
+    expect(c.container.innerHTML).contains('<h1>Hello!</h1>');
+    expect(c.container.innerHTML).contains('<a href="/t1">t1</a>');
+    expect(c.container.innerHTML).contains('<a href="/t2">t2</a>');
 
     expect(router.prefetch).callCount(0);
-
-    expect(c.find(ReactRichText).length).to.equal(1);
   });
 
   it('should not initialize links when target set to "_blank"', () => {
@@ -335,16 +312,16 @@ describe('RichText', () => {
       },
     };
 
-    const c = mount(
+    const c = render(
       <Page value={router}>
         <RichText {...props} />
       </Page>,
-      { attachTo: app }
+      { baseElement: app }
     );
 
-    expect(c.html()).contains('<div id="test">');
-    expect(c.html()).contains('<h1>Hello!</h1>');
-    expect(c.html()).contains('<a href="/t1" target="_blank">t1</a>');
+    expect(c.baseElement.innerHTML).contains('<div id="test">');
+    expect(c.baseElement.innerHTML).contains('<h1>Hello!</h1>');
+    expect(c.baseElement.innerHTML).contains('<a href="/t1" target="_blank">t1</a>');
 
     const main = document.querySelector('main');
     const links = main && main.querySelectorAll('a');
@@ -355,11 +332,9 @@ describe('RichText', () => {
     link && link.click();
 
     expect(router.push).callCount(0);
-
-    expect(c.find(ReactRichText).length).to.equal(1);
   });
 
-  it('should not call prefetch when prefetchLinks is set to false', () => {
+  it('Should not call prefetch when prefetchLinks is set to false', () => {
     const app = document.createElement('main');
 
     document.body.appendChild(app);
@@ -373,26 +348,22 @@ describe('RichText', () => {
       },
     };
 
-    const c = mount(
+    const c = render(
       <Page value={router}>
         <RichText {...props} prefetchLinks={false} />
       </Page>,
-      { attachTo: app }
+      { baseElement: app }
     );
 
-    expect(c.html()).contains('<div id="test">');
-    expect(c.html()).contains('<h1>Prefetch test!</h1>');
-    expect(c.html()).contains('<a href="/notprefetched1">1</a>');
-    expect(c.html()).contains('<a href="/notprefetched2">2</a>');
+    expect(c.baseElement.innerHTML).contains('<div id="test">');
+    expect(c.baseElement.innerHTML).contains('<h1>Prefetch test!</h1>');
+    expect(c.baseElement.innerHTML).contains('<a href="/notprefetched1">1</a>');
+    expect(c.baseElement.innerHTML).contains('<a href="/notprefetched2">2</a>');
 
     expect(router.prefetch).callCount(0);
   });
 
   it('should call prefetch when prefetchLinks is set to hover', () => {
-    const app = document.createElement('main');
-
-    document.body.appendChild(app);
-
     const router = Router();
 
     const props = {
@@ -402,20 +373,18 @@ describe('RichText', () => {
       },
     };
 
-    const c = mount(
+    const c = render(
       <Page value={router}>
         <RichText {...props} prefetchLinks="hover" />
-      </Page>,
-      { attachTo: app }
+      </Page>
     );
 
-    expect(c.html()).contains('<div id="test">');
-    expect(c.html()).contains('<h1>Prefetch test!</h1>');
-    expect(c.html()).contains('<a href="/hoverprefetched1">1</a>');
-    expect(c.html()).contains('<a href="/hoverprefetched2">2</a>');
+    expect(c.baseElement.innerHTML).contains('<div id="test">');
+    expect(c.baseElement.innerHTML).contains('<h1>Prefetch test!</h1>');
+    expect(c.baseElement.innerHTML).contains('<a href="/hoverprefetched1">1</a>');
+    expect(c.baseElement.innerHTML).contains('<a href="/hoverprefetched2">2</a>');
 
-    const main = document.querySelector('main');
-    const links = main && main.querySelectorAll('a');
+    const links = c.container.querySelectorAll('a');
     const link1 = (links && links[0])!;
     const link2 = (links && links[1])!;
 
@@ -464,14 +433,14 @@ describe('RichText', () => {
         },
       };
 
-      const rendered = mount(
+      const rendered = render(
         <Page value={router}>
           <RichText {...props} prefetchLinks={false} />
         </Page>,
-        { attachTo: app }
+        { baseElement: app }
       );
 
-      expect(rendered.html()).to.equal(
+      expect(rendered.container.innerHTML).to.equal(
         [
           `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
             testMetadata
@@ -499,14 +468,14 @@ describe('RichText', () => {
         },
       };
 
-      const rendered = mount(
+      const rendered = render(
         <Page value={router}>
           <RichText {...props} />
         </Page>,
-        { attachTo: app }
+        { baseElement: app }
       );
 
-      expect(rendered.html()).to.equal(
+      expect(rendered.container.innerHTML).to.equal(
         [
           `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
             testMetadata
@@ -533,14 +502,14 @@ describe('RichText', () => {
         <span className="empty-field-value-placeholder">Custom Empty field value</span>
       );
 
-      const rendered = mount(
+      const rendered = render(
         <Page value={router}>
           <RichText {...props} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
         </Page>,
-        { attachTo: app }
+        { baseElement: app }
       );
 
-      expect(rendered.html()).to.equal(
+      expect(rendered.container.innerHTML).to.equal(
         [
           `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
             testMetadata
@@ -562,14 +531,14 @@ describe('RichText', () => {
           metadata: testMetadata,
         },
       };
-      const rendered = mount(
+      const rendered = render(
         <Page value={router}>
           <RichText {...props} editable={false} />
         </Page>,
-        { attachTo: app }
+        { baseElement: app }
       );
 
-      expect(rendered.html()).to.equal('');
+      expect(rendered.container.innerHTML).to.equal('');
     });
   });
 });
