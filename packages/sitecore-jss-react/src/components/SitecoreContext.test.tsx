@@ -4,21 +4,24 @@ import { constants } from '@sitecore-jss/sitecore-jss';
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
 import { WithSitecoreContextProps, withSitecoreContext } from '../enhancers/withSitecoreContext';
-import { LayoutServiceData } from '../index';
+import { LayoutServiceData, SitecoreContextValue } from '../index';
 import { render } from '@testing-library/react';
 import { useSitecoreContext } from '../enhancers/withSitecoreContext';
+import { language } from '@sitecore-cloudsdk/core/internal';
 
 describe('SitecoreContext', () => {
   let nestedContext = {};
+  let contextApi: object | undefined = {};
 
   interface NestedComponentProps extends WithSitecoreContextProps {
     anotherProperty?: string;
   }
 
   const NestedComponent: FC<NestedComponentProps> = (props: NestedComponentProps) => {
-    const { sitecoreContext } = useSitecoreContext();
+    const { sitecoreContext, api } = useSitecoreContext();
 
     nestedContext = sitecoreContext;
+    contextApi = api ?? undefined;
 
     <div>{props.sitecoreContext && 'test'}</div>;
   };
@@ -65,7 +68,7 @@ describe('SitecoreContext', () => {
       </SitecoreContext>
     );
 
-    expect(component.state().api).to.deep.equal({
+    expect(contextApi).to.deep.equal({
       edge: {
         contextId: 'id',
         edgeUrl: 'url',
@@ -73,7 +76,7 @@ describe('SitecoreContext', () => {
     });
 
     // provide LayoutServiceData type
-    component.instance().setContext({
+    const newLayoutData: LayoutServiceData = {
       sitecore: {
         context: {
           pageEditing: false,
@@ -90,26 +93,26 @@ describe('SitecoreContext', () => {
           itemId: 'homeid',
         },
       },
-    });
+    };
 
-    expect(component.state().context).deep.equal({
-      pageEditing: false,
-      itemId: 'homeid',
-      language: 'en',
-      route: {
-        itemId: 'homeid',
-        name: 'home',
-        placeholders: {
-          'JssTestWeb-jss-main': [],
-        },
-      },
-      site: {
-        name: 'JssTestWeb',
-      },
+    component.rerender(
+      <SitecoreContext componentFactory={mockComponentFactory} layoutData={newLayoutData}>
+        <NestedComponentWithContext />
+      </SitecoreContext>
+    );
+
+    console.log('nestedContext', nestedContext);
+
+    expect(nestedContext).deep.equal({
+      pageEditing: newLayoutData.sitecore.context.pageEditing,
+      itemId: newLayoutData.sitecore.route?.itemId,
+      language: newLayoutData.sitecore.context.language,
+      route: newLayoutData.sitecore.route,
+      site: newLayoutData.sitecore.context.site,
     });
 
     // Provide SitecoreContextValue type
-    component.instance().setContext({
+    const newContextValue: SitecoreContextValue = {
       pageEditing: false,
       itemId: 'graphqlid',
       language: 'en',
@@ -123,27 +126,25 @@ describe('SitecoreContext', () => {
       site: {
         name: 'JssTestWeb',
       },
-    });
+    };
 
-    expect(component.state().context).deep.equal({
-      pageEditing: false,
-      itemId: 'graphqlid',
-      language: 'en',
-      route: {
-        itemId: 'graphqlid',
-        name: 'graphql',
-        placeholders: {
-          'JssTestWeb-jss-main-graphql': [],
-        },
-      },
-      site: {
-        name: 'JssTestWeb',
-      },
+    component.rerender(
+      <SitecoreContext componentFactory={mockComponentFactory} layoutData={newContextValue}>
+        <NestedComponentWithContext />
+      </SitecoreContext>
+    );
+
+    expect(nestedContext).deep.equal({
+      pageEditing: newContextValue.pageEditing,
+      itemId: newContextValue.itemId,
+      language: newContextValue.language,
+      route: newContextValue.route,
+      site: newContextValue.site,
     });
   });
 
   it('should set default context', () => {
-    const component = render(
+    render(
       <SitecoreContext componentFactory={mockComponentFactory}>
         <NestedComponentWithContext />
       </SitecoreContext>
@@ -152,17 +153,17 @@ describe('SitecoreContext', () => {
     expect(nestedContext).deep.equal({
       pageEditing: false,
     });
-    expect(component.state().api).to.be.undefined;
+    expect(contextApi).to.be.undefined;
   });
 
   it('should set default edge url', () => {
-    const component = render(
+    render(
       <SitecoreContext componentFactory={mockComponentFactory} api={{ edge: { contextId: 'id' } }}>
         <NestedComponentWithContext />
       </SitecoreContext>
     );
 
-    expect(component.state().api).to.deep.equal({
+    expect(contextApi).to.deep.equal({
       edge: {
         contextId: 'id',
         edgeUrl: constants.SITECORE_EDGE_URL_DEFAULT,
