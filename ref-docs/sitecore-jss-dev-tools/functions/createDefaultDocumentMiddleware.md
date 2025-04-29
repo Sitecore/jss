@@ -32,4 +32,4 @@
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/disconnected-server/default-document.ts:14](https://github.com/Sitecore/jss/blob/3399500f695e00432c0b3d5ffc5aedbd18b30146/packages/sitecore-jss-dev-tools/src/disconnected-server/default-document.ts#L14)
+[sitecore-jss-dev-tools/src/disconnected-server/default-document.ts:14](https://github.com/Sitecore/jss/blob/38345af2b57ee1d5364d54df704b896ccf34c1ea/packages/sitecore-jss-dev-tools/src/disconnected-server/default-document.ts#L14)

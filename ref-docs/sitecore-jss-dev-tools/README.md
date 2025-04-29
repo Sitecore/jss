@@ -4,6 +4,10 @@
 
 # @sitecore-jss/sitecore-jss-dev-tools
 
+## Namespaces
+
+- [constants](namespaces/constants/README.md)
+
 ## Enumerations
 
 - [CommonFieldTypes](enumerations/CommonFieldTypes.md)
@@ -86,6 +90,8 @@
 - [createDisconnectedLayoutService](functions/createDisconnectedLayoutService.md)
 - [createPackage](functions/createPackage.md)
 - [deploy](functions/deploy.md)
+- [extractComponents](functions/extractComponents.md)
+- [fetchBearerToken](functions/fetchBearerToken.md)
 - [generatePlugins](functions/generatePlugins.md)
 - [generateToFile](functions/generateToFile.md)
 - [generateToVariable](functions/generateToVariable.md)

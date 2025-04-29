@@ -18,7 +18,7 @@ string token that can be used to fetch the next page of results
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:11](https://github.com/Sitecore/jss/blob/3399500f695e00432c0b3d5ffc5aedbd18b30146/packages/sitecore-jss/src/graphql/search-service.ts#L11)
+[packages/sitecore-jss/src/graphql/search-service.ts:11](https://github.com/Sitecore/jss/blob/38345af2b57ee1d5364d54df704b896ccf34c1ea/packages/sitecore-jss/src/graphql/search-service.ts#L11)
 
 ***
 
@@ -30,4 +30,4 @@ a value that indicates whether more pages of results are available
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:15](https://github.com/Sitecore/jss/blob/3399500f695e00432c0b3d5ffc5aedbd18b30146/packages/sitecore-jss/src/graphql/search-service.ts#L15)
+[packages/sitecore-jss/src/graphql/search-service.ts:15](https://github.com/Sitecore/jss/blob/38345af2b57ee1d5364d54df704b896ccf34c1ea/packages/sitecore-jss/src/graphql/search-service.ts#L15)

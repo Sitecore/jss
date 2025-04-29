@@ -24,7 +24,7 @@ Response content
 
 #### Defined in
 
-[packages/sitecore-jss/src/data-fetcher.ts:15](https://github.com/Sitecore/jss/blob/3399500f695e00432c0b3d5ffc5aedbd18b30146/packages/sitecore-jss/src/data-fetcher.ts#L15)
+[packages/sitecore-jss/src/data-fetcher.ts:15](https://github.com/Sitecore/jss/blob/38345af2b57ee1d5364d54df704b896ccf34c1ea/packages/sitecore-jss/src/data-fetcher.ts#L15)
 
 ***
 
@@ -36,7 +36,7 @@ HTTP status code of the response (i.e. 200, 404)
 
 #### Defined in
 
-[packages/sitecore-jss/src/data-fetcher.ts:11](https://github.com/Sitecore/jss/blob/3399500f695e00432c0b3d5ffc5aedbd18b30146/packages/sitecore-jss/src/data-fetcher.ts#L11)
+[packages/sitecore-jss/src/data-fetcher.ts:11](https://github.com/Sitecore/jss/blob/38345af2b57ee1d5364d54df704b896ccf34c1ea/packages/sitecore-jss/src/data-fetcher.ts#L11)
 
 ***
 
@@ -48,4 +48,4 @@ HTTP status text of the response (i.e. 'OK', 'Bad Request')
 
 #### Defined in
 
-[packages/sitecore-jss/src/data-fetcher.ts:13](https://github.com/Sitecore/jss/blob/3399500f695e00432c0b3d5ffc5aedbd18b30146/packages/sitecore-jss/src/data-fetcher.ts#L13)
+[packages/sitecore-jss/src/data-fetcher.ts:13](https://github.com/Sitecore/jss/blob/38345af2b57ee1d5364d54df704b896ccf34c1ea/packages/sitecore-jss/src/data-fetcher.ts#L13)
