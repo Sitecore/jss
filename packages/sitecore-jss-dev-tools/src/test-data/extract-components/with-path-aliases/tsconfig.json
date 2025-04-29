@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@comps/*": ["./src/components/*"]
+    },
+    "jsx": "preserve"
+  }
+}
