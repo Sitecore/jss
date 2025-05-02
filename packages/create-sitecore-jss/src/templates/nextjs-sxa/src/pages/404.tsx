@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import config from 'temp/config';
 import {
   GraphQLErrorPagesService,
