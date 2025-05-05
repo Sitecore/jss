@@ -64,7 +64,6 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
       // determine if a link is a route or not. File extensions are not routes and should not be pre-fetched.
       if (isMatching && !isFileUrl) {
-        console.log('nextLink');
         delete htmlLinkProps.emptyFieldEditingComponent;
         return (
           <NextLink
@@ -92,8 +91,6 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     const reactLinkProps = { ...props };
     delete reactLinkProps.internalLinkMatcher;
     delete reactLinkProps.prefetch;
-    console.log('react link');
-    console.log(process.env.TEST);
 
     return (
       <ReactLink
