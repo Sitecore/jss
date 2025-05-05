@@ -5,7 +5,7 @@ const monorepoPlugin = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
     webpack: (config, options) => {
       if (options.isServer) {
-        config.externals = ['react', 'vertx', ...config.externals];
+        config.externals = ['vertx', ...config.externals];
       }
 
       // Overload the Webpack config if it was already overloaded
@@ -14,7 +14,7 @@ const monorepoPlugin = (nextConfig = {}) => {
       }
 
       return config;
-    }
+    },
   });
 };
 
