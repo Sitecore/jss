@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { Placeholder, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
@@ -28,7 +29,10 @@ const GraphQLLayout = ({ rendering }: ComponentProps): JSX.Element => {
         </>
       )}
       {!disconnectedMode && (
-        <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-graphql-layout" rendering={rendering} />
+        <Placeholder
+          name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-graphql-layout"
+          rendering={rendering}
+        />
       )}
     </div>
   );

@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import type { AppProps } from 'next/app';
 import Router from 'next/router';
 import { I18nProvider } from 'next-localization';
