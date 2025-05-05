@@ -101,8 +101,6 @@ describe('SitecoreContext', () => {
       </SitecoreContext>
     );
 
-    console.log('nestedContext', nestedContext);
-
     expect(nestedContext).deep.equal({
       pageEditing: newLayoutData.sitecore.context.pageEditing,
       itemId: newLayoutData.sitecore.route?.itemId,

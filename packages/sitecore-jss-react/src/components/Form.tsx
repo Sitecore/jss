@@ -50,7 +50,6 @@ export const Form = ({ params, rendering }: FormProps) => {
 
   useEffect(() => {
     if (!content) {
-      console.log('loadForm()');
       loadForm(context.api?.edge?.contextId, params.FormId, context.api?.edge?.edgeUrl)
         .then(setContent)
         .catch(() => {
@@ -64,11 +63,9 @@ export const Form = ({ params, rendering }: FormProps) => {
     } else {
       // If we are in editing mode, we don't want to send any events
       if (!isEditing) {
-        console.log('subscribeToFormSubmitEvent()');
         subscribeToFormSubmitEvent(formRef.current, rendering.uid);
       }
 
-      console.log('executeScriptElements()');
       executeScriptElements(formRef.current);
     }
   }, [content]);
