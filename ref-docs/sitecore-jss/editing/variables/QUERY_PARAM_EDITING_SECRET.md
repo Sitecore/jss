@@ -12,4 +12,4 @@ Query parameter for editing secret
 
 ## Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:11](https://github.com/Sitecore/jss/blob/531ca5258d6dfbf961581d71604d062cf234a220/packages/sitecore-jss/src/editing/utils.ts#L11)
+[packages/sitecore-jss/src/editing/utils.ts:11](https://github.com/Sitecore/jss/blob/8f7ffd33f995c17f9f03c3df10ba8b38b5da7f94/packages/sitecore-jss/src/editing/utils.ts#L11)
