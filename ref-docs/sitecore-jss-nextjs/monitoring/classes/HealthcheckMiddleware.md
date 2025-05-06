@@ -45,4 +45,4 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:11](https://github.com/Sitecore/jss/blob/9430a13c8caaf891cbbe23c5ec29a556a732a8c3/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L11)
+[sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts:11](https://github.com/Sitecore/jss/blob/098cff9b825505aeba74fd3b3f25c22a80c773aa/packages/sitecore-jss-nextjs/src/monitoring/healthcheck-middleware.ts#L11)
