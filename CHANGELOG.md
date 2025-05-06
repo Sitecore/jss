@@ -28,11 +28,6 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss]` `[template/nextjs-sxa]` Fix `/api/sitemap` endpoint ([#2058](https://github.com/Sitecore/jss/pull/2058)) ([#2063](https://github.com/Sitecore/jss/pull/2063))
 
-### 🛠 Breaking Changes
-
-* Upgrade cloudsdk to 0.5 ([#2060](https://github.com/Sitecore/jss/pull/2060)):
-  * This upgrade doesn't introduce any breaking changes, however you will have to upgrade your cloudsdk dependencies to meet peer dependencies requirements
-
 ## 22.5.5
 
 ### 🐛 Bug Fixes
