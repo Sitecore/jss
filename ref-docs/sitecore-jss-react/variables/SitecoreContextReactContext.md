@@ -10,4 +10,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:40](https://github.com/Sitecore/jss/blob/098cff9b825505aeba74fd3b3f25c22a80c773aa/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L40)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:40](https://github.com/Sitecore/jss/blob/531ca5258d6dfbf961581d71604d062cf234a220/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L40)
