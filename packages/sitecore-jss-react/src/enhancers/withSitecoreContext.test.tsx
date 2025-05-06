@@ -18,14 +18,25 @@ describe('withSitecoreContext', () => {
       context: {
         text: 'value',
       },
+      api: {
+        edge: {
+          contextId: 'id',
+          edgeUrl: 'url',
+        },
+      },
       setContext,
     };
 
     const TestComponent: React.FC<any> = (props: any) => (
-      <div onClick={props.updateSitecoreContext}>
-        {props.sitecoreContext.text}
-        {props.customProp}
-      </div>
+      <>
+        <div onClick={props.updateSitecoreContext}>
+          {props.sitecoreContext.text}
+          {props.customProp}
+        </div>
+        <span>
+          {props.api.edge.contextId} {props.api.edge.edgeUrl}
+        </span>
+      </>
     );
 
     let TestComponentWithContext: React.FC<any> = withSitecoreContext()(TestComponent);
@@ -38,6 +49,7 @@ describe('withSitecoreContext', () => {
 
     expect(wrapper).to.have.length(1);
 
+    expect(wrapper.find('span').text()).equal('id url');
     expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'xxx');
     wrapper.find('div').simulate('click');
 
@@ -66,6 +78,12 @@ describe('withSitecoreContext', () => {
         context: {
           text: 'value',
         },
+        api: {
+          edge: {
+            contextId: 'id',
+            edgeUrl: 'url',
+          },
+        },
         setContext,
       };
 
@@ -74,10 +92,15 @@ describe('withSitecoreContext', () => {
         const context = reactContext.sitecoreContext as { text: string };
 
         return (
-          <div onClick={reactContext.updateSitecoreContext}>
-            {context.text}
-            {props.customProp}
-          </div>
+          <>
+            <div onClick={reactContext.updateSitecoreContext}>
+              {context.text}
+              {props.customProp}
+            </div>
+            <span>
+              {reactContext.api?.edge?.contextId} {reactContext.api?.edge?.edgeUrl}
+            </span>
+          </>
         );
       };
 
@@ -89,6 +112,7 @@ describe('withSitecoreContext', () => {
 
       expect(wrapper).to.have.length(1);
 
+      expect(wrapper.find('span').text()).equal('id url');
       expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'xxx');
       wrapper.find('div').simulate('click');
 

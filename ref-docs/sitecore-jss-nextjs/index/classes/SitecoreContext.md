@@ -32,7 +32,7 @@
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:33
+sitecore-jss-react/types/components/SitecoreContext.d.ts:53
 
 ## Properties
 
@@ -124,7 +124,7 @@ Update context state. Value can be
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:41
+sitecore-jss-react/types/components/SitecoreContext.d.ts:61
 
 ***
 
@@ -183,7 +183,7 @@ sitecore-jss-react/node\_modules/@types/react/index.d.ts:988
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:32
+sitecore-jss-react/types/components/SitecoreContext.d.ts:52
 
 ***
 
@@ -205,7 +205,7 @@ sitecore-jss-react/types/components/SitecoreContext.d.ts:32
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:22
+sitecore-jss-react/types/components/SitecoreContext.d.ts:42
 
 ## Methods
 
@@ -281,7 +281,7 @@ The snapshot is only present if [getSnapshotBeforeUpdate](SitecoreContext.md#get
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:35
+sitecore-jss-react/types/components/SitecoreContext.d.ts:55
 
 ***
 
@@ -443,7 +443,7 @@ sitecore-jss-react/node\_modules/@types/react/index.d.ts:1511
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:34
+sitecore-jss-react/types/components/SitecoreContext.d.ts:54
 
 ***
 
@@ -517,7 +517,7 @@ sitecore-jss-react/node\_modules/@types/react/index.d.ts:1426
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:42
+sitecore-jss-react/types/components/SitecoreContext.d.ts:62
 
 ***
 
