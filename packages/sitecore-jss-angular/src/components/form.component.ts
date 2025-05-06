@@ -1,5 +1,6 @@
+/* eslint-disable prefer-const */
 import { ComponentRendering, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
-import { getEdgeProxyFormsUrl } from '@sitecore-jss/sitecore-jss/graphql';
+import { form, debug } from '@sitecore-jss/sitecore-jss';
 import {
   Component,
   OnInit,
@@ -13,7 +14,18 @@ import { EDGE_CONFIG, EdgeConfigToken } from '../services/shared.token';
 import { JssStateService } from '../services/jss-state.service';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
-import { form } from '@sitecore-cloudsdk/events/browser';
+
+let { executeScriptElements, loadForm, subscribeToFormSubmitEvent } = form;
+
+/**
+ * Mock function to replace the form module functions for `testing` purposes.
+ * @param {any} formModule - The form module to mock
+ */
+export const mockFormModule = (formModule: any) => {
+  executeScriptElements = formModule.executeScriptElements;
+  loadForm = formModule.loadForm;
+  subscribeToFormSubmitEvent = formModule.subscribeToFormSubmitEvent;
+};
 
 /**
  * Shape of the Form component rendering data.
@@ -22,6 +34,7 @@ import { form } from '@sitecore-cloudsdk/events/browser';
 export type FormRendering = {
   params: {
     FormId: string;
+    styles?: string;
   };
 } & ComponentRendering;
 
@@ -88,101 +101,33 @@ export class FormComponent implements OnInit, OnDestroy {
   async loadForm() {
     const { sitecoreEdgeContextId, sitecoreEdgeUrl } = this.edgeConfig;
 
-    if (!this.rendering.params.FormId) {
-      console.warn(
-        'Form was not able to render since FormId is not provided in the rendering data',
-        JSON.stringify(this.rendering, null, 2)
+    try {
+      const content = await loadForm(
+        sitecoreEdgeContextId,
+        this.rendering.params.FormId,
+        sitecoreEdgeUrl
       );
 
-      return;
-    }
+      this.elRef.nativeElement.innerHTML = content;
+      this.elRef.nativeElement.className = this.rendering.params?.styles?.trimEnd() || '';
+      this.elRef.nativeElement.id = this.rendering.params?.RenderingIdentifier || '';
 
-    const url = getEdgeProxyFormsUrl(
-      sitecoreEdgeContextId,
-      this.rendering.params.FormId,
-      sitecoreEdgeUrl
-    );
+      const form = this.elRef.nativeElement.querySelector('form');
 
-    try {
-      const rsp = await fetch(url, {
-        method: 'GET',
-        cache: 'no-cache',
-      });
-
-      const content = await rsp.text();
-
-      if (rsp.status !== 200) {
-        this.hasError = true;
-
-        console.warn(
-          `Form '${this.rendering.params.FormId}' was not able to render with the current rendering data`,
-          JSON.stringify(this.rendering, null, 2),
-          content
+      if (!form) {
+        debug.form(
+          `Form '${this.rendering.params.FormId}' was not able to render since form element was not found`
         );
-
         return;
       }
 
-      this.elRef.nativeElement.innerHTML = content;
+      executeScriptElements(this.elRef.nativeElement);
 
-      this.executeScriptElements();
-      this.subscribeToFormSubmitEvent();
-    } catch (error) {
-      console.warn(
-        `Form '${this.rendering.params.FormId}' was not able to render with the current rendering data`,
-        JSON.stringify(this.rendering, null, 2),
-        error
-      );
-
+      if (!this.isEditing) {
+        subscribeToFormSubmitEvent(form, this.rendering.uid);
+      }
+    } catch {
       this.hasError = true;
     }
-  }
-
-  /**
-   * Subscribes to the custom "form:engage" event and sends data to CloudSDK.
-   * This listener captures interactions such as form views or submissions
-   */
-  subscribeToFormSubmitEvent() {
-    const formElement = this.elRef.nativeElement.querySelector('form');
-
-    if (formElement) {
-      formElement.addEventListener('form:engage', ((
-        e: CustomEvent<{ formId: string; name: 'VIEWED' | 'SUBMITTED' }>
-      ) => {
-        if (this.isEditing) {
-          return;
-        }
-
-        const { formId, name } = e.detail;
-
-        if (formId && name) {
-          console.log(`Sending form event: ${name} for FormId: ${formId}`);
-          form(formId, name, this.rendering.uid?.replace(/-/g, '') || '');
-        }
-      }) as EventListener);
-    } else {
-      console.warn('No form element found to subscribe to submit event.');
-    }
-  }
-
-  /**
-   * When you set the innerHTML property of an element, the browser does not execute any <script> tags included in the HTML string
-   * This method ensures that any <script> elements within the loaded HTML are executed.
-   * It re-creates the script elements and appends the to the component's template, then removes old script elements to avoid duplication.
-   */
-  executeScriptElements() {
-    const scriptElements = this.elRef.nativeElement.querySelectorAll('script');
-
-    Array.from(scriptElements).forEach((scriptElement) => {
-      const clonedElement = document.createElement('script');
-
-      Array.from(scriptElement.attributes).forEach((attribute) => {
-        clonedElement.setAttribute(attribute.name, attribute.value);
-      });
-
-      clonedElement.text = scriptElement.text;
-
-      scriptElement?.parentNode?.replaceChild(clonedElement, scriptElement);
-    });
   }
 }

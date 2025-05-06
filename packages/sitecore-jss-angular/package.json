@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular",
-  "version": "22.5.5",
+  "version": "22.6.0-canary.38",
   "description": "",
   "scripts": {
     "build": "ng-packagr -p ng-package.json",
@@ -33,7 +33,6 @@
     "@angular/platform-browser": "~18.2.13",
     "@angular/platform-browser-dynamic": "~18.2.13",
     "@angular/router": "~18.2.13",
-    "@sitecore-cloudsdk/events": "^0.4.2",
     "@types/jasmine": "^5.1.4",
     "@types/node": "^22.9.0",
     "codelyzer": "^6.0.1",
@@ -60,7 +59,7 @@
     "rxjs": "~7.8.1"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "22.5.5"
+    "@sitecore-jss/sitecore-jss": "22.6.0-canary.38"
   },
   "main": "dist/esm2022/sitecore-jss-sitecore-jss-angular.mjs",
   "module": "dist/esm2022/sitecore-jss-sitecore-jss-angular.js",

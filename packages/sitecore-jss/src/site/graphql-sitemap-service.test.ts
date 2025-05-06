@@ -84,18 +84,6 @@ describe('GraphQLSitemapXmlService', () => {
       return expect(nock.isDone()).to.be.true;
     });
 
-    it('should get exists sitemap', async () => {
-      const mockIdSitemap = '-3';
-      mockSitemapRequest(mockSitemaps);
-
-      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
-      const sitemap = await service.getSitemap(mockIdSitemap);
-
-      expect(sitemap).to.deep.equal(mockSitemaps[2]);
-
-      return expect(nock.isDone()).to.be.true;
-    });
-
     it('should get null if sitemap not exists', async () => {
       const mockIdSitemap = '-5';
       mockSitemapRequest(mockSitemaps);
@@ -107,6 +95,75 @@ describe('GraphQLSitemapXmlService', () => {
       expect(sitemap).to.be.undefined;
 
       return expect(nock.isDone()).to.be.true;
+    });
+
+    it('should fetch specific sitemap when id is provided', async () => {
+      const mockIdSitemap = '3';
+      mockSitemapRequest(mockSitemaps);
+
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
+      const sitemaps = await service.getSitemap(mockIdSitemap);
+
+      expect(sitemaps).to.deep.equal(mockSitemaps[2]);
+
+      return expect(nock.isDone()).to.be.true;
+    });
+
+    it('should fetch default sitemap when no id is provided', async () => {
+      const defaultSitemap = 'sitemap.xml';
+      const mockSitemapsWithDefault = [...mockSitemaps, defaultSitemap];
+      mockSitemapRequest(mockSitemapsWithDefault);
+
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
+      const sitemaps = await service.getSitemap('');
+
+      expect(sitemaps).to.deep.equal(defaultSitemap);
+      return expect(nock.isDone()).to.be.true;
+    });
+
+    it('should normalize IDs with leading hyphens (e.g., "-1" → "1")', async () => {
+      const mockSitemapsWithHyphenId = [...mockSitemaps, 'sitemap-1.xml'];
+      mockSitemapRequest(mockSitemapsWithHyphenId);
+
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
+      const result = await service.getSitemap('-1');
+
+      expect(result).to.deep.equal('sitemap-1.xml');
+      expect(nock.isDone()).to.be.true;
+    });
+
+    it('should return undefined if sitemap does not exist', async () => {
+      mockSitemapRequest(mockSitemaps);
+
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
+      const result = await service.getSitemap('999');
+
+      expect(result).to.be.undefined;
+      expect(nock.isDone()).to.be.true;
+    });
+
+    it('should return undefined when id is undefined', async () => {
+      mockSitemapRequest(mockSitemaps);
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
+      const result = await service.getSitemap((undefined as unknown) as string);
+      expect(result).to.be.undefined;
+      expect(nock.isDone()).to.be.false;
+    });
+
+    it('should find "sitemap.xml" when id is an empty string', async () => {
+      mockSitemapRequest(mockSitemaps);
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
+      const result = await service.getSitemap('');
+      expect(result).to.deep.equal(undefined);
+      expect(nock.isDone()).to.be.true;
+    });
+
+    it('should find "sitemap-1.xml" when id is "1"', async () => {
+      mockSitemapRequest(mockSitemaps);
+      const service = new GraphQLSitemapXmlService({ clientFactory, siteName });
+      const result = await service.getSitemap('1');
+      expect(result).to.deep.equal('sitemap-1.xml');
+      expect(nock.isDone()).to.be.true;
     });
   });
 });
