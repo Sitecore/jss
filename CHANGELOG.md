@@ -12,6 +12,7 @@ Our versioning strategy is as follows:
 ## 22.6.0
 
 ### 🐛 Bug Fixes
+
 * `[sitecore-jss-nextjs]` When redirect rule was not using regex and was only matching a path (without query string), incoming matching URLs were ignored when query string is present. This has been fixed ([#2050](https://github.com/Sitecore/jss/pull/2050))
 * `[sitecore-jss-nextjs]` Fixed redirect header from previous middleware execution not being cleaned up correctly.
 
