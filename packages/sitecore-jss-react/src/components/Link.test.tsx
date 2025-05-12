@@ -99,7 +99,9 @@ describe('<Link />', () => {
         text: 'ipsum',
       },
     };
-    const rendered = render(<Link field={field} id="my-link" accessKey="a" />).container.querySelector('a');
+    const rendered = render(
+      <Link field={field} id="my-link" accessKey="a" />
+    ).container.querySelector('a');
     expect(rendered?.outerHTML).to.contain('id="my-link"');
     expect(rendered?.outerHTML).to.contain('accesskey="a"');
   });

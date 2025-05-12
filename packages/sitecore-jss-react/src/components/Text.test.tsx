@@ -41,7 +41,9 @@ describe('<Text />', () => {
       value: 'value',
       editable: 'editable',
     };
-    const rendered = render(<Text tag="span" field={field} editable={false} />).container.querySelector('span');
+    const rendered = render(
+      <Text tag="span" field={field} editable={false} />
+    ).container.querySelector('span');
     expect(rendered?.innerHTML).to.contain('value');
   });
 
@@ -49,7 +51,9 @@ describe('<Text />', () => {
     const field = {
       value: 'value < >',
     };
-    const rendered = render(<Text tag="span" field={field} editable={false} />).container.querySelector('span');
+    const rendered = render(
+      <Text tag="span" field={field} editable={false} />
+    ).container.querySelector('span');
     expect(rendered?.innerHTML).to.contain('&lt; &gt;');
   });
 
@@ -154,7 +158,9 @@ describe('<Text />', () => {
     const field = {
       value: 'value',
     };
-    const rendered = render(<Text field={field} tag="h1" className="cssClass" id="lorem" />).container.querySelector('h1');
+    const rendered = render(
+      <Text field={field} tag="h1" className="cssClass" id="lorem" />
+    ).container.querySelector('h1');
     expect(rendered?.outerHTML).to.contain('<h1 class="cssClass" id="lorem">');
     expect(rendered?.outerHTML).to.contain('value');
   });

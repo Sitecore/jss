@@ -46,7 +46,9 @@ describe('<File />', () => {
         title: 'ipsum',
       },
     };
-    const rendered = render(<File field={field} id="my-file" className="my-css" />).container.querySelector('a');
+    const rendered = render(
+      <File field={field} id="my-file" className="my-css" />
+    ).container.querySelector('a');
     expect(rendered?.outerHTML).to.contain('id="my-file"');
     expect(rendered?.outerHTML).to.contain('class="my-css"');
   });
