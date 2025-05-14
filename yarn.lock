@@ -6910,9 +6910,9 @@ __metadata:
   dependencies:
     "@sitecore-cloudsdk/core": ^0.5.1
     "@sitecore-cloudsdk/personalize": ^0.5.1
-    "@sitecore-jss/sitecore-jss": 22.6.0-canary.38
-    "@sitecore-jss/sitecore-jss-dev-tools": 22.6.0-canary.38
-    "@sitecore-jss/sitecore-jss-react": 22.6.0-canary.38
+    "@sitecore-jss/sitecore-jss": 22.7.0-canary.1
+    "@sitecore-jss/sitecore-jss-dev-tools": 22.7.0-canary.1
+    "@sitecore-jss/sitecore-jss-react": 22.7.0-canary.1
     "@testing-library/dom": ^10.4.0
     "@testing-library/react": ^16.3.0
     "@types/chai": ^4.3.4
@@ -6962,7 +6962,7 @@ __metadata:
   dependencies:
     "@sitecore-cloudsdk/core": ^0.5.1
     "@sitecore-cloudsdk/personalize": ^0.5.1
-    "@sitecore-jss/sitecore-jss": 22.6.0-canary.38
+    "@sitecore-jss/sitecore-jss": 22.7.0-canary.1
     "@types/chai": ^4.3.4
     "@types/express": ^4.17.17
     "@types/mocha": ^10.0.1
@@ -7069,7 +7069,7 @@ __metadata:
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
     "@sitecore-feaas/clientside": ^0.5.19
-    "@sitecore-jss/sitecore-jss": 22.6.0-canary.38
+    "@sitecore-jss/sitecore-jss": 22.7.0-canary.1
     "@testing-library/dom": ^10.4.0
     "@testing-library/react": ^16.1.0
     "@testing-library/user-event": ^14.6.0
