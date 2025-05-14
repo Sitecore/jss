@@ -279,12 +279,17 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           rendering: componentRendering,
         };
 
+        const containsDynamicComponents = this.hasDynamicComponents(
+          placeholderData,
+          this.getComponentForRendering.bind(this)
+        );
+
         let rendered = React.createElement<{ [attr: string]: unknown }>(
           component as React.ComponentType,
           this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
         );
 
-        if (!isEmpty) {
+        if (!isEmpty && !containsDynamicComponents) {
           // assign type based on passed element - type='text/sitecore' should be ignored when renderEach Placeholder prop function is being used
           const type = rendered.props.type === 'text/sitecore' ? rendered.props.type : '';
 
@@ -336,6 +341,32 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     }
 
     return transformedComponents;
+  }
+
+  hasDynamicComponents(
+    placeholderData: (ComponentRendering | HtmlElementRendering)[],
+    getComponentForRendering: (rendering: ComponentRendering) => ComponentType | null
+  ): boolean {
+    return placeholderData.some((rendering) => {
+      const componentRendering = rendering as ComponentRendering;
+
+      if (!componentRendering?.componentName) return false;
+
+      const component = this.getComponentForRendering(componentRendering);
+
+      const isDynamicComponent = !!(component as JssComponentType)?.render?.preload;
+
+      const isByocWrapper = componentRendering.componentName === BYOC_WRAPPER_RENDERING_NAME;
+
+      const nestedPlaceholders = componentRendering?.placeholders;
+      if (nestedPlaceholders) {
+        return Object.values(nestedPlaceholders).some((nested) =>
+          this.hasDynamicComponents(nested, getComponentForRendering)
+        );
+      }
+
+      return isDynamicComponent || isByocWrapper;
+    });
   }
 
   getComponentForRendering(renderingDefinition: ComponentRendering): ComponentType | null {
