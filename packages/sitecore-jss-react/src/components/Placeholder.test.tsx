@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/prop-types */
 import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import { expect } from 'chai';
 import { render } from '@testing-library/react';
