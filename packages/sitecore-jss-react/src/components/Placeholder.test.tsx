@@ -439,7 +439,7 @@ describe('<Placeholder />', () => {
       byocWrapperStub.restore();
     });
 
-    xit('should render ErrorBoundary without Suspense for byoc wrapper', () => {
+    it('should not render ErrorBoundary for byoc wrapper', () => {
       const component = byocWrapperData.sitecore.route as RouteData;
       const phKey = 'main';
 
@@ -459,8 +459,7 @@ describe('<Placeholder />', () => {
         </SitecoreContext>
       );
 
-      expect(renderedComponent.find('ErrorBoundary').length).to.equal(2);
-      expect(renderedComponent.find('Suspense').length).to.equal(1);
+      expect(renderedComponent.find('ErrorBoundary').length).to.equal(0);
 
       byocComponentStub.restore();
       byocWrapperStub.restore();
