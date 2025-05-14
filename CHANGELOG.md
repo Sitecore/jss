@@ -11,6 +11,10 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-react]` Fix BYOC form hydration error ([#2081](https://github.com/Sitecore/jss/pull/2081))
+
 ### 🛠 Breaking Changes
 
 * Upgrade cloudsdk to 0.5 ([#2060](https://github.com/Sitecore/jss/pull/2060)):

@@ -78,8 +78,7 @@ const componentFactory: ComponentFactory = (componentName: string) => {
 
   return components.get(componentName) || null;
 };
-
-describe.only('<Placeholder />', () => {
+describe('<Placeholder />', () => {
   it('should render without required props', () => {
     const key: string = null;
     const rendering: RouteData = null;
