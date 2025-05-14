@@ -30,4 +30,4 @@ if the provided url is an empty string
 
 ## Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:34](https://github.com/Sitecore/jss/blob/6217e2e71367ae392fe1df0895780151e0676f93/packages/sitecore-jss/src/utils/utils.ts#L34)
+[packages/sitecore-jss/src/utils/utils.ts:34](https://github.com/Sitecore/jss/blob/6bab0dd26329dcecc07262dcd346ed5bf2b7d766/packages/sitecore-jss/src/utils/utils.ts#L34)

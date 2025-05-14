@@ -11,6 +11,13 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🛠 Breaking Changes
+
+* Upgrade cloudsdk to 0.5 ([#2060](https://github.com/Sitecore/jss/pull/2060)):
+  * This upgrade doesn't introduce any breaking changes, however you will have to upgrade your cloudsdk dependencies to meet peer dependencies requirements
+
+## 22.6.0
+
 ### 🎉 New Features & Improvements
 
 * `[Next.js]` XM Cloud Forms support without BYOC ([#2052](https://github.com/Sitecore/jss/pull/2052))([#2066](https://github.com/Sitecore/jss/pull/2066)):
@@ -22,11 +29,6 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss]` `[template/nextjs-sxa]` Fix `/api/sitemap` endpoint ([#2058](https://github.com/Sitecore/jss/pull/2058)) ([#2063](https://github.com/Sitecore/jss/pull/2063))
-
-### 🛠 Breaking Changes
-
-* Upgrade cloudsdk to 0.5 ([#2060](https://github.com/Sitecore/jss/pull/2060)):
-  * This upgrade doesn't introduce any breaking changes, however you will have to upgrade your cloudsdk dependencies to meet peer dependencies requirements
  
 ## 22.5.5
 
