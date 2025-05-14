@@ -211,6 +211,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       ...placeholderProps
     } = this.props;
 
+    const containsDynamicComponents = this.hasDynamicComponents(placeholderData);
+
     const transformedComponents = placeholderData
       .map((rendering: ComponentRendering | HtmlElementRendering, index: number) => {
         const key = (rendering as ComponentRendering).uid
@@ -279,11 +281,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           rendering: componentRendering,
         };
 
-        const containsDynamicComponents = this.hasDynamicComponents(
-          placeholderData,
-          this.getComponentForRendering.bind(this)
-        );
-
         let rendered = React.createElement<{ [attr: string]: unknown }>(
           component as React.ComponentType,
           this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
@@ -343,10 +340,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     return transformedComponents;
   }
 
-  hasDynamicComponents(
-    placeholderData: (ComponentRendering | HtmlElementRendering)[],
-    getComponentForRendering: (rendering: ComponentRendering) => ComponentType | null
-  ): boolean {
+  hasDynamicComponents(placeholderData: (ComponentRendering | HtmlElementRendering)[]): boolean {
     return placeholderData.some((rendering) => {
       const componentRendering = rendering as ComponentRendering;
 
@@ -361,7 +355,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       const nestedPlaceholders = componentRendering?.placeholders;
       if (nestedPlaceholders) {
         return Object.values(nestedPlaceholders).some((nested) =>
-          this.hasDynamicComponents(nested, getComponentForRendering)
+          this.hasDynamicComponents(nested)
         );
       }
 
