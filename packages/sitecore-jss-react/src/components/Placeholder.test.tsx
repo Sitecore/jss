@@ -219,8 +219,6 @@ describe('<Placeholder />', () => {
           </SitecoreContext>
         );
 
-        console.log(renderedComponent.debug());
-
         expect(renderedComponent.html()).to.equal(
           '<div class="sc-jss-empty-placeholder"><span>My name is empty placeholder</span></div>'
         );
@@ -403,6 +401,20 @@ describe('<Placeholder />', () => {
       );
       expect(renderedComponent.find('.default').length).to.equal(1);
     });
+
+    it('should not render Suspense when disableSuspense is true', () => {
+      const component = sxaRenderingVariantData.sitecore.route as RouteData;
+      const phKey = 'main';
+
+      const renderedComponent = mount(
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder name={phKey} disableSuspense={true} rendering={component} />
+        </SitecoreContext>
+      );
+
+      expect(renderedComponent.find('ErrorBoundary').length).to.equal(1);
+      expect(renderedComponent.find('Suspense').length).to.equal(0);
+    });
   });
 
   describe('BYOC fallback', () => {
@@ -459,7 +471,8 @@ describe('<Placeholder />', () => {
         </SitecoreContext>
       );
 
-      expect(renderedComponent.find('ErrorBoundary').length).to.equal(0);
+      expect(renderedComponent.find('ErrorBoundary').length).to.equal(2);
+      expect(renderedComponent.find('Suspense').length).to.equal(1);
 
       byocComponentStub.restore();
       byocWrapperStub.restore();
