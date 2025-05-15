@@ -12,6 +12,7 @@ export type ErrorBoundaryProps = {
   sitecoreContext: SitecoreContextValue;
   type: string;
   isDynamic?: boolean;
+  disableSuspense?: boolean;
   errorComponent?: React.ComponentClass<ErrorComponentProps> | React.FC<ErrorComponentProps>;
   rendering?: ComponentRendering;
   componentLoadingMessage?: string;
@@ -79,8 +80,8 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
       }
     }
 
-    // do not apply suspense on already dynamic components
-    if (this.props.isDynamic) {
+    // do not apply suspense when suspense is disabled or when on already dynamic components
+    if (this.props.disableSuspense || this.props.isDynamic) {
       return this.props.children;
     }
 

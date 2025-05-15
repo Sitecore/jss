@@ -89,6 +89,11 @@ export interface PlaceholderProps {
    * The message that gets displayed while component is loading
    */
   componentLoadingMessage?: string;
+  /**
+   * If true, disables Suspense for the placeholder.
+   * @default false
+   */
+  disableSuspense?: boolean;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
@@ -118,6 +123,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     ]),
     modifyComponentProps: PropTypes.func,
     sitecoreContext: PropTypes.object as Requireable<SitecoreContextValue>,
+    disableSuspense: PropTypes.bool,
   };
 
   nodeRefs: Element[];
@@ -211,8 +217,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       ...placeholderProps
     } = this.props;
 
-    const containsDynamicComponents = this.shouldSkipErrorBoundary(placeholderData);
-
     const transformedComponents = placeholderData
       .map((rendering: ComponentRendering | HtmlElementRendering, index: number) => {
         const key = (rendering as ComponentRendering).uid
@@ -286,7 +290,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
         );
 
-        if (!isEmpty && !containsDynamicComponents) {
+        if (!isEmpty) {
           // assign type based on passed element - type='text/sitecore' should be ignored when renderEach Placeholder prop function is being used
           const type = rendered.props.type === 'text/sitecore' ? rendered.props.type : '';
 
@@ -295,6 +299,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
           // all dynamic elements will have a separate render prop
           const isDynamicComponent = !!(component as JssComponentType).render?.preload;
+
+          const disableSuspense = false || this.props.disableSuspense;
 
           // wrapping with error boundary could cause problems in case where parent component uses withPlaceholder HOC and tries to access its children props
           // that's why we need to expose element's props here
@@ -305,6 +311,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
               componentLoadingMessage={this.props.componentLoadingMessage}
               type={type}
               isDynamic={isDynamicComponent || isByocWrapper}
+              disableSuspense={disableSuspense}
               {...rendered.props}
             >
               {rendered}
@@ -338,29 +345,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     }
 
     return transformedComponents;
-  }
-
-  shouldSkipErrorBoundary(placeholderData: (ComponentRendering | HtmlElementRendering)[]): boolean {
-    return placeholderData.some((rendering) => {
-      const componentRendering = rendering as ComponentRendering;
-
-      if (!componentRendering?.componentName) return false;
-
-      const component = this.getComponentForRendering(componentRendering);
-
-      const isDynamicComponent = !!(component as JssComponentType)?.render?.preload;
-
-      const isByocWrapper = componentRendering.componentName === BYOC_WRAPPER_RENDERING_NAME;
-
-      const nestedPlaceholders = componentRendering?.placeholders;
-      if (nestedPlaceholders) {
-        return Object.values(nestedPlaceholders).some((nested) =>
-          this.shouldSkipErrorBoundary(nested)
-        );
-      }
-
-      return isDynamicComponent || isByocWrapper;
-    });
   }
 
   getComponentForRendering(renderingDefinition: ComponentRendering): ComponentType | null {
