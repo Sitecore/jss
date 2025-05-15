@@ -13,7 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-* `[sitecore-jss-react]` Fix hydration error by introducing a flag `disableSuspense` to control rendering of Suspense. ([#2081](https://github.com/Sitecore/jss/pull/2081))
+* `[sitecore-jss-react]` Add an optional `disableSuspense` flag for Placeholder component that prevents Suspense from being rendered for components. This can help avoid hydration issues in connected mode. ([#2081](https://github.com/Sitecore/jss/pull/2081))
 
 ### 🛠 Breaking Changes
 
