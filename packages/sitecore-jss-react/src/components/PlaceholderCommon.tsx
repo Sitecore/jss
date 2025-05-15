@@ -300,7 +300,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           // all dynamic elements will have a separate render prop
           const isDynamicComponent = !!(component as JssComponentType).render?.preload;
 
-          const disableSuspense = false || this.props.disableSuspense;
+          const disableSuspense = this.props.disableSuspense || false;
 
           // wrapping with error boundary could cause problems in case where parent component uses withPlaceholder HOC and tries to access its children props
           // that's why we need to expose element's props here
