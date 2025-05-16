@@ -19,12 +19,34 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      should-publish: ${{ steps.set-vars.outputs.should_publish }}
+      branch-name: ${{ steps.set-vars.outputs.branch_name }}
+      lerna-since-flag: ${{ steps.set-vars.outputs.lerna_since_flag }}
     env:
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
     steps:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.ref }}
+
+      - name: Set branch context variables
+        id: set-vars
+        run: |
+          BRANCH_NAME="${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
+          echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+
+          if [[ "$BRANCH_NAME" == "dev" || "$BRANCH_NAME" == release/* ]]; then
+            echo "should_publish=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_publish=false" >> $GITHUB_OUTPUT
+          fi
+
+          if [[ "$GITHUB_EVENT_NAME" == "pull_request" ]]; then
+            echo "lerna_since_flag=--since=origin/dev" >> $GITHUB_OUTPUT
+          else
+            echo "lerna_since_flag=" >> $GITHUB_OUTPUT
+          fi
 
       - name: Use Node.js 22
         uses: actions/setup-node@v3
@@ -44,7 +66,7 @@ jobs:
 
       - name: Lint packages
         run: |
-          yarn lint-packages --since=origin/dev
+          yarn lint-packages ${{ needs.build.outputs.lerna-since-flag }}
 
       - name: Build packages
         run: npm run build
@@ -68,19 +90,19 @@ jobs:
           path: ./coverlet
 
       - name: Scaffold samples
-        if: github.ref != 'refs/heads/dev' && !startsWith(github.ref, 'refs/heads/release/')
+        if: ${{ needs.build.outputs.should-publish != 'true' }}
         run: yarn scaffold-samples
 
       - name: Yarn install (refresh)
-        if: github.ref != 'refs/heads/dev' && !startsWith(github.ref, 'refs/heads/release/')
+        if: ${{ needs.build.outputs.should-publish != 'true' }}
         run: yarn install
 
       - name: Lint samples
-        if: github.ref != 'refs/heads/dev' && !startsWith(github.ref, 'refs/heads/release/')
-        run: yarn lint-samples --since=origin/dev
+        if: ${{ needs.build.outputs.should-publish != 'true' }}
+        run: yarn lint-samples ${{ needs.build.outputs.lerna-since-flag }}
 
       - name: Git configuration for publishing
-        if: startsWith(github.ref, 'refs/heads/dev') || startsWith(github.ref, 'refs/heads/release/')
+        if: ${{ needs.build.outputs.should-publish == 'true' }}
         run: |
           git config user.email builds@sitecore.com
           git config user.name "Automated Build"
@@ -90,19 +112,19 @@ jobs:
           GITHUB_PAT_ENV: ${{ secrets.GITHUB_PAT }}
 
       - name: Generate API docs
-        if: startsWith(github.ref, 'refs/heads/dev') || startsWith(github.ref, 'refs/heads/release/')
+        if: ${{ needs.build.outputs.should-publish == 'true' }}
         run: |
           yarn generate-docs
           git add ./ref-docs/**/*
           git commit -m "Update API docs [skip ci]"
 
       - name: Pre-release version update
-        if: startsWith(github.ref, 'refs/heads/dev') || startsWith(github.ref, 'refs/heads/release/')
+        if: ${{ needs.build.outputs.should-publish == 'true' }}
         run: |
           npm exec -- lerna version prerelease --exact --preid canary --force-publish --message "version %s [skip ci]" --yes
 
       - name: Pre-release canary publish
-        if: startsWith(github.ref, 'refs/heads/dev') || startsWith(github.ref, 'refs/heads/release/')
+        if: ${{ needs.build.outputs.should-publish == 'true' }}
         run: |
           echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
           npm exec -- lerna publish from-git --exact --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
