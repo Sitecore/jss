@@ -1,5 +1,4 @@
 import React, { ReactElement, FunctionComponent } from 'react';
-import PropTypes from 'prop-types';
 
 export interface TextField {
   value?: string | number;
@@ -95,21 +94,6 @@ export const Text: FunctionComponent<TextProps> = ({
   } else {
     return <React.Fragment>{children}</React.Fragment>;
   }
-};
-
-Text.propTypes = {
-  field: PropTypes.shape({
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    editable: PropTypes.string,
-  }),
-  tag: PropTypes.string,
-  editable: PropTypes.bool,
-  encode: PropTypes.bool,
-};
-
-Text.defaultProps = {
-  editable: true,
-  encode: true,
 };
 
 Text.displayName = 'Text';

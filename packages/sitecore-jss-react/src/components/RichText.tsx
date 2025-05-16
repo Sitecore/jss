@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
 
 export interface RichTextField {
   value?: string;
@@ -40,21 +39,5 @@ export const RichText: React.FC<RichTextProps> = forwardRef(
     return React.createElement(tag || 'div', htmlProps);
   }
 );
-
-export const RichTextPropTypes = {
-  field: PropTypes.shape({
-    value: PropTypes.string,
-    editable: PropTypes.string,
-  }),
-  tag: PropTypes.string,
-  editable: PropTypes.bool,
-};
-
-RichText.propTypes = RichTextPropTypes;
-
-RichText.defaultProps = {
-  tag: 'div',
-  editable: true,
-};
 
 RichText.displayName = 'RichText';

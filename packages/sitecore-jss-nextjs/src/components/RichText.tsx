@@ -1,9 +1,7 @@
-import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useRef, JSX } from 'react';
 import { useRouter } from 'next/router';
 import {
   RichText as ReactRichText,
-  RichTextPropTypes,
   RichTextProps as ReactRichTextProps,
 } from '@sitecore-jss/sitecore-jss-react';
 
@@ -70,16 +68,6 @@ export const RichText = (props: RichTextProps): JSX.Element => {
   };
 
   return <ReactRichText ref={richTextRef} {...rest} />;
-};
-
-RichText.propTypes = {
-  internalLinksSelector: PropTypes.string,
-  ...RichTextPropTypes,
-};
-
-RichText.defaultProps = {
-  tag: 'div',
-  editable: true,
 };
 
 RichText.displayName = 'NextRichText';

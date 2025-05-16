@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 export interface DateFieldProps {
   /** The date field data. */
@@ -56,20 +55,6 @@ export const DateField: React.FC<DateFieldProps> = ({
   } else {
     return <React.Fragment>{children}</React.Fragment>;
   }
-};
-
-DateField.propTypes = {
-  field: PropTypes.shape({
-    value: PropTypes.string,
-    editable: PropTypes.string,
-  }).isRequired,
-  tag: PropTypes.string,
-  editable: PropTypes.bool,
-  render: PropTypes.func,
-};
-
-DateField.defaultProps = {
-  editable: true,
 };
 
 DateField.displayName = 'Date';

@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, JSX } from 'react';
 import {
   Image as JssImage,
   Link as JssLink,

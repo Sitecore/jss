@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { GetServerSideProps } from 'next';
 import BYOC from 'src/byoc';
 import * as FEAAS from '@sitecore-feaas/clientside/react';

@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { SitecorePageProps } from 'lib/page-props';
 import { context } from 'src/lib/context';
 import config from 'temp/config';

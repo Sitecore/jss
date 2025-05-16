@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import Image from 'next/image';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 import nextConfig from 'next.config';

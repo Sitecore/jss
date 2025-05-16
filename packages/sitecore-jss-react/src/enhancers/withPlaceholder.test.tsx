@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-expressions */
-/* eslint-disable react/prop-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ReactElement } from 'react';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { convertedDevData as nonEeDevData } from '../test-data/non-ee-data';
 import { convertedDevDataWithoutParams as nonEeDevDataWithoutParams } from '../test-data/non-ee-data';
 import { convertedDataWithoutParams as eeDataWithoutParams } from '../test-data/ee-data';
@@ -12,7 +11,6 @@ import { convertedData as eeData } from '../test-data/ee-data';
 import { withPlaceholder } from '../enhancers/withPlaceholder';
 import { SitecoreContext } from '../components/SitecoreContext';
 import { PlaceholderProps } from '../components/PlaceholderCommon';
-import PropTypes from 'prop-types';
 import { ComponentFactory } from '../components/sharedTypes';
 import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import { Placeholder } from '../components/Placeholder';
@@ -108,8 +106,10 @@ describe('withPlaceholder HOC', () => {
         componentFactory: componentFactory,
       };
       const Element = withPlaceholder(phKey)(ErrorComponent);
-      const renderedComponent = mount(<Element {...props} />);
-      expect(renderedComponent.find('.sc-jss-placeholder-error').length).to.equal(1);
+      const renderedComponent = render(<Element {...props} />);
+      expect(
+        renderedComponent.container.querySelectorAll('.sc-jss-placeholder-error').length
+      ).to.equal(1);
     });
 
     it('should render custom component error on wrapped component error, when provided', () => {
@@ -121,8 +121,9 @@ describe('withPlaceholder HOC', () => {
         errorComponent: ErrorMessageComponent,
       };
       const Element = withPlaceholder(phKey)(ErrorComponent);
-      const renderedComponent = mount(<Element {...props} />);
-      expect(renderedComponent.find('.error-handled').length).to.equal(1);
+
+      const renderedComponent = render(<Element {...props} />);
+      expect(renderedComponent.container.querySelectorAll('.error-handled').length).to.equal(1);
     });
   });
 
@@ -139,14 +140,19 @@ describe('withPlaceholder HOC', () => {
           rendering: component,
           componentFactory: componentFactory,
         };
+
         const Element = withPlaceholder(phKey)(Home);
-        const renderedComponent = mount(
+        const renderedComponent = render(
           <SitecoreContext componentFactory={componentFactory}>
             <Element {...props} />
           </SitecoreContext>
         );
-        expect(renderedComponent.find('.download-callout-mock').length).to.equal(1);
+
+        expect(
+          renderedComponent.container.querySelectorAll('.download-callout-mock').length
+        ).to.equal(1);
       });
+
       it('should render a placeholder with given key and prop', () => {
         const component = (dataSet.data.sitecore.route.placeholders.main as (
           | ComponentRendering
@@ -162,13 +168,15 @@ describe('withPlaceholder HOC', () => {
           componentFactory: componentFactory,
         };
         const Element = withPlaceholder(phKeyAndProp)(Home);
-        const renderedComponent = mount(
+        const renderedComponent = render(
           <SitecoreContext componentFactory={componentFactory}>
             <Element {...props} />
           </SitecoreContext>
         );
-        expect(renderedComponent.find('.home-mock-with-prop').length).to.not.equal(0);
-        expect(renderedComponent.find('.jumbotron-mock').length).to.equal(1);
+        expect(
+          renderedComponent.container.querySelectorAll('.home-mock-with-prop').length
+        ).to.not.equal(0);
+        expect(renderedComponent.container.querySelectorAll('.jumbotron-mock').length).to.equal(1);
       });
       it('should use propsTransformer method when provided', () => {
         const component = (dataSet.data.sitecore.route.placeholders.main as (
@@ -190,13 +198,15 @@ describe('withPlaceholder HOC', () => {
           componentFactory: componentFactory,
         };
         const Element = withPlaceholder(phKeyAndProp, phOptions)(Home);
-        const renderedComponent = mount(
+        const renderedComponent = render(
           <SitecoreContext componentFactory={componentFactory}>
             <Element {...props} />
           </SitecoreContext>
         );
-        expect(renderedComponent.find('.home-mock-with-prop').length).to.equal(0);
-        expect(renderedComponent.find('.home-mock').length).to.not.equal(0);
+        expect(
+          renderedComponent.container.querySelectorAll('.home-mock-with-prop').length
+        ).to.equal(0);
+        expect(renderedComponent.container.querySelectorAll('.home-mock').length).to.not.equal(0);
       });
     });
   });
@@ -215,12 +225,14 @@ describe('withPlaceholder HOC', () => {
           componentFactory: componentFactory,
         };
         const Element = withPlaceholder(phKey)(Home);
-        const renderedComponent = mount(
+        const renderedComponent = render(
           <SitecoreContext componentFactory={componentFactory}>
             <Element {...props} />
           </SitecoreContext>
         );
-        expect(renderedComponent.find('.download-callout-mock').length).to.equal(1);
+        expect(
+          renderedComponent.container.querySelectorAll('.download-callout-mock').length
+        ).to.equal(1);
       });
     });
   });

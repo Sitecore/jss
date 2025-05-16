@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import React from 'react';
 import { EditFrame } from './EditFrame';
 import { ComponentFactory } from './sharedTypes';
@@ -50,59 +50,59 @@ const mockEditingLayoutData: LayoutServiceData = {
 
 describe('<EditFrame />', () => {
   it('should render nothing when not in pageEditing mode', () => {
-    const rendered = mount(
+    const rendered = render(
       <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockLayoutData}>
         <EditFrame>
           <span>Test</span>
         </EditFrame>
-      </SitecoreContext>
-    )
-      .childAt(0)
-      .html();
-    expect(rendered).to.be.equal('<span>Test</span>');
+      </SitecoreContext>,
+      { container: document.body }
+    );
+
+    expect(rendered.baseElement.innerHTML).to.be.equal('<span>Test</span>');
   });
 
   it('should render a frame when in pageEditing mode', () => {
-    const rendered = mount(
+    const rendered = render(
       <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockEditingLayoutData}>
         <EditFrame>
           <span>Test</span>
         </EditFrame>
-      </SitecoreContext>
-    )
-      .childAt(0)
-      .html();
-    expect(rendered).to.be.equal(
+      </SitecoreContext>,
+      { container: document.body }
+    );
+
+    expect(rendered.baseElement.innerHTML).to.be.equal(
       '<div class="scLooseFrameZone"><span class="scChromeData">{}</span><span>Test</span></div>'
     );
   });
 
   it('should render the title and tooltip', () => {
-    const rendered = mount(
+    const rendered = render(
       <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockEditingLayoutData}>
         <EditFrame title="Test Title" tooltip="Test Tooltip">
           <span>Test</span>
         </EditFrame>
-      </SitecoreContext>
-    )
-      .childAt(0)
-      .html();
-    expect(rendered).to.be.equal(
+      </SitecoreContext>,
+      { container: document.body }
+    );
+
+    expect(rendered.baseElement.innerHTML).to.be.equal(
       '<div class="scLooseFrameZone"><span class="scChromeData">{"displayName":"Test Title","expandedDisplayName":"Test Tooltip"}</span><span>Test</span></div>'
     );
   });
 
   it('should render the added class', () => {
-    const rendered = mount(
+    const rendered = render(
       <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockEditingLayoutData}>
         <EditFrame cssClass="TestClass">
           <span>Test</span>
         </EditFrame>
-      </SitecoreContext>
-    )
-      .childAt(0)
-      .html();
-    expect(rendered).to.be.equal(
+      </SitecoreContext>,
+      { container: document.body }
+    );
+
+    expect(rendered.baseElement.innerHTML).to.be.equal(
       '<div class="scLooseFrameZone TestClass"><span class="scChromeData">{}</span><span>Test</span></div>'
     );
   });
@@ -113,16 +113,16 @@ describe('<EditFrame />', () => {
       databaseName: 'master',
       language: 'en',
     };
-    const rendered = mount(
+    const rendered = render(
       <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockEditingLayoutData}>
         <EditFrame dataSource={mockDatasource}>
           <span>Test</span>
         </EditFrame>
-      </SitecoreContext>
-    )
-      .childAt(0)
-      .html();
-    expect(rendered).to.be.equal(
+      </SitecoreContext>,
+      { container: document.body }
+    );
+
+    expect(rendered.baseElement.innerHTML).to.be.equal(
       '<div class="scLooseFrameZone" sc_item="sitecore://master/testItemId?lang=en"><span class="scChromeData">{"contextItemUri":"sitecore://master/testItemId?lang=en"}</span><span>Test</span></div>'
     );
   });
@@ -138,16 +138,16 @@ describe('<EditFrame />', () => {
       '|',
       DefaultEditFrameButton.edit,
     ];
-    const rendered = mount(
+    const rendered = render(
       <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockEditingLayoutData}>
         <EditFrame dataSource={mockDatasource} buttons={mockButtons}>
           <span>Test</span>
         </EditFrame>
-      </SitecoreContext>
-    )
-      .childAt(0)
-      .html();
-    expect(rendered).to.be.equal(
+      </SitecoreContext>,
+      { container: document.body }
+    );
+
+    expect(rendered.baseElement.innerHTML).to.be.equal(
       `<div class="scLooseFrameZone" sc_item="sitecore://master/testItemId?lang=en">
           <span class="scChromeData">
             {"contextItemUri":"sitecore://master/testItemId?lang=en","commands":[{"isDivider":false,"click":"javascript:Sitecore.PageModes.PageEditor.postRequest(\'webedit:new(id=testItemId)\',null,false)","header":"Insert New","icon":"/~/icon/Office/16x16/insert_from_template.png","tooltip":"Insert a new item","type":null},{"click":"chrome:dummy","header":"Separator","icon":"","isDivider":true,"tooltip":null,"type":"separator"},{"isDivider":false,"click":"javascript:Sitecore.PageModes.PageEditor.postRequest(\'webedit:fieldeditor(command={70C4EED5-D4CD-4D7D-9763-80C42504F5E7}, fields=Title|Text, id=testItemId)\',null,false)","header":"Edit Item","icon":"/~/icon/people/16x16/cubes_blue.png","tooltip":"Edit the item fields.","type":null}]}
