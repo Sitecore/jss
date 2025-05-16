@@ -97,7 +97,7 @@ jobs:
           path: ./coverlet
 
       - name: Publish coverage in build summary
-        run: cat coveragereport/SummaryGithub.md >> $GITHUB_STEP_SUMMARY # Adjust path and filename if necessary
+        run: cat coverlet/SummaryGithub.md >> $GITHUB_STEP_SUMMARY # Adjust path and filename if necessary
         shell: bash
 
       - name: Scaffold samples
