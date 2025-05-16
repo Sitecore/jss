@@ -45,6 +45,28 @@ sitecore-jss-react/types/components/PlaceholderCommon.d.ts:68
 
 ***
 
+### disableSuspense?
+
+> `optional` **disableSuspense**: `boolean`
+
+If true, disables Suspense for the placeholder.
+
+#### Default
+
+```ts
+false
+```
+
+#### Inherited from
+
+`PlaceholderProps.disableSuspense`
+
+#### Defined in
+
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:73
+
+***
+
 ### errorComponent?
 
 > `optional` **errorComponent**: `ComponentClass`\<`ErrorComponentProps`, `any`\> \| `FC`\<`ErrorComponentProps`\>

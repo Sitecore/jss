@@ -88,6 +88,11 @@ export interface PlaceholderProps {
    * The message that gets displayed while component is loading
    */
   componentLoadingMessage?: string;
+  /**
+   * If true, disables Suspense for the placeholder.
+   * @default false
+   */
+  disableSuspense?: boolean;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
@@ -265,6 +270,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           // all dynamic elements will have a separate render prop
           const isDynamicComponent = !!(component as JssComponentType).render?.preload;
 
+          const disableSuspense = this.props.disableSuspense || false;
+
           // wrapping with error boundary could cause problems in case where parent component uses withPlaceholder HOC and tries to access its children props
           // that's why we need to expose element's props here
           rendered = (
@@ -274,6 +281,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
               componentLoadingMessage={this.props.componentLoadingMessage}
               type={type}
               isDynamic={isDynamicComponent || isByocWrapper}
+              disableSuspense={disableSuspense}
               {...rendered.props}
             >
               {rendered}

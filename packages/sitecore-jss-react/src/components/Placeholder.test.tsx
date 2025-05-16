@@ -495,6 +495,20 @@ describe('FEaaS fallback', () => {
   });
 });
 
+it.skip('should not render Suspense when disableSuspense is true', () => {
+  const component = sxaRenderingVariantData.sitecore.route as RouteData;
+  const phKey = 'main';
+
+  const renderedComponent = render(
+    <SitecoreContext componentFactory={componentFactory}>
+      <Placeholder name={phKey} disableSuspense={true} rendering={component} />
+    </SitecoreContext>
+  );
+
+  expect(renderedComponent.container.querySelectorAll('ErrorBoundary').length).to.equal(1);
+  expect(renderedComponent.container.querySelectorAll('Suspense').length).to.equal(0);
+});
+
 it('should populate the "key" attribute of placeholder chrome', () => {
   const component: any = eeData.sitecore.route;
   const phKey = 'main';
