@@ -53,6 +53,12 @@ jobs:
         with:
           node-version: 22
 
+      - name: Show variables
+        run: |
+          echo "branch_name=${{ steps.set-vars.outputs.branch_name }}"
+          echo "should_publish=${{ steps.set-vars.outputs.should_publish }}"
+          echo "lerna_since_flag=${{ steps.set-vars.outputs.lerna_since_flag }}"
+
       - name: Setup .NET Core # Required to execute ReportGenerator
         uses: actions/setup-dotnet@v4
         with:
