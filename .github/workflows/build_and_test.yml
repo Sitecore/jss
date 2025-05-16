@@ -29,6 +29,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
+          fetch-depth: 0
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
       - name: Set branch context variables
         id: set-vars
@@ -47,11 +53,6 @@ jobs:
           else
             echo "lerna_since_flag=" >> $GITHUB_OUTPUT
           fi
-
-      - name: Use Node.js 22
-        uses: actions/setup-node@v3
-        with:
-          node-version: 22
 
       - name: Show variables
         run: |
