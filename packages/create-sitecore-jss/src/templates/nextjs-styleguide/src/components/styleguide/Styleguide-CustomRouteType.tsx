@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import Link from 'next/link';
 import { useSitecoreContext, Text, RichText, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 
@@ -27,9 +28,7 @@ const StyleguideCustomRouteType = (): JSX.Element => {
 
       <RichText field={fields.content} />
 
-      <Link href="/styleguide">
-        Return to the Styleguide
-      </Link>
+      <Link href="/styleguide">Return to the Styleguide</Link>
     </div>
   );
 };

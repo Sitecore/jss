@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { JSX } from 'react';
 import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 interface FieldMetadataProps {
@@ -32,8 +31,3 @@ export const FieldMetadata = (props: FieldMetadataProps): JSX.Element => {
 };
 
 FieldMetadata.displayName = 'FieldMetadata';
-
-FieldMetadata.propTypes = {
-  metadata: PropTypes.object.isRequired,
-  children: PropTypes.node.isRequired,
-};

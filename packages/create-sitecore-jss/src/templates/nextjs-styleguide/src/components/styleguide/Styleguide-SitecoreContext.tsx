@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from './Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';

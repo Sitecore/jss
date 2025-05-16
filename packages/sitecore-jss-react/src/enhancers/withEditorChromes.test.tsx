@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { spy } from 'sinon';
 import { ExperienceEditor } from '@sitecore-jss/sitecore-jss/editing';
 
@@ -20,9 +20,10 @@ describe('withEditorChromes', () => {
     // sinon cannot spy on the resetEditorChromes instance used in withEditorChromes - so we test for method that is called by it
     const utilSpy = spy(ExperienceEditor, 'isActive');
 
-    const rendered = mount(<WrappedComponent {...props} />);
-    expect(rendered.children.length).to.not.equal(0);
-    rendered.setProps({ stringProp: '456' });
+    const rendered = render(<WrappedComponent {...props} />);
+    expect(rendered.container.children.length).to.not.equal(0);
+    const newProps = { ...props, stringProp: '456' };
+    rendered.rerender(<WrappedComponent {...newProps} />);
     expect(utilSpy.called).to.be.true;
   });
 });
