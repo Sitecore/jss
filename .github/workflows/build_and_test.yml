@@ -1,13 +1,13 @@
 name: Build and Test
 
 on:
-  push:
-    branches:
-      - master
-      - dev
-      - 'release/**'
-    paths:
-      - '**'
+  # push:
+  #   branches:
+  #     - master
+  #     - dev
+  #     - 'release/**'
+  #   paths:
+  #     - '**'
   pull_request:
     branches:
       - master
