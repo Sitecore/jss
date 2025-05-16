@@ -88,13 +88,17 @@ jobs:
         with:
           reports: '**/cobertura-coverage.xml'
           targetdir: './coverlet'
-          reporttypes: 'HtmlInline_AzurePipelines;Cobertura'
+          reporttypes: 'HtmlInline;MarkdownSummaryGithub;Cobertura'
 
       - name: Upload code coverage report
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: ./coverlet
+
+      - name: Publish coverage in build summary
+        run: cat coveragereport/SummaryGithub.md >> $GITHUB_STEP_SUMMARY # Adjust path and filename if necessary
+        shell: bash
 
       - name: Scaffold samples
         if: ${{ steps.set-vars.outputs.should_publish != 'true' }}
