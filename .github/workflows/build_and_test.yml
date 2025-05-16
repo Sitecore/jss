@@ -22,7 +22,7 @@ jobs:
     outputs:
       should-publish: ${{ steps.set-vars.outputs.should_publish }}
       branch-name: ${{ steps.set-vars.outputs.branch_name }}
-      lerna-since-flag: --since=${{ steps.set-vars.outputs.lerna_since_flag }}
+      lerna-since-flag: ${{ steps.set-vars.outputs.lerna_since_flag }}
     env:
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
     steps:
@@ -49,7 +49,7 @@ jobs:
           fi
 
           if [[ "$GITHUB_EVENT_NAME" == "pull_request" ]]; then
-            echo "lerna_since_flag=origin/dev" >> $GITHUB_OUTPUT
+            echo "lerna_since_flag=--since=origin/dev" >> $GITHUB_OUTPUT
           else
             echo "lerna_since_flag=" >> $GITHUB_OUTPUT
           fi
