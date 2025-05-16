@@ -1,0 +1,104 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+      - 'release/**'
+    paths:
+      - '**'
+  pull_request:
+    branches:
+      - master
+      - dev
+      - 'release/**'
+    paths:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      YARN_ENABLE_IMMUTABLE_INSTALLS: false
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Yarn install (initial)
+        run: |
+          yarn cache clean --all
+          yarn install --immutable
+
+      - name: Lint packages
+        run: |
+          yarn lint-packages --since=origin/dev
+
+      - name: Build packages
+        run: npm run build
+
+      - name: Run tests and collect coverage
+        run: yarn coverage-packages
+        env:
+          testEnv: ci
+
+      - name: Generate code coverage report
+        uses: danielpalme/reportgenerator@5.1.22
+        with:
+          reports: '**/cobertura-coverage.xml'
+          targetdir: './coverlet'
+          reporttypes: 'HtmlInline_AzurePipelines;Cobertura'
+
+      - name: Upload code coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: ./coverlet
+
+      - name: Scaffold samples
+        if: github.ref != 'refs/heads/dev' && !startsWith(github.ref, 'refs/heads/release/')
+        run: yarn scaffold-samples
+
+      - name: Yarn install (refresh)
+        if: github.ref != 'refs/heads/dev' && !startsWith(github.ref, 'refs/heads/release/')
+        run: yarn install
+
+      - name: Lint samples
+        if: github.ref != 'refs/heads/dev' && !startsWith(github.ref, 'refs/heads/release/')
+        run: yarn lint-samples --since=origin/dev
+
+      - name: Git configuration for publishing
+        if: startsWith(github.ref, 'refs/heads/dev') || startsWith(github.ref, 'refs/heads/release/')
+        run: |
+          git config user.email builds@sitecore.com
+          git config user.name "Automated Build"
+          git remote set-url origin https://$GITHUB_PAT_ENV@github.com/${{ github.repository }}
+          git checkout ${{ github.head_ref || github.ref_name }}
+        env:
+          GITHUB_PAT_ENV: ${{ secrets.GITHUB_PAT }}
+
+      - name: Generate API docs
+        if: startsWith(github.ref, 'refs/heads/dev') || startsWith(github.ref, 'refs/heads/release/')
+        run: |
+          yarn generate-docs
+          git add ./ref-docs/**/*
+          git commit -m "Update API docs [skip ci]"
+
+      - name: Pre-release version update
+        if: startsWith(github.ref, 'refs/heads/dev') || startsWith(github.ref, 'refs/heads/release/')
+        run: |
+          npm exec -- lerna version prerelease --exact --preid canary --force-publish --message "version %s [skip ci]" --yes
+
+      - name: Pre-release canary publish
+        if: startsWith(github.ref, 'refs/heads/dev') || startsWith(github.ref, 'refs/heads/release/')
+        run: |
+          echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+          npm exec -- lerna publish from-git --exact --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
