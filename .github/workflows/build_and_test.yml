@@ -33,7 +33,7 @@ jobs:
       - name: Set branch context variables
         id: set-vars
         run: |
-          $BRANCH_NAME="${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
+          BRANCH_NAME="${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
           echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
 
           if [[ "$BRANCH_NAME" == "dev" || "$BRANCH_NAME" == release/* ]]; then
