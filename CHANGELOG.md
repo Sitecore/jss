@@ -19,7 +19,7 @@ Our versioning strategy is as follows:
 
 * Upgrade cloudsdk to 0.5 ([#2060](https://github.com/Sitecore/jss/pull/2060)):
   * This upgrade doesn't introduce any breaking changes, however you will have to upgrade your cloudsdk dependencies to meet peer dependencies requirements
-* `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[create-sitecore-jss]` `[sitecore-jss-proxy]` `[sitecore-jss-angular]` Upgrade React to version 19 and Nextjs to version 15 ([#2078](https://github.com/Sitecore/jss/pull/2078)):
+* `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[create-sitecore-jss]` `[sitecore-jss-proxy]` `[sitecore-jss-angular]` Upgrade React to version 19 and Nextjs to version 15 ([#2078](https://github.com/Sitecore/jss/pull/2078)) ([#2084](https://github.com/Sitecore/jss/pull/2084)):
   * upgrade React and Nextjs dependencies for the new major versions
   * with React 19, JSX is in the 'react' namespace and therefore 'react' needs to be imported befoore using JSX. All OOTB react and nextjs components have been updated
   * `react-test-renderer` has been deprecated in react 19. additionaly `enzyme` is not supported anymore so all unit tests have been migrated to use `@`testing-library/react`
@@ -27,6 +27,7 @@ Our versioning strategy is as follows:
   * in NextJs 15 the `geo` and `ip` properties on `NextRequest` have been removed. To account for this `sitecore-cloudsdk` dependencies have been upgraded to 0.5.1, which does not include breaking change.
   * remove 'react' dependency from nextconfig webpack externals in monorepo next config plugin as it is not needed anymore.
   * for `[sitecore-jss-proxy]` `[sitecore-jss-angular]` - `sitecore-cloudsdk` dependencies have been upgraded to 0.5.1, which does not include breaking change.
+  * PersonalizeMiddleware handler now accepts PersonalizeOptions, that can be used to provide geolocation data from application level
 
 ## 22.6.0
 
