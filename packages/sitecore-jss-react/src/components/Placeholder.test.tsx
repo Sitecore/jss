@@ -65,6 +65,10 @@ const componentFactory: ComponentFactory = (componentName: string) => {
 
   components.set('DownloadCallout', DownloadCallout);
   components.set('Jumbotron', () => <div className="jumbotron-mock" />);
+  components.set(
+    'DynamicComponent',
+    React.lazy(() => import('../test-data/test-dynamic-component'))
+  );
 
   return components.get(componentName) || null;
 };
@@ -495,8 +499,21 @@ describe('FEaaS fallback', () => {
   });
 });
 
-it.skip('should not render Suspense when disableSuspense is true', () => {
-  const component = sxaRenderingVariantData.sitecore.route as RouteData;
+it('should render Suspense when disableSuspense is false', () => {
+  const component = nonEeDevData.sitecore.route as RouteData;
+  const phKey = 'main';
+
+  const renderedComponent = render(
+    <SitecoreContext componentFactory={componentFactory}>
+      <Placeholder name={phKey} disableSuspense={false} rendering={component} />
+    </SitecoreContext>
+  );
+
+  expect(renderedComponent.container.innerHTML).to.contain('Loading component...');
+});
+
+it('should not render Suspense when disableSuspense is true', () => {
+  const component = nonEeDevData.sitecore.route as RouteData;
   const phKey = 'main';
 
   const renderedComponent = render(
@@ -505,8 +522,7 @@ it.skip('should not render Suspense when disableSuspense is true', () => {
     </SitecoreContext>
   );
 
-  expect(renderedComponent.container.querySelectorAll('ErrorBoundary').length).to.equal(1);
-  expect(renderedComponent.container.querySelectorAll('Suspense').length).to.equal(0);
+  expect(renderedComponent.container.innerHTML).to.not.contain('Loading component...');
 });
 
 it('should populate the "key" attribute of placeholder chrome', () => {
