@@ -11,7 +11,6 @@ import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig, REWRITE_HEADER_NAME } from './middleware';
 import { CloudSDK } from '@sitecore-cloudsdk/core/server';
 import { personalize } from '@sitecore-cloudsdk/personalize/server';
-import { PersonalizeGeolocation } from '@sitecore-cloudsdk/personalize/dist/esm/src/lib/personalization/personalizer';
 
 export type CdpServiceConfig = {
   /**
@@ -59,7 +58,16 @@ export type PersonalizeOptions = {
   /**
    * Geolocation data used for personalization
    */
-  geo?: PersonalizeGeolocation;
+  geo?: PersonalizeGeoData;
+};
+
+/**
+ * Represents the geolocation data used for personalization
+ */
+export type PersonalizeGeoData = {
+  city?: string;
+  country?: string;
+  region?: string;
 };
 
 /**
