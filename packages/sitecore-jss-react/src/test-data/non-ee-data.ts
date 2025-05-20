@@ -77,49 +77,6 @@ export const convertedDevData: LayoutServiceData = {
   },
 };
 
-export const dynamicComponentData: LayoutServiceData = {
-  sitecore: {
-    context: {
-      pageEditing: false,
-    },
-    route: {
-      name: 'home',
-      displayName: 'Home',
-      placeholders: {
-        main: [
-          {
-            componentName: 'Home',
-            fields: {
-              message: {
-                value: 'JavaScript all the things!',
-              },
-            },
-            uid: '2339622d-093b-4258-8334-95979e41efa6',
-            placeholders: {
-              'page-content': [
-                {
-                  uid: '77777777-845d-4de4-bf8e-1f4feddf8908',
-                  componentName: 'DynamicComponent',
-                  fields: {
-                    title: {
-                      value: 'Dynamic Component',
-                    },
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-      fields: {
-        key: {
-          value: 'This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;',
-        },
-      },
-    },
-  },
-};
-
 export const convertedLayoutServiceData = {
   sitecore: {
     context: {
