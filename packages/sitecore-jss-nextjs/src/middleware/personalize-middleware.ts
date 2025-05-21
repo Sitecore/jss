@@ -46,6 +46,25 @@ export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
 };
 
 /**
+ * Personalization options
+ */
+export type PersonalizeOptions = {
+  /**
+   * Geolocation data used for personalization
+   */
+  geo?: PersonalizeGeoData;
+};
+
+/**
+ * Represents the geolocation data used for personalization
+ */
+export type PersonalizeGeoData = {
+  city?: string;
+  country?: string;
+  region?: string;
+};
+
+/**
  * Object model of Experience Context data
  */
 export type ExperienceParams = {
@@ -83,10 +102,14 @@ export class PersonalizeMiddleware extends MiddlewareBase {
    * Gets the Next.js middleware handler with error handling
    * @returns middleware handler
    */
-  public getHandler(): (req: NextRequest, res?: NextResponse) => Promise<NextResponse> {
-    return async (req, res) => {
+  public getHandler(): (
+    req: NextRequest,
+    res?: NextResponse,
+    options?: PersonalizeOptions
+  ) => Promise<NextResponse> {
+    return async (req, res, options) => {
       try {
-        return await this.handler(req, res);
+        return await this.handler(req, res, options);
       } catch (error) {
         console.log('Personalize middleware failed:');
         console.log(error);
@@ -123,11 +146,13 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       personalizeInfo,
       language,
       timeout,
+      options,
     }: {
       personalizeInfo: PersonalizeInfo;
       params: ExperienceParams;
       language: string;
       timeout?: number;
+      options?: PersonalizeOptions;
     },
     request: NextRequest
   ) {
@@ -137,6 +162,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       friendlyId: personalizeInfo.contentId,
       params,
       language,
+      geo: options?.geo,
     };
 
     return (await personalize(request, personalizationData, { timeout })) as {
@@ -166,7 +192,11 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     return pathname.includes('.') || super.excludeRoute(pathname);
   }
 
-  private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
+  private handler = async (
+    req: NextRequest,
+    res?: NextResponse,
+    options?: PersonalizeOptions
+  ): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
     const language = this.getLanguage(req);
     const hostname = this.getHostHeader(req) || this.defaultHostname;
@@ -236,7 +266,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     // eslint-disable-next-line no-useless-catch
     try {
       const personalization = await this.personalize(
-        { personalizeInfo, params, language, timeout },
+        { personalizeInfo, params, language, timeout, options },
         req
       );
       variantId = personalization.variantId;
