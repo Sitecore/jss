@@ -20,7 +20,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:44](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/layout/models.ts#L44)
+[packages/sitecore-jss/src/layout/models.ts:44](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/layout/models.ts#L44)
 
 ***
 
@@ -30,7 +30,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:43](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/layout/models.ts#L43)
+[packages/sitecore-jss/src/layout/models.ts:43](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/layout/models.ts#L43)
 
 ***
 
@@ -40,7 +40,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:42](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/layout/models.ts#L42)
+[packages/sitecore-jss/src/layout/models.ts:42](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/layout/models.ts#L42)
 
 ***
 
@@ -50,7 +50,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:36](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/layout/models.ts#L36)
+[packages/sitecore-jss/src/layout/models.ts:36](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/layout/models.ts#L36)
 
 ***
 
@@ -60,7 +60,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:35](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/layout/models.ts#L35)
+[packages/sitecore-jss/src/layout/models.ts:35](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/layout/models.ts#L35)
 
 ***
 
@@ -70,7 +70,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:34](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/layout/models.ts#L34)
+[packages/sitecore-jss/src/layout/models.ts:34](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/layout/models.ts#L34)
 
 ***
 
@@ -80,7 +80,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:37](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/layout/models.ts#L37)
+[packages/sitecore-jss/src/layout/models.ts:37](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/layout/models.ts#L37)
 
 ***
 
@@ -94,7 +94,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:39](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/layout/models.ts#L39)
+[packages/sitecore-jss/src/layout/models.ts:39](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/layout/models.ts#L39)
 
 ***
 
@@ -104,4 +104,4 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:38](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/layout/models.ts#L38)
+[packages/sitecore-jss/src/layout/models.ts:38](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/layout/models.ts#L38)

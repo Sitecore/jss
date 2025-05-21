@@ -27,7 +27,7 @@ provides configuration information to determine feature compatibility on Pages s
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:37](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L37)
+[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:37](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L37)
 
 ## Properties
 
@@ -39,7 +39,7 @@ Editing configuration middleware config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:37](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L37)
+[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:37](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L37)
 
 ## Methods
 
@@ -68,4 +68,4 @@ middleware handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:43](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L43)
+[sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:43](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L43)

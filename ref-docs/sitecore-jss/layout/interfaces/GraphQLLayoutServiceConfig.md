@@ -21,7 +21,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/graphql-layout-service.ts:22](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L22)
+[packages/sitecore-jss/src/layout/graphql-layout-service.ts:22](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L22)
 
 ***
 
@@ -49,7 +49,7 @@ layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/graphql-layout-service.ts:32](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L32)
+[packages/sitecore-jss/src/layout/graphql-layout-service.ts:32](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L32)
 
 ***
 
@@ -65,7 +65,7 @@ Number of retries for client. Will use the specified `retryStrategy`.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:83](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/graphql-request-client.ts#L83)
+[packages/sitecore-jss/src/graphql-request-client.ts:83](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/graphql-request-client.ts#L83)
 
 ***
 
@@ -82,7 +82,7 @@ back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:88](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/graphql-request-client.ts#L88)
+[packages/sitecore-jss/src/graphql-request-client.ts:88](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/graphql-request-client.ts#L88)
 
 ***
 
@@ -94,4 +94,4 @@ The JSS application name
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/graphql-layout-service.ts:17](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L17)
+[packages/sitecore-jss/src/layout/graphql-layout-service.ts:17](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L17)

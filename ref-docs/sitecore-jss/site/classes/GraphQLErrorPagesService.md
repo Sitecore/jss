@@ -28,7 +28,7 @@ Creates an instance of graphQL error pages service with the provided options
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:71](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L71)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:71](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L71)
 
 ## Properties
 
@@ -40,7 +40,7 @@ instance
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:71](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L71)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:71](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L71)
 
 ## Accessors
 
@@ -56,7 +56,7 @@ instance
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:75](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L75)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:75](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L75)
 
 ## Methods
 
@@ -78,7 +78,7 @@ if the siteName is empty.
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:84](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L84)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:84](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L84)
 
 ***
 
@@ -98,4 +98,4 @@ implementation
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:108](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L108)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:108](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L108)

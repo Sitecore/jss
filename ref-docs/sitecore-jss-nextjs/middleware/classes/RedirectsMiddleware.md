@@ -35,7 +35,7 @@ compares with current url and redirects to target url
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:49](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L49)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:49](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L49)
 
 ## Properties
 
@@ -51,7 +51,7 @@ redirects middleware config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:49](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L49)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:49](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L49)
 
 ***
 
@@ -65,7 +65,7 @@ redirects middleware config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:34](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L34)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:34](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L34)
 
 ***
 
@@ -79,7 +79,7 @@ redirects middleware config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:33](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L33)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:33](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L33)
 
 ## Methods
 
@@ -103,7 +103,7 @@ redirects middleware config
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:64](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L64)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:64](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L64)
 
 ***
 
@@ -132,7 +132,7 @@ Object with headers as key/value pairs
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:79](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L79)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:79](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L79)
 
 ***
 
@@ -157,7 +157,7 @@ Promise<RedirectInfo | undefined> The redirect info or undefined if no redirect 
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:81](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L81)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:81](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L81)
 
 ***
 
@@ -186,7 +186,7 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:62](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L62)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:62](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L62)
 
 ***
 
@@ -212,7 +212,7 @@ Extract 'host' header
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:98](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L98)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:98](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L98)
 
 ***
 
@@ -240,7 +240,7 @@ language
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:90](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L90)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:90](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L90)
 
 ***
 
@@ -270,7 +270,7 @@ site information
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:109](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L109)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:109](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L109)
 
 ***
 
@@ -298,7 +298,7 @@ is prefetch
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:56](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L56)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:56](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L56)
 
 ***
 
@@ -326,7 +326,7 @@ is preview
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:45](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L45)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:45](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L45)
 
 ***
 
@@ -349,7 +349,7 @@ The redirect response.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:162](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L162)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:162](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L162)
 
 ***
 
@@ -378,4 +378,4 @@ Create a rewrite response
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/middleware.ts:126](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L126)
+[sitecore-jss-nextjs/src/middleware/middleware.ts:126](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L126)

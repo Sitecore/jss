@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/data-fetcher.ts:32](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/data-fetcher.ts#L32)
+[packages/sitecore-jss/src/data-fetcher.ts:32](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/data-fetcher.ts#L32)
 
 ## Properties
 
@@ -71,7 +71,7 @@ node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 #### Defined in
 
-[packages/sitecore-jss/src/data-fetcher.ts:30](https://github.com/Sitecore/jss/blob/db3dd7b69f3fbaec8a5d9599aeff8a0d6770d426/packages/sitecore-jss/src/data-fetcher.ts#L30)
+[packages/sitecore-jss/src/data-fetcher.ts:30](https://github.com/Sitecore/jss/blob/c1641f6d8e72715570af3e3fb117c8266f13b037/packages/sitecore-jss/src/data-fetcher.ts#L30)
 
 ***
 
