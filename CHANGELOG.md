@@ -22,7 +22,7 @@ Our versioning strategy is as follows:
   * with React 19, JSX is in the 'react' namespace and therefore 'react' needs to be imported befoore using JSX. All OOTB react and nextjs components have been updated
   * `react-test-renderer` has been deprecated in react 19. additionaly `enzyme` is not supported anymore so all unit tests have been migrated to use `@`testing-library/react`
   * `propTypes` have been deprecated by react and have been removed from the solution
-  * in NextJs 15 the `geo` and `ip` properties on `NextRequest` have been removed. To account for this `sitecore-cloudsdk` dependencies have been upgraded to 0.5.1, which does not include breaking change.
+  * in NextJs 15 the `geo` and `ip` properties on `NextRequest` have been removed. To account for this `@sitecore-cloudsdk` dependencies have been upgraded to 0.5.1, which does not include breaking changes, however you will have to upgrade your cloudsdk dependencies to meet peer dependencies requirements
   * remove 'react' dependency from nextconfig webpack externals in monorepo next config plugin as it is not needed anymore.
   * PersonalizeMiddleware handler now accepts PersonalizeOptions, that can be used to provide geolocation data from application level
 * `[Angular]`: `[sitecore-jss-proxy]` `[sitecore-jss-angular]` `@sitecore-cloudsdk` dependencies have been upgraded to 0.5.1 ([#2060](https://github.com/Sitecore/jss/pull/2060))([#2078](https://github.com/Sitecore/jss/pull/2078))
