@@ -4,9 +4,9 @@
 /* eslint-disable react/prop-types */
 import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import { expect } from 'chai';
-import { render } from '@testing-library/react';
+import { findByText, render } from '@testing-library/react';
 import React from 'react';
-import { spy, stub } from 'sinon';
+import { stub } from 'sinon';
 import { convertedData as eeData, emptyPlaceholderData } from '../test-data/ee-data';
 import {
   byocWrapperData,
@@ -31,6 +31,8 @@ import { Placeholder } from './Placeholder';
 import { ComponentProps } from './PlaceholderCommon';
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
+
+const dynamicComponent = React.lazy(() => import('../test-data/test-dynamic-component'));
 
 const componentFactory: ComponentFactory = (componentName: string) => {
   const components = new Map<string, React.FC>();
@@ -65,10 +67,7 @@ const componentFactory: ComponentFactory = (componentName: string) => {
 
   components.set('DownloadCallout', DownloadCallout);
   components.set('Jumbotron', () => <div className="jumbotron-mock" />);
-  components.set(
-    'DynamicComponent',
-    React.lazy(() => import('../test-data/test-dynamic-component'))
-  );
+  components.set('DynamicComponent', dynamicComponent);
 
   return components.get(componentName) || null;
 };
@@ -499,7 +498,7 @@ describe('FEaaS fallback', () => {
   });
 });
 
-it('should render Suspense when disableSuspense is false', () => {
+it('should render Suspense when disableSuspense is false', async () => {
   const component = nonEeDevData.sitecore.route as RouteData;
   const phKey = 'main';
 
@@ -510,9 +509,11 @@ it('should render Suspense when disableSuspense is false', () => {
   );
 
   expect(renderedComponent.container.innerHTML).to.contain('Loading component...');
+
+  await findByText(renderedComponent.container, 'No error');
 });
 
-it('should not render Suspense when disableSuspense is true', () => {
+it('should not render Suspense when disableSuspense is true', async () => {
   const component = nonEeDevData.sitecore.route as RouteData;
   const phKey = 'main';
 
@@ -523,6 +524,8 @@ it('should not render Suspense when disableSuspense is true', () => {
   );
 
   expect(renderedComponent.container.innerHTML).to.not.contain('Loading component...');
+
+  await findByText(renderedComponent.container, 'No error');
 });
 
 it('should populate the "key" attribute of placeholder chrome', () => {
