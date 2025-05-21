@@ -436,7 +436,7 @@ describe('BYOC fallback', () => {
     byocWrapperStub.restore();
   });
 
-  it.skip('should render ErrorBoundary without Suspense for byoc wrapper', () => {
+  it('should render ErrorBoundary without Suspense for byoc wrapper', () => {
     const component = byocWrapperData.sitecore.route as RouteData;
     const phKey = 'main';
 
@@ -456,8 +456,16 @@ describe('BYOC fallback', () => {
       </SitecoreContext>
     );
 
-    expect(renderedComponent.container.querySelectorAll('ErrorBoundary').length).to.equal(2);
-    expect(renderedComponent.container.querySelectorAll('Suspense').length).to.equal(1);
+    expect(renderedComponent.container.innerHTML).to.not.contain('Loading component...');
+
+    expect(renderedComponent.container.querySelectorAll('.byoc-wrapper').length).to.equal(1);
+
+    const components = renderedComponent.container.querySelectorAll('.byoc-component');
+
+    expect(components.length).to.equal(2);
+
+    expect(components[0].textContent).to.equal('Foo');
+    expect(components[1].textContent).to.equal('Foo');
 
     byocComponentStub.restore();
     byocWrapperStub.restore();
