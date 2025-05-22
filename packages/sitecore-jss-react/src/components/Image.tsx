@@ -1,3 +1,4 @@
+import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import React from 'react';
 import { addClassName, convertAttributesToReactProps } from '../utils';
 import { getAttributesString } from '../utils';

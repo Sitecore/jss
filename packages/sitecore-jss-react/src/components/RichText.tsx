@@ -23,7 +23,7 @@ export interface RichTextProps {
 }
 
 export const RichText: React.FC<RichTextProps> = forwardRef(
-  ({ field, tag, editable, ...otherProps }, ref) => {
+  ({ field, tag, editable, ...otherProps }: RichTextProps, ref) => {
     if (!field || (!field.editable && !field.value)) {
       return null;
     }
