@@ -7,9 +7,11 @@ import {
   LayoutServiceData,
   Field,
   HTMLLink,
+  <% if (templates.includes('nextjs-xmcloud')) { %>
   Placeholder,
   DesignLibrary,
   RenderingType,
+  <% } %>
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 import Scripts from 'src/Scripts';
@@ -34,35 +36,6 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
   const isPageEditing = layoutData.sitecore.context.pageEditing;
   const mainClassPageEditing = isPageEditing ? 'editing-mode' : 'prod-mode';
 
-  const renderContent = () => {
-
-    const isXmCloud = false; 
-
-    if (isXmCloud && layoutData.sitecore.context.renderingType === RenderingType.Component) {
-      return <DesignLibrary {...layoutData} />;
-    }
-
-    return (
-      <>
-        <header>
-          <div id="header">
-            {route && <Placeholder name="headless-header" rendering={route} />}
-          </div>
-        </header>
-        <main>
-          <div id="content">
-            {route && <Placeholder name="headless-main" rendering={route} />}
-          </div>
-        </main>
-        <footer>
-          <div id="footer">
-            {route && <Placeholder name="headless-footer" rendering={route} />}
-          </div>
-        </footer>
-      </>
-    );
-  };
-
   return (
     <>
       <Scripts />
@@ -76,7 +49,29 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
 
       {/* root placeholder for the app, which we add components to using route data */}
       <div className={mainClassPageEditing}>
-        {renderContent()}
+        <% if (templates.includes('nextjs-xmcloud')) { %>
+          {layoutData.sitecore.context.renderingType === RenderingType.Component ? (
+            <DesignLibrary {...layoutData} />
+          ) : (
+            <>
+              <header>
+                <div id="header">
+                  {route && <Placeholder name="headless-header" rendering={route} />}
+                </div>
+              </header>
+              <main>
+                <div id="content">
+                  {route && <Placeholder name="headless-main" rendering={route} />}
+                </div>
+              </main>
+              <footer>
+                <div id="footer">
+                  {route && <Placeholder name="headless-footer" rendering={route} />}
+                </div>
+              </footer>
+            </>
+          )}
+        <% } %>
       </div>
     </>
   );
