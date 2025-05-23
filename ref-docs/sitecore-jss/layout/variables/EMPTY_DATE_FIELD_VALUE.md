@@ -13,4 +13,4 @@ This value is defined as a default one by .NET
 
 ## Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:102](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss/src/layout/utils.ts#L102)
+[packages/sitecore-jss/src/layout/utils.ts:102](https://github.com/Sitecore/jss/blob/583fb25e42e217927b6778140913246aa869a804/packages/sitecore-jss/src/layout/utils.ts#L102)

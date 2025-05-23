@@ -24,4 +24,4 @@ The event should update a component on page by uid, with fields and params from 
 
 ## Defined in
 
-[packages/sitecore-jss/src/editing/design-library.ts:46](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss/src/editing/design-library.ts#L46)
+[packages/sitecore-jss/src/editing/design-library.ts:46](https://github.com/Sitecore/jss/blob/583fb25e42e217927b6778140913246aa869a804/packages/sitecore-jss/src/editing/design-library.ts#L46)

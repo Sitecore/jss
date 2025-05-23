@@ -18,4 +18,4 @@ list of allowed origins from JSS_ALLOWED_ORIGINS env variable
 
 ## Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:100](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss/src/utils/utils.ts#L100)
+[packages/sitecore-jss/src/utils/utils.ts:100](https://github.com/Sitecore/jss/blob/583fb25e42e217927b6778140913246aa869a804/packages/sitecore-jss/src/utils/utils.ts#L100)
