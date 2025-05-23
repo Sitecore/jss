@@ -8,13 +8,47 @@
 
 ## Properties
 
+### api?
+
+> `optional` **api**: `object`
+
+#### edge?
+
+> `optional` **edge**: `object`
+
+Sitecore XM Cloud Edge endpoint credentials for Sitecore connection.
+
+#### edge.contextId
+
+> **contextId**: `string`
+
+A unified identifier used to connect and retrieve data from XM Cloud instance
+
+#### edge.edgeUrl?
+
+> `optional` **edgeUrl**: `string`
+
+XM Cloud endpoint that the app will communicate and retrieve data from
+
+##### Default
+
+```ts
+https://edge-platform.sitecorecloud.io
+```
+
+#### Defined in
+
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L16)
+
+***
+
 ### sitecoreContext
 
 > **sitecoreContext**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:11](https://github.com/Sitecore/jss/blob/38345af2b57ee1d5364d54df704b896ccf34c1ea/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L11)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L15)
 
 ***
 
@@ -24,4 +58,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:12](https://github.com/Sitecore/jss/blob/38345af2b57ee1d5364d54df704b896ccf34c1ea/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L12)
+[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:17](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L17)

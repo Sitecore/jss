@@ -6,17 +6,11 @@
 
 # Function: EditingScripts()
 
-> **EditingScripts**(`props`): `Element`
+> **EditingScripts**(): `Element`
 
 - Renders client scripts and data for editing/preview mode for Pages
 - Renders script required for the Design Library (when RenderingType is `component`).
 This script is only rendered when EditMode is Metadata or RenderingType is `component`, otherwise it renders nothing.
-
-## Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `props` | `EditingScriptsProps` | The props for the EditingScripts component. |
 
 ## Returns
 
@@ -26,4 +20,4 @@ A JSX element containing the editing scripts or an empty fragment if not in edit
 
 ## Defined in
 
-sitecore-jss-react/types/components/EditingScripts.d.ts:18
+sitecore-jss-react/types/components/EditingScripts.d.ts:7

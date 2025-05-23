@@ -46,4 +46,4 @@
 
 ## Defined in
 
-sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:16
+sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:17

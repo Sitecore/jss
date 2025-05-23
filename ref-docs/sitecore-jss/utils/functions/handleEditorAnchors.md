@@ -27,4 +27,4 @@ Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/Mutation
 
 ## Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:144](https://github.com/Sitecore/jss/blob/38345af2b57ee1d5364d54df704b896ccf34c1ea/packages/sitecore-jss/src/editing/utils.ts#L144)
+[packages/sitecore-jss/src/editing/utils.ts:144](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss/src/editing/utils.ts#L144)

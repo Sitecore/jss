@@ -24,4 +24,4 @@ found image tag; null in case if not found
 
 ## Defined in
 
-[packages/sitecore-jss/src/media/media-api.ts:18](https://github.com/Sitecore/jss/blob/38345af2b57ee1d5364d54df704b896ccf34c1ea/packages/sitecore-jss/src/media/media-api.ts#L18)
+[packages/sitecore-jss/src/media/media-api.ts:18](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss/src/media/media-api.ts#L18)
