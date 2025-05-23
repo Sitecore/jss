@@ -5,26 +5,15 @@ import { getJssPagesClientData } from '@sitecore-jss/sitecore-jss/editing';
 import { getDesignLibraryScriptLink } from '@sitecore-jss/sitecore-jss/editing';
 
 /**
- * Props for the EditingScripts component.
- */
-export type EditingScriptsProps = {
-  /**
-   * Sitecore Edge Platform URL.
-   */
-  sitecoreEdgeUrl?: string;
-};
-
-/**
  * - Renders client scripts and data for editing/preview mode for Pages
  * - Renders script required for the Design Library (when RenderingType is `component`).
  * This script is only rendered when EditMode is Metadata or RenderingType is `component`, otherwise it renders nothing.
- * @param {EditingScriptsProps} props - The props for the EditingScripts component.
- * @param {string} props.sitecoreEdgeUrl - Sitecore Edge Platform URL.
  * @returns A JSX element containing the editing scripts or an empty fragment if not in editing/preview mode.
  */
-export const EditingScripts = (props: EditingScriptsProps): JSX.Element => {
+export const EditingScripts = (): JSX.Element => {
   const {
     sitecoreContext: { pageState, editMode, clientData, clientScripts, renderingType },
+    api,
   } = useSitecoreContext();
 
   // Don't render anything if not in editing/preview mode and rendering type is not component
@@ -38,7 +27,7 @@ export const EditingScripts = (props: EditingScriptsProps): JSX.Element => {
   // In case of RenderingType.Component - render only the script for Design Libnrary
   if (renderingType === RenderingType.Component) {
     // Add cache buster to the script URL
-    const scriptUrl = `${getDesignLibraryScriptLink(props.sitecoreEdgeUrl)}?cb=${Date.now()}`;
+    const scriptUrl = `${getDesignLibraryScriptLink(api?.edge?.edgeUrl)}?cb=${Date.now()}`;
 
     return (
       <>

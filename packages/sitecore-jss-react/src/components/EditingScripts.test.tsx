@@ -209,8 +209,12 @@ describe('<EditingScripts />', () => {
       const stagingEdgeUrl = 'http://edge-staging';
 
       const component = mount(
-        <SitecoreContext componentFactory={mockComponentFactory} layoutData={layoutData}>
-          <EditingScripts sitecoreEdgeUrl={stagingEdgeUrl} />
+        <SitecoreContext
+          componentFactory={mockComponentFactory}
+          layoutData={layoutData}
+          api={{ edge: { edgeUrl: stagingEdgeUrl, contextId: 'id' } }}
+        >
+          <EditingScripts />
         </SitecoreContext>
       );
 
