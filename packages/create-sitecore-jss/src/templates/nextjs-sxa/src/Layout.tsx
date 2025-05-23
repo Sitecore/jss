@@ -13,7 +13,6 @@ import {
   RenderingType,
   <% } %>
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import config from 'temp/config';
 import Scripts from 'src/Scripts';
 
@@ -31,31 +30,31 @@ interface RouteFields {
   Title?: Field;
 }
 
-const DefaultLayout = ({ route }: { route: RouteData<RouteFields> | null }): JSX.Element => (
-  <>
-    <header>
-      <div id="header">
-        {route && <Placeholder name="headless-header" rendering={route} />}
-      </div>
-    </header>
-    <main>
-      <div id="content">
-        {route && <Placeholder name="headless-main" rendering={route} />}
-      </div>
-    </main>
-    <footer>
-      <div id="footer">
-        {route && <Placeholder name="headless-footer" rendering={route} />}
-      </div>
-    </footer>
-  </>
-);
-
 const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
   const fields = route?.fields as RouteFields;
   const isPageEditing = layoutData.sitecore.context.pageEditing;
   const mainClassPageEditing = isPageEditing ? 'editing-mode' : 'prod-mode';
+
+  const renderContent = () => (
+    <>
+      <header>
+        <div id="header">
+          {route && <Placeholder name="headless-header" rendering={route} />}
+        </div>
+      </header>
+      <main>
+        <div id="content">
+          {route && <Placeholder name="headless-main" rendering={route} />}
+        </div>
+      </main>
+      <footer>
+        <div id="footer">
+          {route && <Placeholder name="headless-footer" rendering={route} />}
+        </div>
+      </footer>
+    </>
+  );
 
   return (
     <>
@@ -74,10 +73,10 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
           {layoutData.sitecore.context.renderingType === RenderingType.Component ? (
             <DesignLibrary {...layoutData} />
           ) : (
-            <DefaultLayout route={route} />
+            renderContent()
           )}
         <% } else { %>
-          <DefaultLayout route={route} />
+          {renderContent()}
         <% } %>
       </div>
     </>
