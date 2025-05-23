@@ -13,6 +13,7 @@ import {
   RenderingType,
   <% } %>
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import { RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import config from 'temp/config';
 import Scripts from 'src/Scripts';
 
@@ -29,6 +30,26 @@ interface RouteFields {
   [key: string]: unknown;
   Title?: Field;
 }
+
+const DefaultLayout = ({ route }: { route: RouteData<RouteFields> | null }): JSX.Element => (
+  <>
+    <header>
+      <div id="header">
+        {route && <Placeholder name="headless-header" rendering={route} />}
+      </div>
+    </header>
+    <main>
+      <div id="content">
+        {route && <Placeholder name="headless-main" rendering={route} />}
+      </div>
+    </main>
+    <footer>
+      <div id="footer">
+        {route && <Placeholder name="headless-footer" rendering={route} />}
+      </div>
+    </footer>
+  </>
+);
 
 const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
@@ -50,30 +71,18 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
       {/* root placeholder for the app, which we add components to using route data */}
       <div className={mainClassPageEditing}>
         <% if (templates.includes('nextjs-xmcloud')) { %>
-          {layoutData.sitecore.context.renderingType === RenderingType.Component && (
+          {layoutData.sitecore.context.renderingType === RenderingType.Component ? (
             <DesignLibrary {...layoutData} />
+          ) : (
+            <DefaultLayout route={route} />
           )}
+        <% } else { %>
+          <DefaultLayout route={route} />
         <% } %>
-        <>
-          <header>
-            <div id="header">
-              {route && <Placeholder name="headless-header" rendering={route} />}
-            </div>
-          </header>
-          <main>
-            <div id="content">
-              {route && <Placeholder name="headless-main" rendering={route} />}
-            </div>
-          </main>
-          <footer>
-            <div id="footer">
-              {route && <Placeholder name="headless-footer" rendering={route} />}
-            </div>
-          </footer>
-        </>
       </div>
     </>
   );
 };
 
 export default Layout;
+
