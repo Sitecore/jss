@@ -7,8 +7,8 @@ import {
   LayoutServiceData,
   Field,
   HTMLLink,
-  <% if (templates.includes('nextjs-xmcloud')) { %>
   Placeholder,
+  <% if (templates.includes('nextjs-xmcloud')) { %>
   DesignLibrary,
   RenderingType,
   <% } %>
@@ -50,28 +50,27 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
       {/* root placeholder for the app, which we add components to using route data */}
       <div className={mainClassPageEditing}>
         <% if (templates.includes('nextjs-xmcloud')) { %>
-          {layoutData.sitecore.context.renderingType === RenderingType.Component ? (
+          {layoutData.sitecore.context.renderingType === RenderingType.Component && (
             <DesignLibrary {...layoutData} />
-          ) : (
-            <>
-              <header>
-                <div id="header">
-                  {route && <Placeholder name="headless-header" rendering={route} />}
-                </div>
-              </header>
-              <main>
-                <div id="content">
-                  {route && <Placeholder name="headless-main" rendering={route} />}
-                </div>
-              </main>
-              <footer>
-                <div id="footer">
-                  {route && <Placeholder name="headless-footer" rendering={route} />}
-                </div>
-              </footer>
-            </>
           )}
         <% } %>
+        <>
+          <header>
+            <div id="header">
+              {route && <Placeholder name="headless-header" rendering={route} />}
+            </div>
+          </header>
+          <main>
+            <div id="content">
+              {route && <Placeholder name="headless-main" rendering={route} />}
+            </div>
+          </main>
+          <footer>
+            <div id="footer">
+              {route && <Placeholder name="headless-footer" rendering={route} />}
+            </div>
+          </footer>
+        </>
       </div>
     </>
   );
