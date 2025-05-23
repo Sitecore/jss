@@ -21,7 +21,7 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-nextjs]` Fix Chromes editing mode when rendering host URL is internally redirected in XMCloud ([#2019](https://github.com/Sitecore/jss/pull/2019))
 * `[templates/next.js]` sitemap.xml endpoint returns 404 ([#2023](https://github.com/Sitecore/jss/pull/2023))
-* `[create-sitecore-jss]` Fix DesignLibrary component being rendered when XP add-on is selected ([#2089](https://github.com/Sitecore/jss/pull/2089))
+* `[templates/nextjs-sxa]` Fix DesignLibrary component being rendered when XP add-on is selected ([#2089](https://github.com/Sitecore/jss/pull/2089))
 
 ## 22.4.0
 
