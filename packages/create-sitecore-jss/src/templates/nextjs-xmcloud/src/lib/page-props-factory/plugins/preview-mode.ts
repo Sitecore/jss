@@ -33,10 +33,8 @@ class PreviewModePlugin implements Plugin {
       } = context.previewData;
 
       const componentService = new RestComponentLayoutService({
-        apiHost: config.sitecoreApiHost,
-        apiKey: config.sitecoreApiKey,
-        siteName: site,
-        configurationName: config.layoutServiceConfigurationName,
+        sitecoreEdgeContextId: config.sitecoreEdgeContextId,
+        sitecoreEdgeUrl: config.sitecoreEdgeUrl,
       });
 
       const componentData = await componentService.fetchComponentData({
@@ -49,17 +47,17 @@ class PreviewModePlugin implements Plugin {
         version,
       });
 
-      // we can reuse editing service, fortunately
-      const dictionaryData = await graphQLEditingService.fetchDictionaryData({
-        siteName: site,
-        language,
-      });
-
       if (!componentData) {
         throw new Error(
           `Unable to fetch editing data for preview ${JSON.stringify(context.previewData)}`
         );
       }
+
+      // we can reuse editing service, fortunately
+      const dictionaryData = await graphQLEditingService.fetchDictionaryData({
+        siteName: site,
+        language,
+      });
 
       props.locale = context.previewData.language;
       props.layoutData = componentData;
