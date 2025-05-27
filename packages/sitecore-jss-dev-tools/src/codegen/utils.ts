@@ -2,11 +2,12 @@ import chalk from 'chalk';
 import path from 'path';
 import fs from 'fs';
 import * as ts from 'typescript';
-import { constants } from '@sitecore-jss/sitecore-jss';
+import { constants, debug } from '@sitecore-jss/sitecore-jss';
 
-// TODO:adjust when mesh endpoint is live
-const meshEndpoint = `${process.env.SITECORE_EDGE_URL ||
-  constants.SITECORE_EDGE_URL_DEFAULT}/api/v1/mesh`;
+// MESH_URL is temporary option to use until mesh is onboarded into Edge Proxy
+const meshEndpoint = `${process.env.SITECORE_MESH_URL ||
+  process.env.SITECORE_EDGE_URL ||
+  constants.SITECORE_EDGE_URL_DEFAULT}/api/v1/contentsdk/code/extracted`;
 
 /**
  * Description properties for the files sent to the mesh endpoint
@@ -23,7 +24,7 @@ export type ExtractedFile = {
 export enum ExtractedFileType {
   Component = 'component',
   Json = 'json',
-  Package = 'package.json',
+  PackageJson = 'package.json',
 }
 
 /**
@@ -92,8 +93,12 @@ export const resolveComponentImportFiles = (
       );
       const resolvedFile = resolvedModule?.resolvedModule?.resolvedFileName;
       // module imports paths will be resolved to /node_modules location - we don't support that yet
-      if (resolvedFile && resolvedFile.indexOf('node_modules') === -1) {
-        importStringsMap[childNode.importClause.getText()] = path.resolve(resolvedFile);
+      if (resolvedFile) {
+        if (resolvedFile.indexOf('node_modules') === -1 && !resolvedFile.endsWith('.d.ts')) {
+          importStringsMap[childNode.importClause.getText()] = path.resolve(resolvedFile);
+        }
+      } else {
+        console.warn('Could not resolve a file for import %s', moduleName);
       }
     } else if (ts.isExpressionStatement(childNode)) {
       // parse map assignments (map.set(..)) to get registered components
@@ -150,12 +155,12 @@ export const sendCode = async (file: ExtractedFile, token: string) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
+      // EnvironmentId can have any value - but it's required
+      EnvironmentId: 'JSS',
       name: file.name,
       content: code.toString(),
       labels: {
-        properties: {
-          type: file.type,
-        },
+        type: file.type,
       },
     }),
   });
@@ -164,6 +169,12 @@ export const sendCode = async (file: ExtractedFile, token: string) => {
     console.error(
       chalk.red(`Failed to send extracted code from ${file.path}: ${response.statusText}`)
     );
+    debug.http('Error details: %o', {
+      status: response.status,
+      text: await response.text(),
+      url: response.url,
+      headers: response.headers,
+    });
   } else {
     console.log(chalk.green(`Code from ${file.path} extracted and sent to mesh endpoint`));
   }

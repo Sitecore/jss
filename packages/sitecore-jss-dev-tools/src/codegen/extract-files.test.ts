@@ -2,12 +2,12 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import chalk from 'chalk';
 import fs from 'fs';
-import { extractComponents } from './extract-components';
+import { extractFiles } from './extract-files';
 import * as cliUtils from './utils';
 import * as authUtils from '../auth/fetch-bearer-token';
 
-describe('extract-components', () => {
-  describe('extractComponents', () => {
+describe('extract-files', () => {
+  describe('extractFiles', () => {
     const sandbox = sinon.createSandbox();
 
     beforeEach(() => {
@@ -33,7 +33,7 @@ describe('extract-components', () => {
       sandbox.replace(authUtils, 'fetchBearerToken', fetchBearerTokenStub);
       sandbox.stub(process, 'cwd').returns('/path/to/app');
 
-      await extractComponents();
+      await extractFiles();
 
       expect(consoleErrorStub.calledOnce).to.be.true;
       expect(consoleErrorStub.firstCall.args[0]).to.equal(
@@ -48,7 +48,7 @@ describe('extract-components', () => {
       sandbox.replace(authUtils, 'fetchBearerToken', fetchBearerTokenStub);
       sandbox.stub(process, 'cwd').returns('/path/to/app');
 
-      await extractComponents({
+      await extractFiles({
         componentBuilderPath: '/custom/path/to/component-builder',
       });
 
@@ -67,7 +67,7 @@ describe('extract-components', () => {
       sandbox.replace(authUtils, 'fetchBearerToken', fetchBearerTokenStub);
       sandbox.stub(process, 'cwd').returns('/path/to/app');
 
-      await extractComponents();
+      await extractFiles();
 
       expect(consoleErrorStub.calledOnce).to.be.true;
       expect(consoleErrorStub.firstCall.args[0]).to.equal(
@@ -80,7 +80,7 @@ describe('extract-components', () => {
       delete process.env.EXTRACT_CONSENT;
       sandbox.stub(process, 'cwd').returns('/path/to/app');
 
-      await extractComponents();
+      await extractFiles();
 
       expect(consoleLogStub.calledOnce).to.be.true;
       expect(consoleLogStub.firstCall.args[0]).to.equal(
@@ -93,7 +93,7 @@ describe('extract-components', () => {
       delete process.env.BuildMetadata_BuildId;
       sandbox.stub(process, 'cwd').returns('/path/to/app');
 
-      await extractComponents();
+      await extractFiles();
 
       expect(consoleLogStub.calledOnce).to.be.true;
       expect(consoleLogStub.firstCall.args[0]).to.equal(
@@ -101,7 +101,7 @@ describe('extract-components', () => {
       );
     });
 
-    it('should call sendCode for each component path', async () => {
+    it('should call sendCode for package.json and each component path', async () => {
       const componentMap = new Map([
         ['component1', '/path/to/component1.ts'],
         ['component2', '/path/to/component2.ts'],
@@ -115,11 +115,11 @@ describe('extract-components', () => {
       sandbox.replace(cliUtils, 'sendCode', sendCodeStub);
       sandbox.stub(process, 'cwd').returns('/path/to/app');
 
-      await extractComponents();
+      await extractFiles();
 
       expect(fetchBearerTokenStub.calledOnce).to.be.true;
       expect(resolveImportFilesStub.calledOnce).to.be.true;
-      expect(sendCodeStub.callCount).to.equal(2);
+      expect(sendCodeStub.callCount).to.equal(3);
     });
   });
 });
