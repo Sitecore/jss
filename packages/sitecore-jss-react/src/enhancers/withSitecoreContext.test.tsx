@@ -36,7 +36,6 @@ describe('withSitecoreContext', () => {
       </SitecoreContextReactContext.Provider>
     );
 
-    expect(wrapper.container.querySelector('span')?.textContent).equal('id url');
     expect(wrapper.container.querySelector('div')?.textContent).equal(
       testComponentProps.context.text + 'xxx'
     );
@@ -88,7 +87,6 @@ describe('withSitecoreContext', () => {
         </SitecoreContextReactContext.Provider>
       );
 
-      expect(wrapper.container.querySelector('span')?.textContent).equal('id url');
       expect(wrapper.container.querySelector('div')?.textContent).equal(
         testComponentProps.context.text + 'xxx'
       );

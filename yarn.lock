@@ -517,6 +517,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/code-frame@npm:^7.10.4":
+  version: 7.27.1
+  resolution: "@babel/code-frame@npm:7.27.1"
+  dependencies:
+    "@babel/helper-validator-identifier": ^7.27.1
+    js-tokens: ^4.0.0
+    picocolors: ^1.1.1
+  checksum: 5874edc5d37406c4a0bb14cf79c8e51ad412fb0423d176775ac14fc0259831be1bf95bdda9c2aa651126990505e09a9f0ed85deaa99893bc316d2682c5115bdc
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.24.7, @babel/code-frame@npm:^7.25.9, @babel/code-frame@npm:^7.26.2":
   version: 7.26.2
   resolution: "@babel/code-frame@npm:7.26.2"
@@ -1078,6 +1089,13 @@ __metadata:
   version: 7.25.9
   resolution: "@babel/helper-validator-identifier@npm:7.25.9"
   checksum: 5b85918cb1a92a7f3f508ea02699e8d2422fe17ea8e82acd445006c0ef7520fbf48e3dbcdaf7b0a1d571fc3a2715a29719e5226636cb6042e15fe6ed2a590944
+  languageName: node
+  linkType: hard
+
+"@babel/helper-validator-identifier@npm:^7.27.1":
+  version: 7.27.1
+  resolution: "@babel/helper-validator-identifier@npm:7.27.1"
+  checksum: 3c7e8391e59d6c85baeefe9afb86432f2ab821c6232b00ea9082a51d3e7e95a2f3fb083d74dc1f49ac82cf238e1d2295dafcb001f7b0fab479f3f56af5eaaa47
   languageName: node
   linkType: hard
 
@@ -3218,6 +3236,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.12.5":
+  version: 7.27.3
+  resolution: "@babel/runtime@npm:7.27.3"
+  checksum: 4eadd745756c9de7a9bba1b2b138b8b99f34aa544cf69c7e6fd1d2a120ba6d31580e93f00657145add7a8945db8ffea5ef7fdbe18f0f0f8e82f2929cb56a0d61
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.0.0, @babel/template@npm:^7.22.15, @babel/template@npm:^7.3.3, @babel/template@npm:^7.4.0":
   version: 7.22.15
   resolution: "@babel/template@npm:7.22.15"
@@ -3344,6 +3369,15 @@ __metadata:
   version: 0.6.1
   resolution: "@discoveryjs/json-ext@npm:0.6.1"
   checksum: c90db4a4d44c7f78db9a6e8f43ac58e09f5a6b9a725752bc269d947e3a672a512ca9c6fae79e6a70c8caca5bd904180ae6c3ef1a25eca01a394290a812eba6f5
+  languageName: node
+  linkType: hard
+
+"@emnapi/runtime@npm:^1.4.0":
+  version: 1.4.3
+  resolution: "@emnapi/runtime@npm:1.4.3"
+  dependencies:
+    tslib: ^2.4.0
+  checksum: ff2074809638ed878e476ece370c6eae7e6257bf029a581bb7a290488d8f2a08c420a65988c7f03bfc6bb689218f0cd995d2f935bd182150b357fc2341142f4f
   languageName: node
   linkType: hard
 
@@ -6101,72 +6135,65 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:14.1.0":
-  version: 14.1.0
-  resolution: "@next/env@npm:14.1.0"
-  checksum: ecec03a3e9745996ed1c7fc218fc9a1a4345a0cf368afb50f38a3b6fbf6f966a36dba174c90b5f90b568188dbd0eba48a2c5448b6742298417df4ff3351c6d40
+"@next/env@npm:15.3.2":
+  version: 15.3.2
+  resolution: "@next/env@npm:15.3.2"
+  checksum: 52ab4b18abbf076e392d3c141b403133fda24f262aed87bb0323b5e25100edb78446cc73f8f733ea9d54739abdebbdc57f63f34d858b000eb55fbed1e498bc0b
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-arm64@npm:14.1.0":
-  version: 14.1.0
-  resolution: "@next/swc-darwin-arm64@npm:14.1.0"
+"@next/swc-darwin-arm64@npm:15.3.2":
+  version: 15.3.2
+  resolution: "@next/swc-darwin-arm64@npm:15.3.2"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-x64@npm:14.1.0":
-  version: 14.1.0
-  resolution: "@next/swc-darwin-x64@npm:14.1.0"
+"@next/swc-darwin-x64@npm:15.3.2":
+  version: 15.3.2
+  resolution: "@next/swc-darwin-x64@npm:15.3.2"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-gnu@npm:14.1.0":
-  version: 14.1.0
-  resolution: "@next/swc-linux-arm64-gnu@npm:14.1.0"
+"@next/swc-linux-arm64-gnu@npm:15.3.2":
+  version: 15.3.2
+  resolution: "@next/swc-linux-arm64-gnu@npm:15.3.2"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-musl@npm:14.1.0":
-  version: 14.1.0
-  resolution: "@next/swc-linux-arm64-musl@npm:14.1.0"
+"@next/swc-linux-arm64-musl@npm:15.3.2":
+  version: 15.3.2
+  resolution: "@next/swc-linux-arm64-musl@npm:15.3.2"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-gnu@npm:14.1.0":
-  version: 14.1.0
-  resolution: "@next/swc-linux-x64-gnu@npm:14.1.0"
+"@next/swc-linux-x64-gnu@npm:15.3.2":
+  version: 15.3.2
+  resolution: "@next/swc-linux-x64-gnu@npm:15.3.2"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-musl@npm:14.1.0":
-  version: 14.1.0
-  resolution: "@next/swc-linux-x64-musl@npm:14.1.0"
+"@next/swc-linux-x64-musl@npm:15.3.2":
+  version: 15.3.2
+  resolution: "@next/swc-linux-x64-musl@npm:15.3.2"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-win32-arm64-msvc@npm:14.1.0":
-  version: 14.1.0
-  resolution: "@next/swc-win32-arm64-msvc@npm:14.1.0"
+"@next/swc-win32-arm64-msvc@npm:15.3.2":
+  version: 15.3.2
+  resolution: "@next/swc-win32-arm64-msvc@npm:15.3.2"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-win32-ia32-msvc@npm:14.1.0":
-  version: 14.1.0
-  resolution: "@next/swc-win32-ia32-msvc@npm:14.1.0"
-  conditions: os=win32 & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"@next/swc-win32-x64-msvc@npm:14.1.0":
-  version: 14.1.0
-  resolution: "@next/swc-win32-x64-msvc@npm:14.1.0"
+"@next/swc-win32-x64-msvc@npm:15.3.2":
+  version: 15.3.2
+  resolution: "@next/swc-win32-x64-msvc@npm:15.3.2"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -7401,30 +7428,41 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/core@npm:^0.2.4":
-  version: 0.2.4
-  resolution: "@sitecore-cloudsdk/core@npm:0.2.4"
+"@sitecore-cloudsdk/core@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@sitecore-cloudsdk/core@npm:0.5.1"
   dependencies:
-    "@sitecore-cloudsdk/utils": ^0.2.4
+    "@sitecore-cloudsdk/utils": ^0.5.1
     debug: ^4.3.4
-  checksum: 0612dab597cffaa8f150d30029c1c45904662c63f981fb781b794c2fc9f8821e9ea247cc58fd86e5f02e1daae7fb4323a7e6d3979f7836b34a5e87079f638c35
+  checksum: 40f0d46e49dbae9ebbc1a231084397069de9b71d88d6a216fb0ed4836d12ffe0885f4ee88c04ff5c4bc47a255bf11b0293c81573201a95d768d4aed77f9867b0
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/personalize@npm:^0.2.4":
-  version: 0.2.4
-  resolution: "@sitecore-cloudsdk/personalize@npm:0.2.4"
+"@sitecore-cloudsdk/events@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@sitecore-cloudsdk/events@npm:0.5.1"
   dependencies:
-    "@sitecore-cloudsdk/core": ^0.2.4
-    "@sitecore-cloudsdk/utils": ^0.2.4
-  checksum: 788dd09f4d70fc037f0151ee4945e28072be4b2c33f22c2388ac09570e18c77ebb04008b055fe5ff471084bd83cd87ddb5b78a288668e616c3af151758795d9a
+    "@sitecore-cloudsdk/core": ^0.5.1
+    "@sitecore-cloudsdk/utils": ^0.5.1
+  checksum: 4e0eed58383dd68f4fbc73e70f501a03ba51e93455ea68b700d71e36872dd47688055db6b91c499f09232ee72fe87c451f18c0d517ca00673186f3e5be8b15f2
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/utils@npm:^0.2.4":
-  version: 0.2.4
-  resolution: "@sitecore-cloudsdk/utils@npm:0.2.4"
-  checksum: 0f816558840da5b978d9d9c585e9edab0de5437bf9ae5a5a773782b870192f635b173fa1f15177581a55f4560769674f7a42606d523e8ed739db095e2a863571
+"@sitecore-cloudsdk/personalize@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@sitecore-cloudsdk/personalize@npm:0.5.1"
+  dependencies:
+    "@sitecore-cloudsdk/core": ^0.5.1
+    "@sitecore-cloudsdk/events": ^0.5.1
+    "@sitecore-cloudsdk/utils": ^0.5.1
+  checksum: b15ccd46bdb79cd27b1f7ffb27a5dfbb84ce5ca0ddbe3b3fc1255aa5a4f84fbf69b630b84cb7c631a89ff9a1dea093522dd3e5425065ff89768db6a18cc5981a
+  languageName: node
+  linkType: hard
+
+"@sitecore-cloudsdk/utils@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@sitecore-cloudsdk/utils@npm:0.5.1"
+  checksum: 89fb926e90218e71e3f2c560e6023380bede7c351605c3dabf9ec5a8e6fcd361723117a6419ce54dc02dfa38c0f9b6490750fc72e49aa20e34b79debc49f7a5e
   languageName: node
   linkType: hard
 
@@ -7616,18 +7654,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
-    "@sitecore-cloudsdk/personalize": ^0.2.4
+    "@sitecore-cloudsdk/personalize": ^0.5.1
     "@sitecore-jss/sitecore-jss": 21.10.0-canary.0
     "@sitecore-jss/sitecore-jss-dev-tools": 21.10.0-canary.0
     "@sitecore-jss/sitecore-jss-react": 21.10.0-canary.0
+    "@testing-library/dom": ^10.4.0
+    "@testing-library/react": ^16.3.0
     "@types/chai": ^4.3.4
     "@types/chai-as-promised": ^7.1.5
     "@types/chai-string": ^1.4.2
     "@types/mocha": ^10.0.1
     "@types/node": ~18.11.18
-    "@types/prop-types": ^15.7.5
-    "@types/react": ^18.2.22
-    "@types/react-dom": ^18.0.10
+    "@types/react": ^19.1.2
+    "@types/react-dom": ^19.1.3
     "@types/sinon": ^10.0.13
     "@types/sinon-chai": ^3.2.9
     "@vercel/kv": ^0.2.1
@@ -7637,12 +7676,11 @@ __metadata:
     chalk: ^4.1.2
     cross-fetch: ^3.1.5
     del-cli: ^5.0.0
-    enzyme: ^3.11.0
     eslint: ^8.32.0
     eslint-plugin-react: ^7.32.1
     jsdom: ^21.1.0
     mocha: ^10.2.0
-    next: ^14.1.0
+    next: ^15.3.1
     nock: ^13.3.0
     node-html-parser: ^6.1.4
     nyc: ^15.1.0
@@ -7655,11 +7693,11 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.4
   peerDependencies:
-    "@sitecore-cloudsdk/events": ^0.2.4
-    "@sitecore-cloudsdk/personalize": ^0.2.4
-    next: ^14.1.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
+    "@sitecore-cloudsdk/events": ^0.5.1
+    "@sitecore-cloudsdk/personalize": ^0.5.1
+    next: ^15.3.1
+    react: ^19.1.0
+    react-dom: ^19.1.0
   languageName: unknown
   linkType: soft
 
@@ -7765,20 +7803,21 @@ __metadata:
   dependencies:
     "@sitecore-feaas/clientside": ^0.5.17
     "@sitecore-jss/sitecore-jss": 21.10.0-canary.0
+    "@testing-library/dom": ^10.4.0
+    "@testing-library/react": ^16.1.0
+    "@testing-library/user-event": ^14.6.0
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
     "@types/mocha": ^10.0.1
     "@types/node": 18.11.10
-    "@types/prop-types": ^15.7.5
-    "@types/react": ^18.2.22
-    "@types/react-dom": ^18.0.10
+    "@types/react": ^19.1.2
+    "@types/react-dom": ^19.1.3
     "@types/sinon": ^10.0.13
     "@types/sinon-chai": ^3.2.9
     chai: ^4.3.7
     chai-string: ^1.5.0
     cheerio: 1.0.0-rc.12
     del-cli: ^5.0.0
-    enzyme: ^3.11.0
     eslint: ^8.28.0
     eslint-plugin-react: ^7.31.11
     fast-deep-equal: ^3.1.3
@@ -7794,8 +7833,8 @@ __metadata:
     typescript: ~4.9.3
   peerDependencies:
     "@sitecore-feaas/clientside": ^0.5.17
-    react: ^18.2.0
-    react-dom: ^18.2.0
+    react: ^19.1.0
+    react-dom: ^19.1.0
   languageName: unknown
   linkType: soft
 
@@ -7912,12 +7951,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/helpers@npm:0.5.2":
-  version: 0.5.2
-  resolution: "@swc/helpers@npm:0.5.2"
+"@swc/counter@npm:0.1.3":
+  version: 0.1.3
+  resolution: "@swc/counter@npm:0.1.3"
+  checksum: df8f9cfba9904d3d60f511664c70d23bb323b3a0803ec9890f60133954173047ba9bdeabce28cd70ba89ccd3fd6c71c7b0bd58be85f611e1ffbe5d5c18616598
+  languageName: node
+  linkType: hard
+
+"@swc/helpers@npm:0.5.15":
+  version: 0.5.15
+  resolution: "@swc/helpers@npm:0.5.15"
   dependencies:
-    tslib: ^2.4.0
-  checksum: 51d7e3d8bd56818c49d6bfbd715f0dbeedc13cf723af41166e45c03e37f109336bbcb57a1f2020f4015957721aeb21e1a7fff281233d797ff7d3dd1f447fa258
+    tslib: ^2.8.0
+  checksum: 1a9e0dbb792b2d1e0c914d69c201dbc96af3a0e6e6e8cf5a7f7d6a5d7b0e8b762915cd4447acb6b040e2ecc1ed49822875a7239f99a2d63c96c3c3407fb6fccf
   languageName: node
   linkType: hard
 
@@ -8743,7 +8789,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.10, @types/react-dom@npm:^18.0.9":
+"@types/react-dom@npm:^18.0.9":
   version: 18.2.18
   resolution: "@types/react-dom@npm:18.2.18"
   dependencies:
@@ -8800,7 +8846,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.0.25, @types/react@npm:^18.2.22":
+"@types/react@npm:*, @types/react@npm:^18.0.25":
   version: 18.2.45
   resolution: "@types/react@npm:18.2.45"
   dependencies:
@@ -14313,6 +14359,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dequal@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "dequal@npm:2.0.3"
+  checksum: 8679b850e1a3d0ebbc46ee780d5df7b478c23f335887464023a631d1b9af051ad4a6595a44220f9ff8ff95a8ddccf019b5ad778a976fd7bbf77383d36f412f90
+  languageName: node
+  linkType: hard
+
 "destroy@npm:1.2.0":
   version: 1.2.0
   resolution: "destroy@npm:1.2.0"
@@ -14347,6 +14400,13 @@ __metadata:
   version: 2.0.3
   resolution: "detect-libc@npm:2.0.3"
   checksum: 2ba6a939ae55f189aea996ac67afceb650413c7a34726ee92c40fb0deb2400d57ef94631a8a3f052055eea7efb0f99a9b5e6ce923415daa3e68221f963cfc27d
+  languageName: node
+  linkType: hard
+
+"detect-libc@npm:^2.0.3":
+  version: 2.0.4
+  resolution: "detect-libc@npm:2.0.4"
+  checksum: 3d186b7d4e16965e10e21db596c78a4e131f9eee69c0081d13b85e6a61d7448d3ba23fe7997648022bdfa3b0eb4cc3c289a44c8188df949445a20852689abef6
   languageName: node
   linkType: hard
 
@@ -22530,21 +22590,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:^14.1.0":
-  version: 14.1.0
-  resolution: "next@npm:14.1.0"
+"next@npm:^15.3.1":
+  version: 15.3.2
+  resolution: "next@npm:15.3.2"
   dependencies:
-    "@next/env": 14.1.0
-    "@next/swc-darwin-arm64": 14.1.0
-    "@next/swc-darwin-x64": 14.1.0
-    "@next/swc-linux-arm64-gnu": 14.1.0
-    "@next/swc-linux-arm64-musl": 14.1.0
-    "@next/swc-linux-x64-gnu": 14.1.0
-    "@next/swc-linux-x64-musl": 14.1.0
-    "@next/swc-win32-arm64-msvc": 14.1.0
-    "@next/swc-win32-ia32-msvc": 14.1.0
-    "@next/swc-win32-x64-msvc": 14.1.0
-    "@swc/helpers": 0.5.2
+    "@next/env": 15.3.2
+    "@next/swc-darwin-arm64": 15.3.2
+    "@next/swc-darwin-x64": 15.3.2
+    "@next/swc-linux-arm64-gnu": 15.3.2
+    "@next/swc-linux-arm64-musl": 15.3.2
+    "@next/swc-linux-x64-gnu": 15.3.2
+    "@next/swc-linux-x64-musl": 15.3.2
+    "@next/swc-win32-arm64-msvc": 15.3.2
+    "@next/swc-win32-x64-msvc": 15.3.2
+    "@swc/counter": 0.1.3
+    "@swc/helpers": 0.5.15
     busboy: 1.6.0
     caniuse-lite: ^1.0.30001579
     postcss: 8.4.31
@@ -22552,8 +22612,10 @@ __metadata:
     styled-jsx: 5.1.6
   peerDependencies:
     "@opentelemetry/api": ^1.1.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
+    "@playwright/test": ^1.41.2
+    babel-plugin-react-compiler: "*"
+    react: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
+    react-dom: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
     sass: ^1.3.0
   dependenciesMeta:
     "@next/swc-darwin-arm64":
@@ -22577,11 +22639,15 @@ __metadata:
   peerDependenciesMeta:
     "@opentelemetry/api":
       optional: true
+    "@playwright/test":
+      optional: true
+    babel-plugin-react-compiler:
+      optional: true
     sass:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: 077fd76a6fe7127a8be3d11035dcefb2c829f304aaa85144e0d1b531a1549b6c9bb99459af1ef0782c1f1110ca08f6f33efd293a2dc51672dd9dc45ede608ecf
+  checksum: 1f1f535acdfb9158b6faad5e16d359b43ea5d09bdd688eaf1418f77af1cafbfb1c611b7977ab8e1f4bae7d1c01c9f107b3ca5dfb7642a8610588e688576378d6
   languageName: node
   linkType: hard
 
@@ -26546,6 +26612,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"semver@npm:^7.7.1":
+  version: 7.7.2
+  resolution: "semver@npm:7.7.2"
+  bin:
+    semver: bin/semver.js
+  checksum: dd94ba8f1cbc903d8eeb4dd8bf19f46b3deb14262b6717d0de3c804b594058ae785ef2e4b46c5c3b58733c99c83339068203002f9e37cfe44f7e2cc5e3d2f621
+  languageName: node
+  linkType: hard
+
 "send@npm:0.18.0":
   version: 0.18.0
   resolution: "send@npm:0.18.0"
@@ -28490,6 +28565,13 @@ __metadata:
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
   checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.8.0":
+  version: 2.8.1
+  resolution: "tslib@npm:2.8.1"
+  checksum: e4aba30e632b8c8902b47587fd13345e2827fa639e7c3121074d5ee0880723282411a8838f830b55100cbe4517672f84a2472667d355b81e8af165a55dc6203a
   languageName: node
   linkType: hard
 

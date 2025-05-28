@@ -28,8 +28,8 @@ export interface TextProps {
 export const Text: FunctionComponent<TextProps> = ({
   field,
   tag,
-  editable,
-  encode,
+  editable = true,
+  encode = true,
   ...otherProps
 }) => {
   if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {

@@ -23,7 +23,7 @@ export interface DateFieldProps {
 export const DateField: React.FC<DateFieldProps> = ({
   field,
   tag,
-  editable,
+  editable = true,
   render,
   ...otherProps
 }) => {

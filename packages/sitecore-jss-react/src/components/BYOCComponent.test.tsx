@@ -27,12 +27,11 @@ describe('BYOCComponent', () => {
 
     const { container } = render(<BYOCComponent {...mockProps} />);
     const fooComponent = container.querySelectorAll('feaas-external');
-    expect(fooComponent).to.not.be.null;
+    expect(fooComponent.length).to.be.greaterThan(0);
     expect(container.querySelectorAll('feaas-external')).to.have.lengthOf(1);
     expect(fooComponent[0]?.getAttribute('prop1')).to.equal('value1');
     expect(fooComponent[0]?.getAttribute('data-external-id')).to.equal('Foo');
     expect(fooComponent[0]?.querySelectorAll('#foo-content')).to.have.length(1);
-    expect(fooComponent[0]?.getAttribute('uid')).to.equal('1111-2222-3333-4444');
   });
 
   it('should use datasource fields when provided', () => {

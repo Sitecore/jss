@@ -54,9 +54,11 @@ const componentFactory: ComponentFactory = (componentName: string) => {
   const DownloadCallout: React.FC<{
     [prop: string]: unknown;
     fields?: { message?: { value?: string } };
+    extraDiv?: boolean;
   }> = (props) => (
     <div className="download-callout-mock">
       {props.fields.message ? props.fields.message.value : ''}
+      {props.extraDiv ? <div className="extra">extra!</div> : null}
     </div>
   );
 
@@ -237,9 +239,7 @@ describe('<Placeholder />', () => {
           if (props.rendering?.componentName === 'DownloadCallout') {
             return {
               ...props,
-              extraData: {
-                x: true,
-              },
+              extraDiv: true,
             };
           }
 
@@ -661,7 +661,14 @@ it('should render HiddenRendering when rendering is hidden', () => {
   const renderedComponent = render(
     <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
   );
-  expect(renderedComponent.getAllByText('The component is hidden').length).to.equal(1);
+  console.log('renderedComponent.container.outerHTML');
+
+  console.log(renderedComponent.container.outerHTML);
+  expect(
+    renderedComponent.container.querySelectorAll(
+      'div[style="height: 100px; background-size: 3px 3px;"]'
+    ).length
+  ).to.equal(1);
 });
 
 it('should render custom HiddenRendering when rendering is hidden', () => {

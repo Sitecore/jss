@@ -62,24 +62,9 @@ const ErrorMessageComponent: React.FC = () => (
 );
 
 const componentFactory: ComponentFactory = (componentName: string) => {
-  const components = new Map<string, React.FC>();
-
-  // pass otherProps to page-content to test property cascading through the Placeholder
-
-  Home.propTypes = {
-    placeholders: PropTypes.object,
-  };
+  const components = new Map<string, React.FC<any>>();
 
   components.set('Home', Home);
-
-  DownloadCallout.propTypes = {
-    fields: PropTypes.shape({
-      message: PropTypes.shape({
-        value: PropTypes.string,
-      }),
-    }).isRequired,
-  };
-
   components.set('DownloadCallout', DownloadCallout);
   components.set('Jumbotron', () => <div className="jumbotron-mock"></div>);
 
@@ -102,7 +87,7 @@ describe('withPlaceholder HOC', () => {
       const phKey = 'page-content';
       const props: PlaceholderProps = {
         name: phKey,
-        rendering: null,
+        rendering: (null as unknown) as ComponentRendering,
         componentFactory: componentFactory,
       };
       const Element = withPlaceholder(phKey)(ErrorComponent);
@@ -116,7 +101,7 @@ describe('withPlaceholder HOC', () => {
       const phKey = 'page-content';
       const props: PlaceholderProps = {
         name: phKey,
-        rendering: null,
+        rendering: (null as unknown) as ComponentRendering,
         componentFactory: componentFactory,
         errorComponent: ErrorMessageComponent,
       };

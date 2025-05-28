@@ -40,7 +40,7 @@ export type LinkProps = React.DetailedHTMLProps<
 };
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ field, editable, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {
+  ({ field, editable = true, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {
     const children = otherProps.children as React.ReactNode;
     const dynamicField: LinkField | LinkFieldValue = field;
 

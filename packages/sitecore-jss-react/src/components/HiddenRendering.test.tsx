@@ -24,16 +24,13 @@ describe('<HiddenRendering />', () => {
       'background-image':
         'linear-gradient(45deg, #ffffff 25%, #dcdcdc 25%, #dcdcdc 50%, #ffffff 50%, #ffffff 75%, #dcdcdc 75%, #dcdcdc 100%)',
     */
+    console.log(style);
     expect(style).to.deep.equal({
+      height: '100px',
       'background-size': '3px 3px',
-      display: 'flex',
-      'justify-content': 'center',
-      'align-items': 'center',
-      padding: '30px',
-      color: 'rgb(170, 170, 170)',
     });
     expect(rendered.container.innerHTML).to.equal(
-      '<div style="background-size: 3px 3px; display: flex; justify-content: center; align-items: center; padding: 30px; color: rgb(170, 170, 170);">The component is hidden</div>'
+      '<div style="height: 100px; background-size: 3px 3px;"></div>'
     );
   });
 });

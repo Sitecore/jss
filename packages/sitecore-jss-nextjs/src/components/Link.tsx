@@ -54,9 +54,6 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             className={value.class}
             {...htmlLinkProps}
             ref={ref}
-            {...(process.env.TEST
-              ? { 'data-nextjs-link': true, 'data-nextjs-link-prefetch': props.prefetch }
-              : {})}
           >
             {text}
             {children}
@@ -78,9 +75,5 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     );
   }
 );
-
-Link.defaultProps = {
-  editable: true,
-};
 
 Link.displayName = 'NextLink';

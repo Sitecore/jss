@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import {
   EDITING_COMPONENT_ID,
   EDITING_COMPONENT_PLACEHOLDER,

@@ -149,7 +149,7 @@ export const getEEMarkup = (
 
 export const Image: React.FC<ImageProps> = ({
   media,
-  editable,
+  editable = true,
   imageParams,
   field,
   mediaUrlPrefix,

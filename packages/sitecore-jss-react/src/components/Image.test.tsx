@@ -27,9 +27,9 @@ describe('<Image />', () => {
 
     it('should render <img /> with url', () => {
       expect(rendered).to.have.length(1);
-      expect(rendered[0]?.getAttribute('src')).to.equal(props.field.src);
-      expect(rendered[0]?.getAttribute('width')).to.equal(props.field.width);
-      expect(rendered[0]?.getAttribute('height')).to.equal(props.field.height);
+      expect(rendered[0]?.getAttribute('src')).to.equal(props.media.src);
+      expect(rendered[0]?.getAttribute('width')).to.equal(props.media.width);
+      expect(rendered[0]?.getAttribute('height')).to.equal(props.media.height);
     });
 
     it('should render <img /> with non-media props', () => {
@@ -57,7 +57,7 @@ describe('<Image />', () => {
 
     it('should render <img /> with needed img tags', () => {
       expect(rendered).to.have.length(1);
-      expect(rendered[0]?.getAttribute('src')).to.equal(props.field.src);
+      expect(rendered[0]?.getAttribute('src')).to.equal(props.media.src);
       expect(rendered[0]?.getAttribute('srcSet')).to.equal(
         '/assets/img/test0.png?mw=100 100w, /assets/img/test0.png?mw=300 300w'
       );
