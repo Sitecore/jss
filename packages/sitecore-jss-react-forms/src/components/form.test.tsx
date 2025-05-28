@@ -871,6 +871,7 @@ describe('<Form />', () => {
 
     const formState = getFormState(rendered.container);
 
+    // eslint-disable-next-line dot-notation
     expect(formState['xxx_valueField_name'] as any).to.deep.equal({
       value: '',
       isValid: false,
