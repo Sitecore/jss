@@ -6995,7 +6995,9 @@ __metadata:
   resolution: "@sitecore-jss/sitecore-jss-react-forms@workspace:packages/sitecore-jss-react-forms"
   dependencies:
     "@sitecore-jss/sitecore-jss-forms": 22.7.0-canary.5
+    "@testing-library/dom": ^10.4.0
     "@testing-library/react": ^16.3.0
+    "@testing-library/user-event": ^14.6.1
     "@types/chai": ^4.3.4
     "@types/enzyme": ^3.10.12
     "@types/mocha": ^10.0.1
@@ -7315,7 +7317,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^14.6.0":
+"@testing-library/user-event@npm:^14.6.0, @testing-library/user-event@npm:^14.6.1":
   version: 14.6.1
   resolution: "@testing-library/user-event@npm:14.6.1"
   peerDependencies:

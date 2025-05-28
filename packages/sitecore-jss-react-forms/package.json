@@ -8,7 +8,7 @@
     "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint \"./src/**/*.tsx\" \"./src/**/*.ts\"",
-    "test": "mocha --require ts-node/register/transpile-only --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.tsx\" --exit",
+    "test": "mocha --require ts-node/register/transpile-only --require ./src/tests/jsdom-setup.ts \"./src/**/*.test.tsx\" --exit",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss-forms src/index.ts --githubPages false"
@@ -26,7 +26,9 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/chai": "^4.3.4",
     "@types/enzyme": "^3.10.12",
     "@types/mocha": "^10.0.1",
