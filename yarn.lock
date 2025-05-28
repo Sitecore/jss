@@ -6994,7 +6994,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react-forms@workspace:packages/sitecore-jss-react-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss-forms": 22.7.0-canary.5
+    "@sitecore-jss/sitecore-jss-forms": 22.7.0-canary.6
     "@testing-library/dom": ^10.4.0
     "@testing-library/react": ^16.3.0
     "@testing-library/user-event": ^14.6.1
