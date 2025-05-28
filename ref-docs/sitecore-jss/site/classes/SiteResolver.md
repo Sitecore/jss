@@ -26,7 +26,7 @@ Resolves site based on the provided host or site name
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/a8f60d175c5f3de71aee1821228aa7910bb69a2a/packages/sitecore-jss/src/site/site-resolver.ts#L13)
+[packages/sitecore-jss/src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/540e8be146f4161168a60dfe5639182c4851b37e/packages/sitecore-jss/src/site/site-resolver.ts#L13)
 
 ## Properties
 
@@ -38,7 +38,7 @@ Array of sites to be used in resolution
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/a8f60d175c5f3de71aee1821228aa7910bb69a2a/packages/sitecore-jss/src/site/site-resolver.ts#L13)
+[packages/sitecore-jss/src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/540e8be146f4161168a60dfe5639182c4851b37e/packages/sitecore-jss/src/site/site-resolver.ts#L13)
 
 ## Methods
 
@@ -66,7 +66,7 @@ if a matching site is not found
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/site-resolver.ts:21](https://github.com/Sitecore/jss/blob/a8f60d175c5f3de71aee1821228aa7910bb69a2a/packages/sitecore-jss/src/site/site-resolver.ts#L21)
+[packages/sitecore-jss/src/site/site-resolver.ts:21](https://github.com/Sitecore/jss/blob/540e8be146f4161168a60dfe5639182c4851b37e/packages/sitecore-jss/src/site/site-resolver.ts#L21)
 
 ***
 
@@ -94,7 +94,7 @@ if a matching site is not found
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/site-resolver.ts:36](https://github.com/Sitecore/jss/blob/a8f60d175c5f3de71aee1821228aa7910bb69a2a/packages/sitecore-jss/src/site/site-resolver.ts#L36)
+[packages/sitecore-jss/src/site/site-resolver.ts:36](https://github.com/Sitecore/jss/blob/540e8be146f4161168a60dfe5639182c4851b37e/packages/sitecore-jss/src/site/site-resolver.ts#L36)
 
 ***
 
@@ -108,7 +108,7 @@ if a matching site is not found
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/site-resolver.ts:48](https://github.com/Sitecore/jss/blob/a8f60d175c5f3de71aee1821228aa7910bb69a2a/packages/sitecore-jss/src/site/site-resolver.ts#L48)
+[packages/sitecore-jss/src/site/site-resolver.ts:48](https://github.com/Sitecore/jss/blob/540e8be146f4161168a60dfe5639182c4851b37e/packages/sitecore-jss/src/site/site-resolver.ts#L48)
 
 ***
 
@@ -129,4 +129,4 @@ if a matching site is not found
 
 #### Defined in
 
-[packages/sitecore-jss/src/site/site-resolver.ts:80](https://github.com/Sitecore/jss/blob/a8f60d175c5f3de71aee1821228aa7910bb69a2a/packages/sitecore-jss/src/site/site-resolver.ts#L80)
+[packages/sitecore-jss/src/site/site-resolver.ts:80](https://github.com/Sitecore/jss/blob/540e8be146f4161168a60dfe5639182c4851b37e/packages/sitecore-jss/src/site/site-resolver.ts#L80)

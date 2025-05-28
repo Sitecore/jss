@@ -35,7 +35,7 @@ It fetches the form markup from the Sitecore Edge service and renders it in the 
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:75](https://github.com/Sitecore/jss/blob/a8f60d175c5f3de71aee1821228aa7910bb69a2a/packages/sitecore-jss-angular/src/components/form.component.ts#L75)
+[packages/sitecore-jss-angular/src/components/form.component.ts:75](https://github.com/Sitecore/jss/blob/540e8be146f4161168a60dfe5639182c4851b37e/packages/sitecore-jss-angular/src/components/form.component.ts#L75)
 
 ## Properties
 
@@ -45,7 +45,7 @@ It fetches the form markup from the Sitecore Edge service and renders it in the 
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:69](https://github.com/Sitecore/jss/blob/a8f60d175c5f3de71aee1821228aa7910bb69a2a/packages/sitecore-jss-angular/src/components/form.component.ts#L69)
+[packages/sitecore-jss-angular/src/components/form.component.ts:69](https://github.com/Sitecore/jss/blob/540e8be146f4161168a60dfe5639182c4851b37e/packages/sitecore-jss-angular/src/components/form.component.ts#L69)
 
 ***
 
@@ -55,7 +55,7 @@ It fetches the form markup from the Sitecore Edge service and renders it in the 
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:71](https://github.com/Sitecore/jss/blob/a8f60d175c5f3de71aee1821228aa7910bb69a2a/packages/sitecore-jss-angular/src/components/form.component.ts#L71)
+[packages/sitecore-jss-angular/src/components/form.component.ts:71](https://github.com/Sitecore/jss/blob/540e8be146f4161168a60dfe5639182c4851b37e/packages/sitecore-jss-angular/src/components/form.component.ts#L71)
 
 ***
 
@@ -67,7 +67,7 @@ The rendering data for the component
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:67](https://github.com/Sitecore/jss/blob/a8f60d175c5f3de71aee1821228aa7910bb69a2a/packages/sitecore-jss-angular/src/components/form.component.ts#L67)
+[packages/sitecore-jss-angular/src/components/form.component.ts:67](https://github.com/Sitecore/jss/blob/540e8be146f4161168a60dfe5639182c4851b37e/packages/sitecore-jss-angular/src/components/form.component.ts#L67)
 
 ## Methods
 
@@ -83,7 +83,7 @@ Fetches the form markup from the Sitecore Edge service and renders it in the com
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:101](https://github.com/Sitecore/jss/blob/a8f60d175c5f3de71aee1821228aa7910bb69a2a/packages/sitecore-jss-angular/src/components/form.component.ts#L101)
+[packages/sitecore-jss-angular/src/components/form.component.ts:101](https://github.com/Sitecore/jss/blob/540e8be146f4161168a60dfe5639182c4851b37e/packages/sitecore-jss-angular/src/components/form.component.ts#L101)
 
 ***
 
@@ -104,7 +104,7 @@ before a directive, pipe, or service instance is destroyed.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:92](https://github.com/Sitecore/jss/blob/a8f60d175c5f3de71aee1821228aa7910bb69a2a/packages/sitecore-jss-angular/src/components/form.component.ts#L92)
+[packages/sitecore-jss-angular/src/components/form.component.ts:92](https://github.com/Sitecore/jss/blob/540e8be146f4161168a60dfe5639182c4851b37e/packages/sitecore-jss-angular/src/components/form.component.ts#L92)
 
 ***
 
@@ -128,4 +128,4 @@ It is invoked only once when the directive is instantiated.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/form.component.ts:82](https://github.com/Sitecore/jss/blob/a8f60d175c5f3de71aee1821228aa7910bb69a2a/packages/sitecore-jss-angular/src/components/form.component.ts#L82)
+[packages/sitecore-jss-angular/src/components/form.component.ts:82](https://github.com/Sitecore/jss/blob/540e8be146f4161168a60dfe5639182c4851b37e/packages/sitecore-jss-angular/src/components/form.component.ts#L82)

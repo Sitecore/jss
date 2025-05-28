@@ -22,4 +22,4 @@ Enable debug logging dynamically
 
 ## Defined in
 
-[packages/sitecore-jss/src/debug.ts:24](https://github.com/Sitecore/jss/blob/a8f60d175c5f3de71aee1821228aa7910bb69a2a/packages/sitecore-jss/src/debug.ts#L24)
+[packages/sitecore-jss/src/debug.ts:24](https://github.com/Sitecore/jss/blob/540e8be146f4161168a60dfe5639182c4851b37e/packages/sitecore-jss/src/debug.ts#L24)
