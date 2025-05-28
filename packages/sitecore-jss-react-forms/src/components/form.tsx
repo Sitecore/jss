@@ -119,7 +119,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
         action={action}
         method="POST"
         onSubmit={this.onSubmit.bind(this)}
-        {...{ inert: isInert }}
+        inert={isInert}
       >
         {process.env.TEST && (
           <>
