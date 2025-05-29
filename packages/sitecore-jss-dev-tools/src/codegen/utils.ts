@@ -148,34 +148,43 @@ export const sendCode = async (file: ExtractedFile, token: string) => {
     return;
   }
   const code = fs.readFileSync(file.path);
-  const response = await fetch(meshEndpoint, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      // EnvironmentId can have any value - but it's required
-      EnvironmentId: 'JSS',
-      name: file.name,
-      content: code.toString(),
-      labels: {
-        type: file.type,
+  try {
+    const response = await fetch(meshEndpoint, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
       },
-    }),
-  });
-
-  if (!response.ok) {
-    console.error(
-      chalk.red(`Failed to send extracted code from ${file.path}: ${response.statusText}`)
-    );
-    debug.http('Error details: %o', {
-      status: response.status,
-      text: await response.text(),
-      url: response.url,
-      headers: response.headers,
+      body: JSON.stringify({
+        // EnvironmentId can have any value - but it's required
+        EnvironmentId: 'JSS',
+        name: file.name,
+        content: code.toString(),
+        labels: {
+          type: file.type,
+        },
+      }),
     });
-  } else {
-    console.log(chalk.green(`Code from ${file.path} extracted and sent to mesh endpoint`));
+
+    if (!response.ok) {
+      console.error(
+        chalk.red(`Failed to send extracted code from ${file.path}: ${response.statusText}`)
+      );
+      debug.http('Error details: %o', {
+        status: response.status,
+        text: await response.text(),
+        url: response.url,
+        headers: response.headers,
+      });
+      return;
+    }
+  } catch (error) {
+    console.error(
+      chalk.red(
+        `Fetch request to send extracted code from ${file.path} failed: ${JSON.stringify(error)}`
+      )
+    );
+    return;
   }
+  console.log(chalk.green(`Code from ${file.path} extracted and sent to mesh endpoint`));
 };
