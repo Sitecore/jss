@@ -168,8 +168,6 @@ export { BYOCWrapper };
 
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
 
-export { Context, ContextConfig, SDK } from './context';
-
 export {
   ComponentFactory,
   Image,

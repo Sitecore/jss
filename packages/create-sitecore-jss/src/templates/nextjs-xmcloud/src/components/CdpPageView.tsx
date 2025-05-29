@@ -6,7 +6,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { useEffect } from 'react';
 import config from 'temp/config';
-import { context } from 'lib/context';
+import { pageView } from '@sitecore-cloudsdk/events/browser';
 
 /**
  * This is the CDP page view component.
@@ -47,19 +47,14 @@ const CdpPageView = (): JSX.Element => {
       variantId as string,
       scope
     );
-    // there are cases where Events SDK will be absent which are expected to reject
-    context
-      .getSDK('Events')
-      .then((Events) =>
-        Events.pageView({
-          channel: 'WEB',
-          currency: 'USD',
-          page: route.name,
-          pageVariantId,
-          language,
-        })
-      )
-      .catch((e) => console.debug(e));
+    // there can be cases where Events are not initialized which are expected to reject
+    pageView({
+      channel: 'WEB',
+      currency: 'USD',
+      page: route.name,
+      pageVariantId,
+      language,
+    }).catch((e) => console.debug(e));
   }, [pageState, route, variantId, site]);
 
   return <></>;
