@@ -26,6 +26,11 @@ export const fetchBearerToken = async () => {
         grant_type: 'client_credentials',
       }),
     });
+    if (!authenticateResponse.ok) {
+      throw new Error(
+        `Status: ${authenticateResponse.status} Mesage: ${authenticateResponse.statusText}`
+      );
+    }
     const jsonResponse = await authenticateResponse.json();
     return jsonResponse.access_token;
   } catch (error) {

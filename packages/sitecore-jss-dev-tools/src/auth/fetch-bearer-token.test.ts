@@ -87,8 +87,7 @@ describe('fetchBearerToken', () => {
     expect(consoleErrorStub.calledOnce).to.be.true;
     expect(consoleErrorStub.firstCall.args[0]).to.equal(
       chalk.red(
-        // eslint-disable-next-line
-        `Error authenticating with Sitecore Auth endpoint: SyntaxError: Unexpected token 'S', "Service Unavailable" is not valid JSON`
+        'Error authenticating with Sitecore Auth endpoint: Error: Status: 503 Mesage: Service Unavailable'
       )
     );
   });
