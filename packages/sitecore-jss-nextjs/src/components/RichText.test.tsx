@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { ReactNode } from 'react';
 import { use, expect } from 'chai';
