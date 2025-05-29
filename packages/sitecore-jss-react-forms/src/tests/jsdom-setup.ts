@@ -35,9 +35,7 @@ process.env.TEST = 'true';
 
 global.window = jsDomWindow;
 global.document = jsDomWindow.document;
-global.navigator = {
-  userAgent: 'node.js',
-} as Navigator;
+global.navigator['#userAgent'] = 'node.js';
 
 global.HTMLElement = jsDomWindow.HTMLElement; // makes chai "happy" https://github.com/chaijs/chai/issues/1029
 copyProps(jsDomWindow, global);
