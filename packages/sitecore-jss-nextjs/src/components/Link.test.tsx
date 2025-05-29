@@ -356,12 +356,12 @@ describe('<Link />', () => {
   it('should render nothing with missing field', () => {
     const field = (null as unknown) as LinkField;
     const rendered = render(<Link field={field} />);
-    expect(rendered?.container.querySelector('a')).to.have.length(0);
+    expect(rendered.container.innerHTML).to.have.length(0);
   });
 
   it('should render nothing with missing editable and value', () => {
     const field = {};
     const rendered = render(<Link field={field} />);
-    expect(rendered?.container.querySelector('a')).to.have.length(0);
+    expect(rendered.container.innerHTML).to.have.length(0);
   });
 });

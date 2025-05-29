@@ -19,7 +19,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   (props: LinkProps, ref): JSX.Element | null => {
     const {
       field,
-      editable,
+      editable = true,
       children,
       internalLinkMatcher = /^\//g,
       showLinkTextWithChildrenPresent,
@@ -54,6 +54,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             className={value.class}
             {...htmlLinkProps}
             ref={ref}
+            {...(process.env.TEST ? { 'data-nextjs-link': true } : {})}
           >
             {text}
             {children}

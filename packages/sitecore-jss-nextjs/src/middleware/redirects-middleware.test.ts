@@ -954,6 +954,7 @@ describe('RedirectsMiddleware', () => {
             location: 'http://localhost:3000/found',
             'set-cookie': 'sc_site=foo; Path=/',
             'x-middleware-rewrite': 'http://localhost:3000/found',
+            'x-middleware-set-cookie': 'sc_site=foo; Path=/',
           },
           redirected: false,
           status: 301,
@@ -1002,6 +1003,7 @@ describe('RedirectsMiddleware', () => {
           headers: {
             'set-cookie': 'sc_site=learn2grow; Path=/',
             'x-middleware-next': '1',
+            'x-middleware-set-cookie': 'sc_site=learn2grow; Path=/',
           },
           redirected: false,
           status: 200,
@@ -1052,6 +1054,7 @@ describe('RedirectsMiddleware', () => {
           headers: {
             'set-cookie': 'sc_site=learn2grow; Path=/',
             'x-middleware-next': '1',
+            'x-middleware-set-cookie': 'sc_site=learn2grow; Path=/',
           },
           redirected: false,
           status: 200,
