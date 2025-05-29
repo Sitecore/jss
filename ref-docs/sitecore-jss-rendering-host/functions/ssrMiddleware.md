@@ -20,4 +20,4 @@
 
 ## Defined in
 
-[ssrMiddleware.ts:44](https://github.com/Sitecore/jss/blob/583fb25e42e217927b6778140913246aa869a804/packages/sitecore-jss-rendering-host/src/ssrMiddleware.ts#L44)
+[ssrMiddleware.ts:44](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-rendering-host/src/ssrMiddleware.ts#L44)

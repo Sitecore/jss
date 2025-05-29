@@ -1,0 +1,28 @@
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+
+***
+
+[@sitecore-jss/sitecore-jss-dev-tools](../README.md) / extractFiles
+
+# Function: extractFiles()
+
+> **extractFiles**(`args`?): `Promise`\<`void`\>
+
+Handler for the extract-component API command
+Reads imports from the componentBuilder.ts file and posts the code to the mesh endpoint
+
+## Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `args`? | `ExtracFilesOptions` | The options for code extraction |
+
+## Returns
+
+`Promise`\<`void`\>
+
+void
+
+## Defined in
+
+[sitecore-jss-dev-tools/src/codegen/extract-files.ts:16](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-dev-tools/src/codegen/extract-files.ts#L16)
