@@ -2,9 +2,9 @@
 /* eslint-disable react/display-name */
 
 import { expect } from 'chai';
-import { mount } from 'enzyme';
 import sinon from 'sinon';
 import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
 
 import Button from './button';
 
@@ -57,20 +57,17 @@ describe('<Button />', () => {
 
   it('should render button', () => {
     const props = p();
-    const c = mount(<Button {...props} />);
-    const button = c.find('button');
-    const prop = (name: string) => button.prop(name);
+    const rendered = render(<Button {...props} />);
+    const button = rendered.container.querySelector('button')!;
 
-    expect(c.type()).to.exist;
-    expect(prop('type')).to.equal('submit');
-    expect(prop('id')).to.equal('button-xxx');
-    expect(prop('name')).to.equal('button-xxx');
-    expect(prop('className')).to.equal('xxx_css-class');
-    expect(prop('value')).to.equal('xxx_title');
+    expect(button.getAttribute('type')).to.equal('submit');
+    expect(button.getAttribute('id')).to.equal('button-xxx');
+    expect(button.getAttribute('name')).to.equal('button-xxx');
+    expect(button.getAttribute('class')).to.equal('xxx_css-class');
+    expect(button.getAttribute('value')).to.equal('xxx_title');
+    expect(button.innerHTML).to.equal('xxx_title');
 
-    button.simulate('click');
-
+    fireEvent.click(button);
     expect(props.onButtonClick.calledOnce).to.be.true;
-    expect(button.contains('xxx_title')).to.be.true;
   });
 });

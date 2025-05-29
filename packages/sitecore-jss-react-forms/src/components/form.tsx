@@ -119,8 +119,16 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
         action={action}
         method="POST"
         onSubmit={this.onSubmit.bind(this)}
-        {...{ inert: isInert ? 'true' : undefined }}
+        inert={isInert}
       >
+        {process.env.TEST && (
+          <>
+            <script id="test-form-state">{JSON.stringify(this.state)}</script>
+            <script id="test-collect-fields">
+              {JSON.stringify(this.collectCurrentFieldValues())}
+            </script>
+          </>
+        )}
         <ErrorComponent form={form} formErrors={this.state.errors} fieldErrors={fieldErrors} />
         {fieldComponents}
       </form>
