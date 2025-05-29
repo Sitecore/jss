@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:14](https://github.com/Sitecore/jss/blob/bcb255fbda/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L14)
+[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:14](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L14)
