@@ -7655,9 +7655,9 @@ __metadata:
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
     "@sitecore-cloudsdk/personalize": ^0.5.1
-    "@sitecore-jss/sitecore-jss": 21.10.0-canary.0
-    "@sitecore-jss/sitecore-jss-dev-tools": 21.10.0-canary.0
-    "@sitecore-jss/sitecore-jss-react": 21.10.0-canary.0
+    "@sitecore-jss/sitecore-jss": 21.10.0-canary.1
+    "@sitecore-jss/sitecore-jss-dev-tools": 21.10.0-canary.1
+    "@sitecore-jss/sitecore-jss-react": 21.10.0-canary.1
     "@testing-library/dom": ^10.4.0
     "@testing-library/react": ^16.3.0
     "@types/chai": ^4.3.4
@@ -7802,7 +7802,7 @@ __metadata:
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
     "@sitecore-feaas/clientside": ^0.5.17
-    "@sitecore-jss/sitecore-jss": 21.10.0-canary.0
+    "@sitecore-jss/sitecore-jss": 21.10.0-canary.1
     "@testing-library/dom": ^10.4.0
     "@testing-library/react": ^16.1.0
     "@testing-library/user-event": ^14.6.0
