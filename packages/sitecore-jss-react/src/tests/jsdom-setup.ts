@@ -32,7 +32,9 @@ function copyProps(src: unknown, target: { [key: string]: unknown }) {
 
 global.window = jsDomWindow;
 global.document = jsDomWindow.document;
-global.navigator['#userAgent'] = 'node.js';
+global.navigator = {
+  userAgent: 'node.js',
+} as Navigator;
 
 global.HTMLElement = jsDomWindow.HTMLElement; // makes chai "happy" https://github.com/chaijs/chai/issues/1029
 copyProps(jsDomWindow, global);
