@@ -40,7 +40,7 @@ describe('RestComponentLayoutService', () => {
   it('should fetch component data', () => {
     nock(SITECORE_EDGE_URL_DEFAULT)
       .get(
-        '/v1/layout/component?sitecoreContextId=test-context-id&item=123&uid=456&sc_site=supersite&sc_lang=en'
+        '/layout/component?sitecoreContextId=test-context-id&item=123&uid=456&sc_site=supersite&sc_lang=en'
       )
       .reply(200, () => defaultTestData);
 
@@ -91,7 +91,7 @@ describe('RestComponentLayoutService', () => {
 
     nock(SITECORE_EDGE_URL_DEFAULT)
       .get(
-        '/v1/layout/component?sitecoreContextId=test-context-id&item=123&uid=456&dataSourceId=789&renderingItemId=000&version=1&sc_site=supersite&sc_lang=en'
+        '/layout/component?sitecoreContextId=test-context-id&item=123&uid=456&dataSourceId=789&renderingItemId=000&version=1&sc_site=supersite&sc_lang=en'
       )
       .reply(200, () => testExpectedData);
 
@@ -116,7 +116,7 @@ describe('RestComponentLayoutService', () => {
 
     nock(customEdgeUrl)
       .get(
-        '/v1/layout/component?sitecoreContextId=test-context-id&item=123&uid=456&sc_site=supersite&sc_lang=en'
+        '/layout/component?sitecoreContextId=test-context-id&item=123&uid=456&sc_site=supersite&sc_lang=en'
       )
       .reply(200, () => defaultTestData);
 
@@ -130,7 +130,7 @@ describe('RestComponentLayoutService', () => {
   it('should catch 404 when request layout data', () => {
     nock(SITECORE_EDGE_URL_DEFAULT)
       .get(
-        '/v1/layout/component?sitecoreContextId=test-context-id&item=123&uid=456&sc_site=supersite&sc_lang=en'
+        '/layout/component?sitecoreContextId=test-context-id&item=123&uid=456&sc_site=supersite&sc_lang=en'
       )
       .reply(404, () => ({
         data: {
@@ -162,7 +162,7 @@ describe('RestComponentLayoutService', () => {
   it('should allow non 404 errors through', () => {
     nock(SITECORE_EDGE_URL_DEFAULT)
       .get(
-        '/v1/layout/component?sitecoreContextId=test-context-id&item=123&uid=456&sc_site=supersite&sc_lang=en'
+        '/layout/component?sitecoreContextId=test-context-id&item=123&uid=456&sc_site=supersite&sc_lang=en'
       )
       .reply(401, { message: 'whoops' });
 
