@@ -672,6 +672,7 @@ describe('PersonalizeMiddleware', () => {
       expect(finalRes).to.deep.equal(res);
       nextRewriteStub.restore();
     });
+
     it('sc_site cookie is provided', async () => {
       const req = createRequest();
       const res = createResponse({
@@ -868,6 +869,37 @@ describe('PersonalizeMiddleware', () => {
           sinon.match.any
         )
       ).to.be.true;
+      expect(finalRes).to.deep.equal(res);
+      nextRewriteStub.restore();
+    });
+
+    it('passess geo data', async () => {
+      const pageId = 'item-id';
+      const scope = 'myscope';
+      const req = createRequest();
+      const res = createResponse();
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      const personalizeStub = sinon.stub().returns(Promise.resolve({ variantId: undefined }));
+      const { middleware, getPersonalizeInfo, personalize } = createMiddleware({
+        scope,
+        personalizeInfo: {
+          pageId,
+          variantIds: ['variant1'],
+        },
+        personalizeStub,
+      });
+      const personalizeOptions = {
+        geo: {
+          country: 'US',
+          region: 'CA',
+          city: 'San Francisco',
+        },
+      };
+      const finalRes = await middleware.getHandler()(req, res, personalizeOptions);
+
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
+      expect(personalize.calledWith(sinon.match({ options: personalizeOptions }), sinon.match.any))
+        .to.be.true;
       expect(finalRes).to.deep.equal(res);
       nextRewriteStub.restore();
     });

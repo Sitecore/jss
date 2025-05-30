@@ -1,9 +1,9 @@
 import React from 'react';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 import { BYOCComponent } from './BYOCComponent';
-import { MissingComponent, MissingComponentProps } from './MissingComponent';
+import { MissingComponentProps } from './MissingComponent';
 
 describe('BYOCComponent', () => {
   it('should render with props when ComponentProps is provided', () => {
@@ -27,13 +27,14 @@ describe('BYOCComponent', () => {
         },
       },
     });
-    const wrapper = mount(<BYOCComponent {...mockProps} />);
-    const fooComponent = wrapper.find('feaas-external');
-    expect(fooComponent).to.have.lengthOf(1);
-    expect(fooComponent.prop('prop1')).to.equal('value1');
-    expect(fooComponent.prop('data-external-id')).to.equal('Foo');
-    expect(fooComponent.find('#foo-content')).to.have.length(1);
-    expect(fooComponent.prop('uid')).to.equal('1111-2222-3333-4444');
+    const { container } = render(<BYOCComponent {...mockProps} />);
+    const fooComponent = container.querySelectorAll('feaas-external');
+    expect(fooComponent).to.not.be.null;
+    expect(container.querySelectorAll('feaas-external')).to.have.lengthOf(1);
+    expect(fooComponent[0]?.getAttribute('prop1')).to.equal('value1');
+    expect(fooComponent[0]?.getAttribute('data-external-id')).to.equal('Foo');
+    expect(fooComponent[0]?.querySelectorAll('#foo-content')).to.have.length(1);
+    expect(fooComponent[0]?.getAttribute('uid')).to.equal('1111-2222-3333-4444');
   });
 
   it('should use datasource fields when provided', () => {
@@ -58,12 +59,12 @@ describe('BYOCComponent', () => {
         },
       },
     });
-    const wrapper = mount(<BYOCComponent {...mockProps} />);
-    const fooComponent = wrapper.find('feaas-external');
-    expect(fooComponent).to.have.lengthOf(1);
-    expect(fooComponent.prop('prop1')).to.equal('value2');
-    expect(fooComponent.prop('data-external-id')).to.equal('Foo');
-    expect(fooComponent.find('#foo-content')).to.have.length(1);
+    const { container } = render(<BYOCComponent {...mockProps} />);
+    const fooComponent = container.querySelectorAll('feaas-external');
+    expect(container.querySelectorAll('feaas-external')).to.have.lengthOf(1);
+    expect(fooComponent[0].getAttribute('prop1')).to.equal('value2');
+    expect(fooComponent[0].getAttribute('data-external-id')).to.equal('Foo');
+    expect(fooComponent[0].querySelectorAll('#foo-content')).to.have.length(1);
   });
 
   it('should prefer ComponentProps over datasource fields', () => {
@@ -89,12 +90,12 @@ describe('BYOCComponent', () => {
         },
       },
     });
-    const wrapper = mount(<BYOCComponent {...mockProps} />);
-    const fooComponent = wrapper.find('feaas-external');
-    expect(fooComponent).to.have.lengthOf(1);
-    expect(fooComponent.prop('prop1')).to.equal('value1');
-    expect(fooComponent.prop('data-external-id')).to.equal('Foo');
-    expect(fooComponent.find('#foo-content')).to.have.length(1);
+    const { container } = render(<BYOCComponent {...mockProps} />);
+    expect(container.querySelectorAll('feaas-external')).to.have.lengthOf(1);
+    const fooComponent = container.querySelector('feaas-external');
+    expect(fooComponent?.getAttribute('prop1')).to.equal('value1');
+    expect(fooComponent?.getAttribute('data-external-id')).to.equal('Foo');
+    expect(fooComponent?.querySelectorAll('#foo-content')).to.have.length(1);
   });
 
   it('should combine ComponentProps and datasource fields', () => {
@@ -120,13 +121,13 @@ describe('BYOCComponent', () => {
         },
       },
     });
-    const wrapper = mount(<BYOCComponent {...mockProps} />);
-    const fooComponent = wrapper.find('feaas-external');
-    expect(fooComponent).to.have.lengthOf(1);
-    expect(fooComponent.prop('prop1')).to.equal('value1');
-    expect(fooComponent.prop('prop2')).to.equal('value2');
-    expect(fooComponent.prop('data-external-id')).to.equal('Foo');
-    expect(fooComponent.find('#foo-content')).to.have.length(1);
+    const { container } = render(<BYOCComponent {...mockProps} />);
+    const fooComponent = container.querySelector('feaas-external');
+    expect(container.querySelectorAll('feaas-external')).to.have.lengthOf(1);
+    expect(fooComponent?.getAttribute('prop1')).to.equal('value1');
+    expect(fooComponent?.getAttribute('prop2')).to.equal('value2');
+    expect(fooComponent?.getAttribute('data-external-id')).to.equal('Foo');
+    expect(fooComponent?.querySelectorAll('#foo-content')).to.have.length(1);
   });
 
   it('should render with static and fetched props when props are prefetched', () => {
@@ -152,13 +153,15 @@ describe('BYOCComponent', () => {
         },
       },
     });
-    const wrapper = mount(<BYOCComponent {...mockProps} />);
-    const fooComponent = wrapper.find('feaas-external');
-    expect(fooComponent).to.have.lengthOf(1);
-    expect(fooComponent.prop('prop1')).to.equal('value1');
-    expect(fooComponent.prop('datasources')).to.equal('{"prop2":"prefetched_value1","_":{}}');
-    expect(fooComponent.prop('data-external-id')).to.equal('Foo');
-    expect(fooComponent.find('#foo-content')).to.have.length(1);
+    const { container } = render(<BYOCComponent {...mockProps} />);
+    const fooComponent = container.querySelector('feaas-external');
+    expect(container.querySelectorAll('feaas-external')).to.have.lengthOf(1);
+    expect(fooComponent?.getAttribute('prop1')).to.equal('value1');
+    expect(fooComponent?.getAttribute('datasources')).to.equal(
+      '{"prop2":"prefetched_value1","_":{}}'
+    );
+    expect(fooComponent?.getAttribute('data-external-id')).to.equal('Foo');
+    expect(fooComponent?.querySelectorAll('#foo-content')).to.have.length(1);
   });
 
   it('should render with props when ComponentProps are provided but fetchedData is not present', () => {
@@ -177,12 +180,12 @@ describe('BYOCComponent', () => {
         },
       },
     });
-    const wrapper = mount(<BYOCComponent {...mockProps} />);
-    const fooComponent = wrapper.find('feaas-external');
-    expect(fooComponent).to.have.lengthOf(1);
-    expect(fooComponent.prop('prop1')).to.equal('value1');
-    expect(fooComponent.prop('data-external-id')).to.equal('Foo');
-    expect(fooComponent.find('#foo-content')).to.have.length(1);
+    const { container } = render(<BYOCComponent {...mockProps} />);
+    const fooComponent = container.querySelector('feaas-external');
+    expect(container.querySelectorAll('feaas-external')).to.have.lengthOf(1);
+    expect(fooComponent?.getAttribute('prop1')).to.equal('value1');
+    expect(fooComponent?.getAttribute('data-external-id')).to.equal('Foo');
+    expect(fooComponent?.querySelectorAll('#foo-content')).to.have.length(1);
   });
 });
 
@@ -195,9 +198,11 @@ describe('Error handling', () => {
       },
       fetchedData: {},
     };
-    const wrapper = mount(<BYOCComponent {...props} />);
-    const errorComponent = wrapper.find('DefaultErrorComponent');
-    expect(errorComponent).to.have.lengthOf(1);
+    const wrapper = render(<BYOCComponent {...props} />, { container: document.body });
+
+    expect(wrapper.baseElement.innerHTML).to.equal(
+      '<div>A rendering error occurred: Unexpected token \'i\', "invalid-json" is not valid JSON.</div>'
+    );
   });
 
   it('should render custom error component when provided, when underlying component throws', () => {
@@ -211,9 +216,8 @@ describe('Error handling', () => {
       fetchedData: {},
     };
 
-    const wrapper = mount(<BYOCComponent {...props} />);
-
-    expect(wrapper.find('div').text()).to.contain('custom error:');
+    const wrapper = render(<BYOCComponent {...props} />);
+    expect(wrapper.queryAllByText('custom error:', { exact: false }).length).to.equal(1);
   });
 
   it('renders MissingComponent when no ComponentName is provided', () => {
@@ -223,13 +227,11 @@ describe('Error handling', () => {
         ComponentDataOverride: JSON.stringify({ text: 'this is a BYOC component' }),
       },
     };
-    const wrapper = mount(<BYOCComponent {...props} />);
-    const missingComponent = wrapper.find('MissingComponent');
+    const wrapper = render(<BYOCComponent {...props} />, { container: document.body });
+    const text = wrapper.baseElement.textContent;
 
-    expect(missingComponent).to.have.lengthOf(1);
-    expect(wrapper.find('p').text()).to.contain(
-      'BYOC: The ComponentName for this rendering is missing'
-    );
+    expect(text).to.contain('Unnamed Component');
+    expect(text).to.contain('BYOC: The ComponentName for this rendering is missing');
   });
 
   it('should render custom missing component when provided, when component name is not provided', () => {
@@ -244,11 +246,9 @@ describe('Error handling', () => {
       params: { ComponentName: '' },
     };
 
-    const wrapper = mount(<BYOCComponent {...props} />);
-
-    expect(wrapper.find('div').text()).to.contain('Custom missive');
-    expect(wrapper.find('div').text()).to.contain(
-      'The ComponentName for this rendering is missing'
+    const wrapper = render(<BYOCComponent {...props} />, { container: document.body });
+    expect(wrapper.baseElement.innerHTML).to.equal(
+      '<div>Custom missive for : BYOC: The ComponentName for this rendering is missing</div>'
     );
   });
 
@@ -262,10 +262,9 @@ describe('Error handling', () => {
       fetchedData: {},
     };
 
-    const wrapper = mount(<BYOCComponent {...props} />);
+    const wrapper = render(<BYOCComponent {...props} />);
 
-    expect(wrapper.find(MissingComponent)).to.have.lengthOf(1);
-    expect(wrapper.find('div p').text()).to.contain('This component was not registered');
+    expect(wrapper.queryAllByText('This component was not registered').length).to.equal(1);
   });
 
   xit('should render custom missing component when provided, when component is not registered', () => {
@@ -281,9 +280,10 @@ describe('Error handling', () => {
       components: {},
       fetchedData: {},
     };
-    const wrapper = mount(<BYOCComponent {...props} />);
+    const wrapper = render(<BYOCComponent {...props} />);
+    const text = wrapper.container.querySelector('div')?.innerText;
 
-    expect(wrapper.find('div').text()).to.contain('Custom missive for NonExistentComponent');
-    expect(wrapper.find('div').text()).to.contain('This component was not registered');
+    expect(text).to.contain('Custom missive for NonExistentComponent');
+    expect(text).to.contain('This component was not registered');
   });
 });

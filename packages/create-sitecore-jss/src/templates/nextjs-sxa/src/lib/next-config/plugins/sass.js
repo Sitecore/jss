@@ -11,6 +11,9 @@ const SassAlias = require('sass-alias');
           '@sass': path.join(__dirname, '../../../assets', 'sass'),
           '@fontawesome': path.join(__dirname, '../../../../node_modules', 'font-awesome'),
         }).getImporter(),
+        // temporary measure until new versions of bootstrap and font-awesome released
+        quietDeps: true,    
+        silenceDeprecations: ["import", "legacy-js-api"],
       },
     });
 };

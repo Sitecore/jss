@@ -1,5 +1,4 @@
 import React, { ComponentType } from 'react';
-import PropTypes, { Requireable } from 'prop-types';
 import { MissingComponent } from './MissingComponent';
 import { ComponentFactory, JssComponentType } from './sharedTypes';
 import {
@@ -92,34 +91,6 @@ export interface PlaceholderProps {
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
-  static propTypes = {
-    rendering: PropTypes.oneOfType([
-      PropTypes.object as Requireable<RouteData>,
-      PropTypes.object as Requireable<ComponentRendering>,
-    ]).isRequired,
-    fields: PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.object as Requireable<Field>,
-        PropTypes.object as Requireable<Item[]>,
-      ]).isRequired
-    ),
-    params: PropTypes.objectOf(PropTypes.string.isRequired),
-    missingComponentComponent: PropTypes.oneOfType([
-      PropTypes.object as Requireable<React.ComponentClass<unknown>>,
-      PropTypes.func as Requireable<React.FC<unknown>>,
-    ]),
-    hiddenRenderingComponent: PropTypes.oneOfType([
-      PropTypes.object as Requireable<React.ComponentClass<unknown>>,
-      PropTypes.func as Requireable<React.FC<unknown>>,
-    ]),
-    errorComponent: PropTypes.oneOfType([
-      PropTypes.object as Requireable<React.ComponentClass<unknown>>,
-      PropTypes.func as Requireable<React.FC<unknown>>,
-    ]),
-    modifyComponentProps: PropTypes.func,
-    sitecoreContext: PropTypes.object as Requireable<SitecoreContextValue>,
-  };
-
   nodeRefs: Element[];
   state: Readonly<{ error?: Error }>;
 

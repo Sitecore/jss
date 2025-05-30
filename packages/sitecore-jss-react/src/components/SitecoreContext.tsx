@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import PropTypes from 'prop-types';
 import fastDeepEqual from 'fast-deep-equal/es6/react';
 import { ComponentFactory } from './sharedTypes';
 import { LayoutServiceContext, LayoutServiceData, RouteData } from '../index';
@@ -50,17 +49,6 @@ export type SitecoreContextValue = LayoutServiceContext & {
 };
 
 export class SitecoreContext extends React.Component<SitecoreContextProps, SitecoreContextState> {
-  static propTypes = {
-    children: PropTypes.any.isRequired,
-    componentFactory: PropTypes.func,
-    layoutData: PropTypes.shape({
-      sitecore: PropTypes.shape({
-        context: PropTypes.any,
-        route: PropTypes.any,
-      }),
-    }),
-  };
-
   static displayName = 'SitecoreContext';
 
   constructor(props: SitecoreContextProps) {

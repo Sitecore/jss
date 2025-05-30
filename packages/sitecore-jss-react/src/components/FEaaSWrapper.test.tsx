@@ -1,7 +1,7 @@
 import React from 'react';
 import { stub } from 'sinon';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { ComponentFields } from '@sitecore-jss/sitecore-jss/layout';
 import { FEaaSWrapper } from './FEaaSWrapper';
 import * as FEaaSComponent from './FEaaSComponent';
@@ -36,11 +36,9 @@ describe('<FEaaSWrapper />', () => {
       fields,
       fetchedData,
     };
-    const wrapper = mount(<FEaaSWrapper {...mockProps} />);
+    const wrapper = render(<FEaaSWrapper {...mockProps} />, { container: document.body });
 
-    const feaasComponent = wrapper.find('FEaaSComponent');
-    expect(feaasComponent).to.have.lengthOf(1);
-    const props = feaasComponent.props() as FEaaSComponent.FEaaSComponentProps;
+    const props = feaasComponentStub.args[0][0];
     expect(props.params).to.deep.equal({
       LibraryId: 'library123',
       ComponentId: 'component123',
@@ -60,10 +58,10 @@ describe('<FEaaSWrapper />', () => {
       baz: 42,
     });
 
-    const root = wrapper.find('.bar');
-    expect(root).to.have.lengthOf(1);
-    expect(root.props().className).to.equal('component feaas foo bar');
-    expect(root.props().id).to.equal('foo-id');
+    const root = wrapper.container.querySelector('.bar');
+    expect(wrapper.container.querySelectorAll('.bar')).to.have.lengthOf(1);
+    expect(root?.getAttribute('class')).to.equal('component feaas foo bar');
+    expect(root?.getAttribute('id')).to.equal('foo-id');
 
     feaasComponentStub.restore();
   });
