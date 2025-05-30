@@ -8,28 +8,9 @@
 
 ### Variables
 
-- [defaultProps](index.RichText.md#defaultprops)
 - [displayName](index.RichText.md#displayname)
-- [propTypes](index.RichText.md#proptypes)
 
 ## Variables
-
-### defaultProps
-
-• **defaultProps**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `editable` | `boolean` |
-| `tag` | `string` |
-
-#### Defined in
-
-[packages/sitecore-jss-nextjs/src/components/RichText.tsx:80](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L80)
-
-___
 
 ### displayName
 
@@ -37,23 +18,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/components/RichText.tsx:85](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L85)
-
-___
-
-### propTypes
-
-• **propTypes**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `editable` | `Requireable`\<`boolean`\> |
-| `field` | `Requireable`\<`InferProps`\<\{ `editable`: `Requireable`\<`string`\> ; `value`: `Requireable`\<`string`\>  }\>\> |
-| `internalLinksSelector` | `Requireable`\<`string`\> |
-| `tag` | `Requireable`\<`string`\> |
-
-#### Defined in
-
-[packages/sitecore-jss-nextjs/src/components/RichText.tsx:75](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L75)
+[packages/sitecore-jss-nextjs/src/components/RichText.tsx:78](https://github.com/Sitecore/jss/blob/e7f839aca4/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L78)

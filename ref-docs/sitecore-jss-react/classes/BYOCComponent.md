@@ -25,9 +25,9 @@ component props
 
 - [context](BYOCComponent.md#context)
 - [props](BYOCComponent.md#props)
-- [refs](BYOCComponent.md#refs)
 - [state](BYOCComponent.md#state)
 - [contextType](BYOCComponent.md#contexttype)
+- [propTypes](BYOCComponent.md#proptypes)
 
 ### Methods
 
@@ -66,7 +66,7 @@ React.Component\&lt;BYOCComponentProps\&gt;.constructor
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:87](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L87)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:87](https://github.com/Sitecore/jss/blob/e7f839aca4/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L87)
 
 ## Properties
 
@@ -78,6 +78,8 @@ If using the new style context, re-declare this in your class to be the
 `React.ContextType` of your `static contextType`.
 Should be used with type annotation or static contextType.
 
+**`Example`**
+
 ```ts
 static contextType = MyContext
 // For TS pre-3.7:
@@ -88,7 +90,7 @@ declare context: React.ContextType<typeof MyContext>
 
 **`See`**
 
-https://react.dev/reference/react/Component#context
+[React Docs](https://react.dev/reference/react/Component#context)
 
 #### Inherited from
 
@@ -96,7 +98,7 @@ React.Component.context
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:518
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:946
 
 ___
 
@@ -110,29 +112,7 @@ React.Component.props
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:538
-
-___
-
-### refs
-
-• **refs**: `Object`
-
-**`Deprecated`**
-
-https://legacy.reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs
-
-#### Index signature
-
-▪ [key: `string`]: `ReactInstance`
-
-#### Inherited from
-
-React.Component.refs
-
-#### Defined in
-
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:544
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:962
 
 ___
 
@@ -146,7 +126,7 @@ React.Component.state
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:85](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L85)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:85](https://github.com/Sitecore/jss/blob/e7f839aca4/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L85)
 
 ___
 
@@ -156,7 +136,7 @@ ___
 
 If set, `this.context` will be set at runtime to the current value of the given Context.
 
-Usage:
+**`Example`**
 
 ```ts
 type MyContext = number
@@ -173,7 +153,7 @@ class Foo extends React.Component {
 
 **`See`**
 
-https://react.dev/reference/react/Component#static-contexttype
+[https://react.dev/reference/react/Component#static-contexttype](https://react.dev/reference/react/Component#static-contexttype)
 
 #### Inherited from
 
@@ -181,7 +161,27 @@ React.Component.contextType
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:501
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:922
+
+___
+
+### propTypes
+
+▪ `Static` `Optional` **propTypes**: `any`
+
+Ignored by React.
+
+**`Deprecated`**
+
+Only kept in types for backwards compatibility. Will be removed in a future major release.
+
+#### Inherited from
+
+React.Component.propTypes
+
+#### Defined in
+
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:928
 
 ## Methods
 
@@ -189,13 +189,14 @@ packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:501
 
 ▸ `Optional` **UNSAFE_componentWillMount**(): `void`
 
-Called immediately before mounting occurs, and before `Component#render`.
+Called immediately before mounting occurs, and before Component.render.
 Avoid introducing any side-effects or subscriptions in this method.
 
 This method will not stop working in React 17.
 
-Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
-prevents this from being invoked.
+Note: the presence of [getSnapshotBeforeUpdate](BYOCComponent.md#getsnapshotbeforeupdate)
+or StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps prevents
+this from being invoked.
 
 #### Returns
 
@@ -203,12 +204,12 @@ prevents this from being invoked.
 
 **`Deprecated`**
 
-16.3, use componentDidMount or the constructor instead
+16.3, use [componentDidMount](BYOCComponent.md#componentdidmount) or the constructor instead
 
 **`See`**
 
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state)
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
 
 #### Inherited from
 
@@ -216,7 +217,7 @@ React.Component.UNSAFE\_componentWillMount
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:735
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:1266
 
 ___
 
@@ -228,12 +229,13 @@ Called when the component may be receiving new props.
 React may call this even if props have not changed, so be sure to compare new and existing
 props if you only want to handle changes.
 
-Calling `Component#setState` generally does not trigger this method.
+Calling [setState](BYOCComponent.md#setstate) generally does not trigger this method.
 
 This method will not stop working in React 17.
 
-Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
-prevents this from being invoked.
+Note: the presence of [getSnapshotBeforeUpdate](BYOCComponent.md#getsnapshotbeforeupdate)
+or StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps prevents
+this from being invoked.
 
 #### Parameters
 
@@ -248,12 +250,12 @@ prevents this from being invoked.
 
 **`Deprecated`**
 
-16.3, use static getDerivedStateFromProps instead
+16.3, use static StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps instead
 
 **`See`**
 
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props)
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
 
 #### Inherited from
 
@@ -261,7 +263,7 @@ React.Component.UNSAFE\_componentWillReceiveProps
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:767
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:1300
 
 ___
 
@@ -271,12 +273,13 @@ ___
 
 Called immediately before rendering when new props or state is received. Not called for the initial render.
 
-Note: You cannot call `Component#setState` here.
+Note: You cannot call [setState](BYOCComponent.md#setstate) here.
 
 This method will not stop working in React 17.
 
-Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
-prevents this from being invoked.
+Note: the presence of [getSnapshotBeforeUpdate](BYOCComponent.md#getsnapshotbeforeupdate)
+or StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps prevents
+this from being invoked.
 
 #### Parameters
 
@@ -296,8 +299,8 @@ prevents this from being invoked.
 
 **`See`**
 
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update)
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
 
 #### Inherited from
 
@@ -305,7 +308,7 @@ React.Component.UNSAFE\_componentWillUpdate
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:795
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:1330
 
 ___
 
@@ -329,7 +332,7 @@ React.Component.componentDidCatch
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:97](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L97)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:97](https://github.com/Sitecore/jss/blob/e7f839aca4/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L97)
 
 ___
 
@@ -349,7 +352,7 @@ React.Component.componentDidMount
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:643
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:1172
 
 ___
 
@@ -359,7 +362,7 @@ ___
 
 Called immediately after updating occurs. Not called for the initial render.
 
-The snapshot is only present if getSnapshotBeforeUpdate is present and returns non-null.
+The snapshot is only present if [getSnapshotBeforeUpdate](BYOCComponent.md#getsnapshotbeforeupdate) is present and returns non-null.
 
 #### Parameters
 
@@ -379,7 +382,7 @@ React.Component.componentDidUpdate
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:706
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:1235
 
 ___
 
@@ -387,11 +390,12 @@ ___
 
 ▸ `Optional` **componentWillMount**(): `void`
 
-Called immediately before mounting occurs, and before `Component#render`.
+Called immediately before mounting occurs, and before Component.render.
 Avoid introducing any side-effects or subscriptions in this method.
 
-Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
-prevents this from being invoked.
+Note: the presence of [getSnapshotBeforeUpdate](BYOCComponent.md#getsnapshotbeforeupdate)
+or StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps prevents
+this from being invoked.
 
 #### Returns
 
@@ -399,12 +403,12 @@ prevents this from being invoked.
 
 **`Deprecated`**
 
-16.3, use componentDidMount or the constructor instead; will stop working in React 17
+16.3, use [componentDidMount](BYOCComponent.md#componentdidmount) or the constructor instead; will stop working in React 17
 
 **`See`**
 
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state)
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
 
 #### Inherited from
 
@@ -412,7 +416,7 @@ React.Component.componentWillMount
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:721
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:1251
 
 ___
 
@@ -424,10 +428,11 @@ Called when the component may be receiving new props.
 React may call this even if props have not changed, so be sure to compare new and existing
 props if you only want to handle changes.
 
-Calling `Component#setState` generally does not trigger this method.
+Calling [setState](BYOCComponent.md#setstate) generally does not trigger this method.
 
-Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
-prevents this from being invoked.
+Note: the presence of [getSnapshotBeforeUpdate](BYOCComponent.md#getsnapshotbeforeupdate)
+or StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps prevents
+this from being invoked.
 
 #### Parameters
 
@@ -442,12 +447,12 @@ prevents this from being invoked.
 
 **`Deprecated`**
 
-16.3, use static getDerivedStateFromProps instead; will stop working in React 17
+16.3, use static StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps instead; will stop working in React 17
 
 **`See`**
 
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props)
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
 
 #### Inherited from
 
@@ -455,7 +460,7 @@ React.Component.componentWillReceiveProps
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:750
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:1282
 
 ___
 
@@ -476,7 +481,7 @@ React.Component.componentWillUnmount
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:659
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:1188
 
 ___
 
@@ -486,10 +491,11 @@ ___
 
 Called immediately before rendering when new props or state is received. Not called for the initial render.
 
-Note: You cannot call `Component#setState` here.
+Note: You cannot call [setState](BYOCComponent.md#setstate) here.
 
-Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps
-prevents this from being invoked.
+Note: the presence of [getSnapshotBeforeUpdate](BYOCComponent.md#getsnapshotbeforeupdate)
+or StaticLifecycle.getDerivedStateFromProps getDerivedStateFromProps prevents
+this from being invoked.
 
 #### Parameters
 
@@ -509,8 +515,8 @@ prevents this from being invoked.
 
 **`See`**
 
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
- - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update)
+ - [https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
 
 #### Inherited from
 
@@ -518,7 +524,7 @@ React.Component.componentWillUpdate
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:780
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:1314
 
 ___
 
@@ -542,7 +548,7 @@ React.Component.forceUpdate
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:535
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:959
 
 ___
 
@@ -550,11 +556,11 @@ ___
 
 ▸ `Optional` **getSnapshotBeforeUpdate**(`prevProps`, `prevState`): `any`
 
-Runs before React applies the result of `render` to the document, and
-returns an object to be given to componentDidUpdate. Useful for saving
-things such as scroll position before `render` causes changes to it.
+Runs before React applies the result of Component.render render to the document, and
+returns an object to be given to [componentDidUpdate](BYOCComponent.md#componentdidupdate). Useful for saving
+things such as scroll position before Component.render render causes changes to it.
 
-Note: the presence of getSnapshotBeforeUpdate prevents any of the deprecated
+Note: the presence of this method prevents any of the deprecated
 lifecycle events from running.
 
 #### Parameters
@@ -574,7 +580,7 @@ React.Component.getSnapshotBeforeUpdate
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:700
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:1229
 
 ___
 
@@ -592,7 +598,7 @@ React.Component.render
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:101](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L101)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:101](https://github.com/Sitecore/jss/blob/e7f839aca4/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L101)
 
 ___
 
@@ -623,7 +629,7 @@ React.Component.setState
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:530
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:954
 
 ___
 
@@ -637,7 +643,7 @@ Called to determine whether the change in props and state should trigger a re-re
 `PureComponent` implements a shallow comparison on props and state and returns true if any
 props or states have changed.
 
-If false is returned, `Component#render`, `componentWillUpdate`
+If false is returned, Component.render, `componentWillUpdate`
 and `componentDidUpdate` will not be called.
 
 #### Parameters
@@ -658,7 +664,7 @@ React.Component.shouldComponentUpdate
 
 #### Defined in
 
-packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:654
+packages/sitecore-jss-react/node_modules/@types/react/ts5.0/index.d.ts:1183
 
 ___
 
@@ -682,4 +688,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:92](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L92)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:92](https://github.com/Sitecore/jss/blob/e7f839aca4/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L92)

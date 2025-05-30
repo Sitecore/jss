@@ -42,7 +42,7 @@ PlaceholderProps.componentFactory
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:24
+packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:23
 
 ___
 
@@ -59,7 +59,7 @@ PlaceholderProps.errorComponent
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:59
+packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:58
 
 ___
 
@@ -80,7 +80,7 @@ PlaceholderProps.fields
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:29
+packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:28
 
 ___
 
@@ -96,7 +96,7 @@ PlaceholderProps.hiddenRenderingComponent
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:54
+packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:53
 
 ___
 
@@ -113,7 +113,7 @@ PlaceholderProps.missingComponentComponent
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:50
+packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:49
 
 ___
 
@@ -146,7 +146,7 @@ PlaceholderProps.modifyComponentProps
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:45
+packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:44
 
 ___
 
@@ -162,7 +162,7 @@ PlaceholderProps.name
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:17
+packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:16
 
 ___
 
@@ -183,7 +183,7 @@ PlaceholderProps.params
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:36
+packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:35
 
 ___
 
@@ -283,4 +283,4 @@ PlaceholderProps.rendering
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:19
+packages/sitecore-jss-react/types/components/PlaceholderCommon.d.ts:18

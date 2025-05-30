@@ -8,21 +8,9 @@
 
 ### Variables
 
-- [defaultProps](index.NextImage.md#defaultprops)
 - [displayName](index.NextImage.md#displayname)
-- [propTypes](index.NextImage.md#proptypes)
 
 ## Variables
-
-### defaultProps
-
-• **defaultProps**: `undefined` \| `Partial`\<`NextImageProps`\>
-
-#### Defined in
-
-[packages/sitecore-jss-nextjs/src/components/NextImage.tsx:108](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L108)
-
-___
 
 ### displayName
 
@@ -30,14 +18,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/components/NextImage.tsx:112](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L112)
-
-___
-
-### propTypes
-
-• **propTypes**: `undefined` \| `WeakValidationMap`\<`NextImageProps`\>
-
-#### Defined in
-
-[packages/sitecore-jss-nextjs/src/components/NextImage.tsx:91](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L91)
+[packages/sitecore-jss-nextjs/src/components/NextImage.tsx:90](https://github.com/Sitecore/jss/blob/e7f839aca4/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L90)

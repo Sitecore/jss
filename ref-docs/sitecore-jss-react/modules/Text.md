@@ -6,21 +6,9 @@
 
 ### Variables
 
-- [defaultProps](Text.md#defaultprops)
 - [displayName](Text.md#displayname)
-- [propTypes](Text.md#proptypes)
 
 ## Variables
-
-### defaultProps
-
-• **defaultProps**: `Partial`\<`TextProps`\>
-
-#### Defined in
-
-[packages/sitecore-jss-react/src/components/Text.tsx:110](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-react/src/components/Text.tsx#L110)
-
-___
 
 ### displayName
 
@@ -28,14 +16,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Text.tsx:115](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-react/src/components/Text.tsx#L115)
-
-___
-
-### propTypes
-
-• **propTypes**: `WeakValidationMap`\<`TextProps`\>
-
-#### Defined in
-
-[packages/sitecore-jss-react/src/components/Text.tsx:100](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-react/src/components/Text.tsx#L100)
+[packages/sitecore-jss-react/src/components/Text.tsx:99](https://github.com/Sitecore/jss/blob/e7f839aca4/packages/sitecore-jss-react/src/components/Text.tsx#L99)

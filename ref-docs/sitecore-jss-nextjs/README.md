@@ -6,7 +6,6 @@
 
 ### Modules
 
-- [context](modules/context.md)
 - [editing](modules/editing.md)
 - [graphql](modules/graphql.md)
 - [index](modules/index.md)

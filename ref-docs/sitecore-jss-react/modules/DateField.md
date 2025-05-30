@@ -6,21 +6,9 @@
 
 ### Variables
 
-- [defaultProps](DateField.md#defaultprops)
 - [displayName](DateField.md#displayname)
-- [propTypes](DateField.md#proptypes)
 
 ## Variables
-
-### defaultProps
-
-• **defaultProps**: `Partial`\<[`DateFieldProps`](../interfaces/DateFieldProps.md)\>
-
-#### Defined in
-
-[packages/sitecore-jss-react/src/components/Date.tsx:71](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-react/src/components/Date.tsx#L71)
-
-___
 
 ### displayName
 
@@ -28,14 +16,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:75](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-react/src/components/Date.tsx#L75)
-
-___
-
-### propTypes
-
-• **propTypes**: `WeakValidationMap`\<[`DateFieldProps`](../interfaces/DateFieldProps.md)\>
-
-#### Defined in
-
-[packages/sitecore-jss-react/src/components/Date.tsx:61](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-react/src/components/Date.tsx#L61)
+[packages/sitecore-jss-react/src/components/Date.tsx:60](https://github.com/Sitecore/jss/blob/e7f839aca4/packages/sitecore-jss-react/src/components/Date.tsx#L60)

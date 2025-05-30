@@ -19,7 +19,7 @@
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/SitecoreContext.d.ts:13
+packages/sitecore-jss-react/types/components/SitecoreContext.d.ts:12
 
 ___
 
@@ -43,4 +43,4 @@ ___
 
 #### Defined in
 
-packages/sitecore-jss-react/types/components/SitecoreContext.d.ts:12
+packages/sitecore-jss-react/types/components/SitecoreContext.d.ts:11

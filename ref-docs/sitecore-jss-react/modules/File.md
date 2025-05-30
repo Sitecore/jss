@@ -7,7 +7,6 @@
 ### Variables
 
 - [displayName](File.md#displayname)
-- [propTypes](File.md#proptypes)
 
 ## Variables
 
@@ -17,14 +16,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/File.tsx:60](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-react/src/components/File.tsx#L60)
-
-___
-
-### propTypes
-
-• **propTypes**: `WeakValidationMap`\<`FileProps`\>
-
-#### Defined in
-
-[packages/sitecore-jss-react/src/components/File.tsx:49](https://github.com/Sitecore/jss/blob/2de27557c4/packages/sitecore-jss-react/src/components/File.tsx#L49)
+[packages/sitecore-jss-react/src/components/File.tsx:48](https://github.com/Sitecore/jss/blob/e7f839aca4/packages/sitecore-jss-react/src/components/File.tsx#L48)
