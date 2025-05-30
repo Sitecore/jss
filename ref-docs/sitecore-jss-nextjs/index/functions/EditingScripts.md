@@ -20,4 +20,4 @@ A JSX element containing the editing scripts or an empty fragment if not in edit
 
 ## Defined in
 
-sitecore-jss-react/types/components/EditingScripts.d.ts:7
+sitecore-jss-react/types/components/EditingScripts.d.ts:8

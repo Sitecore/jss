@@ -99,9 +99,6 @@
 
 - [DefaultEditFrameButton](variables/DefaultEditFrameButton.md)
 - [DefaultEditFrameButtons](variables/DefaultEditFrameButtons.md)
-- [LinkPropTypes](variables/LinkPropTypes.md)
-- [RichTextPropTypes](variables/RichTextPropTypes.md)
-- [SitecoreContextReactContext](variables/SitecoreContextReactContext.md)
 
 ## Functions
 
@@ -129,6 +126,7 @@
 - [Placeholder](functions/Placeholder.md)
 - [resetEditorChromes](functions/resetEditorChromes.md)
 - [RichText](functions/RichText.md)
+- [SitecoreContextReactContext](functions/SitecoreContextReactContext.md)
 - [Text](functions/Text.md)
 - [useSitecoreContext](functions/useSitecoreContext.md)
 - [VisitorIdentification](functions/VisitorIdentification.md)

@@ -71,7 +71,7 @@ declare context: React.ContextType<typeof MyContext>
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1006
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:945
 
 ***
 
@@ -85,31 +85,7 @@ sitecore-jss-react/node\_modules/@types/react/index.d.ts:1006
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1026
-
-***
-
-### ~~refs~~
-
-> **refs**: `object`
-
-#### Index Signature
-
- \[`key`: `string`\]: `ReactInstance`
-
-#### Deprecated
-
-#### See
-
-[Legacy React Docs](https://legacy.reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs)
-
-#### Inherited from
-
-`React.Component.refs`
-
-#### Defined in
-
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1033
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:961
 
 ***
 
@@ -164,7 +140,27 @@ class Foo extends React.Component {
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:988
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:921
+
+***
+
+### ~~propTypes?~~
+
+> `static` `optional` **propTypes**: `any`
+
+Ignored by React.
+
+#### Deprecated
+
+Only kept in types for backwards compatibility. Will be removed in a future major release.
+
+#### Inherited from
+
+`React.Component.propTypes`
+
+#### Defined in
+
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:927
 
 ## Methods
 
@@ -211,7 +207,7 @@ Called immediately after a component is mounted. Setting state here will trigger
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1369
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:1173
 
 ***
 
@@ -241,7 +237,7 @@ The snapshot is only present if [getSnapshotBeforeUpdate](BYOCComponent.md#getsn
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1432
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:1236
 
 ***
 
@@ -275,7 +271,7 @@ this from being invoked.
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1448
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:1252
 
 ***
 
@@ -319,7 +315,7 @@ this from being invoked.
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1479
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:1283
 
 ***
 
@@ -340,7 +336,7 @@ cancelled network requests, or cleaning up any DOM elements created in `componen
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1385
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:1189
 
 ***
 
@@ -383,7 +379,7 @@ this from being invoked.
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1511
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:1315
 
 ***
 
@@ -407,7 +403,7 @@ sitecore-jss-react/node\_modules/@types/react/index.d.ts:1511
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1023
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:958
 
 ***
 
@@ -439,7 +435,7 @@ lifecycle events from running.
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1426
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:1230
 
 ***
 
@@ -488,7 +484,7 @@ sitecore-jss-react/types/components/BYOCComponent.d.ts:84
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1018
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:953
 
 ***
 
@@ -523,7 +519,7 @@ and `componentDidUpdate` will not be called.
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1380
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:1184
 
 ***
 
@@ -559,7 +555,7 @@ this from being invoked.
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1463
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:1267
 
 ***
 
@@ -605,7 +601,7 @@ this from being invoked.
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1497
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:1301
 
 ***
 
@@ -650,7 +646,7 @@ this from being invoked.
 
 #### Defined in
 
-sitecore-jss-react/node\_modules/@types/react/index.d.ts:1527
+sitecore-jss-react/node\_modules/@types/react/index.d.ts:1331
 
 ***
 

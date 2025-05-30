@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[src/components/form.tsx:68](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/form.tsx#L68)
+[src/components/form.tsx:68](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/form.tsx#L68)
 
 ## Properties
 
@@ -64,7 +64,7 @@ declare context: React.ContextType<typeof MyContext>
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1006
+node\_modules/@types/react/index.d.ts:945
 
 ***
 
@@ -78,31 +78,7 @@ node\_modules/@types/react/index.d.ts:1006
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1026
-
-***
-
-### ~~refs~~
-
-> **refs**: `object`
-
-#### Index Signature
-
- \[`key`: `string`\]: `ReactInstance`
-
-#### Deprecated
-
-#### See
-
-[Legacy React Docs](https://legacy.reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs)
-
-#### Inherited from
-
-`Component.refs`
-
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:1033
+node\_modules/@types/react/index.d.ts:961
 
 ***
 
@@ -116,7 +92,7 @@ node\_modules/@types/react/index.d.ts:1033
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1027
+node\_modules/@types/react/index.d.ts:962
 
 ***
 
@@ -151,7 +127,27 @@ class Foo extends React.Component {
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:988
+node\_modules/@types/react/index.d.ts:921
+
+***
+
+### ~~propTypes?~~
+
+> `static` `optional` **propTypes**: `any`
+
+Ignored by React.
+
+#### Deprecated
+
+Only kept in types for backwards compatibility. Will be removed in a future major release.
+
+#### Inherited from
+
+`Component.propTypes`
+
+#### Defined in
+
+node\_modules/@types/react/index.d.ts:927
 
 ## Methods
 
@@ -165,7 +161,7 @@ node\_modules/@types/react/index.d.ts:988
 
 #### Defined in
 
-[src/components/form.tsx:328](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/form.tsx#L328)
+[src/components/form.tsx:336](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/form.tsx#L336)
 
 ***
 
@@ -193,7 +189,7 @@ the entire component tree to unmount.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1390
+node\_modules/@types/react/index.d.ts:1194
 
 ***
 
@@ -213,7 +209,7 @@ Called immediately after a component is mounted. Setting state here will trigger
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1369
+node\_modules/@types/react/index.d.ts:1173
 
 ***
 
@@ -243,7 +239,7 @@ The snapshot is only present if [getSnapshotBeforeUpdate](Form.md#getsnapshotbef
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1432
+node\_modules/@types/react/index.d.ts:1236
 
 ***
 
@@ -277,7 +273,7 @@ this from being invoked.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1448
+node\_modules/@types/react/index.d.ts:1252
 
 ***
 
@@ -321,7 +317,7 @@ this from being invoked.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1479
+node\_modules/@types/react/index.d.ts:1283
 
 ***
 
@@ -342,7 +338,7 @@ cancelled network requests, or cleaning up any DOM elements created in `componen
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1385
+node\_modules/@types/react/index.d.ts:1189
 
 ***
 
@@ -385,7 +381,7 @@ this from being invoked.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1511
+node\_modules/@types/react/index.d.ts:1315
 
 ***
 
@@ -409,7 +405,7 @@ field component
 
 #### Defined in
 
-[src/components/form.tsx:135](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/form.tsx#L135)
+[src/components/form.tsx:143](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/form.tsx#L143)
 
 ***
 
@@ -433,7 +429,7 @@ field component
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1023
+node\_modules/@types/react/index.d.ts:958
 
 ***
 
@@ -461,7 +457,7 @@ field state
 
 #### Defined in
 
-[src/components/form.tsx:167](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/form.tsx#L167)
+[src/components/form.tsx:175](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/form.tsx#L175)
 
 ***
 
@@ -493,7 +489,7 @@ lifecycle events from running.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1426
+node\_modules/@types/react/index.d.ts:1230
 
 ***
 
@@ -516,7 +512,7 @@ This is important for multistep forms to disambiguate between back and next/subm
 
 #### Defined in
 
-[src/components/form.tsx:211](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/form.tsx#L211)
+[src/components/form.tsx:219](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/form.tsx#L219)
 
 ***
 
@@ -542,7 +538,7 @@ Handler triggered by child components that updates a given field's current value
 
 #### Defined in
 
-[src/components/form.tsx:223](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/form.tsx#L223)
+[src/components/form.tsx:231](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/form.tsx#L231)
 
 ***
 
@@ -565,7 +561,7 @@ steps in a multistep form or handle a final submit.
 
 #### Defined in
 
-[src/components/form.tsx:239](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/form.tsx#L239)
+[src/components/form.tsx:247](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/form.tsx#L247)
 
 ***
 
@@ -583,7 +579,7 @@ steps in a multistep form or handle a final submit.
 
 #### Defined in
 
-[src/components/form.tsx:90](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/form.tsx#L90)
+[src/components/form.tsx:90](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/form.tsx#L90)
 
 ***
 
@@ -601,7 +597,7 @@ across steps in a multistep form.
 
 #### Defined in
 
-[src/components/form.tsx:341](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/form.tsx#L341)
+[src/components/form.tsx:349](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/form.tsx#L349)
 
 ***
 
@@ -632,7 +628,7 @@ across steps in a multistep form.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1018
+node\_modules/@types/react/index.d.ts:953
 
 ***
 
@@ -667,7 +663,7 @@ and `componentDidUpdate` will not be called.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1380
+node\_modules/@types/react/index.d.ts:1184
 
 ***
 
@@ -703,7 +699,7 @@ this from being invoked.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1463
+node\_modules/@types/react/index.d.ts:1267
 
 ***
 
@@ -749,7 +745,7 @@ this from being invoked.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1497
+node\_modules/@types/react/index.d.ts:1301
 
 ***
 
@@ -794,4 +790,4 @@ this from being invoked.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1527
+node\_modules/@types/react/index.d.ts:1331

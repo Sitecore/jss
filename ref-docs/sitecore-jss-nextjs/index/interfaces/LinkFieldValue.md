@@ -18,7 +18,7 @@
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:14
+sitecore-jss-react/types/components/Link.d.ts:13
 
 ***
 
@@ -28,7 +28,7 @@ sitecore-jss-react/types/components/Link.d.ts:14
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:10
+sitecore-jss-react/types/components/Link.d.ts:9
 
 ***
 
@@ -38,7 +38,7 @@ sitecore-jss-react/types/components/Link.d.ts:10
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:9
+sitecore-jss-react/types/components/Link.d.ts:8
 
 ***
 
@@ -48,7 +48,7 @@ sitecore-jss-react/types/components/Link.d.ts:9
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:8
+sitecore-jss-react/types/components/Link.d.ts:7
 
 ***
 
@@ -58,7 +58,7 @@ sitecore-jss-react/types/components/Link.d.ts:8
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:16
+sitecore-jss-react/types/components/Link.d.ts:15
 
 ***
 
@@ -68,7 +68,7 @@ sitecore-jss-react/types/components/Link.d.ts:16
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:15
+sitecore-jss-react/types/components/Link.d.ts:14
 
 ***
 
@@ -78,7 +78,7 @@ sitecore-jss-react/types/components/Link.d.ts:15
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:12
+sitecore-jss-react/types/components/Link.d.ts:11
 
 ***
 
@@ -88,7 +88,7 @@ sitecore-jss-react/types/components/Link.d.ts:12
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:13
+sitecore-jss-react/types/components/Link.d.ts:12
 
 ***
 
@@ -98,4 +98,4 @@ sitecore-jss-react/types/components/Link.d.ts:13
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:11
+sitecore-jss-react/types/components/Link.d.ts:10

@@ -6,18 +6,17 @@
 
 # Function: DefaultEmptyFieldEditingComponentText()
 
-> **DefaultEmptyFieldEditingComponentText**(`props`, `deprecatedLegacyContext`?): `ReactNode`
+> **DefaultEmptyFieldEditingComponentText**(`props`): `ReactNode` \| `Promise`\<`ReactNode`\>
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `props` | `object` | - |
-| `deprecatedLegacyContext`? | `any` | **Deprecated** **See** [React Docs](https://legacy.reactjs.org/docs/legacy-context.html#referencing-context-in-lifecycle-methods) |
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `object` |
 
 ## Returns
 
-`ReactNode`
+`ReactNode` \| `Promise`\<`ReactNode`\>
 
 ## Defined in
 

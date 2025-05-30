@@ -20,4 +20,4 @@
 
 ## Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:37
+sitecore-jss-react/types/components/SitecoreContext.d.ts:36

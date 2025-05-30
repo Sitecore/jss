@@ -20,4 +20,4 @@
 
 ## Defined in
 
-sitecore-jss-react/types/components/FEaaSWrapper.d.ts:3
+sitecore-jss-react/types/components/FEaaSWrapper.d.ts:4

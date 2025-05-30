@@ -54,4 +54,4 @@ Params from a Sitecore FEaaS rendering
 
 ## Defined in
 
-sitecore-jss-react/types/components/FEaaSComponent.d.ts:7
+sitecore-jss-react/types/components/FEaaSComponent.d.ts:8

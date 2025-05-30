@@ -20,4 +20,4 @@ Since default `Omit` doesn't support indexing types, we had to introduce this cu
 
 ## Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:11](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss/src/utils/utils.ts#L11)
+[packages/sitecore-jss/src/utils/utils.ts:11](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss/src/utils/utils.ts#L11)

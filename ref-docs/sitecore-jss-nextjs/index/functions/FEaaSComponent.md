@@ -20,4 +20,4 @@
 
 ## Defined in
 
-sitecore-jss-react/types/components/FEaaSComponent.d.ts:55
+sitecore-jss-react/types/components/FEaaSComponent.d.ts:56

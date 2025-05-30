@@ -32,36 +32,7 @@
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1008
-
-### new FileUpload()
-
-> **new FileUpload**(`props`, `context`): [`FileUpload`](FileUpload.md)
-
-#### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `props` | [`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\> |
-| `context` | `any` |
-
-#### Returns
-
-[`FileUpload`](FileUpload.md)
-
-#### Deprecated
-
-#### See
-
-[React Docs](https://legacy.reactjs.org/docs/legacy-context.html)
-
-#### Inherited from
-
-`Component<ValueFieldProps<FileInputViewModel>>.constructor`
-
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:1013
+node\_modules/@types/react/index.d.ts:948
 
 ## Properties
 
@@ -93,17 +64,17 @@ declare context: React.ContextType<typeof MyContext>
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1006
+node\_modules/@types/react/index.d.ts:945
 
 ***
 
 ### fileInputRef
 
-> **fileInputRef**: `RefObject`\<`HTMLInputElement`\>
+> **fileInputRef**: `RefObject`\<`null` \| `HTMLInputElement`\>
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
+[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
 
 ***
 
@@ -117,31 +88,7 @@ node\_modules/@types/react/index.d.ts:1006
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1026
-
-***
-
-### ~~refs~~
-
-> **refs**: `object`
-
-#### Index Signature
-
- \[`key`: `string`\]: `ReactInstance`
-
-#### Deprecated
-
-#### See
-
-[Legacy React Docs](https://legacy.reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs)
-
-#### Inherited from
-
-`Component.refs`
-
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:1033
+node\_modules/@types/react/index.d.ts:961
 
 ***
 
@@ -155,7 +102,7 @@ node\_modules/@types/react/index.d.ts:1033
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
+[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
 
 ***
 
@@ -169,7 +116,7 @@ node\_modules/@types/react/index.d.ts:1033
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1027
+node\_modules/@types/react/index.d.ts:962
 
 ***
 
@@ -204,7 +151,27 @@ class Foo extends React.Component {
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:988
+node\_modules/@types/react/index.d.ts:921
+
+***
+
+### ~~propTypes?~~
+
+> `static` `optional` **propTypes**: `any`
+
+Ignored by React.
+
+#### Deprecated
+
+Only kept in types for backwards compatibility. Will be removed in a future major release.
+
+#### Inherited from
+
+`Component.propTypes`
+
+#### Defined in
+
+node\_modules/@types/react/index.d.ts:927
 
 ## Methods
 
@@ -232,7 +199,7 @@ the entire component tree to unmount.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1390
+node\_modules/@types/react/index.d.ts:1194
 
 ***
 
@@ -252,7 +219,7 @@ Called immediately after a component is mounted. Setting state here will trigger
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1369
+node\_modules/@types/react/index.d.ts:1173
 
 ***
 
@@ -280,7 +247,7 @@ The snapshot is only present if [getSnapshotBeforeUpdate](FileUpload.md#getsnaps
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
+[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
 
 ***
 
@@ -314,7 +281,7 @@ this from being invoked.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1448
+node\_modules/@types/react/index.d.ts:1252
 
 ***
 
@@ -358,7 +325,7 @@ this from being invoked.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1479
+node\_modules/@types/react/index.d.ts:1283
 
 ***
 
@@ -379,7 +346,7 @@ cancelled network requests, or cleaning up any DOM elements created in `componen
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1385
+node\_modules/@types/react/index.d.ts:1189
 
 ***
 
@@ -422,7 +389,7 @@ this from being invoked.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1511
+node\_modules/@types/react/index.d.ts:1315
 
 ***
 
@@ -446,7 +413,7 @@ node\_modules/@types/react/index.d.ts:1511
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1023
+node\_modules/@types/react/index.d.ts:958
 
 ***
 
@@ -466,7 +433,7 @@ node\_modules/@types/react/index.d.ts:1023
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
+[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
 
 ***
 
@@ -486,7 +453,7 @@ node\_modules/@types/react/index.d.ts:1023
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
+[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
 
 ***
 
@@ -518,7 +485,7 @@ lifecycle events from running.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1426
+node\_modules/@types/react/index.d.ts:1230
 
 ***
 
@@ -540,7 +507,7 @@ node\_modules/@types/react/index.d.ts:1426
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
+[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
 
 ***
 
@@ -558,7 +525,7 @@ node\_modules/@types/react/index.d.ts:1426
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/a15efa5d093b942bf15d369c501495a2d7251cd3/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
+[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
 
 ***
 
@@ -589,7 +556,7 @@ node\_modules/@types/react/index.d.ts:1426
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1018
+node\_modules/@types/react/index.d.ts:953
 
 ***
 
@@ -624,7 +591,7 @@ and `componentDidUpdate` will not be called.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1380
+node\_modules/@types/react/index.d.ts:1184
 
 ***
 
@@ -660,7 +627,7 @@ this from being invoked.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1463
+node\_modules/@types/react/index.d.ts:1267
 
 ***
 
@@ -706,7 +673,7 @@ this from being invoked.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1497
+node\_modules/@types/react/index.d.ts:1301
 
 ***
 
@@ -751,4 +718,4 @@ this from being invoked.
 
 #### Defined in
 
-node\_modules/@types/react/index.d.ts:1527
+node\_modules/@types/react/index.d.ts:1331
