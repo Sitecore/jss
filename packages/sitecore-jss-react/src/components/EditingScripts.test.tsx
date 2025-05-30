@@ -176,17 +176,15 @@ describe('<EditingScripts />', () => {
         clientScripts: [],
       });
 
-      const component = mount(
+      const component = render(
         <SitecoreContext componentFactory={mockComponentFactory} layoutData={layoutData}>
           <EditingScripts />
         </SitecoreContext>
       );
 
-      const scripts = component.find('EditingScripts');
-      expect(scripts.find('script')).to.have.length(1);
-
-      const script1 = scripts.find('script').at(0);
-      expect(script1.prop('src')).to.contain(`${getDesignLibraryScriptLink()}?cb=`);
+      const scripts = component.container.querySelectorAll('script');
+      expect(scripts).to.have.length(1);
+      expect(scripts[0].getAttribute('src')).to.contain(`${getDesignLibraryScriptLink()}?cb=`);
     });
 
     it('should render Design Library script with custom design library url when rendering type is component', () => {
@@ -201,7 +199,7 @@ describe('<EditingScripts />', () => {
 
       const stagingEdgeUrl = 'http://edge-staging';
 
-      const component = mount(
+      const component = render(
         <SitecoreContext
           componentFactory={mockComponentFactory}
           layoutData={layoutData}
@@ -211,11 +209,11 @@ describe('<EditingScripts />', () => {
         </SitecoreContext>
       );
 
-      const scripts = component.find('EditingScripts');
-      expect(scripts.find('script')).to.have.length(1);
-
-      const script1 = scripts.find('script').at(0);
-      expect(script1.prop('src')).to.contain(`${getDesignLibraryScriptLink(stagingEdgeUrl)}?cb=`);
+      const scripts = component.container.querySelectorAll('script');
+      expect(scripts).to.have.length(1);
+      expect(scripts[0].getAttribute('src')).to.contain(
+        `${getDesignLibraryScriptLink(stagingEdgeUrl)}?cb=`
+      );
     });
   });
 });

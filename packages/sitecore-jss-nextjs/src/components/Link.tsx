@@ -68,9 +68,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             className={value.class}
             {...htmlLinkProps}
             ref={ref}
-            {...(process.env.TEST
-              ? { 'data-nextjs-link': true }
-              : {})}
+            {...(process.env.TEST ? { 'data-nextjs-link': true } : {})}
           >
             {text}
             {children}

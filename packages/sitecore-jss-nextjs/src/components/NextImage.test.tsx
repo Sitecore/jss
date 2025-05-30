@@ -606,12 +606,13 @@ describe('<NextImage />', () => {
           renderingType: RenderingType.Component,
         },
       };
-      const rendered = mount(
+      const rendered = render(
         <SitecoreContextReactContext.Provider value={testEditingContext}>
           <NextImage loader={mockLoader} {...props} />
         </SitecoreContextReactContext.Provider>
-      ).find(Image);
-      expect(rendered.prop('unoptimized')).to.equal(true);
+      );
+      const img = rendered.container.querySelector('img')!;
+      expect(img.getAttribute('data-unoptimized')).to.equal('true');
     });
 
     it('should render respect original unoptimized value in normal mode', () => {

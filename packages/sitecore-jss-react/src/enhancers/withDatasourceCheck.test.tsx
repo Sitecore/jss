@@ -104,15 +104,14 @@ describe('withDatasourceCheck', () => {
       },
     };
 
-    const wrapper = mount(
+    const wrapper = render(
       <SitecoreContextReactContext.Provider value={mockContext(false, RenderingType.Component)}>
         <TestComponentWithDatasourceCheck {...props} />
       </SitecoreContextReactContext.Provider>
     );
 
-    expect(wrapper.find(TestComponent)).to.have.length(1);
-    expect(wrapper.html()).to.contain(props.rendering.componentName);
-    expect(wrapper.html()).to.contain(props.rendering.dataSource);
+    expect(wrapper.container.innerHTML).to.contain(props.rendering.componentName);
+    expect(wrapper.container.innerHTML).to.contain(props.rendering.dataSource);
   });
 
   it('should return wrapped component if datasource present in normal mode', () => {
