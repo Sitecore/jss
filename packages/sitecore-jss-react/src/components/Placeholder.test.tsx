@@ -436,6 +436,7 @@ describe('BYOC fallback', () => {
     byocComponentStub.restore();
     byocWrapperStub.restore();
   });
+});
 
 describe('FEaaS fallback', () => {
   let feaasComponentStub;
