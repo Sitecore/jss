@@ -18,11 +18,15 @@ Our versioning strategy is as follows:
   * with React 19, JSX is in the 'react' namespace and therefore 'react' needs to be imported befoore using JSX. All OOTB react and nextjs components have been updated
   * `react-test-renderer` has been deprecated in react 19. additionaly `enzyme` is not supported anymore so all unit tests have been migrated to use `@`testing-library/react`
   * `propTypes` have been deprecated by react and have been removed from the solution
-  * in NextJs 15 the `geo` and `ip` properties on `NextRequest` have been removed. To account for this `@sitecore-cloudsdk` dependencies have been upgraded to 0.5.1, which includes breaking changes, see upgrade guide for details
+  * in NextJs 15 the `geo` and `ip` properties on `NextRequest` have been removed. To account for this `@sitecore-cloudsdk` dependencies have been upgraded to 0.5.1, which includes breaking changes, see upgrade guide for details. Also cloudsdk v0.4.0 introduces breaking changes
+     - replaces the old init approach for cloudsdk with new one according to upgrade guide. This causes several followup changes.
+     - Context logic is no longer used
+     - New object type is passed into `FEAAS.setContextProperties` instead of context passed previously
+     - `@sitecore/components` dependency updated to 2.0.0
+     - Browser-side CloudSDK is initialized in Bootstrap component. It should be initialized for events to work.
   * remove 'react' dependency from nextconfig webpack externals in monorepo next config plugin as it is not needed anymore.
   * PersonalizeMiddleware handler now accepts PersonalizeOptions, that can be used to provide geolocation data from application level
   * `eslint-plugin-react` depenency has been upgraded to latest
-
 
 ## 21.9.0
 
