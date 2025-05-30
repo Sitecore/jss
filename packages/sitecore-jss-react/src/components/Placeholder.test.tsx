@@ -437,34 +437,6 @@ describe('BYOC fallback', () => {
     byocWrapperStub.restore();
   });
 
-  it.skip('should render ErrorBoundary without Suspense for byoc wrapper', () => {
-    const component = byocWrapperData.sitecore.route as RouteData;
-    const phKey = 'main';
-
-    byocComponentStub = stub(BYOCComponent, 'BYOCComponent').callsFake(() => (
-      <p className="byoc-component">Foo</p>
-    ));
-
-    byocWrapperStub = stub(BYOCWrapper, 'BYOCWrapper').callsFake(() => (
-      <div className="byoc-wrapper">
-        <BYOCComponent.BYOCComponent />
-      </div>
-    ));
-
-    const renderedComponent = render(
-      <SitecoreContext componentFactory={componentFactory}>
-        <Placeholder name={phKey} rendering={component} />
-      </SitecoreContext>
-    );
-
-    expect(renderedComponent.container.querySelectorAll('ErrorBoundary').length).to.equal(2);
-    expect(renderedComponent.container.querySelectorAll('Suspense').length).to.equal(1);
-
-    byocComponentStub.restore();
-    byocWrapperStub.restore();
-  });
-});
-
 describe('FEaaS fallback', () => {
   let feaasComponentStub;
   let feaasWrapperStub;
@@ -497,20 +469,6 @@ describe('FEaaS fallback', () => {
     feaasComponentStub.restore();
     feaasWrapperStub.restore();
   });
-});
-
-it.skip('should not render Suspense when disableSuspense is true', () => {
-  const component = sxaRenderingVariantData.sitecore.route as RouteData;
-  const phKey = 'main';
-
-  const renderedComponent = render(
-    <SitecoreContext componentFactory={componentFactory}>
-      <Placeholder name={phKey} disableSuspense={true} rendering={component} />
-    </SitecoreContext>
-  );
-
-  expect(renderedComponent.container.querySelectorAll('ErrorBoundary').length).to.equal(1);
-  expect(renderedComponent.container.querySelectorAll('Suspense').length).to.equal(0);
 });
 
 it('should populate the "key" attribute of placeholder chrome', () => {
