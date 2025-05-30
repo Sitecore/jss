@@ -1,7 +1,8 @@
-import { RestLayoutServiceConfig, RestLayoutService } from '../layout/rest-layout-service';
-import { LayoutServiceData, EditMode } from '../layout/models';
-import { IncomingMessage, ServerResponse } from 'http';
-import { debug, fetchData } from '..';
+import { LayoutServiceData } from '../layout/models';
+import { NativeDataFetcher, NativeDataFetcherConfig } from '../native-fetcher';
+import debug from '../debug';
+import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
+import { resolveUrl } from '../utils';
 
 /**
  * Params for requesting component data from service in Design Library mode
@@ -33,32 +34,38 @@ export interface ComponentLayoutRequestParams {
    */
   version?: string;
   /**
-   * edit mode (edit, preview) to be rendered component in. Component is rendered in normal mode by default
-   */
-  editMode?: EditMode;
-  /**
    * site name to be used as context for rendering the component
    */
-  siteName?: string;
+  siteName: string;
+}
+
+/**
+ * Config for the RestComponentLayoutService
+ */
+export interface RestComponentLayoutServiceConfig {
+  /**
+   * A unified identifier used to connect and retrieve data from XM Cloud instance
+   */
+  sitecoreEdgeContextId: string;
+  /**
+   * XM Cloud endpoint that the app will communicate and retrieve data from
+   * @default https://edge-platform.sitecorecloud.io
+   */
+  sitecoreEdgeUrl?: string;
 }
 
 /**
  * REST service that enables design Library functionality
- * Makes a request to /sitecore/api/layout/component in 'library' mode in Pages.
  * Returns layoutData for one single rendered component
  */
-export class RestComponentLayoutService extends RestLayoutService {
-  constructor(private config: RestLayoutServiceConfig) {
-    super(config);
-  }
+export class RestComponentLayoutService {
+  constructor(private config: RestComponentLayoutServiceConfig) {}
 
-  fetchComponentData(
-    params: ComponentLayoutRequestParams,
-    req?: IncomingMessage,
-    res?: ServerResponse
-  ): Promise<LayoutServiceData> {
-    params.siteName = params.siteName || this.config.siteName;
-    const querystringParams = this.getComponentFetchParams(params);
+  fetchComponentData(params: ComponentLayoutRequestParams): Promise<LayoutServiceData> {
+    const config: NativeDataFetcherConfig = { debugger: debug.layout };
+
+    const fetcher = new NativeDataFetcher(config);
+
     debug.layout(
       'fetching component with uid %s for %s %s %s %s',
       params.componentUid,
@@ -67,24 +74,26 @@ export class RestComponentLayoutService extends RestLayoutService {
       params.siteName,
       params.dataSourceId
     );
-    const fetcher = this.getFetcher(req, res);
 
-    const fetchUrl = this.resolveLayoutServiceUrl('component');
+    const fetchUrl = this.getFetchUrl(params);
 
-    return fetchData(fetchUrl, fetcher, querystringParams).catch((error) => {
-      if (error.response?.status === 404) {
-        return error.response.data;
-      }
+    return fetcher
+      .get<LayoutServiceData>(fetchUrl)
+      .then((response) => response.data)
+      .catch((error) => {
+        if (error.response?.status === 404) {
+          return error.response.data;
+        }
 
-      throw error;
-    });
+        throw error;
+      });
   }
 
   protected getComponentFetchParams(params: ComponentLayoutRequestParams) {
     // exclude undefined params with this one simple trick
     return JSON.parse(
       JSON.stringify({
-        sc_apikey: this.config.apiKey,
+        sitecoreContextId: this.config.sitecoreEdgeContextId,
         item: params.itemId,
         uid: params.componentUid,
         dataSourceId: params.dataSourceId,
@@ -92,8 +101,19 @@ export class RestComponentLayoutService extends RestLayoutService {
         version: params.version,
         sc_site: params.siteName,
         sc_lang: params.language || 'en',
-        sc_mode: params.editMode,
       })
+    );
+  }
+
+  /**
+   * Get the fetch URL for the partial layout data endpoint
+   * @param {ComponentLayoutRequestParams} params - The parameters for the request
+   * @returns {string} The fetch URL for the component data
+   */
+  private getFetchUrl(params: ComponentLayoutRequestParams) {
+    return resolveUrl(
+      `${this.config.sitecoreEdgeUrl || SITECORE_EDGE_URL_DEFAULT}/layout/component`,
+      this.getComponentFetchParams(params)
     );
   }
 }
