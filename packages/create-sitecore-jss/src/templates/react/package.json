@@ -36,7 +36,8 @@
     "graphql": "~16.8.1",
     "graphql-tag": "~2.12.6",
     "i18next": "^22.0.6",
-    "react": "^19.0.0",
+    "react": "^19.1.0",
+
     "react-app-polyfill": "^3.0.0",
     "react-dom": "^19.1.0",
 
