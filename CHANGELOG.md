@@ -21,6 +21,7 @@ Our versioning strategy is as follows:
   * in NextJs 15 the `geo` and `ip` properties on `NextRequest` have been removed. To account for this `@sitecore-cloudsdk` dependencies have been upgraded to 0.5.1, which includes breaking changes, see upgrade guide for details
   * remove 'react' dependency from nextconfig webpack externals in monorepo next config plugin as it is not needed anymore.
   * PersonalizeMiddleware handler now accepts PersonalizeOptions, that can be used to provide geolocation data from application level
+  * `eslint-plugin-react` depenency has been upgraded to latest
 
 
 ## 21.9.0
