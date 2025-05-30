@@ -19,7 +19,7 @@ an arbitrary one (component renderingId and datasource would be used for identif
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:18](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L18)
+[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:19](https://github.com/Sitecore/jss/blob/2bef66b6ad3587763cf728655e6eb081350ededd/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L19)
 
 ***
 
@@ -31,19 +31,7 @@ optional component datasource
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:26](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L26)
-
-***
-
-### editMode?
-
-> `optional` **editMode**: [`EditMode`](../../layout/enumerations/EditMode.md)
-
-edit mode (edit, preview) to be rendered component in. Component is rendered in normal mode by default
-
-#### Defined in
-
-[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:38](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L38)
+[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:27](https://github.com/Sitecore/jss/blob/2bef66b6ad3587763cf728655e6eb081350ededd/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L27)
 
 ***
 
@@ -55,7 +43,7 @@ Item id to be used as context for rendering the component
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:13](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L13)
+[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:14](https://github.com/Sitecore/jss/blob/2bef66b6ad3587763cf728655e6eb081350ededd/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L14)
 
 ***
 
@@ -67,7 +55,7 @@ language to render component in
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:22](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L22)
+[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:23](https://github.com/Sitecore/jss/blob/2bef66b6ad3587763cf728655e6eb081350ededd/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L23)
 
 ***
 
@@ -79,19 +67,19 @@ ID of the component definition rendering item in Sitecore
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:30](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L30)
+[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:31](https://github.com/Sitecore/jss/blob/2bef66b6ad3587763cf728655e6eb081350ededd/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L31)
 
 ***
 
-### siteName?
+### siteName
 
-> `optional` **siteName**: `string`
+> **siteName**: `string`
 
 site name to be used as context for rendering the component
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:42](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L42)
+[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:39](https://github.com/Sitecore/jss/blob/2bef66b6ad3587763cf728655e6eb081350ededd/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L39)
 
 ***
 
@@ -103,4 +91,4 @@ version of the context item (latest by default)
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:34](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L34)
+[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:35](https://github.com/Sitecore/jss/blob/2bef66b6ad3587763cf728655e6eb081350ededd/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L35)

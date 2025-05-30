@@ -95,4 +95,4 @@ Site name for current site
 
 ## Defined in
 
-[sitecore-jss-proxy/src/types/personalize.ts:28](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-proxy/src/types/personalize.ts#L28)
+[sitecore-jss-proxy/src/types/personalize.ts:28](https://github.com/Sitecore/jss/blob/2bef66b6ad3587763cf728655e6eb081350ededd/packages/sitecore-jss-proxy/src/types/personalize.ts#L28)

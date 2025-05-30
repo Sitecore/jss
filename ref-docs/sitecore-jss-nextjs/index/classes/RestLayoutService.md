@@ -13,10 +13,6 @@ Uses NativeDataFetcher as the default data fetcher (@see NativeDataFetcher).
 
 - `LayoutServiceBase`
 
-## Extended by
-
-- [`RestComponentLayoutService`](RestComponentLayoutService.md)
-
 ## Constructors
 
 ### new RestLayoutService()
