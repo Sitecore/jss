@@ -1,6 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import {
   composeComponentEndpoint,
   FEaaSComponent,
@@ -35,9 +35,8 @@ describe('<FEaaSComponent />', () => {
   });
 
   it('should not render with props and params missing', () => {
-    const wrapper = shallow(<FEaaSComponent />);
-    expect(wrapper).to.have.length(1);
-    expect(wrapper.html()).to.equal(null);
+    const wrapper = render(<FEaaSComponent />, { container: document.body });
+    expect(wrapper.baseElement.innerHTML).to.equal('');
   });
 
   it('should not render with props missing and only one param present', () => {
@@ -46,9 +45,8 @@ describe('<FEaaSComponent />', () => {
         ComponentHostName: 'host123',
       },
     };
-    const wrapper = shallow(<FEaaSComponent {...props} />);
-    expect(wrapper).to.have.length(1);
-    expect(wrapper.html()).to.equal(null);
+    const wrapper = render(<FEaaSComponent {...props} />, { container: document.body });
+    expect(wrapper.baseElement.innerHTML).to.equal('');
   });
 
   it('should render when fallback server props provided', () => {
@@ -56,18 +54,16 @@ describe('<FEaaSComponent />', () => {
       params: requiredParams,
       revisionFallback: 'staged',
     };
-    const wrapper = shallow(<FEaaSComponent {...props} />);
-    expect(wrapper).to.have.length(1);
-    expect(wrapper.html()).to.equal(
+    const wrapper = render(<FEaaSComponent {...props} />, { container: document.body });
+    expect(wrapper.baseElement.innerHTML).to.equal(
       '<feaas-component class="-feaas" cdn="host123" library="library123" version="version123" component="component123" revision="staged" fetch=""></feaas-component>'
     );
   });
 
   it('should render with template when provided', () => {
     const template = '<div>test output</div>';
-    const wrapper = shallow(<FEaaSComponent template={template} />);
-    expect(wrapper).to.have.length(1);
-    expect(wrapper.html()).to.equal(
+    const wrapper = render(<FEaaSComponent template={template} />, { container: document.body });
+    expect(wrapper.baseElement.innerHTML).to.equal(
       `<feaas-component class="-feaas" fetch="">${template}</feaas-component>`
     );
   });
@@ -76,9 +72,8 @@ describe('<FEaaSComponent />', () => {
     const props = {
       params: requiredParams,
     };
-    const wrapper = shallow(<FEaaSComponent {...props} />);
-    expect(wrapper).to.have.length(1);
-    expect(wrapper.html()).to.equal(
+    const wrapper = render(<FEaaSComponent {...props} />, { container: document.body });
+    expect(wrapper.baseElement.innerHTML).to.equal(
       '<feaas-component class="-feaas" cdn="host123" library="library123" version="version123" component="component123" revision="staged" fetch=""></feaas-component>'
     );
   });
@@ -92,9 +87,8 @@ describe('<FEaaSComponent />', () => {
         fetchedData: { foo: 'bar', baz: 1 },
         template: '<h1 data-path="foo"></h1><h2 data-path="baz"></h2>',
       };
-      const wrapper = shallow(<FEaaSComponent {...props} />);
-      expect(wrapper).to.have.length(1);
-      const output = wrapper.html();
+      const wrapper = render(<FEaaSComponent {...props} />, { container: document.body });
+      const output = wrapper.baseElement.innerHTML;
       expect(output).to.contain('<h1 data-path="foo">bar</h1>');
       expect(output).to.contain('<h2 data-path="baz">1</h2>');
     });
@@ -123,7 +117,7 @@ describe('<FEaaSComponent />', () => {
       };
       const template = `
       <h1 data-path="xm.sampleText"></h1>
-      <img data-path-src="xm.sampleImage.src" data-path-alt="xm.sampleImage.alt"></img>
+      <img data-path-src="xm.sampleImage.src" data-path-alt="xm.sampleImage.alt" /></img>
       <p data-path="xm.sampleNumber"></p>
       <a data-path-href="xm.sampleLink.href" data-path-id="xm.sampleLink.id"></a>`;
       const props: FEaaSComponentProps = {
@@ -133,12 +127,11 @@ describe('<FEaaSComponent />', () => {
         fields,
         template,
       };
-      const wrapper = shallow(<FEaaSComponent {...props} />);
-      expect(wrapper).to.have.length(1);
-      const output = wrapper.html();
+      const wrapper = render(<FEaaSComponent {...props} />, { container: document.body });
+      const output = wrapper.baseElement.innerHTML;
       expect(output).to.contain(`<h1 data-path="xm.sampleText">${fields.sampleText.value}</h1>`);
       expect(output).to.contain(
-        `<img data-path-src="xm.sampleImage.src" data-path-alt="xm.sampleImage.alt" src="${fields.sampleImage.value.src}" alt="${fields.sampleImage.value.alt}"/>`
+        `<img data-path-src="xm.sampleImage.src" data-path-alt="xm.sampleImage.alt" alt="${fields.sampleImage.value.alt}" src="${fields.sampleImage.value.src}">`
       );
       expect(output).to.contain(`<p data-path="xm.sampleNumber">${fields.sampleNumber.value}</p>`);
       expect(output).to.contain(
@@ -163,10 +156,9 @@ describe('<FEaaSComponent />', () => {
           '<h1 data-path="xm.fieldText"></h1><h1 data-path="customDatasourceId.fetchedText"></h1>',
       };
 
-      const wrapper = shallow(<FEaaSComponent {...props} />);
-      expect(wrapper).to.have.length(1);
-      expect(wrapper.html()).to.contain('Welcome to FEAAS');
-      expect(wrapper.html()).to.contain('Welcome to Sitecore JSS');
+      const wrapper = render(<FEaaSComponent {...props} />, { container: document.body });
+      expect(wrapper.baseElement.innerHTML).to.contain('Welcome to FEAAS');
+      expect(wrapper.baseElement.innerHTML).to.contain('Welcome to Sitecore JSS');
     });
   });
 });

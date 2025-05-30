@@ -40,14 +40,13 @@ describe('codegen-utils', () => {
 
       nock(meshEndpoint)
         .post(
-          '/api/v1/mesh',
+          '/api/v1/contentsdk/code/extracted',
           JSON.stringify({
+            EnvironmentId: 'JSS',
             name: file.name,
             content: fileContent,
             labels: {
-              properties: {
-                type: file.type,
-              },
+              type: file.type,
             },
           })
         )
@@ -111,14 +110,13 @@ describe('codegen-utils', () => {
 
       nock(meshEndpoint)
         .post(
-          '/api/v1/mesh',
+          '/api/v1/contentsdk/code/extracted',
           JSON.stringify({
+            EnvironmentId: 'JSS',
             name: file.name,
             content: fileContent,
             labels: {
-              properties: {
-                type: file.type,
-              },
+              type: file.type,
             },
           })
         )

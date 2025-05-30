@@ -38,7 +38,7 @@ https://edge-platform.sitecorecloud.io
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:33
+sitecore-jss-react/types/components/SitecoreContext.d.ts:32
 
 ***
 
@@ -48,7 +48,7 @@ sitecore-jss-react/types/components/SitecoreContext.d.ts:33
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:32
+sitecore-jss-react/types/components/SitecoreContext.d.ts:31
 
 ***
 
@@ -68,4 +68,4 @@ sitecore-jss-react/types/components/SitecoreContext.d.ts:32
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:31
+sitecore-jss-react/types/components/SitecoreContext.d.ts:30

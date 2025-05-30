@@ -3,7 +3,7 @@
 import React from 'react';
 import sinon from 'sinon';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { render, waitFor } from '@testing-library/react';
 import { DesignLibrary } from './DesignLibrary';
 import { getTestLayoutData } from '../test-data/component-editing-data';
 import { ComponentFactory } from './sharedTypes';
@@ -19,7 +19,7 @@ import {
 
 describe('<DesignLibrary />', () => {
   const postMessageSpy = sinon.spy(global.window, 'postMessage');
-  let rendered = mount(<div />);
+  let rendered = render(<div />);
 
   const componentFactory: ComponentFactory = (componentName: string) => {
     const components = new Map<string, React.FC>();
@@ -68,13 +68,13 @@ describe('<DesignLibrary />', () => {
 
   it('should render', () => {
     const basicPage = getTestLayoutData();
-    rendered = mount(
+    rendered = render(
       <SitecoreContext componentFactory={componentFactory}>
         <DesignLibrary {...basicPage.layoutData} />
       </SitecoreContext>
     );
 
-    expect(rendered.html()).to.equal(
+    expect(rendered.container.innerHTML).to.equal(
       [
         '<main><div id="editing-component">',
         '<div class="test"><div>',
@@ -86,26 +86,24 @@ describe('<DesignLibrary />', () => {
 
   it('should render null when renderingType is not "component"', () => {
     const basicPage = getTestLayoutData(false, 'page');
-    rendered = mount(
+    rendered = render(
       <SitecoreContext componentFactory={componentFactory}>
         <DesignLibrary {...basicPage.layoutData} />
       </SitecoreContext>
     );
 
-    console.log(rendered.html());
-
-    expect(rendered.html()).to.equal('');
+    expect(rendered.container.innerHTML).to.equal('');
   });
 
   it('should render component with placeholders', () => {
     const placeholderPage = getTestLayoutData(true);
-    const rendered = mount(
+    const rendered = render(
       <SitecoreContext componentFactory={componentFactory}>
         <DesignLibrary {...placeholderPage.layoutData} />
       </SitecoreContext>
     );
 
-    expect(rendered.html()).to.equal(
+    expect(rendered.container.innerHTML).to.equal(
       [
         '<main><div id="editing-component">',
         '<div class="test"><div>',
@@ -125,13 +123,13 @@ describe('<DesignLibrary />', () => {
       DesignLibraryStatus.READY,
       'test-content'
     );
-    const rendered = mount(
+    const rendered = render(
       <SitecoreContext componentFactory={componentFactory}>
         <DesignLibrary {...basicPage.layoutData} />
       </SitecoreContext>
     );
 
-    expect(rendered.html()).to.equal(
+    expect(rendered.container.innerHTML).to.equal(
       [
         '<main><div id="editing-component">',
         '<div class="test"><div>',
@@ -149,13 +147,13 @@ describe('<DesignLibrary />', () => {
 
   it('should update root component', async () => {
     const basicPage = getTestLayoutData();
-    const rendered = mount(
+    const rendered = render(
       <SitecoreContext componentFactory={componentFactory}>
         <DesignLibrary {...basicPage.layoutData} />
       </SitecoreContext>
     );
 
-    expect(rendered.html()).to.equal(
+    expect(rendered.container.innerHTML).to.equal(
       [
         '<main><div id="editing-component">',
         '<div class="test"><div>',
@@ -169,25 +167,26 @@ describe('<DesignLibrary />', () => {
       fields: { content: { value: 'new content!' } },
     });
 
-    rendered.update();
-    expect(rendered.html()).to.equal(
-      [
-        '<main><div id="editing-component">',
-        '<div class="test"><div>',
-        'new content!',
-        '</div></div></div></main>',
-      ].join('')
-    );
+    await waitFor(() => {
+      expect(rendered.container.innerHTML).to.equal(
+        [
+          '<main><div id="editing-component">',
+          '<div class="test"><div>',
+          'new content!',
+          '</div></div></div></main>',
+        ].join('')
+      );
+    });
   });
 
   it('should update nested component', async () => {
     const placeholderPage = getTestLayoutData(true);
-    const rendered = mount(
+    const rendered = render(
       <SitecoreContext componentFactory={componentFactory}>
         <DesignLibrary {...placeholderPage.layoutData} />
       </SitecoreContext>
     );
-    expect(rendered.html()).to.equal(
+    expect(rendered.container.innerHTML).to.equal(
       [
         '<main><div id="editing-component">',
         '<div class="test"><div>',
@@ -205,25 +204,25 @@ describe('<DesignLibrary />', () => {
       fields: { text: { value: 'new inner content!' } },
     });
 
-    rendered.update();
-
-    expect(rendered.html()).to.equal(
-      [
-        '<main><div id="editing-component">',
-        '<div class="test"><div>',
-        '<p>This is a live set of examples of how to use JSS</p>\n',
-        '</div>',
-        '<div class="inner">',
-        'new inner content!',
-        '</div></div></div>',
-        '</main>',
-      ].join('')
-    );
+    waitFor(() => {
+      expect(rendered.container.innerHTML).to.equal(
+        [
+          '<main><div id="editing-component">',
+          '<div class="test"><div>',
+          '<p>This is a live set of examples of how to use JSS</p>\n',
+          '</div>',
+          '<div class="inner">',
+          'new inner content!',
+          '</div></div></div>',
+          '</main>',
+        ].join('')
+      );
+    });
   });
 
   it('should send render event when component is updated', async () => {
     const basicPage = getTestLayoutData();
-    const rendered = mount(
+    const rendered = render(
       <SitecoreContext componentFactory={componentFactory}>
         <DesignLibrary {...basicPage.layoutData} />
       </SitecoreContext>
@@ -233,8 +232,6 @@ describe('<DesignLibrary />', () => {
       uid: 'test-content',
       fields: { content: { value: 'new content!' } },
     });
-
-    rendered.update();
 
     expect(
       postMessageSpy

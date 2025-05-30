@@ -90,7 +90,7 @@
 - [createDisconnectedLayoutService](functions/createDisconnectedLayoutService.md)
 - [createPackage](functions/createPackage.md)
 - [deploy](functions/deploy.md)
-- [extractComponents](functions/extractComponents.md)
+- [extractFiles](functions/extractFiles.md)
 - [fetchBearerToken](functions/fetchBearerToken.md)
 - [generatePlugins](functions/generatePlugins.md)
 - [generateToFile](functions/generateToFile.md)

@@ -6,19 +6,18 @@
 
 # Function: NextImage()
 
-> **NextImage**(`props`, `deprecatedLegacyContext`?): `ReactNode`
+> **NextImage**(`props`): `ReactNode` \| `Promise`\<`ReactNode`\>
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `props` | `NextImageProps` | - |
-| `deprecatedLegacyContext`? | `any` | **Deprecated** **See** [React Docs](https://legacy.reactjs.org/docs/legacy-context.html#referencing-context-in-lifecycle-methods) |
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `NextImageProps` |
 
 ## Returns
 
-`ReactNode`
+`ReactNode` \| `Promise`\<`ReactNode`\>
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/components/NextImage.tsx:22](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L22)
+[sitecore-jss-nextjs/src/components/NextImage.tsx:21](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L21)

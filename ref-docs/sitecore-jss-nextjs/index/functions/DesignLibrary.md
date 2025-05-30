@@ -20,4 +20,4 @@
 
 ## Defined in
 
-sitecore-jss-react/types/components/DesignLibrary.d.ts:2
+sitecore-jss-react/types/components/DesignLibrary.d.ts:3

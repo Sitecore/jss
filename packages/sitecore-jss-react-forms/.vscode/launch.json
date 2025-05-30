@@ -12,7 +12,6 @@
         "js:babel-core/register",
         "--require",
         "./src/tests/jsdom-setup.js",
-        "./src/tests/enzyme-setup.js",
         "./src/**/*.test.js",
         "--no-timeouts",
         "./dist/test"

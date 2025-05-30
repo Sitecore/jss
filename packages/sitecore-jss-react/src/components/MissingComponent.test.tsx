@@ -1,6 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { MissingComponent } from './MissingComponent';
 
 describe('<MissingComponent>', () => {
@@ -13,8 +13,8 @@ describe('<MissingComponent>', () => {
       errorOverride: errorMsg,
     };
 
-    const wrapper = mount(<MissingComponent {...props} />);
+    const wrapper = render(<MissingComponent {...props} />);
 
-    expect(wrapper.find('div p').text()).to.contain(errorMsg);
+    expect(wrapper.container.querySelector('div p')?.textContent).to.contain(errorMsg);
   });
 });

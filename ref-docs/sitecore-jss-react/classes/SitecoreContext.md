@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:66](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L66)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:54](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L54)
 
 ## Properties
 
@@ -64,7 +64,7 @@ declare context: React.ContextType<typeof MyContext>
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1006
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:945
 
 ***
 
@@ -78,31 +78,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1006
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1026
-
-***
-
-### ~~refs~~
-
-> **refs**: `object`
-
-#### Index Signature
-
- \[`key`: `string`\]: `ReactInstance`
-
-#### Deprecated
-
-#### See
-
-[Legacy React Docs](https://legacy.reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs)
-
-#### Inherited from
-
-`React.Component.refs`
-
-#### Defined in
-
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1033
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:961
 
 ***
 
@@ -116,7 +92,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1033
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1027
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:962
 
 ***
 
@@ -151,7 +127,7 @@ class Foo extends React.Component {
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:988
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:921
 
 ***
 
@@ -161,29 +137,27 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:988
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:64](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L64)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:52](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L52)
 
 ***
 
-### propTypes
+### ~~propTypes?~~
 
-> `static` **propTypes**: `object`
+> `static` `optional` **propTypes**: `any`
 
-#### children
+Ignored by React.
 
-> **children**: `Validator`\<`any`\> = `PropTypes.any.isRequired`
+#### Deprecated
 
-#### componentFactory
+Only kept in types for backwards compatibility. Will be removed in a future major release.
 
-> **componentFactory**: `Requireable`\<(...`args`) => `any`\> = `PropTypes.func`
+#### Inherited from
 
-#### layoutData
-
-> **layoutData**: `Requireable`\<`InferProps`\<`object`\>\>
+`React.Component.propTypes`
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:53](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L53)
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:927
 
 ## Methods
 
@@ -211,7 +185,7 @@ the entire component tree to unmount.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1390
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1194
 
 ***
 
@@ -231,7 +205,7 @@ Called immediately after a component is mounted. Setting state here will trigger
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1369
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1173
 
 ***
 
@@ -259,7 +233,7 @@ The snapshot is only present if [getSnapshotBeforeUpdate](SitecoreContext.md#get
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:104](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L104)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:92](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L92)
 
 ***
 
@@ -293,7 +267,7 @@ this from being invoked.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1448
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1252
 
 ***
 
@@ -337,7 +311,7 @@ this from being invoked.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1479
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1283
 
 ***
 
@@ -358,7 +332,7 @@ cancelled network requests, or cleaning up any DOM elements created in `componen
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1385
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1189
 
 ***
 
@@ -401,7 +375,7 @@ this from being invoked.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1511
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1315
 
 ***
 
@@ -421,7 +395,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1511
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:90](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L90)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:78](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L78)
 
 ***
 
@@ -445,7 +419,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1511
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1023
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:958
 
 ***
 
@@ -477,7 +451,7 @@ lifecycle events from running.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1426
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1230
 
 ***
 
@@ -495,7 +469,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1426
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:127](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L127)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:115](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L115)
 
 ***
 
@@ -517,7 +491,7 @@ Update context state. Value can be
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:119](https://github.com/Sitecore/jss/blob/b322e717e06da870b3503a6a30b1ba013d406feb/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L119)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:107](https://github.com/Sitecore/jss/blob/3aae2e35053278731eae58b2f4fd233b24ef9bc0/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L107)
 
 ***
 
@@ -548,7 +522,7 @@ Update context state. Value can be
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1018
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:953
 
 ***
 
@@ -583,7 +557,7 @@ and `componentDidUpdate` will not be called.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1380
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1184
 
 ***
 
@@ -619,7 +593,7 @@ this from being invoked.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1463
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1267
 
 ***
 
@@ -665,7 +639,7 @@ this from being invoked.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1497
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1301
 
 ***
 
@@ -710,4 +684,4 @@ this from being invoked.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1527
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1331

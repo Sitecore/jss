@@ -11,16 +11,37 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-react]` Add an optional `disableSuspense` flag to the Placeholder component to prevent error boundaries from rendering Suspense which helps contain errors for components. This can help avoid hydration issues in connected mode. ([#2081](https://github.com/Sitecore/jss/pull/2081))
+
+### 🛠 Breaking Changes
+
+* `[Next.js]` `[React]`: `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[sitecore-jss-react-forms]` `[create-sitecore-jss]` Upgrade React to version 19 and Nextjs to version 15 ([#2078](https://github.com/Sitecore/jss/pull/2078))([#2084](https://github.com/Sitecore/jss/pull/2084))([#2090](https://github.com/Sitecore/jss/pull/2090)) ([#2093](https://github.com/Sitecore/jss/pull/2093)):
+  * upgrade React and Nextjs dependencies for the new major versions
+  * with React 19, JSX is in the 'react' namespace and therefore 'react' needs to be imported befoore using JSX. All OOTB react and nextjs components have been updated
+  * `react-test-renderer` has been deprecated in react 19. additionaly `enzyme` is not supported anymore so all unit tests have been migrated to use `@`testing-library/react`
+  * `propTypes` have been deprecated by react and have been removed from the solution
+  * in NextJs 15 the `geo` and `ip` properties on `NextRequest` have been removed. To account for this `@sitecore-cloudsdk` dependencies have been upgraded to 0.5.1, which does not include breaking changes, however you will have to upgrade your cloudsdk dependencies to meet peer dependencies requirements
+  * remove 'react' dependency from nextconfig webpack externals in monorepo next config plugin as it is not needed anymore.
+  * PersonalizeMiddleware handler now accepts PersonalizeOptions, that can be used to provide geolocation data from application level
+  * `eslint-plugin-react` depenency has been upgraded to latest
+* `[Angular]`: `[sitecore-jss-proxy]` `[sitecore-jss-angular]` `@sitecore-cloudsdk` dependencies have been upgraded to 0.5.1 ([#2060](https://github.com/Sitecore/jss/pull/2060))([#2078](https://github.com/Sitecore/jss/pull/2078))
+  * This upgrade doesn't introduce any breaking changes, however you will have to upgrade your cloudsdk dependencies to meet peer dependencies requirements
+
+## 22.6.0
+
 ### 🎉 New Features & Improvements
 
 * `[nextjs][sitecore-jss-nextjs]` Support for Component Library in XMCloud ([#1987](https://github.com/Sitecore/jss/pull/1987))([#2000](https://github.com/Sitecore/jss/pull/2000))([#2002](https://github.com/Sitecore/jss/pull/2002))([#2005](https://github.com/Sitecore/jss/pull/2005))([#2024](https://github.com/Sitecore/jss/pull/2024))([#2053](https://github.com/Sitecore/jss/pull/2053))([#2059](https://github.com/Sitecore/jss/pull/2059))([#2064](https://github.com/Sitecore/jss/pull/2064))([#2068](https://github.com/Sitecore/jss/pull/2068))([#2087](https://github.com/Sitecore/jss/pull/2087))([#2091](https://github.com/Sitecore/jss/pull/2091))
 * `[create-sitecore-jss]` Create apps with exact jss dependency versions for canary and beta releases; all apps are now created with v0.1.0 instead of the version of JSS ([#2032](https://github.com/Sitecore/jss/pull/2032))
-* `[sitecore-jss-cli]` Code extraction feature for XMCloud code generation is added ([#2075](https://github.com/Sitecore/jss/pull/2075))
+* `[sitecore-jss-cli]` Code extraction feature for XMCloud code generation is added ([#2075](https://github.com/Sitecore/jss/pull/2075)([#2094](https://github.com/Sitecore/jss/pull/2094)))
 
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-nextjs]` Fix Chromes editing mode when rendering host URL is internally redirected in XMCloud ([#2019](https://github.com/Sitecore/jss/pull/2019))
 * `[templates/next.js]` sitemap.xml endpoint returns 404 ([#2023](https://github.com/Sitecore/jss/pull/2023))
+* `[templates/nextjs-sxa]` Fix DesignLibrary component being rendered when XP add-on is selected ([#2089](https://github.com/Sitecore/jss/pull/2089))
 
 ## 22.4.0
 

@@ -1,4 +1,4 @@
-﻿import React, { ReactNode } from 'react';
+﻿import React, { ReactNode, JSX } from 'react';
 import {
   ComponentRendering,
   getDynamicPlaceholderPattern,

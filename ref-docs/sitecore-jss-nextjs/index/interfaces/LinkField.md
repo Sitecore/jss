@@ -14,7 +14,7 @@
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:20
+sitecore-jss-react/types/components/Link.d.ts:19
 
 ***
 
@@ -24,7 +24,7 @@ sitecore-jss-react/types/components/Link.d.ts:20
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:21
+sitecore-jss-react/types/components/Link.d.ts:20
 
 ***
 
@@ -34,4 +34,4 @@ sitecore-jss-react/types/components/Link.d.ts:21
 
 #### Defined in
 
-sitecore-jss-react/types/components/Link.d.ts:19
+sitecore-jss-react/types/components/Link.d.ts:18
