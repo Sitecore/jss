@@ -7,7 +7,7 @@ import {
 import { EditingComponentPlaceholder } from './EditingComponentPlaceholder';
 import * as PlaceholderModule from './Placeholder';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import sinon from 'sinon';
 
 describe('<EditingComponentPlaceholder />', () => {
@@ -24,14 +24,10 @@ describe('<EditingComponentPlaceholder />', () => {
       },
     };
 
-    const c = mount(<EditingComponentPlaceholder rendering={rendering} />);
+    const rendered = render(<EditingComponentPlaceholder rendering={rendering} />);
 
-    const component = c.find(`#${EDITING_COMPONENT_ID}`);
-
-    expect(component.length).to.equal(1);
-
-    expect(component.find(PlaceholderModule.Placeholder).length).to.equal(1);
-    expect(component.find('.test').length).to.equal(1);
+    expect(rendered.container.querySelectorAll(`#${EDITING_COMPONENT_ID}`).length).to.equal(1);
+    expect(rendered.container.querySelectorAll('.test').length).to.equal(1);
     stub.restore();
   });
 });

@@ -1,9 +1,7 @@
-import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useRef, JSX } from 'react';
 import { useRouter } from 'next/router';
 import {
   RichText as ReactRichText,
-  RichTextPropTypes,
   RichTextProps as ReactRichTextProps,
 } from '@sitecore-jss/sitecore-jss-react';
 
@@ -25,9 +23,14 @@ export type RichTextProps = ReactRichTextProps & {
 const prefetched: { [cacheKey: string]: boolean } = {};
 
 export const RichText = (props: RichTextProps): JSX.Element => {
-  const { internalLinksSelector = 'a[href^="/"]', prefetchLinks = true, ...rest } = props;
+  const {
+    internalLinksSelector = 'a[href^="/"]',
+    prefetchLinks = true,
+    editable = true,
+    ...rest
+  } = props;
   const hasText = props.field && props.field.value;
-  const isEditing = props.editable && props.field && props.field.editable;
+  const isEditing = editable && props.field && props.field.editable;
 
   const router = useRouter();
   const richTextRef = useRef<HTMLElement>(null);
@@ -69,17 +72,7 @@ export const RichText = (props: RichTextProps): JSX.Element => {
     });
   };
 
-  return <ReactRichText ref={richTextRef} {...rest} />;
-};
-
-RichText.propTypes = {
-  internalLinksSelector: PropTypes.string,
-  ...RichTextPropTypes,
-};
-
-RichText.defaultProps = {
-  tag: 'div',
-  editable: true,
+  return <ReactRichText ref={richTextRef} editable={editable} {...rest} />;
 };
 
 RichText.displayName = 'NextRichText';

@@ -7,7 +7,7 @@ import sinon, { spy } from 'sinon';
 import nextjs, { NextRequest, NextResponse } from 'next/server';
 import { debug } from '@sitecore-jss/sitecore-jss';
 
-import { MultisiteMiddleware, CookieAttributes } from './multisite-middleware';
+import { MultisiteMiddleware } from './multisite-middleware';
 import { SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 
 use(sinonChai);

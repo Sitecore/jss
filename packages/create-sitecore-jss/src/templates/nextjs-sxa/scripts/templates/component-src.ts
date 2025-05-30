@@ -4,7 +4,7 @@
  * @returns component src boilerplate as a string
  */
 function generateComponentSrc(componentName: string): string {
-  return `import React from 'react';
+  return `import { JSX } from 'react';
 import { ComponentParams, ComponentRendering } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface ${componentName}Props {

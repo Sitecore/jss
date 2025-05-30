@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import Link from 'next/link';
 import { useI18n } from 'next-localization';
 import config from 'temp/config';

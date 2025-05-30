@@ -1,4 +1,5 @@
 /* eslint-disable  @typescript-eslint/no-unused-vars */
+import { JSX } from 'react';
 import { SitecorePageProps } from 'lib/page-props';
 
 /**

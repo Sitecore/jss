@@ -1,12 +1,12 @@
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import React from 'react';
 import { File, FileField } from './File';
 
 describe('<File />', () => {
   it('should render nothing with missing field', () => {
     const field = null as FileField;
-    const rendered = mount(<File field={field} />).children();
+    const rendered = render(<File field={field} />).container.children;
     expect(rendered).to.have.length(0);
   });
 
@@ -14,7 +14,7 @@ describe('<File />', () => {
     const field = {
       editable: 'lorem',
     };
-    const rendered = mount(<File field={field} />).children();
+    const rendered = render(<File field={field} />).container.children;
     expect(rendered).to.have.length(0);
   });
 
@@ -23,9 +23,9 @@ describe('<File />', () => {
       src: '/lorem',
       title: 'ipsum',
     };
-    const rendered = mount(<File field={field} />).find('a');
-    expect(rendered.html()).to.contain(field.src);
-    expect(rendered.html()).to.contain(field.title);
+    const rendered = render(<File field={field} />).container.querySelector('a');
+    expect(rendered?.outerHTML).to.contain(field.src);
+    expect(rendered?.outerHTML).to.contain(field.title);
   });
 
   it('should render display name if no title', () => {
@@ -35,8 +35,8 @@ describe('<File />', () => {
         displayName: 'ipsum',
       },
     };
-    const rendered = mount(<File field={field} />).find('a');
-    expect(rendered.html()).to.contain(field.value.displayName);
+    const rendered = render(<File field={field} />).container.querySelector('a');
+    expect(rendered?.outerHTML).to.contain(field.value.displayName);
   });
 
   it('should render other attributes with other props provided', () => {
@@ -46,8 +46,10 @@ describe('<File />', () => {
         title: 'ipsum',
       },
     };
-    const rendered = mount(<File field={field} id="my-file" className="my-css" />).find('a');
-    expect(rendered.html()).to.contain('id="my-file"');
-    expect(rendered.html()).to.contain('class="my-css"');
+    const rendered = render(
+      <File field={field} id="my-file" className="my-css" />
+    ).container.querySelector('a');
+    expect(rendered?.outerHTML).to.contain('id="my-file"');
+    expect(rendered?.outerHTML).to.contain('class="my-css"');
   });
 });

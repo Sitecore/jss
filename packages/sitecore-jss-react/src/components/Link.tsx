@@ -1,5 +1,4 @@
 import React, { ReactElement, forwardRef } from 'react';
-import PropTypes from 'prop-types';
 
 export interface LinkFieldValue {
   [attributeName: string]: unknown;
@@ -41,7 +40,7 @@ export type LinkProps = React.DetailedHTMLProps<
 };
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ field, editable, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {
+  ({ field, editable = true, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {
     const children = otherProps.children as React.ReactNode;
     const dynamicField: LinkField | LinkFieldValue = field;
 
@@ -125,26 +124,5 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     return <React.Fragment>{resultTags}</React.Fragment>;
   }
 );
-
-export const LinkPropTypes = {
-  field: PropTypes.oneOfType([
-    PropTypes.shape({
-      href: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.oneOf([null]).isRequired]),
-    }),
-    PropTypes.shape({
-      value: PropTypes.object,
-      editableFirstPart: PropTypes.string,
-      editableLastPart: PropTypes.string,
-    }),
-  ]).isRequired,
-  editable: PropTypes.bool,
-  showLinkTextWithChildrenPresent: PropTypes.bool,
-};
-
-Link.propTypes = LinkPropTypes;
-
-Link.defaultProps = {
-  editable: true,
-};
 
 Link.displayName = 'Link';

@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/triple-slash-reference */
 /* eslint-disable spaced-comment */
-// https://github.com/airbnb/enzyme/blob/master/docs/guides/jsdom.md
 
 /// <reference types="../../global" />
 
@@ -30,6 +29,9 @@ function copyProps(src: unknown, target: { [key: string]: unknown }) {
 
   Object.defineProperties(target, props);
 }
+
+// Can be accessed for custom setup, adding data attributes to the elements, etc.
+process.env.TEST = 'true';
 
 global.window = jsDomWindow;
 global.document = jsDomWindow.document;

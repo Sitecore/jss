@@ -1,5 +1,5 @@
 import { FEaaSComponent, FEaaSComponentProps } from './FEaaSComponent';
-import React from 'react';
+import React, { JSX } from 'react';
 
 export const FEAAS_WRAPPER_RENDERING_NAME = 'FEaaSWrapper';
 

@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { Field, Placeholder, Text, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 

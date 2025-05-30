@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import chai, { use } from 'chai';
 import chaiString from 'chai-string';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import React from 'react';
 import { NextImage } from './NextImage';
 import { ImageField } from '@sitecore-jss/sitecore-jss-react';
@@ -36,13 +37,16 @@ describe('<NextImage />', () => {
       height: 10,
     };
 
-    const mounted = mount(<NextImage loader={mockLoader} {...props} />);
-    const rendered = mounted.find('img');
+    const mounted = render(<NextImage loader={mockLoader} {...props} />);
+
+    const rendered = mounted.container.querySelectorAll('img');
+    const img = rendered[0];
+
     it('should render image with url', () => {
       expect(rendered).to.have.lengthOf(1);
-      expect(rendered.prop('src')).to.equal(`${HOSTNAME}${props.field.src}?w=${props.width}`);
-      expect(rendered.prop('width')).to.equal(props.width);
-      expect(rendered.prop('height')).to.equal(props.height);
+      expect(img.getAttribute('src')).to.equal(`${HOSTNAME}${props.field.src}?w=${props.width}`);
+      expect(img.getAttribute('width')).to.equal(props.width.toString());
+      expect(img.getAttribute('height')).to.equal(props.height.toString());
 
       expect(mockLoader.called).to.be.true;
       expect(mockLoader).to.have.been.calledWith(
@@ -61,12 +65,17 @@ describe('<NextImage />', () => {
       className: 'the-dude-abides',
     };
 
-    const rendered = mount(<NextImage loader={mockLoader} {...props} />).find('img');
+    const rendered = render(
+      <NextImage loader={mockLoader} {...props} />
+    ).container.querySelectorAll('img');
+    const img = rendered[0];
 
     it('should render image with needed props', () => {
       expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.equal(`${HOSTNAME}${props.field.value.src}?w=${props.width}`);
-      expect(rendered.prop('sizes')).to.equal('(min-width: 960px) 300px, 100px');
+      expect(img.getAttribute('src')).to.equal(
+        `${HOSTNAME}${props.field.value.src}?w=${props.width}`
+      );
+      expect(img.getAttribute('sizes')).to.equal('(min-width: 960px) 300px, 100px');
       expect(mockLoader.called).to.be.true;
       expect(mockLoader).to.have.been.calledWith(
         match({ src: props.field.value.src, width: props.width })
@@ -74,26 +83,29 @@ describe('<NextImage />', () => {
     });
 
     it('should render image with non-media props', () => {
-      expect(rendered.prop('id')).to.equal(props.id);
+      expect(img.getAttribute('id')).to.equal(props.id);
     });
 
     it('should render image with className prop', () => {
-      expect(rendered.prop('className')).to.eql(props.className);
+      expect(img.getAttribute('class')).to.eql(props.className);
     });
 
     it('should render image without width/height when "fill" prop is provided', () => {
       const field = {
         value: { src: '/assets/img/test0.png', alt: 'my image', width: 200, height: 400 },
       };
-      const rendered = mount(<NextImage loader={mockLoader} {...props} field={field} fill />).find(
-        'img'
-      );
+      const rendered = render(
+        <NextImage loader={mockLoader} {...props} field={field} fill />
+      ).container.querySelectorAll('img');
+      const img = rendered[0];
 
       expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.equal(`${HOSTNAME}${props.field.value.src}?w=${props.width}`);
-      expect(rendered.prop('sizes')).to.equal('(min-width: 960px) 300px, 100px');
-      expect(rendered.prop('height')).to.equal(undefined);
-      expect(rendered.prop('width')).to.equal(undefined);
+      expect(img.getAttribute('src')).to.equal(
+        `${HOSTNAME}${props.field.value.src}?w=${props.width}`
+      );
+      expect(img.getAttribute('sizes')).to.equal('(min-width: 960px) 300px, 100px');
+      expect(img.getAttribute('height')).to.equal(null);
+      expect(img.getAttribute('width')).to.equal(null);
       expect(mockLoader.called).to.be.true;
       expect(mockLoader).to.have.been.calledWith(
         match({ src: props.field.value.src, width: props.width })
@@ -109,12 +121,18 @@ describe('<NextImage />', () => {
       id: 'some-id',
       className: 'the-dude-abides',
     };
-    const rendered = mount(<NextImage loader={mockLoader} {...props} />).find('img');
+
+    const rendered = render(
+      <NextImage loader={mockLoader} {...props} />
+    ).container.querySelectorAll('img');
+    const img = rendered[0];
 
     it('should render image component with "value" properties', () => {
       expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.eql(`${HOSTNAME}${props.field.value.src}?w=${props.width}`);
-      expect(rendered.prop('alt')).to.eql(props.field.value.alt);
+      expect(img.getAttribute('src')).to.eql(
+        `${HOSTNAME}${props.field.value.src}?w=${props.width}`
+      );
+      expect(img.getAttribute('alt')).to.eql(props.field.value.alt);
       expect(mockLoader.called).to.be.true;
       expect(mockLoader).to.have.been.calledWith(
         match({ src: props.field.value.src, width: props.width })
@@ -122,11 +140,11 @@ describe('<NextImage />', () => {
     });
 
     it('should render image with non-media props', () => {
-      expect(rendered.prop('id')).to.equal(props.id);
+      expect(img.getAttribute('id')).to.equal(props.id);
     });
 
     it('should render image with className prop', () => {
-      expect(rendered.prop('className')).to.eql(props.className);
+      expect(img.getAttribute('class')).to.eql(props.className);
     });
 
     it('should render image when alt prop is missing', () => {
@@ -138,11 +156,17 @@ describe('<NextImage />', () => {
         className: 'the-dude-abides',
       };
 
-      const rendered = mount(<NextImage loader={mockLoader} {...props} />).find('img');
+      const rendered = render(
+        <NextImage loader={mockLoader} {...props} />
+      ).container.querySelectorAll('img');
+
+      const img = rendered[0];
 
       expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.eql(`${HOSTNAME}${props.field.value.src}?w=${props.width}`);
-      expect(rendered.prop('alt')).to.eql('');
+      expect(img.getAttribute('src')).to.eql(
+        `${HOSTNAME}${props.field.value.src}?w=${props.width}`
+      );
+      expect(img.getAttribute('alt')).to.eql('');
       expect(mockLoader.called).to.be.true;
       expect(mockLoader).to.have.been.calledWith(
         match({ src: props.field.value.src, width: props.width })
@@ -159,12 +183,16 @@ describe('<NextImage />', () => {
       editable: false,
       className: 'the-dude-abides w-100',
     };
-    const rendered = mount(<NextImage loader={mockLoader} {...props} />).find('img');
+    const rendered = render(<NextImage loader={mockLoader} {...props} />);
+
+    const img = rendered.container.querySelector('img');
 
     it('should render image component with "value" properties', () => {
-      expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.eql(`${HOSTNAME}${props.field.value.src}?w=${props.width}`);
-      expect(rendered.prop('alt')).to.eql(props.field.value.alt);
+      expect(img).to.exist;
+      expect(img?.getAttribute('src')).to.eql(
+        `${HOSTNAME}${props.field.value.src}?w=${props.width}`
+      );
+      expect(img?.getAttribute('alt')).to.eql(props.field.value.alt);
       expect(mockLoader.called).to.be.true;
       expect(mockLoader).to.have.been.calledWith(
         match({ src: props.field.value.src, width: props.width })
@@ -172,7 +200,7 @@ describe('<NextImage />', () => {
     });
 
     it('should render image with className prop', () => {
-      expect(rendered.prop('className')).to.eql(props.className);
+      expect(img?.getAttribute('class')).to.eql(props.className);
     });
   });
 
@@ -188,16 +216,25 @@ describe('<NextImage />', () => {
         imageParams: { foo: 'bar' },
         mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
-      const rendered = mount(<NextImage loader={mockLoader} {...props} />);
 
-      expect(rendered.find('img').prop('src')).to.equal(
+      const rendered = render(<NextImage loader={mockLoader} {...props} />);
+
+      const img1 = rendered.container.querySelector('img');
+
+      expect(img1?.getAttribute('src')).to.equal(
         `${HOSTNAME}/~/jssmedia/img/test0.png?foo=bar&w=8`
       );
-      rendered.setProps({
+
+      const props2 = {
         ...props,
         field: { src: '/-assets/img/test0.png' },
-      });
-      expect(rendered.find('img').prop('src')).to.equal(
+      };
+
+      const rendered2 = render(<NextImage loader={mockLoader} {...props2} />);
+
+      const img2 = rendered2.container.querySelector('img');
+
+      expect(img2?.getAttribute('src')).to.equal(
         `${HOSTNAME}/-/jssmedia/img/test0.png?foo=bar&w=8`
       );
       expect(mockLoader.called).to.be.true;
@@ -209,7 +246,7 @@ describe('<NextImage />', () => {
       );
     });
 
-    it('should transform url with direct image object, no value/editable', () => {
+    it('should transform url with direct image object, no value', () => {
       const props = {
         field: {
           value: { src: '/~assets/img/test0.png', alt: 'my image' },
@@ -220,17 +257,25 @@ describe('<NextImage />', () => {
         imageParams: { foo: 'bar' },
         mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
-      const rendered = mount(<NextImage loader={mockLoader} {...props} />);
-      expect(rendered.find('img').prop('src')).to.equal(
+
+      const rendered = render(<NextImage loader={mockLoader} {...props} />);
+
+      const img1 = rendered.container.querySelector('img');
+
+      expect(img1?.getAttribute('src')).to.equal(
         `${HOSTNAME}/~/jssmedia/img/test0.png?foo=bar&w=8`
       );
-      rendered.setProps({
+
+      const props2 = {
         ...props,
         field: { src: '/-assets/img/test0.png' },
         width,
         height: 10,
-      });
-      expect(rendered.find('img').prop('src')).to.equal(
+      };
+
+      const rendered2 = render(<NextImage loader={mockLoader} {...props2} />);
+      const img2 = rendered2.container.querySelector('img');
+      expect(img2?.getAttribute('src')).to.equal(
         `${HOSTNAME}/-/jssmedia/img/test0.png?foo=bar&w=8`
       );
       expect(mockLoader.called).to.be.true;
@@ -244,15 +289,18 @@ describe('<NextImage />', () => {
 
     it('should render no image when field prop is empty', () => {
       const img = '' as ImageField;
-      const rendered = mount(<NextImage field={img} />).find('img');
-      expect(rendered).to.have.length(0);
+      const rendered = render(<NextImage field={img} />);
+      expect(rendered.container.querySelectorAll('img')).to.have.length(0);
     });
   });
 
   describe('error cases', () => {
     const src = '/assets/img/test0.png';
     it('should throw an error if src is present', () => {
-      expect(() => mount(<NextImage src={src} />)).to.throw(
+      const field = {
+        src: '/assets/img/test0.png',
+      };
+      expect(() => render(<NextImage src={src} field={field} />)).to.throw(
         'Detected src prop. If you wish to use src, use next/image directly.'
       );
     });
@@ -270,13 +318,15 @@ describe('<NextImage />', () => {
       loader: userMockLoader,
     };
 
-    const rendered = mount(<NextImage {...props} />).find('img');
+    const rendered = render(<NextImage {...props} />).container.querySelectorAll('img');
+
+    const img = rendered[0];
 
     it('should render image with url', () => {
       expect(rendered).to.have.lengthOf(1);
-      expect(rendered.prop('src')).to.equal(`${HOSTNAME}${props.field.src}`);
-      expect(rendered.prop('width')).to.equal(props.width);
-      expect(rendered.prop('height')).to.equal(props.height);
+      expect(img.getAttribute('src')).to.equal(`${HOSTNAME}${props.field.src}`);
+      expect(img.getAttribute('width')).to.equal(props.width.toString());
+      expect(img.getAttribute('height')).to.equal(props.height.toString());
       expect(userMockLoader).to.have.been.called;
       expect(userMockLoader).to.have.been.calledWith(
         match({ src: props.field.src, width: props.width })

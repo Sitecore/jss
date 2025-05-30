@@ -1,5 +1,4 @@
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import {
@@ -86,27 +85,6 @@ export const NextImage: React.FC<NextImageProps> = ({
   }
 
   return null; // we can't handle the truth
-};
-
-NextImage.propTypes = {
-  field: PropTypes.oneOfType([
-    PropTypes.shape({
-      src: PropTypes.string.isRequired,
-    }),
-    PropTypes.shape({
-      value: PropTypes.object,
-      editable: PropTypes.string,
-    }),
-  ]),
-  editable: PropTypes.bool,
-  mediaUrlPrefix: PropTypes.instanceOf(RegExp),
-  imageParams: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]).isRequired
-  ),
-};
-
-NextImage.defaultProps = {
-  editable: true,
 };
 
 NextImage.displayName = 'NextImage';

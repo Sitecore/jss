@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import { VisitorIdentification, resetEmittedVI } from './VisitorIdentification';
 import { SitecoreContextReactContext } from './SitecoreContext';
@@ -30,7 +30,7 @@ describe('<VisitorIdentification />', () => {
   });
 
   it('should render in <head>', () => {
-    const rendered = mount(
+    const rendered = render(
       <SitecoreContextReactContext.Provider value={mockContext(defaultContext)}>
         <VisitorIdentification />
       </SitecoreContextReactContext.Provider>
@@ -42,11 +42,11 @@ describe('<VisitorIdentification />', () => {
     expect(meta).to.not.be.equal(undefined);
     expect(script.src).to.equal('/layouts/system/VisitorIdentification.js');
     expect(script.defer).to.be.equal(false);
-    expect(rendered.html()).to.be.null;
+    expect(rendered.container.innerHTML).to.be.eql('');
   });
 
   it('should render script with defer when defer is enabled', async () => {
-    const rendered = mount(
+    const rendered = render(
       <SitecoreContextReactContext.Provider value={mockContext(defaultContext)}>
         <VisitorIdentification defer={true} />
       </SitecoreContextReactContext.Provider>
@@ -54,11 +54,11 @@ describe('<VisitorIdentification />', () => {
     const script = document.getElementsByTagName('script')[0];
     expect(script).to.not.be.equal(undefined);
     expect(script.defer).to.equal(true);
-    expect(rendered.html()).to.be.null;
+    expect(rendered.container.innerHTML).to.be.eql('');
   });
 
   it('should not re-render after rendering once', async () => {
-    mount(
+    render(
       <SitecoreContextReactContext.Provider value={mockContext(defaultContext)}>
         <VisitorIdentification />
       </SitecoreContextReactContext.Provider>
@@ -69,7 +69,7 @@ describe('<VisitorIdentification />', () => {
     expect(meta).to.not.be.equal(undefined);
     document.head.removeChild(script);
     document.head.removeChild(meta);
-    mount(
+    render(
       <SitecoreContextReactContext.Provider value={mockContext(defaultContext)}>
         <VisitorIdentification />
       </SitecoreContextReactContext.Provider>
@@ -78,12 +78,12 @@ describe('<VisitorIdentification />', () => {
   });
 
   it('should not render when visitorIdentificationTimestamp is missing from context', async () => {
-    const rendered = mount(
+    const rendered = render(
       <SitecoreContextReactContext.Provider value={mockContext({})}>
         <VisitorIdentification />
       </SitecoreContextReactContext.Provider>
     );
     expect(document.head.childElementCount).to.equal(0);
-    expect(rendered.html()).to.be.null;
+    expect(rendered.container.innerHTML).to.be.eql('');
   });
 });
