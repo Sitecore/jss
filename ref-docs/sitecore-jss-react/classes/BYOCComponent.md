@@ -39,7 +39,7 @@ component props
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:91](https://github.com/Sitecore/jss/blob/8f7ffd33f995c17f9f03c3df10ba8b38b5da7f94/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L91)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:91](https://github.com/Sitecore/jss/blob/e75a84e27a017ba303b4e9b3a8e65d4dac4c8a59/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L91)
 
 ## Properties
 
@@ -71,7 +71,7 @@ declare context: React.ContextType<typeof MyContext>
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1006
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:945
 
 ***
 
@@ -85,31 +85,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1006
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1026
-
-***
-
-### ~~refs~~
-
-> **refs**: `object`
-
-#### Index Signature
-
- \[`key`: `string`\]: `ReactInstance`
-
-#### Deprecated
-
-#### See
-
-[Legacy React Docs](https://legacy.reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs)
-
-#### Inherited from
-
-`React.Component.refs`
-
-#### Defined in
-
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1033
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:961
 
 ***
 
@@ -129,7 +105,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1033
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:89](https://github.com/Sitecore/jss/blob/8f7ffd33f995c17f9f03c3df10ba8b38b5da7f94/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L89)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:89](https://github.com/Sitecore/jss/blob/e75a84e27a017ba303b4e9b3a8e65d4dac4c8a59/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L89)
 
 ***
 
@@ -164,7 +140,27 @@ class Foo extends React.Component {
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:988
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:921
+
+***
+
+### ~~propTypes?~~
+
+> `static` `optional` **propTypes**: `any`
+
+Ignored by React.
+
+#### Deprecated
+
+Only kept in types for backwards compatibility. Will be removed in a future major release.
+
+#### Inherited from
+
+`React.Component.propTypes`
+
+#### Defined in
+
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:927
 
 ## Methods
 
@@ -191,7 +187,7 @@ the entire component tree to unmount.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:101](https://github.com/Sitecore/jss/blob/8f7ffd33f995c17f9f03c3df10ba8b38b5da7f94/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L101)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:101](https://github.com/Sitecore/jss/blob/e75a84e27a017ba303b4e9b3a8e65d4dac4c8a59/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L101)
 
 ***
 
@@ -211,7 +207,7 @@ Called immediately after a component is mounted. Setting state here will trigger
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1369
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1173
 
 ***
 
@@ -241,7 +237,7 @@ The snapshot is only present if [getSnapshotBeforeUpdate](BYOCComponent.md#getsn
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1432
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1236
 
 ***
 
@@ -275,7 +271,7 @@ this from being invoked.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1448
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1252
 
 ***
 
@@ -319,7 +315,7 @@ this from being invoked.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1479
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1283
 
 ***
 
@@ -340,7 +336,7 @@ cancelled network requests, or cleaning up any DOM elements created in `componen
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1385
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1189
 
 ***
 
@@ -383,7 +379,7 @@ this from being invoked.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1511
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1315
 
 ***
 
@@ -407,7 +403,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1511
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1023
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:958
 
 ***
 
@@ -439,7 +435,7 @@ lifecycle events from running.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1426
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1230
 
 ***
 
@@ -457,7 +453,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1426
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:105](https://github.com/Sitecore/jss/blob/8f7ffd33f995c17f9f03c3df10ba8b38b5da7f94/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L105)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:105](https://github.com/Sitecore/jss/blob/e75a84e27a017ba303b4e9b3a8e65d4dac4c8a59/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L105)
 
 ***
 
@@ -488,7 +484,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1426
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1018
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:953
 
 ***
 
@@ -523,7 +519,7 @@ and `componentDidUpdate` will not be called.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1380
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1184
 
 ***
 
@@ -559,7 +555,7 @@ this from being invoked.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1463
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1267
 
 ***
 
@@ -605,7 +601,7 @@ this from being invoked.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1497
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1301
 
 ***
 
@@ -650,7 +646,7 @@ this from being invoked.
 
 #### Defined in
 
-packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1527
+packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1331
 
 ***
 
@@ -674,4 +670,4 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1527
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:96](https://github.com/Sitecore/jss/blob/8f7ffd33f995c17f9f03c3df10ba8b38b5da7f94/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L96)
+[packages/sitecore-jss-react/src/components/BYOCComponent.tsx:96](https://github.com/Sitecore/jss/blob/e75a84e27a017ba303b4e9b3a8e65d4dac4c8a59/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L96)

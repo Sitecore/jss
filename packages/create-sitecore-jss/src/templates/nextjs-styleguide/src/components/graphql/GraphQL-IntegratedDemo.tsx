@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { Text, Link, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import NextLink from 'next/link';
@@ -114,9 +115,7 @@ const GraphQLIntegratedDemo = (props: GraphQlIntegratedDemoProps): JSX.Element =
           <ul>
             {contextItem.children.results.map((child: Item) => (
               <li key={child.id}>
-                <NextLink href={child.url.path}>
-                  {child.pageTitle.value}
-                </NextLink>
+                <NextLink href={child.url.path}>{child.pageTitle.value}</NextLink>
                 &nbsp; (editable title too! <Text field={child.pageTitle.jsonValue} />)
               </li>
             ))}

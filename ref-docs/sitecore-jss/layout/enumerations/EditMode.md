@@ -18,7 +18,7 @@ Represents the possible modes for rendering content in Sitecore Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:25](https://github.com/Sitecore/jss/blob/8f7ffd33f995c17f9f03c3df10ba8b38b5da7f94/packages/sitecore-jss/src/layout/models.ts#L25)
+[packages/sitecore-jss/src/layout/models.ts:25](https://github.com/Sitecore/jss/blob/e75a84e27a017ba303b4e9b3a8e65d4dac4c8a59/packages/sitecore-jss/src/layout/models.ts#L25)
 
 ***
 
@@ -28,4 +28,4 @@ Represents the possible modes for rendering content in Sitecore Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/layout/models.ts:26](https://github.com/Sitecore/jss/blob/8f7ffd33f995c17f9f03c3df10ba8b38b5da7f94/packages/sitecore-jss/src/layout/models.ts#L26)
+[packages/sitecore-jss/src/layout/models.ts:26](https://github.com/Sitecore/jss/blob/e75a84e27a017ba303b4e9b3a8e65d4dac4c8a59/packages/sitecore-jss/src/layout/models.ts#L26)

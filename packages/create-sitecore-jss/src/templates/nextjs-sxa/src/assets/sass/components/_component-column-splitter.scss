@@ -3,8 +3,8 @@
 .row.column-splitter {
     margin-left: 0;
     margin-right: 0;
-    padding-left: $default-padding / 2;
-    padding-right: $default-padding / 2;
+    padding-left: $default-padding * 0.5;
+    padding-right: $default-padding * 0.5;
     max-width: none;
 
     > div {

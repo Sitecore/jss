@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, JSX } from 'react';
 <% if (prerender === 'SSG') { -%>
 import { GetStaticPaths, GetStaticProps } from 'next';
 <% } else if (prerender === 'SSR') { -%>

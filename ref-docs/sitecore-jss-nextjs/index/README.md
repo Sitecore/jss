@@ -123,13 +123,12 @@
 
 ### Variables
 
-- [ComponentPropsReactContext](variables/ComponentPropsReactContext.md)
 - [debug](variables/debug.md)
-- [SitecoreContextReactContext](variables/SitecoreContextReactContext.md)
 
 ### Functions
 
 - [ComponentPropsContext](functions/ComponentPropsContext.md)
+- [ComponentPropsReactContext](functions/ComponentPropsReactContext.md)
 - [DateField](functions/DateField.md)
 - [DefaultEmptyFieldEditingComponentImage](functions/DefaultEmptyFieldEditingComponentImage.md)
 - [DefaultEmptyFieldEditingComponentText](functions/DefaultEmptyFieldEditingComponentText.md)
@@ -157,6 +156,7 @@
 - [personalizeLayout](functions/personalizeLayout.md)
 - [Placeholder](functions/Placeholder.md)
 - [RichText](functions/RichText.md)
+- [SitecoreContextReactContext](functions/SitecoreContextReactContext.md)
 - [Text](functions/Text.md)
 - [useComponentProps](functions/useComponentProps.md)
 - [useSitecoreContext](functions/useSitecoreContext.md)

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import {
   EditMode,
   LayoutServiceData,
@@ -64,16 +64,15 @@ describe('<EditingScripts />', () => {
       pageEditing: false,
     });
 
-    const component = mount(
+    const component = render(
       <SitecoreContext componentFactory={mockComponentFactory} layoutData={layoutData}>
         <EditingScripts />
-      </SitecoreContext>
+      </SitecoreContext>,
+      { container: document.body }
     );
 
-    const scripts = component.find('EditingScripts');
-
-    expect(scripts.html()).to.be.null;
-    expect(scripts.find('script')).to.have.length(0);
+    expect(component.baseElement.innerHTML).to.be.empty;
+    expect(component.container.querySelectorAll('script')).to.have.length(0);
   });
 
   ['Edit', 'Preview'].forEach((pageState) => {
@@ -84,16 +83,15 @@ describe('<EditingScripts />', () => {
         pageEditing: true,
       });
 
-      const component = mount(
+      const component = render(
         <SitecoreContext componentFactory={mockComponentFactory} layoutData={layoutData}>
           <EditingScripts />
-        </SitecoreContext>
+        </SitecoreContext>,
+        { container: document.body }
       );
 
-      const scripts = component.find('EditingScripts');
-
-      expect(scripts.html()).to.be.null;
-      expect(scripts.find('script')).to.have.length(0);
+      expect(component.baseElement.innerHTML).to.equal('');
+      expect(component.container.querySelectorAll('script')).to.have.length(0);
     });
   });
   describe('should render Pages scripts when in Metadata mode', () => {
@@ -104,40 +102,35 @@ describe('<EditingScripts />', () => {
         pageEditing: true,
       });
 
-      const component = mount(
+      const component = render(
         <SitecoreContext componentFactory={mockComponentFactory} layoutData={layoutData}>
           <EditingScripts />
-        </SitecoreContext>
+        </SitecoreContext>,
+        { container: document.body }
       );
 
-      const scripts = component.find('EditingScripts');
+      const scripts = component.baseElement;
       const jssScriptsLength = Object.keys(getJssPagesClientData()).length;
 
-      expect(scripts.find('script')).to.have.length(4 + jssScriptsLength);
+      expect(scripts?.querySelectorAll('script')).to.have.length(4 + jssScriptsLength);
 
-      const script1 = scripts.find('script').at(0);
-      expect(script1.prop('src')).to.equal('http://test.foo/script1.js');
+      const script1 = scripts?.querySelectorAll('script')[0];
+      expect(script1?.getAttribute('src')).to.equal('http://test.foo/script1.js');
 
-      const script2 = scripts.find('script').at(1);
-      expect(script2.prop('src')).to.equal('http://test.foo/script2.js');
+      const script2 = scripts?.querySelectorAll('script')[1];
+      expect(script2?.getAttribute('src')).to.equal('http://test.foo/script2.js');
 
-      const script3 = scripts.find('script').at(2);
-      expect(script3.prop('id')).to.equal('foo');
-      expect(script3.prop('type')).to.equal('application/json');
-      expect(script3.prop('dangerouslySetInnerHTML')).to.deep.equal({
-        __html: '{"x":1,"y":"1","z":true}',
-      });
-      expect(script3.html()).to.equal(
+      const script3 = scripts?.querySelectorAll('script')[2];
+      expect(script3?.getAttribute('id')).to.equal('foo');
+      expect(script3?.getAttribute('type')).to.equal('application/json');
+      expect(script3?.outerHTML).to.equal(
         '<script id="foo" type="application/json">{"x":1,"y":"1","z":true}</script>'
       );
 
-      const script4 = scripts.find('script').at(3);
-      expect(script4.prop('id')).to.equal('bar');
-      expect(script4.prop('type')).to.equal('application/json');
-      expect(script4.prop('dangerouslySetInnerHTML')).to.deep.equal({
-        __html: '{"a":2,"b":"2","c":false}',
-      });
-      expect(script4.html()).to.equal(
+      const script4 = scripts?.querySelectorAll('script')[3];
+      expect(script4?.getAttribute('id')).to.equal('bar');
+      expect(script4?.getAttribute('type')).to.equal('application/json');
+      expect(script4?.outerHTML).to.equal(
         '<script id="bar" type="application/json">{"a":2,"b":"2","c":false}</script>'
       );
     });
@@ -151,18 +144,18 @@ describe('<EditingScripts />', () => {
         clientScripts: [],
       });
 
-      const component = mount(
+      const component = render(
         <SitecoreContext componentFactory={mockComponentFactory} layoutData={layoutData}>
           <EditingScripts />
         </SitecoreContext>
       );
 
-      const scripts = component.find('EditingScripts');
+      const scripts = component.baseElement;
       const ids = Object.keys(getJssPagesClientData());
       ids.forEach((id) => {
-        expect(scripts.exists(`#${id}`)).to.equal(true);
+        expect(component.container.querySelector(`#${id}`)).to.not.be.null;
       });
-      expect(scripts.find('script')).to.have.length(ids.length);
+      expect(scripts.querySelectorAll('script')).to.have.length(ids.length);
     });
   });
 });

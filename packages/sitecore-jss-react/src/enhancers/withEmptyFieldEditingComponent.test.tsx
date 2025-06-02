@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-expressions */
 import React, { forwardRef } from 'react';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { withEmptyFieldEditingComponent } from './withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from '../components/DefaultEmptyFieldEditingComponents';
-import { describe } from 'node:test';
 import { EMPTY_DATE_FIELD_VALUE } from '@sitecore-jss/sitecore-jss/layout';
 
 describe('withEmptyFieldEditingComponent', () => {
@@ -67,10 +66,10 @@ describe('withEmptyFieldEditingComponent', () => {
         defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
       });
 
-      const rendered = mount(<WrappedComponent {...props} />);
-      const expected = mount(<DefaultEmptyFieldEditingComponentText />);
+      const rendered = render(<WrappedComponent {...props} />);
+      const expected = render(<DefaultEmptyFieldEditingComponentText />);
 
-      expect(rendered.html()).to.equal(expected.html());
+      expect(rendered.container.innerHTML).to.equal(expected.container.innerHTML);
     });
 
     it('Should render custom empty value component if provided via props if field value is not provided', () => {
@@ -90,10 +89,10 @@ describe('withEmptyFieldEditingComponent', () => {
         defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
       });
 
-      const rendered = mount(<WrappedComponent {...props} />);
-      const expected = mount(<EmptyFieldEditingComponent />);
+      const rendered = render(<WrappedComponent {...props} />);
+      const expected = render(<EmptyFieldEditingComponent />);
 
-      expect(rendered.html()).to.equal(expected.html());
+      expect(rendered.container.innerHTML).to.equal(expected.container.innerHTML);
     });
 
     it('Should render component if field value is provided', () => {
@@ -108,8 +107,8 @@ describe('withEmptyFieldEditingComponent', () => {
         defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
       });
 
-      const rendered = mount(<WrappedComponent {...props} />);
-      expect(rendered.html()).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
+      const rendered = render(<WrappedComponent {...props} />);
+      expect(rendered.container.innerHTML).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
     });
 
     it('Should render component if component is explicitly not editable if value is empty', () => {
@@ -125,8 +124,8 @@ describe('withEmptyFieldEditingComponent', () => {
         defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
       });
 
-      const rendered = mount(<WrappedComponent {...props} />);
-      expect(rendered.html()).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
+      const rendered = render(<WrappedComponent {...props} />);
+      expect(rendered.container.innerHTML).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
     });
 
     it('Should render component if metadata is not provided', () => {
@@ -140,8 +139,8 @@ describe('withEmptyFieldEditingComponent', () => {
         defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
       });
 
-      const rendered = mount(<WrappedComponent {...props} />);
-      expect(rendered.html()).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
+      const rendered = render(<WrappedComponent {...props} />);
+      expect(rendered.container.innerHTML).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
     });
 
     it('Should render component with forward ref if field value is provided', () => {
@@ -160,10 +159,10 @@ describe('withEmptyFieldEditingComponent', () => {
         }
       );
       const ref = React.createRef<HTMLDivElement>();
-      const rendered = mount(<WrappedComponent {...props} ref={ref} />);
+      const rendered = render(<WrappedComponent {...props} ref={ref} />);
 
       expect(ref.current?.outerHTML).to.equal('<h2>foo</h2>');
-      expect(rendered.html()).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
+      expect(rendered.container.innerHTML).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
     });
 
     describe('Date', () => {
@@ -179,8 +178,10 @@ describe('withEmptyFieldEditingComponent', () => {
           defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
         });
 
-        const rendered = mount(<WrappedComponent {...props} />);
-        expect(rendered.html()).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
+        const rendered = render(<WrappedComponent {...props} />);
+        expect(rendered.container.innerHTML).to.equal(
+          '<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>'
+        );
       });
 
       it('Should render default empty component if field value is empty', () => {
@@ -195,10 +196,10 @@ describe('withEmptyFieldEditingComponent', () => {
           defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
         });
 
-        const rendered = mount(<WrappedComponent {...props} />);
-        const expected = mount(<DefaultEmptyFieldEditingComponentText />);
+        const rendered = render(<WrappedComponent {...props} />);
+        const expected = render(<DefaultEmptyFieldEditingComponentText />);
 
-        expect(rendered.html()).to.equal(expected.html());
+        expect(rendered.container.innerHTML).to.equal(expected.container.innerHTML);
       });
 
       it('Should render custom empty component if field value is empty', () => {
@@ -218,10 +219,10 @@ describe('withEmptyFieldEditingComponent', () => {
           defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
         });
 
-        const rendered = mount(<WrappedComponent {...props} />);
-        const expected = mount(<EmptyFieldEditingComponent />);
+        const rendered = render(<WrappedComponent {...props} />);
+        const expected = render(<EmptyFieldEditingComponent />);
 
-        expect(rendered.html()).to.equal(expected.html());
+        expect(rendered.container.innerHTML).to.equal(expected.container.innerHTML);
       });
     });
 
@@ -238,8 +239,10 @@ describe('withEmptyFieldEditingComponent', () => {
           defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
         });
 
-        const rendered = mount(<WrappedComponent {...props} />);
-        expect(rendered.html()).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
+        const rendered = render(<WrappedComponent {...props} />);
+        expect(rendered.container.innerHTML).to.equal(
+          '<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>'
+        );
       });
 
       it('Should render component if field value src is provided', () => {
@@ -254,8 +257,10 @@ describe('withEmptyFieldEditingComponent', () => {
           defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
         });
 
-        const rendered = mount(<WrappedComponent {...props} />);
-        expect(rendered.html()).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
+        const rendered = render(<WrappedComponent {...props} />);
+        expect(rendered.container.innerHTML).to.equal(
+          '<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>'
+        );
       });
 
       it('Should render provided default empty value component component if field value src is not provided', () => {
@@ -270,10 +275,10 @@ describe('withEmptyFieldEditingComponent', () => {
           defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
         });
 
-        const rendered = mount(<WrappedComponent {...props} />);
-        const expected = mount(<DefaultEmptyFieldEditingComponentText />);
+        const rendered = render(<WrappedComponent {...props} />);
+        const expected = render(<DefaultEmptyFieldEditingComponentText />);
 
-        expect(rendered.html()).to.equal(expected.html());
+        expect(rendered.container.innerHTML).to.equal(expected.container.innerHTML);
       });
 
       it('Should render custom empty value component if provided via props if field src is not provided', () => {
@@ -293,10 +298,10 @@ describe('withEmptyFieldEditingComponent', () => {
           defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
         });
 
-        const rendered = mount(<WrappedComponent {...props} />);
-        const expected = mount(<EmptyFieldEditingComponent />);
+        const rendered = render(<WrappedComponent {...props} />);
+        const expected = render(<EmptyFieldEditingComponent />);
 
-        expect(rendered.html()).to.equal(expected.html());
+        expect(rendered.container.innerHTML).to.equal(expected.container.innerHTML);
       });
     });
 
@@ -313,8 +318,10 @@ describe('withEmptyFieldEditingComponent', () => {
           defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
         });
 
-        const rendered = mount(<WrappedComponent {...props} />);
-        expect(rendered.html()).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
+        const rendered = render(<WrappedComponent {...props} />);
+        expect(rendered.container.innerHTML).to.equal(
+          '<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>'
+        );
       });
 
       it('Should render component if field value href is provided', () => {
@@ -329,8 +336,10 @@ describe('withEmptyFieldEditingComponent', () => {
           defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
         });
 
-        const rendered = mount(<WrappedComponent {...props} />);
-        expect(rendered.html()).to.equal('<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>');
+        const rendered = render(<WrappedComponent {...props} />);
+        expect(rendered.container.innerHTML).to.equal(
+          '<div><h1>hi</h1><h2>foo</h2><p>bar</p></div>'
+        );
       });
 
       it('Should render provided default empty value component component if field value href is not provided', () => {
@@ -345,10 +354,10 @@ describe('withEmptyFieldEditingComponent', () => {
           defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
         });
 
-        const rendered = mount(<WrappedComponent {...props} />);
-        const expected = mount(<DefaultEmptyFieldEditingComponentText />);
+        const rendered = render(<WrappedComponent {...props} />);
+        const expected = render(<DefaultEmptyFieldEditingComponentText />);
 
-        expect(rendered.html()).to.equal(expected.html());
+        expect(rendered.container.innerHTML).to.equal(expected.container.innerHTML);
       });
 
       it('Should render custom empty value component if provided via props if field href is not provided', () => {
@@ -368,10 +377,10 @@ describe('withEmptyFieldEditingComponent', () => {
           defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText,
         });
 
-        const rendered = mount(<WrappedComponent {...props} />);
-        const expected = mount(<EmptyFieldEditingComponent />);
+        const rendered = render(<WrappedComponent {...props} />);
+        const expected = render(<EmptyFieldEditingComponent />);
 
-        expect(rendered.html()).to.equal(expected.html());
+        expect(rendered.container.innerHTML).to.equal(expected.container.innerHTML);
       });
     });
   });

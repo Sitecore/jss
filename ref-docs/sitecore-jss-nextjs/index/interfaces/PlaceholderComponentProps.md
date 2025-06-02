@@ -25,7 +25,7 @@ When rendered within a <SitecoreContext> component, defaults to the context comp
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:25
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:24
 
 ***
 
@@ -41,7 +41,29 @@ The message that gets displayed while component is loading
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:68
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:67
+
+***
+
+### disableSuspense?
+
+> `optional` **disableSuspense**: `boolean`
+
+If true, disables Suspense for the placeholder.
+
+#### Default
+
+```ts
+false
+```
+
+#### Inherited from
+
+`PlaceholderProps.disableSuspense`
+
+#### Defined in
+
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:72
 
 ***
 
@@ -58,7 +80,7 @@ the placeholder
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:60
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:59
 
 ***
 
@@ -79,7 +101,7 @@ Any component or placeholder rendered by a placeholder will have access to this 
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:30
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:29
 
 ***
 
@@ -95,7 +117,7 @@ A component that is rendered in place of any components that are hidden
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:55
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:54
 
 ***
 
@@ -112,7 +134,7 @@ but do not have a definition in the componentFactory (i.e. don't have a React im
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:51
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:50
 
 ***
 
@@ -141,7 +163,7 @@ modified or initial props
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:46
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:45
 
 ***
 
@@ -157,7 +179,7 @@ Name of the placeholder to render.
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:18
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:17
 
 ***
 
@@ -178,7 +200,7 @@ Any component or placeholder rendered by a placeholder will have access to this 
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:37
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:36
 
 ***
 
@@ -266,7 +288,7 @@ Rendering data to be used when rendering the placeholder.
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:20
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:19
 
 ***
 
@@ -282,4 +304,4 @@ Context data from the Sitecore Layout Service
 
 #### Defined in
 
-sitecore-jss-react/types/components/PlaceholderCommon.d.ts:64
+sitecore-jss-react/types/components/PlaceholderCommon.d.ts:63

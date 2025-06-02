@@ -6,7 +6,7 @@
 
 # Function: withDatasourceCheck()
 
-> **withDatasourceCheck**(`options`?): \<`ComponentProps`\>(`Component`) => (`props`) => `React.JSX.Element`
+> **withDatasourceCheck**(`options`?): \<`ComponentProps`\>(`Component`) => (`props`) => `JSX.Element`
 
 Checks whether a Sitecore datasource is present and renders appropriately depending on page mode (normal vs editing).
 
@@ -47,7 +47,7 @@ The wrapped component, if a datasource is present.
 
 #### Returns
 
-`React.JSX.Element`
+`JSX.Element`
 
 ## Defined in
 

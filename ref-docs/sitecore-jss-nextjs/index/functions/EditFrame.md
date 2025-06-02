@@ -6,18 +6,17 @@
 
 # Function: EditFrame()
 
-> **EditFrame**(`props`, `deprecatedLegacyContext`?): `ReactNode`
+> **EditFrame**(`props`): `ReactNode` \| `Promise`\<`ReactNode`\>
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `props` | `PropsWithChildren`\<`EditFrameProps`\> | - |
-| `deprecatedLegacyContext`? | `any` | **Deprecated** **See** [React Docs](https://legacy.reactjs.org/docs/legacy-context.html#referencing-context-in-lifecycle-methods) |
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `PropsWithChildren`\<`EditFrameProps`\> |
 
 ## Returns
 
-`ReactNode`
+`ReactNode` \| `Promise`\<`ReactNode`\>
 
 ## Defined in
 

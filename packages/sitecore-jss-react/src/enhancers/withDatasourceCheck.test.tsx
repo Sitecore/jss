@@ -1,14 +1,10 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { spy } from 'sinon';
 
-import {
-  withDatasourceCheck,
-  WithDatasourceCheckProps,
-  DefaultEditingError,
-} from '../enhancers/withDatasourceCheck';
+import { withDatasourceCheck, WithDatasourceCheckProps } from '../enhancers/withDatasourceCheck';
 import { SitecoreContextReactContext } from '../components/SitecoreContext';
 
 const mockContext = (editing: boolean) => {
@@ -37,28 +33,26 @@ describe('withDatasourceCheck', () => {
       },
     };
 
-    const wrapper = mount(
+    const wrapper = render(
       <SitecoreContextReactContext.Provider value={mockContext(false)}>
         <TestComponentWithDatasourceCheck {...props} />
       </SitecoreContextReactContext.Provider>
     );
 
-    expect(wrapper).to.have.length(1);
-    expect(wrapper.html()).to.be.null;
+    expect(wrapper.container.innerHTML).to.be.empty;
   });
 
   it('should return null if rendering missing in normal mode', () => {
     const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
     const props = {} as WithDatasourceCheckProps;
 
-    const wrapper = mount(
+    const wrapper = render(
       <SitecoreContextReactContext.Provider value={mockContext(false)}>
         <TestComponentWithDatasourceCheck {...props} />
       </SitecoreContextReactContext.Provider>
     );
 
-    expect(wrapper).to.have.length(1);
-    expect(wrapper.html()).to.be.null;
+    expect(wrapper.container.innerHTML).to.be.empty;
   });
 
   it('should return default error component if datasource missing in editing mode', () => {
@@ -70,13 +64,13 @@ describe('withDatasourceCheck', () => {
       },
     };
 
-    const wrapper = mount(
+    const wrapper = render(
       <SitecoreContextReactContext.Provider value={mockContext(true)}>
         <TestComponentWithDatasourceCheck {...props} />
       </SitecoreContextReactContext.Provider>
     );
 
-    expect(wrapper.find(DefaultEditingError)).to.have.length(1);
+    expect(wrapper.container.querySelectorAll('div.sc-jss-editing-error')).to.have.length(1);
   });
 
   it('should return custom error component if specified', () => {
@@ -91,14 +85,13 @@ describe('withDatasourceCheck', () => {
       },
     };
 
-    const wrapper = mount(
+    const wrapper = render(
       <SitecoreContextReactContext.Provider value={mockContext(true)}>
         <TestComponentWithDatasourceCheck {...props} />
       </SitecoreContextReactContext.Provider>
     );
 
-    expect(wrapper.find(CustomEditingError)).to.have.length(1);
-    expect(wrapper.html()).to.contain('Better than yours');
+    expect(wrapper.container.innerHTML).to.contain('Better than yours');
   });
 
   it('should return wrapped component if datasource present in normal mode', () => {
@@ -110,15 +103,14 @@ describe('withDatasourceCheck', () => {
       },
     };
 
-    const wrapper = mount(
+    const wrapper = render(
       <SitecoreContextReactContext.Provider value={mockContext(false)}>
         <TestComponentWithDatasourceCheck {...props} />
       </SitecoreContextReactContext.Provider>
     );
 
-    expect(wrapper.find(TestComponent)).to.have.length(1);
-    expect(wrapper.html()).to.contain(props.rendering.componentName);
-    expect(wrapper.html()).to.contain(props.rendering.dataSource);
+    expect(wrapper.container.innerHTML).to.contain(props.rendering.componentName);
+    expect(wrapper.container.innerHTML).to.contain(props.rendering.dataSource);
   });
 
   it('should return wrapped component if datasource present in editing mode', () => {
@@ -130,15 +122,14 @@ describe('withDatasourceCheck', () => {
       },
     };
 
-    const wrapper = mount(
+    const wrapper = render(
       <SitecoreContextReactContext.Provider value={mockContext(true)}>
         <TestComponentWithDatasourceCheck {...props} />
       </SitecoreContextReactContext.Provider>
     );
 
-    expect(wrapper.find(TestComponent)).to.have.length(1);
-    expect(wrapper.html()).to.contain(props.rendering.componentName);
-    expect(wrapper.html()).to.contain(props.rendering.dataSource);
+    expect(wrapper.container.innerHTML).to.contain(props.rendering.componentName);
+    expect(wrapper.container.innerHTML).to.contain(props.rendering.dataSource);
   });
 
   it('should return wrapped component if not within SitecoreContext', () => {
@@ -150,10 +141,9 @@ describe('withDatasourceCheck', () => {
       },
     };
 
-    const wrapper = mount(<TestComponentWithDatasourceCheck {...props} />);
+    const wrapper = render(<TestComponentWithDatasourceCheck {...props} />);
 
-    expect(wrapper.find(TestComponent)).to.have.length(1);
-    expect(wrapper.html()).to.contain(props.rendering.componentName);
-    expect(wrapper.html()).to.contain(props.rendering.dataSource);
+    expect(wrapper.container.innerHTML).to.contain(props.rendering.componentName);
+    expect(wrapper.container.innerHTML).to.contain(props.rendering.dataSource);
   });
 });

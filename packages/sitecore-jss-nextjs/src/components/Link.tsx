@@ -1,5 +1,4 @@
-import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { forwardRef, JSX } from 'react';
 import NextLink from 'next/link';
 import { LinkProps as NextLinkProps } from 'next/link';
 import {
@@ -7,7 +6,6 @@ import {
   LinkFieldValue,
   LinkField,
   LinkProps as ReactLinkProps,
-  LinkPropTypes,
 } from '@sitecore-jss/sitecore-jss-react';
 
 export type LinkProps = ReactLinkProps & {
@@ -78,6 +76,9 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             prefetch={props.prefetch}
             {...htmlLinkProps}
             ref={ref}
+            {...(process.env.TEST
+              ? { 'data-nextjs-link': true, 'data-nextjs-link-prefetch': props.prefetch }
+              : {})}
           >
             {text}
             {children}
@@ -91,13 +92,14 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     delete reactLinkProps.internalLinkMatcher;
     delete reactLinkProps.prefetch;
 
-    return <ReactLink {...reactLinkProps} ref={ref} />;
+    return (
+      <ReactLink
+        {...reactLinkProps}
+        ref={ref}
+        {...(process.env.TEST ? { 'data-react-link': true } : {})}
+      />
+    );
   }
 );
 
 Link.displayName = 'NextLink';
-
-Link.propTypes = {
-  internalLinkMatcher: PropTypes.instanceOf(RegExp),
-  ...LinkPropTypes,
-};

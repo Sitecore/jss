@@ -18,7 +18,7 @@
 
 #### Defined in
 
-sitecore-jss-react/types/components/RichText.d.ts:8
+sitecore-jss-react/types/components/RichText.d.ts:7
 
 ***
 
@@ -46,4 +46,4 @@ sitecore-jss/types/layout/models.d.ts:123
 
 #### Defined in
 
-sitecore-jss-react/types/components/RichText.d.ts:7
+sitecore-jss-react/types/components/RichText.d.ts:6

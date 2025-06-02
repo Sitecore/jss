@@ -1,5 +1,4 @@
 import React, { ComponentType } from 'react';
-import PropTypes, { Requireable } from 'prop-types';
 import { MissingComponent } from './MissingComponent';
 import { ComponentFactory, JssComponentType } from './sharedTypes';
 import {
@@ -89,37 +88,14 @@ export interface PlaceholderProps {
    * The message that gets displayed while component is loading
    */
   componentLoadingMessage?: string;
+  /**
+   * If true, disables Suspense for the placeholder.
+   * @default false
+   */
+  disableSuspense?: boolean;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
-  static propTypes = {
-    rendering: PropTypes.oneOfType([
-      PropTypes.object as Requireable<RouteData>,
-      PropTypes.object as Requireable<ComponentRendering>,
-    ]).isRequired,
-    fields: PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.object as Requireable<Field>,
-        PropTypes.object as Requireable<Item[]>,
-      ]).isRequired
-    ),
-    params: PropTypes.objectOf(PropTypes.string.isRequired),
-    missingComponentComponent: PropTypes.oneOfType([
-      PropTypes.object as Requireable<React.ComponentClass<unknown>>,
-      PropTypes.func as Requireable<React.FC<unknown>>,
-    ]),
-    hiddenRenderingComponent: PropTypes.oneOfType([
-      PropTypes.object as Requireable<React.ComponentClass<unknown>>,
-      PropTypes.func as Requireable<React.FC<unknown>>,
-    ]),
-    errorComponent: PropTypes.oneOfType([
-      PropTypes.object as Requireable<React.ComponentClass<unknown>>,
-      PropTypes.func as Requireable<React.FC<unknown>>,
-    ]),
-    modifyComponentProps: PropTypes.func,
-    sitecoreContext: PropTypes.object as Requireable<SitecoreContextValue>,
-  };
-
   nodeRefs: Element[];
   state: Readonly<{ error?: Error }>;
 
@@ -294,6 +270,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           // all dynamic elements will have a separate render prop
           const isDynamicComponent = !!(component as JssComponentType).render?.preload;
 
+          const disableSuspense = this.props.disableSuspense || false;
+
           // wrapping with error boundary could cause problems in case where parent component uses withPlaceholder HOC and tries to access its children props
           // that's why we need to expose element's props here
           rendered = (
@@ -303,6 +281,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
               componentLoadingMessage={this.props.componentLoadingMessage}
               type={type}
               isDynamic={isDynamicComponent || isByocWrapper}
+              disableSuspense={disableSuspense}
               {...rendered.props}
             >
               {rendered}

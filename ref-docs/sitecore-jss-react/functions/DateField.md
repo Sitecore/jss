@@ -6,19 +6,18 @@
 
 # Function: DateField()
 
-> **DateField**(`props`, `deprecatedLegacyContext`?): `ReactNode`
+> **DateField**(`props`): `ReactNode` \| `Promise`\<`ReactNode`\>
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `props` | [`DateFieldProps`](../interfaces/DateFieldProps.md) | - |
-| `deprecatedLegacyContext`? | `any` | **Deprecated** **See** [React Docs](https://legacy.reactjs.org/docs/legacy-context.html#referencing-context-in-lifecycle-methods) |
+| Parameter | Type |
+| ------ | ------ |
+| `props` | [`DateFieldProps`](../interfaces/DateFieldProps.md) |
 
 ## Returns
 
-`ReactNode`
+`ReactNode` \| `Promise`\<`ReactNode`\>
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:25](https://github.com/Sitecore/jss/blob/8f7ffd33f995c17f9f03c3df10ba8b38b5da7f94/packages/sitecore-jss-react/src/components/Date.tsx#L25)
+[packages/sitecore-jss-react/src/components/Date.tsx:24](https://github.com/Sitecore/jss/blob/e75a84e27a017ba303b4e9b3a8e65d4dac4c8a59/packages/sitecore-jss-react/src/components/Date.tsx#L24)
