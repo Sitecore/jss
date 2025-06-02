@@ -43,7 +43,7 @@
     "cheerio": "1.0.0-rc.12",
     "del-cli": "^5.0.0",
     "eslint": "^8.56.0",
-    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react": "^7.37.5",
     "jsdom": "^25.0.1",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
