@@ -87,7 +87,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
     );
     const locale = this.getLanguage(req);
     const normalizedPath = incomingURL.replace(/\/*$/gi, '');
-    const redirects = await this.redirectsService.fetchRedirects(siteName);
+    const redirects = await this.getRedirects(siteName);
     const language = this.getLanguage(req);
     const modifyRedirects = structuredClone(redirects);
     let matchedQueryString: string | undefined;
@@ -294,6 +294,16 @@ export class RedirectsMiddleware extends MiddlewareBase {
     });
 
     return response;
+  }
+
+  /**
+   * Fetches all redirects for a given site from the Sitecore instance
+   * @param {string} siteName - The name of the site to fetch redirects for
+   * @returns {Promise<RedirectInfo[]>} A promise that resolves to an array of redirect information
+   * @protected
+   */
+  protected async getRedirects(siteName: string) {
+    return await this.redirectsService.fetchRedirects(siteName);
   }
 
   /**
