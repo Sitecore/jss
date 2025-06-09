@@ -13,9 +13,14 @@ Our versioning strategy is as follows:
 
 ## 22.7.0
 
+### 🎉 New Features & Improvements
+
+* `[templates/NextJs]` `[templates/NextJs-Styleguide]` `[templates/NextJs-Styleguide-Tracking]` Remove graphql-let and graphql code generation functionality from NextJs starter applications. One of the major reasons for the decision is `graphql-let` is not maintained anymore and was introducing severeal critical security vulnerabilities.  ([#2100](https://github.com/Sitecore/jss/pull/2100))
+
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-react]` Add an optional `disableSuspense` flag to the Placeholder component to prevent error boundaries from rendering Suspense which helps contain errors for components. This can help avoid hydration issues in connected mode. ([#2081](https://github.com/Sitecore/jss/pull/2081))([#2085](https://github.com/Sitecore/jss/pull/2085))
+* `[templates/NextJs-Styleguide]` `[templates/NextJs-Styleguide-Tracking]` Bug fixes in Styleguide-Layout-Tabs-Tab, Styleguide-Layout-Tabs, Styleguide-Tracking components ([#2100](https://github.com/Sitecore/jss/pull/2100))
 
 ### 🛠 Breaking Changes
 
