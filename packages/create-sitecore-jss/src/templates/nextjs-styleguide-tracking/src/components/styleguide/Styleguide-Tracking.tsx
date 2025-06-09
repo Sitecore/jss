@@ -18,13 +18,13 @@ type StyleguideTrackingProps = ComponentWithContextProps & StyleguideSpecimenFie
  * Demonstrates analytics tracking patterns (xDB)
  */
 class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
-  private event: RefObject<HTMLInputElement>;
-  private goal: RefObject<HTMLInputElement>;
-  private outcomeName: RefObject<HTMLInputElement>;
-  private outcomeValue: RefObject<HTMLInputElement>;
-  private campaign: RefObject<HTMLInputElement>;
-  private pageId: RefObject<HTMLInputElement>;
-  private pageUrl: RefObject<HTMLInputElement>;
+  private event: RefObject<HTMLInputElement | null>;
+  private goal: RefObject<HTMLInputElement | null>;
+  private outcomeName: RefObject<HTMLInputElement | null>;
+  private outcomeValue: RefObject<HTMLInputElement | null>;
+  private campaign: RefObject<HTMLInputElement | null>;
+  private pageId: RefObject<HTMLInputElement | null>;
+  private pageUrl: RefObject<HTMLInputElement | null>;
 
   private trackingApiOptions: TrackingRequestOptions;
 
