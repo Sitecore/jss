@@ -16,6 +16,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-react]` Add an optional `disableSuspense` flag to the Placeholder component to prevent error boundaries from rendering Suspense which helps contain errors for components. This can help avoid hydration issues in connected mode. ([#2081](https://github.com/Sitecore/jss/pull/2081))([#2085](https://github.com/Sitecore/jss/pull/2085))
+* `[sitecore-jss-nextjs]` Prevent false prefetch detection for mobile navigation in personalization middleware. ([#2102](https://github.com/Sitecore/jss/pull/2102))
 
 ### 🛠 Breaking Changes
 
