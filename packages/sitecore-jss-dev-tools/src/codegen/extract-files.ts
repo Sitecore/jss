@@ -1,10 +1,18 @@
-import { ExtractedFileType, resolveComponentImportFiles, sendCode } from './utils';
+import {
+  validateDeployContext,
+  validateConsent,
+  ExtractedFileType,
+  resolveComponentImportFiles,
+  sendCode,
+} from './utils';
 import { fetchBearerToken } from '../auth/fetch-bearer-token';
 import chalk from 'chalk';
 import path from 'path';
+import { debug } from '@sitecore-jss/sitecore-jss';
 
 type ExtracFilesOptions = {
   componentBuilderPath?: string;
+  customValidateDeployContext?: () => boolean;
 };
 
 /**
@@ -14,16 +22,18 @@ type ExtracFilesOptions = {
  * @returns {Promise<void>} void
  */
 export async function extractFiles(args: ExtracFilesOptions = {}) {
-  if (!validateDeployContext()) {
-    console.log(chalk.yellow('Skipping code extraction, not in deploy context'));
+  if (
+    (args.customValidateDeployContext && !args.customValidateDeployContext()) ||
+    !validateDeployContext()
+  ) {
+    debug.common('Skipping code extraction, not in deploy context');
     return;
   }
-  // TODO: add alternative consent procedure
-  if (!process.env.EXTRACT_CONSENT) {
-    console.log(chalk.yellow('Skipping code extraction, EXTRACT_CONSENT is not set'));
+  if (!validateConsent()) {
+    console.log(chalk.yellow('Skipping code extraction, consent not given'));
     return;
   }
-
+  console.log(chalk.green('Code extraction started'));
   const basePath = process.cwd();
 
   try {
@@ -57,22 +67,15 @@ export async function extractFiles(args: ExtracFilesOptions = {}) {
       )
     );
 
-    await Promise.all(fileDispatches);
+    const files = await Promise.all(fileDispatches);
+    console.log(
+      chalk.green(
+        `Code extraction completed successfully, files extracted:\r\n${files
+          .filter((file) => file !== null)
+          .join('\r\n')}`
+      )
+    );
   } catch (error) {
-    console.error(chalk.red('Error during component extraction:', error));
+    console.error(chalk.red('Error during code extraction:', error));
   }
 }
-
-const validateDeployContext = () => {
-  if (process.env.NETLIFY && process.env.BUILD_ID) {
-    return true;
-  }
-  // workaround, Vercel does not have variables that are only accessible at build time
-  if (process.env.VERCEL && !process.env.VERCEL_REGION) {
-    return true;
-  }
-  if (process.env.SITECORE && process.env.BuildMetadata_BuildId) {
-    return true;
-  }
-  return false;
-};

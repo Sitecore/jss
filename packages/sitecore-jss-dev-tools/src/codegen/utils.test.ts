@@ -53,14 +53,9 @@ describe('codegen-utils', () => {
         .matchHeader('Authorization', `Bearer ${token}`)
         .reply(200);
 
-      const consoleLogStub = sandbox.spy(console, 'log');
+      const result = await codegenUtils.sendCode(file, token);
 
-      await codegenUtils.sendCode(file, token);
-
-      expect(consoleLogStub.called).to.be.true;
-      expect(consoleLogStub.firstCall.args[0]).to.equal(
-        chalk.green('Code from /path/to/component.ts extracted and sent to mesh endpoint')
-      );
+      expect(result).to.equal(componentPath);
     });
 
     it('should log when componentPath file is not found', async () => {
@@ -265,6 +260,60 @@ describe('codegen-utils', () => {
           ),
         ],
       ]);
+    });
+  });
+
+  describe('validateConsent', () => {
+    it('should return false when EXTRACT_CONSENT is set to false', () => {
+      process.env.EXTRACT_CONSENT = 'false';
+      expect(codegenUtils.validateConsent()).to.be.false;
+    });
+
+    it('should return true when EXTRACT_CONSENT is set to true', () => {
+      process.env.EXTRACT_CONSENT = 'true';
+
+      expect(codegenUtils.validateConsent()).to.be.true;
+    });
+  });
+
+  describe('validateDeployContext', () => {
+    afterEach(() => {
+      delete process.env.NETLIFY;
+      delete process.env.VERCEL;
+      delete process.env.SITECORE;
+      delete process.env.BUILD_ID;
+      delete process.env.VERCEL_REGION;
+      delete process.env.SITECORE_BUILD;
+    });
+
+    it('should return true when in Netlify build context', () => {
+      process.env.NETLIFY = 'true';
+      process.env.BUILD_ID = '12345';
+      const result = codegenUtils.validateDeployContext();
+      expect(result).to.be.true;
+    });
+    it('should return true when in Vercel build context', () => {
+      process.env.VERCEL = 'true';
+      const result = codegenUtils.validateDeployContext();
+      expect(result).to.be.true;
+    });
+    it('should return false in Vercel runtime', () => {
+      process.env.VERCEL = 'true';
+      process.env.VERCEL_REGION = 'region';
+      expect(codegenUtils.validateDeployContext()).to.be.false;
+    });
+
+    it('should return true when in Sitecore build context', () => {
+      process.env.SITECORE = 'true';
+      process.env.SITECORE_BUILD = 'true';
+
+      const result = codegenUtils.validateDeployContext();
+
+      expect(result).to.be.true;
+    });
+
+    it('should return false when not in a recognized build context', () => {
+      expect(codegenUtils.validateDeployContext()).to.be.false;
     });
   });
 });

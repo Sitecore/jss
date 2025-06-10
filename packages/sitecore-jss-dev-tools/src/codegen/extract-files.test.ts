@@ -5,6 +5,7 @@ import fs from 'fs';
 import { extractFiles } from './extract-files';
 import * as cliUtils from './utils';
 import * as authUtils from '../auth/fetch-bearer-token';
+import { debug } from '@sitecore-jss/sitecore-jss';
 
 describe('extract-files', () => {
   describe('extractFiles', () => {
@@ -13,7 +14,7 @@ describe('extract-files', () => {
     beforeEach(() => {
       process.env.EXTRACT_CONSENT = 'true';
       process.env.SITECORE = 'true';
-      process.env.BuildMetadata_BuildId = '0451';
+      process.env.SITECORE_BUILD = '0451';
       sandbox.stub(fs, 'existsSync').returns(true);
     });
 
@@ -21,7 +22,7 @@ describe('extract-files', () => {
       sandbox.restore();
       delete process.env.EXTRACT_CONSENT;
       delete process.env.SITECORE;
-      delete process.env.BuildMetadata_BuildId;
+      delete process.env.SITECORE_BUILD;
     });
 
     it('should log when bearer is empty', async () => {
@@ -71,7 +72,7 @@ describe('extract-files', () => {
 
       expect(consoleErrorStub.calledOnce).to.be.true;
       expect(consoleErrorStub.firstCall.args[0]).to.equal(
-        chalk.red('Error during component extraction: Error: oopsie')
+        chalk.red('Error during code extraction: Error: oopsie')
       );
     });
 
@@ -84,20 +85,42 @@ describe('extract-files', () => {
 
       expect(consoleLogStub.calledOnce).to.be.true;
       expect(consoleLogStub.firstCall.args[0]).to.equal(
-        chalk.yellow('Skipping code extraction, EXTRACT_CONSENT is not set')
+        chalk.yellow('Skipping code extraction, consent not given')
       );
     });
 
     it('should skip code extraction when not in deploy context', async () => {
-      const consoleLogStub = sandbox.stub(console, 'log');
-      delete process.env.BuildMetadata_BuildId;
+      const debugStub = sandbox.stub(debug, 'common');
+      delete process.env.SITECORE_BUILD;
       sandbox.stub(process, 'cwd').returns('/path/to/app');
+
+      delete process.env.SITECORE;
+      delete process.env.SITECORE_AUTH_CLIENT_ID;
+      delete process.env.SITECORE_AUTH_CLIENT_SECRET;
+      delete process.env.SITECORE_BUILD;
 
       await extractFiles();
 
-      expect(consoleLogStub.calledOnce).to.be.true;
-      expect(consoleLogStub.firstCall.args[0]).to.equal(
-        chalk.yellow('Skipping code extraction, not in deploy context')
+      expect(debugStub.calledOnce).to.be.true;
+      expect(debugStub.firstCall.args[0]).to.equal(
+        'Skipping code extraction, not in deploy context'
+      );
+    });
+
+    it('should use customValidateDeployContext', async () => {
+      const debugStub = sandbox.stub(debug, 'common');
+      const fetchBearerTokenStub = sandbox.stub().resolves({ data: {}, accessToken: '' });
+      sandbox.replace(authUtils, 'fetchBearerToken', fetchBearerTokenStub);
+
+      const args = {
+        customValidateDeployContext: () => false,
+      };
+
+      await extractFiles(args);
+
+      expect(debugStub.calledOnce).to.be.true;
+      expect(debugStub.firstCall.args[0]).to.equal(
+        'Skipping code extraction, not in deploy context'
       );
     });
 
