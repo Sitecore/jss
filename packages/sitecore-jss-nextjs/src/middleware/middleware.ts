@@ -59,12 +59,13 @@ export abstract class MiddlewareBase {
     const nextRouterPrefetch = req.headers.get('Next-Router-Prefetch');
     const middlewarePrefetch = req.headers.get('x-middleware-prefetch');
 
-    if (isMobile) {
-      // On mobile, only consider it a prefetch if explicit prefetch headers are present
-      return nextRouterPrefetch === '1' || middlewarePrefetch === '1';
+    // Mobile requests often include 'prefetch' headers even during real navigations.
+    // We rely on 'x-middleware-prefetch' to more accurately identify actual prefetches on mobile.
+    if (isMobile && middlewarePrefetch === '1') {
+      return false;
     }
 
-    // For non-mobile, standard prefetch detection
+    // Otherwise, standard prefetch detection
     return purpose === 'prefetch' || nextRouterPrefetch === '1' || middlewarePrefetch === '1';
   }
 

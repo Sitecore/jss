@@ -150,31 +150,29 @@ describe('MiddlewareBase', () => {
       expect(middleware['isPrefetch'](req)).to.equal(false);
     });
 
-    it('should return true for mobile prefetch when x-middleware-prefetch is 1', () => {
+    it('should return false when a mobile device is detected via sec-ch-ua-mobile', () => {
       const middleware = new SampleMiddleware({ siteResolver: new MockSiteResolver([]) });
       const req = createReq({
         headerValues: {
-          'sec-ch-ua-mobile': '?1',
           purpose: 'prefetch',
+          'sec-ch-ua-mobile': '?1',
           'x-middleware-prefetch': '1',
         },
       });
 
-      expect(middleware['isPrefetch'](req)).to.equal(true);
+      expect(middleware['isPrefetch'](req)).to.equal(false);
     });
 
-    it('should return false for real mobile navigation when prefetch headers are absent', () => {
+    it('should return true when it is a desktop device and purpose is prefetch', () => {
       const middleware = new SampleMiddleware({ siteResolver: new MockSiteResolver([]) });
       const req = createReq({
         headerValues: {
-          'sec-ch-ua-mobile': '?1',
           purpose: 'prefetch',
-          'Next-Router-Prefetch': null,
-          'x-middleware-prefetch': null,
+          'sec-ch-ua-mobile': '?0',
         },
       });
 
-      expect(middleware['isPrefetch'](req)).to.equal(false);
+      expect(middleware['isPrefetch'](req)).to.equal(true);
     });
   });
 
