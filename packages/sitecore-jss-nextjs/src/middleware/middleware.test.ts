@@ -145,6 +145,7 @@ describe('MiddlewareBase', () => {
         headerValues: {
           purpose: 'prefetch',
           'sec-ch-ua-mobile': '?1',
+          'x-middleware-prefetch': '1',
         },
       });
 

@@ -55,15 +55,16 @@ export abstract class MiddlewareBase {
    */
   protected isPrefetch(req: NextRequest): boolean {
     const isMobile = req.headers.get('sec-ch-ua-mobile') === '?1';
+    const purpose = req.headers.get('purpose');
+    const nextRouterPrefetch = req.headers.get('Next-Router-Prefetch');
+    const middlewarePrefetch = req.headers.get('x-middleware-prefetch');
 
-    // Mobile requests may include prefetch headers but they often represent real
-    // navigation's. To avoid false positives, skip prefetch logic for mobile.
-    if (isMobile) return false;
+    if (isMobile && middlewarePrefetch === '1') {
+      return false;
+    }
 
     // Otherwise, standard prefetch detection
-    return (
-      req.headers.get('purpose') === 'prefetch' || req.headers.get('Next-Router-Prefetch') === '1'
-    );
+    return purpose === 'prefetch' || nextRouterPrefetch === '1' || middlewarePrefetch === '1';
   }
 
   protected excludeRoute(pathname: string) {

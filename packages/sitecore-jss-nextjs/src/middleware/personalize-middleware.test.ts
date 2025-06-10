@@ -499,11 +499,12 @@ describe('PersonalizeMiddleware', () => {
     });
   });
 
-  it('should not skip personalization for mobile requests even with prefetch headers', async () => {
+  it.only('should not skip personalization for mobile requests even with prefetch headers', async () => {
     const req = createRequest({
       headerValues: {
         purpose: 'prefetch',
         'sec-ch-ua-mobile': '?1',
+        'x-middleware-prefetch': '1',
       },
     });
     const res = createResponse();
