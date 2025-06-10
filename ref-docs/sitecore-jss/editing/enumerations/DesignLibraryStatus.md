@@ -16,7 +16,7 @@ Enumeration of statuses for the Design Library.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/design-library.ts:25](https://github.com/Sitecore/jss/blob/44f916dcaf7f8be12c3ca903c0c03c889532931b/packages/sitecore-jss/src/editing/design-library.ts#L25)
+[packages/sitecore-jss/src/editing/design-library.ts:25](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss/src/editing/design-library.ts#L25)
 
 ***
 
@@ -26,4 +26,4 @@ Enumeration of statuses for the Design Library.
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/design-library.ts:26](https://github.com/Sitecore/jss/blob/44f916dcaf7f8be12c3ca903c0c03c889532931b/packages/sitecore-jss/src/editing/design-library.ts#L26)
+[packages/sitecore-jss/src/editing/design-library.ts:26](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss/src/editing/design-library.ts#L26)

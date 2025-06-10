@@ -20,4 +20,4 @@
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/clean.ts:12](https://github.com/Sitecore/jss/blob/44f916dcaf7f8be12c3ca903c0c03c889532931b/packages/sitecore-jss-dev-tools/src/clean.ts#L12)
+[sitecore-jss-dev-tools/src/clean.ts:12](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/clean.ts#L12)

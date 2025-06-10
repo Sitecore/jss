@@ -27,7 +27,7 @@ Returns layoutData for one single rendered component
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:67](https://github.com/Sitecore/jss/blob/44f916dcaf7f8be12c3ca903c0c03c889532931b/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L67)
+[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:67](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L67)
 
 ## Methods
 
@@ -47,7 +47,7 @@ Returns layoutData for one single rendered component
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:69](https://github.com/Sitecore/jss/blob/44f916dcaf7f8be12c3ca903c0c03c889532931b/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L69)
+[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:69](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L69)
 
 ***
 
@@ -67,4 +67,4 @@ Returns layoutData for one single rendered component
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:101](https://github.com/Sitecore/jss/blob/44f916dcaf7f8be12c3ca903c0c03c889532931b/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L101)
+[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:101](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L101)

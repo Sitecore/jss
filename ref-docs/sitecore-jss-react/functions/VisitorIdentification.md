@@ -20,4 +20,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/VisitorIdentification.tsx:49](https://github.com/Sitecore/jss/blob/44f916dcaf7f8be12c3ca903c0c03c889532931b/packages/sitecore-jss-react/src/components/VisitorIdentification.tsx#L49)
+[packages/sitecore-jss-react/src/components/VisitorIdentification.tsx:49](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-react/src/components/VisitorIdentification.tsx#L49)

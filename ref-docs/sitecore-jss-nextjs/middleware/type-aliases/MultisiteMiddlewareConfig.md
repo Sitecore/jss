@@ -28,4 +28,4 @@ Function used to determine if site should be resolved from sc_site cookie when p
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:21](https://github.com/Sitecore/jss/blob/44f916dcaf7f8be12c3ca903c0c03c889532931b/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L21)
+[sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:21](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L21)
