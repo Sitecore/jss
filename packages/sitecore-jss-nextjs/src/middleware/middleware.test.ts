@@ -132,6 +132,17 @@ describe('MiddlewareBase', () => {
       expect(middleware['isPrefetch'](req)).to.equal(true);
     });
 
+    it('should return true when x-middleware-prefetch header is 1', () => {
+      const middleware = new SampleMiddleware({ siteResolver: new MockSiteResolver([]) });
+      const req = createReq({
+        headerValues: {
+          'x-middleware-prefetch': '1',
+        },
+      });
+
+      expect(middleware['isPrefetch'](req)).to.equal(true);
+    });
+
     it('should return false when required header is not provided', () => {
       const middleware = new SampleMiddleware({ siteResolver: new MockSiteResolver([]) });
       const req = createReq();
