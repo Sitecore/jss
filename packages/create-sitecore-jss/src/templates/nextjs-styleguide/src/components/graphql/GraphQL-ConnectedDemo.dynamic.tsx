@@ -14,7 +14,7 @@ import ConnectedDemoQuery from './GraphQL-ConnectedDemo.dynamic.graphql';
 import { ComponentProps } from 'lib/component-props';
 import config from 'temp/config';
 
-type DataSource = {
+type GraphQLConnectedDemoDataSource = {
   sample1: {
     jsonValue: {
       value: string;
@@ -61,7 +61,7 @@ type ItemSearchResults = {
 };
 
 type GraphQLConnectedDemoData = {
-  datasource: DataSource;
+  datasource: GraphQLConnectedDemoDataSource;
   contextItem: {
     id: string;
     children: ItemSearchResults;
@@ -158,7 +158,7 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
 
   const result = await graphQLClient.request<GraphQLConnectedDemoData>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ConnectedDemoQuery as any,
+    ConnectedDemoQuery,
     {
       datasource: rendering.dataSource,
       contextItem: layoutData?.sitecore?.route?.itemId,
@@ -186,7 +186,7 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
 
   const result = await graphQLClient.request<GraphQLConnectedDemoData>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ConnectedDemoQuery as any,
+    ConnectedDemoQuery,
     {
       datasource: rendering.dataSource,
       contextItem: layoutData?.sitecore?.route?.itemId,
