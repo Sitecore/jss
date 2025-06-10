@@ -28,12 +28,18 @@ export {
   EditButtonTypes,
   mapButtonToCommand,
 } from './edit-frame';
-export { RenderMetadataQueryParams, RenderComponentQueryParams } from './models';
-export { LayoutKind, MetadataKind } from './models';
+export {
+  RenderMetadataQueryParams,
+  RenderComponentQueryParams,
+  LayoutKind,
+  MetadataKind,
+  DesignLibraryMode,
+} from './models';
 export {
   addComponentUpdateHandler,
   DesignLibraryStatus,
   DesignLibraryStatusEvent,
   getDesignLibraryStatusEvent,
   getDesignLibraryScriptLink,
+  isDesignLibraryMode,
 } from './design-library';

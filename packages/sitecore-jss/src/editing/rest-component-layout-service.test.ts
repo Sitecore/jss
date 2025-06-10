@@ -9,6 +9,7 @@ import {
 import { LayoutServiceData } from '../layout/models';
 import nock from 'nock';
 import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
+import { DesignLibraryMode } from './models';
 
 use(spies);
 
@@ -50,6 +51,28 @@ describe('RestComponentLayoutService', () => {
 
     return service
       .fetchComponentData(defaultTestInput)
+      .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
+        expect(layoutServiceData).to.deep.equal(defaultTestData);
+      });
+  });
+
+  it('should fetch component data in metadata mode', () => {
+    nock(SITECORE_EDGE_URL_DEFAULT, {
+      reqheaders: {
+        sc_editMode: 'true',
+      },
+    })
+      .get(
+        '/layout/component?sitecoreContextId=test-context-id&item=123&uid=456&sc_site=supersite&sc_lang=en'
+      )
+      .reply(200, () => defaultTestData);
+
+    const service = new RestComponentLayoutService({
+      sitecoreEdgeContextId: contextId,
+    });
+
+    return service
+      .fetchComponentData({ ...defaultTestInput, mode: DesignLibraryMode.Metadata })
       .then((layoutServiceData: LayoutServiceData & NativeDataFetcherConfig) => {
         expect(layoutServiceData).to.deep.equal(defaultTestData);
       });

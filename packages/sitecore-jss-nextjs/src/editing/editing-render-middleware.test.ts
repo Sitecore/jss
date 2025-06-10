@@ -6,6 +6,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingDataService, EditingPreviewData } from './editing-data-service';
 import {
+  DesignLibraryMode,
   EDITING_ALLOWED_ORIGINS,
   QUERY_PARAM_EDITING_SECRET,
   RenderMetadataQueryParams,
@@ -208,7 +209,7 @@ describe('EditingRenderMiddleware', () => {
   describe('metadata handler', () => {
     describe('Design Library handling', () => {
       const query = {
-        mode: 'library',
+        mode: DesignLibraryMode.Normal,
         sc_itemid: '{11111111-1111-1111-1111-111111111111}',
         sc_lang: 'en',
         sc_site: 'website',
@@ -236,7 +237,35 @@ describe('EditingRenderMiddleware', () => {
           language: query.sc_lang,
           site: query.sc_site,
           pageState: 'normal',
-          mode: 'library',
+          mode: DesignLibraryMode.Normal,
+          dataSourceId: query.dataSourceId,
+          version: query.sc_version,
+        });
+
+        expect(res.redirect).to.have.been.calledOnce;
+        expect(res.setHeader).to.have.been.calledWith(
+          'Content-Security-Policy',
+          `frame-ancestors 'self' https://allowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
+        );
+      });
+
+      it('should handle request with mode=library-metadata', async () => {
+        const req = mockRequest(EE_BODY, { ...query, mode: DesignLibraryMode.Metadata }, 'GET');
+        const res = mockResponse();
+
+        const middleware = new EditingRenderMiddleware();
+        const handler = middleware.getHandler();
+
+        await handler(req, res);
+
+        expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith({
+          itemId: query.sc_itemid,
+          componentUid: query.sc_uid,
+          renderingId: query.sc_renderingId,
+          language: query.sc_lang,
+          site: query.sc_site,
+          pageState: 'normal',
+          mode: DesignLibraryMode.Metadata,
           dataSourceId: query.dataSourceId,
           version: query.sc_version,
         });

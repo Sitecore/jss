@@ -1,5 +1,6 @@
 import { ComponentRendering, Field, GenericFieldValue } from '../layout/models';
 import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
+import { DesignLibraryMode } from './models';
 
 /**
  * Event to be sent when report status to design library
@@ -152,4 +153,13 @@ export function getDesignLibraryStatusEvent(
  */
 export function getDesignLibraryScriptLink(sitecoreEdgeUrl = SITECORE_EDGE_URL_DEFAULT): string {
   return `${sitecoreEdgeUrl}/v1/files/designlibrary/lib/rh-lib-script.js`;
+}
+
+/**
+ * Checks if the given mode is a Design Library mode.
+ * @param {unknown} mode - The mode to check.
+ * @returns {boolean} True if the mode is a Design Library mode, false otherwise.
+ */
+export function isDesignLibraryMode(mode: unknown): mode is DesignLibraryMode {
+  return mode === DesignLibraryMode.Normal || mode === DesignLibraryMode.Metadata;
 }

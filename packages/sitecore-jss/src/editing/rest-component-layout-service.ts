@@ -3,6 +3,7 @@ import { NativeDataFetcher, NativeDataFetcherConfig } from '../native-fetcher';
 import debug from '../debug';
 import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
 import { resolveUrl } from '../utils';
+import { DesignLibraryMode } from './models';
 
 /**
  * Params for requesting component data from service in Design Library mode
@@ -37,6 +38,10 @@ export interface ComponentLayoutRequestParams {
    * site name to be used as context for rendering the component
    */
   siteName: string;
+  /**
+   * mode to be used for rendering the component
+   */
+  mode?: DesignLibraryMode;
 }
 
 /**
@@ -78,7 +83,11 @@ export class RestComponentLayoutService {
     const fetchUrl = this.getFetchUrl(params);
 
     return fetcher
-      .get<LayoutServiceData>(fetchUrl)
+      .get<LayoutServiceData>(fetchUrl, {
+        headers: {
+          sc_editMode: `${params.mode === DesignLibraryMode.Metadata}`,
+        },
+      })
       .then((response) => response.data)
       .catch((error) => {
         if (error.response?.status === 404) {
