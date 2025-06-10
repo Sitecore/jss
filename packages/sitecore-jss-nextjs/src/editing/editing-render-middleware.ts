@@ -7,6 +7,7 @@ import {
   EDITING_ALLOWED_ORIGINS,
   RenderMetadataQueryParams,
   LayoutKind,
+  isDesignLibraryMode,
 } from '@sitecore-jss/sitecore-jss/editing';
 import { EditingData } from './editing-data';
 import { EditingDataService, editingDataService } from './editing-data-service';
@@ -333,10 +334,7 @@ export const isDesignLibraryPreviewData = (
   data: unknown
 ): data is DesignLibraryRenderPreviewData => {
   return (
-    typeof data === 'object' &&
-    data !== null &&
-    'mode' in data &&
-    (data as DesignLibraryRenderPreviewData).mode === 'library'
+    typeof data === 'object' && data !== null && 'mode' in data && isDesignLibraryMode(data.mode)
   );
 };
 
@@ -364,8 +362,10 @@ export class MetadataHandler {
       'sc_lang',
       'mode',
     ];
-    const requiredQueryParams =
-      mode === 'library' ? metadataComponentRequiredParams : metadataDefaultRequiredParams;
+
+    const requiredQueryParams = isDesignLibraryMode(mode)
+      ? metadataComponentRequiredParams
+      : metadataDefaultRequiredParams;
 
     const missingQueryParams = requiredQueryParams.filter((param) => !query[param]);
 
@@ -380,7 +380,7 @@ export class MetadataHandler {
       });
     }
 
-    if (mode === 'library') {
+    if (isDesignLibraryMode(mode)) {
       res.setPreviewData(
         {
           itemId: query.sc_itemid,
@@ -389,7 +389,7 @@ export class MetadataHandler {
           language: query.sc_lang,
           site: query.sc_site,
           pageState: LayoutServicePageState.Normal,
-          mode: 'library',
+          mode,
           dataSourceId: query.dataSourceId,
           version: query.sc_version,
         } as DesignLibraryRenderPreviewData,

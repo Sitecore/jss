@@ -6,9 +6,11 @@ import {
   getDesignLibraryStatusEvent,
   DesignLibraryStatus,
   getDesignLibraryScriptLink,
+  isDesignLibraryMode,
 } from './design-library';
 import testComponent from '../test-data/component-editing-data';
 import { SITECORE_EDGE_URL_DEFAULT } from '../constants';
+import { DesignLibraryMode } from './models';
 
 describe('Design library utils', () => {
   const debugSpy = sinon.spy(console, 'debug');
@@ -178,6 +180,20 @@ describe('Design library utils', () => {
       const customUrl = 'https://custom-designlibrary.com';
       const scriptLink = getDesignLibraryScriptLink(customUrl);
       expect(scriptLink).to.equal(`${customUrl}/v1/files/designlibrary/lib/rh-lib-script.js`);
+    });
+  });
+
+  describe('isDesignLibraryMode', () => {
+    it('should return true for DesignLibraryMode.Normal', () => {
+      expect(isDesignLibraryMode(DesignLibraryMode.Normal)).to.be.true;
+    });
+
+    it('should return true for DesignLibraryMode.Metadata', () => {
+      expect(isDesignLibraryMode(DesignLibraryMode.Metadata)).to.be.true;
+    });
+
+    it('should return false for other values', () => {
+      expect(isDesignLibraryMode('invalid')).to.be.false;
     });
   });
 
