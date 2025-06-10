@@ -28,6 +28,36 @@ export enum ExtractedFileType {
 }
 
 /**
+ * Validates consent for code extraction procedures
+ * @returns {boolean} - true if consent is given, false otherwise
+ */
+export const validateConsent = () => {
+  if (process.env.EXTRACT_CONSENT?.toLowerCase() !== 'true') {
+    return false;
+  }
+  return true;
+};
+
+/**
+ * Validates if the current operation is done in Vercel, Netlify or XMCloud
+ * deploy context
+ * @returns {boolean} - true if in deploy context, false otherwise
+ */
+export const validateDeployContext = () => {
+  if (process.env.NETLIFY && process.env.BUILD_ID) {
+    return true;
+  }
+  // workaround, Vercel does not have variables that are only accessible at build time
+  if (process.env.VERCEL && !process.env.VERCEL_REGION) {
+    return true;
+  }
+  if (process.env.SITECORE && process.env.SITECORE_BUILD) {
+    return true;
+  }
+  return false;
+};
+
+/**
  * Parses the componentBuilder.ts file and returns a map of component names
  * and their respective import strings
  * @param {string} appPath path to the JSS app root
@@ -176,7 +206,7 @@ export const sendCode = async (file: ExtractedFile, token: string) => {
         url: response.url,
         headers: response.headers,
       });
-      return;
+      return null;
     }
   } catch (error) {
     console.error(
@@ -184,7 +214,7 @@ export const sendCode = async (file: ExtractedFile, token: string) => {
         `Fetch request to send extracted code from ${file.path} failed: ${JSON.stringify(error)}`
       )
     );
-    return;
+    return null;
   }
-  console.log(chalk.green(`Code from ${file.path} extracted and sent to mesh endpoint`));
+  return file.path;
 };
