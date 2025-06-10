@@ -8,24 +8,67 @@ import {
   withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql';
-import {
-  resetEditorChromes
-} from '@sitecore-jss/sitecore-jss-nextjs/utils';
+import { resetEditorChromes } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 import NextLink from 'next/link';
-import { ConnectedDemoQueryDocument } from './GraphQL-ConnectedDemo.dynamic.graphql';
-import {
-  <%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute as AppRoute,
-  Item,
-  <%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
-} from 'graphql-types';
+import ConnectedDemoQuery from './GraphQL-ConnectedDemo.dynamic.graphql';
 import { ComponentProps } from 'lib/component-props';
 import config from 'temp/config';
 
-type RouteItem = AppRoute & Item;
+type GraphQLConnectedDemoDataSource = {
+  sample1: {
+    jsonValue: {
+      value: string;
+    };
+    value: string;
+  };
+  sample2: {
+    definition: {
+      type: string;
+      shared: boolean;
+    };
+    jsonValue: {
+      value: {
+        href: string;
+        linktype: string;
+        target: string;
+        text: string;
+        url: string;
+      };
+    };
+    target: string;
+    text: string;
+    url: string;
+  };
+  name: string;
+  id: string;
+};
+
+type Item = {
+  id: string;
+  url: {
+    path: string;
+  };
+  pageTitle: {
+    value: string;
+    jsonValue: {
+      value: string;
+    };
+  };
+};
+
+type ItemSearchResults = {
+  results: Item[];
+};
 
 type GraphQLConnectedDemoData = {
-  datasource: GrapQLConnectedDemoDatasource;
-  contextItem: RouteItem;
+  datasource: GraphQLConnectedDemoDataSource;
+  contextItem: {
+    id: string;
+    children: ItemSearchResults;
+    pageTitle: {
+      value: string;
+    };
+  };
 };
 
 type GraphQLConnectedDemoProps = ComponentProps & GraphQLConnectedDemoData;
@@ -82,7 +125,7 @@ const GraphQLConnectedDemo = (props: GraphQLConnectedDemoProps): JSX.Element => 
           children:
           <ul>
             {props.contextItem.children.results.map((child) => {
-              const routeItem = child as RouteItem;
+              const routeItem = child as Item;
 
               return (
                 <li key={routeItem.id}>
@@ -115,7 +158,7 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
 
   const result = await graphQLClient.request<GraphQLConnectedDemoData>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ConnectedDemoQueryDocument as any,
+    ConnectedDemoQuery,
     {
       datasource: rendering.dataSource,
       contextItem: layoutData?.sitecore?.route?.itemId,
@@ -143,7 +186,7 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
 
   const result = await graphQLClient.request<GraphQLConnectedDemoData>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ConnectedDemoQueryDocument as any,
+    ConnectedDemoQuery,
     {
       datasource: rendering.dataSource,
       contextItem: layoutData?.sitecore?.route?.itemId,

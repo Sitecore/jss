@@ -5,7 +5,9 @@
   },
   "devDependencies": {
     "@sitecore-jss/sitecore-jss-dev-tools": "<%- version %>",
-    "@types/nprogress": "^0.2.0"
+    "@types/nprogress": "^0.2.0",
+    "graphql": "^16.11.0",
+    "graphql-tag": "^2.12.6"
   },
   "scripts": {
     "start": "cross-env NODE_ENV=development JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
