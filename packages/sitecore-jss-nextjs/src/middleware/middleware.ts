@@ -54,10 +54,15 @@ export abstract class MiddlewareBase {
    * @returns {boolean} is prefetch
    */
   protected isPrefetch(req: NextRequest): boolean {
+    const isMobile = req.headers.get('sec-ch-ua-mobile') === '?1';
+
+    // Mobile requests may include prefetch headers but they often represent real
+    // navigation's. To avoid false positives, skip prefetch logic for mobile.
+    if (isMobile) return false;
+
+    // Otherwise, standard prefetch detection
     return (
-      // eslint-disable-next-line prettier/prettier
-      req.headers.get('purpose') === 'prefetch' || // Pages Router
-      req.headers.get('Next-Router-Prefetch') === '1' // App Router
+      req.headers.get('purpose') === 'prefetch' || req.headers.get('Next-Router-Prefetch') === '1'
     );
   }
 

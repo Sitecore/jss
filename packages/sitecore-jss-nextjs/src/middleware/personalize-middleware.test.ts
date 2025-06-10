@@ -499,6 +499,34 @@ describe('PersonalizeMiddleware', () => {
     });
   });
 
+  it.only('should not skip personalization for mobile requests even with prefetch headers', async () => {
+    const req = createRequest({
+      headerValues: {
+        purpose: 'prefetch',
+        'sec-ch-ua-mobile': '?1',
+      },
+    });
+    const res = createResponse();
+    const { middleware } = createMiddleware();
+
+    const finalRes = await middleware.getHandler()(req, res);
+
+    validateDebugLog('personalize middleware start: %o', {
+      hostname: 'foo.net',
+      pathname: '/styleguide',
+      language: 'en',
+      headers: {
+        ...req.headers,
+      },
+    });
+
+    expect(debugSpy.args.some((log) => log[0] === 'skipped (prefetch)')).to.equal(
+      false,
+      'Expected debug log "skipped (prefetch)" not to be called'
+    );
+    expect(finalRes).to.deep.equal(res);
+  });
+
   describe('request passed', () => {
     it('fallback defaultLocale is used', async () => {
       const language = 'da-DK';
