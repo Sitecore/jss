@@ -3,6 +3,7 @@ import { withPlaceholder, withSitecoreContext, Text } from '@sitecore-jss/siteco
 import StyleguideSpecimen from './Styleguide-Specimen';
 import { ComponentWithContextProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
+import { TabProps } from './Styleguide-Layout-Tabs-Tab';
 
 interface StyleguideLayoutTabsState {
   activeTabIndex: number;
@@ -55,7 +56,7 @@ class StyleguideLayoutTabs extends React.Component<
           */}
           {!isEditing &&
             (tabsPlaceholder || [])
-              .filter((tab: ReactElement) => tab.props && tab.props.fields)
+              .filter((tab: ReactElement) => tab.props && (tab.props as TabProps).fields)
               .map((tab: ReactElement, index: number) => (
                 <li className="nav-item" key={`tab${index}`}>
                   <a
@@ -63,14 +64,14 @@ class StyleguideLayoutTabs extends React.Component<
                     onClick={() => this.setActiveTab(index)}
                     href="#t"
                   >
-                    <Text field={tab.props.fields.title} />
+                    <Text field={(tab.props as TabProps).fields.title} />
                   </a>
                 </li>
               ))}
         </ul>
         <div className="p-3 border-left border-right border-bottom">
           {(tabsPlaceholder || []).map((tab: ReactElement) => {
-            const isValid = tab.props && tab.props.fields;
+            const isValid = tab.props && (tab.props as TabProps).fields;
 
             // allow experience editor markup components to render
             if (!isValid && isEditing) return tab;

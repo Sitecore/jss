@@ -74,7 +74,7 @@ node\_modules/@types/react/index.d.ts:945
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/b06cb49390d9764e7ef7b808d11e6ab8c3304507/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
+[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/5315c64ad6a46bcd0171506df0a095ad99cc47c7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
 
 ***
 
@@ -102,7 +102,7 @@ node\_modules/@types/react/index.d.ts:961
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/b06cb49390d9764e7ef7b808d11e6ab8c3304507/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
+[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/5315c64ad6a46bcd0171506df0a095ad99cc47c7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
 
 ***
 
@@ -247,7 +247,7 @@ The snapshot is only present if [getSnapshotBeforeUpdate](FileUpload.md#getsnaps
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/b06cb49390d9764e7ef7b808d11e6ab8c3304507/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
+[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/5315c64ad6a46bcd0171506df0a095ad99cc47c7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
 
 ***
 
@@ -433,7 +433,7 @@ node\_modules/@types/react/index.d.ts:958
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/b06cb49390d9764e7ef7b808d11e6ab8c3304507/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
+[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/5315c64ad6a46bcd0171506df0a095ad99cc47c7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
 
 ***
 
@@ -453,7 +453,7 @@ node\_modules/@types/react/index.d.ts:958
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/b06cb49390d9764e7ef7b808d11e6ab8c3304507/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
+[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/5315c64ad6a46bcd0171506df0a095ad99cc47c7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
 
 ***
 
@@ -507,7 +507,7 @@ node\_modules/@types/react/index.d.ts:1230
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/b06cb49390d9764e7ef7b808d11e6ab8c3304507/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
+[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/5315c64ad6a46bcd0171506df0a095ad99cc47c7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
 
 ***
 
@@ -525,7 +525,7 @@ node\_modules/@types/react/index.d.ts:1230
 
 #### Defined in
 
-[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/b06cb49390d9764e7ef7b808d11e6ab8c3304507/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
+[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/5315c64ad6a46bcd0171506df0a095ad99cc47c7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
 
 ***
 
