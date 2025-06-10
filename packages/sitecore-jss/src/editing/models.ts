@@ -35,17 +35,11 @@ export interface RenderComponentQueryParams {
   sc_version?: string;
 }
 
-/**
- * Represents the mode of the Design Library.
- */
+/** Represents the mode of the Design Library. */
 export enum DesignLibraryMode {
-  /**
-   * Normal mode
-   */
+  /** Normal mode */
   Normal = 'library',
-  /**
-   * Metadata mode
-   */
+  /** Metadata mode */
   Metadata = 'library-metadata',
 }
 

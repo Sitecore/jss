@@ -85,7 +85,7 @@ export class RestComponentLayoutService {
     return fetcher
       .get<LayoutServiceData>(fetchUrl, {
         headers: {
-          sc_editMode: params.mode === DesignLibraryMode.Metadata ? 'true' : 'false',
+          sc_editMode: `${params.mode === DesignLibraryMode.Metadata}`,
         },
       })
       .then((response) => response.data)
