@@ -8,12 +8,14 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
-type StyleguideLayoutTabsTabProps = ComponentProps & {
+export type TabProps = {
   fields: {
     content: Field<string>;
     title: Field<string>;
   };
 };
+
+type StyleguideLayoutTabsTabProps = ComponentProps & TabProps;
 
 /**
  * This is a single tab within the tabs sample component. These are added to the tabs placeholder.
