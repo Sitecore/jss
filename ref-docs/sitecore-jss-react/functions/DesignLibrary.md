@@ -20,4 +20,4 @@
 
 ## Defined in
 
-[packages/sitecore-jss-react/src/components/DesignLibrary.tsx:17](https://github.com/Sitecore/jss/blob/2bef66b6ad3587763cf728655e6eb081350ededd/packages/sitecore-jss-react/src/components/DesignLibrary.tsx#L17)
+[packages/sitecore-jss-react/src/components/DesignLibrary.tsx:17](https://github.com/Sitecore/jss/blob/44f916dcaf7f8be12c3ca903c0c03c889532931b/packages/sitecore-jss-react/src/components/DesignLibrary.tsx#L17)

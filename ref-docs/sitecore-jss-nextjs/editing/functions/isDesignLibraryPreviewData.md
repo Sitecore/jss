@@ -28,4 +28,4 @@ EditingMetadataPreviewData
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:332](https://github.com/Sitecore/jss/blob/2bef66b6ad3587763cf728655e6eb081350ededd/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L332)
+[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:334](https://github.com/Sitecore/jss/blob/44f916dcaf7f8be12c3ca903c0c03c889532931b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L334)

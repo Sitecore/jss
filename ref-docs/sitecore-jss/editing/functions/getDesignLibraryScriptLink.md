@@ -24,4 +24,4 @@ The full URL to the design library script.
 
 ## Defined in
 
-[packages/sitecore-jss/src/editing/design-library.ts:153](https://github.com/Sitecore/jss/blob/2bef66b6ad3587763cf728655e6eb081350ededd/packages/sitecore-jss/src/editing/design-library.ts#L153)
+[packages/sitecore-jss/src/editing/design-library.ts:154](https://github.com/Sitecore/jss/blob/44f916dcaf7f8be12c3ca903c0c03c889532931b/packages/sitecore-jss/src/editing/design-library.ts#L154)

@@ -20,4 +20,4 @@
 
 ## Defined in
 
-[src/components/field-templates/telephone.tsx:7](https://github.com/Sitecore/jss/blob/2bef66b6ad3587763cf728655e6eb081350ededd/packages/sitecore-jss-react-forms/src/components/field-templates/telephone.tsx#L7)
+[src/components/field-templates/telephone.tsx:7](https://github.com/Sitecore/jss/blob/44f916dcaf7f8be12c3ca903c0c03c889532931b/packages/sitecore-jss-react-forms/src/components/field-templates/telephone.tsx#L7)

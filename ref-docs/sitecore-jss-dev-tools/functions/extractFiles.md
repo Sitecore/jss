@@ -25,4 +25,4 @@ void
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/codegen/extract-files.ts:16](https://github.com/Sitecore/jss/blob/2bef66b6ad3587763cf728655e6eb081350ededd/packages/sitecore-jss-dev-tools/src/codegen/extract-files.ts#L16)
+[sitecore-jss-dev-tools/src/codegen/extract-files.ts:16](https://github.com/Sitecore/jss/blob/44f916dcaf7f8be12c3ca903c0c03c889532931b/packages/sitecore-jss-dev-tools/src/codegen/extract-files.ts#L16)
