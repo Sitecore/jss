@@ -8,6 +8,7 @@ import {
   RenderMetadataQueryParams,
   LayoutKind,
   isDesignLibraryMode,
+  DesignLibraryMode,
 } from '@sitecore-jss/sitecore-jss/editing';
 import { EditingData } from './editing-data';
 import { EditingDataService, editingDataService } from './editing-data-service';
@@ -303,7 +304,7 @@ export interface DesignLibraryRenderPreviewData {
   componentUid: string;
   language: string;
   pageState: LayoutServicePageState;
-  mode?: 'library';
+  mode?: DesignLibraryMode;
   variant?: string;
   version?: string;
   dataSourceId?: string;
