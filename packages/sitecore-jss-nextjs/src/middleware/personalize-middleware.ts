@@ -123,7 +123,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
   ) => Promise<NextResponse> {
     return async (req, res, options) => {
       try {
-        return await this.handler(req, res, options);
+        return await this.processPersonalizationRequest(req, res, options);
       } catch (error) {
         console.log('Personalize middleware failed:');
         console.log(error);
@@ -269,7 +269,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     }, results);
   }
 
-  private handler = async (
+  protected processPersonalizationRequest = async (
     req: NextRequest,
     res?: NextResponse,
     options?: PersonalizeOptions
@@ -310,11 +310,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     const site = this.getSite(req, response);
 
     // Get personalization info from Experience Edge
-    const personalizeInfo = await this.personalizeService.getPersonalizeInfo(
-      pathname,
-      language,
-      site.name
-    );
+    const personalizeInfo = await this.getPersonalizeInfo(pathname, language, site.name);
     if (!personalizeInfo) {
       // Likely an invalid route / language
       debug.personalize('skipped (personalize info not found)');
@@ -395,4 +391,8 @@ export class PersonalizeMiddleware extends MiddlewareBase {
 
     return response;
   };
+
+  protected async getPersonalizeInfo(pathname: string, language: string, siteName: string) {
+    return this.personalizeService.getPersonalizeInfo(pathname, language, siteName);
+  }
 }
