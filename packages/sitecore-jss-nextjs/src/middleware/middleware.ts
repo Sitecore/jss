@@ -54,11 +54,19 @@ export abstract class MiddlewareBase {
    * @returns {boolean} is prefetch
    */
   protected isPrefetch(req: NextRequest): boolean {
-    return (
-      // eslint-disable-next-line prettier/prettier
-      req.headers.get('purpose') === 'prefetch' || // Pages Router
-      req.headers.get('Next-Router-Prefetch') === '1' // App Router
-    );
+    const isMobile = req.headers.get('sec-ch-ua-mobile') === '?1';
+    const purpose = req.headers.get('purpose');
+    const nextRouterPrefetch = req.headers.get('Next-Router-Prefetch');
+    const middlewarePrefetch = req.headers.get('x-middleware-prefetch');
+
+    // Mobile requests often include 'prefetch' headers even during real navigations.
+    // We rely on 'x-middleware-prefetch' to more accurately identify actual prefetches on mobile.
+    if (isMobile && middlewarePrefetch === '1') {
+      return false;
+    }
+
+    // Otherwise, standard prefetch detection
+    return purpose === 'prefetch' || nextRouterPrefetch === '1' || middlewarePrefetch === '1';
   }
 
   protected excludeRoute(pathname: string) {
