@@ -13,7 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Changes
 
-* `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[create-sitecore-jss]` `[sitecore-jss-react-forms]` Upgrade React to version 19 and Nextjs to version 15 ([#2078](https://github.com/Sitecore/jss/pull/2078))([#2084](https://github.com/Sitecore/jss/pull/2084)) ([#2093](https://github.com/Sitecore/jss/pull/2093)):
+* `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[create-sitecore-jss]` `[sitecore-jss-react-forms]` Upgrade React to version 19 and Nextjs to version 15 ([#2078](https://github.com/Sitecore/jss/pull/2078))([#2084](https://github.com/Sitecore/jss/pull/2084)) ([#2093](https://github.com/Sitecore/jss/pull/2093)) ([#2103](https://github.com/Sitecore/jss/pull/2103)):
   * upgrade React and Nextjs dependencies for the new major versions
   * with React 19, JSX is in the 'react' namespace and therefore 'react' needs to be imported befoore using JSX. All OOTB react and nextjs components have been updated
   * `react-test-renderer` has been deprecated in react 19. additionaly `enzyme` is not supported anymore so all unit tests have been migrated to use `@`testing-library/react`
@@ -27,6 +27,8 @@ Our versioning strategy is as follows:
   * remove 'react' dependency from nextconfig webpack externals in monorepo next config plugin as it is not needed anymore.
   * PersonalizeMiddleware handler now accepts PersonalizeOptions, that can be used to provide geolocation data from application level
   * `eslint-plugin-react` depenency has been upgraded to latest
+  * `[templates/nextjs]` `graphql` has been upgraded to 15.10.1
+  * `[templates/nextjs-styleguide]` `[templates/nextjs-styleguide-tracking]` styleguide components types have been fixed
 
 ## 21.9.0
 
