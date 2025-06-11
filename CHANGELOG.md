@@ -14,12 +14,15 @@ Our versioning strategy is as follows:
 ### 🎉 New Features & Improvements
 
 * `[sitecore-jss-nextjs]` Improved RedirectsMiddleware extensibility with new `getRedirects` method to improve extensibility ([#2099](https://github.com/Sitecore/jss/pull/2099))
+* `[sitecore-jss-nextjs]` Improved PersonalizeMiddleware for better extensibility ([#2098](https://github.com/Sitecore/jss/pull/2098)):
+  * Added `processPersonalizationRequest` method to be able to extend the personalize handler logic
+  * Added `getPersonalizeInfo` method to be able to control and extend `personalizeService.getPersonalizeInfo` behavior
 
 ## 22.7.0
 
 ### 🎉 New Features & Improvements
 
-* `[templates/NextJs]` `[templates/NextJs-Styleguide]` `[templates/NextJs-Styleguide-Tracking]` Remove graphql-let and graphql code generation functionality from NextJs starter applications. One of the major reasons for the decision is `graphql-let` is not maintained anymore and was introducing severeal critical security vulnerabilities.  ([#2100](https://github.com/Sitecore/jss/pull/2100))
+* `[templates/nextjs]` `[templates/nextjs-styleguide]` `[templates/nextjs-styleguide-tracking]` Remove graphql-let and graphql code generation functionality from NextJs starter applications. One of the major reasons for the decision is `graphql-let` is not maintained anymore and was introducing severeal critical security vulnerabilities. ([#2100](https://github.com/Sitecore/jss/pull/2100))
 
 ### 🐛 Bug Fixes
 
@@ -29,7 +32,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Changes
 
-* `[Next.js]` `[React]`: `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[sitecore-jss-react-forms]` `[create-sitecore-jss]` Upgrade React to version 19 and Nextjs to version 15 ([#2078](https://github.com/Sitecore/jss/pull/2078))([#2084](https://github.com/Sitecore/jss/pull/2084))([#2090](https://github.com/Sitecore/jss/pull/2090)) ([#2093](https://github.com/Sitecore/jss/pull/2093)) ([#2096](https://github.com/Sitecore/jss/pull/2096)):
+* `[Next.js]` `[React]`: `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[sitecore-jss-react-forms]` `[create-sitecore-jss]` Upgrade React to version 19 and Nextjs to version 15 ([#2078](https://github.com/Sitecore/jss/pull/2078))([#2084](https://github.com/Sitecore/jss/pull/2084))([#2090](https://github.com/Sitecore/jss/pull/2090))([#2093](https://github.com/Sitecore/jss/pull/2093))([#2096](https://github.com/Sitecore/jss/pull/2096)):
   * upgrade React and Nextjs dependencies for the new major versions
   * with React 19, JSX is in the 'react' namespace and therefore 'react' needs to be imported befoore using JSX. All OOTB react and nextjs components have been updated
   * `react-test-renderer` has been deprecated in react 19. additionaly `enzyme` is not supported anymore so all unit tests have been migrated to use `@`testing-library/react`
