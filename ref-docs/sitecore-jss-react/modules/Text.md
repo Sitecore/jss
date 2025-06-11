@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Text.tsx:99](https://github.com/Sitecore/jss/blob/e7f839aca4/packages/sitecore-jss-react/src/components/Text.tsx#L99)
+[packages/sitecore-jss-react/src/components/Text.tsx:99](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss-react/src/components/Text.tsx#L99)
