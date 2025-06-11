@@ -11,6 +11,11 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-nextjs]` Improved RedirectsMiddleware extensibility with new `getRedirects` method to improve extensibility ([#2099](https://github.com/Sitecore/jss/pull/2099))
+
+
 ## 22.7.0
 
 ### 🎉 New Features & Improvements
