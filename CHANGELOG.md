@@ -28,7 +28,7 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-react]` Add an optional `disableSuspense` flag to the Placeholder component to prevent error boundaries from rendering Suspense which helps contain errors for components. This can help avoid hydration issues in connected mode. ([#2081](https://github.com/Sitecore/jss/pull/2081))([#2085](https://github.com/Sitecore/jss/pull/2085))
 * `[templates/NextJs-Styleguide]` `[templates/NextJs-Styleguide-Tracking]` Bug fixes in Styleguide-Layout-Tabs-Tab, Styleguide-Layout-Tabs, Styleguide-Tracking components ([#2100](https://github.com/Sitecore/jss/pull/2100))
-* `[sitecore-jss-nextjs]` Prevent false prefetch detection for mobile navigation in middlewares and  ([#2102](https://github.com/Sitecore/jss/pull/2102)) 
+* `[sitecore-jss-nextjs]` Improve device detection and prevent false prefetch handling in Personalize middleware. ([#2102](https://github.com/Sitecore/jss/pull/2102)) ([#2107](https://github.com/Sitecore/jss/pull/2107)) 
 * `[sitecore-jss-nextjs]` Add `Cache-Control: no-store, no-cache, must-revalidate` to personalize middleware to ensure personalized responses are not served from prefetch cache and proper personalization was applied during client side navigation. ([#2105](https://github.com/Sitecore/jss/pull/2105))
 * `[sitecore-jss-proxy]` Fix build failure of XMCloud Proxy application when using PNPM ([#2106](https://github.com/Sitecore/jss/pull/2106))
 
