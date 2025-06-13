@@ -101,7 +101,7 @@ const editingNotFoundMiddleware = (req: Request, res: Response) => {
  * @param {EditingRouterConfig} options Editing router configuration
  * @returns {Router} Editing router
  */
-export const editingRouter = (options: EditingRouterConfig) => {
+export const editingRouter = (options: EditingRouterConfig): Router => {
   const router = Router();
 
   router.use(editingMiddleware);
