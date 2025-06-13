@@ -493,9 +493,16 @@ describe('PersonalizeMiddleware', () => {
           ...req.headers,
         },
       });
+
+      console.log(
+        'Actual response headers:',
+        JSON.stringify(Object.fromEntries(Object.entries(res.headers)), null, 2)
+      );
+
       validateDebugLog('skipped (prefetch)');
       expect(finalRes).to.deep.equal(res);
       expect(finalRes.headers['x-middleware-cache']).to.equal('no-cache');
+      expect(finalRes.headers['Cache-Control']).to.equal('no-store, must-revalidate');
     });
   });
 
@@ -511,6 +518,11 @@ describe('PersonalizeMiddleware', () => {
     const { middleware } = createMiddleware();
 
     const finalRes = await middleware.getHandler()(req, res);
+
+    console.log(
+      'Actual response headers:',
+      JSON.stringify(Object.fromEntries(Object.entries(res.headers)), null, 2)
+    );
 
     validateDebugLog('personalize middleware start: %o', {
       hostname: 'foo.net',
