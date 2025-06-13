@@ -56,7 +56,7 @@ export abstract class MiddlewareBase {
   protected isPrefetch(req: NextRequest): boolean {
     const isMobile = req.headers.get('sec-ch-ua-mobile') === '?1';
     const userAgent = req.headers.get('user-agent') || '';
-    const isKnownPlatform = /iPhone|Mac|Linux|Windows/i.test(userAgent);
+    const isKnownPlatform = /iPhone|Mac|Linux|Windows|Android/i.test(userAgent);
     const isKnownDevice = isMobile || isKnownPlatform;
 
     const purpose = req.headers.get('purpose');
