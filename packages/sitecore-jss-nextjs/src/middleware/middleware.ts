@@ -55,13 +55,17 @@ export abstract class MiddlewareBase {
    */
   protected isPrefetch(req: NextRequest): boolean {
     const isMobile = req.headers.get('sec-ch-ua-mobile') === '?1';
+    const userAgent = req.headers.get('user-agent') || '';
+    const isKnownPlatform = /iPhone|Mac|Linux|Windows|Android/i.test(userAgent);
+    const isKnownDevice = isMobile || isKnownPlatform;
+
     const purpose = req.headers.get('purpose');
     const nextRouterPrefetch = req.headers.get('Next-Router-Prefetch');
     const middlewarePrefetch = req.headers.get('x-middleware-prefetch');
 
-    // Mobile requests often include 'prefetch' headers even during real navigations.
-    // We rely on 'x-middleware-prefetch' to more accurately identify actual prefetches on mobile.
-    if (isMobile && middlewarePrefetch === '1') {
+    // Some real navigations on different devices may incorrectly include 'prefetch' headers.
+    // To avoid skipping personalization in such cases, we treat 'x-middleware-prefetch' as a more reliable signal of true prefetch behavior.
+    if (isKnownDevice && middlewarePrefetch === '1') {
       return false;
     }
 

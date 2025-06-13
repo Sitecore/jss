@@ -24,6 +24,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-proxy]` Fix build failure of XMCloud Proxy application when using PNPM ([#2106](https://github.com/Sitecore/jss/pull/2106))
 * `[sitecore-jss-nextjs]` Prevent false prefetch detection for mobile navigation in middlewares. ([#2102](https://github.com/Sitecore/jss/pull/2102))
 * `[sitecore-jss-nextjs]` Add `Cache-Control: no-store, no-cache, must-revalidate` to personalize middleware to ensure personalized responses are not served from prefetch cache and proper personalization was applied during client side navigation. ([#2105](https://github.com/Sitecore/jss/pull/2105))
+* `[sitecore-jss-nextjs]` Improve device detection and prevent false prefetch handling in Personalize middleware. ([#2102](https://github.com/Sitecore/jss/pull/2102)) ([#2107](https://github.com/Sitecore/jss/pull/2107)) 
 
 ### 🛠 Breaking Changes
 

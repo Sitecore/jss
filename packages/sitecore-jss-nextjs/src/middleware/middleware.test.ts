@@ -150,13 +150,12 @@ describe('MiddlewareBase', () => {
       expect(middleware['isPrefetch'](req)).to.equal(false);
     });
 
-    it('should return false when a mobile device is detected via sec-ch-ua-mobile', () => {
+    it('returns false for known device with x-middleware-prefetch header', () => {
       const middleware = new SampleMiddleware({ siteResolver: new MockSiteResolver([]) });
       const req = createReq({
         headerValues: {
-          purpose: 'prefetch',
-          'sec-ch-ua-mobile': '?1',
           'x-middleware-prefetch': '1',
+          'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X)',
         },
       });
 
