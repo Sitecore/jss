@@ -14,4 +14,4 @@
 
 ## Defined in
 
-[sitecore-jss-dev-tools/src/setup/verify-setup.ts:6](https://github.com/Sitecore/jss/blob/db73019e93a2ef143f52b23337d5d999e5afb65f/packages/sitecore-jss-dev-tools/src/setup/verify-setup.ts#L6)
+[sitecore-jss-dev-tools/src/setup/verify-setup.ts:6](https://github.com/Sitecore/jss/blob/861bc16dbe4d4561dc9b7b7a5efb5031a8c729d6/packages/sitecore-jss-dev-tools/src/setup/verify-setup.ts#L6)

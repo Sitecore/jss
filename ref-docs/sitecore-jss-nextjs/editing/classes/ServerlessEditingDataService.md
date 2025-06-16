@@ -32,7 +32,7 @@ Utilizes another Next.js API route ('/api/editing/data/[key]') for storage and r
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:143](https://github.com/Sitecore/jss/blob/db73019e93a2ef143f52b23337d5d999e5afb65f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L143)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:143](https://github.com/Sitecore/jss/blob/861bc16dbe4d4561dc9b7b7a5efb5031a8c729d6/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L143)
 
 ## Properties
 
@@ -59,7 +59,7 @@ The unique key
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:136](https://github.com/Sitecore/jss/blob/db73019e93a2ef143f52b23337d5d999e5afb65f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L136)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:136](https://github.com/Sitecore/jss/blob/861bc16dbe4d4561dc9b7b7a5efb5031a8c729d6/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L136)
 
 ## Methods
 
@@ -87,7 +87,7 @@ The [EditingData](../type-aliases/EditingData.md)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:188](https://github.com/Sitecore/jss/blob/db73019e93a2ef143f52b23337d5d999e5afb65f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L188)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:188](https://github.com/Sitecore/jss/blob/861bc16dbe4d4561dc9b7b7a5efb5031a8c729d6/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L188)
 
 ***
 
@@ -109,7 +109,7 @@ The [EditingData](../type-aliases/EditingData.md)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:205](https://github.com/Sitecore/jss/blob/db73019e93a2ef143f52b23337d5d999e5afb65f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L205)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:205](https://github.com/Sitecore/jss/blob/861bc16dbe4d4561dc9b7b7a5efb5031a8c729d6/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L205)
 
 ***
 
@@ -139,4 +139,4 @@ The [EditingPreviewData](../interfaces/EditingPreviewData.md) containing the gen
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:157](https://github.com/Sitecore/jss/blob/db73019e93a2ef143f52b23337d5d999e5afb65f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L157)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:157](https://github.com/Sitecore/jss/blob/861bc16dbe4d4561dc9b7b7a5efb5031a8c729d6/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L157)
