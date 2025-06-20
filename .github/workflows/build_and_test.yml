@@ -70,8 +70,8 @@ jobs:
 
       - name: Show variables
         run: |
-          echo "[PR] should_publish=${{ needs.prepare-build.outputs.should_publish }}"
-          echo "[PR] lerna_since_flag=${{ needs.prepare-build.outputs.lerna_since_flag }}"
+          echo "[PR] should_publish=${{ steps.set-vars.outputs.should_publish }}"
+          echo "[PR] lerna_since_flag=${{ steps.set-vars.outputs.lerna_since_flag }}"
 
       - name: Install dependencies
         run: |
@@ -135,8 +135,8 @@ jobs:
 
       - name: Show variables
         run: |
-          echo "[Publish] should_publish=${{ needs.prepare-build.outputs.should_publish }}"
-          echo "[Publish] lerna_since_flag=${{ needs.prepare-build.outputs.lerna_since_flag }}"
+          echo "[Publish] should_publish=${{ steps.set-vars.outputs.should_publish }}"
+          echo "[Publish] lerna_since_flag=${{ steps.set-vars.outputs.lerna_since_flag }}"
 
       - name: Install dependencies
         run: |
