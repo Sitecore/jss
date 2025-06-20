@@ -70,8 +70,8 @@ jobs:
 
       - name: Show variables
         run: |
-          echo "[PR] should_publish=${{ needs.prepare-build.outputs.should_publish }}"
-          echo "[PR] lerna_since_flag=${{ needs.prepare-build.outputs.lerna_since_flag }}"
+          echo "[PR] should_publish=${{ needs.prepare-build.outputs.should-publish }}"
+          echo "[PR] lerna_since_flag=${{ needs.prepare-build.outputs.lerna-since-flag }}"
 
       - name: Install dependencies
         run: |
@@ -83,7 +83,7 @@ jobs:
 
       - name: Lint packages
         run: |
-          yarn lint-packages ${{ needs.prepare-build.outputs.lerna_since_flag }}
+          yarn lint-packages ${{ needs.prepare-build.outputs.lerna-since-flag }}
 
       - name: Run tests and collect coverage
         run: yarn coverage-packages
@@ -114,7 +114,7 @@ jobs:
         run: yarn install
 
       - name: Lint samples
-        run: yarn lint-samples ${{ needs.prepare-build.outputs.lerna_since_flag }}
+        run: yarn lint-samples ${{ needs.prepare-build.outputs.lerna-since-flag }}
 
   publish:
     runs-on: ubuntu-latest
@@ -135,8 +135,8 @@ jobs:
 
       - name: Show variables
         run: |
-          echo "[Publish] should_publish=${{ needs.prepare-build.outputs.should_publish }}"
-          echo "[Publish] lerna_since_flag=${{ needs.prepare-build.outputs.lerna_since_flag }}"
+          echo "[Publish] should_publish=${{ needs.prepare-build.outputs.should-publish }}"
+          echo "[Publish] lerna_since_flag=${{ needs.prepare-build.outputs.lerna-since-flag }}"
 
       - name: Install dependencies
         run: |
