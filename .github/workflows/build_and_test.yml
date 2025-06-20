@@ -1,16 +1,14 @@
 name: Build and Test
 
 on:
-  # push:
-  #   branches:
-  #     - master
-  #     - dev
-  #     - 'release/**'
-  #   paths:
-  #     - '**'
+  push:
+    branches:
+      - dev
+      - 'release/**'
+    paths:
+      - '**'
   pull_request:
     branches:
-      - master
       - dev
       - 'release/**'
     paths:
@@ -42,7 +40,7 @@ jobs:
           BRANCH_NAME="${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
           echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
 
-          if [[ "$BRANCH_NAME" == "dev" || "$BRANCH_NAME" == release/* ]]; then
+          if [[ "$BRANCH_NAME" == "dev" || "$BRANCH_NAME" =~ ^release/ ]]; then
             echo "should_publish=true" >> $GITHUB_OUTPUT
           else
             echo "should_publish=false" >> $GITHUB_OUTPUT
