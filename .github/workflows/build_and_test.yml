@@ -114,7 +114,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Git configuration for publishing
+      - name: Set git configuration for publishing
         run: |
           git config --global user.email builds@sitecore.com
           git config --global user.name "jss-bot"
