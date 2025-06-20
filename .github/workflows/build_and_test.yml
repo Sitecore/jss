@@ -45,11 +45,6 @@ jobs:
           ref: ${{ github.ref }}
           fetch-depth: 0
 
-      - name: Set lerna since flag
-        id: set-lerna-flag
-        run: |
-          echo "lerna-since-flag=--since=origin/dev" >> $GITHUB_OUTPUT
-
       - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
@@ -71,7 +66,7 @@ jobs:
 
       - name: Lint packages
         run: |
-          yarn lint-packages ${{ steps.set-lerna-flag.outputs.lerna-since-flag }}
+          yarn lint-packages
 
       - name: Run tests and collect coverage
         run: yarn coverage-packages
@@ -98,11 +93,8 @@ jobs:
       - name: Scaffold samples
         run: yarn scaffold-samples
 
-      - name: Yarn install (refresh)
-        run: yarn install
-
       - name: Lint samples
-        run: yarn lint-samples ${{ steps.set-lerna-flag.outputs.lerna-since-flag }}
+        run: yarn lint-samples
 
   publish:
     runs-on: ubuntu-latest
@@ -148,11 +140,11 @@ jobs:
         run: |
           yarn generate-docs
           git add ./ref-docs/**/*
-          git commit -m "Update API docs [skip ci]"
+          git commit -m "Update API docs"
 
       - name: Pre-release version update
         run: |
-          npm exec -- lerna version prerelease --exact --preid canary --force-publish --message "version %s [skip ci]" --yes
+          npm exec -- lerna version prerelease --exact --preid canary --force-publish --message "%s [skip ci]" --yes
 
       - name: Pre-release canary publish
         run: |
