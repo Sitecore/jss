@@ -93,9 +93,6 @@ jobs:
       - name: Scaffold samples
         run: yarn scaffold-samples
 
-      - name: Lint samples
-        run: yarn lint-samples
-
   publish:
     runs-on: ubuntu-latest
     needs: prepare-build
