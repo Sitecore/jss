@@ -13,6 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
+* Test
 * `[sitecore-jss-nextjs]` Improved RedirectsMiddleware extensibility with new `getRedirects` method to improve extensibility ([#2099](https://github.com/Sitecore/jss/pull/2099))
 * `[sitecore-jss-nextjs]` Improved PersonalizeMiddleware for better extensibility ([#2098](https://github.com/Sitecore/jss/pull/2098)):
   * Added `processPersonalizationRequest` method to be able to extend the personalize handler logic
