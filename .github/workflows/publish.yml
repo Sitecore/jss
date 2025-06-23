@@ -27,6 +27,7 @@ jobs:
           ref: ${{ github.ref }}
           fetch-depth: 0
           persist-credentials: false
+          token: ${{ steps.generate-token.outputs.token }}
 
       - name: Set git configuration
         run: |
@@ -55,11 +56,13 @@ jobs:
 
       - name: Pre-release version update
         run: |
-          npm exec -- lerna version prerelease --exact --preid canary --force-publish --message "%s [skip ci]" --yes
+          npx lerna version prerelease --exact --preid canary --force-publish --message "%s [skip ci]" --yes
+        env:
+          GH_TOKEN: ${{ steps.generate-token.outputs.token }}
 
       - name: Pre-release canary publish
         run: |
           echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-          npm exec -- lerna publish from-git --exact --canary --pre-dist-tag beta --preid canary --no-verify-access --yes
+          npx lerna publish from-git --exact --canary --pre-dist-tag beta --preid canary --no-verify-access --yes
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
