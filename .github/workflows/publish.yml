@@ -1,0 +1,65 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - dev
+      - 'release/**'
+    paths:
+      - '**'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      YARN_ENABLE_IMMUTABLE_INSTALLS: false
+    steps:
+      - name: Generate GitHub App Token
+        id: generate-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set git configuration
+        run: |
+          git config --global user.email builds@sitecore.com
+          git config --global user.name "jss-bot"
+          git remote set-url origin https://x-access-token:${{ steps.generate-token.outputs.token }}@github.com/${{ github.repository }}
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: |
+          yarn cache clean --all
+          yarn install --immutable
+
+      - name: Build packages
+        run: npm run build
+
+      - name: Generate API docs
+        run: |
+          yarn generate-docs
+          git add ./ref-docs/**/*
+          git commit -m "Update API docs"
+
+      - name: Pre-release version update
+        run: |
+          npm exec -- lerna version prerelease --exact --preid canary --force-publish --message "%s [skip ci]" --yes
+
+      - name: Pre-release canary publish
+        run: |
+          echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+          npm exec -- lerna publish from-git --exact --canary --pre-dist-tag beta --preid canary --no-verify-access --yes
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
