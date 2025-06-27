@@ -22,7 +22,6 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss]` Fix forwarding of Set-Cookie headers to prevent form submissions from failing due to missing verification tokens(`__RequestVerificationToken`). ([#2112](https://github.com/Sitecore/jss/pull/2112))
 
-
 ## 22.7.0
 
 ### 🎉 New Features & Improvements
