@@ -256,10 +256,16 @@ export class RestLayoutService extends LayoutServiceBase {
 
     const headers = serverRes.headers;
 
-    if (headers instanceof Headers) {
-      const setCookieHeader = headers.get('set-cookie');
-      if (setCookieHeader) {
-        res.setHeader('set-cookie', setCookieHeader);
+    if (headers instanceof Headers && headers.has('set-cookie')) {
+      const rawSetCookie = headers.get('set-cookie');
+
+      if (rawSetCookie) {
+        const cookies =
+          rawSetCookie.includes(', ') && rawSetCookie.includes(';')
+            ? rawSetCookie.split(/,(?=\s*\w+=)/)
+            : [rawSetCookie];
+
+        res.setHeader('Set-Cookie', cookies);
       }
     }
 
