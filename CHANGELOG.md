@@ -18,6 +18,11 @@ Our versioning strategy is as follows:
   * Added `processPersonalizationRequest` method to be able to extend the personalize handler logic
   * Added `getPersonalizeInfo` method to be able to control and extend `personalizeService.getPersonalizeInfo` behavior
 
+### 🐛 Bug Fixes
+
+* `[sitecore-jss]` Fix forwarding of Set-Cookie headers to prevent form submissions from failing due to missing verification tokens(`__RequestVerificationToken`). ([#2112](https://github.com/Sitecore/jss/pull/2112))
+
+
 ## 22.7.0
 
 ### 🎉 New Features & Improvements
@@ -28,7 +33,7 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-react]` Add an optional `disableSuspense` flag to the Placeholder component to prevent error boundaries from rendering Suspense which helps contain errors for components. This can help avoid hydration issues in connected mode. ([#2081](https://github.com/Sitecore/jss/pull/2081))([#2085](https://github.com/Sitecore/jss/pull/2085))
 * `[templates/NextJs-Styleguide]` `[templates/NextJs-Styleguide-Tracking]` Bug fixes in Styleguide-Layout-Tabs-Tab, Styleguide-Layout-Tabs, Styleguide-Tracking components ([#2100](https://github.com/Sitecore/jss/pull/2100))
-* `[sitecore-jss-nextjs]` Improve device detection and prevent false prefetch handling in Personalize middleware. ([#2102](https://github.com/Sitecore/jss/pull/2102)) ([#2107](https://github.com/Sitecore/jss/pull/2107)) 
+* `[sitecore-jss-nextjs]` Improve device detection and prevent false prefetch handling in Personalize middleware. ([#2102](https://github.com/Sitecore/jss/pull/2102)) ([#2107](https://github.com/Sitecore/jss/pull/2107))
 * `[sitecore-jss-nextjs]` Add `Cache-Control: no-store, no-cache, must-revalidate` to personalize middleware to ensure personalized responses are not served from prefetch cache and proper personalization was applied during client side navigation. ([#2105](https://github.com/Sitecore/jss/pull/2105))
 * `[sitecore-jss-proxy]` Fix build failure of XMCloud Proxy application when using PNPM ([#2106](https://github.com/Sitecore/jss/pull/2106))
 
@@ -59,7 +64,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss]` `[template/nextjs-sxa]` Fix `/api/sitemap` endpoint ([#2058](https://github.com/Sitecore/jss/pull/2058)) ([#2063](https://github.com/Sitecore/jss/pull/2063))
- 
+
 ## 22.5.5
 
 ### 🐛 Bug Fixes
@@ -271,9 +276,9 @@ Our versioning strategy is as follows:
 ### 🛠 Breaking Change
 
 * `[templates/nextjs-xmcloud]` CloudSDK dependencies have been updated to 0.4.0 ([#1933](https://github.com/Sitecore/jss/pull/1933))
-* `[templates/nextjs-xmcloud]` `@sitecore/components` dependency has been updated to 2.0.0 ([#1933](https://github.com/Sitecore/jss/pull/1933)) 
-* `[templates/nextjs-xmcloud]` `lib/context` import has been removed. Values from `temp/config` can be used instead. ([#1933](https://github.com/Sitecore/jss/pull/1933)) 
-* `[sitecore-jss-nextjs]` `Context` import and `@sitecore-jss/sitecore-jss-nextjs/context` submodule have been removed. ([#1933](https://github.com/Sitecore/jss/pull/1933)) 
+* `[templates/nextjs-xmcloud]` `@sitecore/components` dependency has been updated to 2.0.0 ([#1933](https://github.com/Sitecore/jss/pull/1933))
+* `[templates/nextjs-xmcloud]` `lib/context` import has been removed. Values from `temp/config` can be used instead. ([#1933](https://github.com/Sitecore/jss/pull/1933))
+* `[sitecore-jss-nextjs]` `Context` import and `@sitecore-jss/sitecore-jss-nextjs/context` submodule have been removed. ([#1933](https://github.com/Sitecore/jss/pull/1933))
 * `[sitecore-jss-nextjs]` update personalize-middleware for CloudSDK 0.4.0 - pass `enablePersonalizeCookie` to CloudSDK.addPersonalize() function ([#1963](https://github.com/Sitecore/jss/pull/1963))
 
 
@@ -512,7 +517,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[templates/react]` `[templates/angular]` `[templates/vue]` `[templates/node-headless-ssr-proxy]` `[templates/node-headless-ssr-experience-edge]` ([#1647](https://github.com/Sitecore/jss/pull/1647)) ([#1672](https://github.com/Sitecore/jss/pull/1672)) Switch from using JSS_APP_NAME to SITECORE_SITE_NAME - environment and config variables in React, Vue, Angular templates as well as ssr node proxy apps templates have been renamed. 
+* `[templates/react]` `[templates/angular]` `[templates/vue]` `[templates/node-headless-ssr-proxy]` `[templates/node-headless-ssr-experience-edge]` ([#1647](https://github.com/Sitecore/jss/pull/1647)) ([#1672](https://github.com/Sitecore/jss/pull/1672)) Switch from using JSS_APP_NAME to SITECORE_SITE_NAME - environment and config variables in React, Vue, Angular templates as well as ssr node proxy apps templates have been renamed.
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` `[sitecore-jss]` ([#1640](https://github.com/Sitecore/jss/pull/1640)) ([#1662](https://github.com/Sitecore/jss/pull/1662))([#1661](https://github.com/Sitecore/jss/pull/1661)) ([#1672](https://github.com/Sitecore/jss/pull/1672)) ([#1675](https://github.com/Sitecore/jss/pull/1675)) ([#1710](https://github.com/Sitecore/jss/pull/1710)) Sitecore Edge Platform and Context support:
   * Introducing the _clientFactory_ property. This property can be utilized by GraphQL-based services, the previously used _endpoint_ and _apiKey_ properties are deprecated. The _clientFactory_ serves as the central hub for executing GraphQL requests within the application.
   * New SITECORE_EDGE_CONTEXT_ID environment variable has been added.
@@ -593,7 +598,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-* `[templates/nextjs-personalize]` Fix cookie domain for localhost ([#1609](https://github.com/Sitecore/jss/pull/1609)) 
+* `[templates/nextjs-personalize]` Fix cookie domain for localhost ([#1609](https://github.com/Sitecore/jss/pull/1609))
 
 ### 🛠 Breaking Changes
 
@@ -643,7 +648,7 @@ Our versioning strategy is as follows:
 * `[templates/nextjs-sxa]` Fix style for main layout(horizontal scrollbar). ([#1589](https://github.com/Sitecore/jss/pull/1589))
 * `[templates/nextjs-sxa]` Don't let Image component wrap <img> with <a> tag when TargetUrl is not configured. ([#1593](https://github.com/Sitecore/jss/issues/1593))
 * `[templates/nextjs]` Next config header plugin for CORS. ([#1597](https://github.com/Sitecore/jss/pull/1597))
-* `[templates/nextjs]` Ensure dictionary data is only fetched when layout data is present for a route ([#1608](https://github.com/Sitecore/jss/pull/1608)) 
+* `[templates/nextjs]` Ensure dictionary data is only fetched when layout data is present for a route ([#1608](https://github.com/Sitecore/jss/pull/1608))
 * `[sitecore-jss-react-forms]` Form should be blocked while submit is in progress to avoid submit spam ([#1611](https://github.com/Sitecore/jss/pull/1611))
 * `[templates/nextjs]` Fix linting errors, fix type error by upgrading @react/types to v18.2.22 ([#1613](https://github.com/Sitecore/jss/pull/1613))
 
@@ -1121,7 +1126,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[sitecore-jss]` `[templates/nextjs]` GraphQL Layout and Dictionary services can handle endpoint rate limits through retryer functionality in GraphQLClient. To prevent SSG builds from failing and enable multiple retries, set retry amount in lib/dictionary-service-factory and lib/layout-service-factory ([commit](https://github.com/Sitecore/jss/pull/1631/commits/d39d74ad7bbeddcb66b7de4377070e178851abc5))([#1631](https://github.com/Sitecore/jss/pull/1631)) 
+* `[sitecore-jss]` `[templates/nextjs]` GraphQL Layout and Dictionary services can handle endpoint rate limits through retryer functionality in GraphQLClient. To prevent SSG builds from failing and enable multiple retries, set retry amount in lib/dictionary-service-factory and lib/layout-service-factory ([commit](https://github.com/Sitecore/jss/pull/1631/commits/d39d74ad7bbeddcb66b7de4377070e178851abc5))([#1631](https://github.com/Sitecore/jss/pull/1631))
 * `[sitecore-jss-nextjs]` Reduce the amount of Edge API calls during fetch getStaticPaths ([commit](https://github.com/Sitecore/jss/pull/1631/commits/cd2771b256ac7c38818ee6bea48278958ac455ca))([#1631](https://github.com/Sitecore/jss/pull/1631))
 
 ### 🐛 Bug Fixes
