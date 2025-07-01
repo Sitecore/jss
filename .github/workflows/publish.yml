@@ -56,7 +56,7 @@ jobs:
 
       - name: Pre-release version update
         run: |
-          npx lerna version prerelease --exact --preid canary --force-publish --message "%s [skip ci]" --yes
+          npx lerna version prerelease --exact --preid beta --force-publish --message "%s [skip ci]" --yes
         env:
           GH_TOKEN: ${{ steps.generate-token.outputs.token }}
 
