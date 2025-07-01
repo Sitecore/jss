@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:30](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L30)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:30](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L30)
 
 ## Properties
 
@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:23](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L23)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:23](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L23)
 
 ***
 
@@ -44,7 +44,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:28](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L28)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:28](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L28)
 
 ***
 
@@ -54,7 +54,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:24](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L24)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:24](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L24)
 
 ***
 
@@ -64,7 +64,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:25](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L25)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:25](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L25)
 
 ***
 
@@ -74,7 +74,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:26](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L26)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:26](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L26)
 
 ## Methods
 
@@ -94,7 +94,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:113](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L113)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:113](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L113)
 
 ***
 
@@ -108,7 +108,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:109](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L109)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:109](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L109)
 
 ***
 
@@ -128,4 +128,4 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:81](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L81)
+[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:81](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L81)

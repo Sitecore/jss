@@ -32,7 +32,7 @@ true
 
 #### Defined in
 
-[packages/sitecore-jss/src/cache-client.ts:40](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss/src/cache-client.ts#L40)
+[packages/sitecore-jss/src/cache-client.ts:40](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss/src/cache-client.ts#L40)
 
 ***
 
@@ -50,4 +50,4 @@ Cache timeout (sec)
 
 #### Defined in
 
-[packages/sitecore-jss/src/cache-client.ts:45](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss/src/cache-client.ts#L45)
+[packages/sitecore-jss/src/cache-client.ts:45](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss/src/cache-client.ts#L45)

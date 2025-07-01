@@ -24,4 +24,4 @@ Since Sitecore editors do not support Fast Refresh:
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/utils/utils.ts:32](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-nextjs/src/utils/utils.ts#L32)
+[sitecore-jss-nextjs/src/utils/utils.ts:32](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-nextjs/src/utils/utils.ts#L32)

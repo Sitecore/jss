@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:4](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L4)
+[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:4](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L4)
 
 ***
 
@@ -44,7 +44,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:6](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L6)
+[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:6](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L6)
 
 ***
 
@@ -64,7 +64,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:7](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L7)
+[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:7](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L7)
 
 ***
 
@@ -78,7 +78,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:8](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L8)
+[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:8](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L8)
 
 ***
 
@@ -99,4 +99,4 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:5](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L5)
+[sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:5](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L5)

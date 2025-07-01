@@ -16,4 +16,4 @@ Create default field factory
 
 ## Defined in
 
-[src/default-field-factory.tsx:23](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-react-forms/src/default-field-factory.tsx#L23)
+[src/default-field-factory.tsx:23](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-react-forms/src/default-field-factory.tsx#L23)

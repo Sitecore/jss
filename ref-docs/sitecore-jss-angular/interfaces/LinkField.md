@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:36](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L36)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:36](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-angular/src/components/rendering-field.ts#L36)
 
 ***
 
@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
 
 ***
 
@@ -46,7 +46,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:41](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L41)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:41](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-angular/src/components/rendering-field.ts#L41)
 
 ***
 
@@ -56,7 +56,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:42](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L42)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:42](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-angular/src/components/rendering-field.ts#L42)
 
 ***
 
@@ -70,7 +70,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:34](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L34)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:34](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-angular/src/components/rendering-field.ts#L34)
 
 ***
 
@@ -102,7 +102,7 @@ packages/sitecore-jss/types/layout/models.d.ts:125
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:35](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L35)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:35](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-angular/src/components/rendering-field.ts#L35)
 
 ***
 
@@ -116,4 +116,4 @@ packages/sitecore-jss/types/layout/models.d.ts:125
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:40](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-angular/src/components/rendering-field.ts#L40)
+[packages/sitecore-jss-angular/src/components/rendering-field.ts:40](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-angular/src/components/rendering-field.ts#L40)

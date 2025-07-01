@@ -38,7 +38,7 @@ https://edge-platform.sitecorecloud.io
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:36](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L36)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:36](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L36)
 
 ***
 
@@ -48,7 +48,7 @@ https://edge-platform.sitecorecloud.io
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:35](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L35)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:35](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L35)
 
 ***
 
@@ -68,4 +68,4 @@ https://edge-platform.sitecorecloud.io
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:34](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L34)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:34](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L34)

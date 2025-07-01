@@ -40,7 +40,7 @@ Creates an instance of search query service.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss/src/graphql/search-service.ts#L92)
+[packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss/src/graphql/search-service.ts#L92)
 
 ## Properties
 
@@ -52,7 +52,7 @@ that fetches data from a GraphQL endpoint.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss/src/graphql/search-service.ts#L92)
+[packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss/src/graphql/search-service.ts#L92)
 
 ## Methods
 
@@ -87,4 +87,4 @@ if the provided language(s) is(are) not valid.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:105](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss/src/graphql/search-service.ts#L105)
+[packages/sitecore-jss/src/graphql/search-service.ts:105](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss/src/graphql/search-service.ts#L105)

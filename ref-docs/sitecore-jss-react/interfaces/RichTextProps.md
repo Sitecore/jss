@@ -35,7 +35,7 @@ true
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
+[packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
 
 ***
 
@@ -53,7 +53,7 @@ Custom element to render in Pages in Metadata edit mode if field value is empty
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/sharedTypes.ts:36](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-react/src/components/sharedTypes.ts#L36)
+[packages/sitecore-jss-react/src/components/sharedTypes.ts:36](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-react/src/components/sharedTypes.ts#L36)
 
 ***
 
@@ -65,7 +65,7 @@ The rich text field data.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:16](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-react/src/components/RichText.tsx#L16)
+[packages/sitecore-jss-react/src/components/RichText.tsx:16](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-react/src/components/RichText.tsx#L16)
 
 ***
 
@@ -83,4 +83,4 @@ The HTML element that will wrap the contents of the field.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/RichText.tsx:21](https://github.com/Sitecore/jss/blob/50d0f61c86434f7ca31a4ba82eb352308d13c6a2/packages/sitecore-jss-react/src/components/RichText.tsx#L21)
+[packages/sitecore-jss-react/src/components/RichText.tsx:21](https://github.com/Sitecore/jss/blob/ba5495930712b15bb99b05d41785a26aa9a7a604/packages/sitecore-jss-react/src/components/RichText.tsx#L21)
