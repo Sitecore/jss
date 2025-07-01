@@ -14,7 +14,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Link.tsx:24](https://github.com/Sitecore/jss/blob/869058c0094bb85917338c454024b6d5d741d14f/packages/sitecore-jss-react/src/components/Link.tsx#L24)
+[packages/sitecore-jss-react/src/components/Link.tsx:24](https://github.com/Sitecore/jss/blob/739be8841d18f39272b75902e6e6864126223cfa/packages/sitecore-jss-react/src/components/Link.tsx#L24)
 
 ***
 
@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Link.tsx:25](https://github.com/Sitecore/jss/blob/869058c0094bb85917338c454024b6d5d741d14f/packages/sitecore-jss-react/src/components/Link.tsx#L25)
+[packages/sitecore-jss-react/src/components/Link.tsx:25](https://github.com/Sitecore/jss/blob/739be8841d18f39272b75902e6e6864126223cfa/packages/sitecore-jss-react/src/components/Link.tsx#L25)
 
 ***
 
@@ -34,4 +34,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Link.tsx:23](https://github.com/Sitecore/jss/blob/869058c0094bb85917338c454024b6d5d741d14f/packages/sitecore-jss-react/src/components/Link.tsx#L23)
+[packages/sitecore-jss-react/src/components/Link.tsx:23](https://github.com/Sitecore/jss/blob/739be8841d18f39272b75902e6e6864126223cfa/packages/sitecore-jss-react/src/components/Link.tsx#L23)

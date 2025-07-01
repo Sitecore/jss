@@ -20,4 +20,4 @@
 
 ## Defined in
 
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:23](https://github.com/Sitecore/jss/blob/869058c0094bb85917338c454024b6d5d741d14f/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L23)
+[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:23](https://github.com/Sitecore/jss/blob/739be8841d18f39272b75902e6e6864126223cfa/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L23)

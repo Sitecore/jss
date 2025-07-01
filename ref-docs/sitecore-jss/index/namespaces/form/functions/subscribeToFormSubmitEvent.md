@@ -24,4 +24,4 @@ This listener captures interactions such as form views or submissions
 
 ## Defined in
 
-[packages/sitecore-jss/src/form/form.ts:76](https://github.com/Sitecore/jss/blob/869058c0094bb85917338c454024b6d5d741d14f/packages/sitecore-jss/src/form/form.ts#L76)
+[packages/sitecore-jss/src/form/form.ts:76](https://github.com/Sitecore/jss/blob/739be8841d18f39272b75902e6e6864126223cfa/packages/sitecore-jss/src/form/form.ts#L76)

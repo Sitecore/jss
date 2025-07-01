@@ -16,4 +16,4 @@ https://vercel.com/docs/environment-variables#system-environment-variables
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:229](https://github.com/Sitecore/jss/blob/869058c0094bb85917338c454024b6d5d741d14f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L229)
+[sitecore-jss-nextjs/src/editing/editing-data-service.ts:229](https://github.com/Sitecore/jss/blob/739be8841d18f39272b75902e6e6864126223cfa/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L229)

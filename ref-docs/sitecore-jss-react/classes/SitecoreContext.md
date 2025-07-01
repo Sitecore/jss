@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:54](https://github.com/Sitecore/jss/blob/869058c0094bb85917338c454024b6d5d741d14f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L54)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:54](https://github.com/Sitecore/jss/blob/739be8841d18f39272b75902e6e6864126223cfa/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L54)
 
 ## Properties
 
@@ -137,7 +137,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:921
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:52](https://github.com/Sitecore/jss/blob/869058c0094bb85917338c454024b6d5d741d14f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L52)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:52](https://github.com/Sitecore/jss/blob/739be8841d18f39272b75902e6e6864126223cfa/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L52)
 
 ***
 
@@ -233,7 +233,7 @@ The snapshot is only present if [getSnapshotBeforeUpdate](SitecoreContext.md#get
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:92](https://github.com/Sitecore/jss/blob/869058c0094bb85917338c454024b6d5d741d14f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L92)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:92](https://github.com/Sitecore/jss/blob/739be8841d18f39272b75902e6e6864126223cfa/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L92)
 
 ***
 
@@ -395,7 +395,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1315
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:78](https://github.com/Sitecore/jss/blob/869058c0094bb85917338c454024b6d5d741d14f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L78)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:78](https://github.com/Sitecore/jss/blob/739be8841d18f39272b75902e6e6864126223cfa/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L78)
 
 ***
 
@@ -469,7 +469,7 @@ packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:1230
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:115](https://github.com/Sitecore/jss/blob/869058c0094bb85917338c454024b6d5d741d14f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L115)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:115](https://github.com/Sitecore/jss/blob/739be8841d18f39272b75902e6e6864126223cfa/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L115)
 
 ***
 
@@ -491,7 +491,7 @@ Update context state. Value can be
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:107](https://github.com/Sitecore/jss/blob/869058c0094bb85917338c454024b6d5d741d14f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L107)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:107](https://github.com/Sitecore/jss/blob/739be8841d18f39272b75902e6e6864126223cfa/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L107)
 
 ***
 

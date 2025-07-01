@@ -60,7 +60,7 @@ the default value to return if the field is not defined
 
 ### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:16](https://github.com/Sitecore/jss/blob/869058c0094bb85917338c454024b6d5d741d14f/packages/sitecore-jss/src/layout/utils.ts#L16)
+[packages/sitecore-jss/src/layout/utils.ts:16](https://github.com/Sitecore/jss/blob/739be8841d18f39272b75902e6e6864126223cfa/packages/sitecore-jss/src/layout/utils.ts#L16)
 
 ## getFieldValue(renderingOrFields, fieldName, defaultValue)
 
@@ -98,4 +98,4 @@ the default value to return if the field is not defined
 
 ### Defined in
 
-[packages/sitecore-jss/src/layout/utils.ts:21](https://github.com/Sitecore/jss/blob/869058c0094bb85917338c454024b6d5d741d14f/packages/sitecore-jss/src/layout/utils.ts#L21)
+[packages/sitecore-jss/src/layout/utils.ts:21](https://github.com/Sitecore/jss/blob/739be8841d18f39272b75902e6e6864126223cfa/packages/sitecore-jss/src/layout/utils.ts#L21)
