@@ -6720,14 +6720,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-feaas/clientside@npm:^0.5.19":
-  version: 0.5.19
-  resolution: "@sitecore-feaas/clientside@npm:0.5.19"
+"@sitecore-feaas/clientside@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@sitecore-feaas/clientside@npm:0.6.0"
   dependencies:
-    "@sitecore/byoc": ^0.2.10
+    "@sitecore/byoc": ^0.3.0
   peerDependencies:
     react-dom: ">=16.8.0"
-  checksum: 63bcc151e9d79cc591c98f2f68cae8feb9b6a368ba9b4f12aa74a418a208e20cd37d682e671bb7a32ed275a78e7dca3034678af5943961afa2b2ce4d8ddc2955
+  checksum: c2b95cf7988ffa81fe45d6d2215294eac58dda29bb4b841b1cda9de5521f7a9339190c09db43fb19c79bfa20a0e9353e6f030b4f57423600506316a2879be670
   languageName: node
   linkType: hard
 
@@ -7066,7 +7066,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
-    "@sitecore-feaas/clientside": ^0.5.19
+    "@sitecore-feaas/clientside": ^0.6.0
     "@sitecore-jss/sitecore-jss": 22.8.0-canary.14
     "@testing-library/dom": ^10.4.0
     "@testing-library/react": ^16.1.0
@@ -7098,7 +7098,7 @@ __metadata:
     typescript: ~4.9.3
   peerDependencies:
     "@sitecore-cloudsdk/events": ^0.5.1
-    "@sitecore-feaas/clientside": ^0.5.19
+    "@sitecore-feaas/clientside": ^0.6.0
     react: ^19.1.0
     react-dom: ^19.1.0
   languageName: unknown
@@ -7203,13 +7203,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore/byoc@npm:^0.2.10":
-  version: 0.2.15
-  resolution: "@sitecore/byoc@npm:0.2.15"
+"@sitecore/byoc@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@sitecore/byoc@npm:0.3.0"
   dependencies:
     "@rjsf/utils": "*"
     json-schema: ^0.4.0
-  checksum: 5da0cd994a55e0809433d0534c1ffcf39a306a8e3769d5aecfc95113c7a2f69ada7c27db9e1bb1ac40bc5a7bbf50344689f1096811bdc8c291067044bafd7dbe
+  checksum: b9b1a39cb8e8379221b8b67c863fd496f58ef7119c5368420bba927b8ab98d59d5e9bf33ee71be72d05da4e43db541cb49307e41481cabbb30966dc8df190ede
   languageName: node
   linkType: hard
 
