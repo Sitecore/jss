@@ -22,6 +22,10 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss]` Fix forwarding of Set-Cookie headers to prevent form submissions from failing due to missing verification tokens(`__RequestVerificationToken`) ([#2112](https://github.com/Sitecore/jss/pull/2112))
 
+### Chores
+
+* `[sitecore-jss-react]``[nexjts-xmcloud]` FEAAS dependencies updated for proper React 19 support ([#2113](https://github.com/Sitecore/jss/pull/2113))
+
 ## 22.7.0
 
 ### 🎉 New Features & Improvements
