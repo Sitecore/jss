@@ -24,4 +24,4 @@ Map the edit button types to chrome data
 
 ## Defined in
 
-[packages/sitecore-jss/src/editing/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/5204187313352cfdac9db6710070acef2f6cd85e/packages/sitecore-jss/src/editing/edit-frame.ts#L81)
+[packages/sitecore-jss/src/editing/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/edit-frame.ts#L81)

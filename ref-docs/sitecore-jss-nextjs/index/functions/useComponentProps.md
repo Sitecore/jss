@@ -34,4 +34,4 @@ ComponentPropsContext
 
 ## Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/5204187313352cfdac9db6710070acef2f6cd85e/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)

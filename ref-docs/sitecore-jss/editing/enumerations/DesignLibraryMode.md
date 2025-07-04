@@ -18,7 +18,7 @@ Metadata mode
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:43](https://github.com/Sitecore/jss/blob/5204187313352cfdac9db6710070acef2f6cd85e/packages/sitecore-jss/src/editing/models.ts#L43)
+[packages/sitecore-jss/src/editing/models.ts:43](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/models.ts#L43)
 
 ***
 
@@ -30,4 +30,4 @@ Normal mode
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/models.ts:41](https://github.com/Sitecore/jss/blob/5204187313352cfdac9db6710070acef2f6cd85e/packages/sitecore-jss/src/editing/models.ts#L41)
+[packages/sitecore-jss/src/editing/models.ts:41](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/models.ts#L41)

@@ -13,4 +13,4 @@ Should identify app is in XM Cloud Pages editing mode
 
 ## Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:18](https://github.com/Sitecore/jss/blob/5204187313352cfdac9db6710070acef2f6cd85e/packages/sitecore-jss/src/editing/utils.ts#L18)
+[packages/sitecore-jss/src/editing/utils.ts:18](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/utils.ts#L18)

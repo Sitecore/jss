@@ -34,7 +34,7 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:177](https://github.com/Sitecore/jss/blob/5204187313352cfdac9db6710070acef2f6cd85e/packages/sitecore-jss/src/graphql-request-client.ts#L177)
+[packages/sitecore-jss/src/graphql-request-client.ts:177](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/graphql-request-client.ts#L177)
 
 ## Methods
 
@@ -68,7 +68,7 @@ Execute graphql request
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:224](https://github.com/Sitecore/jss/blob/5204187313352cfdac9db6710070acef2f6cd85e/packages/sitecore-jss/src/graphql-request-client.ts#L224)
+[packages/sitecore-jss/src/graphql-request-client.ts:224](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/graphql-request-client.ts#L224)
 
 ***
 
@@ -90,4 +90,4 @@ Factory method for creating a GraphQLRequestClientFactory.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql-request-client.ts:210](https://github.com/Sitecore/jss/blob/5204187313352cfdac9db6710070acef2f6cd85e/packages/sitecore-jss/src/graphql-request-client.ts#L210)
+[packages/sitecore-jss/src/graphql-request-client.ts:210](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/graphql-request-client.ts#L210)

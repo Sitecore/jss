@@ -20,7 +20,7 @@ Currency code of outcome monetary value
 
 #### Defined in
 
-[packages/sitecore-jss/src/tracking/dataModels.ts:24](https://github.com/Sitecore/jss/blob/5204187313352cfdac9db6710070acef2f6cd85e/packages/sitecore-jss/src/tracking/dataModels.ts#L24)
+[packages/sitecore-jss/src/tracking/dataModels.ts:24](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/tracking/dataModels.ts#L24)
 
 ***
 
@@ -32,7 +32,7 @@ Revenue from outcome
 
 #### Defined in
 
-[packages/sitecore-jss/src/tracking/dataModels.ts:26](https://github.com/Sitecore/jss/blob/5204187313352cfdac9db6710070acef2f6cd85e/packages/sitecore-jss/src/tracking/dataModels.ts#L26)
+[packages/sitecore-jss/src/tracking/dataModels.ts:26](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/tracking/dataModels.ts#L26)
 
 ***
 
@@ -44,4 +44,4 @@ GUID or alias (name) of outcome to trigger
 
 #### Defined in
 
-[packages/sitecore-jss/src/tracking/dataModels.ts:22](https://github.com/Sitecore/jss/blob/5204187313352cfdac9db6710070acef2f6cd85e/packages/sitecore-jss/src/tracking/dataModels.ts#L22)
+[packages/sitecore-jss/src/tracking/dataModels.ts:22](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/tracking/dataModels.ts#L22)
