@@ -82,7 +82,28 @@ NativeDataFetcher data fetcher
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:97
+sitecore-jss/types/layout/rest-layout-service.d.ts:98
+
+***
+
+### getFetcher()
+
+> `protected` **getFetcher**: (`req`?, `res`?) => `HttpDataFetcher`\<[`LayoutServiceData`](../interfaces/LayoutServiceData.md)\> \| `NativeDataFetcherFunction`\<[`LayoutServiceData`](../interfaces/LayoutServiceData.md)\>
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `req`? | `IncomingMessage` |
+| `res`? | `ServerResponse`\<`IncomingMessage`\> |
+
+#### Returns
+
+`HttpDataFetcher`\<[`LayoutServiceData`](../interfaces/LayoutServiceData.md)\> \| `NativeDataFetcherFunction`\<[`LayoutServiceData`](../interfaces/LayoutServiceData.md)\>
+
+#### Defined in
+
+sitecore-jss/types/layout/rest-layout-service.d.ts:84
 
 ***
 
@@ -185,7 +206,7 @@ Resolves layout service url
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `apiType` | `"render"` \| `"placeholder"` | which layout service API to call ('render' or 'placeholder') |
+| `apiType` | `"render"` \| `"placeholder"` \| `"component"` | which layout service API to call ('render' or 'placeholder') |
 
 #### Returns
 
@@ -195,7 +216,7 @@ the layout service url
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:89
+sitecore-jss/types/layout/rest-layout-service.d.ts:90
 
 ***
 
@@ -219,7 +240,7 @@ Creates an HTTP `Headers` object populated with headers from the incoming reques
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:103
+sitecore-jss/types/layout/rest-layout-service.d.ts:104
 
 ***
 
@@ -250,4 +271,4 @@ response
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:110
+sitecore-jss/types/layout/rest-layout-service.d.ts:111

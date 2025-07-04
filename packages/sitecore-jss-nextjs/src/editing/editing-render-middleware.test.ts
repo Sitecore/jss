@@ -6,6 +6,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingDataService, EditingPreviewData } from './editing-data-service';
 import {
+  DesignLibraryMode,
   EDITING_ALLOWED_ORIGINS,
   QUERY_PARAM_EDITING_SECRET,
   RenderMetadataQueryParams,
@@ -206,6 +207,95 @@ describe('EditingRenderMiddleware', () => {
   });
 
   describe('metadata handler', () => {
+    describe('Design Library handling', () => {
+      const query = {
+        mode: DesignLibraryMode.Normal,
+        sc_itemid: '{11111111-1111-1111-1111-111111111111}',
+        sc_lang: 'en',
+        sc_site: 'website',
+        sc_variant: 'dev',
+        sc_version: 'latest',
+        secret: secret,
+        sc_renderingId: '123',
+        dataSourceId: '456',
+        sc_uid: '789',
+      };
+
+      it('should handle request with mode=library', async () => {
+        const req = mockRequest(EE_BODY, query, 'GET');
+        const res = mockResponse();
+
+        const middleware = new EditingRenderMiddleware();
+        const handler = middleware.getHandler();
+
+        await handler(req, res);
+
+        expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith({
+          itemId: query.sc_itemid,
+          componentUid: query.sc_uid,
+          renderingId: query.sc_renderingId,
+          language: query.sc_lang,
+          site: query.sc_site,
+          pageState: 'normal',
+          mode: DesignLibraryMode.Normal,
+          dataSourceId: query.dataSourceId,
+          version: query.sc_version,
+        });
+
+        expect(res.redirect).to.have.been.calledOnce;
+        expect(res.setHeader).to.have.been.calledWith(
+          'Content-Security-Policy',
+          `frame-ancestors 'self' https://allowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
+        );
+      });
+
+      it('should handle request with mode=library-metadata', async () => {
+        const req = mockRequest(EE_BODY, { ...query, mode: DesignLibraryMode.Metadata }, 'GET');
+        const res = mockResponse();
+
+        const middleware = new EditingRenderMiddleware();
+        const handler = middleware.getHandler();
+
+        await handler(req, res);
+
+        expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith({
+          itemId: query.sc_itemid,
+          componentUid: query.sc_uid,
+          renderingId: query.sc_renderingId,
+          language: query.sc_lang,
+          site: query.sc_site,
+          pageState: 'normal',
+          mode: DesignLibraryMode.Metadata,
+          dataSourceId: query.dataSourceId,
+          version: query.sc_version,
+        });
+
+        expect(res.redirect).to.have.been.calledOnce;
+        expect(res.setHeader).to.have.been.calledWith(
+          'Content-Security-Policy',
+          `frame-ancestors 'self' https://allowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
+        );
+      });
+
+      it('should response with 400 for missing query params', async () => {
+        const req = mockRequest(EE_BODY, { sc_site: 'website', secret }, 'GET');
+        const res = mockResponse();
+
+        const middleware = new EditingRenderMiddleware();
+        const handler = middleware.getHandler();
+
+        await handler(req, res);
+
+        expect(res.status).to.have.been.calledOnce;
+        expect(res.status).to.have.been.calledWith(400);
+        expect(res.json).to.have.been.calledOnce;
+        expect(res.json).to.have.been.calledWith({
+          html:
+            '<html><body>Missing required query parameters: sc_itemid, sc_lang, route, mode</body></html>',
+        });
+      });
+    });
+
     const query = {
       mode: 'edit',
       route: '/styleguide',

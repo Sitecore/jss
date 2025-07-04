@@ -16,4 +16,4 @@ Context information from the Sitecore Layout Service
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:47
+packages/sitecore-jss/types/layout/models.d.ts:49

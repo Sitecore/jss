@@ -20,6 +20,7 @@
 
 - [EditMode](enumerations/EditMode.md)
 - [LayoutServicePageState](enumerations/LayoutServicePageState.md)
+- [RenderingType](enumerations/RenderingType.md)
 
 ### Classes
 
@@ -38,6 +39,7 @@
 - [MemoryCacheClient](classes/MemoryCacheClient.md)
 - [MultisiteGraphQLSitemapService](classes/MultisiteGraphQLSitemapService.md)
 - [NativeDataFetcher](classes/NativeDataFetcher.md)
+- [RestComponentLayoutService](classes/RestComponentLayoutService.md)
 - [RestDictionaryService](classes/RestDictionaryService.md)
 - [RestLayoutService](classes/RestLayoutService.md)
 - [SitecoreContext](classes/SitecoreContext.md)
@@ -132,6 +134,7 @@
 - [DateField](functions/DateField.md)
 - [DefaultEmptyFieldEditingComponentImage](functions/DefaultEmptyFieldEditingComponentImage.md)
 - [DefaultEmptyFieldEditingComponentText](functions/DefaultEmptyFieldEditingComponentText.md)
+- [DesignLibrary](functions/DesignLibrary.md)
 - [EditFrame](functions/EditFrame.md)
 - [EditingScripts](functions/EditingScripts.md)
 - [enableDebug](functions/enableDebug.md)
@@ -140,8 +143,8 @@
 - [File](functions/File.md)
 - [Form](functions/Form.md)
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
-- [getComponentLibraryStylesheetLinks](functions/getComponentLibraryStylesheetLinks.md)
 - [getContentStylesheetLink](functions/getContentStylesheetLink.md)
+- [getDesignLibraryStylesheetLinks](functions/getDesignLibraryStylesheetLinks.md)
 - [getFieldValue](functions/getFieldValue.md)
 - [getGroomedVariantIds](functions/getGroomedVariantIds.md)
 - [getPersonalizedRewrite](functions/getPersonalizedRewrite.md)

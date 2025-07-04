@@ -10,15 +10,22 @@
 
 ### Enumerations
 
+- [DesignLibraryMode](enumerations/DesignLibraryMode.md)
+- [DesignLibraryStatus](enumerations/DesignLibraryStatus.md)
 - [LayoutKind](enumerations/LayoutKind.md)
 - [MetadataKind](enumerations/MetadataKind.md)
 
 ### Classes
 
 - [GraphQLEditingService](classes/GraphQLEditingService.md)
+- [RestComponentLayoutService](classes/RestComponentLayoutService.md)
 
 ### Interfaces
 
+- [ComponentLayoutRequestParams](interfaces/ComponentLayoutRequestParams.md)
+- [ComponentUpdateEventArgs](interfaces/ComponentUpdateEventArgs.md)
+- [DesignLibraryStatusEvent](interfaces/DesignLibraryStatusEvent.md)
+- [RenderComponentQueryParams](interfaces/RenderComponentQueryParams.md)
 - [RenderMetadataQueryParams](interfaces/RenderMetadataQueryParams.md)
 
 ### Variables
@@ -30,7 +37,11 @@
 
 ### Functions
 
+- [addComponentUpdateHandler](functions/addComponentUpdateHandler.md)
+- [getDesignLibraryScriptLink](functions/getDesignLibraryScriptLink.md)
+- [getDesignLibraryStatusEvent](functions/getDesignLibraryStatusEvent.md)
 - [getJssPagesClientData](functions/getJssPagesClientData.md)
+- [isDesignLibraryMode](functions/isDesignLibraryMode.md)
 
 ## References
 

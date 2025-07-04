@@ -478,7 +478,6 @@ describe('transform', () => {
     let mergeStub: SinonStub;
     let diffAndWriteFilesStub: SinonStub;
     let writeFileToPathStub: SinonStub;
-    let transformFilenameStub: SinonStub;
     let openJsonFileStub: SinonStub;
     let log: SinonStub;
 
@@ -497,7 +496,6 @@ describe('transform', () => {
       mergeStub?.restore();
       diffAndWriteFilesStub?.restore();
       writeFileToPathStub?.restore();
-      transformFilenameStub?.restore();
       openJsonFileStub?.restore();
       log?.restore();
     });

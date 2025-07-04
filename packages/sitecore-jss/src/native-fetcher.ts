@@ -28,7 +28,7 @@ export interface NativeDataFetcherResponse<T> {
   /** Response content */
   data: T;
   /** Response headers */
-  headers?: HeadersInit;
+  headers?: HeadersInit | Headers;
 }
 
 /**
@@ -103,7 +103,12 @@ export class NativeDataFetcher {
         data: respData,
       });
 
-      return { ...response, data: respData as T };
+      return {
+        data: respData as T,
+        status: response.status,
+        statusText: response.statusText,
+        headers: response.headers,
+      };
     } catch (error) {
       this.abortTimeout?.clear();
       debug('Request failed: %o', error);

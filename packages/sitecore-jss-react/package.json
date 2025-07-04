@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react",
-  "version": "22.7.0",
+  "version": "22.8.0-canary.16",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -26,7 +26,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "@sitecore-feaas/clientside": "^0.5.19",
+    "@sitecore-feaas/clientside": "^0.6.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.6.0",
@@ -56,12 +56,12 @@
   },
   "peerDependencies": {
     "@sitecore-cloudsdk/events": "^0.5.1",
-    "@sitecore-feaas/clientside": "^0.5.19",
+    "@sitecore-feaas/clientside": "^0.6.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "22.7.0",
+    "@sitecore-jss/sitecore-jss": "22.8.0-canary.16",
     "fast-deep-equal": "^3.1.3",
     "style-attr": "^1.3.0"
   },

@@ -39,8 +39,17 @@
 
 ### Variables
 
+- [EDITING\_COMPONENT\_ID](variables/EDITING_COMPONENT_ID.md)
+- [EDITING\_COMPONENT\_PLACEHOLDER](variables/EDITING_COMPONENT_PLACEHOLDER.md)
 - [editingDataService](variables/editingDataService.md)
 
 ### Functions
 
+- [isDesignLibraryPreviewData](functions/isDesignLibraryPreviewData.md)
 - [isEditingMetadataPreviewData](functions/isEditingMetadataPreviewData.md)
+
+## References
+
+### RenderingType
+
+Re-exports [RenderingType](../index/enumerations/RenderingType.md)

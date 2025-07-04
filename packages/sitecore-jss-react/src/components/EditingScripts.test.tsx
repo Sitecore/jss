@@ -6,7 +6,9 @@ import {
   EditMode,
   LayoutServiceData,
   LayoutServicePageState,
+  RenderingType,
 } from '@sitecore-jss/sitecore-jss/layout';
+import { getDesignLibraryScriptLink } from '@sitecore-jss/sitecore-jss/editing';
 import { EditingScripts } from './EditingScripts';
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
@@ -21,18 +23,21 @@ describe('<EditingScripts />', () => {
     pageEditing,
     clientData,
     clientScripts,
+    renderingType,
   }: {
     editMode?: EditMode;
     pageState: LayoutServicePageState;
     pageEditing: boolean;
     clientData?: Record<string, Record<string, unknown>>;
     clientScripts?: string[];
+    renderingType?: RenderingType;
   }): LayoutServiceData => ({
     sitecore: {
       context: {
         editMode,
         pageState,
         pageEditing,
+        renderingType,
         site: {
           name: 'JssTestWeb',
         },
@@ -58,7 +63,7 @@ describe('<EditingScripts />', () => {
     },
   });
 
-  it('should render nothing when not in editing', () => {
+  it('should render nothing when not in editing and not in component library', () => {
     const layoutData = getLayoutData({
       pageState: LayoutServicePageState.Normal,
       pageEditing: false,
@@ -94,6 +99,7 @@ describe('<EditingScripts />', () => {
       expect(component.container.querySelectorAll('script')).to.have.length(0);
     });
   });
+
   describe('should render Pages scripts when in Metadata mode', () => {
     it('should render scripts', () => {
       const layoutData = getLayoutData({
@@ -156,6 +162,58 @@ describe('<EditingScripts />', () => {
         expect(component.container.querySelector(`#${id}`)).to.not.be.null;
       });
       expect(scripts.querySelectorAll('script')).to.have.length(ids.length);
+    });
+  });
+
+  describe('Design Library scripts', () => {
+    it('should render Design Library script when rendering type is component', () => {
+      const layoutData = getLayoutData({
+        editMode: EditMode.Chromes,
+        pageEditing: false,
+        pageState: LayoutServicePageState.Normal,
+        renderingType: RenderingType.Component,
+        clientData: {},
+        clientScripts: [],
+      });
+
+      const component = render(
+        <SitecoreContext componentFactory={mockComponentFactory} layoutData={layoutData}>
+          <EditingScripts />
+        </SitecoreContext>
+      );
+
+      const scripts = component.container.querySelectorAll('script');
+      expect(scripts).to.have.length(1);
+      expect(scripts[0].getAttribute('src')).to.contain(`${getDesignLibraryScriptLink()}?cb=`);
+    });
+
+    it('should render Design Library script with custom design library url when rendering type is component', () => {
+      const layoutData = getLayoutData({
+        editMode: EditMode.Chromes,
+        pageEditing: false,
+        pageState: LayoutServicePageState.Normal,
+        renderingType: RenderingType.Component,
+        clientData: {},
+        clientScripts: [],
+      });
+
+      const stagingEdgeUrl = 'http://edge-staging';
+
+      const component = render(
+        <SitecoreContext
+          componentFactory={mockComponentFactory}
+          layoutData={layoutData}
+          api={{ edge: { edgeUrl: stagingEdgeUrl, contextId: 'id' } }}
+        >
+          <EditingScripts />
+        </SitecoreContext>
+      );
+
+      const scripts = component.container.querySelectorAll('script');
+      expect(scripts).to.have.length(1);
+      expect(scripts[0].getAttribute('src')).to.contain(
+        `${getDesignLibraryScriptLink(stagingEdgeUrl)}?cb=`
+      );
     });
   });
 });

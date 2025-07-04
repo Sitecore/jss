@@ -6,7 +6,7 @@ import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout
 import { expect } from 'chai';
 import { findByText, render } from '@testing-library/react';
 import React from 'react';
-import { stub } from 'sinon';
+import { spy, stub } from 'sinon';
 import { convertedData as eeData, emptyPlaceholderData } from '../test-data/ee-data';
 import {
   byocWrapperData,

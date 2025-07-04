@@ -1,20 +1,39 @@
 import React, { JSX } from 'react';
-import { EditMode, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
+import { EditMode, LayoutServicePageState, RenderingType } from '@sitecore-jss/sitecore-jss/layout';
 import { useSitecoreContext } from '../enhancers/withSitecoreContext';
 import { getJssPagesClientData } from '@sitecore-jss/sitecore-jss/editing';
+import { getDesignLibraryScriptLink } from '@sitecore-jss/sitecore-jss/editing';
 
 /**
- * Renders client scripts and data for editing/preview mode in Pages.
- * This script is only rendered when EditMode is Metadata, otherwise it renders nothing.
+ * - Renders client scripts and data for editing/preview mode for Pages
+ * - Renders script required for the Design Library (when RenderingType is `component`).
+ * This script is only rendered when EditMode is Metadata or RenderingType is `component`, otherwise it renders nothing.
+ * @returns A JSX element containing the editing scripts or an empty fragment if not in editing/preview mode.
  */
 export const EditingScripts = (): JSX.Element => {
   const {
-    sitecoreContext: { pageState, editMode, clientData, clientScripts },
+    sitecoreContext: { pageState, editMode, clientData, clientScripts, renderingType },
+    api,
   } = useSitecoreContext();
 
-  // Don't render anything if not in editing/preview mode
-  if (pageState === LayoutServicePageState.Normal || pageState === LayoutServicePageState.Preview) {
+  // Don't render anything if not in editing/preview mode and rendering type is not component
+  if (
+    renderingType !== RenderingType.Component &&
+    (pageState === LayoutServicePageState.Normal || pageState === LayoutServicePageState.Preview)
+  ) {
     return <></>;
+  }
+
+  // In case of RenderingType.Component - render only the script for Design Libnrary
+  if (renderingType === RenderingType.Component) {
+    // Add cache buster to the script URL
+    const scriptUrl = `${getDesignLibraryScriptLink(api?.edge?.edgeUrl)}?cb=${Date.now()}`;
+
+    return (
+      <>
+        <script src={scriptUrl} suppressHydrationWarning></script>
+      </>
+    );
   }
 
   if (editMode === EditMode.Metadata) {

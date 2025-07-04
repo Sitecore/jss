@@ -7,7 +7,6 @@ import { WithSitecoreContextProps, withSitecoreContext } from '../enhancers/with
 import { LayoutServiceData, SitecoreContextValue } from '../index';
 import { render } from '@testing-library/react';
 import { useSitecoreContext } from '../enhancers/withSitecoreContext';
-import { language } from '@sitecore-cloudsdk/core/internal';
 
 describe('SitecoreContext', () => {
   let nestedContext = {};

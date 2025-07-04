@@ -11,24 +11,41 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 22.8.0
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-nextjs]` Improved RedirectsMiddleware extensibility with new `getRedirects` method to improve extensibility ([#2099](https://github.com/Sitecore/jss/pull/2099))
+* `[sitecore-jss-nextjs]` Improved PersonalizeMiddleware for better extensibility ([#2098](https://github.com/Sitecore/jss/pull/2098)):
+  * Added `processPersonalizationRequest` method to be able to extend the personalize handler logic
+  * Added `getPersonalizeInfo` method to be able to control and extend `personalizeService.getPersonalizeInfo` behavior
+* `[nextjs][sitecore-jss-nextjs]` Support for Component Library in XMCloud ([#1987](https://github.com/Sitecore/jss/pull/1987))([#2000](https://github.com/Sitecore/jss/pull/2000))([#2002](https://github.com/Sitecore/jss/pull/2002))([#2005](https://github.com/Sitecore/jss/pull/2005))([#2024](https://github.com/Sitecore/jss/pull/2024))([#2053](https://github.com/Sitecore/jss/pull/2053))([#2059](https://github.com/Sitecore/jss/pull/2059))([#2064](https://github.com/Sitecore/jss/pull/2064))([#2068](https://github.com/Sitecore/jss/pull/2068))([#2087](https://github.com/Sitecore/jss/pull/2087))([#2091](https://github.com/Sitecore/jss/pull/2091))([#2101](https://github.com/Sitecore/jss/pull/2101))
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss]` Fix forwarding of Set-Cookie headers to prevent form submissions from failing due to missing verification tokens(`__RequestVerificationToken`) ([#2112](https://github.com/Sitecore/jss/pull/2112))
+
+### Chores
+
+* `[sitecore-jss-react]``[nexjts-xmcloud]` FEAAS dependencies updated ([#2113](https://github.com/Sitecore/jss/pull/2113))
+
 ## 22.7.0
 
 ### 🎉 New Features & Improvements
 
-* `[templates/NextJs]` `[templates/NextJs-Styleguide]` `[templates/NextJs-Styleguide-Tracking]` Remove graphql-let and graphql code generation functionality from NextJs starter applications. One of the major reasons for the decision is `graphql-let` is not maintained anymore and was introducing severeal critical security vulnerabilities.  ([#2100](https://github.com/Sitecore/jss/pull/2100))
+* `[templates/nextjs]` `[templates/nextjs-styleguide]` `[templates/nextjs-styleguide-tracking]` Remove graphql-let and graphql code generation functionality from NextJs starter applications. One of the major reasons for the decision is `graphql-let` is not maintained anymore and was introducing severeal critical security vulnerabilities. ([#2100](https://github.com/Sitecore/jss/pull/2100))
 
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-react]` Add an optional `disableSuspense` flag to the Placeholder component to prevent error boundaries from rendering Suspense which helps contain errors for components. This can help avoid hydration issues in connected mode. ([#2081](https://github.com/Sitecore/jss/pull/2081))([#2085](https://github.com/Sitecore/jss/pull/2085))
 * `[templates/NextJs-Styleguide]` `[templates/NextJs-Styleguide-Tracking]` Bug fixes in Styleguide-Layout-Tabs-Tab, Styleguide-Layout-Tabs, Styleguide-Tracking components ([#2100](https://github.com/Sitecore/jss/pull/2100))
-* `[sitecore-jss-proxy]` Fix build failure of XMCloud Proxy application when using PNPM ([#2106](https://github.com/Sitecore/jss/pull/2106))
-* `[sitecore-jss-nextjs]` Prevent false prefetch detection for mobile navigation in middlewares. ([#2102](https://github.com/Sitecore/jss/pull/2102))
-* `[sitecore-jss-nextjs]` Add `Cache-Control: no-store, no-cache, must-revalidate` to personalize middleware to ensure personalized responses are not served from prefetch cache and proper personalization was applied during client side navigation. ([#2105](https://github.com/Sitecore/jss/pull/2105))
 * `[sitecore-jss-nextjs]` Improve device detection and prevent false prefetch handling in Personalize middleware. ([#2102](https://github.com/Sitecore/jss/pull/2102)) ([#2107](https://github.com/Sitecore/jss/pull/2107)) 
+* `[sitecore-jss-nextjs]` Add `Cache-Control: no-store, no-cache, must-revalidate` to personalize middleware to ensure personalized responses are not served from prefetch cache and proper personalization was applied during client side navigation. ([#2105](https://github.com/Sitecore/jss/pull/2105))
+* `[sitecore-jss-proxy]` Fix build failure of XMCloud Proxy application when using PNPM ([#2106](https://github.com/Sitecore/jss/pull/2106))
 
 ### 🛠 Breaking Changes
 
-* `[Next.js]` `[React]`: `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[sitecore-jss-react-forms]` `[create-sitecore-jss]` Upgrade React to version 19 and Nextjs to version 15 ([#2078](https://github.com/Sitecore/jss/pull/2078))([#2084](https://github.com/Sitecore/jss/pull/2084))([#2090](https://github.com/Sitecore/jss/pull/2090)) ([#2093](https://github.com/Sitecore/jss/pull/2093)) ([#2096](https://github.com/Sitecore/jss/pull/2096)):
+* `[Next.js]` `[React]`: `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[sitecore-jss-react-forms]` `[create-sitecore-jss]` Upgrade React to version 19 and Nextjs to version 15 ([#2078](https://github.com/Sitecore/jss/pull/2078))([#2084](https://github.com/Sitecore/jss/pull/2084))([#2090](https://github.com/Sitecore/jss/pull/2090))([#2093](https://github.com/Sitecore/jss/pull/2093))([#2096](https://github.com/Sitecore/jss/pull/2096)):
   * upgrade React and Nextjs dependencies for the new major versions
   * with React 19, JSX is in the 'react' namespace and therefore 'react' needs to be imported befoore using JSX. All OOTB react and nextjs components have been updated
   * `react-test-renderer` has been deprecated in react 19. additionaly `enzyme` is not supported anymore so all unit tests have been migrated to use `@`testing-library/react`

@@ -2,7 +2,7 @@
 import React, { ReactNode } from 'react';
 import { use, expect } from 'chai';
 import { NextRouter } from 'next/router';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
 import { RichText, prefetched } from './RichText';
 import { SinonSpy, spy } from 'sinon';

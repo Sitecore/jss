@@ -2,13 +2,13 @@
 
 ***
 
-[@sitecore-jss/sitecore-jss-react](../README.md) / getComponentLibraryStylesheetLinks
+[@sitecore-jss/sitecore-jss-react](../README.md) / getDesignLibraryStylesheetLinks
 
-# Function: getComponentLibraryStylesheetLinks()
+# Function: getDesignLibraryStylesheetLinks()
 
-> **getComponentLibraryStylesheetLinks**(`layoutData`, `sitecoreEdgeContextId`, `sitecoreEdgeUrl`?): `HTMLLink`[]
+> **getDesignLibraryStylesheetLinks**(`layoutData`, `sitecoreEdgeContextId`, `sitecoreEdgeUrl`?): `HTMLLink`[]
 
-Walks through rendering tree and returns list of links of all FEAAS, BYOC or SXA Component Library Stylesheets that are used
+Walks through rendering tree and returns list of links of all FEAAS, BYOC or SXA Design Library Stylesheets that are used
 
 ## Parameters
 

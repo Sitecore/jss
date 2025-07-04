@@ -6,10 +6,11 @@ import { spy } from 'sinon';
 
 import { withDatasourceCheck, WithDatasourceCheckProps } from '../enhancers/withDatasourceCheck';
 import { SitecoreContextReactContext } from '../components/SitecoreContext';
+import { RenderingType } from '@sitecore-jss/sitecore-jss/layout';
 
-const mockContext = (editing: boolean) => {
+const mockContext = (editing: boolean, renderingType?: RenderingType) => {
   return {
-    context: { pageEditing: editing },
+    context: { pageEditing: editing, renderingType },
     setContext: spy(),
   };
 };
@@ -92,6 +93,25 @@ describe('withDatasourceCheck', () => {
     );
 
     expect(wrapper.container.innerHTML).to.contain('Better than yours');
+  });
+
+  it('should return wrapped component if rendered in DesignLibrary', () => {
+    const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
+    const props = {
+      rendering: {
+        componentName: 'TestComponent',
+        dataSource: '',
+      },
+    };
+
+    const wrapper = render(
+      <SitecoreContextReactContext.Provider value={mockContext(false, RenderingType.Component)}>
+        <TestComponentWithDatasourceCheck {...props} />
+      </SitecoreContextReactContext.Provider>
+    );
+
+    expect(wrapper.container.innerHTML).to.contain(props.rendering.componentName);
+    expect(wrapper.container.innerHTML).to.contain(props.rendering.dataSource);
   });
 
   it('should return wrapped component if datasource present in normal mode', () => {

@@ -20,7 +20,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:41
+packages/sitecore-jss/types/layout/models.d.ts:43
 
 ***
 
@@ -30,7 +30,7 @@ packages/sitecore-jss/types/layout/models.d.ts:41
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:40
+packages/sitecore-jss/types/layout/models.d.ts:42
 
 ***
 
@@ -40,7 +40,7 @@ packages/sitecore-jss/types/layout/models.d.ts:40
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:39
+packages/sitecore-jss/types/layout/models.d.ts:41
 
 ***
 
@@ -50,7 +50,7 @@ packages/sitecore-jss/types/layout/models.d.ts:39
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:33
+packages/sitecore-jss/types/layout/models.d.ts:34
 
 ***
 
@@ -60,7 +60,7 @@ packages/sitecore-jss/types/layout/models.d.ts:33
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:32
+packages/sitecore-jss/types/layout/models.d.ts:33
 
 ***
 
@@ -70,7 +70,7 @@ packages/sitecore-jss/types/layout/models.d.ts:32
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:31
+packages/sitecore-jss/types/layout/models.d.ts:32
 
 ***
 
@@ -80,7 +80,17 @@ packages/sitecore-jss/types/layout/models.d.ts:31
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:34
+packages/sitecore-jss/types/layout/models.d.ts:35
+
+***
+
+### renderingType?
+
+> `optional` **renderingType**: `RenderingType`
+
+#### Defined in
+
+packages/sitecore-jss/types/layout/models.d.ts:40
 
 ***
 
@@ -94,7 +104,7 @@ packages/sitecore-jss/types/layout/models.d.ts:34
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:36
+packages/sitecore-jss/types/layout/models.d.ts:37
 
 ***
 
@@ -104,4 +114,4 @@ packages/sitecore-jss/types/layout/models.d.ts:36
 
 #### Defined in
 
-packages/sitecore-jss/types/layout/models.d.ts:35
+packages/sitecore-jss/types/layout/models.d.ts:36

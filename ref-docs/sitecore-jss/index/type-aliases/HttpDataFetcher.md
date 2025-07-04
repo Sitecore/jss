@@ -35,4 +35,4 @@ The interface implementation must:
 
 ## Defined in
 
-[packages/sitecore-jss/src/data-fetcher.ts:27](https://github.com/Sitecore/jss/blob/856dc4f92242c60f55f8d81552010771c7f8647c/packages/sitecore-jss/src/data-fetcher.ts#L27)
+[packages/sitecore-jss/src/data-fetcher.ts:27](https://github.com/Sitecore/jss/blob/5204187313352cfdac9db6710070acef2f6cd85e/packages/sitecore-jss/src/data-fetcher.ts#L27)
