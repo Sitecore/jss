@@ -13,7 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-* `[sitecore-jss-nextjs]` Ensure Redirect Middleware Handles Case-Insensitive Path Matching to Prevent Missed Redirects Due to Casing Differences ([#2114](https://github.com/Sitecore/jss/pull/2114))
+* `[sitecore-jss-nextjs]` Ensure Redirect Middleware handles case-insensitive path matching to prevent missed redirects due to casing differences ([#2114](https://github.com/Sitecore/jss/pull/2114))
 
 ## 22.8.0
 
