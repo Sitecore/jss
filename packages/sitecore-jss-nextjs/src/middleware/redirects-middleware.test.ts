@@ -19,7 +19,7 @@ import { REWRITE_HEADER_NAME } from './middleware';
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
 
-describe('RedirectsMiddleware', () => {
+describe.only('RedirectsMiddleware', () => {
   let nextRedirectStub, nextRewriteStub;
 
   const debugSpy = spy(debug, 'redirects');
@@ -1818,6 +1818,60 @@ describe('RedirectsMiddleware', () => {
           {
             pattern: '/About',
             target: '/Found',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req
+        );
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url,
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        expect(siteResolver.getByHost).to.have.been.called;
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes.status).to.equal(301);
+      });
+
+      it('should redirect to lowercase target even if incoming path is mixed-case', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          href: 'http://localhost:3000/about',
+          pathname: '/about',
+          origin: 'http://localhost:3000',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        };
+
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/AnotherPage',
+              href: 'http://localhost:3000/AnotherPage',
+              locale: 'en',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+
+        setupRedirectStub(301);
+        res.headers.set('x-middleware-next', '1');
+        res.headers.set('x-middleware-rewrite', '1');
+        res.headers.set(REWRITE_HEADER_NAME, 1);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: '/anotherpage',
+            target: '/about',
             redirectType: REDIRECT_TYPE_301,
             isQueryStringPreserved: false,
             locale: 'en',
