@@ -19,7 +19,7 @@ import { REWRITE_HEADER_NAME } from './middleware';
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
 
-describe.only('RedirectsMiddleware', () => {
+describe('RedirectsMiddleware', () => {
   let nextRedirectStub, nextRewriteStub;
 
   const debugSpy = spy(debug, 'redirects');

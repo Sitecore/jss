@@ -109,7 +109,6 @@ export class RedirectsMiddleware extends MiddlewareBase {
             if (new RegExp(this.locales.join('|'), 'i').test(maybeLocale)) {
               patternPath = patternPath.replace(`/${patternParts[1]}`, `/${maybeLocale}`);
             }
-
             return (
               (patternPath === localePath || patternPath === normalizedPath) &&
               (!patternQS ||
