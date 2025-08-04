@@ -1948,6 +1948,104 @@ describe('RedirectsMiddleware', () => {
 
         nextRedirectStub.restore();
       });
+
+      it('should handle regex patterns with optional trailing slash correctly', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          clone: cloneUrl,
+          href: 'http://localhost:3000/found',
+          locale: 'en',
+          origin: 'http://localhost:3000',
+          search: '',
+          pathname: '/found',
+        };
+
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/meinezurich',
+              search: '',
+              href: 'http://localhost:3000/meinezurich',
+              locale: 'en',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+        });
+        setupRedirectStub(301);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: '^/meinezurich/?$',
+            target: '/found',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req
+        );
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url,
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes.status).to.equal(301);
+      });
+
+      it('should handle regex patterns with required trailing slash correctly', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          clone: cloneUrl,
+          href: 'http://localhost:3000/found',
+          locale: 'en',
+          origin: 'http://localhost:3000',
+          search: '',
+          pathname: '/found',
+        };
+
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/meinezurichtest/',
+              search: '',
+              href: 'http://localhost:3000/meinezurichtest/',
+              locale: 'en',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+        });
+        setupRedirectStub(301);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: '^/meinezurichtest/$',
+            target: '/found',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req
+        );
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url,
+        });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes.status).to.equal(301);
+      });
     });
   });
 });

@@ -121,18 +121,34 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
           // process regex rules
 
-          // Modify the redirect pattern to ignore the language prefix in the path
-          // And escapes non-special "?" characters in a string or regex.
-          redirect.pattern = escapeNonSpecialQuestionMarks(
-            redirect.pattern.replace(new RegExp(`^[^]?/${language}/`, 'gi'), '')
-          );
+          // Check if pattern is already a regex pattern (starts with ^ or ends with $)
+          const originalPattern = redirect.pattern;
+          const isAlreadyRegex = originalPattern.startsWith('^') || originalPattern.endsWith('$');
 
-          // Prepare the redirect pattern as a regular expression, making it more flexible for matching URLs
-          redirect.pattern = `/^\/${redirect.pattern
-            .replace(/^\/|\/$/g, '') // Removes leading and trailing slashes
-            .replace(/^\^\/|\/\$$/g, '') // Removes unnecessary start (^) and end ($) anchors
-            .replace(/^\^|\$$/g, '') // Further cleans up anchors
-            .replace(/\$\/gi$/g, '')}[\/]?$/i`; // Ensures the pattern allows an optional trailing slash
+          if (isAlreadyRegex) {
+            // For regex patterns, remove language prefix first
+            redirect.pattern = redirect.pattern.replace(new RegExp(`^[^]?/${language}/`, 'gi'), '');
+
+            // Clean up the pattern without over-escaping
+            const cleanPattern = redirect.pattern
+              .replace(/^\^/, '') // Remove leading ^
+              .replace(/\$$/, '') // Remove trailing $
+              .replace(/^\/|\/$/g, ''); // Remove leading/trailing slashes
+
+            // Reconstruct the regex pattern properly
+            redirect.pattern = `/^\/${cleanPattern}[\/]?$/i`;
+          } else {
+            // For non-regex patterns, use the existing logic with escapeNonSpecialQuestionMarks
+            redirect.pattern = escapeNonSpecialQuestionMarks(
+              redirect.pattern.replace(new RegExp(`^[^]?/${language}/`, 'gi'), '')
+            );
+
+            redirect.pattern = `/^\/${redirect.pattern
+              .replace(/^\/|\/$/g, '') // Removes leading and trailing slashes
+              .replace(/^\^\/|\/\$$/g, '') // Removes unnecessary start (^) and end ($) anchors
+              .replace(/^\^|\$$/g, '') // Further cleans up anchors
+              .replace(/\$\/gi$/g, '')}[\/]?$/i`; // Ensures the pattern allows an optional trailing slash
+          }
 
           // Redirect pattern matches the full incoming URL with query string present
           matchedQueryString = [
