@@ -50,6 +50,9 @@ query ${usesPersonalize ? 'PersonalizeSitemapQuery' : 'DefaultSitemapQuery'}(
         }
         results {
           path: routePath
+          route {
+            displayName
+          }
           ${
             usesPersonalize
               ? `
@@ -120,6 +123,7 @@ export interface SiteRouteQueryResult<T> {
 export type RouteListQueryResult = {
   path: string;
   route?: {
+    displayName: string;
     personalization?: {
       variantIds: string[];
     };
@@ -258,14 +262,27 @@ export abstract class BaseGraphQLSitemapService {
     sitePaths.forEach((item) => {
       if (!item) return;
 
-      aggregatedPaths.push(formatPath(item.path));
+      // ItemName-based path
+      const itemNamePath = item.path;
+      aggregatedPaths.push(formatPath(itemNamePath));
 
+      // DisplayName-based path
+      const displayName = item.route?.displayName;
+      if (typeof displayName === 'string' && displayName.trim().length > 0) {
+        const encodedDisplayName = encodeURIComponent(displayName);
+        const pathSegments = itemNamePath.replace(/^\/|\/$/g, '').split('/');
+        pathSegments[pathSegments.length - 1] = encodedDisplayName;
+
+        aggregatedPaths.push(formatStaticPath(pathSegments, language));
+      }
+
+      // Personalization variants
       const variantIds = item.route?.personalization?.variantIds?.filter(
-        (variantId) => !variantId.includes('_') // exclude component A/B test variants
+        (variantId) => !variantId.includes('_')
       );
       if (variantIds?.length) {
         aggregatedPaths.push(
-          ...variantIds.map((varId) => formatPath(getPersonalizedRewrite(item.path, [varId])))
+          ...variantIds.map((varId) => formatPath(getPersonalizedRewrite(itemNamePath, [varId])))
         );
       }
     });
