@@ -92,7 +92,7 @@ describe('GraphQLSitemapService', () => {
       );
   };
 
-  describe.only('Fetch sitemap in SSG mode', () => {
+  describe('Fetch sitemap in SSG mode', () => {
     it('should work when 1 language is requested', async () => {
       mockPathsRequest();
 
@@ -364,7 +364,7 @@ describe('GraphQLSitemapService', () => {
         return expect(nock.isDone()).to.be.true;
       });
 
-      it.only('should return both itemName and encoded displayName paths for routes with displayName', async () => {
+      it('should return both itemName and encoded displayName paths for routes with displayName', async () => {
         const lang = 'en';
 
         nock(endpoint)
@@ -435,7 +435,7 @@ describe('GraphQLSitemapService', () => {
         return expect(nock.isDone()).to.be.true;
       });
 
-      it.only('should return encoded displayName paths when special characters are used', async () => {
+      it('should return encoded displayName paths when special characters are used', async () => {
         const lang = 'en';
 
         // Å → %C3%85, ü → %C3%BC, ç → %C3%A7

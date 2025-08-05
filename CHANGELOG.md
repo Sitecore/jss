@@ -15,6 +15,11 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-nextjs]` Ensure Redirect Middleware handles case-insensitive path matching to prevent missed redirects due to casing differences ([#2114](https://github.com/Sitecore/jss/pull/2114))
 
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-nextjs]` Introduced support for using `displayName` values in route generation for statically built pages in JSS Next.js apps. This enables localized and user-friendly URLs when SXA link provider is configured to use display names.  Ensured `displayName` paths are UTF-8 encoded. ([#2120](https://github.com/Sitecore/jss/pull/2120))
+
+
 ## 22.8.0
 
 ### 🎉 New Features & Improvements

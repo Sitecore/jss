@@ -278,7 +278,7 @@ export abstract class BaseGraphQLSitemapService {
 
       // Personalization variants
       const variantIds = item.route?.personalization?.variantIds?.filter(
-        (variantId) => !variantId.includes('_')
+        (variantId) => !variantId.includes('_') // exclude component A/B test variants
       );
       if (variantIds?.length) {
         aggregatedPaths.push(
