@@ -208,43 +208,8 @@ export const escapeNonSpecialQuestionMarks = (input: string): string => {
   if (input.startsWith('^') || input.endsWith('$')) {
     return input;
   }
-
-  const regexPattern = /(\\)?\?/g; // Match "?" that may or may not be preceded by a backslash
-  const negativeLookaheadPattern = /\(\?!$/; // Detect the start of a Negative Lookahead pattern
-  const specialRegexSymbols = /[.*+)\[\]|\(]$/; // Check for special regex symbols before "?"
-
-  let result = '';
-  let lastIndex = 0;
-
-  let match: RegExpExecArray | null;
-  while ((match = regexPattern.exec(input)) !== null) {
-    const index = match.index; // Position of the "?" in the string
-    const before = input.slice(lastIndex, index); // Context before the "?"
-
-    // Check if "?" is preceded by a backslash (escaped)
-    const isEscaped = match[1] !== undefined; // match[1] is the backslash group
-
-    // Check if "?" is part of a Negative Lookahead
-    const isNegativeLookahead = negativeLookaheadPattern.test(before.slice(-3));
-
-    // Check if "?" follows a special regex symbol
-    const isSpecialRegexSymbol = specialRegexSymbols.test(before.slice(-1));
-
-    if (isEscaped || isNegativeLookahead || isSpecialRegexSymbol) {
-      // If it's escaped, part of a Negative Lookahead, or follows a special regex symbol, keep the "?" as is
-      result += input.slice(lastIndex, index + 1);
-    } else {
-      // Otherwise, escape the "?"
-      result += input.slice(lastIndex, index) + '\\?';
-    }
-
-    lastIndex = index + 1; // Move to the next part of the string
-  }
-
-  // Append the remaining part of the string
-  result += input.slice(lastIndex);
-
-  return result;
+  // For non-regex patterns, escape all unescaped "?" characters
+  return input.replace(/(?<!\\)\?/g, '\\?');
 };
 
 /**
