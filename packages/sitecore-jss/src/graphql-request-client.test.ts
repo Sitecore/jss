@@ -8,6 +8,7 @@ import { GraphQLRequestClient, DefaultRetryStrategy } from './graphql-request-cl
 import { ClientError } from 'graphql-request';
 import debugApi from 'debug';
 import debug from './debug';
+import { GraphQLError } from 'graphql';
 
 use(spies);
 
@@ -602,7 +603,7 @@ describe('GraphQLRequestClient', () => {
       const mockClientError = new ClientError(
         {
           data: undefined,
-          errors: [{ message: 'GaphqlError' }],
+          errors: [new GraphQLError('GaphGaphqlError')],
           extensions: undefined,
           status: 429,
         },
