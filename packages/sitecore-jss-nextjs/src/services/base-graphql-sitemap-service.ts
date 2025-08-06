@@ -256,18 +256,32 @@ export abstract class BaseGraphQLSitemapService {
   ): Promise<StaticPath[]> {
     const aggregatedPaths: StaticPath[] = [];
 
-    // Step 1: Create a map of item segment -> displayName
+    // Build a map of the last segment of each path to its encoded display name.
+    // This is used later to substitute the final segment with a display name if available.
     const displayNameMap = new Map<string, string>();
     for (const item of sitePaths) {
+      if (!item || typeof item.path !== 'string') continue;
+
       const segments = item.path.replace(/^\/|\/$/g, '').split('/');
       const lastSegment = segments[segments.length - 1];
       const displayName = item.route?.displayName;
+
       if (displayName) {
         displayNameMap.set(lastSegment, encodeURIComponent(displayName));
       }
     }
 
-    // Step 2: Generate combinations recursively
+    /**
+     * STEP 2: Recursively generate all path combinations using either:
+     * - The item name segment (default)
+     * - Or the display name (if available in the map)
+     *
+     * For example: if path is ['about', 'team'] and displayName for 'team' is 'Team-Page',
+     * it will generate:
+     * - ['about', 'team']
+     * - ['about', 'Team-Page']
+     * @param segments
+     */
     const generateCombinations = (segments: string[]): string[][] => {
       const results: string[][] = [];
 
@@ -280,12 +294,12 @@ export abstract class BaseGraphQLSitemapService {
         const segment = segments[index];
         const display = displayNameMap.get(segment);
 
-        // Add itemName version
+        // Use item name segment
         current.push(segment);
         helper(index + 1, current);
         current.pop();
 
-        // Add displayName version (if available and different)
+        // Use display name segment (if different)
         if (display && display !== segment) {
           current.push(display);
           helper(index + 1, current);
@@ -297,18 +311,26 @@ export abstract class BaseGraphQLSitemapService {
       return results;
     };
 
+    /**
+     * Process each route in the result set to:
+     * - Add itemName-based and displayName-based paths
+     * - Add personalized variants (if applicable) for each of those paths
+     */
     for (const item of sitePaths) {
-      if (!item) continue;
+      if (!item || typeof item.path !== 'string') continue;
 
       const itemPath = item.path.replace(/^\/|\/$/g, '');
       const segments = itemPath ? itemPath.split('/') : [];
 
+      // Generate all display/item name path combinations
       const allCombinations = generateCombinations(segments);
+
+      // Add plain paths to the aggregated paths list
       for (const combo of allCombinations) {
         aggregatedPaths.push(formatStaticPath(combo, language));
       }
 
-      // Step 3: Handle personalization
+      // Check for personalization variants
       const variantIds = item.route?.personalization?.variantIds?.filter(
         (variantId) => !variantId.includes('_')
       );
@@ -325,41 +347,6 @@ export abstract class BaseGraphQLSitemapService {
     }
 
     return aggregatedPaths;
-  }
-
-  protected async fetchLanguageSitePaths(
-    language: string,
-    siteName: string
-  ): Promise<RouteListQueryResult[]> {
-    const args: SiteRouteQueryVariables = {
-      siteName: siteName,
-      language: language,
-      pageSize: this.options.pageSize,
-      includedPaths: this.options.includedPaths,
-      excludedPaths: this.options.excludedPaths,
-    };
-    let results: RouteListQueryResult[] = [];
-    let hasNext = true;
-    let after = '';
-
-    while (hasNext) {
-      const fetchResponse = await this.graphQLClient.request<
-        SiteRouteQueryResult<RouteListQueryResult>
-      >(this.query, {
-        ...args,
-        after,
-      });
-
-      if (!fetchResponse?.site?.siteInfo) {
-        throw new RangeError(getSiteEmptyError(siteName));
-      } else {
-        results = results.concat(fetchResponse.site.siteInfo.routes?.results);
-        hasNext = fetchResponse.site.siteInfo.routes?.pageInfo.hasNext;
-        after = fetchResponse.site.siteInfo.routes?.pageInfo.endCursor;
-      }
-    }
-
-    return results;
   }
 
   /**
