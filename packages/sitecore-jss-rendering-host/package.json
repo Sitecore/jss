@@ -28,7 +28,7 @@
   "dependencies": {
     "compression": "^1.7.4",
     "del": "^6.1.1",
-    "express": "^4.18.2",
+    "express": "^5.1.0",
     "import-fresh": "^3.3.0",
     "ngrok": "^4.3.3",
     "opn": "^6.0.0",

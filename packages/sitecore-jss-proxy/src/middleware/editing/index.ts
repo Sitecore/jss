@@ -40,7 +40,7 @@ export const editingMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
-): Promise<unknown> => {
+): Promise<void> => {
   const providedSecret = req.query[QUERY_PARAM_EDITING_SECRET];
   const secret = process.env.JSS_EDITING_SECRET;
 
@@ -55,31 +55,33 @@ export const editingMiddleware = async (
     debug.editing(
       'invalid origin host - set allowed origins in JSS_ALLOWED_ORIGINS environment variable'
     );
-    return res.status(401).send(`Requests from origin ${req.headers?.origin} are not allowed`);
+    res.status(401).send(`Requests from origin ${req.headers?.origin} are not allowed`);
+    return;
   }
 
   if (!secret) {
     debug.editing('missing editing secret - set JSS_EDITING_SECRET environment variable');
 
-    return res
-      .status(401)
-      .send('Missing editing secret - set JSS_EDITING_SECRET environment variable');
+    res.status(401).send('Missing editing secret - set JSS_EDITING_SECRET environment variable');
+    return;
   }
 
   if (secret !== providedSecret) {
     debug.editing('invalid editing secret - sent "%s" expected "%s"', providedSecret, secret);
 
-    return res.status(401).send('Missing or invalid secret');
+    res.status(401).send('Missing or invalid secret');
+    return;
   }
 
   if (req.method === 'OPTIONS') {
     debug.editing('preflight request');
 
     // CORS headers are set by enforceCors
-    return res.status(204).send();
+    res.status(204).send();
+    return;
   }
 
-  return next();
+  next();
 };
 
 /**
@@ -90,7 +92,7 @@ export const editingMiddleware = async (
 const editingNotFoundMiddleware = (req: Request, res: Response) => {
   debug.editing('invalid method or path - sent %s %s', req.method, req.originalUrl);
 
-  return res.status(405).send(`Invalid request method or path ${req.method} ${req.originalUrl}`);
+  res.status(405).send(`Invalid request method or path ${req.method} ${req.originalUrl}`);
 };
 
 /**

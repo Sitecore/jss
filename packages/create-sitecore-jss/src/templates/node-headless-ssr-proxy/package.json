@@ -23,13 +23,13 @@
     "@sitecore-jss/sitecore-jss-proxy": "<%- version %>",
     "agentkeepalive": "^4.2.1",
     "compression": "~1.7.4",
-    "express": "~4.19.2",
+    "express": "~5.1.0",
     "memory-cache": "^0.2.0",
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
     "@types/compression": "^1.7.2",
-    "@types/express": "^4.17.17",
+    "@types/express": "^5.0.3",
     "@types/memory-cache": "^0.2.2",
     "@types/node": "^22.9.0",
     "ts-node": "^10.9.1",
