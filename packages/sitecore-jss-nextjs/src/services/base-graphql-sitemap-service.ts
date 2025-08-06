@@ -254,38 +254,75 @@ export abstract class BaseGraphQLSitemapService {
     formatStaticPath: (path: string[], language: string) => StaticPath,
     language: string
   ): Promise<StaticPath[]> {
-    const formatPath = (path: string) =>
-      formatStaticPath(path.replace(/^\/|\/$/g, '').split('/'), language);
-
     const aggregatedPaths: StaticPath[] = [];
 
-    sitePaths.forEach((item) => {
-      if (!item) return;
-
-      // ItemName-based path
-      const itemNamePath = item.path;
-      aggregatedPaths.push(formatPath(itemNamePath));
-
-      // DisplayName-based path
+    // Step 1: Create a map of item segment -> displayName
+    const displayNameMap = new Map<string, string>();
+    for (const item of sitePaths) {
+      const segments = item.path.replace(/^\/|\/$/g, '').split('/');
+      const lastSegment = segments[segments.length - 1];
       const displayName = item.route?.displayName;
-      if (typeof displayName === 'string' && displayName.trim().length > 0) {
-        const encodedDisplayName = encodeURIComponent(displayName);
-        const pathSegments = itemNamePath.replace(/^\/|\/$/g, '').split('/');
-        pathSegments[pathSegments.length - 1] = encodedDisplayName;
+      if (displayName) {
+        displayNameMap.set(lastSegment, encodeURIComponent(displayName));
+      }
+    }
 
-        aggregatedPaths.push(formatStaticPath(pathSegments, language));
+    // Step 2: Generate combinations recursively
+    const generateCombinations = (segments: string[]): string[][] => {
+      const results: string[][] = [];
+
+      const helper = (index: number, current: string[]) => {
+        if (index === segments.length) {
+          results.push([...current]);
+          return;
+        }
+
+        const segment = segments[index];
+        const display = displayNameMap.get(segment);
+
+        // Add itemName version
+        current.push(segment);
+        helper(index + 1, current);
+        current.pop();
+
+        // Add displayName version (if available and different)
+        if (display && display !== segment) {
+          current.push(display);
+          helper(index + 1, current);
+          current.pop();
+        }
+      };
+
+      helper(0, []);
+      return results;
+    };
+
+    for (const item of sitePaths) {
+      if (!item) continue;
+
+      const itemPath = item.path.replace(/^\/|\/$/g, '');
+      const segments = itemPath ? itemPath.split('/') : [];
+
+      const allCombinations = generateCombinations(segments);
+      for (const combo of allCombinations) {
+        aggregatedPaths.push(formatStaticPath(combo, language));
       }
 
-      // Personalization variants
+      // Step 3: Handle personalization
       const variantIds = item.route?.personalization?.variantIds?.filter(
-        (variantId) => !variantId.includes('_') // exclude component A/B test variants
+        (variantId) => !variantId.includes('_')
       );
+
       if (variantIds?.length) {
-        aggregatedPaths.push(
-          ...variantIds.map((varId) => formatPath(getPersonalizedRewrite(itemNamePath, [varId])))
-        );
+        for (const variantId of variantIds) {
+          for (const combo of allCombinations) {
+            const rewritePath = getPersonalizedRewrite('/' + combo.join('/'), [variantId]);
+            const variantSegments = rewritePath.replace(/^\/|\/$/g, '').split('/');
+            aggregatedPaths.push(formatStaticPath(variantSegments, language));
+          }
+        }
       }
-    });
+    }
 
     return aggregatedPaths;
   }
