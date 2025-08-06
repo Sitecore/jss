@@ -353,31 +353,25 @@ describe('utils', () => {
 
     it('should handle redirect regex patterns with optional trailing slash', () => {
       const input = '^/meinezurich/?$';
-      const expected = '^/meinezurich/?$'; // Returned unchanged since it's a regex pattern
-      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
-    });
-
-    it('should handle redirect regex patterns with required trailing slash', () => {
-      const input = '^/meinezurichtest/$';
-      const expected = '^/meinezurichtest/$'; // Returned unchanged since it's a regex pattern
+      const expected = '^/meinezurich/?$';
       expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
     });
 
     it('should handle regex patterns with quantifiers', () => {
       const input = '^/path(abc)?/def*?/ghi+?$';
-      const expected = '^/path(abc)?/def*?/ghi+?$'; // Returned unchanged since it's a regex pattern
+      const expected = '^/path(abc)?/def*?/ghi+?$';
       expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
     });
 
     it('should handle regex patterns with negative lookaheads', () => {
       const input = '^/path(?!exclude)/?$';
-      const expected = '^/path(?!exclude)/?$'; // Returned unchanged since it's a regex pattern
+      const expected = '^/path(?!exclude)/?$';
       expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
     });
 
     it('should handle mixed literal and special question marks in redirect patterns', () => {
       const input = '^/path?/sub(?!exclude)?/end?$';
-      const expected = '^/path?/sub(?!exclude)?/end?$'; // Returned unchanged since it's a regex pattern
+      const expected = '^/path?/sub(?!exclude)?/end?$';
       expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
     });
   });
