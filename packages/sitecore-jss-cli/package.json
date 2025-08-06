@@ -34,12 +34,12 @@
   "dependencies": {
     "@sitecore-jss/sitecore-jss-dev-tools": "22.9.0-canary.2",
     "chalk": "^4.1.2",
-    "cross-spawn": "^7.0.3",
-    "dotenv": "^16.0.3",
-    "dotenv-expand": "^10.0.0",
+    "cross-spawn": "^7.0.6",
+    "dotenv": "^17.0.2",
+    "dotenv-expand": "^12.0.2",
     "readline-sync": "^1.4.10",
-    "resolve": "^1.22.1",
-    "tmp": "^0.2.1",
+    "resolve": "^1.22.10",
+    "tmp": "^0.2.4",
     "yargs": "^17.6.2"
   },
   "devDependencies": {
@@ -54,13 +54,13 @@
     "@types/yargs": "^17.0.20",
     "chai": "^4.3.7",
     "cross-env": "^7.0.3",
-    "del-cli": "^5.0.0",
+    "del-cli": "^6.0.0",
     "eslint": "^8.56.0",
-    "mocha": "^10.2.0",
-    "nyc": "^15.1.0",
-    "sinon": "^15.0.1",
-    "ts-node": "^10.9.1",
-    "typescript": "~5.6.3"
+    "mocha": "^11.7.1",
+    "nyc": "^17.1.0",
+    "sinon": "^21.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.9.2"
   },
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
   "files": [
