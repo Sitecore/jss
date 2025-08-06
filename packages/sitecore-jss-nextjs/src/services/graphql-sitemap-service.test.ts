@@ -49,7 +49,7 @@ it('should return null if no app root found', async () => {
   });
 });
 */
-describe.only('GraphQLSitemapService', () => {
+describe('GraphQLSitemapService', () => {
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';
   const siteName = 'site-name';
@@ -333,7 +333,7 @@ describe.only('GraphQLSitemapService', () => {
         return expect(nock.isDone()).to.be.true;
       });
 
-      it.only('should return personalized displayName paths for a single site', async () => {
+      it('should return personalized displayName paths for a single site', async () => {
         const lang = 'ua';
 
         nock(endpoint)
@@ -380,8 +380,6 @@ describe.only('GraphQLSitemapService', () => {
         });
 
         const sitemap = await service.fetchSSGSitemap([lang]);
-
-        console.log(JSON.stringify(sitemap, null, 2));
 
         expect(sitemap).to.have.deep.members([
           {
@@ -562,8 +560,6 @@ describe.only('GraphQLSitemapService', () => {
         });
 
         const sitemap = await service.fetchSSGSitemap([lang]);
-
-        console.log(JSON.stringify(sitemap, null, 2));
 
         expect(sitemap).to.deep.equal([
           {

@@ -18,7 +18,7 @@ class TestService extends MultisiteGraphQLSitemapService {
   }
 }
 
-describe.only('MultisiteGraphQLSitemapService', () => {
+describe('MultisiteGraphQLSitemapService', () => {
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';
   const sites = ['site-name'];
