@@ -86,8 +86,8 @@ describe('GraphQLRequestClient', () => {
       .reply(200, function() {
         const receivedHeaders = this.req.headers;
 
-        expect(receivedHeaders['sc_apikey']).to.deep.equal([apiKey]);
-        expect(receivedHeaders['custom-header']).to.deep.equal([customHeader]);
+        expect(receivedHeaders['sc_apikey']).to.deep.equal(apiKey);
+        expect(receivedHeaders['custom-header']).to.deep.equal(customHeader);
 
         return {
           data: {
@@ -454,11 +454,11 @@ describe('GraphQLRequestClient', () => {
       const retryableErrorCodeThrowError = async (errorCode: string) => {
         nock('http://jssnextweb')
           .post('/graphql')
-          .replyWithError({ code: errorCode })
+          .replyWithError(Object.assign(new Error(''), { code: errorCode }))
           .post('/graphql')
-          .replyWithError({ code: errorCode })
+          .replyWithError(Object.assign(new Error(''), { code: errorCode }))
           .post('/graphql')
-          .replyWithError({ code: errorCode });
+          .replyWithError(Object.assign(new Error(''), { code: errorCode }));
 
         const graphQLClient = new GraphQLRequestClient(endpoint, {
           retries: 2,
@@ -486,9 +486,9 @@ describe('GraphQLRequestClient', () => {
       const retryableErrorCodeResolve = async (errorCode: string) => {
         nock('http://jssnextweb')
           .post('/graphql')
-          .replyWithError({ code: errorCode })
+          .replyWithError(Object.assign(new Error(''), { code: errorCode }))
           .post('/graphql')
-          .replyWithError({ code: errorCode })
+          .replyWithError(Object.assign(new Error(''), { code: errorCode }))
           .post('/graphql')
           .reply(200, {
             data: {
