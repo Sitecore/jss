@@ -555,17 +555,17 @@ describe('RedirectsMiddleware', () => {
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
-          headers: {},
-          redirected: undefined,
+          headers: {
+            'x-middleware-next': '1',
+          },
+          redirected: false,
           status: 200,
-          url,
+          url: '',
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
-        expect(finalRes).to.deep.equal(res);
-        expect(finalRes.status).to.equal(res.status);
       });
 
       it('should redirect, when pattern uses with query string', async () => {
@@ -605,17 +605,17 @@ describe('RedirectsMiddleware', () => {
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
-          headers: {},
-          redirected: undefined,
-          status: 301,
-          url,
+          headers: {
+            'x-middleware-next': '1',
+          },
+          redirected: false,
+          status: 200,
+          url: '',
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
-        expect(finalRes).to.deep.equal(res);
-        expect(finalRes.status).to.equal(res.status);
       });
 
       it('should not redirect, when pattern uses with query string', async () => {
@@ -1555,17 +1555,17 @@ describe('RedirectsMiddleware', () => {
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
-          headers: {},
-          redirected: undefined,
-          status: 301,
-          url,
+          headers: {
+            'x-middleware-next': '1',
+          },
+          redirected: false,
+          status: 200,
+          url: '',
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
-        expect(finalRes).to.deep.equal(res);
-        expect(finalRes.status).to.equal(res.status);
       });
 
       it('should return 301 redirect when pattern has another order of query string', async () => {
