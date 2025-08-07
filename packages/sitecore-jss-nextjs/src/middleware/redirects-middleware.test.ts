@@ -546,7 +546,7 @@ describe('RedirectsMiddleware', () => {
 
         const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
           {
-            pattern: 'not-found?abc=def',
+            pattern: 'not-found\\?abc=def',
             target: '/found',
             redirectType: REDIRECT_TYPE_SERVER_TRANSFER,
             isQueryStringPreserved: true,
@@ -1437,7 +1437,7 @@ describe('RedirectsMiddleware', () => {
 
         const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
           {
-            pattern: '/not-found?b=1',
+            pattern: '/not-found\\?b=1',
             target: '/found?a=1',
             redirectType: REDIRECT_TYPE_301,
             isQueryStringPreserved: true,
@@ -1545,7 +1545,7 @@ describe('RedirectsMiddleware', () => {
 
         const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
           {
-            pattern: '/[/]?not-found?a=1&w=1/',
+            pattern: '/[\\/]\\?not-found\\?a=1&w=1/',
             target: '/found',
             redirectType: REDIRECT_TYPE_301,
             isQueryStringPreserved: true,
@@ -1596,7 +1596,7 @@ describe('RedirectsMiddleware', () => {
 
         const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
           {
-            pattern: '/not-found?w=1&a=1/',
+            pattern: '/not-found\\?w=1&a=1/',
             target: '/found',
             redirectType: REDIRECT_TYPE_301,
             isQueryStringPreserved: true,
@@ -1754,7 +1754,7 @@ describe('RedirectsMiddleware', () => {
 
         const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
           {
-            pattern: '/not-found?abc=edf',
+            pattern: '/not-found\\?abc=edf',
             target: '/found',
             redirectType: REDIRECT_TYPE_302,
             isQueryStringPreserved: false,
