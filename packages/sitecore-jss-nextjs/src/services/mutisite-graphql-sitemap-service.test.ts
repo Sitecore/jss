@@ -31,7 +31,9 @@ describe('MultisiteGraphQLSitemapService', () => {
     nock.cleanAll();
   });
 
-  const mockPathsRequest = (results?: { url: { path: string } }[]) => {
+  const mockPathsRequest = (
+    results?: { path: string; route?: { displayName?: string | null } }[]
+  ) => {
     nock(endpoint)
       .post('/', /DefaultSitemapQuery/gi)
       .reply(
@@ -47,7 +49,10 @@ describe('MultisiteGraphQLSitemapService', () => {
                       pageInfo: {
                         hasNext: false,
                       },
-                      results,
+                      results: results.map((item) => ({
+                        path: item.path,
+                        route: item.route || { displayName: null },
+                      })),
                     },
                   },
                 },
@@ -345,6 +350,171 @@ describe('MultisiteGraphQLSitemapService', () => {
         return expect(nock.isDone()).to.be.true;
       });
 
+      it('should return both itemName and encoded displayName paths for routes with displayName', async () => {
+        const site = 'test-site';
+        const lang = 'en';
+
+        nock(endpoint)
+          .post('/', (body) => body.variables.siteName === site)
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 3,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/Test',
+                        route: { displayName: 'New-test' },
+                      },
+                      {
+                        path: '/About',
+                        route: { displayName: 'New-about' },
+                      },
+                      {
+                        path: '/',
+                        route: { displayName: 'Home' },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+          });
+
+        const service = new MultisiteGraphQLSitemapService({
+          clientFactory,
+          sites: [site],
+          enableDisplayNameRouting: true,
+        });
+
+        const sitemap = await service.fetchSSGSitemap([lang]);
+
+        expect(sitemap).to.have.deep.members([
+          {
+            params: { path: ['_site_test-site', 'Test'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_test-site', 'New-test'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_test-site', 'About'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_test-site', 'New-about'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_test-site'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['Home', 'Test'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['Home', 'New-test'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['Home', 'About'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['Home', 'New-about'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['Home'] },
+            locale: lang,
+          },
+        ]);
+
+        return expect(nock.isDone()).to.be.true;
+      });
+
+      it('should return encoded displayName paths when special characters are used', async () => {
+        const site = 'test-site';
+        const lang = 'en';
+
+        // Å → %C3%85, ü → %C3%BC, ç → %C3%A7
+        const results = [
+          {
+            path: '/about',
+            route: { displayName: 'Åbout' },
+          },
+          {
+            path: '/team',
+            route: { displayName: 'Tëâm' },
+          },
+          {
+            path: '/',
+            route: { displayName: 'Hôme' },
+          },
+        ];
+
+        mockPathsRequest(results);
+
+        const service = new MultisiteGraphQLSitemapService({
+          clientFactory,
+          sites: [site],
+          enableDisplayNameRouting: true,
+        });
+
+        const sitemap = await service.fetchSSGSitemap([lang]);
+
+        expect(sitemap).to.deep.equal([
+          {
+            params: { path: ['_site_test-site', 'about'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_test-site', '%C3%85bout'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['H%C3%B4me', 'about'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['H%C3%B4me', '%C3%85bout'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_test-site', 'team'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_test-site', 'T%C3%AB%C3%A2m'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['H%C3%B4me', 'team'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['H%C3%B4me', 'T%C3%AB%C3%A2m'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_test-site'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['H%C3%B4me'] },
+            locale: lang,
+          },
+        ]);
+
+        return expect(nock.isDone()).to.be.true;
+      });
+
       it('should return aggregated paths for multiple sites and personalized sites', async () => {
         const multipleSites = ['site1', 'site2'];
         const lang = 'ua';
@@ -456,6 +626,102 @@ describe('MultisiteGraphQLSitemapService', () => {
             locale: lang,
           },
         ]);
+        return expect(nock.isDone()).to.be.true;
+      });
+
+      it('should return personalized displayName paths correctly', async () => {
+        const site = 'site1';
+        const lang = 'en';
+
+        nock(endpoint)
+          .post('/', /PersonalizeSitemapQuery/gi)
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 2,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/x1',
+                        route: {
+                          displayName: 'X-One',
+                          personalization: {
+                            variantIds: ['green'],
+                          },
+                        },
+                      },
+                      {
+                        path: '/y1/y2',
+                        route: {
+                          displayName: 'Y-Two',
+                          personalization: {
+                            variantIds: ['red', 'blue'],
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+          });
+
+        const service = new MultisiteGraphQLSitemapService({
+          clientFactory,
+          sites: [site],
+          includePersonalizedRoutes: true,
+          enableDisplayNameRouting: true,
+        });
+
+        const sitemap = await service.fetchSSGSitemap([lang]);
+
+        expect(sitemap).to.deep.equal([
+          {
+            params: { path: ['_site_site1', 'x1'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_site1', 'X-One'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_variantId_green', '_site_site1', 'x1'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_variantId_green', '_site_site1', 'X-One'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_site1', 'y1', 'y2'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_site1', 'y1', 'Y-Two'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_variantId_red', '_site_site1', 'y1', 'y2'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_variantId_red', '_site_site1', 'y1', 'Y-Two'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_variantId_blue', '_site_site1', 'y1', 'y2'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_variantId_blue', '_site_site1', 'y1', 'Y-Two'] },
+            locale: lang,
+          },
+        ]);
+
         return expect(nock.isDone()).to.be.true;
       });
 

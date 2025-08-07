@@ -35,7 +35,7 @@ true if executing within a Pages Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:96](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss/src/editing/utils.ts#L96)
+[packages/sitecore-jss/src/editing/utils.ts:96](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss/src/editing/utils.ts#L96)
 
 ***
 
@@ -49,4 +49,4 @@ true if executing within a Pages Editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/editing/utils.ts:105](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss/src/editing/utils.ts#L105)
+[packages/sitecore-jss/src/editing/utils.ts:105](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss/src/editing/utils.ts#L105)

@@ -62,7 +62,9 @@ describe('GraphQLSitemapService', () => {
     nock.cleanAll();
   });
 
-  const mockPathsRequest = (results?: { url: { path: string } }[]) => {
+  const mockPathsRequest = (
+    results?: { path: string; route?: { displayName?: string | null } }[]
+  ) => {
     nock(endpoint)
       .post('/', /DefaultSitemapQuery/gi)
       .reply(
@@ -78,7 +80,10 @@ describe('GraphQLSitemapService', () => {
                       pageInfo: {
                         hasNext: false,
                       },
-                      results,
+                      results: results.map((item) => ({
+                        path: item.path,
+                        route: item.route || { displayName: null },
+                      })),
                     },
                   },
                 },
@@ -290,7 +295,7 @@ describe('GraphQLSitemapService', () => {
         expect(sitemap).to.deep.equal([
           {
             params: {
-              path: [''],
+              path: [],
             },
             locale: lang,
           },
@@ -328,6 +333,109 @@ describe('GraphQLSitemapService', () => {
         return expect(nock.isDone()).to.be.true;
       });
 
+      it('should return personalized displayName paths for a single site', async () => {
+        const lang = 'ua';
+
+        nock(endpoint)
+          .post('/', /PersonalizeSitemapQuery/gi)
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 2,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/',
+                        route: {
+                          displayName: 'Home',
+                          personalization: {
+                            variantIds: ['green'],
+                          },
+                        },
+                      },
+                      {
+                        path: '/y1/y2/y3/y4',
+                        route: {
+                          displayName: 'Y-Four',
+                          personalization: {
+                            variantIds: ['red', 'blue'],
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+          });
+
+        const service = new GraphQLSitemapService({
+          clientFactory,
+          siteName,
+          includePersonalizedRoutes: true,
+          enableDisplayNameRouting: true,
+        });
+
+        const sitemap = await service.fetchSSGSitemap([lang]);
+
+        expect(sitemap).to.have.deep.members([
+          {
+            params: {
+              path: [],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_variantId_green'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['y1', 'y2', 'y3', 'y4'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['y1', 'y2', 'y3', 'Y-Four'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_variantId_red', 'y1', 'y2', 'y3', 'y4'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_variantId_red', 'y1', 'y2', 'y3', 'Y-Four'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_variantId_blue', 'y1', 'y2', 'y3', 'y4'],
+            },
+            locale: lang,
+          },
+          {
+            params: {
+              path: ['_variantId_blue', 'y1', 'y2', 'y3', 'Y-Four'],
+            },
+            locale: lang,
+          },
+        ]);
+
+        return expect(nock.isDone()).to.be.true;
+      });
+
       it('should not return personalized paths when personalize data is requested and component a/b testing returned', async () => {
         const lang = 'ua';
 
@@ -345,7 +453,7 @@ describe('GraphQLSitemapService', () => {
         expect(sitemap).to.deep.equal([
           {
             params: {
-              path: [''],
+              path: [],
             },
             locale: lang,
           },
@@ -356,6 +464,129 @@ describe('GraphQLSitemapService', () => {
             locale: lang,
           },
         ]);
+        return expect(nock.isDone()).to.be.true;
+      });
+
+      it('should return both itemName and encoded displayName paths for routes with displayName', async () => {
+        const lang = 'en';
+
+        nock(endpoint)
+          .post('/')
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 3,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/Test',
+                        route: { displayName: 'New-test' },
+                      },
+                      {
+                        path: '/About',
+                        route: { displayName: 'New-about' },
+                      },
+                      {
+                        path: '/',
+                        route: { displayName: 'Home' },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+          });
+
+        const service = new GraphQLSitemapService({
+          clientFactory,
+          siteName,
+          enableDisplayNameRouting: true,
+        });
+
+        const sitemap = await service.fetchSSGSitemap([lang]);
+
+        expect(sitemap).to.deep.equal([
+          {
+            params: { path: ['Test'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['New-test'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['About'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['New-about'] },
+            locale: lang,
+          },
+          {
+            params: { path: [] },
+            locale: lang,
+          },
+        ]);
+
+        return expect(nock.isDone()).to.be.true;
+      });
+
+      it('should return encoded displayName paths when special characters are used', async () => {
+        const lang = 'en';
+
+        // Å → %C3%85, ü → %C3%BC, ç → %C3%A7
+        const results = [
+          {
+            path: '/about',
+            route: { displayName: 'Åbout' },
+          },
+          {
+            path: '/team',
+            route: { displayName: 'Tëâm' },
+          },
+          {
+            path: '/',
+            route: { displayName: 'Hôme' },
+          },
+        ];
+
+        mockPathsRequest(results);
+
+        const service = new GraphQLSitemapService({
+          clientFactory,
+          siteName,
+          enableDisplayNameRouting: true,
+        });
+
+        const sitemap = await service.fetchSSGSitemap([lang]);
+
+        expect(sitemap).to.deep.equal([
+          {
+            params: { path: ['about'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['%C3%85bout'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['team'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['T%C3%AB%C3%A2m'] },
+            locale: lang,
+          },
+          {
+            params: { path: [] },
+            locale: lang,
+          },
+        ]);
+
         return expect(nock.isDone()).to.be.true;
       });
 
@@ -397,7 +628,7 @@ describe('GraphQLSitemapService', () => {
         expect(sitemap).to.deep.equal([
           {
             params: {
-              path: [''],
+              path: [],
             },
             locale: 'en',
           },
@@ -514,7 +745,7 @@ describe('GraphQLSitemapService', () => {
   const expectedSinglesiteExportSitemap = [
     {
       params: {
-        path: [''],
+        path: [],
       },
     },
     {

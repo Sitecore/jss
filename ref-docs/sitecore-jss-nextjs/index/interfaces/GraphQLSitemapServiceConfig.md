@@ -31,7 +31,23 @@ This factory function is used to create and configure GraphQL clients for making
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:144](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L144)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:152](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L152)
+
+***
+
+### enableDisplayNameRouting?
+
+> `optional` **enableDisplayNameRouting**: `boolean`
+
+Gets a flag indicating whether display name routing is enabled.
+
+#### Inherited from
+
+`BaseGraphQLSitemapServiceConfig.enableDisplayNameRouting`
+
+#### Defined in
+
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:147](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L147)
 
 ***
 
@@ -47,7 +63,7 @@ Optional. Paths starting with these provided prefixes will be excluded from retu
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:88](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L88)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:91](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L91)
 
 ***
 
@@ -63,7 +79,7 @@ Optional. Only paths starting with these provided prefixes will be returned.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:84](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L84)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:87](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L87)
 
 ***
 
@@ -81,7 +97,7 @@ Turned off by default.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:139](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L139)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:143](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L143)
 
 ***
 
@@ -105,7 +121,7 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:96](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L96)
+[sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:99](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L99)
 
 ***
 
@@ -117,4 +133,4 @@ Name of the site to retrieve site paths for
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:25](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L25)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:25](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L25)

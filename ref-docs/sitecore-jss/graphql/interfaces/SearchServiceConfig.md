@@ -46,7 +46,7 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:61](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss/src/graphql/search-service.ts#L61)
+[packages/sitecore-jss/src/graphql/search-service.ts:61](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss/src/graphql/search-service.ts#L61)
 
 ***
 
@@ -62,7 +62,7 @@ Optional. The ID of the search root item. Fetch items that have this item as an 
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss/src/graphql/search-service.ts#L48)
+[packages/sitecore-jss/src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss/src/graphql/search-service.ts#L48)
 
 ***
 
@@ -75,7 +75,7 @@ in cases where one is not specified by the caller.
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:77](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss/src/graphql/search-service.ts#L77)
+[packages/sitecore-jss/src/graphql/search-service.ts:77](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss/src/graphql/search-service.ts#L77)
 
 ***
 
@@ -91,4 +91,4 @@ Optional. Sitecore template ID(s). Fetch items that inherit from this template(s
 
 #### Defined in
 
-[packages/sitecore-jss/src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss/src/graphql/search-service.ts#L53)
+[packages/sitecore-jss/src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss/src/graphql/search-service.ts#L53)

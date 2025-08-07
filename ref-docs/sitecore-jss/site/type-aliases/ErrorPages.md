@@ -38,4 +38,4 @@ Object model of Error Pages result
 
 ## Defined in
 
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:47](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L47)
+[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:47](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L47)

@@ -24,4 +24,4 @@ True if the mode is a Design Library mode, false otherwise.
 
 ## Defined in
 
-[packages/sitecore-jss/src/editing/design-library.ts:163](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss/src/editing/design-library.ts#L163)
+[packages/sitecore-jss/src/editing/design-library.ts:163](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss/src/editing/design-library.ts#L163)

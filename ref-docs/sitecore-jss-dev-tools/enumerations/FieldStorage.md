@@ -14,7 +14,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:99](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L99)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:99](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L99)
 
 ***
 
@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:100](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L100)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:100](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L100)
 
 ***
 
@@ -34,4 +34,4 @@
 
 #### Defined in
 
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:98](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L98)
+[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:98](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L98)

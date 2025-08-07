@@ -25,4 +25,4 @@ the rewrite path
 
 ## Defined in
 
-[packages/sitecore-jss/src/site/utils.ts:13](https://github.com/Sitecore/jss/blob/8d6c619a3806148bacaafa1d4c1f3a49455568d7/packages/sitecore-jss/src/site/utils.ts#L13)
+[packages/sitecore-jss/src/site/utils.ts:13](https://github.com/Sitecore/jss/blob/082b16026014ecf76df80c0539ec900b7788c3da/packages/sitecore-jss/src/site/utils.ts#L13)
