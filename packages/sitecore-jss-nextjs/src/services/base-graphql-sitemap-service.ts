@@ -262,7 +262,10 @@ export abstract class BaseGraphQLSitemapService {
   ): Promise<StaticPath[]> {
     const aggregatedPaths: StaticPath[] = [];
 
-    // Step 1: Build display name map (only if display name routing is enabled)
+    /**
+     * Build a map of the last segment of each path to its encoded display name.
+     * This is used later to substitute the final segment with a display name if available.
+     */
     const displayNameMap = new Map<string, string>();
     if (this._enableDisplayNameRouting) {
       for (const item of sitePaths) {
@@ -278,10 +281,20 @@ export abstract class BaseGraphQLSitemapService {
       }
     }
 
-    // Step 2: Combination generator (item name only or display name permutations)
+    /**
+     * Recursively generate all path combinations using either:
+     * - The item name segment (default)
+     * - Or the display name (if available in the map)
+     *
+     * For example: if path is ['about', 'team'] and displayName for 'team' is 'Team-Page',
+     * it will generate:
+     * - ['about', 'team']
+     * - ['about', 'Team-Page']
+     * @param {string[]} segments
+     */
     const generateCombinations = (segments: string[]): string[][] => {
       if (!this._enableDisplayNameRouting) {
-        return [segments]; // Only item name path
+        return [segments];
       }
 
       const results: string[][] = [];
@@ -312,21 +325,26 @@ export abstract class BaseGraphQLSitemapService {
       return results;
     };
 
-    // Step 3: Process each route
+    /**
+     * Process each route in the result set to:
+     * - Add itemName-based and displayName-based paths
+     * - Add personalized variants (if applicable) for each of those paths
+     */
     for (const item of sitePaths) {
       if (!item || typeof item.path !== 'string') continue;
 
       const itemPath = item.path.replace(/^\/|\/$/g, '');
       const segments = itemPath ? itemPath.split('/') : [];
 
+      // Generate all display/item name path combinations
       const allCombinations = generateCombinations(segments);
 
-      // 3a. Add non-personalized paths
+      // Add plain paths to the aggregated paths list
       for (const combo of allCombinations) {
         aggregatedPaths.push(formatStaticPath(combo, language));
       }
 
-      // 3b. Add personalized paths
+      // Check for personalization variants
       const variantIds = item.route?.personalization?.variantIds?.filter(
         (variantId) => !variantId.includes('_')
       );

@@ -350,6 +350,95 @@ describe('MultisiteGraphQLSitemapService', () => {
         return expect(nock.isDone()).to.be.true;
       });
 
+      it('should return both itemName and encoded displayName paths for routes with displayName', async () => {
+        const site = 'test-site';
+        const lang = 'en';
+
+        nock(endpoint)
+          .post('/', (body) => body.variables.siteName === site)
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 3,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/Test',
+                        route: { displayName: 'New-test' },
+                      },
+                      {
+                        path: '/About',
+                        route: { displayName: 'New-about' },
+                      },
+                      {
+                        path: '/',
+                        route: { displayName: 'Home' },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+          });
+
+        const service = new MultisiteGraphQLSitemapService({
+          clientFactory,
+          sites: [site],
+          enableDisplayNameRouting: true,
+        });
+
+        const sitemap = await service.fetchSSGSitemap([lang]);
+
+        expect(sitemap).to.have.deep.members([
+          {
+            params: { path: ['_site_test-site', 'Test'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_test-site', 'New-test'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_test-site', 'About'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_test-site', 'New-about'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['_site_test-site'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['Home', 'Test'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['Home', 'New-test'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['Home', 'About'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['Home', 'New-about'] },
+            locale: lang,
+          },
+          {
+            params: { path: ['Home'] },
+            locale: lang,
+          },
+        ]);
+
+        return expect(nock.isDone()).to.be.true;
+      });
+
       it('should return encoded displayName paths when special characters are used', async () => {
         const site = 'test-site';
         const lang = 'en';
