@@ -557,13 +557,15 @@ describe('RedirectsMiddleware', () => {
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {},
           redirected: undefined,
-          status: 301,
+          status: 200,
           url,
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
       });
 
       it('should redirect, when pattern uses with query string', async () => {
@@ -593,7 +595,7 @@ describe('RedirectsMiddleware', () => {
 
         const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
           {
-            pattern: 'not-found?abc=def',
+            pattern: 'not-found\\?abc=def',
             target: '/found',
             redirectType: REDIRECT_TYPE_301,
             isQueryStringPreserved: true,
@@ -634,7 +636,7 @@ describe('RedirectsMiddleware', () => {
 
         const { finalRes } = await runTestWithRedirect(
           {
-            pattern: 'not-found?abc=def',
+            pattern: 'not-found\\?abc=def',
             target: 'http://localhost:3000/found',
             redirectType: REDIRECT_TYPE_301,
             isQueryStringPreserved: true,
@@ -1543,7 +1545,7 @@ describe('RedirectsMiddleware', () => {
 
         const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
           {
-            pattern: '/[\\/]?not-found?a=1&w=1/',
+            pattern: '/[/]?not-found?a=1&w=1/',
             target: '/found',
             redirectType: REDIRECT_TYPE_301,
             isQueryStringPreserved: true,
