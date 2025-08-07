@@ -142,6 +142,10 @@ export interface BaseGraphQLSitemapServiceConfig
    */
   includePersonalizedRoutes?: boolean;
   /**
+   * Gets a flag indicating whether display name routing is enabled.
+   */
+  enableDisplayNameRouting?: boolean;
+  /**
    * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
    * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
    */
@@ -166,6 +170,7 @@ export type StaticPath = {
  */
 export abstract class BaseGraphQLSitemapService {
   private _graphQLClient: GraphQLClient;
+  private _enableDisplayNameRouting: boolean;
 
   /**
    * Creates an instance of graphQL sitemap service with the provided options
@@ -173,6 +178,7 @@ export abstract class BaseGraphQLSitemapService {
    */
   constructor(public options: BaseGraphQLSitemapServiceConfig) {
     this._graphQLClient = this.getGraphQLClient();
+    this._enableDisplayNameRouting = options.enableDisplayNameRouting ?? false;
   }
 
   /**
@@ -256,33 +262,28 @@ export abstract class BaseGraphQLSitemapService {
   ): Promise<StaticPath[]> {
     const aggregatedPaths: StaticPath[] = [];
 
-    // Build a map of the last segment of each path to its encoded display name.
-    // This is used later to substitute the final segment with a display name if available.
+    // Step 1: Build display name map (only if display name routing is enabled)
     const displayNameMap = new Map<string, string>();
-    for (const item of sitePaths) {
-      if (!item || typeof item.path !== 'string') continue;
+    if (this._enableDisplayNameRouting) {
+      for (const item of sitePaths) {
+        if (!item || typeof item.path !== 'string') continue;
 
-      const segments = item.path.replace(/^\/|\/$/g, '').split('/');
-      const lastSegment = segments[segments.length - 1];
-      const displayName = item.route?.displayName;
+        const segments = item.path.replace(/^\/|\/$/g, '').split('/');
+        const lastSegment = segments[segments.length - 1];
+        const displayName = item.route?.displayName;
 
-      if (displayName) {
-        displayNameMap.set(lastSegment, encodeURIComponent(displayName));
+        if (displayName) {
+          displayNameMap.set(lastSegment, encodeURIComponent(displayName));
+        }
       }
     }
 
-    /**
-     * STEP 2: Recursively generate all path combinations using either:
-     * - The item name segment (default)
-     * - Or the display name (if available in the map)
-     *
-     * For example: if path is ['about', 'team'] and displayName for 'team' is 'Team-Page',
-     * it will generate:
-     * - ['about', 'team']
-     * - ['about', 'Team-Page']
-     * @param segments
-     */
+    // Step 2: Combination generator (item name only or display name permutations)
     const generateCombinations = (segments: string[]): string[][] => {
+      if (!this._enableDisplayNameRouting) {
+        return [segments]; // Only item name path
+      }
+
       const results: string[][] = [];
 
       const helper = (index: number, current: string[]) => {
@@ -294,12 +295,12 @@ export abstract class BaseGraphQLSitemapService {
         const segment = segments[index];
         const display = displayNameMap.get(segment);
 
-        // Use item name segment
+        // Item name segment
         current.push(segment);
         helper(index + 1, current);
         current.pop();
 
-        // Use display name segment (if different)
+        // Display name segment (if available and different)
         if (display && display !== segment) {
           current.push(display);
           helper(index + 1, current);
@@ -311,26 +312,21 @@ export abstract class BaseGraphQLSitemapService {
       return results;
     };
 
-    /**
-     * Process each route in the result set to:
-     * - Add itemName-based and displayName-based paths
-     * - Add personalized variants (if applicable) for each of those paths
-     */
+    // Step 3: Process each route
     for (const item of sitePaths) {
       if (!item || typeof item.path !== 'string') continue;
 
       const itemPath = item.path.replace(/^\/|\/$/g, '');
       const segments = itemPath ? itemPath.split('/') : [];
 
-      // Generate all display/item name path combinations
       const allCombinations = generateCombinations(segments);
 
-      // Add plain paths to the aggregated paths list
+      // 3a. Add non-personalized paths
       for (const combo of allCombinations) {
         aggregatedPaths.push(formatStaticPath(combo, language));
       }
 
-      // Check for personalization variants
+      // 3b. Add personalized paths
       const variantIds = item.route?.personalization?.variantIds?.filter(
         (variantId) => !variantId.includes('_')
       );
@@ -347,6 +343,41 @@ export abstract class BaseGraphQLSitemapService {
     }
 
     return aggregatedPaths;
+  }
+
+  protected async fetchLanguageSitePaths(
+    language: string,
+    siteName: string
+  ): Promise<RouteListQueryResult[]> {
+    const args: SiteRouteQueryVariables = {
+      siteName: siteName,
+      language: language,
+      pageSize: this.options.pageSize,
+      includedPaths: this.options.includedPaths,
+      excludedPaths: this.options.excludedPaths,
+    };
+    let results: RouteListQueryResult[] = [];
+    let hasNext = true;
+    let after = '';
+
+    while (hasNext) {
+      const fetchResponse = await this.graphQLClient.request<
+        SiteRouteQueryResult<RouteListQueryResult>
+      >(this.query, {
+        ...args,
+        after,
+      });
+
+      if (!fetchResponse?.site?.siteInfo) {
+        throw new RangeError(getSiteEmptyError(siteName));
+      } else {
+        results = results.concat(fetchResponse.site.siteInfo.routes?.results);
+        hasNext = fetchResponse.site.siteInfo.routes?.pageInfo.hasNext;
+        after = fetchResponse.site.siteInfo.routes?.pageInfo.endCursor;
+      }
+    }
+
+    return results;
   }
 
   /**
