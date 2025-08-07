@@ -444,10 +444,12 @@ export class MetadataHandler {
       res.setHeader('Set-Cookie', modifiedCookies);
     }
 
+    const encodedRoute = encodeURI(query.route);
+
     const route =
       this.config.resolvePageUrl?.({
-        itemPath: query.route,
-      }) || query.route;
+        itemPath: encodedRoute,
+      }) || encodedRoute;
 
     debug.editing(
       'editing render middleware end in %dms: redirect %o',
