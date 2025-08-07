@@ -375,6 +375,7 @@ describe('MultisiteGraphQLSitemapService', () => {
         const service = new MultisiteGraphQLSitemapService({
           clientFactory,
           sites: [site],
+          enableDisplayNameRouting: true,
         });
 
         const sitemap = await service.fetchSSGSitemap([lang]);
@@ -584,6 +585,7 @@ describe('MultisiteGraphQLSitemapService', () => {
           clientFactory,
           sites: [site],
           includePersonalizedRoutes: true,
+          enableDisplayNameRouting: true,
         });
 
         const sitemap = await service.fetchSSGSitemap([lang]);

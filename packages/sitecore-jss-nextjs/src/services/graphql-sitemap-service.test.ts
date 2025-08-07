@@ -377,6 +377,7 @@ describe('GraphQLSitemapService', () => {
           clientFactory,
           siteName,
           includePersonalizedRoutes: true,
+          enableDisplayNameRouting: true,
         });
 
         const sitemap = await service.fetchSSGSitemap([lang]);
@@ -503,6 +504,7 @@ describe('GraphQLSitemapService', () => {
         const service = new GraphQLSitemapService({
           clientFactory,
           siteName,
+          enableDisplayNameRouting: true,
         });
 
         const sitemap = await service.fetchSSGSitemap([lang]);
@@ -557,6 +559,7 @@ describe('GraphQLSitemapService', () => {
         const service = new GraphQLSitemapService({
           clientFactory,
           siteName,
+          enableDisplayNameRouting: true,
         });
 
         const sitemap = await service.fetchSSGSitemap([lang]);
