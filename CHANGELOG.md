@@ -17,7 +17,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[sitecore-jss-nextjs]` Introduced support for using `displayName` values in route generation for statically built pages in JSS Next.js apps. This enables localized and user-friendly URLs when SXA link provider is configured to use display names.  Ensured `displayName` paths are UTF-8 encoded. This feature can be enabled by setting the `enableDisplayNameRouting` flag to true. By default, it is set to false. ([#2120](https://github.com/Sitecore/jss/pull/2120))
+* `[sitecore-jss-nextjs]` Introduced support for using `displayName` values in route generation for statically built pages in JSS Next.js apps. This enables localized and user-friendly URLs when SXA link provider is configured to use display names.  Ensured `displayName` paths are UTF-8 encoded. This feature can be enabled by setting the `enableDisplayNameRouting` flag to true. By default, it is set to false. ([#2120](https://github.com/Sitecore/jss/pull/2120))([#2121](https://github.com/Sitecore/jss/pull/2121))
 
 ## 22.8.0
 
