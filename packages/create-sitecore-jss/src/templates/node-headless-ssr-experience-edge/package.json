@@ -22,13 +22,13 @@
     "@sitecore-jss/sitecore-jss": "<%- version %>",
     "compression": "^1.7.4",
     "express": "^5.1.0",
-    "dotenv": "^16.0.3"
+    "dotenv": "^17.2.1"
   },
   "devDependencies": {
     "@types/compression": "^1.7.2",
     "@types/express": "^5.0.3",
     "ts-node": "^10.9.1",
-    "typescript": "~5.6.3"
+    "typescript": "~5.9.2"
   },
   "private": true
 }
