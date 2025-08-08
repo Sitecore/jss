@@ -2,6 +2,5 @@
   "lerna": "8.2.3",
   "packages": ["packages/*", "samples/*"],
   "version": "22.9.0-canary.4",
-  "npmClient": "yarn",
-  "useWorkspaces": true
+  "npmClient": "yarn"
 }
