@@ -50,6 +50,9 @@ query ${usesPersonalize ? 'PersonalizeSitemapQuery' : 'DefaultSitemapQuery'}(
         }
         results {
           path: routePath
+          route {
+            displayName
+          }
           ${
             usesPersonalize
               ? `
@@ -120,6 +123,7 @@ export interface SiteRouteQueryResult<T> {
 export type RouteListQueryResult = {
   path: string;
   route?: {
+    displayName: string;
     personalization?: {
       variantIds: string[];
     };
@@ -137,6 +141,10 @@ export interface BaseGraphQLSitemapServiceConfig
    * Turned off by default.
    */
   includePersonalizedRoutes?: boolean;
+  /**
+   * Gets a flag indicating whether display name routing is enabled.
+   */
+  enableDisplayNameRouting?: boolean;
   /**
    * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
    * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
@@ -162,6 +170,7 @@ export type StaticPath = {
  */
 export abstract class BaseGraphQLSitemapService {
   private _graphQLClient: GraphQLClient;
+  private _enableDisplayNameRouting: boolean;
 
   /**
    * Creates an instance of graphQL sitemap service with the provided options
@@ -169,6 +178,7 @@ export abstract class BaseGraphQLSitemapService {
    */
   constructor(public options: BaseGraphQLSitemapServiceConfig) {
     this._graphQLClient = this.getGraphQLClient();
+    this._enableDisplayNameRouting = options.enableDisplayNameRouting ?? false;
   }
 
   /**
@@ -250,25 +260,105 @@ export abstract class BaseGraphQLSitemapService {
     formatStaticPath: (path: string[], language: string) => StaticPath,
     language: string
   ): Promise<StaticPath[]> {
-    const formatPath = (path: string) =>
-      formatStaticPath(path.replace(/^\/|\/$/g, '').split('/'), language);
-
     const aggregatedPaths: StaticPath[] = [];
 
-    sitePaths.forEach((item) => {
-      if (!item) return;
+    /**
+     * Build a map of the last segment of each path to its encoded display name.
+     * This is used later to substitute the final segment with a display name if available.
+     */
+    const displayNameMap = new Map<string, string>();
+    if (this._enableDisplayNameRouting) {
+      for (const item of sitePaths) {
+        if (!item || typeof item.path !== 'string') continue;
 
-      aggregatedPaths.push(formatPath(item.path));
+        const segments = item.path.replace(/^\/|\/$/g, '').split('/');
+        const lastSegment = segments[segments.length - 1];
+        const displayName = item.route?.displayName;
 
-      const variantIds = item.route?.personalization?.variantIds?.filter(
-        (variantId) => !variantId.includes('_') // exclude component A/B test variants
-      );
-      if (variantIds?.length) {
-        aggregatedPaths.push(
-          ...variantIds.map((varId) => formatPath(getPersonalizedRewrite(item.path, [varId])))
-        );
+        if (displayName) {
+          displayNameMap.set(lastSegment, encodeURIComponent(displayName));
+        }
       }
-    });
+    }
+
+    /**
+     * Recursively generate all path combinations using either:
+     * - The item name segment (default)
+     * - Or the display name (if available in the map)
+     *
+     * For example: if path is ['about', 'team'] and displayName for 'team' is 'Team-Page',
+     * it will generate:
+     * - ['about', 'team']
+     * - ['about', 'Team-Page']
+     * @param {string[]} segments
+     */
+    const generateCombinations = (segments: string[]): string[][] => {
+      if (!this._enableDisplayNameRouting) {
+        return [segments];
+      }
+
+      const results: string[][] = [];
+
+      const helper = (index: number, current: string[]) => {
+        if (index === segments.length) {
+          results.push([...current]);
+          return;
+        }
+
+        const segment = segments[index];
+        const display = displayNameMap.get(segment);
+
+        // Item name segment
+        current.push(segment);
+        helper(index + 1, current);
+        current.pop();
+
+        // Display name segment (if available and different)
+        if (display && display !== segment) {
+          current.push(display);
+          helper(index + 1, current);
+          current.pop();
+        }
+      };
+
+      helper(0, []);
+      return results;
+    };
+
+    /**
+     * Process each route in the result set to:
+     * - Add itemName-based and displayName-based paths
+     * - Add personalized variants (if applicable) for each of those paths
+     */
+    for (const item of sitePaths) {
+      if (!item || typeof item.path !== 'string') continue;
+
+      const itemPath = item.path.replace(/^\/|\/$/g, '');
+      const segments = itemPath ? itemPath.split('/') : [];
+
+      // Generate all display/item name path combinations
+      const allCombinations = generateCombinations(segments);
+
+      // Add plain paths to the aggregated paths list
+      for (const combo of allCombinations) {
+        aggregatedPaths.push(formatStaticPath(combo, language));
+      }
+
+      // Check for personalization variants
+      const variantIds = item.route?.personalization?.variantIds?.filter(
+        (variantId) => !variantId.includes('_')
+      );
+
+      if (variantIds?.length) {
+        for (const variantId of variantIds) {
+          for (const combo of allCombinations) {
+            const rewritePath = getPersonalizedRewrite('/' + combo.join('/'), [variantId]);
+            const variantSegments = rewritePath.replace(/^\/|\/$/g, '').split('/');
+            aggregatedPaths.push(formatStaticPath(variantSegments, language));
+          }
+        }
+      }
+    }
 
     return aggregatedPaths;
   }

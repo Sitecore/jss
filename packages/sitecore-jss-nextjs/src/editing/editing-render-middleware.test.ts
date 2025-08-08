@@ -432,6 +432,46 @@ describe('EditingRenderMiddleware', () => {
       expect(res.redirect).to.have.been.calledWith('/custom/path/styleguide');
     });
 
+    it('should handle request with special characters in route', async () => {
+      const query = {
+        mode: 'edit',
+        route: '/Åbout',
+        sc_itemid: '{11111111-1111-1111-1111-111111111111}',
+        sc_lang: 'en',
+        sc_site: 'website',
+        sc_variant: 'dev',
+        sc_version: 'latest',
+        secret: secret,
+        sc_layoutKind: 'shared',
+      } as RenderMetadataQueryParams;
+
+      const req = mockRequest(EE_BODY, query, 'GET');
+      const res = mockResponse();
+
+      const middleware = new EditingRenderMiddleware();
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith({
+        site: 'website',
+        itemId: '{11111111-1111-1111-1111-111111111111}',
+        language: 'en',
+        variantIds: ['dev'],
+        version: 'latest',
+        editMode: 'metadata',
+        pageState: 'edit',
+        layoutKind: 'shared',
+      });
+
+      expect(res.redirect).to.have.been.calledOnce;
+      expect(res.redirect).to.have.been.calledWith('/%C3%85bout');
+      expect(res.setHeader).to.have.been.calledWith(
+        'Content-Security-Policy',
+        `frame-ancestors 'self' https://allowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
+      );
+    });
+
     it('should response with 400 for missing query params', async () => {
       const req = mockRequest(EE_BODY, { sc_site: 'website', secret }, 'GET');
       const res = mockResponse();
