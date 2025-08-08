@@ -160,6 +160,10 @@ export const enforceCors = (
  * @returns {'regex' | 'url'} - Returns 'url' if the input looks like a URL, otherwise 'regex'.
  */
 export const isRegexOrUrl = (input: string): 'regex' | 'url' => {
+  // Treat patterns that escape a literal question mark as URL-like
+  if (input.includes('\\?')) {
+    return 'url';
+  }
   // Remove the trailing slash.
   input = input.slice(0, -1);
 
@@ -203,6 +207,10 @@ export const areURLSearchParamsEqual = (params1: URLSearchParams, params2: URLSe
 export const escapeNonSpecialQuestionMarks = (input: string): string => {
   // If the input is already a regex pattern (starts with ^ or ends with $), return it unchanged
   if (input.startsWith('^') || input.endsWith('$')) {
+    return input;
+  }
+  // If the input is an explicit regex (wrapped in slashes), return it unchanged
+  if (input.startsWith('/') && input.endsWith('/')) {
     return input;
   }
 

@@ -97,11 +97,16 @@ export class RedirectsMiddleware extends MiddlewareBase {
       ? modifyRedirects.find((redirect: RedirectResult) => {
           // process static URL (non-regex) rules
           if (isRegexOrUrl(redirect.pattern) === 'url') {
-            const urlArray = redirect.pattern.endsWith('/')
-              ? redirect.pattern.slice(0, -1).split('?')
-              : redirect.pattern.split('?');
+            const patternBase = redirect.pattern.endsWith('/')
+              ? redirect.pattern.slice(0, -1)
+              : redirect.pattern;
+            // Treat escaped question marks (\?) as literal separators for query in URL-like patterns
+            const urlArray = patternBase.replace(/\\\?/g, '?').split('?');
             const patternQS = urlArray[1];
             let patternPath = urlArray[0].toLowerCase();
+            if (!patternPath.startsWith('/')) {
+              patternPath = `/${patternPath}`;
+            }
             // nextjs routes are case-sensitive, but locales should be compared case-insensitively
             const patternParts = patternPath.split('/');
             const maybeLocale = patternParts[1].toLowerCase();
@@ -114,17 +119,64 @@ export class RedirectsMiddleware extends MiddlewareBase {
               (!patternQS ||
                 areURLSearchParamsEqual(
                   new URLSearchParams(patternQS),
-                  new URLSearchParams(incomingQS)
+                  new URLSearchParams(incomingQS.replace(/^\?/, ''))
                 ))
             );
           }
 
+          // Handle URL-like patterns containing escaped question mark (\?) explicitly
+          if (redirect.pattern.includes('\\?')) {
+            const [pathPart, qsPart] = redirect.pattern.split('\\?');
+            let normalizedPatternPath = pathPart.startsWith('/') ? pathPart : `/${pathPart}`;
+            normalizedPatternPath = normalizedPatternPath.toLowerCase();
+            const qsMatches =
+              !qsPart ||
+              areURLSearchParamsEqual(
+                new URLSearchParams(qsPart),
+                new URLSearchParams(incomingQS.replace(/^\?/, ''))
+              );
+            if (
+              (normalizedPatternPath === normalizedPath || normalizedPatternPath === localePath) &&
+              qsMatches
+            ) {
+              redirect.matchedQueryString = incomingQS;
+              return true;
+            }
+          }
+
           // process regex rules
+          const isExplicitRegex =
+            redirect.pattern.startsWith('/') && redirect.pattern.endsWith('/');
+          if (isExplicitRegex) {
+            const inner = redirect.pattern.slice(1, -1);
+            // In explicit regex patterns, only escape '?' that are meant to be literal query prefix,
+            // but keep quantifiers like '[/]?' intact: do not escape when preceded by \\ or ] or )
+            const sanitized = inner.replace(/(?<![\\\]\)])\?([A-Za-z0-9])/g, '\\?$1');
+            // Persist the sanitized regex string (with optional trailing slash and case-insensitive flag)
+            redirect.pattern = `/${sanitized}/i`;
+            const regex = regexParser(redirect.pattern);
+
+            matchedQueryString = [
+              regex.test(`${localePath}${incomingQS}`),
+              regex.test(`${normalizedPath}${incomingQS}`),
+            ].some(Boolean)
+              ? incomingQS
+              : undefined;
+
+            redirect.matchedQueryString = matchedQueryString || '';
+            return (
+              !!(
+                regex.test(`/${req.nextUrl.locale}${incomingURL}`) ||
+                regex.test(incomingURL) ||
+                matchedQueryString
+              ) && (redirect.locale ? redirect.locale.toLowerCase() === locale.toLowerCase() : true)
+            );
+          }
 
           // Modify the redirect pattern to ignore the language prefix in the path
-          // And escapes non-special "?" characters in a string or regex.
+          // And escape non-special "?" characters in a string.
           redirect.pattern = escapeNonSpecialQuestionMarks(
-            redirect.pattern.replace(new RegExp(`^[^]?/${language}/`, 'gi'), '')
+            redirect.pattern.replace(new RegExp(`^/?${language}/`, 'i'), '')
           );
 
           // Prepare the redirect pattern as a regular expression, making it more flexible for matching URLs
@@ -232,6 +284,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
         url.href = existsRedirect.target;
       } else {
         const isUrl = isRegexOrUrl(existsRedirect.pattern) === 'url';
+        const treatAsUrl = isUrl;
         const targetParts = existsRedirect.target.split('/');
         const urlFirstPart = targetParts[1];
 
@@ -240,11 +293,11 @@ export class RedirectsMiddleware extends MiddlewareBase {
           existsRedirect.target = existsRedirect.target.replace(`/${urlFirstPart}`, '');
         }
 
-        const targetSegments = isUrl
+        const targetSegments = treatAsUrl
           ? existsRedirect.target.split('?')
           : url.pathname.replace(/\/*$/gi, '') + existsRedirect.matchedQueryString;
 
-        const [targetPath, targetQueryString] = isUrl
+        const [targetPath, targetQueryString] = treatAsUrl
           ? targetSegments
           : (targetSegments as string)
               .replace(regexParser(existsRedirect.pattern), existsRedirect.target)
