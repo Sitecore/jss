@@ -26,7 +26,7 @@
     "@angular-devkit/core": "~18.2.14",
     "@angular-devkit/schematics": "~18.2.14",
     "@schematics/angular": "~18.2.14",
-    "chalk": "^2.4.2"
+    "chalk": "^4.1.2"
   },
   "devDependencies": {
     "@types/jasmine": "^2.8.0",
