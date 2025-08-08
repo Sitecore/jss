@@ -51,6 +51,10 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Add `Cache-Control: no-store, no-cache, must-revalidate` to personalize middleware to ensure personalized responses are not served from prefetch cache and proper personalization was applied during client side navigation. ([#2105](https://github.com/Sitecore/jss/pull/2105))
 * `[sitecore-jss-proxy]` Fix build failure of XMCloud Proxy application when using PNPM ([#2106](https://github.com/Sitecore/jss/pull/2106))
 
+### Chores
+
+* `[all]` Update 3rd party dependencies ([#2123](https://github.com/Sitecore/jss/pull/2123))
+
 ### 🛠 Breaking Changes
 
 * `[Next.js]` `[React]`: `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[sitecore-jss-react-forms]` `[create-sitecore-jss]` Upgrade React to version 19 and Nextjs to version 15 ([#2078](https://github.com/Sitecore/jss/pull/2078))([#2084](https://github.com/Sitecore/jss/pull/2084))([#2090](https://github.com/Sitecore/jss/pull/2090))([#2093](https://github.com/Sitecore/jss/pull/2093))([#2096](https://github.com/Sitecore/jss/pull/2096)):
