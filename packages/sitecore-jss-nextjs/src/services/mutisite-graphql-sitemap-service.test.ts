@@ -33,7 +33,7 @@ describe('MultisiteGraphQLSitemapService', () => {
 
   const mockPathsRequest = (results?: { url: { path: string } }[]) => {
     nock(endpoint)
-      .post('/', /DefaultSitemapQuery/gi)
+      .post('/', new RegExp(/SitemapQuery/gi))
       .reply(
         200,
         results === undefined
@@ -768,6 +768,7 @@ describe('MultisiteGraphQLSitemapService', () => {
       expect(sitemap).to.deep.equal(expectedMultisiteExportSitemap);
       return expect(nock.isDone()).to.be.true;
     });
+
     it('should work if endpoint returns 0 pages', async () => {
       mockPathsRequest([]);
       const service = new MultisiteGraphQLSitemapService({ clientFactory, sites });
@@ -775,6 +776,7 @@ describe('MultisiteGraphQLSitemapService', () => {
       expect(sitemap).to.deep.equal([]);
       return expect(nock.isDone()).to.be.true;
     });
+
     it('should throw error if SitemapQuery fails', async () => {
       nock(endpoint)
         .post('/', /DefaultSitemapQuery/gi)
