@@ -19,7 +19,7 @@ describe('initRunner', () => {
   let createStub: SinonStub;
 
   const mockInitializer = (isBase: boolean, results: InitializerResults) => {
-    const mock = <Initializer>{};
+    const mock = {} as Initializer;
     mock.init = sinon.stub().returns(results);
     mock.isBase = isBase;
     return mock;
