@@ -160,15 +160,18 @@ export const enforceCors = (
  * @returns {'regex' | 'url'} - Returns 'url' if the input looks like a URL, otherwise 'regex'.
  */
 export const isRegexOrUrl = (input: string): 'regex' | 'url' => {
-  // Treat patterns that start with a slash and contain a question mark as URLs.
-  // This is a simple heuristic to distinguish between regex patterns and URL-like strings.
-  if (input.startsWith('/') && input.includes('?')) {
+  // Remove the trailing slash.
+  input = input.slice(0, -1);
+
+  // Check if the string resembles a URL.
+  const isUrlLike = /^\/[a-zA-Z0-9\-\/]+(\?([a-zA-Z0-9\-_]+=[a-zA-Z0-9\-_]+)(&[a-zA-Z0-9\-_]+=[a-zA-Z0-9\-_]+)*)?$/.test(input);
+
+  if (isUrlLike) {
     return 'url';
   }
-  // A simple regex to match common URL patterns.
-  const urlPattern = /^\/[a-zA-Z0-9\-\/._~:?#[\]@!$&'()*+,;=%]+$/;
 
-  return urlPattern.test(input) ? 'url' : 'regex';
+  // If it doesn't resemble a URL, it's likely a regular expression.
+  return 'regex';
 };
 
 /**

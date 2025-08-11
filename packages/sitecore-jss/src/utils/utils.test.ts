@@ -231,10 +231,10 @@ describe('utils', () => {
     it('should return "url" for valid URL-like strings', () => {
       expect(isRegexOrUrl('/path/to/resource?param=value')).to.equal('url');
       expect(isRegexOrUrl('/another/path')).to.equal('url');
-      expect(isRegexOrUrl('/path/.*')).to.equal('url');
     });
 
     it('should return "regex" for non-URL strings', () => {
+      expect(isRegexOrUrl('/path/.*')).to.equal('regex');
       expect(isRegexOrUrl('^/path/(\\d+)$')).to.equal('regex');
     });
   });
@@ -297,20 +297,46 @@ describe('utils', () => {
   });
 
   describe('escapeNonSpecialQuestionMarks', () => {
-    it('should return regex patterns unchanged', () => {
-      expect(escapeNonSpecialQuestionMarks('^/testpage/?$')).to.equal('^/testpage/?$');
-      expect(escapeNonSpecialQuestionMarks('^/path(abc)?/def*?/ghi+?$')).to.equal(
-        '^/path(abc)?/def*?/ghi+?$'
-      );
+    it('should escape question marks in non-regex strings', () => {
+      const input = 'abc?def?ghi';
+      const expected = 'abc\\?def\\?ghi';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
     });
 
-    it('should escape literal question marks in non-regex strings', () => {
-      expect(escapeNonSpecialQuestionMarks('abc?def?ghi')).to.equal('abc\\?def\\?ghi');
-      expect(escapeNonSpecialQuestionMarks('abc.*?def+?ghi')).to.equal('abc.*\\?def+\\?ghi');
+    it('should not escape question marks in regex patterns that start with ^', () => {
+      const input = '^/abc(?!def)?ghi';
+      const expected = '^/abc(?!def)?ghi';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should not escape question marks in regex patterns that end with $', () => {
+      const input = '/abc(?!def)?ghi$';
+      const expected = '/abc(?!def)?ghi$';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should handle strings without question marks', () => {
+      const input = 'abcdefghi';
+      const expected = 'abcdefghi';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
     });
 
     it('should handle empty strings', () => {
-      expect(escapeNonSpecialQuestionMarks('')).to.equal('');
+      const input = '';
+      const expected = '';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should escape question marks even if they are already escaped', () => {
+      const input = 'abc\\?def?ghi';
+      const expected = 'abc\\\\?def\\?ghi';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should handle consecutive unescaped question marks', () => {
+      const input = 'abc??def';
+      const expected = 'abc\\?\\?def';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
     });
   });
 });
