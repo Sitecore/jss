@@ -6405,12 +6405,12 @@ __metadata:
     "@angular/platform-browser-dynamic": ~18.2.13
     "@angular/router": ~18.2.13
     "@sitecore-jss/sitecore-jss": 22.9.0-canary.4
-    "@types/jasmine": ^5.1.4
+    "@types/jasmine": ^5.1.8
     "@types/node": ^22.9.0
     codelyzer: ^6.0.1
     eslint: ~8.57.0
     eslint-plugin-deprecation: ^1.5.0
-    jasmine-core: ^5.1.2
+    jasmine-core: ^5.9.0
     karma: ^6.4.3
     karma-chrome-launcher: ^3.2.0
     karma-coverage: ~2.2.1
@@ -7490,10 +7490,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jasmine@npm:^5.1.4":
-  version: 5.1.4
-  resolution: "@types/jasmine@npm:5.1.4"
-  checksum: 1b2048d988077aee747a72fab31f4e0820f928c25e886ab91aa5a1ee2d4277655c22f81feed5d7b3b15cc61542878568a24b2381457eb21dfc84250c693f980a
+"@types/jasmine@npm:^5.1.8":
+  version: 5.1.8
+  resolution: "@types/jasmine@npm:5.1.8"
+  checksum: 6861d1b51b86ef97aecfaece0ce3a16e1331a7a0b413c74b4dfd587ad74e8b7ae0fec4d463f7debd6dbb3d630bdebd5eadd438e6ece98803df85219569db9901
   languageName: node
   linkType: hard
 
@@ -18260,10 +18260,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jasmine-core@npm:^5.1.2":
-  version: 5.4.0
-  resolution: "jasmine-core@npm:5.4.0"
-  checksum: 513bcae7b3659e46ea43f9187dd8a6b2a99db79af630e82e7918870b945ec1ba8aa4c53280be88ef2a516abe15181d53f19ede8b490196d4d81313359034840a
+"jasmine-core@npm:^5.9.0":
+  version: 5.9.0
+  resolution: "jasmine-core@npm:5.9.0"
+  checksum: 7bdef11a4de90dc366c50583fc90fa125cab99d9579215fd92026bdea26b3b18e244b9049a8e454a9d052104b1692abac6c5bfd46abdd2eeb967fc05e289f159
   languageName: node
   linkType: hard
 
