@@ -195,50 +195,21 @@ export const areURLSearchParamsEqual = (params1: URLSearchParams, params2: URLSe
 
 /**
  * Escapes non-special "?" characters in a string or regex.
- * - For regular strings, it escapes all unescaped "?" characters by adding a backslash (`\`).
- * - For regex patterns (strings enclosed in `/.../`), it analyzes each "?" to determine if it has special meaning
- *   (e.g., `?` in `(abc)?`, `.*?`, `(?!...)`) or is just a literal character. Only literal "?" characters are escaped.
+ * - For regex patterns that start with `^` or end with `$`, it returns the pattern unchanged.
+ * - For other strings, it escapes literal "?" characters but preserves regex quantifiers and special patterns.
  * @param {string} input - The input string or regex pattern.
  * @returns {string} - The modified string or regex with non-special "?" characters escaped.
  */
 export const escapeNonSpecialQuestionMarks = (input: string): string => {
-  const regexPattern = /(\\)?\?/g; // Match "?" that may or may not be preceded by a backslash
-  const negativeLookaheadPattern = /\(\?!$/; // Detect the start of a Negative Lookahead pattern
-  const specialRegexSymbols = /[.*+)\[\]|\(]$/; // Check for special regex symbols before "?"
-
-  let result = '';
-  let lastIndex = 0;
-
-  let match: RegExpExecArray | null;
-  while ((match = regexPattern.exec(input)) !== null) {
-    const index = match.index; // Position of the "?" in the string
-    const before = input.slice(lastIndex, index); // Context before the "?"
-
-    // Check if "?" is preceded by a backslash (escaped)
-    const isEscaped = match[1] !== undefined; // match[1] is the backslash group
-
-    // Check if "?" is part of a Negative Lookahead
-    const isNegativeLookahead = negativeLookaheadPattern.test(before.slice(-3));
-
-    // Check if "?" follows a special regex symbol
-    const isSpecialRegexSymbol = specialRegexSymbols.test(before.slice(-1));
-
-    if (isEscaped || isNegativeLookahead || isSpecialRegexSymbol) {
-      // If it's escaped, part of a Negative Lookahead, or follows a special regex symbol, keep the "?" as is
-      result += input.slice(lastIndex, index + 1);
-    } else {
-      // Otherwise, escape the "?"
-      result += input.slice(lastIndex, index) + '\\?';
-    }
-
-    lastIndex = index + 1; // Move to the next part of the string
+  // If the input is already a regex pattern (starts with ^ or ends with $), return it unchanged
+  if (input.startsWith('^') || input.endsWith('$')) {
+    return input;
   }
 
-  // Append the remaining part of the string
-  result += input.slice(lastIndex);
-
-  return result;
+  // For non-regex strings, escape literal "?" characters
+  return input.replace(/\?/g, '\\?');
 };
+
 
 /**
  * Merges two URLSearchParams objects. If both objects contain the same key, the value from the second object overrides the first.
