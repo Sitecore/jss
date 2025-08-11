@@ -186,11 +186,9 @@ describe('helpers', () => {
   });
 
   describe('saveConfiguration', () => {
-    let log: SinonStub;
     let writeFileSync: SinonStub;
 
     afterEach(() => {
-      log?.restore();
       writeFileSync?.restore();
     });
 

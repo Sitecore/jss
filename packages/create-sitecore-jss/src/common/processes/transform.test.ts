@@ -4,7 +4,7 @@ import path, { sep } from 'path';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 import ejs from 'ejs';
-import glob from 'glob';
+import { glob } from 'glob';
 import { expect } from 'chai';
 import sinon, { SinonStub } from 'sinon';
 import { currentPkg, partialPkg } from '../test-data/pkg';

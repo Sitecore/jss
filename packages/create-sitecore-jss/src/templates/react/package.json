@@ -57,7 +57,7 @@
     "@sitecore-jss/sitecore-jss-rendering-host": "<%- version %>",
     "babel-loader": "~10.0.0",
     "babel-preset-react-app": "~10.0.1",
-    "chalk": "~5.5.0",
+    "chalk": "~4.1.2",
     "constant-case": "^3.0.4",
     "cross-env": "~10.0.0",
     "cross-spawn": "^7.0.6",

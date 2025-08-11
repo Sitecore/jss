@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import fs from 'fs-extra';
-import glob from 'glob';
+import { glob } from 'glob';
 import path, { sep } from 'path';
 import { parse } from 'dotenv';
 import { Data, renderFile } from 'ejs';
