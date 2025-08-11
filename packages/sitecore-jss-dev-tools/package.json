@@ -49,7 +49,7 @@
     "readline-sync": "^1.4.10",
     "recast": "^0.23.11",
     "resolve": "^1.22.10",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "url-join": "^4.0.1",
     "uuid": "^11.1.0",
     "yargs": "^17.6.2"
@@ -58,7 +58,6 @@
     "@babel/core": "^7.28.0",
     "@babel/register": "^7.27.1",
     "@types/chai": "^4.3.4",
-    "@types/chokidar": "^2.1.3",
     "@types/del": "^4.0.0",
     "@types/express": "^5.0.3",
     "@types/fs-extra": "^11.0.4",

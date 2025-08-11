@@ -27,8 +27,8 @@
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",
-    "@types/chai-string": "^1.4.2",
-    "@types/lodash.unescape": "^4.0.7",
+    "@types/chai-string": "^1.4.5",
+    "@types/lodash.unescape": "^4.0.9",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.9.0",
     "chai": "^4.3.7",
@@ -37,7 +37,7 @@
     "eslint": "^8.56.0",
     "mocha": "^11.7.1",
     "nyc": "^17.1.0",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
     "typescript": "~5.9.2"
   },
