@@ -1,10 +1,7 @@
 import { IncomingMessage, ServerResponse, ClientRequest, IncomingHttpHeaders } from 'http';
 import { Request, RequestHandler, Response } from 'express';
 import { ServerOptions } from 'http-proxy';
-import {
-  legacyCreateProxyMiddleware as createProxyMiddleware,
-  LegacyOptions as Options,
-} from 'http-proxy-middleware';
+import { createProxyMiddleware, Options } from 'http-proxy-middleware';
 import HttpStatus from 'http-status-codes';
 import setCookieParser, { Cookie } from 'set-cookie-parser';
 import zlib from 'zlib'; // node.js standard lib
