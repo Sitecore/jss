@@ -160,22 +160,15 @@ export const enforceCors = (
  * @returns {'regex' | 'url'} - Returns 'url' if the input looks like a URL, otherwise 'regex'.
  */
 export const isRegexOrUrl = (input: string): 'regex' | 'url' => {
-  // Treat patterns that escape a literal question mark as URL-like
-  if (input.includes('\\?')) {
+  // Treat patterns that start with a slash and contain a question mark as URLs.
+  // This is a simple heuristic to distinguish between regex patterns and URL-like strings.
+  if (input.startsWith('/') && input.includes('?')) {
     return 'url';
   }
-  // Remove the trailing slash.
-  input = input.slice(0, -1);
+  // A simple regex to match common URL patterns.
+  const urlPattern = /^\/[a-zA-Z0-9\-\/._~:?#[\]@!$&'()*+,;=%]+$/;
 
-  // Check if the string resembles a URL.
-  const isUrlLike = /^\/[a-zA-Z0-9\-\/]+(\?([a-zA-Z0-9\-_]+=[a-zA-Z0-9\-_]+)(&[a-zA-Z0-9\-_]+=[a-zA-Z0-9\-_]+)*)?$/.test(input);
-
-  if (isUrlLike) {
-    return 'url';
-  }
-
-  // If it doesn't resemble a URL, it's likely a regular expression.
-  return 'regex';
+  return urlPattern.test(input) ? 'url' : 'regex';
 };
 
 /**
@@ -199,18 +192,15 @@ export const areURLSearchParamsEqual = (params1: URLSearchParams, params2: URLSe
 
 /**
  * Escapes non-special "?" characters in a string or regex.
- * - For regex patterns that start with `^` or end with `$`, it returns the pattern unchanged.
- * - For other strings, it escapes literal "?" characters but preserves regex quantifiers and special patterns.
+ * - For regular strings, it escapes all unescaped "?" characters by adding a backslash (`\`).
+ * - For regex patterns (strings enclosed in `/.../`), it analyzes each "?" to determine if it has special meaning
+ *   (e.g., `?` in `(abc)?`, `.*?`, `(?!...)`) or is just a literal character. Only literal "?" characters are escaped.
  * @param {string} input - The input string or regex pattern.
  * @returns {string} - The modified string or regex with non-special "?" characters escaped.
  */
 export const escapeNonSpecialQuestionMarks = (input: string): string => {
   // If the input is already a regex pattern (starts with ^ or ends with $), return it unchanged
   if (input.startsWith('^') || input.endsWith('$')) {
-    return input;
-  }
-  // If the input is an explicit regex (wrapped in slashes), return it unchanged
-  if (input.startsWith('/') && input.endsWith('/')) {
     return input;
   }
 

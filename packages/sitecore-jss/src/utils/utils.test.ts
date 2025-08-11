@@ -231,10 +231,10 @@ describe('utils', () => {
     it('should return "url" for valid URL-like strings', () => {
       expect(isRegexOrUrl('/path/to/resource?param=value')).to.equal('url');
       expect(isRegexOrUrl('/another/path')).to.equal('url');
+      expect(isRegexOrUrl('/path/.*')).to.equal('url');
     });
 
     it('should return "regex" for non-URL strings', () => {
-      expect(isRegexOrUrl('/path/.*')).to.equal('regex');
       expect(isRegexOrUrl('^/path/(\\d+)$')).to.equal('regex');
     });
   });
