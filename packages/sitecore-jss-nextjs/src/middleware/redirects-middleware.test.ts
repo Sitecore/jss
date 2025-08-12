@@ -38,6 +38,7 @@ describe('RedirectsMiddleware', () => {
     { name: 'nextjs-app', hostName: '*', language: 'da' },
   ];
   const setCookies = () => {};
+  const getCookies = () => {};
 
   const createRequest = (props: any = {}) => {
     const req = {
@@ -74,6 +75,7 @@ describe('RedirectsMiddleware', () => {
     const res = {
       cookies: {
         set: setCookies || (() => {}),
+        get: getCookies || (() => {}),
       },
       headers: {},
       ...rest,
@@ -169,7 +171,7 @@ describe('RedirectsMiddleware', () => {
       return ({
         url,
         status: statusCode,
-        cookies: { set: setCookies },
+        cookies: { set: setCookies, get: getCookies },
         headers: new Headers(headers),
       } as unknown) as NextResponse;
     });
@@ -180,15 +182,15 @@ describe('RedirectsMiddleware', () => {
       return ({
         url,
         status,
-        cookies: { set: setCookies },
+        cookies: { set: setCookies, get: getCookies },
         headers: res.headers,
       } as unknown) as NextResponse;
     });
   };
 
-  const runTestWithRedirect = async (middlewareOptions, req, _hostname = hostname) => {
+  const runTestWithRedirect = async (middlewareOptions, req, res, _hostname = hostname) => {
     const { middleware, fetchRedirects, siteResolver } = createMiddleware(middlewareOptions);
-    const finalRes = await middleware.getHandler()(req);
+    const finalRes = await middleware.getHandler()(req, res);
 
     validateDebugLog('redirects middleware start: %o', {
       hostname: _hostname,
@@ -449,7 +451,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: false,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -500,7 +503,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: true,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -551,7 +555,8 @@ describe('RedirectsMiddleware', () => {
             redirectType: REDIRECT_TYPE_SERVER_TRANSFER,
             isQueryStringPreserved: true,
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -601,7 +606,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: true,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -642,7 +648,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: true,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -691,7 +698,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: false,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -742,7 +750,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: false,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -803,7 +812,8 @@ describe('RedirectsMiddleware', () => {
             ],
             locale: 'pl-PL',
           },
-          req
+          req,
+          res
         );
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
@@ -853,7 +863,8 @@ describe('RedirectsMiddleware', () => {
             ],
             locale: 'pl-PL',
           },
-          req
+          req,
+          res
         );
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
@@ -896,7 +907,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: false,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -946,7 +958,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: false,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -997,7 +1010,8 @@ describe('RedirectsMiddleware', () => {
             locale: 'en',
             sites: sitesFromConfigFile,
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -1047,7 +1061,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: true,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -1095,7 +1110,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: true,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -1294,6 +1310,7 @@ describe('RedirectsMiddleware', () => {
             locale: 'en',
           },
           req,
+          res,
           'localhost'
         );
 
@@ -1346,6 +1363,7 @@ describe('RedirectsMiddleware', () => {
             defaultHostname: 'foobar',
           },
           req,
+          res,
           'foobar'
         );
 
@@ -1393,7 +1411,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: true,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -1443,7 +1462,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: true,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -1496,7 +1516,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: false,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -1551,7 +1572,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: true,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -1602,7 +1624,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: true,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -1655,7 +1678,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: false,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -1705,7 +1729,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: true,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -1760,7 +1785,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: false,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -1822,7 +1848,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: false,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -1876,7 +1903,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: false,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
@@ -1928,7 +1956,8 @@ describe('RedirectsMiddleware', () => {
             isQueryStringPreserved: false,
             locale: 'en',
           },
-          req
+          req,
+          res
         );
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {

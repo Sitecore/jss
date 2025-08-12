@@ -136,7 +136,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
           // Redirect pattern matches the full incoming URL with query string present
           matchedQueryString = [
-            regexParser(redirect.pattern).test(`${localePath}${incomingQS}`),
+            regexParser(redirect.pattern).test(`/${localePath}${incomingQS}`),
             regexParser(redirect.pattern).test(`${normalizedPath}${incomingQS}`),
           ].some(Boolean)
             ? incomingQS
