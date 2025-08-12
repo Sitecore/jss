@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -8,8 +8,6 @@
 
 > `const` **EDITING\_COMPONENT\_PLACEHOLDER**: `"editing-componentmode-placeholder"` = `"editing-componentmode-placeholder"`
 
+Defined in: sitecore-jss/types/layout/models.d.ts:158
+
 Static placeholder name used for component rendering
-
-## Defined in
-
-sitecore-jss/types/layout/models.d.ts:158

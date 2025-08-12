@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,11 +6,15 @@
 
 # Interface: SitecoreContextState
 
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:33](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L33)
+
 ## Properties
 
 ### api?
 
 > `optional` **api**: `object`
+
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:36](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L36)
 
 #### edge?
 
@@ -18,27 +22,23 @@
 
 Sitecore XM Cloud Edge endpoint credentials for Sitecore connection.
 
-#### edge.contextId
+##### edge.contextId
 
 > **contextId**: `string`
 
 A unified identifier used to connect and retrieve data from XM Cloud instance
 
-#### edge.edgeUrl?
+##### edge.edgeUrl?
 
 > `optional` **edgeUrl**: `string`
 
 XM Cloud endpoint that the app will communicate and retrieve data from
 
-##### Default
+###### Default
 
 ```ts
 https://edge-platform.sitecorecloud.io
 ```
-
-#### Defined in
-
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:36](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L36)
 
 ***
 
@@ -46,15 +46,15 @@ https://edge-platform.sitecorecloud.io
 
 > **context**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-#### Defined in
-
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:35](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L35)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:35](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L35)
 
 ***
 
 ### setContext()
 
 > **setContext**: (`value`) => `void`
+
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:34](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L34)
 
 #### Parameters
 
@@ -65,7 +65,3 @@ https://edge-platform.sitecorecloud.io
 #### Returns
 
 `void`
-
-#### Defined in
-
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:34](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L34)

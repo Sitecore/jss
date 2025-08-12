@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / TextDirective
 
 # Class: TextDirective
+
+Defined in: [packages/sitecore-jss-angular/src/components/text.directive.ts:18](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/text.directive.ts#L18)
 
 ## Extends
 
@@ -16,9 +18,11 @@
 
 ## Constructors
 
-### new TextDirective()
+### Constructor
 
-> **new TextDirective**(`viewContainer`, `templateRef`): [`TextDirective`](TextDirective.md)
+> **new TextDirective**(`viewContainer`, `templateRef`): `TextDirective`
+
+Defined in: [packages/sitecore-jss-angular/src/components/text.directive.ts:35](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/text.directive.ts#L35)
 
 #### Parameters
 
@@ -29,15 +33,11 @@
 
 #### Returns
 
-[`TextDirective`](TextDirective.md)
+`TextDirective`
 
 #### Overrides
 
 `BaseFieldDirective.constructor`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/text.directive.ts:35](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-angular/src/components/text.directive.ts#L35)
 
 ## Properties
 
@@ -45,15 +45,13 @@
 
 > `protected` **defaultFieldEditingComponent**: `Type`\<`unknown`\>
 
+Defined in: [packages/sitecore-jss-angular/src/components/text.directive.ts:33](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/text.directive.ts#L33)
+
 Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
 
 #### Overrides
 
 `BaseFieldDirective.defaultFieldEditingComponent`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/text.directive.ts:33](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-angular/src/components/text.directive.ts#L33)
 
 ***
 
@@ -61,13 +59,11 @@ Default component to render in Pages in Metadata edit mode if field value is emp
 
 > **editable**: `boolean` = `true`
 
+Defined in: [packages/sitecore-jss-angular/src/components/text.directive.ts:19](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/text.directive.ts#L19)
+
 #### Overrides
 
 `BaseFieldDirective.editable`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/text.directive.ts:19](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-angular/src/components/text.directive.ts#L19)
 
 ***
 
@@ -75,15 +71,13 @@ Default component to render in Pages in Metadata edit mode if field value is emp
 
 > **emptyFieldEditingTemplate**: `TemplateRef`\<`unknown`\>
 
+Defined in: [packages/sitecore-jss-angular/src/components/text.directive.ts:28](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/text.directive.ts#L28)
+
 Custom template to render in Pages in Metadata edit mode if field value is empty
 
 #### Overrides
 
 `BaseFieldDirective.emptyFieldEditingTemplate`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/text.directive.ts:28](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-angular/src/components/text.directive.ts#L28)
 
 ***
 
@@ -91,9 +85,7 @@ Custom template to render in Pages in Metadata edit mode if field value is empty
 
 > **encode**: `boolean` = `true`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/text.directive.ts:21](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-angular/src/components/text.directive.ts#L21)
+Defined in: [packages/sitecore-jss-angular/src/components/text.directive.ts:21](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/text.directive.ts#L21)
 
 ***
 
@@ -101,13 +93,11 @@ Custom template to render in Pages in Metadata edit mode if field value is empty
 
 > **field**: [`TextField`](../interfaces/TextField.md)
 
+Defined in: [packages/sitecore-jss-angular/src/components/text.directive.ts:23](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/text.directive.ts#L23)
+
 #### Overrides
 
 `BaseFieldDirective.field`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/text.directive.ts:23](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-angular/src/components/text.directive.ts#L23)
 
 ***
 
@@ -115,13 +105,11 @@ Custom template to render in Pages in Metadata edit mode if field value is empty
 
 > `protected` **viewContainer**: `ViewContainerRef`
 
+Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
+
 #### Inherited from
 
 `BaseFieldDirective.viewContainer`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
 
 ***
 
@@ -129,19 +117,19 @@ Custom template to render in Pages in Metadata edit mode if field value is empty
 
 > `protected` **viewRef**: `EmbeddedViewRef`\<`unknown`\>
 
+Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
+
 #### Inherited from
 
 `BaseFieldDirective.viewRef`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
 
 ## Methods
 
 ### ngOnChanges()
 
 > **ngOnChanges**(`changes`): `void`
+
+Defined in: [packages/sitecore-jss-angular/src/components/text.directive.ts:40](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/text.directive.ts#L40)
 
 A callback method that is invoked immediately after the
 default change detector has checked data-bound properties
@@ -162,15 +150,13 @@ children are checked.
 
 `OnChanges.ngOnChanges`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/text.directive.ts:40](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-angular/src/components/text.directive.ts#L40)
-
 ***
 
 ### renderEmpty()
 
 > `protected` **renderEmpty**(): `void`
+
+Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
 
 Renders the empty field markup which is required by Pages in editMode 'metadata' in case field is empty.
 
@@ -182,15 +168,13 @@ Renders the empty field markup which is required by Pages in editMode 'metadata'
 
 `BaseFieldDirective.renderEmpty`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
-
 ***
 
 ### renderMetadata()
 
 > `protected` **renderMetadata**(`kind`): `void`
+
+Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
 
 Renders a metadata chrome marker for the field. Required by Pages in editMode 'metadata'.
 
@@ -208,15 +192,13 @@ Renders a metadata chrome marker for the field. Required by Pages in editMode 'm
 
 `BaseFieldDirective.renderMetadata`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
-
 ***
 
 ### shouldRender()
 
 > `protected` **shouldRender**(): `boolean`
+
+Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:30](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L30)
 
 Determines if directive should render the field as is
 Returns true if we are in edit mode 'chromes' (field.editable is present) or field is not empty
@@ -228,7 +210,3 @@ Returns true if we are in edit mode 'chromes' (field.editable is present) or fie
 #### Inherited from
 
 `BaseFieldDirective.shouldRender`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:30](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L30)

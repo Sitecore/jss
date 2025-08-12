@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,39 +6,37 @@
 
 # Function: withPlaceholder()
 
-> **withPlaceholder**(`placeholders`, `options`?): (`WrappedComponent`) => (`props`) => `React.JSX.Element`
+> **withPlaceholder**(`placeholders`, `options?`): (`WrappedComponent`) => (`props`) => `Element`
+
+Defined in: sitecore-jss-react/types/enhancers/withPlaceholder.d.ts:34
 
 ## Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `placeholders` | `WithPlaceholderSpec` |  |
-| `options`? | `WithPlaceholderOptions` |  |
+| `options?` | `WithPlaceholderOptions` |  |
 
 ## Returns
 
-`Function`
+> (`WrappedComponent`): (`props`) => `Element`
 
 ### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `WrappedComponent` | `React.ComponentClass`\<`PlaceholderProps`\> \| `React.FunctionComponent`\<`PlaceholderProps`\> |
+| `WrappedComponent` | `ComponentClass`\<`PlaceholderProps`, `any`\> \| `FunctionComponent`\<`PlaceholderProps`\> |
 
 ### Returns
 
-`Function`
+> (`props`): `Element`
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `props` | `EnhancedOmit` |
+| `props` | `EnhancedOmit`\<`PlaceholderProps`, keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\> |
 
 #### Returns
 
-`React.JSX.Element`
-
-## Defined in
-
-sitecore-jss-react/types/enhancers/withPlaceholder.d.ts:35
+`Element`

@@ -186,11 +186,9 @@ describe('helpers', () => {
   });
 
   describe('saveConfiguration', () => {
-    let log: SinonStub;
     let writeFileSync: SinonStub;
 
     afterEach(() => {
-      log?.restore();
       writeFileSync?.restore();
     });
 
@@ -274,7 +272,7 @@ describe('helpers', () => {
     let createStub: SinonStub;
 
     const mockInitializer = (isBase: boolean) => {
-      const mock = <Initializer>{};
+      const mock = {} as Initializer;
       mock.init = sinon.stub();
       mock.isBase = isBase;
       return mock;

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: ComponentPropsContext()
 
 > **ComponentPropsContext**(`__namedParameters`): `Element`
+
+Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:31](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L31)
 
 ## Parameters
 
@@ -17,7 +19,3 @@
 ## Returns
 
 `Element`
-
-## Defined in
-
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:31](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L31)

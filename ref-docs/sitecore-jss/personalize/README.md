@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../README.md)
 
 ***
 
@@ -6,24 +6,22 @@
 
 # personalize
 
-## Index
-
-### Classes
+## Classes
 
 - [CdpHelper](classes/CdpHelper.md)
 - [GraphQLPersonalizeService](classes/GraphQLPersonalizeService.md)
 
-### Type Aliases
+## Type Aliases
 
 - [GraphQLPersonalizeServiceConfig](type-aliases/GraphQLPersonalizeServiceConfig.md)
 - [PersonalizedRewriteData](type-aliases/PersonalizedRewriteData.md)
 - [PersonalizeInfo](type-aliases/PersonalizeInfo.md)
 
-### Variables
+## Variables
 
 - [DEFAULT\_VARIANT](variables/DEFAULT_VARIANT.md)
 
-### Functions
+## Functions
 
 - [getGroomedVariantIds](functions/getGroomedVariantIds.md)
 - [getPersonalizedRewrite](functions/getPersonalizedRewrite.md)

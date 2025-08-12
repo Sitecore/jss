@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: mapButtonToCommand()
 
-> **mapButtonToCommand**(`button`, `itemId`?, `frameParameters`?): [`ChromeCommand`](../type-aliases/ChromeCommand.md)
+> **mapButtonToCommand**(`button`, `itemId?`, `frameParameters?`): [`ChromeCommand`](../type-aliases/ChromeCommand.md)
+
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/edit-frame.ts#L81)
 
 Map the edit button types to chrome data
 
@@ -15,13 +17,9 @@ Map the edit button types to chrome data
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `button` | [`EditButtonTypes`](../type-aliases/EditButtonTypes.md) | the edit button to build a ChromeCommand for |
-| `itemId`? | `string` | the ID of the item the EditFrame is associated with |
-| `frameParameters`? | `Record`\<`string`, `undefined` \| `null` \| `string` \| `number` \| `boolean`\> | additional parameters passed to the EditFrame |
+| `itemId?` | `string` | the ID of the item the EditFrame is associated with |
+| `frameParameters?` | `Record`\<`string`, `undefined` \| `null` \| `string` \| `number` \| `boolean`\> | additional parameters passed to the EditFrame |
 
 ## Returns
 
 [`ChromeCommand`](../type-aliases/ChromeCommand.md)
-
-## Defined in
-
-[packages/sitecore-jss/src/editing/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/editing/edit-frame.ts#L81)

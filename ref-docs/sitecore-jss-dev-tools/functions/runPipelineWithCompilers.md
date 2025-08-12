@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: runPipelineWithCompilers()
 
 > **runPipelineWithCompilers**(`compilers`): (`pipeline`) => `Promise`\<`any`\>
+
+Defined in: [sitecore-jss-dev-tools/src/pipelines/pipeline.ts:118](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L118)
 
 Run a pipeline, loading specified compilers first
 
@@ -18,9 +20,9 @@ Run a pipeline, loading specified compilers first
 
 ## Returns
 
-`Function`
-
 pipeline result
+
+> (`pipeline`): `Promise`\<`any`\>
 
 ### Parameters
 
@@ -31,7 +33,3 @@ pipeline result
 ### Returns
 
 `Promise`\<`any`\>
-
-## Defined in
-
-[sitecore-jss-dev-tools/src/pipelines/pipeline.ts:118](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L118)

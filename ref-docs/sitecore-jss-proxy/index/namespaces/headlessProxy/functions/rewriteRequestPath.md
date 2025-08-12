@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-proxy**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-proxy**](../../../../README.md)
 
 ***
 
@@ -6,21 +6,19 @@
 
 # Function: rewriteRequestPath()
 
-> **rewriteRequestPath**(`reqPath`, `req`, `config`, `parseRouteUrl`?): `string`
+> **rewriteRequestPath**(`reqPath`, `req`, `config`, `parseRouteUrl?`): `string`
+
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:352](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L352)
 
 ## Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `reqPath` | `string` |  |
-| `req` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |  |
+| `req` | `Request` |  |
 | `config` | [`ProxyConfig`](../interfaces/ProxyConfig.md) |  |
-| `parseRouteUrl`? | [`RouteUrlParser`](../../../type-aliases/RouteUrlParser.md) |  |
+| `parseRouteUrl?` | [`RouteUrlParser`](../../../type-aliases/RouteUrlParser.md) |  |
 
 ## Returns
 
 `string`
-
-## Defined in
-
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:349](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L349)

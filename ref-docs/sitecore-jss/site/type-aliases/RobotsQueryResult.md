@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,24 +6,24 @@
 
 # Type Alias: RobotsQueryResult
 
-> **RobotsQueryResult**: `object`
+> **RobotsQueryResult** = `object`
+
+Defined in: [packages/sitecore-jss/src/site/graphql-robots-service.ts:32](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/site/graphql-robots-service.ts#L32)
 
 The schema of data returned in response to robots.txt request
 
-## Type declaration
+## Properties
 
 ### site
 
 > **site**: `object`
 
-### site.siteInfo
+Defined in: [packages/sitecore-jss/src/site/graphql-robots-service.ts:32](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/site/graphql-robots-service.ts#L32)
+
+#### siteInfo
 
 > **siteInfo**: `object`
 
-### site.siteInfo.robots
+##### siteInfo.robots
 
 > **robots**: `string`
-
-## Defined in
-
-[packages/sitecore-jss/src/site/graphql-robots-service.ts:32](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/site/graphql-robots-service.ts#L32)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-proxy**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-proxy**](../../README.md)
 
 ***
 
@@ -6,11 +6,15 @@
 
 # Class: PersonalizeHelper
 
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:17](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L17)
+
 ## Constructors
 
-### new PersonalizeHelper()
+### Constructor
 
-> **new PersonalizeHelper**(`config`): [`PersonalizeHelper`](PersonalizeHelper.md)
+> **new PersonalizeHelper**(`config`): `PersonalizeHelper`
+
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:21](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L21)
 
 #### Parameters
 
@@ -20,11 +24,7 @@
 
 #### Returns
 
-[`PersonalizeHelper`](PersonalizeHelper.md)
-
-#### Defined in
-
-[sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:21](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L21)
+`PersonalizeHelper`
 
 ## Properties
 
@@ -32,15 +32,15 @@
 
 > `protected` **config**: [`PersonalizeConfig`](../type-aliases/PersonalizeConfig.md)
 
-#### Defined in
-
-[sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:21](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L21)
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:21](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L21)
 
 ## Methods
 
 ### excludeRoute()
 
 > `protected` **excludeRoute**(`pathname`): `undefined` \| `boolean`
+
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:187](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L187)
 
 #### Parameters
 
@@ -52,15 +52,13 @@
 
 `undefined` \| `boolean`
 
-#### Defined in
-
-[sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:187](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L187)
-
 ***
 
 ### extractDebugHeaders()
 
 > `protected` **extractDebugHeaders**(`incomingHeaders`): `object`
+
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:191](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L191)
 
 #### Parameters
 
@@ -72,15 +70,13 @@
 
 `object`
 
-#### Defined in
-
-[sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:191](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L191)
-
 ***
 
 ### getExperienceParams()
 
 > `protected` **getExperienceParams**(`req`): `ExperienceParams`
+
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:233](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L233)
 
 #### Parameters
 
@@ -92,15 +88,13 @@
 
 `ExperienceParams`
 
-#### Defined in
-
-[sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:233](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L233)
-
 ***
 
 ### getHostHeader()
 
 > `protected` **getHostHeader**(`req`): `string`
+
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:183](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L183)
 
 #### Parameters
 
@@ -112,15 +106,13 @@
 
 `string`
 
-#### Defined in
-
-[sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:183](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L183)
-
 ***
 
 ### getLanguage()
 
 > `protected` **getLanguage**(`layoutData`): `string`
+
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:179](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L179)
 
 #### Parameters
 
@@ -132,15 +124,13 @@
 
 `string`
 
-#### Defined in
-
-[sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:179](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L179)
-
 ***
 
 ### getPersonalizeExecutions()
 
 > `protected` **getPersonalizeExecutions**(`personalizeInfo`, `language`): `PersonalizeExecution`[]
+
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:254](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L254)
 
 #### Parameters
 
@@ -153,15 +143,13 @@
 
 `PersonalizeExecution`[]
 
-#### Defined in
-
-[sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:254](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L254)
-
 ***
 
 ### getVariantIds()
 
 > `protected` **getVariantIds**(`req`, `language`, `pathname`): `Promise`\<`string`[]\>
+
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:117](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L117)
 
 #### Parameters
 
@@ -175,15 +163,13 @@
 
 `Promise`\<`string`[]\>
 
-#### Defined in
-
-[sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:117](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L117)
-
 ***
 
 ### initPersonalizeServer()
 
 > `protected` **initPersonalizeServer**(`request`, `response`, `hostname`): `Promise`\<`void`\>
+
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:101](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L101)
 
 Init CloudSDK personalization on server side
 
@@ -192,52 +178,44 @@ Init CloudSDK personalization on server side
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `request` | `IncomingMessage` | incoming nodejs request object |
-| `response` | `OutgoingMessage`\<`IncomingMessage`\> | outgoing nodejs response object |
+| `response` | `OutgoingMessage` | outgoing nodejs response object |
 | `hostname` | `string` | host for cookies. Usually a host header, or a fallback config |
 
 #### Returns
 
 `Promise`\<`void`\>
 
-#### Defined in
-
-[sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:101](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L101)
-
 ***
 
 ### personalize()
 
-> `protected` **personalize**(`__namedParameters`, `request`): `Promise`\<`object`\>
+> `protected` **personalize**(`__namedParameters`, `request`): `Promise`\<\{ `variantId`: `string`; \}\>
+
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:199](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L199)
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `__namedParameters` | `object` |
+| `__namedParameters` | \{ `friendlyId`: `string`; `language`: `string`; `params`: `ExperienceParams`; `timeout?`: `number`; `variantIds?`: `string`[]; \} |
 | `__namedParameters.friendlyId` | `string` |
 | `__namedParameters.language` | `string` |
 | `__namedParameters.params` | `ExperienceParams` |
-| `__namedParameters.timeout`? | `number` |
-| `__namedParameters.variantIds`? | `string`[] |
+| `__namedParameters.timeout?` | `number` |
+| `__namedParameters.variantIds?` | `string`[] |
 | `request` | `IncomingMessage` |
 
 #### Returns
 
-`Promise`\<`object`\>
-
-##### variantId
-
-> **variantId**: `string`
-
-#### Defined in
-
-[sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:199](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L199)
+`Promise`\<\{ `variantId`: `string`; \}\>
 
 ***
 
 ### personalizeLayoutData()
 
 > **personalizeLayoutData**(`req`, `res`, `layoutData`): `Promise`\<`LayoutServiceData`\>
+
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:35](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L35)
 
 Performs personalize on layout data before a page is rendered
 
@@ -246,7 +224,7 @@ Performs personalize on layout data before a page is rendered
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `req` | `IncomingMessage` | Incoming request nodejs object |
-| `res` | `OutgoingMessage`\<`IncomingMessage`\> | Outgoing response nodejs object |
+| `res` | `OutgoingMessage` | Outgoing response nodejs object |
 | `layoutData` | `LayoutServiceData` | layoutData for the page |
 
 #### Returns
@@ -254,7 +232,3 @@ Performs personalize on layout data before a page is rendered
 `Promise`\<`LayoutServiceData`\>
 
 layout data with personalization applied
-
-#### Defined in
-
-[sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:35](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L35)

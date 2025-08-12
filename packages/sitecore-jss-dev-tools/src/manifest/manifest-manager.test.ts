@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import sinon from 'sinon';
-import chokidar from 'chokidar';
+import * as chokidar from 'chokidar';
 import { ManifestInstance } from '.';
 import * as generator from './generator/generate';
 import { ManifestManager } from './manifest-manager';
@@ -43,7 +43,8 @@ describe('ManifestManager', () => {
       const genStub = sinon.stub(generator, 'generateToVariable').resolves(mockManifest);
       const watchStub = sinon.stub(chokidar, 'watch').returns(mockWatcher);
       const callbackSpy = sinon.spy();
-      const mockEvent = 'a-drill';
+      // have to adhere to chokidar restrictions
+      const mockEvent = 'ready';
       const mockChangedPath = 'C:/changed';
 
       const testedManager = new ManifestManager(manifestInit);

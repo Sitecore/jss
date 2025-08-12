@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: replaceMediaUrlPrefix()
 
-> **replaceMediaUrlPrefix**(`url`, `mediaUrlPrefix`?): `string`
+> **replaceMediaUrlPrefix**(`url`, `mediaUrlPrefix?`): `string`
+
+Defined in: [packages/sitecore-jss/src/media/media-api.ts:57](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/media/media-api.ts#L57)
 
 Replace `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
 Can use `mediaUrlPrefix` in order to use a custom prefix.
@@ -16,14 +18,10 @@ Can use `mediaUrlPrefix` in order to use a custom prefix.
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `url` | `string` | `undefined` | The URL to replace the media URL prefix in |
-| `mediaUrlPrefix`? | `RegExp` | `mediaUrlPrefixRegex` | The regex to match the media URL prefix |
+| `mediaUrlPrefix?` | `RegExp` | `mediaUrlPrefixRegex` | The regex to match the media URL prefix |
 
 ## Returns
 
 `string`
 
 The URL with the media URL prefix replaced
-
-## Defined in
-
-[packages/sitecore-jss/src/media/media-api.ts:57](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/media/media-api.ts#L57)

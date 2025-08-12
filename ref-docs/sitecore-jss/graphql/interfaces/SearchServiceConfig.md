@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [graphql](../README.md) / SearchServiceConfig
 
-# Interface: ~~SearchServiceConfig~~
+# ~~Interface: SearchServiceConfig~~
+
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:72](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/graphql/search-service.ts#L72)
 
 ## Deprecated
 
@@ -30,6 +32,8 @@ except 'language' are consistent across languages so they are passed to construc
 
 > `optional` **pageSize**: `number`
 
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:61](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/graphql/search-service.ts#L61)
+
 common variable for all GraphQL queries
 it will be used for every type of query to regulate result batch size
 Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
@@ -42,11 +46,7 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 
 #### Inherited from
 
-`Omit.pageSize`
-
-#### Defined in
-
-[packages/sitecore-jss/src/graphql/search-service.ts:61](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/graphql/search-service.ts#L61)
+[`SearchQueryVariables`](SearchQueryVariables.md).[`pageSize`](SearchQueryVariables.md#pagesize)
 
 ***
 
@@ -54,15 +54,13 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 
 > `optional` **rootItemId**: `string`
 
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/graphql/search-service.ts#L48)
+
 Optional. The ID of the search root item. Fetch items that have this item as an ancestor.
 
 #### Inherited from
 
-`Omit.rootItemId`
-
-#### Defined in
-
-[packages/sitecore-jss/src/graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/graphql/search-service.ts#L48)
+[`SearchQueryVariables`](SearchQueryVariables.md).[`rootItemId`](SearchQueryVariables.md#rootitemid)
 
 ***
 
@@ -70,12 +68,10 @@ Optional. The ID of the search root item. Fetch items that have this item as an 
 
 > **siteName**: `string`
 
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:77](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/graphql/search-service.ts#L77)
+
 The name of the current Sitecore site. This is used to to determine the search query root
 in cases where one is not specified by the caller.
-
-#### Defined in
-
-[packages/sitecore-jss/src/graphql/search-service.ts:77](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/graphql/search-service.ts#L77)
 
 ***
 
@@ -83,12 +79,10 @@ in cases where one is not specified by the caller.
 
 > `optional` **templates**: `string`
 
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/graphql/search-service.ts#L53)
+
 Optional. Sitecore template ID(s). Fetch items that inherit from this template(s).
 
 #### Inherited from
 
-`Omit.templates`
-
-#### Defined in
-
-[packages/sitecore-jss/src/graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/graphql/search-service.ts#L53)
+[`SearchQueryVariables`](SearchQueryVariables.md).[`templates`](SearchQueryVariables.md#templates)

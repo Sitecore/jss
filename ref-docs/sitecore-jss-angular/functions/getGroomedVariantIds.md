@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: getGroomedVariantIds()
 
 > **getGroomedVariantIds**(`variantIds`): `PersonalizedRewriteData`
+
+Defined in: packages/sitecore-jss/types/personalize/utils.d.ts:25
 
 Parses a list of variantIds and divides into layout and component variants
 
@@ -21,7 +23,3 @@ Parses a list of variantIds and divides into layout and component variants
 `PersonalizedRewriteData`
 
 object with variant IDs sorted
-
-## Defined in
-
-packages/sitecore-jss/types/personalize/utils.d.ts:25

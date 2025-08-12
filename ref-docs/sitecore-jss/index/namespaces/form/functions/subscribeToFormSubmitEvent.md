@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: subscribeToFormSubmitEvent()
 
-> **subscribeToFormSubmitEvent**(`formElement`, `componentId`?): `void`
+> **subscribeToFormSubmitEvent**(`formElement`, `componentId?`): `void`
+
+Defined in: [packages/sitecore-jss/src/form/form.ts:76](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/form/form.ts#L76)
 
 Subscribes to the Form event and then sends data to CloudSDK.
 This listener captures interactions such as form views or submissions
@@ -16,12 +18,8 @@ This listener captures interactions such as form views or submissions
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `formElement` | `HTMLElement` | The form element to subscribe to events on |
-| `componentId`? | `string` | The unique identifier of the component |
+| `componentId?` | `string` | The unique identifier of the component |
 
 ## Returns
 
 `void`
-
-## Defined in
-
-[packages/sitecore-jss/src/form/form.ts:76](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/form/form.ts#L76)

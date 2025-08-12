@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,14 +6,18 @@
 
 # Class: GraphQLEditingService
 
+Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:101](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L101)
+
 Service for fetching editing data from Sitecore using the Sitecore's GraphQL API.
 Expected to be used in XMCloud Pages preview (editing) Metadata Edit Mode.
 
 ## Constructors
 
-### new GraphQLEditingService()
+### Constructor
 
-> **new GraphQLEditingService**(`serviceConfig`): [`GraphQLEditingService`](GraphQLEditingService.md)
+> **new GraphQLEditingService**(`serviceConfig`): `GraphQLEditingService`
+
+Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:108](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L108)
 
 Fetch layout data using the Sitecore GraphQL endpoint.
 
@@ -25,11 +29,7 @@ Fetch layout data using the Sitecore GraphQL endpoint.
 
 #### Returns
 
-[`GraphQLEditingService`](GraphQLEditingService.md)
-
-#### Defined in
-
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:108](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L108)
+`GraphQLEditingService`
 
 ## Properties
 
@@ -37,42 +37,40 @@ Fetch layout data using the Sitecore GraphQL endpoint.
 
 > **serviceConfig**: `GraphQLEditingServiceConfig`
 
+Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:108](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L108)
+
 configuration
-
-#### Defined in
-
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:108](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L108)
 
 ## Methods
 
 ### fetchDictionaryData()
 
-> **fetchDictionaryData**(`__namedParameters`, `initDictionary`, `hasNext`, `after`?): `Promise`\<[`DictionaryPhrases`](../../i18n/interfaces/DictionaryPhrases.md)\>
+> **fetchDictionaryData**(`__namedParameters`, `initDictionary`, `hasNext`, `after?`): `Promise`\<[`DictionaryPhrases`](../../i18n/interfaces/DictionaryPhrases.md)\>
+
+Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:197](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L197)
 
 #### Parameters
 
 | Parameter | Type | Default value |
 | ------ | ------ | ------ |
-| `__namedParameters` | `object` | `undefined` |
+| `__namedParameters` | \{ `language`: `string`; `siteName`: `string`; \} | `undefined` |
 | `__namedParameters.language` | `string` | `undefined` |
 | `__namedParameters.siteName` | `string` | `undefined` |
 | `initDictionary` | `object`[] | `[]` |
-| `hasNext`? | `boolean` | `true` |
-| `after`? | `string` | `undefined` |
+| `hasNext?` | `boolean` | `true` |
+| `after?` | `string` | `undefined` |
 
 #### Returns
 
 `Promise`\<[`DictionaryPhrases`](../../i18n/interfaces/DictionaryPhrases.md)\>
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:197](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L197)
-
 ***
 
 ### fetchEditingData()
 
-> **fetchEditingData**(`variables`): `Promise`\<`object`\>
+> **fetchEditingData**(`variables`): `Promise`\<\{ `dictionary`: [`DictionaryPhrases`](../../i18n/interfaces/DictionaryPhrases.md); `layoutData`: [`LayoutServiceData`](../../layout/interfaces/LayoutServiceData.md); \}\>
+
+Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:122](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L122)
 
 Fetches editing data. Provides the layout data and dictionary phrases
 
@@ -80,36 +78,26 @@ Fetches editing data. Provides the layout data and dictionary phrases
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `variables` | `object` | The parameters for fetching editing data. |
+| `variables` | \{ `itemId`: `string`; `language`: `string`; `layoutKind?`: [`LayoutKind`](../enumerations/LayoutKind.md); `siteName`: `string`; `version?`: `string`; \} | The parameters for fetching editing data. |
 | `variables.itemId` | `string` | The item id (path) to fetch layout data for. |
 | `variables.language` | `string` | The language to fetch layout data for. |
-| `variables.layoutKind`? | [`LayoutKind`](../enumerations/LayoutKind.md) | The final or shared layout variant. |
+| `variables.layoutKind?` | [`LayoutKind`](../enumerations/LayoutKind.md) | The final or shared layout variant. |
 | `variables.siteName` | `string` | The site name. |
-| `variables.version`? | `string` | The version of the item (optional). |
+| `variables.version?` | `string` | The version of the item (optional). |
 
 #### Returns
 
-`Promise`\<`object`\>
+`Promise`\<\{ `dictionary`: [`DictionaryPhrases`](../../i18n/interfaces/DictionaryPhrases.md); `layoutData`: [`LayoutServiceData`](../../layout/interfaces/LayoutServiceData.md); \}\>
 
 The layout data and dictionary phrases.
-
-##### dictionary
-
-> **dictionary**: [`DictionaryPhrases`](../../i18n/interfaces/DictionaryPhrases.md)
-
-##### layoutData
-
-> **layoutData**: [`LayoutServiceData`](../../layout/interfaces/LayoutServiceData.md)
-
-#### Defined in
-
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:122](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L122)
 
 ***
 
 ### getGraphQLClient()
 
 > `protected` **getGraphQLClient**(): [`GraphQLClient`](../../index/interfaces/GraphQLClient.md)
+
+Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:240](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L240)
 
 Gets a GraphQL client that can make requests to the API.
 
@@ -118,7 +106,3 @@ Gets a GraphQL client that can make requests to the API.
 [`GraphQLClient`](../../index/interfaces/GraphQLClient.md)
 
 implementation
-
-#### Defined in
-
-[packages/sitecore-jss/src/editing/graphql-editing-service.ts:240](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L240)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: updateImageUrl()
 
-> **updateImageUrl**(`url`, `params`?, `mediaUrlPrefix`?): `string`
+> **updateImageUrl**(`url`, `params?`, `mediaUrlPrefix?`): `string`
+
+Defined in: [packages/sitecore-jss/src/media/media-api.ts:83](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/media/media-api.ts#L83)
 
 Prepares a Sitecore media URL with `params` for use by the JSS media handler.
 This is done by replacing `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
@@ -19,15 +21,11 @@ If no `params` are sent, the original media URL is returned.
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `url` | `string` | `undefined` | The URL to prepare |
-| `params`? | `null` \| `object` | `undefined` | The querystring parameters to use |
-| `mediaUrlPrefix`? | `RegExp` | `mediaUrlPrefixRegex` | The regex to match the media URL prefix |
+| `params?` | `null` \| \{\[`key`: `string`\]: `undefined` \| `string` \| `number`; \} | `undefined` | The querystring parameters to use |
+| `mediaUrlPrefix?` | `RegExp` | `mediaUrlPrefixRegex` | The regex to match the media URL prefix |
 
 ## Returns
 
 `string`
 
 The prepared URL
-
-## Defined in
-
-[packages/sitecore-jss/src/media/media-api.ts:83](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/media/media-api.ts#L83)

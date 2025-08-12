@@ -101,7 +101,7 @@ export class ManifestManager {
           console.error(e);
         }
       })
-      .on('error', (error: string) => console.error(`Manifest watcher error: ${error}`));
+      .on('error', (error) => console.error(`Manifest watcher error: ${error}`));
 
     console.log('Manifest manager is watching for manifest source file changes...');
   }

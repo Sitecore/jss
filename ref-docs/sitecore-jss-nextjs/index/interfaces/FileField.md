@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,12 +6,12 @@
 
 # Interface: FileField
 
+Defined in: sitecore-jss-react/types/components/File.d.ts:8
+
 ## Properties
 
 ### value
 
 > **value**: `FileFieldValue`
 
-#### Defined in
-
-sitecore-jss-react/types/components/File.d.ts:10
+Defined in: sitecore-jss-react/types/components/File.d.ts:9

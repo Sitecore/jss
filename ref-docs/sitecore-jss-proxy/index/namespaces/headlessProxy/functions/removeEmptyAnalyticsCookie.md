@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-proxy**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-proxy**](../../../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: removeEmptyAnalyticsCookie()
 
 > **removeEmptyAnalyticsCookie**(`proxyResponse`): `void`
+
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:26](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L26)
 
 ## Parameters
 
@@ -17,7 +19,3 @@
 ## Returns
 
 `void`
-
-## Defined in
-
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:23](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L23)

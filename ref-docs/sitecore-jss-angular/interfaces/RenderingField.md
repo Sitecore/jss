@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / RenderingField
 
 # Interface: RenderingField\<V\>
+
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/rendering-field.ts#L5)
 
 ## Extends
 
@@ -30,9 +32,7 @@
 
 > `optional` **editable**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
 
 ***
 
@@ -40,17 +40,15 @@
 
 > `optional` **metadata**: `object`
 
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:125
+
 #### Index Signature
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 #### Inherited from
 
 `FieldMetadata.metadata`
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:125
 
 ***
 
@@ -58,6 +56,4 @@ packages/sitecore-jss/types/layout/models.d.ts:125
 
 > `optional` **value**: `V`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-vue**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-vue**](../README.md)
 
 ***
 
@@ -6,8 +6,6 @@
 
 # Variable: Link
 
-> `const` **Link**: `DefineComponent`\<`ExtractPropTypes`\<`object`\>, `object`, `object`, `object`, `object`, `ComponentOptionsMixin`, `ComponentOptionsMixin`, `object`, `string`, `PublicProps`, `ToResolvedProps`\<`ExtractPropTypes`\<`object`\>, `object`\>, `object`, `object`, `object`, `object`, `string`, `ComponentProvideOptions`, `true`, `object`, `any`\>
+> `const` **Link**: `DefineComponent`\<`ExtractPropTypes`\<\{ `editable`: \{ `default`: `boolean`; `type`: `BooleanConstructor`; \}; `field`: \{ `required`: `true`; `type`: `PropType`\<`LinkFieldValue` \| `LinkField`\>; `default`: `LinkFieldValue` \| `LinkField`; \}; `showLinkTextWithChildrenPresent`: \{ `default`: `boolean`; `type`: `BooleanConstructor`; \}; \}\>, \{ \}, \{ \}, \{ \}, \{ \}, `ComponentOptionsMixin`, `ComponentOptionsMixin`, \{ \}, `string`, `PublicProps`, `ToResolvedProps`\<`ExtractPropTypes`\<\{ `editable`: \{ `default`: `boolean`; `type`: `BooleanConstructor`; \}; `field`: \{ `required`: `true`; `type`: `PropType`\<`LinkFieldValue` \| `LinkField`\>; `default`: `LinkFieldValue` \| `LinkField`; \}; `showLinkTextWithChildrenPresent`: \{ `default`: `boolean`; `type`: `BooleanConstructor`; \}; \}\>, \{ \}\>, \{ `editable`: `boolean`; `field`: `LinkFieldValue` \| `LinkField`; `showLinkTextWithChildrenPresent`: `boolean`; \}, \{ \}, \{ \}, \{ \}, `string`, `ComponentProvideOptions`, `true`, \{ \}, `any`\>
 
-## Defined in
-
-[packages/sitecore-jss-vue/src/components/Link.ts:19](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-vue/src/components/Link.ts#L19)
+Defined in: [packages/sitecore-jss-vue/src/components/Link.ts:19](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-vue/src/components/Link.ts#L19)

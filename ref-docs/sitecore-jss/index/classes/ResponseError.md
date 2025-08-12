@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,15 +6,19 @@
 
 # Class: ResponseError
 
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:29](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/data-fetcher.ts#L29)
+
 ## Extends
 
 - `Error`
 
 ## Constructors
 
-### new ResponseError()
+### Constructor
 
-> **new ResponseError**(`message`, `response`): [`ResponseError`](ResponseError.md)
+> **new ResponseError**(`message`, `response`): `ResponseError`
+
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:32](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/data-fetcher.ts#L32)
 
 #### Parameters
 
@@ -25,15 +29,11 @@
 
 #### Returns
 
-[`ResponseError`](ResponseError.md)
+`ResponseError`
 
 #### Overrides
 
 `Error.constructor`
-
-#### Defined in
-
-[packages/sitecore-jss/src/data-fetcher.ts:32](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/data-fetcher.ts#L32)
 
 ## Properties
 
@@ -41,13 +41,11 @@
 
 > **message**: `string`
 
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1077
+
 #### Inherited from
 
 `Error.message`
-
-#### Defined in
-
-node\_modules/typescript/lib/lib.es5.d.ts:1077
 
 ***
 
@@ -55,13 +53,11 @@ node\_modules/typescript/lib/lib.es5.d.ts:1077
 
 > **name**: `string`
 
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1076
+
 #### Inherited from
 
 `Error.name`
-
-#### Defined in
-
-node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 ***
 
@@ -69,9 +65,7 @@ node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 > **response**: [`HttpResponse`](../interfaces/HttpResponse.md)\<`unknown`\>
 
-#### Defined in
-
-[packages/sitecore-jss/src/data-fetcher.ts:30](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/data-fetcher.ts#L30)
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:30](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/data-fetcher.ts#L30)
 
 ***
 
@@ -79,19 +73,19 @@ node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 > `optional` **stack**: `string`
 
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1078
+
 #### Inherited from
 
 `Error.stack`
-
-#### Defined in
-
-node\_modules/typescript/lib/lib.es5.d.ts:1078
 
 ***
 
 ### prepareStackTrace()?
 
 > `static` `optional` **prepareStackTrace**: (`err`, `stackTraces`) => `any`
+
+Defined in: packages/sitecore-jss/node\_modules/@types/node/globals.d.ts:143
 
 Optional override for formatting stack traces
 
@@ -114,29 +108,25 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 `Error.prepareStackTrace`
 
-#### Defined in
-
-packages/sitecore-jss/node\_modules/@types/node/globals.d.ts:143
-
 ***
 
 ### stackTraceLimit
 
 > `static` **stackTraceLimit**: `number`
 
+Defined in: packages/sitecore-jss/node\_modules/@types/node/globals.d.ts:145
+
 #### Inherited from
 
 `Error.stackTraceLimit`
-
-#### Defined in
-
-packages/sitecore-jss/node\_modules/@types/node/globals.d.ts:145
 
 ## Methods
 
 ### captureStackTrace()
 
-> `static` **captureStackTrace**(`targetObject`, `constructorOpt`?): `void`
+> `static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+
+Defined in: packages/sitecore-jss/node\_modules/@types/node/globals.d.ts:136
 
 Create .stack property on a target object
 
@@ -145,7 +135,7 @@ Create .stack property on a target object
 | Parameter | Type |
 | ------ | ------ |
 | `targetObject` | `object` |
-| `constructorOpt`? | `Function` |
+| `constructorOpt?` | `Function` |
 
 #### Returns
 
@@ -154,7 +144,3 @@ Create .stack property on a target object
 #### Inherited from
 
 `Error.captureStackTrace`
-
-#### Defined in
-
-packages/sitecore-jss/node\_modules/@types/node/globals.d.ts:136

@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-rendering-host",
-  "version": "22.9.0-canary.4",
+  "version": "22.9.0-canary.6",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -26,20 +26,20 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "compression": "^1.7.4",
-    "del": "^6.1.1",
-    "express": "^4.18.2",
-    "import-fresh": "^3.3.0",
+    "compression": "^1.8.1",
+    "del": "^8.0.0",
+    "express": "^5.1.0",
+    "import-fresh": "^3.3.1",
     "ngrok": "^4.3.3",
     "opn": "^6.0.0",
-    "webpack": "5.76.2"
+    "webpack": "5.101.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.3",
-    "@types/compression": "^1.7.2",
-    "@types/express-serve-static-core": "^4.17.33",
+    "@types/compression": "^1.8.1",
+    "@types/express-serve-static-core": "^5.0.7",
     "@types/glob": "^8.0.1",
-    "@types/mocha": "^10.0.1",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^22.9.0",
     "@types/webpack": "5.28.5",
     "@types/webpack-dev-middleware": "2.0.5",
@@ -48,10 +48,10 @@
     "del-cli": "^5.0.0",
     "eslint": "^8.56.0",
     "eslint-plugin-jsdoc": "48.7.0",
-    "mocha": "^10.2.0",
-    "nyc": "^15.1.0",
+    "mocha": "^11.7.0",
+    "nyc": "^17.1.0",
     "ts-node": "^10.9.1",
-    "typescript": "~5.6.3"
+    "typescript": "~5.9.2"
   },
   "description": "",
   "types": "types/index.d.ts",

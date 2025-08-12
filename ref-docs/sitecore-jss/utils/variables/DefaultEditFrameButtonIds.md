@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -8,12 +8,10 @@
 
 > `const` **DefaultEditFrameButtonIds**: `object`
 
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:11](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/edit-frame.ts#L11)
+
 ## Type declaration
 
 ### edit
 
 > **edit**: `string` = `'{70C4EED5-D4CD-4D7D-9763-80C42504F5E7}'`
-
-## Defined in
-
-[packages/sitecore-jss/src/editing/edit-frame.ts:11](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/editing/edit-frame.ts#L11)

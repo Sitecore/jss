@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,30 +6,46 @@
 
 # Type Alias: RedirectInfo
 
-> **RedirectInfo**: `object`
+> **RedirectInfo** = `object`
 
-## Type declaration
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:11](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L11)
+
+## Properties
 
 ### isQueryStringPreserved
 
 > **isQueryStringPreserved**: `boolean`
 
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:15](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L15)
+
+***
+
 ### locale
 
 > **locale**: `string`
+
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:16](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L16)
+
+***
 
 ### pattern
 
 > **pattern**: `string`
 
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:12](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L12)
+
+***
+
 ### redirectType
 
 > **redirectType**: `string`
+
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:14](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L14)
+
+***
 
 ### target
 
 > **target**: `string`
 
-## Defined in
-
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:11](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L11)
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:13](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L13)

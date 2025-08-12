@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,17 +6,19 @@
 
 # Function: withSitecoreContext()
 
-> **withSitecoreContext**(`options`?): \<`ComponentProps`\>(`Component`) => (`props`) => `Element`
+> **withSitecoreContext**(`options?`): \<`ComponentProps`\>(`Component`) => (`props`) => `Element`
+
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L29)
 
 ## Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `options`? | [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md) |  |
+| `options?` | [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md) |  |
 
 ## Returns
 
-`Function`
+> \<`ComponentProps`\>(`Component`): (`props`) => `Element`
 
 ### Type Parameters
 
@@ -32,18 +34,14 @@
 
 ### Returns
 
-`Function`
+> (`props`): `Element`
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `props` | [`EnhancedOmit`](../type-aliases/EnhancedOmit.md)\<`ComponentProps`, keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\> |
+| `props` | [`WithSitecoreContextHocProps`](../type-aliases/WithSitecoreContextHocProps.md)\<`ComponentProps`\> |
 
 #### Returns
 
 `Element`
-
-## Defined in
-
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L29)

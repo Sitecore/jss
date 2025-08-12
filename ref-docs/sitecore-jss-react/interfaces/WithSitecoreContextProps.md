@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,11 +6,15 @@
 
 # Interface: WithSitecoreContextProps
 
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L14)
+
 ## Properties
 
 ### api?
 
 > `optional` **api**: `object`
+
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L16)
 
 #### edge?
 
@@ -18,27 +22,23 @@
 
 Sitecore XM Cloud Edge endpoint credentials for Sitecore connection.
 
-#### edge.contextId
+##### edge.contextId
 
 > **contextId**: `string`
 
 A unified identifier used to connect and retrieve data from XM Cloud instance
 
-#### edge.edgeUrl?
+##### edge.edgeUrl?
 
 > `optional` **edgeUrl**: `string`
 
 XM Cloud endpoint that the app will communicate and retrieve data from
 
-##### Default
+###### Default
 
 ```ts
 https://edge-platform.sitecorecloud.io
 ```
-
-#### Defined in
-
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L16)
 
 ***
 
@@ -46,9 +46,7 @@ https://edge-platform.sitecorecloud.io
 
 > **sitecoreContext**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-#### Defined in
-
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L15)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L15)
 
 ***
 
@@ -56,6 +54,4 @@ https://edge-platform.sitecorecloud.io
 
 > `optional` **updateSitecoreContext**: `false` \| (`value`) => `void`
 
-#### Defined in
-
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:17](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L17)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:17](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L17)

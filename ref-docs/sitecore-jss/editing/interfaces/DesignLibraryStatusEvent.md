@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [editing](../README.md) / DesignLibraryStatusEvent
 
 # Interface: DesignLibraryStatusEvent
+
+Defined in: [packages/sitecore-jss/src/editing/design-library.ts:13](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/design-library.ts#L13)
 
 Represents an event indicating the status of a component in the library.
 
@@ -14,6 +16,8 @@ Represents an event indicating the status of a component in the library.
 
 > **message**: `object`
 
+Defined in: [packages/sitecore-jss/src/editing/design-library.ts:15](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/design-library.ts#L15)
+
 #### status
 
 > **status**: `"ready"` \| `"rendered"`
@@ -22,16 +26,10 @@ Represents an event indicating the status of a component in the library.
 
 > **uid**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/design-library.ts:15](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/editing/design-library.ts#L15)
-
 ***
 
 ### name
 
 > **name**: `"component:status"`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/design-library.ts:14](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/editing/design-library.ts#L14)
+Defined in: [packages/sitecore-jss/src/editing/design-library.ts:14](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/design-library.ts#L14)

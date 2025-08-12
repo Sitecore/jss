@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,9 +6,11 @@
 
 # Interface: ImageSizeParameters
 
+Defined in: sitecore-jss-react/types/components/Image.d.ts:12
+
 ## Indexable
 
- \[`attr`: `string`\]: `string` \| `number` \| `undefined`
+\[`attr`: `string`\]: `undefined` \| `string` \| `number`
 
 ## Properties
 
@@ -16,11 +18,9 @@
 
 > `optional` **as**: `0` \| `1`
 
+Defined in: sitecore-jss-react/types/components/Image.d.ts:25
+
 Allow stretch
-
-#### Defined in
-
-sitecore-jss-react/types/components/Image.d.ts:26
 
 ***
 
@@ -28,11 +28,9 @@ sitecore-jss-react/types/components/Image.d.ts:26
 
 > `optional` **h**: `number`
 
+Defined in: sitecore-jss-react/types/components/Image.d.ts:17
+
 Fixed height of the image
-
-#### Defined in
-
-sitecore-jss-react/types/components/Image.d.ts:18
 
 ***
 
@@ -40,11 +38,9 @@ sitecore-jss-react/types/components/Image.d.ts:18
 
 > `optional` **iar**: `0` \| `1`
 
+Defined in: sitecore-jss-react/types/components/Image.d.ts:23
+
 Ignore aspect ratio
-
-#### Defined in
-
-sitecore-jss-react/types/components/Image.d.ts:24
 
 ***
 
@@ -52,11 +48,9 @@ sitecore-jss-react/types/components/Image.d.ts:24
 
 > `optional` **mh**: `number`
 
+Defined in: sitecore-jss-react/types/components/Image.d.ts:21
+
 Max height of the image
-
-#### Defined in
-
-sitecore-jss-react/types/components/Image.d.ts:22
 
 ***
 
@@ -64,11 +58,9 @@ sitecore-jss-react/types/components/Image.d.ts:22
 
 > `optional` **mw**: `number`
 
+Defined in: sitecore-jss-react/types/components/Image.d.ts:19
+
 Max width of the image
-
-#### Defined in
-
-sitecore-jss-react/types/components/Image.d.ts:20
 
 ***
 
@@ -76,11 +68,9 @@ sitecore-jss-react/types/components/Image.d.ts:20
 
 > `optional` **sc**: `number`
 
+Defined in: sitecore-jss-react/types/components/Image.d.ts:27
+
 Image scale. Defaults to 1.0
-
-#### Defined in
-
-sitecore-jss-react/types/components/Image.d.ts:28
 
 ***
 
@@ -88,8 +78,6 @@ sitecore-jss-react/types/components/Image.d.ts:28
 
 > `optional` **w**: `number`
 
+Defined in: sitecore-jss-react/types/components/Image.d.ts:15
+
 Fixed width of the image
-
-#### Defined in
-
-sitecore-jss-react/types/components/Image.d.ts:16

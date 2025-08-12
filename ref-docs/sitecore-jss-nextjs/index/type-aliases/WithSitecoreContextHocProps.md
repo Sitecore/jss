@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,14 +6,12 @@
 
 # Type Alias: WithSitecoreContextHocProps\<ComponentProps\>
 
-> **WithSitecoreContextHocProps**\<`ComponentProps`\>: `EnhancedOmit`\<`ComponentProps`, keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\>
+> **WithSitecoreContextHocProps**\<`ComponentProps`\> = `EnhancedOmit`\<`ComponentProps`, keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\>
+
+Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:12
 
 ## Type Parameters
 
 | Type Parameter |
 | ------ |
 | `ComponentProps` |
-
-## Defined in
-
-sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:13

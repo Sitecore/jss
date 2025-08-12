@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: scaffoldFile()
 
-> **scaffoldFile**(`filePath`, `fileContent`): `string` \| `null`
+> **scaffoldFile**(`filePath`, `fileContent`): `null` \| `string`
+
+Defined in: [sitecore-jss-dev-tools/src/templating/scaffold.ts:22](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-dev-tools/src/templating/scaffold.ts#L22)
 
 Creates a file relative to the specified path if the file doesn't exist.
 Creates directories as needed.
@@ -21,10 +23,6 @@ Does not overwrite existing files.
 
 ## Returns
 
-`string` \| `null`
+`null` \| `string`
 
 the file path if the file was created, otherwise null
-
-## Defined in
-
-[sitecore-jss-dev-tools/src/templating/scaffold.ts:22](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-dev-tools/src/templating/scaffold.ts#L22)

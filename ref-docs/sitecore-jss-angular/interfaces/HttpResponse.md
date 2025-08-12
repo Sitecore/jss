@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / HttpResponse
 
 # Interface: HttpResponse\<T\>
+
+Defined in: packages/sitecore-jss/types/data-fetcher.d.ts:7
 
 Response data for an HTTP request sent to an API
 
@@ -20,11 +22,9 @@ Response data for an HTTP request sent to an API
 
 > **data**: `T`
 
+Defined in: packages/sitecore-jss/types/data-fetcher.d.ts:13
+
 Response content
-
-#### Defined in
-
-packages/sitecore-jss/types/data-fetcher.d.ts:13
 
 ***
 
@@ -32,11 +32,9 @@ packages/sitecore-jss/types/data-fetcher.d.ts:13
 
 > **status**: `number`
 
+Defined in: packages/sitecore-jss/types/data-fetcher.d.ts:9
+
 HTTP status code of the response (i.e. 200, 404)
-
-#### Defined in
-
-packages/sitecore-jss/types/data-fetcher.d.ts:9
 
 ***
 
@@ -44,8 +42,6 @@ packages/sitecore-jss/types/data-fetcher.d.ts:9
 
 > **statusText**: `string`
 
+Defined in: packages/sitecore-jss/types/data-fetcher.d.ts:11
+
 HTTP status text of the response (i.e. 'OK', 'Bad Request')
-
-#### Defined in
-
-packages/sitecore-jss/types/data-fetcher.d.ts:11

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react-forms**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react-forms**](../README.md)
 
 ***
 
@@ -6,33 +6,54 @@
 
 # Class: FileUpload
 
+Defined in: [src/components/field-templates/file-upload.tsx:8](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L8)
+
 ## Extends
 
 - `Component`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
 
 ## Constructors
 
-### new FileUpload()
+### Constructor
 
-> **new FileUpload**(`props`): [`FileUpload`](FileUpload.md)
+> **new FileUpload**(`props`): `FileUpload`
+
+Defined in: node\_modules/@types/react/index.d.ts:949
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `props` | [`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\> |
+| `props` | [`ValueFieldProps`](../type-aliases/ValueFieldProps.md) |
 
 #### Returns
 
-[`FileUpload`](FileUpload.md)
+`FileUpload`
 
 #### Inherited from
 
 `Component<ValueFieldProps<FileInputViewModel>>.constructor`
 
-#### Defined in
+### Constructor
 
-node\_modules/@types/react/index.d.ts:948
+> **new FileUpload**(`props`, `context`): `FileUpload`
+
+Defined in: node\_modules/@types/react/index.d.ts:957
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `props` | [`ValueFieldProps`](../type-aliases/ValueFieldProps.md) |  |
+| `context` | `any` | value of the parent [Context](https://react.dev/reference/react/Component#context) specified in `contextType`. |
+
+#### Returns
+
+`FileUpload`
+
+#### Inherited from
+
+`Component<ValueFieldProps<FileInputViewModel>>.constructor`
 
 ## Properties
 
@@ -40,7 +61,9 @@ node\_modules/@types/react/index.d.ts:948
 
 > **context**: `unknown`
 
-If using the new style context, re-declare this in your class to be the
+Defined in: node\_modules/@types/react/index.d.ts:946
+
+If using React Context, re-declare this in your class to be the
 `React.ContextType` of your `static contextType`.
 Should be used with type annotation or static contextType.
 
@@ -62,33 +85,25 @@ declare context: React.ContextType<typeof MyContext>
 
 `Component.context`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:945
-
 ***
 
 ### fileInputRef
 
 > **fileInputRef**: `RefObject`\<`null` \| `HTMLInputElement`\>
 
-#### Defined in
-
-[src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
+Defined in: [src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
 
 ***
 
 ### props
 
-> `readonly` **props**: `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\>
+> `readonly` **props**: `Readonly`\<`P`\>
+
+Defined in: node\_modules/@types/react/index.d.ts:970
 
 #### Inherited from
 
 `Component.props`
-
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:961
 
 ***
 
@@ -96,33 +111,31 @@ node\_modules/@types/react/index.d.ts:961
 
 > **SIZE\_UNITS**: `object`
 
+Defined in: [src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
+
 #### Index Signature
 
- \[`key`: `string`\]: `string`
-
-#### Defined in
-
-[src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
+\[`key`: `string`\]: `string`
 
 ***
 
 ### state
 
-> **state**: `Readonly`\<`object`\>
+> **state**: `Readonly`\<`S`\>
+
+Defined in: node\_modules/@types/react/index.d.ts:971
 
 #### Inherited from
 
 `Component.state`
-
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:962
 
 ***
 
 ### contextType?
 
 > `static` `optional` **contextType**: `Context`\<`any`\>
+
+Defined in: node\_modules/@types/react/index.d.ts:922
 
 If set, `this.context` will be set at runtime to the current value of the given Context.
 
@@ -149,15 +162,13 @@ class Foo extends React.Component {
 
 `Component.contextType`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:921
-
 ***
 
 ### ~~propTypes?~~
 
 > `static` `optional` **propTypes**: `any`
+
+Defined in: node\_modules/@types/react/index.d.ts:928
 
 Ignored by React.
 
@@ -169,15 +180,13 @@ Only kept in types for backwards compatibility. Will be removed in a future majo
 
 `Component.propTypes`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:927
-
 ## Methods
 
 ### componentDidCatch()?
 
 > `optional` **componentDidCatch**(`error`, `errorInfo`): `void`
+
+Defined in: node\_modules/@types/react/index.d.ts:1210
 
 Catches exceptions generated in descendant components. Unhandled exceptions will cause
 the entire component tree to unmount.
@@ -197,15 +206,13 @@ the entire component tree to unmount.
 
 `Component.componentDidCatch`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:1194
-
 ***
 
 ### componentDidMount()?
 
 > `optional` **componentDidMount**(): `void`
+
+Defined in: node\_modules/@types/react/index.d.ts:1189
 
 Called immediately after a component is mounted. Setting state here will trigger re-rendering.
 
@@ -217,19 +224,17 @@ Called immediately after a component is mounted. Setting state here will trigger
 
 `Component.componentDidMount`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:1173
-
 ***
 
 ### componentDidUpdate()
 
 > **componentDidUpdate**(`prevProps`): `void`
 
+Defined in: [src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
+
 Called immediately after updating occurs. Not called for the initial render.
 
-The snapshot is only present if [getSnapshotBeforeUpdate](FileUpload.md#getsnapshotbeforeupdate) is present and returns non-null.
+The snapshot is only present if [getSnapshotBeforeUpdate](#getsnapshotbeforeupdate) is present and returns non-null.
 
 #### Parameters
 
@@ -245,15 +250,13 @@ The snapshot is only present if [getSnapshotBeforeUpdate](FileUpload.md#getsnaps
 
 `Component.componentDidUpdate`
 
-#### Defined in
-
-[src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
-
 ***
 
 ### ~~componentWillMount()?~~
 
 > `optional` **componentWillMount**(): `void`
+
+Defined in: node\_modules/@types/react/index.d.ts:1268
 
 Called immediately before mounting occurs, and before Component.render.
 Avoid introducing any side-effects or subscriptions in this method.
@@ -279,15 +282,13 @@ this from being invoked.
 
 `Component.componentWillMount`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:1252
-
 ***
 
 ### ~~componentWillReceiveProps()?~~
 
 > `optional` **componentWillReceiveProps**(`nextProps`, `nextContext`): `void`
+
+Defined in: node\_modules/@types/react/index.d.ts:1299
 
 Called when the component may be receiving new props.
 React may call this even if props have not changed, so be sure to compare new and existing
@@ -303,7 +304,7 @@ this from being invoked.
 
 | Parameter | Type |
 | ------ | ------ |
-| `nextProps` | `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\> |
+| `nextProps` | `Readonly`\<`P`\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -323,15 +324,13 @@ this from being invoked.
 
 `Component.componentWillReceiveProps`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:1283
-
 ***
 
 ### componentWillUnmount()?
 
 > `optional` **componentWillUnmount**(): `void`
+
+Defined in: node\_modules/@types/react/index.d.ts:1205
 
 Called immediately before a component is destroyed. Perform any necessary cleanup in this method, such as
 cancelled network requests, or cleaning up any DOM elements created in `componentDidMount`.
@@ -344,15 +343,13 @@ cancelled network requests, or cleaning up any DOM elements created in `componen
 
 `Component.componentWillUnmount`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:1189
-
 ***
 
 ### ~~componentWillUpdate()?~~
 
 > `optional` **componentWillUpdate**(`nextProps`, `nextState`, `nextContext`): `void`
+
+Defined in: node\_modules/@types/react/index.d.ts:1331
 
 Called immediately before rendering when new props or state is received. Not called for the initial render.
 
@@ -366,8 +363,8 @@ this from being invoked.
 
 | Parameter | Type |
 | ------ | ------ |
-| `nextProps` | `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\> |
-| `nextState` | `Readonly`\<`object`\> |
+| `nextProps` | `Readonly`\<`P`\> |
+| `nextState` | `Readonly`\<`S`\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -387,21 +384,19 @@ this from being invoked.
 
 `Component.componentWillUpdate`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:1315
-
 ***
 
 ### forceUpdate()
 
-> **forceUpdate**(`callback`?): `void`
+> **forceUpdate**(`callback?`): `void`
+
+Defined in: node\_modules/@types/react/index.d.ts:967
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `callback`? | () => `void` |
+| `callback?` | () => `void` |
 
 #### Returns
 
@@ -411,15 +406,13 @@ node\_modules/@types/react/index.d.ts:1315
 
 `Component.forceUpdate`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:958
-
 ***
 
 ### getEnabledValidation()
 
 > **getEnabledValidation**(`itemId`): `undefined` \| `ValidationDataModel`
+
+Defined in: [src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
 
 #### Parameters
 
@@ -431,15 +424,13 @@ node\_modules/@types/react/index.d.ts:958
 
 `undefined` \| `ValidationDataModel`
 
-#### Defined in
-
-[src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
-
 ***
 
 ### getFileSizeUnitName()
 
 > **getFileSizeUnitName**(`value`): `string`
+
+Defined in: [src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
 
 #### Parameters
 
@@ -451,18 +442,16 @@ node\_modules/@types/react/index.d.ts:958
 
 `string`
 
-#### Defined in
-
-[src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
-
 ***
 
 ### getSnapshotBeforeUpdate()?
 
 > `optional` **getSnapshotBeforeUpdate**(`prevProps`, `prevState`): `any`
 
+Defined in: node\_modules/@types/react/index.d.ts:1246
+
 Runs before React applies the result of Component.render render to the document, and
-returns an object to be given to [componentDidUpdate](FileUpload.md#componentdidupdate). Useful for saving
+returns an object to be given to [componentDidUpdate](#componentdidupdate). Useful for saving
 things such as scroll position before Component.render render causes changes to it.
 
 Note: the presence of this method prevents any of the deprecated
@@ -472,8 +461,8 @@ lifecycle events from running.
 
 | Parameter | Type |
 | ------ | ------ |
-| `prevProps` | `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\> |
-| `prevState` | `Readonly`\<`object`\> |
+| `prevProps` | `Readonly`\<`P`\> |
+| `prevState` | `Readonly`\<`S`\> |
 
 #### Returns
 
@@ -483,15 +472,13 @@ lifecycle events from running.
 
 `Component.getSnapshotBeforeUpdate`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:1230
-
 ***
 
 ### onChangeField()
 
 > **onChangeField**(`files`, `field`, `cb`): `void`
+
+Defined in: [src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
 
 #### Parameters
 
@@ -505,15 +492,13 @@ node\_modules/@types/react/index.d.ts:1230
 
 `void`
 
-#### Defined in
-
-[src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
-
 ***
 
 ### render()
 
 > **render**(): `Element`
+
+Defined in: [src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
 
 #### Returns
 
@@ -523,15 +508,13 @@ node\_modules/@types/react/index.d.ts:1230
 
 `Component.render`
 
-#### Defined in
-
-[src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
-
 ***
 
 ### setState()
 
-> **setState**\<`K`\>(`state`, `callback`?): `void`
+> **setState**\<`K`\>(`state`, `callback?`): `void`
+
+Defined in: node\_modules/@types/react/index.d.ts:962
 
 #### Type Parameters
 
@@ -543,8 +526,8 @@ node\_modules/@types/react/index.d.ts:1230
 
 | Parameter | Type |
 | ------ | ------ |
-| `state` | `null` \| `object` \| (`prevState`, `props`) => `null` \| `object` \| `Pick`\<`object`, `K`\> \| `Pick`\<`object`, `K`\> |
-| `callback`? | () => `void` |
+| `state` | `null` \| \{ \} \| (`prevState`, `props`) => `null` \| \{ \} \| `Pick`\<\{ \}, `K`\> \| `Pick`\<\{ \}, `K`\> |
+| `callback?` | () => `void` |
 
 #### Returns
 
@@ -554,15 +537,13 @@ node\_modules/@types/react/index.d.ts:1230
 
 `Component.setState`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:953
-
 ***
 
 ### shouldComponentUpdate()?
 
 > `optional` **shouldComponentUpdate**(`nextProps`, `nextState`, `nextContext`): `boolean`
+
+Defined in: node\_modules/@types/react/index.d.ts:1200
 
 Called to determine whether the change in props and state should trigger a re-render.
 
@@ -577,8 +558,8 @@ and `componentDidUpdate` will not be called.
 
 | Parameter | Type |
 | ------ | ------ |
-| `nextProps` | `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\> |
-| `nextState` | `Readonly`\<`object`\> |
+| `nextProps` | `Readonly`\<`P`\> |
+| `nextState` | `Readonly`\<`S`\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -589,15 +570,13 @@ and `componentDidUpdate` will not be called.
 
 `Component.shouldComponentUpdate`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:1184
-
 ***
 
 ### ~~UNSAFE\_componentWillMount()?~~
 
 > `optional` **UNSAFE\_componentWillMount**(): `void`
+
+Defined in: node\_modules/@types/react/index.d.ts:1283
 
 Called immediately before mounting occurs, and before Component.render.
 Avoid introducing any side-effects or subscriptions in this method.
@@ -625,15 +604,13 @@ this from being invoked.
 
 `Component.UNSAFE_componentWillMount`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:1267
-
 ***
 
 ### ~~UNSAFE\_componentWillReceiveProps()?~~
 
 > `optional` **UNSAFE\_componentWillReceiveProps**(`nextProps`, `nextContext`): `void`
+
+Defined in: node\_modules/@types/react/index.d.ts:1317
 
 Called when the component may be receiving new props.
 React may call this even if props have not changed, so be sure to compare new and existing
@@ -651,7 +628,7 @@ this from being invoked.
 
 | Parameter | Type |
 | ------ | ------ |
-| `nextProps` | `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\> |
+| `nextProps` | `Readonly`\<`P`\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -671,15 +648,13 @@ this from being invoked.
 
 `Component.UNSAFE_componentWillReceiveProps`
 
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:1301
-
 ***
 
 ### ~~UNSAFE\_componentWillUpdate()?~~
 
 > `optional` **UNSAFE\_componentWillUpdate**(`nextProps`, `nextState`, `nextContext`): `void`
+
+Defined in: node\_modules/@types/react/index.d.ts:1347
 
 Called immediately before rendering when new props or state is received. Not called for the initial render.
 
@@ -695,8 +670,8 @@ this from being invoked.
 
 | Parameter | Type |
 | ------ | ------ |
-| `nextProps` | `Readonly`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`FileInputViewModel`\>\> |
-| `nextState` | `Readonly`\<`object`\> |
+| `nextProps` | `Readonly`\<`P`\> |
+| `nextState` | `Readonly`\<`S`\> |
 | `nextContext` | `any` |
 
 #### Returns
@@ -715,7 +690,3 @@ this from being invoked.
 #### Inherited from
 
 `Component.UNSAFE_componentWillUpdate`
-
-#### Defined in
-
-node\_modules/@types/react/index.d.ts:1331

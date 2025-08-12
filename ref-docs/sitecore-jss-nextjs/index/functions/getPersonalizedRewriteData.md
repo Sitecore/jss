@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: getPersonalizedRewriteData()
 
 > **getPersonalizedRewriteData**(`pathname`): `PersonalizedRewriteData`
+
+Defined in: sitecore-jss/types/personalize/utils.d.ts:19
 
 Get personalize data from the rewrite path
 
@@ -21,7 +23,3 @@ Get personalize data from the rewrite path
 `PersonalizedRewriteData`
 
 the personalize data from the rewrite
-
-## Defined in
-
-sitecore-jss/types/personalize/utils.d.ts:19

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../README.md)
 
 ***
 
@@ -6,16 +6,14 @@
 
 # middleware
 
-## Index
-
-### Classes
+## Classes
 
 - [MiddlewareBase](classes/MiddlewareBase.md)
 - [MultisiteMiddleware](classes/MultisiteMiddleware.md)
 - [PersonalizeMiddleware](classes/PersonalizeMiddleware.md)
 - [RedirectsMiddleware](classes/RedirectsMiddleware.md)
 
-### Type Aliases
+## Type Aliases
 
 - [MiddlewareBaseConfig](type-aliases/MiddlewareBaseConfig.md)
 - [MultisiteMiddlewareConfig](type-aliases/MultisiteMiddlewareConfig.md)

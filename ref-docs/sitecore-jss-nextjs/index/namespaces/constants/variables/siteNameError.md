@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../../../README.md)
 
 ***
 
@@ -8,6 +8,4 @@
 
 > `const` **siteNameError**: `"The siteName cannot be empty"` = `"The siteName cannot be empty"`
 
-## Defined in
-
-sitecore-jss/types/constants.d.ts:13
+Defined in: sitecore-jss/types/constants.d.ts:13

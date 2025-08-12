@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: withDatasourceCheck()
 
-> **withDatasourceCheck**(`options`?): \<`ComponentProps`\>(`Component`) => (`props`) => `JSX.Element`
+> **withDatasourceCheck**(`options?`): \<`ComponentProps`\>(`Component`) => (`props`) => `Element`
+
+Defined in: sitecore-jss-react/types/enhancers/withDatasourceCheck.d.ts:21
 
 Checks whether a Sitecore datasource is present and renders appropriately depending on page mode (normal vs editing).
 
@@ -14,14 +16,14 @@ Checks whether a Sitecore datasource is present and renders appropriately depend
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `options`? | `WithDatasourceCheckOptions` |  |
+| `options?` | `WithDatasourceCheckOptions` |  |
 
 ## Returns
 
-`Function`
-
 The wrapped component, if a datasource is present.
  A null component (in normal mode) or an error component (in editing mode), if a datasource is not present.
+
+> \<`ComponentProps`\>(`Component`): (`props`) => `Element`
 
 ### Type Parameters
 
@@ -33,11 +35,11 @@ The wrapped component, if a datasource is present.
 
 | Parameter | Type |
 | ------ | ------ |
-| `Component` | `React.ComponentType`\<`ComponentProps`\> |
+| `Component` | `ComponentType`\<`ComponentProps`\> |
 
 ### Returns
 
-`Function`
+> (`props`): `Element`
 
 #### Parameters
 
@@ -47,8 +49,4 @@ The wrapped component, if a datasource is present.
 
 #### Returns
 
-`JSX.Element`
-
-## Defined in
-
-sitecore-jss-react/types/enhancers/withDatasourceCheck.d.ts:22
+`Element`

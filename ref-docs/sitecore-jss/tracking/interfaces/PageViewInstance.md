@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,9 +6,11 @@
 
 # Interface: PageViewInstance
 
+Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:29](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/tracking/dataModels.ts#L29)
+
 ## Indexable
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
@@ -16,11 +18,9 @@
 
 > **pageId**: `string`
 
+Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:32](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/tracking/dataModels.ts#L32)
+
 GUID of Sitecore page item to track (i.e. context item ID)
-
-#### Defined in
-
-[packages/sitecore-jss/src/tracking/dataModels.ts:32](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/tracking/dataModels.ts#L32)
 
 ***
 
@@ -28,8 +28,6 @@ GUID of Sitecore page item to track (i.e. context item ID)
 
 > **url**: `string`
 
+Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:34](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/tracking/dataModels.ts#L34)
+
 URL of page to track - should be absolute route path but can accept any value
-
-#### Defined in
-
-[packages/sitecore-jss/src/tracking/dataModels.ts:34](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/tracking/dataModels.ts#L34)

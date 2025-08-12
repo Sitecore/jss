@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,11 +6,15 @@
 
 # Interface: SitecoreContextState
 
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:28
+
 ## Properties
 
 ### api?
 
 > `optional` **api**: `object`
+
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:31
 
 #### edge?
 
@@ -18,27 +22,23 @@
 
 Sitecore XM Cloud Edge endpoint credentials for Sitecore connection.
 
-#### edge.contextId
+##### edge.contextId
 
 > **contextId**: `string`
 
 A unified identifier used to connect and retrieve data from XM Cloud instance
 
-#### edge.edgeUrl?
+##### edge.edgeUrl?
 
 > `optional` **edgeUrl**: `string`
 
 XM Cloud endpoint that the app will communicate and retrieve data from
 
-##### Default
+###### Default
 
 ```ts
 https://edge-platform.sitecorecloud.io
 ```
-
-#### Defined in
-
-sitecore-jss-react/types/components/SitecoreContext.d.ts:32
 
 ***
 
@@ -46,15 +46,15 @@ sitecore-jss-react/types/components/SitecoreContext.d.ts:32
 
 > **context**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-#### Defined in
-
-sitecore-jss-react/types/components/SitecoreContext.d.ts:31
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:30
 
 ***
 
 ### setContext()
 
 > **setContext**: (`value`) => `void`
+
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:29
 
 #### Parameters
 
@@ -65,7 +65,3 @@ sitecore-jss-react/types/components/SitecoreContext.d.ts:31
 #### Returns
 
 `void`
-
-#### Defined in
-
-sitecore-jss-react/types/components/SitecoreContext.d.ts:30

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: Module
 
-> **Module**: `object` & `object`
+> **Module** = `object` & `object`
+
+Defined in: [sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:7](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L7)
 
 Represents a module (file)
 
@@ -35,7 +37,3 @@ function for component level data fetching in SSR mode
 > `optional` **getStaticProps**: [`GetStaticComponentProps`](GetStaticComponentProps.md)
 
 function for component level data fetching in SSG mode
-
-## Defined in
-
-[sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:7](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L7)

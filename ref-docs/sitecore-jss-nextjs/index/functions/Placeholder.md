@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -8,16 +8,14 @@
 
 > **Placeholder**(`props`): `Element`
 
+Defined in: [sitecore-jss-nextjs/src/components/Placeholder.tsx:15](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-nextjs/src/components/Placeholder.tsx#L15)
+
 ## Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `props` | `EnhancedOmit`\<[`PlaceholderComponentProps`](../interfaces/PlaceholderComponentProps.md), keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\> |
+| `props` | `PlaceholderProps` |
 
 ## Returns
 
 `Element`
-
-## Defined in
-
-[sitecore-jss-nextjs/src/components/Placeholder.tsx:15](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-nextjs/src/components/Placeholder.tsx#L15)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,14 +6,18 @@
 
 # Class: RestComponentLayoutService
 
+Defined in: sitecore-jss/types/editing/rest-component-layout-service.d.ts:59
+
 REST service that enables design Library functionality
 Returns layoutData for one single rendered component
 
 ## Constructors
 
-### new RestComponentLayoutService()
+### Constructor
 
-> **new RestComponentLayoutService**(`config`): [`RestComponentLayoutService`](RestComponentLayoutService.md)
+> **new RestComponentLayoutService**(`config`): `RestComponentLayoutService`
+
+Defined in: sitecore-jss/types/editing/rest-component-layout-service.d.ts:61
 
 #### Parameters
 
@@ -23,17 +27,15 @@ Returns layoutData for one single rendered component
 
 #### Returns
 
-[`RestComponentLayoutService`](RestComponentLayoutService.md)
-
-#### Defined in
-
-sitecore-jss/types/editing/rest-component-layout-service.d.ts:61
+`RestComponentLayoutService`
 
 ## Methods
 
 ### fetchComponentData()
 
 > **fetchComponentData**(`params`): `Promise`\<[`LayoutServiceData`](../interfaces/LayoutServiceData.md)\>
+
+Defined in: sitecore-jss/types/editing/rest-component-layout-service.d.ts:62
 
 #### Parameters
 
@@ -45,15 +47,13 @@ sitecore-jss/types/editing/rest-component-layout-service.d.ts:61
 
 `Promise`\<[`LayoutServiceData`](../interfaces/LayoutServiceData.md)\>
 
-#### Defined in
-
-sitecore-jss/types/editing/rest-component-layout-service.d.ts:62
-
 ***
 
 ### getComponentFetchParams()
 
 > `protected` **getComponentFetchParams**(`params`): `any`
+
+Defined in: sitecore-jss/types/editing/rest-component-layout-service.d.ts:63
 
 #### Parameters
 
@@ -64,7 +64,3 @@ sitecore-jss/types/editing/rest-component-layout-service.d.ts:62
 #### Returns
 
 `any`
-
-#### Defined in
-
-sitecore-jss/types/editing/rest-component-layout-service.d.ts:63

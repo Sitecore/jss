@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -6,25 +6,23 @@
 
 # Interface: MergeFsResult
 
+Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:118](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L118)
+
 ## Properties
 
 ### files
 
 > **files**: `FileResult`[]
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/mergeFs.ts:121](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L121)
+Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:121](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L121)
 
 ***
 
 ### folders
 
-> **folders**: [`MergeFsResult`](MergeFsResult.md)[]
+> **folders**: `MergeFsResult`[]
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/mergeFs.ts:122](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L122)
+Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:122](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L122)
 
 ***
 
@@ -32,9 +30,7 @@
 
 > **name**: `string`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/mergeFs.ts:120](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L120)
+Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:120](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L120)
 
 ***
 
@@ -42,6 +38,4 @@
 
 > **path**: `string`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/mergeFs.ts:119](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L119)
+Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:119](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L119)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # site
 
-## Index
-
-### Classes
+## Classes
 
 - [GraphQLErrorPagesService](classes/GraphQLErrorPagesService.md)
 - [GraphQLRedirectsService](classes/GraphQLRedirectsService.md)
@@ -17,11 +15,11 @@
 - [GraphQLSitemapXmlService](classes/GraphQLSitemapXmlService.md)
 - [SiteResolver](classes/SiteResolver.md)
 
-### Interfaces
+## Interfaces
 
 - [GraphQLErrorPagesServiceConfig](interfaces/GraphQLErrorPagesServiceConfig.md)
 
-### Type Aliases
+## Type Aliases
 
 - [ErrorPages](type-aliases/ErrorPages.md)
 - [GraphQLRedirectsServiceConfig](type-aliases/GraphQLRedirectsServiceConfig.md)
@@ -35,13 +33,13 @@
 - [SitemapQueryResult](type-aliases/SitemapQueryResult.md)
 - [SiteRewriteData](type-aliases/SiteRewriteData.md)
 
-### Variables
+## Variables
 
 - [REDIRECT\_TYPE\_301](variables/REDIRECT_TYPE_301.md)
 - [REDIRECT\_TYPE\_302](variables/REDIRECT_TYPE_302.md)
 - [REDIRECT\_TYPE\_SERVER\_TRANSFER](variables/REDIRECT_TYPE_SERVER_TRANSFER.md)
 
-### Functions
+## Functions
 
 - [getSiteRewrite](functions/getSiteRewrite.md)
 - [getSiteRewriteData](functions/getSiteRewriteData.md)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: SitecoreContextValue
 
-> **SitecoreContextValue**: [`LayoutServiceContext`](../interfaces/LayoutServiceContext.md) & `object`
+> **SitecoreContextValue** = [`LayoutServiceContext`](../interfaces/LayoutServiceContext.md) & `object`
+
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:35
 
 ## Type declaration
 
@@ -17,7 +19,3 @@
 ### route?
 
 > `optional` **route**: [`RouteData`](../interfaces/RouteData.md)
-
-## Defined in
-
-sitecore-jss-react/types/components/SitecoreContext.d.ts:36

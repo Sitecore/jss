@@ -3,6 +3,7 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
+    "skipLibCheck": true,
     "lib": ["es2017"],
     "typeRoots": ["node_modules/@types"],
     "outDir": "dist",

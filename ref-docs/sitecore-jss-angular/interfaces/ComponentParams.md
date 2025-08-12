@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -6,8 +6,10 @@
 
 # Interface: ComponentParams
 
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:84
+
 Component params
 
 ## Indexable
 
- \[`name`: `string`\]: `string`
+\[`name`: `string`\]: `string`

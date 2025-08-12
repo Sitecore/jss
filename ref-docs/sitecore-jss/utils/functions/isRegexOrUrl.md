@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: isRegexOrUrl()
 
 > **isRegexOrUrl**(`input`): `"url"` \| `"regex"`
+
+Defined in: [packages/sitecore-jss/src/utils/utils.ts:162](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/utils/utils.ts#L162)
 
 Determines whether the given input is a regular expression or resembles a URL.
 
@@ -21,7 +23,3 @@ Determines whether the given input is a regular expression or resembles a URL.
 `"url"` \| `"regex"`
 
 - Returns 'url' if the input looks like a URL, otherwise 'regex'.
-
-## Defined in
-
-[packages/sitecore-jss/src/utils/utils.ts:162](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/utils/utils.ts#L162)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,9 +6,11 @@
 
 # Interface: PageViewInstance
 
+Defined in: packages/sitecore-jss/types/tracking/dataModels.d.ts:25
+
 ## Indexable
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
@@ -16,11 +18,9 @@
 
 > **pageId**: `string`
 
+Defined in: packages/sitecore-jss/types/tracking/dataModels.d.ts:28
+
 GUID of Sitecore page item to track (i.e. context item ID)
-
-#### Defined in
-
-packages/sitecore-jss/types/tracking/dataModels.d.ts:28
 
 ***
 
@@ -28,8 +28,6 @@ packages/sitecore-jss/types/tracking/dataModels.d.ts:28
 
 > **url**: `string`
 
+Defined in: packages/sitecore-jss/types/tracking/dataModels.d.ts:30
+
 URL of page to track - should be absolute route path but can accept any value
-
-#### Defined in
-
-packages/sitecore-jss/types/tracking/dataModels.d.ts:30

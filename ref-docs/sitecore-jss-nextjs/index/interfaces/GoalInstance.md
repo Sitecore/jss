@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,9 +6,11 @@
 
 # Interface: GoalInstance
 
+Defined in: sitecore-jss/types/tracking/dataModels.d.ts:6
+
 ## Indexable
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
@@ -16,8 +18,6 @@
 
 > **goalId**: `string`
 
+Defined in: sitecore-jss/types/tracking/dataModels.d.ts:9
+
 GUID or alias (name) of goal to trigger
-
-#### Defined in
-
-sitecore-jss/types/tracking/dataModels.d.ts:9

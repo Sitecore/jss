@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Variable: debug
 
 > `const` **debug**: `object`
+
+Defined in: packages/sitecore-jss/types/debug.d.ts:12
 
 Default Sitecore JSS 'debug' module debuggers. Uses namespace prefix 'sitecore-jss:'.
 See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) for details.
@@ -64,7 +66,3 @@ See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) f
 ### sitemap
 
 > **sitemap**: `debug.Debugger`
-
-## Defined in
-
-packages/sitecore-jss/types/debug.d.ts:12

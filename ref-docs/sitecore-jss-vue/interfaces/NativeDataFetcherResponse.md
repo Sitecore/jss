@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-vue**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-vue**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-vue](../README.md) / NativeDataFetcherResponse
 
 # Interface: NativeDataFetcherResponse\<T\>
+
+Defined in: packages/sitecore-jss/types/native-fetcher.d.ts:20
 
 Response data for an HTTP request sent to an API
 
@@ -20,11 +22,9 @@ Response data for an HTTP request sent to an API
 
 > **data**: `T`
 
+Defined in: packages/sitecore-jss/types/native-fetcher.d.ts:26
+
 Response content
-
-#### Defined in
-
-packages/sitecore-jss/types/native-fetcher.d.ts:26
 
 ***
 
@@ -32,11 +32,9 @@ packages/sitecore-jss/types/native-fetcher.d.ts:26
 
 > `optional` **headers**: `HeadersInit`
 
+Defined in: packages/sitecore-jss/types/native-fetcher.d.ts:28
+
 Response headers
-
-#### Defined in
-
-packages/sitecore-jss/types/native-fetcher.d.ts:28
 
 ***
 
@@ -44,11 +42,9 @@ packages/sitecore-jss/types/native-fetcher.d.ts:28
 
 > **status**: `number`
 
+Defined in: packages/sitecore-jss/types/native-fetcher.d.ts:22
+
 HTTP status code of the response (i.e. 200, 404)
-
-#### Defined in
-
-packages/sitecore-jss/types/native-fetcher.d.ts:22
 
 ***
 
@@ -56,8 +52,6 @@ packages/sitecore-jss/types/native-fetcher.d.ts:22
 
 > **statusText**: `string`
 
+Defined in: packages/sitecore-jss/types/native-fetcher.d.ts:24
+
 HTTP status text of the response (i.e. 'OK', 'Bad Request')
-
-#### Defined in
-
-packages/sitecore-jss/types/native-fetcher.d.ts:24

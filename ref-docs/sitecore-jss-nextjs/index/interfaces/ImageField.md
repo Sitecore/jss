@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,15 +6,15 @@
 
 # Interface: ImageField
 
+Defined in: sitecore-jss-react/types/components/Image.d.ts:8
+
 ## Properties
 
 ### editable?
 
 > `optional` **editable**: `string`
 
-#### Defined in
-
-sitecore-jss-react/types/components/Image.d.ts:11
+Defined in: sitecore-jss-react/types/components/Image.d.ts:10
 
 ***
 
@@ -22,6 +22,4 @@ sitecore-jss-react/types/components/Image.d.ts:11
 
 > `optional` **value**: [`ImageFieldValue`](ImageFieldValue.md)
 
-#### Defined in
-
-sitecore-jss-react/types/components/Image.d.ts:10
+Defined in: sitecore-jss-react/types/components/Image.d.ts:9

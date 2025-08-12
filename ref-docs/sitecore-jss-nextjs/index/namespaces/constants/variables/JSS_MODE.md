@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Variable: JSS\_MODE
 
 > `const` **JSS\_MODE**: `object`
+
+Defined in: sitecore-jss/types/constants.d.ts:9
 
 ## Type declaration
 
@@ -17,7 +19,3 @@
 ### DISCONNECTED
 
 > **DISCONNECTED**: `string`
-
-## Defined in
-
-sitecore-jss/types/constants.d.ts:9

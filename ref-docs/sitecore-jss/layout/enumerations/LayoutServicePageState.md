@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [layout](../README.md) / LayoutServicePageState
 
 # Enumeration: LayoutServicePageState
+
+Defined in: [packages/sitecore-jss/src/layout/models.ts:14](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L14)
 
 Layout Service page state enum
 library mode would render a single component
@@ -15,9 +17,7 @@ library mode would render a single component
 
 > **Edit**: `"edit"`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:16](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/layout/models.ts#L16)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:16](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L16)
 
 ***
 
@@ -25,9 +25,7 @@ library mode would render a single component
 
 > **Normal**: `"normal"`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:17](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/layout/models.ts#L17)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:17](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L17)
 
 ***
 
@@ -35,6 +33,4 @@ library mode would render a single component
 
 > **Preview**: `"preview"`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:15](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/layout/models.ts#L15)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:15](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L15)

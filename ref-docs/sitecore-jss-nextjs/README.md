@@ -1,4 +1,4 @@
-**@sitecore-jss/sitecore-jss-nextjs** • **Docs**
+**@sitecore-jss/sitecore-jss-nextjs**
 
 ***
 

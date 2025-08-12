@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,9 +6,11 @@
 
 # Interface: ImageFieldValue
 
+Defined in: sitecore-jss-react/types/components/Image.d.ts:4
+
 ## Indexable
 
- \[`attributeName`: `string`\]: `unknown`
+\[`attributeName`: `string`\]: `unknown`
 
 ## Properties
 
@@ -16,6 +18,4 @@
 
 > `optional` **src**: `string`
 
-#### Defined in
-
-sitecore-jss-react/types/components/Image.d.ts:7
+Defined in: sitecore-jss-react/types/components/Image.d.ts:6

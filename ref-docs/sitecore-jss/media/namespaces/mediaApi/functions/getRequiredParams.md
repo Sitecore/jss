@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../../../README.md)
 
 ***
 
@@ -8,13 +8,15 @@
 
 > **getRequiredParams**(`qs`): `object`
 
+Defined in: [packages/sitecore-jss/src/media/media-api.ts:44](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/media/media-api.ts#L44)
+
 Get required query string params which should be merged with user params
 
 ## Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `qs` | `object` | layout service parsed query string |
+| `qs` | \{\[`key`: `string`\]: `undefined` \| `string`; \} | layout service parsed query string |
 
 ## Returns
 
@@ -41,7 +43,3 @@ requiredParams
 ### vs
 
 > **vs**: `undefined` \| `string`
-
-## Defined in
-
-[packages/sitecore-jss/src/media/media-api.ts:44](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/media/media-api.ts#L44)

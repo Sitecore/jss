@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,19 +6,17 @@
 
 # Type Alias: ComponentFactory()
 
-> **ComponentFactory**: (`componentName`, `exportName`?) => `JssComponentType` \| `null`
+> **ComponentFactory** = (`componentName`, `exportName?`) => `JssComponentType` \| `null`
+
+Defined in: sitecore-jss-react/types/components/sharedTypes.d.ts:6
 
 ## Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `componentName` | `string` | component to be imported from the component factory |
-| `exportName`? | `string` | component to be imported in case you export multiple components from the same file |
+| `exportName?` | `string` | component to be imported in case you export multiple components from the same file |
 
 ## Returns
 
 `JssComponentType` \| `null`
-
-## Defined in
-
-sitecore-jss-react/types/components/sharedTypes.d.ts:7

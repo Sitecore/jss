@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,11 +6,15 @@
 
 # Interface: ServerlessEditingDataServiceConfig
 
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:113](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L113)
+
 ## Properties
 
 ### apiRoute?
 
 > `optional` **apiRoute**: `string`
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:121](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L121)
 
 The Next.js API route to invoke.
 This should be a URL path and include the '[key]' placeholder, which will be replaced with the actual data key.
@@ -26,15 +30,13 @@ This endpoint should run the `EditingDataMiddleware`.
 
 EditingDataMiddleware
 
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:121](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L121)
-
 ***
 
 ### dataFetcher?
 
 > `optional` **dataFetcher**: [`NativeDataFetcher`](../../index/classes/NativeDataFetcher.md)
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:127](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L127)
 
 The `NativeDataFetcher` instance to use for API requests.
 
@@ -47,7 +49,3 @@ new NativeDataFetcher()
 #### See
 
 NativeDataFetcher
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:127](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L127)

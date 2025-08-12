@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-proxy**](../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-proxy**](../../../README.md)
 
 ***
 
@@ -6,14 +6,12 @@
 
 # headlessProxy
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [ProxyConfig](interfaces/ProxyConfig.md)
 - [ServerBundle](interfaces/ServerBundle.md)
 
-### Functions
+## Functions
 
 - [middleware](functions/middleware.md)
 - [removeEmptyAnalyticsCookie](functions/removeEmptyAnalyticsCookie.md)

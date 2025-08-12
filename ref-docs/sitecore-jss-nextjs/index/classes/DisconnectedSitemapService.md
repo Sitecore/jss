@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,11 +6,15 @@
 
 # Class: DisconnectedSitemapService
 
+Defined in: [sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:4](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L4)
+
 ## Constructors
 
-### new DisconnectedSitemapService()
+### Constructor
 
-> **new DisconnectedSitemapService**(`manifest`): [`DisconnectedSitemapService`](DisconnectedSitemapService.md)
+> **new DisconnectedSitemapService**(`manifest`): `DisconnectedSitemapService`
+
+Defined in: [sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:11](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L11)
 
 Provides ability to generate sitemap using manifest.
 Sitemap can be used for `next export`
@@ -24,11 +28,7 @@ You can use `sitecore/manifest/sitecore-import.json` as manifest
 
 #### Returns
 
-[`DisconnectedSitemapService`](DisconnectedSitemapService.md)
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:11](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L11)
+`DisconnectedSitemapService`
 
 ## Methods
 
@@ -36,13 +36,11 @@ You can use `sitecore/manifest/sitecore-import.json` as manifest
 
 > **fetchExportSitemap**(): [`StaticPath`](../type-aliases/StaticPath.md)[]
 
+Defined in: [sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:17](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L17)
+
 Generates sitemap which could be used for generation of static pages during `next export` in disconnected mode.
 Since i18n is not supported, the output paths will not include a `locale` property.
 
 #### Returns
 
 [`StaticPath`](../type-aliases/StaticPath.md)[]
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:17](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L17)

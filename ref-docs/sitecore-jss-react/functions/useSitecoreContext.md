@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: useSitecoreContext()
 
-> **useSitecoreContext**(`options`?): [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)
+> **useSitecoreContext**(`options?`): [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)
+
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:71](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L71)
 
 This hook grants acсess to the current Sitecore page context
 by default JSS includes the following properties in this context:
@@ -18,7 +20,7 @@ by default JSS includes the following properties in this context:
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `options`? | [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md) | hook options |
+| `options?` | [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md) | hook options |
 
 ## Returns
 
@@ -46,7 +48,3 @@ const EditMode = () => {
    return <span onClick={onClick}>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
 }
 ```
-
-## Defined in
-
-[packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:71](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L71)

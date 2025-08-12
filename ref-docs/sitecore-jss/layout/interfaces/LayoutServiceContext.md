@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,11 +6,13 @@
 
 # Interface: LayoutServiceContext
 
+Defined in: [packages/sitecore-jss/src/layout/models.ts:33](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L33)
+
 Shape of context data from the Sitecore Layout Service
 
 ## Indexable
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
@@ -18,9 +20,7 @@ Shape of context data from the Sitecore Layout Service
 
 > `optional` **clientData**: `Record`\<`string`, `Record`\<`string`, `unknown`\>\>
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:46](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/layout/models.ts#L46)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:46](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L46)
 
 ***
 
@@ -28,9 +28,7 @@ Shape of context data from the Sitecore Layout Service
 
 > `optional` **clientScripts**: `string`[]
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:45](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/layout/models.ts#L45)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:45](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L45)
 
 ***
 
@@ -38,9 +36,7 @@ Shape of context data from the Sitecore Layout Service
 
 > `optional` **editMode**: [`EditMode`](../enumerations/EditMode.md)
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:44](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/layout/models.ts#L44)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:44](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L44)
 
 ***
 
@@ -48,9 +44,7 @@ Shape of context data from the Sitecore Layout Service
 
 > `optional` **itemPath**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:37](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/layout/models.ts#L37)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:37](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L37)
 
 ***
 
@@ -58,9 +52,7 @@ Shape of context data from the Sitecore Layout Service
 
 > `optional` **language**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:36](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/layout/models.ts#L36)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:36](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L36)
 
 ***
 
@@ -68,9 +60,7 @@ Shape of context data from the Sitecore Layout Service
 
 > `optional` **pageEditing**: `boolean`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:35](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/layout/models.ts#L35)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:35](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L35)
 
 ***
 
@@ -78,9 +68,7 @@ Shape of context data from the Sitecore Layout Service
 
 > `optional` **pageState**: [`LayoutServicePageState`](../enumerations/LayoutServicePageState.md)
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:38](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/layout/models.ts#L38)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:38](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L38)
 
 ***
 
@@ -88,9 +76,7 @@ Shape of context data from the Sitecore Layout Service
 
 > `optional` **renderingType**: [`Component`](../enumerations/RenderingType.md#component)
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:43](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/layout/models.ts#L43)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:43](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L43)
 
 ***
 
@@ -98,13 +84,11 @@ Shape of context data from the Sitecore Layout Service
 
 > `optional` **site**: `object`
 
+Defined in: [packages/sitecore-jss/src/layout/models.ts:40](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L40)
+
 #### name?
 
 > `optional` **name**: `string`
-
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:40](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/layout/models.ts#L40)
 
 ***
 
@@ -112,6 +96,4 @@ Shape of context data from the Sitecore Layout Service
 
 > `optional` **visitorIdentificationTimestamp**: `number`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:39](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/layout/models.ts#L39)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:39](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/layout/models.ts#L39)

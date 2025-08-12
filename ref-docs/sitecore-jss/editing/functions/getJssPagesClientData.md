@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -8,6 +8,8 @@
 
 > **getJssPagesClientData**(): `Record`\<`string`, `Record`\<`string`, `unknown`\>\>
 
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:178](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/utils.ts#L178)
+
 Gets extra JSS clientData scripts to render in XMC Pages in addition to clientData from Pages itself
 
 ## Returns
@@ -15,7 +17,3 @@ Gets extra JSS clientData scripts to render in XMC Pages in addition to clientDa
 `Record`\<`string`, `Record`\<`string`, `unknown`\>\>
 
 collection of clientData
-
-## Defined in
-
-[packages/sitecore-jss/src/editing/utils.ts:178](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/editing/utils.ts#L178)

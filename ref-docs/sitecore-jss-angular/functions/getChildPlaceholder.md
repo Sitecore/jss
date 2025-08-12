@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: getChildPlaceholder()
 
-> **getChildPlaceholder**(`rendering`, `placeholderName`): ([`ComponentRendering`](../interfaces/ComponentRendering.md) \| [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md))[]
+> **getChildPlaceholder**(`rendering`, `placeholderName`): ([`HtmlElementRendering`](../interfaces/HtmlElementRendering.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\>)[]
+
+Defined in: packages/sitecore-jss/types/layout/utils.d.ts:17
 
 Gets rendering definitions in a given child placeholder under a current rendering.
 
@@ -14,15 +16,11 @@ Gets rendering definitions in a given child placeholder under a current renderin
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `rendering` | [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> |  |
+| `rendering` | [`ComponentRendering`](../interfaces/ComponentRendering.md) |  |
 | `placeholderName` | `string` |  |
 
 ## Returns
 
-([`ComponentRendering`](../interfaces/ComponentRendering.md) \| [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md))[]
+([`HtmlElementRendering`](../interfaces/HtmlElementRendering.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\>)[]
 
 child placeholder
-
-## Defined in
-
-packages/sitecore-jss/types/layout/utils.d.ts:17

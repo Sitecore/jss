@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../README.md)
 
 ***
 
@@ -6,18 +6,16 @@
 
 # utils
 
-## Index
-
-### Classes
+## Classes
 
 - [ExperienceEditor](classes/ExperienceEditor.md)
 - [HorizonEditor](classes/HorizonEditor.md)
 
-### Interfaces
+## Interfaces
 
 - [Metadata](interfaces/Metadata.md)
 
-### Type Aliases
+## Type Aliases
 
 - [ChromeCommand](type-aliases/ChromeCommand.md)
 - [EditButtonTypes](type-aliases/EditButtonTypes.md)
@@ -26,13 +24,13 @@
 - [FieldEditButton](type-aliases/FieldEditButton.md)
 - [WebEditButton](type-aliases/WebEditButton.md)
 
-### Variables
+## Variables
 
 - [DefaultEditFrameButton](variables/DefaultEditFrameButton.md)
 - [DefaultEditFrameButtonIds](variables/DefaultEditFrameButtonIds.md)
 - [DefaultEditFrameButtons](variables/DefaultEditFrameButtons.md)
 
-### Functions
+## Functions
 
 - [areURLSearchParamsEqual](functions/areURLSearchParamsEqual.md)
 - [enforceCors](functions/enforceCors.md)

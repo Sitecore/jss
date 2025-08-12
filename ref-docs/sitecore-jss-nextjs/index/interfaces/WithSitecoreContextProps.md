@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,11 +6,15 @@
 
 # Interface: WithSitecoreContextProps
 
+Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:7
+
 ## Properties
 
 ### api?
 
 > `optional` **api**: `object`
+
+Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:9
 
 #### edge?
 
@@ -18,27 +22,23 @@
 
 Sitecore XM Cloud Edge endpoint credentials for Sitecore connection.
 
-#### edge.contextId
+##### edge.contextId
 
 > **contextId**: `string`
 
 A unified identifier used to connect and retrieve data from XM Cloud instance
 
-#### edge.edgeUrl?
+##### edge.edgeUrl?
 
 > `optional` **edgeUrl**: `string`
 
 XM Cloud endpoint that the app will communicate and retrieve data from
 
-##### Default
+###### Default
 
 ```ts
 https://edge-platform.sitecorecloud.io
 ```
-
-#### Defined in
-
-sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:10
 
 ***
 
@@ -46,9 +46,7 @@ sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:10
 
 > **sitecoreContext**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-#### Defined in
-
-sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:9
+Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:8
 
 ***
 
@@ -56,6 +54,4 @@ sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:9
 
 > `optional` **updateSitecoreContext**: `false` \| (`value`) => `void`
 
-#### Defined in
-
-sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:11
+Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:10

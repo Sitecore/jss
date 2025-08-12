@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,19 +6,23 @@
 
 # Interface: ImageProps
 
+Defined in: sitecore-jss-react/types/components/Image.d.ts:29
+
 ## Extends
 
 - `EditableFieldProps`
 
 ## Indexable
 
- \[`attributeName`: `string`\]: `unknown`
+\[`attributeName`: `string`\]: `unknown`
 
 ## Properties
 
 ### editable?
 
 > `optional` **editable**: `boolean`
+
+Defined in: sitecore-jss-react/types/components/sharedTypes.d.ts:24
 
 Can be used to explicitly disable inline editing.
 If true and `field.editable` has a value, then `field.editable` will be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
@@ -33,15 +37,13 @@ true
 
 `EditableFieldProps.editable`
 
-#### Defined in
-
-sitecore-jss-react/types/components/sharedTypes.d.ts:25
-
 ***
 
 ### emptyFieldEditingComponent?
 
 > `optional` **emptyFieldEditingComponent**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
+
+Defined in: sitecore-jss-react/types/components/sharedTypes.d.ts:30
 
 -- Edit Mode Metadata --
 
@@ -51,21 +53,15 @@ Custom element to render in Pages in Metadata edit mode if field value is empty
 
 `EditableFieldProps.emptyFieldEditingComponent`
 
-#### Defined in
-
-sitecore-jss-react/types/components/sharedTypes.d.ts:31
-
 ***
 
 ### field?
 
 > `optional` **field**: (ImageField \| ImageFieldValue) & FieldMetadata
 
+Defined in: sitecore-jss-react/types/components/Image.d.ts:32
+
 Image field data (consistent with other field types)
-
-#### Defined in
-
-sitecore-jss-react/types/components/Image.d.ts:33
 
 ***
 
@@ -73,21 +69,21 @@ sitecore-jss-react/types/components/Image.d.ts:33
 
 > `optional` **imageParams**: `object`
 
+Defined in: sitecore-jss-react/types/components/Image.d.ts:36
+
 Parameters that will be attached to Sitecore media URLs
 
 #### Index Signature
 
- \[`paramName`: `string`\]: `string` \| `number`
-
-#### Defined in
-
-sitecore-jss-react/types/components/Image.d.ts:37
+\[`paramName`: `string`\]: `string` \| `number`
 
 ***
 
 ### mediaUrlPrefix?
 
 > `optional` **mediaUrlPrefix**: `RegExp`
+
+Defined in: sitecore-jss-react/types/components/Image.d.ts:47
 
 Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
 
@@ -99,16 +95,10 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 /~assets/website -> /~/jssmedia/website
 ```
 
-#### Defined in
-
-sitecore-jss-react/types/components/Image.d.ts:48
-
 ***
 
 ### srcSet?
 
 > `optional` **srcSet**: [`ImageSizeParameters`](ImageSizeParameters.md)[]
 
-#### Defined in
-
-sitecore-jss-react/types/components/Image.d.ts:40
+Defined in: sitecore-jss-react/types/components/Image.d.ts:39

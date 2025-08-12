@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [editing](../README.md) / EditingDataCache
 
 # Interface: EditingDataCache
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-cache.ts:10](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L10)
 
 Defines an editing data cache implementation
 
@@ -13,6 +15,8 @@ Defines an editing data cache implementation
 ### get()
 
 > **get**(`key`): `Promise`\<`undefined` \| [`EditingData`](../type-aliases/EditingData.md)\>
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L12)
 
 #### Parameters
 
@@ -24,15 +28,13 @@ Defines an editing data cache implementation
 
 `Promise`\<`undefined` \| [`EditingData`](../type-aliases/EditingData.md)\>
 
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L12)
-
 ***
 
 ### set()
 
 > **set**(`key`, `editingData`): `Promise`\<`void`\>
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-cache.ts:11](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L11)
 
 #### Parameters
 
@@ -44,7 +46,3 @@ Defines an editing data cache implementation
 #### Returns
 
 `Promise`\<`void`\>
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:11](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L11)

@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [editing](../README.md) / ComponentUpdateEventArgs
 
 # Interface: ComponentUpdateEventArgs
+
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:40](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/utils.ts#L40)
 
 Event args for Design Library `update` event
 
@@ -13,6 +15,8 @@ Event args for Design Library `update` event
 ### details?
 
 > `optional` **details**: `object`
+
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:42](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/utils.ts#L42)
 
 #### fields?
 
@@ -26,16 +30,10 @@ Event args for Design Library `update` event
 
 > **uid**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/utils.ts:42](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/editing/utils.ts#L42)
-
 ***
 
 ### name
 
 > **name**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/utils.ts:41](https://github.com/Sitecore/jss/blob/64c629cff7519105a7ad04e0db221a0147c64298/packages/sitecore-jss/src/editing/utils.ts#L41)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:41](https://github.com/Sitecore/jss/blob/c0b821df4c623f8a29aeda82a67bff7ec76d5317/packages/sitecore-jss/src/editing/utils.ts#L41)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,12 +6,12 @@
 
 # Interface: WithSitecoreContextOptions
 
+Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:4
+
 ## Properties
 
 ### updatable?
 
 > `optional` **updatable**: `boolean`
 
-#### Defined in
-
-sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:6
+Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:5

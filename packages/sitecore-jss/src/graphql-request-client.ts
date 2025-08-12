@@ -140,7 +140,7 @@ export class DefaultRetryStrategy implements RetryStrategy {
   }
 
   getDelay(error: GraphQLClientError, attempt: number): number {
-    const rawHeaders = error.response?.headers;
+    const rawHeaders = error.response?.headers as Headers;
     const retryAfterHeader = rawHeaders?.get('Retry-After');
 
     if (
@@ -245,10 +245,10 @@ export class GraphQLRequestClient implements GraphQLClient {
       }
 
       return Promise.race(fetchWithOptionalTimeout).then(
-        (data: T) => {
+        (data) => {
           this.abortTimeout?.clear();
           this.debug('response in %dms: %o', Date.now() - startTimestamp, data);
-          return Promise.resolve(data);
+          return Promise.resolve(data as T);
         },
         async (error: GraphQLClientError) => {
           this.abortTimeout?.clear();

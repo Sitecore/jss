@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,9 +6,11 @@
 
 # Interface: LinkFieldValue
 
+Defined in: sitecore-jss-react/types/components/Link.d.ts:4
+
 ## Indexable
 
- \[`attributeName`: `string`\]: `unknown`
+\[`attributeName`: `string`\]: `unknown`
 
 ## Properties
 
@@ -16,9 +18,7 @@
 
 > `optional` **anchor**: `string`
 
-#### Defined in
-
-sitecore-jss-react/types/components/Link.d.ts:13
+Defined in: sitecore-jss-react/types/components/Link.d.ts:12
 
 ***
 
@@ -26,9 +26,7 @@ sitecore-jss-react/types/components/Link.d.ts:13
 
 > `optional` **class**: `string`
 
-#### Defined in
-
-sitecore-jss-react/types/components/Link.d.ts:9
+Defined in: sitecore-jss-react/types/components/Link.d.ts:8
 
 ***
 
@@ -36,9 +34,7 @@ sitecore-jss-react/types/components/Link.d.ts:9
 
 > `optional` **className**: `string`
 
-#### Defined in
-
-sitecore-jss-react/types/components/Link.d.ts:8
+Defined in: sitecore-jss-react/types/components/Link.d.ts:7
 
 ***
 
@@ -46,9 +42,7 @@ sitecore-jss-react/types/components/Link.d.ts:8
 
 > `optional` **href**: `string`
 
-#### Defined in
-
-sitecore-jss-react/types/components/Link.d.ts:7
+Defined in: sitecore-jss-react/types/components/Link.d.ts:6
 
 ***
 
@@ -56,9 +50,7 @@ sitecore-jss-react/types/components/Link.d.ts:7
 
 > `optional` **linktype**: `string`
 
-#### Defined in
-
-sitecore-jss-react/types/components/Link.d.ts:15
+Defined in: sitecore-jss-react/types/components/Link.d.ts:14
 
 ***
 
@@ -66,9 +58,7 @@ sitecore-jss-react/types/components/Link.d.ts:15
 
 > `optional` **querystring**: `string`
 
-#### Defined in
-
-sitecore-jss-react/types/components/Link.d.ts:14
+Defined in: sitecore-jss-react/types/components/Link.d.ts:13
 
 ***
 
@@ -76,9 +66,7 @@ sitecore-jss-react/types/components/Link.d.ts:14
 
 > `optional` **target**: `string`
 
-#### Defined in
-
-sitecore-jss-react/types/components/Link.d.ts:11
+Defined in: sitecore-jss-react/types/components/Link.d.ts:10
 
 ***
 
@@ -86,9 +74,7 @@ sitecore-jss-react/types/components/Link.d.ts:11
 
 > `optional` **text**: `string`
 
-#### Defined in
-
-sitecore-jss-react/types/components/Link.d.ts:12
+Defined in: sitecore-jss-react/types/components/Link.d.ts:11
 
 ***
 
@@ -96,6 +82,4 @@ sitecore-jss-react/types/components/Link.d.ts:12
 
 > `optional` **title**: `string`
 
-#### Defined in
-
-sitecore-jss-react/types/components/Link.d.ts:10
+Defined in: sitecore-jss-react/types/components/Link.d.ts:9
