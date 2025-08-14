@@ -27,5 +27,12 @@
     ],
     "@typescript-eslint/no-explicit-any": "error",
     "jsx-quotes": ["error", "prefer-double"]
-  }
+  },
+"overrides" : [
+    {
+      "files": ["**/*.y?(a)ml"],
+      "parser": "yaml-eslint-parser",
+      "extends": ["plugin:yaml/legacy"]
+    }
+  ]
 }

@@ -4,7 +4,9 @@
     "eslint:recommended",
     "plugin:jsdoc/recommended",
     "prettier",
-    "prettier/@typescript-eslint"
+    "prettier/@typescript-eslint",
+    "plugin:yaml/recommended",
+    "next/core-web-vitals"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -79,5 +81,12 @@
       "error",
       "prefer-double"
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.y?(a)ml"],
+      "parser": "yaml-eslint-parser",
+      "extends": ["plugin:yaml/legacy"]
+    }
+  ]
 }

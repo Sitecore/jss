@@ -6,6 +6,7 @@
     "plugin:import/warnings",
     "plugin:react/recommended",
     "plugin:yaml/recommended",
+    "next/core-web-vitals",
     "plugin:prettier/recommended"
   ],
   "parser": "@babel/eslint-parser",
@@ -80,5 +81,12 @@
     "quotes": ["error", "single"],
     "default-case": "error",
     "eqeqeq": "error"
-  }
+  },
+  "overrides" : [
+    {
+      "files": ["**/*.y?(a)ml"],
+      "parser": "yaml-eslint-parser",
+      "extends": ["plugin:yaml/legacy"]
+    }
+  ]
 }

@@ -3,7 +3,10 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['plugin:vue/vue3-essential', '@vue/prettier', 'plugin:yaml/recommended'],
+  extends: ['plugin:vue/vue3-essential', 
+    '@vue/prettier',
+    "plugin:yaml/recommended",
+    "next/core-web-vitals"],
   plugins: ['yaml'],
   rules: {
     'no-console': 'off',
@@ -15,4 +18,11 @@ module.exports = {
     ecmaVersion: 8,
     requireConfigFile: false,
   },
+  "overrides" : [
+    {
+      "files": ["**/*.y?(a)ml"],
+      "parser": "yaml-eslint-parser",
+      "extends": ["plugin:yaml/legacy"]
+    }
+  ]
 };
