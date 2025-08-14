@@ -20,7 +20,6 @@ export default function i18nInit(language, dictionary) {
     // We are in SSR, dictionary is preloaded. Iniitialize it
     if (dictionary) {
       const i18n = createI18n({
-        legacy: false,
         fallbackLocale: false,
         messages: {
           [language]: dictionary,
@@ -36,7 +35,6 @@ export default function i18nInit(language, dictionary) {
       dictionaryServiceInstance.fetchDictionaryData(language).then((phrases) => {
         resolve(
           createI18n({
-            legacy: false,
             fallbackLocale: false,
             messages: {
               [language]: phrases,
