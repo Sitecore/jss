@@ -1,6 +1,38 @@
 {
   "root": true,
   "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "react"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.y?(a)ml"],
+      "parser": "yaml-eslint-parser",
+      "extends": ["plugin:yaml/legacy"]
+    }
+  ]
+}
+{
+  "root": true,
+  "extends": [
     "next",
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",

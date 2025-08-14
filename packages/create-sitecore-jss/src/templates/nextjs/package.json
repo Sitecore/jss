@@ -45,8 +45,7 @@
     "constant-case": "^3.0.4",
     "cross-env": "~10.0.0",
     "dotenv-flow": "^4.1.0",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^15.4.6",
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.37.5",
@@ -60,7 +59,7 @@
   },
   "scripts": {
     "jss": "jss",
-    "lint": "eslint ./src/**/*.tsx ./src/**/*.ts ./scripts/**/*.ts",
+    "lint": "eslint .",
     "bootstrap": "ts-node --require dotenv-flow/config --project tsconfig.scripts.json scripts/bootstrap.ts",
     "build": "cross-env NODE_ENV=production npm-run-all --serial bootstrap next:build",
     "next:build": "next build",
