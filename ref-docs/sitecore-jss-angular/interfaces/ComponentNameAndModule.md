@@ -6,7 +6,7 @@
 
 # Interface: ComponentNameAndModule
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:28](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L28)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:28](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L28)
 
 Registers a lazily loaded component by name and module to lazy load when it's needed
 
@@ -16,7 +16,7 @@ Registers a lazily loaded component by name and module to lazy load when it's ne
 
 > `optional` **canActivate**: [`JssCanActivate`](JssCanActivate.md) \| `Type`\<[`JssCanActivate`](JssCanActivate.md)\> \| [`JssCanActivateFn`](JssCanActivateFn.md) \| ([`JssCanActivate`](JssCanActivate.md) \| `Type`\<[`JssCanActivate`](JssCanActivate.md)\> \| [`JssCanActivateFn`](JssCanActivateFn.md))[]
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:36](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L36)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:36](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L36)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:36]
 
 > **loadChildren**: () => `Promise`\<`Type`\<`unknown`\>\>
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:35](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L35)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:35](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L35)
 
 Dynamic import of the component,
 e.g. () => import('./path/to/lazyloadedcomponent.module').then(m => m.LazyLoadedComponentModuleExportName)
@@ -39,7 +39,7 @@ e.g. () => import('./path/to/lazyloadedcomponent.module').then(m => m.LazyLoaded
 
 > **path**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:30](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L30)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:30](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L30)
 
 Name of the component
 
@@ -49,7 +49,7 @@ Name of the component
 
 > `optional` **resolve**: `object`
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:41](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L41)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:41](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L41)
 
 #### Index Signature
 

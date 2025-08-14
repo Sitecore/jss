@@ -6,7 +6,7 @@
 
 # Interface: SitecoreContextState
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:33](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L33)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:33](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L33)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:33](
 
 > `optional` **api**: `object`
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:36](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L36)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:36](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L36)
 
 #### edge?
 
@@ -46,7 +46,7 @@ https://edge-platform.sitecorecloud.io
 
 > **context**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:35](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L35)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:35](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L35)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:35](
 
 > **setContext**: (`value`) => `void`
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:34](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L34)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:34](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L34)
 
 #### Parameters
 

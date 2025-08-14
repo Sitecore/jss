@@ -8,7 +8,7 @@
 
 > **ListFieldProps**\<`TViewModel`\> = [`FieldWithValueProps`](../interfaces/FieldWithValueProps.md)\<`ValueFormField`\<`TViewModel`\>, `string`[]\>
 
-Defined in: [src/FieldProps.ts:61](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-react-forms/src/FieldProps.ts#L61)
+Defined in: [src/FieldProps.ts:61](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-react-forms/src/FieldProps.ts#L61)
 
 ## Type Parameters
 

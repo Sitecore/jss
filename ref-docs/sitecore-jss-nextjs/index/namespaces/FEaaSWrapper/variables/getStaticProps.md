@@ -8,7 +8,7 @@
 
 > `const` **getStaticProps**: [`GetStaticComponentProps`](../../../type-aliases/GetStaticComponentProps.md)
 
-Defined in: [sitecore-jss-nextjs/src/components/FEaaSWrapper.tsx:23](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-nextjs/src/components/FEaaSWrapper.tsx#L23)
+Defined in: [sitecore-jss-nextjs/src/components/FEaaSWrapper.tsx:23](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-nextjs/src/components/FEaaSWrapper.tsx#L23)
 
 Will be called during SSG
 

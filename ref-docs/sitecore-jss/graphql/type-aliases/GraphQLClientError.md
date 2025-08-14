@@ -8,7 +8,7 @@
 
 > **GraphQLClientError** = `Partial`\<[`ClientError`](../../index/classes/ClientError.md)\> & `object`
 
-Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:35](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss/src/graphql-request-client.ts#L35)
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:35](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/graphql-request-client.ts#L35)
 
 This type represents errors that can occur in a GraphQL client.
 In cases where an error status was sent back from the server (`!response.ok`), the `response` will be populated with details. In cases where a response was never received, the `code` can be populated with the error code (e.g. Node's 'ECONNRESET', 'ETIMEDOUT', etc).

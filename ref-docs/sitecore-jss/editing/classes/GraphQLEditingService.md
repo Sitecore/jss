@@ -6,7 +6,7 @@
 
 # Class: GraphQLEditingService
 
-Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:101](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L101)
+Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:101](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L101)
 
 Service for fetching editing data from Sitecore using the Sitecore's GraphQL API.
 Expected to be used in XMCloud Pages preview (editing) Metadata Edit Mode.
@@ -17,7 +17,7 @@ Expected to be used in XMCloud Pages preview (editing) Metadata Edit Mode.
 
 > **new GraphQLEditingService**(`serviceConfig`): `GraphQLEditingService`
 
-Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:108](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L108)
+Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:108](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L108)
 
 Fetch layout data using the Sitecore GraphQL endpoint.
 
@@ -37,7 +37,7 @@ Fetch layout data using the Sitecore GraphQL endpoint.
 
 > **serviceConfig**: `GraphQLEditingServiceConfig`
 
-Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:108](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L108)
+Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:108](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L108)
 
 configuration
 
@@ -47,7 +47,7 @@ configuration
 
 > **fetchDictionaryData**(`__namedParameters`, `initDictionary`, `hasNext`, `after?`): `Promise`\<[`DictionaryPhrases`](../../i18n/interfaces/DictionaryPhrases.md)\>
 
-Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:197](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L197)
+Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:197](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L197)
 
 #### Parameters
 
@@ -70,7 +70,7 @@ Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:197](h
 
 > **fetchEditingData**(`variables`): `Promise`\<\{ `dictionary`: [`DictionaryPhrases`](../../i18n/interfaces/DictionaryPhrases.md); `layoutData`: [`LayoutServiceData`](../../layout/interfaces/LayoutServiceData.md); \}\>
 
-Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:122](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L122)
+Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:122](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L122)
 
 Fetches editing data. Provides the layout data and dictionary phrases
 
@@ -97,7 +97,7 @@ The layout data and dictionary phrases.
 
 > `protected` **getGraphQLClient**(): [`GraphQLClient`](../../index/interfaces/GraphQLClient.md)
 
-Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:240](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L240)
+Defined in: [packages/sitecore-jss/src/editing/graphql-editing-service.ts:240](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/editing/graphql-editing-service.ts#L240)
 
 Gets a GraphQL client that can make requests to the API.
 

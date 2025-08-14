@@ -6,7 +6,7 @@
 
 # Interface: ImageFieldValue
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:20](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-angular/src/components/rendering-field.ts#L20)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:20](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-angular/src/components/rendering-field.ts#L20)
 
 ## Extended by
 
@@ -22,7 +22,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:20]
 
 > `optional` **src**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:22](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-angular/src/components/rendering-field.ts#L22)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:22](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-angular/src/components/rendering-field.ts#L22)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:22]
 
 > `optional` **srcSet**: `object`[]
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:23](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-angular/src/components/rendering-field.ts#L23)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:23](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-angular/src/components/rendering-field.ts#L23)
 
 #### Index Signature
 

@@ -8,7 +8,7 @@
 
 > `const` **Placeholder**: (`props`) => `Element`
 
-Defined in: [sitecore-jss-react-native/src/components/Placeholder.tsx:103](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-react-native/src/components/Placeholder.tsx#L103)
+Defined in: [sitecore-jss-react-native/src/components/Placeholder.tsx:103](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-react-native/src/components/Placeholder.tsx#L103)
 
 ## Parameters
 

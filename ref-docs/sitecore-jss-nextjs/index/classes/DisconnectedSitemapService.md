@@ -6,7 +6,7 @@
 
 # Class: DisconnectedSitemapService
 
-Defined in: [sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:4](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L4)
+Defined in: [sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:4](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L4)
 
 ## Constructors
 
@@ -14,7 +14,7 @@ Defined in: [sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:4]
 
 > **new DisconnectedSitemapService**(`manifest`): `DisconnectedSitemapService`
 
-Defined in: [sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:11](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L11)
+Defined in: [sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:11](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L11)
 
 Provides ability to generate sitemap using manifest.
 Sitemap can be used for `next export`
@@ -36,7 +36,7 @@ You can use `sitecore/manifest/sitecore-import.json` as manifest
 
 > **fetchExportSitemap**(): [`StaticPath`](../type-aliases/StaticPath.md)[]
 
-Defined in: [sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:17](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L17)
+Defined in: [sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts:17](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L17)
 
 Generates sitemap which could be used for generation of static pages during `next export` in disconnected mode.
 Since i18n is not supported, the output paths will not include a `locale` property.

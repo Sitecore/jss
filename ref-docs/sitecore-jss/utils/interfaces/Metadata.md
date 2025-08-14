@@ -6,7 +6,7 @@
 
 # Interface: Metadata
 
-Defined in: [packages/sitecore-jss/src/editing/utils.ts:51](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss/src/editing/utils.ts#L51)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:51](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/editing/utils.ts#L51)
 
 Application metadata
 
@@ -16,7 +16,7 @@ Application metadata
 
 > **packages**: `object`
 
-Defined in: [packages/sitecore-jss/src/editing/utils.ts:52](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss/src/editing/utils.ts#L52)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:52](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/editing/utils.ts#L52)
 
 #### Index Signature
 

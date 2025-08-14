@@ -8,7 +8,7 @@
 
 > **deploy**(`options`): `void`
 
-Defined in: [sitecore-jss-dev-tools/src/deploy.ts:18](https://github.com/Sitecore/jss/blob/99c6b021b4666ba952b3cd20ba1d1c6934512bbb/packages/sitecore-jss-dev-tools/src/deploy.ts#L18)
+Defined in: [sitecore-jss-dev-tools/src/deploy.ts:18](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-dev-tools/src/deploy.ts#L18)
 
 ## Parameters
 
