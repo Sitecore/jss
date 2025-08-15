@@ -1,9 +1,8 @@
 import { deleteSync as delSync } from 'del';
 import { Application } from 'express';
 import { PathParams } from 'express-serve-static-core';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import openBrowser from 'opn';
+import open from 'open';
+
 import path from 'path';
 import webpack from 'webpack';
 import { MultiCompiler } from 'webpack';
@@ -152,7 +151,7 @@ export function startDevServer({
       (stats) => {
         if (!browserOpened) {
           console.log('opening browser', stats.compilation.compiler.name);
-          openBrowser(urlToOpenOnStart).then(() => {
+          open(urlToOpenOnStart).then(() => {
             browserOpened = true;
           });
         }
