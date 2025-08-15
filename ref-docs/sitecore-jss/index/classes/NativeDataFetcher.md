@@ -6,7 +6,7 @@
 
 # Class: NativeDataFetcher
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:54](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/native-fetcher.ts#L54)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:54](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss/src/native-fetcher.ts#L54)
 
 ## Constructors
 
@@ -14,7 +14,7 @@ Defined in: [packages/sitecore-jss/src/native-fetcher.ts:54](https://github.com/
 
 > **new NativeDataFetcher**(`config`): `NativeDataFetcher`
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:57](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/native-fetcher.ts#L57)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:57](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss/src/native-fetcher.ts#L57)
 
 #### Parameters
 
@@ -32,7 +32,7 @@ Defined in: [packages/sitecore-jss/src/native-fetcher.ts:57](https://github.com/
 
 > `protected` **config**: [`NativeDataFetcherConfig`](../type-aliases/NativeDataFetcherConfig.md) = `{}`
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:57](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/native-fetcher.ts#L57)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:57](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss/src/native-fetcher.ts#L57)
 
 ## Methods
 
@@ -40,7 +40,7 @@ Defined in: [packages/sitecore-jss/src/native-fetcher.ts:57](https://github.com/
 
 > **delete**\<`T`\>(`url`, `options?`): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:150](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/native-fetcher.ts#L150)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:150](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss/src/native-fetcher.ts#L150)
 
 Perform a DELETE request
 
@@ -69,7 +69,7 @@ response
 
 > `protected` **extractDebugHeaders**(`incomingHeaders`): `object`
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:201](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/native-fetcher.ts#L201)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:201](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss/src/native-fetcher.ts#L201)
 
 Safely extract all headers for debug logging
 
@@ -91,7 +91,7 @@ Object with headers as key/value pairs
 
 > **fetch**\<`T`\>(`url`, `options?`): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:65](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/native-fetcher.ts#L65)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:65](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss/src/native-fetcher.ts#L65)
 
 Implements a data fetcher.
 
@@ -120,7 +120,7 @@ response
 
 > **get**\<`T`\>(`url`, `options?`): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:125](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/native-fetcher.ts#L125)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:125](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss/src/native-fetcher.ts#L125)
 
 Perform a GET request
 
@@ -149,7 +149,7 @@ response
 
 > `protected` **getRequestInit**(`init`): `RequestInit`
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:184](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/native-fetcher.ts#L184)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:184](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss/src/native-fetcher.ts#L184)
 
 Determines settings for the request
 
@@ -171,7 +171,7 @@ The final request settings
 
 > **head**\<`T`\>(`url`, `options?`): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:175](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/native-fetcher.ts#L175)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:175](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss/src/native-fetcher.ts#L175)
 
 Perform a HEAD request
 
@@ -200,7 +200,7 @@ response
 
 > **post**\<`T`\>(`url`, `body`, `options?`): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:136](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/native-fetcher.ts#L136)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:136](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss/src/native-fetcher.ts#L136)
 
 Perform a POST request
 
@@ -230,7 +230,7 @@ response
 
 > **put**\<`T`\>(`url`, `body`, `options?`): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:161](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/native-fetcher.ts#L161)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:161](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss/src/native-fetcher.ts#L161)
 
 Perform a PUT request
 

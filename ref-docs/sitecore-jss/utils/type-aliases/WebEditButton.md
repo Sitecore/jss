@@ -8,7 +8,7 @@
 
 > **WebEditButton** = `BaseEditButton` & `object`
 
-Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:66](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss/src/editing/edit-frame.ts#L66)
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:66](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss/src/editing/edit-frame.ts#L66)
 
 ## Type declaration
 

@@ -6,7 +6,7 @@
 
 # Interface: GraphQLSitemapServiceConfig
 
-Defined in: [sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:21](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L21)
+Defined in: [sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:21](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L21)
 
 Configuration options for
 
@@ -24,7 +24,7 @@ GraphQLSitemapService instances
 
 > **clientFactory**: [`GraphQLRequestClientFactory`](../../graphql/type-aliases/GraphQLRequestClientFactory.md)
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:152](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L152)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:152](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L152)
 
 A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
 This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
@@ -39,7 +39,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 > `optional` **enableDisplayNameRouting**: `boolean`
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:147](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L147)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:147](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L147)
 
 Gets a flag indicating whether display name routing is enabled.
 
@@ -53,7 +53,7 @@ Gets a flag indicating whether display name routing is enabled.
 
 > `optional` **excludedPaths**: `string`[]
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:91](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L91)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:91](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L91)
 
 Optional. Paths starting with these provided prefixes will be excluded from returned results.
 
@@ -67,7 +67,7 @@ Optional. Paths starting with these provided prefixes will be excluded from retu
 
 > `optional` **includedPaths**: `string`[]
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:87](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L87)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:87](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L87)
 
 Optional. Only paths starting with these provided prefixes will be returned.
 
@@ -81,7 +81,7 @@ Optional. Only paths starting with these provided prefixes will be returned.
 
 > `optional` **includePersonalizedRoutes**: `boolean`
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:143](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L143)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:143](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L143)
 
 A flag for whether to include personalized routes in service output.
 Only works on XM Cloud for pages using Embedded Personalization (not Component A/B testing).
@@ -97,7 +97,7 @@ Turned off by default.
 
 > `optional` **pageSize**: `number`
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:99](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L99)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:99](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L99)
 
 common variable for all GraphQL queries
 it will be used for every type of query to regulate result batch size
@@ -119,6 +119,6 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 
 > **siteName**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:25](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L25)
+Defined in: [sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:25](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L25)
 
 Name of the site to retrieve site paths for

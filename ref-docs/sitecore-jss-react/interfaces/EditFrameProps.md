@@ -6,7 +6,7 @@
 
 # Interface: EditFrameProps
 
-Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:10](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-react/src/components/EditFrame.tsx#L10)
+Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:10](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-react/src/components/EditFrame.tsx#L10)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:10](https:
 
 > `optional` **buttons**: [`EditButtonTypes`](../type-aliases/EditButtonTypes.md)[]
 
-Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:12](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-react/src/components/EditFrame.tsx#L12)
+Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:12](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-react/src/components/EditFrame.tsx#L12)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:12](https:
 
 > `optional` **cssClass**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:15](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-react/src/components/EditFrame.tsx#L15)
+Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:15](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-react/src/components/EditFrame.tsx#L15)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:15](https:
 
 > `optional` **dataSource**: [`EditFrameDataSource`](../type-aliases/EditFrameDataSource.md)
 
-Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:11](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-react/src/components/EditFrame.tsx#L11)
+Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:11](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-react/src/components/EditFrame.tsx#L11)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:11](https:
 
 > `optional` **parameters**: `Record`\<`string`, `string` \| `number` \| `boolean` \| `undefined` \| `null`\>
 
-Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:16](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-react/src/components/EditFrame.tsx#L16)
+Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:16](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-react/src/components/EditFrame.tsx#L16)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:16](https:
 
 > `optional` **title**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:13](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-react/src/components/EditFrame.tsx#L13)
+Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:13](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-react/src/components/EditFrame.tsx#L13)
 
 ***
 
@@ -54,4 +54,4 @@ Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:13](https:
 
 > `optional` **tooltip**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:14](https://github.com/Sitecore/jss/blob/12a6bb3449a4dad9e272b703f7c6e3d52762b05e/packages/sitecore-jss-react/src/components/EditFrame.tsx#L14)
+Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:14](https://github.com/Sitecore/jss/blob/503b58072e9380598907b2254bdfac59cbbc2b2e/packages/sitecore-jss-react/src/components/EditFrame.tsx#L14)

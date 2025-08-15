@@ -6404,7 +6404,7 @@ __metadata:
     "@angular/platform-browser": ~18.2.13
     "@angular/platform-browser-dynamic": ~18.2.13
     "@angular/router": ~18.2.13
-    "@sitecore-jss/sitecore-jss": 22.9.0-canary.14
+    "@sitecore-jss/sitecore-jss": 22.9.0-canary.15
     "@types/jasmine": ^5.1.8
     "@types/node": ^22.9.0
     codelyzer: ^6.0.1
@@ -6435,7 +6435,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-cli@workspace:packages/sitecore-jss-cli"
   dependencies:
-    "@sitecore-jss/sitecore-jss-dev-tools": 22.9.0-canary.14
+    "@sitecore-jss/sitecore-jss-dev-tools": 22.9.0-canary.15
     "@types/chai": ^4.2.4
     "@types/cross-spawn": ^6.0.6
     "@types/mocha": ^10.0.1
@@ -6467,14 +6467,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-dev-tools@22.9.0-canary.14, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
+"@sitecore-jss/sitecore-jss-dev-tools@22.9.0-canary.15, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools"
   dependencies:
     "@babel/core": ^7.28.0
     "@babel/parser": ^7.28.0
     "@babel/register": ^7.27.1
-    "@sitecore-jss/sitecore-jss": 22.9.0-canary.14
+    "@sitecore-jss/sitecore-jss": 22.9.0-canary.15
     "@types/chai": ^4.3.4
     "@types/del": ^4.0.0
     "@types/express": ^5.0.3
@@ -6523,11 +6523,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-forms@22.9.0-canary.14, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
+"@sitecore-jss/sitecore-jss-forms@22.9.0-canary.15, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss": 22.9.0-canary.14
+    "@sitecore-jss/sitecore-jss": 22.9.0-canary.15
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.5
     "@types/lodash.unescape": ^4.0.9
@@ -6551,9 +6551,9 @@ __metadata:
   dependencies:
     "@sitecore-cloudsdk/core": ^0.5.1
     "@sitecore-cloudsdk/personalize": ^0.5.1
-    "@sitecore-jss/sitecore-jss": 22.9.0-canary.14
-    "@sitecore-jss/sitecore-jss-dev-tools": 22.9.0-canary.14
-    "@sitecore-jss/sitecore-jss-react": 22.9.0-canary.14
+    "@sitecore-jss/sitecore-jss": 22.9.0-canary.15
+    "@sitecore-jss/sitecore-jss-dev-tools": 22.9.0-canary.15
+    "@sitecore-jss/sitecore-jss-react": 22.9.0-canary.15
     "@testing-library/dom": ^10.4.1
     "@testing-library/react": ^16.3.0
     "@types/chai": ^5.2.2
@@ -6603,7 +6603,7 @@ __metadata:
   dependencies:
     "@sitecore-cloudsdk/core": ^0.5.1
     "@sitecore-cloudsdk/personalize": ^0.5.1
-    "@sitecore-jss/sitecore-jss": 22.9.0-canary.14
+    "@sitecore-jss/sitecore-jss": 22.9.0-canary.15
     "@types/chai": ^4.3.4
     "@types/express": ^5.0.3
     "@types/mocha": ^10.0.10
@@ -6635,7 +6635,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react-forms@workspace:packages/sitecore-jss-react-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss-forms": 22.9.0-canary.14
+    "@sitecore-jss/sitecore-jss-forms": 22.9.0-canary.15
     "@testing-library/dom": ^10.4.0
     "@testing-library/react": ^16.3.0
     "@testing-library/user-event": ^14.6.1
@@ -6673,7 +6673,7 @@ __metadata:
     "@babel/plugin-proposal-export-default-from": ^7.5.2
     "@babel/preset-env": ^7.6.2
     "@babel/preset-typescript": ^7.6.0
-    "@sitecore-jss/sitecore-jss": 22.9.0-canary.14
+    "@sitecore-jss/sitecore-jss": 22.9.0-canary.15
     "@types/jest": ^24.0.18
     "@types/prop-types": ^15.7.3
     "@types/react": ^16.9.5
@@ -6703,12 +6703,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-react@22.9.0-canary.14, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
+"@sitecore-jss/sitecore-jss-react@22.9.0-canary.15, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
     "@sitecore-feaas/clientside": ^0.6.2
-    "@sitecore-jss/sitecore-jss": 22.9.0-canary.14
+    "@sitecore-jss/sitecore-jss": 22.9.0-canary.15
     "@testing-library/dom": ^10.4.1
     "@testing-library/react": ^16.3.0
     "@testing-library/user-event": ^14.6.1
@@ -6780,7 +6780,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-vue@workspace:packages/sitecore-jss-vue"
   dependencies:
-    "@sitecore-jss/sitecore-jss": 22.9.0-canary.14
+    "@sitecore-jss/sitecore-jss": 22.9.0-canary.15
     "@types/jest": ^30.0.0
     "@types/node": ^22.9.0
     "@vue/compiler-dom": ^3.5.18
@@ -6802,7 +6802,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss@22.9.0-canary.14, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
+"@sitecore-jss/sitecore-jss@22.9.0-canary.15, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss"
   dependencies:
