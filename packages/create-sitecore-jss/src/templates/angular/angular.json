@@ -67,20 +67,20 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "<%- appName %>:build",
+            "buildTarget": "<%- appName %>:build",
             "port": 3000,
             "proxyConfig": "proxy.conf.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "<%- appName %>:build:production"
+              "buildTarget": "<%- appName %>:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "<%- appName %>:build"
+            "buildTarget": "<%- appName %>:build"
           }
         },
         "test": {
