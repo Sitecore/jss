@@ -15,7 +15,6 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-nextjs]` Ensure Redirect Middleware handles case-insensitive path matching to prevent missed redirects due to casing differences ([#2114](https://github.com/Sitecore/jss/pull/2114))
 * `[sitecore-jss-nextjs]` Fix redirect regex processing to prevent over-escaping of question marks in regex patterns ([#2119](https://github.com/Sitecore/jss/pull/2119))
-* `[sitecore-jss-rendering-host]` Replaced deprecated opn package ([#2129](https://github.com/Sitecore/jss/pull/2129))
 
 ### 🎉 New Features & Improvements
 
@@ -23,7 +22,7 @@ Our versioning strategy is as follows:
 
 ### Chores
 
-* `[All]` Update 3rd party dependencies ([#2123](https://github.com/Sitecore/jss/pull/2123) [#2125](https://github.com/Sitecore/jss/pull/2125))
+* `[All]` Partial update for 3rd party dependencies ([#2123](https://github.com/Sitecore/jss/pull/2123) [#2125](https://github.com/Sitecore/jss/pull/2125) [#2129](https://github.com/Sitecore/jss/pull/2129) [#2130](https://github.com/Sitecore/jss/pull/2130))
 
 ## 22.8.0
 
