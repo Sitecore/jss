@@ -1,13 +1,6 @@
 {
   "root": true,
-  "extends": [
-    "eslint:recommended",
-    "plugin:jsdoc/recommended",
-    "prettier",
-    "prettier/@typescript-eslint",
-    "plugin:yaml/recommended",
-    "next/core-web-vitals"
-  ],
+  "extends": ["eslint:recommended", "plugin:jsdoc/recommended", "prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -16,12 +9,7 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "@stylistic/ts",
-    "prettier",
-    "jsdoc"
-  ],
+  "plugins": ["@typescript-eslint", "@stylistic/ts", "prettier", "jsdoc"],
   "env": {
     "browser": true,
     "node": true,
@@ -38,18 +26,9 @@
     "no-use-before-define": "off",
     "no-useless-escape": "off",
     "spaced-comment": "error",
-    "curly": [
-      "error",
-      "multi-line"
-    ],
-    "eol-last": [
-      "error",
-      "always"
-    ],
-    "linebreak-style": [
-      "error",
-      "windows"
-    ],
+    "curly": ["error", "multi-line"],
+    "eol-last": ["error", "always"],
+    "linebreak-style": ["error", "windows"],
     "guard-for-in": "error",
     "no-unused-labels": "error",
     "no-caller": "error",
@@ -66,21 +45,13 @@
         "allowTernary": true
       }
     ],
-    "no-unused-vars": [
-      "error"
-    ],
+    "no-unused-vars": ["error"],
     "brace-style": "error",
-    "quotes": [
-      "error",
-      "single"
-    ],
+    "quotes": ["error", "single"],
     "radix": "error",
     "default-case": "error",
     "eqeqeq": "error",
-    "jsx-quotes": [
-      "error",
-      "prefer-double"
-    ]
+    "jsx-quotes": ["error", "prefer-double"]
   },
   "overrides": [
     {
