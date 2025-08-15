@@ -61,7 +61,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.28.0",
-    "@babel/register": "7.19.9",
+    "@babel/register": "7.18.9",
     "@sitecore-jss/sitecore-jss-cli": "<%- version %>",
     "@sitecore-jss/sitecore-jss-dev-tools": "<%- version %>",
     "@vue/cli-plugin-babel": "~5.0.8",
