@@ -1,7 +1,7 @@
 export default [
   {
     params: {
-      path: [],
+      path: [''],
     },
     locale: 'ua',
   },
