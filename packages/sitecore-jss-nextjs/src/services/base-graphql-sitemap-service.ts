@@ -263,7 +263,7 @@ export abstract class BaseGraphQLSitemapService {
       aggregatedPaths.push(formatStaticPath(toSegments(item.path), language));
 
       const variantIds = item.route?.personalization?.variantIds?.filter(
-        (variantId) => !variantId.includes('_')
+        (variantId) => !variantId.includes('_') // exclude component A/B test
       );
 
       if (variantIds?.length) {
