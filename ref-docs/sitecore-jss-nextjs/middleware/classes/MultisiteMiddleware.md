@@ -6,7 +6,7 @@
 
 # Class: MultisiteMiddleware
 
-Defined in: [sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:31](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L31)
+Defined in: [sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:31](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L31)
 
 Middleware / handler for multisite support
 
@@ -20,7 +20,7 @@ Middleware / handler for multisite support
 
 > **new MultisiteMiddleware**(`config?`): `MultisiteMiddleware`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:35](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L35)
+Defined in: [sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:35](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L35)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:35](http
 
 > `protected` **config**: [`MultisiteMiddlewareConfig`](../type-aliases/MultisiteMiddlewareConfig.md)
 
-Defined in: [sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:35](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L35)
+Defined in: [sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:35](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L35)
 
 Multisite middleware config
 
@@ -56,7 +56,7 @@ Multisite middleware config
 
 > `protected` **defaultHostname**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:34](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L34)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:34](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L34)
 
 #### Inherited from
 
@@ -68,7 +68,7 @@ Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:34](https://github
 
 > `protected` **SITE\_SYMBOL**: `string` = `'sc_site'`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:33](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L33)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:33](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L33)
 
 #### Inherited from
 
@@ -80,7 +80,7 @@ Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:33](https://github
 
 > `protected` **excludeRoute**(`pathname`): `undefined` \| `boolean`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:55](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L55)
+Defined in: [sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:55](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L55)
 
 #### Parameters
 
@@ -102,7 +102,7 @@ Defined in: [sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:55](http
 
 > `protected` **extractDebugHeaders**(`incomingHeaders`): `object`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:91](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L91)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:91](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L91)
 
 Safely extract all headers for debug logging
 Necessary to avoid middleware issue https://github.com/vercel/next.js/issues/39765
@@ -129,7 +129,7 @@ Object with headers as key/value pairs
 
 > **getHandler**(): (`req`, `res?`) => `Promise`\<`NextResponse`\<`unknown`\>\>
 
-Defined in: [sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:43](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L43)
+Defined in: [sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:43](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L43)
 
 Gets the Next.js middleware handler with error handling
 
@@ -156,7 +156,7 @@ middleware handler
 
 > `protected` **getHostHeader**(`req`): `undefined` \| `string`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:110](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L110)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:110](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L110)
 
 Extract 'host' header
 
@@ -180,7 +180,7 @@ Extract 'host' header
 
 > `protected` **getLanguage**(`req`): `string`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:102](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L102)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:102](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L102)
 
 Provides used language
 
@@ -206,7 +206,7 @@ language
 
 > `protected` **getSite**(`req`, `res?`): [`SiteInfo`](../../index/type-aliases/SiteInfo.md)
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:121](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L121)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:121](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L121)
 
 Get site information.
 Can not be used in **Preview** mode, since site will not be resolved
@@ -234,7 +234,7 @@ site information
 
 > `protected` **isPrefetch**(`req`): `boolean`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:56](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L56)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:56](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L56)
 
 Determines if the request is a Next.js (next/link) prefetch request
 
@@ -260,7 +260,7 @@ is prefetch
 
 > `protected` **isPreview**(`req`): `boolean`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:45](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L45)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:45](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L45)
 
 Determines if mode is preview
 
@@ -286,7 +286,7 @@ is preview
 
 > `protected` **rewrite**(`rewritePath`, `req`, `res`, `skipHeader?`): `NextResponse`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:138](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L138)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:138](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L138)
 
 Create a rewrite response
 

@@ -6,7 +6,7 @@
 
 # Interface: RenderingField\<V\>
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-angular/src/components/rendering-field.ts#L5)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-angular/src/components/rendering-field.ts#L5)
 
 ## Extends
 
@@ -32,7 +32,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](
 
 > `optional` **editable**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
 
 ***
 
@@ -56,4 +56,4 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:125
 
 > `optional` **value**: `V`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)

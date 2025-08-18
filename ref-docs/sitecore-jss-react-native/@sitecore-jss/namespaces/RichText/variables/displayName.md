@@ -8,4 +8,4 @@
 
 > **displayName**: `string`
 
-Defined in: [sitecore-jss-react-native/src/components/RichText.tsx:31](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-react-native/src/components/RichText.tsx#L31)
+Defined in: [sitecore-jss-react-native/src/components/RichText.tsx:31](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-react-native/src/components/RichText.tsx#L31)

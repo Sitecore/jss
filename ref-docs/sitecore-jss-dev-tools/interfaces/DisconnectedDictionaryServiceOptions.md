@@ -6,7 +6,7 @@
 
 # Interface: DisconnectedDictionaryServiceOptions
 
-Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:31](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L31)
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:31](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L31)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.t
 
 > `optional` **customizeDictionary**: (`finalDictionary`, `rawDictionary`, `currentManifest`, `request?`, `response?`) => `DictionaryServiceOutput`
 
-Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:33](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L33)
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:33](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L33)
 
 #### Parameters
 
@@ -36,7 +36,7 @@ Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.t
 
 > **manifest**: [`ManifestInstance`](ManifestInstance.md)
 
-Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L32)
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L32)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.t
 
 > `optional` **manifestLanguageChangeCallback**: (`language`) => `Promise`\<[`ManifestInstance`](ManifestInstance.md)\>
 
-Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L39)
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L39)
 
 #### Parameters
 

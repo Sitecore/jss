@@ -6,7 +6,7 @@
 
 # Interface: LinkField
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:22](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-react/src/components/Link.tsx#L22)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:22](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-react/src/components/Link.tsx#L22)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:22](https://git
 
 > `optional` **editableFirstPart**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:24](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-react/src/components/Link.tsx#L24)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:24](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-react/src/components/Link.tsx#L24)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:24](https://git
 
 > `optional` **editableLastPart**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:25](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-react/src/components/Link.tsx#L25)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:25](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-react/src/components/Link.tsx#L25)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:25](https://git
 
 > **value**: [`LinkFieldValue`](LinkFieldValue.md)
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:23](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-react/src/components/Link.tsx#L23)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:23](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-react/src/components/Link.tsx#L23)

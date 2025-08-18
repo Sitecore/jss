@@ -6,7 +6,7 @@
 
 # Interface: RenderResponse
 
-Defined in: [sitecore-jss-proxy/src/types/AppRenderer.ts:7](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L7)
+Defined in: [sitecore-jss-proxy/src/types/AppRenderer.ts:7](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L7)
 
 Response object produced by the AppRenderer callback function.
 
@@ -16,7 +16,7 @@ Response object produced by the AppRenderer callback function.
 
 > **html**: `string`
 
-Defined in: [sitecore-jss-proxy/src/types/AppRenderer.ts:11](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L11)
+Defined in: [sitecore-jss-proxy/src/types/AppRenderer.ts:11](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L11)
 
 The rendered HTML to return to the client
 
@@ -26,7 +26,7 @@ The rendered HTML to return to the client
 
 > `optional` **redirect**: `string`
 
-Defined in: [sitecore-jss-proxy/src/types/AppRenderer.ts:20](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L20)
+Defined in: [sitecore-jss-proxy/src/types/AppRenderer.ts:20](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L20)
 
 Sets a redirect URL, causing the reply to send a HTTP redirect instead of the HTML content.
 Note: when using this you must set the status code to 301 or 302.
@@ -37,6 +37,6 @@ Note: when using this you must set the status code to 301 or 302.
 
 > `optional` **status**: `number`
 
-Defined in: [sitecore-jss-proxy/src/types/AppRenderer.ts:15](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L15)
+Defined in: [sitecore-jss-proxy/src/types/AppRenderer.ts:15](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L15)
 
 Set the HTTP status code. If not set, the status code returned from Layout Service is returned.

@@ -6,7 +6,7 @@
 
 # Interface: DictionaryDefinition
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:285](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L285)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:285](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L285)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:285
 
 > **key**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:286](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L286)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:286](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L286)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:286
 
 > **value**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:287](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L287)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:287](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L287)

@@ -6,7 +6,7 @@
 
 # Interface: MergeFsResult
 
-Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:118](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L118)
+Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:118](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L118)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:118](https://github.com/Sitec
 
 > **files**: `FileResult`[]
 
-Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:121](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L121)
+Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:121](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L121)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:121](https://github.com/Sitec
 
 > **folders**: `MergeFsResult`[]
 
-Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:122](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L122)
+Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:122](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L122)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:122](https://github.com/Sitec
 
 > **name**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:120](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L120)
+Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:120](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L120)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:120](https://github.com/Sitec
 
 > **path**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:119](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L119)
+Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:119](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L119)

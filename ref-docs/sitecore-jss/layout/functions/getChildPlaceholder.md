@@ -8,7 +8,7 @@
 
 > **getChildPlaceholder**(`rendering`, `placeholderName`): ([`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> \| [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md))[]
 
-Defined in: [packages/sitecore-jss/src/layout/utils.ts:66](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss/src/layout/utils.ts#L66)
+Defined in: [packages/sitecore-jss/src/layout/utils.ts:66](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss/src/layout/utils.ts#L66)
 
 Gets rendering definitions in a given child placeholder under a current rendering.
 

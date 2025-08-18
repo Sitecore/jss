@@ -8,7 +8,7 @@
 
 > **getDefaultAppInvocationInfoResolver**(`baseAppPath?`): `AppInvocationInfoResolver`
 
-Defined in: [defaultAppInvocationInfoResolver.ts:18](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L18)
+Defined in: [defaultAppInvocationInfoResolver.ts:18](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L18)
 
 Returns the default AppInvocationInfoResolver, which is responsible for resolving the function, within your app bundle,
 that should be invoked for rendering your app.

@@ -8,7 +8,7 @@
 
 > **rewriteRequestPath**(`reqPath`, `req`, `config`, `parseRouteUrl?`): `string`
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:352](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L352)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:352](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L352)
 
 ## Parameters
 

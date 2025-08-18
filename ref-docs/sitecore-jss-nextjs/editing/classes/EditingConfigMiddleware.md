@@ -6,7 +6,7 @@
 
 # Class: EditingConfigMiddleware
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:33](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L33)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:33](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L33)
 
 Middleware / handler used in the editing config API route in xmcloud add on (e.g. '/api/editing/config')
 provides configuration information to determine feature compatibility on Pages side.
@@ -17,7 +17,7 @@ provides configuration information to determine feature compatibility on Pages s
 
 > **new EditingConfigMiddleware**(`config?`): `EditingConfigMiddleware`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:37](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L37)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:37](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L37)
 
 #### Parameters
 
@@ -35,7 +35,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:37](ht
 
 > `protected` **config**: [`EditingConfigMiddlewareConfig`](../type-aliases/EditingConfigMiddlewareConfig.md)
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:37](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L37)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:37](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L37)
 
 Editing configuration middleware config
 
@@ -45,7 +45,7 @@ Editing configuration middleware config
 
 > **getHandler**(): (`req`, `res`) => `Promise`\<`void`\>
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:43](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L43)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:43](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L43)
 
 Gets the Next.js API route handler
 

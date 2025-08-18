@@ -6,7 +6,7 @@
 
 # Enumeration: MetadataKind
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:61](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss/src/editing/models.ts#L61)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:61](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss/src/editing/models.ts#L61)
 
 Represents the kind of metadata element.
 - open - starting chrome element
@@ -18,7 +18,7 @@ Represents the kind of metadata element.
 
 > **Close**: `"close"`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:63](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss/src/editing/models.ts#L63)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:63](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss/src/editing/models.ts#L63)
 
 ***
 
@@ -26,4 +26,4 @@ Defined in: [packages/sitecore-jss/src/editing/models.ts:63](https://github.com/
 
 > **Open**: `"open"`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:62](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss/src/editing/models.ts#L62)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:62](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss/src/editing/models.ts#L62)

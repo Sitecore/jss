@@ -8,4 +8,4 @@
 
 > `const` **siteNameError**: `"The siteName cannot be empty"` = `'The siteName cannot be empty'`
 
-Defined in: [packages/sitecore-jss/src/constants.ts:19](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss/src/constants.ts#L19)
+Defined in: [packages/sitecore-jss/src/constants.ts:19](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss/src/constants.ts#L19)

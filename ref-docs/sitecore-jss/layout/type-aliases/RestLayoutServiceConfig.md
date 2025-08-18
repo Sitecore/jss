@@ -8,7 +8,7 @@
 
 > **RestLayoutServiceConfig** = `object`
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:21](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss/src/layout/rest-layout-service.ts#L21)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:21](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L21)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:21](https:/
 
 > **apiHost**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:25](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss/src/layout/rest-layout-service.ts#L25)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:25](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L25)
 
 Your Sitecore instance hostname that is the backend for JSS
 
@@ -26,7 +26,7 @@ Your Sitecore instance hostname that is the backend for JSS
 
 > **apiKey**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:29](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss/src/layout/rest-layout-service.ts#L29)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:29](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L29)
 
 The Sitecore SSC API key your app uses
 
@@ -36,7 +36,7 @@ The Sitecore SSC API key your app uses
 
 > `optional` **configurationName**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:49](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss/src/layout/rest-layout-service.ts#L49)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:49](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L49)
 
 Layout Service "named" configuration
 
@@ -46,7 +46,7 @@ Layout Service "named" configuration
 
 > `optional` **dataFetcherResolver**: [`DataFetcherResolver`](DataFetcherResolver.md)
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:44](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss/src/layout/rest-layout-service.ts#L44)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:44](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L44)
 
 Function that handles fetching API data
 
@@ -56,7 +56,7 @@ Function that handles fetching API data
 
 > **siteName**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:33](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss/src/layout/rest-layout-service.ts#L33)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:33](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L33)
 
 The JSS application name
 
@@ -66,7 +66,7 @@ The JSS application name
 
 > `optional` **tracking**: `boolean`
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:40](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss/src/layout/rest-layout-service.ts#L40)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:40](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss/src/layout/rest-layout-service.ts#L40)
 
 Enables/disables analytics tracking for the Layout Service invocation (default is true).
 More than likely, this would be set to false for SSG/hybrid implementations, and the

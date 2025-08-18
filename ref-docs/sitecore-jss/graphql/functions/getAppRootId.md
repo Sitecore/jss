@@ -8,7 +8,7 @@
 
 > **getAppRootId**(`client`, `siteName`, `language`, `jssAppTemplateId?`): `Promise`\<`null` \| `string`\>
 
-Defined in: [packages/sitecore-jss/src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/58c926052d13463e4863bb39deb5c441d3576712/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
+Defined in: [packages/sitecore-jss/src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/d3bf50b80df4dcadad47358abdcbfeb3a7908b5b/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
 
 Gets the ID of the JSS App root item for the specified site and language.
 
