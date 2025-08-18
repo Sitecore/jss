@@ -16,7 +16,6 @@
   "scripts": {
     "ng": "ng",
     "lint": "ng lint <%- appName %> --fix",
-    "e2e": "ng e2e",
     "jss": "jss",
     "start:connected": "npm-run-all --serial bootstrap start:angular start:watch-components",
     "build": "npm-run-all --serial bootstrap build:client build:server",
@@ -83,7 +82,6 @@
     "@sitecore-jss/sitecore-jss-cli": "<%- version %>",
     "@sitecore-jss/sitecore-jss-dev-tools": "<%- version %>",
     "@types/jasmine": "~3.6.7",
-    "@types/jasminewd2": "~2.0.8",
     "@types/node": "~22.9.0",
     "@typescript-eslint/eslint-plugin": "^8.14.0",
     "@typescript-eslint/parser": "^8.14.0",
@@ -109,8 +107,13 @@
     "karma-jasmine-html-reporter": "~1.5.4",
     "move-cli": "^2.0.0",
     "npm-run-all2": "^7.0.1",
-    "protractor": "^7.0.0",
+    
     "ts-node": "~10.9.2",
     "typescript": "~5.4.0"
+  },
+  "overrides": {
+    "request": {
+      "form-data": "2.5.4"
+    }
   }
 }
