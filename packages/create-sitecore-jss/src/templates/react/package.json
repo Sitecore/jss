@@ -114,5 +114,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "overrides": {
+    "nth-check": "2.0.1",
+    "postcss": "^8.4.38",
+    "webpack-dev-server": "^4.15.2"
+  }
 }
