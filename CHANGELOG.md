@@ -22,7 +22,7 @@ Our versioning strategy is as follows:
 
 ### Chores
 
-* `[All]` Partial update for 3rd party dependencies ([#2123](https://github.com/Sitecore/jss/pull/2123) [#2125](https://github.com/Sitecore/jss/pull/2125) [#2129](https://github.com/Sitecore/jss/pull/2129) [#2130](https://github.com/Sitecore/jss/pull/2130) [#2131](https://github.com/Sitecore/jss/pull/2131))
+* `[All]` Partial update for 3rd party dependencies ([#2123](https://github.com/Sitecore/jss/pull/2123) [#2125](https://github.com/Sitecore/jss/pull/2125) [#2129](https://github.com/Sitecore/jss/pull/2129) [#2130](https://github.com/Sitecore/jss/pull/2130) [#2131](https://github.com/Sitecore/jss/pull/2131) [#2133](https://github.com/Sitecore/jss/pull/2133))
 
 ## 22.8.0
 
