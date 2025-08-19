@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: SearchQueryResult\<T\>
 
-> **SearchQueryResult**\<`T`\>: `object`
+> **SearchQueryResult**\<`T`\> = `object`
+
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/graphql/search-service.ts#L22)
 
 Schema of data returned in response to a "search" query request
 
@@ -16,22 +18,20 @@ Schema of data returned in response to a "search" query request
 | ------ | ------ |
 | `T` | The type of objects being requested. |
 
-## Type declaration
+## Properties
 
 ### search
 
 > **search**: `object`
 
-### search.pageInfo
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:23](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/graphql/search-service.ts#L23)
+
+#### pageInfo
 
 > **pageInfo**: [`PageInfo`](../interfaces/PageInfo.md)
 
 Data needed to paginate the search results
 
-### search.results
+#### results
 
 > **results**: `T`[]
-
-## Defined in
-
-[packages/sitecore-jss/src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/graphql/search-service.ts#L22)

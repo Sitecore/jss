@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-react-native**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react-native**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-react-native](../README.md) / HtmlElementRendering
 
 # Interface: HtmlElementRendering
+
+Defined in: sitecore-jss/types/layout/models.d.ts:101
 
 HTML content used to support Sitecore Experience Editor
 
@@ -14,13 +16,11 @@ HTML content used to support Sitecore Experience Editor
 
 > **attributes**: `object`
 
+Defined in: sitecore-jss/types/layout/models.d.ts:105
+
 #### Index Signature
 
- \[`name`: `string`\]: `string` \| `undefined`
-
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:105
+\[`name`: `string`\]: `string`
 
 ***
 
@@ -28,9 +28,7 @@ sitecore-jss/types/layout/models.d.ts:105
 
 > **contents**: `string`
 
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:104
+Defined in: sitecore-jss/types/layout/models.d.ts:104
 
 ***
 
@@ -38,9 +36,7 @@ sitecore-jss/types/layout/models.d.ts:104
 
 > **name**: `string`
 
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:102
+Defined in: sitecore-jss/types/layout/models.d.ts:102
 
 ***
 
@@ -48,6 +44,4 @@ sitecore-jss/types/layout/models.d.ts:102
 
 > `optional` **type**: `string`
 
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:103
+Defined in: sitecore-jss/types/layout/models.d.ts:103

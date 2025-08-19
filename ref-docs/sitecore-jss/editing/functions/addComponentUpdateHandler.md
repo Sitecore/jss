@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: addComponentUpdateHandler()
 
-> **addComponentUpdateHandler**(`rootComponent`, `successCallback`?): `undefined` \| () => `void`
+> **addComponentUpdateHandler**(`rootComponent`, `successCallback?`): `undefined` \| () => `void`
+
+Defined in: [packages/sitecore-jss/src/editing/design-library.ts:47](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/design-library.ts#L47)
 
 Adds the browser-side event handler for 'component:update' message used in Design Library
 The event should update a component on page by uid, with fields and params from event args
@@ -15,13 +17,9 @@ The event should update a component on page by uid, with fields and params from 
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `rootComponent` | [`ComponentRendering`](../../layout/interfaces/ComponentRendering.md)\<[`ComponentFields`](../../layout/interfaces/ComponentFields.md)\> | root component displayed for Design Library page |
-| `successCallback`? | (`updatedRootComponent`) => `void` | callback to be called after successful component update |
+| `rootComponent` | [`ComponentRendering`](../../layout/interfaces/ComponentRendering.md) | root component displayed for Design Library page |
+| `successCallback?` | (`updatedRootComponent`) => `void` | callback to be called after successful component update |
 
 ## Returns
 
 `undefined` \| () => `void`
-
-## Defined in
-
-[packages/sitecore-jss/src/editing/design-library.ts:47](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/design-library.ts#L47)

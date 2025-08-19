@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: FEaaSComponent()
 
 > **FEaaSComponent**(`props`): `Element`
+
+Defined in: [packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:64](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L64)
 
 ## Parameters
 
@@ -17,7 +19,3 @@
 ## Returns
 
 `Element`
-
-## Defined in
-
-[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:64](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L64)

@@ -17,23 +17,18 @@ describe('<HiddenRendering />', () => {
         return acc;
       }, {});
 
-    // TODO: Re-enable background-image check when bug is fixed
-    // https://github.com/jsdom/jsdom/issues/2166
-    /*
-    expect(style).to.deep.equal({
-      'background-image':
-        'linear-gradient(45deg, #ffffff 25%, #dcdcdc 25%, #dcdcdc 50%, #ffffff 50%, #ffffff 75%, #dcdcdc 75%, #dcdcdc 100%)',
-    */
     expect(style).to.deep.equal({
       'background-size': '3px 3px',
       display: 'flex',
       'justify-content': 'center',
       'align-items': 'center',
+      'background-image':
+        'linear-gradient(45deg, #ffffff 25%, #dcdcdc 25%, #dcdcdc 50%, #ffffff 50%, #ffffff 75%, #dcdcdc 75%, #dcdcdc 100%)',
       padding: '30px',
       color: 'rgb(170, 170, 170)',
     });
     expect(rendered.container.innerHTML).to.equal(
-      '<div style="background-size: 3px 3px; display: flex; justify-content: center; align-items: center; padding: 30px; color: rgb(170, 170, 170);">The component is hidden</div>'
+      '<div style="background-image: linear-gradient(45deg, #ffffff 25%, #dcdcdc 25%, #dcdcdc 50%, #ffffff 50%, #ffffff 75%, #dcdcdc 75%, #dcdcdc 100%); background-size: 3px 3px; display: flex; justify-content: center; align-items: center; padding: 30px; color: rgb(170, 170, 170);">The component is hidden</div>'
     );
   });
 });

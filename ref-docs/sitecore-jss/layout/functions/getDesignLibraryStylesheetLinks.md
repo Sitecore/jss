@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: getDesignLibraryStylesheetLinks()
 
-> **getDesignLibraryStylesheetLinks**(`layoutData`, `sitecoreEdgeContextId`, `sitecoreEdgeUrl`?): [`HTMLLink`](../../index/type-aliases/HTMLLink.md)[]
+> **getDesignLibraryStylesheetLinks**(`layoutData`, `sitecoreEdgeContextId`, `sitecoreEdgeUrl?`): [`HTMLLink`](../../index/type-aliases/HTMLLink.md)[]
+
+Defined in: [packages/sitecore-jss/src/layout/themes.ts:24](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/themes.ts#L24)
 
 Walks through rendering tree and returns list of links of all FEAAS, BYOC or SXA Design Library Stylesheets that are used
 
@@ -16,14 +18,10 @@ Walks through rendering tree and returns list of links of all FEAAS, BYOC or SXA
 | ------ | ------ | ------ | ------ |
 | `layoutData` | [`LayoutServiceData`](../interfaces/LayoutServiceData.md) | `undefined` | Layout service data |
 | `sitecoreEdgeContextId` | `string` | `undefined` | Sitecore Edge Context ID |
-| `sitecoreEdgeUrl`? | `string` | `SITECORE_EDGE_URL_DEFAULT` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
+| `sitecoreEdgeUrl?` | `string` | `SITECORE_EDGE_URL_DEFAULT` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
 
 ## Returns
 
 [`HTMLLink`](../../index/type-aliases/HTMLLink.md)[]
 
 library stylesheet links
-
-## Defined in
-
-[packages/sitecore-jss/src/layout/themes.ts:24](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/layout/themes.ts#L24)

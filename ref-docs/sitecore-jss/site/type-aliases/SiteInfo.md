@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,32 +6,42 @@
 
 # Type Alias: SiteInfo
 
-> **SiteInfo**: `object`
+> **SiteInfo** = `object`
 
-## Index Signature
+Defined in: [packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:18](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L18)
 
- \[`key`: `string`\]: `unknown`
+## Indexable
 
-## Type declaration
+\[`key`: `string`\]: `unknown`
+
+Additional user-defined properties
+
+## Properties
 
 ### hostName
 
 > **hostName**: `string`
 
+Defined in: [packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:30](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L30)
+
 Site host name. May include multiple values (separated by '|') and wildcards ('*')
+
+***
 
 ### language
 
 > **language**: `string`
 
+Defined in: [packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:34](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L34)
+
 Site default language
+
+***
 
 ### name
 
 > **name**: `string`
 
+Defined in: [packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:26](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L26)
+
 Site name
-
-## Defined in
-
-[packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:18](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L18)

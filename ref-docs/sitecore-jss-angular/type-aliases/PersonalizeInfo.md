@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -6,24 +6,28 @@
 
 # Type Alias: PersonalizeInfo
 
-> **PersonalizeInfo**: `object`
+> **PersonalizeInfo** = `object`
+
+Defined in: packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:26
 
 Object model of personlize info
 
-## Type declaration
+## Properties
 
 ### pageId
 
 > **pageId**: `string`
 
+Defined in: packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:30
+
 The page id
+
+***
 
 ### variantIds
 
 > **variantIds**: `string`[]
 
+Defined in: packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:34
+
 The configured variant ids
-
-## Defined in
-
-packages/sitecore-jss/types/personalize/graphql-personalize-service.d.ts:26

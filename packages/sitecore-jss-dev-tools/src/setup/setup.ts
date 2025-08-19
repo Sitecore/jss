@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import fs from 'fs';
-import glob from 'glob';
+import { glob } from 'glob';
 import path from 'path';
 import rlSync from 'readline-sync';
 import urljoin from 'url-join';

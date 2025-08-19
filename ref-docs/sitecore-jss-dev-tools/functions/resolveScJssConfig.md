@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -8,19 +8,17 @@
 
 > **resolveScJssConfig**(`config`): `Promise`\<[`ScJssConfig`](../interfaces/ScJssConfig.md)\>
 
+Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:20](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L20)
+
 ## Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `config` | `object` |  |
-| `config.assert` | `undefined` \| `boolean` | - |
-| `config.configName` | `undefined` \| `string` | - |
-| `config.configPath` | `undefined` \| `string` | - |
+| `config` | \{ `assert?`: `boolean`; `configName?`: `string`; `configPath?`: `string`; \} |  |
+| `config.assert?` | `boolean` | - |
+| `config.configName?` | `string` | - |
+| `config.configPath?` | `string` | - |
 
 ## Returns
 
 `Promise`\<[`ScJssConfig`](../interfaces/ScJssConfig.md)\>
-
-## Defined in
-
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:20](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L20)

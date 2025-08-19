@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../README.md)
 
 ***
 
@@ -6,20 +6,18 @@
 
 # layout
 
-## Index
-
-### Enumerations
+## Enumerations
 
 - [EditMode](enumerations/EditMode.md)
 - [LayoutServicePageState](enumerations/LayoutServicePageState.md)
 - [RenderingType](enumerations/RenderingType.md)
 
-### Classes
+## Classes
 
 - [GraphQLLayoutService](classes/GraphQLLayoutService.md)
 - [RestLayoutService](classes/RestLayoutService.md)
 
-### Interfaces
+## Interfaces
 
 - [ComponentFields](interfaces/ComponentFields.md)
 - [ComponentParams](interfaces/ComponentParams.md)
@@ -36,21 +34,21 @@
 - [PlaceholderData](interfaces/PlaceholderData.md)
 - [RouteData](interfaces/RouteData.md)
 
-### Type Aliases
+## Type Aliases
 
 - [DataFetcherResolver](type-aliases/DataFetcherResolver.md)
 - [GenericFieldValue](type-aliases/GenericFieldValue.md)
 - [PlaceholdersData](type-aliases/PlaceholdersData.md)
 - [RestLayoutServiceConfig](type-aliases/RestLayoutServiceConfig.md)
 
-### Variables
+## Variables
 
 - [EDITING\_COMPONENT\_ID](variables/EDITING_COMPONENT_ID.md)
 - [EDITING\_COMPONENT\_PLACEHOLDER](variables/EDITING_COMPONENT_PLACEHOLDER.md)
 - [EMPTY\_DATE\_FIELD\_VALUE](variables/EMPTY_DATE_FIELD_VALUE.md)
 - [GRAPHQL\_LAYOUT\_QUERY\_NAME](variables/GRAPHQL_LAYOUT_QUERY_NAME.md)
 
-### Functions
+## Functions
 
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
 - [getContentStylesheetLink](functions/getContentStylesheetLink.md)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -6,15 +6,15 @@
 
 # Interface: JssConfiguration
 
+Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:3](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L3)
+
 ## Properties
 
 ### apiKey?
 
 > `optional` **apiKey**: `string`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:7](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L7)
+Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:7](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L7)
 
 ***
 
@@ -22,9 +22,7 @@
 
 > `optional` **deploySecret**: `string`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:5](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L5)
+Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:5](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L5)
 
 ***
 
@@ -32,9 +30,7 @@
 
 > `optional` **deployUrl**: `string`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:4](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L4)
+Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:4](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L4)
 
 ***
 
@@ -42,9 +38,7 @@
 
 > `optional` **instancePath**: `string`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:6](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L6)
+Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:6](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L6)
 
 ***
 
@@ -52,9 +46,7 @@
 
 > `optional` **layoutServiceHost**: `string`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:8](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L8)
+Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:8](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L8)
 
 ***
 
@@ -62,6 +54,4 @@
 
 > `optional` **skipValidation**: `boolean`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:9](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L9)
+Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:9](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L9)

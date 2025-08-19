@@ -86,7 +86,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
       req.nextUrl.clone()
     );
     const locale = this.getLanguage(req);
-    const normalizedPath = incomingURL.replace(/\/*$/gi, '');
+    const normalizedPath = incomingURL.replace(/\/*$/gi, '').toLowerCase();
     const redirects = await this.getRedirects(siteName);
     const language = this.getLanguage(req);
     const modifyRedirects = structuredClone(redirects);
@@ -101,7 +101,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
               ? redirect.pattern.slice(0, -1).split('?')
               : redirect.pattern.split('?');
             const patternQS = urlArray[1];
-            let patternPath = urlArray[0];
+            let patternPath = urlArray[0].toLowerCase();
             // nextjs routes are case-sensitive, but locales should be compared case-insensitively
             const patternParts = patternPath.split('/');
             const maybeLocale = patternParts[1].toLowerCase();
@@ -136,7 +136,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
           // Redirect pattern matches the full incoming URL with query string present
           matchedQueryString = [
-            regexParser(redirect.pattern).test(`${localePath}${incomingQS}`),
+            regexParser(redirect.pattern).test(`/${localePath}${incomingQS}`),
             regexParser(redirect.pattern).test(`${normalizedPath}${incomingQS}`),
           ].some(Boolean)
             ? incomingQS
@@ -194,6 +194,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
       if (this.isPrefetch(req)) {
         debug.redirects('skipped (prefetch)');
         response.headers.set('x-middleware-cache', 'no-cache');
+        response.headers.set('Cache-Control', 'no-store, must-revalidate');
         return response;
       }
 

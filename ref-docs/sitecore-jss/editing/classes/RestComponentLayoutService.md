@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,14 +6,18 @@
 
 # Class: RestComponentLayoutService
 
+Defined in: [packages/sitecore-jss/src/editing/rest-component-layout-service.ts:66](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L66)
+
 REST service that enables design Library functionality
 Returns layoutData for one single rendered component
 
 ## Constructors
 
-### new RestComponentLayoutService()
+### Constructor
 
-> **new RestComponentLayoutService**(`config`): [`RestComponentLayoutService`](RestComponentLayoutService.md)
+> **new RestComponentLayoutService**(`config`): `RestComponentLayoutService`
+
+Defined in: [packages/sitecore-jss/src/editing/rest-component-layout-service.ts:67](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L67)
 
 #### Parameters
 
@@ -23,17 +27,15 @@ Returns layoutData for one single rendered component
 
 #### Returns
 
-[`RestComponentLayoutService`](RestComponentLayoutService.md)
-
-#### Defined in
-
-[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:67](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L67)
+`RestComponentLayoutService`
 
 ## Methods
 
 ### fetchComponentData()
 
 > **fetchComponentData**(`params`): `Promise`\<[`LayoutServiceData`](../../layout/interfaces/LayoutServiceData.md)\>
+
+Defined in: [packages/sitecore-jss/src/editing/rest-component-layout-service.ts:69](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L69)
 
 #### Parameters
 
@@ -45,15 +47,13 @@ Returns layoutData for one single rendered component
 
 `Promise`\<[`LayoutServiceData`](../../layout/interfaces/LayoutServiceData.md)\>
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:69](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L69)
-
 ***
 
 ### getComponentFetchParams()
 
 > `protected` **getComponentFetchParams**(`params`): `any`
+
+Defined in: [packages/sitecore-jss/src/editing/rest-component-layout-service.ts:101](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L101)
 
 #### Parameters
 
@@ -64,7 +64,3 @@ Returns layoutData for one single rendered component
 #### Returns
 
 `any`
-
-#### Defined in
-
-[packages/sitecore-jss/src/editing/rest-component-layout-service.ts:101](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/rest-component-layout-service.ts#L101)

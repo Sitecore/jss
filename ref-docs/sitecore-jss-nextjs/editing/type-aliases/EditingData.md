@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,28 +6,40 @@
 
 # Type Alias: EditingData
 
-> **EditingData**: `object`
+> **EditingData** = `object`
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
 
 Data sent from Sitecore editors
 
-## Type declaration
+## Properties
 
 ### dictionary
 
 > **dictionary**: [`DictionaryPhrases`](../../index/interfaces/DictionaryPhrases.md)
 
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data.ts:11](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L11)
+
+***
+
 ### language
 
 > **language**: `string`
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data.ts:9](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L9)
+
+***
 
 ### layoutData
 
 > **layoutData**: [`LayoutServiceData`](../../index/interfaces/LayoutServiceData.md)
 
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data.ts:10](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L10)
+
+***
+
 ### path
 
 > **path**: `string`
 
-## Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-data.ts:7](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L7)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data.ts:8](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-data.ts#L8)

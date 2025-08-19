@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: CustomizeRenderFunction()
 
-> **CustomizeRenderFunction**: (`transformedRendering`, `rawRendering`, `currentManifest`, `request`?, `response`?) => `any`
+> **CustomizeRenderFunction** = (`transformedRendering`, `rawRendering`, `currentManifest`, `request?`, `response?`) => `any`
+
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:5](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L5)
 
 ## Parameters
 
@@ -15,13 +17,9 @@
 | `transformedRendering` | `any` |
 | `rawRendering` | `any` |
 | `currentManifest` | [`ManifestInstance`](../interfaces/ManifestInstance.md) |
-| `request`? | `any` |
-| `response`? | `any` |
+| `request?` | `any` |
+| `response?` | `any` |
 
 ## Returns
 
 `any`
-
-## Defined in
-
-[sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts:5](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/disconnected-server/DisconnectedLayoutServiceOptions.ts#L5)

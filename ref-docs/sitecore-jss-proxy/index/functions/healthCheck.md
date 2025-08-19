@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-proxy**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-proxy**](../../README.md)
 
 ***
 
@@ -8,6 +8,8 @@
 
 > **healthCheck**(): `Router`
 
+Defined in: [sitecore-jss-proxy/src/middleware/healthcheck/index.ts:7](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-proxy/src/middleware/healthcheck/index.ts#L7)
+
 Creates a router for health check requests.
 
 ## Returns
@@ -15,7 +17,3 @@ Creates a router for health check requests.
 `Router`
 
 Editing router
-
-## Defined in
-
-[sitecore-jss-proxy/src/middleware/healthcheck/index.ts:7](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-proxy/src/middleware/healthcheck/index.ts#L7)

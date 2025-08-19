@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [layout](../README.md) / LayoutServiceContextData
 
 # Interface: LayoutServiceContextData
+
+Defined in: [packages/sitecore-jss/src/layout/models.ts:52](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L52)
 
 Context information from the Sitecore Layout Service
 
@@ -14,6 +16,4 @@ Context information from the Sitecore Layout Service
 
 > **context**: [`LayoutServiceContext`](LayoutServiceContext.md)
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:53](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/layout/models.ts#L53)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:53](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L53)

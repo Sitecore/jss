@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -6,10 +6,8 @@
 
 # Type Alias: HTMLLink
 
-> **HTMLLink**: `object` & `Pick`\<`HTMLLinkElement`, `"rel"` \| `"href"`\>
+> **HTMLLink** = `object` & `Pick`\<`HTMLLinkElement`, `"rel"` \| `"href"`\>
+
+Defined in: packages/sitecore-jss/types/models.d.ts:4
 
 Html <link> tag data model
-
-## Defined in
-
-packages/sitecore-jss/types/models.d.ts:4

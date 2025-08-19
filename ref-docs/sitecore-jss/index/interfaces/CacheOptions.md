@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [index](../README.md) / CacheOptions
 
 # Interface: CacheOptions
+
+Defined in: [packages/sitecore-jss/src/cache-client.ts:35](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/cache-client.ts#L35)
 
 Minimum configuration options for classes that implement
 
@@ -22,6 +24,8 @@ CacheClient
 
 > `optional` **cacheEnabled**: `boolean`
 
+Defined in: [packages/sitecore-jss/src/cache-client.ts:40](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/cache-client.ts#L40)
+
 Enable/disable caching mechanism
 
 #### Default
@@ -30,15 +34,13 @@ Enable/disable caching mechanism
 true
 ```
 
-#### Defined in
-
-[packages/sitecore-jss/src/cache-client.ts:40](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/cache-client.ts#L40)
-
 ***
 
 ### cacheTimeout?
 
 > `optional` **cacheTimeout**: `number`
+
+Defined in: [packages/sitecore-jss/src/cache-client.ts:45](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/cache-client.ts#L45)
 
 Cache timeout (sec)
 
@@ -47,7 +49,3 @@ Cache timeout (sec)
 ```ts
 60
 ```
-
-#### Defined in
-
-[packages/sitecore-jss/src/cache-client.ts:45](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/cache-client.ts#L45)

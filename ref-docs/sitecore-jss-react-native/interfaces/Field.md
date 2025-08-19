@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-react-native**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react-native**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-react-native](../README.md) / Field
 
 # Interface: Field\<T\>
+
+Defined in: sitecore-jss/types/layout/models.d.ts:117
 
 ## Extends
 
@@ -22,9 +24,7 @@
 
 > `optional` **editable**: `string`
 
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:119
+Defined in: sitecore-jss/types/layout/models.d.ts:119
 
 ***
 
@@ -32,17 +32,15 @@ sitecore-jss/types/layout/models.d.ts:119
 
 > `optional` **metadata**: `object`
 
+Defined in: sitecore-jss/types/layout/models.d.ts:125
+
 #### Index Signature
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 #### Inherited from
 
 `FieldMetadata.metadata`
-
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:125
 
 ***
 
@@ -50,6 +48,4 @@ sitecore-jss/types/layout/models.d.ts:125
 
 > **value**: `T`
 
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:118
+Defined in: sitecore-jss/types/layout/models.d.ts:118

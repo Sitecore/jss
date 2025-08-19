@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -8,8 +8,6 @@
 
 > `const` **EDGE\_CONFIG**: `InjectionToken`\<`EdgeConfigToken`\>
 
+Defined in: [packages/sitecore-jss-angular/src/services/shared.token.ts:14](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-angular/src/services/shared.token.ts#L14)
+
 Injection token for the Sitecore Edge configuration.
-
-## Defined in
-
-[packages/sitecore-jss-angular/src/services/shared.token.ts:14](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-angular/src/services/shared.token.ts#L14)

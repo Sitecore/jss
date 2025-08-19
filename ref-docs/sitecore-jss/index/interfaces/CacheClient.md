@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [index](../README.md) / CacheClient
 
 # Interface: CacheClient\<T\>
+
+Defined in: [packages/sitecore-jss/src/cache-client.ts:7](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/cache-client.ts#L7)
 
 An interface for cache clients.
 
@@ -20,6 +22,8 @@ An interface for cache clients.
 
 > **getCacheValue**(`key`): `null` \| `T`
 
+Defined in: [packages/sitecore-jss/src/cache-client.ts:21](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/cache-client.ts#L21)
+
 Retrieves a value from the cache.
 
 #### Parameters
@@ -34,15 +38,13 @@ Retrieves a value from the cache.
 
 The cache value as {T}, or null if the specified key was not found in the cache.
 
-#### Defined in
-
-[packages/sitecore-jss/src/cache-client.ts:21](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/cache-client.ts#L21)
-
 ***
 
 ### setCacheValue()
 
 > **setCacheValue**(`key`, `value`): `T`
+
+Defined in: [packages/sitecore-jss/src/cache-client.ts:14](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/cache-client.ts#L14)
 
 Adds a value to the cache for the specified cache key.
 
@@ -58,7 +60,3 @@ Adds a value to the cache for the specified cache key.
 `T`
 
 The value added to the cache.
-
-#### Defined in
-
-[packages/sitecore-jss/src/cache-client.ts:14](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/cache-client.ts#L14)

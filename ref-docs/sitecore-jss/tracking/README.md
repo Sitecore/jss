@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../README.md)
 
 ***
 
@@ -6,13 +6,11 @@
 
 # tracking
 
-## Index
-
-### Namespaces
+## Namespaces
 
 - [trackingApi](namespaces/trackingApi/README.md)
 
-### Interfaces
+## Interfaces
 
 - [CampaignInstance](interfaces/CampaignInstance.md)
 - [EventInstance](interfaces/EventInstance.md)

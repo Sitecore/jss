@@ -11,6 +11,23 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 22.9.0
+
+### 🐛 Bug Fixes
+
+* `[Angular]` Application fails with "TypeError: Cannot read properties of undefined (reading 'tap')" ([#2134](https://github.com/Sitecore/jss/pull/2134))
+* `[sitecore-jss-nextjs]` Ensure Redirect Middleware handles case-insensitive path matching to prevent missed redirects due to casing differences ([#2114](https://github.com/Sitecore/jss/pull/2114))
+* `[sitecore-jss-nextjs]` Fix redirect regex processing to prevent over-escaping of question marks in regex patterns ([#2119](https://github.com/Sitecore/jss/pull/2119))
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss-nextjs]` Ensure displayName paths are properly UTF-8 encoded. ([#2121](https://github.com/Sitecore/jss/pull/2121))
+
+### 🛠 Breaking Changes
+
+* `[All]` Partial update for 3rd party dependencies ([#2123](https://github.com/Sitecore/jss/pull/2123) [#2125](https://github.com/Sitecore/jss/pull/2125) [#2129](https://github.com/Sitecore/jss/pull/2129) [#2130](https://github.com/Sitecore/jss/pull/2130) [#2131](https://github.com/Sitecore/jss/pull/2131) [#2133](https://github.com/Sitecore/jss/pull/2133))
+  * See upgrade guide for more details
+
 ## 22.8.0
 
 ### 🎉 New Features & Improvements
@@ -42,6 +59,10 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Improve device detection and prevent false prefetch handling in Personalize middleware. ([#2102](https://github.com/Sitecore/jss/pull/2102)) ([#2107](https://github.com/Sitecore/jss/pull/2107)) 
 * `[sitecore-jss-nextjs]` Add `Cache-Control: no-store, no-cache, must-revalidate` to personalize middleware to ensure personalized responses are not served from prefetch cache and proper personalization was applied during client side navigation. ([#2105](https://github.com/Sitecore/jss/pull/2105))
 * `[sitecore-jss-proxy]` Fix build failure of XMCloud Proxy application when using PNPM ([#2106](https://github.com/Sitecore/jss/pull/2106))
+
+### Chores
+
+* `[all]` Update 3rd party dependencies ([#2123](https://github.com/Sitecore/jss/pull/2123))
 
 ### 🛠 Breaking Changes
 

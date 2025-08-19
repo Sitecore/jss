@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: PlaceholdersData\<TYPEDNAME\>
 
-> **PlaceholdersData**\<`TYPEDNAME`\>: \{ \[P in TYPEDNAME\]: (ComponentRendering \| HtmlElementRendering)\[\] \}
+> **PlaceholdersData**\<`TYPEDNAME`\> = \{ \[P in TYPEDNAME\]: (ComponentRendering \| HtmlElementRendering)\[\] \}
+
+Defined in: [packages/sitecore-jss/src/layout/models.ts:78](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L78)
 
 Placeholder contents data (name: placeholder name, then array of components within that placeholder name)
 Note: HtmlElementRendering is used by Sitecore Experience Editor
@@ -16,7 +18,3 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 | Type Parameter | Default type |
 | ------ | ------ |
 | `TYPEDNAME` *extends* `string` | `string` |
-
-## Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:78](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/layout/models.ts#L78)

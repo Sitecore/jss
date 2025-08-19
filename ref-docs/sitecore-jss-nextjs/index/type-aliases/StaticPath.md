@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,24 +6,28 @@
 
 # Type Alias: StaticPath
 
-> **StaticPath**: `object`
+> **StaticPath** = `object`
+
+Defined in: [sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:31](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L31)
 
 Object model of a site page item.
 
-## Type declaration
+## Properties
 
 ### locale?
 
 > `optional` **locale**: `string`
 
+Defined in: [sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:35](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L35)
+
+***
+
 ### params
 
 > **params**: `object`
 
-### params.path
+Defined in: [sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:32](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L32)
+
+#### path
 
 > **path**: `string`[]
-
-## Defined in
-
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:31](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L31)

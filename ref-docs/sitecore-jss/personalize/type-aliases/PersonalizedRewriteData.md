@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,18 +6,22 @@
 
 # Type Alias: PersonalizedRewriteData
 
-> **PersonalizedRewriteData**: `object`
+> **PersonalizedRewriteData** = `object`
 
-## Type declaration
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:4](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/personalize/utils.ts#L4)
+
+## Properties
 
 ### componentVariantIds?
 
 > `optional` **componentVariantIds**: `string`[]
 
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:6](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/personalize/utils.ts#L6)
+
+***
+
 ### variantId
 
 > **variantId**: `string`
 
-## Defined in
-
-[packages/sitecore-jss/src/personalize/utils.ts:4](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/personalize/utils.ts#L4)
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:5](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/personalize/utils.ts#L5)

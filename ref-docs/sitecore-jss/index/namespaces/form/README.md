@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # form
 
-## Index
-
-### Functions
+## Functions
 
 - [executeScriptElements](functions/executeScriptElements.md)
 - [loadForm](functions/loadForm.md)

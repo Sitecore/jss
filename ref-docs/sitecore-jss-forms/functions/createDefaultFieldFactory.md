@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react-forms**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react-forms**](../README.md)
 
 ***
 
@@ -8,12 +8,10 @@
 
 > **createDefaultFieldFactory**(): [`FieldFactory`](../classes/FieldFactory.md)
 
+Defined in: [src/default-field-factory.tsx:23](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react-forms/src/default-field-factory.tsx#L23)
+
 Create default field factory
 
 ## Returns
 
 [`FieldFactory`](../classes/FieldFactory.md)
-
-## Defined in
-
-[src/default-field-factory.tsx:23](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-react-forms/src/default-field-factory.tsx#L23)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: EnhancedOmit\<T, K\>
 
-> **EnhancedOmit**\<`T`, `K`\>: `{ [P in keyof T as Exclude<P, K>]: T[P] }`
+> **EnhancedOmit**\<`T`, `K`\> = `{ [P in keyof T as Exclude<P, K>]: T[P] }`
+
+Defined in: [packages/sitecore-jss/src/utils/utils.ts:11](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/utils/utils.ts#L11)
 
 Omit properties from T that are in K. This is a simplified version of TypeScript's built-in `Omit` utility type.
 Since default `Omit` doesn't support indexing types, we had to introduce this custom implementation.
@@ -17,7 +19,3 @@ Since default `Omit` doesn't support indexing types, we had to introduce this cu
 | ------ |
 | `T` |
 | `K` *extends* `PropertyKey` |
-
-## Defined in
-
-[packages/sitecore-jss/src/utils/utils.ts:11](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/utils/utils.ts#L11)

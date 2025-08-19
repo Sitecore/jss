@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: generatePlugins()
 
 > **generatePlugins**(`definition`): `void`
+
+Defined in: [sitecore-jss-dev-tools/src/templating/plugins.ts:90](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L90)
 
 Generates the plugins file and saves it to the filesystem.
 By convention, we expect to find plugins under {pluginName}/plugins/** (subfolders are searched recursively).
@@ -33,7 +35,3 @@ ESM: export { fooPlugin } from '{pluginPath}';
 ```ts
 generatePlugins({ distPath: 'src/temp/foo-plugins.js', rootPath: 'src/foo/plugins', moduleType: ModuleType.CJS })
 ```
-
-## Defined in
-
-[sitecore-jss-dev-tools/src/templating/plugins.ts:90](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/templating/plugins.ts#L90)

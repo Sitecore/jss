@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,23 +6,27 @@
 
 # Class: CdpHelper
 
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:83](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/personalize/utils.ts#L83)
+
 Static utility class for Sitecore CDP
 
 ## Constructors
 
-### new CdpHelper()
+### Constructor
 
-> **new CdpHelper**(): [`CdpHelper`](CdpHelper.md)
+> **new CdpHelper**(): `CdpHelper`
 
 #### Returns
 
-[`CdpHelper`](CdpHelper.md)
+`CdpHelper`
 
 ## Methods
 
 ### getComponentFriendlyId()
 
-> `static` **getComponentFriendlyId**(`pageId`, `componentId`, `language`, `scope`?): `string`
+> `static` **getComponentFriendlyId**(`pageId`, `componentId`, `language`, `scope?`): `string`
+
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:130](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/personalize/utils.ts#L130)
 
 Gets the friendly id for Component A/B Testing in the required format `component_[<scope>_]<pageId>_<componentId>_<language>*`
 
@@ -33,7 +37,7 @@ Gets the friendly id for Component A/B Testing in the required format `component
 | `pageId` | `string` | the page id |
 | `componentId` | `string` | the component id |
 | `language` | `string` | the language |
-| `scope`? | `string` | the scope value |
+| `scope?` | `string` | the scope value |
 
 #### Returns
 
@@ -41,15 +45,13 @@ Gets the friendly id for Component A/B Testing in the required format `component
 
 the friendly id
 
-#### Defined in
-
-[packages/sitecore-jss/src/personalize/utils.ts:130](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/personalize/utils.ts#L130)
-
 ***
 
 ### getPageFriendlyId()
 
-> `static` **getPageFriendlyId**(`pageId`, `language`, `scope`?): `string`
+> `static` **getPageFriendlyId**(`pageId`, `language`, `scope?`): `string`
+
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:115](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/personalize/utils.ts#L115)
 
 Gets the friendly id for (page-level) Embedded Personalization in the required format `embedded_[<scope>_]<id>_<lang>`
 
@@ -59,7 +61,7 @@ Gets the friendly id for (page-level) Embedded Personalization in the required f
 | ------ | ------ | ------ |
 | `pageId` | `string` | the page id |
 | `language` | `string` | the language |
-| `scope`? | `string` | the scope value |
+| `scope?` | `string` | the scope value |
 
 #### Returns
 
@@ -67,15 +69,13 @@ Gets the friendly id for (page-level) Embedded Personalization in the required f
 
 the friendly id
 
-#### Defined in
-
-[packages/sitecore-jss/src/personalize/utils.ts:115](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/personalize/utils.ts#L115)
-
 ***
 
 ### getPageVariantId()
 
-> `static` **getPageVariantId**(`pageId`, `language`, `variantId`, `scope`?): `string`
+> `static` **getPageVariantId**(`pageId`, `language`, `variantId`, `scope?`): `string`
+
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:92](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/personalize/utils.ts#L92)
 
 Gets the page variant id for CDP in the required format
 
@@ -86,7 +86,7 @@ Gets the page variant id for CDP in the required format
 | `pageId` | `string` | the page id |
 | `language` | `string` | the language |
 | `variantId` | `string` | the variant id |
-| `scope`? | `string` | the scope value |
+| `scope?` | `string` | the scope value |
 
 #### Returns
 
@@ -94,15 +94,13 @@ Gets the page variant id for CDP in the required format
 
 the formatted page variant id
 
-#### Defined in
-
-[packages/sitecore-jss/src/personalize/utils.ts:92](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/personalize/utils.ts#L92)
-
 ***
 
 ### normalizeScope()
 
-> `static` **normalizeScope**(`scope`?): `string`
+> `static` **normalizeScope**(`scope?`): `string`
+
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:149](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/personalize/utils.ts#L149)
 
 Normalizes the scope from the given string value
 Removes all non-alphanumeric characters
@@ -111,14 +109,10 @@ Removes all non-alphanumeric characters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `scope`? | `string` | the scope value |
+| `scope?` | `string` | the scope value |
 
 #### Returns
 
 `string`
 
 normalized scope value
-
-#### Defined in
-
-[packages/sitecore-jss/src/personalize/utils.ts:149](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/personalize/utils.ts#L149)

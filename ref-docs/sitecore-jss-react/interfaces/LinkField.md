@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,15 +6,15 @@
 
 # Interface: LinkField
 
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:22](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/Link.tsx#L22)
+
 ## Properties
 
 ### editableFirstPart?
 
 > `optional` **editableFirstPart**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss-react/src/components/Link.tsx:24](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-react/src/components/Link.tsx#L24)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:24](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/Link.tsx#L24)
 
 ***
 
@@ -22,9 +22,7 @@
 
 > `optional` **editableLastPart**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss-react/src/components/Link.tsx:25](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-react/src/components/Link.tsx#L25)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:25](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/Link.tsx#L25)
 
 ***
 
@@ -32,6 +30,4 @@
 
 > **value**: [`LinkFieldValue`](LinkFieldValue.md)
 
-#### Defined in
-
-[packages/sitecore-jss-react/src/components/Link.tsx:23](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-react/src/components/Link.tsx#L23)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:23](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/Link.tsx#L23)

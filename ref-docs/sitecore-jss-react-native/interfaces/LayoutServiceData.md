@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-react-native**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react-native**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-react-native](../README.md) / LayoutServiceData
 
 # Interface: LayoutServiceData
+
+Defined in: sitecore-jss/types/layout/models.d.ts:4
 
 A reply from the Sitecore Layout Service
 
@@ -14,12 +16,10 @@ A reply from the Sitecore Layout Service
 
 > **sitecore**: [`LayoutServiceContextData`](LayoutServiceContextData.md) & `object`
 
+Defined in: sitecore-jss/types/layout/models.d.ts:5
+
 #### Type declaration
 
 ##### route
 
 > **route**: [`RouteData`](RouteData.md)\<`Record`\<`string`, [`Field`](Field.md)\<`GenericFieldValue`\> \| `Item` \| `Item`[]\>\>
-
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:5

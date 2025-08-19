@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: normalizePersonalizedRewrite()
 
 > **normalizePersonalizedRewrite**(`pathname`): `string`
+
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:69](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/personalize/utils.ts#L69)
 
 Normalize a personalized rewrite path (remove personalize data)
 
@@ -21,7 +23,3 @@ Normalize a personalized rewrite path (remove personalize data)
 `string`
 
 the pathname with personalize data removed
-
-## Defined in
-
-[packages/sitecore-jss/src/personalize/utils.ts:69](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/personalize/utils.ts#L69)

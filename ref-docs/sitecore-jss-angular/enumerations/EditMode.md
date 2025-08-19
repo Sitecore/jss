@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / EditMode
 
 # Enumeration: EditMode
+
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:23
 
 Represents the possible modes for rendering content in Sitecore Editor
 - chromes - supported by Sitecore Experience Editor / Pages
@@ -16,9 +18,7 @@ Represents the possible modes for rendering content in Sitecore Editor
 
 > **Chromes**: `"chromes"`
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:24
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:24
 
 ***
 
@@ -26,6 +26,4 @@ packages/sitecore-jss/types/layout/models.d.ts:24
 
 > **Metadata**: `"metadata"`
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:25
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:25

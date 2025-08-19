@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,9 +6,11 @@
 
 # Interface: EventInstance
 
+Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:13](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/tracking/dataModels.ts#L13)
+
 ## Indexable
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
@@ -16,8 +18,6 @@
 
 > **eventId**: `string`
 
+Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:16](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/tracking/dataModels.ts#L16)
+
 GUID or alias (name) of event to trigger
-
-#### Defined in
-
-[packages/sitecore-jss/src/tracking/dataModels.ts:16](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/tracking/dataModels.ts#L16)

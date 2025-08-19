@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -6,18 +6,18 @@
 
 # Interface: LinkFieldValue
 
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:303](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L303)
+
 ## Properties
 
 ### anchor?
 
 > `optional` **anchor**: `string`
 
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:317](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L317)
+
 The anchor (ie #foo) the link points to
 Used for internal links.
-
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:317](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L317)
 
 ***
 
@@ -25,11 +25,9 @@ Used for internal links.
 
 > `optional` **class**: `string`
 
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:321](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L321)
+
 The CSS class of the link tag
-
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:321](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L321)
 
 ***
 
@@ -37,12 +35,10 @@ The CSS class of the link tag
 
 > **href**: `string`
 
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:308](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L308)
+
 The href of the link. If this is a valid route, an internal link is created on import.
 Otherwise, the value is used literally.
-
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:308](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L308)
 
 ***
 
@@ -50,12 +46,10 @@ Otherwise, the value is used literally.
 
 > `optional` **querystring**: `string`
 
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:326](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L326)
+
 The query string added to the link URL
 Used for internal links.
-
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:326](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L326)
 
 ***
 
@@ -63,11 +57,9 @@ Used for internal links.
 
 > `optional` **target**: `string`
 
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:330](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L330)
+
 The target attribute of the link tag
-
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:330](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L330)
 
 ***
 
@@ -75,11 +67,9 @@ The target attribute of the link tag
 
 > `optional` **text**: `string`
 
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:312](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L312)
+
 The text shown as the body of the link
-
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:312](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L312)
 
 ***
 
@@ -87,8 +77,6 @@ The text shown as the body of the link
 
 > `optional` **title**: `string`
 
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:334](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L334)
+
 The title attribute of the link tag
-
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:334](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L334)

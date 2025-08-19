@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [index](../README.md) / PlaceholderData
 
 # Interface: PlaceholderData
+
+Defined in: sitecore-jss/types/layout/models.d.ts:144
 
 Contents of a single placeholder returned from placeholder service
 
@@ -14,9 +16,7 @@ Contents of a single placeholder returned from placeholder service
 
 > **elements**: ([`ComponentRendering`](ComponentRendering.md)\<[`ComponentFields`](ComponentFields.md)\> \| [`HtmlElementRendering`](HtmlElementRendering.md))[]
 
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:147
+Defined in: sitecore-jss/types/layout/models.d.ts:147
 
 ***
 
@@ -24,9 +24,7 @@ sitecore-jss/types/layout/models.d.ts:147
 
 > **name**: `string`
 
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:145
+Defined in: sitecore-jss/types/layout/models.d.ts:145
 
 ***
 
@@ -34,6 +32,4 @@ sitecore-jss/types/layout/models.d.ts:145
 
 > **path**: `string`
 
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:146
+Defined in: sitecore-jss/types/layout/models.d.ts:146

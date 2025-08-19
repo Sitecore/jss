@@ -327,7 +327,6 @@ describe('GraphQLSitemapService', () => {
         ]);
         return expect(nock.isDone()).to.be.true;
       });
-
       it('should not return personalized paths when personalize data is requested and component a/b testing returned', async () => {
         const lang = 'ua';
 
@@ -356,6 +355,133 @@ describe('GraphQLSitemapService', () => {
             locale: lang,
           },
         ]);
+        return expect(nock.isDone()).to.be.true;
+      });
+
+      it('should return both itemName and encoded displayName paths for routes with displayName', async () => {
+        const lang = 'en';
+
+        nock(endpoint)
+          .post('/')
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 3,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/Test',
+                        route: { displayName: 'New-test' },
+                      },
+                      {
+                        path: '/About',
+                        route: { displayName: 'New-about' },
+                      },
+                      {
+                        path: '/',
+                        route: { displayName: 'Home' },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+          });
+
+        const service = new GraphQLSitemapService({
+          clientFactory,
+          siteName,
+        });
+
+        const sitemap = await service.fetchSSGSitemap([lang]);
+
+        expect(sitemap).to.deep.equal([
+          {
+            params: {
+              path: ['Test'],
+            },
+            locale: 'en',
+          },
+          {
+            params: {
+              path: ['About'],
+            },
+            locale: 'en',
+          },
+          {
+            params: {
+              path: [''],
+            },
+            locale: 'en',
+          },
+        ]);
+
+        return expect(nock.isDone()).to.be.true;
+      });
+
+      it('should return encoded displayName paths when special characters are used', async () => {
+        const lang = 'en';
+
+        nock(endpoint)
+          .post('/', /DefaultSitemapQuery/gi)
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 3,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/Åbout',
+                      },
+                      {
+                        path: '/Tëâm',
+                      },
+                      {
+                        path: '/',
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+          });
+
+        const service = new GraphQLSitemapService({
+          clientFactory,
+          siteName,
+        });
+
+        const sitemap = await service.fetchSSGSitemap([lang]);
+
+        expect(sitemap).to.deep.equal([
+          {
+            params: {
+              path: ['Åbout'],
+            },
+            locale: 'en',
+          },
+          {
+            params: {
+              path: ['Tëâm'],
+            },
+            locale: 'en',
+          },
+          {
+            params: {
+              path: [''],
+            },
+            locale: 'en',
+          },
+        ]);
+
         return expect(nock.isDone()).to.be.true;
       });
 

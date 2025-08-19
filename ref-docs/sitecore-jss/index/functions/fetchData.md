@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: fetchData()
 
 > **fetchData**\<`T`\>(`url`, `fetcher`, `params`): `Promise`\<`T`\>
+
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:45](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/data-fetcher.ts#L45)
 
 ## Type Parameters
 
@@ -25,7 +27,3 @@
 ## Returns
 
 `Promise`\<`T`\>
-
-## Defined in
-
-[packages/sitecore-jss/src/data-fetcher.ts:45](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/data-fetcher.ts#L45)

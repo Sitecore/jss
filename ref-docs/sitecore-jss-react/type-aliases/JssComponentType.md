@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: JssComponentType
 
-> **JssComponentType**: `ComponentType` & `object`
+> **JssComponentType** = `ComponentType` & `object`
+
+Defined in: [packages/sitecore-jss-react/src/components/sharedTypes.ts:15](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/sharedTypes.ts#L15)
 
 Component type returned from component builder / factory
 
@@ -18,8 +20,4 @@ Component type returned from component builder / factory
 
 #### Index Signature
 
- \[`key`: `string`\]: `unknown`
-
-## Defined in
-
-[packages/sitecore-jss-react/src/components/sharedTypes.ts:15](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-react/src/components/sharedTypes.ts#L15)
+\[`key`: `string`\]: `unknown`

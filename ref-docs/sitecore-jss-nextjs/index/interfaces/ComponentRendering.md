@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [index](../README.md) / ComponentRendering
 
 # Interface: ComponentRendering\<T\>
+
+Defined in: sitecore-jss/types/layout/models.d.ts:90
 
 Definition of a component instance within a placeholder on a route
 
@@ -20,9 +22,7 @@ Definition of a component instance within a placeholder on a route
 
 > **componentName**: `string`
 
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:91
+Defined in: sitecore-jss/types/layout/models.d.ts:91
 
 ***
 
@@ -30,9 +30,7 @@ sitecore-jss/types/layout/models.d.ts:91
 
 > `optional` **dataSource**: `string`
 
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:92
+Defined in: sitecore-jss/types/layout/models.d.ts:92
 
 ***
 
@@ -40,9 +38,7 @@ sitecore-jss/types/layout/models.d.ts:92
 
 > `optional` **fields**: `T`
 
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:95
+Defined in: sitecore-jss/types/layout/models.d.ts:95
 
 ***
 
@@ -50,9 +46,7 @@ sitecore-jss/types/layout/models.d.ts:95
 
 > `optional` **params**: [`ComponentParams`](ComponentParams.md)
 
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:96
+Defined in: sitecore-jss/types/layout/models.d.ts:96
 
 ***
 
@@ -60,9 +54,7 @@ sitecore-jss/types/layout/models.d.ts:96
 
 > `optional` **placeholders**: [`PlaceholdersData`](../type-aliases/PlaceholdersData.md)\<`string`\>
 
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:94
+Defined in: sitecore-jss/types/layout/models.d.ts:94
 
 ***
 
@@ -70,6 +62,4 @@ sitecore-jss/types/layout/models.d.ts:94
 
 > `optional` **uid**: `string`
 
-#### Defined in
-
-sitecore-jss/types/layout/models.d.ts:93
+Defined in: sitecore-jss/types/layout/models.d.ts:93

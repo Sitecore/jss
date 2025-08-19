@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,52 +6,88 @@
 
 # Type Alias: FEaaSComponentParams
 
-> **FEaaSComponentParams**: `object`
+> **FEaaSComponentParams** = `object`
+
+Defined in: [packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:11](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L11)
 
 Params from a Sitecore FEaaS rendering
 
-## Type declaration
+## Properties
 
 ### ComponentDataOverride?
 
 > `optional` **ComponentDataOverride**: `string`
 
+Defined in: [packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:18](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L18)
+
+***
+
 ### ComponentHostName?
 
 > `optional` **ComponentHostName**: `string`
+
+Defined in: [packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:16](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L16)
+
+***
 
 ### ComponentHTMLOverride?
 
 > `optional` **ComponentHTMLOverride**: `string`
 
+Defined in: [packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:19](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L19)
+
+***
+
 ### ComponentId?
 
 > `optional` **ComponentId**: `string`
+
+Defined in: [packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:13](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L13)
+
+***
 
 ### ComponentInstanceId?
 
 > `optional` **ComponentInstanceId**: `string`
 
+Defined in: [packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:17](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L17)
+
+***
+
 ### ComponentRevision?
 
 > `optional` **ComponentRevision**: `RevisionType`
+
+Defined in: [packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:15](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L15)
+
+***
 
 ### ComponentVersion?
 
 > `optional` **ComponentVersion**: `string`
 
+Defined in: [packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:14](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L14)
+
+***
+
 ### LibraryId?
 
 > `optional` **LibraryId**: `string`
+
+Defined in: [packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:12](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L12)
+
+***
 
 ### RenderingIdentifier?
 
 > `optional` **RenderingIdentifier**: `string`
 
+Defined in: [packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:21](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L21)
+
+***
+
 ### styles?
 
 > `optional` **styles**: `string`
 
-## Defined in
-
-[packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:11](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L11)
+Defined in: [packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:20](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L20)

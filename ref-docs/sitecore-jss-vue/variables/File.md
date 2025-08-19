@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-vue**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-vue**](../README.md)
 
 ***
 
@@ -6,8 +6,6 @@
 
 # Variable: File
 
-> `const` **File**: `DefineComponent`\<`ExtractPropTypes`\<`object`\>, `object`, `object`, `object`, `object`, `ComponentOptionsMixin`, `ComponentOptionsMixin`, `object`, `string`, `PublicProps`, `ToResolvedProps`\<`ExtractPropTypes`\<`object`\>, `object`\>, `object`, `object`, `object`, `object`, `string`, `ComponentProvideOptions`, `true`, `object`, `any`\>
+> `const` **File**: `DefineComponent`\<`ExtractPropTypes`\<\{ `field`: \{ `required`: `true`; `type`: `PropType`\<`FileFieldValue` \| `FileField`\>; `default`: `FileFieldValue` \| `FileField`; \}; \}\>, \{ \}, \{ \}, \{ \}, \{ \}, `ComponentOptionsMixin`, `ComponentOptionsMixin`, \{ \}, `string`, `PublicProps`, `ToResolvedProps`\<`ExtractPropTypes`\<\{ `field`: \{ `required`: `true`; `type`: `PropType`\<`FileFieldValue` \| `FileField`\>; `default`: `FileFieldValue` \| `FileField`; \}; \}\>, \{ \}\>, \{ `field`: `FileFieldValue` \| `FileField`; \}, \{ \}, \{ \}, \{ \}, `string`, `ComponentProvideOptions`, `true`, \{ \}, `any`\>
 
-## Defined in
-
-[packages/sitecore-jss-vue/src/components/File.ts:14](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-vue/src/components/File.ts#L14)
+Defined in: [packages/sitecore-jss-vue/src/components/File.ts:14](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-vue/src/components/File.ts#L14)

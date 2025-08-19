@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [layout](../README.md) / ComponentRendering
 
 # Interface: ComponentRendering\<T\>
+
+Defined in: [packages/sitecore-jss/src/layout/models.ts:99](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L99)
 
 Definition of a component instance within a placeholder on a route
 
@@ -20,9 +22,7 @@ Definition of a component instance within a placeholder on a route
 
 > **componentName**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:100](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/layout/models.ts#L100)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:100](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L100)
 
 ***
 
@@ -30,9 +30,7 @@ Definition of a component instance within a placeholder on a route
 
 > `optional` **dataSource**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:101](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/layout/models.ts#L101)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:101](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L101)
 
 ***
 
@@ -40,9 +38,7 @@ Definition of a component instance within a placeholder on a route
 
 > `optional` **fields**: `T`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:104](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/layout/models.ts#L104)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:104](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L104)
 
 ***
 
@@ -50,9 +46,7 @@ Definition of a component instance within a placeholder on a route
 
 > `optional` **params**: [`ComponentParams`](ComponentParams.md)
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:105](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/layout/models.ts#L105)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:105](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L105)
 
 ***
 
@@ -60,9 +54,7 @@ Definition of a component instance within a placeholder on a route
 
 > `optional` **placeholders**: [`PlaceholdersData`](../type-aliases/PlaceholdersData.md)\<`string`\>
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:103](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/layout/models.ts#L103)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:103](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L103)
 
 ***
 
@@ -70,6 +62,4 @@ Definition of a component instance within a placeholder on a route
 
 > `optional` **uid**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:102](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/layout/models.ts#L102)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:102](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L102)

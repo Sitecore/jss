@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [graphql](../README.md) / PageInfo
 
 # Interface: PageInfo
+
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:7](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/graphql/search-service.ts#L7)
 
 Data needed to paginate results
 
@@ -14,11 +16,9 @@ Data needed to paginate results
 
 > **endCursor**: `string`
 
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:11](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/graphql/search-service.ts#L11)
+
 string token that can be used to fetch the next page of results
-
-#### Defined in
-
-[packages/sitecore-jss/src/graphql/search-service.ts:11](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/graphql/search-service.ts#L11)
 
 ***
 
@@ -26,8 +26,6 @@ string token that can be used to fetch the next page of results
 
 > **hasNext**: `boolean`
 
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:15](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/graphql/search-service.ts#L15)
+
 a value that indicates whether more pages of results are available
-
-#### Defined in
-
-[packages/sitecore-jss/src/graphql/search-service.ts:15](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/graphql/search-service.ts#L15)

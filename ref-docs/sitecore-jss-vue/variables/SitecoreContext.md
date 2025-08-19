@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-vue**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-vue**](../README.md)
 
 ***
 
@@ -6,8 +6,6 @@
 
 # Variable: SitecoreContext
 
-> `const` **SitecoreContext**: `DefineComponent`\<`ExtractPropTypes`\<`object`\>, () => `VNode`\<`RendererNode`, `RendererElement`, `object`\>[], `object`, `object`, `object`, `ComponentOptionsMixin`, `ComponentOptionsMixin`, `object`, `string`, `PublicProps`, `ToResolvedProps`\<`ExtractPropTypes`\<`object`\>, `object`\>, `object`, `object`, `object`, `object`, `string`, `ComponentProvideOptions`, `true`, `object`, `any`\>
+> `const` **SitecoreContext**: `DefineComponent`\<`ExtractPropTypes`\<\{ `componentFactory`: \{ `default`: `any`; `type`: `PropType`\<`ComponentFactory`\>; \}; \}\>, () => `VNode`\<`RendererNode`, `RendererElement`, \{\[`key`: `string`\]: `any`; \}\>[], \{ \}, \{ \}, \{ \}, `ComponentOptionsMixin`, `ComponentOptionsMixin`, \{ \}, `string`, `PublicProps`, `ToResolvedProps`\<`ExtractPropTypes`\<\{ `componentFactory`: \{ `default`: `any`; `type`: `PropType`\<`ComponentFactory`\>; \}; \}\>, \{ \}\>, \{ `componentFactory`: `ComponentFactory`; \}, \{ \}, \{ \}, \{ \}, `string`, `ComponentProvideOptions`, `true`, \{ \}, `any`\>
 
-## Defined in
-
-[packages/sitecore-jss-vue/src/components/SitecoreContext.ts:8](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-vue/src/components/SitecoreContext.ts#L8)
+Defined in: [packages/sitecore-jss-vue/src/components/SitecoreContext.ts:8](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-vue/src/components/SitecoreContext.ts#L8)

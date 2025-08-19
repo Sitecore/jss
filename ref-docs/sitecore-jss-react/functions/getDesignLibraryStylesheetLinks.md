@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: getDesignLibraryStylesheetLinks()
 
-> **getDesignLibraryStylesheetLinks**(`layoutData`, `sitecoreEdgeContextId`, `sitecoreEdgeUrl`?): `HTMLLink`[]
+> **getDesignLibraryStylesheetLinks**(`layoutData`, `sitecoreEdgeContextId`, `sitecoreEdgeUrl?`): `HTMLLink`[]
+
+Defined in: packages/sitecore-jss/types/layout/themes.d.ts:10
 
 Walks through rendering tree and returns list of links of all FEAAS, BYOC or SXA Design Library Stylesheets that are used
 
@@ -16,14 +18,10 @@ Walks through rendering tree and returns list of links of all FEAAS, BYOC or SXA
 | ------ | ------ | ------ |
 | `layoutData` | [`LayoutServiceData`](../interfaces/LayoutServiceData.md) | Layout service data |
 | `sitecoreEdgeContextId` | `string` | Sitecore Edge Context ID |
-| `sitecoreEdgeUrl`? | `string` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
+| `sitecoreEdgeUrl?` | `string` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
 
 ## Returns
 
 `HTMLLink`[]
 
 library stylesheet links
-
-## Defined in
-
-packages/sitecore-jss/types/layout/themes.d.ts:10

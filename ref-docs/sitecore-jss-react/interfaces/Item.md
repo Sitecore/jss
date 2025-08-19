@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-react](../README.md) / Item
 
 # Interface: Item
+
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:132
 
 Content data returned from Layout Service
 
@@ -14,9 +16,7 @@ Content data returned from Layout Service
 
 > `optional` **displayName**: `string`
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:134
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:134
 
 ***
 
@@ -24,13 +24,11 @@ packages/sitecore-jss/types/layout/models.d.ts:134
 
 > **fields**: `object`
 
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:137
+
 #### Index Signature
 
- \[`name`: `string`\]: [`Field`](Field.md) \| [`Item`](Item.md) \| [`Item`](Item.md)[] \| `undefined`
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:137
+\[`name`: `string`\]: [`Field`](Field.md)\<`GenericFieldValue`\> \| `Item` \| `Item`[]
 
 ***
 
@@ -38,9 +36,7 @@ packages/sitecore-jss/types/layout/models.d.ts:137
 
 > `optional` **id**: `string`
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:135
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:135
 
 ***
 
@@ -48,9 +44,7 @@ packages/sitecore-jss/types/layout/models.d.ts:135
 
 > **name**: `string`
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:133
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:133
 
 ***
 
@@ -58,6 +52,4 @@ packages/sitecore-jss/types/layout/models.d.ts:133
 
 > `optional` **url**: `string`
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:136
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:136

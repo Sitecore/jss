@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: isDesignLibraryMode()
 
 > **isDesignLibraryMode**(`mode`): `mode is DesignLibraryMode`
+
+Defined in: [packages/sitecore-jss/src/editing/design-library.ts:163](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/design-library.ts#L163)
 
 Checks if the given mode is a Design Library mode.
 
@@ -21,7 +23,3 @@ Checks if the given mode is a Design Library mode.
 `mode is DesignLibraryMode`
 
 True if the mode is a Design Library mode, false otherwise.
-
-## Defined in
-
-[packages/sitecore-jss/src/editing/design-library.ts:163](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/design-library.ts#L163)

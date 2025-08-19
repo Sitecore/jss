@@ -1,4 +1,4 @@
-**@sitecore-jss/sitecore-jss-angular** • **Docs**
+**@sitecore-jss/sitecore-jss-angular**
 
 ***
 
@@ -6,9 +6,9 @@
 
 ## Namespaces
 
-- [constants](namespaces/constants/README.md)
-- [mediaApi](namespaces/mediaApi/README.md)
-- [trackingApi](namespaces/trackingApi/README.md)
+- [constants](@sitecore-jss/namespaces/constants/README.md)
+- [mediaApi](@sitecore-jss/namespaces/mediaApi/README.md)
+- [trackingApi](@sitecore-jss/namespaces/trackingApi/README.md)
 
 ## Enumerations
 
@@ -114,18 +114,18 @@
 - [DefaultEditFrameButtons](variables/DefaultEditFrameButtons.md)
 - [DYNAMIC\_COMPONENT](variables/DYNAMIC_COMPONENT.md)
 - [EDGE\_CONFIG](variables/EDGE_CONFIG.md)
+- [enableDebug](variables/enableDebug.md)
+- [getContentStylesheetLink](variables/getContentStylesheetLink.md)
+- [getEdgeProxyContentUrl](variables/getEdgeProxyContentUrl.md)
+- [handleEditorAnchors](variables/handleEditorAnchors.md)
+- [isEditorActive](variables/isEditorActive.md)
+- [resetEditorChromes](variables/resetEditorChromes.md)
 
 ## Functions
 
-- [enableDebug](functions/enableDebug.md)
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
-- [getContentStylesheetLink](functions/getContentStylesheetLink.md)
-- [getEdgeProxyContentUrl](functions/getEdgeProxyContentUrl.md)
 - [getFieldValue](functions/getFieldValue.md)
 - [getGroomedVariantIds](functions/getGroomedVariantIds.md)
-- [handleEditorAnchors](functions/handleEditorAnchors.md)
-- [isEditorActive](functions/isEditorActive.md)
 - [isRawRendering](functions/isRawRendering.md)
 - [isServer](functions/isServer.md)
 - [personalizeLayout](functions/personalizeLayout.md)
-- [resetEditorChromes](functions/resetEditorChromes.md)

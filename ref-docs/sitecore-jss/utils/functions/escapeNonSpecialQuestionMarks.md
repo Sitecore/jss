@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: escapeNonSpecialQuestionMarks()
 
 > **escapeNonSpecialQuestionMarks**(`input`): `string`
+
+Defined in: [packages/sitecore-jss/src/utils/utils.ts:204](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/utils/utils.ts#L204)
 
 Escapes non-special "?" characters in a string or regex.
 - For regular strings, it escapes all unescaped "?" characters by adding a backslash (`\`).
@@ -24,7 +26,3 @@ Escapes non-special "?" characters in a string or regex.
 `string`
 
 - The modified string or regex with non-special "?" characters escaped.
-
-## Defined in
-
-[packages/sitecore-jss/src/utils/utils.ts:204](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/utils/utils.ts#L204)

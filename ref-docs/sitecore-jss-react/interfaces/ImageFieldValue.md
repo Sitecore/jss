@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,9 +6,11 @@
 
 # Interface: ImageFieldValue
 
+Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:12](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/Image.tsx#L12)
+
 ## Indexable
 
- \[`attributeName`: `string`\]: `unknown`
+\[`attributeName`: `string`\]: `unknown`
 
 ## Properties
 
@@ -16,6 +18,4 @@
 
 > `optional` **src**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss-react/src/components/Image.tsx:14](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-react/src/components/Image.tsx#L14)
+Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:14](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/Image.tsx#L14)

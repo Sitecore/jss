@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -8,12 +8,10 @@
 
 > `const` **editingDataService**: [`BasicEditingDataService`](../classes/BasicEditingDataService.md) \| [`ServerlessEditingDataService`](../classes/ServerlessEditingDataService.md)
 
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:229](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L229)
+
 The `EditingDataService` default instance.
 This will be `ServerlessEditingDataService` on Vercel, `BasicEditingDataService` otherwise.
 
 For information about the VERCEL environment variable, see
 https://vercel.com/docs/environment-variables#system-environment-variables
-
-## Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:229](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L229)

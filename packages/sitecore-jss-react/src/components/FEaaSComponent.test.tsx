@@ -1,6 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import {
   composeComponentEndpoint,
   FEaaSComponent,
@@ -79,7 +79,7 @@ describe('<FEaaSComponent />', () => {
   });
 
   describe('data', () => {
-    it('should send fetched data', () => {
+    it('should send fetched data', async () => {
       const props: FEaaSComponentProps = {
         params: {
           ...requiredParams,
@@ -88,9 +88,11 @@ describe('<FEaaSComponent />', () => {
         template: '<h1 data-path="foo"></h1><h2 data-path="baz"></h2>',
       };
       const wrapper = render(<FEaaSComponent {...props} />, { container: document.body });
-      const output = wrapper.baseElement.innerHTML;
-      expect(output).to.contain('<h1 data-path="foo">bar</h1>');
-      expect(output).to.contain('<h2 data-path="baz">1</h2>');
+      waitFor(() => {
+        const output = wrapper.baseElement.innerHTML;
+        expect(output).to.contain('<h1 data-path="foo">bar</h1>');
+        expect(output).to.contain('<h2 data-path="baz">1</h2>');
+      });
     });
 
     it('should send datasource fields', () => {

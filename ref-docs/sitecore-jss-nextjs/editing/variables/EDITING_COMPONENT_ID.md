@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -8,8 +8,6 @@
 
 > `const` **EDITING\_COMPONENT\_ID**: `"editing-component"` = `"editing-component"`
 
+Defined in: sitecore-jss/types/layout/models.d.ts:162
+
 Id of wrapper for component rendering
-
-## Defined in
-
-sitecore-jss/types/layout/models.d.ts:162

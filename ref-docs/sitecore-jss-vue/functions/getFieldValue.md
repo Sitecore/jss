@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-vue**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-vue**](../README.md)
 
 ***
 
@@ -6,9 +6,11 @@
 
 # Function: getFieldValue()
 
-## getFieldValue(renderingOrFields, fieldName)
+## Call Signature
 
-> **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`): `T` \| `undefined`
+> **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`): `T`
+
+Defined in: packages/sitecore-jss/types/layout/utils.d.ts:9
 
 Safely extracts a field value from a rendering or fields object.
 Null will be returned if the field is not defined.
@@ -28,17 +30,18 @@ Null will be returned if the field is not defined.
 
 ### Returns
 
-`T` \| `undefined`
+`T`
 
 the field value or null if the field is not defined
 
-### Defined in
-
-packages/sitecore-jss/types/layout/utils.d.ts:9
-
-## getFieldValue(renderingOrFields, fieldName, defaultValue)
+## Call Signature
 
 > **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
+
+Defined in: packages/sitecore-jss/types/layout/utils.d.ts:10
+
+Safely extracts a field value from a rendering or fields object.
+Null will be returned if the field is not defined.
 
 ### Type Parameters
 
@@ -48,16 +51,14 @@ packages/sitecore-jss/types/layout/utils.d.ts:9
 
 ### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `renderingOrFields` | [`ComponentFields`](../interfaces/ComponentFields.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> |
-| `fieldName` | `string` |
-| `defaultValue` | `T` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `renderingOrFields` | [`ComponentFields`](../interfaces/ComponentFields.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> | the rendering or fields object to extract the field from |
+| `fieldName` | `string` | the name of the field to extract |
+| `defaultValue` | `T` | - |
 
 ### Returns
 
 `T`
 
-### Defined in
-
-packages/sitecore-jss/types/layout/utils.d.ts:10
+the field value or null if the field is not defined

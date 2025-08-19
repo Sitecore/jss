@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: deploy()
 
 > **deploy**(`options`): `void`
+
+Defined in: [sitecore-jss-dev-tools/src/deploy.ts:18](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/deploy.ts#L18)
 
 ## Parameters
 
@@ -17,7 +19,3 @@
 ## Returns
 
 `void`
-
-## Defined in
-
-[sitecore-jss-dev-tools/src/deploy.ts:18](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/deploy.ts#L18)

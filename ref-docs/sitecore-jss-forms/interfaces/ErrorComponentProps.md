@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react-forms**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react-forms**](../README.md)
 
 ***
 
@@ -6,15 +6,23 @@
 
 # Interface: ErrorComponentProps
 
+Defined in: [src/components/form.tsx:18](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react-forms/src/components/form.tsx#L18)
+
 ## Properties
 
 ### fieldErrors
 
 > **fieldErrors**: `object`[]
 
-#### Defined in
+Defined in: [src/components/form.tsx:21](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react-forms/src/components/form.tsx#L21)
 
-[src/components/form.tsx:21](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-react-forms/src/components/form.tsx#L21)
+#### fieldName
+
+> **fieldName**: `string`
+
+#### state
+
+> **state**: `FieldState`
 
 ***
 
@@ -22,9 +30,7 @@
 
 > **form**: `SitecoreForm`
 
-#### Defined in
-
-[src/components/form.tsx:19](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-react-forms/src/components/form.tsx#L19)
+Defined in: [src/components/form.tsx:19](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react-forms/src/components/form.tsx#L19)
 
 ***
 
@@ -32,6 +38,4 @@
 
 > **formErrors**: `string`[]
 
-#### Defined in
-
-[src/components/form.tsx:20](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-react-forms/src/components/form.tsx#L20)
+Defined in: [src/components/form.tsx:20](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react-forms/src/components/form.tsx#L20)

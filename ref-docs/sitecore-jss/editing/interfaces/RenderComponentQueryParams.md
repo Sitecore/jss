@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,12 +6,14 @@
 
 # Interface: RenderComponentQueryParams
 
+Defined in: [packages/sitecore-jss/src/editing/models.ts:25](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/models.ts#L25)
+
 Query parameters appended for Design Library functionaity.
 Used when a single component is rendered in Pages.
 
 ## Indexable
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
@@ -19,9 +21,7 @@ Used when a single component is rendered in Pages.
 
 > **mode**: [`DesignLibraryMode`](../enumerations/DesignLibraryMode.md)
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:33](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/models.ts#L33)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:33](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/models.ts#L33)
 
 ***
 
@@ -29,9 +29,7 @@ Used when a single component is rendered in Pages.
 
 > **sc\_itemid**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:29](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/models.ts#L29)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:29](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/models.ts#L29)
 
 ***
 
@@ -39,9 +37,7 @@ Used when a single component is rendered in Pages.
 
 > **sc\_lang**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:28](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/models.ts#L28)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:28](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/models.ts#L28)
 
 ***
 
@@ -49,9 +45,7 @@ Used when a single component is rendered in Pages.
 
 > **sc\_renderingId**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:30](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/models.ts#L30)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:30](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/models.ts#L30)
 
 ***
 
@@ -59,9 +53,7 @@ Used when a single component is rendered in Pages.
 
 > **sc\_site**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:32](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/models.ts#L32)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:32](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/models.ts#L32)
 
 ***
 
@@ -69,9 +61,7 @@ Used when a single component is rendered in Pages.
 
 > **sc\_uid**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:31](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/models.ts#L31)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:31](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/models.ts#L31)
 
 ***
 
@@ -79,9 +69,7 @@ Used when a single component is rendered in Pages.
 
 > `optional` **sc\_variant**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:34](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/models.ts#L34)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:34](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/models.ts#L34)
 
 ***
 
@@ -89,9 +77,7 @@ Used when a single component is rendered in Pages.
 
 > `optional` **sc\_version**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:35](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/models.ts#L35)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:35](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/models.ts#L35)
 
 ***
 
@@ -99,6 +85,4 @@ Used when a single component is rendered in Pages.
 
 > **secret**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:27](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/models.ts#L27)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:27](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/models.ts#L27)

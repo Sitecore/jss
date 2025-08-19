@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../README.md)
 
 ***
 
@@ -6,23 +6,21 @@
 
 # graphql
 
-## Index
-
-### Classes
+## Classes
 
 - [DefaultRetryStrategy](classes/DefaultRetryStrategy.md)
 - [GraphQLRequestClient](classes/GraphQLRequestClient.md)
 
-### Interfaces
+## Interfaces
 
 - [RetryStrategy](interfaces/RetryStrategy.md)
 
-### Type Aliases
+## Type Aliases
 
 - [GraphQLClientError](type-aliases/GraphQLClientError.md)
 - [GraphQLRequestClientFactory](type-aliases/GraphQLRequestClientFactory.md)
 - [GraphQLRequestClientFactoryConfig](type-aliases/GraphQLRequestClientFactoryConfig.md)
 
-### Functions
+## Variables
 
-- [getEdgeProxyContentUrl](functions/getEdgeProxyContentUrl.md)
+- [getEdgeProxyContentUrl](variables/getEdgeProxyContentUrl.md)

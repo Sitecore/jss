@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [editing](../README.md) / BasicEditingDataService
 
 # Class: BasicEditingDataService
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:72](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L72)
 
 Service responsible for maintaining Sitecore editor data between requests
 on self-hosted deployment architectures.
@@ -16,29 +18,29 @@ Utilizes a cache for storage and retrieval of editing data.
 
 ## Constructors
 
-### new BasicEditingDataService()
+### Constructor
 
-> **new BasicEditingDataService**(`config`?): [`BasicEditingDataService`](BasicEditingDataService.md)
+> **new BasicEditingDataService**(`config?`): `BasicEditingDataService`
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:79](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L79)
 
 #### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `config`? | [`BasicEditingDataServiceConfig`](../interfaces/BasicEditingDataServiceConfig.md) | Editing data service config |
+| `config?` | [`BasicEditingDataServiceConfig`](../interfaces/BasicEditingDataServiceConfig.md) | Editing data service config |
 
 #### Returns
 
-[`BasicEditingDataService`](BasicEditingDataService.md)
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:79](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L79)
+`BasicEditingDataService`
 
 ## Properties
 
 ### generateKey()
 
 > `protected` **generateKey**: (`data`) => `string`
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:73](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L73)
 
 Unique key generator.
 Need more than just the item GUID since requests are made "live" during editing in EE.
@@ -57,15 +59,13 @@ Example generated key: 52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x
 
 The unique key
 
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:73](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L73)
-
 ## Methods
 
 ### getEditingData()
 
 > **getEditingData**(`previewData`): `Promise`\<`undefined` \| [`EditingData`](../type-aliases/EditingData.md)\>
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:105](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L105)
 
 Retrieves Sitecore editor payload data by key
 
@@ -85,15 +85,13 @@ The [EditingData](../type-aliases/EditingData.md)
 
 [`EditingDataService`](../interfaces/EditingDataService.md).[`getEditingData`](../interfaces/EditingDataService.md#geteditingdata)
 
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:105](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L105)
-
 ***
 
 ### setEditingData()
 
 > **setEditingData**(`data`): `Promise`\<[`EditingPreviewData`](../interfaces/EditingPreviewData.md)\>
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:88](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L88)
 
 Stores Sitecore editor payload data for later retrieval by key
 
@@ -112,7 +110,3 @@ The [EditingPreviewData](../interfaces/EditingPreviewData.md) containing the gen
 #### Implementation of
 
 [`EditingDataService`](../interfaces/EditingDataService.md).[`setEditingData`](../interfaces/EditingDataService.md#seteditingdata)
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:88](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L88)

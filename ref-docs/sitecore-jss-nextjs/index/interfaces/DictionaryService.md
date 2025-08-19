@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [index](../README.md) / DictionaryService
 
 # Interface: DictionaryService
+
+Defined in: sitecore-jss/types/i18n/dictionary-service.d.ts:11
 
 Service that fetches dictionary data using Sitecore's GraphQL API.
 
@@ -13,6 +15,8 @@ Service that fetches dictionary data using Sitecore's GraphQL API.
 ### fetchDictionaryData()
 
 > **fetchDictionaryData**(`language`): `Promise`\<[`DictionaryPhrases`](DictionaryPhrases.md)\>
+
+Defined in: sitecore-jss/types/i18n/dictionary-service.d.ts:16
 
 Fetch dictionary data for a language.
 
@@ -25,7 +29,3 @@ Fetch dictionary data for a language.
 #### Returns
 
 `Promise`\<[`DictionaryPhrases`](DictionaryPhrases.md)\>
-
-#### Defined in
-
-sitecore-jss/types/i18n/dictionary-service.d.ts:16

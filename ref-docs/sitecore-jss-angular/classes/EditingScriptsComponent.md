@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / EditingScriptsComponent
 
 # Class: EditingScriptsComponent
+
+Defined in: [packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:16](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L16)
 
 Component that renders editing scripts and client data for the current page in Sitecore Editor.
 Only renders scripts when Metadata mode is used.
@@ -15,31 +17,31 @@ Only renders scripts when Metadata mode is used.
 
 ## Constructors
 
-### new EditingScriptsComponent()
+### Constructor
 
-> **new EditingScriptsComponent**(`renderer`, `stateService`, `document`): [`EditingScriptsComponent`](EditingScriptsComponent.md)
+> **new EditingScriptsComponent**(`renderer`, `stateService`, `document`): `EditingScriptsComponent`
+
+Defined in: [packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:17](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L17)
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
 | `renderer` | `Renderer2` |
-| `stateService` | [`JssStateService`](JssStateService.md)\<[`BaseJssState`](BaseJssState.md)\> |
+| `stateService` | [`JssStateService`](JssStateService.md) |
 | `document` | `Document` |
 
 #### Returns
 
-[`EditingScriptsComponent`](EditingScriptsComponent.md)
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:17](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L17)
+`EditingScriptsComponent`
 
 ## Methods
 
 ### ngOnInit()
 
 > **ngOnInit**(): `void`
+
+Defined in: [packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:23](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L23)
 
 A callback method that is invoked immediately after the
 default change detector has checked the directive's
@@ -54,7 +56,3 @@ It is invoked only once when the directive is instantiated.
 #### Implementation of
 
 `OnInit.ngOnInit`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:23](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L23)

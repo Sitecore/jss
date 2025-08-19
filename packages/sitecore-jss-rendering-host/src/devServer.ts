@@ -1,9 +1,8 @@
-import { sync as delSync } from 'del';
+import { deleteSync as delSync } from 'del';
 import { Application } from 'express';
 import { PathParams } from 'express-serve-static-core';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import openBrowser from 'opn';
+import open from 'open';
+
 import path from 'path';
 import webpack from 'webpack';
 import { MultiCompiler } from 'webpack';
@@ -145,14 +144,14 @@ export function startDevServer({
   // timeout while the WDS server is busy compiling.
   // Therefore, attach a custom plugin to the `done` hook of the last compiler that is defined. Webpack
   // executes compilers serially, and we only want the plugin to run after everything is done.
-  if (urlToOpenOnStart) {
+  if (urlToOpenOnStart && compiler) {
     let browserOpened = false;
     compiler.compilers[compiler.compilers.length - 1].hooks.done.tap(
       'OpenBrowserAfterCompilationPlugin',
       (stats) => {
         if (!browserOpened) {
           console.log('opening browser', stats.compilation.compiler.name);
-          openBrowser(urlToOpenOnStart).then(() => {
+          open(urlToOpenOnStart).then(() => {
             browserOpened = true;
           });
         }

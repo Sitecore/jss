@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: GraphQLSiteInfoServiceConfig
 
-> **GraphQLSiteInfoServiceConfig**: [`CacheOptions`](../../index/interfaces/CacheOptions.md) & `object`
+> **GraphQLSiteInfoServiceConfig** = [`CacheOptions`](../../index/interfaces/CacheOptions.md) & `object`
+
+Defined in: [packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:37](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L37)
 
 ## Type declaration
 
@@ -30,7 +32,3 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 ```ts
 10
 ```
-
-## Defined in
-
-[packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:37](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L37)

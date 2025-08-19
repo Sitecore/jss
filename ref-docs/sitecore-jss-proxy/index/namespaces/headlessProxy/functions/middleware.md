@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-proxy**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-proxy**](../../../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: middleware()
 
 > **middleware**(`renderer`, `config`, `parseRouteUrl`): `RequestHandler`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\>[]
+
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:583](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L583)
 
 ## Parameters
 
@@ -19,7 +21,3 @@
 ## Returns
 
 `RequestHandler`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\>[]
-
-## Defined in
-
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:579](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L579)

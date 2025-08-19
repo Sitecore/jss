@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -8,6 +8,8 @@
 
 > **createDefaultDocumentMiddleware**(`config`): (`req`, `res`, `next`) => `void`
 
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/default-document.ts:14](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/disconnected-server/default-document.ts#L14)
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -16,20 +18,16 @@
 
 ## Returns
 
-`Function`
+> (`req`, `res`, `next`): `void`
 
 ### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `req` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
-| `res` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
+| `req` | `Request` |
+| `res` | `Response` |
 | `next` | `NextFunction` |
 
 ### Returns
 
 `void`
-
-## Defined in
-
-[sitecore-jss-dev-tools/src/disconnected-server/default-document.ts:14](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/disconnected-server/default-document.ts#L14)

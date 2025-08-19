@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Variable: JSS\_MODE
 
 > `const` **JSS\_MODE**: `object`
+
+Defined in: [packages/sitecore-jss/src/constants.ts:14](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/constants.ts#L14)
 
 ## Type declaration
 
@@ -17,7 +19,3 @@
 ### DISCONNECTED
 
 > **DISCONNECTED**: `string` = `'disconnected'`
-
-## Defined in
-
-[packages/sitecore-jss/src/constants.ts:14](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/constants.ts#L14)

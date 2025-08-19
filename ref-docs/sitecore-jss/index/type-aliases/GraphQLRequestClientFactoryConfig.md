@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,20 +6,24 @@
 
 # Type Alias: GraphQLRequestClientFactoryConfig
 
-> **GraphQLRequestClientFactoryConfig**: `object`
+> **GraphQLRequestClientFactoryConfig** = `object`
+
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:108](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/graphql-request-client.ts#L108)
 
 Configuration type for
 
-## Type declaration
+## Properties
 
 ### apiKey?
 
 > `optional` **apiKey**: `string`
 
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:110](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/graphql-request-client.ts#L110)
+
+***
+
 ### endpoint
 
 > **endpoint**: `string`
 
-## Defined in
-
-[packages/sitecore-jss/src/graphql-request-client.ts:108](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/graphql-request-client.ts#L108)
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:109](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/graphql-request-client.ts#L109)

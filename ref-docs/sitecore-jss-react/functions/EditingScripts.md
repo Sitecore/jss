@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: EditingScripts()
 
 > **EditingScripts**(): `Element`
+
+Defined in: [packages/sitecore-jss-react/src/components/EditingScripts.tsx:13](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-react/src/components/EditingScripts.tsx#L13)
 
 - Renders client scripts and data for editing/preview mode for Pages
 - Renders script required for the Design Library (when RenderingType is `component`).
@@ -17,7 +19,3 @@ This script is only rendered when EditMode is Metadata or RenderingType is `comp
 `Element`
 
 A JSX element containing the editing scripts or an empty fragment if not in editing/preview mode.
-
-## Defined in
-
-[packages/sitecore-jss-react/src/components/EditingScripts.tsx:13](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-react/src/components/EditingScripts.tsx#L13)

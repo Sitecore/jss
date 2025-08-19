@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -8,8 +8,6 @@
 
 > `const` **EDITING\_ALLOWED\_ORIGINS**: `string`[]
 
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:23](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/utils.ts#L23)
+
 Default allowed origins for editing requests. This is used to enforce CORS, CSP headers.
-
-## Defined in
-
-[packages/sitecore-jss/src/editing/utils.ts:23](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/utils.ts#L23)

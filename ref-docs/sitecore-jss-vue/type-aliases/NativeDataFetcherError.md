@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-vue**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-vue**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: NativeDataFetcherError
 
-> **NativeDataFetcherError**: `Error` & `object`
+> **NativeDataFetcherError** = `Error` & `object`
+
+Defined in: packages/sitecore-jss/types/native-fetcher.d.ts:33
 
 Native fetcher error type to include response text and status
 
@@ -15,7 +17,3 @@ Native fetcher error type to include response text and status
 ### response
 
 > **response**: [`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`unknown`\>
-
-## Defined in
-
-packages/sitecore-jss/types/native-fetcher.d.ts:33

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: GraphQLPersonalizeServiceConfig
 
-> **GraphQLPersonalizeServiceConfig**: [`CacheOptions`](../../index/interfaces/CacheOptions.md) & `object`
+> **GraphQLPersonalizeServiceConfig** = [`CacheOptions`](../../index/interfaces/CacheOptions.md) & `object`
+
+Defined in: [packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:6](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L6)
 
 ## Type declaration
 
@@ -38,7 +40,3 @@ Will be removed in a future release.
 > `optional` **timeout**: `number`
 
 Timeout (ms) for the Personalize request. Default is 400.
-
-## Defined in
-
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:6](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L6)

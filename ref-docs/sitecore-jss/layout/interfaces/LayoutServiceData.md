@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [layout](../README.md) / LayoutServiceData
 
 # Interface: LayoutServiceData
+
+Defined in: [packages/sitecore-jss/src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L4)
 
 A reply from the Sitecore Layout Service
 
@@ -14,12 +16,10 @@ A reply from the Sitecore Layout Service
 
 > **sitecore**: [`LayoutServiceContextData`](LayoutServiceContextData.md) & `object`
 
+Defined in: [packages/sitecore-jss/src/layout/models.ts:5](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L5)
+
 #### Type declaration
 
 ##### route
 
 > **route**: `null` \| [`RouteData`](RouteData.md)\<`Record`\<`string`, [`Field`](Field.md)\<[`GenericFieldValue`](../type-aliases/GenericFieldValue.md)\> \| [`Item`](Item.md) \| [`Item`](Item.md)[]\>\>
-
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:5](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/layout/models.ts#L5)

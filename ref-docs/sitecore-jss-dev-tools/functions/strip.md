@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: strip()
 
 > **strip**(`settings`): `void`
+
+Defined in: [sitecore-jss-dev-tools/src/templating/strip.ts:87](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-dev-tools/src/templating/strip.ts#L87)
 
 Removes part of code which inside the special comments block.
 Compiles each not excluded file starting from current directory (or `settings.sourcePath`).
@@ -20,7 +22,3 @@ Compiles each not excluded file starting from current directory (or `settings.so
 ## Returns
 
 `void`
-
-## Defined in
-
-[sitecore-jss-dev-tools/src/templating/strip.ts:87](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-dev-tools/src/templating/strip.ts#L87)

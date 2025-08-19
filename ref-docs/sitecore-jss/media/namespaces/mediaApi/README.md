@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # mediaApi
 
-## Index
-
-### Functions
+## Functions
 
 - [findEditorImageTag](functions/findEditorImageTag.md)
 - [getRequiredParams](functions/getRequiredParams.md)

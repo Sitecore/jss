@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,20 +6,20 @@
 
 # Type Alias: RedirectsQueryResult
 
-> **RedirectsQueryResult**: `object`
+> **RedirectsQueryResult** = `object`
+
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:51](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L51)
 
 The schema of data returned in response to redirects array request
 
-## Type declaration
+## Properties
 
 ### site
 
 > **site**: `object`
 
-### site.siteInfo
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:52](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L52)
 
-> **siteInfo**: `object` \| `null`
+#### siteInfo
 
-## Defined in
-
-[packages/sitecore-jss/src/site/graphql-redirects-service.ts:51](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L51)
+> **siteInfo**: \{ `redirects`: [`RedirectInfo`](RedirectInfo.md)[]; \} \| `null`

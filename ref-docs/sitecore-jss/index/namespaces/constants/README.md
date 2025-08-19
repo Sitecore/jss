@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../../README.md)
 
 ***
 
@@ -6,13 +6,11 @@
 
 # constants
 
-## Index
-
-### Enumerations
+## Enumerations
 
 - [SitecoreTemplateId](enumerations/SitecoreTemplateId.md)
 
-### Variables
+## Variables
 
 - [FETCH\_WITH](variables/FETCH_WITH.md)
 - [HIDDEN\_RENDERING\_NAME](variables/HIDDEN_RENDERING_NAME.md)

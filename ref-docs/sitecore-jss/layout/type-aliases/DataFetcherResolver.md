@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: DataFetcherResolver()
 
-> **DataFetcherResolver**: \<`T`\>(`req`?, `res`?) => [`HttpDataFetcher`](../../index/type-aliases/HttpDataFetcher.md)\<`T`\> \| `NativeDataFetcherFunction`\<`T`\>
+> **DataFetcherResolver** = \<`T`\>(`req?`, `res?`) => [`HttpDataFetcher`](../../index/type-aliases/HttpDataFetcher.md)\<`T`\> \| `NativeDataFetcherFunction`\<`T`\>
+
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:57](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/rest-layout-service.ts#L57)
 
 Data fetcher resolver in order to provide custom data fetcher
 
@@ -20,13 +22,9 @@ Data fetcher resolver in order to provide custom data fetcher
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `req`? | `IncomingMessage` | Request instance |
-| `res`? | `ServerResponse` | Response instance |
+| `req?` | `IncomingMessage` | Request instance |
+| `res?` | `ServerResponse` | Response instance |
 
 ## Returns
 
 [`HttpDataFetcher`](../../index/type-aliases/HttpDataFetcher.md)\<`T`\> \| `NativeDataFetcherFunction`\<`T`\>
-
-## Defined in
-
-[packages/sitecore-jss/src/layout/rest-layout-service.ts:57](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/layout/rest-layout-service.ts#L57)

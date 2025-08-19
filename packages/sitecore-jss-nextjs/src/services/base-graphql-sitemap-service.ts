@@ -250,22 +250,27 @@ export abstract class BaseGraphQLSitemapService {
     formatStaticPath: (path: string[], language: string) => StaticPath,
     language: string
   ): Promise<StaticPath[]> {
-    const formatPath = (path: string) =>
-      formatStaticPath(path.replace(/^\/|\/$/g, '').split('/'), language);
+    const toSegments = (p: string) =>
+      decodeURI(p)
+        .replace(/^\/|\/$/g, '')
+        .split('/');
 
     const aggregatedPaths: StaticPath[] = [];
 
     sitePaths.forEach((item) => {
       if (!item) return;
 
-      aggregatedPaths.push(formatPath(item.path));
+      aggregatedPaths.push(formatStaticPath(toSegments(item.path), language));
 
       const variantIds = item.route?.personalization?.variantIds?.filter(
-        (variantId) => !variantId.includes('_') // exclude component A/B test variants
+        (variantId) => !variantId.includes('_') // exclude component A/B test
       );
+
       if (variantIds?.length) {
         aggregatedPaths.push(
-          ...variantIds.map((varId) => formatPath(getPersonalizedRewrite(item.path, [varId])))
+          ...variantIds.map((varId) =>
+            formatStaticPath(toSegments(getPersonalizedRewrite(item.path, [varId])), language)
+          )
         );
       }
     });
@@ -300,6 +305,7 @@ export abstract class BaseGraphQLSitemapService {
         throw new RangeError(getSiteEmptyError(siteName));
       } else {
         results = results.concat(fetchResponse.site.siteInfo.routes?.results);
+
         hasNext = fetchResponse.site.siteInfo.routes?.pageInfo.hasNext;
         after = fetchResponse.site.siteInfo.routes?.pageInfo.endCursor;
       }

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: useComponentProps()
 
-> **useComponentProps**\<`ComponentData`\>(`componentUid`): `ComponentData` \| `undefined`
+> **useComponentProps**\<`ComponentData`\>(`componentUid`): `undefined` \| `ComponentData`
+
+Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
 
 Hook in order to get access to props related to specific component. Data comes from ComponentPropsContext.
 
@@ -24,14 +26,10 @@ Hook in order to get access to props related to specific component. Data comes f
 
 ## Returns
 
-`ComponentData` \| `undefined`
+`undefined` \| `ComponentData`
 
 component props
 
 ## See
 
 ComponentPropsContext
-
-## Defined in
-
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)

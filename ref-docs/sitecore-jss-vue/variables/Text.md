@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-vue**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-vue**](../README.md)
 
 ***
 
@@ -6,8 +6,6 @@
 
 # Variable: Text
 
-> `const` **Text**: `DefineComponent`\<`ExtractPropTypes`\<`object`\>, `object`, `object`, `object`, `object`, `ComponentOptionsMixin`, `ComponentOptionsMixin`, `object`, `string`, `PublicProps`, `ToResolvedProps`\<`ExtractPropTypes`\<`object`\>, `object`\>, `object`, `object`, `object`, `object`, `string`, `ComponentProvideOptions`, `true`, `object`, `any`\>
+> `const` **Text**: `DefineComponent`\<`ExtractPropTypes`\<\{ `editable`: \{ `default`: `boolean`; `type`: `BooleanConstructor`; \}; `encode`: \{ `default`: `boolean`; `type`: `BooleanConstructor`; \}; `field`: \{ `required`: `true`; `type`: `PropType`\<\{ `editable?`: `string`; `value?`: `string` \| `number`; \}\>; `default`: \{ `editable?`: `string`; `value?`: `string` \| `number`; \}; \}; `tag`: \{ `default`: `string`; `type`: `StringConstructor`; \}; \}\>, \{ \}, \{ \}, \{ \}, \{ \}, `ComponentOptionsMixin`, `ComponentOptionsMixin`, \{ \}, `string`, `PublicProps`, `ToResolvedProps`\<`ExtractPropTypes`\<\{ `editable`: \{ `default`: `boolean`; `type`: `BooleanConstructor`; \}; `encode`: \{ `default`: `boolean`; `type`: `BooleanConstructor`; \}; `field`: \{ `required`: `true`; `type`: `PropType`\<\{ `editable?`: `string`; `value?`: `string` \| `number`; \}\>; `default`: \{ `editable?`: `string`; `value?`: `string` \| `number`; \}; \}; `tag`: \{ `default`: `string`; `type`: `StringConstructor`; \}; \}\>, \{ \}\>, \{ `editable`: `boolean`; `encode`: `boolean`; `field`: \{ `editable?`: `string`; `value?`: `string` \| `number`; \}; `tag`: `string`; \}, \{ \}, \{ \}, \{ \}, `string`, `ComponentProvideOptions`, `true`, \{ \}, `any`\>
 
-## Defined in
-
-[packages/sitecore-jss-vue/src/components/Text.ts:3](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-vue/src/components/Text.ts#L3)
+Defined in: [packages/sitecore-jss-vue/src/components/Text.ts:3](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-vue/src/components/Text.ts#L3)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,15 +6,19 @@
 
 # Type Alias: EditingRenderMiddlewareConfig
 
-> **EditingRenderMiddlewareConfig**: `object`
+> **EditingRenderMiddlewareConfig** = `object`
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:23](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L23)
 
 Configuration for the Editing Render Middleware.
 
-## Type declaration
+## Properties
 
 ### dataFetcher?
 
 > `optional` **dataFetcher**: [`NativeDataFetcher`](../../index/classes/NativeDataFetcher.md)
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:31](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L31)
 
 -- Edit Mode Chromes --
 
@@ -30,9 +34,13 @@ new NativeDataFetcher()
 
 NativeDataFetcher
 
+***
+
 ### editingDataService?
 
 > `optional` **editingDataService**: [`EditingDataService`](../interfaces/EditingDataService.md)
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:42](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L42)
 
 -- Edit Mode Chromes --
 
@@ -51,9 +59,13 @@ editingDataService
 
 EditingDataService
 
+***
+
 ### resolvePageUrl()?
 
 > `optional` **resolvePageUrl**: (`args`) => `string`
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:56](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L56)
 
 -- Edit Mode Chromes / Metadata --
 
@@ -64,9 +76,9 @@ This may be necessary for certain custom Next.js routing configurations.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `args` | `object` | Arguments for resolving the page URL |
+| `args` | \{ `itemPath`: `string`; `serverUrl?`: `string`; \} | Arguments for resolving the page URL |
 | `args.itemPath` | `string` | - |
-| `args.serverUrl`? | `string` | The root server URL e.g. 'http://localhost:3000'. Available in Chromes Edit Mode only. |
+| `args.serverUrl?` | `string` | The root server URL e.g. 'http://localhost:3000'. Available in Chromes Edit Mode only. |
 
 #### Returns
 
@@ -86,9 +98,13 @@ The URL to render
 
 resolveServerUrl
 
+***
+
 ### resolveServerUrl()?
 
 > `optional` **resolveServerUrl**: (`req`) => `string`
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:66](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L66)
 
 -- Edit Mode Chromes --
 
@@ -112,7 +128,3 @@ By default, the host header is used, with https protocol on Vercel (due to serve
 #### See
 
 resolvePageUrl
-
-## Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:23](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L23)

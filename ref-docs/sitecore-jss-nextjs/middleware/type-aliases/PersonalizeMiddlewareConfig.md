@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: PersonalizeMiddlewareConfig
 
-> **PersonalizeMiddlewareConfig**: [`MiddlewareBaseConfig`](MiddlewareBaseConfig.md) & `object`
+> **PersonalizeMiddlewareConfig** = [`MiddlewareBaseConfig`](MiddlewareBaseConfig.md) & `object`
+
+Defined in: [sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:39](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L39)
 
 ## Type declaration
 
@@ -27,7 +29,3 @@ Configuration for your Sitecore Experience Edge endpoint
 > `optional` **scope**: `string`
 
 Optional Sitecore Personalize scope identifier allowing you to isolate your personalization data between XM Cloud environments
-
-## Defined in
-
-[sitecore-jss-nextjs/src/middleware/personalize-middleware.ts:39](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss-nextjs/src/middleware/personalize-middleware.ts#L39)

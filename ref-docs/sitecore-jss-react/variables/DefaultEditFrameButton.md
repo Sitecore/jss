@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -8,25 +8,27 @@
 
 > `const` **DefaultEditFrameButton**: `object`
 
+Defined in: packages/sitecore-jss/types/editing/edit-frame.d.ts:12
+
 ## Type declaration
 
 ### edit
 
 > **edit**: `object`
 
-### edit.fields
+#### edit.fields
 
 > **fields**: `string`[]
 
-### edit.header
+#### edit.header
 
 > **header**: `string`
 
-### edit.icon
+#### edit.icon
 
 > **icon**: `string`
 
-### edit.tooltip
+#### edit.tooltip
 
 > **tooltip**: `string`
 
@@ -34,19 +36,19 @@
 
 > **editRelatedItem**: `object`
 
-### editRelatedItem.click
+#### editRelatedItem.click
 
 > **click**: `string`
 
-### editRelatedItem.header
+#### editRelatedItem.header
 
 > **header**: `string`
 
-### editRelatedItem.icon
+#### editRelatedItem.icon
 
 > **icon**: `string`
 
-### editRelatedItem.tooltip
+#### editRelatedItem.tooltip
 
 > **tooltip**: `string`
 
@@ -54,22 +56,18 @@
 
 > **insert**: `object`
 
-### insert.click
+#### insert.click
 
 > **click**: `string`
 
-### insert.header
+#### insert.header
 
 > **header**: `string`
 
-### insert.icon
+#### insert.icon
 
 > **icon**: `string`
 
-### insert.tooltip
+#### insert.tooltip
 
 > **tooltip**: `string`
-
-## Defined in
-
-packages/sitecore-jss/types/editing/edit-frame.d.ts:12

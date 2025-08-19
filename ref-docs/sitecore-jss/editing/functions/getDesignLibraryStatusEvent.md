@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: getDesignLibraryStatusEvent()
 
 > **getDesignLibraryStatusEvent**(`status`, `uid`): [`DesignLibraryStatusEvent`](../interfaces/DesignLibraryStatusEvent.md)
+
+Defined in: [packages/sitecore-jss/src/editing/design-library.ts:136](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/design-library.ts#L136)
 
 Generates a DesignLibraryStatusEvent with the given status and uid.
 
@@ -22,7 +24,3 @@ Generates a DesignLibraryStatusEvent with the given status and uid.
 [`DesignLibraryStatusEvent`](../interfaces/DesignLibraryStatusEvent.md)
 
 An object representing the DesignLibraryStatusEvent.
-
-## Defined in
-
-[packages/sitecore-jss/src/editing/design-library.ts:136](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/design-library.ts#L136)

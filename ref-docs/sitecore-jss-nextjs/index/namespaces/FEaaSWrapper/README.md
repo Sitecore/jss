@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../../README.md)
 
 ***
 
@@ -6,10 +6,8 @@
 
 # FEaaSWrapper
 
-## Index
+## Variables
 
-### Functions
-
-- [default](functions/default.md)
-- [getServerSideProps](functions/getServerSideProps.md)
-- [getStaticProps](functions/getStaticProps.md)
+- [default](variables/default.md)
+- [getServerSideProps](variables/getServerSideProps.md)
+- [getStaticProps](variables/getStaticProps.md)

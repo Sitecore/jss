@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,13 +6,17 @@
 
 # Class: SiteResolver
 
+Defined in: [packages/sitecore-jss/src/site/site-resolver.ts:9](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/site-resolver.ts#L9)
+
 Resolves site based on the provided host or site name
 
 ## Constructors
 
-### new SiteResolver()
+### Constructor
 
-> **new SiteResolver**(`sites`): [`SiteResolver`](SiteResolver.md)
+> **new SiteResolver**(`sites`): `SiteResolver`
+
+Defined in: [packages/sitecore-jss/src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/site-resolver.ts#L13)
 
 #### Parameters
 
@@ -22,11 +26,7 @@ Resolves site based on the provided host or site name
 
 #### Returns
 
-[`SiteResolver`](SiteResolver.md)
-
-#### Defined in
-
-[packages/sitecore-jss/src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/site/site-resolver.ts#L13)
+`SiteResolver`
 
 ## Properties
 
@@ -34,17 +34,17 @@ Resolves site based on the provided host or site name
 
 > `readonly` **sites**: [`SiteInfo`](../type-aliases/SiteInfo.md)[]
 
+Defined in: [packages/sitecore-jss/src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/site-resolver.ts#L13)
+
 Array of sites to be used in resolution
-
-#### Defined in
-
-[packages/sitecore-jss/src/site/site-resolver.ts:13](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/site/site-resolver.ts#L13)
 
 ## Methods
 
 ### getByHost()
 
 > **getByHost**(`hostName`): [`SiteInfo`](../type-aliases/SiteInfo.md)
+
+Defined in: [packages/sitecore-jss/src/site/site-resolver.ts:21](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/site-resolver.ts#L21)
 
 Resolve site by host name
 
@@ -64,15 +64,13 @@ the resolved site
 
 if a matching site is not found
 
-#### Defined in
-
-[packages/sitecore-jss/src/site/site-resolver.ts:21](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/site/site-resolver.ts#L21)
-
 ***
 
 ### getByName()
 
 > **getByName**(`siteName`): [`SiteInfo`](../type-aliases/SiteInfo.md)
+
+Defined in: [packages/sitecore-jss/src/site/site-resolver.ts:36](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/site-resolver.ts#L36)
 
 Resolve site by site name
 
@@ -92,29 +90,25 @@ the resolved site
 
 if a matching site is not found
 
-#### Defined in
-
-[packages/sitecore-jss/src/site/site-resolver.ts:36](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/site/site-resolver.ts#L36)
-
 ***
 
 ### getHostMap()
 
 > `protected` **getHostMap**(): `Map`\<`string`, [`SiteInfo`](../type-aliases/SiteInfo.md)\>
 
+Defined in: [packages/sitecore-jss/src/site/site-resolver.ts:48](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/site-resolver.ts#L48)
+
 #### Returns
 
 `Map`\<`string`, [`SiteInfo`](../type-aliases/SiteInfo.md)\>
-
-#### Defined in
-
-[packages/sitecore-jss/src/site/site-resolver.ts:48](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/site/site-resolver.ts#L48)
 
 ***
 
 ### matchesPattern()
 
 > `protected` **matchesPattern**(`hostname`, `pattern`): `boolean`
+
+Defined in: [packages/sitecore-jss/src/site/site-resolver.ts:80](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/site-resolver.ts#L80)
 
 #### Parameters
 
@@ -126,7 +120,3 @@ if a matching site is not found
 #### Returns
 
 `boolean`
-
-#### Defined in
-
-[packages/sitecore-jss/src/site/site-resolver.ts:80](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/site/site-resolver.ts#L80)

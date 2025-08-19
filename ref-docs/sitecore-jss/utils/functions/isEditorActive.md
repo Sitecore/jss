@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -8,6 +8,8 @@
 
 > **isEditorActive**(): `boolean`
 
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:120](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/editing/utils.ts#L120)
+
 Determines whether the current execution context is within a Sitecore editor.
 Sitecore Editor environment can be identified only in the browser
 
@@ -16,7 +18,3 @@ Sitecore Editor environment can be identified only in the browser
 `boolean`
 
 true if executing within a Sitecore editor
-
-## Defined in
-
-[packages/sitecore-jss/src/editing/utils.ts:120](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/editing/utils.ts#L120)

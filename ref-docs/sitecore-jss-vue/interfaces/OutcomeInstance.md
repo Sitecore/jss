@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-vue**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-vue**](../README.md)
 
 ***
 
@@ -6,9 +6,11 @@
 
 # Interface: OutcomeInstance
 
+Defined in: packages/sitecore-jss/types/tracking/dataModels.d.ts:16
+
 ## Indexable
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
@@ -16,11 +18,9 @@
 
 > `optional` **currencyCode**: `string`
 
+Defined in: packages/sitecore-jss/types/tracking/dataModels.d.ts:21
+
 Currency code of outcome monetary value
-
-#### Defined in
-
-packages/sitecore-jss/types/tracking/dataModels.d.ts:21
 
 ***
 
@@ -28,11 +28,9 @@ packages/sitecore-jss/types/tracking/dataModels.d.ts:21
 
 > `optional` **monetaryValue**: `number`
 
+Defined in: packages/sitecore-jss/types/tracking/dataModels.d.ts:23
+
 Revenue from outcome
-
-#### Defined in
-
-packages/sitecore-jss/types/tracking/dataModels.d.ts:23
 
 ***
 
@@ -40,8 +38,6 @@ packages/sitecore-jss/types/tracking/dataModels.d.ts:23
 
 > **outcomeId**: `string`
 
+Defined in: packages/sitecore-jss/types/tracking/dataModels.d.ts:19
+
 GUID or alias (name) of outcome to trigger
-
-#### Defined in
-
-packages/sitecore-jss/types/tracking/dataModels.d.ts:19

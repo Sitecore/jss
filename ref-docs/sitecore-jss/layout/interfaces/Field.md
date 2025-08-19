@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [layout](../README.md) / Field
 
 # Interface: Field\<T\>
+
+Defined in: [packages/sitecore-jss/src/layout/models.ts:131](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L131)
 
 represents the field metadata provided by layout service in editMode 'metadata'
 
@@ -24,9 +26,7 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 > `optional` **editable**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:133](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/layout/models.ts#L133)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:133](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L133)
 
 ***
 
@@ -34,17 +34,15 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 > `optional` **metadata**: `object`
 
+Defined in: [packages/sitecore-jss/src/layout/models.ts:140](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L140)
+
 #### Index Signature
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 #### Inherited from
 
 [`FieldMetadata`](FieldMetadata.md).[`metadata`](FieldMetadata.md#metadata)
-
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:140](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/layout/models.ts#L140)
 
 ***
 
@@ -52,6 +50,4 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 > **value**: `T`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:132](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/layout/models.ts#L132)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:132](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/layout/models.ts#L132)

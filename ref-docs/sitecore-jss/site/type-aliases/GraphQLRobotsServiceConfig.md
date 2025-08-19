@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,23 +6,27 @@
 
 # Type Alias: GraphQLRobotsServiceConfig
 
-> **GraphQLRobotsServiceConfig**: `object`
+> **GraphQLRobotsServiceConfig** = `object`
 
-## Type declaration
+Defined in: [packages/sitecore-jss/src/site/graphql-robots-service.ts:17](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/graphql-robots-service.ts#L17)
+
+## Properties
 
 ### clientFactory
 
 > **clientFactory**: [`GraphQLRequestClientFactory`](../../index/type-aliases/GraphQLRequestClientFactory.md)
 
+Defined in: [packages/sitecore-jss/src/site/graphql-robots-service.ts:26](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/graphql-robots-service.ts#L26)
+
 A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
 This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
+
+***
 
 ### siteName
 
 > **siteName**: `string`
 
+Defined in: [packages/sitecore-jss/src/site/graphql-robots-service.ts:21](https://github.com/Sitecore/jss/blob/f387e2f0451047a19bedf7556895a501ae72f839/packages/sitecore-jss/src/site/graphql-robots-service.ts#L21)
+
 The JSS application name
-
-## Defined in
-
-[packages/sitecore-jss/src/site/graphql-robots-service.ts:17](https://github.com/Sitecore/jss/blob/aea19a93d5f4579420e42987ed16bb5c1676f06f/packages/sitecore-jss/src/site/graphql-robots-service.ts#L17)

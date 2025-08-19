@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [graphql](../README.md) / DefaultRetryStrategy
 
 # Class: DefaultRetryStrategy
+
+Defined in: sitecore-jss/types/graphql-request-client.d.ts:104
 
 Represents a default retry strategy for handling retry attempts in case of specific HTTP status codes.
 This class implements the RetryStrategy interface and provides methods to determine whether a request
@@ -16,32 +18,32 @@ should be retried and calculates the delay before the next retry attempt.
 
 ## Constructors
 
-### new DefaultRetryStrategy()
+### Constructor
 
-> **new DefaultRetryStrategy**(`options`?): [`DefaultRetryStrategy`](DefaultRetryStrategy.md)
+> **new DefaultRetryStrategy**(`options?`): `DefaultRetryStrategy`
+
+Defined in: sitecore-jss/types/graphql-request-client.d.ts:114
 
 #### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `options`? | `object` | Configurable options for retry mechanism. |
-| `options.errorCodes`? | `string`[] | Node error codes to trigger retries. Default is ['ECONNRESET', 'ETIMEDOUT', 'EPROTO']. |
-| `options.factor`? | `number` | Factor by which the delay increases with each retry attempt. Default is 2. |
-| `options.statusCodes`? | `number`[] | HTTP status codes to trigger retries on. Default is [429]. |
+| `options?` | \{ `errorCodes?`: `string`[]; `factor?`: `number`; `statusCodes?`: `number`[]; \} | Configurable options for retry mechanism. |
+| `options.errorCodes?` | `string`[] | Node error codes to trigger retries. Default is ['ECONNRESET', 'ETIMEDOUT', 'EPROTO']. |
+| `options.factor?` | `number` | Factor by which the delay increases with each retry attempt. Default is 2. |
+| `options.statusCodes?` | `number`[] | HTTP status codes to trigger retries on. Default is [429]. |
 
 #### Returns
 
-[`DefaultRetryStrategy`](DefaultRetryStrategy.md)
-
-#### Defined in
-
-sitecore-jss/types/graphql-request-client.d.ts:114
+`DefaultRetryStrategy`
 
 ## Methods
 
 ### getDelay()
 
 > **getDelay**(`error`, `attempt`): `number`
+
+Defined in: sitecore-jss/types/graphql-request-client.d.ts:120
 
 Calculates the delay (in milliseconds) before the next retry based on the given error and attempt count.
 
@@ -62,15 +64,13 @@ The delay in milliseconds before the next retry.
 
 [`RetryStrategy`](../interfaces/RetryStrategy.md).[`getDelay`](../interfaces/RetryStrategy.md#getdelay)
 
-#### Defined in
-
-sitecore-jss/types/graphql-request-client.d.ts:120
-
 ***
 
 ### shouldRetry()
 
 > **shouldRetry**(`error`, `attempt`, `retries`): `boolean`
+
+Defined in: sitecore-jss/types/graphql-request-client.d.ts:119
 
 Determines whether a request should be retried based on the given error and attempt count.
 
@@ -91,7 +91,3 @@ A boolean indicating whether to retry the request.
 #### Implementation of
 
 [`RetryStrategy`](../interfaces/RetryStrategy.md).[`shouldRetry`](../interfaces/RetryStrategy.md#shouldretry)
-
-#### Defined in
-
-sitecore-jss/types/graphql-request-client.d.ts:119

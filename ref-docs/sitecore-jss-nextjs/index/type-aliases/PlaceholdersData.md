@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: PlaceholdersData\<TYPEDNAME\>
 
-> **PlaceholdersData**\<`TYPEDNAME`\>: \{ \[P in TYPEDNAME\]: (ComponentRendering \| HtmlElementRendering)\[\] \}
+> **PlaceholdersData**\<`TYPEDNAME`\> = \{ \[P in TYPEDNAME\]: (ComponentRendering \| HtmlElementRendering)\[\] \}
+
+Defined in: sitecore-jss/types/layout/models.d.ts:72
 
 Placeholder contents data (name: placeholder name, then array of components within that placeholder name)
 Note: HtmlElementRendering is used by Sitecore Experience Editor
@@ -16,7 +18,3 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 | Type Parameter | Default type |
 | ------ | ------ |
 | `TYPEDNAME` *extends* `string` | `string` |
-
-## Defined in
-
-sitecore-jss/types/layout/models.d.ts:72
