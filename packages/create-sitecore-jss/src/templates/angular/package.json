@@ -92,7 +92,7 @@
     "cross-env": "~7.0.3",
     "del-cli": "^5.0.0",
     "dotenv": "^17.2.1",
-    "dotenv-webpack": "^7.1.0",
+    "dotenv-webpack": "^8.1.1",
     "eslint": "^8.56.0",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-jsdoc": "48.7.0",
