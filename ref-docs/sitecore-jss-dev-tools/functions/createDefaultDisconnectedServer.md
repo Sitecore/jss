@@ -8,7 +8,7 @@
 
 > **createDefaultDisconnectedServer**(`options`): `Promise`\<`void`\>
 
-Defined in: [sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts:99](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L99)
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts:99](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts#L99)
 
 ## Parameters
 

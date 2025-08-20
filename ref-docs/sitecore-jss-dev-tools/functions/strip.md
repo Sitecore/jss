@@ -8,7 +8,7 @@
 
 > **strip**(`settings`): `void`
 
-Defined in: [sitecore-jss-dev-tools/src/templating/strip.ts:87](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss-dev-tools/src/templating/strip.ts#L87)
+Defined in: [sitecore-jss-dev-tools/src/templating/strip.ts:87](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss-dev-tools/src/templating/strip.ts#L87)
 
 Removes part of code which inside the special comments block.
 Compiles each not excluded file starting from current directory (or `settings.sourcePath`).

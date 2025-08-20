@@ -6,7 +6,7 @@
 
 # Interface: HttpResponse\<T\>
 
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:9](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss/src/data-fetcher.ts#L9)
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:9](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/data-fetcher.ts#L9)
 
 Response data for an HTTP request sent to an API
 
@@ -22,7 +22,7 @@ Response data for an HTTP request sent to an API
 
 > **data**: `T`
 
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:15](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss/src/data-fetcher.ts#L15)
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:15](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/data-fetcher.ts#L15)
 
 Response content
 
@@ -32,7 +32,7 @@ Response content
 
 > **status**: `number`
 
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:11](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss/src/data-fetcher.ts#L11)
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:11](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/data-fetcher.ts#L11)
 
 HTTP status code of the response (i.e. 200, 404)
 
@@ -42,6 +42,6 @@ HTTP status code of the response (i.e. 200, 404)
 
 > **statusText**: `string`
 
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:13](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss/src/data-fetcher.ts#L13)
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:13](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/data-fetcher.ts#L13)
 
 HTTP status text of the response (i.e. 'OK', 'Bad Request')

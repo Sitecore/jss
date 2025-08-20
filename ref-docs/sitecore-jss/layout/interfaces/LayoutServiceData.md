@@ -6,7 +6,7 @@
 
 # Interface: LayoutServiceData
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss/src/layout/models.ts#L4)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:4](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/layout/models.ts#L4)
 
 A reply from the Sitecore Layout Service
 
@@ -16,7 +16,7 @@ A reply from the Sitecore Layout Service
 
 > **sitecore**: [`LayoutServiceContextData`](LayoutServiceContextData.md) & `object`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:5](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss/src/layout/models.ts#L5)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:5](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/layout/models.ts#L5)
 
 #### Type declaration
 

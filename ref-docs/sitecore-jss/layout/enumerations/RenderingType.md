@@ -6,7 +6,7 @@
 
 # Enumeration: RenderingType
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:168](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss/src/layout/models.ts#L168)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:168](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/layout/models.ts#L168)
 
 Editing rendering type
 
@@ -16,4 +16,4 @@ Editing rendering type
 
 > **Component**: `"component"`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:169](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss/src/layout/models.ts#L169)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:169](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/layout/models.ts#L169)

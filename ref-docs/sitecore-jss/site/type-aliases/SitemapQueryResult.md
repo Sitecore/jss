@@ -8,7 +8,7 @@
 
 > **SitemapQueryResult** = `object`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:34](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L34)
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:34](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L34)
 
 The schema of data returned in response to sitemaps request
 
@@ -18,7 +18,7 @@ The schema of data returned in response to sitemaps request
 
 > **site**: `object`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:34](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L34)
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:34](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L34)
 
 #### siteInfo
 

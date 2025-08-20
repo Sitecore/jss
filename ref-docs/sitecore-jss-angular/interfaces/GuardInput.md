@@ -6,7 +6,7 @@
 
 # Interface: GuardInput
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:86](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L86)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:86](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L86)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:86]
 
 > **activatedRoute**: `ActivatedRouteSnapshot`
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:87](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L87)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:87](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L87)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:87]
 
 > **rendering**: [`ComponentRendering`](ComponentRendering.md)
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:89](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L89)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:89](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L89)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:89]
 
 > **router**: `Router`
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:90](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L90)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:90](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L90)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:90]
 
 > **routerState**: `RouterStateSnapshot`
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:88](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L88)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:88](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L88)

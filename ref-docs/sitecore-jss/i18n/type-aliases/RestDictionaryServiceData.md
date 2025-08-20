@@ -8,7 +8,7 @@
 
 > **RestDictionaryServiceData** = `object`
 
-Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:10](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L10)
+Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:10](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L10)
 
 A reply from the REST Sitecore Dictionary Service
 
@@ -18,4 +18,4 @@ A reply from the REST Sitecore Dictionary Service
 
 > **phrases**: [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
 
-Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:11](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L11)
+Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:11](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L11)

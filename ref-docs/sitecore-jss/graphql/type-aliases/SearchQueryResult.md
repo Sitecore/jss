@@ -8,7 +8,7 @@
 
 > **SearchQueryResult**\<`T`\> = `object`
 
-Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss/src/graphql/search-service.ts#L22)
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:22](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/graphql/search-service.ts#L22)
 
 Schema of data returned in response to a "search" query request
 
@@ -24,7 +24,7 @@ Schema of data returned in response to a "search" query request
 
 > **search**: `object`
 
-Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:23](https://github.com/Sitecore/jss/blob/2c8c4ecb6fb49c8493faefc7d78f09bcde91e0f8/packages/sitecore-jss/src/graphql/search-service.ts#L23)
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:23](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/graphql/search-service.ts#L23)
 
 #### pageInfo
 
