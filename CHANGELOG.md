@@ -11,6 +11,8 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 22.9.0
+
 ### 🐛 Bug Fixes
 
 * `[Angular]` Application fails with "TypeError: Cannot read properties of undefined (reading 'tap')" ([#2134](https://github.com/Sitecore/jss/pull/2134))
@@ -22,9 +24,10 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Ensure displayName paths are properly UTF-8 encoded. ([#2121](https://github.com/Sitecore/jss/pull/2121))
 * `[sitecore-jss-react]` Enhanced the cache buster format to hh-dd-mm-yyyy ([](https://github.com/Sitecore/jss/pull/2135))
 
-### Chores
+### 🛠 Breaking Changes
 
 * `[All]` Partial update for 3rd party dependencies ([#2123](https://github.com/Sitecore/jss/pull/2123) [#2125](https://github.com/Sitecore/jss/pull/2125) [#2129](https://github.com/Sitecore/jss/pull/2129) [#2130](https://github.com/Sitecore/jss/pull/2130) [#2131](https://github.com/Sitecore/jss/pull/2131) [#2133](https://github.com/Sitecore/jss/pull/2133))
+  * See upgrade guide for more details
 
 ## 22.8.0
 

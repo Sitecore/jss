@@ -6,7 +6,7 @@
 
 # Class: FormComponent
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:63](https://github.com/Sitecore/jss/blob/9bccfc19959a8a32a1d22e4c28cf9fe788d81fd7/packages/sitecore-jss-angular/src/components/form.component.ts#L63)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:63](https://github.com/Sitecore/jss/blob/a50be18c1607adcb48bbe2673ecedc966bc85051/packages/sitecore-jss-angular/src/components/form.component.ts#L63)
 
 A component that renders a Sitecore Form.
 It fetches the form markup from the Sitecore Edge service and renders it in the component's template.
@@ -22,7 +22,7 @@ It fetches the form markup from the Sitecore Edge service and renders it in the 
 
 > **new FormComponent**(`edgeConfig`, `platformId`, `elRef`, `jssState`): `FormComponent`
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:75](https://github.com/Sitecore/jss/blob/9bccfc19959a8a32a1d22e4c28cf9fe788d81fd7/packages/sitecore-jss-angular/src/components/form.component.ts#L75)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:75](https://github.com/Sitecore/jss/blob/a50be18c1607adcb48bbe2673ecedc966bc85051/packages/sitecore-jss-angular/src/components/form.component.ts#L75)
 
 #### Parameters
 
@@ -43,7 +43,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:75](
 
 > **hasError**: `boolean` = `false`
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:69](https://github.com/Sitecore/jss/blob/9bccfc19959a8a32a1d22e4c28cf9fe788d81fd7/packages/sitecore-jss-angular/src/components/form.component.ts#L69)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:69](https://github.com/Sitecore/jss/blob/a50be18c1607adcb48bbe2673ecedc966bc85051/packages/sitecore-jss-angular/src/components/form.component.ts#L69)
 
 ***
 
@@ -51,7 +51,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:69](
 
 > **isEditing**: `boolean` = `false`
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:71](https://github.com/Sitecore/jss/blob/9bccfc19959a8a32a1d22e4c28cf9fe788d81fd7/packages/sitecore-jss-angular/src/components/form.component.ts#L71)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:71](https://github.com/Sitecore/jss/blob/a50be18c1607adcb48bbe2673ecedc966bc85051/packages/sitecore-jss-angular/src/components/form.component.ts#L71)
 
 ***
 
@@ -59,7 +59,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:71](
 
 > **rendering**: `FormRendering`
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:67](https://github.com/Sitecore/jss/blob/9bccfc19959a8a32a1d22e4c28cf9fe788d81fd7/packages/sitecore-jss-angular/src/components/form.component.ts#L67)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:67](https://github.com/Sitecore/jss/blob/a50be18c1607adcb48bbe2673ecedc966bc85051/packages/sitecore-jss-angular/src/components/form.component.ts#L67)
 
 The rendering data for the component
 
@@ -69,7 +69,7 @@ The rendering data for the component
 
 > **loadForm**(): `Promise`\<`void`\>
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:101](https://github.com/Sitecore/jss/blob/9bccfc19959a8a32a1d22e4c28cf9fe788d81fd7/packages/sitecore-jss-angular/src/components/form.component.ts#L101)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:101](https://github.com/Sitecore/jss/blob/a50be18c1607adcb48bbe2673ecedc966bc85051/packages/sitecore-jss-angular/src/components/form.component.ts#L101)
 
 Fetches the form markup from the Sitecore Edge service and renders it in the component's template.
 
@@ -83,7 +83,7 @@ Fetches the form markup from the Sitecore Edge service and renders it in the com
 
 > **ngOnDestroy**(): `void`
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:92](https://github.com/Sitecore/jss/blob/9bccfc19959a8a32a1d22e4c28cf9fe788d81fd7/packages/sitecore-jss-angular/src/components/form.component.ts#L92)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:92](https://github.com/Sitecore/jss/blob/a50be18c1607adcb48bbe2673ecedc966bc85051/packages/sitecore-jss-angular/src/components/form.component.ts#L92)
 
 A callback method that performs custom clean-up, invoked immediately
 before a directive, pipe, or service instance is destroyed.
@@ -102,7 +102,7 @@ before a directive, pipe, or service instance is destroyed.
 
 > **ngOnInit**(): `void`
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:82](https://github.com/Sitecore/jss/blob/9bccfc19959a8a32a1d22e4c28cf9fe788d81fd7/packages/sitecore-jss-angular/src/components/form.component.ts#L82)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:82](https://github.com/Sitecore/jss/blob/a50be18c1607adcb48bbe2673ecedc966bc85051/packages/sitecore-jss-angular/src/components/form.component.ts#L82)
 
 A callback method that is invoked immediately after the
 default change detector has checked the directive's
