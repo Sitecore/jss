@@ -32,8 +32,8 @@ export const EditingScripts = (): JSX.Element => {
     const day = String(now.getUTCDate()).padStart(2, '0');
     const month = String(now.getUTCMonth() + 1).padStart(2, '0');
     const year = String(now.getUTCFullYear());
-    const cacheBuster = `${hour}-${day}-${month}-${year}`;
-    const scriptUrl = `${getDesignLibraryScriptLink(api?.edge?.edgeUrl)}?cb=${cacheBuster}`;
+    const cacheTimestamp = `${hour}-${day}-${month}-${year}`;
+    const scriptUrl = `${getDesignLibraryScriptLink(api?.edge?.edgeUrl)}?cb=${cacheTimestamp}`;
 
     return (
       <>
