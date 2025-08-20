@@ -22,7 +22,7 @@ Our versioning strategy is as follows:
 ### 🎉 New Features & Improvements
 
 * `[sitecore-jss-nextjs]` Ensure displayName paths are properly UTF-8 encoded. ([#2121](https://github.com/Sitecore/jss/pull/2121))
-* `[sitecore-jss-react]` Enhanced the cache buster format to hh-dd-mm-yyyy ([](https://github.com/Sitecore/jss/pull/2135))
+* `[sitecore-jss-react]` Enhanced the cache buster format to hh-dd-mm-yyyy ([#2135](https://github.com/Sitecore/jss/pull/2135))
 
 ### 🛠 Breaking Changes
 
