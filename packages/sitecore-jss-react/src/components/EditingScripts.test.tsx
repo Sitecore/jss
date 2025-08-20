@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-nocheck
 /* eslint-disable no-unused-expressions */
 import React from 'react';
 import { expect } from 'chai';
